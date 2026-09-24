@@ -2,8 +2,6 @@
 title: Debug using the physical job diagram (preview) in Azure portal
 description: This article describes how to troubleshoot your Azure Stream Analytics job with physical job diagram and metrics in the Azure portal.
 titleSuffix: Azure Stream Analytics
-author: xujxu
-ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 2/17/2023

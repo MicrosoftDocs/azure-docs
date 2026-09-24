@@ -7,7 +7,7 @@ author: srtiruma
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 06/29/2026
+ms.date: 09/16/2026
 ms.update-cycle: 3650-days
 ms.author: srtiruma
 ms.custom: compute-evergreen
@@ -20,6 +20,70 @@ ms.custom: compute-evergreen
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## August 2026 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | GuestOS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-08 | [5120418] | Latest Cumulative Update(LCU) | [5.121] | 11-Aug-26 |
+| Rel 26-08 | [5120238] | Latest Cumulative Update(LCU) | [6.97] | 11-Aug-26 |
+| Rel 26-08 | [5120242] | Latest Cumulative Update(LCU) | [7.67] | 11-Aug-26 |
+| Rel 26-08 | [5120702] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.121] | 11-Aug-26 |
+| Rel 26-08 | [5120698] | .NET Framework DotNet  | [6.97] | 11-Aug-26 |
+| Rel 26-08 | [5120705] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.67] | 11-Aug-26 |
+| Rel 26-08 | [4494175] | January '20 Microcode | [5.121] | 11-Aug-26 |
+| Rel 26-08 | [4494175] | January '20 Microcode | [6.97] | 11-Aug-26 |
+| Rel 26-08 | [5120236] | SSU LKG | [5.121] | 11-Aug-26 |
+| Rel 26-08 | [5104020] | SSU LKG | [6.97] | 11-Aug-26 |
+| Rel 26-08 | [5120241] | Servicing Stack Update | [7.67] | 11-Aug-26 |
+
+
+[5120418]: https://support.microsoft.com/kb/5120418
+[5120238]: https://support.microsoft.com/kb/5120238
+[5120242]: https://support.microsoft.com/kb/5120242
+[5120702]: https://support.microsoft.com/kb/5120702
+[5120698]: https://support.microsoft.com/kb/5120698
+[5120705]: https://support.microsoft.com/kb/5120705
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5120236]: https://support.microsoft.com/kb/5120236
+[5104020]: https://support.microsoft.com/kb/5099538
+[5120241]: https://support.microsoft.com/kb/5120242
+
+[5.121]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.97]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.67]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+## July 2026 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | GuestOS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-07 | [5099535] | Latest Cumulative Update(LCU) | [5.120] | 14-Jul-26 |
+| Rel 26-07 | [5099538] | Latest Cumulative Update(LCU) | [6.96] | 14-Jul-26 |
+| Rel 26-07 | [5099540] | Latest Cumulative Update(LCU) | [7.66] | 14-Jul-26 |
+| Rel 26-07 | [5101007] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.120] | 14-Jul-26 |
+| Rel 26-07 | [5100989] | .NET Framework DotNet  | [6.96] | 14-Jul-26 |
+| Rel 26-07 | [5101010] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.66] | 14-Jul-26 |
+| Rel 26-07 | [4494175] | January '20 Microcode | [5.120] | 14-Jul-26 |
+| Rel 26-07 | [4494175] | January '20 Microcode | [6.96] | 14-Jul-26 |
+| Rel 26-07 | [5099542] | SSU LKG | [5.120] | 14-Jul-26 |
+| Rel 26-07 | [5104020] | SSU LKG | [6.96] | 14-Jul-26 |
+| Rel 26-07 | [5120210] | Servicing Stack Update | [7.66] | 14-Jul-26 |
+
+
+[5099535]: https://support.microsoft.com/kb/5099535
+[5099538]: https://support.microsoft.com/kb/5099538
+[5099540]: https://support.microsoft.com/kb/5099540
+[5101007]: https://support.microsoft.com/kb/5101007
+[5100989]: https://support.microsoft.com/kb/5100989
+[5101010]: https://support.microsoft.com/kb/5101010
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5099542]: https://support.microsoft.com/kb/5099542
+[5104020]: https://support.microsoft.com/kb/5099538
+[5120210]: https://support.microsoft.com/kb/5099540
+
+[5.120]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.96]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.66]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 ## June 2026 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |

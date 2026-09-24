@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/14/2026
+ms.date: 08/25/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for OpenTelemetry destinations in Azure IoT Operations so that I can send metrics and logs to observability platforms like Grafana and Azure Monitor.
@@ -228,7 +228,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param collectorHost string = '<COLLECTOR_HOST>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -236,7 +236,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource openTelemetryEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
+resource openTelemetryEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {

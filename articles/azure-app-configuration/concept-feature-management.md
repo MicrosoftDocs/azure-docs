@@ -1,129 +1,135 @@
 ---
 title: Understand feature management using Azure App Configuration
-description: Turn features on and off using Azure App Configuration 
-author: maud-lv
-ms.author: malev
+titleSuffix: Azure App Configuration
+description: Learn how to use Azure App Configuration feature flags for switches, targeted rollouts, and experiments.
+author: yuanqu72
+ms.author: yuanqu
 ms.service: azure-app-configuration
-ms.custom: devdivchpfy22
 ms.topic: concept-article
-ms.date: 11/21/2025
+ms.date: 08/12/2026
 ---
 
 # Feature management overview
 
-Traditionally, shipping a new application feature requires a complete redeployment of the application itself. Testing a feature often requires multiple deployments of the application. Each deployment might change the feature or expose the feature to different customers for testing.  
+Feature management is a software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* to dynamically administer a feature's lifecycle, letting you turn functionality on or off, target it to specific users, or roll it out gradually, all without redeploying your application. 
 
-Feature management is a software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* (also known as *feature toggles* and *feature switches*) to dynamically administer a feature's lifecycle.
+## Key capabilities
 
-Feature management helps developers address the following problems:
+Azure App Configuration Feature Management supports three main feature flag usage scenarios based on what you're trying to accomplish: **Switch**, **Rollout**, and **Experiment**. Each scenario maps to a common feature management goal and unlocks a different set of capabilities, from a simple on/off toggle to targeted percentage rollouts to multivariate experiments. Across all three scenarios, you can monitor and analyze the impact of your feature flags to understand a feature's effect on your application's metrics. Use the following sections to pick the scenario that matches your goal before you dive into the details of individual filters, conditions, or variants. 
 
-* **Code branch management**: Use feature flags to wrap new application functionality currently under development. Such functionality is "hidden" by default. You can safely ship the feature, even though it's unfinished, and it will stay dormant in production. Using this approach, called *dark deployment*, you can release all your code at the end of each development cycle. You no longer need to maintain code branches across multiple development cycles because a given feature requires more than one cycle to complete.
-* **Test in production**: Use feature flags to grant early access to new functionality in production. For example, you can limit access to team members or to internal beta testers. These users will experience the full-fidelity production experience instead of a simulated or partial experience in a test environment.
-* **Flighting**: Use feature flags to incrementally roll out new functionality to end users. You can target a small percentage of your user population first and increase that percentage gradually over time.
-* **Instant kill switch**: Feature flags provide an inherent safety net for releasing new functionality. You can turn application features on and off without redeploying any code. If necessary, you can quickly disable a feature without rebuilding and redeploying your application.
-* **Selective activation**: Use feature flags to segment your users and deliver a specific set of features to each group. You might have a feature that works only on a certain web browser. You can define a feature flag so that only users of that browser can see and use the feature. By using this approach, you can easily expand the supported browser list later without having to make any code changes.
+### Switch (On/Off)
 
-## Basic concepts
+:::image type="content" source="media/manage-feature-flags/create-feature-flag-switch-basics.png" alt-text="Screenshot of the Azure portal that shows the Create feature flag feature - Switch option's Basics tab.":::
 
-Here are several new terms related to feature management:
+**Use when:** You need a simple, instant on/off control for all users.
 
-* **Feature flag**: A feature flag is a variable with a binary state of *on* or *off*. The feature flag also has an associated code block. The feature flag's state triggers whether the code block runs.
-* **Feature manager**: A feature manager is an application package that handles the life cycle of all the feature flags in an application. The feature manager also provides additional functionality, including caching feature flags and updating their states.
-* **Filter**: A filter is a rule for evaluating the state of a feature flag. Potential filters include user groups, device or browser types, geographic locations, and time windows.
+**Capabilities:**
 
-An effective implementation of feature management consists of at least two components working in concert:
+* **Instant kill switch** – disable a misbehaving feature or dependency in seconds, without redeploying code
+* **Operational toggle** – turn a short-lived state, such as maintenance mode, on or off on demand
 
-* An application that makes use of feature flags.
-* A separate repository that stores the feature flags and their current states.
+For example, a team ships a new checkout algorithm behind a Switch flag named *EnableNewCheckout*. If error rates spike after launch, an on-call engineer turns the flag off, and every user instantly falls back to the previous checkout flow, without redeploying code. The same flag type also works well as an operational toggle, such as a *MaintenanceMode* flag that an ops team turns on before a database migration and off once it's complete.
 
-## Using feature flags in your code
+**Learn more:**
 
-The basic pattern for implementing feature flags in an application is simple. A feature flag is a Boolean state variable controlling a conditional statement in your code:
+* [Create a Switch feature flag](./manage-feature-flags.md?tabs=switch#create-a-feature-flag)
 
-```csharp
-if (featureFlag) {
-    // Run the following code
-}
-```
+### Rollout
 
-You can set the value of `featureFlag` statically:
+:::image type="content" source="media/manage-feature-flags/create-feature-flag-rollout-audience.png" alt-text="Screenshot of the Azure portal that shows the Create feature flag feature - Rollout option's Audience tab.":::
 
-```csharp
-bool featureFlag = true;
-```
+**Use when:** You want to gradually expose a feature to a percentage of users, or to specific users and groups, before making it generally available.
 
-You can evaluate the flag's state based on certain rules:
+**Capabilities:**
 
-```csharp
-bool featureFlag = isBetaUser();
-```
+* **Percentage-based gradual release** – expose a feature to a small percentage of traffic and increase it over time (canary or staged rollout) to reduce risk
+* **Targeted access** – enable a feature only for specific users, a group, or a custom attribute such as region, device type, or subscription tier
+* **Schedule-based activation** – turn a feature on or off automatically during a defined time window
+* **Configuration rollout** – deliver configuration within the flag so your app can adjust its behavior as the flag rolls out, without a new deployment.
 
-You can extend the conditional to set application behavior for either state:
+For example, a team rolling out a new *EnableNewCheckout* flag might start with a default percentage of 5%, use group overrides to include their internal QA and beta-tester groups at 100%, and exclude legacy accounts. Over the following days, they raise the default percentage to 25%, then 50%, then 100%, while watching error metrics. They might also add a schedule so the feature automatically turns off after a maintenance window.
 
-```csharp
-if (featureFlag) {
-    // This following code will run if the featureFlag value is true
-} else {
-    // This following code will run if the featureFlag value is false
-}
-```
+Configuration rollout lets you go beyond a Boolean value: for example, you can attach `{"theme":"dark"}` to the *EnableNewCheckout* flag so your app picks up the new theme only when it evaluates the flag as enabled. This configuration is different from general App Configuration key-values, which aren't tied to any flag's evaluated state.
 
-## Feature flag repository
+**Learn more:**
 
-To use feature flags effectively, you need to externalize all the feature flags used in an application. You can use this approach to change feature flag states without modifying and redeploying the application itself.
+* [Create a Rollout feature flag](./manage-feature-flags.md?tabs=rollout#create-a-feature-flag)
+* [Feature filters](./howto-feature-filters.md)
+* [Time window filter](./howto-timewindow-filter.md)
+* [Targeting filter](./howto-targetingfilter.md)
 
-Azure App Configuration provides a centralized repository for feature flags. You can use it to define different kinds of feature flags and manipulate their states quickly and confidently. You can then use the App Configuration libraries for various programming language frameworks to easily access these feature flags from your application.
+### Experiment
+
+:::image type="content" source="media/manage-feature-flags/create-feature-flag-experiment-allocation.png" alt-text="Screenshot of the Azure portal that shows the Create feature flag feature - Experiment option's Allocation tab.":::
+
+**Use when:** You want to compare multiple versions, or *variants*, of a feature and measure which one performs best.
+
+**Capabilities:**
+
+* **A/B testing** – compare two, or more than two, variants of a feature against each other
+* **Traffic allocation across variants** – control what percentage of users are exposed to each variant
+
+For example, a team testing two versions of a checkout page creates a variant feature flag with a *Control* and a *NewDesign* variant, and allocates half of their users to each.
+
+**Learn more:**
+
+* [Create an Experiment feature flag](./manage-feature-flags.md?tabs=experiment#create-a-feature-flag)
+* [Variant feature flags](./howto-variant-feature-flags.md)
+
+### Monitor and analyze impact
+
+:::image type="content" source="media/manage-feature-flags/telemetry-tab-metric-scorecard.png" alt-text="Screenshot of the Azure portal that shows the Telemetry tab with a total evaluation events chart and the Metric Scorecard.":::
+
+**Use when:** You want to see how your feature flags are evaluated and understand whether their variants affect the metrics that matter to your application.
+
+**Capabilities:**
+
+* **Collect and view feature flag events** – capture flag evaluation events that your app emits, and view evaluation counts, unique users, and variant or assignment-reason distributions directly in the Azure App Configuration portal's telemetry tab.
+* **Analyze impact with metric scorecards (preview)** – automatically analyze the standard and custom telemetry your application sends to Application Insights, and surface which metrics show a statistically significant difference between variants, without writing a custom query.
+
+For example, continuing the checkout page experiment, each flag evaluation emits a telemetry event, and the team reviews the Azure App Configuration portal's telemetry tab to confirm the traffic split between *Control* and *NewDesign* is working as expected. They open the metric scorecard on the same tab and see that the `NewDesign` variant shows a statistically significant improvement in a custom `PurchaseCompleted` metric, with no significant regression in page-load time. The scorecard's **Impacted** and **Inconclusive** groupings let the team confirm the result at a glance. They can still drill into Application Insights for a deeper look, such as correlating evaluation events with completed purchases.
+
+**Learn more:**
+
+* [Feature flag telemetry](./howto-telemetry.md)
+* [View feature flag events](./howto-telemetry-review-results.md)
+* [Analyze the impact of feature flags](./howto-metric-scorecards.md)
 
 ## Next steps
 
-To start using feature flags with Azure App Configuration, continue to the following quickstarts specific to your application’s language or platform.
+To use feature flags effectively, you need to externalize all the feature flags used in an application so you can change their states without modifying and redeploying the application itself. Azure App Configuration provides a centralized repository for feature flags: use it to define your Switch, Rollout, and Experiment flags and manage their states quickly and confidently, then use the App Configuration libraries for your programming language or framework to add feature flag evaluation to your application at run time.
 
-> [!div class="nextstepaction"]
-> [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+### Get started with a quickstart
 
-> [!div class="nextstepaction"]
-> [Aspire](./quickstart-feature-flag-aspire.md)
+To add feature flag evaluation to your app, continue to the quickstart that's specific to your application's language or platform.
 
-> [!div class="nextstepaction"]
-> [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)
+* [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+* [Aspire](./quickstart-feature-flag-aspire.md)
+* [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)
+* [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
+* [Java Spring](./quickstart-feature-flag-spring-boot.md)
+* [Python](./quickstart-feature-flag-python.md)
+* [JavaScript](./quickstart-feature-flag-javascript.md)
+* [Go](./quickstart-feature-flag-go-console.md)
+* [Go Gin](./quickstart-feature-flag-go-gin.md)
+* [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)
+* [Azure Functions](./quickstart-feature-flag-azure-functions-csharp.md)
 
-> [!div class="nextstepaction"]
-> [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
+### Create and manage feature flags
 
-> [!div class="nextstepaction"]
-> [Java Spring](./quickstart-feature-flag-spring-boot.md)
+* [Create a feature flag](./manage-feature-flags.md): Create and manage Switch, Rollout, and Experiment feature flags in the Azure portal.
 
-> [!div class="nextstepaction"]
-> [Python](./quickstart-feature-flag-python.md)
+### Dive deeper into Rollout and Experiment capabilities
 
-> [!div class="nextstepaction"]
-> [JavaScript](./quickstart-feature-flag-javascript.md)
+* [Enable conditional features with feature filters](./howto-feature-filters.md)
+* [Enable features on a schedule](./howto-timewindow-filter.md)
+* [Roll out features to targeted audiences](./howto-targetingfilter.md)
+* [Use variant feature flags](./howto-variant-feature-flags.md)
+* [Enable telemetry for feature flags](./howto-telemetry.md)
+* [View feature flag events](./howto-telemetry-review-results.md)
+* [Analyze the impact of feature flags](./howto-metric-scorecards.md)
 
-> [!div class="nextstepaction"]
-> [Go](./quickstart-feature-flag-go-console.md)
+### Client libraries and SDKs
 
-> [!div class="nextstepaction"]
-> [Go Gin](./quickstart-feature-flag-go-gin.md)
-
-> [!div class="nextstepaction"]
-> [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)
-
-> [!div class="nextstepaction"]
-> [Azure Functions](./quickstart-feature-flag-azure-functions-csharp.md)
-
-To learn more about managing feature flags in Azure App Configuration, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)
-
-Feature filters allow you to enable a feature flag conditionally. Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Enable conditional features with feature filters](./howto-feature-filters.md)
-
-> [!div class="nextstepaction"]
-> [Enable features on a schedule](./howto-timewindow-filter.md)
-
-> [!div class="nextstepaction"]
-> [Roll out features to targeted audiences](./howto-targetingfilter.md)
+Azure App Configuration provides feature management libraries for several languages and platforms. Each library includes NuGet, npm, PyPI, or Maven packages and samples. For the full list of supported libraries and their release notes, see [Feature Management Overview](./feature-management-overview.md).
 

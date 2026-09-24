@@ -34,7 +34,9 @@ sections:
 
       - question: How does Application Gateway support HTTP/2?
         answer: |
-          See [HTTP/2 support](./configuration-listeners.md#http2-support).
+          HTTP/2 is supported for clients that connect to Application Gateway listeners only. Communication to backend server pools is always HTTP/1.1. HTTP/2 support is disabled by default, except when you create an Application Gateway in the Azure portal, where HTTP/2 is enabled by default. You can change the setting during or after deployment.
+
+          For configuration steps, see [HTTP/2 support](./configuration-listeners.md#http2-support).
 
       - question: What resources are supported as part of a backend pool?
         answer: |
@@ -131,7 +133,9 @@ sections:
 
       - question: Is Application Gateway v1 SKU supported?
         answer: |
-         No. The Application Gateway v1 SKU has been retired on 28th April 2026 and is no longer supported. We strongly recommend moving to v2 at the earliest as we will start decommissioning process for the remaining V1 gateways.
+          No. The Application Gateway v1 SKU was retired on April 28, 2026, and is no longer supported. Move to v2 as soon as possible, because decommissioning of the remaining v1 gateways has begun. For migration steps, see [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
+          Any v1 behavior described elsewhere in this article applies only to existing v1 gateways that aren't yet migrated. Don't use it to plan new deployments.
 
       - question: Does Application Gateway v2 support proxying requests with NTLM or Kerberos authentication?
         answer: Yes. Application Gateway v2 now supports proxying requests with NTLM or Kerberos authentication. For more information, see [Dedicated backend connection](configuration-http-settings.md#dedicated-backend-connection).
@@ -464,7 +468,20 @@ sections:
 
       - question: My EV certificate is issued by DigiCert and my intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
         answer: |
-          CA/Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the noncompliant CAs can be found here: 
+          Request a reissued certificate from your certificate authority, then update it in each place Application Gateway uses it:
+
+          | Where the certificate is used | Action |
+          |---|---|
+          | Listener certificate uploaded to Application Gateway | Upload the reissued PFX file in the listener settings. |
+          | Listener certificate referenced from Key Vault | Import the reissued certificate into the key vault, then select it in the listener. |
+          | Backend authentication certificate (v1 gateways) | Upload the reissued certificate in the backend HTTP settings. |
+          | Backend trusted root certificate (v2 gateways) | No Application Gateway change is required if the trusted root certificate remains valid and unchanged. If the renewed backend certificate uses a new private root CA, upload the new trusted root certificate to the backend setting. |
+
+          For a backend certificate renewal, install the renewed certificate chain on the backend server.
+
+          The rest of this answer explains why certificates were revoked and gives the detailed steps for each case.
+
+          CA/Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the noncompliant CAs can be found here:
 
           * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
           * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)

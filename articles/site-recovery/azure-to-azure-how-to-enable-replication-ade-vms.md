@@ -4,7 +4,7 @@ description: This article describes how to configure replication for Azure Disk 
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 10/31/2025
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.custom: sfi-image-nochange
 
@@ -16,7 +16,11 @@ ms.custom: sfi-image-nochange
 This article describes how to replicate Azure VMs with Azure Disk Encryption (ADE) enabled, from one Azure region to another.
 
 >[!NOTE]
+> Azure Disk Encryption retires on September 15, 2028. Don't use it for new deployments. Plan to migrate existing Azure Disk Encryption-enabled VMs to encryption at host before retirement. Site Recovery can protect a source VM that uses encryption at host, but the setting isn't preserved on the failover VM. For details, see the [storage support matrix](azure-to-azure-support-matrix.md#replicated-machines---storage).
+>
 > Site Recovery currently supports ADE, with and without Microsoft Entra ID for VMs running Windows operating systems. For Linux operating systems, we only support ADE without Microsoft Entra ID. Moreover, for machines running ADE 1.1 (without Microsoft Entra ID), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with Microsoft Entra ID) to 1.1, you need to disable replication and enable replication for a VM after enabling 1.1.
+>
+> Linux VMs that use the legacy one-pass layout identified by `/var/lib/azure_disk_encryption_config/azure_crypt_mount` can't install or upgrade the Mobility service. Disable and re-enable disk encryption by using the current supported method before enabling replication.
 
 
 ## <a id="required-user-permissions"></a> Required user permissions
@@ -51,8 +55,10 @@ If the user who's enabling disaster recovery (DR) doesn't have permissions to co
 
 To troubleshoot permissions, refer to [key vault permission issues](#trusted-root-certificates-error-code-151066) later in this article.
 
->[!NOTE]
+>[!IMPORTANT]
 >To enable replication of Disk Encryption-enabled VMs from the portal, you need at least "List" permissions on the key vaults, secrets, and keys.
+>
+>If you configure the Key Vault to use Azure RBAC instead of access policies, you must assign the **Key Vault Administrator** role to the user on the key vaults that Azure Site Recovery uses in both the source region and the target region.
 
 ## Copy Disk Encryption keys to the DR region by using the PowerShell script
 
@@ -71,7 +77,7 @@ To troubleshoot permissions, refer to [key vault permission issues](#trusted-roo
 
    By default, Site Recovery creates a new key vault in the target region. The vault's name has an "asr" suffix that's based on the source VM disk encryption keys. If a key vault already exists that was created by Site Recovery, it's reused. Select a different key vault from the list if necessary.
 
-> [!NOTE]
+> [!TIP]
 > Alternatively, you can download the key, import it in the secondary key vault region. You can then modify your replicas disks to use the keys.
 
 ## Enable replication
@@ -104,14 +110,14 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
            - You can customize the resource group settings.
            - The location of the target resource group can be any Azure region, except the region in which the source VMs are hosted.
 
-            >[!Note]
+            >[!Tip]
             > You can also create a new target resource group by selecting **Create new**.
 
          :::image type="Location and resource group" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/resource-group.png" alt-text="Screenshot of Location and resource group.":::
 
     1. Under **Network**,
        - **Failover virtual network**: Select the failover virtual network.
-         >[!Note]
+         >[!Tip]
          > You can also create a new failover virtual network by selecting **Create new**.
        - **Failover subnet**: Select the failover subnet.
 
@@ -125,7 +131,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
        - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location.
 
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
-        >[!NOTE]
+        >[!IMPORTANT]
         >- While configuring the target availability sets, configure different availability sets for differently sized VMs.
         >- You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You must disable and enable replication to change the availability type.
 
@@ -158,12 +164,12 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 
    :::image type="review" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/review.png" alt-text="Screenshot that displays the review tab.":::
 
->[!NOTE]
+>[!TIP]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
 
 ## Update target VM encryption settings
 
-In the following scenarios, you'll be required to update the target VM encryption settings:
+In the following scenarios, you can update the target VM encryption settings:
   - You enabled Site Recovery replication on the VM. Later, you enabled disk encryption on the source VM.
   - You enabled Site Recovery replication on the VM. Later, you changed the disk encryption key or key encryption key on the source VM.
 
@@ -172,8 +178,7 @@ Because of the above reasons, the keys are not in sync between source and target
 - REST API
 - PowerShell
 
-> [!NOTE]
-> Azure Site Recovery doesn't support rotating the key for an encrypted virtual machine while it is protected. If you rotate the keys, you must disable and re-enable the replication.
+The following procedures support updating the target key vault or repairing Site Recovery encryption metadata in place.
 
 ### Update target VM encryption settings from the Azure portal
 
@@ -188,7 +193,7 @@ For this example, we assume that you create a new empty key vault `KV2` with the
 1. Select `KV2` from the menu to update the target key vault. 
     ![Screenshot of the Update target key vault.](./media/azure-to-azure-how-to-enable-replication-ade-vms/portal.png)
 1. Select **Save** to copy the source keys to the new target key vault `KV2` with a new key/secret and update the Azure Site Recovery metadata.
-    > [!NOTE]
+    > [!IMPORTANT]
     > Creating a new key vault might have cost implications. If you want to use your original target key vault (`KV1`) that you were using before, you can do so after completing the above steps with a different key vault. 
     > <br>
     > After you have updated the vault using a different key vault, to use your original target key vault (`KV1`), repeat the steps 1 to 4 and select `KV1` in the target key vault. This copies the new key / secret in `KV1` and uses that for the target.

@@ -4,6 +4,7 @@ titleSuffix: Azure Enclave
 description: Deploy Template from the service catalog using Azure CLI.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
 ms.topic: how-to
 ms.date: 9/30/2025
 ---
@@ -124,8 +125,9 @@ Download a specific template by using the name found in the inventory above (for
     - keyVaultResourceGroupName
     - ID of userAssignedIdentityObject
     ```
-    az rest --method get --uri "<enclave-resource-id>?api-version=2024-01-01-preview"
+    az rest --method get --uri "<enclave-resource-id>?api-version=2026-03-01-preview"
     ```
+    For more API operations and schemas, see the [Azure Enclave API reference](https://aka.ms/ae/api) and [Azure Enclave API source and specs](https://aka.ms/ae/apigithub).
     You'll still need to fetch values privateLinkSubnetName, keyName, userAssignedIdentityObject
 
 1. List the subnets in the virtual network (privateLinkSubnetName)
@@ -160,7 +162,7 @@ Download a specific template by using the name found in the inventory above (for
 
     az storage blob download --account-name <storag-eaccount-name> --container-name servicecatalog --name <template-to-download-name> --file ./<template-downloaded-name>
 
-    az rest --method get --uri "<enclave-resource-id>?api-version=2024-01-01-preview"
+    az rest --method get --uri "<enclave-resource-id>?api-version=2026-03-01-preview"
 
     az network vnet subnet list --resource-group <resource-group-name> --vnet-name <vnet-name> --query "[].name"
 
@@ -175,3 +177,8 @@ Download a specific template by using the name found in the inventory above (for
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
+
+## Related content
+
+- [Azure Enclave API reference](https://aka.ms/ae/api)
+- [Azure Enclave API source and specs](https://aka.ms/ae/apigithub)

@@ -4,7 +4,7 @@ description: Overview of automatic update of the Mobility service when replicati
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.custom:
   - engagement-fy23
@@ -27,7 +27,7 @@ When you use Site Recovery to manage updates, it deploys a global runbook (used 
 The default runbook schedule occurs daily at 12:00 AM in the time zone of the replicated VM's geography. You can also change the runbook schedule via the automation account.
 
 > [!NOTE]
-> Starting with [Update Rollup 35](site-recovery-whats-new-archive.md#updates-march-2019), you can choose an existing automation account to use for updates. Prior to Update Rollup 35, Site Recovery created the automation account by default. You can only select this option when you enable replication for a VM. It isn't available for a VM that already has replication enabled. The setting you select applies to all Azure VMs protected in the same vault.
+> Starting with [Update Rollup 35](https://support.microsoft.com/help/4494485), you can choose an existing automation account to use for updates. Prior to Update Rollup 35, Site Recovery created the automation account by default. You can only select this option when you enable replication for a VM. It isn't available for a VM that already has replication enabled. The setting you select applies to all Azure VMs protected in the same vault.
 
 Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
 
@@ -49,7 +49,7 @@ There are several ways that Site Recovery can manage the extension updates:
 
 When you enable replication for a VM either starting [from the VM view](azure-to-azure-quickstart.md) or [from the recovery services vault](azure-to-azure-how-to-enable-replication.md), you can either allow Site Recovery to manage updates for the Site Recovery extension or manage it manually.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/enable-rep.png" alt-text="Extension settings":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/enable-rep.PNG" alt-text="Extension settings":::
 
 ### Toggle the extension update settings inside the vault
 
@@ -63,7 +63,7 @@ When you enable replication for a VM either starting [from the VM view](azure-to
 
 1. Select **Save**.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Extension update settings":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.PNG" alt-text="Extension update settings":::
 
 
 > [!NOTE]
@@ -464,32 +464,11 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 If there's an issue with the automatic updates, you'll see an error notification under **Configuration issues** in the vault dashboard.
 
-If you can't enable automatic updates, see the following common errors and recommended actions:
+Azure Automation Run As accounts retired on September 30, 2023. Automatic updates must use an automation account with a managed identity.
 
-- **Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.
+If an existing vault still reports Run As account, service principal, or certificate errors, [migrate the automation account to managed identity](how-to-migrate-run-as-accounts-managed-identity.md). Then verify that the managed identity has the required access to the Recovery Services vault and select **Repair** in **Extension Update Settings**.
 
-  **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. For more information about assigning permissions, see the required permissions section of [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
-
-  To fix most issues after you enable automatic updates, select **Repair**. If the repair button isn't available, see the error message displayed in the extension update settings pane.
-
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Site Recovery service repair button in extension update settings":::
-
-- **Error**: The Run As account does not have the permission to access the recovery services resource.
-
-  **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md). Or, make sure that the Automation Run As account's Microsoft Entra application can access the recovery services resource.
-
-- **Error**: Run As account is not found. Either one of these was deleted or not created - Microsoft Entra Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection.
-
-  **Recommended action**: Delete and then [re-create the Run As account](../automation/manage-runas-account.md).
-
-- **Error**: The Azure Run as Certificate used by the automation account is about to expire.
-
-  The self-signed certificate that is created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. If you have signed up for email notifications, you will also receive emails when an action is required from your side. This error will be shown two months prior to the expiry date, and will change to a critical error if the certificate has expired. Once the certificate has expired, auto update will not be functional until you renew the same.
-
-  **Recommended action**: To resolve this issue, select **Repair** and then **Renew Certificate**.
-
-  > [!NOTE]
-  > After you renew the certificate, refresh the page to display the current status.
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.PNG" alt-text="Site Recovery service repair button in extension update settings":::
 
 ## Next steps
 

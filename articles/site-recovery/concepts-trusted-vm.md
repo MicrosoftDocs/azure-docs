@@ -5,7 +5,7 @@ services: site-recovery
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 01/06/2026
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 
 # Customer intent: As a cloud architect, I want to implement Azure Site Recovery for trusted launch virtual machines, so that I can ensure robust disaster recovery and migrate existing VMs securely against persistent threats.
@@ -19,7 +19,7 @@ ms.author: v-gajeronika
 
 Find the support matrix for Azure trusted launch virtual machines with Azure Site Recovery:
 
-- **Operating system**: Support for Windows and Linux OS is generally available. [Learn more](#supported-linux-distributions-and-kernels) on supported Linux distributions and kernels.
+- **Operating system**: Windows and a maintained subset of the standard Azure-to-Azure Linux support matrix are supported. Review the [supported Linux distributions and kernels](#supported-linux-distributions-and-kernels), creation-date requirement, and exclusions on this page.
 - **Region**: Available in all [Azure Site Recovery supported regions](./azure-to-azure-support-matrix.md#region-support).
     
     > [!NOTE]
@@ -28,7 +28,8 @@ Find the support matrix for Azure trusted launch virtual machines with Azure Sit
 - **Migration**: Migration of Azure Site Recovery protected existing Generation 1 Azure VMs to trusted VMs and [Generation 2 Azure virtual machines to trusted VMs](/azure/virtual-machines/trusted-launch-existing-vm) isn't supported. [Learn more](#migrate-azure-site-recovery-protected-azure-generation-2-vm-to-trusted-vm) about migration of Generation 2 Azure VMs.
 - **Disk Network Access**: Azure Site Recovery creates disks (replica and target disks) with public access enabled by default. To disable public access for these disks follow [these steps](./azure-to-azure-common-questions.md#disk-network-access).
 - **Boot integrity monitoring**: Replication of [Boot integrity monitoring](/azure/virtual-machines/boot-integrity-monitoring-overview) state isn't supported. If you want to use it, enable it explicitly on the failed over virtual machine.
-- **Shared disks**: Trusted virtual machines with attached shared disks are currently supported only for Windows OS.
+- **Secure Boot, virtual Trusted Platform Module, and VM guest state**: The system preserves Secure Boot and virtual Trusted Platform Module settings. It replicates the VM guest state for supported managed OS disks.
+- **Shared disks**: The system supports trusted virtual machines with attached shared disks only for Windows.
 - **Scenario**: Available only for Azure-to-Azure scenario. 
 - **Create a new VM flow**: Enabling **Management** > **Site Recovery** option in *Create a new Virtual machine* flow is currently  supported for Windows OS only. Linux OS is not yet supported.
 - **VM creation time**: Only Linux Trusted VMs created after `1-Apr-2024` are supported. Linux Trusted VMs created prior to this date are not supported.

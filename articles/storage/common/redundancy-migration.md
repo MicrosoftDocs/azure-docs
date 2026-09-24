@@ -581,7 +581,7 @@ When you initiate a zone-redundancy [conversion](#customer-initiated-conversion)
 > [!IMPORTANT]
 > There's no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
 
-After a zone-redundancy conversion, you must wait at least 72 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 72 hours before going from ZRS to GZRS.
+After a zone-redundancy conversion, you must wait at least 24 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a two-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 24 hours before going from ZRS to GZRS.
 
 ## Costs associated with changing how data is replicated
 

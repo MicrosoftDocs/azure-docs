@@ -1,11 +1,11 @@
 ---
 title: Migrate VMware servers to Azure by using Private Link
 description: Use Azure Migrate with private endpoints to migrate on-premises VMware VMs to Azure.
-author: vijain
-ms.author: vijain
+author: jyothisuri
+ms.author: jsuri
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 05/12/2025
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud administrator, I want to securely migrate on-premises VMware VMs to Azure using private endpoints, so that I can ensure data privacy and integrity during the migration process."

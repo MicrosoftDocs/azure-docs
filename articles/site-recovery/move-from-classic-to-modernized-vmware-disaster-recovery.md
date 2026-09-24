@@ -3,7 +3,7 @@ title: Move from classic to modernized VMware disaster recovery
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from classic to modernized protection architecture.
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 04/06/2026
+ms.date: 09/11/2026
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.custom: engagement-fy23
@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Move from classic to modernized VMware disaster recovery   
 
-This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for noncritical replicated items, and only the differential data is transferred. 
+This article provides reference information for moving eligible existing VMware or physical machine replications from the retired classic experience to the [modernized](./vmware-azure-architecture-modernized.md) protection architecture. The classic experience retired on March 30, 2026. You can't enable new classic protection. For an existing classic replication, use this migration only if the **Upgrade to modernized VMware replication** action is available. Otherwise, contact Microsoft Support for recovery guidance.
 
 [!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
@@ -25,10 +25,10 @@ The components involved in the migration of replicated items of a VMware or Phys
 
 | **Component** | **Requirement**
 |---------|-----------
-|Replicated items in a classic Recovery Services vault| One or more replicated items that are protected using the classic architecture and a healthy configuration server.<br></br>The replicated item should be in a noncritical state and must be replicated from on-premises to Azure with the mobility agent running on version 9.50 or later.
-|Configuration server used by the replicated items|The configuration server, used by the replicated items, should be in a noncritical state and its components should be upgraded to the latest version (9.50 or later).
+|Replicated items in a classic Recovery Services vault|One or more eligible existing replicated items protected by the classic architecture and a healthy configuration server.<br></br>The replicated item must be in a noncritical state and replicate from on-premises to Azure with supported components.
+|Configuration server used by the replicated items|The configuration server used by the replicated items must be in a noncritical state and run a currently supported version.
 |A Recovery Services vault with modernized experience|A Recovery Services vault with modernized experience.
-|A healthy Azure Site Recovery replication appliance|A non-critical Azure Site Recovery replication appliance, which can discover on-premises machines, with all its components upgraded to the latest version (9.50 or later). The exact required versions are as follows:<br></br>Process server: 9.50<br>Proxy server: 1.35.8419.34591<br>Recovery services agent: 2.0.9249.0<br>Replication service: 1.35.8433.24227
+|A healthy Azure Site Recovery replication appliance|A noncritical Azure Site Recovery replication appliance that can discover the on-premises machines. All components must run a currently supported N-4 or later version. See [Supported updates](site-recovery-whats-new.md#supported-updates).
 
 ## Required infrastructure  
 
@@ -37,7 +37,7 @@ Ensure the following for a successful movement of replicated item:
   >[!Note] 
   >Any new Recovery Services vault created will have the modernized experience switched on by default. You can not switch to the classic experience, as its deprecation has already been [announced](./vmware-physical-azure-classic-deprecation.md).   
 - An [Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md), which has been successfully registered to the vault, and all its components are in a noncritical state.   
-- The version of the appliance must be 9.50 or later. For a detailed version description, check [here](#architecture). 
+- The appliance and its components must run a currently supported N-4 or later version. See [Supported updates](site-recovery-whats-new.md#supported-updates).
 - The vCenter server or vSphere host’s details, where the existing replicated machines reside, are added to the appliance for the on-premises discovery to be successful.  
 
 
@@ -61,9 +61,9 @@ Ensure the following for the replicated items you're planning to move:
 - The replicated item isn't replicating the data from Azure to on-premises.  
 - The initial replication isn't under progress and has already been completed.   
 - The replicated item isn't in the ‘resynchronization’ state.  
-- The configuration server’s version is 9.50 or later and its health is in a noncritical state.  
+- The configuration server runs a currently supported N-4 or later version and its health is in a noncritical state.
 - The configuration server has a healthy heartbeat.  
-- The mobility service agent’s version, installed on the source machine, is 9.50 or later.  
+- The Mobility service agent installed on the source machine runs a currently supported N-4 or later version.
 - The Recovery Services vaults with MSI enabled are supported.  
 - The Recovery Services vaults with Private Endpoints enabled are supported.   
 - The replicated item’s health is in a noncritical state, or its recovery points are being created successfully.  
@@ -73,7 +73,7 @@ Ensure the following for the replicated items you're planning to move:
 For the modernized architecture setup, ensure that:   
 
 - The Recovery Services vault used for modernized architecture setup is in the same geographical location as the classic vault.   
-- An Azure Site Recovery replication appliance is deployed on your on-premises with version 9.50 or later.  
+- An Azure Site Recovery replication appliance is deployed on-premises with currently supported N-4 or later components.
 - The appliance is successfully registered to the vault.   
 - The appliance and all its components are in a noncritical state and the appliance has a healthy heartbeat.  
 - The vCenter Server version is supported by the modernized architecture.  

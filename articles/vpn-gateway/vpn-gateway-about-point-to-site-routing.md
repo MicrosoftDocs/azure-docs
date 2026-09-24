@@ -52,6 +52,8 @@ In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is
 
 Clients using Windows can access directly peered VNets, but the VPN client must be downloaded again if any changes are made to VNet peering or the network topology. Non-Windows clients can access directly peered VNets. Access isn't transitive and is limited to only directly peered VNets.
 
+For a gateway that's in a different Azure region than the peered VNets, see [Use a VPN or ExpressRoute gateway in a different region](vpn-gateway-different-region.md).
+
 :::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Multiple peered VNets" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### Address space:

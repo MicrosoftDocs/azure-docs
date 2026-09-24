@@ -3,7 +3,7 @@ title: Monitoring troubleshooting and FAQ - Azure IoT Edge
 description: Troubleshooting Azure Monitor integration and FAQ
 author: sethmanheim
 ms.author: sethm
-ms.date: 08/08/2025
+ms.date: 09/15/2026
 ms.topic: concept-article
 ms.reviewer: sonialopez
 ms.service: azure-iot-edge
@@ -27,6 +27,8 @@ zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg
 
 # FAQ and troubleshooting
 
+This article covers Metrics Collector 2.0 and the IoT Edge monitoring workbooks. For an upgrade from collector 1.x, use [Migrate the metrics collector](migrate-metrics-collector.md).
+
 :::zone pivot="metrics-collection"
 
 ## Collector module is unable to collect metrics from built-in endpoints
@@ -49,18 +51,33 @@ For more information, see [proxy considerations](how-to-collect-and-transport-me
 
 On Linux hosts, ensure you're using a recent version of the container engine. We recommend updating to the latest version by following the [installation instructions](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
+## The collector can't upload metrics
+
+Check the following configuration:
+
+- `DataCollectionEndpoint` is the HTTPS ingestion base endpoint, not a request URL or ARM ID.
+- `DataCollectionRuleId` is the DCR immutable ID.
+- `DataCollectionStreamName` matches an input stream in the DCR.
+- The selected identity has **Monitoring Metrics Publisher** on the DCR.
+- The container can reach its ingestion and authentication endpoints.
+
+For certificate authentication, check the path inside the container and the process user's read permission. Remove unused identity environment variables. A host Azure CLI authentication doesn't authenticate the collector.
+
+Use [Check new ingestion](migrate-metrics-collector.md#check-new-ingestion) to check rows in the destination workspace. Don't assume that failed upload intervals are replayed after recovery.
+
+## Some summary metrics are missing
+
+Metrics Collector 2.0 omits `NaN` and infinity values from direct uploads. Check finite `_sum` and `_count` samples before treating an absent summary value as a collection failure.
+
 ## How do I collect logs along with metrics?
 
-You could use [built-in log pull features](how-to-retrieve-iot-edge-logs.md). A sample solution that uses the built-in log retrieval features is available at [**https://aka.ms/iot-elms**](https://aka.ms/iot-elms).
+You can use [built-in log pull features](how-to-retrieve-iot-edge-logs.md).
 
 ## Why can't I see device metrics in the metrics page in Azure portal?
 
-Azure Monitor's [native metrics](/azure/azure-monitor/essentials/data-platform-metrics) technology doesn't yet support Prometheus data format directly. Log-based metrics are currently better suited for IoT Edge metrics because of:
-
-* Native support for Prometheus metrics format via the standard *InsightsMetrics* table.
-* Advanced data processing via [KQL](/azure/data-explorer/kusto/query/) for visualizations and alerts.
-
 The use of Log Analytics as the metrics database is the reason why metrics appear in the **Logs** page in Azure portal rather than **Metrics**.
+
+Metrics Collector 2.0 writes to the custom table configured in its DCR. Curated workbooks default to `IoTEdgeMetrics_CL`. For another table with the [collector schema](migrate-metrics-collector.md#configure-the-collector-schema), set the workbook's `MetricsTableName` parameter. Use [KQL](/kusto/query/) for queries, visualizations, and log search alerts.
 
 ## How do I configure metrics-collector in a layered deployment?
 
@@ -84,7 +101,9 @@ Encode device information in the metric labels. For more information, see [Namin
 
 ## How do I create a alert rule that spans devices from multiple IoT hubs?
 
-When [creating an alert rule](how-to-create-alerts.md#create-an-alert-rule), you can [change its scope](how-to-create-alerts.md#select-alert-rule-scope) to a resource group or subscription. The alert rule will then apply to all IoT hubs in that scope.
+Query the destination workspace and filter for all intended IoT Hub ARM IDs. Normalize both selected and stored resource IDs by using `tolower()`.
+
+Keep the resource ID and device ID in the result grouping. Configure the alert target separately from query scope. See [Create alerts](how-to-create-alerts.md).
 
 ## Alerts aren't firing when they should
 
@@ -98,11 +117,34 @@ If you aren't able to find the problem, create a [technical support incident](ht
 
 ## My device isn't showing up in the monitoring workbook
 
-The workbook relies on device metrics being linked to the correct IoT hub or IoT Central application using *ResourceId*. Confirm that the metrics-collector is [configured](how-to-collect-and-transport-metrics.md#metrics-collector-configuration) with the correct *ResourceId*.
+1. Check that the destination workspace contains rows with `Origin == "iot.azm.ms"`.
+1. Select that workspace in the workbook.
+1. For Metrics Collector 2.0, select **New only** under **Metrics source**.
+1. Set `MetricsTableName` to the destination table in the DCR. The default is `IoTEdgeMetrics_CL`.
+1. Select the IoT resource identified by the module's `ResourceId` configuration.
+1. Select a time range that contains uploads.
+
+The updated gallery templates default to **New only**, which reads the new custom table and doesn't require a cutover time. Existing saved copies keep their saved settings, so select **New only** if a saved copy opens in **Legacy only**.
+
+For **Combine legacy and new history**, enter the actual **Cutover time (UTC)**. An incorrect boundary can exclude valid rows.
+
+For a customized workbook with this guide's pass-through schema, check workspace scope and the `Value` column mapping. Update device-selection queries and no-data checks as well as charts.
 
 Using metrics-collector module logs, confirm that the device sent metrics during the selected time range.
 
 Keep in mind, there can be an ingestion delay of a few minutes before metrics show up.
+
+## One IoT resource appears in multiple groups
+
+Legacy platform `_ResourceId` can use different casing from the configured ARM ID. New ordinary `ResourceId` preserves the case supplied in `ResourceId`.
+
+Apply `tolower()` to the selected ID and both resource columns before filtering or grouping. Keep the existing ARM ID in the module configuration.
+
+## Historical charts contain data, but health is Unknown
+
+Health status depends on metric freshness as well as thresholds. A historical time range can contain samples that are too old for a current health assessment.
+
+Check the last event time and the collector's current upload status before changing health thresholds.
 
 ## I found a bug or have a question about metrics being shown in the workbook
 
@@ -110,10 +152,12 @@ Open an issue on the [Azure IoT Edge GitHub repo](https://github.com/azure/ioted
 
 The template for the workbooks is [publicly available on GitHub](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks/IoTHub). Pull requests with improvements or fixes are very welcome!
 
+Updates to public templates don't update customer-saved customized copies. A saved copy must separately update its table-existence gate, workspace selection, value projection, declared cutover, and ordinary `ResourceId` filter. Don't raw-union overlapping `InsightsMetrics` and custom-table history. Existing alert rules also remain unchanged.
+
 ## I cannot see the workbooks in the public templates
 
 Ensure that you're looking at the **Workbooks** page in your IoT hub or IoT Central application page in the portal, not in your Log Analytics workspace.
 
-If you still can't see the workbooks, try using the pre-production Azure portal environment: [`https://portal.azure.com`](https://portal.azure.com). Sometimes workbook updates take additional time to show up in the production environment, but will be available in pre-production.
+If the gallery is empty, check your access to the selected IoT resource. Reopen its **Workbooks** page. To report a missing template, use the [IoT Edge issue tracker](https://github.com/Azure/iotedge/issues).
 
 :::zone-end

@@ -6,7 +6,8 @@ ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.reviewer: v-uhabiba
+ms.update-cycle: 365-days
+ms.reviewer: jsuri
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

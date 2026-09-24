@@ -6,7 +6,7 @@ ms.author: molir
 ms.service: azure-migrate
 ms.topic: best-practice
 ms.date: 05/13/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 365-days
 ms.custom:
   - build-2025

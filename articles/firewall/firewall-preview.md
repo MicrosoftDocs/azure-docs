@@ -4,7 +4,7 @@ description: Learn about Azure Firewall preview features that are publicly avail
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/28/2026
+ms.date: 08/31/2026
 ms.author: duau
 # Customer intent: "As a network administrator, I want to explore and test Azure Firewall preview features, so that I can enhance our security configurations and monitor health more effectively before they reach general availability."
 ---
@@ -27,21 +27,11 @@ This article is updated to reflect the features that are currently in preview wi
 
 The following features are available in preview.
 
-### Explicit proxy (preview)
+### Dual-stack support (preview)
 
-When you set the Azure Firewall Explicit proxy on the outbound path, you can configure a proxy setting on the sending application (such as a web browser) with Azure Firewall configured as the proxy. As a result, traffic from a sending application goes to the firewall's private IP address, and therefore egresses directly from the firewall without using a user-defined route (UDR).
+Azure Firewall now supports IPv6 in preview, enabling you to configure Azure Firewall and Firewall Policy in dual-stack mode for both IPv4 and IPv6 traffic. This preview allows native IPv6 network-rule filtering and DNS Proxy support, helping organizations secure cloud, hybrid, and internal IPv6 traffic as they modernize toward dual-stack architectures. 
 
-For more information, see [Azure Firewall Explicit proxy (preview)](explicit-proxy.md).
-
-### Resource health (preview)
-
-By using the Azure Firewall Resource Health check, you can now diagnose and get support for service problems that affect your Azure Firewall resource. IT teams receive proactive notifications on potential health degradations, and recommended mitigation actions for each health event type. You can also view the resource health on a dedicated page in the Azure portal resource page.
-Starting in August 2023, this preview is automatically enabled on all firewalls and no action is required to enable this functionality.
-For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
-
-### Autolearn SNAT routes (preview)
-
-You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
+For more information, see [Deploy Azure Firewall in dual stack mode](deploy-dual-stack-firewall.md).
 
 ## Change tracking (preview)
 

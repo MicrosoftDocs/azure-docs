@@ -1,21 +1,6 @@
 - name: Azure Networking Documentation
   href: index.yml
 
-- name: Azure Networking overview
-  items:
-  - name: Azure Networking overview
-    href: networking-overview.md?toc=/azure/networking/toc.json
-  - name: Network foundations overview
-    href: foundations/network-foundations-overview.md?toc=/azure/networking/toc.json
-  - name: Load balancing and content delivery overview
-    href: load-balancer-content-delivery/load-balancing-content-delivery-overview.md?toc=/azure/networking/toc.json
-  - name: Network security overview
-    href: security/network-security.md?toc=/azure/networking/toc.json
-  - name: Hybrid connectivity overview
-    href: hybrid-connectivity/hybrid-connectivity.md?toc=/azure/networking/toc.json
-  - name: Network monitoring and management overview
-    href: monitoring-management/network-monitoring-management-overview.md?toc=/azure/networking/toc.json
-
 - name: Networking fundamentals
   items:
   - name: What is Azure Networking?
@@ -39,11 +24,9 @@
   - name: Choosing the right services
     items:
     - name: Load balancing options
-      href: /azure/architecture/guide/technology-choices/load-balancing-overview.md?toc=/azure/networking/toc.json
+      href: design-guide/app-delivery.md
     - name: Hybrid connectivity options
-      href: /azure/architecture/guide/technology-choices/hybrid-connectivity-overview.md?toc=/azure/networking/toc.json
-    - name: Network security options
-      href: security/network-security.md?toc=/azure/networking/toc.json
+      href: design-guide/hybrid-connectivity.md
 
 - name: Plan and design
   items:
@@ -81,11 +64,11 @@
         href: design-guide/multi-region.md
     - name: Connectivity
       items:
-      - name: Hybrid connectivity
+      - name: Choose a hybrid connectivity option
         href: design-guide/hybrid-connectivity.md
       - name: Internet ingress
         href: design-guide/internet-ingress.md
-      - name: Application delivery
+      - name: Choose a load balancing service
         href: design-guide/app-delivery.md
       - name: Outbound egress
         href: design-guide/outbound-egress.md
@@ -183,13 +166,17 @@
       href: ../nat-gateway/nat-overview.md?toc=/azure/networking/toc.json
     - name: Create a NAT gateway for outbound connection
       href: ../nat-gateway/quickstart-create-nat-gateway.md?toc=/azure/networking/toc.json
+  - name: Performance
+    items:
+    - name: Accelerated connections on NVAs and VMs
+      href: nva-accelerated-connections.md?toc=/azure/networking/toc.json
 
 - name: Load balancing and content delivery
   items:
   - name: Load balancing and content delivery overview
     href: load-balancer-content-delivery/load-balancing-content-delivery-overview.md?toc=/azure/networking/toc.json
-  - name: Choose a load balancing solution
-    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/networking/toc.json
+  - name: Choose a load balancing service
+    href: design-guide/app-delivery.md
   - name: Azure Load Balancer
     items:
     - name: What is Azure Load Balancer?
@@ -219,6 +206,8 @@
   items:
   - name: Hybrid connectivity overview
     href: hybrid-connectivity/hybrid-connectivity.md?toc=/azure/networking/toc.json
+  - name: Choose a hybrid connectivity option
+    href: design-guide/hybrid-connectivity.md
   - name: VPN Gateway
     items:
     - name: VPN Gateway overview
@@ -268,9 +257,18 @@
     href: ../web-application-firewall/overview.md?toc=/azure/networking/toc.json
   - name: Azure Bastion
     href: ../bastion/bastion-overview.md?toc=/azure/networking/toc.json
-  - name: Security controls by Azure Policy
-    displayName: regulatory, compliance, standards, domains
-    href: security-controls-policy.md?toc=/azure/networking/toc.json
+  - name: Zero Trust recommendations
+    items:
+    - name: Network security Zero Trust recommendations
+      href: security/zero-trust-network-security.md?toc=/azure/networking/toc.json
+    - name: Azure Firewall
+      href: security/zero-trust-azure-firewall.md?toc=/azure/networking/toc.json
+    - name: Azure DDoS Protection
+      href: security/zero-trust-ddos-protection.md?toc=/azure/networking/toc.json
+    - name: Azure Front Door WAF
+      href: security/zero-trust-front-door-waf.md?toc=/azure/networking/toc.json
+    - name: Application Gateway WAF
+      href: security/zero-trust-application-gateway-waf.md?toc=/azure/networking/toc.json
 
 - name: Monitor and manage
   items:
@@ -289,6 +287,8 @@
 
 - name: Support and troubleshooting
   items:
+  - name: Troubleshoot failed provisioning state
+    href: troubleshoot-failed-state.md?toc=/azure/networking/toc.json
   - name: Azure DNS
     href: ../dns/dns-support-help.md?toc=/azure/networking/toc.json
   - name: VPN Gateway
@@ -308,7 +308,21 @@
   - name: Azure Web Application Firewall
     href: ../web-application-firewall/support-help.md?toc=/azure/networking/toc.json
 
+- name: Reference
+  items:
+  - name: Check resource usage against limits
+    href: check-usage-against-limits.md?toc=/azure/networking/toc.json
+  - name: Policy and compliance
+    items:
+    - name: Azure Policy built-in definitions
+      href: policy-reference.md?toc=/azure/networking/toc.json
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: security-controls-policy.md?toc=/azure/networking/toc.json
+
 - name: Resources
   items:
+  - name: Networking partners (MSP)
+    href: networking-partners-msp.md?toc=/azure/networking/toc.json
   - name: Lumenisity UoS Patents
     href: lumenisity-patent-list.md?toc=/azure/networking/toc.json

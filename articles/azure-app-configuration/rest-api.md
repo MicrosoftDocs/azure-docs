@@ -16,9 +16,11 @@ The documentation on the [control plane](../azure-resource-manager/management/co
 
 - [Keys](./rest-api-keys.md)
 - [Key-Values](./rest-api-key-value.md)
+- [Enhanced feature flags](./rest-api-enhanced-feature-flag.md)
 - [Labels](./rest-api-labels.md)
 - [Locks](./rest-api-locks.md)
-- [Revisions](./rest-api-revisions.md)
+- [Key-value revisions](./rest-api-revisions.md)
+- [Enhanced feature flag revisions](./rest-api-enhanced-feature-flag-revisions.md)
 - [Snapshots](./rest-api-snapshot.md)
 
 ## Protocol

@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Native Pure Storage Cloud
-summary: Pure Storage Cloud provides secure, efficient, and reliable block storage as a native managed service, example of Storage as a Service (STaaS).
+title: Everpure Cloud Azure Native
+summary: Everpure Cloud provides secure, efficient, and reliable block storage as a native managed service, example of Storage as a Service (STaaS).
 metadata:
-  title: Azure Native Pure Storage Cloud
-  description: Azure Native Pure Storage Cloud integrates with Azure to combine the benefits of Pure Storage with the Azure cloud.
+  title: Everpure Cloud Azure Native
+  description: Everpure Cloud Azure Native integrates with Azure to combine the benefits of Everpure with the Azure cloud.
   author: Reshmi-Sriram
   ms.author: reshmisriram
   ms.topic: landing-page
@@ -13,11 +13,11 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Azure Native Pure Storage Cloud
+  - title: About Everpure Cloud Azure Native
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Native Pure Storage Cloud?
+          - text: What is Everpure Cloud Azure Native?
             url: overview.md
           - text: Frequently Asked Questions
             url: faq.yml

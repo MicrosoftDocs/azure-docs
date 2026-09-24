@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 05/19/2026
+ms.date: 08/27/2026
 ai-usage: ai-assisted
 ---
 
@@ -27,15 +27,15 @@ Network security for Azure Load Balancer focuses on limiting inbound exposure, c
 
 - **Use Standard Load Balancer SKU**: Deploy Standard Load Balancer for production workloads. Standard Load Balancer follows a secure-by-default model with closed inbound connections, supports availability zones, and provides a 99.99% SLA. Basic Load Balancer was retired on September 30, 2025, and shouldn't be used for new deployments. For more information, see [Azure Load Balancer overview](load-balancer-overview.md).
 
-- **Implement network security groups on subnets and network interfaces**: Apply network security groups (NSGs) to backend subnets and network interfaces to explicitly permit only required ports, protocols, and source IP ranges. Standard Load Balancer doesn't allow inbound flows until an NSG explicitly permits the traffic. For more information, see [Azure Load Balancer security baseline](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#network-security).
+- **Implement network security groups on subnets and network interfaces**: Apply network security groups (NSGs) to backend subnets and network interfaces to explicitly permit only required application traffic. Load-balancing rules map frontend traffic to backend pools, while NSGs independently determine whether that traffic is allowed. For more information, see [Azure Load Balancer security baseline](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#network-security).
 
-- **Allow Azure Load Balancer health probe traffic**: Ensure that NSGs, user-defined routes, and local firewall policies allow health probe traffic from IP address 168.63.129.16. Blocked probes cause healthy backend instances to be removed from rotation and can create avoidable outages. For more information, see [Azure Load Balancer health probes](load-balancer-custom-probe-overview.md).
+- **Allow Azure Load Balancer health probe traffic**: Check health-probe access separately from application-traffic access. Allow the `AzureLoadBalancer` service tag in NSGs and IP address 168.63.129.16 in local firewall policies so probes can reach backend instances. For more information, see [Azure Load Balancer health probes](load-balancer-custom-probe-overview.md).
 
 - **Use internal load balancer for private workloads**: Deploy an internal load balancer with private frontend IP addresses when the service doesn't need direct internet exposure. Use virtual network peering, VPN, ExpressRoute, Azure Firewall, or private access patterns to control who can reach the frontend. For more information, see [Azure Load Balancer components](components.md#frontend-ip-configurations).
 
 - **Protect public load balancers with Azure DDoS Protection**: Enable Azure DDoS Network Protection on the virtual network that hosts public load balancers. DDoS Protection provides enhanced DDoS mitigation and detection capabilities that monitor endpoints for threats and signs of abuse. For more information, see [Protect your public load balancer with Azure DDoS Protection](tutorial-protect-load-balancer-ddos.md).
 
-- **Use explicit outbound connectivity**: Don't rely on default outbound access. Default outbound access retired on September 30, 2025, so use Azure NAT Gateway for predictable outbound IP addresses, or configure explicit Standard Load Balancer outbound rules when NAT Gateway isn't appropriate. For more information, see [Outbound connections in Azure](load-balancer-outbound-connections.md) and [Azure NAT Gateway overview](../nat-gateway/nat-overview.md).
+- **Use explicit outbound connectivity**: Don't rely on default outbound access. For API versions released after March 31, 2026, new virtual networks use private subnets by default and require an explicit outbound method to reach public endpoints. Existing virtual networks aren't changed automatically. Use Azure NAT Gateway for predictable outbound IP addresses, or configure explicit Standard Load Balancer outbound rules when NAT Gateway isn't appropriate. For more information, see [Outbound connections in Azure](load-balancer-outbound-connections.md) and [Azure NAT Gateway overview](../nat-gateway/nat-overview.md).
 
 - **Configure appropriate distribution mode**: Select the distribution mode that fits your application and security requirements. Use the default 5-tuple hash for most workloads, and use session persistence only when the application requires it because persistence can create uneven distribution and reduce resiliency. For more information, see [Azure Load Balancer distribution modes](distribution-mode-concepts.md).
 

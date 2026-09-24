@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 08/13/2026
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 # Customer intent: As an IT admin, I want to implement SMB file shares in Azure Files, so that I can provide scalable and secure file storage solutions for my organization's applications and end-user needs.
@@ -147,7 +147,7 @@ Azure Files exposes settings that you can toggle to make the SMB protocol more c
 Azure Files exposes the following settings:
 
 - **SMB versions**: Which versions of SMB are allowed. Supported protocol versions are SMB 3.1.1, SMB 3.0, and SMB 2.1. By default, all SMB versions are allowed, although SMB 2.1 is disallowed if **Require Encryption in Transit for SMB** is enabled (or if the **Secure transfer required** setting governs SMB behavior), because SMB 2.1 doesn't support encryption in transit.
-- **Authentication methods**: Which SMB authentication methods are allowed. Supported authentication methods are NTLMv2 (storage account key only) and Kerberos. By default, all authentication methods are allowed. Removing NTLMv2 disallows using the storage account key to mount the Azure file share. Azure Files doesn't support using NTLM authentication for domain credentials.
+- **Authentication methods**: Which SMB authentication methods are allowed. Supported authentication methods are NTLMv2 (storage account key only) and Kerberos. By default, all authentication methods are allowed. Kerberos must be enabled to use identity-based authentication with AD DS, Microsoft Entra Domain Services, Microsoft Entra Kerberos, or a managed identity. Removing NTLMv2 disallows using the storage account key to mount the Azure file share. Azure Files doesn't support using NTLM authentication for domain credentials.
 - **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are AES-256 (strongly recommended) and RC4-HMAC.
 - **SMB channel encryption**: Which SMB channel encryption algorithms are allowed. Supported encryption algorithms are AES-256-GCM, AES-128-GCM, and AES-128-CCM. If you select only AES-256-GCM, you need to tell connecting clients to use it by opening a PowerShell terminal as administrator on each client and running `Set-SmbClientConfiguration -EncryptionCiphers "AES_256_GCM" -Confirm:$false`. Using AES-256-GCM isn't supported on Windows clients older than Windows 11/Windows Server 2022.
 
@@ -358,6 +358,42 @@ az storage account file-service-properties update --require-smb-encryption-in-tr
 ```
 
 ---
+
+#### Disable SMB 1 on Linux clients
+
+Azure Files doesn't support SMB 1. Starting with Linux kernel 4.18, you can disable SMB 1 on Linux clients by using the `disable_legacy_dialects` module parameter in the `cifs` kernel module.
+
+Check whether your distribution supports this parameter:
+
+```bash
+sudo modinfo -p cifs | grep disable_legacy_dialects
+```
+
+To disable SMB 1, first unmount any SMB shares and unload the module:
+
+```bash
+sudo modprobe -r cifs
+```
+
+Reload the module with SMB 1 disabled:
+
+```bash
+sudo modprobe cifs disable_legacy_dialects=Y
+```
+
+To make this change persistent across reboots, add the setting to your module configuration:
+
+```bash
+echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
+```
+
+Verify the setting is active:
+
+```bash
+cat /sys/module/cifs/parameters/disable_legacy_dialects
+```
+
+The output should be `Y`.
 
 ## Limitations
 

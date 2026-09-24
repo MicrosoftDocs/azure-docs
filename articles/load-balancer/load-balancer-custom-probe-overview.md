@@ -4,7 +4,7 @@ description: Azure Load Balancer health probes and configuration for detecting a
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 07/07/2026
+ms.date: 09/04/2026
 ms.author: mbender
 # Customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
 ---
@@ -64,7 +64,7 @@ The protocol used by the health probe can be configured to one of the following 
 | Scenario | TCP connections | UDP datagrams |
 | --- | --- | --- | 
 | Single instance probes down |  New TCP connections succeed to remaining healthy backend endpoint. Established TCP connections to this backend endpoint continue. |   Existing UDP flows move to another healthy instance in the backend pool.|
-| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance. Basic Load Balancer terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
+| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance. Basic Load Balancer (retired) terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
 
 ## Probe interval & timeout
 
@@ -112,9 +112,33 @@ For HTTP probes, explicit responses will immediately mark the probe as up or dow
 
 - It isn't recommended to block the Azure Load Balancer health probe IP or port with NSG rules. This is an unsupported scenario and can cause the NSG rules to take delayed effect, resulting in the health probes to inaccurately represent the availability of your backend instances.
 
+## Troubleshoot NVA health probe responses
+
+If a network virtual appliance (NVA) management network interface receives health probes but the appliance doesn't respond to them, use [Troubleshoot health probe failures in Azure Load Balancer](/troubleshoot/azure/load-balancer/troubleshoot-load-balancer-health-probe-failures) to check the probe configuration, network security rules, and listener. For an NVA with multiple network interfaces, also confirm that the appliance responds on the interface that received the probe, as described in [Design guidance](#design-guidance).
+
+To locate existing flow logs in the NVA's region, run the following Azure CLI command. Then, use [virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) or [Traffic analytics](../network-watcher/traffic-analytics.md) to filter traffic by the private IP address of the management network interface and the configured probe port. For an IPv4 probe, also filter by source IP address `168.63.129.16`. For an IPv6 probe, use the link-local source address listed in [Probe source IP address](#probe-source-ip-address).
+
+```azurecli-interactive
+az network watcher flow-log list --location '<region>' --output table
+```
+
+To validate an IPv4 probe at the packet level, start a filtered [packet capture on the NVA virtual machine](../network-watcher/packet-capture-manage.md#start-a-packet-capture). [Network Watcher packet capture](../network-watcher/packet-capture-overview.md) requires the `AzureNetworkWatcherExtension` on the target VM. Verify that the appliance supports the extension and meets the documented packet-capture prerequisites before using this command. For an appliance that can't use the extension, consult the vendor's supported capture procedure. Replace the placeholder values in the following command:
+
+```azurecli-interactive
+az network watcher packet-capture create \
+  --resource-group '<nva-resource-group>' \
+  --name 'nva-health-probe' \
+  --vm '<nva-vm-name>' \
+  --storage-account '<storage-account-name-or-id>' \
+  --time-limit 300 \
+  --filters '[{"protocol":"TCP","remoteIPAddress":"168.63.129.16","localIPAddress":"<management-interface-private-ip>","localPort":"<probe-port>"}]'
+```
+
+If the appliance exposes operating system or firewall logs, use the vendor's logging instructions to compare relevant entries with the capture timestamps and connection details. If the packet capture shows inbound probes but no response, investigate the listener, firewall, and return-path configuration using the [NVA troubleshooting checklist](/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-nva#checklist-for-troubleshooting-with-nva-vendor), and involve the appliance vendor as needed.
+
 ## Monitoring
 
-[Standard Load Balancer](./load-balancer-overview.md) exposes per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs aren't supported for Basic Load Balancer.
+[Standard Load Balancer](./load-balancer-overview.md) exposes per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs aren't supported for Basic Load Balancer (retired).
 
 ## Probe source IP address
 
@@ -130,7 +154,7 @@ If you don't allow the [source IP](#probe-source-ip-address) of the probe in you
 
 - Enabling TCP timestamps can cause throttling or other performance issues, which can then cause health probes to time out.
 
-- A Basic SKU load balancer health probe isn't supported with a virtual machine scale set.
+- Health probes for Basic Load Balancer (retired) aren't supported with a virtual machine scale set.
 
 - HTTP probes don't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 

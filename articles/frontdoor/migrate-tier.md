@@ -1,11 +1,11 @@
 ---
-title: Migrate Azure Front Door (classic) to Standard or Premium tier
-description: This article provides step-by-step instructions on how to migrate from an Azure Front Door (classic) profile to an Azure Front Door Standard or Premium tier profile.
+title: Migrate Azure Front Door (classic) to Standard or Premium Tier
+description: Learn how to migrate an Azure Front Door (classic) profile to an Azure Front Door Standard or Premium profile.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: concept-article
-ms.date: 04/24/2026
+ms.topic: how-to
+ms.date: 08/26/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -19,17 +19,17 @@ Azure Front Door Standard and Premium tiers offer advanced cloud delivery networ
 
 ## Prerequisites
 
-* Review the [About Azure Front Door tier migration](tier-migration.md) article.
-* Ensure your Azure Front Door (classic) profile meets the migration requirements:
-    * Azure Front Door Standard and Premium require all custom domains to use HTTPS. If you don't have your own certificate, you can use an Azure Front Door managed certificate, which is free and managed for you.
-    * Session affinity is enabled in the origin group settings for Azure Front Door Standard or Premium profiles. In Azure Front Door (classic), session affinity is set at the domain level. During migration, session affinity settings are based on the Azure Front Door (classic) profile. If you have two domains in your classic profile sharing the same backend pool (origin group), session affinity must be consistent across both domains for migration validation to pass.
+- Review [Azure Front Door (classic) to Standard or Premium tier migration](tier-migration.md).
+- Ensure your Azure Front Door (classic) profile meets the migration requirements:
+    - Azure Front Door Standard and Premium require all custom domains to use HTTPS. If you don't have your own certificate, use an Azure Front Door managed certificate, which is free and managed for you.
+    - Session affinity is enabled in the origin group settings for Azure Front Door Standard or Premium profiles. In Azure Front Door (classic), session affinity is set at the domain level. During migration, session affinity settings are based on the Azure Front Door (classic) profile. If you have two domains in your classic profile sharing the same backend pool (origin group), session affinity must be consistent across both domains for migration validation to pass.
 
 > [!NOTE]
-> No DNS changes are required before or during the migration. However, after migration completes and traffic is flowing through your new Azure Front Door profile, you must update your DNS records. For more information, see [Update DNS records](#update-dns-records).
+> You don't need to make any DNS changes before or during the migration. However, after migration completes and traffic flows through your new Azure Front Door profile, you must update your DNS records. For more information, see [Post-migration endpoint cutover](#post-migration-endpoint-cutover).
 
 ## Validate compatibility
 
-1. Navigate to your Azure Front Door (classic) resource and select **Migration** under *Settings*.
+1. Go to your Azure Front Door (classic) resource and select **Migration** under **Settings**.
 
 1. Select **Validate** to check if your Azure Front Door (classic) profile is compatible for migration. Validation can take up to two minutes depending on the complexity of your profile.
 
@@ -37,18 +37,18 @@ Azure Front Door Standard and Premium tiers offer advanced cloud delivery networ
 
     :::image type="content" source="./media/migrate-tier/validation-failed.png" alt-text="Screenshot of the Azure Front Door (classic) profile failing validation phase.":::
 
-1. Once your Azure Front Door (classic) profile passes validation and is deemed compatible for migration, proceed to the preparation phase.
+1. Once your Azure Front Door (classic) profile passes validation and is compatible for migration, proceed to the preparation phase.
 
 ## Prepare for migration
 
-1. A default name is provided for the new Azure Front Door profile. You can change this name before proceeding.
+1. Review the default name for the new Azure Front Door profile. Change the name if you want.
 
     :::image type="content" source="./media/migrate-tier/prepare-name.png" alt-text="Screenshot of the name field in the prepare phase for the new Azure Front Door profile.":::
 
-1. The Azure Front Door tier is automatically selected based on the Azure Front Door (classic) WAF policy settings.
+1. Review the automatically selected Azure Front Door tier based on the Azure Front Door (classic) WAF policy settings.
 
-    * **Standard** - Selected if you only have custom WAF rules associated with the Azure Front Door (classic) profile. You can choose to upgrade to a Premium tier.
-    * **Premium** - Selected if you use managed WAF rules associated with the Azure Front Door (classic) profile. To use the Standard tier, remove the managed WAF rules from the Azure Front Door (classic) profile.
+    - **Standard** - Selected if you only have custom WAF rules associated with the Azure Front Door (classic) profile. You can choose to upgrade to a Premium tier.
+    - **Premium** - Selected if you use managed WAF rules associated with the Azure Front Door (classic) profile. To use the Standard tier, remove the managed WAF rules from the Azure Front Door (classic) profile.
 
 1. Select **Configure WAF policy upgrades** to decide whether to upgrade your current WAF policies or use an existing compatible WAF policy.
 
@@ -65,17 +65,17 @@ Azure Front Door Standard and Premium tiers offer advanced cloud delivery networ
 
 ## Enable managed identities
 
-If you're using your own certificate, you need to enable managed identity so Azure Front Door can access the certificate in your Azure Key Vault. Managed identity is a feature of Microsoft Entra ID that you can use to securely connect to other Azure services without managing credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+If you use your own certificate, you need to enable managed identity so Azure Front Door can access the certificate in your Azure Key Vault. Managed identity is a feature of Microsoft Entra ID that you can use to securely connect to other Azure services without managing credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
-> * If you're not using your own certificate, you don't need to enable managed identities or grant access to the Key Vault. You can skip to the [**Migrate**](#migrate) phase.
+> If you don't use your own certificate, you don't need to enable managed identities or grant access to the Key Vault. You can skip to the [**Migrate**](#migrate) phase.
 
 1. Select **Enable** and then choose either **System assigned** or **User assigned** depending on the type of managed identity you want to use.
 
     :::image type="content" source="./media/migrate-tier/enable-managed-identity.png" alt-text="Screenshot of the enable managed identity button for Azure Front Door migration.":::
 
-    * **System assigned** - Toggle the status to **On** and then select **Save**.
-    * **User assigned** - To create a user-assigned managed identity, see [Create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you already have a user-assigned managed identity, select the identity, and then select **Add**.
+    - **System assigned** - Toggle the status to **On** and then select **Save**.
+    - **User assigned** - To create a user-assigned managed identity, see [Create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you already have a user-assigned managed identity, select the identity, and then select **Add**.
 
 1. Close the page to return to the migration page. You see that managed identities are successfully enabled.
 
@@ -98,18 +98,26 @@ Select **Grant** to add the managed identity to all Azure Key Vaults used with t
 
 1. The Azure Front Door (classic) profile is now **Disabled** and can be deleted from your subscription.
 
-> [!WARNING]
-> Deleting the new profile after migration deletes the production environment, which is irreversible.
+    > [!WARNING]
+    > Deleting the new profile after migration deletes the production environment, which is irreversible.
 
-## Update DNS records
+## Post-migration endpoint cutover
 
 Azure Front Door (classic) uses a different fully qualified domain name (FQDN) than Azure Front Door Standard or Premium. For example, a classic endpoint might be `contoso.azurefd.net`, while a Standard or Premium endpoint might be `contoso-mdjf2jfgjf82mnzx.z01.azurefd.net`. For more information, see [Endpoints in Azure Front Door](endpoint.md).
 
-You don't need to update your DNS records before or during the migration. Azure Front Door automatically routes traffic from the classic endpoint to your new Standard or Premium profile without any configuration changes.
+Even though Azure Front Door automatically routes traffic from the classic endpoint to your new Standard or Premium profile without any configuration changes, you must complete the following post-migration action(s) depending on your scenario:
 
-After migration, update your DNS records to point to the new Azure Front Door endpoint. This update ensures your profile continues to function properly in the future. Updating DNS records doesn't cause any downtime and can be done at your convenience.
+- Custom domains: Update the DNS record to point to the new Azure Front Door Standard/Premium endpoint.
 
-## Next steps
+- Direct use of the classic default endpoint: Replace the classic hostname with the new endpoint hostname in your applications, clients, and integrations.
 
-* Understand the [mapping between Azure Front Door tiers](tier-mapping.md) settings.
-* Learn more about the [Azure Front Door tier migration process](tier-migration.md).
+Both endpoints remain functional during the transition, so you can make and validate this change without downtime.
+
+> [!WARNING]
+> Complete the endpoint cutover to the new Azure Front Door Standard/Premium endpoint by March 31, 2028. Starting April 1, 2028, classic endpoints are no longer supported and might stop functioning. Custom domains, applications, or clients that still depend on a classic endpoint might stop receiving traffic.
+
+## Related content
+
+- [Settings mapped between Azure Front Door (classic) and Standard or Premium tier](tier-mapping.md)
+- [Azure Front Door (classic) to Standard or Premium tier migration process](tier-migration.md)
+- [Azure Front Door migration FAQ](migration-faq.md)

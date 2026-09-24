@@ -30,11 +30,12 @@ Update the Durable Functions NuGet package reference in your project. The correc
 
 | Storage provider | In-process worker | Isolated worker |
 | --- | --- | --- |
-| Azure Storage (default) | [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) |
+| Durable Task Scheduler (recommended) | [Microsoft.DurableTask.Client.Grpc](https://www.nuget.org/packages/Microsoft.DurableTask.Client.Grpc) | [Microsoft.DurableTask.Client.Grpc](https://www.nuget.org/packages/Microsoft.DurableTask.Client.Grpc) |
+| Azure Storage | [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) |
 | Netherite | [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite) |
 | MSSQL | [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer) |
 
-For example, to upgrade the default Azure Storage extension in an isolated worker app:
+For example, to upgrade the Azure Storage extension in an isolated worker app:
 
 ```console
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask

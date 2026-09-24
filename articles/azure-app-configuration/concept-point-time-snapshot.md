@@ -25,12 +25,12 @@ You can use the Azure portal or the Azure CLI to retrieve past key-values.
 
 2. In the **Operations** menu, select **Restore**.
 
-   :::image type="content" source="media/restore-key-value-portal.png" alt-text="Screenshot of the Azure portal, selecting restore":::
+   :::image type="content" source="media/concept-point-time-snapshot/restore-key-value-portal.png" alt-text="Screenshot of the Azure portal, selecting restore":::
 
 3. Select **Date: Select date** to select a date and time you want to revert to.
 4. Click outside of the date and time fields or press **Tab** to validate your choice. You can now see which key-values have changed between your selected date and time and the current time. This step helps you understand what keys and values you're preparing to revert to. 
 
-   :::image type="content" source="media/restore-key-value-past-values.png" alt-text="Screenshot of the Azure portal with saved key-values":::
+   :::image type="content" source="media/concept-point-time-snapshot/restore-key-value-past-values.png" alt-text="Screenshot of the Azure portal with saved key-values":::
 
    The portal displays a table of key-values. The first column includes symbols indicating what will happen if you restore the data for the chosen date and time:
    - The red minus sign (–) means that the key-value didn't exist at your selected date and time and will be deleted.
@@ -39,7 +39,7 @@ You can use the Azure portal or the Azure CLI to retrieve past key-values.
 
 5. Select the checkbox in the row to select or clear the key-value to take action. When selected, it displays the difference for the key-value between the current and selected date and time.
 
-   :::image type="content" source="media/restore-key-value-compare.png" alt-text="Screenshot of the Azure portal with compared keys-values":::
+   :::image type="content" source="media/concept-point-time-snapshot/restore-key-value-compare.png" alt-text="Screenshot of the Azure portal with compared keys-values":::
 
    In the above example, the preview shows the key TestApp:Settings:BackgroundColor, which currently has a value of #FFF. This value will be modified to #45288E if we go through with restoring the data.
 
@@ -47,7 +47,7 @@ You can use the Azure portal or the Azure CLI to retrieve past key-values.
 
 6. Select **Restore** to restore the selected key-value(s) to the selected date and time.
 
-   :::image type="content" source="media/restore-key-value-confirm.png" alt-text="Screenshot of the Azure portal selecting Restore":::
+   :::image type="content" source="media/concept-point-time-snapshot/restore-key-value-confirm.png" alt-text="Screenshot of the Azure portal selecting Restore":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -91,13 +91,13 @@ You can also access the revision history of a specific key-value in the portal.
 1. In the **Operations** menu, select **Configuration explorer**.
 1. Select **More actions** for the key you want to explore, and then **History**
 
-   :::image type="content" source="media/explorer-key-history.png" alt-text="Screenshot of the Azure portal selecting key-value history":::
+   :::image type="content" source="media/concept-point-time-snapshot/explorer-key-history.png" alt-text="Screenshot of the Azure portal selecting key-value history":::
 
    You can now see the revision history for the selected key and information about the changes.
 
 1. Select **Restore** to restore the key and value to this point in time.
 
-   :::image type="content" source="media/explorer-key-day-restore.png" alt-text="Screenshot of the Azure portal viewing key-value data for a specific date":::
+   :::image type="content" source="media/concept-point-time-snapshot/explorer-key-day-restore.png" alt-text="Screenshot of the Azure portal viewing key-value data for a specific date":::
 
 
 ### [Azure CLI](#tab/azure-cli)

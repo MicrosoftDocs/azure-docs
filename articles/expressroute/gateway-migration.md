@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2023
   - build-2025
 ms.topic: concept-article
-ms.date: 03/30/2026
+ms.date: 09/05/2026
 ms.author: duau
 # Customer intent: As a network administrator, I want to migrate my existing ExpressRoute gateway to an Availability Zone-enabled SKU, so that I can enhance the reliability and high availability of my network connections without significant downtime.
 ---
@@ -17,10 +17,8 @@ ms.author: duau
 
 This article outlines the ExpressRoute gateway migration process, allowing you to move from your current SKU to any equal or higher SKU and from Basic IP to Standard IP—enhancing reliability and availability, while downgrades aren't supported.
 
-For guidance on upgrading Basic SKU public IP addresses for other networking services, see [Upgrading Basic to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade).
-
 > [!IMPORTANT]
->On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you're currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. 
+> On September 30, 2025, Basic SKU public IP addresses were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you still use Basic SKU public IP addresses, upgrade to Standard SKU public IP addresses as soon as possible.
 
 ## Gateway migration experience
 
@@ -38,6 +36,14 @@ Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migrati
 Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU.
+
+### Enable zone redundancy
+
+To add zone redundancy during migration, select an availability zone-enabled destination gateway SKU, such as ErGw1Az, ErGw2Az, or ErGw3Az. Azure automatically assigns and manages a new zone-redundant Standard SKU public IP address for the migrated gateway. You don't need to create or attach a separate public IP address.
+
+During migration in the Azure portal, select an availability zone-enabled SKU for **Gateway SKU** in the **Prepare** stage. For the complete procedure, including validation, migration, commit, timing, and rollback considerations, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal](expressroute-howto-gateway-migration-portal.md).
+
+For other resources that use Basic SKU public IP addresses, see [Upgrade Basic Public IP Address to Standard SKU in Azure](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade).
 
 ## Microsoft-initiated gateway migration
 
@@ -94,7 +100,7 @@ The guided gateway migration experience has the following limitations:
 - **Unsupported SKUs**: Gateways using the **"default" SKU** aren't eligible for migration. To check the migration eligibility of your Gateway, there should be an Advisor notification.
 - **Incompatible dedicated circuit**: Gateway migration can't proceed with a dedicated Hardware Security Module (HSM) connected to the virtual network. To proceed with the migration, see [Migrate Dedicated HSM from ExpressRoute Basic SKU](/azure/dedicated-hsm/migration-basic-standard).
 - 
-For detailed troubleshooting errors and best practices, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
+For troubleshooting guidance and best practices, see [Troubleshoot ExpressRoute gateway migration errors](/troubleshoot/azure/expressroute/gateway-migration-error-messaging).
 
 ## FAQ
 
@@ -155,10 +161,8 @@ During the migration process, traffic is rerouted seamlessly. There's no expecte
 
 If the Prepare step fails because your Basic SKU circuit has a cross-region connection, **abort** the gateway migration and **upgrade** the circuit SKU before trying again. This configuration is unsupported, and migration continues to fail until the circuit SKU is upgraded.
 
-## Next Steps
+## Next steps
 
-- Troubleshoot migration  issues with [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
-- Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).
-- Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
-
-
+- [Troubleshoot ExpressRoute gateway migration errors](/troubleshoot/azure/expressroute/gateway-migration-error-messaging)
+- [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in the Azure portal](expressroute-howto-gateway-migration-portal.md)
+- [Migrate to an availability zone-enabled ExpressRoute virtual network gateway by using PowerShell](expressroute-howto-gateway-migration-powershell.md)

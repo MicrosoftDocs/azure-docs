@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.update-cycle: 365-days
-ms.date: 03/10/2026
+ms.date: 09/18/2026
 # Customer intent: As an integration developer who works with Azure Logic Apps, I want to monitor the health for Standard workflows in Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
@@ -131,6 +131,10 @@ This behavior can happen if the logic app resource isn't healthy, or typically, 
      For example, a common oversight is setting a trigger without giving your logic app permission or access to the destination, such as a Service Bus queue, Storage blob container, and so on.
    
    - Make sure to monitor such triggers at all times, so that you can promptly detect and fix any issues.
+
+1. Exclude all containers with names that start with `azure-webjobs-*` from Azure Storage lifecycle management policies. 
+
+    Archived or tiered blobs in these containers break runtime scale monitoring.
 
 ### My workflow intermittently stops processing messages for hours but runs well most other times.
 

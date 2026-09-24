@@ -3,6 +3,7 @@ title: Back up the MABS server
 description: Learn how to back up the Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
 ms.date: 09/23/2025
+ms.update-cycle: 1825-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to implement a comprehensive backup strategy for the Microsoft Azure Backup Server, so that I can ensure data recovery and maintain operation continuity in case of server failures.

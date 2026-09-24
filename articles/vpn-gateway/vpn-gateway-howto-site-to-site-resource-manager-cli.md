@@ -90,7 +90,7 @@ This section contains common commands that are helpful when working with site-to
 
 ## Next steps
 
-* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](configure-bgp.md).
 * For information about forced tunneling, see [About forced tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For information about highly available active-active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
 * For a list of networking Azure CLI commands, see [Azure CLI](/cli/azure/network).

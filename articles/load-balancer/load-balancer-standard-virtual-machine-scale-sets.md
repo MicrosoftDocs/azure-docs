@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 08/27/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud architect, I want to implement Virtual Machine Scale Sets with Azure Load Balancer, so that I can efficiently manage application scalability and traffic distribution.
@@ -27,7 +27,7 @@ When you use the Virtual Machine Scale Set in the backend pool of the load balan
 
 ## Virtual Machine Scale Set instance-level IPs
 
-When Virtual Machine Scale Sets with [public IPs per instance](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking) are created with a load balancer in front,  the SKU of the Load Balancer (that is, Basic or Standard) determines the SKU of the instance IPs.
+When you create Virtual Machine Scale Sets with [public IPs per instance](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking) and place a Standard Load Balancer in front, both the load balancer and the instance-level public IPs must use the Standard SKU.
 
 ## Outbound rules
 

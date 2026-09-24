@@ -4,8 +4,8 @@ description: The article provides the steps to create the pre and post maintenan
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: how-to
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 zone_pivot_groups: create-pre-post-events-maintenance-configuration
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days

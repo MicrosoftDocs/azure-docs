@@ -111,7 +111,7 @@ You can specify the following next hop types when you create a UDR:
    * For Virtual Networks connected to a Virtual WAN hub:
       * The Virtual Network's gateway is always set to the Virtual WAN hub router.
 
-      On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a UDR for the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first. Instead of configuring a UDR for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP if the [BGP for a VPN virtual network gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) is enabled.
+      On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a UDR for the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first. Instead of configuring a UDR for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP if the [BGP for a VPN virtual network gateway](../vpn-gateway/configure-bgp.md?toc=%2fazure%2fvirtual-network%2ftoc.json) is enabled.
 
 * **None**: Specify when you want to drop traffic to an address prefix, rather than forwarding the traffic to a destination. Azure might show **None** for some of the optional system routes if a capability isn't configured. For example, if you see that **Next hop IP address** shows **None** and **Next hop type** shows **Virtual network gateway** or **Virtual appliance**, it might be because the device isn't running or isn't fully configured. Azure creates system [default routes](#default) for reserved address prefixes with **None** as the next hop type.
 * **Virtual network**: Specify the **Virtual network** option when you want to override the default routing within a virtual network. For an example of why you might create a route with the **Virtual network** hop type, see [Routing example](#routing-example).
@@ -362,7 +362,7 @@ Azure removed the routes for the 10.0.0.0/8, 192.168.0.0/16, and 100.64.0.0/10 a
 ## Related content
 
 * [Create a UDR table with routes and a network virtual appliance](tutorial-create-route-table-portal.md).
-* [Configure BGP for an Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* [Configure BGP for an Azure VPN Gateway](../vpn-gateway/configure-bgp.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * [Use BGP with ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits). 
 * [View all routes for a subnet](diagnose-network-routing-problem.md). A UDR table shows you only the UDRs, not the default, and BGP routes for a subnet. Viewing all routes shows you the default, BGP, and UDRs for the subnet in which a network interface is located.
 * [Determine the next hop type](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) between a virtual machine and a destination IP address. You can use the Azure Network Watcher next hop feature to determine whether traffic is leaving a subnet and being routed to where you think it should be.

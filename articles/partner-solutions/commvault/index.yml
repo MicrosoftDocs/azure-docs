@@ -1,0 +1,47 @@
+### YamlMime:Landing
+
+title: Azure Native Commvault Cloud documentation
+summary: Azure Native Commvault Cloud provides a native integrated experience for provisioning and managing Commvault data-protection resources directly from Azure.
+
+metadata:
+  title: Azure Native Commvault Cloud documentation
+  description: Azure Native Commvault Cloud combines the benefits of Commvault data protection with the Azure cloud through a fully managed Azure resource.
+  author: agrimayadav
+  ms.author: agrimayadav
+  ms.topic: landing-page
+  ms.date: 08/27/2026
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: Learn about Azure Native Commvault Cloud
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Native Commvault Cloud?
+            url: overview.md
+          - text: FAQ
+            url: faq.yml
+
+  # Card
+  - title: Get started with Azure Native Commvault Cloud
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Commvault Cloud account
+            url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure prerequisites
+            url: configure-prerequisites.md
+
+  # Card
+  - title: Manage Azure Native Commvault Cloud
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage resources
+            url: manage.md
+          - text: Troubleshoot resources
+            url: troubleshoot.md
