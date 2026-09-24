@@ -45,7 +45,7 @@ Artifact Signing provides a durable identity value in each certificate that's as
 
 - **Public Trust certificate profile example**
 
-   A value of  1.3.6.1.4.1.311.97.990309390.766961637.194916062.941502583 identifies an Artifact Signing Public Trust certificate profile. The  1.3.6.1.4.1.311.97.  prefix identifies the Artifact Signing Public Trust code signing type. The remaining values uniquely identify the certificate profile.
+   A value of  `1.3.6.1.4.1.311.97.990309390.766961637.194916062.941502583` identifies an Artifact Signing Public Trust certificate profile. The  `1.3.6.1.4.1.311.97.`  prefix identifies the Artifact Signing Public Trust code signing type. The remaining values uniquely identify the certificate profile.
 
 - **Private Trust identity validation example**
 
