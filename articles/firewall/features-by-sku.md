@@ -209,4 +209,4 @@ Premium also provides the capabilities that payment processing environments typi
 - [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md)
 - [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal-policy.md)
 - [Azure Firewall Premium certificates](premium-certificates.md)
-- [Learn more about Azure network security](../networking/security/index.yml)
+- [Learn more about Azure network security](../networking/security/index.yml).
