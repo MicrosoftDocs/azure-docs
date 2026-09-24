@@ -906,7 +906,7 @@ The following tabs list previous Core Rule Set versions. If you're using CRS 3.2
 |800113|Critical - 5|PL2|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 |800114*|Critical - 5|PL2|Attempted Apache Struts file upload exploitation - [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 |800115|Critical - 5|PL1|Attempted React2Shell remote code execution exploitation [CVE-2025-55182](https://www.cve.org/CVERecord?id=CVE-2025-55182)|
-|99001019|Critical - 5|PL2|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
+|800116|Critical - 5|PL2|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
 
 
 *<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.</sup>
