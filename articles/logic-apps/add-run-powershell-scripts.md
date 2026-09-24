@@ -60,14 +60,14 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 You can change the PowerShell version in your logic app resource by editing the application settings. However, before you upgrade your app, review the following considerations:
 
-- A version upgrade might introduce breaking changes to your Standard logic app, which uses a runtime hosted as an extension on the Azure Functions runtime. Before you upgrade, review the following migration guide: [Upgrading your Azure Functions apps to run on PowerShell 7.4](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4).
+- A version upgrade might introduce breaking changes to your Standard logic app, which uses a runtime hosted as an extension on the Azure Functions runtime. Before you upgrade, test your scripts for compatibility with the target PowerShell version and check the [Azure Functions PowerShell worker wiki](https://github.com/Azure/azure-functions-powershell-worker/wiki) for migration guidance.
 
 - Make sure that your logic app uses the latest runtime version for Azure Functions runtime in Azure, which is version 4.x. For more information, see [View the current runtime version](../azure-functions/set-runtime-version.md?tabs=azure-portal#view-the-current-runtime-version).
 
 > [!NOTE]
 >
 > By default, if you don't specify a PowerShell version, Azure Logic Apps uses the same default 
-> version as Azure Functions. Currently, PowerShell 7.4 is generally available. For more information 
+> version as Azure Functions. For more information
 > about available versions, see the [Azure Functions PowerShell developer guide](../azure-functions/functions-reference-powershell.md#powershell-versions).
 
 Based on where you want to update the PowerShell version, follow the corresponding steps:
@@ -85,7 +85,7 @@ Based on where you want to update the PowerShell version, follow the correspondi
    | Parameter | Value | Description |
    | --------- | ------| ----------- |
    | **Name** | **`LOGIC_APPS_POWERSHELL_VERSION`** | The app setting name. |
-   | **Value** | <*powershell-version*> | The PowerShell version, currently **7.4**. |
+   | **Value** | <*powershell-version*> | A [supported PowerShell version](../azure-functions/functions-reference-powershell.md#powershell-versions). |
 
 1. When you're done, select **Apply**. When the restart warning appears, select **Continue**.
 
@@ -105,7 +105,7 @@ Based on where you want to update the PowerShell version, follow the correspondi
        "Values": {
            "AzureWebJobsStorage": "<*storage-account*>",
            <...>
-           "LOGIC_APPS_POWERSHELL_VERSION": "<powershell-version>" // For example, "7.4"
+           "LOGIC_APPS_POWERSHELL_VERSION": "<powershell-version>"
        }
    }
    ```
