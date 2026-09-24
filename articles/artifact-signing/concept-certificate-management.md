@@ -38,7 +38,7 @@ To support durable identification across certificate renewals, Artifact Signing 
 The EKU is associated with the certificate profile, not with the subscriber or identity validation resource.
 
 - **Deleting and recreating a certificate profile**
-The certificate profile EKU remains the same for certificates issued from an existing certificate profile. If you delete the certificate profile and create a new one, Artifact Signing assigns a new EKU to the new profile. This applies even when the new profile belongs to the same subscriber or uses the same identity validation resource.
+The certificate profile EKU stays the same for certificates issued from an existing certificate profile. If you delete the certificate profile and create a new one, Artifact Signing assigns a new EKU to the new profile. This change applies even when the new profile belongs to the same subscriber or uses the same identity validation resource.
 You must update any application or policy pinned to the previous certificate profile EKU to trust the new EKU.
 
 Artifact Signing provides a durable identity value in each certificate that's associated with the certificate profile. The durable identity value is a custom EKU that has the prefix `1.3.6.1.4.1.311.97.` and is followed by more octet values that are unique to the certificate profile. Here are some examples:
