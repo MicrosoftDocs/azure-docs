@@ -55,6 +55,8 @@
           href: kerberos.md 
         - name: Understand Active Directory Domain Services and guidelines for site design and planning
           href: understand-guidelines-active-directory-domain-service-site.md
+        - name: Understand Microsoft Entra ID hybrid and cloud-only identities
+          href: understand-entra-id.md
         - name: Understand LDAP
           items:
           - name: Understand LDAP basics
@@ -363,6 +365,10 @@
         href: configure-ldap-over-tls.md
       - name: Join a Linux VM to an Active Directory Domain
         href: join-active-directory-domain.md
+    - name: Manage Entra ID 
+      items:
+      - name: Manage Microsoft Entra Kerberos authentication 
+        href: configure-entra-kerberos-authentication-for-hybrid-cloud-identities.md
     - name: Manage capacity pools
       items:
       - name: Set up a capacity pool
@@ -599,6 +605,8 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+    - name: Troubleshoot Microsoft Entra Kerberos authentication 
+      href: troubleshoot-entra-kerberos-authentication.md
     - name: Troubleshoot SMB authentication and CIFS password reset failures
       href: troubleshoot-authentication-password-reset-failure.md
     - name: Troubleshoot latency issues
