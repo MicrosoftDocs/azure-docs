@@ -33,7 +33,7 @@ For example, if it's determined that a subscriber signed code that was malware o
 
 ### Certificate profile EKU
 
-Artifact Signing certificates are renewed daily, so pinning trust to an individual certificate's public key, thumbprint, or other certificate attributes is not durable.
+Artifact Signing certificates renew daily, so pinning trust to an individual certificate's public key, thumbprint, or other certificate attributes isn't durable.
 To support durable identification across certificate renewals, Artifact Signing assigns a custom Extended Key Usage (EKU) value to each certificate profile. Certificates issued from the same certificate profile contain the same profile-specific EKU for the lifetime of that profile.
 The EKU is associated with the certificate profile, not with the subscriber or identity validation resource.
 
