@@ -6,9 +6,9 @@ ms.suite: integration
 ms.reviewers: estfan, divswa, edwardyhe, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 03/10/2026
+ms.date: 09/22/2026
 ms.update-cycle: 180-days
-#Customer intent: As an integration and AI developer working with Azure Logic Apps, I want to secure access to my conversational agentic workflow and external chat client by authenticating and authorizing users through Easy Auth.
+#Customer intent: As an automation and integration developer working with Azure Logic Apps, I want to secure access to my conversational agentic workflow and external chat client by authenticating and authorizing users through Easy Auth.
 ---
 
 # Secure conversational agentic workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (preview)
@@ -17,7 +17,7 @@ ms.update-cycle: 180-days
 
 > [!IMPORTANT]
 >
-> This capability is in preview and is subject to the 
+> Easy Auth support is generally available, but this capability in agentic workflows is in preview and subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Agentic workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While nonagentic workflows interact with a small, known, and fixed set of callers, clients that call agentic workflows can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
