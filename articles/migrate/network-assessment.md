@@ -1,7 +1,7 @@
 ---
 title: Azure Networking With Azure Migrate Assessments
 description: Learn how Azure networking works with Azure Migrate assessments.
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 08/31/2026

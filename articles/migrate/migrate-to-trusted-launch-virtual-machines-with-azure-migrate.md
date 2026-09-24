@@ -5,7 +5,7 @@ author: dhananjayanr
 ms.author: dhananjayanr
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 03/16/2026
 ms.update-cycle: 1825-days
 ms.custom: engagement-fy26

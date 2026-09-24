@@ -1222,6 +1222,8 @@ items:
     href: concepts/interop/tpe/teams-phone-extensibility-capabilities.md
   - name: Teams Phone extensibility FAQ
     href: concepts/interop/tpe/teams-phone-extensibility-faq.md
+  - name: Lowest Latency Best Practices
+    href: concepts/interop/tpe/teams-phone-extensibility-optimize-latency.md
   - name: Troubleshooting
     href: concepts/interop/tpe/teams-phone-extensibility-troubleshooting.md
   - name: Samples and tutorials
