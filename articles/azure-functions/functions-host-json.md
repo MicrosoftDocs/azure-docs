@@ -2,7 +2,7 @@
 title: host.json reference for Azure Functions 2.x
 description: Describes the various available settings for the Azure Functions host that can be set in the host.json file for the Functions v4 runtime.
 ms.topic: reference
-ms.date: 05/16/2024
+ms.date: 09/02/2026
 ---
 
 # host.json reference for Azure Functions 2.x and later 
@@ -38,6 +38,8 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     },
     "concurrency": { 
             "dynamicConcurrencyEnabled": true, 
+            "maximumFunctionConcurrency": 500,
+            "cpuThreshold": 0.80,
             "snapshotPersistenceEnabled": true 
         },
     "extensions": {
@@ -289,6 +291,8 @@ Enables dynamic concurrency for specific bindings in your function app. For more
     { 
         "concurrency": { 
             "dynamicConcurrencyEnabled": true, 
+            "maximumFunctionConcurrency": 500,
+            "cpuThreshold": 0.80,
             "snapshotPersistenceEnabled": true 
         } 
     } 
@@ -297,6 +301,8 @@ Enables dynamic concurrency for specific bindings in your function app. For more
 |Property | Default | Description |
 | --------- | --------- | --------- |
 | dynamicConcurrencyEnabled | false | Enables dynamic concurrency behaviors for all triggers supported by this feature, which is off by default. |
+| maximumFunctionConcurrency | 500 | Sets an upper limit for the concurrency that the host can learn for each function on an instance. The value must be a positive integer, or `-1` to remove the limit. This setting applies only when `dynamicConcurrencyEnabled` is `true`. |
+| cpuThreshold | 0.80 | Sets the CPU usage level at which the host's CPU health throttle can activate. The value must be greater than 0 and less than 1. This setting applies only when `dynamicConcurrencyEnabled` is `true`. |
 | snapshotPersistenceEnabled | true | Learned concurrency values are periodically persisted to storage so new instances start from those values instead of starting from 1 and having to redo the learning. |
 
 ## eventHub
