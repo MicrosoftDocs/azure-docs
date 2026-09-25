@@ -19,7 +19,7 @@ service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 This article helps you to configure Azure subscription policies to control the movement of Azure subscriptions from and into directories. The default behavior of these two policies is set to **Allow no users (recommended)** to help protect tenants from unauthorized subscription transfers. Global administrators can change these settings to **Allow all users** if needed. Note that the setting of **Allow all users** allows all authorized users, including authorized guest users on a subscription, to be able to transfer them. It does not mean all users in a directory.
 
 > [!IMPORTANT]
-> To improve tenant security, on May 1st, 2026, Microsoft updated the default behavior for subscription transfer policies. Subscriptions can no longer be transferred in to or out of your directory unless a global administrator explicitly allows it.
+> To improve tenant security, starting May 1st, 2026, Microsoft updated the default behavior for subscription transfer policies. Subscriptions can no longer be transferred in to or out of your directory unless a global administrator explicitly allows it.
 >
 > If your organization previously set an explicit policy, that choice continues to be respected — no action is needed.
 >
