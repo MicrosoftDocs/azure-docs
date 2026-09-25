@@ -4,7 +4,7 @@ description: This article shows you how to migrate your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 09/15/2026
-zone_pivot_groups: programming-languages-set-functions-no-go
+zone_pivot_groups: programming-languages-set-functions
 ms.custom:
   - template-how-to-pattern
   - devx-track-extended-java
@@ -19,6 +19,13 @@ ms.custom:
 ---
 
 # <a name="top"></a>Migrate apps from Azure Functions version 1.x to version 4.x 
+
+::: zone pivot="programming-language-go"
+
+> [!IMPORTANT]
+> Go isn't supported by version 1.x of the Azure Functions runtime, so there's no Go-specific migration path. To create a first-class Go function app on version 4.x, see the [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go).
+
+::: zone-end
 
 ::: zone pivot="programming-language-java"
 

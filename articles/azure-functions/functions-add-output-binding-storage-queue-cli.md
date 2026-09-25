@@ -1,17 +1,24 @@
 ---
 title: Connect Azure Functions to Azure Storage using command line tools
 description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project.
-ms.date: 12/29/2024
+ms.date: 08/19/2026
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
 ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions-no-go
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Connect Azure Functions to Azure Storage using command line tools
 
-In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no extra costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. Completing this article incurs no extra costs beyond the few USD cents of the previous quickstart.
+
+::: zone pivot="programming-language-go"
+Because the Go worker doesn't currently support output bindings, you use the Azure Queue Storage SDK for Go to write data from an HTTP request to a message in the queue.
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
+You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+::: zone-end
 
 ## Configure your local environment
 
@@ -33,6 +40,9 @@ Before you begin, you must complete the article, [Quickstart: Create an Azure Fu
 ::: zone pivot="programming-language-powershell"  
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-powershell). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
+::: zone pivot="programming-language-go"
+Before you begin, complete the article, [Quickstart: Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-go). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
+::: zone-end
 
 ### Retrieve the Azure Storage connection string
 
@@ -67,11 +77,29 @@ Earlier, you created an Azure Storage account for function app's use. The connec
 [!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 ::: zone-end   
 
+::: zone pivot="programming-language-go"
+## Install the Azure Queue Storage SDK
+
+From the root of your project, run the following command to install the current major version of the Azure Queue Storage SDK for Go:
+
+```console
+go get github.com/Azure/azure-sdk-for-go/sdk/storage/azqueue
+```
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 For more information on the details of bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md) and [queue output configuration](functions-bindings-storage-queue-output.md#configuration).
+::: zone-end
 
 ## Add code to use the output binding
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 With the queue binding defined, you can now update your function to receive the `msg` output parameter and write messages to the queue.
+::: zone-end
+
+::: zone pivot="programming-language-go"
+Update your function to write messages directly to the queue by using the Azure Queue Storage SDK.
+::: zone-end
 
 ::: zone pivot="programming-language-python"     
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-storage-binding-python-v2.md)]
@@ -100,7 +128,74 @@ With the queue binding defined, you can now update your function to receive the 
 [!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Replace the contents of *main.go* with the following code. This implementation reads the `AzureWebJobsStorage` connection string, creates the `outqueue` queue if it doesn't exist, and writes a message by using the Azure Queue Storage SDK:
+
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "net/http"
+    "os"
+
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azqueue"
+    "github.com/azure/azure-functions-golang-worker/sdk"
+    "github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func HTTPTriggerHandler(w http.ResponseWriter, r *http.Request) {
+    name := r.URL.Query().Get("name")
+    if name == "" {
+        var body struct{ Name string }
+        if err := json.NewDecoder(r.Body).Decode(&body); err == nil {
+            name = body.Name
+        }
+    }
+    if name == "" {
+        http.Error(w, "Pass a name in the query string or request body.", http.StatusBadRequest)
+        return
+    }
+
+    queueClient, err := azqueue.NewQueueClientFromConnectionString(
+        os.Getenv("AzureWebJobsStorage"),
+        "outqueue",
+        nil,
+    )
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if _, err := queueClient.Create(r.Context(), nil); err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    message := "Name passed to the function: " + name
+    if _, err := queueClient.EnqueueMessage(r.Context(), message, nil); err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    fmt.Fprintf(w, "Hello, %s!", name)
+}
+
+func main() {
+    app := sdk.FunctionApp()
+    app.HTTP("HttpExample", HTTPTriggerHandler,
+        sdk.WithMethods("GET", "POST"),
+        sdk.WithAuth("anonymous"),
+    )
+    worker.Start(app)
+}
+```
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 Observe that you *don't* need to write any code for authentication, obtain a queue reference, or write data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
+::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
@@ -112,8 +207,8 @@ Observe that you *don't* need to write any code for authentication, obtain a que
 
 After you verify locally that the function wrote a message to the Azure Storage queue, you can redeploy your project to update the endpoint running on Azure.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
-In the *LocalFunctionsProj* folder, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) command to redeploy the project, replacing`<APP_NAME>` with the name of your app.
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"
+From the root folder of your local project, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) command to redeploy the project. Replace `<APP_NAME>` with the name of your app.
 
 ```
 func azure functionapp publish <APP_NAME>
@@ -195,4 +290,11 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 + [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
 
 [previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-powershell
+::: zone-end
+::: zone pivot="programming-language-go"
++ [Azure Functions Go developer reference](functions-reference-go.md)
+
++ [Azure Queue Storage SDK for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azqueue)
+
+[previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-go
 ::: zone-end
