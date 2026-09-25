@@ -75,6 +75,8 @@ client = CommunicationIdentityClient.from_connection_string(connection_string)
 Alternatively, if you already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
 
 ```python
+from azure.identity import DefaultAzureCredential
+
 endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
 client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
 ```
