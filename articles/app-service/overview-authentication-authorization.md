@@ -153,6 +153,9 @@ The ID tokens, access tokens, and refresh tokens are cached for the authenticate
 
 If you don't need to work with tokens in your app, you can disable the token store on your app's **Settings** > **Authentication** page.
 
+> [!NOTE]
+> App Service built-in authentication (EasyAuth) uses a stateless session model. The AppServiceAuthSession cookie is generated using encryption and signing keys and contains an expiration time. During logout, the browser is instructed to delete the cookie. However, the cookie remains cryptographically valid until its expiration time, so if a client continues to send it (for example, if it wasn't cleared), it can be accepted until it expires. This behavior is expected and is designed to improve scalability and performance.
+
 ### Logging and tracing
 
 If you [enable application logging](troubleshoot-diagnostic-logs.md), authentication and authorization traces appear directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs.
