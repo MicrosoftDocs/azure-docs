@@ -24,8 +24,9 @@ This article explains Private Link service Direct Connect and how to create it u
 > [!NOTE]
 > This feature is in public preview and is available in select regions. Review all considerations before enabling it for your subscription.
 
-> [!NOTE]
-> Portal support is available via a preview link that activates the feature in your portal: ([aka.ms/PortalPLSDirectConnect](https://aka.ms/PortalPLSDirectConnect)). Full portal support without use of a preview link to access the feature is pending.
+> [!IMPORTANT]
+> Starting October 15, 2026, each Private Link service Direct Connect resource will be billed at $0.675 USD per hour. This applies to both existing and newly created resources.
+
 
 ## Prerequisites
 
@@ -33,7 +34,6 @@ This article explains Private Link service Direct Connect and how to create it u
 - Azure PowerShell installed locally or use Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 - Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 - For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
-- Enable the feature flag Microsoft.Network/AllowPrivateLinkserviceUDR in your subscription. Follow the instructions to register via Azure CLI or PowerShell: [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
 - A virtual network with a subnet.
 - A routable IP address to set as the destination IP address.
 
@@ -64,20 +64,20 @@ Private Link service (PLS) Direct Connect allows you to:
 
 Note these limitations when using Private Link service Direct Connect:
 
-- **On-premises connectivity via ExpressRoute**: Routing to on-premises destinations through a peered virtual network or globally peered virtual network's ExpressRoute gateway is not supported as the PLS Direct Connect and ExpressRoute gateway must be in the same virtual network.
+- **On-premises connectivity via ExpressRoute**: Routing to on-premises destinations through a peered virtual network or globally peered virtual network's ExpressRoute gateway is not supported as the PLS Direct Connect and ExpressRoute gateway must be in the same virtual network. Support for this scenario is planned for general availability (GA).
 - **Private Endpoint as a destination is not supported**: The destination IP address cannot be a Private Endpoint.
 - **Minimum 2 IP configurations required**: At least 2 IP configurations, or multiples of 2 ([limit](/azure/azure-resource-manager/management/azure-subscription-service-limits) of 8 max) are required to deploy a PLS Direct Connect.
 - **Maximum of 10 PLS per subscription**: There is a hardware limitation of 10 PLS per region per subscription.
 - **Bandwidth limitation**: Each PLS Direct Connect can support a bandwidth of up to 10 Gbps.
 - **Static IP requirement**: The target destination IP address must be allocated statically, there is no support for dynamically allocated target IP address.
 - **Cross-region limitation**: The source private endpoint, private link service, and client VM must be in the same region. This restriction is to be removed when the feature is generally available.
-- **Regional availability**: This feature is available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central).
+- **Regional availability**: This feature is available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central). Support for additional regions is planned for general availability (GA).
 - **Network security group support for private endpoints**: For private endpoints associated with PLS Direct Connect, configurations with `PrivateEndpointNetworkPolicies` enabled, including `NetworkSecurityGroupEnabled`, aren't supported during preview.
 
 ## Considerations
 
 - **No migration support**: Deploying this feature requires a new Private Link service. Migration of existing private link services isn't supported.
-- **Available client support**: Use PowerShell, CLI, or Terraform to deploy this new Private Link service. Portal support is available via a preview link that activates the feature in portal: ([aka.ms/PortalPLSDirectConnect](https://aka.ms/PortalPLSDirectConnect)). Full portal support without use of a preview link to configure the feature is pending.
+- **Available client support**: Use PowerShell, CLI, or Terraform to deploy this new Private Link service.
 - **IP forwarding is enabled**: If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration. Although the Private Link service Direct Connect network interface (NIC) may show IP forwarding set to disabled (false), the service functionally operates as if IP forwarding is enabled.
 
 ## Create a Private Link service Direct Connect
