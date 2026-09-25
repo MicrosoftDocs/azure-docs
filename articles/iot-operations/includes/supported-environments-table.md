@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: include
 ms.service: azure-iot-operations
-ms.date: 07/15/2026
+ms.date: 09/24/2026
 ---
 
 ### Supported Windows environments
@@ -27,8 +27,10 @@ Microsoft supports the following Kubernetes distributions for Azure IoT Operatio
 | [vSphere Kubernetes Service (VKS)](https://www.vmware.com/products/cloud-infrastructure/vsphere-kubernetes-service)    | x86_64               | General availability | *v1.32.7---vmware.3-fips-vkr.1*                          | *VKS 3.3.x*        |
 | [RKE2](https://docs.rke2.io/)                             | x86_64               | General availability | *v1.35.0+rke2r1*                   | [Operating systems](https://docs.rke2.io/install/requirements#operating-systems)    |
 | [K3s on small form factor deployment of Azure Local (preview)](/azure/azure-local/small-form-factor/small-form-factor-container-orchestrators#k3s) | x86_64               | Preview       | *1.33.6*  | *Azure Local 2604* |
+| [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) | x86_64 | *pending* | *4.20.15* | *Red Hat Enterprise Linux CoreOS* |
 
 * The *minimum validated version* is the lowest version of the Kubernetes distribution that Microsoft uses to validate Azure IoT Operations deployments.
 * The *minimum validated OS* is the lowest operating system version that Microsoft uses to validate deployments.
 * ARM64 support for K3s on Ubuntu 24.04 is available starting with Azure IoT Operations 2607.
 * Currently, support is available for VKS running in [privileged mode](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/organization-management/managing-vks-clusters-with-vks-cluster-management/vks-cluster-management-policies/pod-security-management.html) without WLIF.
+* OpenShift requires granting additional security context constraints to the Azure IoT Operations namespace, and requires disabling cert-manager telemetry and the connector security context at deployment time. Deployment under the default `restricted-v2` constraint alone isn't supported.
