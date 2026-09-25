@@ -147,7 +147,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 | Node.js | 20, 22 | 22, 24 |
 | Python | 3.9, 3.10, 3.11, 3.12, 3.13 | 3.10, 3.11, 3.12, 3.13 |
 | Java | 8, 11, 17, 21 | 8, 11, 17, 21 |
-| PowerShell | Not supported | 7.4 |
+| PowerShell | Not supported | 7.6, 7.4 |
 | .NET | .NET 8 | .NET 8, .NET 9, .NET Framework 4.8.1 |
 | Ruby | 3.2, 3.3 | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
 | Go | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Go (Preview)](/azure/azure-functions/functions-reference-go) |

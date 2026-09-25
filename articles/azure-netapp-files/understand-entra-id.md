@@ -135,3 +135,7 @@ For SMB volumes that use Microsoft Entra ID, replication requires:
 * A NetApp account in both the source and destination regions.
 * A Microsoft Entra ID configuration available in the destination region, including reachability to the Azure Key Vault holding the primary application’s private key.
 * A NAT gateway and proper network configuration in the destination region so that Azure NetApp Files has outbound HTTPS connectivity to the Microsoft Graph endpoint that corresponds to the destination region’s cloud environment.
+
+  ## Next steps
+
+* [Configure Microsoft Entra Kerberos authentication with Azure NetApp Files](configure-entra-kerberos-authentication-for-hybrid-cloud-identities.md)
