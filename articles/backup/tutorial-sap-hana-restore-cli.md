@@ -3,6 +3,7 @@ title: Tutorial - SAP HANA DB restore on Azure using CLI
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
 ms.date: 10/16/2025
+ms.update-cycle: 1825-days
 ms.custom: devx-track-azurecli,engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS

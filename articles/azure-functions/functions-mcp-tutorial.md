@@ -5,11 +5,11 @@ description: Host your MCP server on Azure Functions with ease. Learn to configu
 #customer intent: As a developer, I want to enable Microsoft Entra ID authentication for my MCP server so that I can ensure secure access for authorized users.
 ms.author: jiayma
 ms.topic: tutorial
-ms.date: 06/02/2026
+ms.date: 08/19/2026
 ms.update-cycle: 180-days
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions-no-go
+zone_pivot_groups: programming-languages-set-functions
 
 #Customer intent: As a developer, I want to learn how to create and host remote and secured MCP servers on Azure Functions. 
 ---
@@ -22,7 +22,7 @@ There are two ways to host a remote MCP server in Azure Functions:
 <!-- Tables are great for AI ingestion. Maybe also share this into the MCP overview article. -->
 | MCP server option | Description | Best for... |
 | ---- | ---- | ---- | 
-| [**MCP extension server**](functions-mcp-tutorial.md?tabs=mcp-extension) | Uses the [Azure Functions MCP extension](./functions-bindings-mcp.md) to create custom MCP servers, where the extension trigger lets you define your tool endpoints. These servers are supported in all Functions languages and are developed, deployed, and managed as any other function app. | When you're already familiar with Functions and its [bindings-based programming model](./functions-triggers-bindings.md). |
+| [**MCP extension server**](functions-mcp-tutorial.md?tabs=mcp-extension) | Uses the [Azure Functions MCP extension](./functions-bindings-mcp.md) to create custom MCP servers, where the extension trigger lets you define your tool endpoints. These servers are developed, deployed, and managed as any other function app in a [supported language](./functions-bindings-mcp.md). | When you're already familiar with Functions and its [bindings-based programming model](./functions-triggers-bindings.md). |
 | [**Self-hosted server**](functions-mcp-tutorial.md?tabs=self-hosted) | Functions can host an MCP server project created using the standard MCP SDKs. | When you've already built your server using the official MCP SDKs and are looking for event-driven, serverless, and scalable hosting in Azure. |
 
 [!INCLUDE [functions-custom-handler-mcp-preview](../../includes/functions-custom-handler-mcp-preview.md)]
@@ -53,7 +53,7 @@ In this tutorial, you use Visual Studio Code to:
 
 ---
 
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-java,programming-language-javascript,programming-language-powershell"
 > [!IMPORTANT]  
 > This article currently supports only C#, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
 ::: zone-end  
