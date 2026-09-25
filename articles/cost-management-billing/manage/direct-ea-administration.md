@@ -577,6 +577,9 @@ To apply your Azure Prepayment to overages, you must meet the following criteria
 
 To complete an overage offset, you or the account team can open a support request. An emailed approval from your enterprise administrator or Bill to Contact is required.
 
+>[!NOTE]
+>Before requesting an offset, make sure the Azure Prepayment balance is sufficient to cover the overage and also the purchase amounts of reserved instances and savings plans during the offset operation. If a purchase of reserved instance or savings plan occurs and is billed while the offset is being processed, the Azure Prepayment prioritizes the purchase over the offset. A part of the overage amounts may remain without being offset.
+
 ## Move charges to another enrollment
 
 Usage data is only moved when a transfer is backdated. There are two options to move usage data from one enrollment to another:
