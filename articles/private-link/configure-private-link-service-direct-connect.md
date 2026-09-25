@@ -64,7 +64,7 @@ Private Link service (PLS) Direct Connect allows you to:
 
 Note these limitations when using Private Link service Direct Connect:
 
-- **On-premises connectivity via ExpressRoute**: Routing to on-premises destinations through a peered virtual network or globally peered virtual network's ExpressRoute gateway is not supported as the PLS Direct Connect and ExpressRoute gateway must be in the same virtual network. Support for this scenario is planned for general availability (GA).
+- **On-premises connectivity via ExpressRoute**: You can't route to on-premises destinations through a peered virtual network or globally peered virtual network's ExpressRoute gateway because the PLS Direct Connect and ExpressRoute gateway must be in the same virtual network. Support for this scenario is planned for general availability (GA).
 - **Private Endpoint as a destination is not supported**: The destination IP address cannot be a Private Endpoint.
 - **Minimum 2 IP configurations required**: At least 2 IP configurations, or multiples of 2 ([limit](/azure/azure-resource-manager/management/azure-subscription-service-limits) of 8 max) are required to deploy a PLS Direct Connect.
 - **Maximum of 10 PLS per subscription**: There is a hardware limitation of 10 PLS per region per subscription.
