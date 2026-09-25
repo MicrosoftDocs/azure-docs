@@ -45,7 +45,7 @@ Defining access rights on the files and data that is respected in different data
 
 ## Trust architecture
 
-The following high-level diagram summarizes the solution architecture of using Microsoft Entra authentication with Synapse SQL. To support Microsoft Entra native user password, only the Cloud portion and Azure AD/Synapse Synapse SQL is considered. To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required. The arrows indicate communication pathways.
+The following high-level diagram summarizes the solution architecture of using Microsoft Entra authentication with Synapse SQL. To support Microsoft Entra native user password, only the Cloud portion and Microsoft Entra ID/Synapse SQL are considered. To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required. The arrows indicate communication pathways.
 
 ![Microsoft Entra auth diagram](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
@@ -95,7 +95,7 @@ You can also disable local authentication after a workspace is created through t
 
   - Native members: A member created in Microsoft Entra ID in the managed domain or in a customer domain. For more information, see [Add your own domain name to Microsoft Entra ID](../../active-directory/fundamentals/add-custom-domain.md).
   - Federated domain members: A member created in Microsoft Entra ID with a federated domain. For more information, see [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs).
-  - Imported members from other Azure ADs who are native or federated domain members.
+  - Imported members from other Microsoft Entra tenants who are native or federated domain members.
   - Active Directory groups created as security groups.
 
 - Microsoft Entra users that are part of a group that has `db_owner` server role can't use the **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)** syntax in Synapse SQL. You will see the following error:
