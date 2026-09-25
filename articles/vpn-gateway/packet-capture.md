@@ -332,6 +332,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 - The maximum filesize of packet capture data files is 500 MB.
 - If the `SASurl` parameter isn't configured correctly, the trace might fail with Storage errors. For examples of how to correctly generate an `SASurl` parameter, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
 - If you're configuring a User Delegated SAS, make sure the user account is granted proper RBAC permissions on the storage account such as Storage Blob Data Owner.
+- Service Endpoints and Blob Private Endpoints for the Storage Account will work for connectivity methods when properly configured. 
 
 ## Packet capture - portal
 
