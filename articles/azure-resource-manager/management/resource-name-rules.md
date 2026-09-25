@@ -614,6 +614,19 @@ In the following tables, the term alphanumeric refers to:
 > | mediaservices / liveEvents / liveOutputs | Live event | 1-256 | Alphanumerics and hyphens<br><br>Start with alphanumeric. |
 > | mediaservices / streamingEndpoints | Media service | 1-24 | Alphanumerics and hyphens<br><br>Start with alphanumeric. |
 
+## Microsoft.Mission
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | communities | Resource group | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumeric. |
+> | communities / communityEndpoints | community | 3-30 | Alphanumeric and hyphens. Start with a letter and end with alphanumeric.  |
+> | communities / transitHubs | Resource group | 3-30 | Alphanumeric and hyphens. Start with a letter and end with alphanumeric.  |
+> | virtualEnclaves | Resource group | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics.  |
+> | virtualEnclaves / enclaveEndpoints | Enclave | 3-30 | Alphanumeric and hyphens. Start with a letter and end with alphanumeric.  |
+> | virtualEnclaves / workloads | Enclave and Subscription| 3-30 | Alphanumeric and hyphens. Start with a letter and end with alphanumeric.  |
+> | enclaveConnections | Resource group | 3-30 | Alphanumeric and hyphens. Start with a letter and end with alphanumeric.  |
+
 ## Microsoft.MobileNetwork
 
 > [!div class="mx-tableFixed"]
