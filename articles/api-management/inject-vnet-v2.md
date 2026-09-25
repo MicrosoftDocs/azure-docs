@@ -33,6 +33,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 > * Virtual network injection described in this article is available only for API Management instances in the Premium v2 tier. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
 > * Currently, you can inject a Premium v2 instance into a virtual network only when the instance is **created**. You can't inject an existing Premium v2 instance into a virtual network. However, you can update the subnet settings for injection after the instance is created.
 > * Currently, you can't switch between virtual network injection and virtual network integration for a Premium v2 instance.
+> * The *publicNetworkAccess* property has no effect on API Management instances deployed with virtual network injection. With Internal VNet injection, the gateway endpoint is assigned a private IP address only and has no public IP. Network access is governed entirely by your NSG rules and VNet routing — not by the *publicNetworkAccess* property. The *publicNetworkAccess* property is only relevant for instances that use inbound private endpoints without VNet injection, where a public IP exists and needs to be explicitly disabled. See [Connect privately to API Management using an inbound private endpoint](https://learn.microsoft.com/en-us/azure/api-management/private-endpoint).
 
 ## Prerequisites
 
