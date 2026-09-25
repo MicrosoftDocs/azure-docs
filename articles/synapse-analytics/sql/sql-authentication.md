@@ -24,6 +24,9 @@ To authenticate to Synapse SQL, you can use two options:
 
 SQL authentication enables legacy applications to connect to Azure Synapse SQL in a familiar way, with a user name and password. However, Microsoft Entra authentication allows you to centrally manage access to Azure Synapse resources, such as SQL pools. Azure Synapse Analytics supports disabling local authentication, such as SQL authentication, both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](active-directory-authentication.md).
 
+> [!IMPORTANT]
+> To strengthen credential security, **SQL authentication requires a minimum password length of 14 characters**.
+> This applies to both server admin logins and any SQL-authenticated logins or contained database users you create.
 ## Administrative accounts
 
 There are two administrative accounts (**SQL admin username** and **Microsoft Entra admin**) that act as administrators. To identify these administrator accounts for your SQL pools open the Azure portal, and navigate to the Properties tab of your Synapse workspace.
