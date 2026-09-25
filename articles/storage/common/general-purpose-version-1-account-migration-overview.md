@@ -122,7 +122,7 @@ Here’s an example Azure Resource Graph query to identify all General Purpose v
 ```
 Resources
 | where type == "microsoft.storage/storageaccounts"
-| where sku.name in~ ("Standard_LRS", "Standard_GRS", "Standard_ZRS", "Standard_RAGRS", "Standard_RAGZRS")
+| where sku.name in~ ("Standard_LRS", "Standard_GRS", "Standard_ZRS", "Standard_RAGRS", "Standard_RAGZRS", "Premium_LRS")
 | where kind != "StorageV2"
 | extend Version = tostring(properties.siteProperties.propertiesid)
 | project name, type, tenantId, kind, location, resourceGroup, subscriptionId, managedBy, sku, plan, properties, tags, identity, zones, extendedLocation, Version
