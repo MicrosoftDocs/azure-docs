@@ -104,7 +104,7 @@ Large volumes with cool access up to 7.2 PiB have the following characteristic
   Volumes up to 7.2 PiB are supported only on Azure NetApp Files dedicated capacity and only in regions that support large volumes.
 
 * Cool data workload profile  
-  These volumes are intended for workloads where at least 80% of the data resides in the cool tier.3
+  These volumes are intended for workloads where at least 80% of the data resides in the cool tier.
 
 * Supported volume size range  
   Cool access is supported on large volumes sized between 2,400 GiB and 7.2 PiB, extending cool access beyond the previous 2 PiB limit.
