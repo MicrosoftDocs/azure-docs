@@ -31,7 +31,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Albania | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
 | Algeria |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
 | Angola |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
-| Argentina | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Argentina |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
 | Armenia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
 | Australia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
 | Austria | ✔   |     |     | ✔   | ✔   |     |     |     | ✔     |     |     |
