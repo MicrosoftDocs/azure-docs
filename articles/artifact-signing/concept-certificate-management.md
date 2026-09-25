@@ -6,13 +6,13 @@ author: TacoTechSharma
 ms.author: mesharm
 ms.service: azure-artifact-signing
 ms.topic: concept-article
-ms.date: 01/06/2026
+ms.date: 09/24/2026
 ms.custom: template-concept
 ---
 
 # Artifact Signing certificate management
 
-This article describes Artifact Signing certificates, including their two unique attributes, the service's zero-touch lifecycle management process, the importance of time stamp countersignatures, and Microsoft active threat monitoring and revocation actions.
+This article describes Artifact Signing certificates, including short-lived certificates, certificate profile-specific Extended Key Usage (EKU) values, zero-touch certificate lifecycle management, time stamp countersignatures, and Microsoft's active threat monitoring and revocation actions.
 
 The certificates that are used in the Artifact Signing service follow standard practices for X.509 code signing certificates. To support a healthy ecosystem, the service includes a fully managed experience for X.509 certificates and asymmetric keys for signing. The fully managed Artifact Signing experience provides all certificate lifecycle actions for all certificates in an Artifact Signing certificate profile resource.
 
@@ -23,7 +23,7 @@ Artifact Signing uses the certificate profile resource type to create and manage
 In addition to standard features, certificate profiles in Artifact Signing include the following two unique features to help mitigate risks and impacts that are associated with misuse or abuse of certificate signing:
 
 - Short-lived certificates
-- Subscriber identity validation Extended Key Usage (EKU) for durable identity pinning
+- Certificate profile Extended Key Usage (EKU) for durable profile identification.
 
 ### Short-lived certificates
 
@@ -31,15 +31,21 @@ To help reduce the impact of signing misuse and abuse, Artifact Signing certific
 
 For example, if it's determined that a subscriber signed code that was malware or a potentially unwanted application (PUA) as defined in [How Microsoft identifies malware and potentially unwanted applications](/microsoft-365/security/defender/criteria), revocation actions can be isolated to revoking only the certificate that signed the malware or PUA. The revocation affects only the code that was signed by using that certificate on the day that it was issued. The revocation doesn't apply to any code that was signed before that day or after that day.
 
-### Subscriber identity validation EKU
+### Certificate profile EKU
 
-It's common for X.509 end-entity signing certificates to be renewed on a regular timeline to ensure key hygiene. Due to Artifact Signing's *daily certificate renewal*, pinning trust or validation to an end-entity certificate that uses certificate attributes (for example, the public key) or a certificate's *thumbprint* (the hash of the certificate) isn't durable. Also, Subject Distinguished Name (subject DN) values can change over the lifetime of an identity or organization.
+Artifact Signing certificates renew daily, so pinning trust to an individual certificate's public key, thumbprint, or other certificate attributes isn't durable.
+To support durable identification across certificate renewals, Artifact Signing assigns a custom Extended Key Usage (EKU) value to each certificate profile. Certificates issued from the same certificate profile contain the same profile-specific EKU for the lifetime of that profile.
+The EKU is associated with the certificate profile, not with the subscriber or identity validation resource.
 
-To address these issues, Artifact Signing provides a durable identity value in each certificate that's associated with the subscription's identity validation resource. The durable identity value is a custom EKU that has the prefix `1.3.6.1.4.1.311.97.` and is followed by more octet values that are unique to the identity validation resource that's used on the certificate profile. Here are some examples:
+- **Deleting and recreating a certificate profile**
+The certificate profile EKU stays the same for certificates issued from an existing certificate profile. If you delete the certificate profile and create a new one, Artifact Signing assigns a new EKU to the new profile. This change applies even when the new profile belongs to the same subscriber or uses the same identity validation resource.
+You must update any application or policy pinned to the previous certificate profile EKU to trust the new EKU.
 
-- **Public Trust identity validation example**
+Artifact Signing provides a durable identity value in each certificate that's associated with the certificate profile. The durable identity value is a custom EKU that has the prefix `1.3.6.1.4.1.311.97.` and is followed by more octet values that are unique to the certificate profile. Here are some examples:
 
-   A value of `1.3.6.1.4.1.311.97.990309390.766961637.194916062.941502583` indicates an Artifact Signing subscriber that uses Public Trust identity validation. The `1.3.6.1.4.1.311.97.` prefix is the Artifact Signing Public Trust code signing type. The `990309390.766961637.194916062.941502583` value is unique to the subscriber's identity validation for Public Trust.
+- **Public Trust certificate profile example**
+
+   A value of  `1.3.6.1.4.1.311.97.990309390.766961637.194916062.941502583` identifies an Artifact Signing Public Trust certificate profile. The  `1.3.6.1.4.1.311.97.`  prefix identifies the Artifact Signing Public Trust code signing type. The remaining values uniquely identify the certificate profile.
 
 - **Private Trust identity validation example**
 

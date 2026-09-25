@@ -89,6 +89,7 @@ The following versions of Windows support Accelerated Networking for all interfa
 | **SUSE Linux Enterprise Server 16** | 6.12 | 6.12.0-160000.5.1 |
 | **Ubuntu 22.04 LTS** | 5.15 | 5.15.0-1096.105 |
 | **Ubuntu 24.04 LTS** | 6.8 | 6.8.0-1041.47 |
+| **Ubuntu 26.04 LTS** | 7.0 | 7.0.0-14.14 |
 
 For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.14 or later found at [kernel.org](https://www.kernel.org/)
 

@@ -313,4 +313,5 @@ icacls \\<smbserver>.contoso.com\entravol /grant " AzureAD\user@<EntraIDdomain>"
 ## Next steps
 
 * [Configure customer-managed keys](configure-customer-managed-keys.md)
+* [Troubleshoot Microsoft Entra Kerberos authentication for Azure NetApp Files](troubleshoot-entra-kerberos-authentication.md)
 * [Security FAQs](faq-security.md)

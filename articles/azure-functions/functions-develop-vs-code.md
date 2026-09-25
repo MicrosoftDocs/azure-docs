@@ -90,9 +90,9 @@ You also need these prerequisites to [run and debug your functions locally](#run
 + [Node.js](https://nodejs.org/), one of the [supported versions](functions-reference-node.md#node-version). Use the `node --version` command to check your version.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
++ [PowerShell 7.6](/powershell/scripting/install/installing-powershell) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-+ [.NET 8 runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
++ [.NET 10 runtime](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
 ::: zone-end  

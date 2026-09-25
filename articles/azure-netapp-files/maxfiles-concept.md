@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 09/25/2026
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the `maxfiles` limits for Azure NetApp Files, so that I can effectively manage volume capacity and avoid 'out of space' errors when creating new files."
 ---
@@ -15,8 +15,7 @@ Azure NetApp Files volumes have a value called `maxfiles` that refers to the max
 
 ## `maxfiles` limits for the Flexible, Premium, Standard, and Ultra service levels
 
-- For regular volumes less than or equal to 683 GiB, the default `maxfiles` limit is 21,251,126.
-- For regular volumes greater than 683 GiB, the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity up to a maximum of 2,147,483,632.
+- For regular volumes, the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity, up to a maximum of 2,147,483,632.
 - For [large volumes](large-volumes-requirements-considerations.md), the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity up to a default maximum of 15,938,355,048.
 - Each inode uses roughly 288 bytes of capacity in the volume. Having many inodes in a volume can consume a non-trivial amount of physical space overhead on top of the capacity of the actual data.
     - If a file is less than 64 bytes in size, it's stored in the inode itself and doesn't use additional capacity. This capacity is only used when files are actually allocated to the volume.
@@ -29,7 +28,6 @@ The following table shows examples of the relationship `maxfiles` values based o
 
 | Volume size | Estimated `maxfiles` limit |
 | - | - |
-| 0 – 683 GiB | 21,251,126 |
 | 1 TiB (1,073,741,824 KiB) | 31,876,709 |
 | 10 TiB (10,737,418,240 KiB) | 318,767,099 |
 | 50 TiB (53,687,091,200 KiB)	| 1,593,835,519 |
