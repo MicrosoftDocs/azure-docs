@@ -2,7 +2,7 @@
 title: Programmatic Bicep usage with JSON-RPC
 description: Learn how to use the Bicep CLI jsonrpc command to interact programmatically with Bicep files using a JSON-RPC interface.
 ms.topic: reference
-ms.date: 03/26/2026
+ms.date: 09/13/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -358,6 +358,49 @@ Result:
 ```json
 {
   "contents": "..."
+}
+```
+
+### bicep/generateDocs
+
+> [!NOTE]
+> This method requires Bicep CLI version 0.47.16 or higher. It supports the experimental [`docs` command group](./bicep-cli.md#docs), but its params and result follow the same compatibility requirements as the rest of the JSON-RPC interface.
+
+Compiles a specified `.bicep` file and renders documentation for it. The method returns the rendered content and never writes a file; the client is responsible for writing the output. Template and usage-example settings are resolved from the `bicepconfig.json` file that applies to the Bicep file. For more information, see [Generate documentation for Bicep modules](./generate-module-documentation.md).
+
+#### Params
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `path` | string | The file path to the `.bicep` file to document. |
+| `customTemplateValues` | object \| null | A dictionary of string values that the template can read as `custom.<key>`. Pass `null` if not needed. |
+
+#### Result
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `diagnostics` | [DiagnosticDefinition](#diagnosticdefinition)[] | Diagnostics produced during compilation. |
+| `contents` | string \| null | The rendered documentation, or `null` if compilation failed. |
+
+The configured output file name (`documentation.output.file`) isn't returned. A client that wants to match the file naming of `bicep docs generate` must choose the file name itself.
+
+#### Example
+
+Params:
+```json
+{
+  "path": "/repo/modules/storage/main.bicep",
+  "customTemplateValues": {
+    "owner": "Platform Team"
+  }
+}
+```
+
+Result:
+```json
+{
+  "diagnostics": [],
+  "contents": "# Storage Account\n\nDeploys a storage account.\n"
 }
 ```
 
