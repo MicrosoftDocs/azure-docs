@@ -76,7 +76,7 @@ Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to fi
 
 > [!NOTE]
 > You can only view error messages that are generated after Application Insights is installed.
-> If you can't enable Application Insights for your managed API, see [API returns an empty 500 and Application Insights can't be enabled](#api-returns-an-empty-500-and-application-insights-cant-be-enabled).
+> If every API request fails with an empty response, or you can't enable Application Insights for your managed API, see [All API requests fail with an empty response](#all-api-requests-fail-with-an-empty-response).
 
 1. Inside the Azure portal, open the **Resource Group** associated with your static web app.
 
@@ -98,13 +98,18 @@ Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to fi
 
     ![Screenshot of the error details screen](./media/troubleshooting/app-insights-details.png)
 
-### API returns an empty 500 and Application Insights can't be enabled
+### All API requests fail with an empty response
 
-If every request to `/api/*` returns HTTP 500 with an empty body, the `FunctionHits` metric stays at zero, and the **Application Insights** blade reports that the app has no functions even though the **APIs** blade lists them, the managed API might be failing before function registration completes. In this state, requests don't reach your function handlers.
+If every request to `/api/*` fails with an empty body, including requests to functions that have no dependencies, check how the API starts before you debug individual functions. An error that occurs while the app loads affects every function, and the deployment still succeeds.
 
-For a Node.js API, check the `main` field in `api/package.json` first. If `main` is set, the Node.js worker loads the files it names at startup in either programming model. In the v4 model, those files register your functions, so `main` must point to them. If a file that `main` names doesn't exist, for example because the function it belonged to was deleted, the worker can't load it. On Node.js 20 and later, the worker then reports that error when the host asks it for the app's functions, so the host discovers none of them, not even the ones that don't use the missing file. For more information, see [No functions found](../azure-functions/functions-node-troubleshoot.md?pivots=nodejs-model-v4#no-functions-found).
+For a Node.js API, check the `main` field in `api/package.json` first. If `main` is set, the Node.js worker loads the files it names at startup, in either programming model. In the v4 model, those files register your functions, so `main` must match them. If no file matches `main`, for example because the function it pointed to was deleted, the worker logs `Worker was unable to load entry point "<path>": File does not exist`. On Node.js 20 and later, this error prevents your functions from loading. The symptoms depend on the programming model:
 
-If you can't enable Application Insights on the managed API, deploy the same API folder to a standalone Azure Functions app with Application Insights enabled. Then search its logs for entry point errors as described in [No functions found](../azure-functions/functions-node-troubleshoot.md?pivots=nodejs-model-v4#no-functions-found). Logs for managed functions are only available after you add Application Insights.
+| Programming model | API response | **APIs** blade | **Application Insights** blade |
+|--|--|--|--|
+| v3 (a *function.json* file per function) | HTTP 500 with an empty body | Lists your functions | Application Insights can be enabled |
+| v4 | HTTP 404 with an empty body | Shows no backend | Reports that Application Insights is only applicable to static web apps with at least one function |
+
+To confirm the cause, search the Application Insights logs for the entry point error. For more information, see [No functions found](../azure-functions/functions-node-troubleshoot.md?pivots=nodejs-model-v4#no-functions-found). If you can't enable Application Insights on the managed API, deploy the same API folder to a standalone Azure Functions app with Application Insights enabled, and search its logs instead.
 
 ## Environment variables
 
