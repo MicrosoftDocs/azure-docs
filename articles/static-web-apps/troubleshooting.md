@@ -76,6 +76,7 @@ Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to fi
 
 > [!NOTE]
 > You can only view error messages that are generated after Application Insights is installed.
+> If you can't enable Application Insights for your managed API, see [API returns an empty 500 and Application Insights can't be enabled](#api-returns-an-empty-500-and-application-insights-cant-be-enabled).
 
 1. Inside the Azure portal, open the **Resource Group** associated with your static web app.
 
@@ -96,6 +97,14 @@ Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to fi
 1. Explore an error by selecting one from the list.
 
     ![Screenshot of the error details screen](./media/troubleshooting/app-insights-details.png)
+
+### API returns an empty 500 and Application Insights can't be enabled
+
+If every request to `/api/*` returns HTTP 500 with an empty body, the `FunctionHits` metric stays at zero, and the **Application Insights** blade reports that the app has no functions even though the **APIs** blade lists them, the managed API might be failing before function registration completes. In this state, requests don't reach your function handlers.
+
+For a Node.js API, check the `main` field in `api/package.json` first. If `main` is set, the Node.js worker loads the files it names at startup in either programming model. In the v4 model, those files register your functions, so `main` must point to them. If a file that `main` names doesn't exist, for example because the function it belonged to was deleted, the worker can't load it. On Node.js 20 and later, the worker then reports that error when the host asks it for the app's functions, so the host discovers none of them, not even the ones that don't use the missing file. For more information, see [No functions found](../azure-functions/functions-node-troubleshoot.md?pivots=nodejs-model-v4#no-functions-found).
+
+If you can't enable Application Insights on the managed API, deploy the same API folder to a standalone Azure Functions app with Application Insights enabled. Then search its logs for entry point errors as described in [No functions found](../azure-functions/functions-node-troubleshoot.md?pivots=nodejs-model-v4#no-functions-found). Logs for managed functions are only available after you add Application Insights.
 
 ## Environment variables
 
