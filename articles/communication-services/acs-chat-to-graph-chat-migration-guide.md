@@ -11,9 +11,6 @@ ms.service: azure-communication-services
 # Migrate from Azure Communication Services Chat to Microsoft 365 Chat
 
 > [!IMPORTANT]
-> This document is Microsoft Confidential and is staged for internal Microsoft staff approval with the Azure Communication Services retirement and breaking changes guide.
-
-> [!IMPORTANT]
 > Azure Communication Services (ACS) Chat and Microsoft Teams chat through Microsoft Graph aren't equivalent offerings. Don't begin a code migration until you confirm that Microsoft 365 identity, Teams user experience, governance, and API constraints fit your workload.
 
 ## Retirement summary
