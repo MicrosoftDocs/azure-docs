@@ -27,7 +27,7 @@ Microsoft supports the following Kubernetes distributions for Azure IoT Operatio
 | [vSphere Kubernetes Service (VKS)](https://www.vmware.com/products/cloud-infrastructure/vsphere-kubernetes-service)    | x86_64               | General availability | *v1.32.7---vmware.3-fips-vkr.1*                          | *VKS 3.3.x*        |
 | [RKE2](https://docs.rke2.io/)                             | x86_64               | General availability | *v1.35.0+rke2r1*                   | [Operating systems](https://docs.rke2.io/install/requirements#operating-systems)    |
 | [K3s on small form factor deployment of Azure Local (preview)](/azure/azure-local/small-form-factor/small-form-factor-container-orchestrators#k3s) | x86_64               | Preview       | *1.33.6*  | *Azure Local 2604* |
-| [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) | x86_64 | *pending* | *4.20.15* | *Red Hat Enterprise Linux CoreOS* |
+| [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) | x86_64 | General availability | *4.20.15* | *Red Hat Enterprise Linux CoreOS* |
 
 * The *minimum validated version* is the lowest version of the Kubernetes distribution that Microsoft uses to validate Azure IoT Operations deployments.
 * The *minimum validated OS* is the lowest operating system version that Microsoft uses to validate deployments.
