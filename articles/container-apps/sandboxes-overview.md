@@ -137,9 +137,9 @@ Sandboxes use a two-plane architecture:
 | Plane | Endpoint | Operations |
 |---|---|---|
 | **ARM control plane** | `management.azure.com` | Create, update, delete, and list sandbox groups. Manage VNet connections. |
-| **ADC data plane** | `management.azuredevcompute.io` | Manage sandboxes, disk images, snapshots, files, volumes, secrets, ports, and egress policies. |
+| **Data plane** | `management.azuredevcompute.io` | Manage sandboxes, disk images, snapshots, files, volumes, secrets, ports, and egress policies. |
 
-You create and manage sandbox groups through the ARM control plane. All operations on individual sandboxes and their resources go through the ADC data plane, scoped to a specific sandbox group.
+You create and manage sandbox groups through the ARM control plane. All operations on individual sandboxes and their resources go through the ACA Sandboxes data plane, scoped to a specific sandbox group.
 
 ## Resource tiers
 

@@ -25,7 +25,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |----------------|---------------------|--------------------------------------|
 |  [Regional capacity quota per subscription](regional-capacity-quota.md)   |  100 TiB  |  Yes  |
 |  Number of NetApp accounts per Azure region per subscription  |  100    |  Yes   |
-|  Number of capacity pools per NetApp account   |    25     |   Yes   |
+|  Number of capacity pools per NetApp account   |    100     |   Yes   |
 |  Number of volumes per subscription   |    2000     |   Yes   |
 |  Number of volumes per capacity pool  |    500   |    Yes     |
 |  Number of snapshots per volume  |    255     |    No        |
