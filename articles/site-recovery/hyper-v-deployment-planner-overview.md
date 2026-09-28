@@ -85,7 +85,7 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 | User permissions | Administrator account to access Hyper-V cluster/Hyper-V host during get VM list and profiling operations.<br>All the hosts that need to be profiled should have a domain administrator account with the same credentials, that is, user name and password |
 
 ## Steps to add servers into TrustedHosts List
-1. The VM from where the tool is to be deployed should have all the hosts to be profiled in its TrustedHosts list. To add the client into Trustedhosts list run the following command from an elevated PowerShell on the VM. The VM can be a Windows Server 2012 R2 or Windows Server 2016 or Windows Server 2022. 
+1. The VM from which you deploy the tool should have all the hosts you want to profile in its TrustedHosts list. To add the client to the TrustedHosts list, run the following command from an elevated PowerShell on the VM. The VM can be a Windows Server 2012 R2, Windows Server 2016, or Windows Server 2022. 
 
    ```powershell
    set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
