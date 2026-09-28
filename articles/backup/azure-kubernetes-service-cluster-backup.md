@@ -35,7 +35,7 @@ Things to ensure before you configure backup for AKS cluster:
 
    __Note__: Allow the regional endpoint (`<region>.dp.kubernetesconfiguration.azure.com`) for the region in which the AKS cluster is deployed. For example, `canadacentral.dp.kubernetesconfiguration.azure.com` for Canada Central.
 
-   Configure inbound NSG rules to allow the **AzureBackup** and **AzureCloud** service tag.
+   Configure inbound NSG rules to allow the **AzureBackup** and **AzureCloud** service tags.
 
 - For Azure Files-based volumes, we recommend creating persistent volumes with the Reclaim Policy set to **Retain** to ensure that snapshots remain available even if the PVC is deleted. You can set the reclaim policy with: `kubectl patch pv <your-pv-name> --patch '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'`
 
