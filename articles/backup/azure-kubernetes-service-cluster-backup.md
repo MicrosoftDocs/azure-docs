@@ -31,11 +31,11 @@ Things to ensure before you configure backup for AKS cluster:
 
 - If you're configuring backup for a network-isolated AKS cluster, ensure that you configure the following Azure Firewall and Network Security Group (NSG) rules to allow the Azure Backup service and cluster components to communicate successfully.
    
-   Allow outbound access to the following FQDNs: `*.blob.core.windows.net`, `docker.io`, `*.azurecr.io`, `*.dp.kubernetesconfiguration.azure.com`, `*.microsoft.com`; `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`.
+   Allow outbound access to the following FQDNs: `*.blob.core.windows.net`, `docker.io`, `*.azurecr.io`, `*.dp.kubernetesconfiguration.azure.com`, `*.microsoft.com`, `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`.
 
-   __Note__: Allow the regional endpoint (`<region>.dp.kubernetesconfiguration.azure.com`) for the region in which the AKS cluster is deployed. For example, `canadacentral.dp.kubernetesconfiguration.azure.com` for Canada Central.
+   _Note_: Allow the regional endpoint (`<region>.dp.kubernetesconfiguration.azure.com`) for the region in which the AKS cluster is deployed. For example, `canadacentral.dp.kubernetesconfiguration.azure.com` for Canada Central.
 
-   Configure inbound NSG rules to allow the **AzureBackup** and **AzureCloud** service tags.
+   Configure inbound NSG rules to allow the _AzureBackup_ and _AzureCloud_ service tags.
 
 - For Azure Files-based volumes, we recommend creating persistent volumes with the Reclaim Policy set to **Retain** to ensure that snapshots remain available even if the PVC is deleted. You can set the reclaim policy with: `kubectl patch pv <your-pv-name> --patch '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'`
 
