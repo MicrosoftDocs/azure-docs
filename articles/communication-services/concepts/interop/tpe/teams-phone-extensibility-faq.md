@@ -78,7 +78,7 @@ When you disable these notifications, you're responsible for ensuring that your 
 
 For configuration details, see [`Set-CsTeamsMeetingPolicy - DisableAudioAnnouncementsForResourceAccounts`](/powershell/module/microsoftteams/set-csteamsmeetingpolicy#-disableaudioannouncementsforresourceaccounts).
 > [!NOTE]
-> This new setting is available on PowerShell [version 7.8.0](https://www.powershellgallery.com/packages/MicrosoftTeams/7.8.0) and above.
+> This setting is available in PowerShell [version 7.8.0](https://www.powershellgallery.com/packages/MicrosoftTeams/7.8.0) and later.
 
 ## How do Microsoft Purview Information Barriers (IB) apply to Teams Phone extensibility?
 
