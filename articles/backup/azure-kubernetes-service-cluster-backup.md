@@ -33,7 +33,7 @@ Things to ensure before you configure backup for AKS cluster:
    
    Allow outbound access to the following FQDNs: `*.blob.core.windows.net`, `docker.io`, `*.azurecr.io`, `*.dp.kubernetesconfiguration.azure.com`, `*.microsoft.com`; `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`.
 
-   __Note__: The regional endpoint (`<region>.dp.kubernetesconfiguration.azure.com`) should be allowed for the region in which the AKS cluster is deployed. For example, `canadacentral.dp.kubernetesconfiguration.azure.com` for Canada Central.
+   __Note__: Allow the regional endpoint (`<region>.dp.kubernetesconfiguration.azure.com`) for the region in which the AKS cluster is deployed. For example, `canadacentral.dp.kubernetesconfiguration.azure.com` for Canada Central.
 
    Configure inbound NSG rules to allow the **AzureBackup** and **AzureCloud** service tag.
 
