@@ -69,7 +69,7 @@ The tool provides the following details:
 |**Categories** | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**|
 | --|--|--|--|--|--|
 | Supported scenarios |Yes|Yes|No|Yes*|No|
-| Supported Version | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2, Windows Server 2022 | NA |Windows Server 2016, Windows Server 2012 R2|NA|
+| Supported Version | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2022, Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA|
 | Supported configuration|vCenter, ESXi| Hyper-V cluster, Hyper-V host|NA|Hyper-V cluster, Hyper-V host|NA|
 | Number of servers that can be profiled per running instance of the Azure Site Recovery Deployment Planner |Single (VMs belonging to one vCenter Server or one ESXi server can be profiled at a time)|Multiple (VMs across multiple hosts or host clusters can be profile at a time)| NA |Multiple (VMs across multiple hosts or host clusters can be profile at a time)| NA|
 
@@ -85,7 +85,7 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 | User permissions | Administrator account to access Hyper-V cluster/Hyper-V host during get VM list and profiling operations.<br>All the hosts that need to be profiled should have a domain administrator account with the same credentials, that is, user name and password |
 
 ## Steps to add servers into TrustedHosts List
-1. The VM from which you deploy the tool should have all the hosts you want to profile in its TrustedHosts list. To add the client to the TrustedHosts list, run the following command from an elevated PowerShell on the VM. The VM can be a Windows Server 2012 R2, Windows Server 2016, or Windows Server 2022. 
+1. The VM from which you deploy the tool should have all the hosts you want to profile in its TrustedHosts list. To add the client to the TrustedHosts list, run the following command from an elevated PowerShell on the VM. The VM can be a Windows Server 2012 R2, Windows Server 201
 
    ```powershell
    set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
@@ -110,7 +110,6 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 The tool is packaged in a .zip folder. The same tool supports both VMware to Azure and Hyper-V to Azure disaster recovery scenarios. You can use this tool for Hyper-V-to secondary site disaster recovery scenario as well but ignore the Azure infrastructure recommendation from the report.
 
 2.	Copy the .zip folder to the Windows Server on which you want to run the tool. You can run the tool on a Windows Server 2012 R2, Windows Server 2016, or Windows Server 2022. The server must have network access to connect to the Hyper-V cluster or Hyper-V host that holds the VMs to profile. We recommend that you use the same hardware configuration for the VM where you run the tool as the Hyper-V server you want to protect. This configuration ensures that the achieved throughput the tool reports matches the actual throughput that Azure Site Recovery can achieve during replication. The throughput calculation depends on available network bandwidth on the server and hardware configuration (CPU, storage, and so forth) of the server. The throughput is calculated from the server where the tool is running to Azure. If the hardware configuration of the server differs from the Hyper-V server, the achieved throughput that the tool reports is inaccurate.
-The recommended configuration of the VM: 8 vCPUs, 16 GB RAM, 300 GB HDD.
 
 3.	Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
