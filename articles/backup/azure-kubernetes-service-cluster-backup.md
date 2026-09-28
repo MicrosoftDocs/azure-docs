@@ -29,6 +29,14 @@ Things to ensure before you configure backup for AKS cluster:
 
 - Currently, AKS Backup supports once-a-day backups. It also supports more frequent backups (in 4-hour, 8-hour, and 12-hour intervals) per day. This solution allows you to retain your data for restore for up to 360 days for Azure Disk-based volumes. For Azure Files-based volumes, backup retention is limited to a maximum of 30 days. Learn how to [create a backup policy](#create-a-backup-policy).
 
+- If you're configuring backup for a network-isolated AKS cluster, ensure that the following Azure Firewall and Network Security Group (NSG) rules are configured to allow the Azure Backup service and cluster components to communicate successfully.
+   
+   Allow outbound access to the following FQDNs: `*.blob.core.windows.net`, `docker.io`, `*.azurecr.io`, `*.dp.kubernetesconfiguration.azure.com`, `*.microsoft.com`; `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`.
+
+   __Note__: The regional endpoint (`<region>.dp.kubernetesconfiguration.azure.com`) should be allowed for the region in which the AKS cluster is deployed. For example, `canadacentral.dp.kubernetesconfiguration.azure.com` for Canada Central.
+
+   Configure inbound NSG rules to allow the **AzureBackup** and **AzureCloud** service tag.
+
 - For Azure Files-based volumes, we recommend creating persistent volumes with the Reclaim Policy set to **Retain** to ensure that snapshots remain available even if the PVC is deleted. You can set the reclaim policy with: `kubectl patch pv <your-pv-name> --patch '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'`
 
 - You need to [install the Backup extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations for an AKS cluster. Learn more [about the Backup extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
