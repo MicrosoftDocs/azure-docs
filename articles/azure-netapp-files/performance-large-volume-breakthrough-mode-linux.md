@@ -50,7 +50,7 @@ Tests were conducted with the following configuration:
 
 ### 256-KiB sequential workloads (MiB/s) 
 
-The following graph represents a 256-KiB sequential workload using thirty virtual machines reading and writing to a single large volume in breakthrough mode using a 1-TiB working set. The graph shows that a single Azure NetApp Files large volume in breakthrough mode can handle between approximately 54,000 MiB/s pure sequential reads and 32,637 MiB/s pure sequential writes.
+The following graph represents a 256-KiB sequential workload using thirty virtual machines reading and writing to a single large volume in breakthrough mode using a 1-TiB working set. The graph shows that a single Azure NetApp Files large volume in breakthrough mode can handle between approximately 80,000 MiB/s pure sequential reads and 32,637 MiB/s pure sequential writes.
 
 :::image type="content" source="./media/performance-large-volumes-linux/sequential-reads-breakthrough-mode.png" alt-text="Bar chart of a 256-KiB sequential workload on a large volume breakthrough mode." lightbox="./media/performance-large-volumes-linux/sequential-reads-breakthrough-mode.png":::
 
