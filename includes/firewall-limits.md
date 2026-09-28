@@ -14,7 +14,7 @@
 | --- | --- |
 | Azure Firewalls per virtual network | 1 |
 | Max Data throughput | 100 Gbps for Premium, 30 Gbps for Standard, 250 Mbps for Basic (preview) SKU<br><br> For more information, see [Azure Firewall performance](../articles/firewall/firewall-performance.md#performance-data). |
-|Rule limits|20,000 unique source/destinations in network rules <br><br> **Unique source/destinations in network** = (Source addresses + Source IP Groups) * (Destination addresses + Destination Fqdn count + Destination IP Groups) * (IP protocols count) * (Destination ports)<br><br>You can track the Firewall Policy network rule count in the [policy analytics](../articles/firewall/policy-analytics.md) under the **Insights** tab. As a proxy, you can also monitor your Firewall Latency Probe metrics to ensure it stays within 20 ms even during peak hours.|
+|Rule limits|20,000 unique source/destinations in network rules <br><br> **Unique source/destinations in network** = (# of IP protocols) × (# of src IPs) × (# of dest IPs) × round up(# of dest ports/14)<br><br>You can track the Firewall Policy network rule count in the [policy analytics](../articles/firewall/policy-analytics.md) under the **Insights** tab. As a proxy, you can also monitor your Firewall Latency Probe metrics to ensure it stays within 20 ms even during peak hours.|
 |Total size of rules within a single Rule Collection Group| 1 MB for Firewall policies created before July 2022<br>2 MB for Firewall policies created after July 2022|
 |Number of Rule Collection Groups in a firewall policy|50 for Firewall policies created before July 2022<br>90 for Firewall policies created after July 2022|
 |Number of firewalls referenced by a single firewall policy|50|
