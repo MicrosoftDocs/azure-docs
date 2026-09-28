@@ -29,7 +29,7 @@ Things to ensure before you configure backup for AKS cluster:
 
 - Currently, AKS Backup supports once-a-day backups. It also supports more frequent backups (in 4-hour, 8-hour, and 12-hour intervals) per day. This solution allows you to retain your data for restore for up to 360 days for Azure Disk-based volumes. For Azure Files-based volumes, backup retention is limited to a maximum of 30 days. Learn how to [create a backup policy](#create-a-backup-policy).
 
-- If you're configuring backup for a network-isolated AKS cluster, ensure that the following Azure Firewall and Network Security Group (NSG) rules are configured to allow the Azure Backup service and cluster components to communicate successfully.
+- If you're configuring backup for a network-isolated AKS cluster, ensure that you configure the following Azure Firewall and Network Security Group (NSG) rules to allow the Azure Backup service and cluster components to communicate successfully.
    
    Allow outbound access to the following FQDNs: `*.blob.core.windows.net`, `docker.io`, `*.azurecr.io`, `*.dp.kubernetesconfiguration.azure.com`, `*.microsoft.com`; `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`.
 
