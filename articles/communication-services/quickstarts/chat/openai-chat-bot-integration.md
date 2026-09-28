@@ -121,7 +121,7 @@ When you have a Communication Services resource, you can set up a Communication 
 
 ## Step 7: Deploy the web app
 
-1. Open the `ChatBot` folder in the [Sample Repo](https://github.com/Azure/ai-solution-with-azurecommunicationchat) in Visual Studio Code (VS Code). Make sure to use VS Code because it supports Microsoft Entra ID in code deployment.
+1. Open the `ChatBot` folder in the Sample Repo in Visual Studio Code (VS Code). Use VS Code because it supports Microsoft Entra ID in code deployment.
 
 1. Replace the placeholders in the sample repo with actual values:
 

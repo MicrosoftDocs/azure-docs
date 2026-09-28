@@ -135,7 +135,7 @@ Thread IDs represent conversations between groups of communication identifiers. 
 
 ### Sample app for this solution
 
-This [sample app](https://github.com/Azure-Samples/communication-services-messaging-teams-app) demonstrates how to build a solution for a customer support scenario.
+This sample app demonstrates how to build a solution for a customer support scenario.
 
 ### Chat bots
 
