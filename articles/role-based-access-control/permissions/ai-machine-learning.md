@@ -1255,12 +1255,12 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/connectedservices/read` | Gets the mapping between an intent and a service |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltdomains/write` | Adds a customizable prebuilt domain along with all of its models to this application version. |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltdomains/delete` | Deletes a prebuilt domain's models from the application version. |
-> | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltentities/write` | Adds a custom prebuilt domain entity model to the application version. Use [delete entity](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c1f) with the entity id to remove this entity. |
+> | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltentities/write` | Adds a custom prebuilt domain entity model to the application version. Use delete entity with the entity id to remove this entity. |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltentities/read` | Gets all custom prebuilt domain entities info for this application version |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltentities/roles/write` | Adds a role for a custom prebuilt domain entity model Updates a role for a custom prebuilt domain entity model. |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltentities/roles/delete` | Deletes the role for a custom prebuilt entity model. |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltentities/roles/read` | Gets the role for a custom prebuilt domain entity model. Gets the roles for a custom prebuilt domain entity model. |
-> | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltintents/write` | Adds a custom prebuilt domain intent model to the application. Use [delete intent](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c1c) with the intent id to remove this intent. |
+> | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltintents/write` | Adds a custom prebuilt domain intent model to the application. Use delete intent with the intent id to remove this intent. |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltintents/read` | Gets custom prebuilt intents info for this application version. |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltintentsbatch/write` | Adds custom prebuilt domain intents to application in batch |
 > | `Microsoft.CognitiveServices/accounts/LUIS/apps/versions/customprebuiltmodels/read` | Gets all custom prebuilt domain models info for this application version. |
