@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/17/2026
+ms.date: 09/29/2026
 ms.author: primittal
 ---
 
@@ -18,11 +18,8 @@ Your Microsoft Agent prepurchase plan automatically uses your ACUs to pay for el
 
 *Covers Copilot Credits-enabled agentic services: Microsoft Copilot Studio, Dynamics 365 first-party agents, and Copilot. Microsoft reserves the right to update Copilot Credit-eligible products.
 
-## Services covered by Microsoft Agent prepurchase plan
-
-
-:::image type="content" source="./media/agentprepurchase/services-covered-screenshot-v3.jpg" alt-text="Screenshot showing services covered by Microsoft Agent prepurchase plan." lightbox="./media/agentprepurchase/services-covered-screenshot-v3.jpg":::
-
+> [!NOTE]
+> Service availability varies by cloud and region. Verify that each service is available in your intended cloud and region before purchasing a plan.
 
 ## Video overview
 
