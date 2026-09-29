@@ -103,6 +103,8 @@
   items:
   - name: Overview
     href: security-overview.md
+  - name: Secure your Azure Backup deployment
+    href: secure-backup.md
   - name: FAQ-Protection against Ransomware
     href: protect-backups-from-ransomware-faq.yml
   - name: Best practices for backup data protection
@@ -186,8 +188,6 @@
   - name: Security controls by Azure Policy
     displayName: regulatory, compliance, standards, domains
     href: ./security-controls-policy.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
 - name: Azure VM backup
   items:
   - name: Overview
