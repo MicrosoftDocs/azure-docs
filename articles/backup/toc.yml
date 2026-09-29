@@ -617,6 +617,16 @@
         href: backup-azure-cosmos-db-using-powershell.md
       - name: Restore
         href: backup-azure-cosmos-db-restore-powershell.md
+- name: Azure PostgreSQL flexible server and elastic cluster vaulted backup v2
+  items:
+  - name: Overview
+    href: backup-azure-postgresql-flex-server-elastic-cluster-v2-overview.md
+  - name: Support matrix
+    href: backup-azure-postgresql-flex-server-elastic-cluster-v2-support-matrix.md
+  - name: Tutorial
+    href: backup-azure-postgresql-flex-server-elastic-cluster-v2-tutorial.md
+  - name: Migrate from v1 to v2
+    href: backup-azure-postgresql-flex-server-elastic-cluster-v2-migrate.md
 - name: Azure Database for MySQL - Flexible Server backup (preview)
   items:
   - name: Overview
