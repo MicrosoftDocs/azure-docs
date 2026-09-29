@@ -69,6 +69,8 @@ landingContent:
             url: understand-admin-vm.md
           - text: Understand Domain Name Service
             url: understand-domain-name-service.md
+          - text: Connect Azure Enclave to an Azure landing zone
+            url: connect-enclave-existing-landing-zone-transit-hub.md
       - linkListType: whats-new
         links:
           - text: "What's new?"
