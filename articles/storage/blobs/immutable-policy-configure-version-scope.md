@@ -43,6 +43,9 @@ Before you can apply a time-based retention policy to a blob version, you must e
 
 You can enable support for version-level immutability only when you create a new storage account.
 
+> [!IMPORTANT]
+> Immutability controls may take up to 35 seconds to take effect. During the activation period, records may remain subject to deletion or overwrite.
+
 ##### [Portal](#tab/azure-portal)
 
 To enable support for version-level immutability when you create a storage account in the Azure portal, follow these steps:
@@ -633,3 +636,4 @@ az storage blob set-legal-hold \
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
 - [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
+
