@@ -26,8 +26,6 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Improved error handling for `$export` with invalid resource types**: `$export` jobs with invalid resource types now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error.
 
-**`permission-v1` added to SMART configuration endpoint**: The FHIR service now includes `permission-v1` in the `/.well-known/smart-configuration` endpoint alongside the existing `permission-v2` capability, improving compatibility with SMART on FHIR clients that rely on v1 permissions.
-
 #### Bug fixes:
 
 **Fix for conditional patch with required ETags**: Fixed an issue where conditional patch requests failed when ETags were required. Conditional patches now correctly pass the ETag for optimistic concurrency checks.
@@ -41,12 +39,6 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 **Fix for `$validate` fatal error on Bundles with entries lacking a resource**: Fixed an issue where the `$validate` operation returned a fatal error (code 5003) for Bundles containing entries without a resource, such as transaction DELETE entries. Validation now correctly handles these entries.
 
 **Fix for HTTP 500 on searches with extreme dates**: Fixed an issue where FHIR search queries with extreme dates (for example, `_lastUpdated=gt9999-12-31`) caused an internal overflow and returned HTTP 500. These queries now return proper results.
-
-**Fix for whitespace in `$export` resource type parameters**: Fixed an issue where `$export` operations could include unexpected whitespace in resource type parameters, potentially causing export failures. Resource type inputs are now trimmed correctly.
-
-**Fix for SMART-scoped requests creating bulk delete or update jobs**: Fixed an issue where SMART-scoped requests could create bulk delete or bulk update background jobs. SMART-scoped tokens are now properly restricted from initiating these bulk operations.
-
-**Fix for `StructureDefinition` imports bypassing `editProfileDefinitions` permission**: Fixed an issue where `StructureDefinition` resources could be imported via `$import` without requiring the `editProfileDefinitions` data action permission. Import now correctly excludes `StructureDefinition` resources, aligning with the existing permission requirements for profile management.
 
 ## August 2026
 ### FHIR service
