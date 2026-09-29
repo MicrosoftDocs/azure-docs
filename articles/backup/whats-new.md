@@ -20,6 +20,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- October 2026
+  - [Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)](#vaulted-backup-support-for-azure-postgresql-flexible-server-and-elastic-cluster-v2-preview)
 - September 2026
   - [Operational backup support for Azure Elastic SAN volume is now generally available](#operational-backup-support-for-azure-elastic-san-volume-is-now-generally-available)
   - [Time-based immutability for Recovery Services vaults](#time-based-immutability-for-recovery-services-vaults)
@@ -81,6 +83,22 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)
+
+Azure Backup now provides vaulted backup support for Azure PostgreSQL flexible server or elastic cluster v2 through an enterprise-grade long-term retention capability, available in preview. Azure Backup creates physical backups from managed disk snapshots and stores them in an Azure Backup vault. With the v2 experience, you can protect larger servers, configure more frequent vaulted backups, and use incremental backups after the first full backup. You can restore directly to a precreated target server without manual file import. You can also protect elastic clusters alongside flexible servers.
+
+Key features include:
+
+- Protects both Azure PostgreSQL flexible server and elastic cluster.
+- Supports servers up to 32 TB on Premium SSD v1 and up to 64 TB on Premium SSD v2.
+- Supports daily and weekly backup schedules, with a recovery point objective (RPO) of one day.
+- Creates incremental backups after the first full backup, which allows daily protection at multiterabyte scale.
+- Supports Restore as Server, which restores a recovery point directly to a precreated target server with no intermediate storage account.
+- Supports retention from 7 days up to 10 years, with independent retention rules for daily, weekly, monthly, and yearly recovery points.
+- Supports WORM immutable backups, to prevent modification or deletion of recovery points before their retention period expires.
+
+For more information, see [About Azure PostgreSQL flexible server and elastic cluster vaulted backup (v2) (preview)](backup-azure-postgresql-flex-server-elastic-cluster-v2-overview.md). 
 
 ## Operational backup support for Azure Elastic SAN volume is now generally available
 

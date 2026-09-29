@@ -239,7 +239,7 @@ Learn more about vaulted backup for the following datasources:
 - [Azure Files](azure-file-share-backup-overview.md?tabs=vault-standard#architecture-for-azure-files-backup)
 - [Azure Blob](blob-backup-overview.md?tabs=vaulted-backup#how-the-azure-blobs-backup-works)
 - [Azure Data Lake Storage](azure-data-lake-storage-backup-overview.md), [Azure Kubernetes](azure-kubernetes-service-backup-overview.md#which-backup-storage-tier-does-aks-backup-support)
-- [PostgreSQL - Flexible server](tutorial-create-first-backup-azure-database-postgresql-flex.md#configure-backup--for-the-database)
+- [PostgreSQL - Flexible server](tutorial-create-first-backup-azure-database-postgresql-flex.md)
 - [PostgreSQL database](backup-azure-database-postgresql-overview.md#changes-to-vaulted-backups-for-postgresql-single-servers)
 - [SAP ASE (Sybase) database](sap-ase-database-about.md#key-benefits-of-sap-ase-sybase-database-backup)
 
