@@ -2,7 +2,7 @@
 title: About Azure Database for PostgreSQL Flexible server backup
 description: An overview on Azure Database for PostgreSQL Flexible server backup
 ms.topic: overview
-ms.date: 10/14/2025
+ms.date: 09/25/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -13,6 +13,14 @@ ms.author: v-mallicka
 ---
 
 # About Azure Database for PostgreSQL - Flexible Server backup
+
+> [!NOTE] 
+> **Azure Backup for PostgreSQL flexible server and elastic cluster (v2) is now in preview.** The v2 solution takes physical backups from managed disk snapshots instead of logical (`pg_dump` based) backups, and addresses the limitations of the generally available solution described in this article: 
+> 
+> - Protects Azure Database for PostgreSQL flexible servers and elastic clusters, with support for up to 32 TB on Premium SSD v1 and up to 64 TB on Premium SSD v2, compared to the 1-TB limit
+> - Supports daily backup schedules with a recovery point objective (RPO) of one day and Restore as Server directly to a target flexible server or elastic cluster, compared to weekly backups and Restore as Files. 
+> 
+> The solution described in this article remains generally available. To learn more about the preview, see [About Azure Backup for PostgreSQL flexible server and elastic cluster (v2)](backup-azure-postgresql-flex-server-elastic-cluster-v2-overview.md). 
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. The feature offers the following capabilities:
 
@@ -32,11 +40,9 @@ To perform the backup operation:
 Once the configuration is successful:
 
 1. The Backup service invokes the backup based on the policy schedules on the ARM API of PostgreSQL Flexible server, writing data to a secure blob container with a SAS for enhanced security. 
-1. Backup runs independently preventing disruptions during long-running tasks. 
+1. A service-managed clone server is automatically provisioned behind the scenes for backup operations, isolating backup processing from the primary PostgreSQL server and helping avoid disruptions to production workloads during long-running backup operations.
 1. The retention and recovery point lifecycles align with the backup policies for effective management. 
 1. During the restore, the Backup service invokes restore on the ARM API of PostgreSQL Flexible server using the SAS for asynchronous, nondisruptive recovery. 
-
- :::image type="content" source="./media/backup-azure-database-postgresql-flex-overview/backup-process.png" alt-text="Diagram showing the backup process.":::
 
 ## Azure Backup authentication with the PostgreSQL server
 
