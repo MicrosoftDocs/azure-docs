@@ -88,7 +88,6 @@ NAT64 is a translation feature available exclusively on StandardV2 NAT gateways.
 
   * Canada East   
   * India South Central 
-  * Israel Northwest   
   * Sweden South
   * West India
 
