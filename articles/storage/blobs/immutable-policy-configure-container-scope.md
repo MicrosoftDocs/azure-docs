@@ -31,7 +31,7 @@ An immutability policy may be scoped either to an individual blob version or to 
 To configure a time-based retention policy on a container, use the Azure portal, PowerShell, or Azure CLI. You can configure a container-level retention policy for between 1 and 146,000 days.
 
 > [!IMPORTANT]
-> Immutability controls may take up to 35 seconds to take effect. During the activation period, records may remain subject to deletion or overwrite.
+> Immutability Policies may take up to 35 seconds to take effect. During the activation time items can continue to be deleted/overwritten. Within that time a visible CLW policy on the Container Properties is not a guarantee that the policy has taken effect.
 
 ### [Portal](#tab/azure-portal)
 
