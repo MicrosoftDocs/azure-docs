@@ -13,7 +13,7 @@ Azure Backup allows you to protect Azure PostgreSQL flexible servers and elastic
 
 ## Supported regions for Azure PostgreSQL flexible server and elastic cluster vaulted backup (v2)
 
-Vaulted backups are availabled in all public regions except Austria East, Belgium Central, Chile Central, Indonesia Central, Israel Northwest, Malaysia South, Malaysia West, Mexico Central, Qatar Central, South Central US 2, Southeast US, Southeast US 3, Southeast US 5, Southwest US and West India.
+Vaulted backups are available in all public regions except Austria East, Belgium Central, Chile Central, Indonesia Central, Israel Northwest, Malaysia South, Malaysia West, Mexico Central, Qatar Central, South Central US 2, Southeast US, Southeast US 3, Southeast US 5, Southwest US and West India.
 
 ## Supported datasources and configurations for Azure PostgreSQL flexible server and elastic cluster vaulted backup (v2)
 
@@ -58,8 +58,10 @@ Azure PostgreSQL flexible server and elastic cluster vaulted backup (v2) support
 Azure PostgreSQL flexible server and elastic cluster vaulted backup (v2) supports the following restore scenarios: 
 
 - Restores are performed as **Restore as Server** to an alternate location. The target flexible server or elastic cluster must be created before the restore is triggered.
+- Data in unlogged tables is not preserved and is lost upon restore.
 - The target can be in a different subscription within the same tenant.
 - Cross region restore is supported.
+- Restore operations from backups taken on PostgreSQL versions that are no longer supported are not guaranteed.
 - Restore is supported even after the source datasource has been deleted.
 - A restore job is marked **Successful** only when the entire recovery point has been restored.
 - A recovery point taken on a Premium SSD v1 server restores to a Premium SSD v1 target. A recovery point taken on a Premium SSD v2 server restores to a Premium SSD v2 target.
