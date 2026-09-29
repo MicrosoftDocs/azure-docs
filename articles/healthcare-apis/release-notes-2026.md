@@ -24,6 +24,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Reindex operation optimizations**: Reindex operations are significantly optimized with reduced memory usage, removal of unnecessary database scans, and a fail-fast approach for improved reliability.
 
+**Improved error handling for `$export` with invalid resource types**: `$export` jobs with invalid resource types now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error.
+
 #### Bug fixes:
 
 **Fix for conditional patch with required ETags**: Fixed an issue where conditional patch requests failed when ETags were required. Conditional patches now correctly pass the ETag for optimistic concurrency checks.
@@ -35,6 +37,14 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 **Fix for HTTP 500 on mixed SMART v1 and v2 scopes**: Fixed an incorrect HTTP 500 error response when a request contained a mix of SMART v1 and v2 scopes. The service now returns a proper authorization error.
 
 **Fix for `$import` status endpoint HTTP 500 with processing job ID**: Fixed an HTTP 500 error from the `$import` status endpoint when polling with a processing job ID instead of the orchestrator's ID.
+
+**Fix for delete by URL failures**: Fixed an issue where deleting a resource by URL could fail in certain scenarios. Delete operations by URL now work correctly.
+
+**Fix for `$validate` fatal error on Bundles with entries lacking a resource**: Fixed an issue where the `$validate` operation returned a fatal error (code 5003) for Bundles containing entries without a resource, such as transaction DELETE entries. Validation now correctly handles these entries.
+
+**Fix for HTTP 500 on searches with extreme dates**: Fixed an issue where FHIR search queries with extreme dates (for example, `_lastUpdated=gt9999-12-31`) caused an internal overflow and returned HTTP 500. These queries now return proper results.
+
+**Fix for `$import` status polling with processing job ID**: Fixed an issue where polling the `$import` status endpoint with a processing job ID instead of the orchestrator's ID returned HTTP 500. The endpoint now returns a proper error response.
 
 ## August 2026
 ### FHIR service

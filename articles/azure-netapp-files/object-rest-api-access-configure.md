@@ -99,6 +99,9 @@ openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -sub
 # Generate self-signed certificate 
 openssl x509 -req -days $CERT_DAYS -in $CERT_DIR/server-req.pem -signkey $KEY_DIR/server-key.pem -out $CERT_DIR/server-cert.pem 
 
+# Combining private key and permissions
+cat ./private/server-key.pem server-cert.pem > server-combined.pem
+
 echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
 ```
 After the certificate is created, you will need to create a bucket.
@@ -108,7 +111,7 @@ After the certificate is created, you will need to create a bucket.
 To enable object REST API, you must create a bucket on an Azure NetApp Files volume. 
 
 1. From your NetApp volume, select **Buckets**. 
-1. Select **+Create or update bucket**. 
+1. Select **+ Create bucket**. 
 1. In Create or update bucket, provide the following information for the bucket:
 
     **Bucket configuration**
@@ -253,10 +256,12 @@ You can modify a bucket's access management settings.
 * Permissions
 
 1. From your NetApp volume, select **Buckets**.
-1.	Select **+Create or update bucket**.
-1.	Enter the name of the bucket you want to modify.
-1.	Change the access management settings as required.
-1.	Click **Save** to modify the existing bucket.
+1. Select the ellipses (...) in the **Actions** column of the bucket you want to modify, and then select **Edit**.
+
+    :::image type="content" source="./media/object-rest-api-access-configure/update-bucket.png" alt-text="Screenshot to update a bucket menu." lightbox="./media/object-rest-api-access-configure/update-bucket.png":::        
+
+1. Change the access management settings as needed.
+1. Select **Save** to modify the existing bucket.
 
 > [!NOTE]
 > You cannot modify a bucket’s path. To update a bucket’s path, delete and re-create the bucket with the new path.
