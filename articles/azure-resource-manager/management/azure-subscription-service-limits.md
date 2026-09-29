@@ -158,7 +158,7 @@ See [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capac
 
 ## Azure Chaos Studio limits
 
-See [Azure Chaos Studio service limits](/azure/chaos-studio/chaos-studio-service-limits) for Azure Chaos Studio limits.
+For Chaos Studio Workspaces, see [Chaos Studio Workspaces limitations](/azure/chaos-studio/chaos-studio-workspaces-limitations). For Experiments (classic), see [Service limits for Experiments (classic)](/azure/chaos-studio/chaos-studio-service-limits).
 
 ## Azure Container Apps limits
 
