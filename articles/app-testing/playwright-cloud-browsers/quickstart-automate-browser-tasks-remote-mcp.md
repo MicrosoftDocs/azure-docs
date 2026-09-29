@@ -24,33 +24,30 @@ After you complete this quickstart, you have an MCP client connected to a Playwr
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-- A [Playwright workspace](./quickstart-run-end-to-end-tests.md#create-a-workspace) that is enabled for the remote MCP preview.
-- The **Contributor** or **Owner** Azure role at the workspace scope. This role is required to create a workspace access token. For more information, see [Manage access to a Playwright workspace](./how-to-manage-workspace-access.md).
+- A [Playwright workspace](./../playwright-workspaces/quickstart-run-end-to-end-tests.md#create-a-workspace) that is enabled for the remote MCP preview.
+- The **Contributor** or **Owner** Azure role at the workspace scope. This role is required to create a workspace access token. For more information, see [Manage access to a Playwright workspace](./../playwright-workspaces/how-to-manage-workspace-access.md).
 - One of the following MCP clients:
   - GitHub Copilot CLI with MCP support.
   - A Microsoft Foundry project with permission to create project connections and configure agents.
 
-## Build the remote MCP endpoint
-
-In the [Azure portal](https://portal.azure.com/), open the **Overview** page of your Playwright workspace. Use the workspace region and workspace ID to build the remote MCP endpoint.
-
-:::image type="content" source="./media/quickstart-automate-browser-tasks-remote-mcp/copy-workspace-endpoint.png" alt-text="Screenshot of a Playwright workspace Overview page showing the workspace location and API base endpoint." lightbox="./media/quickstart-automate-browser-tasks-remote-mcp/copy-workspace-endpoint.png":::
-
-The endpoint uses the following format:
-
-```text
-https://<region>.mcp.playwright.microsoft.com/playwrightworkspaces/<workspace-id>/mcp
+## Choose an authentication method
+ 
+Use Microsoft Entra ID when your MCP client supports OAuth or managed identity. The remote MCP server uses this resource identifier and delegated scope:
+ 
 ```
-
-For example:
-
-```text
-https://eastus.mcp.playwright.microsoft.com/playwrightworkspaces/00000000-0000-0000-0000-000000000000/mcp
+Resource: https://mcp.playwright.microsoft.com
+Scope: https://mcp.playwright.microsoft.com/Playwright.Mcp.Tools
 ```
+ 
+The server publishes OAuth protected-resource metadata. Clients that support OAuth discovery, including Visual Studio Code, can discover the authorization server and required scope from the workspace-scoped MCP endpoint. The signed-in identity must have access to the Playwright workspace through Azure role-based access control (RBAC).
+ 
+Use a workspace access token only when the MCP client can't authenticate with Microsoft Entra ID. Access tokens are less secure and are disabled by default.
+ 
+## Create a workspace access token for compatibility
+ 
+Skip this section when you use Microsoft Entra ID. If access-token authentication isn't already enabled for the workspace:
 
-Use the endpoint for the region where the workspace is deployed.
-
-## Create a workspace access token
+### Create a workspace access token
 
 This quickstart uses key-based authentication. The MCP client sends a workspace access token in the `x-api-key` request header.
 
@@ -67,7 +64,27 @@ This quickstart uses key-based authentication. The MCP client sends a workspace 
 
 The token is associated with the user who creates it. The service evaluates that user's current Azure role-based access control (RBAC) permissions when the token is used. Use a short expiration period for this quickstart.
 
-For more information, see [Manage workspace access tokens](./how-to-manage-access-tokens.md).
+For more information, see [Manage workspace access tokens](./../playwright-workspaces/how-to-manage-access-tokens.md).
+
+## Build the remote MCP endpoint
+
+In the [Azure portal](https://portal.azure.com/), open the **Overview** page of your Playwright workspace. Use the workspace region and workspace ID to build the remote MCP endpoint.
+
+:::image type="content" source="./../playwright-workspaces/media/quickstart-automate-browser-tasks-remote-mcp/copy-workspace-endpoint.png" alt-text="Screenshot of a Playwright workspace Overview page showing the workspace location and API base endpoint." lightbox="./../playwright-workspaces/media/quickstart-automate-browser-tasks-remote-mcp/copy-workspace-endpoint.png":::
+
+The endpoint uses the following format:
+
+```text
+https://<region>.mcp.playwright.microsoft.com/playwrightworkspaces/<workspace-id>/mcp
+```
+
+For example:
+
+```text
+https://eastus.mcp.playwright.microsoft.com/playwrightworkspaces/00000000-0000-0000-0000-000000000000/mcp
+```
+
+Use the endpoint for the region where the workspace is deployed.
 
 ## Connect an MCP client
 
@@ -86,7 +103,7 @@ To add the Playwright Workspaces remote MCP server to GitHub Copilot CLI:
 1. Select **Auto** for deferred tools.
 1. Press <kbd>Esc</kbd> to finish adding the server.
 
-:::image type="content" source="./media/quickstart-automate-browser-tasks-remote-mcp/add-remote-mcp-server-copilot-cli.png" alt-text="Screenshot of GitHub Copilot CLI prompts for adding an HTTP remote MCP server." lightbox="./media/quickstart-automate-browser-tasks-remote-mcp/add-remote-mcp-server-copilot-cli.png":::
+:::image type="content" source="./../playwright-workspaces/media/quickstart-automate-browser-tasks-remote-mcp/add-remote-mcp-server-copilot-cli.png" alt-text="Screenshot of GitHub Copilot CLI prompts for adding an HTTP remote MCP server." lightbox="./../playwright-workspaces/media/quickstart-automate-browser-tasks-remote-mcp/add-remote-mcp-server-copilot-cli.png":::
 
 ### Microsoft Foundry
 
@@ -105,7 +122,7 @@ To connect the remote MCP server:
 1. Enter `x-api-key` as the credential name and the workspace access token as the credential value.
 1. Select **Connect**. Foundry creates the project connection.
 
-:::image type="content" source="./media/quickstart-automate-browser-tasks-remote-mcp/add-mcp-tool-foundry.png" alt-text="Screenshot of Microsoft Foundry settings for adding a remote Model Context Protocol tool with key-based authentication." lightbox="./media/quickstart-automate-browser-tasks-remote-mcp/add-mcp-tool-foundry.png":::
+:::image type="content" source="./../playwright-workspaces/media/quickstart-automate-browser-tasks-remote-mcp/add-mcp-tool-foundry.png" alt-text="Screenshot of Microsoft Foundry settings for adding a remote Model Context Protocol tool with key-based authentication." lightbox="./../playwright-workspaces/media/quickstart-automate-browser-tasks-remote-mcp/add-mcp-tool-foundry.png":::
 
 Create or open an agent, add the remote MCP tool, and select the project connection. Require approval for every tool call while you evaluate the integration. Requiring approval lets you inspect the tool name and arguments before each browser operation.
 
@@ -148,10 +165,7 @@ The exact response varies by agent and model. The session creation result might 
 When you finish the quickstart:
 
 1. Confirm that the agent called `close_browser_session`.
-1. Remove the test agent or project connection if you no longer need it.
-1. Revoke temporary workspace access tokens.
-1. In GitHub Copilot CLI, remove the MCP server if you no longer need the connection.
-1. If you created a Playwright workspace only for this quickstart, delete its resource group. Don't delete a resource group that contains resources you want to keep.
+2. If you created a Playwright workspace only for this quickstart, delete its resource group. Don't delete a resource group that contains resources you want to keep.
 
 ## Next step
 

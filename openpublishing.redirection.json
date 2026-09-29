@@ -392,6 +392,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-testing/playwright-workspaces/how-to-playwright-workspaces-remote-mcp.md",
+      "redirect_url": "articles/app-testing/playwright-cloud-browsers/how-to-playwright-workspaces-remote-mcp.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/healthcare-apis/iot/concepts-machine-learning.md",
       "redirect_url": "/previous-versions/azure/healthcare-apis/iot/concepts-machine-learning",
       "redirect_document_id": false

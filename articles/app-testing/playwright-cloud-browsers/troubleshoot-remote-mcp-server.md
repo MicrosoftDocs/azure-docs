@@ -221,5 +221,5 @@ Create a new browser session. Sessions don't reconnect after browser connection 
 ## Related content
 
 - [Automate browsers with the Playwright Workspaces remote MCP server](./how-to-playwright-workspaces-remote-mcp.md)
-- [Manage workspace access tokens](./how-to-manage-access-tokens.md)
-- [Playwright Workspaces limits and quotas](./resource-limits-quotas-capacity.md)
+- [Manage workspace access tokens](./../playwright-workspaces/how-to-manage-access-tokens.md)
+- [Playwright Workspaces limits and quotas](./../playwright-workspaces/resource-limits-quotas-capacity.md)
