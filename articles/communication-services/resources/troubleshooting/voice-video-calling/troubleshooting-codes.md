@@ -14,6 +14,8 @@ zone_pivot_groups: acs-calling-automation-pstn
 
 # Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes troubleshooting call end response codes for Calling SDK, Call Automation, and PSTN calling.
 
 ::: zone pivot="calling,callend,automation,pstn,chat"

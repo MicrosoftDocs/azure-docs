@@ -14,6 +14,8 @@ ms.subservice: identity
 
 # Authenticate to Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Every client interaction with Azure Communication Services needs to be authenticated. In a typical architecture, see [client and server architecture](./client-and-server-architecture.md), *access keys* or *Microsoft Entra ID authentication* are used for server-side authentication.
 
 Another type of authentication uses *user access tokens* to authenticate against services that require user participation. For example, the chat or calling service utilizes *user access tokens* to enable users to be added in a thread and have conversations with each other.

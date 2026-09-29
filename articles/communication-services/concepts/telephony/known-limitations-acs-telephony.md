@@ -13,6 +13,8 @@ ms.subservice: pstn
 
 # Known limitations in Azure telephony
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article provides information about limitations and known issues related to telephony in Azure Communication Services.
 
 ## Azure Communication Services direct routing known limitations

@@ -11,6 +11,8 @@ ms.subservice: chat
 
 # Chat support for government clouds
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Developers can build a chat application in government cloud for real-time text communications. 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]

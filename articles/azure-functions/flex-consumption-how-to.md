@@ -109,7 +109,7 @@ To support your function code, you need to create three resources:
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.4
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.6
     ```
     ::: zone-end
     ::: zone pivot="programming-language-go"

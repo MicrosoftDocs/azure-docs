@@ -2,7 +2,7 @@
 title:  Performance vs As-is on-premises assessments
 description: Describes how Azure Migrate provides sizing recommendations for the assessed workloads.
 author: rashi-ms
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.update-cycle: 1825-days

@@ -48,7 +48,7 @@ To create a backup policy, follow these steps:
 5. Under the **Backup schedule** section, configure the backup schedule as per the requirement.
 
    >[!Note]
-   > You can configure up to **six backups** per day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
+   > You can configure up to **24 snapshots** per day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 6. Under the **Snapshot retention** and **Vault retention** sections, configure the retention duration to determine the expiry date of the recovery points, and then select **OK**.
 
    :::image type="content" source="./media/tutorial-backup-azure-files-vault-tier-portal/trigger-create-policy.png" alt-text="Screenshot shows how to set the backup schedule and retention duration.":::

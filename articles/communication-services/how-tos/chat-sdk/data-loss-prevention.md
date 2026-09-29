@@ -13,6 +13,8 @@ ms.custom: template-how-to
 
 # Integrate with data loss prevention policies
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 Microsoft Teams administrator can configure policies for data loss prevention (DLP) to prevent leakage of sensitive information from Teams users during Teams meetings. Developers can integrate chat functionality in Teams meetings with Azure Communication Services. You can implement it either through the Azure Communication Services UI library or through a custom integration. This article describes how to incorporate data loss prevention without using the UI library.

@@ -1,5 +1,5 @@
 ---
-title: Introduction to Business Process Solutions (Public Preview)
+title: Introduction to Business Process Solutions
 description: Learn how to use Business Process Solutions to enable organizations in unifying business data across different systems and functional areas.
 author: mohitmakhija1
 ms.service: sap-on-azure
@@ -10,7 +10,7 @@ ms.date: 11/07/2025
 ms.author: momakhij
 ---
 
-# Introduction to Business Process Solutions (preview)
+# Introduction to Business Process Solutions
 
 Business Process Solutions accelerates enterprise data analytics and derisks AI adoption by providing prebuilt resources that include data models, transformations, and business templates. This article introduces the solution and outlines how it enables organizations to unify business data across various systems and functional areas.
 
@@ -32,7 +32,7 @@ At the functional level, Business Process Solutions uses application-native data
 
 :::image type="content" source="./media/about-business-process-solutions/enterprise-data.png" alt-text="Diagram that shows functional insights and available business templates for business process solutions." lightbox="./media/about-business-process-solutions/enterprise-data.png":::
 
-Business Process Solutions (public preview) currently supports a set of business applications and functional areas. Organizations can use them to break down silos and drive actionable insights across their core processes. The platform covers the following key domains:
+Business Process Solutions currently supports a set of business applications and functional areas. Organizations can use them to break down silos and drive actionable insights across their core processes. The platform covers the following key domains:
 
 - **Finance**: Delivers a comprehensive view of financial performance. Integrates data from key finance areas that include general ledger, assets, accounts receivable, and accounts payable. Prebuilt dashboards provide financial statements, account balances, and profitability reports. Organizations can use this information to gain a complete picture of financial health. The Copilot agent in Business Process Solutions provides access to data by using natural language and enables users to perform financial postings.
 - **Sales**: Provides a complete perspective on the customer opportunity-to-cash journey. Moves from initial opportunity through delivery, invoicing, and payments. The Copilot agent can help improve revenue forecasting by connecting structured enterprise resource planning (ERP) and customer relationship management (CRM) data with unstructured data from Microsoft 365. The agent also tracks sales pipeline health and identifies bottlenecks.
@@ -64,7 +64,7 @@ Business Process Solutions uses the same connectivity options as Fabric and Azur
 
 Business Process Solutions offers integration with the following source systems.
 
-### SAP S/4HANA (public preview)
+### SAP S/4HANA
 
 Business Process Solutions supports integration with SAP S/4HANA. Organizations can extract and process data from core systems for downstream analytics and reporting. This integration accommodates different technical preferences and existing investments, which ensures flexibility in how data is accessed and moved.
 
@@ -78,11 +78,11 @@ For organizations that are already familiar with Azure Data Factory, the existin
 
 For organizations with specialized requirements or large-scale extraction scenarios, Microsoft partner solutions can provide more capabilities. They often include advanced delta extraction features, support for complex transformations, and tailored performance tuning. Partner offerings can be useful when customers need bespoke configurations or extended services beyond the standard templates that are provided by Business Process Solutions.
 
-#### SAP Datasphere with Fabric mirroring (preview)
+#### SAP Datasphere with Fabric mirroring
 
 Another option is to use SAP Datasphere as the primary extraction layer. This approach allows organizations to take advantage of SAP-native integration features while maintaining compatibility with modern analytics platforms.
 
-### SAP ECC (preview)
+### SAP ECC
 
 Customers that haven't yet migrated their SAP environment to SAP S/4HANA can still use Business Process Solutions for data analytics. The prebuilt processing is adjusted to work with SAP ECC systems to enable extraction of key business data.
 
@@ -92,7 +92,7 @@ Customers that haven't yet migrated their SAP environment to SAP S/4HANA can sti
 
 Microsoft partners play an important role in SAP ECC integration because of their specialized data extraction capabilities and advanced delta handling at the table level. These solutions are designed to optimize performance and support complex extraction scenarios that go beyond standard configurations.
 
-### Salesforce (preview)
+### Salesforce
 
 Customers that use Salesforce can integrate Business Process Solutions to gain insights from CRM data through connectors that are available directly in Fabric.
 

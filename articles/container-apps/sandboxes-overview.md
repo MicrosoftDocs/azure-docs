@@ -1,6 +1,6 @@
 ---
-title: Azure Container Apps Sandboxes overview (preview)
-description: Azure Container Apps Sandboxes (preview) deliver fast, secure, ephemeral compute with suspend and resume. Explore key features, use cases, and architecture in Early Access.
+title: Azure Container Apps Sandboxes overview
+description: Azure Container Apps Sandboxes deliver fast, secure, ephemeral compute with suspend and resume. Explore key features, use cases, and architecture.
 #customer intent: As a developer building AI agents, I want to understand Azure Container Apps Sandboxes so that I can decide whether to use them for persistent, isolated agent workspaces.
 author: craigshoemaker
 ms.author: cshoe
@@ -10,16 +10,12 @@ ms.topic: overview
 ms.service: azure-container-apps
 ---
 
-# Azure Container Apps Sandboxes overview (preview)
+# Azure Container Apps Sandboxes overview
 
 Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environments with built-in suspend and resume capabilities. Sandboxes are a first-class resource type (`Microsoft.App/SandboxGroups`) in Container Apps, alongside apps, jobs, and dynamic sessions.
 
 > [!IMPORTANT]
 > To manage and create sandboxes, you need the Azure role *Container Apps SandboxGroup Data Owner*. Assign this role to all users who create and manage sandboxes.
->
-> Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
->
-> The API surface for Python SDK and Azure Container Apps CLI commands might change during preview.
 
 [!INCLUDE [sandboxes-create-manage](includes/sandboxes-create-manage.md)]
 
@@ -141,9 +137,9 @@ Sandboxes use a two-plane architecture:
 | Plane | Endpoint | Operations |
 |---|---|---|
 | **ARM control plane** | `management.azure.com` | Create, update, delete, and list sandbox groups. Manage VNet connections. |
-| **ADC data plane** | `management.azuredevcompute.io` | Manage sandboxes, disk images, snapshots, files, volumes, secrets, ports, and egress policies. |
+| **Data plane** | `management.azuredevcompute.io` | Manage sandboxes, disk images, snapshots, files, volumes, secrets, ports, and egress policies. |
 
-You create and manage sandbox groups through the ARM control plane. All operations on individual sandboxes and their resources go through the ADC data plane, scoped to a specific sandbox group.
+You create and manage sandbox groups through the ARM control plane. All operations on individual sandboxes and their resources go through the ACA Sandboxes data plane, scoped to a specific sandbox group.
 
 ## Resource tiers
 

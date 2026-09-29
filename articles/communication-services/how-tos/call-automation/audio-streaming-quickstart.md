@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Server-side Audio Streaming
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with using audio streams through Azure Communication Services Audio Streaming API. This quickstart assumes you're already familiar with Call Automation APIs to build an automated call routing solution. 
 
 ::: zone pivot="programming-language-csharp"

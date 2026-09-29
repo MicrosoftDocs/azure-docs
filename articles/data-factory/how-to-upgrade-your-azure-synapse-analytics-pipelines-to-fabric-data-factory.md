@@ -66,7 +66,7 @@ Each pipeline is categorized with a readiness status:
 
 [!INCLUDE [migration-assessment-statuses](includes/migration-assessment-statuses.md)]
 
-For details on how to drill into activity-level details, see [What the assessment statuses mean](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md#what-the-assessment-statuses-mean).
+For details on how to drill into activity-level details, see [What the assessment statuses mean](how-to-assess-your-synapse-pipelines-for-upgrade.md#what-the-assessment-statuses-mean).
 
 ### Select pipelines to migrate
 
@@ -117,7 +117,7 @@ After migration:
 
 Use these resources to round out your end-to-end Synapse-to-Fabric migration plan:
 
-- [Assess your Azure Data Factory and Synapse pipelines for migration to Fabric](/azure/data-factory/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration)
+- [Assess your Synapse pipelines for migration to Fabric](/azure/data-factory/how-to-assess-your-synapse-pipelines-for-upgrade)
 - [Upgrade your Azure Data Factory pipelines to Fabric](/azure/data-factory/how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory)
 - [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric (preview)](/fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade)
 - [Migration Assistant for Fabric Data Warehouse - Microsoft Fabric | Microsoft Learn](/fabric/data-warehouse/migration-assistant)

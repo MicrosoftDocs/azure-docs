@@ -747,7 +747,6 @@ string
 <td>
 <code>clientCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -944,7 +943,6 @@ CommonTLSPolicyVerify
 <td>
 <code>caCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -989,7 +987,6 @@ Kubernetes core API.</p>
 <td>
 <code>NamespacedPolicyTargetReference</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.NamespacedPolicyTargetReference">
 Gateway API .NamespacedPolicyTargetReference
 </a>
 </em>
@@ -3098,7 +3095,6 @@ LoadAwareConfig
 <td>
 <code>caCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
 Gateway API .SecretObjectReference
 </a>
 </em>

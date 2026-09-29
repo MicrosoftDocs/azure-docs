@@ -35,7 +35,7 @@ Before you begin, make sure your system meets the following criteria:
 
 When you replicate VMware virtual machines, keep this information in mind:
 
-- Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
+- Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-perform-replication-and-failover-actions-on-virtual-machines) to enable replication of a new virtual machine to Azure.
 - VMware VMs are discovered every 15 minutes. It can take 15 minutes or more for VMs to appear in the Azure portal after discovery. When you add a new vCenter server or vSphere host, discovery can take 15 minutes or more.
 - It can take 15 minutes or more for environment changes on the virtual machine to be updated in the portal. For example, the VMware tools installation.
 - You can check the last-discovered time for VMware VMs: See the **Last Contact At** field on the **Configuration Servers** page for the vCenter server or vSphere host.

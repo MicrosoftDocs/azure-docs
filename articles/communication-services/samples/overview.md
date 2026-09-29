@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 ---
 # Sample library
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 The Azure Communication Services [**sample library**](https://aka.ms/acssamples) (GitHub) includes basic and advanced code examples demonstrating common communication use cases. 
 
 [**Basic samples**](https://github.com/Azure/Communication/blob/master/Sample-index.md#basic-samples): understand the fundamentals of Azure Communication Services.

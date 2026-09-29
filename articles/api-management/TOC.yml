@@ -306,8 +306,6 @@
       href: front-door-api-management.md
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure/api-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Reliability and disaster recovery
     items:
     - name: Access resource protected by network security perimeter
@@ -337,6 +335,8 @@
       href: api-management-howto-disaster-recovery-backup-restore.md
 - name: Secure API access
   items:
+  - name: Secure your API Management deployment
+    href: secure-api-management.md
   - name: API authentication and authorization options
     href: authentication-authorization-overview.md
   - name: Authenticate APIs with Microsoft Entra ID

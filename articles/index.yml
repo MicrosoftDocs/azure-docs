@@ -425,7 +425,7 @@ productDirectory:
         - web
       url: spring-apps/index.yml
     # Card
-    - title: Azure Compute Fleet (Preview)
+    - title: Azure Compute Fleet
       summary: Easily provision and manage Azure compute capacity at scale
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:

@@ -333,16 +333,27 @@ items:
         displayName: tutorial, Discovery Mode, first investigation, getting started
   - name: Reference
     items:
-    - name: REST API
-      href: /rest/api/discovery/
-    - name: .NET SDKs
-      href: reference-dotnet-sdks.md
-    - name: Java SDKs
-      href: reference-java-sdks.md
-    - name: JavaScript SDKs
-      href: reference-javascript-sdks.md
-    - name: Python SDKs
-      href: reference-python-sdks.md
-    - name: FAQ
-      href: faq.yml
-      displayName: faq, frequently asked questions
+      - name: Troubleshoot Microsoft Discovery
+        items:        
+        - name: Troubleshoot - General issues
+          href: troubleshoot-microsoft-discovery.md
+          displayName: Microsoft Discovery, troubleshooting, agents, common issues, error messages, logs
+        - name: Error codes
+          href: troubleshooting-error-code.md
+          displayName: Microsoft Discovery, error codes, error messages, deployment errors, workspace errors, supercomputer errors
+        - name: Known issues
+          href: known-issues.md
+          displayName: Microsoft Discovery, known issues, workarounds, Studio sign-in, Azure Policy, public IP, supported regions
+      - name: REST API
+        href: /rest/api/discovery/
+      - name: .NET SDKs
+        href: reference-dotnet-sdks.md
+      - name: Java SDKs
+        href: reference-java-sdks.md
+      - name: JavaScript SDKs
+        href: reference-javascript-sdks.md
+      - name: Python SDKs
+        href: reference-python-sdks.md
+      - name: FAQ
+        href: faq.yml
+        displayName: faq, frequently asked questions

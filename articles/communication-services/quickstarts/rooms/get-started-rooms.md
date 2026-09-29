@@ -15,6 +15,8 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 # Create a room resource
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to create a Room within your Azure Communication Services resource. A room is a server-managed communications space for a known, fixed, set of participants to collaborate for a predetermined duration. For more information and use cases, see [Rooms API for structured meetings](../../concepts/rooms/room-concept.md).
 
 ## Object model

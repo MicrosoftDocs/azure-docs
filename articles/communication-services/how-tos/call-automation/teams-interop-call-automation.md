@@ -22,6 +22,8 @@ ms.custom:
 
 # Add a Microsoft Teams user to an existing call using Call Automation
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In this quickstart, we use the Azure Communication Services Call Automation APIs to add, remove, and transfer call to a Teams user.
 
 ## Prerequisites

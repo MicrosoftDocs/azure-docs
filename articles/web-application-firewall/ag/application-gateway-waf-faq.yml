@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-web-application-firewall
   ms.topic: faq
-  ms.date: 08/21/2026
+  ms.date: 09/24/2026
 title: Frequently asked questions for Azure Web Application Firewall on Application Gateway
 summary: This article answers common questions about features and functionality for Azure Web Application Firewall on Azure Application Gateway. 
 
@@ -25,6 +25,16 @@ sections:
           What features does the WAF product tier support?
         answer: |
           The WAF tier of Application Gateway supports all the features available in the Standard tier.
+
+      - question: |
+          Does the WAF support sovereign clouds?
+        answer: |
+          Yes, sovereign clouds are supported. However, geo-filtering custom rules and bot protection rulesets aren't supported on sovereign clouds.
+
+      - question: |
+          Does the WAF support air-gapped clouds?
+        answer: |
+          Yes, air-gapped clouds are supported. However, geo-filtering custom rules, bot protection rulesets, and rate limiting custom rules aren't supported on air-gapped clouds.
 
       - question: |
           How do I monitor the WAF?
@@ -54,9 +64,8 @@ sections:
           * Prevention against bots, crawlers, and scanners
           * Detection of common application misconfigurations (for example, Apache and IIS)
           
-          For more information, see the [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
+          For more information, see [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/) and [Azure Web Application Firewall managed ruleset support policy](../ruleset-support-policy.md?pivots=application-gateway), which covers older ruleset versions.
 
-          You can find more information about older ruleset versions and WAF's managed ruleset support policy [here].(ruleset-support-policy)          
       - question: |
           What content types does the WAF support?
         answer: |
@@ -116,11 +125,6 @@ sections:
 
           For more information, see [Application Gateway for Containers logs](web-application-firewall-logs.md?tabs=AGC#firewall-log).
 
-      - question: |
-          Does the WAF support air-gapped clouds?
-        answer: |
-          Yes, air-gapped clouds are supported. However, geo-filtering custom rules, bot protection rulesets, and rate limiting custom rules aren't supported on air-gapped clouds.
-    
       - question: |
           Can I disable request buffering on my Application Gateway or Application Gateway for Containers running WAF?
         answer: |

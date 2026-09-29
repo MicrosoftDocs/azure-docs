@@ -2,190 +2,312 @@
 
 metadata:
   title: Microsoft Discovery FAQ
-  description: Get answers to frequently asked questions about Microsoft Discovery.
+  description: Answers to frequently asked questions about Microsoft Discovery, including product choices, architecture, deployment, security, research workflows, operations, billing, and automation.
   author: mukesh-dua
   ms.author: mukeshdua
   ms.service: azure
   ms.topic: faq
-  ms.date: 09/04/2026
+  ms.date: 09/23/2026
 title: Microsoft Discovery FAQ
 summary: |
-  Get answers to common questions about the Microsoft Discovery service.
-
+  This article answers common questions about Microsoft Discovery. For procedures and specifications that can change over time, the answers link to the relevant source article in the [Microsoft Discovery documentation](https://learn.microsoft.com/en-us/azure/microsoft-discovery/).
 sections:
-  - name: Get started
-    questions:
-      - question: Is Microsoft Discovery primarily an offline optimization and prediction platform, or are there capabilities for direct, real-time, closed-loop process control of physical scientific or manufacturing equipment?
-        answer: |
-          Discovery is an online platform with human oversight. Researchers can change, edit, and kick off runs as needed. We're thinking about extending Microsoft Discovery to digital twins and lab automation using natural language, giving researchers more access to lab processes.
+- name: Overview and product choices
+  questions:
+  - question: What is Microsoft Discovery?
+    answer: |
+      Microsoft Discovery is an enterprise platform for scientific research and R&D workflows. It brings together agentic orchestration, advanced reasoning, a graph-based knowledge foundation, and high-performance computing. For an introduction, see [What is Microsoft Discovery?](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-what-is-microsoft-discovery).
+  - question: Who is Microsoft Discovery designed for?
+    answer: |
+      Microsoft Discovery supports scientists who generate insights, developers who build and extend capabilities, administrators and IT teams who operate the platform, and organizational leaders responsible for research outcomes. See [What is Microsoft Discovery?](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-what-is-microsoft-discovery).
+  - question: What is the difference between Microsoft Discovery and the Microsoft Discovery app?
+    answer: |
+      Microsoft Discovery is the Azure-hosted enterprise platform. The Microsoft Discovery app is a free, local experience that lets individual researchers begin AI-assisted discovery without deploying the Azure platform. For a comparison, see [Microsoft Discovery and the Microsoft Discovery app](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-and-discovery-app).
+  - question: What is Microsoft Discovery Studio?
+    answer: |
+      Microsoft Discovery Studio is the web-based research environment for Microsoft Discovery. It is used to work with workspaces, projects, agents, shared sessions, knowledge bases, tools, and data. See [What is Microsoft Discovery Studio?](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-studio).
+  - question: Is the Discovery Studio portal public or private?
+    answer: |
+      The Discovery Studio portal UI is publicly accessible over the internet, similar to the Azure portal, and is secured with Microsoft Entra ID authentication. Backend data isn't exposed through public endpoints. See [What is Microsoft Discovery Studio?](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-studio) and [Network security overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-network-security).
+  - question: What scenarios are supported by Microsoft Discovery?
+    answer: |
+      Microsoft Discovery supports scientific and engineering workflows that combine organizational knowledge, data, models, computation, agents, and human review. For representative scenarios, see [Key scenarios](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-key-scenarios).
+  - question: Is Microsoft Discovery primarily an offline optimization and prediction platform, or does it directly control physical scientific or manufacturing equipment in real time?
+    answer: |
+      Microsoft Discovery is an online platform with human oversight. Researchers can review, edit, and initiate runs as needed. Direct, real-time, closed-loop control of physical equipment is not documented as a generally available platform capability. See [Platform Card for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-platform-card) for intended uses and limitations.
+- name: Core concepts and architecture
+  questions:
+  - question: What are the main Microsoft Discovery resources?
+    answer: |
+      The main concepts include workspaces, projects, shared sessions, agents, tasks, tools, models, Bookshelves and knowledge bases, storage containers and assets, supercomputers, and node pools. Start with [Service architecture overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-service-architecture) and [Microsoft Discovery projects and shared sessions](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-projects-investigations).
+  - question: What is the difference between a workspace and a project?
+    answer: |
+      A workspace is the top-level environment that brings together platform resources. A project is an access and organizational boundary within a workspace for a specific body of research. See [Microsoft Discovery projects and shared sessions](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-projects-investigations).
+  - question: What is a shared session?
+    answer: |
+      A shared session is the collaborative research context in which people, agents, tasks, files, and execution history are organized for an investigation. See [Microsoft Discovery projects and shared sessions](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-projects-investigations).
+  - question: What is a task?
+    answer: |
+      A task is a unit of work within a shared session. Tasks can include dependencies, status, comments, execution history, and results. See [Tasks and shared sessions](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-tasks-investigations).
+  - question: What Azure resources are created when a Microsoft Discovery workspace is provisioned?
+    answer: |
+      Provisioning a workspace creates a dedicated managed resource group in your subscription for backend resources. Other system-managed resource groups can also appear. Bookshelves and supercomputers are provisioned separately and have their own managed resource groups. See [Service architecture overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-service-architecture).
+  - question: In whose subscription are the resources deployed?
+    answer: |
+      Microsoft Discovery resources and their supporting Azure infrastructure are deployed in the customer's Azure subscription, not a Microsoft-managed subscription. See [Service architecture overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-service-architecture).
+  - question: Is Azure Container Registry required?
+    answer: |
+      No. Azure Container Registry is optional and is needed when you bring container images for custom tools that run on the supercomputer. See [Microsoft Discovery tools and model integration](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-tools-model-integration).
+- name: Getting access and preparing Azure
+  questions:
+  - question: What must be prepared before deploying Microsoft Discovery?
+    answer: |
+      Prepare an Azure subscription, register the required resource providers, assign the required roles, reserve required service and model quota, and validate regional and networking requirements. Start with [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/en-us/azure/microsoft-discovery/quickstart-infrastructure), [Resource provider registration](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-resource-provider-registration), and [Quota reservations](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-quota-reservation).
+  - question: How do I register the Azure resource providers that Microsoft Discovery needs?
+    answer: |
+      Use the supported registration methods described in [Microsoft Discovery resource provider registration](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-resource-provider-registration). The article covers the required permissions and registration through the Azure portal, Azure CLI, Azure PowerShell, and REST API.
+  - question: What quota does Microsoft Discovery require?
+    answer: |
+      Microsoft Discovery requires quota across multiple Azure services, including the models and compute used by the deployment. Requirements depend on the resources you deploy. Review the current requirements in [Quota reservations for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-quota-reservation).
+  - question: Which regions support Microsoft Discovery?
+    answer: |
+      Region availability and cross-region deployment guidance can change. Review the current region information in [Service architecture overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-service-architecture) and the deployment guidance in [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/en-us/azure/microsoft-discovery/quickstart-infrastructure).
+  - question: What is the Discovery Toolbox, and how do I get it?
+    answer: |
+      The Discovery Toolbox is a Visual Studio Code extension for setting up, validating, managing, monitoring, and removing Microsoft Discovery infrastructure. Installation and release information is maintained in the public [Discovery Toolbox directory](https://github.com/microsoft/discovery/tree/main/utilities/discovery-toolbox).
+  - question: How do I grant users the roles they need for Microsoft Discovery?
+    answer: |
+      Assign the platform, project, and supporting Azure resource roles required for each user persona. Follow [Role assignments in Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-role-assignments) and [Configure project-level access](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-project-rbac).
+- name: Deployment and lifecycle management
+  questions:
+  - question: How do I deploy Microsoft Discovery?
+    answer: |
+      Follow [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/en-us/azure/microsoft-discovery/quickstart-infrastructure). It is the source of truth for current prerequisites, deployment inputs, and validation steps.
+  - question: Can I manage a workspace after it is created?
+    answer: |
+      Yes. Workspace operations and currently supported configuration changes are documented in [Manage workspaces in Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-manage-workspaces).
+  - question: How do I manage supercomputers and node pools?
+    answer: |
+      Use the Azure portal procedures in [Manage supercomputers and node pools](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-manage-supercomputers).
+  - question: Does Microsoft Discovery provide built-in backup or disaster recovery?
+    answer: |
+      Microsoft Discovery doesn't currently provide built-in automatic failover or disaster recovery. If your organization requires additional resiliency, design replication and backup for the applicable stateful resources and consider a multi-region deployment. See [Business continuity and disaster recovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-business-continuity-disaster-recovery).
+  - question: How do I delete a Microsoft Discovery deployment?
+    answer: |
+      Discovery resources have parent-child and cross-resource dependencies and must be removed in the correct order. Use the current procedure and supported deletion utility described in [Delete Microsoft Discovery resources](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-delete-discovery-resources) instead of relying on a copied deletion sequence in this FAQ.
+  - question: Why can't I delete a Discovery resource or resource group?
+    answer: |
+      A dependent child resource, resource link, subnet delegation, private endpoint connection, or workspace-to-supercomputer association can block deletion. Follow [Delete Microsoft Discovery resources](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-delete-discovery-resources) for the current dependency order and remediation guidance.
+- name: Identity and access management
+  questions:
+  - question: How does Microsoft Discovery control access?
+    answer: |
+      Microsoft Discovery uses Azure role-based access control for platform, project, and resource access. See [Role assignments in Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-role-assignments).
+  - question: Can I grant access to one project without granting access to the entire workspace?
+    answer: |
+      Yes. Project-level access control makes a project an access boundary within a shared workspace. See [Project-level access control](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-project-rbac) and [Configure project-level access](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-project-rbac).
+  - question: How do project roles interact with shared resources?
+    answer: |
+      Project access and access to shared resources are evaluated separately. A user can require supplementary permissions to use shared tools, models, storage, or knowledge resources. See [Project-level access control](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-project-rbac).
+  - question: Why does Microsoft Discovery use managed identities?
+    answer: |
+      Microsoft Discovery uses user-assigned managed identities to authenticate to Azure resources on behalf of workspaces, supercomputers, and Bookshelves. See [Configure managed identities for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-managed-identity).
+  - question: How do I configure managed identities?
+    answer: |
+      Follow [Configure managed identities for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-managed-identity) for current creation, association, and Azure role-assignment requirements.
+- name: Networking, security, and compliance
+  questions:
+  - question: Are Discovery services exposed publicly or privately?
+    answer: |
+      Most backend resources use private connectivity controls such as private endpoints, Network Security Perimeter, and virtual network integration. Review the current design in [Network security overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-network-security).
+  - question: How do I turn on network isolation for a workspace?
+    answer: |
+      Configure network isolation during workspace deployment or update by following [Configure network security](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-network-security). The article is the source of truth for current properties and prerequisites.
+  - question: What subnets does a hardened deployment need?
+    answer: |
+      A hardened deployment uses dedicated networking for applicable workspace, agent, private endpoint, Bookshelf, and supercomputer components. Required subnet roles and sizing can change, so use [End-to-end network-hardened deployment](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-deploy-network-hardened-stack) and [Configure network security](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-network-security).
+  - question: Do I need to allow inbound access from Microsoft into my environment?
+    answer: |
+      No explicit customer-configured inbound access from Microsoft is required for the architecture described in the Discovery network-security guidance. See [Network security overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-network-security).
+  - question: Does Microsoft Discovery support customer-managed keys?
+    answer: |
+      Yes, for the resources and scenarios documented by the service. See [Configure customer-managed keys](https://learn.microsoft.com/en-us/azure/microsoft-discovery/howto-data-encryption-at-rest) for current scope and prerequisites.
+  - question: Where can I find compliance guidance?
+    answer: |
+      Start with [Security and compliance overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-security-overview), [Compliance guidance](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-compliance-framework-mappings), and the [SIG-based security and compliance FAQ](https://learn.microsoft.com/en-us/azure/microsoft-discovery/faq-security-compliance-sig).
+- name: Agents, models, and Discovery Engine
+  questions:
+  - question: How are Discovery agents implemented?
+    answer: |
+      Discovery agents are configured as Microsoft Discovery resources and use the platform's agent and workflow infrastructure to perform assigned work. For the current architecture and supported agent types, see [Discovery Agent concepts](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-agent) and [Discovery Agent types](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-agent-types).
+  - question: How do I create an agent?
+    answer: |
+      Follow [Create agents](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-agent-creation) for current prerequisites, configuration fields, and supported creation paths.
+  - question: Which models does Microsoft Discovery require?
+    answer: |
+      Required models and quota can vary across Discovery Engine, agents, and Bookshelf. Review the current model and quota requirements in [Quota reservations for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-quota-reservation).
+  - question: Can I choose which models my agents use?
+    answer: |
+      Yes, within the models and configurations supported by Microsoft Discovery. See [Select models for agents](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-select-models-for-agents).
+  - question: Where can custom models run?
+    answer: |
+      Documented integration patterns include models hosted in Azure Machine Learning and containerized models run through supercomputer-backed tools. See [Microsoft Discovery tools and model integration](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-tools-model-integration).
+  - question: What is the Discovery Engine?
+    answer: |
+      The Discovery Engine is the cognitive orchestration layer that plans research work, delegates tasks, monitors progress, and adapts execution. See [Discovery Engine overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-engine).
+  - question: What is cognition?
+    answer: |
+      Cognition is the Discovery Engine capability that reasons over the research objective, available agents, tasks, evidence, validation requirements, and execution state. See [Cognition overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-cognition-overview).
+  - question: How much autonomy does the Discovery Engine have?
+    answer: |
+      The level of autonomy depends on how the shared session, tasks, and validation requirements are configured. Researchers remain responsible for setting direction and reviewing results. See [Trust relationship and basic shared session patterns](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-trust-basic-investigation-patterns).
+  - question: How do I run my first agent and investigation?
+    answer: |
+      Follow [Run your first agent and investigation](https://learn.microsoft.com/en-us/azure/microsoft-discovery/quickstart-agents-studio).
+  - question: How do I build a shared session that uses cognition?
+    answer: |
+      Follow [Build shared sessions with cognition](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-build-investigations-cognition).
+- name: Tools, compute, and integrations
+  questions:
+  - question: What is the supercomputer in Microsoft Discovery?
+    answer: |
+      The supercomputer is the compute abstraction used by Microsoft Discovery for applicable tool, model, and knowledge-processing workloads. Its current implementation and management model are described in [Manage supercomputers and node pools](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-manage-supercomputers).
+  - question: Which VM families can I use for supercomputer node pools?
+    answer: |
+      Supported VM families and node-pool requirements can change by region and release. Use [Manage supercomputers and node pools](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-manage-supercomputers) and [Quota reservations](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-quota-reservation) as the current sources of truth.
+  - question: What kinds of tools can agents use?
+    answer: |
+      Microsoft Discovery supports the tool types and execution patterns described in [Microsoft Discovery tools and model integration](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-tools-model-integration).
+  - question: How should I plan a custom tool?
+    answer: |
+      Define the tool's function, compute requirements, dependencies, packaging, and integration pattern before publishing it. See [Plan tool requirements](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-plan-tool-requirements).
+  - question: How do tools authenticate to Azure resources?
+    answer: |
+      Use the identity and role-assignment patterns supported for the applicable Discovery resource and tool configuration. See [Configure managed identities](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-managed-identity) and [Microsoft Discovery tools and model integration](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-tools-model-integration).
+  - question: How do I submit jobs directly to the supercomputer?
+    answer: |
+      Use the supported supercomputer command-line utility described in the public [Supercomputer CLI directory](https://github.com/microsoft/discovery/tree/main/utilities/supercomputer-cli). Refer to its current README for prerequisites and command syntax.
+  - question: Where can I find utilities to operate a Microsoft Discovery deployment?
+    answer: |
+      The public [Microsoft Discovery utilities directory](https://github.com/microsoft/discovery/tree/main/utilities) contains the currently published operator utilities and their documentation, including setup and lifecycle tools.
+- name: Data, knowledge, and research artifacts
+  questions:
+  - question: What are storage containers and storage assets?
+    answer: |
+      A storage container represents a connection to storage used by a workspace, while storage assets identify data that agents can use. See [Storage containers and storage assets](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-storage-containers-assets).
+  - question: What is a Bookshelf knowledge base?
+    answer: |
+      A Bookshelf knowledge base organizes and indexes a curated corpus so that researchers and agents can query connected scientific knowledge. See [Bookshelf and Knowledge Bases](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-bookshelf-knowledge-bases).
+  - question: What is the difference between Bookshelf and Azure AI Search?
+    answer: |
+      Bookshelf is designed for graph-based, thematic, and multi-hop reasoning across a curated corpus. Azure AI Search is suited to scalable indexing and precise retrieval. Use the comparison and limits in [Bookshelf and Knowledge Bases](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-bookshelf-knowledge-bases) when selecting an approach.
+  - question: Which retrieval approach should I use?
+    answer: |
+      Use the retrieval approach that matches the question and corpus. Bookshelf is intended for connected, discovery-oriented reasoning, while search indexing is appropriate for targeted retrieval at larger scale. See [Bookshelf and Knowledge Bases](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-bookshelf-knowledge-bases).
+  - question: Can Bookshelf handle a 100-GB corpus directly?
+    answer: |
+      Bookshelf is intended for a curated corpus rather than indiscriminate ingestion of a very large repository. Review the current size guidance and limitations in [Bookshelf and Knowledge Bases](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-bookshelf-knowledge-bases).
+  - question: What document types does Bookshelf support?
+    answer: |
+      Supported document types and ingestion limitations can change. Use [Create and index a Bookshelf Knowledge Base](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-index-bookshelf-knowledgebase) as the source of truth.
+  - question: Do scientists always need an agent to query a Bookshelf?
+    answer: |
+      No. A Bookshelf can be queried directly, and it can also be used as grounding within agent-driven research. See [Bookshelf and Knowledge Bases](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-bookshelf-knowledge-bases).
+  - question: Where are files generated by agents stored?
+    answer: |
+      Files produced during shared-session tasks are represented as research artifacts and can be made available to related tasks according to the documented file and inheritance model. See [Files and storage assets](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-files-storage-assets).
+  - question: How does data move between tools and agents?
+    answer: |
+      Data handling depends on the configured storage assets, tools, task artifacts, and agent instructions. See [Data handling with tools and agents](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-data-handling-with-tools-agents) and [Files and storage assets](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-files-storage-assets).
+- name: Studio and research workflows
+  questions:
+  - question: How do I access Discovery Studio?
+    answer: |
+      Access and browser requirements are documented in [What is Microsoft Discovery Studio?](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-studio). Your account must also have the required Discovery and Azure permissions.
+  - question: How do researchers collaborate in Discovery?
+    answer: |
+      Researchers collaborate through projects and shared sessions that organize tasks, comments, files, execution history, agents, and results. See [Microsoft Discovery projects and shared sessions](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-projects-investigations).
+  - question: How are task results and execution history preserved?
+    answer: |
+      Tasks maintain status, comments, execution attempts, and results within the shared-session model. See [Tasks and shared sessions](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-tasks-investigations).
+  - question: Can I use GitHub Copilot in Discovery Studio?
+    answer: |
+      Yes, where the documented preview and workspace configuration requirements are met. See [Use GitHub Copilot in Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-copilot).
+  - question: How should I write prompts for Discovery agents?
+    answer: |
+      Use clear objectives, constraints, expected outputs, relevant context, and validation criteria. See [Write effective prompts for agents](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-prompt-engineering).
+- name: Operations, monitoring, and troubleshooting
+  questions:
+  - question: What observability does Microsoft Discovery provide?
+    answer: |
+      Microsoft Discovery integrates with Azure Monitor and provides platform-specific logging for applicable workspace, supercomputer, and control-plane operations. See [Observability in Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-observability).
+  - question: How do I view Azure activity logs for Discovery resources?
+    answer: |
+      Follow [View activity logs for Microsoft Discovery resources](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-view-activity-logs).
+  - question: How do I query workspace logs?
+    answer: |
+      Use the Log Analytics workspace associated with the workspace's managed resource group and follow [Query workspace logs](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-query-workspace-logs).
+  - question: How do I query supercomputer logs?
+    answer: |
+      Use the applicable Log Analytics workspace and the queries documented in [Query supercomputer logs](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-query-supercomputer-logs).
+  - question: How do I enable audit logging?
+    answer: |
+      Configure Azure Monitor diagnostic settings as described in [Enable audit logging for Microsoft Discovery resources](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-enable-audit-logging).
+  - question: How do I trace a failed request?
+    answer: |
+      Use the correlation ID and the relevant workspace, supercomputer, or activity logs. See [Observability in Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-observability), [Query workspace logs](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-query-workspace-logs), and [Query supercomputer logs](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-query-supercomputer-logs).
+  - question: What information should I collect before requesting support?
+    answer: |
+      Collect the affected resource IDs, operation time, correlation ID, error text, deployment region, and relevant activity or application logs. Use [Observability in Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-observability) to locate the available diagnostics.
+- name: Billing and cost management
+  questions:
+  - question: Who pays for the Azure infrastructure?
+    answer: |
+      The customer pays for the supporting Azure resources deployed in the customer's subscription. See [Microsoft Discovery billing overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-billing).
+  - question: How is Microsoft Discovery billed?
+    answer: |
+      The Discovery app and Azure-hosted Microsoft Discovery services have different pricing models. Billable service operations and supporting Azure infrastructure charges are described in [Microsoft Discovery billing overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-billing).
+  - question: Is the Microsoft Discovery app free?
+    answer: |
+      The Discovery app is described as a free local edition. Check [Microsoft Discovery and the Microsoft Discovery app](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-and-discovery-app) and [Microsoft Discovery billing overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-billing) for current terms.
+  - question: Which resources contribute to cost?
+    answer: |
+      Costs can include the Microsoft Discovery service and the Azure resources used for models, storage, databases, networking, monitoring, and compute. See [Microsoft Discovery billing overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-billing).
+  - question: How can I monitor deployment cost?
+    answer: |
+      Use Azure Cost Management for resources in the customer subscription and the cost capabilities documented for the Discovery tooling. See [Microsoft Discovery billing overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-billing) and the public [Microsoft Discovery GitHub repository](https://github.com/microsoft/discovery).
+- name: Responsible AI and supported use
+  questions:
+  - question: Is Microsoft Discovery intended to replace scientific review?
+    answer: |
+      No. Microsoft Discovery is designed to support scientific work with human oversight. Researchers remain responsible for reviewing evidence, validating outputs, and deciding how results are used. See [Platform Card for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-platform-card).
+  - question: What are the intended uses and limitations of Microsoft Discovery?
+    answer: |
+      The intended uses, limitations, evaluations, safety components, and responsible-use guidance are documented in [Platform Card for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-platform-card).
+  - question: How should users validate agent-generated results?
+    answer: |
+      Define validation requirements, review evidence and artifacts, and calibrate autonomy to the risk and purpose of the research. See [Trust relationship and basic shared session patterns](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-trust-basic-investigation-patterns) and [Platform Card for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-platform-card).
+  - question: Does Microsoft Discovery guarantee that generated conclusions are correct?
+    answer: |
+      No. Agent and model outputs require human review and validation. See [Platform Card for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-platform-card) for documented limitations and responsible-use guidance.
+- name: APIs, automation, and developer reference
+  questions:
+  - question: Can Microsoft Discovery resources be managed programmatically?
+    answer: |
+      Yes. Microsoft Discovery provides REST API reference and Azure CLI coverage for supported resource-management operations. See the [Microsoft Discovery REST API reference](https://learn.microsoft.com/en-us/rest/api/discovery/) and [Microsoft Discovery Azure CLI reference](https://learn.microsoft.com/en-us/cli/azure/service-page/microsoft%20discovery?view=azure-cli-latest).
+  - question: Can I automate deployment with infrastructure as code?
+    answer: |
+      Use the deployment templates and automation maintained in the supported Microsoft Discovery documentation and public repository. Start with [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/en-us/azure/microsoft-discovery/quickstart-infrastructure) and the [Microsoft Discovery GitHub repository](https://github.com/microsoft/discovery).
+  - question: Where are Microsoft Discovery API versions documented?
+    answer: |
+      Use the [Microsoft Discovery REST API reference](https://learn.microsoft.com/en-us/rest/api/discovery/) for supported operations, schemas, and API versions.
+  - question: Where can I find command-line reference?
+    answer: |
+      See the [Microsoft Discovery Azure CLI reference](https://learn.microsoft.com/en-us/cli/azure/service-page/microsoft%20discovery?view=azure-cli-latest) and the operator utilities in the [Microsoft Discovery GitHub repository](https://github.com/microsoft/discovery).
+additionalContent: |
+  ## Related resources
 
-      - question: What is the Discovery Toolbox, and how do I get it?
-        answer: |
-          The [Discovery Toolbox](https://github.com/microsoft/discovery/tree/main/utilities/discovery-toolbox) is a Visual Studio Code extension that acts as a command center for setting up, managing, and operating the Azure infrastructure that Microsoft Discovery runs on. It's the fastest way to get started. From inside VS Code, it can:
-
-          - **Deploy end to end**—provision the full platform (virtual networks, supercomputers, workspaces, projects, chat models, storage, and managed identities) from a bundled, hardened Bicep template with live terminal output.
-          - **Validate prerequisites**—automatically check 100+ Azure prerequisites (RBAC roles, resource providers, quotas, policies, and network security perimeter) with one-click remediation.
-          - **Publish agents and tools**—create agents and containerized tools and build the tool images remotely through Azure Container Registry (ACR) Tasks, with no local Docker required.
-          - **Inventory and clean up**—run a subscription-wide scan of every Discovery resource, with per-resource delete and cascade tear-down.
-          - **Visualize, monitor, and analyze cost**—see your deployment topology as an interactive diagram, track per-resource costs, and review a diagnostics dashboard.
-
-          To install it, download the highest-numbered `DiscoveryToolbox-v<version>.vsix` from the [vsix folder](https://github.com/microsoft/discovery/tree/main/utilities/discovery-toolbox/vsix), then run **Extensions: Install from VSIX** from the VS Code Command Palette. Open the Discovery Toolbox icon in the Activity Bar and follow the guided Onboarding Journey.
-
-          For the other operator utilities—resource provider registration, RBAC role assignment, the supercomputer CLI, and deployment teardown—see the **Tools and utilities** section later in this article.
-
-  - name: Infrastructure and deployment
-    questions:
-      - question: What Azure resources are created when a Microsoft Discovery workspace is provisioned?
-        answer: |
-          Provisioning a workspace creates a dedicated managed resource group (MRG) in your subscription that holds the workspace's backend resources, such as storage, Azure Cosmos DB, and Azure Container Apps. Additional system-created MRGs (for example, for Container Apps) can also appear.
-
-          The Bookshelf and the supercomputer are separate Discovery resources that you provision independently, and each gets its own managed resource group (for example, the supercomputer's AKS cluster lands in the supercomputer MRG). For more information, see [Service architecture](overview-service-architecture.md).
-
-      - question: In whose subscription are the resources deployed?
-        answer: |
-          All resources are deployed in your own (customer) subscription, not a Microsoft-managed subscription. You'll see a primary resource group (the control plane) and multiple managed resource groups (the data plane).
-
-      - question: Is Azure Container Registry required?
-        answer: |
-          No. Azure Container Registry is optional and is only needed when you bring your own tools (container images) to run on the supercomputer. For more information, see [Azure Container Registry](concept-azure-container-registry.md).
-
-      - question: Which regions support Microsoft Discovery?
-        answer: |
-          The control plane is currently available in East US, Sweden Central, and UK South. Managed resource group (data-plane) resources can be deployed in other regions by using cross-region deployment, which is useful when you have data-residency or capacity requirements. Cross-region deployment doesn't add significant latency, because workflow execution time dominates the overall response time.
-
-      - question: Does Microsoft Discovery provide built-in backup or disaster recovery?
-        answer: |
-          Not currently. Microsoft Discovery doesn't provide built-in automatic failover or disaster recovery. If you require higher availability and resiliency, deploy Microsoft Discovery across multiple regions and ensure that any stateful resources are appropriately replicated or backed up to meet your requirements. For more information, see [Business continuity and disaster recovery](concept-discovery-business-continuity-disaster-recovery.md).
-
-      - question: Who pays for the Azure infrastructure?
-        answer: |
-          You do. Because all resources are deployed into your own subscription, you pay for the underlying Azure infrastructure, which is the primary cost. For more information, see [Billing](concept-discovery-billing.md).
-
-      - question: How do I delete a Microsoft Discovery deployment, and in what order should resources be removed?
-        answer: |
-          Use the deletion utility published in the public Discovery repo, [delete-all-resources-2026-06-01.sh](https://github.com/microsoft/discovery/blob/main/utilities/delete-discovery-deployment/delete-all-resources-2026-06-01.sh), rather than deleting resources by hand. It removes all `Microsoft.Discovery` and supporting Azure resources in a resource group by using the `2026-06-01` GA API version, in the correct dependency order. It also handles nuances such as clearing agent and tool links, unlinking supercomputers from workspaces, and cleaning up subnet delegations before it deletes the virtual network. Run it with `--dry-run` first to preview the deletion plan.
-
-          If you need to delete resources manually, follow the same dependency order that the script uses:
-
-          1. Storage assets (`storageContainers/storageAssets`)
-          2. Data-plane agents (per project)
-          3. Projects
-          4. Agents (clear blocking links first)
-          5. Chat model deployments
-          6. Tools (clear linked agent IDs first)
-          7. Workflows
-          8. Models
-          9. Storage containers
-          10. Workspace private endpoint connections
-          11. Bookshelf private endpoint connections
-          12. Unlink workspaces from supercomputers (set `supercomputerIds` to `[]`)
-          13. Workspaces
-          14. Bookshelves
-          15. Node pools
-          16. Supercomputers
-          17. Storage accounts
-          18. User-assigned managed identities
-          19. Virtual networks (remove subnet delegations and orphaned links first)
-          20. Any remaining resources
-          21. The resource group itself, once it's empty
-
-          This order avoids dependency failures—child resources must be removed before their parents, and workspaces must be unlinked from supercomputers before deletion.
-
-  - name: Compute and the supercomputer
-    questions:
-      - question: What is the supercomputer in Microsoft Discovery?
-        answer: |
-          The supercomputer is a compute abstraction currently implemented on Azure Kubernetes Service (AKS). The AKS cluster and its node pools are deployed into a dedicated managed resource group. Tools aren't persistent resources—they're instantiated dynamically on the supercomputer when they're needed. For more information, see [Supercomputer](concept-supercomputer.md).
-
-      - question: Which VM families can I use for the supercomputer node pools?
-        answer: |
-          The system node pool has modest requirements (for example, `Standard_D4s_v6`, or a v5-family equivalent). For the compute node pool, you can use any region-available, quota-approved Azure VM CPU or GPU family that's well suited to your tools. Check quota and capacity for your target region before you deploy, because quota is allocated per region.
-
-  - name: Network and security
-    questions:
-      - question: Are Discovery services exposed publicly or privately?
-        answer: |
-          Most backend resources are private and use private endpoints, a Network Security Perimeter (NSP), and virtual network injection. Backend resources in the managed resource groups aren't directly accessible from outside the environment. For more information, see [Network security](concept-network-security.md).
-
-      - question: Is the Discovery Studio portal public or private?
-        answer: |
-          The Discovery Studio portal UI is publicly accessible over the internet, similar to the Azure portal, and is secured with Microsoft Entra ID authentication. Backend data isn't exposed through public endpoints, and no internal or external DNS entries are required for the portal URL.
-
-      - question: How do I turn on network isolation for a workspace?
-        answer: |
-          Set `networkIsolation` to `true` on the workspace resource at deployment time. This setting deploys the hardened shape with an NSP and private endpoints across the workspace, Bookshelf, and supercomputer managed resource groups. The value is read during provisioning, so apply it when you create the workspace. For step-by-step guidance, see [Configure network security](how-to-configure-network-security.md).
-
-      - question: What subnets does a hardened deployment need?
-        answer: |
-          You pre-create the virtual network and dedicated subnets in your resource group before deployment. A typical hardened deployment uses separate subnets for the workspace, agents, private endpoints, Bookshelf search, and the supercomputer node pools. Size each subnet to your compute scale—a `/24` is a common starting point, and supercomputer node pools might need more capacity. For more information, see [Virtual networks](concept-virtual-networks.md).
-
-      - question: Do I need to allow inbound access from Microsoft into my environment?
-        answer: |
-          No. No explicit inbound access is required. All interactions occur within Container Apps, private endpoints, and internal Azure services.
-
-  - name: Agents, models, and Foundry
-    questions:
-      - question: How are Discovery agents implemented?
-        answer: |
-          Agents are created as data-plane resources, with corresponding agents in Azure AI Foundry. Foundry executes the workflows that user prompts trigger. For more information, see [Discovery agent](concept-discovery-agent.md).
-
-      - question: Which models does Microsoft Discovery require?
-        answer: |
-          Microsoft Discovery requires specific chat completion and text embedding model deployments across the Discovery Engine, agents, and the Bookshelf. Review the [quota reservation](concept-quota-reservation.md) guidance for the current required models and the minimum and recommended tokens-per-minute (TPM) quota per service. Multiply the Bookshelf values by the number of Bookshelf instances you plan to run.
-
-      - question: Can I choose which models my agents use?
-        answer: |
-          Yes. You can select different models for Discovery agents, subject to the minimum required models and any quota reservations. For more information, see [Select models for agents](how-to-select-models-for-agents.md).
-
-      - question: Where do models run—Azure Machine Learning or the supercomputer?
-        answer: |
-          Both are options. You can reuse an existing Azure Machine Learning workspace to host models, or, if a model is containerized, run it on the supercomputer. Choose based on whether you already have machine learning assets or prefer container-based execution.
-
-  - name: Knowledge retrieval (Bookshelf and Azure AI Search)
-    questions:
-      - question: What is the difference between Bookshelf (GraphRAG) and Azure AI Search?
-        answer: |
-          **Bookshelf** runs a GraphRAG pipeline (OCR, normalization, embeddings, and graph-community detection). Its strength is deep, multi-hop, thematic insight that surfaces hidden relationships, but it needs a curated, connected dataset and is memory-intensive (about a 1-GB practical limit). **Azure AI Search** runs an index, embeddings, and agentic retrieval pipeline. Its strength is precise, local queries that work at large scale (100+ GB), but it doesn't provide graph or community reasoning. For more information, see [Bookshelf knowledge bases](concept-bookshelf-knowledge-bases.md).
-
-      - question: Which retrieval tool should I use?
-        answer: |
-          Use **Azure AI Search** for specific, factual lookups (local queries). Use **Bookshelf (GraphRAG)** for broad, thematic, discovery-oriented questions across a corpus (global queries). For production, a hybrid pattern works well: keep the full corpus in Azure AI Search, curate a small, connected subset for Bookshelf, and let an agent route each query to the right tool.
-
-      - question: Can Bookshelf handle a 100+ GB corpus?
-        answer: |
-          Not directly. A realistic Bookshelf input is about 1 GB of normalized text after extraction, because GraphRAG builds an in-memory graph. Keep the full corpus (100+ GB) in Azure AI Search and curate a small, high-quality subset for Bookshelf rather than ingesting everything. For context, roughly 6,000 research papers normalize to about 180 MB of text.
-
-      - question: What document types does Bookshelf support?
-        answer: |
-          Common document types include Word, PowerPoint, Excel, and PDF, covering content such as scientific reports, patents, and research articles.
-
-      - question: Do scientists always need an agent to query a Bookshelf?
-        answer: |
-          No. You can query a Bookshelf directly in natural language. Agents become relevant when a Bookshelf is used as grounding data in multi-step investigations. A good practice is to align specific Bookshelves to specific agents or domains for targeted retrieval.
-
-  - name: Tools and utilities
-    questions:
-      - question: Where can I find utilities to help operate a Microsoft Discovery deployment?
-        answer: |
-          The public [microsoft/discovery](https://github.com/microsoft/discovery/tree/main/utilities) repo includes a set of standalone operator utilities. In addition to the [Discovery Toolbox](https://github.com/microsoft/discovery/tree/main/utilities/discovery-toolbox) VS Code extension, the folder provides:
-
-          | Utility | What it does | When to use it |
-          |---|---|---|
-          | [Resource provider registration](https://github.com/microsoft/discovery/tree/main/utilities/resource-provider-registration) | Registers every Azure resource provider that Discovery and its dependencies need in a target subscription (cross-platform PowerShell). | First step when onboarding a new subscription. |
-          | [RBAC roles assignment](https://github.com/microsoft/discovery/tree/main/utilities/rbac-roles-assignment) | Assigns the complete set of Azure RBAC roles required for a Discovery persona (Platform Administrator or Scientist) to one or more users. | After provider registration, when granting users access. |
-          | [Supercomputer CLI](https://github.com/microsoft/discovery/tree/main/utilities/supercomputer-cli) | Provides access to the Discovery supercomputer API for submitting and running jobs directly on the supercomputer. | Submitting jobs directly to the supercomputer. |
-          | [Delete Discovery deployment](https://github.com/microsoft/discovery/tree/main/utilities/delete-discovery-deployment) | Deletes all `Microsoft.Discovery` and supporting Azure resources in a resource group, in strict dependency order, then removes the empty resource group. | Tearing down a deployment (destructive). |
-
-          Each utility is self-contained, with its own README that documents prerequisites, parameters, and operational notes.
-
-      - question: How do I register the Azure resource providers that Microsoft Discovery needs?
-        answer: |
-          Use the [resource provider registration](https://github.com/microsoft/discovery/tree/main/utilities/resource-provider-registration) utility, a cross-platform PowerShell script that registers every Azure resource provider that Discovery and its dependencies require in a target subscription. It auto-installs the `Az.Accounts` and `Az.Resources` modules and signs you in if needed. Running it is the recommended first step when onboarding a new subscription. The Discovery Toolbox can also perform and validate provider registration as part of its prerequisite checks.
-
-      - question: How do I grant users the roles they need for Microsoft Discovery?
-        answer: |
-          Use the [RBAC roles assignment](https://github.com/microsoft/discovery/tree/main/utilities/rbac-roles-assignment) utility to assign the complete set of Azure RBAC roles required for a Discovery persona—Platform Administrator or Scientist—to one or more users. It validates the executor's permissions, supports batch assignment, and handles guest users. Run it after resource provider registration. The Discovery Toolbox surfaces the same role requirements through its permission auditing and role summary views.
-
-      - question: How do I submit jobs directly to the supercomputer?
-        answer: |
-          Use the [Supercomputer CLI](https://github.com/microsoft/discovery/tree/main/utilities/supercomputer-cli) utility, which provides access to the Discovery supercomputer API for submitting and running jobs directly on the supercomputer compute pool.
+  - [Microsoft Discovery documentation](https://learn.microsoft.com/en-us/azure/microsoft-discovery/)
+  - [Microsoft Discovery GitHub repository](https://github.com/microsoft/discovery)
+  - [Microsoft Discovery REST API reference](https://learn.microsoft.com/en-us/rest/api/discovery/)
+  - [Microsoft Discovery Azure CLI reference](https://learn.microsoft.com/en-us/cli/azure/service-page/microsoft%20discovery?view=azure-cli-latest)

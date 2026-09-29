@@ -14,6 +14,8 @@ ms.subservice: data
 
 # Set up call monitoring and alerting
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how Azure Communication Services Calling customers set-up monitoring and alerting for their calls. Follow these steps to ensure a smooth and effective setup process.
 
 ## Prerequisite: enable call logging and diagnostics

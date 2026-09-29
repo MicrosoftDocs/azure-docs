@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Validate Azure Communication Services events
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This document shows you how to validate that your Azure Communication Services resource sends events using Azure Event Grid viewer or RequestBin. 
 
 > [!NOTE] 

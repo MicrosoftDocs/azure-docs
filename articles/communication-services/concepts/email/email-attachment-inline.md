@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Inline attachments
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Email communication is more than just text. It's about creating engaging and visually appealing messages that capture the recipient's attention.
 
 One way to engage email recipients is by using inline attachments, which enable you to embed images directly within the email body. 

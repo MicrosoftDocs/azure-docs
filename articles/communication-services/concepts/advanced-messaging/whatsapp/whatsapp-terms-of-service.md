@@ -14,6 +14,8 @@ ms.subservice: advanced-messaging
 
 # Advanced Messaging for WhatsApp data transfer and independent terms of service
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 To enable the WhatsApp feature in Azure Communication Services, you need to create or connect a WhatsApp Business Account and agree to the Meta Cloud API and WhatsApp Terms of Service ("Meta Terms").
 
 When you use the WhatsApp feature in Azure Communication Services, your data is transferred from one service to the other, and the respective terms govern the handling of that data. [Microsoft Product Terms](https://www.microsoft.com/licensing/terms) governs the Azure Communication Services. [Meta Terms](https://www.facebook.com/legal/Meta-Hosting-Terms-Cloud-API) governs the WhatsApp Service.

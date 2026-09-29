@@ -15,6 +15,8 @@ ms.custom: mode-other
 
 # Quickstart: Access call volume level in your calling app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-windows"
 [!INCLUDE [Access call volume level with Windows](./includes/volume-indicator/volume-indicator-windows.md)]
 ::: zone-end

@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # cameraStoppedUnexpectedly UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `cameraStoppedUnexpectedly` UFD event with a `true` value occurs when the SDK detects that the camera track was muted.
 
 Keep in mind that this event relates to the camera track's `mute` event triggered by an external source.

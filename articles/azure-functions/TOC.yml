@@ -641,6 +641,15 @@
   - name: Create AI-enabled functions
     displayName: OpenAI, agent, agentic, tools, trigger
     href: functions-create-ai-enabled-apps.md
+  - name: Agent bindings in Python
+    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, Durable Functions, hybrid workflows
+    href: functions-agent-bindings.md
+  - name: Agent binding with Microsoft Agent Framework
+    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, HTTP, quickstart
+    href: functions-agent-bindings-agent-framework.md
+  - name: Agent binding with Durable Functions
+    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, Durable Functions, orchestration, quickstart
+    href: functions-agent-bindings-agent-framework-durable.md
   - name: Custom remote MCP servers 
     items:  
     - name: MCP extension quickstart
@@ -665,10 +674,10 @@
     - name: Overview
       displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
       href: functions-hosted-skills.md
-    - name: Dynamic workflows
+    - name: Dynamic workflows overview
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
       href: functions-hosted-skills-dynamic-workflows.md
-    - name: Create and run dynamic workflows
+    - name: Dynamic workflows quickstart
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
       href: functions-hosted-skills-dynamic-workflows-how-to.md
     - name: Reference

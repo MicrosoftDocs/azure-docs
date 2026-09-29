@@ -17,6 +17,8 @@ zone_pivot_groups: acs-maui-react
 
 # Get started with Cross Platform development using the UI library
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services introduces Cross Platform development using **.NET MAUI and React Native** solutions. This sample demonstrates how Azure Communication Services Calling integrates the UI Library for mobile platforms and create the bindings to allow developers to begin building with the calling capabilities.

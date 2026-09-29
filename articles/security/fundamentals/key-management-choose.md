@@ -6,7 +6,7 @@ services: security
 author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.date: 09/18/2026
+ms.date: 09/22/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
@@ -72,7 +72,7 @@ Use the following table to compare all the solutions side by side. Answer each q
 | Do you need **single tenancy**? | No | No | Yes | Yes | Yes | Yes |
 | What are your **use cases**? | Encryption at rest, customer-managed keys, custom applications | Encryption at rest, customer-managed keys, custom applications | Encryption at rest, SSL/TLS offload, customer-managed keys, external key management (preview; wrap/unwrap only), custom applications | Lift and shift, PKCS#11, SSL/TLS offload, TDE, code signing | Payment PIN processing, custom applications | Payment PIN processing, custom applications |
 | Do you need **HSM hardware protection**? | No | Yes | Yes | Yes | Yes | Yes |
-| What kind of **objects** do you need to store? | Asymmetric keys, secrets, certificates | Asymmetric keys, secrets, certificates | Asymmetric and symmetric keys only‡ | Asymmetric and symmetric keys, certificates | Keys | Keys |
+| What kind of **objects** do you need to store? | Asymmetric keys, secrets, certificates | Asymmetric keys, symmetric keys (preview), secrets, certificates | Asymmetric and symmetric keys only‡ | Asymmetric and symmetric keys, certificates | Keys | Keys |
 | Do you need **dedicated capacity**? | No | No | Yes | Yes | Yes | Yes |
 | Do you need **customer control of root of trust**? | No | No | Yes | Yes | Yes | Yes |
 | What is your **budget**? | $ | $$ | $$$ | $$$ | $$$$ | N/A (free during preview) |

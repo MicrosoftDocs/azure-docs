@@ -1,6 +1,6 @@
 ---
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: include
 ms.date: 11/26/2024
 # Customer intent: "As a cloud architect, I want to explore VMware migration scenarios, so that I can effectively plan and execute the migration of my workloads to the cloud."

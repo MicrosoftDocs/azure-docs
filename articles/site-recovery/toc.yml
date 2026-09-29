@@ -64,6 +64,8 @@
       href: vmware-azure-tutorial-failover-failback-modernized.md
   - name: Hyper-V VM disaster recovery to Azure
     items:
+    - name: Set up replication for Hyper-V VMs
+      href: hyper-v-azure-tutorial.md
     - name: Prepare Azure
       href: tutorial-prepare-azure-for-hyperv.md
     - name: Prepare on-premises Hyper-V
@@ -74,8 +76,6 @@
       href: tutorial-dr-drill-azure.md
     - name: Fail over to Azure
       href: hyper-v-azure-failover-failback-tutorial.md
-  - name: Set up replication for Hyper-V VMs
-    href: hyper-v-azure-tutorial.md
   - name: Azure VMware Solution disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -92,13 +92,13 @@
       href: avs-tutorial-reprotect.md
     - name: Fail back from Azure
       href: avs-tutorial-failback.md
-  - name: Archive - retired classic VMware migration
+  - name: Classic VMware migration
     items:
-    - name: Classic to modernized VMware disaster recovery
+    - name: Prepare infrastructure for migration
       href: move-from-classic-to-modernized-vmware-disaster-recovery.md
-    - name: Move from classic to modernized VMware disaster recovery
+    - name: Move resources from classic to modernized experience
       href: how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
-    - name: Classic to modernized VMware disaster recovery FAQ
+    - name: FAQ on classic to modernized VMware DR 
       href: classic-to-modernized-common-questions.md
   - name: Deploy Azure Site Recovery replication appliance (modernized)
     href: deploy-vmware-azure-replication-appliance-modernized.md
@@ -178,8 +178,6 @@
       href: alternative-vm-size-failover-flow.md
   - name: About VMware VM disaster recovery
     items:
-    - name: Deprecation of classic experience
-      href: vmware-physical-azure-classic-deprecation.md
     - name: Failover and failback - Modernized
       href: failover-failback-overview-modernized.md
       items:
@@ -197,8 +195,6 @@
       href: ../backup/backup-center-overview.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: About physical server disaster recovery
     items:
-    - name: Deprecation of classic experience
-      href: vmware-physical-azure-classic-deprecation.md
     - name: Physical server to Azure architecture - Modernized
       href: physical-server-azure-architecture-modernized.md
   - name: About networking for disaster recovery

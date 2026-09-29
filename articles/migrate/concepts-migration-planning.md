@@ -4,7 +4,7 @@ description: Provides guidance on building a migration plan with Azure Migrate.
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/26/2024
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
 ms.custom:
   - engagement-fy23

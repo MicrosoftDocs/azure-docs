@@ -2,7 +2,7 @@
 title: Firmware analysis overview
 description: Learn how firmware analysis helps device builders and operators to evaluate the security of IoT, OT and network devices.
 ms.topic: overview
-ms.date: 09/12/2025
+ms.date: 09/04/2026
 author: karengu0
 ms.author: karenguo
 ms.service: azure
@@ -30,6 +30,8 @@ Firmware analysis can analyze your firmware for common weaknesses and vulnerabil
 - **CVE analysis**: See which firmware components have publicly known security vulnerabilities and exposures.
 
 - **Binary hardening analysis**: Identify binaries that haven't enabled specific security flags during compilation like buffer overflow protection, position independent executables, and more common hardening techniques.
+
+- **Unsafe function calls analysis (preview)**: Identify references to potentially unsafe functions in supported Linux executables. These results are signals for further security review and don't establish that an executable is vulnerable. For coverage and interpretation guidance, see [Understand unsafe function call data](understand-unsafe-function-calls.md).
 
 - **SSL certificate analysis**: Reveal expired and revoked TLS/SSL certificates.
 

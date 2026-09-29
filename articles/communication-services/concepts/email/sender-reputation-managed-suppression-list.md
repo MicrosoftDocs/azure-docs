@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Understand sender reputation in Azure Communication Services email
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes best practices for email delivery in business-to-consumer (B2C) communication and how to use Azure Communication Services email logs to help with your email reputation. This comprehensive guide offers insights into optimizing email complaint management, fostering healthier email practices, and maximizing the success of your email delivery.
 
 ## Managing sender reputation and email complaints to enhance email delivery

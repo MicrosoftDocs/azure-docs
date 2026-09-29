@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # cameraStartTimedOut UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `cameraStartTimedOut` UFD event with a `true` value occurs when the SDK is unable to acquire the camera stream because the promise returned by `getUserMedia` browser method doesn't resolve within a certain period of time.
 This issue can happen when the user starts a call with video enabled, but the browser displays a UI permission prompt and the user doesn't respond to it.
 

@@ -16,6 +16,8 @@ ms.custom: sfi-ropc-nochange
 
 # Detect sensitive data using Azure AI
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes presend email analysis, which detects sensitive data and inappropriate content using Azure AI.
 
 Azure Communication Services email enables organizations to send high volume messages to their customers using their applications. This tutorial shows how to use Azure AI to ensure that your messages accurately reflect your business’s brand and reputation before sending them. Azure AI offers services to analyze your email content for sensitive data and identify inappropriate content.

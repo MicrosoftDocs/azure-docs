@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # Overview of call setup issues
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When an application makes a call with Azure Communication Services WebJS SDK, the first step is to create a `CallClient` instance and use it to create a call agent.
 When a call agent is created, the SDK registers the user with the service, allowing other users to reach them.
 When the user joins or accepts a call, the SDK establishes media sessions between the two endpoints.

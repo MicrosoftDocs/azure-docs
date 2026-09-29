@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 09/11/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom: engagement-fy23, linux-related-content
@@ -388,7 +388,7 @@ Notating hierarchical namespace | Not supported.
 --- | ---
 Availability sets | Yes 
 Proximity Placement Groups | Yes
-Availability zones | Supported with modernized protection when the target region, subscription, disk type, and VM size support the selected zone. An availability set and availability zone can't be configured together. Not supported with the classic experience.
+Availability zones | Supported with modernized protection when the target region, subscription, disk type, and VM size support the selected zone. An availability set and availability zone can't be configured together.
 Secure VM target types | Trusted Launch and Confidential VM conversion are supported only for designated migration scenarios. They aren't supported as recovery targets for VMware or physical disaster recovery.
 HUB | Yes
 Managed disks | Yes

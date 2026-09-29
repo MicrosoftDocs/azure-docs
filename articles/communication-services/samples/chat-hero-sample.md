@@ -16,6 +16,8 @@ ms.custom: sfi-ropc-nochange
 
 # Get started with the chat hero sample
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!IMPORTANT]
 > [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 

@@ -31,10 +31,12 @@ Azure NAT Gateway has two stock-keeping units (SKUs): Standard and StandardV2. T
 | | Virtual networks | 1 | 1 |
 | | Subnets | 800 | 800 |
 | Monitoring | Metrics | Supported | Supported |
-| Limits | Bandwidth | 50 Gbps per NAT gateway | 100 Gbps per NAT gateway, 1 Gbps per connection |
-| | Packets per second | 5 million packets per second | 10 million packets per second, 100,000 packets per second per connection |
+| Limits | Bandwidth | 50 Gbps per NAT gateway (split 25/25 Gbps per direction | 100 Gbps per NAT gateway, 1 Gbps per connection |
+| | Packets per second | 5 million packets per second (split 2.5M/2.5M PPS per direction) | 10 million packets per second, 100,000 packets per second per connection |
 | | Connections per IP per destination | 50,000 | 50,000 |
 | | Total connections | 2 million | 2 million |
+
+For a Standard SKU NAT gateway resource, the total bandwidth supported is 50 Gbps split 25 Gbps per direction for outbound and inbound (return) data. Packets per second (PPS) is also split per direction at 2.5M PPS for outbound and 2.5M PPS for inbound (return).
 
 ## Pricing and SLA
 

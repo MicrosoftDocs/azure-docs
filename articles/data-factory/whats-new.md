@@ -34,7 +34,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 ## January 2026
 
 ### Migration
-Assessing your Azure Data Factory and Synapse pipelines for migration to Fabric. [Learn more](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md).
+Assessing Synapse pipelines for migration to Fabric. [Learn more](how-to-assess-your-synapse-pipelines-for-upgrade.md).
 
 ## December 2025
 

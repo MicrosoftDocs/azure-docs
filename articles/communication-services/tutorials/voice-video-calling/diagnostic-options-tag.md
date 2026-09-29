@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # Tutorial on adding custom tags to your client telemetry
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 This tutorial shows you how to add a custom data attribute, called the **Diagnostic Options** tag, to the telemetry data that your WebJS client sends to Azure Monitor. This telemetry can be used for post-call analysis.
 
 ## Why A/B Testing Matters

@@ -283,6 +283,8 @@ items:
     href: tutorial-app-containerization-aspnet-kubernetes.md
   - name: Containerize Java web apps and migrate to AKS
     href: tutorial-app-containerization-java-kubernetes.md
+  - name: Containerize Java web apps and migrate to Azure Container Apps
+    href: tutorial-app-containerization-java-container-apps.md
   - name: Containerize Java web apps and migrate to App Service containers
     href: tutorial-app-containerization-java-app-service.md
   - name: Modernize ASP.NET web apps to App Service code

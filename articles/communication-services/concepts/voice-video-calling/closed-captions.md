@@ -13,6 +13,8 @@ ms.custom: public_preview
 
 # Closed captions overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Closed captions are a textual representation of a voice or video conversation that is displayed to users in real-time. Azure Communication Services Closed captions offer developers the ability to allow users to select when they wish to toggle captions on or off. These captions are only available during the call/meeting for the user that enabled captions. Azure Communication Services does **not** store these captions anywhere. Here are main scenarios where closed captions are useful:
 
 ## Common use cases

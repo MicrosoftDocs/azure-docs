@@ -14,6 +14,8 @@ ms.subservice: advanced-messaging
 
 # Pricing for Advanced Messaging
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Prices for Advanced Messaging in Azure Communication Services consist of two components: the usage fee and the channel fee.
 
 ## Advanced Messaging usage fee

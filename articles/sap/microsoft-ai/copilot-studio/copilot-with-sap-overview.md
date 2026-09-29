@@ -136,7 +136,7 @@ Depending on the kind of back-end system and the available skills, you can conne
 
 OData is the main protocol for transactional SAP applications. Applications like SAP Fiori, SAP ECC, SAP S/4HANA, SAP SuccessFactors, SAP Ariba, SAP Concur, and more support OData. The [SAP Business Accelerator Hub](https://api.sap.com/) lists thousands of out-of-the-box OData services. The [SAP Fiori Reference App Library](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/) shows other OData services that are available and that SAP supports out of the box.
 
-If no out-of-the-box OData service is available, you can create custom [Core Data Services views](https://learning.sap.com/courses/basic-abap-programming/working-with-cds-view_c289f74d-675e-4084-9d90-5635958ec604) (via [RAP](https://pages.community.sap.com/topics/abap/rap) or [CAP](https://developers.sap.com/tutorials/introduction..html)) to expose other OData services.
+If no out-of-the-box OData service is available, you can create custom [Core Data Services views](https://learning.sap.com/courses/basic-abap-programming/working-with-cds-view_c289f74d-675e-4084-9d90-5635958ec604) (via [RAP](https://pages.community.sap.com/topics/abap/rap)) to expose other OData services.
 
 These OData services can't only be consumed in a Copilot scenario. But due to the standardization, thousands of clients (including Microsoft Excel and Power BI) provide out-of-the-box support to consume OData services.
 

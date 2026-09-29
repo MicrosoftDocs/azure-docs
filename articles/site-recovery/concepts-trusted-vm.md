@@ -65,7 +65,7 @@ You can follow the same steps for Azure Site Recovery with trusted virtual machi
 
 Azure Generation 2 VMs protected by Azure Site Recovery cannot be migrated to trusted launch. While the portal blocks this migration, other channels like PowerShell and CLI do not. Before proceeding, review the migration [prerequisites](/azure/virtual-machines/trusted-launch-existing-vm) and plan accordingly. If you still wish to migrate your Generation 2 Azure VM protected by Azure Site Recovery to Trusted Launch, follow these steps:
 
-1. [Disable](./site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure) Azure Site Recovery replication. 
+1. [Disable](./site-recovery-manage-registration-and-protection.md) Azure Site Recovery replication. 
 1. Uninstall Azure Site Recovery agent from the VM. To do this, follow these steps:
     1. On the Azure portal, go to the virtual machine.
     1. Select **Settings** > **Extensions**.

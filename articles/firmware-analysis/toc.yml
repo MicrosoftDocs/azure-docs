@@ -33,6 +33,8 @@
     href: firmware-analysis-rbac.md
   - name: Understanding and prioritizing weaknesses data in firmware analysis
     href: understand-weaknesses-data.md
+  - name: Understanding unsafe function call data
+    href: understand-unsafe-function-calls.md
   - name: UEFI firmware analysis capabilities
     href: unified-extensible-firmware-interface-firmware-analysis.md
   - name: Firmware analysis integration with Azure Device Registry

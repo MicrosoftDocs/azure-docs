@@ -14,6 +14,8 @@ ms.custom: template-how-to
 
 # Reactions
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to implement reactions for Azure Communication Services Calling SDKs. This capability enables participants in a group call or meeting to send and receive reactions with participants in Azure Communication Services and Microsoft Teams. 
 
 The configuration and policy settings in Microsoft Teams control reactions for users in Teams meetings. For more information, see [Manage reactions in Teams meetings and webinars](/microsoftteams/manage-reactions-meetings) and [Meeting options in Microsoft Teams](https://support.microsoft.com/office/meeting-options-in-microsoft-teams-53261366-dbd5-45f9-aae9-a70e6354f88e).

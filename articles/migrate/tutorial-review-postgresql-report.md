@@ -1,8 +1,8 @@
 ---
 title: Review PostgreSQL assessment properties
 description: Explains how to assess PostgreSQL workloads in Azure Migrate, including key components, readiness evaluation, and migration planning.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate 
 ms.topic: tutorial
 ms.date: 08/05/2025

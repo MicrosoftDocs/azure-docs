@@ -4,7 +4,7 @@ description: Learn how to discover MySQL database instances running in your data
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update-cycle: 365-days
 ms.date: 03/03/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions

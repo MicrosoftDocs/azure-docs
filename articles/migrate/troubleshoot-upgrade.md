@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Windows upgrade issues
 description: Provides an overview of known issues in the Windows OS upgrade feature
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 05/08/2025

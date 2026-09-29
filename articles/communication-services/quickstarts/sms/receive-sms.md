@@ -16,6 +16,8 @@ zone_pivot_groups: acs-js-power
 
 # Receive an SMS message
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services SMS capabilities provide developers options to consume SMS received events. The events are posted to Azure Event Grid, which provides out of the box integrations to process those using webhooks, Azure Functions, Power Automate / Logic App connectors, and more.
 
 Once received, SMS messages can be processed to respond to them or log them to a database for future access.

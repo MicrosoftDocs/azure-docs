@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 10/12/2025
+ms.date: 12/10/2025
 ms.service: azure-backup
 ms.custom:
   - engagement-fy24
