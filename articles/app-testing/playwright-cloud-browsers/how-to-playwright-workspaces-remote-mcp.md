@@ -48,7 +48,9 @@ Scope: https://mcp.playwright.microsoft.com/Playwright.Mcp.Tools
 
 The server publishes OAuth protected-resource metadata. Clients that support OAuth discovery, including Visual Studio Code, can discover the authorization server and required scope from the workspace-scoped MCP endpoint. The signed-in identity must have access to the Playwright workspace through Azure role-based access control (RBAC).
 
-Use a workspace access token only when the MCP client can't authenticate with Microsoft Entra ID. Access tokens are less secure and are disabled by default.
+> [!WARNING]
+> Use a workspace access token only when the MCP client can't authenticate with Microsoft Entra ID. Access tokens are less secure and are disabled by default.
+
 
 ## Create a workspace access token for compatibility
 
