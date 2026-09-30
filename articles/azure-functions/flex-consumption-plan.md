@@ -207,7 +207,7 @@ All Flex Consumption apps in a subscription and region share a compute quota, li
 
 ### Default quota
 
-Each region in a subscription has a default quota of **250 cores** (equivalent to **512,000 MB**) for all Flex Consumption app instances combined. For **Azure Free Trial** and **Azure for Students** subscription offer types, the default quota is **15 cores** (equivalent to **30,720 MB**) per region. You can use any combination of instance sizes and counts, as long as the total cores stay under the applicable quota.
+The default regional quota for all Flex Consumption app instances combined is **250 cores** (equivalent to **512,000 MB**). Azure Free Trial and Azure for Students subscriptions have a default regional quota of **15 cores** (equivalent to **30,720 MB**). You can use any combination of instance sizes and counts, as long as the total cores stay under the applicable quota.
 
 To calculate the cores used, multiply the cores per instance by the number of instances:
 
