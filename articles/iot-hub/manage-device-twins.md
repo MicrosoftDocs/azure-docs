@@ -6,7 +6,7 @@ author: sethmanheim
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 09/29/2026
 ms.author: sethm
 ms.custom:
   - devx-track-portal
@@ -85,27 +85,26 @@ Once a device identity is created, a device twin is implicitly created in IoT Hu
 
 1. In your IoT hub, select **Devices** from the **Device management** section of the navigation menu.
 
-   On the **Devices** page, you see a list of all devices registered in your IoT hub. If any of the devices already have tags in their device twins, those tags are shown in the **Tags** column.
+   The default **Devices** list displays up to 15 devices and doesn't provide the complete device inventory. To find a device that isn't displayed, enter its device ID in the search box. You can also apply a filter or run a query. For more information, see [Query for device twins](#query-for-device-twins).
 
-1. Select the name of the device that you want to manage.
-
-   >[!TIP]
-   >If you're updating tags, you can select multiple devices then select **Assign tags** to manage them as a group.
+   > [!IMPORTANT]
+   > The default list doesn't display device twin tag values. This doesn't mean that the devices have no tags. View tags on the device details page, in **Device twin**, or in filtered or query results.
    >
-   >:::image type="content" source="./media/manage-device-twins/multi-select-assign-tags.png" alt-text="A screenshot that shows selecting multiple devices in the Azure portal to assign tags as a group.":::
+   > The **Type** value in the default list can show an IoT Edge device as an IoT device because the capability information isn't available in this view. To find IoT Edge devices, select **IoT Edge** under **Device management**, or filter **Devices** to **IoT Edge devices**.
+
+   > [!NOTE]
+   > Search and filter results are eventually consistent. Newly created devices and recent twin changes might not appear immediately. To check the current twin values for a known device, use a direct [Get Twin](/rest/api/iothub/service/devices/get-twin) request. For more information, see [Twin query limitations](./iot-hub-devguide-query-language.md#twin-query-limitations).
+
+1. Select the device ID to open the device details page.
 
 1. The device details page displays any current tags for the selected device. Select **edit** next to the **Tags** parameter to add, update, or remove tags.
 
-   :::image type="content" source="./media/manage-device-twins/edit-tags.png" alt-text="A screenshot that shows opening the tags editing option in the Azure portal.":::
-
    >[!TIP]
    >To add or update nested tags, select the **Advanced** tab and provide the JSON.
-   >
-   >:::image type="content" source="./media/manage-device-twins/edit-tags-advanced.png" alt-text="A screenshot that shows using the advanced tags editor to provide JSON text.":::
 
 1. Select **Device twin** to view and update the device twin JSON.
 
-   You can type directly in the text box to update tags or desired properties. To remove a tag or desired property, set the value of the item to `null`.
+   Device twin tags are in the `tags` object. You can type directly in the text box to update tags or desired properties. To remove a tag or desired property, set the value of the item to `null`.
 
 1. Select **Save** to save your changes.
 
@@ -144,33 +143,42 @@ az iot hub device-twin replace --device-id <DEVICE_ID> --hub-name <IOTHUB_NAME> 
 
 IoT Hub exposes the device twins for your IoT hub as a document collection called **devices**. You can query devices based on their device twin values.
 
-This section describes how to run twin queries in the Azure portal and Azure CLI. To learn how to write twin queries, see [Queries for IoT Hub device and module twins](./query-twins.md).
+This section describes how to run twin queries in the Azure portal and Azure CLI. To learn how to write twin queries, see [Queries for IoT Hub device and module twins](./iot-hub-devguide-query-language.md#queries-for-iot-hub-device-and-module-twins).
+
+> [!NOTE]
+> Device twin queries are eventually consistent. Newly created devices and recent twin changes might not appear immediately, and deleted devices might remain in results temporarily. A missing device or tag in query results doesn't by itself mean that it was deleted. To retrieve the current twin values for a known device, use a direct [Get Twin](/rest/api/iothub/service/devices/get-twin) request. For more information, see [Twin query limitations](./iot-hub-devguide-query-language.md#twin-query-limitations).
 
 ### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 
-1. In your IoT hub, select **Devices** from the **Device management** section of the navigation menu.
-
-1. You can either use a filter or a query to find devices based on their device twin details:
+1. Use a filter on **Devices** or run a query on **Queries** to find devices based on their device twin details:
 
    * **Find devices using a filter**:
 
-     1. Finding devices using a filter is the default view in the Azure portal. If you don't see these fields, select **Find devices using a filter**.
+     1. Select **Devices** under **Device management**.
 
      1. Select **Add filter**, and then select **Device tag** as the filter type from the drop-down menu.
 
-     1. Enter the desired tag name and value, select **Apply** to retrieve the list of devices that matches the criteria.
+     1. Enter the desired tag name and value, then select **Apply** to retrieve devices that match the criteria.
 
-        :::image type="content" source="./media/manage-device-twins/filter-device-twin-tags.png" alt-text="Screenshot of filtering devices with tags.":::
+        Filtered results can display device twin tags. If **Load more** is available, select it to request additional filtered results. This is different from the default list, which displays up to 15 devices without device twin tag values.
 
    * **Find devices using a query**:
 
-     1. Select **Find devices using a query**.
+     1. Select **Queries** under **Device management**.
 
-     1. Enter your query into the text box, then select **Run query**.
+     1. Keep the prefilled `SELECT * FROM devices` query to retrieve device twins, or enter a query to filter by a tag. For example, the following query returns device IDs and tags for devices whose `devicetype` tag is `testIoTDevice`:
 
-        :::image type="content" source="./media/manage-device-twins/run-query.png" alt-text="Screenshot that shows using the device query filter in the Azure portal.":::
+        ```sql
+        SELECT deviceId, tags
+        FROM devices
+        WHERE tags.devicetype = 'testIoTDevice'
+        ```
+
+        Replace the tag name and value with those used by your devices.
+
+     1. Select **Run query** and inspect the results.
 
 ### [Azure CLI](#tab/cli)
 
