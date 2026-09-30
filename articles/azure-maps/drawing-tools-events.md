@@ -3,7 +3,7 @@ title: Drawing tools events | Microsoft Azure Maps
 description: This article demonstrates how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
 author: sinnypan
 ms.author: sipa
-ms.date: 09/03/2024
+ms.date: 09/30/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -66,11 +66,6 @@ Learn how to use other features of the drawing tools module:
 > [!div class="nextstepaction"]
 > [Interaction types and keyboard shortcuts]
 
-Learn more about the services module:
-
-> [!div class="nextstepaction"]
-> [Services module]
-
 Check out more code samples:
 
 > [!div class="nextstepaction"]
@@ -87,5 +82,4 @@ Check out more code samples:
 [Interaction types and keyboard shortcuts]: drawing-tools-interactions-keyboard-shortcuts.md
 [Select data in drawn polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Select%20data%20in%20drawn%20polygon%20area/Select%20data%20in%20drawn%20polygon%20area.html
 [Select data in drawn polygon area]: https://samples.azuremaps.com/drawing-tools-module/select-data-in-drawn-polygon-area
-[Services module]: how-to-use-services-module.md
 [Turf.js]: https://turfjs.org
