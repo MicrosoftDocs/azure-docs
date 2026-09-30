@@ -3,9 +3,9 @@ title: Include file
 description: Include file
 ms.service: azure-backup
 ms.topic: include
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.date: 09/25/2026
-author: jyothisuri
-ms.author: jsuri
 ---
 
 ## Configure backup
