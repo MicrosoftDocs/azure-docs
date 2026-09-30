@@ -25,7 +25,7 @@ Instructions for new or existing deployments of ALB Controller deployed with Hel
 
 If using the AKS add-on, updates are automatically applied to the cluster.
 
-## Latest Helm Release
+## Latest Helm release
 
 | ALB Controller Version | Gateway API Version | Gateway API Inference Extension Version | Minimum Kubernetes Version | Release notes |
 | ---------------------- | ------------------- | --------------------------------------- | ------------------ | ------------- |
