@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Web SDK to handle events.
 author: sinnypan
 ms.author: sipa
-ms.date: 08/30/2024
+ms.date: 09/30/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -110,9 +110,6 @@ The following table lists all supported map class events.
 See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
-> [Using the Azure Maps Services module]
-
-> [!div class="nextstepaction"]
 > [Code samples]
 
 [map events class]: /javascript/api/azure-maps-control/atlas.map#events
@@ -123,5 +120,4 @@ See the following articles for full code examples:
 [Map Events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Map%20Events/Map%20Events.html
 [Layer Events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Symbol%20layer%20events/Symbol%20layer%20events.html
 [HTML marker layer events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/HTML%20marker%20layer%20events/HTML%20marker%20layer%20events.html
-[Using the Azure Maps Services module]: how-to-use-services-module.md
 [Code samples]: /samples/browse/?products=azure-maps

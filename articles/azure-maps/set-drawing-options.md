@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article describes how to set drawing options data using the Microsoft Azure Maps Web SDK
 author: sinnypan
 ms.author: sipa
-ms.date: 06/15/2023
+ms.date: 09/30/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -18,7 +18,7 @@ The Azure Maps Web SDK provides a [drawing tools module]. This module makes it e
 
 1. Create a new HTML file and [implement the map as usual].
 2. Load the Azure Maps drawing tools module. You can load it in one of two ways:
-    - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add reference to the JavaScript and CSS in the `<head>` element of the file:
+    - Use the globally hosted Azure Content Delivery Network version of the Azure Maps drawing tools module. Add references to the JavaScript and CSS in the `<head>` element of the file.
 
         ```html
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />

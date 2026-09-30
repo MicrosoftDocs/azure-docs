@@ -261,7 +261,7 @@ items:
               href: tutorial-gpu-image-generation.md
         - name: Override auto-generated KEDA scale rules
           href: functions-scale-rule-override.md
-        - name: Migrate from Functions v1 to v2
+        - name: Migrate from Functions on Azure Container Apps V1 to Functions on Azure Container Apps V2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
           href: functions-unified-platform.md

@@ -625,8 +625,12 @@
     href: backup-azure-postgresql-flex-server-elastic-cluster-v2-support-matrix.md
   - name: Tutorial
     href: backup-azure-postgresql-flex-server-elastic-cluster-v2-tutorial.md
-  - name: Migrate from v1 to v2
-    href: backup-azure-postgresql-flex-server-elastic-cluster-v2-migrate.md
+  - name: Backup scenarios
+    items:
+    - name: Restore
+      href: backup-azure-postgresql-flex-server-elastic-cluster-v2-restore.md
+    - name: Migrate from v1 to v2
+      href: backup-azure-postgresql-flex-server-elastic-cluster-v2-migrate.md
 - name: Azure Database for MySQL - Flexible Server backup (preview)
   items:
   - name: Overview
