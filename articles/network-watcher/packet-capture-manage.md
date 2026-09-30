@@ -105,7 +105,7 @@ To start a capture session, use the following steps:
     | Storage accounts | Select your **Standard** storage account<sup>1</sup>. <br> This option is available if you select **in storage account** or **Both** as the capture location. <br> The storage account must be in the same region as the target instance. |
     | Local file path | Enter a valid local file path where you want the capture to be saved in the target virtual machine. <br>If you're using a Linux machine, the path can start with `/var/captures`. <br>If you're using a Windows machine, the path can start with `C:\Captures`. <br> This option is available if you select **in local file storage** or **Both** as the capture location. |
     | **Packet capture configuration** |  |
-    | Enable continuous capture<sup>3</sup> | Check this checkbox if you want to enable continuous packet capture. For more information, see [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture). |
+    | Enable continuous capture<sup>3</sup> | Select this checkbox to enable continuous packet capture. For more information, see [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture). |
     | Maximum bytes per packet | Enter the maximum number of bytes to be captured per each packet. All bytes are captured if left blank or 0 entered. |
     | New files created<sup>3</sup> | Enter the maximum number of files created. The default value is 100 MB and the maximum value is 4 GB. <br> This option is available if you enable **continuous capture**. |
     | Bytes per file<sup>3</sup> | Enter the number of bytes per file. Once the value is reached, a new file is created. |
