@@ -459,7 +459,7 @@ C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-ma
   "status": "Succeeded"
 }
   ```
- **  7. **(Optional) PUT expressRouteCrossConnection to validate Microsoft Peering advertised prefixes** If you allow customers to advertise your public IP addresses over Microsoft Peering, you can configure the signature to automatically validate the advertised prefixes.
+7. **(Optional) PUT expressRouteCrossConnection to validate Microsoft Peering advertised prefixes** If you allow customers to advertise your public IP addresses over Microsoft Peering, you can configure the signature to automatically validate the advertised prefixes.
 
   ```
 PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/peerings/MicrosoftPeering?api-version=2018-02-01 HTTP/1.1
