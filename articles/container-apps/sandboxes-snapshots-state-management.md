@@ -1,6 +1,6 @@
 ---
-title: Sandbox lifecycle in Azure Container Apps Sandboxes (preview)
-description: Learn how lifecycle policies, suspend modes, auto-delete, and snapshots preserve state in Azure Container Apps Sandboxes (preview).
+title: Sandbox lifecycle in Azure Container Apps Sandboxes
+description: Learn how lifecycle policies, suspend modes, auto-delete, and snapshots preserve state in Azure Container Apps Sandboxes.
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -9,9 +9,9 @@ ms.topic: concept-article
 ms.service: azure-container-apps
 ---
 
-# Sandbox lifecycle in Azure Container Apps Sandboxes (preview)
+# Sandbox lifecycle in Azure Container Apps Sandboxes
 
-Azure Container Apps Sandboxes are currently in preview. Sandboxes are isolated, lightweight virtual machines for interactive sessions, agentic workloads, and controlled code execution. A sandbox can run work, pause when it's idle, preserve local state, resume later, and be removed when it's no longer needed.
+Azure Container Apps Sandboxes are isolated, lightweight virtual machines for interactive sessions, agentic workloads, and controlled code execution. A sandbox can run work, pause when it's idle, preserve local state, resume later, and be removed when it's no longer needed.
 
 This article covers the lifecycle of Azure Container Apps Sandboxes. [Dynamic sessions](sessions.md#dynamic-sessions-in-azure-container-apps) are a separate Azure Container Apps feature for request-scoped code execution and don't provide the same direct control over an individual sandbox lifecycle.
 
