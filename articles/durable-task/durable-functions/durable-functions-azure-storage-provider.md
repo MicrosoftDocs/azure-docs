@@ -5,7 +5,7 @@ description: "Learn how the Azure Storage provider for Durable Functions stores 
 author: cgillum
 reviewer: hhunter-ms
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 09/22/2026
 ms.author: azfuncdf
 ms.service: durable-task
 ms.subservice: durable-functions
@@ -272,6 +272,9 @@ You define the number of control queues in your `host.json` file. The following 
 
 You can configure a task hub with between 1 and 16 partitions. If you don't specify a value, the default partition count is **four**.
 
+> [!WARNING]
+> Set `partitionCount` before creating a task hub. Changing it on an existing task hub is unsupported, whether you increase or decrease the value. To use a different count, [configure a new task hub](#changing-the-partition-count).
+
 During low traffic scenarios, your application scales in, so few workers manage your partitions. For example, in the following diagram, you can see that orchestrators 1 through 6 are load-balanced across partitions. Similarly, partitions, like activities, are load-balanced across workers. Your partitions load-balance across workers, regardless of how many orchestrators get started.
 
 :::image type="content" source="./media/durable-functions-perf-and-scale/scale-progression-1.png" alt-text="Diagram showing scale-in orchestrations with partitions managed by a small number of workers.":::
@@ -303,6 +306,20 @@ The following diagram illustrates how the Azure Functions host interacts with th
 All virtual machines compete for messages on the work-item queue. However, only three virtual machines can acquire messages from control queues, and each virtual machine locks a single control queue.
 
 Orchestration instances and entities are distributed across all control queue instances. The distribution happens by hashing the instance ID of the orchestration or the entity name and key pair. Since orchestration instance IDs are random GUIDs by default, instances are equally distributed across all control queues.
+
+### Changing the partition count
+
+Changing `partitionCount` doesn't recreate a task hub's existing partition resources and ownership metadata, even if you restart the function app. For example, reducing the count from 8 to 4 routes new orchestration and entity messages to only four control queues, but old partitions can still be assigned to workers. This condition can cause inefficient load balancing and unnecessary storage operations. The change also alters instance routing and can affect in-flight work.
+
+Existing control queues can still contain pending messages, including timers. Don't try to change the partition count by manually deleting queues, blobs, or partition table rows.
+
+To use a different partition count, configure a new task hub:
+
+1. Choose a [new, unused task hub name](../common/durable-task-hubs.md#task-hub-names). Set `hubName` and the desired `partitionCount` before the new hub is created.
+2. Deploy workers for the new hub and direct new orchestration starts to it. Ensure [client configuration](../common/durable-task-hubs.md#task-hub-names) matches the new hub's name, storage connection, and partition count.
+3. If existing work must finish, keep workers and clients configured for the old hub with its original partition count. Continue targeting events and management operations for existing instances to that hub. Changing `hubName` on your only running app doesn't keep workers processing the old hub.
+
+Changing `hubName` doesn't migrate existing orchestration history, pending work, or entity state. Retire the old hub's resources only when you no longer need them.
 
 ## Extended sessions
 
