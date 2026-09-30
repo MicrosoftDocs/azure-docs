@@ -219,7 +219,7 @@ To calculate the cores used, multiply the cores per instance by the number of in
 
 ### Quota examples
 
-Each of these scenarios reaches the standard 250-core quota limit. Azure Free Trial and Azure for Students subscriptions have a lower default quota of 15 cores, so these examples don't apply to those subscription offer types. When the quota is reached, apps in the region stop scaling:
+Each of these scenarios reaches the standard 250-core quota. Because Azure Free Trial and Azure for Students subscriptions have a 15-core default quota, these examples don't apply to them. When the quota is reached, apps in the region stop scaling:
 
 | Scenario                                                                | Calculation           | Total cores |
 | ----------------------------------------------------------------------- | --------------------- | ----------- |
