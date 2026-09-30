@@ -4,8 +4,8 @@ description: Include file
 ms.service: azure-backup
 ms.topic: include
 ms.date: 02/28/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ---
 
 - [Review the supported scenarios and known limitations](../articles/backup/backup-azure-database-postgresql-flex-support-matrix.md) of Azure Database for PostgreSQL Flexible server backup.

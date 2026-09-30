@@ -4,7 +4,6 @@ description: Learn how to plan Azure execution with high fidelity. Identify targ
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
 ms.topic: concept-article
 ms.date: 09/01/2026
 ms.update-cycle: 365-days

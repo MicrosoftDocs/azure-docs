@@ -579,6 +579,8 @@
     items:
     - name: REST API
       href: azure-netapp-files-develop-with-rest-api.md
+    - name: API 2026-07-01 update
+      href: api-2026-07-01-update.md
     - name: REST API using PowerShell
       href: develop-rest-api-powershell.md
     - name: SDKs, CLI tools, and ARM templates
