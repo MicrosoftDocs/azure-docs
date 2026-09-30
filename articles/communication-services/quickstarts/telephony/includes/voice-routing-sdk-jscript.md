@@ -7,13 +7,15 @@ ms.service: azure-communication-services
 ms.subservice: pstn
 ms.date: 06/01/2023
 ms.topic: include
-ms.custom: include file
 ms.author: nikuklic
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - Active LTS and Maintenance LTS versions of [Node.js](https://nodejs.org/) for your operating system.
 - The fully qualified domain name (FQDN) and port number of a session border controller (SBC) in an operational telephony system.

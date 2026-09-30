@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/neon/troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/partner-solutions/welcome-native-integrations",
+            "redirect_document_id": false
+        }
+    ]
+}

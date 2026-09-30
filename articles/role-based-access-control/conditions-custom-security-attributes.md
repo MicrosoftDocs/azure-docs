@@ -2,13 +2,16 @@
 title: "Allow read access to blobs based on tags and custom security attributes - Azure ABAC"
 description: Allow read access to blobs based on tags and custom security attributes by using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 12/01/2023
 ms.author: rolyon
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-ga-nochange
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
@@ -50,7 +53,7 @@ Here is what the condition looks like in code:
 )
 ```
 
-For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md).
+For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
 
 ## Step 1: Add a new custom security attribute
 

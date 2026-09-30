@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 07/08/2024
-ms.author: danlep
+ms.author: patricka
 ---
 
 > [!NOTE]

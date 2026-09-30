@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2024
 ---
 
@@ -15,6 +15,9 @@ ms.date: 09/26/2024
 You might occasionally want to throw an error in a pipeline intentionally. A [Lookup activity](control-flow-lookup-activity.md) might return no matching data, or a [Custom activity](transform-data-using-dotnet-custom-activity.md) might finish with an internal error. Whatever the reason might be, now you can use a Fail activity in a pipeline and customize both its error message and error code.
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Fail activity](/fabric/data-factory/fail-activity).
 
 ## Create a Fail activity with UI
 
@@ -25,7 +28,7 @@ To use a Fail activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-fail-activity/fail-activity.png" alt-text="Shows the UI for a Fail activity.":::
 
-1. Enter a failure message and error code. These values can be literal string expressions, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+1. Enter a failure message and error code. These values can be literal string expressions, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters).
 
 ## Syntax
 

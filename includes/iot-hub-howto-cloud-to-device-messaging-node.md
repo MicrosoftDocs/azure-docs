@@ -1,11 +1,15 @@
 ---
-author: kgremban
-ms.author: kgremban
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
 ms.date: 12/19/2024
-ms.custom: [amqp, mqtt, devx-track-js]
+ms.custom:
+  - amqp
+  - mqtt
+  - devx-track-js
+  - sfi-ropc-nochange
 ---
 
 ## Create a device application

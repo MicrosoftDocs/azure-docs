@@ -8,12 +8,14 @@ manager: mvivion
 
 services: azure-communication-services
 ms.date: 12/12/2024
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # End of Call Survey overview
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 The End of Call Survey is a tool that helps you understand how your users perceive the overall quality and reliability of your Calling SDK solution.
 

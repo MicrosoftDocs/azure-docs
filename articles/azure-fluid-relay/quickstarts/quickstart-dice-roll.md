@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Dice roller'
 description: Quickly create a dice rolling app using the Azure Fluid Relay service
-ms.service: azure-fluid
+ms.service: fluid-framework
 ms.topic: quickstart
 ms.date: 01/18/2023
 ms.custom: mode-other

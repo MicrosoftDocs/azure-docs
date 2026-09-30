@@ -2,12 +2,12 @@
 title: Overview of GPU VMs on your Azure Stack Edge Pro GPU device
 description: Describes use of virtual machines optimized for GPU-accelerated workloads on Azure Stack Edge Pro with GPU.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/16/2024
-ms.author: alkohli
+ms.author: sipastak
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
 
@@ -19,9 +19,9 @@ GPU-accelerated workloads on an Azure Stack Edge Pro GPU device require a GPU VM
 
 ## About GPU VMs
 
-Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 or Tensor Core A2 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU-optimized VM sizes. The GPU VM chosen should match with the make of the GPU on your Azure Stack Edge device. For more information, see [Supported N series GPU optimized VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized).
+Your Azure Stack Edge devices may be equipped with 1 or 2 of NVIDIA's Tesla T4 or Tensor Core A2 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU-optimized VM sizes. The GPU VM chosen should match with the make of the GPU on your Azure Stack Edge device. For more information, see [Supported N series GPU optimized VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized).
 
-To take advantage of the GPU capabilities of Azure N-series VMs, Nvidia GPU drivers must be installed. The Nvidia GPU driver extension installs appropriate Nvidia CUDA or GRID drivers. You can [install the GPU extensions using templates or via the Azure portal](#gpu-vm-deployment).
+To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA GPU drivers must be installed. The NVIDIA GPU driver extension installs appropriate NVIDIA CUDA or GRID drivers. You can [install the GPU extensions using templates or via the Azure portal](#gpu-vm-deployment).
 
 You can [install and manage the extension using the Azure Resource Manager templates](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md) after VM deployment. In the Azure portal, you can install the GPU extension during or after you deploy a VM; for instructions, see [Deploy GPU VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
@@ -29,7 +29,7 @@ If your device has a Kubernetes cluster configured, be sure to review [deploymen
 
 ## Supported OS and GPU drivers 
 
-The Nvidia GPU driver extensions for Windows and Linux support the following OS versions.
+The NVIDIA GPU driver extensions for Windows and Linux support the following OS versions.
 
 ### Supported OS for GPU extension for Windows
 
@@ -55,7 +55,7 @@ This extension supports the following OS distro, depending on the driver support
 
 You can deploy a GPU VM via the Azure portal or using Azure Resource Manager templates. The GPU extension is installed after VM creation.<!--Wording still needs work!-->
 
-- **Portal:** In the Azure portal, you can quickly [install the GPU extension when you create a VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) or [after VM deployment]().<!--Can they remove the GPU extension. Tomorrow, create a new GPU VM to test.-->
+- **Portal:** In the Azure portal, you can quickly [install the GPU extension when you create a VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) or [after VM deployment](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension-after-deployment).<!--Can they remove the GPU extension. Tomorrow, create a new GPU VM to test.-->
 
 - **Templates:** Using Azure Resource Manager templates, [you create a VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension-after-deployment) and then [install the GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
 

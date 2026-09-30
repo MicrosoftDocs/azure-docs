@@ -2,16 +2,18 @@
 title: Test your Event Grid handler locally
 titleSuffix: An Azure Communication Services how-to document
 description: In this how-to document, you can learn how to locally test your Event Grid handler for Azure Communication Services events with Postman.
-author: tophpalmer
+author: sundiraman
 manager: shahen
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 02/09/2023
 ms.topic: how-to
 ms.service: azure-communication-services
 ---
 
 # Test your Event Grid handler locally
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 Testing Event Grid triggered Azure Functions locally can be complicated. You don't want to have to trigger events over and over to test your flow. It can also get expensive as triggering those events might require you perform an event that costs money like sending an SMS or placing a phone call. To help with testing, we show you how to use Postman to trigger your Azure Function with a payload that mimics the Event Grid event.
 
@@ -48,11 +50,11 @@ http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
     ```json
     
     {
-      "id": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+      "id": "d29ebbea-3341-4466-9690-0a03af35228e",
       "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
       "subject": "/phonenumber/15555555555",
       "data": {
-        "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+        "MessageId": "d29ebbea-3341-4466-9690-0a03af35228e",
         "From": "15555555555",
         "To": "15555555555",
         "Message": "Great to connect with Azure Communication Services events",

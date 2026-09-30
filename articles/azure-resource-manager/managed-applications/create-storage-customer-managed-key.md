@@ -1,8 +1,6 @@
 ---
 title: Create Azure Managed Application that deploys storage account encrypted with customer-managed key
 description: This article describes how to create an Azure Managed Application that deploys a storage account encrypted with a customer-managed key.
-ms.author: jojok
-author: jojokoshy
 ms.reviewer: evanhi
 ms.topic: how-to
 ms.date: 06/24/2024
@@ -14,7 +12,7 @@ This article describes how to create an Azure Managed Application that deploys a
 
 ## Prerequisites
 
-- An Azure account with an active subscription and permissions to Microsoft Entra resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription and permissions to Microsoft Entra resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 - Be familiar with how to [create](publish-service-catalog-app.md) and [deploy](deploy-service-catalog-quickstart.md) a service catalog definition.
@@ -73,7 +71,7 @@ After a successful deployment, select **Go to resource**.
 
 ## Create role assignments
 
-You need to create two role assignments for your key vault. For details, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+You need to create two role assignments for your key vault. For details, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### Grant key permission on key vault to the managed identity
 

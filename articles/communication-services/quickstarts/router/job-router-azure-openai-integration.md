@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Quick Start: Integrating Azure OpenAI with ACS Job Router
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Integrate ACS Job Router with Azure OpenAI. Use Azure OpenAI to pair your jobs to agents.
 
 ### Prerequisites
@@ -85,7 +87,7 @@ Workers are evaluated based on:
       :::image type="content" source="./media/function-select-subscription.png" alt-text="Screenshot of selecting subscription in VS Code.":::
 
 3. Once your Function App is created, right-click on your App and select 'Deploy Function App...'
-4. Open the Azure portal and go to your Azure OpenAI resource, then go to Azure AI Studio. From here, navigate to the Deployments tab and select "+ Create new deployment"
+4. Open the Azure portal and go to your Azure OpenAI resource, then go to the Microsoft Foundry portal. From here, navigate to the Deployments tab and select "+ Create new deployment"
    1. Select a model that can perform completions
 
        [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models)

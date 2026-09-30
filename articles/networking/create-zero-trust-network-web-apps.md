@@ -5,9 +5,10 @@ author: mbender
 ms.author: chplut
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 12/31/2022
+ms.date: 08/05/2026
 ms.custom: template-how-to
 # Customer Intent: As a cloud architect, I want to deploy a web app based on Zero Trust principles so that my applications & traffic are always secure.
+# Customer intent: As a cloud architect, I want to deploy a Zero Trust virtual network for web applications so that I can ensure robust security mechanisms are in place to protect app traffic against threats and data breaches.
 ---
 # Deploy a zero trust network for web applications
 
@@ -17,12 +18,15 @@ This how-to follows the [Zero Trust Network for Web Applications reference archi
 
 :::image type="content" source="media/create-zero-trust-network-web-apps/zero-trust-diagram.png" alt-text="Diagram of secure virtual network architecture for a web app.":::
 
+> [!NOTE]
+> This how-to intentionally implements a stricter Zero Trust pattern in which Azure Firewall sits inline between the application gateway and the App Service so that all application traffic is packet inspected. In the minimal secure hub-spoke baseline, Azure Firewall is an optional shared service used mainly for centralized egress control. For that baseline, see [Design a secure hub-spoke network for regional web applications in Azure](./cross-service-scenarios/design-secure-hub-spoke-network.md).
+
 ## Prerequisites
 
 To complete the Zero Trust deployment, you'll need:
 - A Custom domain name
 - A Trusted wildcard certificate for your custom domain
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Visual Studio Code (optional, to assist with an automated deployment)
 
 > [!NOTE]

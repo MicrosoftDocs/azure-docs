@@ -3,11 +3,12 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 05/24/2022
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
-For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD.
+For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure portal or AZD.
 
 [!INCLUDE [clean-up-resources](includes/quickstart-deploy-microservice-apps/clean-up-resources.md)]
 

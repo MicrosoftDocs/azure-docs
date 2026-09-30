@@ -2,12 +2,12 @@
 title: Overview of VMs on your Azure Stack Edge device
 description: Describes virtual machines on your Azure Stack Edge device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/18/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Virtual machines on your Azure Stack Edge Pro GPU device

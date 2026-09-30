@@ -4,7 +4,7 @@ description: Learn about how to deliver service level agreements for data pipeli
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 05/15/2024
 ---
@@ -12,6 +12,8 @@ ms.date: 05/15/2024
 # Deliver service level agreement for data pipelines
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Azure Data Factory is loved and trusted by corporations around the world. As Azure's native cloud ETL service for scale-out server-less data integration and data transformation, it's widely used to implement Data Pipelines to prepare, process, and load data into enterprise data warehouse or data lake.
 

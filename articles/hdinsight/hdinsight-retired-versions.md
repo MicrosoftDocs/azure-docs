@@ -2,7 +2,10 @@
 title: Azure HDInsight retired versions
 description: Learn about retired versions in Azure HDInsight.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: retired
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 07/10/2024
 ---
 

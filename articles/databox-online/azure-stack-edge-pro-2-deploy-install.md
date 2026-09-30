@@ -2,33 +2,19 @@
 title: Tutorial to install - Unpack, rack, cable Azure Stack Edge Pro 2 physical device | Microsoft Docs
 description: The second tutorial about installing Azure Stack Edge Pro 2 involves how to unpack, rack, and cable the physical device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 02/21/2024
-ms.author: alkohli
-zone_pivot_groups: azure-stack-edge-device-deployment
+ms.author: sipastak
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Install Azure Stack Edge Pro 2
 
-
-::: zone pivot="single-node"
-
 This tutorial describes how to install an Azure Stack Edge Pro 2 physical device. The installation procedure involves unpacking, rack mounting, and cabling the device. 
 
 The installation can take around two hours to complete.
-
-::: zone-end
-
-::: zone pivot="two-node"
-
-This tutorial describes how to install a two-node Azure Stack Edge Pro 2 device cluster. The installation procedure involves unpacking, rack mounting, and cabling the device. 
-
-The installation can take around 2.5 to 3 hours to complete.
-
-::: zone-end
 
 In this tutorial, you learn how to:
 
@@ -73,8 +59,6 @@ Before you begin:
 
 ## Unpack the device
 
-::: zone pivot="single-node"
-
 This device is shipped in a single box. Complete the following steps to unpack your device. 
 
 1. Place the box on a flat, level surface.
@@ -93,31 +77,6 @@ This device is shipped in a single box. Complete the following steps to unpack y
         - A wall mount (may be packaged separately).
     - A safety, environmental, and regulatory information booklet.
 
-::: zone-end
-
-::: zone pivot="two-node"
-
-This device is shipped in two boxes. Complete the following steps to unpack your device. 
-
-1. Place the box on a flat, level surface.
-2. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, don't open it. Contact Microsoft Support to help you assess whether the device is in good working order.
-3. Unpack the box. After unpacking the box, make sure that you have the following in each box:
-    - One single enclosure Azure Stack Edge Pro 2 device.
-    - One power cord.
-    - One packaged bezel.
-    - A pair of packaged Wi-Fi antennas in the accessory box.
-      > [!NOTE]
-      > The accessory box includes Wi-Fi antennas, but Wi-Fi capability is not supported for the Azure Stack Edge device. The antennas should not be used.
-
-    - One packaged mounting accessory which could be:
-        - A 4-post rack slide rail, or
-        - A 2-post rack slide, or 
-        - A wall mount (may be packaged separately).
-    - A safety, environmental, and regulatory information booklet.
-
-
-::: zone-end
-    
 If you didn't receive all of the items listed here, [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). The next step is to mount your device on a rack or wall. 
 
 ## Rack mount the device
@@ -178,12 +137,6 @@ Locate the components for installing the rail kit assembly:
 
     :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-insert-chassis-new.png" alt-text="Diagram showing how to insert the chassis.":::
 
-::: zone pivot="two-node"
-
-If deploying a two-node device cluster, make sure to mount both the devices on the rack or the wall.
-
-::: zone-end
-
 ### Install the bezel
 
 After the device is mounted on a rack, install the bezel on the device. Bezel serves as the protective face plate for the device.
@@ -203,10 +156,7 @@ After the device is mounted on a rack, install the bezel on the device. Bezel se
 
 The following procedures explain how to cable your Azure Stack Edge Pro 2 device for power and network.
 
-
 ### Cabling checklist
-
-::: zone pivot="single-node"
 
 Before you start cabling your device, you need the following things:
 
@@ -224,31 +174,8 @@ Before you start cabling your device, you need the following things:
     > [!NOTE]
     > The accessory box includes Wi-Fi antennas, but Wi-Fi capability is not supported for the Azure Stack Edge device. The antennas should not be used.
 
-::: zone-end
-
-::: zone pivot="two-node"
-
-Before you start cabling your device, you need the following things:
-
-- Your two Azure Stack Edge Pro 2 physical devices, unpacked, and rack mounted.
-- One power cable for each device node (included in the device package).
-- Access to one power distribution unit for each device node.
-- At least two 1-GbE RJ-45 network cables per device to connect to Port 1 and Port2. These are the two 10/1-GbE network interfaces on your device. 
-- A 100-GbE QSFP28 passive direct attached cable (Microsoft validated) for each data network interface Port 3 and Port 4 to be configured on each device. The total number needed would depend on the network topology you will deploy. Here is an example QSFP28 DAC connector: 
-
-    ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
-
-    For a full list of supported cables, modules, and switches, see [Firmware compatible products](https://docs.nvidia.com/networking/display/connectx6dxfirmwarev22361010/firmware+compatible+products).
-- At least one 100-GbE network switch to connect a 1-GbE or a 100-GbE network interface to the internet for data for each device.
-- A pair of Wi-Fi antennas (included in the accessory box).
-    > [!NOTE]
-    > The accessory box includes Wi-Fi antennas, but Wi-Fi capability is not supported for the Azure Stack Edge device. The antennas should not be used.
-
-::: zone-end
-
 > [!NOTE]
 > The Azure Stack Edge Pro 2 device should be connected to the datacenter network so that it can ingest data from data source servers.
-
 
 ### Device front panel
 
@@ -286,8 +213,6 @@ On your device:
 
 ### Power cabling
 
-::: zone pivot="single-node"
-
 Follow these steps to cable your device for power:
  
 1. Identify the various ports on the back plane of your device. 
@@ -296,23 +221,7 @@ Follow these steps to cable your device for power:
 1. Attach the power cord to the power distribution unit (PDU). 
 1. Press the power button to turn on the device.
 
-::: zone-end
-
-::: zone pivot="two-node"
-
-Follow these steps to cable your device for power:
-
-1. Identify the various ports on the back plane of each device. 
-1. Locate the disk slots and the power button on the front of each device.
-1. Connect the power cord to the PSU in each device enclosure. 
-1. Attach the power cords from the two devices to two different power distribution units (PDU). 
-1. Press the power buttons on the front panels to turn on both the devices.
-
-::: zone-end
-
 ### Network cabling
-
-::: zone pivot="single-node"
 
 Follow these steps to cable your device for network:
 
@@ -332,50 +241,6 @@ Follow these steps to cable your device for network:
 
     > [!NOTE]
     > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.
-
-::: zone-end
-
-::: zone pivot="two-node"
-
-The two-node device can be configured in the following different ways:
-
-- Without switches
-- Using external switches
-
-Each of these configurations is described in the following sections. For more information on when to use these configurations, see [Supported network topologies](azure-stack-edge-gpu-clustering-overview.md).
-
-#### Switchless
-
-This configuration is used when high speed switches are not available.
-
-Cable your device as shown in the following diagram:
-
-![Diagram showing cabling scheme for Switchless network topology.](./media/azure-stack-edge-pro-2-deploy-install/switchless-initial-1.png)
-
-1. Connect Port 1 on each node to a computer using an Ethernet crossover cable or a USB Ethernet adapter for the initial configuration of the device.
-1. Connect Port 2 on each node to a 1-GbE switch via a 1-GbE RJ-45 network cable. If available, a 10-GbE switch can also be used. 
-1. Connect Port 3 on one device directly (without a switch) to the Port 3 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection.
-1. Connect Port 4 on one device directly (without a switch) to the Port 4 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection. 
-
-   > [!NOTE]
-   > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.
-
-#### Using external switches
-
-This configuration is used for Network Function Manager (NFM) workload deployments and requires 10-GbE high speed switches.
-
-Cable your device as shown in the following diagram:
-
-![Diagram showing cabling scheme when using network topology with external switches.](./media/azure-stack-edge-pro-2-deploy-install/external-switches-initial-1.png)
-
-
-1. Connect Port 1 on each node to a computer using a crossover cable or a USB Ethernet adapter for the initial configuration of the device.
-1. Connect Port 2 on each node to a 10-GbE high-speed switch via a 10-GbE RJ-45 network cable. A high speed switch must be used.
-1. Port 3 and Port 4 are reserved for NFM workload deployments and must be connected accordingly.
-
-
-::: zone-end
-
 
 ## Next steps
 

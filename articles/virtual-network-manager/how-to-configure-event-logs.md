@@ -5,7 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
 ms.service: azure-virtual-network-manager
-ms.date: 12/11/2024
+ms.date: 07/29/2026
+ms.custom: sfi-image-nochange
 ---
 
 # Configure event logs for Azure Virtual Network Manager
@@ -15,7 +16,7 @@ When configurations are changed in Azure Virtual Network Manager, this can affec
 In this article, you learn how to monitor Azure Virtual Network Manager for virtual network changes with Log Analytics or a storage account.
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed instance of [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md) in your subscription, with managed virtual networks.
 -  You deployed either a [Log Analytics workspace](/azure/azure-monitor/essentials/tutorial-resource-logs#create-a-log-analytics-workspace) or a [storage account](../storage/common/storage-account-create.md) to store event logs and observe data related to Azure Virtual Network Manager.
 
@@ -59,7 +60,8 @@ In this task, you access the event logs for your Azure Virtual Network Manager i
 
 ### Run a query in Log Analytics workspace
 
-1. Under the **Monitoring** in the left pane, select the **Logs**.
+1. Go to the network manager whose logs you want to view.
+1. Under **Monitoring** in the left pane, select **Logs**.
 1. In the **Diagnostics** window, select **Run** under **Get recent Network Group Membership Changes** or any other preloaded query available from your selected schema(s).
 1. When choosing **Run**, the **Results** tab displays the event logs, and you can expand each log to view the details.
 
@@ -72,7 +74,8 @@ In this task, you access the event logs for your Azure Virtual Network Manager i
 
 ### Run a query in Log Analytics workspace with preloaded queries
 
-1. Under the **Monitoring** in the left pane, select the **Logs**.
+1. Go to the network manager whose logs you want to view.
+1. Under **Monitoring** in the left pane, select **Logs**.
 1. In the **Diagnostics** window, select **Load to editor** under **Get recent Network Group Membership Changes** or any other preloaded query available from your selected schema(s).
 1. When choosing **Load to editor**, the **Query editor** window displays the query. Choose **Run** to display the event logs and you can expand each log to view the details.
 

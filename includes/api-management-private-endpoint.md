@@ -1,9 +1,11 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 03/09/2023
-ms.author: danlep
+ms.author: patricka
+ms.custom:
+  - build-2025
 ---
 
 With a private endpoint and Private Link, you can:
@@ -22,6 +24,5 @@ With a private endpoint and Private Link, you can:
 
 
 > [!IMPORTANT]
-> * You can only configure a private endpoint connection for **inbound** traffic to the API Management instance.
-> 
- 
+> * You can only configure a private endpoint connection for **inbound** traffic to the API Management instance. 
+> * You can only disable public network access to the API Management instance **after** configuring a private endpoint.

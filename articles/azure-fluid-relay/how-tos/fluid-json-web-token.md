@@ -3,12 +3,12 @@ title: Azure Fluid Relay token contract
 description: Better understand the JSON Web Token used in Azure Fluid Relay
 ms.date: 10/05/2021
 ms.topic: reference
-ms.service: azure-fluid
+ms.service: fluid-framework
 ---
 
 # Azure Fluid Relay token contract
 
-Requests sent to Azure Fluid Relay should contain a JWT token in the authorization header. This token should be [signed by the tenant key](../concepts/authentication-authorization.md).
+Requests sent to Azure Fluid Relay should contain a JWT in the authorization header. This token should be [signed by the tenant key](../concepts/authentication-authorization.md).
 
 ## Claims
 

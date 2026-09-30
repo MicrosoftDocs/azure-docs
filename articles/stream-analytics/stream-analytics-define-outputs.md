@@ -1,23 +1,25 @@
 ---
-title: Outputs from Azure Stream Analytics
-description: This article describes data output options available for Azure Stream Analytics.
-author: AliciaLiMicrosoft 
-ms.author: ali 
+title: Azure Stream Analytics Output Types Overview
+description: Learn about the various output options available in Azure Stream Analytics to efficiently process and store your streaming data. Explore supported output types and configurations.
+#customer intent: As a data engineer, I want to understand the output options for Azure Stream Analytics so that I can choose the best destination for my transformed data.
+author: AliciaLiMicrosoft
+ms.author: ali
+ms.reviewer: spelluru
 ms.service: azure-stream-analytics
-ms.topic: conceptual
-ms.date: 12/17/2024
+ms.topic: concept-article
+ms.date: 02/19/2026
 ---
 
 # Outputs from Azure Stream Analytics
 
-An Azure Stream Analytics job consists of an input, query, and an output. There are several output types to which you can send transformed data. This article lists the supported Stream Analytics outputs. When you design your Stream Analytics query, refer to the name of the output by using the [INTO clause](/stream-analytics-query/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job (if you need them) by adding multiple INTO clauses to the query.
+An Azure Stream Analytics job consists of an input, query, and an output. You can send transformed data to several output types. This article lists the supported Stream Analytics outputs. When you design your Stream Analytics query, refer to the name of the output by using the [INTO clause](/stream-analytics-query/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job by adding multiple INTO clauses to the query.
 
 To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), [REST API](/rest/api/streamanalytics/), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](./quick-create-visual-studio-code.md).
 
 > [!NOTE] 
-> We strongly recommend that you use [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for the best local development experience. There are known feature gaps in Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) and it won't be improved going forward.
+> For the best local development experience, use [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md). Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) has known feature gaps and won't be improved going forward.
 
-Some outputs types support [partitioning](#partitioning) as shown in the following table. 
+Some output types support [partitioning](#partitioning) as shown in the following table. 
 
 All outputs support batching, but only some support setting the output batch size explicitly. For more information, see the [output batch sizes](#output-batch-size) section. 
 
@@ -40,17 +42,17 @@ All outputs support batching, but only some support setting the output batch siz
 
 
 > [!IMPORTANT] 
-> Azure Stream Analytics uses Insert or Replace API by design. This operation replaces an existing entity or inserts a new entity if it does not exist in the table.
+> Azure Stream Analytics uses Insert or Replace API by design. This operation replaces an existing entity or inserts a new entity if it doesn't exist in the table.
 
 ## Partitioning
 
 Stream Analytics supports partitions for all outputs except for Power BI. For more information on partition keys and the number of output writers, see the article for the specific output type you're interested in. Articles for output types are linked in the previous section.  
 
-Additionally, for more advanced tuning of the partitions, the number of output writers can be controlled using an `INTO <partition count>` (see [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) clause in your query, which can be helpful in achieving a desired job topology. If your output adapter isn't partitioned, lack of data in one input partition causes a delay up to the late arrival amount of time. In such cases, the output is merged to a single writer, which might cause bottlenecks in your pipeline. To learn more about late arrival policy, see [Azure Stream Analytics event order considerations](./stream-analytics-time-handling.md).
+For more advanced tuning of the partitions, you can control the number of output writers by using an `INTO <partition count>` (see [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) clause in your query. This control can help you achieve a desired job topology. If your output adapter isn't partitioned, lack of data in one input partition causes a delay up to the late arrival amount of time. In such cases, the output is merged to a single writer, which might cause bottlenecks in your pipeline. To learn more about late arrival policy, see [Azure Stream Analytics event order considerations](./stream-analytics-time-handling.md).
 
 ## Output batch size
 
-All outputs support batching, but only some support settings the batch size explicitly. Azure Stream Analytics uses variable-size batches to process events and write to outputs. Typically the Stream Analytics engine doesn't write one message at a time, and uses batches for efficiency. When the rate of both the incoming and outgoing events is high, Stream Analytics uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low.
+All outputs support batching, but only some support setting the batch size explicitly. Azure Stream Analytics uses variable-size batches to process events and write to outputs. Typically, the Stream Analytics engine doesn't write one message at a time and uses batches for efficiency. When the rate of both the incoming and outgoing events is high, Stream Analytics uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low.
 
 ## Avro and Parquet file splitting behavior
 
@@ -59,26 +61,26 @@ By design, the Avro and Parquet formats don't support variable schemas in a sing
 
 The following behaviors might occur when directing a stream with variable schemas to an output using these formats:
 
-- If the schema change can be detected, the current output file is closed, and a new one initialized on the new schema. Splitting files as such severely slows down the output when schema changes happen frequently. This behavior can severely impact the overall performance of the job
-- If the schema change can't be detected, the row is most likely be rejected, and the job gets stuck as the row can't be output. Nested columns, or multi-type arrays, are situations that aren't discovered and be rejected.
+- If the schema change can be detected, the current output file is closed, and a new one initialized on the new schema. Splitting files as such severely slows down the output when schema changes happen frequently. This behavior can severely impact the overall performance of the job.
+- If the schema change can't be detected, the row is most likely rejected, and the job gets stuck as the row can't be output. Nested columns, or multitype arrays, are situations that aren't discovered and rejected.
 
-We recommend that you consider outputs using the Avro or Parquet format to be strongly typed, or schema-on-write, and queries targeting them to be written as such (explicit conversions and projections for a uniform schema).
+Consider outputs using the Avro or Parquet format to be strongly typed, or schema-on-write, and write queries targeting them as such by using explicit conversions and projections for a uniform schema.
 
-If multiple schemas need to be generated, consider creating multiple outputs and splitting records into each destination by using a `WHERE` clause.
+If you need to generate multiple schemas, consider creating multiple outputs and splitting records into each destination by using a `WHERE` clause.
 
 ## Parquet output batching window properties
 
-When you use Azure Resource Manager template deployment or the REST API, the two batching window properties are:
+When you use Azure Resource Manager template deployment or the REST API, you set two batching window properties:
 
 1. *timeWindow*
 
-   The maximum wait time per batch. The value should be a string of `Timespan`. For example, `00:02:00` for two minutes. After this time, the batch is written to the output even if the minimum rows requirement isn't met. The default value is 1 minute and the allowed maximum is 2 hours. If your blob output has path pattern frequency, the wait time can't be higher than the partition time range.
+   The maximum wait time per batch. Set the value as a string of `Timespan`. For example, use `00:02:00` for two minutes. After this time, the batch is written to the output even if the minimum rows requirement isn't met. The default value is one minute and the allowed maximum is two hours. If your blob output has path pattern frequency, the wait time can't be higher than the partition time range.
 
-2. *sizeWindow*
+1. *sizeWindow*
 
    The number of minimum rows per batch. For Parquet, every batch creates a new file. The current default value is 2,000 rows and the allowed maximum is 10,000 rows.
 
-These batching window properties are only supported by API version **2017-04-01-preview** or higher. Here's is an example of the JSON payload for a REST API call:
+API version **2017-04-01-preview** or higher supports these batching window properties. Here's an example of the JSON payload for a REST API call:
 
 ```json
 "type": "stream",

@@ -1,8 +1,8 @@
 ---
-author: jianleishen
+author: simplywilson
 ms.topic: include
 ms.date: 05/11/2024
-ms.author: jianleishen
+ms.author: tinglee
 ---
 For additional connection properties, see the table below:
 

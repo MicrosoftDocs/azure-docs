@@ -6,7 +6,7 @@ author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/26/2024
+ms.date: 08/28/2026
 ms.author: zhiyuanliang
 ms.custom: quickstart, mode-other, devx-track-js
 #Customer intent: As a JavaScript developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -20,8 +20,8 @@ The JavaScript Feature Management libraries extend the framework with feature fl
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
 ## Add a feature flag
@@ -49,13 +49,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
     const { DefaultAzureCredential } = require("@azure/identity");
-    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management");
+    const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
     const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
     const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
     async function run() {
         // Connect to Azure App Configuration using endpoint and token credential
-        const settings = await load(endpoint, credential, {
+        const appConfig = await load(endpoint, credential, {
             featureFlagOptions: {
                 enabled: true,
                 // Note: selectors must be explicitly provided for feature flags.
@@ -69,13 +69,12 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
             }
         });
 
-        // Create a feature flag provider which uses a map as feature flag source
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
-        // Create a feature manager which will evaluate the feature flag
-        const fm = new FeatureManager(ffProvider);
+        // Create feature manager with feature flag provider that accesses feature flags from App Configuration
+        const fm = new FeatureManager(
+            new ConfigurationMapFeatureFlagProvider(appConfig));
 
         while (true) {
-            await settings.refresh(); // Refresh to get the latest feature flag settings
+            await appConfig.refresh(); // Refresh to get the latest feature flag settings
             const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
             console.log(`Beta is enabled: ${isEnabled}`);
             await sleepInMs(5000);
@@ -89,12 +88,12 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ``` javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
-    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management");
+    const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
     const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
     async function run() {
         // Connect to Azure App Configuration using connection string
-        const settings = await load(connectionString, {
+        const appConfig = await load(connectionString, {
             featureFlagOptions: {
                 enabled: true,
                 // Note: selectors must be explicitly provided for feature flags.
@@ -108,13 +107,12 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
             }
         });
 
-        // Create a feature flag provider which uses a map as feature flag source
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
-        // Create a feature manager which will evaluate the feature flag
-        const fm = new FeatureManager(ffProvider);
+        // Create feature manager with feature flag provider that accesses feature flags from App Configuration
+        const fm = new FeatureManager(
+            new ConfigurationMapFeatureFlagProvider(appConfig));
 
         while (true) {
-            await settings.refresh(); // Refresh to get the latest feature flag settings
+            await appConfig.refresh(); // Refresh to get the latest feature flag settings
             const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
             console.log(`Beta is enabled: ${isEnabled}`);
             await sleepInMs(5000);
@@ -136,19 +134,19 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -157,19 +155,19 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<AppConfigurationConnectionString>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<AppConfigurationConnectionString>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_CONNECTION_STRING='<AppConfigurationConnectionString>'
     ```
     
     ---
@@ -195,3 +193,23 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ``` console
     Beta is enabled: true
     ```
+
+## Next steps
+
+For the full feature rundown of the JavaScript feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [JavaScript Feature Management](./feature-management-javascript-reference.md)
+
+While a feature flag allows you to activate or deactivate functionality in your app, you may want to customize a feature flag based on your app's logic. Feature filters allow you to enable a feature flag conditionally. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
+
+Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)

@@ -1,17 +1,22 @@
 ---
-title: "Deployment step 1: basic infrastructure - resource group component"
-description: Learn about the configuration of resource groups during migration deployment step one.
+title: Configure resource groups for Azure HPC environments
+description: Set up and organize Azure resource groups for effective management, access control, and cost tracking in HPC deployments.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
+# Customer intent: As a cloud architect, I want to configure resource groups effectively during HPC migrations, so that I can optimize resource management, control access, and improve cost tracking for various workloads.
 ---
 
-# Deployment step 1: basic infrastructure - resource group component
+# Configure resource groups for Azure HPC environments
 
-Resource groups in Azure serve as containers that hold related resources for an Azure solution. In an HPC environment, organizing resources into appropriate resource groups is essential for effective management, access control, and cost tracking.
+A key aspect of this process is the configuration of resource groups. Resource groups in Azure serve as containers that hold related resources for an Azure solution. In an HPC environment, organizing resources into appropriate resource groups is essential for effective management, access control, and cost tracking. This part of the guide covers the needs and best practices associated with your resource groups.
 
 ## Define resource group needs
 

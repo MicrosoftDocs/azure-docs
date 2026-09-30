@@ -11,7 +11,7 @@
     href: file-sync-extend-servers.md
 - name: Deploy
   items:
-  - name: Planning for an Azure File Sync deployment
+  - name: Plan for an Azure File Sync deployment
     href: file-sync-planning.md
   - name: Create an SMB file share
     href: ../files/storage-how-to-create-file-share.md?toc=/azure/storage/file-sync/toc.json
@@ -76,7 +76,7 @@
     - name: Encryption at rest
       href: ../common/storage-service-encryption.md?toc=/azure/storage/file-sync/toc.json
     - name: Encryption at rest with customer-managed keys
-      href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/file-sync/toc.json
+      href: ../files/customer-managed-keys.md?toc=/azure/storage/file-sync/toc.json
     - name: Manage encryption keys for the storage account
       items:
       - name: Check the encryption key model for the account
@@ -161,9 +161,13 @@
     href: ../common/last-sync-time-get.md?toc=/azure/storage/file-sync/toc.json
 - name: Performance, scale, and cost
   items:
-  - name: Scale and performance targets
+  - name: Azure Files scale and performance targets
     href: ../files/storage-files-scale-targets.md?toc=/azure/storage/file-sync/toc.json
-  - name: Understanding billing
+  - name: Azure File Sync scale and performance targets
+    href: file-sync-scale-targets.md
+  - name: Azure File Sync throttling
+    href: file-sync-throttling.md
+  - name: Understand billing
     href: ../files/understanding-billing.md?toc=/azure/storage/file-sync/toc.json
   - name: Optimize costs with storage reservations
     href: ../files/files-reserve-capacity.md?toc=/azure/storage/file-sync/toc.json
@@ -189,10 +193,10 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot managed identities
     href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
+  - name: Troubleshoot server cloning and duplicate identity issues
+    href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-server-cloning?toc=/azure/storage/file-sync/toc.json    
 - name: Training
   items:
-  - name: Extend share capacity with Azure File Sync
-    href: /training/modules/extend-share-capacity-with-azure-file-sync/
   - name: Configure Azure Files and Azure File Sync
     href: /training/modules/configure-azure-files-file-sync/
   - name: Implement a hybrid file server infrastructure
@@ -207,13 +211,13 @@
     href: ../files/storage-files-faq.md?toc=/azure/storage/file-sync/toc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/file-sync/toc.json
-  - name: Monitoring Azure Files reference
+  - name: Monitoring Azure Files data reference
     href: ../files/storage-files-monitoring-reference.md?toc=/azure/storage/file-sync/toc.json
+  - name: Monitoring Azure File Sync data reference
+    href: monitor-file-sync-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-  - name: Samples
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
   - name: Azure Files and Azure NetApp Files comparison
     href: ../files/storage-files-netapp-comparison.md?toc=/azure/storage/file-sync/toc.json
   - name: Manage storage in Azure-independent clouds

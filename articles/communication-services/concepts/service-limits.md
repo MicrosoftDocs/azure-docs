@@ -1,12 +1,12 @@
 ---
 title: Service limits for Azure Communication Services
-titleSuffix: An Azure Communication Services how-to document
+titleSuffix: An Azure Communication Services article
 description: Learn how to handle service limits for Azure Communication Services APIs.
-author: tophpalmer
+author: sundiraman
 manager: sundraman
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 03/31/2023
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -15,11 +15,13 @@ ms.subservice: data
 
 # Service limits for Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article explains the limitations of Azure Communication Services APIs and possible resolutions.
 
 ## Throttling patterns and architecture
 
-When you reach service limitations, you receive an HTTP status code 429 (too many requests). In general, the following best practices are used for throttling:
+When you reach service limitations, you receive an HTTP status code 429 (too many requests). In general, follow these best practices for throttling:
 
 - Reduce the number of operations per request.
 - Reduce the frequency of calls.
@@ -124,11 +126,11 @@ If the failure rate increases after a quota increase, Azure Communication Servic
 
 Azure Communication Services provides rich logs and analytics to help monitor and manage failure rates. For more information, see the following articles:
 
-- [Improve sender reputation in Azure Communication Services email](./email/sender-reputation-managed-suppression-list.md)
-- [Email Insights](./analytics/insights/email-insights.md)
-- [Enable logs via Diagnostic Settings in Azure Monitor](./analytics/enable-logging.md)
-- [Quickstart: Handle Email events](../quickstarts/email/handle-email-events.md)
-- [Quickstart: Manage domain suppression lists in Azure Communication Services using the management client libraries](../quickstarts/email/manage-suppression-list-management-sdks.md)
+- [Improve sender reputation in Azure Communication Services email](./email/sender-reputation-managed-suppression-list.md).
+- [Email Insights](./analytics/insights/email-insights.md).
+- [Enable logs via Diagnostic Settings in Azure Monitor](./analytics/enable-logging.md).
+- [Handle Email events](../quickstarts/email/handle-email-events.md).
+- [Manage domain suppression lists in Azure Communication Services using the management client libraries](../quickstarts/email/manage-suppression-list-management-sdks.md).
 
 > [!NOTE]
 > To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
@@ -163,6 +165,13 @@ The following table lists limits for [Azure managed domains](../quickstarts/emai
 
 For all message size limits, consider that Base64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the message attachments and any other binary data are Base64 encoded. Base64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you specify a maximum message size value of approximately 10 MB, you can expect a realistic maximum message size value of approximately 7.5 MB.
 
+### Resource limits
+
+| Name | Limit |
+| --- | --- |
+| SenderUsername/Mailfrom resource per domain | 100 |
+| Domains linked to a Communication Service resource | 100 |
+
 ### Send attachments larger than 10 MB
 
 To email file attachments up to 30 MB, make a [support request](../support.md).
@@ -178,6 +187,10 @@ For more information, see:
 
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Grant limited access to Azure Storage resources by using shared access signatures](/azure/storage/common/storage-sas-overview)
+
+### Send email to more than 50 recipients
+
+If you want to send emails to more than 50 recipients, make a [support request](../support.md).
 
 ### Action to take
 
@@ -206,9 +219,11 @@ Azure Communication Services supports chat.
 | Operation | Scope | Limit per 10 seconds | Limit per minute |
 | --- | --- | --- | --- |
 | Create chat thread | Per user | 10 | - |
+| Create chat thread | Per resource | - | 3000 |
 | Delete chat thread | Per user | 10 | - |
 | Update chat thread | Per chat thread | 5 | - |
 | Add participants or remove participants | Per chat thread | 10 | 30 |
+| Add participants | Per resource | - | 3000 |
 | Get chat thread or list chat threads | Per user | 50 | - |
 | Get chat message | Per user, per chat thread | 50 | - |
 | Get chat message | Per chat thread | 250 | - |
@@ -229,8 +244,6 @@ Azure Communication Services supports chat.
 ### Chat storage
 
 Azure Communication Services stores chat messages according to the retention policy that you set when you create a chat thread.
-
-[!INCLUDE [public-preview-notice.md](../includes/public-preview-include-document.md)]
 
 You can choose between indefinite message retention or automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread). Alternatively, you can choose not to set a retention policy on a chat thread.
 
@@ -283,6 +296,19 @@ The following timeouts apply to the Azure Communication Services Calling SDKs:
 | PSTN call establishment timeout. | 115 |
 | Promote a 1:1 call to a group call timeout. | 115 |
 
+### Virtual Rooms 
+The throttling policies of rooms service are determined by grouping requests through **resource id**.
+
+| API | Threshold |
+|--|--|
+| Create Room | 20 req/sec |
+| Update Room | 20 req/sec |
+| Delete Room | 20 req/sec |
+| Get Room    | 40 req/sec |
+| List Rooms  | 10 req/sec |
+| Update participant   | 20 req/sec |
+| List participants    | 40 req/sec |
+
 ### Action to take
 
 For more information about the voice and video calling SDK and service, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md) or [Known issues in the SDKs and APIs](./known-issues.md). You can also submit a request to [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits. Our vetting team reviews all requests.
@@ -295,7 +321,11 @@ When you send or receive a high volume of requests, you might receive a ```Throt
 
 | Operation | Scope | Time frame (seconds) | Limit (number of requests) | Timeout in seconds |
 | --- | --- | --- | --- | --- |
-| General requests | Per resource | 10 | 1,000 | 10 |
+| General requests | Per resource | 10 | 3,000 | 5 |
+| Get Jobs (Route-Level Throttling) | Per resource | 10 | 332 | 5 |
+| Get Queue Statistics (Route-Level Throttling) | Per resource | 10 | 166 | 5 |
+| Get In-Queue Position (Route-Level Throttling) | Per resource | 10 | 166 | 5 |
+| Get Workers (Route-Level Throttling) | Per resource | 10 | 332 | 5 |
 
 ### Action to take
 
@@ -313,6 +343,6 @@ When you implement error handling, use the HTTP error code 429 to detect throttl
 
 You can find more information about Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
 
-## Related content
+## Related articles
 
 - [Help and support options](../support.md)

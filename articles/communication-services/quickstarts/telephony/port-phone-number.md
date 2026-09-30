@@ -1,10 +1,10 @@
 ---
 title: Quickstart - Port a phone number into Azure Communication Services
 description: Learn how to port a phone number into your Communication Services resource
-author: tophpalmer
+author: sundiraman
 manager: mikben
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -13,13 +13,15 @@ ms.custom: references_regions, mode-other
 ---
 # Quickstart: Port a phone number
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Get started with Azure Communication Services by porting your phone number into your Azure Communication Services resource. Toll-free and geographic numbers based in the United States are eligible for porting. For more information about phone number types, visit the [phone number conceptual documentation](../../concepts/telephony/plan-solution.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [An active Communication Services resource.](../create-communication-resource.md)
 
 ## Gather your Azure resource details

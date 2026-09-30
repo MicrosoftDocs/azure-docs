@@ -5,7 +5,7 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 03/04/2022
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -25,56 +25,30 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SendGrid), version 3.x.
+
 # [In-process model](#tab/in-process)
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
----
-
-The functionality of the extension varies depending on the extension version:
-
-# [Functions v2.x+](#tab/functionsv2/in-process)
-
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 3.x.
-
-# [Functions v1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 2.x.
-
-# [Functions v2.x+](#tab/functionsv2/isolated-process)
-
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SendGrid), version 3.x.
-
-# [Functions v1.x](#tab/functionsv1/isolated-process)
-
-Functions 1.x doesn't support running in an isolated worker process.
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Install bundle
-
-Starting with Functions version 2.x, the HTTP extension is part of an [extension bundle], which is specified in your host.json project file. To learn more, see [extension bundle].
-
-# [Bundle v2.x](#tab/functionsv2)
-
-This version of the extension should already be available to your function app with [extension bundle], version 2.x. 
-
-# [Functions 1.x](#tab/functionsv1)
-
-You can add the extension to your project by explicitly installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 2.x. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
-
----
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
@@ -87,7 +61,7 @@ We don't currently have an example for using the SendGrid binding in a function 
 
 # [In-process model](#tab/in-process)    
 
-The following examples shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
+The following examples show a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
 
 The following example is a synchronous execution:
 
@@ -371,7 +345,7 @@ The following table lists the binding configuration properties available in the 
 |--------------------------|---------------------|
 | **type** | Must be set to `sendGrid`.| 
 | **direction** | Must be set to `out`.| 
-| **name** | The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. | 
+| **name** | The variable name used in function code for the request or request body. This value is `$return` when there's only one return value. | 
 | **apiKey** |  The name of an app setting that contains your API key. If not set, the default app setting name is *AzureWebJobsSendGridApiKey*.|
 | **to**| (Optional) The recipient's email address. | 
 | **from**| (Optional) The sender's email address. |  
@@ -389,9 +363,6 @@ Optional properties may have default values defined in the binding and either ad
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
-
-> [!NOTE]
-> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
 ```json
 {
@@ -414,5 +385,5 @@ Optional properties may have default values defined in the binding and either ad
 > [!div class="nextstepaction"]
 > [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Update your extensions]: ./functions-bindings-register.md

@@ -6,9 +6,9 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 04/27/2026
 ---
 
 # Cast transformation in mapping data flow 
@@ -16,6 +16,9 @@ ms.date: 01/05/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Data type**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Use the cast transformation to easily modify the data types of individual columns in a data flow. The cast transformation also enables an easy way to check for casting errors.
 

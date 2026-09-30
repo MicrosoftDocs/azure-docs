@@ -1,11 +1,10 @@
 ---
 title: Hyperspace indexes for Apache Spark
 description: Performance optimization for Apache Spark using Hyperspace indexes
-author: ekote
-ms.author: eskot 
-ms.reviewer: whhender, whhender
+author: ms-arali
+ms.author: arali
 ms.service: azure-synapse-analytics
-ms.topic: conceptual 
+ms.topic: tutorial
 ms.subservice: spark
 ms.custom: devx-track-python
 ms.date: 02/10/2023

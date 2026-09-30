@@ -14,6 +14,8 @@ ms.subservice: chat
 
 # Embed chat in a Microsoft Teams custom app
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to create a Microsoft Teams custom app to interact with an Azure Communication Services instance. This chat app enables interwork functions between the two systems while maintaining separated backend environments and identity configurations.
 
 ## Use cases
@@ -121,7 +123,7 @@ You need to create identities and issue authentication tokens within a backend s
 
 ### Chat UI
 
-The quickest method to provide a chat pane with message entry for the web UI is to use the React Web UI Library composites, from the Azure communication-react package. The Storybook documentation explains the integration of these and also direct usage within the Storybook environment.  
+The quickest method to provide a chat pane with message entry for the web UI is to use the React Web UI Library composites, from the [Azure communication-react package](https://www.npmjs.com/package/@azure/communication-react). The Storybook [documentation](https://azure.github.io/communication-ui-library/?path=/docs/composites-chatcomposite--docs) explains the integration of these and also direct usage within the Storybook environment.
 
 :::image type="content" source="media/chat-app-teams-your-chat.png" alt-text="Screen capture of a sample Microsoft Teams chat app in action." lightbox="media/chat-app-teams-your-chat.png":::
 
@@ -129,7 +131,11 @@ The quickest method to provide a chat pane with message entry for the web UI is 
 
 The chat composite component requires the user identifier and token from the authentication flow, the Communication Services endpoint, and the thread ID to which it must be attached.
 
-Thread IDs represent conversations between groups of communication identifiers. Before a conversation, you need to create the thread and add users to that thread. You can automate this procedure or provide the function from a Tab in the Teams app for the employees to configure.  
+Thread IDs represent conversations between groups of communication identifiers. Before a conversation, you need to create the thread and add users to that thread. You can automate this procedure or provide the function from a Tab in the Teams app for the employees to configure.
+
+### Sample app for this solution
+
+This sample app demonstrates how to build a solution for a customer support scenario.
 
 ### Chat bots
 

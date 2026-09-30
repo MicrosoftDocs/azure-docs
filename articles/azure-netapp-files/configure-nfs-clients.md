@@ -1,12 +1,13 @@
 ---
-title: Configure an NFS client for Azure NetApp Files | Microsoft Docs
+title: Configure an NFS client for Azure NetApp Files
 description: Describes how to configure NFS clients to use with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 07/23/2026
 ms.author: anfdocs
+# Customer intent: "As a system administrator, I want to configure NFS clients on RHEL and Ubuntu for Azure NetApp Files, so that I can securely manage file storage with Kerberos encryption and support dual-protocol access in my organization's environment."
 ---
 # Configure an NFS client for Azure NetApp Files
 
@@ -56,7 +57,7 @@ The examples in this section use the following domain name and IP address:
 
 5.	Configure the NTP client.  
 
-    RHEL 8 uses chrony by default.
+    RHEL 8 uses `chrony` by default.
 
 6.	Join the Active Directory domain:  
 
@@ -103,7 +104,6 @@ The examples in this section use the following domain name and IP address:
     For example:   
 
     `sudo kinit ad_admin@CONTOSO.COM`
-
 
 ### RHEL 8 configuration if you are using dual protocol
 
@@ -223,7 +223,7 @@ The examples in this section use the following domain name and IP address:
 
     `sudo systemctl start rpc-gssd.service`
 
-5. Ubuntu 18.04 uses chrony by default. Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
+5. Ubuntu 18.04 uses `chrony` by default. Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
 
 6. Join the Active Directory domain:   
  
@@ -262,6 +262,23 @@ The following example queries the AD LDAP server from Ubuntu LDAP client for an 
 
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
+
+## NFSv4.1 with LDAP-enabled volumes
+
+When you configure Azure NetApp Files volumes with LDAP, the Linux client must resolve LDAP users and groups correctly. Incorrect SSSD configuration can result in:
+
+* Files displaying ownership as `nobody`
+* UID/GID lookup failures
+* Access control problems when assigning permissions to individual users
+  
+Example: Unable to retrieve UNIX username for UID Unable to retrieve UID for UNIX user Unable to retrieve UNIX group name for GID
+
+If you see these symptoms:
+
+* Verify that the Linux client can resolve LDAP users and groups and that the SSSD configuration matches your LDAP deployment requirements.
+* Verify that the Linux client LDAP/SSSD configuration includes the following entry:   
+  `use_fully_qualified_names = False`
+* Review your LDAP and SSSD configuration to ensure user and group resolution works correctly.
 
 ## Configure two VMs with the same hostname to access NFSv4.1 volumes 
 

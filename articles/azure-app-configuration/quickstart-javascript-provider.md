@@ -7,23 +7,24 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
 ms.custom: quickstart, mode-other, devx-track-js
-ms.date: 11/07/2024
+ms.date: 08/28/2026
 ms.author: zhiyuanliang
+ai-usage: ai-assisted
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Node.js console app with Azure App Configuration
 
 In this quickstart, you use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
 
-App Configuration provider for JavaScript is built on top of the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration) and is designed to be easier to use with richer features.
+The App Configuration provider for JavaScript is built on the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration) and is designed to be easier to use with richer features.
 It enables access to key-values in App Configuration as a `Map` object.
-It offers features like configuration composition from multiple labels, key prefix trimming, automatic resolution of Key Vault references, and many more.
-As an example, this tutorial shows how to use the JavaScript provider in a Node.js app.
+It offers features such as configuration composition from multiple labels, key prefix trimming, and automatic resolution of Key Vault references.
+This quickstart shows how to use the JavaScript provider in a Node.js app.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
 ## Add key-values
@@ -313,40 +314,40 @@ run().catch(console.error);
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     ### [Connection string](#tab/connection-string)
-    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<AppConfigurationConnectionString>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<AppConfigurationConnectionString>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_CONNECTION_STRING='<AppConfigurationConnectionString>'
     ```
     
     ---
@@ -409,3 +410,8 @@ In this quickstart, you created a new App Configuration store and learned how to
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-javascript.md)
+
+For the full feature rundown of the JavaScript configuration provider library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [JavaScript configuration provider](./reference-javascript-provider.md)

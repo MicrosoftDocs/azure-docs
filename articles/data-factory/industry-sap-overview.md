@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory
 description: Overview of the ADF SAP Knowledge Center and ADF SAP IP
 author: ukchrist
 ms.author: ulrichchrist
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 10/03/2024
 ms.subservice: data-movement
 ---
@@ -12,6 +12,8 @@ ms.subservice: data-movement
 # SAP knowledge center overview
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Azure Data Factory and Azure Synapse Analytics pipelines provide a collection of assets to power your SAP workloads. These assets include SAP connectors and templates as well upcoming solution accelerators provided by both Microsoft and partners. The SAP knowledge center is a consolidated location summarizing the available assets along with giving a comparison of when to use which solution.
 

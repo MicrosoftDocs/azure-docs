@@ -4,7 +4,7 @@ metadata:
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
   ms.service: azure-site-recovery
-  ms.date: 04/10/2024
+  ms.date: 09/11/2026
 
 
 title: General questions about Azure Site Recovery
@@ -97,12 +97,12 @@ sections:
       - question: |
          Where can I find pricing information?
         answer: |
-              Review [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
+              Review [Site Recovery pricing](https://learn.microsoft.com/azure/site-recovery/site-recovery-cost) details.
 
       - question: |
          How can I calculate approximate charges during the use of Site Recovery?
         answer: |
-              You can use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Site Recovery.
+              You can use the [pricing calculator](https://aka.ms/asr_a2a_calculator) to estimate costs while using Site Recovery.
 
               For detailed estimate on costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
@@ -124,7 +124,7 @@ sections:
       - question: |
          Is there a cost associated to perform disaster recovery drills/test failover?
         answer: |
-              There isn't any separate cost for disaster recovery drill. There is compute charges after the virtual machine is created after the test failover.
+              There isn't any separate cost for disaster recovery drill. There are compute charges after the virtual machine is created after the test failover.
 
 
   - name: Security
@@ -155,10 +155,7 @@ sections:
       - question: |
          How can I enforce TLS 1.2 on VMware-to-Azure and Physical Server-to-Azure Site Recovery scenarios?
         answer: |
-              Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
-              
-              >[!Note]
-              >The modernized experience uses TLS 1.2 for all the communication and enforces it by default. 
+              Current supported Site Recovery deployments use TLS 1.2 or later for communication. Protocols earlier than TLS 1.2 aren't supported current configurations. For more information, see [Transport Layer Security for Azure Site Recovery](transport-layer-security.md).
 
       - question: |
          How can I enforce TLS 1.2 on Hyper-V-to-Azure Site Recovery scenarios?
@@ -176,11 +173,8 @@ sections:
               - Resource Manager based storage accounts (Premium Type):
                 - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
                 - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
-              - Classic storage accounts:
-                - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
-                - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-               Cache storage account is not supported for managed identity.
+              Azure Site Recovery supports using the Recovery Services vault managed identity to access cache storage accounts, including accounts with key-based authentication disabled. Grant the required management and data access before changing authentication. For the current configuration steps, see [Turn off shared key access for cache storage accounts](asr-turn-off-key-authentication-cache.md).
 
 
 
@@ -331,10 +325,10 @@ sections:
                       echo "Usage: $0 [--pre | --post]"
                       exit 1
                   elif [ "$1" == "--pre" ]; then
-                      echo "Freezing app IO"
-                      exit 0
+                     echo "Freezing app IO"  ##command to freeze the application 
+                     exit 0
                   elif [ "$1" == "--post" ]; then
-                      echo "Thawed app IO"
+                      echo "Thawed app IO"  ##command to unfreeze the application 
                       exit 0
                   fi
               ```

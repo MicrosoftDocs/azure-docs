@@ -1,15 +1,18 @@
 ---
 title: Set up VMware disaster recovery using PowerShell in Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: ankitadutta
-ms.date: 03/07/2024
+ms.author: v-gajeronika
+ms.date: 08/17/2026
 ms.custom: devx-track-azurepowershell
 
 
+# Customer intent: "As a cloud architect, I want to set up disaster recovery for VMware VMs to Azure using PowerShell, so that I can ensure business continuity and quick recovery in case of a disaster."
 ---
+
 # Set up disaster recovery of VMware VMs to Azure with PowerShell
 
 > [!CAUTION]
@@ -27,7 +30,6 @@ You learn how to:
 > - Create storage accounts to hold replication logs or data, and replicate the VMs.
 > - Perform a failover. Configure failover settings, perform a settings for replicating virtual machines.
 
-
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
@@ -40,7 +42,7 @@ Before you start:
 
 ## Log in to Azure
 
-Log into your Azure subscription using the Connect-AzAccount cmdlet:
+Log in to your Azure subscription using the Connect-AzAccount cmdlet:
 
 ```azurepowershell
 Connect-AzAccount
@@ -223,7 +225,7 @@ In this step, two replication policies are created. One policy to replicate VMwa
    StateDescription : Completed
    StartTime        : 11/24/2017 2:49:24 AM
    EndTime          : 11/24/2017 2:49:23 AM
-   TargetObjectId   : ab31026e-4866-5440-969a-8ebcb13a372f
+   TargetObjectId   : bbbbbbbb-1111-2222-3333-cccccccccccc
    TargetObjectType : ProtectionProfile
    TargetObjectName : ReplicationPolicy
    AllowedActions   :
@@ -314,6 +316,9 @@ Errors           : {}
 ```
 
 ## Create storage accounts for replication
+
+> [!IMPORTANT]
+> You can no longer replicate to a target storage account. Replicating to a storage account was deprecated in 2019, and only replication to managed disks is supported. You still need to create a log storage account as described in this section.
 
 **To write to managed disk, use [PowerShell Az.RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) onwards.** It only requires creation of a log storage account. It's recommended to use a standard account type and LRS redundancy since it's used to store only temporary logs. Ensure that the storage account is created in the same Azure region as the vault.
 
@@ -414,7 +419,7 @@ Failover settings for protected machines can be updated using the Set-ASRReplica
 * Name of the virtual machine to be created on failover
 * VM size of the virtual machine to be created on failover
 * Azure virtual network and subnet that the NICs of the virtual machine should be connected to on failover
-* Failover to managed disks
+* Fail over to managed disks
 * Apply Azure Hybrid Use Benefit
 * Assign a static IP address from the target virtual network to be assigned to the virtual machine on failover.
 
@@ -437,7 +442,7 @@ State            : InProgress
 StateDescription : InProgress
 StartTime        : 11/24/2017 2:04:26 PM
 EndTime          :
-TargetObjectId   : 88bc391e-d091-11e7-9484-000c2955bb50
+TargetObjectId   : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 TargetObjectType : ProtectionEntity
 TargetObjectName : Win2K12VM1
 AllowedActions   :
@@ -453,7 +458,7 @@ Errors           : {}
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
 
    #Get details of the test failover virtual network to be used
-   TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
+   $TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
 
    #Start the test failover operation
    $TFOJob = Start-AzRecoveryServicesAsrTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
@@ -471,6 +476,10 @@ Errors           : {}
 In this step, we fail over the virtual machine Win2K12VM1 to a specific recovery point.
 
 1. Get a list of available recovery points to use for the failover:
+
+   > [!NOTE]
+   > The `RecoveryPointTime` values that this command returns are in UTC. The portal shows the **Latest Recovery Points** timestamp in your local time zone.
+
    ```azurepowershell
    # Get the list of available recovery points for Win2K12VM1
    $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicatedVM1

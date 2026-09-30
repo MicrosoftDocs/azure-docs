@@ -3,15 +3,18 @@ title: Applying DataOps
 description: Learn how to apply DataOps to Azure Data Factory.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
-ms.topic: conceptual
-ms.date: 01/05/2024
+ms.reviewer: whhender
+ms.topic: best-practice
+ms.date: 01/06/2024
 ms.subservice: ci-cd
+ms.custom: sfi-image-nochange
 ---
 
 # Applying DataOps to Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Azure Data Factory is Microsoft’s Data Integration and ETL service in the cloud. This paper provides guidance for DataOps in data factory. It isn't intended to be a complete tutorial on CI/CD, Git, or DevOps. Rather, you'll find the data factory team’s guidance for achieving DataOps in the service with references to detailed implementation links for data factory deployment best practices, factory management, and governance. There's a resources section at the end of this paper with links to tutorials.
 

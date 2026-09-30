@@ -16,13 +16,15 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Disable the call confirmation prompt in an application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The Azure Communication Services UI Library offers the option to disable the left call confirmation prompt, by default the UI Library show a prompt asking the user to confirm the end of the call; one common customization might involve streamlining the user experience, such as disabling the left call confirmation prompt when a user decide to end the call. This adjustment can make the call termination process quicker and reduce friction for users who are accustomed to instant actions.
 
 In this article, you learn how to disable the left call confirmation prompt.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the call client. [Get a user access token](../../quickstarts/access-tokens.md).
 - Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).

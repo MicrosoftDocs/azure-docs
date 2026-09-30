@@ -6,8 +6,14 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 07/22/2024
-ms.custom: engagement-fy25
+ms.date: 03/21/2025
+ms.reviewer: v-gajeronika
+ms.update-cycle: 365-days
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: "As an IT administrator, I want to set up an Azure Migrate appliance for physical server discovery and assessment, so that I can efficiently assess my on-premises servers for migration to the cloud."
 ---
 
 
@@ -54,20 +60,7 @@ In **2: Download Azure Migrate appliance**, select **Download**.
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the server to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-3.  Verify the latest appliance version and hash value:
-
-  | **Download** | **Hash value** |
-  | --- | --- |
-  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
-
-> [!NOTE]
-> The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud.
+Verify that the zipped file is  [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### Run the Azure Migrate installer script
 
@@ -96,6 +89,15 @@ After the script has executed successfully, the appliance configuration manager 
 
 > [!NOTE]
 > If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+
+::: moniker range="migrate"
+After you deploy the appliance server and before you start the configuration, ensure you complete these steps to try out the new dependency analysis enhancements: 
+
+1. On the server running the appliance, open the Registry Editor.
+2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (find the one without space)
+3. Find a registry key- DepMapAutoEnable with a type of "String" and set value as "true"
+4. Restart the appliance server and start with appliance configuration
+::: moniker-end
 
 ### Verify appliance access to Azure
 
@@ -128,8 +130,8 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
-	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
-    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
+	2. The appliance verifies the key and starts the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to  an Azure sign in prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
@@ -168,10 +170,10 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and select **Save**.
     - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
 
-1. On selecting Save, appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
+1. Select **Save**, the appliance tries to validate the connection to the servers added and show the **Validation status** in the table against each server.
     - If validation fails for a server, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, select **Delete**.
-1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
+1. You can **revalidate** the connectivity to servers any time before starting the discovery.
 1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
    :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
@@ -194,7 +196,7 @@ Select **Start discovery**, to kick off discovery of the successfully validated 
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
-1. Open the Azure Migrate dashboard.
+1. Go to the Azure Migrate dashboard.
 2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 

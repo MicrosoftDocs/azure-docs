@@ -8,6 +8,7 @@ ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: quickstart
 ms.date: 12/11/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Transform data using mapping data flows
@@ -24,7 +25,7 @@ In this quickstart, you do the following steps:
 
 ## Prerequisites
 
-* **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure Synapse workspace**: Create a Synapse workspace using the Azure portal following the instructions in [Quickstart: Create a Synapse workspace](quickstart-create-workspace.md).
 * **Azure storage account**: You use ADLS storage as *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 

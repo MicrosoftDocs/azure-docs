@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/27/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-arm-template, engagement-fy23
+# Customer intent: "As a network administrator, I want to move an Azure load balancer to another region using an Azure Resource Manager template so that I can replicate configurations for testing or implement disaster recovery plans."
 ---
 
 # Move an Azure Load Balancer to another Azure region
@@ -45,7 +46,7 @@ Use this procedure to move an internal load balancer to another region using the
 
 - Verify that your Azure subscription allows you to create external load balancers in the target region. Contact support to enable the required quota.
 
-- Make sure your subscription has enough resources to support the addition of the load balancers. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- Make sure your subscription has enough resources to support the addition of the load balancers. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
 
 #### Prepare and move
 The following procedures show how to prepare the external load balancer for the move by using a Resource Manager template and move the external load balancer configuration to the target region by using the Azure portal. You must first export the public IP configuration of external load balancer.
@@ -108,7 +109,7 @@ The following procedures show how to prepare the external load balancer for the 
     
 12. You can also change other parameters in the template if you want to or need to, depending on your requirements:
 
-    * **SKU**. You can change the SKU of the public IP in the configuration from standard to basic or from basic to standard by changing the **name** property under **sku** in the template.json file:
+    * **SKU**. Set the SKU of the public IP to **Standard** by using the **name** property under **sku** in the template.json file. The Basic SKU was retired on September 30, 2025:
 
         ```json
           "resources": [
@@ -122,7 +123,7 @@ The following procedures show how to prepare the external load balancer for the 
                 "tier": "Regional"
             },
         ```
-     * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as no-zone. You can specify a single zone to create a zonal public IP or all three zones for a zone-redundant public IP.
+     * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as zone-redundant.
 
          ```json
           "resources": [
@@ -278,7 +279,7 @@ The following procedures show how to prepare the external load balancer for the 
 
 11. You can also change other parameters in the template if you want to or need to, depending on your requirements:
 
-    * **SKU**. You can change the SKU of the external load balancer in the configuration from Standard to Basic or from Basic to Standard by changing the **name** property under **sku** in the template.json file:
+    * **SKU**. Set the SKU of the external load balancer to **Standard** by using the **name** property under **sku** in the template.json file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [
@@ -466,7 +467,7 @@ In this tutorial, you moved an Azure external load balancer from one region to a
 
 - Verify that your Azure subscription allows you to create external load balancers in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits)
 
 
 ### Prepare and move
@@ -550,7 +551,7 @@ The following steps show how to prepare the external load balancer for the move 
     ```
 8. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Sku** - You can change the sku of the public IP in the configuration from Standard to Basic or Basic to Standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
+    * **Sku** - Set the SKU of the public IP to **Standard** by altering the **sku** > **name** property in the **\<resource-group-name>.json** file. The Basic SKU was retired on September 30, 2025:
 
          ```json
             "resources": [
@@ -567,7 +568,7 @@ The following steps show how to prepare the external load balancer for the move 
 
          For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
-    * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as no-zone. You can specify a single zone to create a zonal public IP or all three zones for a zone-redundant public IP.
+    * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as zone-redundant.
          ```json
           "resources": [
          {
@@ -759,7 +760,7 @@ The following steps show how to prepare the external load balancer for the move 
     ```
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
     
-    * **Sku** - You can change the sku of the external load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
+    * **Sku** - Set the SKU of the external load balancer to **Standard** by altering the **sku** > **name** property in the **\<resource-group-name>.json** file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [
@@ -983,7 +984,7 @@ In this tutorial, you moved an Azure network security group from one region to a
 
 - Verify that your Azure subscription allows you to create internal load balancers in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits)
 
 
 ### Prepare and move
@@ -1210,7 +1211,7 @@ The following steps show how to prepare the internal load balancer for the move 
 
 10. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
+    * **Sku** - Set the SKU of the internal load balancer to **Standard** by altering the **sku** > **name** property in the **template.json** file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [
@@ -1226,7 +1227,7 @@ The following steps show how to prepare the internal load balancer for the move 
         ```
       For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](./load-balancer-overview.md)
 
-    * **Availability zone** - You can change the zones of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend is created as no-zone. You can specify a single zone to create a zonal frontend or all three zones for a zone-redundant frontend.
+    * **Availability zone** - You can change the zones of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend is created as zone-redundant.
 
         ```json
         "frontendIPConfigurations": [
@@ -1255,7 +1256,7 @@ The following steps show how to prepare the internal load balancer for the move 
             ]
         },
         ```
-        For more about availability zones, see [Regions and availability zones in Azure](../reliability/availability-zones-overview.md).
+        For more about availability zones, see [Regions and availability zones in Azure](/azure/reliability/availability-zones-overview).
 
     * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **template.json** file:
 
@@ -1402,7 +1403,7 @@ In this tutorial, you moved an Azure internal load balancer from one region to a
 
 - Verify that your Azure subscription allows you to create internal load balancers in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits)
 
 
 ### Prepare and move
@@ -1701,7 +1702,7 @@ The following steps show how to prepare the internal load balancer for the move 
         ```
       For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](./load-balancer-overview.md)
       
-    * **Availability zone**. You can change the zone(s) of the load balancer's frontend by changing the zone property. If the zone property isn't specified, the frontend is created as no-zone. You can specify a single zone to create a zonal frontend or all three zones for a zone-redundant frontend.
+    * **Availability zone**. You can change the zone(s) of the load balancer's frontend by changing the zone property. If the zone property isn't specified, the frontend is created as zone-redundant.
          ```json
           "frontendIPConfigurations": [
                    {

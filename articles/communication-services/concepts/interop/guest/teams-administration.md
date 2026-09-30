@@ -5,12 +5,15 @@ description: Teams administrator controls to impact Azure Communication Services
 author: tomaschladek
 ms.author: tchladek
 ms.date: 7/9/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom: sfi-ga-nochange
 ---
 
 # Teams controls
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 In this article, you learn what tools Microsoft 365 provides to control the user experience in Microsoft Teams meetings. You know what those tools are, how they interact, which roles and licenses you need, and many more.
 Let's start with a high-level decision tree diagram describing whether a specific feature is allowed for a meeting participant. A subset of the controls might control individual features. Let's take an example of call recording in the Teams meeting. Microsoft 365 administrators can't control this feature with tenant configuration but can control it via 
 -	Policy assigned to the users, 

@@ -5,8 +5,9 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: stevenmatthew
 ms.author: shaas
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.custom: subject-policy-compliancecontrols
+# Customer intent: "As a cloud resource manager, I want to leverage Azure Policy built-in compliance controls for Azure Data Box, so that I can ensure my resources meet regulatory standards and maintain compliance effectively."
 ---
 # Azure Policy Regulatory Compliance controls for Azure Data Box
 
@@ -17,9 +18,9 @@ page lists the **compliance domains** and **security controls** for Azure Data B
 assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/reusable-content/ce-skilling/azure/includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-databox](../../includes/policy/standards/byrp/microsoft.databox.md)]
+[!INCLUDE [azure-policy-compliancecontrols-databox](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.databox.md)]
 
 ## Next steps
 

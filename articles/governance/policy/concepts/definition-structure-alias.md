@@ -1,8 +1,8 @@
 ---
 title: Details of the policy definition structure aliases
 description: Describes how policy definition aliases are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: concept-article
 ---
 
 # Azure Policy definition structure aliases
@@ -82,7 +82,7 @@ For more information and examples, see [Referencing array resource properties](.
 
 - For more information about policy definition structure, go to [basics](./definition-structure-basics.md), [parameters](./definition-structure-parameters.md), and [policy rule](./definition-structure-policy-rule.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

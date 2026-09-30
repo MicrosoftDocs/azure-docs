@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Submit a job for queuing and routing
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services Job Router by setting up your client, then configuring core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
 
 ::: zone pivot="programming-language-csharp"

@@ -9,7 +9,7 @@ ms.author: kengaderdus
 ms.date: 10/11/2024
 ms.custom: mvc
 ms.topic: how-to
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 
 
@@ -18,6 +18,8 @@ ms.subservice: b2c
 ---
 
 # Add a web API application to your Azure Active Directory B2C tenant
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to register web API resources in your Azure Active Directory B2C (Azure AD B2C) tenant so that they can accept and respond to requests by client applications that present an access token.
 

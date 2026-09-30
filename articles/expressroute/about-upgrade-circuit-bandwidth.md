@@ -1,48 +1,59 @@
 ---
-title: 'About upgrading circuit bandwidth| Azure ExpressRoute'
-description: In this article, learn the best practices for upgrading the ExpressRoute circuit bandwidth
+title: About upgrading circuit bandwidth | Azure ExpressRoute
+description: Learn the best practices for upgrading the ExpressRoute circuit bandwidth.
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 10/16/2023
+ms.date: 07/28/2026
 ms.author: duau
+# Customer intent: As a network administrator, I want to upgrade the bandwidth of my ExpressRoute circuit, so that I can ensure sufficient capacity for my production workloads and maintain optimal connectivity to Microsoft's global network.
 ---
 
 # About upgrading ExpressRoute circuit bandwidth
 
-ExpressRoute is a dedicated and private connection to Microsoft's global network. Connectivity is facilitated through an ExpressRoute partner's network, or a direct connection to the Microsoft Enterprise Edge (MSEE) devices. Once physical connectivity has been configured and tested, you can enable layer-2 and layer-3 connectivity by creating an ExpressRoute circuit and configuring peering.
+ExpressRoute provides a dedicated, private connection to Microsoft's global network. Establish this connectivity through an ExpressRoute partner's network or directly to the Microsoft Enterprise Edge (MSEE) devices. After setting up and testing the physical connection, enable layer-2 and layer-3 connectivity by creating an ExpressRoute circuit and configuring peering.
 
 ## <a name="considerations"></a>Capacity considerations
 
 ### Insufficient capacity for physical connection
 
-An ExpressRoute circuit is created on a physical connection between Microsoft and a ExpressRoute Partner. The physical connection has a fixed capacity. If you're unable to increase your circuit size that means that the underlying physical connection for your existing circuit doesn’t have capacity for the upgrade. You need to create a new circuit if you want to change the circuit size. For more information, see [Migrate to a new ExpressRoute circuit](circuit-migration.md).
+A bandwidth upgrade can fail when the physical port hosting your circuit doesn't have enough remaining capacity. This situation can occur when you upgrade to a higher bandwidth tier, such as 10 Gbps, on a port that can't accommodate the increase.
 
-After you've successfully created the new ExpressRoute circuit, you should link your existing virtual networks to this circuit. You can then test and validate the connectivity of the new ExpressRoute circuit before you deprovision the old circuit. These recommended migration steps minimize down time and disruption to your production work load.
+If your upgrade fails because the port lacks capacity, you need to create a new ExpressRoute circuit on a port with sufficient capacity and then migrate your traffic. For detailed migration steps, see [Migrate to a new ExpressRoute circuit](circuit-migration.md).
+
+After creating the new ExpressRoute circuit, validate it before it carries production traffic. Link the new circuit to the gateway of a test virtual network, then test and validate connectivity. Don't link a virtual network gateway that has a production deployment to the new circuit until validation is complete. Connect your production virtual network gateways during switchover, then deprovision the old circuit. These steps help minimize downtime and disruption to your production workload. For the full procedure, see [Migrate to a new ExpressRoute circuit](circuit-migration.md).
 
 ### <a name="bandwidth"></a>Insufficient ExpressRoute partner bandwidth
 
-If you're unable to create a new ExpressRoute circuit because of a capacity error. It means this ExpressRoute partner doesn’t have capacity to connect to Microsoft at this peering location. Contact your ExpressRoute partner to request for more capacity.
+If you're unable to create a new ExpressRoute circuit due to a capacity error, the ExpressRoute partner doesn't have sufficient capacity at the peering location to connect to Microsoft. Contact your ExpressRoute partner to request additional capacity.
 
-Once the new capacity gets provisioned, you can use the methods contained in the [Upgrade circuit bandwidth](#upgrade) section to create a new circuit, configure connectivity, and delete the old circuit.
+After the new capacity is provisioned, follow the methods in the [Upgrade circuit bandwidth](#upgrade) section to create a new circuit, configure connectivity, and delete the old circuit.
 
 ### <a name="bandwidth"></a>Insufficient ExpressRoute Direct bandwidth
 
-If the ExpressRoute Direct doesn't have sufficient capacity, you have two options. You can either delete circuits that are associated to the ExpressRoute Direct resource that you no longer need, or create a new ExpressRoute Direct resource. For guidance on managing the ExpressRoute Direct resource, refer to [How to configure ExpressRoute Direct](how-to-expressroute-direct-portal.md).
+If ExpressRoute Direct lacks sufficient capacity, you have two options:
+
+- Delete any unnecessary circuits associated with the ExpressRoute Direct resource.
+- Create a new ExpressRoute Direct resource.
+
+For detailed guidance on managing ExpressRoute Direct resources, see [How to configure ExpressRoute Direct](how-to-expressroute-direct-portal.md).
 
 ## <a name="upgrade"></a>Upgrade circuit bandwidth
 
-To upgrade circuit bandwidth, the ExpressRoute Direct, or ExpressRoute partner needs to have [sufficient available bandwidth](#considerations) for the upgrade to succeed.
+To upgrade circuit bandwidth, ensure that the ExpressRoute Direct or ExpressRoute partner has [sufficient available bandwidth](#considerations) for the upgrade to succeed.
 
-If capacity is available, you can upgrade the circuit using the following methods:
+> [!NOTE]
+> If your upgrade fails because the current port lacks sufficient capacity, you can't perform an in-place bandwidth upgrade. Instead, you need to create a new circuit and migrate your traffic. For more information, see [Capacity considerations](#considerations).
 
-* [Azure portal](expressroute-howto-circuit-portal-resource-manager.md#modify)
-* [PowerShell](expressroute-howto-circuit-arm.md#modify)
-* [Azure CLI](howto-circuit-cli.md#modify)
+If capacity is available, upgrade the circuit by using the following methods:
+
+- [Azure portal](expressroute-howto-circuit-portal-resource-manager.md#modify)
+- [PowerShell](expressroute-howto-circuit-arm.md#modify)
+- [Azure CLI](howto-circuit-cli.md#modify)
 
 ## Next steps
 
-* [Create and modify a circuit](expressroute-howto-circuit-portal-resource-manager.md)
-* [Create and modify peering configuration](expressroute-howto-routing-portal-resource-manager.md)
-* [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+- [Create and modify a circuit](expressroute-howto-circuit-portal-resource-manager.md)
+- [Create and modify peering configuration](expressroute-howto-routing-portal-resource-manager.md)
+- [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)

@@ -3,7 +3,8 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 08/11/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
@@ -17,4 +18,3 @@ Use the following steps to delete the entire resource group, including the newly
 
 1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
 
-1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.

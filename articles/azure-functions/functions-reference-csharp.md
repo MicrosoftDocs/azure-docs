@@ -1,24 +1,24 @@
 ---
-title: Azure Functions C# script developer reference
+title: Azure Functions legacy C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-csharp
-ms.date: 08/15/2023
+ms.date: 09/15/2026
 ---
-# Azure Functions C# script (.csx) developer reference
+# Azure Functions legacy C# script (.csx) developer reference
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
 This article is an introduction to developing Azure Functions by using C# script (*.csx*).
 
 > [!IMPORTANT]
-> C# script is supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a compiled C# class library project. To learn how to migrate a C# script project to a C# class library (isolated worker) project, see [Convert a C# script app to a C# project](#convert-a-c-script-app-to-a-c-project).
+> C# script apps run in the host process and are supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a [compiled C# class library project that uses the isolated process model](./dotnet-isolated-process-guide.md). To learn how to migrate a C# script project to a C# class library (isolated worker) project, see [Convert a C# script app to a C# project](#convert-a-c-script-app-to-a-c-project).
 
 Azure Functions lets you develop functions using C# in one of the following ways:
 
 | Type | Execution process | Code extension | Development environment | Reference |
 | --- | ---- | --- | --- | --- | 
-| C# script | in-process | .csx | [Portal](functions-create-function-app-portal.md)<br/>[Core Tools](functions-run-local.md) | This article | 
+| C# script | in-process | .csx | [Portal](functions-create-function-app-portal.md)<br/>[Core Tools](functions-run-local.md) | [This article](#create-a-c-script-app) | 
 | C# class library (isolated worker) | isolated worker process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated worker process functions](dotnet-isolated-process-guide.md) | 
 | C# class library (in-process) | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)| [In-process C# class library functions](functions-dotnet-class-library.md) |  
 
@@ -31,6 +31,8 @@ Data flows into your C# function via method arguments. Argument names are specif
 The *.csx* format allows you to write less "boilerplate" and focus on writing just a C# function. Instead of wrapping everything in a namespace and class, just define a `Run` method. Include any assembly references and namespaces at the beginning of the file as usual.
 
 A function app's *.csx* files are compiled when an instance is initialized. This compilation step means things like cold start may take longer for C# script functions compared to C# class libraries. This compilation step is also why C# script functions are editable in the Azure portal, while C# class libraries aren't.
+
+C# script code always runs in the same process as the Functions host. 
 
 ## Folder structure
 
@@ -47,13 +49,42 @@ FunctionsProject
  | | - function.json
  | | - function.proj
  | - host.json
- | - extensions.csproj
- | - bin
+ | - local.settings.json
 ```
 
-There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.csx) and binding configuration file (function.json).
+There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app and a [local.settings.json](./functions-develop-local.md#local-settings-file) file used during local development. Each function has its own code file (.csx) and binding configuration file (function.json).
 
-The binding extensions required in [version 2.x and later versions](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#extension-bundles). When you develop functions in the Azure portal, this registration is done for you.
+Bindings are defined in extension packages. By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](extension-bundles.md).
+
+## Create a C# script app
+
+There are currently two ways to create a C# script app:
+
+### [Core Tools](#tab/core-tools)
+
+Create a C# script project by passing the `--csx` option when running the [`func init`](functions-core-tools-reference.md#func-init) command. You must also set `--worker-runtime` to `dotnet`, as in this example:
+
+```command
+func init --worker-runtime dotnet --csx
+```
+
+When working with a C# script app, you must supply the `--csx` option for other Core Tools where it's supported.
+
+When deploying your C# script project to a function app in Azure, you can only deploy it to an app that uses the [in-process model for C#](functions-dotnet-class-library.md).  
+
+### [Azure portal](#tab/azure-portal)
+
+Create a C# script project by creating an app that uses a currently supported in-process .NET **version**, such as **8 (LTS), in-process model**. Don't select the Flex Consumption plan, which doesn't support the in-process model.
+
+On the main page for your new app in the portal, select **Create function** under **Create in Azure portal**. This creates a C# script project, which you can code and test directly in the portal. 
+
+---
+
+Keep these considerations in mind before creating a C# script app:
+
++ C# script is supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a [compiled C# class library project](dotnet-isolated-process-guide.md).
++ C# script is only supported when running [in-process with the Functions host](functions-dotnet-class-library.md), which is a [legacy execution mode for C#](https://aka.ms/azure-functions-retirements/in-process-model).
++  You can't host C# script apps in the [Flex Consumption plan](flex-consumption-plan.md), which is the recommended plan for dynamic scale apps. This is because the Flex Consumption plan only supports C# apps that use the [isolated worker model](dotnet-isolated-process-guide.md).
 
 ## Binding to arguments
 
@@ -88,6 +119,10 @@ public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 ```
 
 The `#r` statement is explained [later in this article](#referencing-external-assemblies).
+
+## Connections
+
+When possible, use managed identity-based connections in your triggers and bindings. For more information, see [Manage connections](manage-connections.md?tabs=identity).
 
 ## Supported types for bindings
 
@@ -387,24 +422,9 @@ The following assemblies are automatically added by the Azure Functions hosting 
 * `System.Web.Http`
 * `System.Net.Http.Formatting`
 
-The following assemblies may be referenced by simple-name, by runtime version:
-
-### [v2.x+](#tab/functionsv2)
+The following assemblies may be referenced by simple name:
 
 * `Newtonsoft.Json`
-* `Microsoft.WindowsAzure.Storage`<sup>*</sup>
-
-<sup>*</sup>Removed in version 4.x of the runtime.
-
-### [v1.x](#tab/functionsv1)
-
-* `Newtonsoft.Json`
-* `Microsoft.WindowsAzure.Storage`
-* `Microsoft.ServiceBus`
-* `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNet.WebHooks.Common`
-
----
 
 
 In code, assemblies are referenced like the following example:
@@ -429,52 +449,9 @@ The directory that contains the function script file is automatically watched fo
 
 ## Using NuGet packages
 
-The way that both binding extension packages and other NuGet packages are added to your function app depends on the [targeted version of the Functions runtime](functions-versions.md).
+By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](extension-bundles.md). 
 
-### [v2.x+](#tab/functionsv2)
-
-By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles). 
-
-If for some reason you can't use extension bundles in your project, you can also use the Azure Functions Core Tools to install extensions based on bindings defined in the function.json files in your app. When using Core Tools to register extensions, make sure to use the `--csx` option. To learn more, see [func extensions install](functions-core-tools-reference.md#func-extensions-install).
-
-By default, Core Tools reads the function.json files and adds the required packages to an *extensions.csproj* C# class library project file in the root of the function app's file system (wwwroot). Because Core Tools uses dotnet.exe, you can use it to add any NuGet package reference to this extensions file. During installation, Core Tools builds the extensions.csproj to install the required libraries. Here's an example *extensions.csproj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
-    </ItemGroup>
-</Project>
-```
-> [!NOTE]
-> For C# script (.csx), you must set `TargetFramework` to a value of `netstandard2.0`. Other target frameworks, such as `net6.0`, aren't supported.
-
-### [v1.x](#tab/functionsv1)
-
-Version 1.x of the Functions runtime uses a *project.json* file to define dependencies. Here's an example *project.json* file:
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
-```
-
-Extension bundles aren't supported by version 1.x.
-
----
-
-To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the function app root folder. For more information, see [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior).
-
-If you're working on your project only in the portal, you'll need to manually create the extensions.csproj file or a Nuget.Config file directly in the site. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
+If you need to add custom NuGet packages not included in an extension bundle, you should instead develop your C# functions locally as a [compiled C# class library project that uses the isolated process model](./dotnet-isolated-process-guide.md).
 
 ## Environment variables
 
@@ -632,7 +609,6 @@ The following table lists the .NET attributes for each binding type and the pack
 > | Azure Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
 > | Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/b798412ad74ba97cf2d85487ae8479f277bdd85c/test/Microsoft.Azure.WebJobs.ServiceBus.UnitTests/ServiceBusAccountTests.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 > | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-> | Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 > | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/b798412ad74ba97cf2d85487ae8479f277bdd85c/test/Microsoft.Azure.WebJobs.ServiceBus.UnitTests/ServiceBusAttributeTests.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/b798412ad74ba97cf2d85487ae8479f277bdd85c/test/Microsoft.Azure.WebJobs.ServiceBus.UnitTests/ServiceBusAccountTests.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
 > | Storage queue | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 > | Storage blob | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
@@ -650,11 +626,11 @@ These instructions show you how to convert C# script functions (which run in-pro
 1. Complete the **Create a functions app project** section from your preferred quickstart:
    
    ### [Azure CLI](#tab/azure-cli)
-   [Create a C# function in Azure from the command line](create-first-function-cli-csharp.md#create-a-local-function-project)
+   [Create a C# function in Azure from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp#create-a-local-code-project-and-function)
    ### [Visual Studio](#tab/vs)
    [Create your first C# function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md#create-a-function-app-project)
    ### [Visual Studio Code](#tab/vs-code) 
-   [Create your first C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md#create-an-azure-functions-project)
+   [Create your first C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp#create-an-azure-functions-project)
 
    ---
     
@@ -663,7 +639,7 @@ These instructions show you how to convert C# script functions (which run in-pro
     >[!TIP]
     >Conversion provides a good opportunity to update to the latest versions of your dependencies. Doing so may require additional code changes in a later step.
 
-1. Copy the contents of the original `host.json` file into the new project's `host.json` file, except for the `extensionBundles` section (compiled C# projects don't use [extension bundles](functions-bindings-register.md#extension-bundles) and you must explicitly add references to all extensions used by your functions). When merging host.json files, remember that the [`host.json`](./functions-host-json.md) schema is versioned, with most apps using version 2.0. The contents of the `extensions` section can differ based on specific versions of the binding extensions used by your functions. See individual extension reference articles to learn how to correctly configure the host.json for your specific versions.
+1. Copy the contents of the original `host.json` file into the new project's `host.json` file, except for the `extensionBundles` section (compiled C# projects don't use [extension bundles](extension-bundles.md) and you must explicitly add references to all extensions used by your functions). When merging host.json files, remember that the [`host.json`](./functions-host-json.md) schema is versioned, with most apps using version 2.0. The contents of the `extensions` section can differ based on specific versions of the binding extensions used by your functions. See individual extension reference articles to learn how to correctly configure the host.json for your specific versions.
 
 1. For any [shared files referenced by a `#load` directive](#reusing-csx-code), create a new `.cs` file for each of these shared references. It's simplest to create a new `.cs` file for each shared class definition. If there are static methods without a class, you need to define new classes for these methods. 
 
@@ -702,7 +678,7 @@ These instructions show you how to convert C# script functions (which run in-pro
 1. Publish your project to a new function app in Azure:
 
       ### [Azure CLI](#tab/azure-cli)
-      [Create your Azure resources](create-first-function-cli-csharp.md#create-supporting-azure-resources-for-your-function) and deploy the code project to Azure by using the `func azure functionapp publish <APP_NAME>` command. For more information, see [Deploy project files](functions-run-local.md#project-file-deployment).
+      [Create your Azure resources](how-to-create-function-azure-cli.md?pivots=programming-language-csharp#create-supporting-azure-resources-for-your-function) and deploy the code project to Azure by using the `func azure functionapp publish <APP_NAME>` command. For more information, see [Deploy project files](functions-run-local.md#project-file-deployment).
       ### [Visual Studio](#tab/vs)
       Follow the [Publish to Azure](functions-develop-vs.md?tabs=isolated-process#publish-to-azure) section of the Visual Studio guide.
       ### [Visual Studio Code](#tab/vs-code) 
@@ -1340,7 +1316,6 @@ The following table explains the trigger configuration properties that you set i
 | **authLevel** |  Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](./functions-bindings-http-webhook-trigger.md#http-auth).  |
 | **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint). |
 | **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint). |
-| **webHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](./functions-bindings-http-webhook-trigger.md#webhook-type).|
 
 The following example shows a trigger binding in a *function.json* file and a C# script function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -1437,14 +1412,14 @@ The following table explains the trigger configuration properties that you set i
 |**type** |  Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** |  Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** |  The name of the variable that represents the event item in function code. |
-|**eventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](./functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%`. In version 1.x, this property is named `path`. |
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](./functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%`. |
 |**consumerGroup** |An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](./functions-bindings-event-hubs-trigger.md#connections).|
 
 
 The following example shows an Event Hubs trigger binding in a *function.json* file and a C# script function    that uses the binding. The function logs the message body of the Event Hubs trigger.
 
-The following examples show Event Hubs binding data in the *function.json* file for Functions runtime version 2.x and later versions. 
+The following example shows Event Hubs binding data in the *function.json* file.
 
 ```json
 {
@@ -1516,12 +1491,12 @@ The following table explains the binding configuration properties that you set i
 |**type** |  Must be set to `eventHub`. |
 |**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** |  The variable name used in function code that represents the event. |
-|**eventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. In Functions 1.x, this property is named `path`.|
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](./functions-bindings-event-hubs-output.md#connections).|
 
 The following example shows an event hub trigger binding in a *function.json* file and a C# script function that uses the binding. The function writes a message to an event hub.
 
-The following examples show Event Hubs binding data in the *function.json* file for Functions runtime version 2.x and later versions. 
+The following example shows Event Hubs binding data in the *function.json* file.
 
 ```json
 {
@@ -1679,9 +1654,8 @@ The following table explains the binding configuration properties that you set i
 |**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](./functions-bindings-service-bus-trigger.md#connections).|
-|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br/><br/>This property is available only in Azure Functions 2.x and higher. |
+|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed. |
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a C# script function that uses the binding. The function reads message metadata and logs a Service Bus queue message.
 
@@ -1733,7 +1707,6 @@ The following table explains the binding configuration properties that you set i
 |**queueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
 |**topicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
 |**connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](./functions-bindings-service-bus-output.md#connections).|
-|**accessRights** (v1 only)|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 The following example shows a Service Bus output binding in a *function.json* file and a C# script function that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
@@ -3642,8 +3615,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 ### Warmup trigger
 
 The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that runs on each new instance when it's added to your app.
-
-Not supported for version 1.x of the Functions runtime.
 
 Here's the *function.json* file:
 

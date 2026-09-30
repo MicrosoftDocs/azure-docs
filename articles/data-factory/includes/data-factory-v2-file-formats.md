@@ -1,8 +1,8 @@
 ---
-author: jianleishen
+author: simplywilson
 ms.topic: include
 ms.date: 10/20/2023
-ms.author: jianleishen
+ms.author: tinglee
 ---
 <!--
     Common for all ADF file-based connectors

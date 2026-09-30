@@ -7,6 +7,7 @@ ms.date: 10/22/2024
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 
 # Administrator
 ---
@@ -19,7 +20,7 @@ Private endpoints use private IP addresses from a virtual network address space 
 
 ## Prerequisites
 
-- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An IoT Central application. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 - A virtual network in your Azure subscription. To learn more, see [Create a virtual network](../../virtual-network/quick-create-portal.md). To complete the steps in this guide, you don't need a Bastion host or virtual machines.
 

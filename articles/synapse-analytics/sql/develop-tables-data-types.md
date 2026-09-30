@@ -3,7 +3,6 @@ title: Table data types in Synapse SQL
 description: Recommendations for defining table data types in Synapse SQL.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: whhender
 ms.date: 12/17/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
@@ -11,6 +10,8 @@ ms.topic: concept-article
 ---
 
 # Table data types in Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you'll find recommendations for defining table data types in Synapse SQL Dedicated Pool. 
 

@@ -7,10 +7,12 @@ ms.subservice: sql
 ms.date: 02/15/2022
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Synchronize Apache Spark for Azure Synapse external table definitions in serverless SQL pool
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Serverless SQL pool can automatically synchronize metadata from Apache Spark. A serverless SQL pool database will be created for each database existing in serverless Apache Spark pools. 
 

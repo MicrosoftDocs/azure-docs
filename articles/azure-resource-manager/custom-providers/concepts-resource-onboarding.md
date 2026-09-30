@@ -1,8 +1,8 @@
----
+﻿---
 title: Resource onboarding
 description: Learn about performing resource onboarding by using Azure Custom Resource Providers to apply management or configuration to other Azure resource types.
 author: jjbfour
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/06/2019
 ms.author: jobreen
 ---
@@ -156,3 +156,4 @@ In this article, you learned about custom resource providers. See these articles
 - [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+

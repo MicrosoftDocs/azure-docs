@@ -2,12 +2,12 @@
 title: Connect to the virtual machine console on Azure Stack Edge Pro GPU device
 description: Describes how to connect to the virtual machine console on a VM running on Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/04/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Connect to a virtual machine console on an Azure Stack Edge Pro GPU device
 

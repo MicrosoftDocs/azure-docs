@@ -4,7 +4,7 @@ description: This article describes customer data residency in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/22/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ---

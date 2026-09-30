@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Create an Azure Front Door using Bicep'
 description: This quickstart describes how to create an Azure Front Door using Bicep.
-services: front-door
-author: duongau
-ms.author: duau
-ms.date: 11/18/2024
-ms.topic: quickstart
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
+ms.topic: quickstart
+ms.date: 11/18/2024
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
+
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -21,7 +21,7 @@ This quickstart guides you through using Bicep to create an Azure Front Door wit
 
 ## Prerequisites
 
-* An active Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have one.
+* An active Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 * The IP address or FQDN of a website or web application.
 
 ## Review the Bicep file

@@ -7,7 +7,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ---
 
@@ -15,12 +15,14 @@ ms.date: 09/26/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Several mapping data flows transformations allow you to reference template columns based on patterns instead of hard-coded column names. This matching is known as *column patterns*. You can define patterns to match columns based on name, data type, stream, origin, or position instead of requiring exact field names. There are two scenarios where column patterns are useful:
 
 * If incoming source fields change often such as the case of changing columns in text files or NoSQL databases. This scenario is known as [schema drift](concepts-data-flow-schema-drift.md).
 * If you wish to do a common operation on a large group of columns. For example, wanting to cast every column that has 'total' in its column name into a double.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=8848564b-ff1c-4ad5-9ccd-74357f93a348]
 
 ## Column patterns in derived column and aggregate
 

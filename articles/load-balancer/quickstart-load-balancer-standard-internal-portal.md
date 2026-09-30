@@ -6,24 +6,31 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 06/28/2024
+ms.date: 07/17/2026
 ms.author: mbender
-ms.custom: mvc, mode-ui, template-quickstart, engagement-fy24
+ms.custom:
+  - mvc
+  - mode-ui
+  - template-quickstart
+  - engagement-fy24
+  - sfi-image-nochange
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: "As a cloud engineer, I want to create an internal load balancer with traffic rules and health probes for my VMs, so that I can efficiently distribute internal traffic and ensure high availability of my applications."
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
 
 Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer for a backend pool with two virtual machines. Other resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
+Use this quickstart for private traffic within a virtual network. For internet-facing traffic, see [Create a public load balancer](quickstart-load-balancer-standard-public-portal.md).
+
+After you create the resources and install IIS on the backend virtual machines, [test the load balancer](#test-the-load-balancer) from the test virtual machine.
+
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
-> [!NOTE]
-> In this example you'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
-> For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to Azure
 
@@ -31,6 +38,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [load-balancer-nat-gateway](../../includes/load-balancer-nat-gateway.md)]
 
+> [!NOTE]
+> In this example, you create a NAT gateway to provide outbound internet access. The outbound rules tab is bypassed and isn't needed with the NAT gateway. For more information, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) and [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
 [!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]
 
@@ -69,16 +78,12 @@ During the creation of the load balancer, you configure:
     | ------- | ----- |
     | Name | Enter **lb-frontend**. |
     | Private IP address version | Select **IPv4** or **IPv6** depending on your requirements. |
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **lb-frontend**. |
     | Virtual network | Select **lb-vnet**. |
     | Subnet | Select **backend-subnet**. |
     | Assignment | Select **Dynamic**. |
     | Availability zone | Select **Zone-redundant**. |
 
-1. Select **Add**.
+1. Select **Save**.
 1. Select **Next: Backend pools** at the bottom of the page.
 1. In the **Backend pools** tab, select **+ Add a backend pool**.
 1. Enter **lb-backend-pool** for **Name** in **Add backend pool**.
@@ -92,7 +97,7 @@ During the creation of the load balancer, you configure:
     | ----------- | --------- |
     | Name | Enter **lb-HTTP-rule**. |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
-    | Frontend IP address | Select **lb-frontend**. |
+    | Frontend IP address | Select **lb-frontend(Dynamic)**. |
     | Backend pool | Select **lb-backend-pool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
@@ -113,7 +118,7 @@ During the creation of the load balancer, you configure:
 
 ## Create test virtual machine
 
-In this section, you create a VM named **lb-TestVM**.  This VM is used to test the load balancer configuration.
+In this section, you create a VM named **lb-TestVM**. This VM is used to test the load balancer configuration.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 1. In **Virtual machines**, select **+ Create** > **Azure virtual machine**. 
@@ -210,7 +215,7 @@ In this quickstart, you:
 
 - Created an internal Azure Load Balancer
 
-- Attached 2 VMs to the load balancer
+- Attached two VMs to the load balancer
 
 - Configured the load balancer traffic rule, health probe, and then tested the load balancer
 

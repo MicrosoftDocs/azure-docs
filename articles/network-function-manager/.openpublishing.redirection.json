@@ -1,0 +1,49 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/network-function-manager/create-device.md",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        },
+        {
+           "source_path_from_root": "/articles/network-function-manager/delete-functions.md",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-function-manager/deploy-functions.md",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-function-manager/faq.md",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-function-manager/index.yml",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-function-manager/overview.md",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-function-manager/partners.md",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-function-manager/requirements.md",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-function-manager/resources-permissions.md",
+            "redirect_url": "/azure/databox-online",
+            "redirect_document_id": false
+        }
+    ]
+}

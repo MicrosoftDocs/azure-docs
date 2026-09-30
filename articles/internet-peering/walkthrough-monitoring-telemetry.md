@@ -1,12 +1,15 @@
 ---
-title: View metrics
-titleSuffix: Internet peering
+title: View Metrics
+titleSuffix: Internet Peering
 description: Learn how to use the Azure portal to monitor and view telemetry for an internet peering with Azure Peering Service.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 02/25/2026
+ms.custom: sfi-image-nochange
+
+# Customer intent: "As an internet peering partner, I want to view telemetry and metrics for my peerings in the Azure portal, so that I can monitor performance and ensure optimal connectivity."
 ---
 
 # View metrics for an internet peering

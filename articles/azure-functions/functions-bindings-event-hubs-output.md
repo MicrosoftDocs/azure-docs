@@ -4,7 +4,7 @@ description: Learn to write messages to Azure Event Hubs streams using Azure Fun
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 03/03/2023
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -28,6 +28,10 @@ Make sure the required package references are in place before you try to impleme
 
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -117,7 +121,7 @@ To output multiple messages, return an array instead of a single object. For exa
 
 The following example shows an event hub trigger binding in a *function.json* file and a function that uses the binding. The function writes an output message to an event hub.
 
-The following example shows an Event Hubs binding data in the *function.json* file, which is different for version 1.x of the Functions runtime compared to later versions. 
+The following example shows Event Hubs binding data in the *function.json* file.
 
 ```json
 {
@@ -357,29 +361,15 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end
 ::: zone pivot="programming-language-powershell,programming-language-python"  
 
-The following table explains the binding configuration properties that you set in the *function.json* file, which differs by runtime version.
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
-# [Functions 2.x+](#tab/functionsv2)
-
-|function.json property | Description|
+| function.json property | Description |
 |---------|------------------------|
 |**type** |  Must be set to `eventHub`. |
 |**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** |  The variable name used in function code that represents the event. |
-|**eventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
-
-# [Functions 1.x](#tab/functionsv1)
-
-|function.json property | Description|
-|---------|------------------------|
-|**type** |  Must be set to `eventHub`. |
-|**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
-|**name** |  The variable name used in function code that represents the event. |
-|**path** | Functions 1.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
-|**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
-
----
 
 ::: zone-end
 
@@ -388,7 +378,7 @@ The following table explains the binding configuration properties that you set i
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 
+The parameter type supported by the Event Hubs output binding depends on the extension package version and the C# modality used.
 
 # [Extension v5.x+](#tab/extensionv5/in-process)
 
@@ -457,6 +447,8 @@ There are two options for outputting an Event Hubs message from a function:
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Event Hubs message.
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hubs message.
+
+The output function parameter must be defined as `func.Out[func.EventHubEvent]` or `func.Out[List[func.EventHubEvent]]`. Refer to the [output example](#example) for details.
 
 ::: zone-end
 

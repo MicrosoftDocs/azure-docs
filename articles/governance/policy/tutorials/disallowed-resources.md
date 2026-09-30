@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Disallow resource types in your cloud environment"
 description: In this tutorial, you use Azure Policy to enforce only certain resource types be used in your environment.
-ms.date: 02/13/2024
+ms.date: 03/04/2025
 ms.topic: tutorial
 ---
 
@@ -18,7 +18,7 @@ In this tutorial, you apply the **Not allowed resource types** policy and manage
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 before you begin.
 
 ## Assign the policy definition
@@ -145,4 +145,4 @@ To learn more about the structures of policy definitions, assignments, and exemp
 
 To see a full list of built-in policy samples, view this article:
 > [!div class="nextstepaction"]
-> [Azure Policy definition structure](../samples/built-in-policies.md)
+> [Azure Policy definition structure](/azure/governance/policy/samples/built-in-policies)

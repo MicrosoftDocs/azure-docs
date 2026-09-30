@@ -1,9 +1,10 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 10/04/2024
- ms.author: cherylmc
+ ms.author: duau
+ ms.custom: sfi-image-nochange
 ---
 
 1. In **Search resources, services, and docs (G+/)**, enter **virtual network gateway**. Locate **Virtual network gateway** in the **Marketplace** search results and select it to open the **Create virtual network gateway** page.

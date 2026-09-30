@@ -1,11 +1,13 @@
 ---
 title: Switch replication appliance in Azure Site Recovery - Modernized
+ms.reviewer: v-gajeronika
 description: This article describes show to switch between different replication appliances while replicating VMware VMs to Azure in Azure Site Recovery- Modernized
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/08/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 09/21/2026
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: "As a cloud administrator managing VMware VMs, I want to switch replication appliances in Azure Site Recovery, so that I can enhance resiliency and load balance my replication processes seamlessly."
 ---
 
 # Switch Azure Site Recovery replication appliance
@@ -19,23 +21,16 @@ This article provides information about how you can switch between replication a
 
 ## Appliance resiliency
 
-Typically, in the classic architecture, if you need to maintain the resiliency of your configuration server then the recommended action is to take regular manual backups of the machine. It's a highly cumbersome process, also prone to errors and misses.  
+Modernized application resilience introduces a better way to make your appliances more resilient. If your replication appliance burns down or you need to balance the machines running on an appliance, just spin up another replication appliance and switch all your machines to the new appliance.
 
-This modernized application resilience introduces a better way to make your appliances more resilient. If your replication appliance burns down or you need to balance the machines running on an appliance, just spin up another replication appliance and switch all your machines to the new appliance.
+## Considerations for switching replication appliance
 
+Appliance-switch eligibility depends on the health and compatibility of the appliances, their required components, and the protected machines. A compatible version number alone doesn't guarantee that a switch can proceed.
 
-## Consideration for switching replication appliance
-
-You can switch replication appliance in the following scenarios:
-
-- You need to perform a switch operation in case your current Azure Site Recovery replication appliance has burnt down, that is, all its components have no heartbeat.
-  - An appliance is considered burnt down only if all its components have no heartbeat. Even if one of the components has a heartbeat, then the switch operation will be blocked.
-  - If your current appliance has burnt down, then you need to again provide credentials to access the machines that you're trying to switch. If you're load-balancing and your current appliance is still in a noncritical state, then credentials are autoselected and you need not reenter these while switching to a different appliance.
-- You might need to perform the switch operation in case you need to load balance your replication appliance.
-- If you're trying to perform a switch with an intent of balancing load on an appliance, then all the components of your current appliance should be either in healthy or warning state. Missing heartbeat of even one component will block the switch operation.
--  Ensure that the appliance that you're switching to is either in healthy or warning state, for the operation to succeed.
--  Only those machines that are replicating from on-premises to Azure, can be selected when performing the switch operation to another appliance.  
--  Switching the appliance of a protected machine isn't supported if it has moved to a different vCenter server. 
+- **Switch from an unavailable appliance:** All components on the current appliance must have no heartbeat. If any component still has a heartbeat, the switch is blocked. The target appliance must be in a healthy or warning state, and you must select credentials for the machines being switched.
+- **Switch from a live appliance:** For load balancing or planned maintenance, the current and target appliances and their required components must be in a healthy or warning state. A missing component heartbeat blocks the switch. Credentials are selected automatically.
+- Only machines replicating from on-premises to Azure can be selected.
+- Switching isn't supported if a protected machine moved to a different vCenter Server.
 
 
 ## Switch a replication appliance
@@ -48,11 +43,11 @@ As an example, here's the scenario where replication appliance 1 (RA1) has becom
 
    The list of available appliances and their health is displayed. For example, RA2 is healthy here.
 
-   ![Healthy replication appliances list](./media/switch-replication-appliance-modernized/appliance-health.png)
+   :::image type="content" source="./media/switch-replication-appliance-modernized/appliance-health.png" alt-text="Screenshot of healthy replication appliances list.":::
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
-   ![Select replication appliance to switch](./media/switch-replication-appliance-modernized/select-switch-appliance.png)
+   :::image type="content" source="./media/switch-replication-appliance-modernized/select-switch-appliance.png" alt-text="Screenshot of select replication appliance to switch.":::
 
 
 3. Under  **Select machines**, select the machines that you want to failover to another replication appliance (RA2). Select **Next**.
@@ -60,20 +55,21 @@ As an example, here's the scenario where replication appliance 1 (RA1) has becom
    >[!NOTE]
    > Only those machine which have been protected by the current appliance will be visible in the list. Failed over machines will not be present here  
 
-    ![Select machines for switching](./media/switch-replication-appliance-modernized/select-machines.png)
+    :::image type="content" source="./media/switch-replication-appliance-modernized/select-machines.png" alt-text="Screenshot of select machines for switching.":::
 
 4. Under **Source settings**  page, for each of the selected machines, select a different replication appliance.
 
-   ![Source settings for replication appliance](./media/switch-replication-appliance-modernized/source-settings.png)
+   :::image type="content" source="./media/switch-replication-appliance-modernized/source-settings.png" alt-text="Screenshot of source settings for replication appliance.":::
 
    >[!NOTE]
    > If your current appliance has burnt down, then you will be required to select the credentials to access the machines. Otherwise, the field will be disabled.
 
 5. Review the selection and then select **Switch appliance**.
 
-   ![review replication appliance](./media/switch-replication-appliance-modernized/review-switch-appliance.png)
+   :::image type="content" source="./media/switch-replication-appliance-modernized/review-switch-appliance.png" alt-text="Screenshot of review replication appliance.":::
 
    Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 
 ## Next steps
+
 Set up disaster recovery of [VMware VMs](vmware-azure-set-up-replication-tutorial-modernized.md) to Azure.

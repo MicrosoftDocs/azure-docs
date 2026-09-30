@@ -1,26 +1,25 @@
 ---
-title: Add control functions to optimize rules
-description: Learn how to optimize rules execution by adding control functions to rules using Microsoft Rules Composer.
+title: Add Control Functions to Optimize Rules
+description: Optimize rules execution by adding control functions to rules using Microsoft Rules Composer.
+services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
-
-#CustomerIntent: As a developer, I want to understand how to optimize rules execution by adding control functions to actions in rules using Microsoft Rules Composer.
+ms.date: 03/10/2026
+ms.update-cycle: 1095-days
+ms.custom:
+  - build-2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to optimize rules execution by adding control functions to actions in rules using Microsoft Rules Composer.
 ---
 
-# Add control functions in actions to optimize rules execution using Microsoft Rules Composer (Preview)
+# Add control functions in actions to optimize rules execution using Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This guide describes how to optimize rules execution by adding control functions to actions in your rules using the Microsoft Rules Composer. Control functions help your application or ruleset control the facts in the rules engine's working memory. These functions include the **Assert**, **Clear**, **Halt**, **Retract**, **RetractByType**, **Reassert**, and **Update** functions for the .NET object and **TypedXmlDocument** entities that you can use as facts. The existence of facts in working memory drives the conditions that the engine evaluates and the actions that execute.
+This guide shows how to optimize rules execution by adding control functions to actions in your rules using the Microsoft Rules Composer. Control functions help your application or ruleset control the facts in the rules engine's working memory. These functions include the **Assert**, **Clear**, **Halt**, **Retract**, **RetractByType**, **Reassert**, and **Update** functions for the .NET object and **TypedXmlDocument** entities that you can use as facts. The existence of facts in working memory drives the conditions that the engine evaluates and the actions that execute.
 
 ## Prerequisites
 
@@ -356,7 +355,7 @@ For example, if you use the **Reassert** function on a .NET object, the rules en
 
 1. From the **XML Schemas** tab, drag the entity node that you want to the argument in the **Reassert** function.
 
-If you reassert a top-level **TypedXmlDocument** entity, the **TypedXmlDocument** child entities, which were created when the the top-level **TypedXmlDocument** entity was first asserted, can behave differently, depending on the state of each **TypedXmlDocument** child entity.
+If you reassert a top-level **TypedXmlDocument** entity, the **TypedXmlDocument** child entities, which were created when the top-level **TypedXmlDocument** entity was first asserted, can behave differently, depending on the state of each **TypedXmlDocument** child entity.
 
 For example, if a new or existing child entity is "dirty", meaning that at least one field was changed in the ruleset using an action, then an **Assert** function or **Reassert** function is performed on that child. Any existing child that isn't dirty stays in working memory.
 

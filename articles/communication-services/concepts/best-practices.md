@@ -7,13 +7,15 @@ services: azure-communication-services
 
 ms.author: srahaman
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-communication-services
 ms.custom: devx-track-js
 zone_pivot_groups: acs-plat-web-native
 ---
 
 # Best practices: Azure Communication Services calling SDKs
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 This article provides information about best practices related to the Azure Communication Services calling SDKs.
 
 ::: zone pivot="platform-web"

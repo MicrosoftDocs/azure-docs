@@ -2,10 +2,11 @@
 title: Network security group (NSG) service tags for Azure HDInsight
 description: Use HDInsight service tags to allow inbound traffic to your cluster from health and management services nodes, without adding IP addresses to your NSGs.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.author: sairamyeturi
-author: yeturis
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 11/25/2024
 ---
 

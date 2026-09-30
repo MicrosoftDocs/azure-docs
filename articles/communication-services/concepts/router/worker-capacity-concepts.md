@@ -2,19 +2,20 @@
 title: Worker capacity
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router worker capacity concepts.
-author: williamzhao
-manager: bga
 services: azure-communication-services
-
-ms.author: williamzhao
+manager: chpalm
+ms.author: sundraman
+author: sundiraman
 ms.date: 06/08/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Job Router worker capacity
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 When configuring workers, we want to provide a way to specify how many jobs a worker can handle at a time from various channels.  This configuration can be done by specifying the total capacity of the worker and assigning a cost per job for each channel.
 

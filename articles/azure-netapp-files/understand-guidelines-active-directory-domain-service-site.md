@@ -4,9 +4,11 @@ description: Proper Active Directory Domain Services (AD DS) design and planning
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/21/2024
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As a solution architect, I want to design a robust Active Directory Domain Services topology for Azure NetApp Files, so that I can ensure high availability and performance for authentication and client access to storage resources.
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
 
@@ -25,6 +27,9 @@ Azure NetApp Files supports identity-based authentication over SMB through the f
 * **AD DS authentication**:  AD DS-joined Windows machines can access Azure NetApp Files shares with Active Directory credentials over SMB. Your client must have line of sight to your AD DS. If you already have AD DS set up on-premises or on a VM in Azure where your devices are domain-joined to your AD DS, you should use AD DS for Azure NetApp Files file share authentication.
 * **Microsoft Entra Domain Services authentication**: Cloud-based, Microsoft Entra Domain Services-joined Windows VMs can access Azure NetApp Files file shares with Microsoft Entra Domain Services credentials. In this solution, Microsoft Entra Domain Services runs a traditional Windows Server AD domain on behalf of the customer.
 * **AD Kerberos authentication for Linux clients**: Linux clients can use Kerberos authentication over SMB for Azure NetApp Files using AD DS.
+
+>[!NOTE]
+>Azure NetApp Files supports hybrid identity scenarios for SMB access. Hybrid identity users can access Azure NetApp Files SMB shares from Microsoft Entra ID-joined devices.
 
 ### <a name="network-requirements"></a>Network requirements 
 
@@ -202,7 +207,7 @@ To create the subnet object that maps to the Azure NetApp Files delegated subnet
 
 ### Cross-region replication considerations
 
-[Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) enables you to replicate Azure NetApp Files volumes from one region to another region to support business continuance and disaster recovery (BC/DR) requirements.
+[Azure NetApp Files cross-region replication](replication.md) enables you to replicate Azure NetApp Files volumes from one region to another region to support business continuance and disaster recovery (BC/DR) requirements.
 
 Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cross-region replication. Replication of these volumes requires:
 

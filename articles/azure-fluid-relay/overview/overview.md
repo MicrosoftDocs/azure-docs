@@ -3,7 +3,7 @@ title: Azure Fluid Relay overview
 description: Overview of the Fluid Framework and Azure Fluid Relay.
 ms.date: 08/19/2021
 ms.topic: overview
-ms.service: azure-fluid
+ms.service: fluid-framework
 ---
 
 # Azure Fluid Relay overview

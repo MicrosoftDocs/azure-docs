@@ -2,18 +2,21 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/25/2023
+ms.date: 04/07/2026
 ms.author: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Azure.Identity
     dotnet add package Azure.Messaging.WebPubSub
     ```
-1. Authenticate using `Azure.Identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Run the following code, uncommenting the part of the code snippet for the authentication type you want to use. The code authenticates using `Azure.Identity` and gets the Azure Web PubSub endpoint from the Service Connector environment variables.
+
     ```csharp
     using Azure.Identity;
     using Azure.Messaging.WebPubSub;
@@ -45,6 +48,7 @@ ms.author: wchi
 ### [Java](#tab/java)
 
 1. Add the following dependencies in your *pom.xml* file:
+
     ```xml
     <dependency>
       <groupId>com.azure</groupId>
@@ -57,7 +61,9 @@ ms.author: wchi
         <version>1.0.0</version>
     </dependency>
     ```
-1. Authenticate using `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Run the following code, uncommenting the part of the code snippet for the authentication type you want to use. The code authenticates using `azure-identity` and gets the Web PubSub endpoint from the Service Connector environment variables.
+
     ```java
     // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned managed identity.
@@ -89,11 +95,14 @@ ms.author: wchi
 ### [Python](#tab/python)
 
 1. Install dependencies.
+
     ```bash
     python -m pip install azure-identity
     python -m pip install azure-messaging-webpubsubservice
     ```
-1. Authenticate using `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Run the following code, uncommenting the part of the code snippet for the authentication type you want to use. The code authenticates using `azure-identity` and gets the Web PubSub endpoint from the Service Connector environment variables.
+
     ```python
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     from azure.messaging.webpubsubservice import WebPubSubServiceClient
@@ -121,11 +130,14 @@ ms.author: wchi
 ### [NodeJS](#tab/nodejs)
 
 1. Install dependencies.
+
     ```bash
     npm install @azure/web-pubsub
     npm install --save @azure/identity
     ```
-1. Authenticate using `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Run the following code, uncommenting the part of the code snippet for the authentication type you want to use. The code authenticates using `@azure/identity` and gets the Azure Web PubSub endpoint from the Service Connector environment variables.
+
     ```javascript
     const { DefaultAzureCredential,ClientSecretCredential } = require("@azure/identity");
     const { WebPubSubServiceClient } = require("@azure/web-pubsub");
@@ -154,7 +166,8 @@ ms.author: wchi
         "<hub>"
     );
     ```
-
-
 ### [Other](#tab/none)
-For other languages, you can use the connection configuration properties that Service Connector sets to the environment variables to connect to Azure Web PubSub. For environment variable details, see [Integrate Azure Web PubSub with Service Connector](../how-to-integrate-web-pubsub.md).
+
+For other languages, you can use the connection configuration properties that Service Connector sets to the environment variables to connect to Azure Web PubSub.
+
+---

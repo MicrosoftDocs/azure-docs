@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/18/2024
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a developer, I want to use Azure Functions with Azure DevTest Labs so I can extend the supported scenarios available in DevTest Labs.
 ---

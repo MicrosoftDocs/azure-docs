@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" role="img" aria-labelledby="title desc" font-family="'Segoe UI', Arial, sans-serif">
+  <title id="title">Chat architecture on Azure Web PubSub</title>
+  <desc id="desc">Client apps connect over WebSocket to Azure Web PubSub. The Chat layer runs on top of Web PubSub group broadcasting and reads and writes chat data to your own Azure Storage using a managed identity.</desc>
+  <defs>
+    <marker id="arrowEnd" markerWidth="10" markerHeight="8" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#605E5C"/>
+    </marker>
+    <marker id="arrowStart" markerWidth="10" markerHeight="8" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M8,0 L0,3 L8,6 Z" fill="#605E5C"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="920" height="380" fill="#FFFFFF"/>
+
+  <!-- Client apps -->
+  <rect x="40" y="95" width="170" height="72" rx="10" fill="#FFFFFF" stroke="#8A8886" stroke-width="1.5"/>
+  <text x="125" y="126" text-anchor="middle" font-size="15" font-weight="600" fill="#242424">Client app</text>
+  <text x="125" y="148" text-anchor="middle" font-size="12" fill="#605E5C">(Chat client SDK)</text>
+
+  <rect x="40" y="235" width="170" height="72" rx="10" fill="#FFFFFF" stroke="#8A8886" stroke-width="1.5"/>
+  <text x="125" y="266" text-anchor="middle" font-size="15" font-weight="600" fill="#242424">Client app</text>
+  <text x="125" y="288" text-anchor="middle" font-size="12" fill="#605E5C">(Chat client SDK)</text>
+
+  <!-- Azure Web PubSub service container -->
+  <rect x="320" y="40" width="330" height="300" rx="14" fill="#F0F6FC" stroke="#0078D4" stroke-width="2"/>
+  <text x="485" y="72" text-anchor="middle" font-size="16" font-weight="700" fill="#0B5394">Azure Web PubSub</text>
+
+  <!-- Chat layer -->
+  <rect x="345" y="100" width="280" height="86" rx="8" fill="#CCE4F7" stroke="#0078D4" stroke-width="1.5"/>
+  <text x="485" y="133" text-anchor="middle" font-size="15" font-weight="700" fill="#0B3D66">Chat</text>
+  <text x="485" y="158" text-anchor="middle" font-size="12" fill="#333333">Rooms &#183; Messages &#183; History</text>
+  <text x="485" y="174" text-anchor="middle" font-size="12" fill="#333333">Users &#183; Roles</text>
+
+  <!-- Chat uses Web PubSub -->
+  <line x1="485" y1="188" x2="485" y2="208" stroke="#605E5C" stroke-width="1.5" marker-end="url(#arrowEnd)"/>
+
+  <!-- Web PubSub layer -->
+  <rect x="345" y="210" width="280" height="86" rx="8" fill="#E8F1FA" stroke="#5B9BD5" stroke-width="1.5"/>
+  <text x="485" y="243" text-anchor="middle" font-size="15" font-weight="700" fill="#1F4E79">Web PubSub</text>
+  <text x="485" y="268" text-anchor="middle" font-size="12" fill="#333333">WebSocket connections</text>
+  <text x="485" y="284" text-anchor="middle" font-size="12" fill="#333333">Real-time group broadcast</text>
+
+  <!-- Your Azure Storage -->
+  <rect x="740" y="120" width="150" height="150" rx="12" fill="#FFF4CE" stroke="#C19C00" stroke-width="2"/>
+  <text x="815" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#7A5C00">Your Azure</text>
+  <text x="815" y="189" text-anchor="middle" font-size="14" font-weight="700" fill="#7A5C00">Storage (Table)</text>
+  <text x="815" y="218" text-anchor="middle" font-size="11" fill="#605E5C">rooms &#183; members</text>
+  <text x="815" y="233" text-anchor="middle" font-size="11" fill="#605E5C">messages &#183; users</text>
+  <text x="815" y="248" text-anchor="middle" font-size="11" fill="#605E5C">roles</text>
+
+  <!-- Client <-> service (WebSocket) -->
+  <line x1="210" y1="131" x2="320" y2="143" stroke="#605E5C" stroke-width="1.5" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <line x1="210" y1="271" x2="320" y2="253" stroke="#605E5C" stroke-width="1.5" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <text x="258" y="118" text-anchor="middle" font-size="12" fill="#605E5C">WebSocket</text>
+
+  <!-- Service <-> storage (managed identity) -->
+  <line x1="650" y1="190" x2="740" y2="195" stroke="#605E5C" stroke-width="1.5" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
+  <text x="695" y="176" text-anchor="middle" font-size="11" fill="#605E5C">Read/write</text>
+  <text x="695" y="219" text-anchor="middle" font-size="11" fill="#605E5C">via managed identity</text>
+</svg>

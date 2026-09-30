@@ -201,6 +201,6 @@ The final output should resemble the following:
 Retrieving new Access Token, using Service Principals
 Retrieved Access Token: ey..A
 Sending SMS using using Service Principals
-Sms id: Outgoing_202104...33f8ae1f_noam
+Sms id: ...
 Send Result Successful: true
 ```

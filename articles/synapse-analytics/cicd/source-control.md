@@ -1,12 +1,12 @@
 ---
 title: Source control in Synapse Studio 
 description: Learn how to configure source control in Azure Synapse Studio. This guide includes best practices and troubleshooting steps.
-author: liudan66
+author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: ci-cd
 ms.topic: how-to
 ms.date: 11/15/2024
-ms.author: liud 
+ms.author: juluczni
 ms.reviewer: pimorano
 ---
 
@@ -25,7 +25,7 @@ This article outlines how to configure and work in a Synapse workspace with git 
 
 ## Configure Git repository in Synapse Studio
 
-After launching your Synapse Studio, you can configure a git repository in your workspace. A Synapse Studio workspace can be associated with only one git repository at a time.
+After launching your Synapse Studio, you can configure a git repository in your workspace. A Synapse workspace can be associated with only one git repository at a time.
 
 ### Configuration method 1: global bar
 

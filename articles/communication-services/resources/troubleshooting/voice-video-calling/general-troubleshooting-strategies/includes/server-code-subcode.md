@@ -24,14 +24,14 @@ ms.subservice: calling
 | 4097 | 0 | Call ended for all users by the meeting organizer. | Success | |
 | 4507 | 495 | Call ended as application didn't provide valid Azure Communication Services token. | UnexpectedClientError |- Ensure that your application implements token refresh mechanism correctly. |
 | 5000 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | |
-| 5003 | 0 | Call ended successfully, as all callee endpoints declined the call. | Success | |
+| 5003 | 0 | Call was ended by Azure Communication Service as the call has ended. | Success | |
 | 5300 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | |
 | 7000 | 0 | Call ended by Azure Communication Services platform. | Success | |
 | 10003 | 487 | Call was accepted elsewhere, by another endpoint of this user. | Success | |
 | 10004 | 487 | Call was canceled on timeout, no callee endpoint accepted on time. Ensure that user saw the notification and try to initiate that call again. | ExpectedError | |
 | 10024 | 487 | Call ended successfully as it was declined by all callee endpoint. | Success | - Try to place the call again. |
 | 301005 | 410 | Participant was removed from the call by the Azure Communication Services infrastructure due to loss of media connectivity with Azure Communication Services infrastructure, this usually happens if participant leaves the call abruptly or looses network connectivity. If participant wants to continue the call, it should reconnect. | UnexpectedClientError | - Ensure that you're using the latest SDK in a supported environment.<br> |
-| 510403 | 403 | Call ended, as it has been marked as a spam and got blocked. | ExpectedError | - Ensure that your Communication Services token is valid and not expired.<br>  - Ensure to pass in AlternateId in the call options.<br> |
+| 510403 | 403 | Call blocked:<br/> - No matching voice route found for the dialed number.<br/> - Alternate ID not supplied for the call.<br/> - Phone number not allowed by user's Session Border Controller (SBC).<br/> - Previously marked as spam and now blocked. | ExpectedError | For more information about Alternate ID, see [Manage calls](../../../../../how-tos/calling-sdk/manage-calls.md#place-a-call).<br/> - Confirm that you have a valid Voice Route for the dialed number.<br/> - Make sure that you specified a valid Alternate ID. It must be a phone number that belongs to the Resource you're using.<br/> - Verify that you own the Resource you're using to make a call.<br/> - For direct routing calls, verify why your Session Border Controller disallowed the call.<br/> - Ensure that your Communication Services token is valid and not expired. |
 | 540487 | 487 | Call ended successfully as caller canceled the call. | Success | |
 | 560000 | 0 | Call ended successfully by remote PSTN participant. | Success |Possible causes:<br> - User ended the call.<br> - Call was ended by media agent.<br> |
 | 560486 | 486 | Call ended because remote PSTN participant was busy. The number called was already in a call or having technical issues. | Success | - For Direct Routing calls, check your Session Border Control logs and settings and timeouts configuration.<br> Possible causes: <br>  - The number called was already in a call or having technical issues.<br> |

@@ -5,10 +5,13 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 07/17/2026
 ms.author: mbender
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
+# Customer intent: As a network architect, I want to create a cross-subscription internal load balancer, so that I can efficiently manage traffic between virtual networks across different subscriptions.
 ---
 
 # Create a cross-subscription internal load balancer
@@ -38,7 +41,7 @@ With Azure PowerShell, you'll:
 ```azurepowershell
 # Create a load balancer
 
-$tags = @{
+$tag = @{
 'IsRemoteFrontend'= 'true'
 }
 
@@ -47,7 +50,7 @@ $loadbalancer = @{
     Name = 'myLoadBalancer'
     Location = 'westus'
     Sku = 'Standard'
-    Tags = $tags
+    Tag = $tag
 }
 
 $LB = New-AzLoadBalancer @loadbalancer
@@ -97,7 +100,7 @@ With Azure CLI, you create a load balancer with [`az network lb create`](/cli/az
 az network lb create --resource-group myResourceGroupLB --name myLoadBalancer --sku Standard --subnet '/subscriptions/subscription A ID/resourceGroups/{resource group name} /providers/Microsoft.Network/virtualNetwork/{VNet name}/subnets/{subnet name}’  --frontend-ip-name myFrontEnd --backend-pool-name MyBackendPool --tags 'IsRemoteFrontend=true'
 
 ```
-In order to utilize the cross-subscription feature of Azure load balancer, backend pools need to have the syncMode property enabled and a virtual network reference. This section updates the backend pool created prior by attaching the cross-subscription virtual network and enabling the syncMode property. 
+This section updates the backend pool you created earlier by attaching the cross-subscription virtual network and enabling the `syncMode` property required for cross-subscription backends. For details on the `syncMode` requirement, see [Create a load balancer](cross-subscription-how-to-attach-backend.md#create-a-load-balancer).
 
 ```azurecli
 ## Configure the backend address pool and syncMode property

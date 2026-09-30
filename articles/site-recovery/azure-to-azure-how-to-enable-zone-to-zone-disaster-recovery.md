@@ -1,19 +1,21 @@
 ---
-title: Enable zone-to-zone disaster recovery for Azure virtual machines
-description: This article describes when and how to use zone-to-zone disaster recovery for Azure virtual machines.
-author: ankitaduttaMSFT
+title: Enable Zone-to-Zone Disaster Recovery for Azure VMs
+description: Learn how to set up zone-to-zone disaster recovery to replicate, fail over, and fail back Azure VMs between availability zones in the same region.
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/23/2024
-ms.author: ankitadutta
+ms.date: 08/31/2026
+ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
 ms.custom: references_regions
+# Customer intent: "As a cloud architect, I want to implement zone-to-zone disaster recovery for Azure virtual machines, so that I can enhance business continuity by minimizing downtime during regional outages."
 ---
 
 # Enable Azure VM disaster recovery between availability zones
 
 This article describes how to replicate, fail over, and fail back Azure virtual machines (VMs) from one availability zone to another within the same Azure region.
 
-The Azure Site Recovery service can contribute to your strategy for business continuity and disaster recovery by keeping your business apps running during planned and unplanned outages. We recommend Site Recovery as the disaster recovery option to keep your applications running if there are regional outages.
+The Azure Site Recovery service can contribute to your strategy for business continuity and disaster recovery by keeping your business apps running during planned and unplanned outages. We recommend Site Recovery as the disaster recovery option for protecting applications from availability zone failures within an Azure region.
 
 Availability zones are unique physical locations within an Azure region. Each zone has one or more datacenters.
 
@@ -32,20 +34,23 @@ Support for zone-to-zone disaster recovery is currently limited to the following
 | East US 2 | Norway East | | | Japan East |
 | South Central US | Poland Central  | | | Korea Central |
 | US Gov Virginia | Sweden Central  | | | Southeast Asia |
-| West US 2 | Switzerland North | | | |
-| West US 3 | UK South | | | |
+| West US 2 | Switzerland North | | | New Zealand North |
+| West US 3 | UK South | | | Indonesia Central |
 || West Europe ||||
+||Spain Central ||||
 
 When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store data out of the region in which it's deployed. You can select a Recovery Services vault from a different region if you want one. The Recovery Services vault contains metadata but no actual customer data.
 
-Learn more about [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
+Learn more about [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 
 > [!NOTE]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
 >
 > Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
+>
+> Zone-to-zone disaster recovery isn't supported for VMs with Ultra Disks.
 
-## Using availability zones for disaster recovery
+## Use availability zones for disaster recovery
 
 Typically, customers use availability zones to deploy VMs in a high-availability configuration. Those VMs might be too close to each other to serve as a disaster recovery solution in natural disaster.
 
@@ -64,7 +69,9 @@ As mentioned before, zone-to-zone disaster recovery uses redundant networking co
 
 - **Virtual network**: You can use the same virtual network as the source network for actual failovers. For test failovers, use a virtual network that's different from the source virtual network.
 - **Subnet**: Failover into the same subnet is supported.
-- **Private IP address**: If you're using static IP addresses, you cannot retain the same IP address in zone to zone failover.
+- **Private IP address**: If you're using static IPs, you can use the same static IPs for the failed over VM once failover completes. [Ensure the source VM’s private IP is static](../virtual-network/ip-services/virtual-networks-static-private-ip.md#change-private-ip-address-to-static) before enabling Site Recovery. You must have a free IP (different from the source IP) in the same subnet. When failover is triggered, Site Recovery assigns the free IP to the source VM, freeing the source IP so that it can be associated with target VM. 
+    > [!NOTE]
+    > You can use the same source IP for the target VM only if you choose to shut down the source VM during failover. Shutting down the VM helps to dissociate the original IP from source VM so that it can be associated with target VM.
 - **Accelerated networking**: Similar to Azure-to-Azure disaster recovery, you can enable accelerated networking if the VM type supports it.
 - **Public IP address**: You can attach a previously created standard public IP address in the same region to the target VM. Basic public IP addresses don't support scenarios related to availability zones.
 - **Load balancer**: A standard load balancer is a regional resource, so the target VM can be attached to the back-end pool of the same load balancer. A new load balancer isn't required.
@@ -100,20 +107,20 @@ Sign in to the Azure portal.
 1. In **Operations**, select **Disaster recovery**.
 1. On the **Basics** tab, for **Disaster recovery between availability zones?**, select **Yes**.
 
-    :::image type="Basic Settings page" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-basic-settings.png" alt-text="Screenshot of the page for basic settings of disaster recovery.":::
+    :::image type="content" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-basic-settings.png" alt-text="Screenshot of the Basics tab showing the option to enable disaster recovery between availability zones for an Azure VM.":::
 
 1. If you accept all defaults, skip to the next step.
 
     If you want to make changes to the replication settings, select **Next: Advanced settings**. For users of Azure-to-Azure disaster recovery, this tab might seem familiar. For details about the options on this tab, see [Tutorial: Set up disaster recovery for Azure VMs](./azure-to-azure-tutorial-enable-replication.md).
 
-    :::image type="Advanced Settings page" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings.png" alt-text="Screenshot of advanced settings for disaster recovery.":::
+    :::image type="content" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings.png" alt-text="Screenshot of the Advanced settings tab showing replication settings for zone-to-zone disaster recovery.":::
 
 1. Go to the **Review + Start replication** tab, and then select **Start replication**.
 
 ## FAQs
 
 **How does pricing work for zone-to-zone disaster recovery?**
-Pricing for zone-to-zone disaster recovery is identical to the pricing for Azure-to-Azure disaster recovery. You can find more details on the [Azure Site Recovery pricing page](https://azure.microsoft.com/pricing/details/site-recovery/) and in [this blog post](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+Pricing for zone-to-zone disaster recovery is identical to the pricing for Azure-to-Azure disaster recovery. For more information, see the [Azure Site Recovery pricing page](https://azure.microsoft.com/pricing/details/site-recovery/) and [this blog post](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
 
 The egress charges in zone-to-zone disaster recovery are lower than the egress charges in region-to-region disaster recovery. For information about data transfer charges between availability zones, see the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -121,7 +128,7 @@ The egress charges in zone-to-zone disaster recovery are lower than the egress c
 The service-level agreement (SLA) for recovery time objective (RTO) is the same as the SLA for Site Recovery overall. We promise an RTO of up to one hour. There's no defined SLA for RPO. 
 
 **Is capacity guaranteed in the secondary zone?**
-The Site Recovery team and the Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure that VM instances protected by Site Recovery deploy to the target zone. For more FAQs on capacity, check the [common questions about Azure-to-Azure disaster recovery](./azure-to-azure-common-questions.md#capacity).
+The Site Recovery team and the Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure that VM instances protected by Site Recovery deploy to the target zone. For more FAQs on capacity, see [common questions about Azure-to-Azure disaster recovery](./azure-to-azure-common-questions.md#capacity).
 
 **Which operating systems does zone-to-zone disaster recovery support?**
 Zone-to-zone disaster recovery supports the same operating systems as Azure-to-Azure disaster recovery. For more information, see the [support matrix](./azure-to-azure-support-matrix.md).

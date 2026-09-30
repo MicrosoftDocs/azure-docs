@@ -1,15 +1,14 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/31/2023
-ms.author: wchi
+ms.date: 6/17/2026
+ms.reviewer: wchi
 ---
 
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependency.
     ```bash
     dotnet add package CassandraCSharpDriver --version 3.19.3
     ```

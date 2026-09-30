@@ -4,18 +4,18 @@ description: include file
 services: azure-communication-services
 author: mrayyan
 manager: alexokun
-
 ms.service: azure-communication-services
-ms.date: 07/20/2023
+ms.date: 06/02/2025
 ms.topic: include
 ms.custom: include file
 ms.author: t-siddiquim
 ---
 
-## Join a room call
+## Implement the sample app
 
-To join a room call, set up your windows application using the [Add video calling to your client app](../../voice-video-calling/get-started-with-video-calling.md?pivots=platform-windows) guide. Alternatively, you can download the video calling quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
+To join a room call, set up your windows application using the [Add video calling to your client app](../../voice-video-calling/get-started-with-video-calling.md?pivots=platform-windows) guide. 
 
+Alternatively, to implement the code needed to join participants to a rooms call, download from GitHub the [Room Call sample app](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
 
 Create a `callAgent` with a valid user token:
 ```csharp
@@ -28,7 +28,7 @@ callAgent = await callClient.CreateCallAgentAsync(creds, callAgentOptions);
 
 ```
 
-Use the `callAgent` and `RoomCallLocator` to join a room call, the `CallAgent.JoinAsync` method will return a `CommunicationCall` object:
+Use the `callAgent` and `RoomCallLocator` to join a room call, the `CallAgent.JoinAsync` method returns a `CommunicationCall` object:
 
 ```csharp
 
@@ -50,7 +50,6 @@ private async void CommunicationCall_OnStateChanged(object sender, PropertyChang
 		}
 	}
 }
-		
 ```
 
 To display the role of call participants, subscribe to the role changes:
@@ -64,9 +63,8 @@ private void RemoteParticipant_OnRoleChanged(object sender, Azure.Communication.
         PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs("RemoteParticipantRole"));
     });
 }
-
 ```
 
 The ability to join a room call and display the roles of call participants is available in the Windows NuGet Release [version 1.1.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.1.0) and above.
 
-You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
+For more information about roles of room call participants, see [Rooms API for structured meetings](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

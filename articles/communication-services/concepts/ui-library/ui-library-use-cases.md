@@ -8,12 +8,14 @@ services: azure-communication-services
 
 ms.author: kaperla
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-mobile
 ---
 
 # UI Library use cases
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Web UI Library](includes/web-ui-use-cases.md)]

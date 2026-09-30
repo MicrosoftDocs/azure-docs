@@ -10,7 +10,7 @@ ms.date: 11/11/2022
 
 # OData filter syntax in the Azure Web PubSub service
 
-The Azure Web PubSub `filter` parameter defines inclusion or exclusion criteria for sending messages to connections. This parameter is used in the [Send to all](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all), [Send to group](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-group), and [Send to user](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-user) operations.
+The Azure Web PubSub `filter` parameter defines inclusion or exclusion criteria for sending messages to connections. This parameter is used in the [Send to all](/rest/api/webpubsub/dataplane/webpubsub/send-to-all/send-to-all), [Send to group](/rest/api/webpubsub/dataplane/webpubsub/send-to-group/send-to-group), and [Send to user](/rest/api/webpubsub/dataplane/webpubsub/send-to-user/send-to-user) operations.
 
 This article provides the following resources:
 

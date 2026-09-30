@@ -2,16 +2,16 @@
 title: Include file
 description: Include file
 services: api-center
-author: dlepow
+
 
 ms.service: azure-api-center
 ms.topic: include
 ms.date: 10/18/2024
-ms.author: danlep
+
 ms.custom: Include file
 ---
 
-To allow import of APIs, assign your API center's managed identity the **API Management Service Reader** role in your API Management instance. You can use the [portal](../../role-based-access-control/role-assignments-portal-managed-identity.yml) or the Azure CLI.
+To allow import of APIs, assign your API center's managed identity the **API Management Service Reader** role in your API Management instance. You can use the [portal](/azure/role-based-access-control/role-assignments-portal-managed-identity) or the Azure CLI.
 
 #### [Portal](#tab/portal)
 
@@ -19,9 +19,9 @@ To allow import of APIs, assign your API center's managed identity the **API Man
 1. In the left menu, select **Access control (IAM)**.
 1. Select **+ Add role assignment**.
 1. On the **Add role assignment** page, set the values as follows: 
-    1. On the **Role** tab - Select **API Management Service Reader**.
+    1. On the **Role** tab, select **API Management Service Reader**.
     1. On the **Members** tab, in **Assign access to** - Select **Managed identity** > **+ Select members**.
-    1. On the **Select managed identities** page - Select the system-assigned managed identity of your API center that you added in the previous section. Click **Select**.
+    1. On the **Select managed identities** page, select the system-assigned managed identity of your API center that you added in the previous section. Click **Select**.
     1. Select **Review + assign**.
 
 #### [Azure CLI](#tab/cli)

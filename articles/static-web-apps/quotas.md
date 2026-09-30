@@ -2,11 +2,11 @@
 title: Quotas in Azure Static Web Apps
 description: Learn about quotas associated with Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic:  overview
 ms.date: 05/30/2024
-ms.author: cshoe
+ms.author: jikunchen
 ---
 
 # Quotas in Azure Static Web Apps
@@ -44,8 +44,8 @@ GitHub Actions and Packages use GitHub Storage, which has its own set of quotas.
 See the following resources for more detail:
 
 - [Managing Actions storage space](https://github.community/t5/GitHub-Actions/Managing-Actions-storage-space/td-p/38944)
-- [About billing for GitHub Actions](https://help.github.com/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions#about-billing-for-github-actions)
-- [Managing your spending limit for GitHub Actions](https://help.github.com/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)
+- [About billing for GitHub Actions](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
+- [Managing your spending limit for GitHub Actions](https://docs.github.com/en/billing/how-tos/set-up-budgets)
 
 ## Next steps
 

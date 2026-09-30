@@ -2,12 +2,12 @@
 title: Use kubectl to deploy Kubernetes stateful app via dynamically provisioned share on Azure Stack Edge Pro GPU device| Microsoft Docs
 description: Describes how to create and manage a Kubernetes stateful application deployment via a dynamically provisioned share using kubectl on a Microsoft Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Use kubectl to run a Kubernetes stateful application with StorageClass on your Azure Stack Edge Pro GPU device

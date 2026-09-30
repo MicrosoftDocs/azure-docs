@@ -1,9 +1,8 @@
 ---
 title: 'Tutorial: Get started analyze data with a serverless SQL pool' 
 description: In this tutorial, you'll learn how to analyze data with a serverless SQL pool using data located in Spark databases.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender, wiassaf
+author: azaricstefan
+ms.author: stefanazaric
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
@@ -51,6 +50,9 @@ However, as you continue data exploration, you might want to create some utility
 - Database scoped credentials that enable you to specify how to authenticate to external data source.
 - Database users with the permissions to access some data sources or database objects.
 - Utility views, procedures, and functions that you can use in the queries.
+
+> [!TIP]
+> In Synapse Studio, when you open a new SQL script, you can select master from the database dropdown menu in the top toolbar. This is the default system database that appears for serverless SQL pools.
 
 1. Use the `master` database to create a separate database for custom database objects. Custom database objects can't be created in the `master` database.
 

@@ -1,10 +1,11 @@
 ---
-title: Connect Azure Cache for Redis to your application in Azure Spring Apps
+title: Connect Azure Cache for Redis to Your Application in Azure Spring Apps
 description: Learn how to connect Azure Cache for Redis to your application in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, service-connector
 ---
@@ -31,7 +32,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ### [Java](#tab/Java)
 
-1. Add the following dependency to your project's *pom.xml* file:
+1. Add the following dependency to your project's **pom.xml** file:
 
    ```xml
    <dependency>
@@ -40,7 +41,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
    </dependency>
    ```
 
-1. Remove any `spring.redis.*` properties from the *application.properties* file
+1. Remove any `spring.redis.*` properties from the **application.properties** file
 
 1. Update the current deployment using `az spring app update` or create a new deployment using `az spring app deployment create`.
 

@@ -5,7 +5,7 @@ description: How to execute data flows from inside an Azure Data Factory or Azur
 author: kromerm
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: makromer
 ms.date: 09/25/2024
 ---
@@ -13,6 +13,8 @@ ms.date: 09/25/2024
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
 

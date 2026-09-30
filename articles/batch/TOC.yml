@@ -37,6 +37,18 @@
   expanded: true
 - name: Tutorials
   items:
+  - name: Financial risk simulations
+    displayName: monte carlo, finance, risk, pricing, stress testing, back testing, HPC, quant
+    href: tutorials/financial-risk-simulations/index.md
+    items:
+    - name: Plan a simulation run
+      href: tutorials/financial-risk-simulations/plan-a-run.md
+    - name: Automate runs with .NET
+      href: tutorials/financial-risk-simulations/automate-with-dotnet.md
+    - name: Evaluate GPU acceleration
+      href: tutorials/financial-risk-simulations/evaluate-gpu-acceleration.md
+    - name: Package models with containers
+      href: tutorials/financial-risk-simulations/package-models-with-containers.md
   - name: Parallel file processing - .NET
     displayName: tutorial, hpc, high-performance, large, c#, csharp
     href: tutorial-parallel-dotnet.md
@@ -106,32 +118,23 @@
     href: best-practices.md
   - name: Quotas and limits
     href: batch-quota-limit.md
+  - name: Capacity planning
+    displayName: capacity, quota planning, allocation, sizing, autoscale, headroom
+    href: batch-capacity-planning.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
   - name: Reliability in Azure Batch
-    href: ../reliability/reliability-batch.md?toc=/azure/batch/toc.json&bc=/azure/batch/breadcrumb/toc.json
+    href: /azure/reliability/reliability-batch?toc=/azure/batch/toc.json&bc=/azure/batch/breadcrumb/toc.json
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
   - name: Feature retirements
     items:
     - name: Active change, retirement, and end of life notices
       href: https://github.com/Azure/Batch/labels/notice
-    - name: Cloud Service Configuration Pools
-      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
-    - name: Batch certificates
-      href: batch-certificate-migration-guide.md
-    - name: Pools without public IP addresses (classic)
-      href: batch-pools-without-public-IP-addresses-classic-retirement-migration-guide.md
-    - name: Classic compute node communication model
-      href: batch-pools-to-simplified-compute-node-communication-model-migration-guide.md
     - name: VHD and Managed Images
       href: batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md
-    - name: TLS 1.0 and TLS 1.1
-      href: batch-tls-101-migration-guide.md
-    - name: Job and pool lifetime statistics
-      href: job-pool-lifetime-statistics-migration-guide.md
-    - name: Low-priority virtual machines
-      href: low-priority-vms-retirement-migration-guide.md
+    - name: Classic compute node communication model
+      href: batch-pools-to-simplified-compute-node-communication-model-migration-guide.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -154,6 +157,8 @@
       href: account-move.md
     - name: Rotate Batch account keys
       href: account-key-rotation.md
+    - name: Associate Batch accounts with network security perimeter (preview)
+      href: network-security-perimeter.md
   - name: Authenticate with Microsoft Entra ID
     items:
     - name: Microsoft Entra ID with Batch service
@@ -165,7 +170,7 @@
       href: credential-access-key-vault.md
     - name: Role-based access control for Azure Batch service
       displayName: rbac, access control
-      href: batch-role-based-access-control.md      
+      href: batch-role-based-access-control.md
   - name: Copy files and applications to pool nodes
     items:
     - name: Copying applications and data to pool nodes
@@ -209,6 +214,9 @@
       href: simplified-node-communication-pool-no-public-ip.md
     - name: Create a pool with ephemeral OS disk nodes
       href: create-pool-ephemeral-os-disk.md
+    - name: Disable hyper-threading on pool nodes
+      displayName: hyperthreading, SMT, simultaneous multithreading, threads per core, vCPUsPerCore
+      href: how-to-disable-hyper-threading-using-pool-tag.md
     - name: Create an Azure Batch pool with Auto OS Upgrade
       href: batch-upgrade-policy.md
     - name: Use extensions with pools
@@ -230,6 +238,9 @@
     - name: Use Azure Spot VMs
       displayName: preempted, surplus, capacity
       href: batch-spot-vms.md
+    - name: Use temporary NVMe disks
+      displayName: nvme, temp, temporary
+      href: batch-nvme-temporary.md
     - name: Checking for pool and node errors
       displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md
@@ -242,7 +253,7 @@
       displayName: release, job release
       href: batch-job-prep-release.md
     - name: Configure Container Data Isolation Task
-      href: batch-container-isolation-task.md  
+      href: batch-container-isolation-task.md
     - name: Concurrent node tasks
       displayName: variable, maximize
       href: batch-parallel-node-tasks.md
@@ -267,6 +278,9 @@
   - name: Monitor Azure Batch
     href: monitor-batch.md
     items:
+    - name: Monitor pool compute node performance
+      displayName: Azure Monitor Agent, AMA, DCR, guest metrics, performance counters, Syslog
+      href: monitor-batch-pool-nodes.md
     - name: Monitor with Application Insights
       displayName: debug
       href: monitor-application-insights.md
@@ -355,8 +369,12 @@
       href: batch-task-complete-event.md
     - name: Task fail event
       href: batch-task-fail-event.md
+    - name: Task requeue event
+      href: batch-task-requeue-event.md
     - name: Task schedule fail event
       href: batch-task-schedule-fail-event.md
+    - name: Special task event
+      href: batch-special-task-event.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
@@ -387,4 +405,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=batch
+    href: /shows/Inside-Azure-for-IT/?products=azure-batch

@@ -1,5 +1,5 @@
 ---
-title: Create or modify an Exchange peering - Azure portal
+title: Create or Modify an Exchange Peering
 titleSuffix: Internet Peering
 description: Learn how to create or modify an Exchange peering using the Azure portal.
 services: internet-peering
@@ -7,14 +7,15 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/13/2024
+ms.date: 07/28/2026
+ms.custom: sfi-image-nochange
+
+# Customer intent: "As an Internet Exchange Provider, I want to create or modify an Exchange peering using the Azure portal, so that I can manage my peering connections efficiently and ensure reliable connectivity with Microsoft."
 ---
 
 # Create or modify an Exchange peering using the Azure portal
 
 In this article, you learn how to create a Microsoft Exchange peering using the Azure portal. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
-
-If you prefer, you can complete this guide by using [PowerShell](howto-exchange-powershell.md).
 
 ## Prerequisites
 
@@ -28,13 +29,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an Exchange peering
 
-As an Internet Exchange Provider, you can create an exchange peering request using the Azure portal:
+As an Internet Exchange Provider, you can create an exchange peering request by using the Azure portal:
 
 1. In the search box at the top of the portal, enter ***peering***. Select **Peerings** from the search results.
 
-1. On the **Peerings** page, select **+ Create**.
+    :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
 
-1. On the **Basics** tab of **Create a Peering** page, enter, or select the following values:
+1. On **Peerings**, select **+ Create**.
+
+1. On the **Basics** tab of **Create a Peering**, enter or select the following values:
 
     | Setting | Value |
     | --- | --- |
@@ -45,10 +48,10 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
     | Name | Enter a name for the peering you're creating. |
     | Peer ASN | Select your ASN. |
 
-    :::image type="content" source="./media/howto-exchange-portal/peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/howto-exchange-portal/peering-basics.png":::
+    :::image type="content" source="./media/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/create-peering-basics.png":::
 
->[!IMPORTANT] 
->You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+    > [!IMPORTANT] 
+    > You can only choose an ASN with `ValidationState` as **Approved** before you submit a peering request. If you just submitted your PeerAsn request, wait for about 12 hours for ASN association to be approved. If the ASN you select is pending validation, you see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
 1. Select **Next: Configuration** to continue.
 
@@ -63,7 +66,7 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
     :::image type="content" source="./media/howto-exchange-portal/peering-configuration-exchange.png" alt-text="Screenshot that shows the Configuration tab of creating an Exchange peering in the Azure portal." lightbox="./media/howto-exchange-portal/peering-configuration-exchange.png":::
 
     > [!NOTE]
-    > - If you already have peering connections with Microsoft in the selected metro location and you're using the portal for the first time to set up peering in that location, your existing peering connections will be listed in the **Peering connections** section as shown. Microsoft will automatically convert these peering connections to an Azure resource so that you can manage them all along with the new connections in one place. For more information, see [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).
+    > - If you already have peering connections with Microsoft in the selected metro location and you're using the portal for the first time to set up peering in that location, your existing peering connections appear in the **Peering connections** section as shown. Microsoft automatically converts these peering connections to an Azure resource so that you can manage them all along with the new connections in one place. For more information, see [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).
     > - If you want to modify a peering connection setting, select the edit button to go to the **Exchange Peering Connection** page.
     > - If you want to delete a peering connection, select the ellipsis button **...** and then select **Delete**.
 
@@ -77,7 +80,7 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
 
 1. Under **Settings**, select **Connections** to see a summary of peering connections between your ASN and Microsoft.
 
-    :::image type="content" source="./media/howto-exchange-portal/peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/howto-exchange-portal/peering-connections.png":::
+    :::image type="content" source="./media/exchange-peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/exchange-peering-connections.png":::
 
     - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Exchange peering walkthrough](walkthrough-exchange-all.md).
     - **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively. 
@@ -124,10 +127,10 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
 
 ## Deprovision an Exchange peering
 
-[!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
+Currently, the Azure portal and PowerShell don't support deprovisioning. To deprovision, contact [Microsoft peering](mailto:peering@microsoft.com).
 
 ## Related content
 
-- [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
-- [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md).
+- [Create or modify a Direct peering](howto-direct-portal.md).
+- [Convert a legacy Direct peering to an Azure resource](howto-legacy-direct-portal.md).
 - [Internet peering frequently asked questions (FAQ)](faqs.md).

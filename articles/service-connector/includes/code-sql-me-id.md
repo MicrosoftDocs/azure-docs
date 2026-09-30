@@ -1,9 +1,7 @@
 ---
-author: xfz11
 ms.service: service-connector
 ms.topic: include
-ms.date: 11/28/2023
-ms.author: xiaofanzhou
+ms.date: 06/18/2026
 ---
 
 
@@ -72,7 +70,7 @@ ms.author: xiaofanzhou
     ```
     For more information, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Csystemassigned%2Cjava%2Cwindowsclient#3-modify-your-code).
 
-### [SpringBoot](#tab/sql-me-id-springBoot)
+### [Spring Boot](#tab/sql-me-id-springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
@@ -82,43 +80,42 @@ Update your application following the tutorial [Migrate a Java application to us
 
 1. Install dependencies.
     ```bash
-    python -m pip install pyodbc
+    python -m pip install mssql-python python-dotenv
     ```
 
-1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use. If you are using Azure Container Apps as compute service or the connection string in the code snippet doesn't work, refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python) to connect to Azure SQL Database using an access token.
+1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. In the code below, uncomment the section for your authentication type.
 
     ```python
     import os
-    import pyodbc
+    from mssql_python import connect
     
     server = os.getenv('AZURE_SQL_SERVER')
     port = os.getenv('AZURE_SQL_PORT')
     database = os.getenv('AZURE_SQL_DATABASE')
-    authentication = os.getenv('AZURE_SQL_AUTHENTICATION')
     
     # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity.
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
+    # connection_string = f'Server={server},{port};Database={database};Authentication=ActiveDirectoryMSI;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
     
     # For user-assigned managed identity.
-    # clientID = os.getenv('AZURE_SQL_USER')
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};UID={clientID};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
+    # client_id = os.getenv('AZURE_SQL_USER')
+    # connection_string = f'Server={server},{port};Database={database};UID={client_id};Authentication=ActiveDirectoryMSI;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
     
     # For service principal.
     # user = os.getenv('AZURE_SQL_USER')
     # password = os.getenv('AZURE_SQL_PASSWORD')
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server=tcp:{server},{port};Database={database};UID={user};PWD={password};Authentication={authentication};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
+    # connection_string = f'Server={server},{port};Database={database};UID={user};PWD={password};Authentication=ActiveDirectoryServicePrincipal;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
     
-    conn = pyodbc.connect(connString)
+    conn = connect(connection_string)
     ```
 
-### [NodeJS](#tab/sql-me-id-nodejs)
+### [Node.js](#tab/sql-me-id-nodejs)
 
 1. Install dependencies.
     ```bash
     npm install mssql
     ```
-1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     ```javascript
     import sql from 'mssql';
     

@@ -7,14 +7,35 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 03/31/2023
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 # Troubleshooting in Azure Communication Services
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 <a name="calling-sdk-error-codes"></a>
 
 This article helps you troubleshoot issues that you might experience within your Azure Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Azure Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
+
+## Check Azure Communication Services health status
+
+You can view the health of your Azure Communication Services solution on the [Azure Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/%7E/serviceIssues). If you experience problems with your Azure Communication Services solution, check the Service Health portal first. Then you can determine whether there's a known issue with a resolution in progress before calling support or spending time troubleshooting.
+
+[Azure Service Health portal](/azure/service-health/overview) provides a personalized view of the health of the Azure services and regions you're using. The Service Health portal is the best place to look for outages, planned maintenance activities, and other health advisories. Once you sign in, the authenticated Service Health experience knows which services and resources you currently use.
+
+The best way to use Service Health is to set up [Service Health alerts](/azure/service-health/overview#using-azure-service-health) to notify you via your preferred communication channel. You receive notices for service issues, planned maintenance, or other changes that affect your Azure services and regions.
+
+If you're unable to sign in to your Service Health Portal, you can use the public facing **[Azure Status page](https://azure.status.microsoft)** to check for known issues. [Azure status overview](/azure/service-health/azure-status-overview) provides a global view of Azure services and regions from **[Azure status](https://azure.status.microsoft)**.
+
+The status page is a good reference for widespread incidents. We recommend that current Azure users view the authenticated Azure Service Health portal to stay informed about Azure incidents and maintenance. The authenticated Azure Service Health experience knows which services and resources you currently use.
+
+When Azure Communication Services has an outage that impacts metrics used in the service level agreement (SLA), the service generates a notification in your Azure Service Health portal and the Azure Status. For more information on the Azure Communication Services SLA, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/). 
+
+Typically, an outage occurs when any Azure Communication Services API returns non-retriable errors for more than 3% of received API calls for a sustained period of time.
+
+We recommend learning how to implement a disaster recovery plan and high availability strategy. For more information, see [Disaster recovery and high availability for Azure applications](/azure/well-architected/reliability/disaster-recovery).
 
 ## Get help
 
@@ -28,7 +49,7 @@ To help you troubleshoot certain issues, you might need one or more of the follo
 * **Short code program brief ID**: Identify a short code program brief application.
 * **Toll-free verification campaign brief ID**: Identify a toll-free verification campaign brief application.
 * **Email message ID**: Identify **Send Email** requests.
-* **Correlation ID**: Identify requests made by using Call Automation.
+* **Correlation ID**: Identify correlated requests made by using Call Automation.
 * **Call logs**: Use the detailed information to troubleshoot calling and network issues.
 
 For more information about throttling and limitations, see [Service limits](service-limits.md).
@@ -95,7 +116,10 @@ In addition to one of these IDs, you need to provide details about the failing u
 
 ## Access your client call ID
 
-When you troubleshoot voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object.
+When you troubleshoot voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object. 
+
+> [!IMPORTANT]
+> A `call ID` is unique and identifies a specific call, the `call ID` is the same for all the participants of that call. The `call ID` initial value is set by the local client and later it may change after the local client connects to a call that is already ongoing. If the local client was first to initiate the call then the `call ID` it created will become the `call ID` that the server and other call participants will use going forward in the call. 
 
 # [JavaScript](#tab/javascript)
 ```javascript
@@ -181,28 +205,43 @@ Learn how to enable and access call logs.
 
 ### JavaScript
 
-The Azure Communication Services Calling SDK relies internally on the [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
+The client logs can help when we want to get more details while debugging an issue.
+To collect client logs, you can use [@azure/logger](https://www.npmjs.com/package/@azure/logger), which is used by WebJS calling SDK internally.
 
-Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the `CallClient` constructor.
-
-```javascript
+```typescript
 import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
 setLogLevel('verbose');
 let logger = createClientLogger('ACS');
 const callClient = new CallClient({ logger });
-```
 
-You can use `AzureLogger` to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method.
-
-You can log to the browser console, a file, or a buffer. You can also send to your own service. If you're going to send logs over the network to your own service, don't send a request per log line because this method adversely affects browser performance. Instead, accumulate logs lines and send them in batches.
-
-```javascript
-// Redirect log output
+// Redirect ACS Calling SDK's logs
 AzureLogger.log = (...args) => {
     // To console, file, buffer, REST API, etc...
     console.log(...args); 
 };
+
+// Application logging
+logger.info('....');
 ```
+
+[@azure/logger](https://www.npmjs.com/package/@azure/logger) supports four different log levels:
+
+* verbose
+* info
+* warning
+* error
+
+For debugging purposes, `info` level logging is sufficient in most cases.
+
+In the browser environment, [@azure/logger](https://www.npmjs.com/package/@azure/logger) outputs logs to the console by default.
+You can redirect logs by overriding `AzureLogger.log` method. For more information, see [@azure/logger](/javascript/api/overview/azure/logger-readme).
+
+Your app might keep logs in memory if it has a \'download log file\' feature.
+If that is the case, you have to set a limit on the log size.
+Not setting a limit might cause memory issues on long running calls.
+
+Additionally, if you send logs to a remote service, consider mechanisms such as compression and scheduling.
+If the client has insufficient bandwidth, sending a large amount of log data in a short period of time can affect call quality.
 
 ### Native SDK (Android/iOS)
 

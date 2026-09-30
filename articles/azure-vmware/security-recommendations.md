@@ -1,16 +1,17 @@
 ---
 title: Security recommendations for Azure VMware Solution
 description: Learn about tips and best practices to help protect Azure VMware Solution deployments from vulnerabilities and malicious actors. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 06/01/2026
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect managing Azure VMware Solution deployments, I want to implement security best practices and network configurations, so that I can protect against vulnerabilities and ensure the integrity of my environment."
 ---
 
 
 # Security recommendations for Azure VMware Solution
 
-It's important to take proper measures to secure your Azure VMware Solution deployments. Use the information in this article as a high-level guide to achieve your security goals.
+It's important to take proper measures to secure your Azure VMware Solution deployments. To achieve your security goals, use the information in this article as a high-level guide.
 
 ## General
 
@@ -18,8 +19,8 @@ Use the following guidelines and links for general security recommendations for 
 
 | Recommendation | Comments |
 | :-- | :-- |
-| Review and follow VMware Security Best Practices. | It's important to stay updated on Azure security practices and [VMware Security Best Practices](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-412EF981-D4F1-430B-9D09-A4679C2D04E7.html). |
-| Keep up to date on VMware Security Advisories. | Subscribe to VMware notifications in `my.vmware.com`. Regularly review and remediate any [VMware Security Advisories](https://www.vmware.com/security/advisories.html). |
+| Review and follow VMware Security Best Practices. | Always stay updated on Azure security practices and [VMware Security Best Practices](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-security-8-0/security-in-the-vsphere-environment/security-best-practices-and-resources.html). |
+| Keep up to date on VMware Security Advisories. | Subscribe to VMware notifications in `my.vmware.com`. Regularly review and remediate any [VMware Security Advisories](https://support.broadcom.com/web/ecx/security-advisory?). |
 | Enable Microsoft Defender for Cloud. | [Microsoft Defender for Cloud](/azure/defender-for-cloud/) provides unified security management and advanced threat protection across hybrid cloud workloads. |
 | Follow the Microsoft Security Response Center blog. | [Microsoft Security Response Center](https://msrc-blog.microsoft.com/) |
 | Review and implement recommendations within the Azure security baseline for Azure VMware Solution. | [Azure security baseline for VMware Solution](/security/benchmark/azure/baselines/vmware-solution-security-baseline/) |
@@ -30,8 +31,8 @@ The following recommendations for network-related security apply to Azure VMware
 
 | Recommendation | Comments |
 | :-- | :-- |
-| Only allow trusted networks. | Only allow access to your environments over Azure ExpressRoute or other secured networks. Avoid exposing your management services like vCenter Server, for example, on the internet. |
-| Use Azure Firewall Premium. | If you must expose management services on the internet, use [Azure Firewall Premium](../firewall/premium-migrate.md) with both intrusion detection and detention system (IDPS) Alert and Deny mode along with Transport Layer Security (TLS) inspection for proactive threat detection. |
+| Only allow trusted networks. | Only allow access to your environments over Azure ExpressRoute or other secured networks. Avoid exposing your management services like vCenter Server on the internet, for example. |
+| Use Azure Firewall Premium. | If you must expose management services on the internet, use [Azure Firewall Premium](../firewall/change-sku.md) with both intrusion detection and detention system (IDPS) Alert and Deny mode along with Transport Layer Security (TLS) inspection for proactive threat detection. |
 | Deploy and configure network security groups on a virtual network. | Ensure that any deployed virtual network has [network security groups](../virtual-network/network-security-groups-overview.md) configured to control ingress and egress to your environment. |
 | Review and implement recommendations within the Azure security baseline for Azure VMware Solution. | [Azure security baseline for Azure VMware Solution](/security/benchmark/azure/baselines/vmware-solution-security-baseline/) |
 
@@ -41,4 +42,4 @@ See the following information for recommendations to secure your VMware HCX depl
 
 | Recommendation | Comments |
 | :-- | :-- |
-| Stay current with VMware HCX service updates. | VMware HCX service updates can include new features, software fixes, and security patches. To apply service updates during a maintenance window where no new VMware HCX operations are queued up, follow [these steps](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-F4AEAACB-212B-4FB6-AC36-9E5106879222.html). |
+| Stay current with VMware HCX service updates. | VMware HCX service updates can include new features, software fixes, and security patches. To apply service updates during a maintenance window where no new VMware HCX operations are queued up, follow [these steps](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/planning-for-hcx-updates.html). |

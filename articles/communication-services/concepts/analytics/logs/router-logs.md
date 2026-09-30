@@ -6,12 +6,14 @@ author: nabennet
 services: azure-communication-services 
 ms.author: nabennet 
 ms.date: 07/07/2023 
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.service: azure-communication-services 
 ms.subservice: data 
 --- 
 
 # Azure Communication Services Job Router logs
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 

@@ -1,20 +1,22 @@
 ---
-title: Frequently asked questions about Firmware analysis
-description: Find answers to some of the common questions about Firmware Analysis. This article includes the file systems that are supported by Firmware Analysis, and links to the Azure CLI and Azure PowerShell commands.
+title: Frequently asked questions about firmware analysis
+description: Find answers to some of the common questions about firmware analysis.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 01/10/2024
+ms.date: 09/04/2026
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ---
 
-# Frequently asked questions about Firmware analysis
-This article addresses frequent questions about Firmware analysis. 
+# Frequently asked questions about firmware analysis 
+This article addresses frequent questions about firmware analysis.
 
 [Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
-## What types of firmware images does Firmware analysis support?
+
+## What types of firmware images does firmware analysis support?
 Firmware analysis supports unencrypted images that contain file systems with embedded Linux operating systems. Firmware analysis supports the following file system formats:
 
 * Android sparse image
@@ -47,7 +49,90 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 * ZStandard compressed data
 * Zip archive
 
-## Where are the Firmware analysis Azure CLI/PowerShell docs?
-You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
 
+## What SBOM components does firmware analysis detect?
+
+> [!NOTE]
+> If firmware analysis detects a component but is unable to determine the version of that component, it may report the version as `0.0.0`. No CVEs will be reported for that particular component.
+
+
+**Component** | **Component** | **Component** | **Component**
+ ---|---|---|---
+ acpid             | gtk               | mcproxy           | readline
+ apache            | harfbuzz          | miniupnpd         | redis
+ avahi_daemon      | hdparm            | mit_kerberos      | rngd
+ axios             | heimdal           | mosquitto         | rngtest
+ backbonejs        | hostapd           | msmtp             | rp_pppoe
+ bash              | i2c-tools         | mstpd             | samba
+ bftpd             | inetutils_telnetd | mtd-utils         | setserial
+ bluetoothd        | iperf3            | nano              | sqlite
+ bridge-utils      | iproute2          | ncurses           | ssmtp
+ busybox           | ipset             | neon              | strace
+ bzip2             | iptables          | netatalk          | strongswan
+ cairo             | jansson           | netkit_telnetd    | stunnel
+ chrony            | jquery            | netsnmp           | sudo
+ codesys           | json-c            | nettools          | tcpdump
+ conntrack-tools   | libarchive        | nginx             | uclibc
+ coreutils         | libcap            | nss               | underscorejs
+ dhcpd             | libcurl           | openldap          | usbutils
+ dnsmasq           | libevent          | openssh           | util_linux
+ dropbear          | libexpat          | openssl           | vim
+ e2fsprogs         | libgcrypt         | openvpn           | vsftpd
+ ebtables          | libidn            | openvswitch       | vuejs
+ eeprog            | libmicrohttpd     | p7zip             | wget
+ element           | libpcap           | pango             | wolfssl
+ ethtool           | libpng            | pcre              | wpa_supplicant
+ exfat             | libsoup           | pcre2             | xinetd
+ extJS             | libvorbis         | perl              | xl2tpd
+ ffmpeg            | libxml2           | php               | zebra
+ fribidi           | lighttpd          | polarssl          | zeptojs
+ gdbserver         | lodash            | pppd              | zip
+ gdkpixbuf         | logrotate         | procps            | zipcloak
+ glibc             | lspci             | proftpd           | zipnote
+ gmp               | lua               | protobuf-c        | zlib
+ gnutls            | matrixssl         | python            |
+ gpg               | mbedtls           | radvd             |
+
+
+
+
+## Where are the firmware analysis Azure CLI/PowerShell docs?
+You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
+ 
 You can also find the Quickstart for our Azure CLI [here](./quickstart-upload-firmware-using-azure-command-line-interface.md) and the Quickstart for our Azure PowerShell [here](./quickstart-upload-firmware-using-powershell.md). To run a Python script using the SDK to upload and analyze firmware images, visit [Quickstart: Upload firmware using Python](./quickstart-upload-firmware-using-python.md).
+
+
+## Is UEFI (Unified Extensible Firmware Interface) firmware analysis supported?
+Yes. UEFI firmware analysis is supported with a mix of **Generally Available (GA)** and **Preview** capabilities.
+
+### What is generally available for UEFI firmware analysis?
+
+Firmware analysis provides **GA support** for detecting and analyzing cryptographic material embedded in UEFI firmware, including:
+- Cryptographic certificates
+- Cryptographic keys
+
+These capabilities are considered stable and fully supported for UEFI firmware.
+
+### What UEFI analysis capabilities are in preview?
+
+The following UEFI analysis capabilities are currently provided in **Preview** and might have limited coverage:
+- SBOM and weakness signals (limited OpenSSL detection and CVE association)
+- Binary hardening attributes (detection of NX / DEP are supported)
+- Extractor path enhancements
+
+Preview results should be interpreted as **security signals**, not guarantees of vulnerability or protection.
+
+For detailed explanations of UEFI firmware analysis capabilities, limitations, and how to interpret results, see [Understanding UEFI firmware analysis capabilities and limitations](unified-extensible-firmware-interface-firmware-analysis.md).
+
+## Why don't I see any results for unsafe function calls?
+
+An empty result doesn't mean the firmware has no unsafe function calls. You might not see results when:
+
+- The firmware image doesn't contain supported ELF user-space executables.
+- The extracted executables use an unsupported processor architecture.
+- A static or stripped binary doesn't retain enough information to identify function references.
+- The extracted file is a Linux kernel module (`.ko`), which isn't included in this analysis.
+- The firmware image was analyzed before unsafe function calls analysis became available.
+- Extraction or analysis didn't complete successfully.
+
+Upload an older firmware image again to receive current analysis. For supported architectures, binary requirements, and guidance on interpreting results, see [Understand unsafe function call data](understand-unsafe-function-calls.md).

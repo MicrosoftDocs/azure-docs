@@ -1,20 +1,21 @@
 ---
 title: Manage DNS records in Azure DNS using the Azure CLI
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS.
-author: greg-lindsay
+author: asudbring
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: azure-dns
 ms.devlang: azurecli
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ms.date: 11/30/2023
-ms.author: greglin
+ms.author: allensu
+# Customer intent: "As a system administrator, I want to manage DNS records using the command line interface, so that I can efficiently create, update, and delete records in Azure DNS without relying on the graphical interface."
 ---
 
 # Manage DNS records and recordsets in Azure DNS using the Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -213,7 +214,7 @@ az network dns record-set a add-record --resource-group myresourcegroup --zone-n
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 203.0.113.11
 ```
 
-You can't add, remove, or modify the records in the automatically created NS record set at the zone apex (`--Name "@"`, including quote marks). For this record set, the only changes permitted are to modify the record set TTL and metadata.
+You can't remove or modify the prepopulated Azure DNS name servers in the automatically created NS record set at the zone apex (`--Name "@"`, including quote marks). For this record set, you can add more name servers to support cohosting a domain with more than one DNS provider, and you can modify the record set TTL and metadata. For more information, see [To modify NS records at the zone apex](#to-modify-ns-records-at-the-zone-apex).
 
 ### To modify a CNAME record
 

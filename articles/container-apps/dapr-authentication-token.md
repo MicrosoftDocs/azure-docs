@@ -1,11 +1,13 @@
 ---
-title: Enable token authentication for Dapr requests
-description: Learn more about enabling token authentication for Dapr requests to your container app in Azure Container Apps.
-ms.author: hannahhunter
-author: hhunter-ms
+title: Enable Token Authentication for Dapr Requests
+description: Learn how to enable token authentication for Dapr requests to your container app in Azure Container Apps.
+ms.author: nigreenf
+ms.reviewer: hannahhunter
+author: greenie-msft
 ms.service: azure-container-apps
+ms.subservice: dapr
 ms.topic: how-to 
-ms.date: 08/28/2024
+ms.date: 03/27/2026
 ---
 
 # Enable token authentication for Dapr requests
@@ -24,21 +26,21 @@ You can use this token to authenticate that calls coming into your application a
 
 ## Prerequisites
 
-[Dapr-enabled Azure Container App][dapr-aca]
+- [A Dapr-enabled Azure Container App][dapr-aca]
 
 ## Authenticate requests from Dapr
 
-# [With Dapr SDKs](#tab/sdk)
+# [With a Dapr SDK](#tab/sdk)
 
-If you're using a [Dapr SDK](https://docs.dapr.io/developing-applications/sdks/), you can use the Dapr authentication methods provided in the open-source SDK repositories. 
+If you're using a [Dapr Software Development Kit (SDK)](https://docs.dapr.io/developing-applications/sdks/), you can use the Dapr authentication methods provided in the open-source SDK repositories. 
 
-Once added to your project, the Dapr SDKs validates the token in all incoming requests from Dapr, rejecting calls that don't include the correct token. You don't need to perform any other action.
+Once added to your project, the Dapr SDK validates the token in all incoming requests from Dapr, rejecting calls that don't include the correct token. You don't need to perform any other action.
 
 Incoming requests that don't include the token, or include an incorrect token, are rejected automatically.
 
 # [Without an SDK](#tab/nosdk)
 
-If you're not using a Dapr SDK, you need to check the HTTP header or gRPC metadata property in all incoming requests in order to validate that they're created by the Dapr sidecar.
+If you're not using a Dapr SDK, you need to check the HTTP header or gRPC metadata property in all incoming requests and validate that the Dapr sidecar created the request.
 
 ### HTTP
 
@@ -58,10 +60,10 @@ dapr-api-token[0]
 
 ---
 
+## Next step
 
-## Next steps
-
-[Learn more about the Dapr integration with Azure Container Apps.][dapr-aca]
+> [!div class="nextstepaction"]
+> [Learn about the Dapr integration with Azure Container Apps][dapr-aca]
 
 
 <!-- Links Internal -->

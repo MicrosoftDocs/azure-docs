@@ -3,11 +3,12 @@ title: 'How to configure virtual hub routing: Azure portal'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN virtual hub routing using the Azure portal.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 01/10/2024
-ms.author: cherylmc
+ms.author: duau
+ms.custom: sfi-image-nochange
 
 ---
 # How to configure virtual hub routing - Azure portal
@@ -85,7 +86,7 @@ You can't delete a **Default** or **None** route table. However, you can delete 
 
 ## <a name="routing-configuration"></a>Configure routing for a virtual network connection
 
-[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## Next steps
 

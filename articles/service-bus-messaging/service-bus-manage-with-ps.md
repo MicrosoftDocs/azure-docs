@@ -163,4 +163,4 @@ There are some alternate ways to manage Service Bus entities, as described in th
 
 [purchase options]: https://azure.microsoft.com/pricing/purchase-options/
 [member offers]: https://azure.microsoft.com/pricing/member-offers/
-[free account]: https://azure.microsoft.com/pricing/free-trial/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn

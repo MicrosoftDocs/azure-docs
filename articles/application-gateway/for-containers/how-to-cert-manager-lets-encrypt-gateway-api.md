@@ -2,11 +2,12 @@
 title: Cert-manager and Let's Encrypt with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with certificates managed by CNCF project cert-manager.
 services: application-gateway
-author: greglin
-ms.service: azure-appgw-for-containers
+author: mbender-ms
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
-ms.date: 11/18/2024
-ms.author: greglin
+ms.date: 2/20/2026
+ms.author: mbender
+# Customer intent: "As a cloud infrastructure engineer, I want to configure an Application Gateway for Containers with automated SSL/TLS certificates using cert-manager and Let's Encrypt, so that I can ensure secure communication for my deployed applications in a Kubernetes environment."
 ---
 
 # Cert-manager and Let's Encrypt with Application Gateway for Containers - Gateway API
@@ -15,7 +16,7 @@ This guide demonstrates how to use cert-manager to automatically issue and renew
 
 For the purposes of this example, we have cert-manager configure certificates issued from Let's Encrypt to demonstrate an end-to-end deployment, where Application Gateway for Containers is providing TLS offloading.
 
-![A figure showing cert-manager retrieving a certificate from Let's Encrypt and storing it into Kubernetes' secret store for TLS with Application Gateway for Containers.](./media/how-to-cert-manager-lets-encrypt-gateway-api/how-to-cert-manager-lets-encrypt-gateway-api.svg)
+[![A diagram showing cert-manager retrieving a certificate from Let's Encrypt and storing it into Kubernetes' secret store for TLS with Application Gateway for Containers.](./media/how-to-cert-manager-lets-encrypt-gateway-api/how-to-cert-manager-lets-encrypt-gateway-api.svg) ](./media/how-to-cert-manager-lets-encrypt-gateway-api/how-to-cert-manager-lets-encrypt-gateway-api.svg#lightbox)
 
 For certificates to be issued by Let's Encrypt, a challenge is required by the authority to validate domain ownership. This validation happens by allowing cert-manager to create a pod and HTTPRoute resource that exposes an endpoint during certificate issuance, proving your ownership of the domain name.
 
@@ -23,13 +24,13 @@ More details on cert-manager and Let's Encrypt with AKS in general may be found 
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure that you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md))
+2. If following the ALB managed deployment strategy, ensure that you provision your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 
    ```bash
-   kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
+   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
    ```
   
    This command creates the following on your cluster:
@@ -56,7 +57,7 @@ metadata:
   annotations:
     alb.networking.azure.io/alb-namespace: alb-test-infra
     alb.networking.azure.io/alb-name: alb-test
-    cert-manager.io/issuer: letsencrypt-cert
+    cert-manager.io/issuer: letsencrypt-prod
 spec:
   gatewayClassName: azure-alb-external
   listeners:
@@ -170,12 +171,11 @@ status:
 Install cert-manager using Helm:
 
 ```bash
-helm repo add jetstack https://charts.jetstack.io --force-update
 helm install \
-  cert-manager jetstack/cert-manager \
+  cert-manager oci://quay.io/jetstack/charts/cert-manager \
+  --version v1.19.3 \
   --namespace cert-manager \
   --create-namespace \
-  --version v1.16.0 \
   --set config.enableGatewayAPI=true \
   --set crds.enabled=true
 ```
@@ -362,9 +362,9 @@ EOF
 
 ---
 
-### Create a HTTPRoute that listens for your hostname
+### Create an HTTPRoute that listens for your hostname
 
-Create a HTTPRoute to handle requests received by the `https-listener` listener.
+Create an HTTPRoute to handle requests received by the `https-listener` listener.
 
 >[!IMPORTANT]
 >Ensure you replace `contoso.com` with the domain name you are expecting the certificate to be issued to.
@@ -431,13 +431,13 @@ status:
 Now we're ready to send some traffic to our sample application, via the hostname used for your certificate.
 
 >[!IMPORTANT]
->Ensure you replace `contoso.com` with the domain name you are expecting the certificate to be issued to.
+>Ensure you replace `contoso.com` with the domain name you're expecting the certificate to be issued to.
 
 ```bash
 curl https://contoso.com/ -v 2>&1 | grep issuer
 ```
 
-Upon result, you should see
+You should see the following output:
 
 `*  issuer: C=US; O=Let's Encrypt; CN=R10`
 

@@ -1,11 +1,13 @@
 ---
-title: Configure private network access for backend storage in your virtual network
+title: Configure Private Network Access for Backend Storage in Your Virtual Network
 description: Learn how to configure private network access to backend storage in your virtual network.
 author: KarlErickson
-ms.author: haozhan
+ms.author: karler
+ms.reviewer: haozhan
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -30,7 +32,7 @@ When you deploy an application in an Azure Spring Apps service instance with vir
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.56.0 or higher.
 - An existing Azure Spring Apps service instance deployed to a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 

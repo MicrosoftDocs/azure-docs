@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Get started with the web calling sample
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web Calling SDK.
 
 This sample was built for developers and makes it very easy for you to get started with Communication Services. Its user interface is divided into multiple sections, each featuring a "Show code" button that allows you to copy code directly from your browser into your own Communication Services application.

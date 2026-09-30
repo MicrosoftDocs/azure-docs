@@ -1,7 +1,12 @@
 {
     "redirections": [
         {
-            "redirect_url": "/azure/governance/machine-configuration/overview",
+            "redirect_url": "/azure/governance/machine-configuration/overview/01-overview-concepts",
+            "source_path_from_root": "/articles/governance/machine-configuration/overview.md",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_url": "/azure/governance/machine-configuration/overview/01-overview-concepts",
             "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration.md",
             "redirect_document_id": false
         },

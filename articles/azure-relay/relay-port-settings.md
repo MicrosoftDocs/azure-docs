@@ -2,7 +2,7 @@
 title: Azure Relay port settings | Microsoft Docs
 description: This article includes a table that describes the required configuration for port values for Azure Relay.
 ms.topic: article
-ms.date: 12/11/2024
+ms.date: 01/24/2026
 ---
 
 # Azure Relay port settings

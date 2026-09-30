@@ -1,19 +1,22 @@
 ---
 title: Azure Communication Services - Email events
-description: This article describes how to use Azure Communication Services as an Event Grid event source for Email Events.
-ms.topic: conceptual
-ms.date: 09/30/2022
-author: anmolbohra97
-ms.author: anmolbohra
+description: Azure Communication Services email events integrate with Event Grid for delivery and engagement tracking. Learn about supported event types, schemas, and responses.
+#customer intent: As a developer, I want to know which email events Azure Communication Services supports through Event Grid so that I can determine which events to subscribe to in my application.
+ms.topic: concept-article
+ms.date: 03/27/2026
+author: spelluru
+ms.author: spelluru
+ms.reviewr: osaghaso
+# Customer intent: I want to learn about what email events from Azure Communication Servics are supported through Azure Event Grid. 
 ---
 
 # Azure Communication Services - Email events
 
 This article provides the properties and schema for communication services email events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-## Events types
+## Event types
 
-Azure Communication Services emits the following telephony and SMS event types:
+Azure Communication Services emits the following telephony and Short Message Service (SMS) event types:
 
 | Event type                                                  | Description                                                                                    |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -24,7 +27,7 @@ Azure Communication Services emits the following telephony and SMS event types:
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
 
-This section contains an example of what that data would look like for each event.
+This section contains an example of what that data looks like for each event.
 
 ### Microsoft.Communication.EmailDeliveryReportReceived event
 
@@ -53,8 +56,8 @@ This section contains an example of what that data would look like for each even
 > [!NOTE]
 > Possible values for `Status` are:
 > - `Delivered`: The message was successfully handed over to the intended destination (recipient Mail Transfer Agent).
-> - `Suppressed`: The recipient email had hard bounced previously, and all subsequent emails to this recipient are being temporarily suppressed as a result.
-> - `Bounced`: The email hard bounced, which may have happened because the email address does not exist or the domain is invalid.
+> - `Suppressed`: The recipient email previously hard bounced, so all subsequent emails to this recipient are temporarily suppressed.
+> - `Bounced`: The email hard bounced, which might happen because the email address doesn't exist or the domain is invalid.
 > - `Quarantined`: The message was quarantined (as spam, bulk mail, or phishing).
 > - `FilteredSpam`: The message was identified as spam, and was rejected or blocked (not quarantined).
 > - `Expanded`: A distribution group recipient was expanded before delivery to the individual members of the group.

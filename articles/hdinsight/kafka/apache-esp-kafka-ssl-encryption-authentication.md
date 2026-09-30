@@ -3,8 +3,14 @@ title: Apache Kafka TLS encryption & authentication for ESP Kafka Clusters - Azu
 description: Set up TLS encryption for communication between Kafka clients and Kafka brokers, Set up SSL authentication of clients for ESP Kafka clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 04/11/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Set up TLS encryption and authentication for ESP Apache Kafka cluster in Azure HDInsight
@@ -349,11 +355,11 @@ Using Command Line Tool
 1. `ktutil`
   
    ```
-   ktutil: addent -password -p espkafkauser@TEST.COM -k 1 -e RC4-HMAC 
-   Password for espkafkauser@TEST.COM: 
+    ktutil: addent -password -p <username>@<DOMAIN.COM> -k 1 -e RC4-HMAC
+    Password for <username>@<DOMAIN.COM>:
    ktutil: wkt user1.keytab 
    ktutil: q 
-   kinit –kt espkafkauser.keytab espkafkauser@TEST.COM 
+    kinit –kt espkafkauser.keytab <username>@<DOMAIN.COM>
    ```
 
 1. `klist` again to check kerberos cached ticket.
@@ -370,7 +376,7 @@ Using Command Line Tool
       useKeyTab=true
       storeKey=true
       keyTab="/home/sshuser/espkafkauser.keytab"
-      principal="espkafkauser@TEST.COM";
+            principal="<username>@<DOMAIN.COM>";
    };
    ```
       

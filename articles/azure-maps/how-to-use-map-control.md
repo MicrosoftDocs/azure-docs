@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
 author: sinnypan
 ms.author: sipa
-ms.date: 06/29/2023
+ms.date: 02/11/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -14,8 +14,6 @@ ms.custom: devx-track-js
 # Use the Azure Maps map control
 
 The Azure Maps Web SDK provides a [Map Control] that enables the customization of interactive maps with your own content and imagery for display in your web or mobile applications. This module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript.
-
-This article uses the Azure Maps Web SDK, however the Azure Maps services work with any map control. For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
 
 > [!NOTE]
 >
@@ -118,9 +116,9 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                 language: 'en-US',
                 authOptions: {
                     authType: 'aad',
-                    clientId: '<Your Microsoft Entra Client Id>',
-                    aadAppId: '<Your Microsoft Entra App Id>',
-                    aadTenant: '<Your Microsoft Entra tenant Id>'
+                    clientId: '<Your Microsoft Entra Client ID>',
+                    aadAppId: '<Your Microsoft Entra App ID>',
+                    aadTenant: '<Your Microsoft Entra tenant ID>'
                 }
             });
         }
@@ -218,9 +216,9 @@ map = new atlas.Map('myMap', {
 
     authOptions: {
         authType: 'aad',
-        clientId: '<Your AAD Client Id>',
-        aadAppId: '<Your AAD App Id>',
-        aadTenant: '<Your AAD Tenant Id>'
+        clientId: '<Your AAD Client ID>',
+        aadAppId: '<Your AAD App ID>',
+        aadTenant: '<Your AAD Tenant ID>'
     }
 });
 ```
@@ -412,7 +410,7 @@ Be sure to use Azure Maps authentication details from the Azure Government cloud
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-* [ng-azure-maps] - Angular 10 wrapper around Azure maps.
+* [ng-azure-maps] - Angular 10 wrapper around Azure Maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
 * [Azure Maps React Component] - A react wrapper for the Azure Maps control.
 * [Vue Azure Maps] - An Azure Maps component for Vue application.

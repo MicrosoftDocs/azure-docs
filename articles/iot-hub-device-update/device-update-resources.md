@@ -1,8 +1,8 @@
 ---
 title: Understand Device Update for Azure IoT Hub resources
 description: Understand Device Update for Azure IoT Hub resources
-author: vimeht
-ms.author: vimeht
+author: sethmanheim
+ms.author: sethm
 ms.date: 11/02/2022
 ms.topic: concept-article
 ms.service: azure-iot-hub
@@ -27,7 +27,10 @@ updates and deployments associated with a specific IoT hub. Device Update uses I
 
 In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the built-in Event Hubs. The IoT Hub will be configured automatically as part of the resource creation process with the required message routes, consumer groups, and access policy required to communicate with IoT devices.
 
-### Message Routing
+> [!NOTE]
+> Do not disable local authentication on the IoT Hub. Device Update requires local authentication to be enabled. 
+
+### Message routing
 
 The following Message Routes are automatically configured in your linked IoT hub to enable Device Update:
 

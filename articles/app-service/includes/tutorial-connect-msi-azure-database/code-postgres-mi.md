@@ -4,6 +4,7 @@ ms.service: service-connector
 ms.topic: include
 ms.date: 10/20/2023
 ms.author: xiaofanzhou
+ms.custom: sfi-ropc-nochange
 ---
 
 # [.NET](#tab/dotnet-postgres-mi)
@@ -53,12 +54,12 @@ using (var connection = new NpgsqlConnection(connectionString))
     <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.3.6</version>
+        <version>42.7.5</version>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-extensions</artifactId>
-        <version>1.1.5</version>
+        <version>1.2.0</version>
     </dependency>
     ```
 

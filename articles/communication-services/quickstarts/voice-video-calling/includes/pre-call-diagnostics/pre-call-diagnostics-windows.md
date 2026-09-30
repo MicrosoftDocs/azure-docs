@@ -7,7 +7,7 @@ manager: bobgao
 services: azure-communication-services
 ms.author: yassirb
 ms.date: 12/12/2024
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-communication-services
 ---
 

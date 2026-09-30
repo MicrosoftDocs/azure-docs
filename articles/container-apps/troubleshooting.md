@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom:
 ---
@@ -29,6 +29,7 @@ The following table lists issues you might encounter while using Azure Container
 | Responses not as expected | The container app endpoint responds to requests, but the responses aren't as expected. | [Verify traffic is routed to the correct revision](#verify-traffic-is-routed-to-the-correct-revision)<br><br>[Verify you're using unique tags when deploying images to the container registry](/azure/container-registry/container-registry-image-tag-version) |
 | Missing parameters error | You receive error messages about missing parameters when you run `az containerapp` commands in the Azure CLI, or run cmdlets from the `Az.App` module in Azure PowerShell. | [Verify latest version of Azure Container Apps extension is installed](#verify-latest-version-of-azure-container-apps-extension-is-installed) |
 | Preview features not available | [Preview features](./whats-new.md) are not available when you run `az containerapp` commands in the Azure CLI. | [Verify Azure Container Apps extension allows preview features](#verify-azure-container-apps-extension-allows-preview-features) |
+| Key Vault secret sync error | You're unable to retrieve or synchronize secrets from Azure Key Vault. | [Troubleshoot Key Vault references](./manage-secrets.md#troubleshoot-key-vault-references) |
 | Deleting your app or environment doesn't work | This issue is often accompanied by a message such as **provisioningState: ScheduledForDelete**.  | [Manually delete the associated VNet](#manually-delete-the-vnet-being-used-by-the-azure-container-apps-environment) |
 
 ## View logs
@@ -58,7 +59,7 @@ You can use the *diagnose and solve problems* tool to find issues with your cont
 If you receive an error message when you try to deploy a new revision, verify that Container Apps is able to pull your container image.
 
 - Ensure your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
-- If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
+- If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./private-endpoints-with-dns.md).
 - If you used the Container Apps cloud build feature to generate a container image for you (see [Code-to-cloud path for Azure Container Apps](./code-to-cloud-options.md#new-to-containers), your image isn't publicly accessible, so this section doesn't apply.
 
 For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt. Before you run this command, replace placeholders surrounded by `<>` with your values.
@@ -90,6 +91,7 @@ Your container app's ingress settings are enforced through a set of rules that c
 |--|--|
 | Is ingress enabled? | Verify the **Enabled** checkbox is checked. |
 | Do you want to allow external ingress? | Verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. If your container app doesn't listen for HTTP traffic, set **Ingress Traffic** to **Limited to Container Apps Environment**. |
+| Do clients in your virtual network receive HTTP 404 responses? | If your app runs in an internal environment, verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. See [Requests from the virtual network return HTTP 404](#requests-from-the-virtual-network-return-http-404). |
 | Does your client use HTTP or TCP to access your container app? | Verify **Ingress type** is set to the correct protocol (**HTTP** or **TCP**). |
 | Does your client support mTLS? | Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [configure client certificate authentication.](./client-certificate-authorization.md) |
 | Does your client use HTTP/1 or HTTP/2? | Verify **Transport** is set to the correct HTTP version (**HTTP/1** or **HTTP/2**). |
@@ -97,6 +99,28 @@ Your container app's ingress settings are enforced through a set of rules that c
 | Is your client IP address denied? | If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied. |
 
 For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
+
+### Requests from the virtual network return HTTP 404
+
+If your container app runs in an internal environment, you might see the following combination of symptoms:
+
+- The app's revision is healthy, and its replicas are running.
+- A client in the virtual network resolves the app's fully qualified domain name (FQDN) successfully, and the TLS handshake succeeds.
+- Every request returns an HTTP 404 response with the message `Container App is stopped or does not exist`, regardless of the request path.
+- The same behavior applies to every app in the environment, including a newly created app that uses a known-good container image.
+
+These symptoms typically indicate that the app's ingress is set to **Limited to Container Apps Environment** rather than a networking, DNS, or application problem. On an internal environment, that setting limits the app to other container apps in the same environment, so requests from elsewhere in the virtual network are rejected.
+
+To make the app reachable from your virtual network, set its ingress to **Accepting traffic from anywhere**. On an internal environment, this setting doesn't expose the app to the public internet, because the environment has no public endpoint.
+
+```azurecli
+az containerapp ingress update \
+    --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --type external
+```
+
+For more information, see [How ingress visibility interacts with the environment type](./ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
 
 ## Verify networking configuration
 
@@ -191,7 +215,7 @@ If you receive errors about missing parameters when you run `az containerapp` co
 az extension add --name containerapp --upgrade
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Install-Module -Name Az.App
@@ -241,4 +265,4 @@ If you receive the message **provisioningState: ScheduledForDelete**, but your e
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure Container Apps](../reliability/reliability-azure-container-apps.md)
+> [Reliability in Azure Container Apps](/azure/reliability/reliability-azure-container-apps)

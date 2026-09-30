@@ -1,15 +1,22 @@
 ---
-title: Azure Role-Based Access Control for Firmware analysis
-description: Learn about how to use Azure Role-Based Access Control for Firmware Analysis.
+title: Azure Role-Based Access Control for firmware analysis
+description: Learn about how to use Azure Role-Based Access Control for firmware analysis.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
-ms.date: 01/10/2024
+ms.topic: concept-article
+ms.date: 09/12/2025
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ---
 
-# Overview of Azure Role-Based Access Control for Firmware analysis
-As a user of Firmware analysis, you may want to manage access to your firmware image analysis results. Azure Role-Based Access Control (RBAC) is an authorization system that enables you to control who has access to your analysis results, what permissions they have, and at what level of the resource hierarchy. This article explains how to store firmware analysis results in Azure, manage access permissions, and use RBAC to share these results within your organization and with third parties. To learn more about Azure RBAC, visit [What is Azure Role-Based Access Control (Azure RBAC)?](./../role-based-access-control/overview.md).
+# Overview of Azure Role-Based Access Control for firmware analysis
+As a user of firmware analysis, you may want to manage access to your firmware image analysis results. Azure Role-Based Access Control (RBAC) is an authorization system that enables you to control who has access to your analysis results, what permissions they have, and at what level of the resource hierarchy. This article explains how to store firmware analysis results in Azure, manage access permissions, and use RBAC to share these results within your organization and with third parties. To learn more about Azure RBAC, visit [What is Azure Role-Based Access Control (Azure RBAC)?](./../role-based-access-control/overview.md)
+
+> [!NOTE]
+> - RBAC (Role-Based Access Control) and Azure Policy are separate controls in Azure. Even if you have the correct RBAC roles, your organization’s Azure Policy may still block you from creating or using a Firmware Analysis Workspace.
+> - In addition to verifying your RBAC permissions, check with your IT administrator to ensure the “Firmware Analysis Workspace” resource type is allow-listed in your subscription’s Azure Policy.
+> - If you encounter a policy restriction, contact your IT team to request an exemption or allow-listing for this resource type.
+For instructions on how to check your subscription’s policy settings, see [Read your subscription policy](../cost-management-billing/manage/manage-azure-subscription-policy.md#read-subscription-policy).
 
 ## Roles
 Roles are a collection of permissions packaged together. There are two types of roles:
@@ -17,36 +24,36 @@ Roles are a collection of permissions packaged together. There are two types of 
 * **Job function roles** give users permission to perform specific job functions or tasks, such as **Key Vault Contributor** or **Azure Kubernetes Service Cluster Monitoring User**. 
 * **Privileged administrator roles** give elevated access privileges, such as **Owner**, **Contributor**, or **User Access Administrator**. To learn more about roles, visit [Azure built-in roles](./../role-based-access-control/built-in-roles.md).
 
-In Firmware analysis, the most common roles are Owner, Contributor, Security Admin, and Firmware Analysis Admin. Learn more about [which roles you need for different permissions](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities), such as uploading firmware images or sharing firmware analysis results.
+In firmware analysis, the most common roles are Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User, and Firmware Analysis Reader. Learn more about [which roles you need for different permissions](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities), such as uploading firmware images or sharing firmware analysis results.
 
 ## Understanding the Representation of Firmware Images in the Azure Resource Hierarchy
 Azure organizes resources into resource hierarchies, which are in a top-down structure, and you can assign roles at each level of the hierarchy. The level at which you assign a role is the "scope," and lower scopes may inherit roles assigned at higher scopes. Learn more about the [levels of hierarchy and how to organize your resources in the hierarchy](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources).
 
-When you onboard your subscription to Firmware analysis and select your resource group, the action automatically creates the **default** resource within your resource group.
+When you onboard your subscription to firmware analysis, you'll be asked to create a **workspace**. A **workspace** is a resource specific to the firmware analysis service that directly houses your firmware images. You can create multiple **workspaces** in each resource group, which allows you to organize your firmware images into categories at the resource group level, and subcategories at the **workspace** level.
 
-Navigate to your resource group and select **Show hidden types** to show the **default** resource. The **default** resource has the **Microsoft.IoTFirmwareDefense.workspaces** type.
+Navigate to your resource group. Notice that all **workspace** resources have the **Firmware analysis workspace** type.
 
-:::image type="content" source="media/firmware-analysis-rbac/default-workspace.png" alt-text="Screenshot of the toggle button 'Show hidden types' that reveals a resource named 'default'." lightbox="media/firmware-analysis-rbac/default-workspace.png":::
- 
-Although the **default** workspace resource isn't something that you'll regularly interact with, each firmware image that you upload will be represented as a resource and stored here.
+:::image type="content" source="media/firmware-analysis-rbac/workspaces-in-resource-group.png" alt-text="Screenshot of the workspaces inside a resource group." lightbox="media/firmware-analysis-rbac/workspaces-in-resource-group.png":::
+  
+As mentioned earlier, the **workspace** resource directly holds your firmware images, so you may regularly interact with your **workspaces** depending on how you organize your images. Each firmware image that you upload will be represented as a resource and stored here.
 
-You can use RBAC at each level of the hierarchy, including at the hidden **default Firmware Analysis Workspace** resource level. 
+You can use RBAC at each level of the hierarchy, including at the **workspace** resource level. 
 
-Here's the resource hierarchy of Firmware Analysis:
+Here's the resource hierarchy of firmware analysis:
 
-:::image type="content" source="media/firmware-analysis-rbac/resource-hierarchy.png" alt-text="Diagram that shows the resource hierarchy of firmware images of Firmware Analysis." lightbox="media/firmware-analysis-rbac/resource-hierarchy.png":::
+:::image type="content" source="media/firmware-analysis-rbac/resource-hierarchy.png" alt-text="Diagram that shows the resource hierarchy of firmware images of firmware analysis." lightbox="media/firmware-analysis-rbac/resource-hierarchy.png":::
 
 ## Apply Azure RBAC
 
 > [!Note]
-> To begin using Firmware analysis, the user that onboards the subscription onto Firmware analysis ***must be*** an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. Follow the tutorial at [Analyze a firmware image with Firmware analysis](./tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) to onboard your subscription. Once you've onboarded your subscription, a user only needs to be a Firmware Analysis Admin to use Firmware Analysis.
+> To begin using firmware analysis, the user that onboards the subscription onto firmware analysis ***must be*** an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. Follow the tutorial at [Analyze a firmware image with firmware analysis](./tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) to onboard your subscription. Once you've onboarded your subscription, a user only needs to be a Firmware Analysis Admin to use firmware analysis.
 > 
 
-As a user of Firmware analysis, you may need to perform certain actions for your organization, such as uploading firmware images or sharing analysis results.
+As a user of firmware analysis, you may need to perform certain actions for your organization, such as uploading firmware images or sharing analysis results.
 
-Actions like these involve Role-Based Access Control (RBAC). To effectively use RBAC for Firmware analysis, you must know what your role assignment is, and at what scope. Knowing this information will inform you about what permissions you have, and thus whether you can complete certain actions. To check your role assignment, refer to [Check access for a user to a single Azure resource - Azure RBAC](./../role-based-access-control/check-access.md). Next, see the following table to check what roles and scopes are necessary for certain actions.
+Actions like these involve Role-Based Access Control (RBAC). To effectively use RBAC for firmware analysis, you must know what your role assignment is, and at what scope. Knowing this information will inform you about what permissions you have, and thus whether you can complete certain actions. To check your role assignment, refer to [Check access for a user to a single Azure resource - Azure RBAC](./../role-based-access-control/check-access.md). Next, see the following table to check what roles and scopes are necessary for certain actions.
 
-### Common roles in Firmware analysis
+### Common roles in firmware analysis
 
 This table categorizes each role and provides a brief description of their permissions:
 
@@ -55,32 +62,35 @@ This table categorizes each role and provides a brief description of their permi
 **Owner** | Privileged administrator role | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC.
 **Contributor** | Privileged administrator role | Grants full access to manage all resources, but doesn't allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
 **Security Admin** | Job function role | Allows the user to upload and analyze firmware images, add/assign security initiatives, and edit the security policy. [Learn more](/azure/defender-for-cloud/permissions).
-**Firmware Analysis Admin** | Job function role | Allows the user to upload and analyze firmware images. The user has no access beyond firmware analysis (can't access other resources in the subscription, create or delete resources, or invite other users).
+**Firmware Analysis Admin** | Job function role | Allows the user to upload and analyze firmware images. The user can perform workspace configuration, such as creating and deleting workspaces. The user has no access beyond firmware analysis (can't access other resource groups in the subscription, create or delete resource groups, or invite other users).
+**Firmware Analysis User** | Job function role | Allows the user to upload and analyze firmware images, and view analysis results. The user cannot perform workspace configuration. The user also has no access beyond firmware analysis (can't access other resource groups in the subscription, create or delete resource groups, or invite other users).
+**Firmware Analysis Reader** | Job function role | Allows the user to view and download firmware image results but not upload firmware images or perform any workspace configurations. The user also has no access beyond firmware analysis (can't access other resource groups in the subscription, create or delete resource groups, or invite other users).
 
 ## Firmware analysis roles, scopes, and capabilities
 
-The following table summarizes what roles you need to perform certain actions. These roles and permissions apply at the Subscription and Resource Group levels, unless otherwise stated.
+The following table summarizes what roles you need to perform certain actions. These roles and permissions apply at the Subscription, Resource Group, and Workspace levels, unless otherwise stated.
 
 **Action** | **Role required**
 :---|:---
-Analyze firmware | Owner, Contributor, Security Admin, or Firmware Analysis Admin
+Upload and analyze firmware | Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User 
 Invite third party users to see firmware analysis results | Owner
 Invite users to the Subscription | Owner at the **Subscription** level (Owner at the Resource Group level **cannot** invite users to the Subscription)
+View firmware analysis results | Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User, Firmware Analysis Reader
 
 ## Uploading Firmware images
 To upload firmware images:
 
-* Confirm that you have sufficient permission in [Firmware Analysis Roles, Scopes, and Capabilities](#firmware-analysis-roles-scopes-and-capabilities).
+* Confirm that you have sufficient permission in [Firmware analysis Roles, Scopes, and Capabilities](#firmware-analysis-roles-scopes-and-capabilities).
 * [Upload a firmware image for analysis](./tutorial-analyze-firmware.md#upload-a-firmware-image-for-analysis).
 
 ## Invite third parties to interact with your firmware analysis results
-You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Admin at the Resource Group level.
+You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Reader at the Resource Group or Workspace level.
 
-To invite a third party, follow the [Assign Azure roles to external guest users using the Azure portal](./../role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
+To invite a third party, you must first invite them to your directory. To do this, follow the [Assign Azure roles to external guest users using the Azure portal](./../role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
 
 * In step 3, navigate to your resource group.
-* In step 7, select the **Firmware Analysis Admin** role.
+* In step 7, select the **Firmware Analysis Reader** role.
 
 > [!Note]
-> If you received an email to join an organization, be sure to check your Junk folder for the invitation email if you don't see it in your inbox.
-> 
+> If you received an email to join an organization, be sure to check your Junk folder for the invitation email if you don't see it in your inbox. 
+>  

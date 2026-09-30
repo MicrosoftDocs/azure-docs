@@ -2,19 +2,17 @@
 title: Azure API Management policy reference - validate-content | Microsoft Docs
 description: Reference for the validate-content policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 08/30/2024
-ms.author: danlep
+ms.topic: reference
+ms.date: 08/18/2026
 ---
 
 # Validate content
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `validate-content` policy validates the size or content of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
+The `validate-content` policy validates the size or content (or both) of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
 
 The following table shows the schema formats and request or response content types that the policy supports. Content type values are case insensitive. 
 
@@ -92,11 +90,14 @@ The policy validates the following content in the request or response against th
 | allow-additional-properties |  Boolean. For a JSON schema, specifies whether to implement a runtime override of the `additionalProperties` value configured in the schema: <br> - `true`: allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to not allow additional properties. <br> - `false`: do not allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to allow additional properties.<br/><br/>If the attribute isn't specified, the policy validates additional properties according to configuration of the `additionalProperties` field in the schema. | No |   N/A  |
 | case-insensitive-property-names | Boolean. For a JSON schema, specifies whether to compare property names of JSON objects without regard to case. <br> - `true`: compare property names case insensitively. <br> - `false`: compare property names case sensitively. | No | false |
 
+> [!IMPORTANT]
+> Linked access isn't checked when a schema is referenced by using `schema-id`. A user who has permission to write a policy can reference any available schema and cause API Management to validate request or response bodies against its rules, including detecting or blocking nonconforming content, even if the user doesn't have read access to the schema resource. This doesn't grant access to view or modify the schema definition.
+
 [!INCLUDE [api-management-validation-policy-actions](../../includes/api-management-validation-policy-actions.md)]
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
@@ -159,6 +160,74 @@ In the following example, API Management interprets any request as a request wit
     <content-type-map any-content-type-value="application/soap+xml" />
     <content type="application/soap+xml" validate-as="soap" schema-id="myschema" action="prevent" /> 
 </validate-content>
+```
+
+### Complete policy example with content validation
+
+The following example shows a complete policy document for a customer order API that uses `validate-content` to validate incoming requests and outgoing responses. The policy validates that customer order payloads conform to the `customer-order-schema` (added to API Management) before forwarding them to the backend, and also validates that the backend's order confirmation matches the expected schema, but only detects issues rather than blocking them.
+
+
+```xml
+<policies>
+    <inbound>
+        <base />
+        <!-- Authenticate the request -->
+        <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized">
+            <openid-config url="https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration" />
+            <audiences>
+                <audience>api://customer-orders</audience>
+            </audiences>
+        </validate-jwt>
+        
+        <!-- Rate limit per subscription -->
+        <rate-limit-by-key calls="100" renewal-period="60" counter-key="@(context.Subscription.Id)" />
+        
+        <!-- Validate incoming order request -->
+        <validate-content unspecified-content-type-action="prevent" max-size="524288" size-exceeded-action="prevent" errors-variable-name="requestValidationErrors">
+            <content type="application/json" validate-as="json" schema-id="customer-order-schema" action="prevent" allow-additional-properties="false" />
+        </validate-content>
+        
+        <!-- Set backend URL -->
+        <set-backend-service base-url="https://orders-backend.contoso.com/api" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+        
+        <!-- Validate backend response -->
+        <validate-content unspecified-content-type-action="detect" max-size="1048576" size-exceeded-action="detect" errors-variable-name="responseValidationErrors">
+            <content type="application/json" validate-as="json" schema-id="order-confirmation-schema" action="detect" />
+        </validate-content>
+        
+        <!-- Add custom header to indicate validation passed -->
+        <set-header name="X-Content-Validated" exists-action="override">
+            <value>true</value>
+        </set-header>
+    </outbound>
+    <on-error>
+        <base />
+        <!-- Return validation errors in a structured format -->
+        <choose>
+            <when condition="@(context.Variables.ContainsKey("requestValidationErrors"))">
+                <return-response>
+                    <set-status code="400" reason="Bad Request" />
+                    <set-header name="Content-Type" exists-action="override">
+                        <value>application/json</value>
+                    </set-header>
+                    <set-body>@{
+                        var errors = (IEnumerable<object>)context.Variables["requestValidationErrors"];
+                        return JsonConvert.SerializeObject(new {
+                            error = "Request validation failed",
+                            details = errors
+                        });
+                    }</set-body>
+                </return-response>
+            </when>
+        </choose>
+    </on-error>
+</policies>
 ```
 
 [!INCLUDE [api-management-validation-policy-error-reference](../../includes/api-management-validation-policy-error-reference.md)]

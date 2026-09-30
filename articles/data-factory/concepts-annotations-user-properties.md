@@ -1,17 +1,18 @@
 ---
 title: Monitor Azure Data Factory and Azure Synapse Analytics pipelines with annotations and user properties
 description: Advanced monitoring with annotations and user properties
-author: olmoloce
-ms.author: olmoloce
-ms.reviewer: olmoloce
+author: whhender
+ms.author: whhender
 ms.subservice: monitoring
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ---
 
 # Monitor Azure Data Factory and Azure Synapse Analytics pipelines with annotations and user properties
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 When monitoring your data pipelines, you might want to be able to filter and monitor a certain group of activities, such as those of a project or specific department's pipelines. You might also need to further monitor activities based on dynamic properties. You can achieve these things by using annotations and user properties.
 

@@ -2,10 +2,10 @@
 title: Deploy SSIS packages 
 description: Learn how to deploy and run SSIS packages in Azure Data Factory with the Azure-SSIS integrated runtime.
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
-author: chugugrace
-ms.author: chugu 
+author: kromerm
+ms.author: makromer
 ms.custom:
 ---
 # Deploy SSIS packages

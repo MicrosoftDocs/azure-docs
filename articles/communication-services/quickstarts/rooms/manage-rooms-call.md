@@ -3,17 +3,19 @@ title: Quickstart - Manage a room call
 titleSuffix: An Azure Communication Services Quickstart
 description: In this quickstart, you learn how to manage a room call using Calling SDKs and Call Automation SDKs
 services: azure-communication-services
-author: mikehang
+author: mayssamm
 manager: alexokun
 
-ms.author: mikehang
-ms.date: 07/10/2024
+ms.author: mayssamm
+ms.date: 02/27/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
 ---
 
 # Quickstart: Manage a room call
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 ## Introduction
 During an Azure Communication Services (ACS) room call, you can manage the call using Calling SDKs or Call Automation SDKs or both. In a room call, you can control in-call actions using both the roles assigned to participants and properties configured in the room. The participant's roles control capabilities permitted per participant, while room properties apply to the room call as a whole.

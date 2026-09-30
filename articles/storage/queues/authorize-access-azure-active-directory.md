@@ -5,10 +5,11 @@ description: Authorize access to Azure queues using Microsoft Entra ID. Assign A
 author: akashdubey-ms
 
 ms.service: azure-queue-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/17/2023
 ms.author: akashdubey
 
+# Customer intent: As a cloud architect, I want to implement Microsoft Entra ID for authorizing access to Azure queues, so that I can enhance security and manage permissions effectively using role-based access control.
 ---
 
 # Authorize access to queues using Microsoft Entra ID
@@ -112,7 +113,7 @@ Azure RBAC provides several built-in roles for authorizing access to queue data 
 - [Storage Queue Data Message Processor](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Use to grant peek, retrieve, and delete permissions to messages in Azure Storage queues.
 - [Storage Queue Data Message Sender](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use to grant add permissions to messages in Azure Storage queues.
 
-To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to queue data](assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.yml).
+To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to queue data](assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](/azure/role-based-access-control/role-definitions-list).
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 

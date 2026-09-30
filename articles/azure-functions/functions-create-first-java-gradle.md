@@ -2,9 +2,9 @@
 title: Use Java and Gradle to publish a function to Azure
 description: Create and publish an HTTP-triggered function to Azure with Java and Gradle.
 author: KarlErickson
+ms.author: karler
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
-ms.author: karler
 ms.topic: quickstart
 ms.date: 04/08/2020
 ---
@@ -14,13 +14,13 @@ ms.date: 04/08/2020
 This article shows you how to build and publish a Java function project to Azure Functions with the Gradle command-line tool. When you're done, your function code runs in Azure in a [serverless hosting plan](consumption-plan.md) and is triggered by an HTTP request. 
 
 > [!NOTE]
-> If Gradle is not your preferred development tool, check out our similar tutorials for Java developers using [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [VS Code](./create-first-function-vs-code-java.md).
+> If Gradle is not your preferred development tool, check out our similar tutorials for Java developers using [Maven](./how-to-create-function-azure-cli.md?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [VS Code](./how-to-create-function-vs-code.md?pivot=programming-language-java).
 
 ## Prerequisites
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. (Java 21 is currently supported in preview on Linux only)
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. (Java 21 is currently supported on Linux only)
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 - [Gradle](https://gradle.org/), version 6.8 and above
@@ -55,9 +55,6 @@ azurefunctions {
 ```
 
 Open the new Function.java file from the *src/main/java* path in a text editor and review the generated code. This code is an [HTTP triggered](functions-bindings-http-webhook.md) function that echoes the body of the request. 
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)
 
 ## Run the function locally
 
@@ -98,9 +95,6 @@ Hello, AzureFunctions
 
 Use `Ctrl+C` in the terminal to stop the function code.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=local-run)
-
 ## Deploy the function to Azure
 
 A function app and related resources are created in Azure when you first deploy your function app. Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
@@ -125,12 +119,9 @@ This creates the following resources in Azure, based on the values in the build.
 + App Service plan. Serverless Consumption plan hosting for your function app in the specified _region_. The name is generated randomly.
 + Function app. A function app is the deployment and execution unit for your functions. The name is your _appName_, appended with a randomly generated number. 
 
-The deployment also packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy), with run-from-package mode enabled.
+The deployment also packages the project files and deploys them to the new function app by using [ZIP deployment](functions-deployment-technologies.md#zip-deployment), with run-from-package mode enabled.
 
 The authLevel for HTTP Trigger in sample project is `ANONYMOUS`, which will skip the authentication. However, if you use other authLevel like `FUNCTION` or `ADMIN`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=deploy)
 
 ## Get the HTTP trigger URL
 
@@ -159,9 +150,6 @@ This sends a POST request to the function endpoint with `AzureFunctions` in the 
 <pre>
 Hello, AzureFunctions
 </pre>
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=verify-deployment)
 
 ## Next steps
 

@@ -1,66 +1,41 @@
 ---
 title: Quickstart - Create a network security perimeter - Azure PowerShell
+titleSuffix: Azure Private Link
 description: Learn how to create a network security perimeter for an Azure resource using Azure PowerShell. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
-ms.custom:
-  - ignite-2024
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 08/05/2026
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure PowerShell, so that I can control the network traffic to and from the resource.
+# Customer intent: As a network administrator, I want to create and manage a network security perimeter for an Azure Key Vault using PowerShell, so that I can enhance security by controlling the network traffic within a trusted boundary.
 ---
 
 # Quickstart: Create a network security perimeter - Azure PowerShell
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure Key Vault using Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
+- The Azure PowerShell `Az` module installed locally. The network security perimeter cmdlets ship in the current stable release of `Az.Network`, so no prerelease build is required.
 
-- The latest version of the Azure PowerShell module with tools for network security perimeter.
-  
     ```azurepowershell
-    # Install the Az.Tools.Installer module    
-    Install-Module -Name Az.Tools.Installer -Repository PSGallery
+    # Install or update the Az PowerShell module
+    Install-Module -Name Az -Repository PSGallery -Scope CurrentUser -Force
     ```
 
-- Use `Az.Tools.Installer` to install the preview build of the `Az.Network`:
-
-    ```azurepowershell-interactive
-    # Install the preview build of the Az.Network module
-    Install-Module -Name Az.Tools.Installer -Repository PSGallery -allowprerelease -force
-
-    # List the current versions of the Az.Network module available in the PowerShell Gallery
-    Find-Module -Name Az.Network -Allversions -AllowPrerelease
-
-    # Install the preview build of the Az.Network module using the 
-
-    Install-AzModule -Name Az.Network -AllowPrerelease -Force
-    Install-AzModule -Path <previewVersionNumber>
-    ```
-    > [!NOTE]
-    > The preview version of the Az.Network module is required to use network security perimeter capabilities. The latest version of the Az.Network module is available in the PowerShell Gallery. Look for the newest version that ends in `-preview`.
-
-- If you choose to use Azure PowerShell locally:
-  - [Install the latest version of the Az PowerShell module](/powershell/azure/install-azure-powershell).
-  - Connect to your Azure account using the
-    [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-- If you choose to use Azure Cloud Shell:
-  - For more information on Azure Cloud Shell, see [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
+- You can choose to use Azure PowerShell locally or use [Azure Cloud Shell](/azure/cloud-shell/overview).
 - To get help with the PowerShell cmdlets, use the `Get-Help` command:
     ```azurepowershell-interactive
-    
     # Get help for a specific command
-    get-help -Name <powershell-command> - full
+    Get-Help -Name <powershell-command> -Full
 
     # Example
-    get-help -Name New-AzNetworkSecurityPerimeter - full
+    Get-Help -Name New-AzNetworkSecurityPerimeter -Full
     ```
 
 ## Sign in to your Azure account and select your subscription
@@ -75,7 +50,7 @@ Connect-AzAccount
 Then, connect to your subscription:
 
 ```azurepowershell
-# List all subscriptions
+# Select the subscription to use
 Set-AzContext -Subscription <subscriptionId>
 
 # Register the Microsoft.Network resource provider
@@ -86,7 +61,6 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 Before you can create a network security perimeter, you have to create a resource group and a key vault resource.  
 This example creates a resource group named `test-rg` in the WestCentralUS location and a key vault named `demo-keyvault-<RandomValue>` in the resource group with the following commands:
-
 
 ```azurepowershell-interactive
 # Create a resource group
@@ -123,8 +97,7 @@ $nsp = @{
         ResourceGroupName = $rgParams.name  
         } 
 
-$demoNSP=New-AzNetworkSecurityPerimeter @nsp
-$nspId = $demoNSP.Id
+$demoNSP = New-AzNetworkSecurityPerimeter @nsp
   
 ```
 
@@ -179,7 +152,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
 ## Manage network security perimeter access rules
 
-In this step, you create, update and delete network security perimeter access rules with public IP address prefixes.
+In this step, you create and update network security perimeter access rules with public IP address prefixes.
 
 ```azurepowershell-interactive
     # Create an inbound access rule for a public IP address prefix
@@ -205,7 +178,7 @@ In this step, you create, update and delete network security perimeter access ru
     Update-AzNetworkSecurityPerimeterAccessRule @updateInboundRule | format-list
 ```
 
-[!INCLUDE [network-security-pe~rimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
+[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete all resources 
 
@@ -214,7 +187,7 @@ When you no longer need the network security perimeter, remove all resources ass
 ```azurepowershell-interactive
 
     # Retrieve the network security perimeter and place it in a variable
-    $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.Params.Name
+    $nsp = Get-AzNetworkSecurityPerimeter -Name 'demo-nsp' -ResourceGroupName $rgParams.Name
 
     # Delete the network security perimeter and all associated resources
     $removeNsp = @{ 

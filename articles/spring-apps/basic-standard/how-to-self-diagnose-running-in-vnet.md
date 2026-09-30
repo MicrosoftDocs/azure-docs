@@ -1,11 +1,12 @@
 ---
-title: "How to self-diagnose Azure Spring Apps with virtual networks"
+title: "How to Self-Diagnose Azure Spring Apps with Virtual Networks"
 description: Learn how to self-diagnose and solve problems in Azure Spring Apps running in virtual networks.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 ---
 

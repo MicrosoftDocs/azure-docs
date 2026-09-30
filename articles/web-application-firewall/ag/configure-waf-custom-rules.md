@@ -2,13 +2,13 @@
 title: Configure v2 custom rules using PowerShell
 titleSuffix: Azure Web Application Firewall
 description: Learn how to configure Web Application Firewall (WAF) v2 custom rules using Azure PowerShell. You can create your own rules evaluated for each request that passes through the firewall.
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a security administrator, I want to configure custom rules for the Web Application Firewall using PowerShell, so that I can tailor traffic filtering based on specific request attributes and enhance web application security."
 ---
 
 # Configure Web Application Firewall v2 on Application Gateway with a custom rule using Azure PowerShell

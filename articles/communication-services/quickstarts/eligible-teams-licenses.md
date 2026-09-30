@@ -6,13 +6,15 @@ manager: anitharaju
 services: azure-communication-services
 ms.author: aigerimb
 ms.date: 06/16/2022
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom: kr2b-contr-experiment
 ---
 
 # Teams License requirements to use Azure Communication Services support for Teams users
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 To use Azure Communication Services support for Teams users, you need a Microsoft Entra instance with users that have a valid Teams license. Furthermore, license must be assigned to the administrators or relevant users. Also, note that [MSA accounts (personal Microsoft accounts)](/entra/external-id/microsoft-account) are not supported. This article describes the service plans requirements to use Azure Communication Services support for Teams users.
 

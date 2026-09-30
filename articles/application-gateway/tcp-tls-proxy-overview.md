@@ -1,17 +1,18 @@
 ---
-title: Application Gateway TCP/TLS proxy overview (Preview)
+title: Application Gateway TCP/TLS proxy overview
 description: This article provides an overview of Azure Application Gateway's TCP/TLS (layer 4) proxy service. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 09/06/2024
-ms.author: greglin
+ms.date: 11/26/2025
+ms.author: mbender
+# Customer intent: As a network architect, I want to implement TCP/TLS proxy capabilities on an application gateway, so that I can efficiently manage both HTTP and non-HTTP workloads while ensuring secure connections to backend servers.
 ---
 
-# Application Gateway TCP/TLS proxy overview (Preview)
+# Application Gateway TCP/TLS proxy overview
 
-In addition to the existing Layer 7 capabilities (HTTP, HTTPS, WebSockets and HTTP/2), Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying.  This feature is currently in public preview. To preview this feature, see [Register to the preview](how-to-tcp-tls-proxy.md#register-to-the-preview).
+In addition to the existing Layer 7 capabilities (HTTP, HTTPS, WebSockets and HTTP/2), Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying.
 
 ## TLS/TCP proxy capabilities on Application Gateway
 
@@ -32,6 +33,21 @@ Process flow:
 | [**Azure Load Balancer**](../load-balancer/load-balancer-overview.md) | A pass-through load balancer where a client directly establishes a connection with a backend server selected by the Load Balancer's distribution algorithm. |
 | **Azure Application Gateway** | Terminating load balancer where a client directly establishes a connection with Application Gateway and a separate connection is initiated with a backend server selected by Application Gateway's distribution algorithm. |
 
+#### Azure Application Gateway (TLS/TCP proxy)
+- **Type** – Layer-4 terminating proxy.
+- **Protocols** – Supports TCP or TLS protocols.
+- **Versatility** – Use a single endpoint (frontend IP) to serve HTTP and non-HTTP workloads.
+- **Scaling** – Configure autoscaling (up to 125 instances) to serve your TCP and TLS traffic.
+- **Security through TLS termination** – Simplify security with centralized TLS termination and certificate management ensuring consistent compliance across all applications, including non-HTTP workloads. Seamlessly integrates with Azure Key Vault for secure certificate management.
+- **Backend types** – Flexibly connect your applications to backends anywhere; within the same Virtual Network, across peered VNets, through remote FQDNs or IPs, or even via hybrid connectivity to your on-premises servers.
+
+#### Azure Load Balancer
+- **Type** – Layer-4 pass-through network device.
+- **Protocols** – Supports TCP or UDP protocols.
+- **Performance** – Provides low latency and high throughput. Built for millions of simultaneous connections with microsecond-level latency.
+- **Scaling** – Handles long-lived connections and scales up to millions of flows for all TCP and UDP applications.
+- **Inbound and outbound** – Azure Load Balancer delivers complete traffic control with both inbound and outbound capabilities. Seamlessly connect external clients to your applications, while enabling your backend instances to securely reach the internet and other services.
+- **Direct server return** - For the return traffic, the backend instance sends the response packet directly back to the client's IP address, reducing latency and improving performance.
 
 ## Features
 
@@ -46,7 +62,7 @@ Process flow:
 
 - A WAF v2 SKU gateway allows the creation of TLS or TCP listeners and backends to support HTTP and non-HTTP traffic through the same resource. However, it does not inspect traffic on TLS and TCP listeners for exploits and vulnerabilities. 
 - The default [draining timeout](configuration-http-settings.md#connection-draining) value for backend servers is 30 seconds. At present, a user-defined draining value is not supported.
-- Client IP preservation is currently not supported.
+- A configuration update (PUT) on Application Gateway ends the active connections after the default draining timeout period.
 - Application Gateway Ingress Controller (AGIC) is not supported and works only with L7 proxy through HTTP(S) listeners.
 
 ## Next steps

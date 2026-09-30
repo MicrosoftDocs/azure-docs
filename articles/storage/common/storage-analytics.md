@@ -3,12 +3,13 @@ title: Use Azure Storage analytics to collect logs  data
 description: Storage Analytics enables you to collect logs for Blob, Queue, and Table storage.
 author: normesta
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: monitoring
+# Customer intent: As a storage administrator, I want to enable and utilize Storage Analytics for my storage account, so that I can monitor logs, analyze usage trends, and diagnose issues effectively.
 ---
 
 # Storage Analytics
@@ -26,8 +27,6 @@ Azure Storage Analytics performs logging for a storage account. You can use this
 To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure portal](https://portal.azure.com). For details, see [Monitor a storage account in the Azure portal](./manage-storage-analytics-logs.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties), [Set Queue Service Properties](/rest/api/storageservices/set-queue-service-properties), [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties), and [Set File Service Properties](/rest/api/storageservices/Get-File-Service-Properties) operations to enable Storage Analytics for each service.
 
 The aggregated log data is stored in a well-known blob, which may be accessed using the Blob service and Table service APIs.
-
-Storage Analytics has a 20 TB limit on the amount of stored data that is independent of the total limit for your storage account. For more information about storage account limits, see [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md).
 
 For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 

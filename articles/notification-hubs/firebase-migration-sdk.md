@@ -1,22 +1,22 @@
 ---
-title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration using SDKs
-description: Describes how Azure Notification Hubs addresses the Google Cloud Messaging (GCM) to FCM migration using the Azure SDKs.
+title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) Migration Using SDKs
+description: Learn how Azure Notification Hubs addresses the Google Cloud Messaging (GCM) to FCM migration using the Azure SDKs.
 author: sethmanheim
-manager: femila
+manager: lizross
 ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 05/08/2024
+ms.date: 05/01/2025
 ms.author: sethm
-ms.reviewer: heathertian
-ms.lastreviewed: 03/01/2024
+ms.custom: sfi-ropc-nochange
+
 ---
 
 # Google Firebase Cloud Messaging migration using Azure SDKs
 
-Google will deprecate the Firebase Cloud Messaging (FCM) legacy API by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1 on March 1, 2024. You must complete the migration by June 2024. This section describes the steps to migrate from FCM legacy to FCM v1 using the Azure SDKs.
+Google deprecated the Firebase Cloud Messaging (FCM) legacy API in July 2024. This section describes the steps to migrate from FCM legacy to FCM v1 using the Azure SDKs.
 
 > [!IMPORTANT]
-> As of June 2024, FCM legacy APIs will no longer be supported and will be retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](notification-hubs-gcm-to-fcm.md) as soon as possible.
+> As of June 2024, FCM legacy APIs are longer supported and are retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](notification-hubs-gcm-to-fcm.md) as soon as possible.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Google will deprecate the Firebase Cloud Messaging (FCM) legacy API by July 2024
 
 1. Update the payload template. If you're not using templates, you can skip this step.
 
-   See the [FCM REST reference](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages) for the FCM v1 payload structure. For information about migrating from the FCM legacy payload to the FCM v1 payload, see [Update the payload of send requests](https://firebase.google.com/docs/cloud-messaging/migrate-v1#update-the-payload-of-send-requests).
+   See the [FCM REST reference](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages) for the FCM v1 payload structure.
 
    For example, if you're using registrations:
 

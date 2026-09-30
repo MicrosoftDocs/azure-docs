@@ -3,7 +3,7 @@ title: Execute Azure Machine Learning pipelines
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory and Synapse Analytics pipelines. 
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: abnarain
 author: nabhishek
 ms.date: 10/03/2024
@@ -13,6 +13,9 @@ ms.subservice: orchestration
 # Execute Azure Machine Learning pipelines in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Azure Machine Learning activity](/fabric/data-factory/azure-machine-learning-activity).
 
 Run your Azure Machine Learning pipelines as a step in your Azure Data Factory and Synapse Analytics pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
 
@@ -73,7 +76,6 @@ continueOnStepFailure | Whether to continue execution of other steps in the Mach
 See the following articles that explain how to transform data in other ways:
 
 * [Execute Data Flow activity](control-flow-execute-data-flow-activity.md)
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [Pig activity](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)

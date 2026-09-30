@@ -3,7 +3,7 @@ metadata:
   title: Azure Relay FAQs | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
   ms.topic: faq
-  ms.date: 12/10/2024
+  ms.date: 01/24/2026
 title: Azure Relay FAQs
 summary: |
   This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
@@ -95,7 +95,7 @@ sections:
 
           **Azure portal**
 
-          To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
+          To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-azure-portal). 
 
           **PowerShell**
 

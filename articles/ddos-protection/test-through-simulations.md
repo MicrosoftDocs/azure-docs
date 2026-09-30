@@ -2,16 +2,17 @@
 title: 'Tutorial: Azure DDoS Protection simulation testing'
 description: Learn about how to test Azure DDoS Protection through simulations.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 07/17/2024
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
+# Customer intent: As a network security engineer, I want to conduct DDoS protection simulations, so that I can assess and optimize our incident response procedures in the event of an actual DDoS attack.
 ---
 
 # Tutorial: Azure DDoS Protection simulation testing
 
-It’s a good practice to test your assumptions about how your services respond to an attack by conducting periodic simulations. During testing, validate that your services or applications continue to function as expected and there’s no disruption to the user experience. Identify gaps from both a technology and process standpoint and incorporate them in the DDoS response strategy. We recommend that you perform such tests in staging environments or during non-peak hours to minimize the impact to the production environment.
+It’s a good practice to test your assumptions about how your services respond to an attack by conducting periodic simulations. During testing, validate that your services or applications continue to function as expected and there’s no disruption to the user experience. Identify gaps from both a technology and process standpoint and incorporate them in the DDoS response strategy. We recommend that you perform such tests in staging environments or during nonpeak hours to minimize the impact to the production environment.
 
 For this tutorial, you'll create a test environment that includes:
 
@@ -35,8 +36,7 @@ Simulations help you:
 ## Azure DDoS simulation testing policy
 
 You can only simulate attacks using our approved testing partners:
-- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations.
-- [MazeBolt](https://mazebolt.com):The RADAR™ platform continuously identifies and enables the elimination of DDoS vulnerabilities – proactively and with zero disruption to business operations.
+- [MazeBolt](https://mazebolt.com): The RADAR™ platform continuously identifies and enables the elimination of DDoS vulnerabilities – proactively and with zero disruption to business operations.
 - [Red Button](https://www.red-button.net/): work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
 - [RedWolf](https://www.redwolfsecurity.com/services/#cloud-ddos): a self-service or guided DDoS testing provider with real-time control.
 
@@ -44,7 +44,7 @@ You can only simulate attacks using our approved testing partners:
 Our testing partners' simulation environments are built within Azure. You can only simulate against Azure-hosted public IP addresses that belong to an Azure subscription of your own, which will be validated by our partners before testing. Additionally, these target public IP addresses must be protected under Azure DDoS Protection. Simulation testing allows you to assess your current state of readiness, identify gaps in your incident response procedures, and guide you in developing a proper [DDoS response strategy](ddos-response-strategy.md). 
 
 > [!NOTE]
-> BreakingPoint Cloud and Red Button are only available for the Public cloud.
+> Red Button is only available for the Public cloud.
 
 ## Prerequisites
 
@@ -62,8 +62,6 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Monitor**. Select **Monitor** in the search results.
 1. Select **Diagnostic Settings** under **Settings** in the left pane, then select the following information in the **Diagnostic settings** page. Next, select **Add diagnostic setting**.
-
-    :::image type="content" source="./media/ddos-attack-simulation/ddos-monitor-diagnostic-settings.png" alt-text="Screenshot of Monitor diagnostic settings.":::
 
     | Setting | Value |
     |--|--|
@@ -94,12 +92,7 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
 
 1. Select **+ Create** on the navigation bar, then select **Alert rule**.
 
-    :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-page.png" alt-text="Screenshot of creating Alerts in Azure." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-page.png":::
-
 1. On the **Create an alert rule** page, select **+ Select scope**, then select the following information in the **Select a resource** page.
-
-    :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-scope.png" alt-text="Screenshot of selecting DDoS Protection attack alert scope." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-scope.png":::
-
 
     | Setting | Value |
     |--|--|
@@ -108,12 +101,11 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
     |Resource | Select the specific **Public IP address** you want to log metrics for. |
 
 1. Select **Done**, then select **Next: Condition**.
-1. On the **Condition** page, select **+ Add Condition**, then in the *Search by signal name* search box, search and select **Under DDoS attack or not**.
+1. On the **Condition** page, select **+ Add Condition**, then in the *Search by signal name* search box, search, and select **Under DDoS attack or not**.
 
     :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-add-condition.png" alt-text="Screenshot of adding DDoS Protection attack alert condition." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-add-condition.png":::
 
 1. In the **Create an alert rule** page, enter or select the following information. 
-  :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-signal.png" alt-text="Screenshot of adding DDoS Protection attack alert signal." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-signal.png":::
 
     | Setting | Value |
     |--|--|
@@ -130,7 +122,6 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
 #### Create action group
 
 1. In the **Create action group** page, enter the following information, then select **Next: Notifications**.
-:::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-action-group-basics.png" alt-text="Screenshot of adding DDoS Protection attack alert action group basics." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-action-group-basics.png":::
 
     | Setting | Value |
     |--|--|
@@ -143,20 +134,15 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
     
 1. On the *Notifications* tab, under *Notification type*, select **Email/SMS message/Push/Voice**. Under *Name*, enter **myUnderAttackEmailAlert**.
 
-    :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-action-group-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert notification type." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-action-group-notification.png":::
-
 
 1. On the *Email/SMS message/Push/Voice* page, select the **Email** check box, then enter the required email. Select **OK**.
 
-    :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert notification page." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-notification.png":::
 
 1. Select **Review + create** and then select **Create**.
 
 #### Continue configuring alerts through portal
 
 1. Select **Next: Details**. 
-
-     :::image type="content" source="./media/ddos-attack-simulation/ddos-protection-alert-details.png" alt-text="Screenshot of adding DDoS Protection attack alert details page." lightbox="./media/ddos-attack-simulation/ddos-protection-alert-details.png":::
 
 1. On the *Details* tab, under *Alert rule details*, enter the following information. 
 
@@ -168,37 +154,6 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
 1. Select **Review + create** and then select **Create** after validation passes.
 
 ## Configure a DDoS attack simulation
-
-### BreakingPoint Cloud
-
-BreakingPoint Cloud is a self-service traffic generator where you can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
-
-BreakingPoint Cloud offers:
-
-- A simplified user interface and an “out-of-the-box” experience.
-- Pay-per-use model.
-- Predefined DDoS test sizing and test duration profiles enable safer validations by eliminating the potential of configuration errors.
-- A free trial account. 
-
-> [!NOTE]
-> For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud).  
-
-Example attack values:
-
-:::image type="content" source="./media/ddos-attack-simulation/ddos-attack-simulation-example-1.png" alt-text="DDoS Attack Simulation Example: BreakingPoint Cloud."::: 
-
-|Setting        |Value                                              |
-|---------      |---------                                          |
-|Target IP address           | Enter one of your public IP address you want to test.                     |
-|Port Number   | Enter _443_.                       |
-|DDoS Profile | Possible values include `DNS Flood`, `NTPv2 Flood`, `SSDP Flood`, `TCP SYN Flood`, `UDP 64B Flood`, `UDP 128B Flood`, `UDP 256B Flood`, `UDP 512B Flood`, `UDP 1024B Flood`, `UDP 1514B Flood`, `UDP Fragmentation`, `UDP Memcached`.|
-|Test Size       | Possible values include `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs`, `800K pps, 400 Mbps and 32 source IPs`.                                  |
-|Test Duration | Possible values include `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes`, `30 Minutes`.|
-
-> [!NOTE]
-> - For more information on using BreakingPoint Cloud with your Azure environment, see this [BreakingPoint Cloud blog](https://www.keysight.com/blogs/tech/nwvs/2020/11/17/six-simple-steps-to-understand-how-microsoft-azure-ddos-protection-works).
-> - For a video demonstration of utilizing BreakingPoint Cloud, see [DDoS Attack Simulation](https://www.youtube.com/watch?v=xFJS7RnX-Sw).
-
 
 ### Red Button
 

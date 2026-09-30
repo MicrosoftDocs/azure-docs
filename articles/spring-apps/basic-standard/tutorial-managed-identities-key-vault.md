@@ -1,13 +1,18 @@
 ---
-title:  Connect Azure Spring Apps to Key Vault using managed identities
+title:  Connect Azure Spring Apps to Key Vault Using Managed Identities
 description: Set up managed identity to connect Key Vault to an app deployed to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 02/01/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 zone_pivot_groups: spring-apps-tier-selection
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Connect Azure Spring Apps to Key Vault using managed identities
@@ -30,15 +35,14 @@ The following video describes how to manage secrets using Azure Key Vault.
 
 ::: zone pivot="sc-enterprise"
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](../enterprise/how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](../enterprise/how-to-enterprise-marketplace-offer.md).
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.55.0 or higher.
 
 ::: zone-end
 
 ::: zone pivot="sc-standard"
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.55.0 or higher.
 
 ::: zone-end
@@ -263,7 +267,7 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
    vim src/main/resources/application.properties
    ```
 
-1. To use managed identity for an app deployed to Azure Spring Apps, add properties with the following content to the *src/main/resources/application.properties* file.
+1. To use managed identity for an app deployed to Azure Spring Apps, add properties with the following content to the **src/main/resources/application.properties** file.
 
    ### [System-assigned managed identity](#tab/system-assigned-managed-identity)
 
@@ -292,9 +296,9 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
     ---
 
    > [!NOTE]
-   > You must add the key vault URL in the *application.properties* file as shown previously. Otherwise, the key vault URL may not be captured during runtime.
+   > You must add the key vault URL in the **application.properties** file as shown previously. Otherwise, the key vault URL may not be captured during runtime.
 
-1. Update *src/main/java/com/example/demo/DemoApplication.java* with the following code example. This code retrieves the connection string from the Key Vault.
+1. Update **src/main/java/com/example/demo/DemoApplication.java** with the following code example. This code retrieves the connection string from the Key Vault.
 
    ```Java
    package com.example.demo;
@@ -328,7 +332,7 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
    }
    ```
 
-   If you open the *pom.xml* file, you can see the `spring-cloud-azure-starter-keyvault` dependency, as shown in the following example:
+   If you open the **pom.xml** file, you can see the `spring-cloud-azure-starter-keyvault` dependency, as shown in the following example:
 
    ```xml
    <dependency>

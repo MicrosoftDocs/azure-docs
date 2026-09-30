@@ -8,12 +8,14 @@ services: azure-communication-services
 
 ms.author: krkutser
 ms.date: 03/30/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
 # Phone number management for Sweden
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Sweden.
 
 ## Number types and capabilities availability
@@ -22,6 +24,7 @@ Use the below tables to find all the relevant information on number availability
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |-  | - | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
+| Mobile                    | General Availability\**       | General Availability\**       | -                    | -                      |
 |Alphanumeric Sender ID\**|General Availability  |-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -36,27 +39,45 @@ More details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
+| Toll-Free, Local (Geographic/National), Mobile | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
 | Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
+\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Create a ticket to https://pstnsd.powerappsportals.com/ for assistance.
 
 
 ## Azure subscription billing locations where Sweden phone numbers are available
 | Country/Region |
 | :---------- |
-|Sweden|
+|United States|
+|Canada|
+|United Kingdom|
 |Denmark|
 |Ireland|
 |Italy|
-|Puerto Rico|
-|United States|
-|United Kingdom|
-|Canada|
-|Japan|
+|Sweden|
+|France|
+|Spain|
+|Netherlands|
+|Germany|
 |Australia|
+|Japan|
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
+
+## Azure subscription billing locations where Sweden mobile numbers are available
+| Country/Region |
+| :---------- |
+| Australia       |
+| Belgium         |
+| Denmark         |
+| Finland         |
+| Ireland         |
+| Latvia          |
+| Netherlands     |
+| Poland          |
+| Sweden          |
+| United Kingdom  |
+| United States  |
 
 ## Azure subscription billing locations where Sweden alphanumeric sender IDs are available
 | Country/Region |

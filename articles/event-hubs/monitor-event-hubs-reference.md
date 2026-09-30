@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Event Hubs
 description: This article contains important reference material you need when you monitor Azure Event Hubs by using Azure Monitor.
-ms.date: 06/20/2024
+ms.date: 07/14/2025
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 ---
@@ -222,16 +222,33 @@ Application metrics logs capture the aggregated information on certain metrics r
 
 | Name | Description |
 |:-------|:------- |
-| `ConsumerLag` | Indicate the lag between consumers and producers.  |
+| `ConsumerLag` |Indicate the lag between consumers and producers.  For more details, see [ConsumerLag](#consumerlag) section.|
 | `NamespaceActiveConnections` | Details of active connections established from a client to the event hub.  |
 | `GetRuntimeInfo` | Obtain run time information from Event Hubs.  |
 | `GetPartitionRuntimeInfo` | Obtain the approximate runtime information for a logical partition of an event hub.  |
-| `IncomingMessages` | Details of number of messages published to Event Hubs.  |
+| `IncomingMessages` | Details of number of messages published to Event Hubs using AMQP protocol. |
 | `IncomingBytes` | Details of Publisher throughput sent to Event Hubs |
-| `OutgoingMessages` | Details of number of messages consumed from Event Hubs.  |
+| `OutgoingMessages` | Details of number of messages consumed from Event Hubs using AMQP protocol.|
 | `OutgoingBytes` | Details of Consumer throughput from Event Hubs. |
 | `OffsetCommit` | Number of offset commit calls made to the event hub  |
 | `OffsetFetch` | Number of offset fetch calls made to the event hub. |
+
+#### ConsumerLag
+
+Consumer lag is reported per partition and per consumer group. 
+
+**Kafka consumers.**
+For Kafka, consumer lag is commit lag: the difference between the last sequence number in the partition and the last offset the consumer group committed for that partition. It measures how far behind a group's committed position is, not how far behind its reads are.
+•	Lag is evaluated once a minute per partition, whether or not the group fetched any events.
+•	Emission is decided per partition, for all groups at once. If at least one consumer group committed an offset on that partition within the last hour, lag is emitted for every group holding a committed offset on that partition. If no group committed within the last hour, no lag is emitted for that partition at all, for any group.
+•	Because emission is all-or-nothing per partition, a group that stopped committing continues to be reported as long as another group is active on the same partition. Its committed position is frozen while the partition keeps receiving events, so its reported lag grows steadily. A large, steadily increasing lag for a group that is no longer running as expected.
+•	After a group's committed offset ages past the offset retention period, its entry is eventually removed and it stops being reported.
+
+**AMQP consumers**
+For AMQP, consumer lag is delivery lag: the difference between the last sequence number in the partition and the sequence number of the last event delivered to the receiver.
+•	It's recorded when events are actually delivered. A receiver that is fully caught up and receiving nothing produces no records — an absence of records does not mean lag is zero.
+•	It reflects an individual receiver's position at delivery time, not a stored checkpoint, so it is unaffected by whether or where your application checkpoints.
+•	Emission stops when the receiver stops receiving events or the link closes.
 
 ### Diagnostic Error Logs
 

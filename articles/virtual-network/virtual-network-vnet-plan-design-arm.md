@@ -3,11 +3,12 @@ title: Plan Azure virtual networks
 description: Learn how to plan for virtual networks based on your isolation, connectivity, and location requirements.
 services: virtual-network
 author: asudbring
-manager: mtillman
+manager: kumudD
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 04/08/2020
+ms.date: 04/17/2025
 ms.author: allensu
+# Customer intent: As a cloud architect, I want to plan and deploy virtual networks considering isolation, connectivity, and regional requirements, so that I can effectively support my organization's production needs and ensure compliance with security and latency standards.
 ---
 
 # Plan virtual networks
@@ -24,11 +25,11 @@ All Azure resources are created in an Azure region and subscription. You can cre
 
 - Do you have low network latency? Consumers of resources typically want the lowest network latency to their resources. To determine relative latencies between a specified location and Azure regions, see [View relative latencies](../network-watcher/view-relative-latencies.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Do you have data residency, sovereignty, compliance, or resiliency requirements? If so, choosing the region that aligns to the requirements is critical. For more information, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
-- Do you require resiliency across Azure availability zones within the same Azure region for the resources you deploy? You can deploy resources, such as virtual machines (VMs), to different availability zones within the same virtual network. Not all Azure regions support availability zones. To learn more about availability zones and the regions that support them, see [Availability zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Do you require resiliency across Azure availability zones within the same Azure region for the resources you deploy? You can deploy resources, such as virtual machines (VMs), to different availability zones within the same virtual network. Not all Azure regions support availability zones. To learn more about availability zones and the regions that support them, see [Availability zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Subscriptions
 
-You can deploy as many virtual networks as required within each subscription, up to the [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Some organizations have different subscriptions for different departments, for example. For more information and considerations around subscriptions, see [Subscription governance](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
+You can deploy as many virtual networks as required within each subscription, up to the [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits). Some organizations have different subscriptions for different departments, for example. For more information and considerations around subscriptions, see [Subscription governance](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
 
 ## Segmentation
 
@@ -40,17 +41,17 @@ A virtual network is a virtual, isolated portion of the Azure public network. Ea
 
 - Do any organizational security requirements exist for isolating traffic into separate virtual networks? You can choose to connect virtual networks or not. If you connect virtual networks, you can implement a network virtual appliance, such as a firewall, to control the flow of traffic between the virtual networks. For more information, see [Security](#security) and [Connectivity](#connectivity).
 - Do any organizational requirements exist for isolating virtual networks into separate [subscriptions](#subscriptions) or [regions](#regions)?
-- Do you have [network interface](virtual-network-network-interface.md) requirements? A network interface enables a VM to communicate with other resources. Each network interface has one or more private IP addresses assigned to it. How many network interfaces and [private IP addresses](./ip-services/private-ip-addresses.md) do you require in a virtual network? There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) to the number of network interfaces and private IP addresses that you can have within a virtual network.
+- Do you have [network interface](virtual-network-network-interface.md) requirements? A network interface enables a VM to communicate with other resources. Each network interface has one or more private IP addresses assigned to it. How many network interfaces and [private IP addresses](./ip-services/private-ip-addresses.md) do you require in a virtual network? There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits) to the number of network interfaces and private IP addresses that you can have within a virtual network.
 - Do you want to connect the virtual network to another virtual network or on-premises network? You might decide to connect some virtual networks to each other or on-premises networks, but not to others. For more information, see [Connectivity](#connectivity). Each virtual network that you connect to another virtual network or on-premises network must have a unique address space. Each virtual network has one or more public or private address ranges assigned to its address space. An address range is specified in classless internet domain routing (CIDR) format, such as 10.0.0.0/16. Learn more about [address ranges](manage-virtual-network.yml#add-or-remove-an-address-range) for virtual networks.
 - Do you have any organizational administration requirements for resources in different virtual networks? If so, you might separate resources into separate virtual networks to simplify [permission assignment](#permissions) to individuals in your organization or to assign different policies to different virtual networks.
 - Do you have requirements for resources that can create their own virtual network? When you deploy some Azure service resources into a virtual network, they create their own virtual network. To determine whether an Azure service creates its own virtual network, see information for each [Azure service that you can deploy into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 ### Subnets
 
-You can segment a virtual network into one or more subnets up to the [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). When you decide whether to create one subnet or multiple virtual networks in a subscription, consider the following points:
+You can segment a virtual network into one or more subnets up to the [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits). When you decide whether to create one subnet or multiple virtual networks in a subscription, consider the following points:
 
 - Have a unique address range for each subnet, specified in CIDR format, within the address space of the virtual network. The address range can't overlap with other subnets in the virtual network.
-- Be aware that if you plan to deploy some Azure service resources into a virtual network, they might require, or create, their own subnet. There must be enough unallocated space for them to do so. To determine whether an Azure service creates its own subnet, see information for each [Azure service that you can deploy into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). For example, if you connect a virtual network to an on-premises network by using an Azure VPN gateway, the virtual network must have a dedicated subnet for the gateway. Learn more about [gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
+- If you plan to deploy some Azure service resources into a virtual network, they might require, or create, their own subnet. There must be enough unallocated space for them to do so. To determine whether an Azure service creates its own subnet, see information for each [Azure service that you can deploy into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). For example, if you connect a virtual network to an on-premises network by using an Azure VPN gateway, the virtual network must have a dedicated subnet for the gateway. Learn more about [gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Override default routing for network traffic between all subnets in a virtual network. You want to prevent Azure routing between subnets or to route traffic between subnets through a network virtual appliance, for example. If you require that traffic between resources in the same virtual network flows through a network virtual appliance (NVA), deploy the resources to different subnets. Learn more in [Security](#security).
 - Limit access to Azure resources, such as an Azure Storage account or Azure SQL Database, to specific subnets with a virtual network service endpoint. You can also deny access to the resources from the internet. You can create multiple subnets and enable a service endpoint for some subnets, but not others. Learn more about [service endpoints](virtual-network-service-endpoints-overview.md) and the Azure resources for which you can enable them.
 - Associate zero or one network security group to each subnet in a virtual network. You can associate the same, or a different, network security group to each subnet. Each network security group contains rules, which allow or deny traffic to and from sources and destinations. Learn more about [network security groups](#traffic-filtering).
@@ -121,7 +122,7 @@ Policies are applied to the following hierarchy: management group, subscription,
 
 ## Related content
 
-Learn about all tasks, settings, and options for a:
+Learn about all tasks, settings, and options for virtual network resources & features in the following articles:
 
 - [Virtual network](manage-virtual-network.yml)
 - [Subnet and service endpoint](virtual-network-manage-subnet.md)

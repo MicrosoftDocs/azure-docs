@@ -25,7 +25,7 @@ If the app setting name begins with "AzureWebJobs", you can specify only the rem
 
 ### Identity-based connections
 
-If you're using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-storage-blob.md#install-extension) ([bundle 3.x or higher](../articles/azure-functions/functions-bindings-storage-blob.md?tabs=extensionv3#install-bundle) for non-.NET language stacks), instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To use an identity, you define settings under a common prefix that maps to the `connection` property in the trigger and binding configuration.
+If you're using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-storage-blob.md#install-extension) ([bundle 3.x or higher](../articles/azure-functions/functions-bindings-storage-blob.md?tabs=extensionv3#install-bundle) for non-.NET language stacks), instead of using a connection string with a secret, you can have the app use a [Microsoft Entra identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To use an identity, you define settings under a common prefix that maps to the `connection` property in the trigger and binding configuration.
 
 If you're setting `connection` to "AzureWebJobsStorage", see [Connecting to host storage with an identity](../articles/azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity). For all other connections, the extension requires the following properties: 
 
@@ -45,6 +45,31 @@ The `serviceUri` form  can't be used when the overall connection configuration i
 <sup>2</sup> The blob trigger handles failure across multiple retries by writing [poison blobs] to a queue. In the `serviceUri` form, the `AzureWebJobsStorage` connection is used. However, when specifying `blobServiceUri`, a queue service URI must also be provided with `queueServiceUri`. It's recommended that you use the service from the same storage account as the blob service. You also need to make sure the trigger can read and write messages in the configured queue service by assigning a role like [Storage Queue Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor). 
 
 Other properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
+
+#### User-assigned managed identity
+
+To use a user-assigned managed identity, add the `credential` and `clientId` properties in addition to the service URI:
+
+| Property                  | Environment variable template                       | Description                                | Example value |
+|---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
+| Blob Service URI | `<CONNECTION_NAME_PREFIX>__blobServiceUri` | The data plane URI of the blob service. | `https://mystorageaccount.blob.core.windows.net` |
+| Queue Service URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri` | The data plane URI of the queue service (required for blob triggers). | `https://mystorageaccount.queue.core.windows.net` |
+| Credential | `<CONNECTION_NAME_PREFIX>__credential` | Must be set to `managedidentity`. | `managedidentity` |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | The client ID of the user-assigned managed identity. | `00000000-0000-0000-0000-000000000000` |
+
+For example, if your binding configuration specifies `connection = "BlobStorageConnection"`, you would configure the following application settings:
+
+```json
+{
+    "BlobStorageConnection__blobServiceUri": "https://mystorageaccount.blob.core.windows.net",
+    "BlobStorageConnection__queueServiceUri": "https://mystorageaccount.queue.core.windows.net",
+    "BlobStorageConnection__credential": "managedidentity",
+    "BlobStorageConnection__clientId": "00000000-0000-0000-0000-000000000000"
+}
+```
+
+> [!TIP]
+> User-assigned managed identities are recommended for production scenarios where you need fine-grained control over identity permissions across multiple resources.
 
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 

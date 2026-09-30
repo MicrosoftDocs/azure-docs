@@ -3,12 +3,13 @@ title: TLS termination using PowerShell
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway and add a certificate for TLS termination using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc, devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want to create an application gateway with TLS termination using PowerShell, so that I can securely manage traffic to my backend servers with SSL.
 ---
 
 # Create an application gateway with TLS termination using Azure PowerShell
@@ -22,7 +23,7 @@ In this article, you learn how to:
 * Create an application gateway with the certificate
 * Create a virtual machine scale set with the default backend pool
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

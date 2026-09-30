@@ -3,7 +3,8 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 07/19/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!-- 
@@ -25,8 +26,8 @@ Use the following steps to create a Service Bus instance:
    | Setting                       | Suggested value                     | Description                                                                                                                                                                 |
    |-------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**              | Your subscription name.             | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
-   | **Resource group**            | *myresourcegroup*                   | A new resource group name or an existing one from your subscription.                                                                                                        |
-   | **Namespace name**            | *my-srvbus*                         | A unique name that identifies your Service Bus service.                                                                                                                     |
+   | **Resource group**            | **myresourcegroup**                   | A new resource group name or an existing one from your subscription.                                                                                                        |
+   | **Namespace name**            | **my-srvbus**                         | A unique name that identifies your Service Bus service.                                                                                                                     |
    | **Location**                  | The location closest to your users. | The location that is closest to your users.                                                                                                                                 |
    | **Hosting options and plans** | **Basic**                           | The pricing plan determines the resource and cost associated with your instance.                                                                                            |
 

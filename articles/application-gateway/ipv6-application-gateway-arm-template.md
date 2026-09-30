@@ -3,12 +3,13 @@ title: Deploy an Azure Application Gateway with an IPv6 frontend
 titleSuffix: Azure Application Gateway
 description: This template helps you deploys an Azure Application Gateway with an IPv6 frontend in a dual-stack virtual network with two load-balanced VMs.
 services: application-gateway
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.date: 11/06/2022
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+# Customer intent: "As a cloud architect, I want to deploy an Azure Application Gateway with an IPv6 frontend, so that I can ensure my web applications can handle dual-stack traffic effectively in a scalable and secure manner."
 ---
 
 # Deploy an Azure Application Gateway with an IPv6 frontend - ARM template
@@ -25,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 
 ## Review the template

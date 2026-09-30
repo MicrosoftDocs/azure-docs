@@ -2,7 +2,7 @@
 title: Use parameters to creating dynamic blueprints
 description: Learn about static and dynamic parameters and how to use them to create secure and dynamic blueprints.
 ms.date: 09/07/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 # Creating dynamic blueprints through parameters
 
@@ -69,6 +69,14 @@ on the Key Vault prior to blueprint assignment.
 
 For more information about Azure Key Vault, see [Key Vault
 Overview](/azure/key-vault/general/overview).
+
+> [!IMPORTANT]
+> Don't store secret values directly in a blueprint definition, including in a parameter's `defaultValue`.
+> Blueprint definitions are readable by any authenticated principal in the tenant—management group-scoped
+> definitions don't even require a role assignment on the management group to read—so any value saved in the
+> definition can be disclosed. Provide secrets only at assignment time through the Azure Key Vault references
+> described here. For more information about who can read blueprint definitions, see [Permissions in Azure
+> Blueprints](../overview.md#permissions-in-azure-blueprints).
 
 ## Parameter types
 

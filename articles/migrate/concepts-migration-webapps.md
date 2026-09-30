@@ -1,12 +1,13 @@
 ---
 title: Support matrix for web apps migration
 description: Support matrix for web apps migration
-author: v-sreedevank
-ms.author: v-sreedevank
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ms.custom: template-concept, engagement-fy23
+# Customer intent: "As a web app developer, I want to understand the support limitations and requirements for agentless migration of ASP.NET web apps to Azure App Service, so that I can efficiently plan and execute the migration process."
 ---
 
 # Support matrix for web apps migration

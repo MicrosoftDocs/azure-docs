@@ -11,6 +11,8 @@ ms.custom: template-quickstart
 
 # Quickstart: get and manage a trial phone number in Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!NOTE]
@@ -20,7 +22,7 @@ Azure Communication Services provides powerful communication capabilities for de
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource. [Create a Communication Services resource](../create-communication-resource.md).
 
 ## Get a trial phone number

@@ -1,12 +1,15 @@
 ---
-title: Set up an interconnect for voice services
-titleSuffix: Internet peering
+title: Set Up an Interconnect for Voice Services
+titleSuffix: Internet Peering
 description: Learn how to set up an interconnect for internet peering in Azure Peering Service voice services. Learn the requirements, the steps to establish a direct interconnect, and how to register a prefix.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 02/25/2026
+ms.custom: sfi-image-nochange
+
+# Customer intent: As a voice services provider, I want to establish an interconnect with Azure Peering Service, so that I can integrate my communications infrastructure and ensure high-quality, reliable services for messaging and conferencing.
 ---
 
 # Set up an interconnect for peering with voice services
@@ -58,15 +61,13 @@ To create a peering resource for Peering Service voice services:
 
 1. In the Azure portal, search for and then select **Peerings**.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/internet-peering-portal-search.png" alt-text="Screenshot that shows how to search for Peering resources in the Azure portal.":::
+    :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
 
 1. On **Peerings**, select **Create**.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/create-peering.png" alt-text="Screenshot that shows how to create a peering resource in the Azure portal.":::
-
 1. On the **Basics** tab, enter or select your Azure subscription, a resource group, a peering name, and the ASN of the peering.
 
-   :::image type="content" source="./media/walkthrough-communications-services-partner/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal.":::
+   :::image type="content" source="./media/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal.":::
 
    > [!WARNING]
    > You can't change these options after the peering is created. Confirm that your selections are correct before you create the peering.
@@ -148,15 +149,9 @@ In the previous section, you registered prefixes and generated prefix keys. Pref
 
 1. To begin activating your prefixes, in the search box at the top of the portal, enter **peering service**. In the search results, select **Peering Services**.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot that shows how to search for Peering Service in the Azure portal.":::
-
 1. Select **Create** to create a new Peering Service connection.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot that shows the list of existing Peering Service connections in the Azure portal.":::
-
 1. On the **Basics** tab, enter or select your Azure subscription, the resource group name, and your Peering Service connection name.
-
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot that shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
 
 1. On the **Configuration** tab, select your country or region, state or province, provider name, and the primary peering location. Optionally, select a backup peering location.
 
@@ -223,10 +218,6 @@ Get answers to frequently asked questions.
 
 **A.** Yes. A private ASN can't be in the AS path. For registered prefixes smaller than \/24, the AS path must be less than 4.
 
-**Q.** I need to set the prefix limit. How many routes will Microsoft announce?
-
-**A.** Microsoft announces roughly 280 prefixes on the internet. The number might increase by 10% to 15%. A limit of 400 to 500 is safe to set as the value for **Max prefix count**.
-
 **Q.** Will Microsoft readvertise peer prefixes to the internet?
 
 **A.** No.
@@ -258,3 +249,8 @@ Get answers to frequently asked questions.
 **Q.** Can we use APIs for onboarding?
 
 **A.** Currently, there's no API support. You can configure your service only by using the Azure portal.
+
+**Setting the Prefix Limit: Recommended Max Prefix Limits for Microsoft Azure Peering Service.**
+
+Microsoft currently announces up to 2000 IPv4 prefixes on the internet, and this number may increase over time. To maintain stability and prevent session drops, it is recommended to set your Max Prefix Count according to the peeringdb.com entry for ASN 8075.  This provides a safe buffer above current announcements and allows for future growth.
+

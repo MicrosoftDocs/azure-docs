@@ -5,7 +5,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to check call volume within your Calling app when using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
-ms.date: 03/26/2024
+ms.date: 07/28/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -14,6 +14,8 @@ ms.custom: mode-other
 ---
 
 # Quickstart: Access call volume level in your calling app
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Access call volume level with Windows](./includes/volume-indicator/volume-indicator-windows.md)]

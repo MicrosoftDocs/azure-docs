@@ -1,10 +1,11 @@
 ---
-title: Map an existing custom domain to Azure Spring Apps
+title: Map an Existing Custom Domain to Azure Spring Apps
 description: Learn how to map an existing custom Distributed Name Service (DNS) name to Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -23,7 +24,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 - An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app). If your application is deployed using the Basic plan, be sure to upgrade to the Standard plan.
 - A domain name with access to the DNS registry for a domain provider, such as GoDaddy.
@@ -32,33 +33,12 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Key Vault private link considerations
 
-The IP addresses for Azure Spring Apps management aren't yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the following IP addresses to Azure Key Vault firewall:
+The IP addresses for Azure Spring Apps management aren't yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the IP addresses of Azure Spring Apps control plane **or** the service tag to Azure Key Vault firewall.
 
-- `20.99.204.111`
-- `20.201.9.97`
-- `20.74.97.5`
-- `52.235.25.35`
-- `20.194.10.0`
-- `20.59.204.46`
-- `104.214.186.86`
-- `52.153.221.222`
-- `52.160.137.39`
-- `20.39.142.56`
-- `20.199.190.222`
-- `20.79.64.6`
-- `20.211.128.96`
-- `52.149.104.144`
-- `20.197.121.209`
-- `40.119.175.77`
-- `20.108.108.22`
-- `102.133.143.38`
-- `52.226.244.150`
-- `20.84.171.169`
-- `20.93.48.108`
-- `20.75.4.46`
-- `20.78.29.213`
-- `20.106.86.34`
-- `20.193.151.132`
+| Cloud    | IP Addresses                                                 | Service Tag                                  |
+| -------- | ------------------------------------------------------------ | -------------------------------------------- |
+| Public   | - `4.186.89.33`<br/>- `4.160.57.129`<br/>- `4.191.124.229`<br/>- `4.182.146.65`<br/>- `172.213.203.129`<br/>- `48.210.102.65`<br/>- `4.230.169.161`<br/>- `4.195.181.97`<br/>- `4.204.23.33`<br/>- `48.211.55.36`<br/>- `40.84.117.225`<br/>- `135.224.49.225`<br/>- `4.208.161.161`<br/>- `4.222.212.225`<br/>- `57.155.138.97`<br/>- `135.225.68.129`<br/>- `74.242.224.129`<br/>- `74.243.196.97`<br/>- `172.187.45.193`<br/>- `72.154.50.1`<br/>- `68.218.188.65`<br/>- `4.229.70.193`<br/>- `48.214.139.1`<br/>- `4.178.163.129`<br/>- `72.147.143.225`<br/>- `74.242.38.225`<br/>- `4.158.183.225`<br/>- `48.209.101.161`<br/>- `172.178.153.65`<br/>- `57.154.102.161` | `SystemServiceAzureSpringAppsResourceProvider` |
+| Mooncake | - `52.131.254.89`<br/>- `52.131.41.48`<br/>- `159.27.26.25`  | N/A                                          |
 
 ## Import certificate
 
@@ -72,7 +52,7 @@ If your certificate authority gives you multiple certificates in the certificate
 
 To do this task, open each certificate you received in a text editor.
 
-Create a file for the merged certificate, called *mergedcertificate.crt*. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
+Create a file for the merged certificate, called **mergedcertificate.crt**. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
 
 ```crt
 -----BEGIN CERTIFICATE-----
@@ -96,7 +76,7 @@ Create a file for the merged certificate, called *mergedcertificate.crt*. In a t
 
 Export your merged TLS/SSL certificate with the private key that your certificate request was generated with.
 
-If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders *&lt;private-key-file>* and *&lt;merged-certificate-file>* with the paths to your private key and your merged certificate file.
+If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders `<private-key-file>` and `<merged-certificate-file>` with the paths to your private key and your merged certificate file.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
@@ -104,7 +84,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 When prompted, define an export password. Use this password when uploading your TLS/SSL certificate to Azure Key Vault later.
 
-If you used IIS or *Certreq.exe* to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+If you used IIS or **Certreq.exe** to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
 
 ### Save certificate in Key Vault
 
@@ -400,7 +380,7 @@ By default, anyone can still access your app using HTTP, but you can redirect al
 
 #### [Azure portal](#tab/Azure-portal)
 
-In your app page, in the navigation, select **Custom Domain**. Then, set **HTTPS Only** to `Yes`.
+In your app page, in the navigation, select **Custom Domain**. Then, set **HTTPS Only** to **Yes**.
 
 :::image type="content" source="./media/how-to-custom-domain/enforce-https.png" alt-text="Screenshot of an SSL binding with the Https Only option highlighted.":::
 

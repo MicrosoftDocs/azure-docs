@@ -1,15 +1,20 @@
 ---
 title: About Azure Cloud Services (extended support)
 description: Learn about the child elements of the Network Configuration element of the service configuration file, which specifies Virtual Network and DNS values.
-ms.topic: article
-ms.service: azure-cloud-services-extended-support
+ms.topic: overview
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
-ms.custom: devx-track-arm-template
+ms.update-cycle: 1095-days
+ms.custom: devx-track-arm-template, cloud-services-extended-support
+# Customer intent: As an IT admin managing legacy cloud applications, I want to migrate to Azure Resource Manager-based Cloud Services (extended support) so that I can enhance regional resiliency, utilize modern management features like RBAC and templates, and streamline operations with minimal application changes.
 ---
 # About Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 Cloud Services (extended support) is a new [Azure Resource Manager](../azure-resource-manager/management/overview.md) based deployment model for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product and is now generally available. Cloud Services (extended support) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some Azure Resource Manager capabilities such as role-based access and control (RBAC), tags, policy, and supports deployment templates.  
 
@@ -47,13 +52,13 @@ The major differences between Cloud Services (classic) and Cloud Services (exten
 
 ## Migration to Azure Resource Manager
 
-Cloud Services (extended support) provides two paths for you to migrate from [Azure Service Manager](/powershell/azure/servicemanagement/overview) to [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Cloud Services (extended support) provides two paths for you to migrate from Azure Service Manager to [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 1) Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager. 
 2) In-place migration supports the ability to migrate Cloud Services (classic) with minimal to no downtime to Cloud Services (extended support). 
 
 ### Additional migration options
 
-When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you may want to investigate other Azure services such as: [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). These services continue to feature additional capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic.) 
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), consider other Azure services such as: [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview),[Azure Container Apps](../container-apps/overview.md), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). These services continue to offer new capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic). 
 
 Depending on the application, Cloud Services (extended support) may require substantially less effort to move to Azure Resource Manager compared to other options. If your application isn't evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements. 
 

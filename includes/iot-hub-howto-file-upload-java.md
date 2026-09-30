@@ -2,13 +2,18 @@
 title: Upload files from devices to Azure IoT Hub (Java)
 titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Java. Uploaded files are stored in an Azure storage blob container.
-author: kgremban
-ms.author: kgremban
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
 ms.date: 12/12/2024
-ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
+ms.custom:
+  - amqp
+  - mqtt
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
 ## Overview
@@ -161,7 +166,7 @@ private static final IotHubServiceClientProtocol protocol =
 
 ##### Create the ServiceClient object
 
-Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the Iot Hub connection string and protocol.
+Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the IoT Hub connection string and protocol.
 
 To upload a file on a device to IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 

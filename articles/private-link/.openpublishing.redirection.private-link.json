@@ -1,0 +1,14 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/private-link/troubleshoot-private-endpoint-connectivity.md",
+            "redirect_url": "/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-link/troubleshoot-private-link-connectivity.md",
+            "redirect_url": "/troubleshoot/azure/private-link/troubleshoot-private-link-connectivity",
+            "redirect_document_id": false
+        }
+    ]
+}

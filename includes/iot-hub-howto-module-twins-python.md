@@ -2,13 +2,17 @@
 title: Get started with module identities and module identity twins (Python)
 titleSuffix: Azure IoT Hub
 description: Learn how to create module identities and update module identity twins using the Azure IoT Hub SDK for Python.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: include
 ms.date: 11/19/2024
-ms.custom: mqtt, devx-track-python, py-fresh-zinc
+ms.custom:
+  - mqtt
+  - devx-track-python
+  - py-fresh-zinc
+  - sfi-ropc-nochange
 ---
 
   * [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
@@ -79,6 +83,9 @@ device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 # connect the application to the device
 await device_client.connect()
 ```
+
+> [!NOTE]
+> Python does not support connection of a device app to an IoT Hub module identity twin using a certificate.
 
 ### Retrieve a module identity twin and examine properties
 

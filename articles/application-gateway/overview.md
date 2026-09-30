@@ -2,46 +2,69 @@
 title: What is Azure Application Gateway
 description: Learn how you can use an Azure application gateway to manage web traffic to your application.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.custom: mvc
-ms.date: 09/27/2023
-ms.author: greglin
+ms.custom: mvc, portfolio-consolidation-2025
+ms.date: 09/10/2026
+ms.author: mbender
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
+# Customer intent: "As an IT administrator, I want to understand how to use a web traffic load balancer for managing application routing, so that I can optimize traffic distribution based on HTTP request attributes and enhance application performance."
 ---
 
 # What is Azure Application Gateway?
 
-Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.
+Azure Application Gateway is a web traffic load balancer that helps you manage traffic to your web applications. Unlike traditional load balancers that route traffic based on IP address and port, Application Gateway makes intelligent routing decisions based on HTTP request attributes like URL paths and host headers.
 
-Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. For example, you can route traffic based on the incoming URL. So if `/images` is in the incoming URL, you can route traffic to a specific set of servers (known as a pool) configured for images. If `/video` is in the URL, that traffic is routed to another pool that's optimized for videos.
+For example, you can route requests with `/images` in the URL to servers optimized for images, while routing `/video` requests to servers optimized for video content. This application layer routing gives you more control over how traffic flows to your applications.
 
-![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
+:::image type="content" source="./media/application-gateway-url-route-overview/figure1-720.png" alt-text="Screenshot of URL-based routing diagram showing traffic distribution based on incoming URL paths.":::
 
-This type of routing is known as application layer (OSI layer 7) load balancing. Azure Application Gateway can do URL-based routing and more.
+This overview describes the Application Gateway v2 SKU family (Standard_v2 and WAF_v2), which is the current generation of the service. The v1 SKUs, Standard and WAF, retire on April 28, 2026, and are no longer supported. If you still run a v1 gateway, see [Migrate Azure Application Gateway and Web Application Firewall from V1 to V2](migrate-v1-v2.md).
 
->[!NOTE]
+Application Gateway operates at the application layer (OSI layer 7) and provides features like SSL/TLS termination, autoscaling, zone redundancy, and integration with Web Application Firewall for security.
+
+> [!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
-> * If you're looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
+> * If you want to do DNS based global routing and don't need Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request, or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
 > * If you need to optimize global routing of your web traffic and optimize top-tier end-user performance and reliability through quick global failover, see [Front Door](../frontdoor/front-door-overview.md).
 > * To do transport layer load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
-> Your end-to-end scenarios may benefit from combining these solutions as needed.
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+> Your end-to-end scenarios can benefit from combining these solutions as needed.
+> For an overview of the load balancing and content delivery services in Azure, see [Load Balancing and Content Delivery](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
 
+
+## Retirement of Application Gateway V1
+
+Microsoft [deprecated Application Gateway V1 on April 28, 2023](v1-retirement.md) and retired it on April 28, 2026. Microsoft no longer supports Application Gateway V1 resources, and V1 deployments that aren't migrated might experience traffic disruption as the underlying hardware is decommissioned.
+
+If you still use Application Gateway V1, [migrate to Application Gateway v2](migrate-v1-v2.md) as soon as possible. For answers to common questions about the retirement timeline and migration process, see the [V1 retirement FAQ](retirement-faq.md).
 
 ## Features
+
+Application Gateway features fall into four main categories:
+
+* **Traffic routing**: URL path-based routing, multiple-site hosting, redirection, rewriting HTTP headers and URLs, and cookie-based session affinity.
+* **Security**: SSL/TLS termination at the gateway, end-to-end SSL/TLS encryption to the backend, and Web Application Firewall (WAF).
+* **Scale and resiliency**: autoscaling, zone redundancy, a static VIP, and connection draining during backend pool changes.
+* **Protocol and platform support**: native WebSocket and HTTP/2 support, custom error pages, and the Application Gateway Ingress Controller (AGIC) for Azure Kubernetes Service (AKS).
 
 To learn about Application Gateway features, see [Azure Application Gateway features](features.md).
 
 ## Infrastructure
 
+An application gateway is a dedicated deployment in your virtual network that requires its own subnet, which can't contain other resource types. Infrastructure configuration covers:
+
+* The virtual network and dedicated subnet, including subnet sizing and DNS servers for name resolution.
+* The permissions and role scope needed to deploy a gateway into the subnet.
+* Network security groups (NSGs) and the security rules Application Gateway requires.
+* Supported user-defined routes (UDRs).
+
 To learn about Application Gateway infrastructure, see [Azure Application Gateway infrastructure configuration](configuration-infrastructure.md).
 
 ## Security
 
-* Protect your applications against L7 layer DDoS protection using WAF. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+* Protect your applications against L7 layer DDoS protection by using WAF. For more information, see [Application DDoS protection](../web-application-firewall/application-ddos-protection.md).
 
 * Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
 
@@ -66,7 +89,7 @@ To learn what's new with Azure Application Gateway, see [Azure updates](https://
 
 ## Next steps
 
-Depending on your requirements and environment, you can create a test Application Gateway using either the Azure portal, Azure PowerShell, or Azure CLI.
+Depending on your requirements and environment, you can create a test Application Gateway by using the Azure portal, Azure PowerShell, or Azure CLI.
 
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)

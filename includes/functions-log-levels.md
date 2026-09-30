@@ -18,4 +18,4 @@ A *log level* is assigned to every log. The value is an integer that indicates r
 |Critical    | 5 | Logs that describe an unrecoverable application or system crash, or a catastrophic failure that requires immediate attention. |
 |None        | 6 | Disables logging for the specified category. |
 
-The [*host.json* file](../articles/azure-functions/functions-host-json.md) configuration determines how much logging a functions app sends to Application Insights.  
+The [*host.json* file](../articles/azure-functions/functions-host-json.md) configuration determines how much logging a functions app produces. These log level settings are applied globally to the .NET logging pipeline and affect all log destinations, including Application Insights, Azure Monitor diagnostic settings (such as the `FunctionAppLogs` table), and local file logs. Any log entry filtered out by these settings won't appear in any of these destinations.  

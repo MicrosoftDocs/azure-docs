@@ -1,11 +1,13 @@
 ---
-title:  Connect to an app instance for troubleshooting
+title:  Connect to an App Instance for Troubleshooting
 description: Learn how to connect to an app instance in Azure Spring Apps for troubleshooting.
 author: KarlErickson
-ms.author: xiangy
+ms.author: karler
+ms.reviewer: xiangy
 ms.service: azure-spring-apps
 ms.topic: article
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -20,7 +22,7 @@ This article describes how to access the shell environment inside your applicati
 Although Azure Spring Apps offers various managed troubleshooting approaches, you may want to do advanced troubleshooting using the shell environment. For example, you may want to accomplish the following troubleshooting tasks:
 
 - Directly use Java Development Kit (JDK) tools.
-- Diagnose against an app’s back-end services for network connection and API call latency for both virtual-network and non-virtual-network instances.
+- Diagnose against an app's back-end services for network connection and API call latency for both virtual-network and non-virtual-network instances.
 - Diagnose storage capacity, performance, and CPU/memory issues.
 
 ## Prerequisites
@@ -172,7 +174,7 @@ The output should look like the following example:
 
 ## Disconnect from your app instance
 
-When you're done troubleshooting, use the `exit` command to disconnect from the app instance, or press `Ctrl+d`.
+When you're done troubleshooting, use the `exit` command to disconnect from the app instance, or press <kbd>Ctrl</kbd>+<kbd>d</kbd>.
 
 ## Troubleshooting tools
 
@@ -193,16 +195,16 @@ You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 The following list shows the tools available, which depend on your service plan and type of app deployment:
 
 - Source Code, JAR, and artifacts deployment:
-  - Basic, Standard, and Standard Consumption & Dedicated Plan:
+  - Basic and Standard plans:
     - Common tools - Yes
     - JDK tools - Yes, for Java workloads only.
-  - Enterprise Plan:
+  - Enterprise plan:
     - Common tools - Depends on which OS Stack you've chosen in your [builder](../enterprise/how-to-enterprise-build-service.md#builders). Yes, for full OS Stack. No, for base OS Stack.
     - JDK tools - Yes, for Java workloads only.
 - Custom image deployment: Depends on the installed tool set in your image.
 
 > [!NOTE]
-> JDK tools aren't included in the path for the *source code* deployment type. Run `export PATH="$PATH:/layers/tanzu-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
+> JDK tools aren't included in the path for the source code deployment type. Run `export PATH="$PATH:/layers/tanzu-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
 
 ## Limitations
 

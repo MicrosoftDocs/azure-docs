@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-expressroute
 ms.topic: tutorial
-ms.date: 01/02/2024
+ms.date: 08/27/2026
 # Customer intent: As a network engineer, I want to establish a private connection from my on-premises network to my Azure virtual network using ExpressRoute.
 ---
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Review the [ExpressRoute prerequisites](expressroute-prerequisites.md) and [workflow](expressroute-workflows.md) before you begin.
 
 ## Create and provision an ExpressRoute circuit
@@ -102,9 +102,10 @@ In this tutorial, you learn how to:
     * **Gateway SKUs**: Select the SKU that meets your requirement. For more information, see [Gateway SKUs](expressroute-about-virtual-network-gateways.md#gatewayfeaturesupport).
     * **Virtual network**: Select the virtual network where you want to deploy the virtual network gateway.
     * **Gateway subnet address range**: If the virtual network already has a gateway subnet, this field is populated with the existing gateway subnet address range. Otherwise, enter the address range for the gateway subnet. The address range must be a valid CIDR block in the virtual network address space.
-    * **Public IP address**: Select **Create new** to create a new public IP address. 
-    * **Public IP address name**: Enter a name for the public IP address.
-    * **Public IP address SKU**: Leave the default value of **Standard**.
+    * **Public IP address**: Azure automatically assigns a Standard public IP address to the gateway. You don't need to create one. For more information, see [Auto-assigned public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip).
+
+    > [!NOTE]
+    > If you plan to use IPv6-based private peering over ExpressRoute, create the gateway with a Standard, static public IP address by using the [PowerShell instructions](expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) instead.
 
 1. Select **Review + create** to review your settings.
 

@@ -3,7 +3,9 @@ title: Manage a lab template
 description: Learn how to create and manage a lab template in Azure Lab Services. You can use a template to customize the base VM image for lab VMs.
 ms.topic: how-to
 ms.date: 08/28/2023
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 # Create and manage a lab template in Azure Lab Services

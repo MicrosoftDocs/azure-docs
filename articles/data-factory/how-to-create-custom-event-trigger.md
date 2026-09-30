@@ -4,8 +4,8 @@ description: Learn how to create a trigger in Azure Data Factory that runs a pip
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
-ms.topic: conceptual
+ms.reviewer: whhender
+ms.topic: how-to
 ms.date: 12/16/2024
 ai-usage: ai-assisted
 ---
@@ -13,6 +13,8 @@ ai-usage: ai-assisted
 # Create a custom event trigger to run a pipeline in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Event triggers in Azure Data Factory allow you to automate the execution of pipelines based on specific events occurring in your data sources. This is a key feature of event-driven architecture, enabling real-time data integration and processing. 
 
@@ -168,5 +170,5 @@ Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission
 
 ## Related content
 
-* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-types).
 * Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

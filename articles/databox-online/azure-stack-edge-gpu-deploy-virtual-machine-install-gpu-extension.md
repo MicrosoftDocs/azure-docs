@@ -2,12 +2,13 @@
 title: Install GPU extension on GPU VMs on your Azure Stack Edge Pro GPU device
 description: Describes how to install GPU extensions on GPU virtual machines (VMs) on an Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/28/2024
-ms.author: alkohli
+ms.author: sipastak
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how install GPU extension on GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
 
@@ -15,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-gpu-pro-pro2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
-This article describes how to install GPU driver extension to install appropriate Nvidia drivers on the GPU VMs running on your Azure Stack Edge device. The article covers installation steps for installing a GPU extension using Azure Resource Manager templates on both Windows and Linux VMs.
+This article describes how to install GPU driver extension to install appropriate NVIDIA drivers on the GPU VMs running on your Azure Stack Edge device. The article covers installation steps for installing a GPU extension using Azure Resource Manager templates on both Windows and Linux VMs.
 
 > [!NOTE]
 > - In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Deploy GPU virtual machines](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
@@ -41,7 +42,7 @@ Depending on the operating system for your VM, you could install GPU extension f
 
 ### [Windows](#tab/windows)
 
-To deploy Nvidia GPU drivers for an existing VM, edit the `addGPUExtWindowsVM.parameters.json` parameters file and then deploy the template `addGPUextensiontoVM.json`.
+To deploy NVIDIA GPU drivers for an existing VM, edit the `addGPUExtWindowsVM.parameters.json` parameters file and then deploy the template `addGPUextensiontoVM.json`.
 
 #### Version 2205 and higher
 
@@ -107,7 +108,7 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 
 ### [Linux](#tab/linux)
 
-To deploy Nvidia GPU drivers for an existing Linux VM, edit the `addGPUExtWindowsVM.parameters.json` parameters file and then deploy the template `addGPUextensiontoVM.json`.
+To deploy NVIDIA GPU drivers for an existing Linux VM, edit the `addGPUExtWindowsVM.parameters.json` parameters file and then deploy the template `addGPUextensiontoVM.json`.
 
 #### Version 2205 and higher
 
@@ -463,7 +464,7 @@ Wed Dec 16 00:35:51 2020
 PS C:\Program Files\NVIDIA Corporation\NVSMI>
 ```
 
-For more information, see [Nvidia GPU driver extension for Windows](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
+For more information, see [NVIDIA GPU driver extension for Windows](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
 
 > [!NOTE]
 > After you finish installing the GPU driver and GPU extension, you no longer need to use a port with Internet access for compute.
@@ -544,7 +545,7 @@ Follow these steps to verify the driver installation:
     Administrator@VM1:~$
     ```
 
-For more information, see [Nvidia GPU driver extension for Linux](/azure/virtual-machines/extensions/hpccompute-gpu-linux).
+For more information, see [NVIDIA GPU driver extension for Linux](/azure/virtual-machines/extensions/hpccompute-gpu-linux).
 
 > [!NOTE]
 > After you finish installing the GPU driver and GPU extension, you no longer need to use a port with Internet access for compute.

@@ -3,15 +3,18 @@ title: Visually monitor Azure Data Factory
 description: Learn how to visually monitor Azure data factories
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: monitoring
-ms.topic: conceptual
-ms.date: 01/05/2024
+ms.topic: how-to
+ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Visually monitor Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Once you've created and published a pipeline in Azure Data Factory, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the Azure Data Factory user experience. To open the monitoring experience, select the **Monitor & Manage** tile in the data factory blade of the [Azure portal](https://portal.azure.com/). If you're already in the ADF UX, click on the **Monitor** icon on the left sidebar.
 

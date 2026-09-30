@@ -6,14 +6,15 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 05/03/2023
+  - build-2025
+ms.topic: concept-article
+ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
 # Ingress in Azure Container Apps
 
-Azure Container Apps allows you to expose your container app to the public web, your virtual network (VNET), and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTP requests or TCP traffic.
+Azure Container Apps allows you to expose your container app to the public web, your virtual network (VNET), and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTP requests or TCP (Transmission Control Protocol) traffic.
 
 Ingress supports:
 
@@ -35,10 +36,60 @@ For configuration details, see [Configure ingress](ingress-how-to.md).
 
 When you enable ingress, you can choose between two types of ingress:
 
-- External: Accepts traffic from both the public internet and your container app's internal environment.
-- Internal: Allows only internal access from within your container app's environment.
+- **External**: Exposes the app through the Container Apps environment's inbound IP address. If the environment uses a public inbound IP, the app can receive traffic from the public internet, and it's also reachable from other container apps in the same environment.
+
+- **Internal**: Makes the app's own fully qualified domain name (FQDN) reachable only from within the same Container Apps environment, such as from other container apps. The app's FQDN isn't directly accessible from the public internet. However, the app can still receive external traffic if it's referenced as a target in an environment-level HTTP route configuration. To fully isolate an app from external traffic, make sure it isn't included as a target in any HTTP route configuration, or place it in a separate environment. For more information, see [Use rule-based routing with Azure Container Apps](rule-based-routing.md).
 
 Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service. In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
+
+### How ingress visibility interacts with the environment type
+
+Two separate settings determine who can reach your container app:
+
+- **Environment accessibility level**: Set when you create the environment. An *internal* environment (created with `--internal-only`) has no public endpoint at all. It's reachable only through an internal load balancer in your virtual network. For more information, see [Accessibility level](networking.md#accessibility-level).
+
+- **App ingress visibility**: The per-app `external` property, set with `--type external` or `--type internal`, and shown in the portal as **Ingress traffic**.
+
+The environment's accessibility level defines the outer network boundary. The app's ingress visibility determines whether the app is published at that boundary, or kept inside the environment.
+
+| Environment accessibility level | App ingress external<br>(**Accepting traffic from anywhere**) | App ingress internal<br>(**Limited to Container Apps Environment**) |
+|---|---|---|
+| **External** | Reachable from the public internet, and from other apps in the environment. | Reachable only from other apps in the same environment. |
+| **Internal** | Reachable from the virtual network through the internal load balancer, and from other apps in the environment. Not reachable from the public internet. | Reachable only from other apps in the same environment. Clients elsewhere in the virtual network receive an HTTP 404 response. |
+
+> [!IMPORTANT]
+> The app ingress settings describe the app's relationship to its *environment*, not to the internet. On an internal environment, **Accepting traffic from anywhere** doesn't publish your app to the internet, because the environment has no public endpoint. Instead, it publishes the app at the environment's internal load balancer so that clients in your virtual network can reach it.
+>
+> Selecting **Limited to Container Apps Environment** on an internal environment is more restrictive than you might expect. It hides the app from the rest of your virtual network as well as from the internet.
+
+> [!NOTE]
+> An app with internal ingress can still receive traffic from outside the environment if it's referenced as a target in an environment-level HTTP route configuration. For more information, see [Use rule-based routing with Azure Container Apps](rule-based-routing.md).
+
+### Restrict an app to virtual network access only
+
+A common requirement is an app that the public internet can't reach, but that virtual machines, private endpoints, peered networks, and on-premises networks connected through a VPN or Azure ExpressRoute can reach. This configuration requires you to set both the environment accessibility level and the app ingress visibility.
+
+1. Create the environment as internal, so the environment has no public endpoint. Internet isolation comes from this setting, and you can't change it after you create the environment. For more information, see [Use a virtual network with Azure Container Apps](vnet-custom.md).
+
+    ```azurecli
+    az containerapp env create \
+        --name <ENVIRONMENT_NAME> \
+        --resource-group <RESOURCE_GROUP> \
+        --infrastructure-subnet-resource-id <SUBNET_RESOURCE_ID> \
+        --internal-only true
+    ```
+
+1. Set the app's ingress to external, so that the app is published at the environment's internal load balancer and clients in the virtual network can reach it.
+
+    ```azurecli
+    az containerapp ingress enable \
+        --name <APP_NAME> \
+        --resource-group <RESOURCE_GROUP> \
+        --target-port <PORT_NUMBER> \
+        --type external
+    ```
+
+Use internal app ingress only for apps that other container apps in the same environment call, such as a backend service in a microservices application.
 
 ## Protocol types
 
@@ -48,14 +99,14 @@ Container Apps supports two protocols for ingress: HTTP and TCP.
 
 With HTTP ingress enabled, your container app has:
 
-- Support for TLS termination
+- Support for TLS (Transport Layer Security) termination
 - Support for HTTP/1.1 and HTTP/2
 - Support for WebSocket and gRPC
 - HTTPS endpoints that always use TLS 1.2 or 1.3, terminated at the ingress point
 - Endpoints that expose ports 80 (for HTTP) and 443 (for HTTPS)
   - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443
 - A fully qualified domain name (FQDN)
-- Request timeout is 240 seconds
+- Request time out is 240 seconds
 
 #### HTTP headers
 
@@ -63,17 +114,16 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 
 | Header | Description | Values |
 |---|---|---|
-| `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https` |
-| `X-Forwarded-For` | The IP address of the client that sent the request. |  |
-| `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  |
-| `X-Forwarded-Client-Cert` | The client certificate if `clientCertificateMode` is set. | Semicolon separated list of Hash, Cert, and Chain. For example: `Hash=....;Cert="...";Chain="...";` |
+| `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https`. This value is overwritten if sent by the client. |
+| `X-Forwarded-For` | The IP addresses of the client and/or intermediate proxies that sent the request. | IP addresses of the senders. If specified in initial request, it is appended to. Only the rightmost IP is provided by Azure Container Apps. Any other values must be validated by the user to prevent IP spoofing. |
+| `X-Forwarded-Client-Cert` | The client certificate if `clientCertificateMode` is set. | Semicolon separated list of Hash, Cert, and Chain. For example: `Hash=....;Cert="...";Chain="...";`. This value is overwritten if sent by the client. |
 
 ### <a name="tcp"></a>TCP
 
 Container Apps supports TCP-based protocols other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
 
 > [!NOTE]
-> External TCP ingress is only supported for Container Apps environments that use a [custom VNET](vnet-custom.md). TCP ingress is not supported for apps that accept inbound traffic through a [private endpoint](networking.md#private-endpoint).
+> External TCP ingress is only supported for Container Apps environments that use a [virtual network](vnet-custom.md).
 
 With TCP ingress enabled, your container app:
 
@@ -88,24 +138,34 @@ In addition to the main HTTP/TCP port for your container apps, you might expose 
 > To use this feature, you must have the container apps CLI extension. Run `az extension add -n containerapp` in order to install the latest version of the container apps CLI extension.
 
 The following apply to additional TCP ports:
-- Additional TCP ports can only be external if the app itself is set as external and the container app is using a custom VNet.
-- Any externally exposed additional TCP ports must be unique across the entire Container Apps environment. This includes all external additional TCP ports, external main TCP ports, and 80/443 ports used by built-in HTTP ingress. If the additional ports are internal, the same port can be shared by multiple apps.
-- If an exposed port isn't provided, the exposed port will default to match the target port.
-- Each target port must be unique, and the same target port can't be exposed on different exposed ports.
-- There's a maximum of five additional ports per app. If additional ports are required, please open a support request.
-- Only the main ingress port supports built-in HTTP features such as CORS and session affinity. When running HTTP on top of the additional TCP ports, these built-in features aren't supported.
 
-Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports) for more information on how to enable additional ports for your container apps.
+- More TCP ports can only be external if the app itself is set as external and the container app is using a virtual network.
+
+- Any externally exposed extra TCP ports must be unique across the entire Container Apps environment. This includes all external extra TCP ports, external main TCP ports, and 80/443 ports used by built-in HTTP ingress. If the extra ports are internal, you can share the same port across multiple apps.
+
+- If an exposed port isn't provided, the exposed port defaults to match the target port.
+
+- Each target port must be unique, and the same target port can't be exposed on different exposed ports.
+
+- There's a maximum of five additional ports per app. If additional ports are required, open a support request.
+
+- Only the main ingress port supports built-in HTTP features such as CORS and session affinity. When running HTTP on top of the extra TCP ports, these built-in features aren't supported.
+
+- Port number `36985` is reserved for internal health checks and isn't available to TCP applications or extra exposed ports on HTTP applications.
+
+For more information on how to enable extra ports, see [Configure ingress for your app](ingress-how-to.md#use-additional-tcp-ports).
 
 ## Domain names
 
 You can access your app in the following ways:
 
-- The default fully qualified domain name (FQDN):  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
-- A custom domain name:  You can configure a custom DNS domain for your Container Apps environment. For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
+- The default fully qualified domain name (FQDN): Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS (Domain Name System) suffix. This suffix is determined by the [`CONTAINER_APP_ENV_DNS_SUFFIX` environment variable](environment-variables.md#apps). To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+
+- A custom domain name: You can configure a custom DNS domain for your Container Apps environment. For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
+
 - The app name: You can use the app name for communication between apps in the same environment.
 
-To get the FQDN for your app, see [Location](connect-apps.md#location).
+To get the FQDN for your app, see [Container app location (FQDN)](connect-apps.md#container-app-location-fqdn).
 
 ## IP restrictions
 
@@ -115,9 +175,9 @@ Container Apps supports IP restrictions for ingress. You can create rules to eit
 
 Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app. For more information, see [Authentication and authorization in Azure Container Apps](authentication.md).
 
-You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md). 
+You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md).
 
-For details on how to use peer-to-peer environment level network encryption, see the [networking overview](./networking.md#peer-to-peer-encryption). 
+For details on how to use peer-to-peer environment level network encryption, see [networking configuration](./ingress-environment-configuration.md#peer-to-peer-encryption).
 
 ## Traffic splitting
 
@@ -125,7 +185,7 @@ Containers Apps allows you to split incoming traffic between active revisions. W
 
 ## Session affinity
 
-Session affinity, also known as sticky sessions, is a feature that allows you to route all HTTP requests from a client to the same container app replica. This feature is useful for stateful applications that require a consistent connection to the same replica.  For more information, see [Session affinity](sticky-sessions.md).
+Session affinity, also known as sticky sessions, is a feature that allows you to route all HTTP requests from a client to the same container app replica. This feature is useful for stateful applications that require a consistent connection to the same replica. For more information, see [Session affinity](sticky-sessions.md).
 
 ## Cross origin resource sharing (CORS)
 

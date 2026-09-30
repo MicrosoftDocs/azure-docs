@@ -12,6 +12,7 @@ ms.reviewer: jamsbak
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-azurepowershell
+# Customer intent: As a data engineer, I want to implement query acceleration on Azure Data Lake Storage, so that I can efficiently retrieve and process specific subsets of data for analytics tasks.
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration
@@ -22,7 +23,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 ## Prerequisites
 
-- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - A **general-purpose v2** storage account. see [Create a storage account](../common/storage-account-create.md).
 
@@ -153,7 +154,7 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 ```
 
-Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add using statements for any CSV or Json parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these `using` statements to the top of the code file.
+Query acceleration retrieves CSV and JSON formatted data. Therefore, make sure to add using statements for any CSV or JSON parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these `using` statements to the top of the code file.
 
 ```csharp
 using CsvHelper;
@@ -199,7 +200,7 @@ Include the `storage-blob` module by placing this statement at the top of your c
 const { BlobServiceClient } = require("@azure/storage-blob");
 ```
 
-Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add statements for any CSV or Json parsing modules that you choose to use. The examples that appear in this article parse a CSV file by using the [fast-csv](https://www.npmjs.com/package/fast-csv) module. Therefore, we'd add this statement to the top of the code file.
+Query acceleration retrieves CSV and JSON formatted data. Therefore, make sure to add statements for any CSV or JSON parsing modules that you choose to use. The examples that appear in this article parse a CSV file by using the [fast-csv](https://www.npmjs.com/package/fast-csv) module. Therefore, we'd add this statement to the top of the code file.
 
 ```javascript
 const csv = require('@fast-csv/parse');
@@ -220,8 +221,8 @@ You can use SQL to specify the row filter predicates and column projections in a
 ```powershell
 Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
     $tempfile = New-TemporaryFile
-    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
-    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
+    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders -RecordSeparator "`n" -ColumnSeparator "," -QuotationCharacter """" -EscapeCharacter "\"
+    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader -RecordSeparator "`n" -ColumnSeparator "," -QuotationCharacter """" -EscapeCharacter "\") -ResultFile $tempfile.FullName -QueryString $query -Force
     Get-Content $tempfile.FullName
 }
 

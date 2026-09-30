@@ -26,9 +26,9 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 
 | Version                                        | Samples location |
 | ------- | ---------------- | 
-| spring-cloud-azure-starter-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/eventhubs/spring-cloud-azure-starter-eventhubs/eventhubs-client) | 
-| spring-cloud-azure-starter-integration-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration) |
-| spring-cloud-azure-stream-binder-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/eventhubs/spring-cloud-azure-stream-binder-eventhubs) |
+| spring-cloud-azure-starter-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-starter-eventhubs/eventhubs-client) | 
+| spring-cloud-azure-starter-integration-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration) |
+| spring-cloud-azure-stream-binder-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-stream-binder-eventhubs) |
 
 ## Python samples
 

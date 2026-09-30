@@ -2,7 +2,7 @@
 title: "Tutorial: Grant a user access to Azure resources using Azure PowerShell - Azure RBAC"
 description: Learn how to grant a user access to Azure resources using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.service: role-based-access-control
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref,  azure-ad-ref-level-one-done
 ms.topic: tutorial
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * List access
 > * Remove access
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -213,7 +213,7 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
 
     In the output, you can see that both the Contributor and Reader roles have been assigned to the RBAC Tutorial User. The Contributor role is at the rbac-tutorial-resource-group scope and the Reader role is inherited at the subscription scope.
 
-## (Optional) List access using the Azure Portal
+## (Optional) List access using the Azure portal
 
 1. To see how the role assignments look in the Azure portal, view the **Access control (IAM)** blade for the subscription.
 

@@ -5,15 +5,15 @@ description: This article describes how to use labels to retrieve app configurat
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: maud-lv
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-csharp
-ms.date: 02/20/2024
+ms.date: 06/22/2026
 ms.author: malev
 
 ---
 # Use labels to provide per-environment configuration values.
 
-Many applications need to use different configurations for different environments. Suppose that an application has a configuration value that defines the connection string to use for its back-end database. The application developers use a different database from the one used in production. The database connection string that the application uses must change as the application moves from development to production.
+Many applications need to use different configurations for different environments. Suppose that an application has a configuration value that defines the endpoint to use for its back-end database. The application developers use a different database from the one used in production. The database endpoint that the application uses must change as the application moves from development to production.
 
 In Azure App Configuration, you can use *labels* to define different values for the same key. For example, you can define a single key with different values for development and production. You can specify which label to load when connecting to App Configuration.
 
@@ -24,7 +24,7 @@ To demonstrate this functionality, you'll modify the web app created in [Quickst
 In the Azure portal, go to **Configuration Explorer** and find the *TestApp:Settings:FontColor* key that you created in the quickstart. Select its context menu and then select **Add Value**.
 
 > [!div class="mx-imgBorder"]
-> ![Add Value menu item](media/labels-add-value.png)
+> ![Add Value menu item](media/howto-labels-aspnet-core/labels-add-value.png)
 
 On the **Add Value** screen, enter a **Value** of **red** and a **Label** of **Development**. Leave **Content type** empty. Select **Apply**.
 
@@ -47,16 +47,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddAzureAppConfiguration(options =>
     {
-            options.Connect(builder.Configuration.GetConnectionString("AppConfig"))
-                // Load configuration values with no label
-                .Select(KeyFilter.Any, LabelFilter.Null)
-                // Override with any configuration values specific to current hosting env
-                .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
+        string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+               // Load configuration values with no label
+               .Select(KeyFilter.Any, LabelFilter.Null)
+               // Override with any configuration values specific to current hosting env
+               .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
     });
 ```
-
-> [!IMPORTANT]
-> The preceding code snippet uses the Secret Manager tool to load App Configuration connection string. For information storing the connection string using the Secret Manager, see [Quickstart for Azure App Configuration with ASP.NET Core](quickstart-aspnet-core-app.md).
 
 The `Select` method is called twice. The first time, it loads configuration values with no label. Then, it loads configuration values with the label corresponding to the current environment. These environment-specific values override any corresponding values with no label. You don't need to define environment-specific values for every key. If a key doesn't have a value with a label corresponding to the current environment, it uses the value with no label.
 
@@ -73,13 +71,13 @@ dotnet run
 
 Use a web browser to go to `http://localhost:5000`. You'll notice that the font color is black.
 
-![Web application running with production configuration](media/labels-website-prod.png)
+![Web application running with production configuration](media/howto-labels-aspnet-core/labels-website-prod.png)
 
 Update `launchSettings.json` to set the `ASPNETCORE_ENVIRONMENT` variable to `Development`. Run `dotnet run` again. 
 
 You'll notice that the font color is now red. This is because the application now uses the value of `TestApp:Settings:FontColor` that has the `Development` label. All other configuration values remain the same as their production values.
 
-![Web application running with development configuration](media/labels-website-dev.png)
+![Web application running with development configuration](media/howto-labels-aspnet-core/labels-website-dev.png)
 
 ## Next steps
 

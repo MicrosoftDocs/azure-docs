@@ -13,17 +13,25 @@ ms.subservice: calling
 ---
 
 # How to collect client logs
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The client logs can help when we want to get more details while debugging an issue.
 To collect client logs, you can use [@azure/logger](https://www.npmjs.com/package/@azure/logger), which is used by WebJS calling SDK internally.
 
 ```typescript
 import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
-setLogLevel('info');
+setLogLevel('verbose');
 let logger = createClientLogger('ACS');
 const callClient = new CallClient({ logger });
-// app logging
-logger.info('....');
 
+// Redirect ACS Calling SDK's logs
+AzureLogger.log = (...args) => {
+    // To console, file, buffer, REST API, etc...
+    console.log(...args); 
+};
+
+// Application logging
+logger.info('....');
 ```
 
 [@azure/logger](https://www.npmjs.com/package/@azure/logger) supports four different log levels:

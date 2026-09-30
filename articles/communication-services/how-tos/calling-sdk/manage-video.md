@@ -1,13 +1,13 @@
 ---
 title: Manage video during calls
-titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to manage video calls.
+titleSuffix: An Azure Communication Services article
+description: This article describes how to manage video calls using Azure Communication Services SDKs.
 author: sloanster
 ms.author: micahvivion
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
-ms.date: 07/25/2024
+ms.date: 06/10/2025
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 
@@ -16,11 +16,13 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Manage video during calls
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Learn how to manage video calls with the Azure Communication Services SDKS. We'll learn how to manage receiving and sending video within a call.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)

@@ -4,10 +4,10 @@ description: This article explains how to enable diagnostic logging in Azure API
 services: healthcare-apis
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 11/20/2025
 ---
 
 # Enable Diagnostic Logging in Azure API for FHIR
@@ -20,7 +20,7 @@ In this article, you learn how to enable diagnostic logging in Azure API for FHI
 
 You can view the metrics under Monitoring | Metrics from the portal. The metrics include Number of Requests, Average Latency, Number of Errors, Data Size, request units (RUs) Used, Number of requests that exceeded capacity, and Availability (in %). The Total Request Metrics provides the number of requests reaching the FHIR service. This means requests such as FHIR bundles are considered as single request for logging. 
 
-The following screenshot shows RUs used for a sample environment with few activities in the last seven days. You can download the data in Json format.
+The following screenshot shows RUs used for a sample environment with few activities in the last seven days. You can download the data in JSON format.
 
    :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Azure API for FHIR Metrics from the portal" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
 

@@ -1,43 +1,43 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 12/02/2024
-ms.service: azure-active-directory
+ms.date: 02/03/2026
+ms.service: entra-id
 ms.subservice: b2c
 ms.topic: whats-new
 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
-
+ms.custom: sfi-ropc-nochange
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to stay updated on the latest documentation changes and new features, so that I can effectively use and implement the B2C service in my applications.
-
 ---
 
 # Azure Active Directory B2C: What's new
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
+Welcome to what's new in Azure Active Directory B2C documentation. This article lists new and significantly updated docs from the past three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
-## November 2024
-
-### Updated articles
-
-- [Azure Active Directory B2C: Region availability & data residency](data-residency.md) - Updated data residency location 
-
-## October 2024
+## January 2026
 
 ### Updated articles
 
-- [Secure APIs used for API connectors in Azure AD B2C](secure-rest-api.md) - ROPC flow updates
-- [Application types that can be used in Active Directory B2C](application-types.md) - Implicit grant flow updates
-- [Configure authentication in a sample single-page application by using Azure AD B2C](configure-authentication-sample-spa-app.md) - Implicit grant flow updates
-- [Single-page application sign-in using the OAuth 2.0 implicit flow in Azure Active Directory B2C](implicit-flow-single-page-application.md) - Implicit grant flow updates
-- [Register a single-page application in Azure Active Directory B2C](tutorial-register-spa.md) - Implicit grant flow updates
+- [OAuth 2.0 authorization code flow in Azure Active Directory B2C](authorization-code-flow.md) - Added security guidance on using the `state` parameter
+- [Azure Active Directory B2C service limits and restrictions](service-limits.md) - Updated region specific service limits
+- [Securing phone-based multifactor authentication](phone-based-mfa.md) - Updated the XML code snippets
 
-## September 2024
+## October 2025
 
 ### Updated articles
 
-- [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md) - Updated feature availability for China cloud
+- [Migrate applications using header-based authentication to Azure Active Directory B2C with Grit's app proxy](partner-grit-app-proxy.md) - Updated Grit app proxy information
+- [Edit Azure Active Directory B2C Identity Experience Framework (IEF) XML with Grit Visual IEF Editor](partner-grit-editor.md) - Updated IEF editor information
+- [Tutorial: Configure the Grit IAM B2B2C solution with Azure Active Directory B2C](partner-grit-iam.md) - Updated Grit IAM solution information
 
+## August 2025
+
+### Updated articles
+
+- [Azure Active Directory B2C service limits and restrictions](service-limits.md) - Added new object limits
+- [StringCollection claims transformations](stringcollection-transformations.md) - Updated claim type information

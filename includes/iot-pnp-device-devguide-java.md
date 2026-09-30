@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: include
-ms.date: 11/17/2022
+ms.date: 03/10/2026
 ---
 
 ## Model ID announcement

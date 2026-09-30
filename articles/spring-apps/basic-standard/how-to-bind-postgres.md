@@ -1,10 +1,11 @@
 ---
-title: How to bind an Azure Database for PostgreSQL to your application in Azure Spring Apps
+title: How to Bind an Azure Database for PostgreSQL to Your Application in Azure Spring Apps
 description: Learn how to bind an Azure Database for PostgreSQL instance to your application in Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: passwordless-java, devx-track-java, devx-track-extended-java
 ---
@@ -37,7 +38,7 @@ PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to u
 
 Use the following steps to prepare your project.
 
-1. In your project's *pom.xml* file, add the following dependency:
+1. In your project's **pom.xml** file, add the following dependency:
 
    ```xml
    <dependency>
@@ -50,7 +51,7 @@ Use the following steps to prepare your project.
    </dependency>
    ```
 
-1. In the *application.properties* file, remove any `spring.datasource.*` properties.
+1. In the **application.properties** file, remove any `spring.datasource.*` properties.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 

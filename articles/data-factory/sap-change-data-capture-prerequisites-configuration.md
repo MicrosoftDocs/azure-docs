@@ -4,14 +4,16 @@ titleSuffix: Azure Data Factory
 description: Learn about the prerequisites and setup for the SAP CDC connector in Azure Data Factory.
 author: ukchrist
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 05/15/2024
+ms.topic: how-to
+ms.date: 02/13/2025
 ms.author: ulrichchrist
 ---
 
 # Prerequisites and setup for the SAP CDC connector
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Learn about the prerequisites for the SAP CDC connector in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
 

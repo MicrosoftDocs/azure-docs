@@ -3,8 +3,11 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 08/06/2024
-ms.custom: devdivchpfy22
+ms.date: 09/15/2026
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
 ---
@@ -39,7 +42,7 @@ When you configure custom application logs to be sent directly, the host no long
 
 ## Configure categories
 
-The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions.
+The Azure Functions logger includes a *category* for every log. The category shows which part of the runtime code or your function code wrote the log.
 
 Category names are assigned differently in Functions compared to other .NET frameworks. For example, when you use `ILogger<T>` in ASP.NET, the category is the name of the generic type. C# functions also use `ILogger<T>`, but instead of setting the generic type name as a category, the runtime assigns categories based on the source. For example:
 
@@ -48,13 +51,11 @@ Category names are assigned differently in Functions compared to other .NET fram
 
 The following table describes the main categories of logs that the runtime creates:
 
-### [v2.x+](#tab/v2)
-
 | Category | Table | Description |
 | ----- | ----- | ----- |
 | **`Function`** | **traces**| Includes function started and completed logs for all function runs. For successful runs, these logs are at the `Information` level. Exceptions are logged at the `Error` level. The runtime also creates `Warning` level logs, such as when queue messages are sent to the [poison queue](functions-bindings-storage-queue-trigger.md#poison-messages).|
 | **`Function.<YOUR_FUNCTION_NAME>`** | **dependencies**| Dependency data is automatically collected for some services. For successful runs, these logs are at the `Information` level. For more information, see [Dependencies](functions-monitoring.md#dependencies). Exceptions are logged at the `Error` level. The runtime also creates `Warning` level logs, such as when queue messages are sent to the [poison queue](functions-bindings-storage-queue-trigger.md#poison-messages). |
-| **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C# and JavaScript SDKs lets you collect custom metrics and log custom events. For more information, see [Custom telemetry data](functions-monitoring.md#custom-telemetry-data).|
+| **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | Language-specific SDKs let you collect custom metrics and log custom events. The recommended approach is to use the [OpenTelemetry exporter](opentelemetry-howto.md). For more information, see [Custom telemetry data](functions-monitoring.md#custom-telemetry-data).|
 | **`Function.<YOUR_FUNCTION_NAME>`** | **traces**| Includes function started and completed logs for specific function runs. For successful runs, these logs are at the `Information` level. Exceptions are logged at the `Error` level. The runtime also creates `Warning` level logs, such as when queue messages are sent to the [poison queue](functions-bindings-storage-queue-trigger.md#poison-messages). |
 | **`Function.<YOUR_FUNCTION_NAME>.User`** | **traces**| User-generated logs, which can be any log level. For more information about writing to logs from your functions, see [Writing to logs](functions-monitoring.md#writing-to-logs). |
 | **`Host.Aggregator`** | **customMetrics** | These runtime-generated logs provide counts and averages of function invocations over a [configurable](#configure-the-aggregator) period of time. The default period is 30 seconds or 1,000 results, whichever comes first. Examples are the number of runs, success rate, and duration. All of these logs are written at the `Information` level. If you filter at `Warning` or higher, you don't see any of this data. |
@@ -65,32 +66,19 @@ The following table describes the main categories of logs that the runtime creat
 > [!NOTE]
 > For .NET class library functions, these categories assume you're using `ILogger` and not `ILogger<T>`. For more information, see the [Functions ILogger documentation](functions-dotnet-class-library.md#ilogger).
 
-### [v1.x](#tab/v1)
-
-| Category | Table | Description |
-| ----- | ----- | ----- |
-| **`Function`** | **traces**| User-generated logs, which can be any log level. For more information about writing to logs from your functions, see [Writing to logs](functions-monitoring.md#writing-to-logs). |
-| **`Host.Aggregator`** | **customMetrics** | These runtime-generated logs provide counts and averages of function invocations over a [configurable](#configure-the-aggregator) period of time. The default period is 30 seconds or 1,000 results, whichever comes first. Examples are the number of runs, success rate, and duration. All of these logs are written at `Information` level. If you filter at `Warning` or higher, you don't see any of this data. |
-| **`Host.Executor`** | **traces** | Includes **Function started** and **Function completed** logs for specific function runs. For successful runs, these logs are at the `Information` level. Exceptions are logged at the `Error` level. The runtime also creates logs at the `Warning`level, such as when queue messages are sent to the [poison queue](functions-bindings-storage-queue-trigger.md#poison-messages).  |
-| **`Host.Results`** | **requests** | These runtime-generated logs indicate success or failure of a function. All of these logs are written at the `Information` level. If you filter at `Warning` or higher, you don't see any of this data. |
-
----
-
 The **Table** column indicates to which table in Application Insights the log is written.
 
 ## Configure log levels
 
 [!INCLUDE [functions-log-levels](../../includes/functions-log-levels.md)]
 
-For each category, you indicate the minimum log level to send. The *host.json* settings vary depending on the [Functions runtime version](functions-versions.md).
+For each category, you indicate the minimum log level to send by configuring the `logging.logLevel` settings in the *host.json* file.
 
 The following examples define logging based on the following rules:
 
 + The default logging level is set to `Warning` to prevent [excessive logging](#solutions-with-high-volume-of-telemetry) for unanticipated categories.
 + `Host.Aggregator` and `Host.Results` are set to lower levels. Setting logging levels too high (especially higher than `Information`) can result in loss of metrics and performance data.
 + Logging for function runs is set to `Information`. If necessary, you can [override](functions-host-json.md#override-hostjson-values) this setting in local development to `Debug` or `Trace`.
-
-### [v2.x+](#tab/v2)
 
 ```json
 {
@@ -106,28 +94,7 @@ The following examples define logging based on the following rules:
 }
 ```
 
-### [v1.x](#tab/v1)
-
-```json
-{
-  "logger": {
-    "categoryFilter": {
-      "defaultLevel": "Warning",
-      "categoryLevels": {
-        "Host.Results": "Information",
-        "Host.Aggregator": "Trace",
-        "Function": "Information"
-      }
-    }
-  }
-}
-```
-
----
-
 If *[host.json]* includes multiple logs that start with the same string, the more defined logs ones are matched first. Consider the following example that logs everything in the runtime, except `Host.Aggregator`, at the `Error` level:
-
-### [v2.x+](#tab/v2)
 
 ```json
 {
@@ -142,25 +109,6 @@ If *[host.json]* includes multiple logs that start with the same string, the mor
   }
 }
 ```
-
-### [v1.x](#tab/v1)
-
-```json
-{
-  "logger": {
-    "categoryFilter": {
-      "defaultLevel": "Information",
-      "categoryLevels": {
-        "Host": "Error",
-        "Function": "Error",
-        "Host.Aggregator": "Information"
-      }
-    }
-  }
-}
-```
-
----
 
 You can use a log level setting of `None` to prevent any logs from being written for a category.
 
@@ -189,9 +137,7 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 ## Configure sampling
 
-Application Insights has a [sampling](/azure/azure-monitor/app/sampling) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. When the rate of incoming executions exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming executions. The default setting for maximum number of executions per second is 20 (five in version 1.x). You can configure sampling in [*host.json*](./functions-host-json.md#applicationinsights). Here's an example:
-
-### [v2.x+](#tab/v2)
+Application Insights has a [sampling](/azure/azure-monitor/app/sampling) feature that protects you from producing too much telemetry data on completed executions during peak load. When the rate of incoming executions exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming executions. The default maximum number of telemetry items per second is 20. You can configure sampling in [*host.json*](./functions-host-json.md#applicationinsights). Here's an example:
 
 ```json
 {
@@ -208,21 +154,6 @@ Application Insights has a [sampling](/azure/azure-monitor/app/sampling) feature
 ```
 
 You can exclude certain types of telemetry from sampling. In this example, data of type `Request` and `Exception` is excluded from sampling. It ensures that *all* function executions (requests) and exceptions are logged while other types of telemetry remain subject to sampling.
-
-### [v1.x](#tab/v1)
-
-```json
-{
-  "applicationInsights": {
-    "sampling": {
-      "isEnabled": true,
-      "maxTelemetryItemsPerSecond" : 5
-    }
-  }
-}
-```
-
----
 
 If your project uses a dependency on the Application Insights SDK to do manual telemetry tracking, you might experience unusual behavior if your sampling configuration differs from the sampling configuration in your function app. In such cases, use the same sampling configuration as the function app. For more information, see [Sampling in Application Insights](/azure/azure-monitor/app/sampling).
 
@@ -290,14 +221,16 @@ For a function app to send data to Application Insights, it needs to connect to 
 | **[`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)** | This setting is recommended and is required when your Application Insights instance runs in a sovereign cloud. The connection string supports other [new capabilities](/azure/azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings#new-capabilities).   |
 | **[`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey)** | Legacy setting, which Application Insights has deprecated in favor of the connection string setting. |
 
-When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and is created either in the same region or in the nearest region.
+When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp) or [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and is created either in the same region or in the nearest region.
 
 ### Require Microsoft Entra authentication 
 
 You can use the [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](./functions-app-settings.md#applicationinsights_authentication_string) setting to enable connections to Application Insights using Microsoft Entra authentication. This creates a consistent authentication experience across all Application Insights pipelines, including Profiler and Snapshot Debugger, as well as from the Functions host and language-specific agents.  
 
 >[!NOTE]  
->There's no Entra authentication support for local development.
+>There's currently no Microsoft Entra ID authentication support for local development.
+>
+>When ingesting data in a sovereign cloud, Microsoft Entra ID authentication isn't available when using the Application Insights SDK.  OpenTelemetry-based data collection supports Microsoft Entra ID authentication across all cloud environments, including sovereign clouds.
 
 The value contains either `Authorization=AAD` for a system-assigned managed identity or `ClientId=<YOUR_CLIENT_ID>;Authorization=AAD` for a user-assigned managed identity. The managed identity must already be available to the function app, with an assigned role equivalent to [Monitoring Metrics Publisher](/azure/role-based-access-control/built-in-roles/monitor#monitoring-metrics-publisher). For more information, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication).
 
@@ -342,18 +275,14 @@ If an Application Insights resource wasn't created with your function app, use t
 > [!NOTE]
 > Older function apps might use `APPINSIGHTS_INSTRUMENTATIONKEY` instead of `APPLICATIONINSIGHTS_CONNECTION_STRING`. When possible, update your app to use the connection string instead of the instrumentation key.
 
-## Disable built-in logging
-
-Early versions of Functions used built-in monitoring, which is no longer recommended. When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If you use built-in logging in production, the logging record might be incomplete because of throttling on Azure Storage.
-
-To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For more information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). Before you delete the app setting, ensure that no existing functions in the same function app use the setting for Azure Storage triggers or bindings.
-
 ## Solutions with high volume of telemetry
 
 Function apps are an essential part of solutions that can cause high volumes of telemetry, such as IoT solutions, rapid event driven solutions, high load financial systems, and integration systems. In this case, you should consider extra configuration to reduce costs while maintaining observability.
 
 The generated telemetry can be consumed in real-time dashboards, alerting, detailed diagnostics, and so on. Depending on how the generated telemetry is consumed, you need to define a strategy to reduce the volume of data generated. This strategy allows you to properly monitor, operate, and diagnose your function apps in production. Consider the following options:
 
++ **Use the correct table plan**:  [Table plans](/azure/azure-monitor/logs/data-platform-logs#table-plans) help you manage data costs by controlling how often you use the data in a table and the kind of analysis you need to perform. To reduce costs, you can choose the `Basic` plan, which does lack some features available in the `Analytics` plan.
+  
 + **Use sampling**: As mentioned [previously](#configure-sampling), sampling helps to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still get a high volume of telemetry. Inspect the options that [adaptive sampling](/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
 
 + **Default log level**: Use `Warning` or `Error` as the default value for all telemetry categories. Later, you can decide which [categories](#configure-categories) you want to set at the `Information` level, so that you can monitor and diagnose your functions properly.
@@ -383,8 +312,6 @@ The generated telemetry can be consumed in real-time dashboards, alerting, detai
 + **Host.Aggregator vs Host.Results**: Both categories provide good insights about function executions. If needed, you can remove the detailed information from one of these categories, so that you can use the other for monitoring and alerting.
 Here's a sample:
 
-# [v2.x+](#tab/v2)
-
 ``` json
 {
   "version": "2.0",  
@@ -408,32 +335,6 @@ Here's a sample:
 } 
 ```
 
-# [v1.x](#tab/v1)
-
-```json
-{
-  "logger": {
-    "categoryFilter": {
-      "defaultLevel": "Warning",
-      "categoryLevels": {
-        "Function": "Error",
-        "Host.Aggregator": "Error",
-        "Host.Results": "Information",
-        "Host.Executor": "Warning"
-      }
-    }
-  },
-  "applicationInsights": {
-    "sampling": {
-      "isEnabled": true,
-      "maxTelemetryItemsPerSecond" : 5
-    }
-  }
-}
-```
-
----
-
 With this configuration:
 
 + The default value for all functions and telemetry categories is set to `Warning` (including Microsoft and Worker categories). So, by default, all errors and warnings generated by runtime and custom logging are gathered.
@@ -445,9 +346,6 @@ With this configuration:
 + For the `Host.Results` category, all the host execution information is gathered in the `requests` Application Insights table. All the invocations results are shown in the function Monitor dashboard and in Application Insights dashboards.
 
 + For the function called `Function1`, we set the log level to `Information`. So, for this concrete function, all the telemetry is gathered (dependency, custom metrics, and custom events). For the same function, we set the `Function1.User` category (user-generated traces) to `Error`, so only custom error logging is gathered.
-
-  > [!NOTE]
-  > Configuration per function isn't supported in v1.x of the Functions runtime.
 
 + Sampling is configured to send one telemetry item per second per type, excluding the exceptions. This sampling happens for each server host running our function app. So, if we have four instances, this configuration emits four telemetry items per second per type and all the exceptions that might occur.
 
@@ -493,7 +391,7 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 
 ## Monitor function apps using Health check
 
-You can use the Health Check feature to monitor function apps on the Premium (Elastic Premium) and Dedicated (App Service) plans. Health check isn't an option for the Consumption plan. To learn how to configure it, see [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md). Your function app should have an HTTP trigger function that responds with an HTTP status code of 200 on the same endpoint as configured on the `Path` parameter of the health check. You can also have that function perform extra checks to ensure that dependent services are reachable and working.
+You can use the Health Check feature to monitor function apps on the Premium (Elastic Premium) and Dedicated (App Service) plans. Health check isn't an option for the Flex Consumption and Consumption plans. To learn how to configure it, see [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md). Your function app should have an HTTP trigger function that responds with an HTTP status code of 200 on the same endpoint as configured on the `Path` parameter of the health check. You can also have that function perform extra checks to ensure that dependent services are reachable and working.
 
 ## Related content
 

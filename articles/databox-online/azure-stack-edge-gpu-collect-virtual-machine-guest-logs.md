@@ -2,12 +2,12 @@
 title: Collect VM guest logs on Azure Stack Edge Pro GPU 
 description: Describes how to create a Support package with guest logs for VMs on an Azure Stack Edge Pro GPU device.
 services: databox
-author: v-dalc
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 07/30/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Collect VM guest logs on an Azure Stack Edge Pro GPU device
 

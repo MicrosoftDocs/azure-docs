@@ -1,12 +1,13 @@
 ---
-title:  "Tutorial: Deploy Spring Boot applications using IntelliJ"
+title:  "Tutorial: Deploy Spring Boot Applications Using IntelliJ"
 
 description: Use IntelliJ to deploy applications to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: tutorial
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 ---
 
@@ -51,9 +52,9 @@ The following procedures deploy a Hello World application using IntelliJ IDEA.
 ## Open gs-spring-boot project
 
 1. Download and unzip the source repository for this tutorial, or clone it using the following Git command: `git clone https://github.com/spring-guides/gs-spring-boot.git`
-1. Navigate to the *gs-spring-boot\complete* folder.
+1. Navigate to the **gs-spring-boot\complete** folder.
 1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
-1. Select the *gs-spring-boot\complete* folder.
+1. Select the **gs-spring-boot\complete** folder.
 
    :::image type="content" source="media/how-to-intellij-deploy-apps/import-project.png" alt-text="Screenshot of IntelliJ IDEA Open File or Project dialog box with complete folder highlighted." lightbox="media/how-to-intellij-deploy-apps/import-project.png":::
 

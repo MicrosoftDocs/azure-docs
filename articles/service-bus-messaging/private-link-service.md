@@ -3,9 +3,12 @@ title: Integrate Azure Service Bus with Azure Private Link Service
 description: Learn how to integrate Azure Service Bus with Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 12/19/2024
+ms.date: 05/02/2026
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+#customer intent: As a developer or administrator, I want to configure private endpoints for Azure Service Bus so that I can securely access the namespace over a private network.
 ---
 
 # Allow access to Azure Service Bus namespaces via private endpoints
@@ -19,7 +22,7 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 - This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
 - Implementing private endpoints can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain **trusted services** even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
-    The following Microsoft services are required to be on a virtual network
+    The following Microsoft services must be on a virtual network:
     - Azure App Service
     - Azure Functions
 - Specify **at least one IP rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key). 
@@ -36,7 +39,7 @@ To integrate a Service Bus namespace with Azure Private Link, you need the follo
 - A subnet in the virtual network. You can use the **default** subnet. 
 - Owner or contributor permissions for both the Service Bus namespace and the virtual network.
 
-Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your Service Bus namespace can be in a different region. And, Your private endpoint uses a private IP address in your virtual network.
+Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint in the portal, it automatically filters to show only virtual networks in that region. Your Service Bus namespace can be in a different region. Your private endpoint uses a private IP address in your virtual network.
 
 ### Configure private access when creating a namespace
 When creating a namespace, you can either allow public only (from all networks) or private only (only via private endpoints) access to the namespace.
@@ -106,7 +109,7 @@ To allow trusted services to access your namespace, switch to the **Public Acces
 ## Add a private endpoint using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to a Service Bus namespace.
 
-Your private endpoint and virtual network must be in the same region. Your Service Bus namespace can be in a different region. And, Your private endpoint uses a private IP address in your virtual network.
+Your private endpoint and virtual network must be in the same region. Your Service Bus namespace can be in a different region. Your private endpoint uses a private IP address in your virtual network.
 
 ```azurepowershell-interactive
 
@@ -255,7 +258,45 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 
-## Next steps
+## Troubleshoot private endpoint connectivity
+
+After you enable a private endpoint, most connectivity issues come down to three things: DNS resolution, network rules, and the connection state. Work through the following checks.
+
+### DNS resolves to a public IP instead of the private IP
+
+This problem is common. The client must resolve the namespace to the private IP through the `privatelink.servicebus.windows.net` private DNS zone.
+
+From a host inside the virtual network, run:
+
+```console
+nslookup <service-bus-namespace-name>.servicebus.windows.net
+```
+
+A correct result returns the `privatelink` alias and a private IP (for example, `10.0.0.4`), as shown in [Validate that the private link connection works](#validate-that-the-private-link-connection-works). If you get a public IP instead:
+
+- Confirm the private DNS zone `privatelink.servicebus.windows.net` exists and is linked to the client's virtual network.
+- Confirm an A record for the namespace points to the private endpoint's private IP.
+- If you use custom DNS servers or an on-premises resolver, confirm the conditional forwarder for `servicebus.windows.net` forwards to Azure DNS (168.63.129.16) so the private zone is honored.
+
+> [!NOTE]
+> Because traffic is blocked at the application layer rather than the TCP layer, `nslookup` or a TCP connection against the public endpoint can still succeed even when public access is disabled. Resolution returning a public IP from inside the virtual network still indicates a DNS misconfiguration.
+
+### The private endpoint connection isn't approved
+
+In the Azure portal, open the namespace > **Networking** > **Private endpoint connections** and confirm the connection state is **Approved**. A connection in **Pending** or **Rejected** state blocks traffic. See [Approve, reject, or remove a private endpoint connection](#approve-reject-or-remove-a-private-endpoint-connection).
+
+### A network rule blocks the traffic
+
+- Confirm the network security group (NSG) and any user-defined routes (UDRs) on the client subnet allow traffic to the private IP on Advanced Message Queuing Protocol (AMQP) ports 5671 and 5672, or 443 for Web Sockets.
+- If public network access is disabled, confirm that at least one IP rule or virtual network rule exists. With no rules and public access disabled, the namespace is unreachable from outside the private network.
+
+### A trusted service can't connect
+
+Azure App Service and Azure Functions must be integrated with the virtual network to reach a namespace behind a private endpoint. For the list of services that can bypass the firewall, see [Trusted Microsoft services](#trusted-microsoft-services).
+
+For broader connectivity and timeout troubleshooting, see [Handle timeouts and configure retries](service-bus-timeouts-retries.md) and the [Troubleshooting guide](service-bus-troubleshooting-guide.md).
+
+## Related content
 
 - Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
 - Learn more about [Azure Service Bus](service-bus-messaging-overview.md)

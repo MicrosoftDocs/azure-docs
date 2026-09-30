@@ -1,11 +1,12 @@
 ---
-title: Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps
+title: Capture Heap Dump and Thread Dump Manually and Use Java Flight Recorder in Azure Spring Apps
 description: Learn how to manually capture a heap dump, a thread dump, or start Java Flight Recorder.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -87,7 +88,7 @@ Use the following steps to generate a heap or thread dump of your app in Azure S
 
 ## Get your diagnostic files
 
-Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to *`<app-instance>_heapdump_<time-stamp>.hprof`* for the heap dump, *`<app-instance>_threaddump_<time-stamp>.txt`* for the thread dump, and *`<app-instance>_JFR_<time-stamp>.jfr`* for the JFR file.
+Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to **\<app-instance>_heapdump_\<time-stamp>.hprof** for the heap dump, **\<app-instance>_threaddump_\<time-stamp>.txt** for the thread dump, and **\<app-instance>_JFR_\<time-stamp>.jfr** for the JFR file.
 
 ## Next steps
 

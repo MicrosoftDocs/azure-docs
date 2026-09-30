@@ -5,7 +5,7 @@ description: Define custom attributes for your application in Azure Active Direc
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 09/11/2024
@@ -19,6 +19,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Define custom attributes in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

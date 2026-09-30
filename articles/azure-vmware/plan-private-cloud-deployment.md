@@ -4,7 +4,8 @@ description: In this tutorial, learn how to plan your Azure VMware Solution depl
 ms.topic: tutorial
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/19/2023
+ms.date: 05/29/2026
+# Customer intent: As a cloud architect, I want to plan and document my Azure VMware Solution deployment, so that I can ensure a successful production-ready environment for virtual machines and facilitate smooth migration processes.
 ---
 
 # Plan the Azure VMware Solution deployment
@@ -44,7 +45,7 @@ Identify the [region](https://azure.microsoft.com/global-infrastructure/services
 The resource name is a friendly and descriptive name for your Azure VMware Solution private cloud, for example, **MyPrivateCloud**.
 
 >[!IMPORTANT]
->The name must not exceed 40 characters. If the name exceeds this limit, you won't be able to create public IP addresses for use with the private cloud.
+>The name must not exceed 40 characters. If the name exceeds this limit, you're unable to create public IP addresses for use with the private cloud.
 
 ## Identify the size hosts
 
@@ -83,7 +84,7 @@ Azure VMware Solution requires a /22 CIDR network, such as `10.0.0.0/22`. This a
 
 In a VMware vSphere environment, VMs must connect to a network segment. As Azure VMware Solution production deployment expands, you often see a combination of L2 extended segments from on-premises and local NSX-T Data Center network segments.
 
-For the initial deployment, identify a single network segment (IP network), for example, `10.0.4.0/24`. This network segment is used primarily for testing purposes during the initial deployment.  The address block shouldn't overlap with any network segments on-premises or within Azure and shouldn't be within the /22 network segment already defined.
+For the initial deployment, identify a single network segment (IP network), for example, `10.0.4.0/24`. This network segment is used primarily for testing purposes during the initial deployment. The address block shouldn't overlap with any network segments on-premises or within Azure and shouldn't be within the /22 network segment already defined.
   
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Diagram illustrates the IP address segment for virtual machine workloads."lightbox="media/pre-deployment/nsx-segment-diagram.png" border="false":::
 
@@ -94,7 +95,7 @@ Azure VMware Solution requires an Azure Virtual Network and an ExpressRoute circ
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram displays the Azure Virtual Network attached to Azure VMware Solution."lightbox="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" border="false":::
 
 >[!IMPORTANT]
->You can connect to a virtual network gateway in an Azure Virtual WAN, but it is out of scope for this quick start.
+>You can connect to a virtual network gateway in an Azure Virtual WAN, but it's out of scope for this quick start.
 
 ## Define VMware HCX network segments
 
@@ -109,12 +110,12 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
 
 - **Uplink network:** For on-premises VMware HCX deployment, identify an Uplink network for VMware HCX. Use the same network you plan to use for the Management network.
 
-- **vMotion network:** For on-premises VMware HCX deployment, identify a vMotion network for VMware HCX.  Typically, it's the same network used for vMotion by your on-premises VMware vSphere cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
+- **vMotion network:** For on-premises VMware HCX deployment, identify a vMotion network for VMware HCX. Typically, it's the same network used for vMotion by your on-premises VMware vSphere cluster. At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
 
   You must expose the vMotion network on a distributed virtual switch or vSwitch0. If it's not, modify the environment to accommodate.
 
   >[!NOTE]
-  >Many VMware vSphere environments use non-routed network segments for vMotion, which poses no problems.
+  >Many VMware vSphere environments use nonrouted network segments for vMotion, which poses no problems.
   
 - **Replication network:** For on-premises VMware HCX deployment, define a replication network. Use the same network you're using for your Management and Uplink networks. If the on-premises cluster hosts use a dedicated Replication VMkernel network, reserve **two** IP addresses in this network segment and use the Replication VMkernel network for the replication network.
 
@@ -122,8 +123,8 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
 
 Optionally, you can extend network segments from on-premises to Azure VMware Solution. If you extend network segments, identify those networks now following these guidelines:
 
-- Networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
-- Networks that are on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html) can't be extended.
+- Networks must connect to a [vSphere Distributed Switch (vDS)](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-networking-8-0/basic-networking-with-vnetwork-distributed-switches.html) in your on-premises VMware environment.  
+- Networks that are on a [vSphere Standard Switch](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-networking-8-0/setting-up-networking-with-vnetwork-standard-switches.html) can't be extended.
 
 >[!IMPORTANT]
 >These networks are extended as a final step of the configuration, not during deployment.

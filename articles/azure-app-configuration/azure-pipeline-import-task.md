@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 10/29/2024
+ms.date: 09/30/2025
 ms.author: malev
 ---
 
@@ -15,7 +15,7 @@ The Azure App Configuration Import task imports key-values from a configuration 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - App Configuration store - [create one for free](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store)
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - [Azure Pipelines agent version 2.144.0](https://github.com/microsoft/azure-pipelines-agent/releases/tag/v2.144.0) or later and [Node version 16](https://nodejs.org/en/blog/release/v16.16.0/) or later for running the task on self-hosted agents.
@@ -46,16 +46,16 @@ This section covers how to use the Azure App Configuration Import task in an Azu
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For more information about build pipelines go to [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
         > [!div class="mx-imgBorder"]
-        > ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
+        > ![Screenshot shows the Show assistant button for a new pipeline.](./media/azure-pipeline-import-task/new-pipeline-show-assistant.png)
       - If you're using an existing build pipeline, click the **Edit** button at the top-right.
         > [!div class="mx-imgBorder"]
-        > ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
+        > ![Screenshot shows the Edit button for an existing pipeline.](./media/azure-pipeline-import-task/existing-pipeline-show-assistant.png)
 1. Search for the **Azure App Configuration Import** Task.
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the Add Task dialog with Azure App Configuration Import in the search box.](./media/add-azure-app-configuration-import-task.png)
+    > ![Screenshot shows the Add Task dialog with Azure App Configuration Import in the search box.](./media/azure-pipeline-import-task/add-azure-app-configuration-import-task.png)
 1. Configure the necessary parameters for the task to import key-values from the configuration file to the App Configuration store. Explanations of the parameters are available in the **Parameters** section, and in tooltips next to each parameter.
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the app configuration import task parameters.](./media/azure-app-configuration-import-parameters.png)
+    > ![Screenshot shows the app configuration import task parameters.](./media/azure-pipeline-import-task/azure-app-configuration-import-parameters.png)
 1. Save and queue a build. The build log displays any failures that occurred during the execution of the task.
 
 ## Use in releases
@@ -67,10 +67,10 @@ This section covers how to use the Azure App Configuration Import task in an Azu
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
 1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in [Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments).
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
+    > ![Screenshot shows the selected stage in the Tasks dropdown.](./media/azure-pipeline-import-task/pipeline-stage-tasks.png)
 1. Click **+** next to the Job to which you want to add a new task.
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
+    > ![Screenshot shows the plus button next to the job.](./media/azure-pipeline-import-task/add-task-to-job.png)
 1. In the **Add tasks** dialog, type **Azure App Configuration Import** into the search box and select it.
 1. Configure the necessary parameters within the task to import your key-values from your configuration file to your App Configuration store. Explanations of the parameters are available in the **Parameters** section, and in tooltips next to each parameter.
 1. Save and queue a release. The release log displays any failures encountered during the execution of the task.

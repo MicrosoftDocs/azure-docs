@@ -5,12 +5,14 @@ description: Learn about the calling capabilities of Azure Communication Service
 author: tomaschladek
 ms.author: tchladek
 ms.date: 7/9/2022
-ms.topic: conceptual
+ms.topic: feature-availability
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
 # Teams meeting capabilities for Teams external users
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 This article describes which capabilities Azure Communication Services SDKs support for Microsoft Teams external users in Teams meetings. For availability by platform, see [Voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
 
@@ -96,6 +98,8 @@ This article describes which capabilities Azure Communication Services SDKs supp
 | | Honor disabling or enabling a camera as an attendee | ✔️ |
 | | Adding Teams user honors information barriers | ✔️ |
 | | Announce when phone callers join or leave  | ❌ |
+| | Check if Teams participant has display name changed | ✔️ |
+| | Get notification that Teams participant display name changed | ✔️ |
 | Teams Copilot | User can access Teams Copilot | ❌[6] |
 | | User's transcript is captured when Copilot is enabled  | ✔️ |
 | Device management | Ask for permission to use audio and/or video | ✔️ |

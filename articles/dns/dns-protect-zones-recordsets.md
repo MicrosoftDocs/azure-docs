@@ -2,13 +2,17 @@
 title: Protecting DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 11/30/2023
-ms.author: greglin 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: allensu 
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to implement access controls and protection mechanisms for DNS zones and records, so that I can prevent unauthorized changes and accidental deletions that could disrupt service availability."
 ---
 
 # How to protect DNS zones and records
@@ -17,7 +21,7 @@ ms.devlang: azurecli
 
 DNS zones and records are critical resources. Deleting a DNS zone or a single DNS record can result in a service outage. It's important that DNS zones and records are protected against unauthorized or accidental changes.
 
-This article explains how Azure DNS enables you to protect your private DNS zones and records against such changes.  We apply two powerful securities features provided by Azure Resource Manager: [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) and [resource locks](../azure-resource-manager/management/lock-resources.md).
+This article explains how Azure DNS helps you protect your public DNS zones and records. It covers two powerful security features provided by Azure Resource Manager: [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) and [resource locks](../azure-resource-manager/management/lock-resources.md).
 
 ## Azure role-based access control
 
@@ -25,11 +29,11 @@ Azure role-based access control (Azure RBAC) enables fine-grained access managem
 
 ### The DNS Zone Contributor role
 
-The DNS Zone Contributor role is a built-in role for managing private DNS resources. This role applied to a user or group enables them to manage DNS resources.
+The DNS Zone Contributor role is a built-in role for managing Azure DNS public DNS resources (`Microsoft.Network/DNSZones`). When you assign this role to a user or group, they can manage those DNS resources. It doesn't grant permissions to private DNS zones. To protect private DNS zones and record sets, see [Protect private DNS zones and records](dns-protect-private-zones-recordsets.md).
 
 The resource group *myResourceGroup* contains five zones for Contoso Corporation. Granting the DNS administrator DNS Zone Contributor permissions to that resource group, enables full control over those DNS zones. It avoids granting unnecessary permissions. The DNS administrator can't create or stop virtual machines.
 
-The simplest way to assign Azure RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.yml).  
+The simplest way to assign Azure RBAC permissions is [via the Azure portal](/azure/role-based-access-control/role-assignments-portal).  
 
 Open **Access control (IAM)** for the resource group, then select **+ Add**, then select the **DNS Zone Contributor** role. Select the required users or groups to grant permissions.
 
@@ -189,7 +193,7 @@ For more information on how to create, manage, and assign custom roles, see [Azu
 
 Azure Resource Manager supports another type of security control, the ability to lock resources. Resource locks are applied to the resource, and are effective across all users and roles. For more information, see [Lock resources with Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
-There are two types of resource lock: **CanNotDelete** and **ReadOnly**. These lock types can be applied either to a Private DNS zone, or to an individual record set. The following sections describe several common scenarios, and how to support them using resource locks.
+Two types of resource locks exist: **CanNotDelete** and **ReadOnly**. You can apply these lock types to either a public DNS zone or an individual record set. The following sections describe several common scenarios, and how to support them by using resource locks.
 
 ### Protecting against all changes
 

@@ -6,12 +6,14 @@ manager: rcole
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 04/03/2024
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---
 
 # Known limitations in Azure telephony
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 This article provides information about limitations and known issues related to telephony in Azure Communication Services.
 

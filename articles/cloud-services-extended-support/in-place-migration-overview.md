@@ -2,15 +2,20 @@
 title: Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 description: Overview of migration from Cloud Services (classic) to Cloud Service (extended support)
 ms.topic: how-to
-ms.service: azure-cloud-services-extended-support
-ms.subservice: classic-to-arm-migration
+ms.service: azure-cloud-services-classic
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support, classic-to-arm-migration
+# Customer intent: As a cloud administrator, I want to migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support) so that I can leverage improved regional resiliency, Azure Resource Manager capabilities, and feature parity with minimal disruption to existing applications.
 ---
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This document provides an overview for migrating Cloud Services (classic) to Cloud Services (extended support).     
 
@@ -29,7 +34,7 @@ The following table highlights comparison between these two options.
 | Customers need to delete the old cloud services in Azure Resource Manager. | Platform deletes the Cloud Services (classic) resources after migration. | 
 | This migration is a lift and shift scenario, which offers more flexibility but requires more time to migrate. | This scenario is an automated migration that offers quick migration but less flexibility. | 
 
-When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you may want to investigate other Azure services such as: [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/overview-managed-cluster). These services continue to feature other capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic).
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you might want to investigate other Azure services such as: [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview),[Azure Container Apps](../container-apps/overview.md), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/overview-managed-cluster). These services continue to feature other capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic).
 
 Depending on the application, Cloud Services (extended support) may require substantially less effort to move to Azure Resource Manager compared to other options. If your application isn't evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements.
 
@@ -112,7 +117,7 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 - 	User Defined Routes
 - 	Internal load balancer
 - 	Certificate migration to key vault
-- 	Plugins and Extension (XML and Json based)
+- 	Plugins and Extension (XML and JSON based)
 - 	On Start / On Stop Tasks
 - 	Deployments with Accelerated Networking
 - 	Deployments using single or multiple roles
@@ -139,3 +144,4 @@ The following list contains top scenarios involving combinations of resources, f
 - [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview)
 - Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)
 - Migrate to Cloud Services (extended support) using [PowerShell](in-place-migration-powershell.md)
+

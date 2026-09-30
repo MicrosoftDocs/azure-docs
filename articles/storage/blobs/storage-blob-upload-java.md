@@ -3,14 +3,15 @@ title: Upload a blob with Java
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the Java client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
-ms.date: 08/05/2024
+ms.author: shaas
+ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to upload block blobs to Azure Storage using the Java client library, so that I can efficiently manage and store data in my cloud applications.
 ---
 
 # Upload a block blob with Java
@@ -48,6 +49,9 @@ To upload a block blob from a file path, use the following method:
 - [uploadFromFile](/java/api/com.azure.storage.blob.blobclient)
 
 Each of these methods can be called using a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object or a [BlockBlobClient](/java/api/com.azure.storage.blob.specialized.blockblobclient) object.
+
+> [!NOTE]
+> The Azure Storage client libraries don't support concurrent writes to the same blob. If your app requires multiple processes writing to the same blob, you should implement a strategy for concurrency control to provide a predictable experience. To learn more about concurrency strategies, see [Manage concurrency in Blob Storage](concurrency-manage.md).
 
 ## Upload a block blob from a local file path
 

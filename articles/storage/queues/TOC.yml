@@ -32,7 +32,7 @@
   - name: Java
     href: ../common/storage-samples-java.md?toc=/azure/storage/queues/toc.json
   - name: Spring
-    href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client
+    href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client
   - name: Python
     href: ../common/storage-samples-python.md?toc=/azure/storage/queues/toc.json
   - name: JavaScript
@@ -77,26 +77,14 @@
       href: passwordless-migrate-queues.md?toc=/azure/storage/queues/toc.json
   - name: Authorizing management operations
     href: ../common/authorization-resource-provider.md?toc=/azure/storage/queues/toc.json
-  - name: Security
+  - name: Reliability
     items:
-    - name: Azure Storage encryption at rest
-      href: ../common/storage-service-encryption.md?toc=/azure/storage/queues/toc.json
-      items:
-      - name: Encryption with customer-managed keys
-        href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/queues/toc.json
-    - name: Use Azure Private Endpoints
-      href: ../common/storage-private-endpoints.md?toc=/azure/storage/queues/toc.json
-    - name: Security controls by Azure Policy
-      displayName: regulatory, compliance, standards, domains
-      href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
-    - name: Security recommendations
-      href: security-recommendations.md
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/queues/toc.json?toc=/azure/storage/queues/TOC.json
-  - name: Data redundancy
-    href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
-  - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/queues/toc.json
+    - name: Reliability in Azure Queue storage
+      href: /azure/reliability/reliability-storage-queue?toc=/azure/storage/queues/toc.json
+    - name: Data redundancy
+      href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
+    - name: Disaster recovery and failover
+      href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/queues/toc.json
   - name: Performance, scaling, and cost optimization
     items:
     - name: Scalability and performance targets
@@ -121,6 +109,24 @@
         href: ../common/storage-analytics-logging.md?toc=/azure/storage/queues/toc.json
       - name: Monitor, diagnose, and troubleshoot
         href: /troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting
+- name: Security
+  items:
+  - name: Secure your Azure Queue storage
+    href: secure-queues.md
+  - name: Secure your Azure Storage account
+    href: ../common/secure-storage.md?toc=/azure/storage/queues/toc.json
+  - name: Azure Storage encryption at rest
+    href: ../common/storage-service-encryption.md?toc=/azure/storage/queues/toc.json
+    items:
+    - name: Encryption with customer-managed keys
+      href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/queues/toc.json
+  - name: Use Azure Private Endpoints
+    href: ../common/storage-private-endpoints.md?toc=/azure/storage/queues/toc.json
+  - name: Security controls by Azure Policy
+    displayName: regulatory, compliance, standards, domains
+    href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
+  - name: Security recommendations
+    href: security-recommendations.md
 - name: How to
   items:
   - name: Create and manage storage accounts
@@ -132,8 +138,6 @@
       href: ../common/storage-account-upgrade.md?toc=/azure/storage/queues/toc.json
     - name: Recover a deleted storage account
       href: ../common/storage-account-recover.md?toc=/azure/storage/queues/toc.json
-    - name: Migrate a classic account to Azure Resource Manager
-      href: ../common/classic-account-migrate.md?toc=/azure/storage/queues/toc.json
     - name: Get account configuration properties
       href: ../common/storage-account-get-info.md?toc=/azure/storage/queues/toc.json
   - name: Secure queue data
@@ -302,7 +306,7 @@
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    href: /shows/data-exposed/?products=azure-storage
   - name: NuGet packages (.NET)
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)

@@ -1,12 +1,16 @@
 ---
-title: How to configure Palo Alto for Azure Spring Apps
+title: How to Configure Palo Alto for Azure Spring Apps
 description: How to configure Palo Alto for Azure Spring Apps
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.service: azure-spring-apps
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # How to configure Palo Alto for Azure Spring Apps
@@ -32,7 +36,7 @@ You should keep configuration information, such as rules and address wildcards, 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A Palo Alto deployment. If you don't have a deployment, you can provision [Palo Alto from Azure Marketplace](https://portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2).
 * [PowerShell](/powershell/scripting/install/installing-powershell)
 * [Azure CLI](/cli/azure/install-azure-cli)
@@ -52,7 +56,7 @@ The rest of this article assumes you have the following two pre-configured netwo
 
 Next, create three CSV files.
 
-Name the first file *AzureSpringAppsServices.csv*. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Global required network rules](./vnet-customer-responsibilities.md#azure-global-required-network-rules) section of [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
+Name the first file **AzureSpringAppsServices.csv**. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Global required network rules](./vnet-customer-responsibilities.md#azure-global-required-network-rules) section of [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 ```CSV
 name,protocol,port,tag
@@ -63,7 +67,7 @@ ASC_445,tcp,445,AzureSpringApps
 ASC_123,udp,123,AzureSpringApps
 ```
 
-Name the second file *AzureSpringAppsUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Apps. The values in the following example are for demonstration purposes only. For up-to-date values, see the [Azure Global required FQDN / application rules](./vnet-customer-responsibilities.md#azure-global-required-fqdn--application-rules) section of [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
+Name the second file **AzureSpringAppsUrlCategories.csv**. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Apps. The values in the following example are for demonstration purposes only. For up-to-date values, see the [Azure Global required FQDN / application rules](./vnet-customer-responsibilities.md#azure-global-required-fqdn--application-rules) section of [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 ```CSV
 name,description
@@ -81,7 +85,7 @@ crl.microsoft.com,
 crl3.digicert.com
 ```
 
-Name the third file *AzureMonitorAddresses.csv*. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if you're using Azure monitor. The values in the following example are for demonstration purposes only. For up-to-date values, see [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses).
+Name the third file **AzureMonitorAddresses.csv**. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if you're using Azure monitor. The values in the following example are for demonstration purposes only. For up-to-date values, see [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses).
 
 ```CSV
 name,type,address,tag
@@ -127,7 +131,7 @@ $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/ServiceGroups?location
 Invoke-RestMethod -Method Delete -Uri $url -Headers $paloAltoHeaders -SkipCertificateCheck
 ```
 
-Delete each Palo Alto service (as defined in *AzureSpringAppsServices.csv*) as shown in the following example:
+Delete each Palo Alto service (as defined in **AzureSpringAppsServices.csv**) as shown in the following example:
 
 ```powershell
 Get-Content .\AzureSpringAppsServices.csv | ConvertFrom-Csv | select name | ForEach-Object {
@@ -138,7 +142,7 @@ Get-Content .\AzureSpringAppsServices.csv | ConvertFrom-Csv | select name | ForE
 
 ## Create a service and service group
 
-To automate the creation of services based on the *AzureSpringAppsServices.csv* file you created earlier, use the following example.
+To automate the creation of services based on the **AzureSpringAppsServices.csv** file you created earlier, use the following example.
 
 ```powershell
 # Define a function to create and submit a Palo Alto service creation request
@@ -168,7 +172,7 @@ function New-PaloAltoService {
             }
         }
 
-        # Some rules in the CSV may need to conain source ports or descriptions. If these are present, populate them in the request
+        # Some rules in the CSV may need to contain source ports or descriptions. If these are present, populate them in the request
         if ($ServiceObject.description) {
             $requestBody.entry.description = $ServiceObject.description
         }
@@ -258,7 +262,7 @@ Invoke-RestMethod -Method Post -Uri $url  -SkipCertificateCheck -Headers $paloAl
 
 ## Create a security rule
 
-Next, create a JSON file to contain a security rule. Name the file *SecurityRule.json* and add the following content. The names of the two zones `Trust` and `UnTrust` match the zone names described earlier in the [Configure Palo Alto](#configure-palo-alto) section. The `service/member` entry contains the name of the service group created in the previous steps.
+Next, create a JSON file to contain a security rule. Name the file **SecurityRule.json** and add the following content. The names of the two zones `Trust` and `UnTrust` match the zone names described earlier in the [Configure Palo Alto](#configure-palo-alto) section. The `service/member` entry contains the name of the service group created in the previous steps.
 
 ```json
 {
@@ -338,7 +342,7 @@ Invoke-WebRequest -Uri $url -Method Post -Headers $paloAltoHeaders -Body (Get-Co
 
 ## Create Azure Monitor addresses
 
-Next, use the *AzureMonitorAddresses.csv* file to define Address objects in Palo Alto. The following example code shows you how to automate this task.
+Next, use the **AzureMonitorAddresses.csv** file to define Address objects in Palo Alto. The following example code shows you how to automate this task.
 
 ```powershell
 Get-Content ./AzureMonitorAddresses.csv | ConvertFrom-Csv | ForEach-Object {

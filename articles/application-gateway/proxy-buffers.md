@@ -2,12 +2,13 @@
 title: Configure Request and Response Buffers
 description: Learn how to configure Request and Response buffers for your Azure Application Gateway.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 09/25/2024
-ms.author: greglin
+ms.author: mbender
 #Customer intent: As a user, I want to know how can I disable/enable proxy buffers.
+# Customer intent: As a system administrator, I want to configure request and response buffering settings on my application gateway, so that I can optimize performance based on client interaction and backend processing capabilities.
 ---
 
 # Configure Request and Response Proxy Buffers
@@ -99,5 +100,5 @@ For reference, visit [Azure SDK for .NET](/dotnet/api/microsoft.azure.management
 
 ## Limitations
 - API version 2020-01-01 or later should be used to configure buffers.
-- Currently, these changes aren't supported through Portal and PowerShell.
+- Currently, these changes aren't supported through the Azure portal.
 - Request buffering can't be disabled if you're running the WAF SKU of Application Gateway. The WAF requires the full request to buffer as part of processing, therefore, even if you disable request buffering within Application Gateway the WAF still buffers the request. Response buffering isn't impacted by the WAF.

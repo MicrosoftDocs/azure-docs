@@ -5,7 +5,7 @@ author: tylerbutler
 ms.author: tylerbu
 ms.date: 09/28/2021
 ms.topic: article
-ms.service: azure-fluid
+ms.service: fluid-framework
 ---
 
 # Version compatibility with Fluid Framework releases

@@ -19,6 +19,18 @@ This article describes how to configure data export to send data to the Webhook.
 
 For Webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
 
+## HTTPS endpoint and TLS requirements
+
+To export data securely, configure your webhook endpoint to use HTTPS. The IoT Central data export webhook client validates the server certificate that your endpoint presents during the TLS handshake.
+
+The following requirements apply:
+
+- The endpoint must be reachable from the public internet. IoT Central can't deliver to endpoints that are only reachable from a private network or that require a VPN.
+- The server certificate must be signed by a publicly trusted certificate authority (CA). IoT Central doesn't accept self-signed certificates or certificates issued by a private CA, and there's no option to upload a custom CA bundle or trust list to your IoT Central application.
+- The certificate's subject or subject alternative name (SAN) must match the hostname in the callback URL, and the certificate must not be expired.
+
+If your endpoint presents a certificate that the IoT Central webhook client can't validate, the destination fails with the error **"The webhook could not be reached. Please make sure the webhook is online and available."** when you save it.
+
 ## Create a Webhook destination
 
 You can export data to a publicly available HTTP Webhook endpoint. You can create a test Webhook endpoint using [RequestBin](https://requestbin.com/). RequestBin throttles request when the request limit is reached:

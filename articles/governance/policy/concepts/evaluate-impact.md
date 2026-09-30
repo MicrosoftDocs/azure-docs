@@ -1,8 +1,8 @@
 ---
 title: Evaluate the impact of a new Azure Policy definition
 description: Understand the process to follow when introducing a new policy definition into your Azure environment.
-ms.date: 09/30/2024
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: concept-article
 ---
 
 # Evaluate the impact of a new Azure Policy definition

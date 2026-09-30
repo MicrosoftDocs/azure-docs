@@ -1,11 +1,13 @@
 ---
 title: Automated detection and response for Azure WAF with Microsoft Sentinel
 description: Use WAF detection templates in Sentinel, deploy a playbook, and configure the detection and response in Sentinel.
-author: vhorne
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/27/2023
+ms.custom: sfi-image-nochange
+# Customer intent: As a security analyst, I want to automate the detection and response of threats using a combination of WAF detection templates and incident playbooks, so that I can quickly mitigate web application vulnerabilities and reduce manual intervention in security operations.
 ---
 
 # Automated detection and response for Azure WAF with Microsoft Sentinel
@@ -18,7 +20,7 @@ In this article, you learn about WAF detection templates in Sentinel, deploy a p
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Azure Front Door deployment with an associated WAF policy. For more information, see [Quickstart: Create a Front Door Standard/Premium using an ARM template](../../frontdoor/create-front-door-template.md), and [Tutorial: Create a WAF policy on Azure Front Door by using the Azure portal](waf-front-door-create-portal.md).
 - An Azure Front Door configured to capture logs in a Log Analytics workspace. For more information, see [Configure Azure Front Door logs](../../frontdoor/standard-premium/how-to-logs.md).
 
@@ -28,7 +30,6 @@ You install a Sentinel playbook named *Block-IPAzureWAF* from a template on GitH
 You install the playbook from a template on GitHub.
 1. Go to the [GitHub repository](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Playbook%20-%20WAF%20Sentinel%20Playbook%20Block%20IP%20-%20New) and select **Deploy to Azure** to launch the template.
 1. Fill in the required parameters. You can get your Front Door ID from the Azure portal. The Front Door ID is the resource ID of the Front Door resource.
-   :::image type="content" source="../media/automated-detection-response-with-sentinel/playbook-template.png" alt-text="Screenshot showing the playbook template.":::
 1. Select **Review + create** and then **Create**.
 
 ## Authorize the API connection
@@ -40,8 +41,6 @@ An API connection named *azuresentinel-Block-IPAzureWAF* is created as part of t
 1. Under **Display Name**, type your Azure ID.
 1. Select **Authorize**.
 1. Select **Save**.
-
-:::image type="content" source="../media/automated-detection-response-with-sentinel/authorize-api.png" alt-text="Screenshot showing the API authorization screen."lightbox="../media/automated-detection-response-with-sentinel/authorize-api.png":::
 
 ## Configure the Contributor role assignment
 

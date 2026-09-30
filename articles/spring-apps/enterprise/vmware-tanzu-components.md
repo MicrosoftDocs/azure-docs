@@ -1,11 +1,13 @@
 ---
-title: VMware Tanzu components in the Azure Spring Apps Enterprise plan
+title: VMware Tanzu Components in the Azure Spring Apps Enterprise Plan
 description: Learn about VMware Tanzu components in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: taoxu
+ms.author: karler
+ms.reviewer: taoxu
 ms.service: azure-spring-apps
-ms.topic: conceptual
-ms.date: 04/17/2024
+ms.topic: concept-article
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, engagement-fy23, references_regions
 ---
 

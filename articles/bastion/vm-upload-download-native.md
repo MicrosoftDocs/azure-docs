@@ -2,11 +2,11 @@
 title: 'File transfer via native client'
 titleSuffix: Azure Bastion
 description: Learn how to upload or download files using Azure Bastion and a native client.
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 03/11/2024
-ms.author: cherylmc
+ms.date: 08/10/2026
+ms.author: allensu
 # Customer intent: I want to upload or download files using Bastion.
 
 ---
@@ -22,7 +22,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ## Prerequisites
 
-* Install Azure CLI (version 2.32 or later) to run the commands in this article. For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+* Install Azure CLI (version 2.62.0 or higher) to run the commands in this article. The Bastion extension installs automatically the first time you run an `az network bastion` command. For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 * Get the Resource ID for the VM to which you want to connect. The Resource ID can be easily located in the Azure portal. Go to the Overview page for your VM and select the *JSON View* link to open the Resource JSON. Copy the Resource ID at the top of the page to your clipboard to use later when connecting to your VM.
 
 ## <a name="rdp"></a>Upload and download files - Windows client and RDP
@@ -30,7 +30,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 The steps in this section apply when connecting to a target VM from a Windows local computer using the native Windows client and RDP. The **az network bastion rdp** command uses the native client MSTSC. Once connected to the target VM, you can upload and download files using **right-click**, then **Copy** and **Paste**. To learn more about this command and how to connect, see [Connect from a Windows native client](connect-vm-native-client-windows.md).
 
 > [!NOTE]
-> File transfer over SSH is not supported using this method. Instead, use the [az network bastion tunnel command](#tunnel-command) to upload files over SSH.
+> File transfer over SSH isn't supported using this method. Instead, use the [az network bastion tunnel command](#tunnel-command) to upload files over SSH.
 >
 
 1. Sign in to your Azure account. If you have more than one subscription, select the subscription containing your Bastion resource.

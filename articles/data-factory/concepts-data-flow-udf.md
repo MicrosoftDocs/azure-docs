@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 01/05/2024
 ---
 
@@ -14,13 +14,15 @@ ms.date: 01/05/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 A user defined function is a customized expression you can define to be able to reuse logic across multiple mapping data flows. User defined functions live in a collection called a data flow library to be able to easily group up common sets of customized functions.
 
 Whenever you find yourself building the same logic in an expression across multiple mapping data flows this would be a good opportunity to turn that into a user defined function.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Zkek]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=6ee2ba96-a6ca-4a57-8545-d03032aa68a2]
 > 
 
 ## Getting started

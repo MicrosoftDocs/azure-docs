@@ -90,7 +90,7 @@ You can check the metric `Connection Close Count` from Azure portal.
 | Reason | Root cause |
 |--|--|
 | Normal | Close by clients |
-| ClosedByAppServer | Close by server triggered Rest API call like [`CloseConnection`](/rest/api/webpubsub/dataplane/web-pub-sub/close-connection?tabs=HTTP) |
+| ClosedByAppServer | Close by server triggered Rest API call like [`CloseConnection`](/rest/api/webpubsub/dataplane/webpubsub/close-connection/close-connection) |
 | ServiceReload | Close by service due to regular maintenance or backend auto scales |
 | PingTimeout | Close by service due to client status unhealthy that service doesn't receive any regular pings |
 | SlowClient | Close by service due to clients are not able to receive buffered messages fast enough |

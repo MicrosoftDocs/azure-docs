@@ -28,7 +28,7 @@ Private endpoints of secured resources created through Azure Web PubSub APIs are
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * The [Azure CLI](/cli/azure/install-azure-cli) 2.25.0 or later (if you use the Azure CLI).
 * An Azure Web PubSub instance in a minimum Standard pricing tier.
 * An Azure Key Vault resource.

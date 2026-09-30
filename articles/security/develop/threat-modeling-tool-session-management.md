@@ -3,8 +3,8 @@ title: Session Management - Microsoft Threat Modeling Tool - Azure | Microsoft D
 description: Learn about session management mitigation for threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 author: jegeib
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: azure-information-protection
+ms.subservice: azure-information-protection-policy
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -123,7 +123,7 @@ services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationSch
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [IdentityServer3-Federated sign out](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
+| **References**              | N/A |
 | **Steps** | IdentityServer supports the ability to federate with external identity providers. When a user signs out of an upstream identity provider, depending upon the protocol used, it might be possible to receive a notification when the user signs out. It allows IdentityServer to notify its clients so they can also sign the user out. Check the documentation in the references section for the implementation details.|
 
 ## <a id="https-secure-cookies"></a>Applications available over HTTPS must use secure cookies
@@ -214,7 +214,7 @@ The following code example sets the requireSSL attribute in the Web.config file.
 | **Applicable Technologies** | MVC5 |
 | **Attributes**              | EnvironmentType - OnPrem |
 | **References**              | [Windows Identity Foundation (WIF) Configuration – Part II](/archive/blogs/alikl/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler) |
-| **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromCsript attribute value should be set to True. |
+| **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromScript attribute value should be set to True. |
 
 ### Example
 Following configuration shows the correct configuration:

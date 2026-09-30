@@ -8,10 +8,12 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: whhender    
+    
 ---
 
 # Synapse SQL resource consumption
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article describes resource consumption models of Synapse SQL.
 

@@ -1,12 +1,14 @@
 ---
-title: How to flush DNS settings changes in Azure Spring Apps
+title: How to Flush DNS Settings Changes in Azure Spring Apps
 titleSuffix: Azure Spring Apps
 description: How to update DNS settings in a virtual-network-injected Azure Spring Apps service.
 author: KarlErickson
-ms.author: hanren
+ms.author: karler
+ms.reviewer: hanren
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -27,7 +29,7 @@ Flushing the DNS settings doesn't restart any underlying nodes or running applic
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.52.0 or higher. Use the following commands to remove the previous version and install the latest extension. If you previously installed the Spring Cloud extension, uninstall it before you begin.
 
    ```azurecli

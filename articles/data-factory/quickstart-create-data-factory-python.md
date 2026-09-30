@@ -1,20 +1,25 @@
 ---
 title: 'Quickstart: Create an Azure Data Factory using Python'
 description: Use a data factory to copy data from one location in Azure Blob storage to another location.
-author: ssabat
-ms.author: susabat
-ms.reviewer: jburchel
+author: whhender
+ms.author: whhender
+ms.reviewer: susabat
 ms.subservice: data-movement
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/15/2024
-ms.custom: devx-track-python, mode-api
+ms.date: 02/13/2025
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this quickstart, you create a data factory by using Python. The pipeline in this data factory copies data from one folder to another folder in Azure Blob storage.
 
@@ -24,7 +29,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * [Python 3.6+](https://www.python.org/downloads/).
 

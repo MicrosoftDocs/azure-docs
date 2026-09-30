@@ -7,12 +7,14 @@ services: azure-communication-services
 
 ms.author: mkhribech
 ms.date: 03/08/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: data
 ---
 
 # Call Automation Insights
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 In this document, we outline the available insights dashboard to monitor Call Automation logs and metrics.
 

@@ -3,7 +3,8 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 08/09/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
@@ -21,7 +22,7 @@ Use the following steps to create the project:
    curl https://start.spring.io/starter.tgz -d dependencies=web -d baseDir=demo -d bootVersion=3.0.0 -d javaVersion=17 -d type=maven-project -d groupId=com.example -d artifactId=demo -d name=demo -d packageName=com.example.demo -d packaging=jar | tar -xzvf -
    ```
 
-1. Create a web controller for your web application by adding the file *src/main/java/com/example/demo/HelloController.java* with the following contents:
+1. Create a web controller for your web application by adding the file **src/main/java/com/example/demo/HelloController.java** with the following contents:
 
    ```java
    package com.example.demo;

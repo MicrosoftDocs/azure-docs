@@ -2,7 +2,7 @@
 title: Management hub
 description: Manage your connections, source control configuration and global authoring properties in the Azure Data Factory management hub
 ms.subservice: authoring
-ms.topic: conceptual
+ms.topic: concept-article
 author: kromerm
 ms.author: makromer
 ms.date: 10/20/2023
@@ -11,6 +11,8 @@ ms.date: 10/20/2023
 # Management hub in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 The management hub, accessed by the *Manage* tab in the Azure Data Factory UX, is a portal that hosts global management actions for your data factory. Here, you can manage your connections to data stores and external computes, source control configuration, and trigger settings.
 
@@ -50,7 +52,7 @@ To override the generated Resource Manager template parameters when publishing f
 
 ### Triggers
 
-Triggers determine when a pipeline run should be kicked off. Currently triggers can be on a wall clock schedule, operate on a periodic interval, or depend on an event. For more information, learn about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json). In the management hub, you can create, edit, delete, or view the current state of a trigger.
+Triggers determine when a pipeline run should be kicked off. Currently triggers can be on a wall clock schedule, operate on a periodic interval, or depend on an event. For more information, learn about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-types). In the management hub, you can create, edit, delete, or view the current state of a trigger.
 
 :::image type="content" source="media/author-management-hub/management-hub-triggers.png" alt-text="Screenshot that shows where to create, edit, delete, nor view the current state of a trigger.":::
 

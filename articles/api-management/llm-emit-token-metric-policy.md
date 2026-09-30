@@ -2,12 +2,11 @@
 title: Azure API Management policy reference - llm-emit-token-metric
 description: Reference for the llm-emit-token-metric policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 09/26/2024
-ms.author: danlep
+ms.topic: reference
+ms.date: 09/15/2026
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ---
@@ -16,10 +15,9 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `llm-emit-token-metric` policy sends custom metrics to Application Insights about consumption of large language model (LLM) tokens through LLM APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
+The `llm-emit-token-metric` policy sends custom metrics to Application Insights about consumption of large language model (LLM) tokens through LLM APIs. 
 
-> [!NOTE]
-> Currently, this policy is in preview.
+Token count metrics are model- and provider-dependent and can include total, prompt, and completion tokens. In preview, token count metrics include cached, reasoning, thinking, and other token categories.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -32,8 +30,8 @@ The `llm-emit-token-metric` policy sends custom metrics to Application Insights 
 
 ## Prerequisites
 
-* One or more LLM APIs must be added to your API Management instance. 
-* Your API Management instance must be integrated with Application insights. For more information, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#create-a-connection-using-the-azure-portal).
+* Add one or more LLM APIs to your API Management instance. 
+* Integrate your API Management instance with Application Insights. For more information, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#create-a-connection-by-using-the-azure-portal).
 * Enable Application Insights logging for your LLM APIs. 
 * Enable custom metrics with dimensions in Application Insights. For more information, see [Emit custom metrics](api-management-howto-app-insights.md#emit-custom-metrics).
 
@@ -60,39 +58,33 @@ The `llm-emit-token-metric` policy sends custom metrics to Application Insights 
 | ----------- | --------------------------------------------------------------------------------- | -------- |
 | dimension   | Add one or more of these elements for each dimension included in the metric.  | Yes      |
 
-### dimension attributes
+### Dimension attributes
 
 | Attribute | Description                | Required |  Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
 | name      | A string or policy expression. Name of dimension.      | Yes      |  N/A            |
 | value     | A string or policy expression. Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No        | N/A |
 
- ### Default dimension names that may be used without value
+[!INCLUDE [api-management-emit-metric-dimensions-llm](../../includes/api-management-emit-metric-dimensions-llm.md)]
 
-* API ID
-* Operation ID
-* Product ID
-* User ID
-* Subscription ID
-* Location
-* Gateway ID
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
-* This policy can be used multiple times per policy definition.
-* You can configure at most 10 custom dimensions for this policy.
-* Where available, values in the usage section of the response from the LLM API are used to determine token metrics.
-* Certain LLM endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, token metrics are estimated.
+* You can use this policy multiple times per policy definition.
+* Configure up to five custom dimensions for this policy.
+* Use values in the usage section of the response from the LLM API, when available, to determine token metrics. 
+* Certain LLM endpoints support streaming of responses. If the stream unexpectedly interrupts or terminates, the captured token counts are inaccurate. 
+* Certain OpenAI models, especially when streaming, don't include token counts in the response by default. To receive the token counts, set the `include_usage` parameter to `true` in the API request.
 
 ## Example
 
-The following example sends LLM token count metrics to Application Insights along with API ID as a custom dimension.
+The following example sends LLM token count metrics to Application Insights along with API ID as a default dimension.
 
 ```xml
 <policies>
@@ -111,7 +103,6 @@ The following example sends LLM token count metrics to Application Insights alon
 
 * [Logging](api-management-policies.md#logging)
 * [emit-metric](emit-metric-policy.md) policy
-* [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) policy
 * [llm-token-limit](llm-token-limit-policy.md) policy 
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

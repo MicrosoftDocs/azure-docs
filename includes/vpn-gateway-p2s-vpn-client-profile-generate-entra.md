@@ -1,10 +1,10 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
  ms.topic: include
  ms.date: 05/15/2024
- ms.author: cherylmc
+ ms.author: duau
 ---
 ## <a name="generate"></a>Generate profile configuration files
 
@@ -12,13 +12,13 @@ You can generate VPN client profile configuration files either with PowerShell, 
 
 ### Azure portal
 
-[!INCLUDE [Generate profile configuration files - Azure portal](vpn-gateway-generate-profile-portal.md)]
+[!INCLUDE [Generate profile configuration files - Azure portal](../articles/networking/includes/vpn-gateway/generate-profile-portal.md)]
 
 ### PowerShell
 
 To generate the VPN client profile configuration files using PowerShell, you can use the following example:
 
-[!INCLUDE [Generate profile configuration files - PowerShell](vpn-gateway-generate-profile-powershell.md)]
+[!INCLUDE [Generate profile configuration files - PowerShell](../articles/networking/includes/vpn-gateway/generate-profile-powershell.md)]
 
 ## <a name="extract"></a>Extract the zip file
 

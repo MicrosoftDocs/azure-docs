@@ -1,9 +1,8 @@
 ---
 title: "Tutorial: Get started analyze data with dedicated SQL pools"
 description: In this tutorial, use the NYC Taxi sample data to explore SQL pool's analytic capabilities.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender, wiassaf
+author: azaricstefan
+ms.author:  stefanazaric
 ms.date: 12/11/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
@@ -96,7 +95,7 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 
     >[!TIP]
     >If you get an error that reads `Login failed for user '<token-identified principal>'`, you need to set your Entra Id admin. 
-    > 1. In the Azure Portal, search for your synapse workspace.
+    > 1. In the Azure portal, search for your synapse workspace.
     > 1. Under **Settings** select **Microsoft Entra ID**.
     > 1. Select **Set admin** and set a Microsoft Entra ID admin.
 

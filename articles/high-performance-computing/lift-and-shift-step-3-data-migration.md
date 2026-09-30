@@ -1,24 +1,30 @@
 ---
-title: "Deployment step 3: storage - data migration component"
-description: Learn about data migration during migration deployment step three.
+title: Migrate HPC data to Azure using Data Box, AzCopy, and rsync
+description: Transfer large-scale HPC data from on-premises to Azure storage using Azure Data Box, AzCopy, and rsync with best practices for integrity and security.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
+# Customer intent: As a cloud architect, I want to implement a reliable data migration strategy for high performance computing, so that I can ensure data integrity, security, and performance during the transition to the cloud environment.
 ---
 
-# Deployment step 3: storage - data migration component
+# Migrate HPC data to Azure
 
-Process to allow users to migrate data from an on-premises environment to the cloud environment in a secure and reliable way. Moving data closer to the cloud environment’s computing nodes is essential to meet the needs of throughput and IOPS.
+A key aspect of your high performance computing migration is ensuring seamless data migration. Moving data closer to the cloud environment’s computing nodes is essential to meet the needs of throughput and IOPS. Seamless data migration requires a strategic approach and reliable utilities to conduct in a secure and reliable way.
 
-This component should:
-
+Your data migration strategy should:
 - Retain all existing file and directory structure from source to target.
 - Retain all metadata related to the files, including user and group ownership, permissions, modification time, and access time.
 - Report on the results of the data migration or copy tool.
 - Implement a data migration restart process.
+
+This part of the guide covers the needs, tools, services, and best practices associated with data migration.
 
 ## Define data migration needs
 
@@ -127,7 +133,7 @@ This section outlines the steps for using Azure Data Box, AzCopy, and rsync to t
        - `-z`: Compresses data during transfer to reduce bandwidth usage.
    
      > [!NOTE]
-     > For examples using Rsync, visit [rysnc examples](https://rsync.samba.org/examples.html).
+     > For examples using Rsync, visit [rsync examples](https://rsync.samba.org/examples.html).
 
 ### Example data migration implementation
 

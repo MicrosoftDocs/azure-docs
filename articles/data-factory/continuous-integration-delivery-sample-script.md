@@ -2,17 +2,19 @@
 title: Continuous integration and delivery pre- and post-deployment scripts
 description: Learn how to use a pre- and post-deployment script with continuous integration and delivery in Azure Data Factory from this sample.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
-ms.reviewer: jburchel
-ms.topic: conceptual
-ms.date: 09/26/2024
+author: kromerm
+ms.author: makromer
+ms.reviewer: whhender
+ms.topic: how-to
+ms.date: 01/29/2025
 ms.custom: devx-track-azurepowershell
 ---
 
 # Sample pre- and post-deployment script
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 The following sample demonstrates how to use a pre- and post-deployment script with continuous integration and delivery in Azure Data Factory.
 

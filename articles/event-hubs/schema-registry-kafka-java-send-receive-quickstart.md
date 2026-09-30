@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 04/26/2023
 ms.devlang: java
 ms.custom: devx-track-extended-java
+ms.subservice: kafka
 author: spelluru
 ms.author: spelluru
 ---
@@ -22,7 +23,7 @@ In this use case a Kafka producer application uses Avro schema stored in Azure S
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
 To complete this quickstart, you need the following prerequisites:
-- If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - In your development environment, install the following components: 
     * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
     * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
@@ -83,7 +84,7 @@ And if you're using managed identity, you would need:
 ## Add user to Schema Registry Reader role
 Add your user account to the **Schema Registry Reader** role at the namespace level. You can also use the **Schema Registry Contributor** role, but that's not necessary for this quickstart.  
 
-1. On the **Event Hubs Namespace** page, select **Access control (IAM)** on the left menu.
+1. On the **Event Hubs namespace** page, select **Access control (IAM)** on the left menu.
 2. On the **Access control (IAM)** page, select **+ Add** -> **Add role assignment** on the menu. 
 3. On the **Assignment type** page, select **Next**.
 4. On the **Roles** page, select **Schema Registry Reader (Preview)**, and then select **Next** at the bottom of the page.

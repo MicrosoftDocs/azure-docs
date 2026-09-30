@@ -3,11 +3,11 @@ title: 'Virtual WAN site-to-site IPsec policies'
 titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN IPsec connectivity policies, including default initiator and responder policies, and custom policy combinations.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
-ms.topic: conceptual
-ms.date: 07/28/2023
-ms.author: cherylmc
+ms.topic: reference
+ms.date: 03/27/2025
+ms.author: duau
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies
 ---
 
@@ -17,11 +17,11 @@ This article shows the supported IPsec policy combinations.
 
 ## Default IPsec policies
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+[!INCLUDE [IPsec](../networking/includes/virtual-wan/ipsec.md)]
 
 ## Custom IPsec policies
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
+[!INCLUDE [IPsec](../networking/includes/virtual-wan/ipsec-custom.md)]
 
 ## Next steps
 

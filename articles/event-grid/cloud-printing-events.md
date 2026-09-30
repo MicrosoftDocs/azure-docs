@@ -1,7 +1,7 @@
 ---
 title: Microsoft Cloud Printing events
 description: This article describes Microsoft Cloud Printing event types and provides event samples.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/6/2023
 ---
 

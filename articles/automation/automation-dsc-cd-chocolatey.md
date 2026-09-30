@@ -3,10 +3,12 @@ title: Set up Azure Automation continuous deployment with Chocolatey
 description: This article tells how to set up continuous deployment with State Configuration and the Chocolatey package manager.
 services: automation
 ms.subservice: desired-state-config
-ms.date: 10/22/2024
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Set up continuous deployment with Chocolatey
@@ -352,8 +354,6 @@ some of them are encapsulated in build tasks that you can chain together in a bu
 [08]: automation-dsc-onboarding.md
 [09]: automation-dsc-overview.md
 [10]: https://aka.ms/wmf5latest
-[11]: https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/
-[12]: https://azure.microsoft.com/blog/automating-vm-configuration-using-powershell-dsc-extension/
 [13]: https://azure.microsoft.com/pricing/details/automation/
 [14]: https://chocolatey.org/
 [15]: /nuget/create-packages/creating-a-package

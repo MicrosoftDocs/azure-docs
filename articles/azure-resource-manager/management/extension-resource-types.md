@@ -1,13 +1,13 @@
 ---
-title: Extension resource types
-description: Lists the Azure resource types are used to extend the capabilities of other resource types.
-ms.topic: conceptual
-ms.date: 07/24/2024
+title: Extension Resource Types
+description: Lists the Azure resource types that you use to extend the capabilities of other resource types.
+ms.topic: article
+ms.date: 02/27/2026
 ---
 
 # Resource types that extend capabilities of other resources
 
-An extension resource is a resource that adds to another resource's capabilities. For example, resource lock is an extension resource. You apply a resource lock to another resource to prevent it from being deleted or modified. It doesn't make sense to create a resource lock by itself. An extension resource is always applied to another resource.
+An extension resource is a resource that adds to another resource's capabilities. For example, resource lock is an extension resource. You apply a resource lock to another resource to prevent it from being deleted or modified. It doesn't make sense to create a resource lock by itself. You always apply an extension resource to another resource.
 
 ## Microsoft.Advisor
 
@@ -427,3 +427,4 @@ An extension resource is a resource that adds to another resource's capabilities
 
 - To get the resource ID for an extension resource in an Azure Resource Manager template, use the [extensionResourceId](../templates/template-functions-resource.md#extensionresourceid).
 - For an example of creating an extension resource in a template, see [Event Grid Event Subscriptions](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions).
+

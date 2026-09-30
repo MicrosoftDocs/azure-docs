@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 11/20/2023
-ms.author: danlep
+ms.date: 10/31/2025
+ms.author: patricka
 ---
 1. Make sure you saved your changes by selecting the **Save** button.
 1. In the menu at the top, select **Publish site**. This operation may take a few minutes.  

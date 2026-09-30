@@ -1,74 +1,83 @@
 ---
-title: Enable conditional features with feature filters
+title: Enable Conditional Features with Feature Filters
 titleSuffix: Azure App Configuration
-description: Learn how to use feature filters in Azure App Configuration to enable conditional feature flags for your application.
+description: Find out how to use feature filters in Azure App Configuration to turn on conditional feature flags for your application.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 03/21/2024
-#Customerintent: As a developer, I want to create a feature filter to activate a feature flag depending on a specific scenario.
+ms.date: 08/21/2026
+# customer intent: As a developer, I want to find out how to use feature filters in Azure App Configuration conditional feature flags so that I can specify conditions for turning features on and off in my application.
+
 ---
 
 # Enable conditional features with feature filters
 
-Feature flags allow you to activate or deactivate functionality in your application. A simple feature flag is either on or off. The application always behaves the same way. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
+Feature flags provide a way to activate or deactivate functionality in your application. A basic feature flag is either on or off. The application behaves according to the value of the flag in all circumstances. For example, you can roll out a new feature behind a feature flag. When the feature flag is turned on, all users experience the new feature. Turning off the feature flag hides the new feature.
 
-In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. 
+In contrast, when you use a _conditional feature flag_, you can dynamically turn the feature flag on or off. The behavior of the application depends on the feature flag criteria. This capability is useful when you want to show your new feature to a small subset of users at first. You can use a conditional feature flag to turn on the feature flag for some users while turning it off for others. 
+
+This article shows you how to set criteria for dynamically changing the state of a conditional feature flag.
+
+## Prerequisites
+
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure App Configuration store.
 
 ## What is a feature filter?
 
-_Feature filters_ are conditions for determining the state of the feature flag. Adding feature filters to a feature flag allows you to invoke custom code each time the feature flag is evaluated.
+_Feature filters_ are conditions for determining the state of a feature flag. When you add feature filters to a feature flag, you can invoke custom code each time the feature flag is evaluated.
 
-The Microsoft feature management libraries include the following built-in feature filters configurable from the Azure App Configuration portal.
+The Microsoft feature management libraries include the following built-in feature filters, which you can configure in the Azure portal:
 
-- **Time window filter** enables the feature flag during a specified window of time.
-- **Targeting filter** enables the feature flag for specified users and groups.
+- The **Time window filter** type turns on a feature flag during a specified window of time.
+- The **Targeting filter** type turns on a feature flag for specified users and groups.
 
-You can create custom feature filters that enable features based on your specific criteria in code. This article will guide you through adding a custom feature filter to a feature flag. Afterward, you can follow the instructions in the *Next Steps* section to implement the feature filter in your application.
+You can create custom feature filters that turn on features based on specific criteria in your code. This article guides you through adding a custom feature filter to a feature flag. In the last step, you can follow links to instructions for implementing the feature filter in your application.
 
 ## Add a custom feature filter
 
-1. Create a feature flag named *Beta* in your App Configuration store and edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md#edit-feature-flags).
+1. Create a feature flag named **Beta** in your App Configuration store and open it for editing. For more information about how to add and edit a feature flag, see [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag) and [Edit feature flags](./manage-feature-flags.md#edit-feature-flags).
 
-1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
+1. In the **Edit feature flag** dialog, select **Enable feature flag** if it isn't already selected.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
+   :::image type="content" source="./media/feature-filters/edit-feature-flag-beta.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog for the Beta feature flag, showing the Switch option selected and the Basics tab with feature flag details." lightbox="./media/feature-filters/edit-feature-flag-beta.png":::
 
-1. The pane **Create a new filter** opens. Under **Filter type**, select **Custom filter** and enter the name *Random* for your custom filter.
+1. Select **Rollout** (or **Experiment**, depending on the purpose of feature flag).
+   1. Under **Rollout**, select **Conditions**.
+   1. Under **Condition**, select **Add custom condition**.
+   1. Select **Create**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, creating a new custom filter.](./media/feature-filters/add-custom-filter.png)
+   :::image type="content" source="./media/feature-filters/rollout-conditions-select-create.png" alt-text="Screenshot of the Azure portal Conditions tab, showing Add custom condition selected and the Create button highlighted." lightbox="./media/feature-filters/rollout-conditions-select-create.png":::
 
-1. Feature filters can optionally use parameters for configurable conditions. In this example, you use a **Percentage** parameter and set its value to **50**, which tells the filter to enable the feature flag with a 50% chance.
+1. In the **Create a new filter** dialog, enter the following information:
+   1. Under **Custom filter name**, enter **Random**.
+   1. Under **Parameter name**, enter **Percentage**.
+   1. Under **Value**, enter **50**.
+   1. Select **Add** at the bottom to save filter.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, adding parameters for the custom filter.](./media/feature-filters/add-custom-filter-parameter.png)
+   :::image type="content" source="./media/feature-filters/create-new-filter-random.png" alt-text="Screenshot of the Create a new filter dialog. The Custom filter name box contains Random, and the Parameter name and Value boxes contain Percentage and 50." lightbox="./media/feature-filters/create-new-filter-random.png":::
 
-1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
+   Feature filters can optionally use parameters for configurable conditions. In this example, you configure the filter to turn on the feature flag with a 50 percent chance. When you implement the filter in your code, you use the specified percentage and a random number to evaluate the state of the feature flag.
 
-1. The feature filter is now listed in the feature flag details. Select **Apply** to save the feature flag.
+1. To save the feature flag, select **Review + update** at the bottom. After validation passes, select **Update**. 
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, applying new custom filter.](./media/feature-filters/feature-flag-edit-apply-filter.png)
+   :::image type="content" source="./media/feature-filters/review-create-beta.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog on the Review + create tab, showing validation passed and a summary of the Beta feature flag's details, audience, conditions, and telemetry." lightbox="./media/feature-filters/review-create-beta.png":::
 
-    You have successfully added a custom filter to a feature flag. 
+1. To implement the feature filter in your application, see the instructions that are appropriate for your language or platform:
 
-1. Continue to the following instructions to implement the feature filter into your application for the language or platform you are using.
-
-    - [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
-    - [Node.js](./howto-feature-filters-javascript.md)
-    - [Python](./howto-feature-filters-python.md)
+   - [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
+   - [Spring Boot](./how-to-feature-filters-spring-boot.md)
+   - [Node.js](./howto-feature-filters-javascript.md)
+   - [Python](./howto-feature-filters-python.md)
+   - [Go Gin](./howto-feature-filters-go.md)
 
 ## Next steps
-
-To learn more about the built-in feature filters, continue to the following documents:
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter.md)
 
 > [!div class="nextstepaction"]
-> [Roll out features to targeted audience](./howto-targetingfilter.md)
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)

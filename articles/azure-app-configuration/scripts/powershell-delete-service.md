@@ -23,9 +23,11 @@ Open a PowerShell window with admin rights and run `Install-Module -Name Az` to 
 
 ## Sample script
 
+In the following example, replace the placeholder text _`<ResourceGroupName>`_ and  _`<AppConfigurationStoreName>`_ with your App Configuration store name and the name of the resource group it belongs to.
+
 ```powershell
 # Delete an App Configuration store
-Remove-AzAppConfigurationStore -Name <store-name> -ResourceGroupName <resource-group-name>
+Remove-AzAppConfigurationStore -Name <AppConfigurationStoreName> -ResourceGroupName <ResourceGroupName>
 ```
 
 ## Script explanation

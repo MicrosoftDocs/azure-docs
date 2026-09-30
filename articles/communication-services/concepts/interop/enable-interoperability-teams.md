@@ -5,13 +5,15 @@ description: Enable interoperability with Teams
 author: jamescadd
 ms.author: jacadd
 ms.date: 4/15/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom: mode-other
 ---
 
 # Enable interoperability between Azure Communication Services and a Microsoft Teams tenant
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 Azure Communication Services can be used to build applications that enable Microsoft Teams external users to participate in calls and meetings with Microsoft Teams users. [Standard Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no extra fee for the interoperability capability.
 

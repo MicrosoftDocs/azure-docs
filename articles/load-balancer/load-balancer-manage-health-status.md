@@ -7,7 +7,10 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 10/30/2024
 ms.author: mbender
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
+# Customer intent: "As a cloud operator, I want to manage the health status of backend instances in my load balancer, so that I can ensure optimal performance and reliability of my applications by quickly identifying and addressing any issues that arise."
 ---
 
 # Manage Azure Load Balancer Health Status
@@ -99,20 +102,20 @@ To retrieve the health status information via REST API, you need to do a two req
 1. Use the following POST request to obtain the Location URI from the Response Headers.
 
    ```rest
-     POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/loadBalancingRules/<loadBalancingRulesName>/health?api-version=2024-03-01&preserve-view=true
+     POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/loadBalancingRules/<loadBalancingRulesName>/health?api-version=2025-07-01&preserve-view=true
        Authorization: Bearer <access token>
       ```
 
 1. Copy the Location URI from the Response Headers. Location URI should follow this schema.
 
    ```rest
-       https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2024-03-01&preserve-view=true
+       https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2025-07-01&preserve-view=true
    ```
 
 1. Use the copied Location URI to make a GET request.
 
    ```rest
-       GET https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2024-03-01&preserve-view=true
+       GET https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Network/locations/<locationName>/operationResults/<operationResultsId>?api-version=2025-07-01&preserve-view=true
        
        Authorization: Bearer <access token>
    ```

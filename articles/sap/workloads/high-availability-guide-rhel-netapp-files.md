@@ -3,12 +3,17 @@ title: Azure Virtual Machines HA for SAP NW on RHEL with Azure NetApp Files| Mic
 description: Establish high availability (HA) for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with Azure NetApp Files.
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/19/2024
+ms.date: 04/16/2026
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As an IT administrator managing SAP applications on Azure, I want to configure high availability for SAP NetWeaver on RHEL using shared storage, so that I can ensure reliable performance and minimize downtime."
 ---
 
 # Azure Virtual Machines HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications
@@ -47,7 +52,6 @@ Read the following SAP Notes and papers first:
   * Important capacity information for Azure VM sizes.
   * Supported SAP software and operating system (OS) and database combinations.
   * Required SAP kernel version for Windows and Linux on Microsoft Azure.
-
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux.
 * SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux.
@@ -69,6 +73,7 @@ Read the following SAP Notes and papers first:
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
 * [NetApp NFS Best Practices](https://www.netapp.com/media/10720-tr-4067.pdf)
 
@@ -118,7 +123,7 @@ In this example, we used Azure NetApp Files for all SAP NetWeaver file systems t
 
 When you consider Azure NetApp Files for the SAP NetWeaver on RHEL HA architecture, be aware of the following important considerations:
 
-* The minimum capacity pool is 4 TiB. You can increase the capacity pool size in 1-TiB increments.
+* The minimum capacity pool is 4 TiB. You can increase the capacity pool size in 1 TiB increments.
 * The minimum volume is 100 GiB.
 * Azure NetApp Files and all VMs, where Azure NetApp Files volumes will be mounted, must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported now. Azure NetApp Files access over global peering isn't supported yet.
 * The selected virtual network must have a subnet delegated to Azure NetApp Files.
@@ -165,6 +170,8 @@ During VM configuration, you have an option to create or select exiting load bal
 
 The instructions in this section are only applicable if you're using Azure NetApp Files volumes with the NFSv4.1 protocol. Perform the configuration on all VMs where Azure NetApp Files NFSv4.1 volumes will be mounted.  
 
+The following **[A]** prefix applies to both PAS and AAS.
+
 1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, `defaultv4iddomain.com`, and the mapping is set to **nobody**.
 
     > [!IMPORTANT]
@@ -180,8 +187,6 @@ The instructions in this section are only applicable if you're using Azure NetAp
     Nobody-User = nobody
     Nobody-Group = nobody
     ```
-
-The following **[A]** prefix applies to both PAS and AAS.
 
 1. **[A]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, run the mount command. You won't be able to manually create the directory under `/sys/modules` because access is reserved for the kernel and drivers.
 
@@ -367,15 +372,19 @@ The following items are prefixed with either:
 
 8. **[A]** Perform RHEL OS configuration.
 
-   Based on the RHEL version, perform the configuration mentioned in SAP Note [2002167](https://launchpad.support.sap.com/#/notes/2002167), [2772999](https://launchpad.support.sap.com/#/notes/2772999), or [3108316](https://launchpad.support.sap.com/#/notes/2772999).
+   Based on the RHEL version, perform the configuration mentioned in SAP Note [2002167](https://launchpad.support.sap.com/#/notes/2002167), [2772999](https://launchpad.support.sap.com/#/notes/2772999), or [3108316](https://launchpad.support.sap.com/#/notes/3108316).
 
 ### Install SAP NetWeaver ASCS/ERS
 
 1. **[1]** Configure cluster default properties.
 
    ```bash
+   # If using RHEL 7.x
    pcs resource defaults resource-stickiness=1
    pcs resource defaults migration-threshold=3
+   # If using RHEL 8.x, 9.x, 10.x
+   pcs resource defaults update resource-stickiness=1
+   pcs resource defaults update migration-threshold=3
    ```
 
 2. **[1]** Create a virtual IP resource and health probe for the ASCS instance.
@@ -385,22 +394,20 @@ The following items are prefixed with either:
    
    # If using NFSv3
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
-     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-     --group g-QAS_ASCS
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe fast_stop=no \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
-     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
-     --group g-QAS_ASCS
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' fast_stop=no \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105
    
    sudo pcs resource create vip_QAS_ASCS IPaddr2 \
-     ip=192.168.14.9 \
-     --group g-QAS_ASCS
+     ip=192.168.14.9
    
-   sudo pcs resource create nc_QAS_ASCS azure-lb port=62000 \
-     --group g-QAS_ASCS
+   sudo pcs resource create nc_QAS_ASCS azure-lb port=62000
+
+   sudo pcs resource group add g-QAS_ASCS fs_QAS_ASCS vip_QAS_ASCS nc_QAS_ASCS
    ```
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
@@ -448,22 +455,20 @@ The following items are prefixed with either:
    
    # If using NFSv3
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
-     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-    --group g-QAS_AERS
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe fast_stop=no \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
-     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
-    --group g-QAS_AERS
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' fast_stop=no \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105
    
    sudo pcs resource create vip_QAS_AERS IPaddr2 \
-     ip=192.168.14.10 \
-    --group g-QAS_AERS
+     ip=192.168.14.10
    
-   sudo pcs resource create nc_QAS_AERS azure-lb port=62101 \
-    --group g-QAS_AERS
+   sudo pcs resource create nc_QAS_AERS azure-lb port=62101
+
+   sudo pcs resource group add g-QAS_AERS fs_QAS_AERS vip_QAS_AERS nc_QAS_AERS
    ```
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
@@ -563,9 +568,9 @@ The following items are prefixed with either:
    ```
 
    > [!IMPORTANT]
-   > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
+   > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of an SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
    >
-   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
+   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instance has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
 
 9. **[1]** Create the SAP cluster resources.
 
@@ -584,8 +589,7 @@ The following items are prefixed with either:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
    
     # If using NFSv4.1
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
@@ -593,29 +597,32 @@ The following items are prefixed with either:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
     op monitor interval=20 on-fail=restart timeout=105 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_ASCS
-   
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
+    
+    sudo pcs resource group add g-QAS_ASCS rsc_sap_QAS_ASCS00
     sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
    
     # If using NFSv3
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
    
     # If using NFSv4.1
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_AERS
+    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600
    
-    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
+    sudo pcs resource group add g-QAS_AERS rsc_sap_QAS_ERS01
+   
     sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
-   
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS score=-5000
+    # On RHEL 7.x, 8.x, 9.x
+    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
+    # On RHEL 10.x
+    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 "runs_ers_QAS eq 1"
+
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
     ```
@@ -631,8 +638,7 @@ The following items are prefixed with either:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
    
     # If using NFSv4.1
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
@@ -640,30 +646,27 @@ The following items are prefixed with either:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=105 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
     
+    sudo pcs resource group add g-QAS_ASCS rsc_sap_QAS_ASCS00
     sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
    
     # If using NFSv3
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
     
     # If using NFSv4.1
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_AERS
+    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600
    
-    sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
+    sudo pcs resource group add g-QAS_AERS rsc_sap_QAS_ERS01
    
-    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-    sudo pcs constraint order start g-QAS_ASCS then start g-QAS_AERS kind=Optional symmetrical=false
     sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS score=-5000
    
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
@@ -724,6 +727,12 @@ The following items are prefixed with either:
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp --permanent
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp
     ```
+
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
 
 ## SAP NetWeaver application server preparation
 

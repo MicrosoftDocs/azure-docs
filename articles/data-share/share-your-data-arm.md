@@ -1,11 +1,11 @@
 ---
 title: 'Share outside your org (ARM template) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share and an Azure Resource Manager template (ARM template) in this quickstart.
-author: sidontha
-ms.author: sidontha
+author: chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 01/21/2026
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -15,13 +15,13 @@ Learn how to set up a new Azure Data Share from an Azure storage account by usin
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datashare%2Fdata-share-share-storage-account%2Fazuredeploy.json":::
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 
@@ -67,9 +67,9 @@ It's because the deployment is trying to create the dataset before the Azure rol
     * **Subscription**: select an Azure subscription used to create the data share and the other resources.
     * **Resource group**: select **Create new** to create a new resource group or select an existing resource group.
     * **Location**: select a location for the resource group.
-    * **Project Name**: enter a project name.  The project name is used for generating resource names.  See the variable definitions in the previous template.
-    * **location**: select a location for the resources.  You can use the same location for the resource group.
-    * **Invitation Email**: enter the data share recipient's Azure sign in email address.  Email alias doesn't work.
+    * **Project Name**: enter a project name. The project name is used for generating resource names. See the variable definitions in the previous template.
+    * **location**: select a location for the resources. You can use the same location for the resource group.
+    * **Invitation Email**: enter the data share recipient's Azure sign in email address. Email alias doesn't work.
 
     Use the default value for the rest of the settings.
 1. select **I agree to the terms and conditions stated above**, and the select **Purchase**.
@@ -78,8 +78,8 @@ It's because the deployment is trying to create the dataset before the Azure rol
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Open the data share account that you created.
-1. From the left menu, select **Send Shares**.  You shall see the storage account listed.
-1. Select the storage account.  Under **Details**, you shall see the synchronization setting as you configured in the template.
+1. From the left menu, select **Send Shares**. You shall see the storage account listed.
+1. Select the storage account. Under **Details**, you shall see the synchronization setting as you configured in the template.
 
     ![Azure Data Share Storage Account Synchronization settings](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
 1. Select **Invitations** from the top. You shall see the email address that you specified when you deploy the template. The **Status** shall be **Pending**.
@@ -94,6 +94,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## Next steps
+## Next step
 
 In this quickstart, you learnt how to create an Azure data share and invite recipients. To learn more about how a data consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.

@@ -4,8 +4,8 @@ description: Learn how Azure Health Data Services empowers healthcare organizati
 author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 06/10/2024
+ms.topic: overview
+ms.date: 02/25/2026
 ms.author: kesheth
 ---
 
@@ -15,18 +15,16 @@ Azure Health Data Services offers a suite of technologies that empower healthcar
 
 ## Get an Azure account
 
-Before you create a workspace in the Azure portal, you need an Azure account subscription. For more information, see [Create your free Azure account today](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc). 
+Before you create a workspace in the Azure portal, you need an Azure account subscription. For more information, see [Create your free Azure account today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 
 ## The role of workspaces
 
-Workspaces in Azure Health Data Services serve as logical containers for instances of the FHIR&reg; service, DICOM&reg; service, and MedTech service. Workplaces ensure healthcare data is managed within a secure boundary, adhering to HIPAA and HITRUST standards.
+Workspaces in Azure Health Data Services serve as logical containers for instances of the FHIR&reg; service and DICOM&reg; service. Workplaces ensure healthcare data is managed within a secure boundary, adhering to HIPAA and HITRUST standards.
 
-After you deploy the Azure Health Data Services resource group, enter the workspace subscription and instance details. For steps, see [Deploy an Azure Health Data Services workspace by using the Azure portal](healthcare-apis-quickstart.md).
+To deploy a workspace, see [Deploy an Azure Health Data Services workspace by using the Azure portal](healthcare-apis-quickstart.md).
 
 > [!NOTE] 
 > You can deploy multiple data services within a workspace, and by design they work seamlessly with one another. Use a workspace to organize all your organization's Azure Health Data Services instances and manage configuration settings that are shared among all the underlying datasets and services where it's applicable. 
-
-:::image type="content" source="media/health-data-services-workspace.png" alt-text="Screenshot showing the Azure Health Data Services workspace." lightbox="media/health-data-services-workspace.png#lightbox":::
 
 ## The role of resource groups 
 
@@ -46,7 +44,7 @@ Authenticated users and client applications of the Azure Health Data Services mu
 
 To access Azure Health Data Services, you [register a client application](register-application.md) in the Microsoft Entra ID. By doing these steps, you can find the [application (client) ID](./../healthcare-apis/register-application.md#application-id-client-id), and configure the [authentication setting](./../healthcare-apis/register-application.md#authentication-setting-confidential-vs-public) to allow public client flows or to a confidential client application.
 
-As a requirement for the DICOM service, you configure the user access [API permissions](./../healthcare-apis/register-application.md#api-permissions) or role assignments for Azure Health Data Services managed through [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md).  
+As a requirement for the DICOM service, you configure the user access [API permissions](./../healthcare-apis/register-application.md#api-permissions-for-dicom-and-fhir-services) or role assignments for Azure Health Data Services managed through [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md).  
 
 ## FHIR service
 
@@ -58,7 +56,7 @@ You can also:
 - Grant access permissions.
 - Perform create, read (search), update, and delete (CRUD) transactions against the FHIR service in healthcare applications.
 - Get an access token for the FHIR service. 
-- Access the FHIR service by using tools such as cURL, Postman, and REST client.
+- Access the FHIR service by using tools such as cURL and REST client.
 - Load data directly by using the POST or PUT method against the FHIR service.
 - Export ($export) data to Azure Storage.
 - Convert [HL7 v2](./../healthcare-apis/fhir/convert-data-overview.md) and other format data to FHIR
@@ -74,25 +72,12 @@ The DICOM service is secured by Microsoft Entra ID, which can't be disabled. To 
 
 You can also:
 - Grant access permissions or assign roles in the [Azure portal](./../healthcare-apis/configure-azure-rbac.md), or by using PowerShell and Azure CLI scripts.
-- Perform create, read (search), update, and delete (CRUD) transactions against the DICOM service in healthcare applications or by using tools such as Postman, REST client, cURL, and Python.
+- Perform create, read (search), update, and delete (CRUD) transactions against the DICOM service in healthcare applications or by using tools such as REST client, cURL, and Python.
 - Get a Microsoft Entra access token by using PowerShell, Azure CLI, REST CLI, or .NET SDK.
-- Access the DICOM service by using tools such as .NET C#, cURL, Python, Postman, and REST client.
+- Access the DICOM service by using tools such as .NET C#, cURL, Python, and REST client.
 
 For more information, see [Manage medical imaging data with the DICOM service](./../healthcare-apis/dicom/dicom-data-lake.md).
 
-## MedTech service
-
-The MedTech service transforms device data into FHIR-based observation resources and then persists the transformed messages into the FHIR Service in Azure Health Data Services. The MedTech service provides a unified approach to health data access, standardization, and trend capture, enabling the discovery of operational and clinical insights, connection of new device applications, and enablement of new research projects. 
-
-The MedTech service needs access permissions to Azure Event Hubs and FHIR service. Assign the Azure Event Hubs Data Receiver role to allow the MedTech service to receive data from the event hub. For more information, see [Authentication & Authorization for Azure Health Data Services](./../healthcare-apis/authentication-authorization.md)
-
-You can also:
-- Create a new FHIR service or use an existing one in the same or different workspace.
-- Create a new event hub or use an existing one. 
-- Assign roles to allow the MedTech service to access [Event Hubs](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-device-message-event-hub) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service).
-- Send data to the event hub, which is associated with the MedTech service.
-
-For more information, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started.md).
 
 ## Related content
 

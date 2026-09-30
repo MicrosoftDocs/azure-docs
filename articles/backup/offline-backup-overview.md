@@ -1,20 +1,21 @@
 ---
-title: Overview of offline backup 
-description: Learn about the components of offline backup. They include offline backup based on Azure Data Box and offline backup based on the Azure Import/Export service.
+title: Offline Backup operations in Azure Backup
+description: Learn how Azure Backup transfers initial backups offline, and compare Azure Data Box with Azure Import/Export for low-bandwidth environments.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 07/30/2026
 ms.custom: references_regions 
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a backup administrator, I want to compare offline backup options in Azure Backup so that I can transfer large initial backups without consuming network bandwidth.
 ---
 
-# Overview of offline backup
+# What is offline backup in Azure Backup?
 
-This article gives an overview of offline backup.
+Offline backup in Azure Backup transfers the initial full backup data to a Recovery Services vault without using any network bandwidth. Use offline backup when limited network bandwidth or large data volumes would make the initial online backup take several days.
 
-Initial full backups to Azure typically transfer large amounts of data online and require more network bandwidth when compared to subsequent backups that transfer only incremental changes. Remote offices or datacenters in certain geographies don't always have sufficient network bandwidth. For this reason, these initial backups take several days. During this time, the backups continuously use the same network that was provisioned for applications running in the on-premises datacenter.
+Azure Backup copies the initial backup data to physical storage devices that you ship to an Azure datacenter. You can use Microsoft-managed Azure Data Box devices or your own disks through the Azure Import/Export service. After Azure uploads the initial data to the vault, subsequent incremental backups continue online.
 
-Azure Backup supports offline backup, which transfers initial backup data offline, without the use of network bandwidth. It provides a mechanism to copy backup data onto physical storage devices. The devices are then shipped to a nearby Azure datacenter and uploaded onto a Recovery Services vault. This process ensures robust transfer of backup data without using any network bandwidth.
+This article compares the Azure Data Box and Azure Import/Export options to help you choose the appropriate offline backup method.
 
 ## Offline backup options
 
@@ -79,6 +80,8 @@ The following table compares the two available options so that you can make the 
 
 ## Next steps
 
-- [Azure Backup offline backup by using Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
-- [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md)
-- [Offline backup workflow for DPM and Azure Backup Server](backup-azure-backup-server-import-export.md)
+- [Azure Backup offline backup by using Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus).
+- [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md).
+- [Offline backup workflow for DPM and Azure Backup Server](backup-azure-backup-server-import-export.md).
+- [Offline backup workflow for DPM and Azure Backup Server](offline-backup-azure-data-box-dpm-mabs.md).
+- [Offline backup workflow for DPM and Azure Backup Server for previous versions](offline-backup-server-previous-versions.md).

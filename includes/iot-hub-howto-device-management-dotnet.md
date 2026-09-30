@@ -2,13 +2,17 @@
 title: Device management using direct methods (.NET)
 titleSuffix: Azure IoT Hub
 description: How to use Azure IoT Hub direct methods with the Azure IoT SDK for .NET for device management tasks including invoking a remote device reboot.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 11/25/2024
-ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
+ms.date: 1/6/2025
+ms.custom:
+  - mqtt
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
   * Requires Visual Studio
@@ -21,9 +25,7 @@ This article describes how to use the [Azure IoT SDK for .NET](https://github.co
 
 This section describes how to use device application code to create a direct method callback listener.
 
-[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
-
-### Required device NuGet package
+### Required device NuGet packages
 
 Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
 
@@ -34,7 +36,16 @@ using Microsoft.Azure.Devices.Client;
 using Microsoft.Azure.Devices.Shared;
 ```
 
-### Connect to a device
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to interact with device messages from the device.
 
@@ -58,6 +69,10 @@ static deviceClient = null;
 deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
    TransportType.Mqtt);
 ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-dotnet.md)]
 
 ### Create a direct method callback listener
 
@@ -192,6 +207,6 @@ Console.WriteLine("Invoked firmware update on device.");
 The Azure IoT SDK for .NET provides working samples of service apps that handle message tasks. For more information, see:
 
 * [Invoke Device Method](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting%20started/InvokeDeviceMethod)
-* [Method E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/e2e/test/iothub/method)
+* [Method E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/method/MethodE2ETests.cs)
 * [Temperature Controller](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/TemperatureController)
 * [Thermostat Sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat)

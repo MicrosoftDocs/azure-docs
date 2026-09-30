@@ -4,14 +4,17 @@ titleSuffix: Azure Data Factory
 description: Learn how to debug issues with the Azure Data Factory SAP CDC (change data capture) connector by sending self-hosted integration runtime logs to Microsoft.
 author: ukchrist
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.date: 05/15/2024
 ms.author: ulrichchrist
+ms.custom: sfi-image-nochange
 ---
 
 # Debug issues with the SAP CDC connector by sending self-hosted integration runtime logs
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 If you want Microsoft to debug Azure Data Factory issues with your SAP CDC connector, send us your self-hosted integration runtime logs, and then contact us.
 

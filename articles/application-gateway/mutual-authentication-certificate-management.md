@@ -3,11 +3,12 @@ title: Export trusted client CA certificate chain for client authentication
 titleSuffix: Azure Application Gateway
 description: Learn how to export a trusted client CA certificate chain for client authentication on Azure Application Gateway
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/22/2023
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a network administrator, I want to export a trusted client CA certificate chain for client authentication, so that I can enable mutual authentication on the application gateway and enhance security for client connections."
 ---
 
 # Export a trusted client CA certificate chain to use with client authentication

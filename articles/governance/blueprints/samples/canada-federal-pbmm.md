@@ -16,7 +16,7 @@ architecture that must implement controls for Canada Federal PBMM.
 
 ## Control mapping
 
-The [Azure Policy control mapping](../../policy/samples/canada-federal-pbmm.md) provides details on
+The [Azure Policy control mapping](/azure/governance/policy/samples/canada-federal-pbmm) provides details on
 policy definitions included within this blueprint and how these policy definitions map to the
 **controls** in the Canada Federal PBMM framework. When assigned to an architecture, resources are
 evaluated by Azure Policy for non-compliance with assigned policy definitions. For more information,
@@ -32,7 +32,7 @@ the following steps must be taken:
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 before you begin.
 
 ### Create blueprint from sample

@@ -3,7 +3,7 @@ title: Access control in Synapse workspace how to
 description: Learn how to control access to Azure Synapse workspaces using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 author: talk2rick
 ms.author: xurick
-ms.reviewer: whhender, wiassaf
+
 ms.topic: how-to
 ms.service: azure-synapse-analytics
 ms.subservice: security 
@@ -91,7 +91,7 @@ Identify the following information about your storage:
 
 - Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |
@@ -130,7 +130,7 @@ To run pipelines and perform system tasks, Azure Synapse requires managed servic
 - Locate the storage account, `storage1`, and then `container1`.
 - Select **Access control (IAM)**.
 - To open the **Add role assignment** page, select **Add** > **Add role assignment** .
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -153,7 +153,7 @@ To create SQL pools, Apache Spark pools, and Integration runtimes, users need an
 - Locate the workspace, `workspace1`
 - Select **Access control (IAM)**.
 - To open the **Add role assignment** page, select **Add** > **Add role assignment**.
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |
@@ -289,4 +289,4 @@ This guide has focused on setting up a basic access control system. You can supp
 ## Related content
 
  - [Manage Azure Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
- - [Create aSynapse Workspace](../quickstart-create-workspace.md)
+ - [Create a Synapse Workspace](../quickstart-create-workspace.md)

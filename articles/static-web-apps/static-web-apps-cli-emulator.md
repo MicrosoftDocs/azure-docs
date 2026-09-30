@@ -2,11 +2,11 @@
 title: Emulator Azure Static Web Apps CLI
 description: Emulator Azure Static Web Apps CLI
 services: static-web-apps
-author: craigshoemaker
+author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  how-to
 ms.date: 12/15/2023
-ms.author: cshoe
+ms.author: jikunchen
 ---
 
 # Start the Static Web Apps CLI emulator

@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: tutorial
-ms.date: 10/11/2024
+ms.date: 03/31/2026
 ms.author: gok
 ---
 
@@ -27,15 +27,15 @@ Before you deploy the app to Azure Container Apps, you can run it locally to tes
 
 1. Clone the [Azure Container Apps sessions samples repository](https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples).
 
-    ```bash
-    git clone https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples.git
-    ```
+   ```bash
+   git clone https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples.git
+   ```
 
 1. Change to the directory that contains the sample app:
 
-    ```bash
-    cd container-apps-dynamic-sessions-samples/autogen-python-webapi
-    ```
+   ```bash
+   cd container-apps-dynamic-sessions-samples/autogen-python-webapi
+   ```
 
 [!INCLUDE [container-apps/sessions-tutorial-configure-local](../../includes/container-apps/sessions-tutorial-configure-local-autogen.md)]
 

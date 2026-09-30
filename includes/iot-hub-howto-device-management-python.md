@@ -2,13 +2,17 @@
 title: Device management using direct methods (Python)
 titleSuffix: Azure IoT Hub
 description: How to use Azure IoT Hub direct methods with the Azure IoT SDK for Python for device management tasks including invoking a remote device reboot.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 11/25/2024
-ms.custom: mqtt, devx-track-python, py-fresh-zinc
+ms.date: 1/6/2025
+ms.custom:
+  - mqtt
+  - devx-track-python
+  - py-fresh-zinc
+  - sfi-ropc-nochange
 ---
 
   * Python SDK - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
@@ -35,9 +39,9 @@ pip install azure-iot-hub
 
 This section describes how to use device application code to create a direct method callback listener.
 
-[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be used to work with direct methods.
 
-### Device import statements
+### Device import statement
 
 Add this import statement to access `IoTHubDeviceClient` and `MethodResponse`.
 
@@ -48,7 +52,14 @@ from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
 ### Connect to a device
 
-The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be used to work with direct methods.
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
 
 Use [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to connect an application to a device using a device connection string.
 
@@ -58,6 +69,10 @@ Use [create_from_connection_string](/python/api/azure-iot-device/azure.iot.devic
 conn_str = "{IoT hub device connection string}"
 device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-python](iot-hub-howto-auth-device-cert-python.md)]
 
 ### Create a direct method callback
 
@@ -112,7 +127,7 @@ The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregist
 
 ### Service import statements
 
-Add these import statements to connect to Iot Hub, send cloud-to-device direct methods, and receive device direct method responses.
+Add these import statements to connect to IoT Hub, send cloud-to-device direct methods, and receive device direct method responses.
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager
@@ -157,7 +172,7 @@ To invoke a direct method on a device:
 1. Create a [CloudToDeviceMethod](/python/api/azure-iot-hub/azure.iot.hub.protocol.models.cloudtodevicemethod) object. Supply the method name and payload as parameters.
 1. Call [invoke_device_method](/python/api/azure-iot-hub/azure.iot.hub.iothub_registry_manager.iothubregistrymanager?#azure-iot-hub-iothub-registry-manager-iothubregistrymanager-invoke-device-method) to invoke a direct method on a device. Supply the device ID and `CloudToDeviceMethod` payload object as parameters.
 
-This example calls `CloudToDeviceMethod` to invoke a direct method named "rebootDevice" on a device. After the direct method has been successfully invoked, the direct method response payload is displayed.
+This example calls `CloudToDeviceMethod` to invoke a direct method named "rebootDevice" on a device. After the direct method is successfully invoked, the direct method response payload is displayed.
 
 ```python
 CONNECTION_STRING = "{IoTHubConnectionString}"

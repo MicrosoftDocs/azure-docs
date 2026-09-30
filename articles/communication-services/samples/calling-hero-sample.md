@@ -6,7 +6,7 @@ author: ddematheu2
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Get started with the calling hero sample
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Web Calling Hero Sample](./includes/web-calling-hero.md)]

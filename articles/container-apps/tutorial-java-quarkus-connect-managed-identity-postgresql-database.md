@@ -1,13 +1,14 @@
 ---
-title: 'Tutorial: Access data with managed identity in Java using Service Connector'
+title: 'Tutorial: Access data with managed identity in Java on Azure Container Apps'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Quarkus app, and deploy it to Azure Container Apps.
 ms.devlang: java
 author: KarlErickson
+ms.author: karler
+ms.reviewer: edburns
 ms.topic: tutorial
-ms.author: edburns
 ms.service: azure-container-apps
-ms.date: 12/09/2024
-ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
+ms.date: 03/26/2026
+ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, devx-track-javaee-quarkus-aca
 ---
 
 # Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity
@@ -20,10 +21,10 @@ What you learn:
 
 > [!div class="checklist"]
 > * Configure a Quarkus app to authenticate using Microsoft Entra ID with a PostgreSQL Database.
-> * Create an Azure container registry and push a Java app image to it.
+> * Create an Azure Container Registry instance and push a Java app image to it.
 > * Create a Container App in Azure.
 > * Create a PostgreSQL database in Azure.
-> * Connect to a PostgreSQL Database with managed identity using Service Connector.
+> * Connect to a PostgreSQL Database with a system-assigned managed identity.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -41,16 +42,16 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 
 The following example creates a resource group named `myResourceGroup` in the East US Azure region.
 
-```azurecli-interactive
+```azurecli
 RESOURCE_GROUP="myResourceGroup"
 LOCATION="eastus"
 
 az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
-Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command and retrieve its login server using the [az acr show](/cli/azure/acr#az-acr-show) command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. All letters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
+Create an Azure Container Registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command and retrieve its login server using the [az acr show](/cli/azure/acr#az-acr-show) command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. All letters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
 
-```azurecli-interactive
+```azurecli
 REGISTRY_NAME=mycontainerregistry007
 az acr create \
     --resource-group $RESOURCE_GROUP \
@@ -82,7 +83,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity-extensions</artifactId>
-      <version>1.1.20</version>
+      <version>1.2.0</version>
    </dependency>
    ```
 
@@ -163,7 +164,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
    Before pushing container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command.
 
-   ```azurecli-interactive
+   ```azurecli
    az acr login --name $REGISTRY_NAME
    ```
 
@@ -181,7 +182,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Create a Container Apps instance by running the following command. Make sure you replace the value of the environment variables with the actual name and location you want to use.
 
-   ```azurecli-interactive
+   ```azurecli
    CONTAINERAPPS_ENVIRONMENT="my-environment"
 
    az containerapp env create \
@@ -192,7 +193,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Create a container app with your app image by running the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    APP_NAME=my-container-app
    az containerapp create \
        --resource-group $RESOURCE_GROUP \
@@ -215,7 +216,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Create the database service.
 
-   ```azurecli-interactive
+   ```azurecli
    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
 
    az postgres flexible-server create \
@@ -243,7 +244,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Create a database named `fruits` within the PostgreSQL service with this command:
 
-   ```azurecli-interactive
+   ```azurecli
    DB_NAME=fruits
    az postgres flexible-server db create \
        --resource-group $RESOURCE_GROUP \
@@ -251,30 +252,62 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --database-name $DB_NAME
    ```
 
-1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
+1. Ensure your container app has a system-assigned managed identity and capture its principal ID. You assign the identity when you create the app by using `--registry-identity system`. The following command assigns it explicitly if needed.
 
-   ```azurecli-interactive
-   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-   ```
-
-1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
-
-   ```azurecli-interactive
-   az containerapp connection create postgres-flexible \
+   ```azurecli
+   az containerapp identity assign \
        --resource-group $RESOURCE_GROUP \
        --name $APP_NAME \
-       --target-resource-group $RESOURCE_GROUP \
-       --server $DB_SERVER_NAME \
-       --database $DB_NAME \
-       --system-identity \
-       --container $APP_NAME
+       --system-assigned
+
+   PRINCIPAL_ID=$(az containerapp show \
+       --resource-group $RESOURCE_GROUP \
+       --name $APP_NAME \
+       --query identity.principalId \
+       --output tsv)
+   ```
+
+1. Set yourself as the Microsoft Entra administrator on the PostgreSQL server so you can create database roles.
+
+   ```azurecli
+   CURRENT_USER=$(az account show --query user.name --output tsv)
+   CURRENT_USER_OID=$(az ad signed-in-user show --query id --output tsv)
+
+   az postgres flexible-server ad-admin create \
+       --resource-group $RESOURCE_GROUP \
+       --server-name $DB_SERVER_NAME \
+       --display-name $CURRENT_USER \
+       --object-id $CURRENT_USER_OID
+   ```
+
+1. Create a database role mapped to the container app's managed identity and grant it access to the `fruits` database.
+
+   ```azurecli
+   az postgres flexible-server execute \
+       --name $DB_SERVER_NAME \
+       --admin-user $CURRENT_USER \
+       --admin-password $(az account get-access-token --resource-type oss-rdbms --query accessToken --output tsv) \
+       --querytext "SELECT * FROM pgaadauth_create_principal_with_oid('$APP_NAME', '$PRINCIPAL_ID', 'service', false, false); GRANT ALL PRIVILEGES ON DATABASE fruits TO \"$APP_NAME\";"
+   ```
+
+1. Configure the container app with the connection information the Quarkus app reads from environment variables.
+
+   ```azurecli
+   az containerapp update \
+       --resource-group $RESOURCE_GROUP \
+       --name $APP_NAME \
+       --set-env-vars \
+           AZURE_POSTGRESQL_HOST=$DB_SERVER_NAME.postgres.database.azure.com \
+           AZURE_POSTGRESQL_PORT=5432 \
+           AZURE_POSTGRESQL_DATABASE=$DB_NAME \
+           AZURE_POSTGRESQL_USERNAME=$APP_NAME
    ```
 
 ## 6. Review your changes
 
 You can find the application URL(FQDN) by using the following command:
 
-```azurecli-interactive
+```azurecli
 echo https://$(az containerapp show \
     --name $APP_NAME \
     --resource-group $RESOURCE_GROUP \

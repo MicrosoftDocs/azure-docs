@@ -255,7 +255,7 @@ Before the bug fix, a SQL timeout returned a 500 error. With the bug fix, a time
 
 #### Events capability in Azure Health Data Services is generally available (GA)
 
- The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](./../healthcare-apis/events/events-message-structure.md) and [What are events?](./../healthcare-apis/events/events-overview.md). 
+ The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](./../healthcare-apis/events/events-message-structure.md) and [What are events?](./../healthcare-apis/events/events-overview.md) 
 
 ## January 2022
 

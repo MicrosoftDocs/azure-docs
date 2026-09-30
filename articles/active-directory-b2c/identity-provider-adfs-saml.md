@@ -4,9 +4,9 @@ titleSuffix: Azure AD B2C
 description: Set up AD FS 2016 using the SAML protocol and custom policies in Azure Active Directory B2C
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 01/24/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type

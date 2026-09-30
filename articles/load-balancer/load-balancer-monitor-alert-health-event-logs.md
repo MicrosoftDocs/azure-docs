@@ -5,21 +5,20 @@ description: Learn how to monitor and alert with LoadBalancerHealthEvent logs fo
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 05/21/2024
+ms.date: 07/17/2026
 ms.author: mbender
 ms.custom: references_regions
 # customer intent: As a network admin, I want to use LoadBalancerHealthEvent logs for Azure Load Balancer for monitoring and alerting so that I can identify and troubleshoot ongoing issues affecting my load balancer resource’s health.
+# Customer intent: As a network administrator, I want to monitor and alert using LoadBalancerHealthEvent logs, so that I can quickly identify and address issues that impact the performance and reliability of my load balancer resources.
 ---
 
 # Monitor and alert with LoadBalancerHealthEvent logs
 
-In this article, you learn how to monitor and alert with Azure Load Balancer health event logs. These logs can help you identify and troubleshoot ongoing issues affecting your load balancer resource’s health. The health event logs are provided through the Azure Monitor resource log category *LoadBalancerHealthEvent*.
-
-[!INCLUDE [load-balancer-health-event-logs-preview](../../includes/load-balancer-health-event-logs-preview.md)]
+In this article, you learn how to monitor and alert by using Azure Load Balancer health event logs. For background on what health event logs are and how they help you identify and troubleshoot load balancer health problems, see [Health event logs for Azure Load Balancer](load-balancer-health-event-logs.md).
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Load Balancer resource. To learn how to create a Load Balancer resource, see [Quickstart: Create a public Standard Load Balancer](./quickstart-load-balancer-standard-public-portal.md).
 - An Azure Monitor Log Analytics workspace. To learn how to create a Log Analytics workspace, see [Quickstart: Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
@@ -148,4 +147,4 @@ In this article, you learned how to collect, analyze, and create alerts using th
 For more information about Azure Load Balancer health event logs and health event types, along with how to troubleshoot each health event type, see:
 
 - [Azure Load Balancer health event logs](load-balancer-health-event-logs.md)
-- [Troubleshoot load balancer health event logs](./load-balancer-troubleshoot-health-event-logs.md)
+- [Support and troubleshooting for Azure Load Balancer](./load-balancer-support-help.md)

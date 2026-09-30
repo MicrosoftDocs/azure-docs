@@ -1,14 +1,16 @@
 ---
 title: Customize networking configurations for a failover VM  | Microsoft Docs
 description: Provides an overview of customize networking configurations for a failover VM in the replication of Azure VMs using Azure Site Recovery.
-author: ankitaduttaMSFT
-manager: gaggupta
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 03/27/2023
-ms.author: ankitadutta
-ms.custom: engagement-fy23
+ms.date: 08/18/2026
+ms.author: v-gajeronika
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 
+# Customer intent: As an IT administrator responsible for managing disaster recovery, I want to customize networking configurations for failover virtual machines, so that I can ensure optimal connectivity and compliance with my network architecture during Azure VM replication and recovery.
 ---
 # Customize networking configurations of the target Azure VM
 
@@ -25,6 +27,7 @@ You can provide the following key resource configurations for the failover VM wh
 - [Internal load balancer](../load-balancer/load-balancer-overview.md)
 - [Public IP](../virtual-network/public-ip-addresses.md)
 - [Secondary IP](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md)
+- [Network interface (NIC)](../virtual-network/virtual-network-network-interface.md)
 - [Network security group](../virtual-network/manage-network-security-group.md) both for the subnet and for the NIC
 
 ## Prerequisites
@@ -44,6 +47,10 @@ You can provide the following key resource configurations for the failover VM wh
 5. Select the NIC tab you want to configure. Now, select the corresponding pre-created resources in the test failover and failover location.
 
     :::image type="content" source="./media/azure-to-azure-customize-networking/nic-drilldown-expanded.png" alt-text="Screenshot of Edit the NIC configuration." lightbox="./media/azure-to-azure-customize-networking/nic-drilldown-expanded.png":::
+
+> [!NOTE]
+> When you select a preprovisioned NIC, you automatically inherit the networking configurations associated with the selected NIC. <br>
+> A NIC can be associated with only one existing VM at a time. If a selected NIC is already attached to an existing VM during a failover, the failover operation fails.  
 
 6. Select **OK**.
 

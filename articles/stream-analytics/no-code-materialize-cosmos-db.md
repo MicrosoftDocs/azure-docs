@@ -1,8 +1,6 @@
 ---
 title: Materialize data in Azure Cosmos DB using no code editor
 description: Learn how to use the no code editor in Stream Analytics to materialize data from Event Hubs to Azure Cosmos DB.
-author: xujxu
-ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: mvc

@@ -5,10 +5,12 @@ description: Learn about Communication Services' Pricing Model.
 author: nmurav
 ms.author: nmurav
 ms.date: 09/11/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 # Pricing Scenarios
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 Prices for Azure Communication Services are based on a pay-as-you-go model. The prices in the following examples are for illustrative purposes and may not reflect the latest Azure pricing.
 
@@ -39,7 +41,6 @@ Alice made a group call with her colleagues, Bob, and Charlie. Alice and Bob use
 
 **Total cost for the group call**: $0.48 + $0.172 = $0.652
 
-
 ### Pricing example: Outbound Call from app using JS SDK to a PSTN (Public Switched Telephony Network) number
 
 Alice makes a PSTN Call from an app to Bob on his US phone number beginning with `+1-425`.
@@ -54,7 +55,6 @@ Alice makes a PSTN Call from an app to Bob on his US phone number beginning with
 
 > [!Note]
 > USA mixed rate to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
-
 
 **Total cost for the call**: $0.04 + $0.13 = $0.17
 
@@ -207,7 +207,6 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 **Cost calculations**
 
 - Number of messages sent (20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
-
 
 ## SMS (Short Messaging Service)
 

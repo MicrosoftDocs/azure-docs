@@ -2,7 +2,7 @@
 title: Transform data using Spark activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data by running Spark programs from an Azure Data Factory or Synapse Analytics pipeline using the Spark Activity. 
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
@@ -13,6 +13,9 @@ ms.subservice: orchestration
 # Transform data using Spark activity in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Azure HDInsight activity](/fabric/data-factory/azure-hdinsight-activity).
 
 The Spark activity in a data factory and Synapse [pipelines](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, the service automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
 
@@ -126,7 +129,6 @@ SparkJob2
 ## Related content
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [Pig activity](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)

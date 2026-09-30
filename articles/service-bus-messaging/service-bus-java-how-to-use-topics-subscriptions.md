@@ -4,7 +4,10 @@ description: This tutorial shows you how to send messages to Azure Service Bus t
 ms.date: 02/28/2024
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: mode-api, devx-track-extended-java
+ms.custom:
+  - mode-api
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Java)
@@ -26,7 +29,7 @@ In this quickstart, you write Java code using the azure-messaging-servicebus pac
 
 ## Prerequisites
 
-- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Azure SDK for Java][Azure SDK for Java]. If you're using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you're using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation).
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
@@ -479,7 +482,7 @@ See the following documentation and samples:
 
 - [Azure Service Bus client library for Java - Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [Samples on GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Java API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
+- [Java API reference](/azure/developer/java/sdk/overview)
 
 <!-- Local links -->
 [Azure SDK for Java]: /java/api/overview/azure/

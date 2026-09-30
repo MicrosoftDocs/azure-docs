@@ -4,7 +4,7 @@ description: In this article, you deploy various network topologies with Azure V
 services: virtual-network-manager
 author: mbender-ms
 ms.author: mbender
-ms.date: 10/23/2024
+ms.date: 07/29/2026
 ms.topic: quickstart
 ms.service: azure-virtual-network-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - To support deploying Azure Policy for [dynamic group membership](concept-network-groups.md#dynamic-membership), the template is designed to deploy at the subscription scope. However, it's not a requirement for Azure Virtual Network Manager if using static group membership.
 
 ## Review the template
@@ -87,11 +87,11 @@ The template defines multiple Azure resources:
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the private endpoint, delete the resource group. Doing so removes the private endpoint and all the related resources.
+When you no longer need the resources that you created in this quickstart, delete the resource group. Deleting the resource group removes the Azure Virtual Network Manager instance, the network groups, the connectivity configuration, the virtual networks, and the other resources the template created in that group. If you selected **dynamic** for **Network Group Membership Type**, the template also creates an Azure Policy definition and assignment at the subscription scope. Those two resources aren't in the resource group, so delete them separately as described in the following steps.
 
 1. To delete the resource group, open the resource group in the Azure portal and select **Delete resource group**.
 1. Enter the name of the resource group, and then select **Delete**.
-1. One the resource group is deleted, verify the network manager instance and all related resources are deleted.
+1. Once the resource group is deleted, verify the network manager instance and all related resources are deleted.
 1. If you used **Dynamic Network Group Membership**, delete the deployed Azure Policy Definition and Assignment by navigating to your Subscription in the Portal and selecting the **Policies**. In Policies, find the **Assignment** named `AVNM quickstart dynamic group membership Policy` and delete it, then do the same for the **Definition** named `AVNM quickstart dynamic group membership Policy`.
 
 ## Next steps

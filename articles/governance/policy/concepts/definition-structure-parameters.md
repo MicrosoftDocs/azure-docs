@@ -1,8 +1,8 @@
 ---
 title: Details of the policy definition structure parameters
 description: Describes how policy definition parameters are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: reference
 ---
 
 # Azure Policy definition structure parameters
@@ -20,7 +20,8 @@ Parameters can't be removed from a policy definition because there might be an a
 A parameter uses the following properties in a policy definition:
 
 - `name`: The name of your parameter. Used by the `parameters` deployment function within the policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a `string`, `array`, `object`, `boolean`,  `integer`, `float`, or `dateTime`.
+- `type`: Determines if the parameter is a `string`, `array`, `object`, `boolean`, `integer`, `float`, or `dateTime`. (Where `dateTime` parameters should be in ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` format.)
+
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly information:
   - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
@@ -69,7 +70,7 @@ In a more advanced scenario, you could define a policy that requires Kubernetes 
 ```json
 "parameters": {
   "labelSelector": {
-    "type": "Object",
+    "type": "object",
     "metadata": {
       "displayName": "Kubernetes label selector",
       "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources."
@@ -192,7 +193,7 @@ The non _resource type_ allowed values for `strongType` are:
 
 - For more information about policy definition structure, go to [basics](./definition-structure-basics.md), [policy rule](./definition-structure-policy-rule.md), and [alias](./definition-structure-alias.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

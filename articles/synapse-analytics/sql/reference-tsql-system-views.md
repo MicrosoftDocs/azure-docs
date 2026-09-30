@@ -7,10 +7,11 @@ ms.subservice: sql
 ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: whhender
 ---
 
 # System views supported in Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Links to the documentation for T-SQL statements supported in Synapse SQL.
 

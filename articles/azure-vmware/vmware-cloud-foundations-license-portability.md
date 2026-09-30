@@ -1,145 +1,135 @@
 ---
-title: Use Portable VMware Cloud Foundations (VCF) on Azure VMware Solution
-ms.author: saloniyadav
-description: Bring your own portable VMware Cloud Foundations (VCF) on Azure VMware Solution
+title: Configure portable VMware Cloud Foundation for Azure VMware Solution
+description: Learn how to register and manage a portable VMware Cloud Foundation subscription for an Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 9/30/2024
+ms.date: 08/14/2026
+# Customer intent: As a cloud administrator, I want to register and manage my portable VMware Cloud Foundation subscription on Azure VMware Solution, so that my private clouds remain licensed and compliant.
 ---
 
-# Use Portable VMware Cloud Foundations (VCF) on Azure VMware Solution
+# Configure portable VMware Cloud Foundation for Azure VMware Solution
 
-This article discusses how to modernize your VMware workloads by bringing your portable VMware Cloud Foundations (VCF) to Azure VMware Solutions and take advantage of incredible cost savings as you modernize your VMware workloads. With Azure VMware Solution, you access both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF subscription portability option, you can apply your on-premises VCF entitlements, purchased from Broadcom, directly to the Azure VMware Solution infrastructure. This flexibility means you can seamlessly integrate your VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solution today! 
+Portable VMware Cloud Foundation (VCF), also called VCF bring your own license (BYOL), lets you use a VCF subscription purchased from Broadcom with Azure VMware Solution. You register the subscription separately on each Azure VMware Solution private cloud.
 
-## What's changing?
+This article explains how to register and manage portable VCF through the Azure portal. For licensing rules, important dates, trial requirements, and core calculations, see [Portable VCF licensing reference for Azure VMware Solution](portable-vcf-licensing-reference.md).
 
-Private Cloud on the portable VCF offering, must have prepurchase Firewall add-on from Broadcom along with the VCF subscription to use the vDefend Firewall on Azure VMware Solution. Prior to using the vDefend Firewall software on Azure VMware Solution ensure you register your Firewall add-on with Microsoft. For detailed instructions on how to register your portable VCF, see "Register your portable VCF with Azure VMware Solution" later in this article.
+## Prerequisites
 
->[!IMPORTANT]
->
-> Your portable VCF is applied at the host level and must cover all the physical cores on a host. For example, if each host in Azure VMware Solution has 36 cores and you intend to have a Private Cloud with 3 nodes, the portable VCF must cover 108 (3*36) cores. 
->In the current version, if you want to use your own portable VCF on your Azure subscription for the Azure VMware Solution workloads, all the nodes (cores) in that subscription including multiple Private Clouds need to be purchased through Broadcom and covered under your Broadcom portable VCF contract. At the moment, you're required to bring portable VCF entitlements that cover cores for all the nodes deployed within your Azure subscription.
+Before you begin, make sure that you have:
 
-## Purchasing VCF subscription portability offering on Azure VMware Solution
+* An Azure VMware Solution private cloud or the information required to create one.
+* An approved host quota for the planned deployment. For instructions, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
+* A 25-character VCF license or subscription key from Broadcom.
+* The Broadcom site ID, serial number, and expiration date associated with the VCF subscription.
+* The number of BYOL cores deployed or planned for the private cloud. To determine this value, see [Calculate VCF cores](portable-vcf-licensing-reference.md#calculate-vcf-cores).
+* A Broadcom vDefend Firewall add-on key if you plan to use supported vDefend Firewall features.
 
-We offer three flexible commitments and pricing options for using your portable VCF on Azure VMware Solution. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. **NOTE:** 3-year RI option is discontinued for AV36 node type.
+## Configure portable VCF
 
-To take advantage of the Reserved Instance (RI) pricing for the portable VCF offering on Azure VMware Solution, purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the pay-as-you-go pricing for the portable VCF offering, you only need to register your VCF subscription. 
+Registration is currently available only through the Azure portal. You can configure portable VCF while creating a private cloud or enable it on an existing private cloud.
 
->[!IMPORTANT]
-> If you are converting your existing Azure VMware Solution private cloud to leverage the portable VCF pricing, you must ensure to exchange the existing Reserve Instance (RI) on your subscription to VCF BYOL RI. Unless you have RI under \<node-type\>-VCF BYOL, you will be charged the VCF BYOL pay-as-you-go pricing.
+### Configure portable VCF while creating a private cloud
 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/reserved-instance-purchase.png" alt-text="Screenshot of what product type to select while purchasing reserved instance for VCF subscription portability offering." border="true":::
+When you create an Azure VMware Solution private cloud in the Azure portal, use the **Portable VCF (BYOL)** option to provide the VCF license information.
 
-## Request host quota with VCF subscription portability
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/updated-portable-vcf-create-new-private-cloud-with-vcf-byol.png" alt-text="Screenshot of the option to register VCF portable subscription entitlements with Microsoft while creating an Azure VMware Solution private cloud." lightbox="media/vmware-cloud-foundations-license-portability/updated-portable-vcf-create-new-private-cloud-with-vcf-byol.png" border="true":::
 
-Existing: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-old.png" alt-text="Screenshot of quota request description for existing Azure VMware Solution." border="true":::
+Select **Configure**, and then provide the following information:
 
-To request quota for portable VCF offering, provide the following additional information in the **Description** of the support ticket:
+* **VCF license/subscription key**: The 25-character [key from Broadcom](https://knowledge.broadcom.com/external/article/145804/download-license-keys-for-broadcom-ca-sy.html).
+* **Broadcom site ID**: The site ID associated with your contract.
+* **Broadcom serial number**: The serial number associated with your VCF subscription. Find it in the **Entitlement** section of the Broadcom portal.
+* **License expiration date**: The end date of the VCF subscription you purchased from Broadcom.
+* **Number of cores**: The number of BYOL cores deployed on this private cloud. The registered BYOL cores must exactly match the deployed BYOL cores. Don't enter the total cores in your Broadcom entitlement unless all those cores are deployed on this private cloud.
 
-- Region Name 
-- Number of hosts 
-- Host SKU type  
-- Add the following statement as is, by replacing "N" with the "Number of VCF BYOL cores" you purchased from Broadcom for VCF portability to Azure VMware Solutions:  
-**"I acknowledge that I have procured portable VCF subscription from Broadcom for "N" cores to use with Azure VMware Solutions."**
-- Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/updated-portable-vcf-create-new-private-cloud-with-vcf-byol-side-pane.png" alt-text="Screenshot of the form to register a VCF portable subscription." lightbox="media/vmware-cloud-foundations-license-portability/updated-portable-vcf-create-new-private-cloud-with-vcf-byol-side-pane.png" border="true":::
 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-license-portability.png" alt-text="Screenshot of the quota request description for VCF subscription portability offering on Azure VMware Solution.":::
+Complete the remaining private cloud settings, and then create the private cloud.
 
->[!NOTE]
->
->Portable VCF is applied at the host level and must cover all the physical cores on a host.
->Hence, quota will be approved only for the maximum number of nodes which the portable VCF covers. For example, if you have purchased 1000 cores for portability and requesting for AV36P, you can get a maximum of 27 nodes quota approved for your subscription.
->
->That is, 36 physical CPU cores per AV36P node. 27 nodes = 27\*36 = 972 cores. 28 nodes = 28\*36 = 1008 cores. If you have purchased 1000 cores for portability, you can only use up to 27 AV36P nodes under your portable VCF.
+### Enable portable VCF on an existing Azure VMware Solution private cloud
 
-## Register your portable VCF with Azure VMware Solution
+You can convert a running private cloud to portable VCF without downtime or workload interruption.
 
-To get your quota request approved, you must first register the portable VCF details with Microsoft. Quota will be approved only after the entitlements are provided. Expect to receive a response in 1 to 2 business days. 
+1. In the Azure portal, open the Azure VMware Solution private cloud.
+1. Under **Manage**, select **Portable VCF (BYOL)**.
 
-### How to register the VCF subscription keys 
+   :::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-pane.png" alt-text="Screenshot of the management page to register a VCF portable subscription within an Azure VMware Solution private cloud." border="true":::
 
-- Email your portable VCF entitlements (and VMware vDefender Firewall license entitlements if to enable vDefender Firewall on Azure VMware Solution) to the following email address: registeravsvcfbyol@microsoft.com. 
+1. Under **VCF license details**, select **Configure**.
 
-- VCF entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-entitlements.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
+   :::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-byol-registration-pane.png" alt-text="Screenshot of the configuration details pane to register a VCF portable subscription within an Azure VMware Solution private cloud." border="true":::
 
->[!NOTE]
->
->The "Qty" represents the number of cores eligible for VCF portability. Your quota request should not surpass the number of nodes equivalent to your entitled cores from Broadcom. If your quota request exceeds the approved cores, the quota request will be granted only for the number of nodes that are fully covered by the entitled cores.
+1. Enter the Broadcom key, site ID, serial number, expiration date, and number of deployed BYOL cores.
+1. Save the details. The existing hosts switch to portable VCF pricing.
 
-- VCF with VMware vDefend entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="Screenshot of VCF with Vmware vDefend entitlement sample format." border="false":::
+> [!NOTE]
+> To use reserved pricing, purchase an Azure VMware Solution reserved instance with **VCF BYOL** for the corresponding host type.
 
-Sample Email to register portable VCF entitlements: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf.png" alt-text="Screenshot of sample email to register portable VCF subscription." border="true":::
+### Exchange a license-included reservation
 
-The VMware vDefend Firewall add-on CPU cores required on Azure VMware Solution depend on the planned feature usage: 
-- For NSX Distributed Firewall: same core count as VCF core count. 
-- For NSX Gateway Firewall, it would be 64 cores (with default NSX Edges).
-- For both NSX Distributed and Gateway firewall, it should be combined core count of both.
+If the hosts are covered by a license-included Azure VMware Solution reserved instance, exchange the reservation for a VCF BYOL reservation:
 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf-vdefend.png" alt-text="Screenshot of sample email to register portable VCF with VMware vDefend Firewall licenses." border="true":::
+1. In the Azure portal, go to **Reservations**, and then select the license-included Azure VMware Solution reserved instance.
+1. Select **Exchange**, and exchange the reservation for the equivalent Azure VMware Solution VCF BYOL reserved instance.
+1. After the exchange is complete, open **Portable VCF (BYOL)** on the private cloud.
+1. Within 60 minutes of the exchange, register the VCF license details by following [Enable portable VCF on an existing Azure VMware Solution private cloud](#enable-portable-vcf-on-an-existing-azure-vmware-solution-private-cloud).
 
+## Register a VMware vDefend Firewall add-on
 
->[!NOTE] 
-> 
-> The portable VCF entitlements submitted to Microsoft will be securely retained for our reporting purpose. You can request the permanent deletion of this data from Microsoft's systems at any time. Once the automated validation process is in place, your data will be automatically deleted from all Microsoft systems, which may take up to 120 days. Additionally, all your VCF entitlement data will be permanently deleted within 120 days any time you migrate to an Azure VMware Solution-owned VCF solution. 
+Register a vDefend Firewall add-on separately from the base VCF subscription. Before you continue, review the [vDefend Firewall licensing requirements and core calculations](portable-vcf-licensing-reference.md#vmware-vdefend-firewall-licensing).
 
-## Creating/scaling a Private Cloud
+1. In the Azure portal, open the Azure VMware Solution private cloud.
+1. Under **Manage**, select **Portable VCF (BYOL)**.
+1. Under **VMware vDefend firewall add-on**, select **Configure**.
+1. Enter the Broadcom add-on key and required license details, and then save the configuration.
 
-You can create your Azure VMware Solution private cloud the same way as today regardless of your licensing method, that is, whether you bring your own portable VCF or use the Azure VMware Solution-owned VCF subscription. [Learn more](/azure/azure-vmware/plan-private-cloud-deployment). Your decision of licensing is a cost optimization choice and doesn't affect your deployment workflow.
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-firewall-configure.png" alt-text="Screenshot of selections for registering a VCF firewall license on an Azure VMware Solution private cloud." border="true":::
 
-For example, you want to deploy 10 nodes of AV36P node type.
+To use vDefend Firewall with Advanced Threat Prevention, also submit a support request that includes the license key. Microsoft must provision the license on the private cloud.
 
-**Scenario 1:**
-"I want to purchase my VCF subscription from Broadcom and use the portable VCF offering on Azure VMware Solution."
+## Update a portable VCF configuration
 
-1. Create quota request for AV36P nodes. Declare your own VCF portable subscription intent and the number of cores you're entitled for portability. 
-2. Register your VCF entitlements via email to Microsoft.  
-3. Optional- to use the Reserved Instance pricing purchase AV36P VCF BYOL Reserved Instance. You can skip this step to use the pay-as-you-go pricing for the portable VCF.
-4. Create your Private Cloud with AV36P nodes. 
+You can update a portable VCF configuration without downtime or workload interruption. Update the configuration when you change a key, add or remove BYOL cores, renew a subscription, or change a firewall add-on.
 
-**Scenario 2:**
-"I want to let Azure VMware Solution manage my VCF subscription for all my Azure VMware Solution private cloud."
+1. In the Azure portal, open the Azure VMware Solution private cloud.
+1. Under **Manage**, select **Portable VCF (BYOL)**.
+1. Select **Edit** under **VCF license details** or **VMware vDefend firewall add-on**.
+1. Update the license details.
+1. Save the changes. The updates take effect immediately.
 
-1. Create quota request for AV36P node type. 
-2. Optional- Purchase AV36P Reserved Instance.  
-3. Create your Private Cloud with AV36P nodes. 
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-edit.png" alt-text="Screenshot of options for editing an existing VCF portable subscription." border="true":::
 
-## Moving between the two VCF licensing methods
+> [!IMPORTANT]
+> The registered core total across all private clouds must not exceed your Broadcom entitlement. Register a valid Broadcom firewall add-on before you enable or update firewall features.
 
-If you're currently managing your own VCF subscription for Azure VMware Solution and wish to transition to Azure VMware Solution-owned VCF subscription, you can easily make the switch without any changes to your private cloud. 
+## Remove a portable VCF configuration
 
-If you're an existing Azure VMware Solution customer and wish to transition to the portable VCF (VCF BYOL) offering, you can also easily make the switch without any changes to your private cloud deployments by registering your portable VCF entitlements with Microsoft.
+You can unregister a VCF subscription or firewall add-on independently from a private cloud.
 
-**Steps:**
+1. In the Azure portal, open the Azure VMware Solution private cloud.
+1. Under **Manage**, select **Portable VCF (BYOL)**.
+1. Select **Remove** next to the VCF subscription or firewall add-on that you want to unregister.
+1. Confirm the removal.
 
-1. Create a support request to inform us of your intent to convert.
-2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P or vice versa](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-remove.png" alt-text="Screenshot of selections for removing a VCF subscription that's already registered on an Azure VMware Solution private cloud." border="true":::
 
-**NOTE:** If you have RIs for your current deployments, ensure to exchange RI for the right Product Name to continue to get the discounted RI pricing. Without this step, you will incur the pay-as-you-go cost.
+> [!IMPORTANT]
+> Removing the registration doesn't interrupt workloads, but it changes the private cloud from VCF BYOL to Microsoft-managed VCF. Make this change only when the private cloud is covered by an active VCF license-included reserved instance. Otherwise, the private cloud becomes noncompliant and is at risk of suspension.
 
+Contact your Microsoft account team or Microsoft support before removing a registration if you're unsure whether the private cloud is eligible for Microsoft-managed VCF.
 
->[!NOTE]
->
->You need to purchase the portable VCF entitlements from Broadcom for all cores that match your current Azure VMware Solution deployment. For instance, if your Azure subscription has a private cloud with 100 AV36P nodes, you must purchase portable VCF for at least 3600 cores from Broadcom to convert to VCF BYOL offering.
+## Resolve a registration failure
 
-## "Onboarding to portable VCF on Azure VMware Solution" Checklist
+If a registration fails during private cloud creation or management, the Azure portal displays a **Failed** status. This status typically indicates a service error.
 
-**Scenario 1:**
-"I am converting existing AVS private cloud to VCF BYOL." 
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-error.png" alt-text="Screenshot of an error in registering a portable VCF license." border="true":::
 
-1. Get your portable VCF subscription from Broadcom.
-2. If you have an RI purchased, exchange the RI to the corresponding VCF BYOL RI.
-3. Register your portable VCF with Azure VMware Solution.
+1. On the **Portable VCF (BYOL)** page, select **Reconfigure**.
+1. Enter and save the registration details again.
+1. Return to the **Portable VCF (BYOL)** page, and confirm that the status is **Registered**.
 
-**Scenario 2:**
-"I am creating a new AVS private cloud with VCF BYOL." 
+If the registration continues to fail, contact Microsoft support.
 
-1. Get your portable VCF subscription from Broadcom.
-2. [Request host quota](/azure/azure-vmware/request-host-quota-azure-vmware-solution) for Azure VMware Solution.
-3. If you intend to leverage the RI pricing, purchase the RI under the "VCF BYOL" product name.
+## Next step
 
-**NOTE:** If you register your portable VCF without this step, you will be charged BYOL pay-as-you-go pricing by default for your usage. To leverage the RI pricing, ensure the RI purchase under the right region, host count, and product name (VCF BYOL in this case).
+To learn about licensing dates, core calculations, security details, and compliance requirements, review the [portable VCF licensing reference](portable-vcf-licensing-reference.md).

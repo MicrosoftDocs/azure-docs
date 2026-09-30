@@ -5,7 +5,7 @@ description: Learn how to integrate Azure AD B2C authentication with Experian fo
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
@@ -14,6 +14,8 @@ ms.subservice: b2c
 # Customer intent: I'm an Azure AD B2C administrator, and I want to integrate Experian CrossCore with Azure AD B2C. I need to verify user identification and perform risk analysis based on user attributes during sign-up.
 ---
 # Tutorial: Configure Experian with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Experian CrossCore, a service that verifies user identification. It does risk analysis based on information provided by the user during sign-up. CrossCore permits users to sign in, or not.
 
@@ -38,7 +40,7 @@ In this tutorial, you can use the following attributes in CrossCore risk analysi
 To get started, you'll need:
 
 - A Microsoft Entra subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
 ## Scenario description

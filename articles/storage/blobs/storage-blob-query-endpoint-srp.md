@@ -3,13 +3,14 @@ title: Query for a Blob Storage endpoint using the Azure Storage management libr
 titleSuffix: Azure Storage
 description: Learn how to query for a Blob Storage endpoint using the Azure Storage management library. Then use the endpoint to create a BlobServiceClient object to connect to Blob Storage data resources.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
+# Customer intent: As a developer, I want to query a Blob Storage endpoint and create a client object, so that I can access and manage Blob Storage data resources programmatically.
 ---
 
 # Query for a Blob Storage endpoint using the Azure Storage management library
@@ -262,9 +263,9 @@ This method returns a [StorageAccount](/java/api/com.azure.resourcemanager.stora
 
 To get the properties for a specified storage account, use the following method from a [StorageManagementClient](/javascript/api/@azure/arm-storage/storagemanagementclient) object:
 
-- [storageAccounts.getProperties](/javascript/api/@azure/arm-storage/storageaccounts#@azure-arm-storage-storageaccounts-getproperties)
+- [storageAccounts.getProperties](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesoptionalparams)
 
-This method returns a [`Promise<StorageAccountsGetPropertiesResponse>`](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesresponse), which represents the storage account.
+This method returns a [`Promise<StorageAccountsGetPropertiesResponse>`](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesoptionalparams#@azure-arm-storage-storageaccountsgetpropertiesoptionalparams-onresponse), which represents the storage account.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_query_blob_endpoint":::
 

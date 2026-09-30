@@ -6,9 +6,9 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
-ms.date: 09/26/2024
+ms.date: 04/27/2026
 ---
 
 # Alter row transformation in mapping data flow
@@ -17,13 +17,16 @@ ms.date: 09/26/2024
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
+> [!TIP]
+>  The Alter Row transformation isn't currently supported in Dataflow Gen2. For a list of supported transformations and their equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+
 Use the Alter Row transformation to set insert, delete, update, and upsert policies on rows. You can add one-to-many conditions as expressions. These conditions should be specified in order of priority, as each row is marked with the policy corresponding to the first-matching expression. Each of those conditions can result in a row (or rows) being inserted, updated, deleted, or upserted. Alter Row can produce both DDL & DML actions against your database.
 
 :::image type="content" source="media/data-flow/alter-row1.png" alt-text="Alter row settings":::
 
 Alter Row transformations only operate on database, REST, or Azure Cosmos DB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) doesn't occur during debug sessions. To enact the alter row policies on your database tables, run an Execute Data Flow activity in a pipeline.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=6e4cb953-1ae0-4a20-9d7f-42bb85c4245b]
 
 > [!NOTE]
 > An Alter Row transformation is not needed for Change Data Capture data flows that use native CDC sources like SQL Server or SAP. In those instances, ADF will automatically detect the row marker so Alter Row policies are unnecessary.

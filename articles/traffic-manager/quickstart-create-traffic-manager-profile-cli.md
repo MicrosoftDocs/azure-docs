@@ -2,14 +2,15 @@
 title: 'Quickstart: Create a profile for HA of applications - Azure CLI - Azure Traffic Manager'
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application by using Azure CLI.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 manager: kumud
 ms.service: azure-traffic-manager
 ms.topic: quickstart
-ms.date: 02/18/2023
-ms.author: greglin
+ms.date: 08/10/2026
+ms.author: allensu
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+# Customer intent: As an IT admin, I want to configure Traffic Manager for my web applications, so that I can ensure high availability and automatic failover to maintain service continuity during outages.
 ---
 
 # Quickstart: Create a Traffic Manager profile for a highly available web application using Azure CLI
@@ -166,7 +167,7 @@ az network traffic-manager profile show \
 
 ```
 
-Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile is *http://<*relativednsname*>.trafficmanager.net*. 
+Copy the **fqdn** value. It's in the following format: `<relativednsname>.trafficmanager.net`. This value is the DNS name of your Traffic Manager profile.
 
 ### View Traffic Manager in action
 1. In a web browser, enter the DNS name of your Traffic Manager profile (*http://<*relativednsname*>.trafficmanager.net*) to view your Web App's default website.

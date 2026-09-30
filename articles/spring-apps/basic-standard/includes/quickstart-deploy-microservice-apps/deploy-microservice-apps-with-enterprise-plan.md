@@ -4,7 +4,8 @@ ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 02/01/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
@@ -55,7 +56,7 @@ Use the following steps to create all the Azure resources that the app depends o
    | Setting            | Suggested value                   | Description                                                                                                                                                                 |
    |--------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**   | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
-   | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                        |
+   | **Resource group** | **myresourcegroup**                 | A new resource group name or an existing one from your subscription.                                                                                                        |
    | **Region**         | The region closest to your users. | The region is used to create the resource group.                                                                                                                            |
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png" alt-text="Screenshot of the Azure portal that shows the Custom deployment page." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png":::

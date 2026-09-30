@@ -3,8 +3,10 @@ title: Synchronize Microsoft Entra users to HDInsight cluster
 description: Synchronize authenticated users from Microsoft Entra ID to an HDInsight cluster.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 03/15/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
 ---
 
 # Synchronize Microsoft Entra users to an HDInsight cluster
@@ -78,7 +80,7 @@ The following method uses POST with the Ambari REST API. For more information, s
 
     ```json
     {
-      "href" : "http://<ACTIVE-HEADNODE-NAME>.YOURDOMAIN.com:8080/api/v1/ldap_sync_events/1",
+      "href" : "http://<ACTIVE-HEADNODE-NAME>.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1",
       "Event" : {
         "id" : 1,
         "specs" : [

@@ -2,9 +2,13 @@
 title: Configure development environment for deployment scripts in Bicep | Microsoft Docs
 description: Configure development environment for deployment scripts in Bicep.
 ms.topic: how-to
-ms.date: 09/26/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
+ms.date: 08/17/2026
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-bicep
+  - sfi-image-nochange
 ---
 
 # Configure development environment for deployment scripts in Bicep files
@@ -58,6 +62,9 @@ echo $OUTPUT | jq -r '.name.displayName'
 
 In an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI scripts](./deployment-script-develop.md#work-with-outputs).
 
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
+
 ## Use Azure PowerShell container instance
 
 To author Azure PowerShell scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance. The storage account that you create to test your script isn't the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
@@ -84,7 +91,7 @@ var fileShareName = '${projectName}share'
 var containerGroupName = '${projectName}cg'
 var containerName = '${projectName}container'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -96,14 +103,14 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
 }
 
-resource fileShare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-01-01' = {
+resource fileShare 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01' = {
   name: '${storageAccountName}/default/${fileShareName}'
   dependsOn: [
     storageAccount
   ]
 }
 
-resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2023-05-01' = {
+resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2025-09-01' = {
   name: containerGroupName
   location: location
   properties: {
@@ -237,7 +244,7 @@ var fileShareName = '${projectName}share'
 var containerGroupName = '${projectName}cg'
 var containerName = '${projectName}container'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -249,14 +256,14 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01' = {
   name: '${storageAccountName}/default/${fileShareName}'
   dependsOn: [
     storageAccount
   ]
 }
 
-resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2023-05-01' = {
+resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2025-09-01' = {
   name: containerGroupName
   location: location
   properties: {

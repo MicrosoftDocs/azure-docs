@@ -3,8 +3,10 @@ title: Tutorial - Create a PowerShell Workflow runbook in Azure Automation
 description: This tutorial teaches you to create, test, and publish a PowerShell Workflow runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/04/2024
+ms.date: 11/17/2025
 ms.topic: tutorial
+ms.author: v-rochak2
+author: RochakSingh-blr
 ms.custom:
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
 ms.service: azure-automation
@@ -26,7 +28,7 @@ In this tutorial, you learn how to:
 > * Add authentication to manage Azure resources
 > * Update the runbook parameters to start an Azure virtual machine
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

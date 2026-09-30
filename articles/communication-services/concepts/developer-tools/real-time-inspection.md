@@ -1,16 +1,18 @@
 ---
 title: Developer Tools - Azure Communication Services Communication Monitoring
 description: Conceptual documentation outlining the capabilities provided by the Communication Monitoring tool.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 03/29/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ---
 
 # Azure Communication Services communication monitoring
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 

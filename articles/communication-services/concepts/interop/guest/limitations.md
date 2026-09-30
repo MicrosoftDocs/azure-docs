@@ -5,12 +5,14 @@ description: Known issues and limitations of Azure Communication Services suppor
 author: tomaschladek
 ms.author: tchladek
 ms.date: 7/9/2022
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
 # Known issues and limitations
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 - When using Microsoft Graph to [list the participants in a Teams meeting](/graph/api/call-list-participants), details for Communication Services users are not currently included.
 - Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants, and Chat SDK supports 250 participants. 

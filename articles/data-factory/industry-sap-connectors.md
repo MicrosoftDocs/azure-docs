@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory
 description: Overview of the SAP Connectors
 author: ukchrist
 ms.author: ulrichchrist
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 10/03/2024
 ms.subservice: data-movement
 ---
@@ -12,6 +12,8 @@ ms.subservice: data-movement
 # SAP connectors overview
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Azure Data Factory and Azure Synapse Analytics pipelines provide several SAP connectors to support a wide variety of data extraction scenarios from SAP.
 

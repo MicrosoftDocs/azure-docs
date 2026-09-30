@@ -1,12 +1,14 @@
 ---
-title: Understand default and individual user and group quotas for Azure NetApp Files volumes | Microsoft Docs
+title: Understand default and individual user and group quotas for Azure NetApp Files volumes
 description: Helps you understand the use cases of managing default and individual user and group quotas for Azure NetApp Files volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 02/23/2023
+ms.topic: concept-article
+ms.date: 03/21/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: "As a cloud storage administrator, I want to configure user and group quotas for Azure NetApp Files volumes, so that I can efficiently manage storage capacity and prevent excessive usage by individual users or groups."
 ---
 # Understand default and individual user and group quotas  
 
@@ -110,7 +112,7 @@ In the following scenario, users `user4` and `user5` are members of `group2`. Th
 :::image type="content" source="./media/default-individual-user-group-quotas-introduction/exceed-disk-quota.png" alt-text="Example showing a scenario of exceeding disk quota.":::
 
 > [!IMPORTANT] 
-> For quota reporting to work, the client needs access to port 4049/UDP on the Azure NetApp Files volumes’ storage endpoint. When using NSGs with standard network features on the Azure NetApp Files delegated subnet, make sure that access is enabled.
+> For quota reporting to work, the client needs access to port 4049/UDP on the Azure NetApp Files volumes’ storage endpoint. When using NSGs with Standard network features on the Azure NetApp Files delegated subnet, ensure access is enabled.
 
 ## Next steps
 

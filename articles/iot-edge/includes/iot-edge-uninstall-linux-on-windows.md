@@ -1,8 +1,8 @@
 ---
 ms.topic: include
-ms.date: 06/10/2024
-author: PatAltimore
-ms.author: patricka
+ms.date: 03/02/2026
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
@@ -10,9 +10,9 @@ services: iot-edge
 
 ## Uninstall IoT Edge for Linux on Windows
 
-If you want to remove the Azure IoT Edge for Linux on Windows installation from your device, use the following commands.
+To remove the Azure IoT Edge for Linux on Windows installation from your device, use the following steps.
 
-1. Open Settings on Windows
-2. Select Add or Remove Programs
-3. Select *Azure IoT Edge* app
-4. Select Uninstall
+1. Open **Settings** on Windows.
+1. Select **Add or Remove Programs**.
+1. Select the **Azure IoT Edge** app.
+1. Select **Uninstall**.

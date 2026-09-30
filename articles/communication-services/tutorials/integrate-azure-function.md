@@ -8,9 +8,12 @@ ms.author: jiminwen
 ms.date: 11/03/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 # Integrate Azure Function
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 ## Introduction
 This tutorial provides detailed guidance on how to set up an Azure Function to receive user-related information. Setting up an Azure Function is highly recommended. It helps to avoid hard-coding application parameters in the Contoso app (such as user ID and user token). This information is highly confidential. More importantly, we refresh user tokens periodically on the backend. Hard-coding the user ID and token combination requires editing the value after every refresh.
 
@@ -18,7 +21,7 @@ This tutorial provides detailed guidance on how to set up an Azure Function to r
 
 Before you get started, make sure to:
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install Visual Studio Code. 
 
 ## Setting up functions

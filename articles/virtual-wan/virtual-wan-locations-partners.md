@@ -1,12 +1,12 @@
 ---
 title: 'Azure Virtual WAN partners, regions, and available locations'
 description: This article contains a list of Azure Virtual WAN partners and available locations.
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/05/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn more about Branch IPsec connectivity automation
 ---
@@ -42,7 +42,7 @@ Some connectivity partners may extend the automation to include creating the Azu
 
 ## <a name="partners"></a>Branch IPsec connectivity partners
 
-[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+[!INCLUDE [partners](../networking/includes/virtual-wan/partners.md)]
 
 The following partners are slated on our roadmap based on a terms sheet signed between the companies indicating the scope of work to automate IPsec connectivity between the partner device and Azure Virtual WAN VPN gateways: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari), and SharpLink.
 

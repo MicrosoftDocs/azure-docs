@@ -8,11 +8,13 @@ services: azure-communication-services
 
 ms.author: serooney
 ms.date: 10/14/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 
 # Job Router overview
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 Azure Communication Services Job Router is a robust tool designed to optimize the management of customer interactions across various communication applications. Accessible via a suite of SDKs and APIs, Job Router directs each customer interaction, or "job," to the most suitable agent or automated service, or "worker," based on a mix of pre-defined and runtime rules and policies. This ensures a timely and effective response to every customer's needs, leading to improved customer satisfaction, increased productivity, and more efficient use of resources.
 

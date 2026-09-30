@@ -1,11 +1,13 @@
 ---
 title: Add Azure Automation runbooks to Site Recovery recovery plans
 description: Learn how to extend recovery plans with Azure Automation for disaster recovery using Azure Site Recovery.
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.author: ankitadutta
-ms.date: 03/07/2024
+ms.author: v-gajeronika
+ms.date: 08/14/2026
+ms.custom: sfi-image-nochange
+# Customer intent: As a disaster recovery manager, I want to integrate Azure Automation runbooks into my recovery plans, so that I can automate complex recovery processes and reduce manual intervention during failover and failback operations.
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -53,6 +55,9 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 
 >[!Note]
 >The value for variable 'FailoverDirection' will be 'PrimaryToSecondary' in case of failover and 'SecondaryToPrimary' in case of failback.
+
+>[!NOTE]
+>Recovery plans automatically invoke Azure Automation runbooks and pass only the `RecoveryPlanContext` parameter as input. You can't provide additional runtime inputs through the Recovery Plan workflow. If additional values are required, the runbook must be authored to retrieve them from predefined sources or handle them within the script logic itself.
 
 The following example shows a context variable:
 
@@ -223,7 +228,7 @@ We do this by specifying multiple values, using Azure PowerShell.
 4. Use this variable in your runbook. If the indicated VM GUID is found in the recovery plan context, apply the NSG on the VM:
 
     ```powershell
-    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
+    $VMDetailsObj = (Get-AzAutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:
@@ -252,7 +257,7 @@ You can use the same script for different recovery plans. Enter different parame
 
 To deploy sample scripts to your Automation account, select the **Deploy to Azure** button.
 
-[![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[Deploy to Azure](https://aka.ms/asr-automationrunbooks-deploy)
 
 ## Next steps
 

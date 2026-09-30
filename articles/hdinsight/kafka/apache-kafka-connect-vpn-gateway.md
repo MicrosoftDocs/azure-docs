@@ -4,6 +4,9 @@ description: Learn how to directly connect to Kafka on HDInsight through an Azur
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python, devx-track-azurepowershell
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 

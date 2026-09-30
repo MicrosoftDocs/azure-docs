@@ -1,7 +1,7 @@
 ---
 title: Outlook events in Azure Event Grid
 description: This article describes Microsoft Outlook events in Azure Event Grid.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/22/2024
 ---
 

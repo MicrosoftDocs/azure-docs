@@ -2,12 +2,14 @@
 title: include file
 description: include file
 services: iot-hub
-author: chrissie926
+author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 08/07/2019
-ms.author: menchi
-ms.custom: include file
+ms.author: sethm
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Create a module identity

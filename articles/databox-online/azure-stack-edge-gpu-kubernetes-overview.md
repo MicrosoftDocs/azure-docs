@@ -2,12 +2,12 @@
 title: Overview of Kubernetes cluster on Azure Stack Edge Pro GPU, Pro R, Mini R device
 description: Describes how Kubernetes is implemented on your Azure Stack Edge Pro GPU, Pro R, Mini R device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/01/2024
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Kubernetes on your Azure Stack Edge Pro GPU device
@@ -111,7 +111,7 @@ For more information on deploying Kubernetes cluster, go to [Deploy a Kubernetes
 
 ### Kubernetes and Azure Arc
 
-Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview) For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 <!-- confirm with Anoob/Rohan if this needs to be updated as Azure Arc is now GA-->
 

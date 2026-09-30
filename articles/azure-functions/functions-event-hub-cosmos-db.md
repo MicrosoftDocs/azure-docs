@@ -2,9 +2,9 @@
 title: 'Tutorial: Use Java functions with Azure Cosmos DB and Event Hubs'
 description: This tutorial shows you how to consume events from Event Hubs to make updates in Azure Cosmos DB using a function written in Java.
 author: KarlErickson
+ms.author: karler
 ms.topic: tutorial
 ms.date: 02/14/2024
-ms.author: karler
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.

@@ -1,18 +1,22 @@
 ---
-title: Configure the Multivalue routing method - Azure Resource Manager template (ARM template)
+title: Configure nested endpoints with the min-child feature - Azure Resource Manager template (ARM template)
 titlesuffix: Azure Traffic Manager
-description: Learn how to configure the Multivalue routing method with nested endpoints and the min-child feature.
-author: greg-lindsay
-ms.author: greglin
+description: Learn how to configure Traffic Manager nested endpoints with the min-child feature by using an ARM template.
+author: asudbring
+ms.author: allensu
 ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 08/08/2024
-ms.custom: template-how-to, devx-track-arm-template
+ms.date: 08/10/2026
+ms.custom:
+  - template-how-to
+  - devx-track-arm-template
+  - sfi-image-nochange
+# Customer intent: As a cloud engineer, I want to configure Traffic Manager nested endpoints with the min-child feature using an ARM template, so that I can efficiently manage traffic distribution in my Azure environment.
 ---
 
-# Configure the Multivalue routing method using an ARM Template
+# Configure nested endpoints with the min-child feature by using an ARM template
 
-This article describes how to use an Azure Resource Manager template (ARM Template) to create a nested, Multivalue profile with the min-child feature.
+This article describes how to use an Azure Resource Manager template (ARM template) to create a Traffic Manager profile with nested endpoints and the min-child feature. The parent profile in this template uses the Priority routing method.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -22,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - Two existing Azure Traffic Manager profiles. For more information on creating an Azure Traffic Manager profile, see [Quickstart: Create a Traffic Manager profile using an ARM template](quickstart-create-traffic-manager-profile-template.md).
 
@@ -65,7 +69,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
     The resource group name is the existing resource group that contains the existing profiles.
 
     > [!NOTE]
-    > **existingTMProfileName1**, **existingTMProfileName2**,**TMProfileDNS1**, and **TMProfileDNS2** must match your existing Traffic Manager profiles in order for the template to deploy successfully. If deployment fails, start over with Step 1.
+    > **existingTMProfileName1**, **existingTMProfileName2**, **TMProfileDNS1**, and **TMProfileDNS2** must match your existing Traffic Manager profiles in order for the template to deploy successfully. If deployment fails, start over with Step 1.
 
     It takes a few minutes to deploy the template. When completed, the output is similar to:
 
@@ -75,7 +79,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 ## Validate the deployment
 
-1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manger profile you entered when deploying the template.
+1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manager profile you entered when deploying the template.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name tmprofileparent-1 | Select Endpoints
@@ -96,7 +100,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you added a Multivalue routing method with nested endpoints and the min-child feature.
+In this quickstart, you added nested endpoints with the min-child feature to a Traffic Manager profile.
 
 To learn more about routing traffic, continue to the Traffic Manager tutorials.
 

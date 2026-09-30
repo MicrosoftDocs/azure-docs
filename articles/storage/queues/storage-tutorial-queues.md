@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 - Get your free copy of the cross platform [Visual Studio Code](https://code.visualstudio.com/download) editor.
 - Download and install the [.NET Core SDK](https://dotnet.microsoft.com/download) version 3.1 or later.
-- If you don't have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have a current Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create an Azure Storage account
 

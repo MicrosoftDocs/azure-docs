@@ -1,13 +1,18 @@
 ---
 title: Discover your Microsoft cloud footprint FAQ
 description: This article helps to answer frequently asked questions that customers have about their Microsoft cloud footprint.
-author: bandersmsft
-ms.author: banders
-ms.date: 12/11/2024
-ms.topic: conceptual
+author: KennyDay
+ms.author: clodwig
+ms.reviewer: clodwig
+ms.date: 12/29/2025
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: nicholak
+#customer intent: As a billing administrator, I want to understand how to view and manage my Microsoft cloud footprint so that I can effectively oversee my organization's cloud resources and costs.
+
+stid: stid-goes-here
+ms.custom: sfi-ga-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Discover your Microsoft cloud footprint FAQ
@@ -204,7 +209,19 @@ There you can manage the existing associating billing tenants or add new ones. F
 You can view tenants with B2B relationships in the [Cross-tenant access activity workbook](/entra/identity/monitoring-health/workbook-cross-tenant-access-activity).
 
 > [!NOTE]
-> The tenants that your users access by B2B authentication aren’t necessarily part of your organization.
+> The tenants that users access by using B2B authentication aren’t necessarily part of your organization.
+
+## How can I identify external Microsoft Entra ID tenants that my users sign into using identities in these tenants?
+
+Customers that use Microsoft Entra Internet Access for Microsoft Services can easily detect external Microsoft Entra ID tenants accessed by their users.
+
+As part of Global Secure Access solution, customers can tunnel all network traffic to Microsoft apps to enforce secure access and advanced controls.
+
+Once enabled, the external tenants that get accessed by onboarded users are easily tracked and shown in the main Global Secure Access dashboard under the Cross Tenant Access widget. Here's a sample screenshot of the Cross Tenant Access widget:
+
+:::image type="content" source="./media/discover-cloud-footprint/cross-tenant-access.png" border="true" alt-text="Screenshot showing the Cross-tenant access widget." lightbox="./media/discover-cloud-footprint/cross-tenant-access.png" :::
+
+For more information about the Global Secure Access solution, see [Global Secure Access dashboard](/entra/global-secure-access/concept-traffic-dashboard).
 
 ## How can I take over unmanaged directories owned by my organization?
 

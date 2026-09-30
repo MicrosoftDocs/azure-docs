@@ -4,9 +4,11 @@ description: Learn how to enroll in a new Azure Dev Tools for Teaching subscript
 author: vinnieangel
 ms.author: vangellotti
 ms.topic: quickstart
-ms.service: azure-education
+ms.service: azure-education-hub
 ms.date: 1/2/2024
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Enroll in or renew an Azure Dev Tools for Teaching subscription

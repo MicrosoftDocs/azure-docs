@@ -4,9 +4,10 @@ description: Start here to learn how to monitor Azure Application Gateway. Learn
 ms.date: 06/17/2024
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.service: azure-application-gateway
+# Customer intent: "As a cloud administrator, I want to set up monitoring for Azure Application Gateway, so that I can ensure optimal performance, maintain availability, and quickly identify operational issues."
 ---
 
 # Monitor Azure Application Gateway
@@ -119,6 +120,29 @@ AzureDiagnostics
 | summarize AggregatedValue = count() by userAgent_s, _ResourceId
 | sort by AggregatedValue desc
 ```
+
+```kusto
+// 5xx responses per instance 
+// Count of server-error responses grouped by the Application Gateway instance that served them. 
+// To create an alert for this query, click '+ New alert rule'
+AzureDiagnostics
+| where ResourceType == "APPLICATIONGATEWAYS" and OperationName == "ApplicationGatewayAccess" and httpStatus_d >= 500 and httpStatus_d <= 599
+| summarize AggregatedValue = count() by instanceId_s, httpStatus_d, bin(TimeGenerated, 1h)
+| sort by AggregatedValue desc
+```
+
+For access logs collected in resource-specific mode, use `AGWAccessLogs` instead of `AzureDiagnostics`. The following query counts 5xx responses by gateway instance and status code in five-minute intervals. Replace `<application-gateway-resource-id>` with the resource ID of the gateway you're investigating.
+
+```kusto
+AGWAccessLogs
+| where TimeGenerated >= ago(24h)
+| where _ResourceId =~ "<application-gateway-resource-id>"
+| where HttpStatus between (500 .. 599)
+| summarize ErrorCount = count() by InstanceId, HttpStatus, bin(TimeGenerated, 5m)
+| order by TimeGenerated asc, InstanceId asc, HttpStatus asc
+```
+
+Compare these intervals with gateway-wide **Current capacity units** using the same time range and aggregation interval. This metric has no instance dimension; the comparison provides context, not per-instance capacity usage or proof that 5xx responses caused a utilization change. For field definitions and comparison limits, see [Access logs in the monitoring reference](monitor-application-gateway-reference.md#supported-resource-log-categories-for-microsoftnetworkapplicationgateways).
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 

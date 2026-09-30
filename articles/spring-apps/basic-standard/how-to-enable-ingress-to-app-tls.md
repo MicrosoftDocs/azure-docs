@@ -1,12 +1,14 @@
 ---
-title: Enable ingress-to-app Transport Layer Security in Azure Spring Apps
+title: Enable Ingress-to-App Transport Layer Security in Azure Spring Apps
 titleSuffix: Azure Spring Apps
 description: How to enable ingress-to-app Transport Layer Security for an application.
 author: KarlErickson
-ms.author: wenhaozhang
+ms.author: karler
+ms.reviewer: wenhaozhang
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 # Enable ingress-to-app TLS for an application
@@ -75,7 +77,7 @@ To enable ingress-to-app TLS in the [Azure portal](https://portal.azure.com/), f
 1. Create an app in the portal as you normally would. Navigate to it in the portal.
 2. Scroll down to the **Settings** group in the left navigation pane.
 3. Select **Ingress-to-app TLS**.
-4. Switch **Ingress-to-app TLS** to *Yes*.
+4. Switch **Ingress-to-app TLS** to **Yes**.
 
 :::image type="content" source="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png" alt-text="Screenshot of the Azure portal that shows the app Ingress-to-app TLS page." lightbox="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png":::
 

@@ -3,8 +3,8 @@ title: Troubleshoot package execution in the SSIS integration runtime
 description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
 ms.subservice: integration-services
 ms.topic: faq
-ms.author: chugu
-author: chugugrace
+ms.author: makromer
+author: kromerm
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
 ---
@@ -12,6 +12,8 @@ ms.date: 05/15/2024
 # Troubleshoot package execution in the SSIS integration runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
   
 This article includes the most common errors that you might find when you're executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. It describes the potential causes and actions to solve the errors.
   

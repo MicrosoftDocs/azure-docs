@@ -45,7 +45,7 @@ You can find the managed identity information from Azure portal -> your Synapse 
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. Select **Access control (IAM)**.
 
@@ -322,8 +322,9 @@ You can create, delete, manage user-assigned managed identities in Microsoft Ent
 
 In order to use a user-assigned managed identity, you must first [create credentials](../data-factory/credentials.md) in your service instance for the UAMI.
 
->[!NOTE]
->  User-assigned Managed Identity is not currently supported in Synapse notebooks and Spark job definitions.
+> [!NOTE]
+>
+> User-assigned Managed Identity already supported Synapse Notebook activities and Spark job definition activities in pipeline.
 
 ## Next steps
 

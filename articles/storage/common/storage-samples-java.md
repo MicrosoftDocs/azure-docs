@@ -2,14 +2,15 @@
 title: Azure Storage samples using Java
 description: View developer guides and sample code for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Java storage client libraries
 ms.custom: devx-track-java, devx-track-extended-java
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: java
 ai-usage: ai-assisted
+# Customer intent: "As a Java developer, I want to access Azure Storage samples and guides, so that I can implement cloud storage solutions effectively using the Java client libraries."
 ---
 
 # Azure Storage samples using Java client libraries
@@ -27,7 +28,7 @@ The following table links to Azure Blob Storage developer guides and samples tha
 
 | Topic | Developer guide | Samples on GitHub |
 |-------|-----------------|----------------------|
-| Authentication/authorization | [Authorize access and connect to Blob Storage](../blobs/storage-blob-java-get-started.md#authorize-access-and-connect-to-blob-storage)</br></br>[Create a user delegation SAS for a blob](../blobs/storage-blob-user-delegation-sas-create-java.md)</br></br>[Create a service SAS for a blob](../blobs/sas-service-create-java.md)</br></br>[Create an account SAS](storage-account-sas-create-java.md) | [Authenticate using Azure Identity](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/AzureIdentityExample.java#L10)</br></br>[Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L38) |
+| Authentication/authorization | [Authorize access and connect to Blob Storage](../blobs/storage-blob-java-get-started.md#authorize-access-and-connect-to-blob-storage)</br></br>[Create a user delegation SAS for a blob](../blobs/storage-blob-user-delegation-sas-create-java.md)</br></br>[Create a service SAS for a blob](../blobs/sas-service-create-java.md)</br></br>[Create an account SAS](storage-account-sas-create-java.md) | [Authenticate using Azure Identity (recommended)](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/AzureIdentityExample.java#L10)</br></br>[Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L38) |
 | Create container | [Create a container](../blobs/storage-blob-container-create-java.md) | [Create a container](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L64) |
 | Upload | [Upload a blob](../blobs/storage-blob-upload-java.md) | [Upload a blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)</br></br>[Upload a blob from a large file](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L95) |
 | Download | [Download a blob](../blobs/storage-blob-download-java.md) | [Download a blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L86)</br></br>[Download a large blob to a file](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L100) |
@@ -121,3 +122,4 @@ For information on samples for other languages:
 - JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 - C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 - All other languages: [Azure Storage samples](storage-samples.md)
+

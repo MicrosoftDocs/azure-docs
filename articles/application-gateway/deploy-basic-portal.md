@@ -3,12 +3,17 @@ title: Deploy Application Gateway Basic (Preview)
 titleSuffix: Azure Application Gateway
 description: Learn how to deploy Application Gateway Basic. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.topic: how-to
-ms.date: 05/06/2024
-ms.author: greglin
+ms.date: 08/04/2026
+ms.author: mbender
 ms.service: azure-application-gateway
-ms.custom: mvc, mode-ui, devx-track-azurepowershell
+ms.custom:
+  - mvc
+  - mode-ui
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to deploy an Application Gateway using the Basic SKU, so that I can efficiently manage web traffic and route requests to my backend resources while ensuring a scalable and secure service architecture.
 ---
 
 # Deploy Application Gateway Basic (Preview)
@@ -25,7 +30,7 @@ For more information about the components of an application gateway, see [Applic
 
 ## Prerequisites
 
-An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -66,7 +71,7 @@ You create the application gateway using the tabs on the **Create application ga
 2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 
     > [!NOTE]
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
@@ -168,9 +173,13 @@ To do this:
     - **Username**: Type a name for the administrator user name.
     - **Password**: Type a password.
     - **Public inbound ports**: None.
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including RDP. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
+
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it's in, but you need to ensure there's IP connectivity.
+6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Verify that **Public IP** is set to **None**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it's in, but you need to ensure there's IP connectivity.
 7. Select **Next: Monitoring** and set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.

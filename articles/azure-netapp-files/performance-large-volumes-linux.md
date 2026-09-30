@@ -2,19 +2,15 @@
 title: Azure NetApp Files large volume performance benchmarks for Linux
 description: Describes the tested performance capabilities of a single Azure NetApp Files large volume as it pertains to Linux use cases.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 10/25/2024
+ms.topic: concept-article
+ms.date: 10/29/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to understand the performance benchmarks of Azure NetApp Files for Linux use cases, so that I can optimize volume sizing and workload configurations for our applications.
 ---
 # Azure NetApp Files large volume performance benchmarks for Linux
 
@@ -22,11 +18,10 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 ## Testing summary 
 
-* The Azure NetApp Files large volumes feature offers three service levels, each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
+* The Azure NetApp Files large volumes feature offers [four service levels](azure-netapp-files-service-levels.md), each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
 
-    * Ultra service level: 12,800 MiB/s
-    * Premium service level: 6,400 MiB/s
-    * Standard service level: 1,600 MiB/s
+    * Standard, Premium, and Ultra service levels: 12,800 MiB/s
+    * [Flexible service](azure-netapp-files-service-levels.md#Flexible): The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS
 
     The Ultra service level was used in these tests. 
 
@@ -65,7 +60,6 @@ The graph represents a 256-KiB sequential workload using 12 virtual machines rea
 The graph represents an 8-KiB random workload and a 1 TiB working set. The graph shows that an Azure NetApp Files large volume can handle between approximately 474,000 pure random writes and approximately 709,000 pure random reads.
 
 :::image type="content" source="./media/performance-large-volumes-linux/random-workload-chart.png" alt-text="Bar chart of a random workload on a large volume." lightbox="./media/performance-large-volumes-linux/random-workload-chart.png":::
-
 
 ## Linux scale-up tests 
 

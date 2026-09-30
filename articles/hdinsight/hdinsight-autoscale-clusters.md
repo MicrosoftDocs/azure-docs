@@ -3,7 +3,10 @@ title: Automatically scale Azure HDInsight clusters
 description: Use the Autoscale feature to automatically scale Azure HDInsight clusters based on a schedule or performance metrics.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 05/20/2025
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Automatically scale Azure HDInsight clusters
@@ -72,13 +75,12 @@ It's recommended that Ambari DB is sized correctly to reap the benefits of autos
 The following table describes the cluster types and versions that are compatible with the Autoscale feature.
 
 | Version | Spark | Hive | Interactive Query | HBase | Kafka |
-|---|---|---|---|---|---|---|
-| HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No |
-| HDInsight 5.0 without ESP | Yes | Yes | Yes* | No | No |
-| HDInsight 5.0 with ESP | Yes | Yes | Yes* | No | No |
+|---|---|---|---|---|---|
+| HDInsight 5.1 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 5.1 with ESP | Yes | Yes | Yes* | No | No |
 
-\* Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
+> [!Note]
+> Interactive Query clusters can only be configured for schedule-based scaling. Load-based Autoscale is not supported.
 
 ## Get started
 
@@ -296,6 +298,11 @@ However, you may experience a Hive Server 2 restart failure if there are only a 
 If autoscale-enabled Interactive Query clusters, an autoscale up/down event also scales up/down the number of Interactive Query daemons to the number of active worker nodes. The change in the number of daemons isn't persisted in the `num_llap_nodes` configuration in Ambari. If Hive services are restarted manually, the number of Interactive Query daemons is reset as per the configuration in Ambari.
 
 If the Interactive Query service is manually restarted, you need to manually change the `num_llap_node` configuration (the number of node(s) needed to run the Hive Interactive Query daemon) under *Advanced hive-interactive-env* to match the current active worker node count. Interactive Query Cluster supports only Schedule-Based Autoscale.
+
+### Alternatives
+1. Use the schedule-based autoscaling workflow so that the developers will have an opportunity to debug any job failures before the cluster is scaled down.
+1. Use the "yarn logs" command in the Azure CLI.
+1. Use an open source converter to translate the Tfile formatted logs in the Azure Storage account to plain text.
 
 ## Next steps
 

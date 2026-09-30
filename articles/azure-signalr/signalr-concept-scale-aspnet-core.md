@@ -3,7 +3,7 @@ title: Scale SignalR Apps with Azure SignalR
 description: An overview of using Azure SignalR service to scale SignalR applications.
 author: vicancy
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: overview
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 11/11/2023
@@ -19,7 +19,7 @@ SignalR is currently available in [two versions](/aspnet/core/signalr/version-di
 
 ASP.NET Core SignalR is a rewrite of the previous version. As a result, ASP.NET Core SignalR isn't backward compatible with the earlier SignalR version. The APIs and behaviors are different. The Azure SignalR Service supports both versions.
 
-Azure SignalR Service lets you host your actual web application on multiple platforms (Windows, Linux, and macOS) [Azure App Service](../app-service/overview.md), [IIS](/aspnet/core/host-and-deploy/iis/index), [Nginx](/aspnet/core/host-and-deploy/linux-nginx), [Apache](/aspnet/core/host-and-deploy/linux-apache), [Docker](/aspnet/core/host-and-deploy/docker/index). You can also use self-hosting in your own process.
+Azure SignalR Service lets you host your actual web application on multiple platforms (Windows, Linux, and macOS) [Azure App Service](../app-service/overview.md), [Azure Container Apps](../container-apps/overview.md), [IIS](/aspnet/core/host-and-deploy/iis/index), [Nginx](/aspnet/core/host-and-deploy/linux-nginx), [Apache](/aspnet/core/host-and-deploy/linux-apache), [Docker](/aspnet/core/host-and-deploy/docker/index). You can also use self-hosting in your own process.
 
 Azure SignalR Service is the best choice if the goals for your application include: 
 - supporting the latest functionality for updating web clients with real-time content updates, 
@@ -38,7 +38,7 @@ For ASP.NET Core SignalR, another reason might be you have no requirements to ac
 
 ## How does it scale?
 
-It's common to scale SignalR with SQL Server, Azure Service Bus, or Azure Cache for Redis. Azure SignalR Service handles the scaling approach for you. The performance and cost is comparable to these approaches without the complexity of dealing with these other services. All you have to do is update the unit count for your service. Each unit supports up to 1000 client connections.
+It's common to scale SignalR with SQL Server, Azure Service Bus, or Azure Managed Redis. Azure SignalR Service handles the scaling approach for you. The performance and cost is comparable to these approaches without the complexity of dealing with these other services. All you have to do is update the unit count for your service. Each unit supports up to 1000 client connections.
 
 ## Next steps
 

@@ -1,13 +1,14 @@
 ---
 title: Estimate costs with the Azure pricing calculator
 description: This article explains how to use the Azure pricing calculator to turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage.
-author: bandersmsft
-ms.author: banders
-ms.date: 08/23/2023
+author: abhishekjois
+ms.author: abhishekjois
+ms.date: 07/21/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: abhishekjois
+service.tree.id: f1f7b33f-4313-4ddd-b083-bca26910a24b
 ---
 
 # Estimate costs with the Azure pricing calculator
@@ -15,8 +16,7 @@ ms.reviewer: micflan
 The Azure pricing calculator helps you turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage. Whether you're a small business owner or an enterprise-level organization, the web-based tool helps you make informed decisions about your cloud spending. When you log in, the calculator also provides a cost estimate for your Azure consumption with your negotiated or discounted prices. This article explains how to use the Azure pricing calculator.
 
 >[!NOTE]
-> - You can also use Azure [Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/pricing/tco/calculator/) to estimate the cost savings you can achieve by migrating your application workloads to Microsoft Azure.
-> - Prices shown in this article are examples to help you understand how the calculator works. They are not actual prices.
+> - Prices shown in this article are examples to help you understand how the calculator works. They aren't actual prices.
 
 ## Access the Azure pricing calculator
 
@@ -65,7 +65,7 @@ Since it's your first time, you start with an empty estimate.
 
 1. Use the product picker to find a product. You can browse the catalog or search for the Azure service name.
 2. Select product tile to add it to the estimate. It adds the product with a default configuration.
-3. The pop of the configuration shows high-level filters like region, product type, tiers, and so on. Use the filters to narrow your product selection. The configurations offered change to reflect the features offered by the selected subproduct.
+3. Top part of the product module shows high-level filters like region, product type, tiers, and so on. Use the filters to narrow your product selection. The configuration options change to reflect features offered by the selected subproduct.
 4. Update the default configurations to show your expected monthly consumption. Estimates automatically update for the new configuration. For example, a virtual machine configuration defaults to run for one month (730 hours). Changing the configuration to 200 hours automatically updates the estimate.
 5. Some products offer special pricing plans, like reserved instances or savings plans. You can choose these options, if available, to lower your costs.
 6. Depending on the selected product or pricing plan, the estimate is split into upfront and monthly costs.
@@ -73,7 +73,7 @@ Since it's your first time, you start with an empty estimate.
     - Monthly costs are incurred after the product is consumed.
 7. Although optional, we recommend that you give the configuration a unique name. Finding a particular configuration in a large estimate is easier when it has a unique name.
 8. Repeat the steps to add more products to an estimate.
-9. Finally, don't forget to add a support plan. Choose from Basic, Developer, Standard or Professional Direct. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans/).
+9. Finally, don't forget to add a support plan. Choose from Basic, Developer, Standard, or Professional Direct. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans/).
 
 Here's an example of a virtual machine configuration:
 
@@ -130,7 +130,7 @@ After you log in (not sign-in at the top of the page that takes you to the Azure
 - New Commerce Cloud Solution Provider (CSP)
 - Microsoft Online Service Agreement (MOSA)
 
-If you have negotiated pricing associated with an MCA Billing Account:
+To view negotiated pricing associated with an MCA Billing Account:
 
 1. Select the **Microsoft Customer Agreement (MCA)** option in the licensing program.
 2. Select **None selected (change)**.  
@@ -142,7 +142,9 @@ If you have negotiated pricing associated with an MCA Billing Account:
 
 Your calculator estimate updates with your MCA price sheet information.
 
-If you have negotiated pricing associated with an EA billing account:
+To view negotiated pricing associated with an EA billing account:
+
+Your EA administrator must have both **Department admins can view charges (DA view charges)** and **Account owners can view charges (AO view charges)** enabled. For more information about enabling access, see [Enable EA access to costs](assign-access-acm-data.md#enable-ea-access-to-costs). After the settings are updated, it can up to 48 hours for the changes to take effect.
 
 1. Select the **Enterprise Agreement (EA)** option in the licensing program list.  
     :::image type="content" source="./media/pricing-calculator/select-program-offer-enterprise-agreement.png" alt-text="Screenshot showing the Enterprise Agreement (EA) list item." lightbox="./media/pricing-calculator/select-program-offer-enterprise-agreement.png" :::
@@ -155,18 +157,12 @@ If you want to change your selected enrollment, select the **Selected agreement*
 
 :::image type="content" source="./media/pricing-calculator/selected-agreement-enterprise-agreement-change.png" alt-text="Screenshot showing the Selected Agreement option." lightbox="./media/pricing-calculator/selected-agreement-enterprise-agreement-change.png" :::
 
-If you're a Cloud Solution Provider (CSP) partner who has transitioned to the new commerce experience, you can view your estimate by selecting the Microsoft Customer Agreement (MCA) option in the licensing program.
+If you're a Cloud Solution Provider (CSP) partner that transitioned to the new commerce experience, you can view your estimate by selecting the Microsoft Customer Agreement (MCA) option in the licensing program.
 
 >[!NOTE]
 > Partner Earned Credit (PEC) estimation isn't available in the calculator, so you need to manually apply your anticipated PEC to the monthly estimate.
 
 If you don't have access to log in to the calculator to see negotiated prices, contact your administrator or Azure Account Manager.
-
-## Help us improve the calculator
-
-If you want to provide feedback about the Pricing Calculator, there's a link at the bottom of the page. We welcome your feedback.
-
-:::image type="content" source="./media/pricing-calculator/feedback.png" alt-text="Screenshot showing the Feedback option." lightbox="./media/pricing-calculator/feedback.png" :::
 
 ## Next steps
 

@@ -2,13 +2,13 @@
 title: Manage VM Tags on Azure Stack Edge Pro GPU device via Azure PowerShell
 description: Describes how to create and manage virtual machine tags for virtual machines running in Azure Stack Edge by using Azure PowerShell.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Tag VMs on Azure Stack Edge via Azure PowerShell
@@ -19,7 +19,7 @@ This article describes how to tag virtual machines (VMs) running on your Azure S
 
 Tags are user-defined key-value pairs that can be assigned to a resource or a resource group. You can apply tags to VMs running on your device to logically organize them into a taxonomy. You can place tags on a resource at the time of creation or add it to an existing resource. For example, you can apply the name `Organization` and the value `Engineering` to all VMs that are used by the Engineering department in your organization.
 
-For more information on tags, see how to [Manage tags via AzureRM PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
+For more information on tags, see how to [Manage tags via AzureRM PowerShell](/powershell/azure/migrate-az-1.0.0).
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
     PS C:\WINDOWS\system32> Set-AzResource -ResourceID $VirtualMachine.ID -Tag $tags -Force   
 
     Name              : myazvm
-    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myas
+    ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myas
                         eazrg/providers/Microsoft.Compute/virtualMachines/myazvm
     ResourceName      : myazvm
     ResourceType      : Microsoft.Compute/virtualMachines
@@ -142,7 +142,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
     PS C:\WINDOWS\system32> Set-AzureRmResource -ResourceID $VirtualMachine.ID -Tag $tags -Force
     
     Name              : myasetestvm1
-    ResourceId        : /subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myaserg2/providers/Microsoft.Compute/virtua
+    ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myaserg2/providers/Microsoft.Compute/virtua
                         lMachines/myasetestvm1
     ResourceName      : myasetestvm1
     ResourceType      : Microsoft.Compute/virtualMachines
@@ -156,7 +156,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
     PS C:\WINDOWS\system32>
     ```
 
-For more information, see [Add-AzureRMTag](/powershell/module/azurerm.tags/remove-azurermtag?view=azurermps-6.13.0&preserve-view=true).
+For more information, see [Add-AzureRMTag](/powershell/module/az.accounts/uninstall-azurerm).
 
 ---
 
@@ -390,7 +390,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
     PS C:\WINDOWS\system32> Set-AzResource -ResourceId $VirtualMachine.Id -Tag $tags -Force
     
     Name              : myazvm
-    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myas
+    ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myas
                         eazrg/providers/Microsoft.Compute/virtualMachines/myazvm
     ResourceName      : myazvm
     ResourceType      : Microsoft.Compute/virtualMachines
@@ -465,7 +465,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
     True
     PS C:\WINDOWS\system32> Set-AzureRMResource -ResourceID $VirtualMachine.ID -Tag $tags -Force
     Name              : myaselinuxvm1
-    ResourceId        : /subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGrou
+    ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGrou
                         ps/myaserg1/providers/Microsoft.Compute/virtualMachines/myaselin
                         uxvm1
     ResourceName      : myaselinuxvm1
@@ -484,4 +484,4 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
 ## Next steps
 
 - Learn how to [How to tag a virtual machine in Azure using az cmdlets in PowerShell](/azure/virtual-machines/tag-powershell).
-- Learn how to [Manage tags via AzureRM cmdlets in PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
+- Learn how to [Manage tags via AzureRM cmdlets in PowerShell](/powershell/azure/migrate-az-1.0.0?view=azurermps-6.13.0&preserve-view=true).

@@ -2,20 +2,19 @@
 title: Metrics and alerts for Azure NAT Gateway
 titleSuffix: Azure NAT Gateway
 description: Get started learning about Azure Monitor metrics and alerts available for monitoring Azure NAT Gateway.
-author: asudbring
+author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: how-to
-ms.date: 09/16/2024
-ms.author: allensu
+ms.date: 09/09/2025
+ms.author: alittleton
 # Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ---
 # What is Azure NAT Gateway metrics and alerts?
 
 This article provides an overview of all NAT gateway metrics and diagnostic capabilities. This article provides general guidance on how to use metrics and alerts to monitor, manage, and [troubleshoot](troubleshoot-nat.md) your NAT gateway resource. 
 
-Azure NAT Gateway provides the following diagnostic capabilities:  
+All metrics are the same for Standard and StandardV2 NAT Gateway.  
 
-- Multi-dimensional metrics and alerts through Azure Monitor. You can use these metrics to monitor and manage your NAT gateway and to assist you in troubleshooting issues. 
 
 - Network Insights: Azure Monitor Insights provides you with visual tools to view, monitor, and assist you in diagnosing issues with your NAT gateway resource. Insights provide you with a topological map of your Azure setup and metrics dashboards. 
 
@@ -264,7 +263,46 @@ To create the alert, use the following steps:
 1. Select **Create** to create the alert rule.
 
 >[!NOTE]
->SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer setting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
+>SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer setting can cause SNAT ports to be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
+
+### Alerts for nearing total SNAT connection count limit
+
+Standard NAT gateway and StandardV2 NAT gateway each have a total active connection limit of 2 million connections. 
+
+The recommended guidance is to alert on NAT gateway’s Total SNAT Connection Count when it hits 80% of the total NAT gateway connection count limit, 1.6 million connections. 
+>[!Note]
+> The 80% threshold is a recommended starting point. You can adjust the threshold value based on your NAT gateway usage patterns and connection volume. Depending on the number of public IPs associated to your NAT gateway, and the amount of destination endpoints being reached, you could hit the connection limit sooner than 2 million. NAT gateway supports up to 50,000 connections per public IP address per destination endpoint.
+
+To set up a Total SNAT Connection count alert, follow these steps: 
+
+1. From the NAT gateway resource page, select **Alerts**. 
+
+2. Select **Create alert rule**. 
+
+3. From the signal list, select **Total SNAT Connection Count**. 
+
+4. In the Alert logic section, set **Threshold type** to **Static**. 
+
+5. From the Aggregation type drop-down menu, select **Total**. 
+
+6. From the **Value is** drop-down menu, select **Greater than**. 
+
+7. From the **Unit** drop-down menu, select **Count**. 
+
+8. In the **Threshold value** box, enter **1,600,000**. 
+
+9. In the **When to evaluate** section, set **Check every** to **1 minute**. 
+
+10. Set the **Lookback Period** to **5 minutes**. 
+ 
+>[!Note]
+>The lookback period may need to be adjusted based on the connection patterns of your outbound traffic through NAT gateway. If you find that you’re alert is too noisy, set the look back period to a longer time duration.
+
+11. Create an **Action** for your alert by providing a name, notification type, and type of action that is performed when the alert is triggered.
+
+12. Before deploying your action, **test the action group**. 
+
+13. Select **Create** to create the alert rule. 
 
 ### Alerts for NAT gateway resource health
 
@@ -310,7 +348,7 @@ For more information on what each metric is showing you and how to analyze these
 
 ### What type of metrics are available for NAT gateway?
 
-The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT Connection Count](#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
+Standard and StandardV2 NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT Connection Count](#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
 
 Refer to the dimensions column in the [metrics overview](#metrics-overview) table to see which dimensions are available for each NAT gateway metric. 
 

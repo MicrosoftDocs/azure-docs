@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - proxy | Microsoft Docs
 description: Reference for the proxy policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
-ms.author: danlep
 ---
 
 # Set HTTP proxy
@@ -37,7 +35,7 @@ The `proxy` policy allows you to route requests forwarded to backends via an HTT
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

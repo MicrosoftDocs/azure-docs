@@ -1,18 +1,21 @@
 ---
 title: Jobs in Azure Container Apps
-description: Learn about jobs in Azure Container Apps
+description: Learn about jobs in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: build-2023, devx-track-azurecli
-ms.topic: conceptual
-ms.date: 12/19/2024
+ms.topic: concept-article
+ms.date: 09/16/2026
 ms.author: cshoe
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Jobs in Azure Container Apps
 
-Azure Container Apps jobs enable you to run containerized tasks that execute for a finite duration and exit. You can use jobs to perform tasks such as data processing, machine learning, or any scenario where on-demand processing is required.
+Azure Container Apps jobs enable you to run containerized tasks that run for a finite duration and then stop. You can use jobs to perform tasks such as data processing, machine learning, or any scenario where on-demand processing is required.
 
 Container apps and jobs run in the same [environment](environment.md), allowing them to share capabilities such as networking and logging.
 
@@ -22,7 +25,7 @@ There are two types of compute resources in Azure Container Apps: apps and jobs.
 
 Apps are services that run continuously. If a container in an app fails, it restarts automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process input.
 
-Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or in response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
+Jobs are tasks that start, run for a finite duration, and stop when finished. Each execution of a job typically performs a single unit of work. Job executions start manually, on a schedule, or in response to events. Examples of jobs include batch processes that run on demand and scheduled tasks.
 
 ### Example scenarios
 
@@ -33,71 +36,87 @@ The following table compares common scenarios for apps and jobs:
 | An HTTP server that serves web content and API requests | App | Configure an [HTTP scale rule](scale-app.md#http). |
 | A process that generates financial reports nightly | Job | Use the [*Schedule* job type](#scheduled-jobs) and configure a cron expression. |
 | A continuously running service that processes messages from an Azure Service Bus queue | App | Configure a [custom scale rule](scale-app.md#custom). |
-| A job that processes a single message or a small batch of messages from an Azure queue and exits | Job | Use the *Event* job type and [configure a custom scale rule](tutorial-event-driven-jobs.md) to trigger job executions when there are messages in the queue. |
-| A background task that's triggered on-demand and exits when finished | Job | Use the *Manual* job type and [start executions](#start-a-job-execution-on-demand) manually or programmatically using an API. |
+| A job that processes a single message or a small batch of messages from an Azure queue and then stops | Job | Use the *Event* job type and [configure a custom scale rule](tutorial-event-driven-jobs.md) to trigger job executions when there are messages in the queue. |
+| A background task that's triggered on-demand and stops when finished | Job | Use the *Manual* job type and [start executions](#start-a-job-execution-on-demand) manually or programmatically by using an API. |
 | A self-hosted GitHub Actions runner or Azure Pipelines agent | Job | Use the *Event* job type and configure a [GitHub Actions](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-github-actions) or [Azure Pipelines](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines) scale rule. |
-| An Azure Functions app | App | [Deploy Azure Functions to Container Apps](../azure-functions/functions-container-apps-hosting.md). |
-| An event-driven app using the Azure WebJobs SDK | App | [Configure a scale rule](scale-app.md#custom) for each event source. |
+| An Azure Functions app | App | [Deploy Azure Functions to Container Apps](../container-apps/functions-overview.md). |
+| An event-driven app that uses the Azure WebJobs SDK | App | [Configure a scale rule](scale-app.md#custom) for each event source. |
 
 ## Concepts
 
-A Container Apps environment is a secure boundary around one or more container apps and jobs. Jobs involve a few key concepts:
+A Container Apps environment is a secure boundary around one or more container apps and jobs. Following are some key concepts:
 
-* **Job:** A job defines the default configuration that is used for each job execution. The configuration includes the container image to use, the resources to allocate, and the command to run.
-* **Job execution:** A job execution is a single run of a job that is triggered manually, on a schedule, or in response to an event.
+* **Job:** A job defines the default configuration that's used for each job execution. The configuration includes the container image to use, the resources to allocate, and the command to run.
+* **Job execution:** A job execution is a single run of a job that's triggered manually, on a schedule, or in response to an event.
 * **Job replica:** A typical job execution runs one replica defined by the job's configuration. In advanced scenarios, a job execution can run multiple replicas.
 
-:::image type="content" source="media/jobs/azure-container-apps-jobs-overview.png" alt-text="Azure Container Apps jobs overview.":::
+:::image type="content" source="media/jobs/azure-container-apps-jobs-overview.png" alt-text="Diagram that provides an overview of Container Apps jobs.":::
 
 ## Permissions
 
-To start a container app job, the appropriate permissions are required. Ensure that your user account or service principal has the following roles assigned:
+To start a container app job, your user account or service principal needs the appropriate permissions. Consider the following roles:
 
-* **Azure Container Apps Contributor:** Allows permissions to create and manage container apps and jobs.
-* **Azure Monitor Reader (optional):** Enables viewing monitoring data for jobs.
-* **Custom Role:** For more granular permissions, you can create a custom role with the following actions:
+* **Container Apps Jobs Contributor:** Allows permissions to create and manage jobs.
+* **Container Apps Jobs Operator:** Allows permissions to read, start, and stop jobs.
+* **Monitoring Reader (optional):** Enables viewing monitoring data for jobs.
 
-- Microsoft.App/containerApps/jobs/start/action
-- Microsoft.App/containerApps/jobs/read
-- Microsoft.App/containerApps/jobs/executions/read
+Both the **Container Apps Jobs Contributor** and **Container Apps Jobs Operator** roles include the `Microsoft.App/jobs/*/action` wildcard permission. This wildcard matches `Microsoft.App/jobs/listSecrets/action`, so both roles grant permission to read the job's secret values in plain text.
 
-For more information about assigning roles and permissions, see [Azure Role-Based Access Control](/azure/role-based-access-control/overview).
+If neither role matches the access you want to grant, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. For example, the following actions let a user view, start, and stop jobs without using the `Microsoft.App/jobs/*/action` wildcard. Since this rule set includes `Microsoft.App/jobs/start/action`, grant it only to identities you trust to use the job's secrets and managed identities configured to be available to its containers:
+
+- `Microsoft.App/jobs/read`
+- `Microsoft.App/jobs/start/action`
+- `Microsoft.App/jobs/stop/action`
+- `Microsoft.App/jobs/stop/execution/action`
+- `Microsoft.App/jobs/executions/read`
+- `Microsoft.App/jobs/execution/read`
+- `Microsoft.App/managedEnvironments/read`
+
+Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. This wildcard grants every current and future operation that matches the pattern, including `listSecrets`.
+
+> [!WARNING]
+> Permission to start a job can provide access to that job's secrets even when the role doesn't include the `listSecrets` action. The [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start) accepts an optional execution template that can override the main and init container images, commands, and environment variables. A user who holds `Microsoft.App/jobs/start/action` and knows a secret's name can reference that secret from a container of their choosing and read its value inside the container. The container can also use any managed identity [configured to be available to it](managed-identity.md#control-managed-identity-availability). Grant permission to start a job only to identities you trust to use the job's secrets and available managed identities.
+
+For more information, see [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets) and [Azure role-based access control](/azure/role-based-access-control/overview).
 
 ## Job trigger types
 
 A job's trigger type determines how the job is started. The following trigger types are available:
 
-- **Manual**: Manual jobs are triggered on-demand.
+- **Manual**: Manual jobs are triggered on demand.
 - **Schedule**: Scheduled jobs are triggered at specific times and can run repeatedly.
-- **Event**: Events, such as a message arriving in a queue, trigger event-driven jobs.
+- **Event**: Event-driven jobs are triggered by events, such as a message arriving in a queue.
 
 ### Manual jobs
 
-Manual jobs are triggered on-demand using the Azure CLI, Azure portal, or a request to the Azure Resource Manager API.
+Manual jobs are triggered on demand via the Azure CLI, the Azure portal, or a request to the Azure Resource Manager API.
 
 Examples of manual jobs include:
 
-- One time processing tasks such as migrating data from one system to another.
-- An e-commerce site running as container app starts a job execution to process inventory when an order is placed.
+- A one-time processing task like migrating data from one system to another.
+- An e-commerce site running as a container app starts a job execution to process inventory when an order is placed.
 
 To create a manual job, use the job type `Manual`.
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a manual job using the Azure CLI, use the `az containerapp job create` command. The following example creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+To create a manual job by using the Azure CLI, use the `az containerapp job create` command. The following example creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```azurecli
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
     --trigger-type "Manual" \
     --replica-timeout 1800 \
+    --replica-retry-limit 0 \
+    --replica-completion-count 1 \ 
+    --parallelism 1 \ 
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi"
 ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-The following example Azure Resource Manager template creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+The following partial example of an Azure Resource Manager template creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```json
 {
@@ -132,30 +151,30 @@ The following example Azure Resource Manager template creates a manual job named
 
 # [Azure portal](#tab/azure-portal)
 
-To create a manual job using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Specify *Manual* as the trigger type.
+To create a manual job by using the Azure portal, search for **Container App Jobs** in the Azure portal and select **Create**. Specify **Manual** as the trigger type.
 
-To use a sample container image, enter the following values in the *Containers* tab:
+To use a sample container image, enter the following values on the **Container** tab:
 
 | Setting | Value |
 |---|---|
-| Name | *main* |
-| Image source | *Docker Hub or other registries* |
-| Image type | *Public* |
-| Registry login server | *mcr.microsoft.com* |
-| Image and tag | *k8se/quickstart-jobs:latest* |
-| CPU and memory | *0.25 CPU cores, 0.5 Gi memory*, or higher |
+| **Name** | **main** |
+| **Image source** | **Docker Hub or other registries** |
+| **Image type** | **Public** |
+| **Registry login server** | **mcr.microsoft.com** |
+| **Image and tag** | **k8se/quickstart-jobs:latest** |
+| **CPU and memory** | **0.25 CPU cores, 0.5 Gi memory**, or higher |
 
 ---
 
-The `mcr.microsoft.com/k8se/quickstart-jobs:latest` image is a public sample container image that runs a job that waits a few seconds, prints a message to the console, and then exits. To authenticate and use a private container image, see [Containers](containers.md#container-registries).
+The `mcr.microsoft.com/k8se/quickstart-jobs:latest` image is a public sample container image that runs a job that waits a few seconds, prints a message to the console, and then stops. For information about authenticating and using a private container image, see [Containers](containers.md#container-registries).
 
-The above command only creates the job. To start a job execution, see [Start a job execution on demand](#start-a-job-execution-on-demand).
+The preceding command only creates the job. To start a job execution, see [Start a job execution on demand](#start-a-job-execution-on-demand).
 
 ### Scheduled jobs
 
 To create a scheduled job, use the job type `Schedule`.
 
-Container Apps jobs use cron expressions to define schedules. It supports the standard [cron](https://en.wikipedia.org/wiki/Cron) expression format with five fields for minute, hour, day of month, month, and day of week. The following are examples of cron expressions:
+Container Apps jobs use cron expressions to define schedules. They support the standard [cron](https://en.wikipedia.org/wiki/Cron) expression format with five fields for minute, hour, day of the month, month, and day of the week. Here are some examples of cron expressions:
 
 | Expression | Description |
 |---|---|
@@ -169,13 +188,16 @@ Cron expressions in scheduled jobs are evaluated in Coordinated Universal Time (
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a scheduled job using the Azure CLI, use the `az containerapp job create` command. The following example creates a scheduled job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+To create a scheduled job by using the Azure CLI, use the `az containerapp job create` command. The following example creates a scheduled job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```azurecli
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
     --trigger-type "Schedule" \
     --replica-timeout 1800 \
+    --replica-retry-limit 0 \ 
+    --parallelism 1 \
+    --replica-completion-count 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
     --cron-expression "*/1 * * * *"
@@ -183,7 +205,7 @@ az containerapp job create \
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-The following example Azure Resource Manager template creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+The following partial example of an Azure Resource Manager template creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```json
 {
@@ -219,22 +241,22 @@ The following example Azure Resource Manager template creates a manual job named
 
 # [Azure portal](#tab/azure-portal)
 
-To create a scheduled job using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Specify *Schedule* as the trigger type and define the schedule with a cron expression, such as `*/1 * * * *` to run every minute.
+To create a scheduled job by using the Azure portal, search for **Container App Jobs** in the Azure portal and select **Create**. Specify **Schedule** as the trigger type and define the schedule with a cron expression, such as `*/1 * * * *` to run every minute.
 
-To use a sample container image, enter the following values in the *Containers* tab:
+To use a sample container image, enter the following values on the **Container** tab:
 
 | Setting | Value |
 |---|---|
-| Name | *main* |
-| Image source | *Docker Hub or other registries* |
-| Image type | *Public* |
-| Registry login server | *mcr.microsoft.com* |
-| Image and tag | *k8se/quickstart-jobs:latest* |
-| CPU and memory | *0.25 CPU cores, 0.5 Gi memory*, or higher |
+| **Name** | **main** |
+| **Image source** | **Docker Hub or other registries** |
+| **Image type** | **Public** |
+| **Registry login server** | **mcr.microsoft.com** |
+| **Image and tag** | **k8se/quickstart-jobs:latest** |
+| **CPU and memory** | **0.25 CPU cores, 0.5 Gi memory**, or higher |
 
 ---
 
-The `mcr.microsoft.com/k8se/quickstart-jobs:latest` image is a public sample container image that runs a job that waits a few seconds, prints a message to the console, and then exits. To authenticate and use a private container image, see [Containers](containers.md#container-registries).
+The `mcr.microsoft.com/k8se/quickstart-jobs:latest` image is a public sample container image that runs a job that waits a few seconds, prints a message to the console, and then stops. For information about authenticating and using a private container image, see [Containers](containers.md#container-registries).
 
 The cron expression `*/1 * * * *` runs the job every minute.
 
@@ -242,12 +264,12 @@ The cron expression `*/1 * * * *` runs the job every minute.
 
  Events from supported [custom scalers](scale-app.md#custom) trigger event-driven jobs. Examples of event-driven jobs include:
 
-- A job that runs when a new message is added to a queue such as Azure Service Bus, Kafka, or RabbitMQ.
+- A job that runs when a new message is added to a queue like Azure Service Bus, Kafka, or RabbitMQ.
 - A self-hosted [GitHub Actions runner](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-github-actions) or [Azure DevOps agent](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines) that runs when a new job is queued in a workflow or pipeline.
 
 Container apps and event-driven jobs use [KEDA](https://keda.sh/) scalers. They both evaluate scaling rules on a polling interval to measure the volume of events for an event source, but the way they use the results is different.
 
-In an app, each replica continuously processes events and a scaling rule determines the number of replicas to run to meet demand. In event-driven jobs, each job execution typically processes a single event, and a scaling rule determines the number of job executions to run.
+In an app, each replica continuously processes events, and a scaling rule determines the number of replicas to run to meet demand. In event-driven jobs, each job execution typically processes a single event, and a scaling rule determines the number of job executions to run.
 
 Use jobs when each event requires a new instance of the container with dedicated resources or needs to run for a long time. Event-driven jobs are conceptually similar to [KEDA scaling jobs](https://keda.sh/docs/latest/concepts/scaling-jobs/).
 
@@ -255,7 +277,7 @@ To create an event-driven job, use the job type `Event`.
 
 # [Azure CLI](#tab/azure-cli)
 
-To create an event-driven job using the Azure CLI, use the `az containerapp job create` command. The following example creates an event-driven job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+To create an event-driven job by using the Azure CLI, use the `az containerapp job create` command. The following example creates an event-driven job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```azurecli
 az containerapp job create \
@@ -277,7 +299,7 @@ The example configures an Azure Storage queue scale rule.
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-The following example Azure Resource Manager template creates an event-driven job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+The following partial example of an Azure Resource Manager template creates an event-driven job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```json
 {
@@ -319,7 +341,7 @@ The following example Azure Resource Manager template creates an event-driven jo
                 }
             ]
         },
-        "environmentId": "/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/managedEnvironments/my-environment",
+        "environmentId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-resource-group/providers/Microsoft.App/managedEnvironments/my-environment",
         "template": {
             "containers": [
                 {
@@ -340,7 +362,7 @@ The example configures an Azure Storage queue scale rule.
 
 # [Azure portal](#tab/azure-portal)
 
-To create an event-driven job using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Specify *Event* as the trigger type and configure the scaling rule.
+To create an event-driven job by using the Azure portal, search for **Container App Jobs** in the Azure portal and select **Create**. Specify **Event-driven** as the trigger type and configure the scaling rule.
 
 ---
 
@@ -352,7 +374,7 @@ For any job type, you can start a job execution on demand.
 
 # [Azure CLI](#tab/azure-cli)
 
-To start a job execution using the Azure CLI, use the `az containerapp job start` command. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`:
+To start a job execution by using the Azure CLI, use the `az containerapp job start` command. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```azurecli
 az containerapp job start --name "my-job" --resource-group "my-resource-group"
@@ -360,7 +382,7 @@ az containerapp job start --name "my-job" --resource-group "my-resource-group"
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-To start a job execution using the Azure Resource Manager REST API, make a `POST` request to the job's `start` operation.
+To start a job execution by using the Azure Resource Manager REST API, make a `POST` request to the job's `start` operation.
 
 The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`:
 
@@ -371,24 +393,26 @@ Authorization: Bearer <TOKEN>
 
 Replace `<SUBSCRIPTION_ID>` with your subscription ID.
 
-To authenticate the request, replace `<TOKEN>` in the `Authorization` header with a valid bearer token. The identity used to generate the token must have `Contributor` permission to the Container Apps job resource. For more information, see [Azure REST API reference](/rest/api/azure).
+To authenticate the request, replace `<TOKEN>` in the `Authorization` header with a valid bearer token. The identity used to generate the token must have the `Microsoft.App/jobs/start/action` permission on the Container Apps job resource. The **Container Apps Jobs Operator** and **Container Apps Jobs Contributor** built-in roles include this permission. For more information, see the [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start).
 
 # [Azure portal](#tab/azure-portal)
 
-To start a job execution in the Azure portal, select **Run now** in the job's overview page.
+To start a job execution in the Azure portal, select **Run now** on the job's overview page.
 
 ---
 
 When you start a job execution, you can choose to override the job's configuration. For example, you can override an environment variable or the startup command to run the same job with different inputs. The overridden configuration is only used for the current execution and doesn't change the job's configuration.
 
-> [!IMPORTANT]
-> When overriding the configuration, the job's entire template configuration is replaced with the new configuration. Ensure that the new configuration includes all required settings.
+When you override a configuration, the job's entire template configuration is replaced with the new configuration. Ensure that the new configuration includes all required settings.
+
+> [!WARNING]
+> An identity that can start a job can use an execution template to reference job secrets whose names it knows and use managed identities configured to be available to the container. For more information, see [Permissions](#permissions).
 
 # [Azure CLI](#tab/azure-cli)
 
-To override the job's configuration while starting an execution, use the `az containerapp job start` command and pass a YAML file containing the template to use for the execution. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`.
+To override the job's configuration when you start an execution, use the `az containerapp job start` command and pass a YAML file containing the template to use for the execution. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`.
 
-Retrieve the job's current configuration with the `az containerapp job show` command and save the template to a file named `my-job-template.yaml`:
+Retrieve the job's current configuration with the `az containerapp job show` command, and save the template to a file named `my-job-template.yaml`:
 
 ```azurecli
 az containerapp job show --name "my-job" --resource-group "my-resource-group" --query "properties.template" --output yaml > my-job-template.yaml
@@ -448,7 +472,7 @@ Authorization: Bearer <TOKEN>
 }
 ```
 
-Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Authorization` header with a valid bearer token. The identity used to generate the token must have `Contributor` permission to the Container Apps job resource. For more information, see [Azure REST API reference](/rest/api/azure).
+Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Authorization` header with a valid bearer token. The identity used to generate the token must have the `Microsoft.App/jobs/start/action` permission on the Container Apps job resource. The **Container Apps Jobs Operator** and **Container Apps Jobs Contributor** built-in roles include this permission. For more information, see the [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start).
 
 # [Azure portal](#tab/azure-portal)
 
@@ -462,7 +486,7 @@ Each Container Apps job maintains a history of recent job executions.
 
 # [Azure CLI](#tab/azure-cli)
 
-To get the statuses of job executions using the Azure CLI, use the `az containerapp job execution list` command. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
+To get the statuses of job executions by using the Azure CLI, use the `az containerapp job execution list` command. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```azurecli
 az containerapp job execution list --name "my-job" --resource-group "my-resource-group"
@@ -470,7 +494,7 @@ az containerapp job execution list --name "my-job" --resource-group "my-resource
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-To get the status of job executions using the Azure Resource Manager REST API, make a `GET` request to the job's `executions` operation. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
+To get the status of job executions by using the Azure Resource Manager REST API, make a `GET` request to the job's `executions` operation. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```http
 GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/executions?api-version=2023-05-01
@@ -478,11 +502,11 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/
 
 Replace `<SUBSCRIPTION_ID>` with your subscription ID.
 
-To authenticate the request, add an `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
+To authenticate the request, add an `Authorization` header that contains a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
 
 # [Azure portal](#tab/azure-portal)
 
-To view the status of job executions using the Azure portal, search for *Container App Jobs* in the Azure portal and select the job. The *Execution history* tab displays the status of recent executions.
+To view the status of job executions by using the Azure portal, search for **Container App Jobs** in the Azure portal and select the job. In the left pane, under **Monitoring**, select **Execution history** to see the status of recent executions.
 
 ---
 
@@ -504,12 +528,17 @@ The following table includes the job settings that you can configure:
 
 | Setting | Azure Resource Manager property | CLI parameter| Description |
 |---|---|---|---|
-| Job type | `triggerType` | `--trigger-type` | The type of job. (`Manual`, `Schedule`, or `Event`) |
+| Job type | `triggerType` | `--trigger-type` | The type of job (`Manual`, `Schedule`, or `Event`). |
 | Replica timeout | `replicaTimeout` | `--replica-timeout` | The maximum time in seconds to wait for a replica to complete. |
-| Polling interval | `pollingInterval` | `--polling-interval` | The time in seconds to wait between polling for events. Default is 30 seconds. |
-| Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. To fail a replica without retrying, set the value to `0`. |
+| Polling interval | `pollingInterval` | `--polling-interval` | The time in seconds to wait between polling for events. The default is 30 seconds. |
+| Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. To fail a replica without retrying, set the value to `0`. The `replicaTimeout` setting takes precedence if it expires before all retries occur. |
 | Parallelism | `parallelism` | `--parallelism` | The number of replicas to run per execution. For most jobs, set the value to `1`. |
-| Replica completion count | `replicaCompletionCount` | `--replica-completion-count` | The number of replicas to complete successfully for the execution to succeed. Most be equal or less than the parallelism. For most jobs, set the value to `1`. |
+| Replica completion count | `replicaCompletionCount` | `--replica-completion-count` | The number of replicas to complete successfully for the execution to succeed. Most be equal to or less than the parallelism. For most jobs, set the value to `1`. |
+
+### Long-running jobs
+
+> [!NOTE]
+> Platform maintenance, including routine security updates and upgrades, might interrupt long-running job replicas. Set the replica retry limit to at least `1`, and design your workload for at-least-once processing so that retries can safely complete the work.
 
 ### Example
 
@@ -534,7 +563,7 @@ az containerapp job create \
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-The following example Azure Resource Manager template creates a job with advanced configuration options:
+The following partial example of an Azure Resource Manager template creates a job with advanced configuration options:
 
 ```json
 {
@@ -594,9 +623,16 @@ The following example Azure Resource Manager template creates a job with advance
 
 # [Azure portal](#tab/azure-portal)
 
-To configure advanced settings using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. To configure the settings, select *Configuration*.
+To configure advanced settings by using the Azure portal, create the job as described earlier in this article and then, under **Settings** in the left pane, select **Configuration**. Edit the configuration settings in the **Configuration** pane.
 
 ---
+
+## Job networking and app-to-app communication
+
+When a job pod starts, sidecar containers (such as the Envoy proxy) are guaranteed to be ready before the main job container begins execution. This ensures that app-to-app calls made by the job at startup succeed without connection failures.
+
+> [!NOTE]
+> If your job makes calls to other container apps at startup, you don't need to add retry logic for initial sidecar readiness. The platform handles this automatically.
 
 ## Jobs restrictions
 
@@ -605,7 +641,7 @@ The following features aren't supported:
 - Dapr
 - Ingress and related features such as custom domains and SSL certificates
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Create a job with Azure Container Apps](jobs-get-started-cli.md)
+> [Create a job in Azure Container Apps](jobs-get-started-cli.md)

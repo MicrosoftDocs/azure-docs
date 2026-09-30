@@ -4,17 +4,25 @@ items:
 - name: Overview
   items:
   - name: What is Cloud NGFW by Palo Alto Networks?
-    href: palo-alto-overview.md
+    href: overview.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Cloud NGFW by Palo Alto Networks resource
-    href: palo-alto-create.md
+  - name: Create a resource
+    href: create.md
 - name: How to
   items:
-  - name: Manage your Cloud NGFW by Palo Alto Networks resource
-    href: palo-alto-manage.md
-  - name: Troubleshoot Cloud NGFW by Palo Alto Networks 
-    href: palo-alto-troubleshoot.md
+  - name: Manage your resource
+    href: manage.md
   - name: Deploy Cloud NGFW by Palo Alto Networks with the Application Gateway
-    href: palo-alto-application-gateway.md
+    href: application-gateway.md
+  - name: Troubleshoot
+    items:
+    - name: Get support
+      href: https://support.paloaltonetworks.com/Support/Index
+    - name: Troubleshoot
+      href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
+    
+

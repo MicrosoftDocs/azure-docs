@@ -1,17 +1,18 @@
 ---
 title: Single sign-on session providers using custom policies
 titleSuffix: Azure AD B2C
-description: Learn how to manage single sign-on sessions using custom policies in Azure AD B2C.
+description: Learn how to manage single sign-on sessions using custom policies in Azure AD B2C. Customize SSO behavior and control the flow of your custom policy.
 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer configuring session behavior in Azure Active Directory B2C, I want to understand how to use session providers to manage single sign-on (SSO) sessions for different technical profiles, so that I can customize the SSO behavior and control the flow of my custom policy.
@@ -19,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # Single sign-on session providers in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In the [Configure session behavior in Azure Active Directory B2C](session-behavior.md) article, we describe the session management for your Azure AD B2C custom policy. This article describes how to further configure the single sign-on (SSO) behavior of any individual technical profile within your custom policy.
 
@@ -53,7 +55,7 @@ The following table shows which session provider to use depending on the type of
 |---------|---------|---------|---------|---------|
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)  | [Self-asserted](self-asserted-technical-profile.md), [Microsoft Entra ID](active-directory-technical-profile.md), [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md), [Claims transformation](claims-transformation-technical-profile.md)| Skips technical profile execution.| Yes | Yes |
 |[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider) | [OAuth1 identity provider](oauth1-technical-profile.md), [OAuth2 identity provider](oauth2-technical-profile.md), [OpenID Connect identity provider](openid-connect-technical-profile.md), [SAML identity provider](saml-identity-provider-technical-profile.md)| Accelerate identity provider selection page. Performing single-logout.|Yes|Yes|
-|[OAuthSSOSessionProvider](#oauthssosessionprovider) |[JWT token issuer](jwt-issuer-technical-profile.md) | Manages session between OAuth2 or OpenId Connect relying party and Azure AD B2C. Performs single-logout. | No | No |
+|[OAuthSSOSessionProvider](#oauthssosessionprovider) |[JWT issuer](jwt-issuer-technical-profile.md) | Manages session between OAuth2 or OpenId Connect relying party and Azure AD B2C. Performs single-logout. | No | No |
 |[SamlSSOSessionProvider](#samlssosessionprovider) | [SAML token issuer](saml-issuer-technical-profile.md) | Manages session between SAML relying party and Azure AD B2C. Performs single-logout. | No | No |
 |[NoopSSOSessionProvider](#noopssosessionprovider) |Any| Suppress any technical profile from being part of the session.| No | No |
 
@@ -71,7 +73,7 @@ To use a session provider in your technical profile:
 
     ```xml
     <TechnicalProfile Id="SM-AAD">
-      <DisplayName>Session Mananagement Provider</DisplayName>
+      <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <PersistedClaims>
         <PersistedClaim ClaimTypeReferenceId="objectId" />
@@ -313,6 +315,6 @@ To suppress single sign on behavior of a technical profile, add a reference to `
 </TechnicalProfile>
 ```
 
-## Next steps
+## Related content
 
 Learn how to [configure session behavior](session-behavior.md).

@@ -2,11 +2,12 @@
 title: 'Configure user groups and IP address pools for point-to-site User VPNs'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure user groups and assign IP addresses from specific address pools based on identity or authentication credentials.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 01/22/2024
-ms.author: cherylmc
+ms.author: duau
+ms.custom: sfi-image-nochange
 
 ---
 # Configure user groups and IP address pools for P2S User VPNs
@@ -71,6 +72,7 @@ To generate self-signed certificates, see [Generate and export certificates for 
 
 > [!NOTE]
 > The multiple address pool feature with digital certificate authentication applies to a specific user group based on the **Subject** field. The selection criteria do not work with Subject Alternative Name (SAN) certificates.
+> If a customer wants to specify a SAN in their certificates, it must be the same as the Subject for the multipool feature to function correctly. Discrepancy between the Subject and SAN will result in issues.
 
 
 ## Step 3: Create a user group

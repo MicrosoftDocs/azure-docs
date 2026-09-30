@@ -1,12 +1,14 @@
 ---
-title: Managed identities for applications in Azure Spring Apps
+title: Managed Identities for Applications in Azure Spring Apps
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Home page for managed identities for applications.
 author: KarlErickson
-ms.author: jiec
+ms.author: karler
+ms.reviewer: jiec
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 zone_pivot_groups: spring-apps-tier-selection
 ---

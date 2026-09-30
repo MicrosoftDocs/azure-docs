@@ -1,60 +1,80 @@
 ---
-title: Azure confidential computing products
-description: Learn about all the confidential computing services that Azure provides
-author: ju-shim
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+title: Azure Confidential Computing Products
+description: Learn about all the confidential computing services that Azure provides.
+author: sgallagher
+ms.service: azure-confidential-computing
 ms.topic: overview
-ms.date: 06/09/2023
-ms.author: jushiman
+ms.date: 06/10/2026
+ms.author: sgallagher
+# Customer intent: As an IT security professional, I want to evaluate Azure's confidential computing offerings, so that I can ensure robust data protection and compliance for sensitive workloads in the cloud.
 ---
 
 # Azure offerings
 
+Azure confidential computing offerings span three areas:
+
+- Virtual machines and containers
+- Confidential services
+- Supplementary offerings
+
 ## Virtual machines and containers
 
-Azure provides the broadest support for hardened technologies such as [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html), [Intel TDX](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html) and [Intel SGX](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html). All technologies meet our definition of confidential computing, helping organizations prevent unauthorized access or modification of code and data while in use.
+Azure supports multiple confidential computing technologies, including [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html) and [Intel Trust Domain Extensions (TDX)](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html). These technologies help protect code and data while they are in use.
 
-- Confidential VMs using AMD SEV-SNP. [DCasv5](/azure/virtual-machines/dcasv5-dcadsv5-series) and [ECasv5](/azure/virtual-machines/ecasv5-ecadsv5-series) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality. 
+- **AMD SEV-SNP confidential VMs**: [DCasv5](/azure/virtual-machines/dcasv5-dcadsv5-series) and [ECasv5](/azure/virtual-machines/ecasv5-ecadsv5-series) help you rehost existing workloads while protecting data from cloud operators. [DCasv6 and ECasv6](https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/preview-new-dcasv6-and-ecasv6-confidential-vms-based-on-4th-generation-amd-epyc%E2%84%A2/4303752) are currently in gated preview and offer enhanced performance.
+- **Intel TDX confidential VMs**: [DCesv6](/azure/virtual-machines/sizes/general-purpose/dcesv6-series) and [ECesv6](/azure/virtual-machines/ecesv6-series) help you rehost workloads with VM-level confidentiality.
+- **Confidential GPU VMs**: [NCCadsH100v5](/azure/virtual-machines/sizes/gpu-accelerated/nccadsh100v5-series) combines GPU performance with linked CPU and GPU TEEs to help protect sensitive AI and machine learning workloads.
+- **Confidential AKS worker nodes**: [Confidential VM Azure Kubernetes Service (AKS) worker nodes](/azure/confidential-computing/confidential-node-pool-aks) help you rehost containers with worker-node-level confidentiality on AMD SEV-SNP hardware.
+- **Confidential containers on Azure Container Instances**: [Confidential containers on Azure Container Instances](/azure/container-instances/container-instances-confidential-overview) support container-level integrity and attestation by using [confidential computing enforcement (CCE) policies](/azure/container-instances/container-instances-confidential-overview#confidential-computing-enforcement-policies).
 
-- Confidential VMs using Intel TDX. [DCesv5](/azure/virtual-machines/dcasv5-dcadsv5-series) and [ECesv5](/azure/virtual-machines/ecasv5-ecadsv5-series) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality.
-
-- VMs with Application Enclaves using Intel SGX. [DCsv2](/azure/virtual-machines/dcv2-series), [DCsv3, and DCdsv3](/azure/virtual-machines/dcv3-series) enable organizations to create hardware enclaves. These secure enclaves help protect from cloud operators, and your own VM admins.
-
-- [App-enclave aware containers](enclave-aware-containers.md) running on Azure Kubernetes Service (AKS). Confidential computing nodes on AKS use Intel SGX to create isolated enclave environments in the nodes between each container application.
-
-:::image type="content" source="media/overview-azure-products/confidential-computing-product-line.jpg" alt-text="Diagram of the various confidential computing enabled VM SKUs, container and data services." lightbox="media/overview-azure-products/confidential-computing-product-line.jpg":::
+:::image type="content" source="media/overview-azure-products/confidential-computing-product-line.png" alt-text="Diagram that shows the various confidential computing enabled VM SKUs, container, and data services." lightbox="media/overview-azure-products/confidential-computing-product-line.png":::
 
 ## Confidential services
 
-Azure offers various PaaS, SaaS and VM capabilities supporting or built upon confidential computing, this includes:
+Azure also offers platform and software services that are built on or integrated with confidential computing:
 
-- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/), a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated Hardware Security Modules (HSM).
+- [Confidential inferencing with the Azure OpenAI Whisper model](https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/azure-ai-confidential-inferencing-technical-deep-dive/4253150) supports protected inferencing with TEEs, encrypted prompt protection, user anonymity, and OHTTP.
+- [Azure Databricks](https://www.databricks.com/blog/announcing-general-availability-azure-databricks-support-azure-confidential-computing-acc) supports confidential computing scenarios by using confidential VMs in your lakehouse environment.
+- [Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=portal) helps protect desktop sessions with encryption in memory and hardware-backed trust.
+- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/) provides a single-tenant, standards-compliant HSM service for key protection.
+- [Azure Attestation](/azure/attestation/overview) provides remote attestation for TEEs and verification of binary integrity.
+- [Azure confidential ledger](/azure/confidential-ledger/overview) is a tamper-evident, write-once store for sensitive records and auditing scenarios.
+- [Always Encrypted with secure enclaves in Azure SQL](/sql/relational-databases/security/encryption/always-encrypted-enclaves) enables protected query processing in a TEE.
 
-- [Always Encrypted with secure enclaves in Azure SQL](/sql/relational-databases/security/encryption/always-encrypted-enclaves). The confidentiality of sensitive data is protected from malware and high-privileged unauthorized users by running SQL queries directly inside a TEE. 
+This portfolio continues to evolve based on customer demand.
 
-- [Azure Databricks](https://www.databricks.com/blog/announcing-general-availability-azure-databricks-support-azure-confidential-computing-acc) helps you bring more security and increased confidentiality to your Databricks Lakehouse using confidential VMs.
+## How Microsoft uses Azure confidential computing
 
-- [Azure Virtual Desktop](../virtual-desktop/deploy-azure-virtual-desktop.md?tabs=portal) ensures a user’s virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust.
+Microsoft also applies Azure confidential computing capabilities in first-party services and operations. These patterns align with the [Secure Future Initiative (SFI)](https://www.microsoft.com/en-us/trust-center/security/secure-future-initiative) emphasis on secure by design, secure by default, and secure operations.
 
-- [Microsoft Azure Attestation](/azure/attestation/overview), a remote attestation service for validating the trustworthiness of multiple Trusted Execution Environments (TEEs) and verifying integrity of the binaries running inside the TEEs.
+Examples of Microsoft use include:
 
-- [Trusted Hardware Identity Management](../security/fundamentals/trusted-hardware-identity-management.md), a service that handles cache management of certificates for all TEEs residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions.
+- **Microsoft Entra ID**: Protecting key material and identity infrastructure workloads to reduce the risk of unauthorized access.
+- **Microsoft cryptographic and code-signing services**: Isolating sensitive signing and cryptographic operations in trusted execution environments to support high-volume service transactions (about 3 billion transactions per day, as highlighted in Microsoft adoption examples).
+- **Data and analytics workflows (including Azure Databricks)**: Running analytics pipelines on confidential VMs to help protect data throughout processing lifecycles.
+- **Privacy Sandbox workloads**: Applying hardware-backed isolation to improve user privacy while maintaining platform functionality, including scenarios designed to work without third-party cookies.
+- **Payment processing workloads (including Microsoft Pay)**: Protecting sensitive payment-processing data in use during transaction handling (about $25 billion per year, as highlighted in Microsoft adoption examples).
+- **End-user computing scenarios (including Azure Virtual Desktop)**: Cryptographically isolating guest workloads to help reduce exposure in high-risk or highly regulated access contexts.
 
-- [Azure Confidential Ledger](/azure/confidential-ledger/overview). ACL is a tamper-proof register for storing sensitive data for record keeping and auditing or for data transparency in multi-party scenarios. It offers Write-Once-Read-Many guarantees, which make data non-erasable and non-modifiable. The service is built on Microsoft Research's [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/).
+Common benefits Microsoft realizes from these deployments include:
+
+- Reducing exposure of sensitive data in memory by processing data inside hardware-backed trusted execution environments.
+- Limiting insider and operator-access risk through attestation, policy enforcement, and workload isolation.
+- Strengthening compliance posture for identity, payments, and privacy-sensitive scenarios.
+- Enabling broader "encrypt data in use" patterns across platform and application services.
+
+For more context, see [Microsoft's Secure Future Initiative](https://www.microsoft.com/en-us/trust-center/security/secure-future-initiative) and its [April 2025 progress report](https://www.microsoft.com/en-us/security/blog/2025/04/21/securing-our-future-april-2025-progress-report-on-microsofts-secure-future-initiative/) and [November 2025 progress report](https://www.microsoft.com/en-us/security/blog/2025/11/10/securing-our-future-november-2025-progress-report-on-microsofts-secure-future-initiative/).
 
 ## Supplementary offerings
 
-- [Azure IoT Edge](../iot-edge/deploy-confidential-applications.md) supports confidential applications that run within secure enclaves on an Internet of Things (IoT) device. IoT devices are often exposed to tampering and forgery because they're physically accessible by bad actors. Confidential IoT Edge devices add trust and integrity at the edge by protecting the access to data captured by and stored inside the device itself before streaming it to the cloud.
-
-- [Confidential Inference ONNX Runtime](https://github.com/microsoft/onnx-server-openenclave), a Machine Learning (ML) inference server that restricts the ML hosting party from accessing both the inferencing request and its corresponding response.
-
-- [Trusted Launch](/azure/virtual-machines/trusted-launch) is available across all Generation 2 VMs bringing hardened security features – secure boot, virtual trusted platform module, and boot integrity monitoring – that protect against boot kits, rootkits, and kernel-level malware.
+- [Trusted Launch](/azure/virtual-machines/trusted-launch) adds secure boot, virtual trusted platform module, and boot integrity monitoring to Generation 2 VMs.
+- [Azure Integrated HSM](https://techcommunity.microsoft.com/blog/azurecompute/announcing-the-general-availability-of-azure-integrated-hardware-security-module/4517103) is generally available and provides dedicated, low-latency, FIPS 140-3 Level 3 key protection in Azure infrastructure.
+- [Trusted Hardware Identity Management](../security/fundamentals/trusted-hardware-identity-management.md) manages certificate caches for TEEs in Azure and provides trusted computing base information for attestation baselines.
 
 ## What's new in Azure confidential computing
 
-> [!VIDEO https://www.youtube.com/embed/ds48uwDaA-w]
+> [!VIDEO https://medius.microsoft.com/video/asset/HIGHMP4/e959dc6a-bb39-46a9-84c5-b2620675b658?referrer=Microsoft+Build-%2Fen-US%2Fsessions%2FBRK226&mhid=build&loc=en-us#t=1741,2285]
 
-## Next steps
+## Related content
 
 - [Learn common confidential computing scenarios](use-cases-scenarios.md)

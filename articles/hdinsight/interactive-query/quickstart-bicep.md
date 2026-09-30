@@ -1,11 +1,12 @@
 ---
 title: 'Quickstart: Create Interactive Query cluster using Bicep - Azure HDInsight'
 description: This quickstart shows how to use Bicep to create an Interactive Query cluster in Azure HDInsight.
-author: reachnijel
-ms.author: nijelsf
 ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 10/17/2024
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
@@ -18,7 +19,7 @@ In this quickstart, you use a Bicep to create an [Interactive Query](./apache-in
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

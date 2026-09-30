@@ -1,3 +1,4 @@
+items:
 - name: Azure API for FHIR documentation
   href: index.yml
 - name: Overview
@@ -19,13 +20,15 @@
     - name: Deploy Azure API for FHIR
       expanded: false
       items:
-        - name: Using Portal
+        - name: Azure Portal
           href: fhir-paas-portal-quickstart.md
-        - name: Using PowerShell
+        - name: PowerShell
           href: fhir-paas-powershell-quickstart.md
-        - name: Using CLI
+        - name: Azure CLI
           href: fhir-paas-cli-quickstart.md
-        - name: Using ARM template
+        - name: Bicep
+          href: fhir-service-bicep.md
+        - name: ARM template
           displayName: Resource Manager
           href: azure-api-fhir-resource-manager-template.md
 - name: Tutorials
@@ -38,9 +41,7 @@
       href: tutorial-web-app-fhir-server.md
     - name: 2. Register public client application
       href: tutorial-web-app-public-app-reg.md
-    - name: 3. Test setup with Postman
-      href: tutorial-web-app-test-postman.md
-    - name: 4. Write web application
+    - name: 3. Write web application
       href: tutorial-web-app-write-web-app.md
   - name: SMART on FHIR 
     href: smart-on-fhir.md
@@ -60,7 +61,7 @@
 - name: How-tos
   expanded: false
   items:
-  - name: Registering applications
+  - name: Register applications
     expanded: false
     items:
     - name: Register applications for Azure API for FHIR overview
@@ -166,7 +167,7 @@
   - name: GitHub Projects
     href: fhir-github-projects.md
   - name: Release notes
-    href: release-notes.md 
+    href: release-notes-2026.md
   - name: Supported features
     href: fhir-features-supported.md 
 - name: Reference

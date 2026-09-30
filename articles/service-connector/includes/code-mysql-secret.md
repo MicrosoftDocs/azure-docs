@@ -1,9 +1,8 @@
 ---
-author: yungez
 ms.service: service-connector
 ms.topic: include
-ms.date: 08/01/2023
-ms.author: yungez
+ms.date: 06/17/2026
+ms.reviewer: yungez
 ---
 
 ### [.NET](#tab/dotnet)
@@ -39,7 +38,7 @@ ms.author: yungez
     }
     ```
 
-### [SpringBoot](#tab/springBoot)
+### [Spring Boot](#tab/springBoot)
 
 1. Install dependencies. Add following dependencies to your `pom.xml` file.
     ```xml
@@ -48,7 +47,7 @@ ms.author: yungez
         <dependency>
           <groupId>com.azure.spring</groupId>
           <artifactId>spring-cloud-azure-dependencies</artifactId>
-          <version>4.10.0</version>
+          <version>5.20.0</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>

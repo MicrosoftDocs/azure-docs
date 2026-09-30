@@ -1,10 +1,11 @@
 ---
-title: Analyze logs and metrics in Azure Spring Apps | Microsoft Docs
+title: Analyze Logs and Metrics in Azure Spring Apps
 description: Learn how to analyze diagnostics data in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
-ms.topic: conceptual
-ms.date: 06/27/2024
+ms.topic: how-to
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java
 ---
@@ -28,7 +29,7 @@ Using the diagnostics functionality of Azure Spring Apps, you can analyze logs a
 Choose the log category and metric category you want to monitor.
 
 > [!TIP]
-> If you just want to stream your logs, you can use the Azure CLI command [az spring app logs](/cli/azure/spring/app#az-spring-app-logs).
+> If you just want to stream your logs, you can use the Azure CLI command `az spring app logs`.
 
 ## Logs
 
@@ -209,7 +210,7 @@ Use this query to find response `Status`, `RequestTime`, and other properties of
 
 ### Show ingress log entries for a specific requestId
 
-To review log entries for a specific `requestId` value *\<request_ID>*, run the following query:
+To review log entries for a specific `requestId` value `<request_ID>`, run the following query:
 
 ```kusto
 AppPlatformIngressLogs
@@ -230,7 +231,7 @@ AppPlatformBuildLogs
 
 ### Show build log entries for a specific app in a specific build stage
 
-To review log entries for a specific app in a specific build stage, run the following query. Replace the *`<app-name>`* placeholder with your application name. Replace the *`<build-stage>`* placeholder with one of the following values, which represent the stages of the build process: `prepare`, `detect`, `restore`, `analyze`, `build`, `export`, or `completion`.
+To review log entries for a specific app in a specific build stage, run the following query. Replace the `<app-name>` placeholder with your application name. Replace the `<build-stage>` placeholder with one of the following values, which represent the stages of the build process: `prepare`, `detect`, `restore`, `analyze`, `build`, `export`, or `completion`.
 
 ```kusto
 AppPlatformBuildLogs

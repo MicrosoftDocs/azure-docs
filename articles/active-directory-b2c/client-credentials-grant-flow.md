@@ -4,12 +4,13 @@ titleSuffix: Azure AD B2C
 description: Learn how to set up the OAuth 2.0 client credentials flow in Azure Active Directory B2C.
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer, I want to set up OAuth 2.0 client credentials flow in Azure Active Directory B2C, so that I can authenticate my app and call web resources without user interaction.
@@ -17,6 +18,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up OAuth 2.0 client credentials flow in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -150,7 +152,7 @@ There are no specific actions to enable the client credentials for user flows or
 | grant_type | `client_credentials` |
 | client_id | The **Client ID** from the [Step 2 Register an application](#step-2-register-an-application). |
 | client_secret | The **Client secret** value from [Step 2.1 Create a client secret](#step-21-create-a-client-secret). |
-| scope | The **Application ID URI** from [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/00001111-aaaa-2222-bbbb-3333cccc4444/.default`.|
+| scope | The **Application ID URI** from [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/.default`.|
 
 The actual POST request looks like the following example:
 

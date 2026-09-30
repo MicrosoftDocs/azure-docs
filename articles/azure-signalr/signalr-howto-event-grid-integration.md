@@ -88,7 +88,7 @@ Once the deployment succeeds (it might take a few minutes), open your browser, a
 
 `http://<your-site-name>.azurewebsites.net`
 
-[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider-cli.md)]
 
 ## Subscribe to registry events
 
@@ -165,7 +165,7 @@ dotnet run
 You've now connected a client to the SignalR Service. Navigate to your Event Grid Viewer web app, and you should see a `ClientConnectionConnected` event. If you terminate the client, you'll also see a `ClientConnectionDisconnected` event.
 
 <!-- LINKS - External -->
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [sample-app]: https://github.com/dbarkol/azure-event-grid-viewer
 
 <!-- LINKS - Internal -->

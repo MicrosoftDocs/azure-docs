@@ -2,8 +2,11 @@
 title: Enable HCX access over the internet
 description: This article describes how to access HCX over a public IP address using Azure VMware solution.
 ms.topic: how-to
-ms.date: 12/12/2023
-ms.custom: engagement-fy23
+ms.date: 05/27/2026
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As an IT administrator, I want to configure HCX access over a public IP address, so that I can facilitate workload migration from on-premises to Azure VMware Solution without relying on ExpressRoute or VPN connectivity."
 ---
 # Enable HCX access over the internet
 
@@ -43,7 +46,7 @@ The static null route is used to allow HCX private IP to route through the NSX T
 1. Under **Name**, enter the name of the route.
 1. Under **Network**, enter a nonoverlapping /32 IP address under Network.  
     >[!NOTE]
-    > This address should not overlap with any other IP addresses on the private cloud network and the customer network. 
+    > This address shouldn't overlap with any other IP addresses on the private cloud network and the customer network. 
  
      :::image type="content" source="media/hcx-over-internet/hcx-sample-static-route.png" alt-text="Diagram showing a sample static route configuration." border="false" lightbox="media/hcx-over-internet/hcx-sample-static-route.png":::    
 1. Under **Next hops**, select **Set**.
@@ -62,7 +65,7 @@ The static null route is used to allow HCX private IP to route through the NSX T
 1. Select **ADD NAT RULE**.
 1. Add one SNAT rule and one DNAT rule for HCX Manager.
     1. The DNAT Rule Destination is the Public IP for HCX Manager. The Translated IP is the HCX Manager IP in the cloud.
-    1. The SNAT Rule Destination is the HCX Manager IP in the cloud.  The Translated IP is the nonoverlapping /32 IP from the Static Route.
+    1. The SNAT Rule Destination is the HCX Manager IP in the cloud. The Translated IP is the nonoverlapping /32 IP from the Static Route.
     1. Make sure to set the Firewall option on DNAT rule to **Match External Address**.
     :::image type="content" source="media/hcx-over-internet/hcx-sample-public-access-route.png" alt-text="Diagram showing a sample NAT rule for public access of HCX Virtual machine." border="false" lightbox="media/hcx-over-internet/hcx-sample-public-access-route.png":::          
 
@@ -70,7 +73,7 @@ The static null route is used to allow HCX private IP to route through the NSX T
      1. Create a Gateway Firewall rule on the T1 that allows your on-premises as the **Source IP** and the Azure VMware Solution reserved Public as the **Destination IP**. This rule should be the highest priority.
      1. Create a Gateway Firewall rule on the Tier-1 that denies all other traffic where the **Source IP** is **Any** and **Destination IP** is the Azure VMware Solution reserved Public IP.
 
-For more information, see [HCX ports](https://ports.esp.vmware.com/home/VMware-HCX)
+For more information, see [HCX ports](https://ports.broadcom.com/home/VMware-HCX)
 
 > [!NOTE]
 > HCX manager can now be accessed over the internet using public IP.  
@@ -100,11 +103,11 @@ Before you create a Public IP segment, get your credentials for NSX-T Manager fr
 1. Select the **Public-IP-Segment** created on NSX-T.
 1. Enter **Name**.
 1. Under IP pools, enter the **IP Ranges** for HCX uplink, **Prefix Length**, and **Gateway** of public IP segment.
-1. Scroll down and select the **HCX Uplink** checkbox under **HCX Traffic Type**, this profile is used for the HCX uplink.
+1. Scroll down and select the **HCX Uplink** checkbox under **HCX Traffic Type**. This profile is used for the HCX uplink.
 1. Select **Create** to create the network profile.  
 
 ## Create service mesh
-Service Mesh deploys HCX WAN Optimizer, HCX Network Extension and HCX-IX appliances.
+Service Mesh deploys HCX WAN Optimizer, HCX Network Extension, and HCX-IX appliances.
 1. Sign in to **Source** site HCX Manager.
 1. Select **Interconnect** and then select the **Service Mesh** tab.
 1. Select **CREATE SERVICE MESH**.
@@ -135,4 +138,4 @@ After the network is extended to destination site, VMs can be migrated over Laye
 ## Next steps
 [Enable Public IP to the NSX Edge for Azure VMware Solution](./enable-public-ip-nsx-edge.md)
 
-For detailed information on HCX network underlay minimum requirements, see [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html).
+For detailed information on HCX network underlay minimum requirements, see [Network Underlay Minimum Requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/network-underlay-minimum-requirements.html).

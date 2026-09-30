@@ -2,12 +2,15 @@
 title: CreateUiDefinition.json file for portal pane
 description: Describes how to create user interface definitions for the Azure portal. Used when defining Azure Managed Applications.
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 05/29/2026
 ---
 
 # CreateUiDefinition.json for Azure managed application's create experience
 
 This document introduces the core concepts of the _createUiDefinition.json_ file. The Azure portal uses this file to define the user interface when creating a managed application.
+
+> [!NOTE]
+> **Looking for Form view?** *Form view* is a newer JSON authoring model used by [template spec portal forms](../templates/template-specs-create-portal-forms.md). It uses the `https://schema.management.azure.com/schemas/2021-09-09/uiFormDefinition.schema.json` schema, with a `view` wrapper instead of `handler`, `version`, and `parameters`. The two formats share many element schemas and expression functions, but their supported element lists, top-level shape, and deployment binding are different. See [Form view overview](../templates/form-view-overview.md).
 
 The template is as follows
 

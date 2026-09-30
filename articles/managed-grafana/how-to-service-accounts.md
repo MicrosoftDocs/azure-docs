@@ -4,9 +4,12 @@ description: In this guide, learn how to enable service accounts and add a servi
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.custom: devx-track-azurecli
-ms.topic: conceptual
-ms.date: 11/05/2024
+ms.topic: concept-article
+ms.date: 05/28/2026
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 #customer intent: As a Grafana administrator, I want to use service accounts in Azure Managed Grafana so that I can automate operations add authenticate applications in Grafana.
 ---
 
@@ -22,14 +25,16 @@ Common use cases include:
 - Setting up an external SAML authentication provider
 - Interacting with Grafana without signing in as a user
 
+For an automation scenario where you want to use Microsoft Entra ID instead of a service account token, see [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).
+
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 
 ## Enable service accounts
 
-If your existing Grafana workspace doesn't have service accounts enabled, enable them by updating the preference settings of your Grafana instance using the Azure portal or the Azure CLI.
+If your existing Grafana workspace doesn't have service accounts enabled, enable them by updating the preference settings of your Grafana workspace using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
@@ -42,7 +47,7 @@ If your existing Grafana workspace doesn't have service accounts enabled, enable
 ### [Azure CLI](#tab/azure-cli)
 
 1. Azure Managed Grafana CLI extension 0.3.0 or above is required. To update your extension, run `az extension update --name amg`.
-1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys and service accounts in an existing Azure Managed Grafana instance. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana instance to update.
+1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys and service accounts in an existing Azure Managed Grafana workspace. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana workspace to update.
 
     ```azurecli-interactive
     az grafana update --name <azure-managed-grafana-name> ---service-account Enabled
@@ -55,7 +60,7 @@ Follow the steps below to create a new Grafana service account and list existing
 
 ### [Grafana UI](#tab/grafana-ui)
 
-1. Go to your Grafana instance endpoint, then select **Users and access** > **Service accounts** from the left menu, and **Add service account**.
+1. Go to your Grafana workspace endpoint, then select **Users and access** > **Service accounts** from the left menu, and **Add service account**.
 
     :::image type="content" source="media/service-accounts/service-accounts.png" alt-text="Screenshot of Grafana. Add service account page.":::
 
@@ -63,7 +68,7 @@ Follow the steps below to create a new Grafana service account and list existing
 
 1. Once the service account is created, Grafana displays information about the new service account, including its creation date, existing tokens and permissions associated with it. You will create a first token in a next step.
 
-1. Optionally select **Service accounts** from the left menu to view a list of all the service accounts in your Grafana instance.
+1. Optionally select **Service accounts** from the left menu to view a list of all the service accounts in your Grafana workspace.
 
 ### [Azure CLI](#tab/cli)
 
@@ -75,7 +80,7 @@ Follow the steps below to create a new Grafana service account and list existing
     az grafana service-account create --name <azure-managed-grafana-name> --service-account <service-account-name> --role <role>
     ```
 
-1. Run the `az grafana service-account list` command to get a list of all service accounts that belong to a given Azure Managed Grafana instance. Replace `<azure-managed-grafana-name>` with the name of your Azure Managed Grafana workspace.
+1. Run the `az grafana service-account list` command to get a list of all service accounts that belong to a given Azure Managed Grafana workspace. Replace `<azure-managed-grafana-name>` with the name of your Azure Managed Grafana workspace.
     
     ```azurecli
     az grafana service-account list --name <azure-managed-grafana-name> --output table
@@ -89,11 +94,11 @@ Follow the steps below to create a new Grafana service account and list existing
     /avatar/abc12345678   False         sa-account1  account1    1        Viewer  0
     ```
 
-   1. Run the `az grafana service-account show` command to get the details of a service account. Replace `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
+1. Run the `az grafana service-account show` command to get the details of a service account. Replace `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
 
-   ```azurecli-interactive
-   az grafana service-account show --name <azure-managed-grafana-name> --service-account <service-account-name>
-   ```
+    ```azurecli-interactive
+    az grafana service-account show --name <azure-managed-grafana-name> --service-account <service-account-name>
+    ```
 ---
 
 ## Add a service account token
@@ -225,3 +230,7 @@ In this how-to guide, you learned how to create and manage service accounts and 
 
 > [!div class="nextstepaction"]
 > [Enable zone redundancy](how-to-enable-zone-redundancy.md)
+
+## Related content
+
+- [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md)

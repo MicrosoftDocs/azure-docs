@@ -13,6 +13,8 @@ ms.reviewer: susabat
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 A pipeline run in Azure Data Factory defines an instance of a pipeline execution. For example, let's say you have a pipeline that runs at 8:00 AM, 9:00 AM, and 10:00 AM. In this case, there are three separate pipeline runs. Each pipeline run has a unique pipeline run ID. A run ID is a globally unique identifier (GUID) that defines that particular pipeline run.
 
 Pipeline runs are typically instantiated by passing arguments to parameters that you define in the pipeline. You can run a pipeline either manually or by using a trigger. See [Pipeline execution and triggers in Azure Data Factory](concepts-pipeline-execution-triggers.md) for details.
@@ -274,6 +276,6 @@ For more troubleshooting help, try these resources:
 
 *  [Azure Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Azure Data Factory feature requests](/answers/topics/azure-data-factory.html)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 *  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [X information about Azure Data Factory](https://x.com/hashtag/DataFactory)

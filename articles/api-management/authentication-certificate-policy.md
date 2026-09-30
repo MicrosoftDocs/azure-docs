@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - authentication-certificate | Microsoft Docs
 description: Reference for the authentication-certificate policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 07/23/2024
-ms.author: danlep
+ms.topic: reference
+ms.date: 08/18/2026
 ---
 
 # Authenticate with client certificate
@@ -39,9 +37,12 @@ ms.author: danlep
 |body|Client certificate as a byte array. Use if the certificate isn't retrieved from the built-in certificate store. Policy expressions are allowed.|No|N/A|
 |password|Password for the client certificate. Policy expressions are allowed.|Use if certificate specified in `body` is password protected.|N/A|
 
+> [!IMPORTANT]
+> Linked access isn't checked when a certificate is referenced by using `certificate-id`. A user who has permission to write a policy can reference any available certificate and use it to authenticate requests to backend services, even if the user doesn't have read access to the certificate resource. This doesn't grant access to retrieve the certificate or its private key.
+
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

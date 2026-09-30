@@ -2,16 +2,18 @@
 title: Fault tolerance of copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to add fault tolerance to copy activity in Azure Data Factory and Synapse Analytics pipelines by skipping the incompatible data.
-author: dearandyxu
+author: kromerm
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2024
-ms.author: yexu
+ms.author: makromer
 ---
 #  Fault tolerance of copy activity in Azure Data Factory and Synapse Analytics pipelines
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 When you copy data from source to destination store, the copy activity provides certain level of fault tolerances to prevent interruption from failures in the middle of data movement. For example, you are copying millions of rows from source to destination store, where a primary key has been created in the destination database, but source database does not have any primary keys defined. When you happen to copy duplicated rows from source to the destination, you will hit the PK violation failure on the destination database. At this moment, copy activity offers you two ways to handle such errors: 
 - You can abort the copy activity once any failure is encountered. 
@@ -35,7 +37,7 @@ To configure fault tolerance in a Copy activity in a pipeline with UI, complete 
    :::image type="content" source="media/copy-activity-fault-tolerance/configure-fault-tolerance.png" alt-text="Shows the UI for a Copy Data activity on the Settings tab with the Fault Tolerance configuration highlighted.":::
 
 ### Configuration 
-When you copy binary files between storage stores, you can enable fault tolerance as followings: 
+When you copy binary files between storage stores, you can enable fault tolerance as following: 
 
 ```json
 {
@@ -91,7 +93,7 @@ linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-b
 path | The path of the log files. | Specify the path that you use to store the log files. If you do not provide a path, the service creates a container for you. | No
 
 > [!NOTE]
-> The followings are the prerequisites of enabling fault tolerance in copy activity when copying binary files.
+> The following are the prerequisites of enabling fault tolerance in copy activity when copying binary files.
 > For skipping particular files when they are being deleted from source store:
 > - The source dataset and sink dataset have to be binary format, and the compression type cannot be specified. 
 > - The supported data store types are Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, File System, FTP, SFTP, Amazon S3, Google Cloud Storage and HDFS.

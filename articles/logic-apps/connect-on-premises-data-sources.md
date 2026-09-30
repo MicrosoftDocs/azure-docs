@@ -1,21 +1,31 @@
 ---
-title: Connect to on-premises data sources
-description: Access data sources on premises from Azure Logic Apps by creating a data gateway resource in the Azure portal.
+title: Connect to On-Premises Data Sources
+description: Access on-premises data sources from workflows in Azure Logic Apps by creating an on-premises data gateway resource in the Azure portal.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: mideboer, azla
+ms.reviewers: estfan, mideboer, azla
 ms.topic: how-to
-ms.date: 12/01/2023
-#Customer intent: As a logic apps developer, I want to create a data gateway resource in the Azure portal so that my logic app workflow can connect to on-premises data sources.
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
+ms.custom: sfi-image-nochange
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want my workflow to use connectors that access on-premises data sources by creating a data gateway resource in the Azure portal.
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Sometimes your workflow must connect to an on-premises data source and can use only connectors that provide this access through an on-premises data gateway. To set up this on-premises data gateway, you have to complete the following tasks: install the local on-premises data gateway and create an on-premises data gateway resource in Azure for the local data gateway. When you add a trigger or action to your workflow from a connector that requires the data gateway, you can select the data gateway resource to use with your connection.
+Sometimes your workflow must connect to an on-premises data source and can use only connectors that provide this access through an on-premises data gateway. To set up this on-premises data gateway, complete the following tasks:
 
-In Consumption logic app workflows, you can connect to on-premises data sources using only [connectors that provide access through the on-premises data gateway](../connectors/managed.md#on-premises-connectors). In Standard logic app workflows, you can directly access on-premises resources in Azure virtual networks or use [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/) that don't need the data gateway to access your on-premises data source. Instead, you provide information that authenticates your identity and authorizes access to your data source. However, if a built-in service provider connector isn't available for your data source, but a managed connector is available, you need to use the on-premises data gateway.
+- Install the on-premises data gateway on a local computer.
+
+- Create an on-premises data gateway resource in Azure for the local data gateway.
+
+When you add a trigger or action to your workflow from a connector that requires the data gateway, you can select the data gateway resource to use with your connection.
+
+- In Consumption logic app workflows, you can connect to on-premises data sources only by using [connectors that provide access through the on-premises data gateway](../connectors/managed.md#on-premises-connectors).
+
+- In Standard logic app workflows, you can directly access on-premises data sources and resources in Azure virtual networks by using [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/), which don't require the on-premises data gateway. Instead, you provide information that authenticates your identity and authorizes access to your data source. If a built-in service provider connector isn't available for your data source, but a managed connector is available, you have to use the on-premises data gateway.
 
 This guide shows how to create the Azure data gateway resource after you [install the on-premises gateway on your local computer](logic-apps-gateway-install.md).
 
@@ -66,7 +76,7 @@ Azure Logic Apps supports read and write operations through the data gateway, bu
 
   * When you create a data gateway resource in Azure, you select a data gateway installation to link with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation. You can't select a gateway installation that's already associated with another gateway resource.
 
-  * Your logic app resource and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you use the gateway resource, you can select a different Azure subscription that has a gateway resource, but only if that subscription exists in the same Microsoft Entra tenant or directory as your logic app resource. You also have to have administrator permissions on the gateway, which another administrator can set up for you. For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  * Your logic app resource and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you use the gateway resource, you can select a different Azure subscription that has a gateway resource, but only if that subscription exists in the same Microsoft Entra tenant or directory as your logic app resource. You also have to have administrator permissions on the gateway, which another administrator can set up for you. For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.fabric.microsoft.com/t5/Power-BI-Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
 
     > [!NOTE]
     > Currently, you can't share a data gateway resource or installation across multiple subscriptions. 
@@ -130,7 +140,7 @@ After you create your gateway resource and associate your Azure subscription wit
       * These subscriptions exist in the same Microsoft Entra tenant or directory as your logic app resource.
       * You have administrator permissions on the gateway, which another administrator can set up for you.
      
-      For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+      For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.fabric.microsoft.com/t5/Power-BI-Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
   
    1. From the **Connection Gateway** list, select the gateway resource that you want to use. This list shows the available gateway resources in your selected subscription. Each gateway resource is linked to a single gateway installation.
 
@@ -145,7 +155,7 @@ After you create your gateway resource and associate your Azure subscription wit
 
       The following example for a Consumption workflow shows sample information for a SQL Server connection:
  
-      :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-gateway-connection.png" alt-text="Screenshot of a SQL Server connector. The 'Subscription,' 'Connection Gateway,' 'Connection name,' and other boxes have values.":::
+      :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-gateway-connection.png" alt-text="Screenshot shows SQL Server managed connector with values in the Connection Name, Authentication Type, and other parameter boxes.":::
 
 1. When you're done, select **Create**.
 
@@ -153,15 +163,20 @@ Your gateway connection is now ready for your logic app workflow to use.
 
 ## Edit connection
 
-To update the settings for a gateway connection, you can edit your connection. This section continues using a Consumption workflow as the example.
- 
-1. To find all the API connections for your logic app resource, on your logic app's menu, under **Development Tools**, select **API connections**.
- 
-   :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-api-connections.png" alt-text="Screenshot of a logic app resource in the Azure portal. On the logic app navigation menu, 'API connections' is highlighted.":::
+To update the settings for a connection that uses the on-premises data gateway, you can edit your connection.
 
-1. Select the gateway connection that you want to edit, and then select **Edit API connection**.
+### [Consumption](#tab/consumption)
+
+1. To find all the API connections for your Consumption logic app resource, on your logic app menu, under **Development Tools**, select **API connections**.
+ 
+   :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-api-connections.png" alt-text="Screenshot shows Azure portal, Consumption logic app resource, and resource menu. On resource menu, under Development Tools, API connections is selected.":::
+
+1. Select the connection that you want to edit. On the connection pane, go to the connection menu, under **General**, select **Edit API connection**.
+
+1. Make the changes that you want.
 
    > [!TIP]
+   >
    > If your updates don't take effect, try 
    > [stopping and restarting the gateway Windows service account](logic-apps-gateway-install.md#restart-gateway) 
    > for your gateway installation.
@@ -170,6 +185,18 @@ To find all API connections associated with your Azure subscription, use one of 
 
 * In the Azure portal search box, enter **api connections**, and select **API Connections**.
 * From the Azure portal menu, select **All resources**. Set the **Type** filter to **API Connection**.
+
+### [Standard](#tab/standard)
+
+1. To find all the API connections for your Standard logic app resource, on your logic app menu, under **Workflows**, select **Connections**.
+
+1. On the **Connections** page, select **API Connections**.
+
+1. On the **API Connections** tab, select the connection that you want to edit.
+
+1. On the connection page, go to the connection menu, under **General**, select **Edit API connection**.
+
+---
 
 <a name="change-delete-gateway-resource"></a>
 

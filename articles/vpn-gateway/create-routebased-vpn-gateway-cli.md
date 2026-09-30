@@ -2,12 +2,15 @@
 title: Create a virtual network gateway - CLI
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a virtual network gateway for VPN Gateway connections using CLI.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/18/2024
-ms.author: cherylmc
+ms.author: duau
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: "As a network engineer, I want to create a VPN gateway using CLI, so that I can establish secure connections to on-premises networks and between virtual networks efficiently."
 ---
 
 # Create a VPN gateway using CLI
@@ -30,7 +33,7 @@ The steps in this article create a virtual network, a subnet, a gateway subnet, 
 
 ## Before you begin
 
-These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -79,7 +82,7 @@ az network vnet subnet create \
 
 ## <a name="PublicIP"></a>Request public IP addresses
 
-A VPN gateway must have a public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. For active-active mode gateways, each gateway instance has its own public IP address resource. You first request the IP address resource, and then refer to it when creating your virtual network gateway. Additionally, for any gateway SKU ending in *AZ*, you must also specify the Zone setting. This example specifies a zone-redundant configuration because it specifies all three regional zones.
+A VPN gateway must have a public IP address. When you create a connection to a VPN gateway, specify this IP address. For active-active mode gateways, each gateway instance has its own public IP address resource. First, request the IP address resource, and then refer to it when creating your virtual network gateway. For any gateway SKU ending in *AZ*, the zones of the public IP address determine where the gateway instances are deployed. This example specifies all three regional zones, which creates a zone-redundant public IP address. A Standard SKU public IP address created without any zone is equivalently zone-redundant in regions that support availability zones. To deploy the gateway instances into a single zone instead, specify one zone. For more information, see [Public IP addresses](../virtual-network/ip-services/public-ip-addresses.md#availability-zone) and [Create a zone-redundant virtual network gateway](create-zone-redundant-vnet-gateway.md).
 
 The IP address is assigned to the resource when the VPN gateway is created. The only time the public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 

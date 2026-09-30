@@ -1,10 +1,11 @@
 ---
-title: How to prepare an application for deployment in Azure Spring Apps
+title: How to Prepare an Application for Deployment in Azure Spring Apps
 description: Learn how to prepare an application for deployment to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 zone_pivot_groups: programming-languages-spring-apps
@@ -93,7 +94,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 In the configuration source that's used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project is deployed.
 
-For example, if you deploy a .NET project named `EurekaDataProvider` to an Azure Spring Apps app named `planet-weather-provider` the *appSettings.json* file should include the following JSON:
+For example, if you deploy a .NET project named `EurekaDataProvider` to an Azure Spring Apps app named `planet-weather-provider` the **appSettings.json** file should include the following JSON:
 
 ```json
 "spring": {
@@ -183,7 +184,7 @@ To enable the built-in features of Azure Spring Apps from service registry to di
 
 ### Service Registry
 
-To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the *pom.xml* file as shown here:
+To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the **pom.xml** file as shown here:
 
 ```xml
 <dependency>
@@ -227,7 +228,7 @@ public class GatewayApplication {
 
 #### [Basic/Standard plan](#tab/basic-standard-plan)
 
-To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
+To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your **pom.xml** file:
 
 ```xml
 <dependency>
@@ -245,7 +246,7 @@ To enable distributed configuration, include the following `spring-cloud-config-
 
 #### [Enterprise plan](#tab/enterprise-plan)
 
-To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.3/acs/GUID-overview.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-application-platform/1-12/tap/application-configuration-service-about.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
 In the Enterprise plan, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](../enterprise/how-to-enterprise-application-configuration-service.md)
 
@@ -271,7 +272,7 @@ To use Application Configuration Service for Tanzu, do the following steps for e
 
 ### Metrics
 
-Include the `spring-boot-starter-actuator` dependency in the dependencies section of your *pom.xml* file as shown here:
+Include the `spring-boot-starter-actuator` dependency in the dependencies section of your **pom.xml** file as shown here:
 
 ```xml
 <dependency>

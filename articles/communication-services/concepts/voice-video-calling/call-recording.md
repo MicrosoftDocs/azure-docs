@@ -5,16 +5,21 @@ description: Provides an overview of the Call Recording feature and APIs.
 author: dbasantes
 manager: seaen
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # Call Recording overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause, and resume recording. Whether it's a PSTN, WebRTC, or SIP call, these APIs can be accessed from your server-side business logic. Also, recordings can be triggered by a user action that tells the server application to start recording. 
+
+> [!IMPORTANT]
+> Following the Azure Communication Services telephony retirement announcement, Microsoft will update the Microsoft Product Terms. After this update, Azure Communication Services Call Automation, Call Recording, and Audio Streaming support only Microsoft Teams interoperability scenarios: Teams Meeting interop, Teams click-to-call, and Teams Phone extensibility (TPE). For more information, see the retirement announcement: https://aka.ms/acs-retirement
 
 Depending on your business needs, you can use Call Recording for different Azure Communication Services calling implementations.
 
@@ -51,18 +56,23 @@ Call Recording supports multiple media outputs and content types to address your
 
 
 ## Get full control over your recordings with our Call Recording APIs
-You can use Call Recording APIs to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId`, check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+You can use Call Recording APIs to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. To initiate a recording, Call Recording APIs can use the `callConnectionId` (preferred) or the `serverCallId` when the callConnectionId is not available. To learn how to get the `callConnectionId` or `serverCallId`, check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
 A `recordingId` is returned when recording is started, which can then be used for follow-on operations like pause and resume.  
 
 
 | Operation                            | Operates On            | Comments                       |
 | :-------------------- | :--------------------- | :----------------------------- |
-| Start Recording       | `serverCallId`         | Returns `recordingId` | 
+| Start Recording       | `callConnectionId` or `serverCallId`         | Returns `recordingId` | 
 | Get Recording State   | `recordingId` | Returns `RecordingStateResult`       | 
 | Pause Recording       | `recordingId` | Pausing and resuming call recording enables you to skip recording a portion of a call or meeting, and resume recording to a single file. | 
 | Resume Recording      | `recordingId` | Resumes a Paused recording operation. Content is included in the same file as content from prior to pausing. | 
 | Stop Recording        | `recordingId` | Stops recording, and initiates final media processing for file download. | 
 
+> [!NOTE]
+> **Storing `recordingId` and `serverCallId`**
+>
+> `recordingId` and `serverCallId` are opaque, Base64-encoded strings of **variable length**. Their length is not fixed and may change in future service releases. When persisting these values, use an unbounded variable-length column type  rather than a fixed-width column. Treat both values as opaque tokens.
+>
 
 ## Event Grid notifications
 
@@ -148,6 +158,9 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 Many countries/regions and states have laws and regulations that apply to call recording. PSTN, voice, and video calls often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
 
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the `participantId` for each call participant in the `participants` array. You can cross-reference the Azure Communication Services User Identity in the `participants` array with your internal user identities to identify participants in a call. 
+
+## Known Issues ##
+In rare High Availability or Disaster Recovery (HADR) scenarios, a single call recording session may produce multiple recording files that share the same `recordingId` and `chunkId`. In these cases, `StopCallRecording` may return `404 Recording not found` even though recording files are successfully delivered via `RecordingFileStatusUpdated` events. Applications should correlate recordings using `serverCallId` and not assume a one‑to‑one relationship between calls, recording IDs, chunk IDs, and output files.
 
 ## Next steps
 

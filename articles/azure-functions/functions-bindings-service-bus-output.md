@@ -3,11 +3,17 @@ title: Azure Service Bus output bindings for Azure Functions
 description: Learn to send Azure Service Bus messages from Azure Functions.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 01/15/2024
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Azure Service Bus output binding for Azure Functions
@@ -24,6 +30,10 @@ For information on setup and configuration details, see the [overview](functions
 ::: zone-end
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -269,9 +279,10 @@ Push-OutputBinding -Name outputSbMsg -Value @{
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to write out to a Service Bus queue in Python. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+The following example demonstrates how to write out to a Service Bus topics and Service Bus queues in Python. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
+This example shows how to write out to a Service Bus topic.
 
 ```python
 import logging
@@ -281,17 +292,76 @@ app = func.FunctionApp()
 
 @app.route(route="put_message")
 @app.service_bus_topic_output(arg_name="message",
-                              connection="<CONNECTION_SETTING>",
-                              topic_name="<TOPIC_NAME>")
+                              connection="AzureServiceBusConnectionString",
+                              topic_name="outTopic")
 def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
     message.set(input_msg)
     return 'OK'
 ```
 
-# [v1](#tab/python-v1)
+This example shows how to write out to a Service Bus queue.
 
-A Service Bus binding definition is defined in *function.json* where *type* is set to `serviceBus`.
+```python
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.route(route="put_message")
+@app.service_bus_queue_output(
+    arg_name="msg",
+    connection="AzureServiceBusConnectionString",
+    queue_name="outqueue")
+def put_message(req: func.HttpRequest, msg: func.Out[str]):
+    msg.set(req.get_body().decode('utf-8'))
+    return 'OK'
+```
+
+# [v1](#tab/python-v1)
+A Service Bus binding definition is defined in *function.json* where *type* is set to `serviceBus`. This example shows how to write out to a Service Bus topic.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "msg",
+      "topicName": "outTopic"
+    }
+  ]
+}
+```
+
+In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
+
+```python
+import azure.functions as func
+
+def main(req: azf.HttpRequest, msg: azf.Out[str]):
+    msg.set(req.get_body().decode('utf-8'))
+
+    return 'OK'
+```
+
+This example shows how to write out to a Service Bus queue.
 
 ```json
 {
@@ -322,8 +392,6 @@ A Service Bus binding definition is defined in *function.json* where *type* is s
   ]
 }
 ```
-
-In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
 
 ```python
 import azure.functions as func
@@ -368,7 +436,6 @@ The following table explains the properties you can set using the attribute:
 |**QueueName**|Name of the queue. Set only if sending queue messages, not for a topic. |
 |**TopicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
 |**Connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that doesn't have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 Here's an example that shows the attribute applied to the return value of the function:
 
@@ -481,7 +548,6 @@ The following table explains the binding configuration properties that you set i
 |**queueName**|Name of the queue. Set only if sending queue messages, not for a topic.|
 |**topicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
 |**connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights** (v1 only)|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that doesn't have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -501,7 +567,7 @@ All C# modalities and extension versions support the following output parameter 
 | **byte[]** | Use for writing binary data messages. When the parameter value is null when the function exits, Functions doesn't create a message. |
 | **Object** | When a message contains JSON, Functions serializes the object into a JSON message payload. When the parameter value is null when the function exits, Functions creates a message with a null object.|
 
-Messaging-specific parameter types contain extra message metadata and aren't compatible with JSON serialization. As a result, it isn't possible to use `ServiceBusMessage` with the output binding in the isolated model. The specific types supported by the output binding depend on the Functions runtime version, the extension package version, and the C# modality used.
+Messaging-specific parameter types contain extra message metadata and aren't compatible with JSON serialization. As a result, it isn't possible to use `ServiceBusMessage` with the output binding in the isolated model. The specific types supported by the output binding depend on the extension package version and the C# modality used.
 
 # [Extension v5.x](#tab/extensionv5/in-process)
 
@@ -511,7 +577,7 @@ When the parameter value is null when the function exits, Functions doesn't crea
 
 [!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Earlier extension versions](#tab/functionsv2/in-process)
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
 
@@ -521,28 +587,18 @@ When the parameter value is null when the function exits, Functions doesn't crea
 
 [!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) type when sending messages with metadata. Parameters are defined as `return` type attributes. When the parameter value is null when the function exits, Functions doesn't create a message.
-
-[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
-
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
 [!INCLUDE [functions-bindings-service-bus-output-dotnet-isolated-types](../../includes/functions-bindings-service-bus-output-dotnet-isolated-types.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Earlier extension versions](#tab/functionsv2/isolated-process)
 
 Earlier versions of this extension in the isolated worker process only support binding to messaging-specific types. More options are available to **Extension 5.x and higher**
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 ::: zone-end  
 
-In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Azure Functions version 2.x and higher, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function fails. 
+The queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function fails.
 
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
@@ -564,8 +620,9 @@ Access the output message by using `context.bindings.<name>` where `<name>` is t
 ::: zone pivot="programming-language-powershell"  
 Output to the Service Bus is available via the `Push-OutputBinding` cmdlet where you pass arguments that match the name designated by binding's name parameter in the *function.json* file.
 ::: zone-end   
-::: zone pivot="programming-language-python"  
-Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
+::: zone pivot="programming-language-python" 
+The output function parameter must be defined as `func.Out[str]` or `func.Out[bytes]`. Refer to the [output example](#example) for details. 
+Alternatively, you can use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
 ::: zone-end  
 For a complete example, see [the examples section](#example).
 

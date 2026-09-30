@@ -1,12 +1,12 @@
 ---
 title: Monitor Azure Data Factory
 description: Start here to learn how to monitor Azure Data Factory.
-ms.date: 10/03/2024
+ms.date: 08/06/2026
 ms.subservice: monitoring
 ms.custom: horz-monitor
-ms.topic: conceptual
-author: jonburchel
-ms.author: jburchel
+ms.topic: concept-article
+author: whhender
+ms.author: whhender
 ---
 
 # Monitor Azure Data Factory
@@ -19,7 +19,7 @@ There are several ways to monitor Azure Data Factory.
 
 ### Azure Data Factory Studio
 
-You can monitor all of your Data Factory pipeline runs natively in Azure Data Factory Studio. To open the monitoring experience, select **Launch Studio** from your Data Factory page in the Azure portal, and in Azure Data Factory Studio, select **Monitor** from the left menu. 
+You can monitor all of your Data Factory pipeline runs natively in Azure Data Factory Studio. To open the monitoring experience, select **Launch Studio** from your Data Factory page in the Azure portal, and in Azure Data Factory Studio, select **Monitor** from the left menu.
 
 For more information about monitoring in Azure Data Factory Studio, see the following articles:
 
@@ -70,7 +70,6 @@ Integration runtime is the compute infrastructure Data Factory uses to provide d
 - Azure integration runtime
 - Self-hosted integration runtime
 - Azure-SQL Server Integration Services (SSIS) integration runtime
-- Apache Airflow integration runtime
 
 Azure Monitor collects metrics and diagnostics logs for all types of integration runtimes. For detailed instructions on monitoring integration runtimes, see the following articles:
 
@@ -79,7 +78,6 @@ Azure Monitor collects metrics and diagnostics logs for all types of integration
 - [Monitor self-hosted integration runtime in Azure](monitor-shir-in-azure.md)
 - [Configure self-hosted integration runtime for log analytics collection](how-to-configure-shir-for-log-analytics-collection.md)
 - [Monitor SSIS operations with Azure Monitor](monitor-ssis.md)
-- [Diagnostics logs and metrics for Apache Airflow](diagnostic-logs-and-metrics-for-workflow-orchestration-manager.md)
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
@@ -140,7 +138,6 @@ The following table lists popular alert rules for Data Factory. This is just a r
 Notifications provide proactive alerting during or after execution of a pipeline.
 
 - [Send an email with an Azure Data Factory pipeline](how-to-send-email.md) shows how to configure email notifications from pipeline alerts.
-- [Send notifications to a Microsoft Teams channel from an Azure Data Factory pipeline](how-to-send-notifications-to-teams.md) shows how to configure notifications from pipeline alerts into Microsoft Teams. 
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Turn on picture-in-picture in an application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 While a user is on a call, a full-screen UI can prevent the user from multitasking in an app. There are two ways to enable the user to multitask in the app:
 
 - Enable the user to select the **Back** button and return to the previous screen. No calling UI is visible while the user is still on the call.
@@ -25,7 +27,7 @@ This article shows you how to turn on picture-in-picture in the Azure Communicat
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
 - Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).

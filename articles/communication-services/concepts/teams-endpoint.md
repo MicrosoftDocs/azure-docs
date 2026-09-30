@@ -8,11 +8,13 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 # Communication as a Microsoft 365 user
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 You can use Azure Communication Services and Graph API to integrate communication as Microsoft 365 users into your products. Microsoft 365 users can communicate with other people in and outside their organization. The benefits for enterprises are:
 - No requirement to download Teams desktop, mobile or web clients for Teams users

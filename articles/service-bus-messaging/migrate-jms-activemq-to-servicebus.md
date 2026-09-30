@@ -2,13 +2,14 @@
 title: Migrate Java Message Service (JMS) applications from Apache ActiveMQ to Azure Service Bus | Microsoft Docs
 description: This article explains how to migrate existing JMS applications that interact with Apache ActiveMQ to interact with Azure Service Bus.
 author: spelluru
-manager: timlt
-editor: spelluru
+ms.author: spelluru
 ms.devlang: java
 ms.topic: article
 ms.date: 09/27/2021
-ms.author: spelluru
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
 # Migrate existing Java Message Service (JMS) 2.0 applications from Apache ActiveMQ to Azure Service Bus

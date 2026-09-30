@@ -2,13 +2,13 @@
 title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Stack Edge Mini R device | Microsoft Docs
 description: The first tutorial about deploying Azure Stack Edge Mini R device involves preparing the Azure portal.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/23/2022
-ms.author: alkohli
+ms.author: sipastak
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
 ---
 

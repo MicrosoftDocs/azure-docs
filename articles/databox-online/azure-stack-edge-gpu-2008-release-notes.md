@@ -2,12 +2,12 @@
 title: Azure Stack Edge Preview release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Stack Edge running preview availability release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/05/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge Pro with GPU Preview release notes
@@ -43,7 +43,7 @@ The following table provides a summary of known issues for the Azure Stack Edge 
 |**5.**|Tiered storage accounts|The following apply when using tiered storage accounts:<ul><li> Only block blobs are supported. Page blobs are not supported.</li><li>There is no snapshot or copy API support.</li><li> Hadoop workload ingestion through `distcp` is not supported as it uses the copy operation heavily.</li></ul>||
 |**6.**|NFS share connection|If multiple processes are copying to the same share, and the `nolock` attribute is not used, you may see errors during the copy.​|The `nolock` attribute must be passed to the mount command to copy files to the NFS share. For example: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**7.**|Kubernetes cluster|When applying an update on your device that is running a kubernetes cluster, the kubernetes virtual machines will restart and reboot. In this instance, only pods that are deployed with replicas specified are automatically restored after an update.  |If you have created individual pods outside of a replication controller without specifying a replica set, then these pods will not be automatically restored after the device update. You will need to restore these pods.<br>A replica set replaces pods that are deleted or terminated for any reason, such as node failure or disruptive node upgrade. For this reason, we recommend that you use a replica set even if your application requires only a single pod.|
-|**8.**|Kubernetes cluster|Kubernetes on Azure Stack Edge Pro is supported only with Helm v3 or later. For more information, go to [Frequently asked questions: Removal of Tiller](https://v3.helm.sh/docs/faq/).|
+|**8.**|Kubernetes cluster|Kubernetes on Azure Stack Edge Pro is supported only with Helm v3 or later. For more information, go to [Frequently asked questions: Removal of Tiller](https://helm.sh/docs/v3/faq/).|
 |**9.**|Azure Arc + Azure Stack Edge Pro|Azure Arc deployments are not supported if web proxy is configured on your Azure Stack Edge Pro device.||
 |**10.**|Kubernetes |Port 31000 is reserved for Kubernetes Dashboard. Similarly, in the default configuration, the IP addresses 172.28.0.1 and 172.28.0.10, are reserved for Kubernetes service and Core DNS service respectively.|Do not use reserved IPs.|
 |**11.**|Kubernetes |Kubernetes does not currently allow multi-protocol LoadBalancer services. For example, a DNS service that would have to listen on both TCP and UDP. |To work around this limitation of Kubernetes with MetalLB, two services (one for TCP, one for UDP) can be created on the same pod selector. These services use the same sharing key and spec.loadBalancerIP to share the same IP address. IPs can also be shared if you have more services than available IP addresses. <br> For more information, see [IP address sharing](https://metallb.universe.tf/usage/#ip-address-sharing).|

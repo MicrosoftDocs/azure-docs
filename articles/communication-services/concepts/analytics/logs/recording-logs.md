@@ -7,12 +7,14 @@ services: azure-communication-services
 
 ms.author: mkhribech
 ms.date: 10/27/2021
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: data
 ---
 
 # Azure Communication Services Call Recording logs
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 

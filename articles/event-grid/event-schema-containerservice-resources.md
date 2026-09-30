@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Notifications - ContainerService events in Azure Event Grid
 description: This article provides information on Azure Event Grid events supported by Azure Resource Notifications ContainerService events. It provides the schema and links to how-to articles. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/14/2024
 ---
 

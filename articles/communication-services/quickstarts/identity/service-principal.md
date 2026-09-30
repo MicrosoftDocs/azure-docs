@@ -16,13 +16,15 @@ ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-pytho
 
 # Quickstart: Authenticate using Microsoft Entra ID
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services by using Microsoft Entra ID. The Communication Services Identity and SMS SDKs support Microsoft Entra authentication.
 
 This quickstart shows you how to authorize access to the Identity and SMS SDKs from an Azure environment that supports Active Directory. It also describes how to test your code in a development environment by creating a service principal for your work.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An active Azure Communication Services resource, see [create a Communication Services resource](../create-communication-resource.md) if you do not have one.
 - To send an SMS you will need a [Phone Number](../telephony/get-phone-number.md).
 - A setup Service Principal for a development environment, see [Authorize access with service principal](./service-principal.md?pivots=platform-azcli)

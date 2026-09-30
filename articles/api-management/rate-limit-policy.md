@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - rate-limit | Microsoft Docs
 description: Reference for the rate-limit policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 07/23/2024
-ms.author: danlep
+ms.topic: reference
+ms.date: 08/18/2026
 ---
 
 # Limit call rate by subscription
@@ -57,7 +55,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | operation  | Add one or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No       |
 
 
-### api attributes
+### Api attributes
 
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -67,7 +65,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds. Policy expressions aren't allowed.                                           | Yes      | N/A     |
 
 
-### operation attributes
+### Operation attributes
 
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -76,9 +74,12 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. Policy expressions aren't allowed.| Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds. Policy expressions aren't allowed.                                           | Yes      | N/A     |
 
+> [!IMPORTANT]
+> Linked access isn't checked when an API or operation is referenced by using the `name` or `id` attribute. A user who has permission to write a policy can reference any available API or operation and cause API Management to count and throttle subscription traffic for it according to the configured rate limit, even if the user doesn't have read access to that resource. This doesn't grant access to view or modify the API or operation definition.
+
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
@@ -86,7 +87,10 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 * This policy can be used only once per policy definition.
 * This policy is only applied when an API is accessed using a subscription key.
+* [!INCLUDE [api-management-rate-limit-implementation-v2](../../includes/api-management-rate-limit-implementation-v2.md)]
 * [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+* [!INCLUDE [api-management-rate-limit-gateway-calls](../../includes/api-management-rate-limit-gateway-calls.md)]
+
 
 
 ## Example

@@ -1,6 +1,6 @@
 ---
-ms.author: cherylmc
-author: cherylmc
+ms.author: duau
+author: duongau
 ms.date: 12/02/2024
 ms.service: azure-vpn-gateway
 ms.topic: include
@@ -13,9 +13,9 @@ To view a list of the local network gateways, use the [az network local-gateway 
 az network local-gateway list --resource-group TestRG1
 ```
 
-[!INCLUDE [modify-prefix](vpn-gateway-modify-ip-prefix-cli-include.md)]
+[!INCLUDE [modify-prefix](../articles/networking/includes/vpn-gateway/modify-ip-prefix-cli.md)]
 
-[!INCLUDE [modify-gateway-IP](vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
+[!INCLUDE [modify-gateway-IP](../articles/networking/includes/vpn-gateway/modify-lng-gateway-ip-cli.md)]
 
 ### To verify the shared key values
 

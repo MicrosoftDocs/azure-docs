@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 09/14/2022
- ms.author: cherylmc
+ ms.author: duau
 ---
 In the Azure portal, you can view the connection status of a VPN gateway by going to the connection. The following steps show one way to go to your connection and verify.
 

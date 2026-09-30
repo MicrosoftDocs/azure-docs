@@ -2,18 +2,22 @@
 title: 'Configure an Always-On VPN tunnel'
 titleSuffix: Azure VPN Gateway
 description: Learn how to use gateways with Windows 10 or later Always On to establish and configure persistent device tunnels to Azure.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 12/13/2024
-ms.author: cherylmc
+ms.date: 03/31/2025
+ms.author: duau
 
+# Customer intent: As a network administrator, I want to configure an Always On VPN device tunnel to Azure, so that I can ensure a persistent and secure connection for my organization's remote devices.
 ---
 # Configure an Always On VPN device tunnel
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
 This article helps you configure an Always On VPN device tunnel. For information about configuring a user tunnel, see [Configure an Always On VPN user tunnel](vpn-gateway-howto-always-on-user-tunnel.md).
+
+> [!NOTE]
+>Microsoft recommends using Windows 11 with Point-to-Site VPN connections. Windows 10 reached end of support in October 2025. For more information, see [Supported Windows versions for Azure VPN Client](azure-vpn-client-versions.md#supported-windows-versions).
 
 ## Configure the gateway
 

@@ -4,6 +4,8 @@
   items:
   - name: Azure Lab Services retirement guide
     href: retirement-guide.md
+  - name: Deletion policy for virtual machines
+    href: vm-deletion-policy.md
   - name: Find and delete lab resources
     href: find-delete-lab-resources.md
   - name: What is Azure Lab Services?
@@ -274,8 +276,6 @@
     href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources
   items:
-  - name: Transition to Azure DevTest Labs
-    href: transition-devtest-labs-guidance.md
   - name: Azure Lab Services Blog
     href: https://aka.ms/azlabs-blog
   - name: Azure updates

@@ -8,20 +8,35 @@ services: azure-communication-services
 
 ms.author: krkutser
 ms.date: 03/30/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
 # Phone number management for Finland
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Finland.
+
+> [!IMPORTANT]
+> Finland requires a signed Letter of Authorization (LOA) for Sender IDs, including Sender IDs that were previously registered by customers.
+>
+> To submit the required LOA:
+>
+> - Download the [Letter of Authorization (LOA)](https://raw.githubusercontent.com/Azure/Communication/refs/pull/601/head/Forms/LOA-FI-SMS-SENDER-ID-EN.docx).
+> - Complete and sign the Finland LOA for the affected Sender ID or IDs.
+> - Email the completed form to [acstns@microsoft.com](mailto:acstns@microsoft.com).
+>
+> If Azure Communication Services doesn't receive the required LOA, messages sent with the affected Sender ID or IDs might be blocked by downstream providers. Customers who already submitted a signed LOA for every affected Sender ID don't need to take further action.
 
 ## Number types and capabilities availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   | -                    | -                    | -                    | General Availability\*       |
-|Alphanumeric Sender ID\**|General Availability      |-|-|-|
+| Mobile                    | General Availability\**       | General Availability\**       | -                    | -                      |
+| Alphanumeric Sender ID\**|General Availability      |-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -36,10 +51,10 @@ More details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
+| Toll-Free, Local (Geographic/National), Mobile | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
 | Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go|           
 
-\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
+\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Create a ticket to https://pstnsd.powerappsportals.com/ for assistance.
 
 
 ## Azure subscription billing locations where Finland phone numbers are available
@@ -56,6 +71,21 @@ More details on eligible subscription types are as follows:
 |United States|
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
+
+## Azure subscription billing locations where Finland mobile numbers are available
+| Country/Region |
+| :---------- |
+| Australia       |
+| Belgium         |
+| Denmark         |
+| Finland         |
+| Ireland         |
+| Latvia          |
+| Netherlands     |
+| Poland          |
+| Sweden          |
+| United Kingdom  |
+| United States  |
 
 ## Find information about other countries/regions
 

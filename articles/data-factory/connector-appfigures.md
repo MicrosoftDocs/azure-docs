@@ -2,17 +2,21 @@
 title: Transform data in AppFigures (Preview)
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data in AppFigures (Preview) by using Data Factory or Azure Synapse Analytics.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
+ms.topic: how-to
 ms.date: 05/15/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 #  Transform data in AppFigures (Preview) using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use Data Flow to transform data in AppFigures (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 

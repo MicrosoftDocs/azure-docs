@@ -5,14 +5,16 @@ description: Learn about Communication Services Chat concepts.
 author: kperla97
 manager: darmour
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 11/07/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
 # Chat concepts
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 Azure Communication Services Chat can help you add real-time text communication to your cross-platform applications. This page summarizes key Chat concepts and capabilities. See the [Communication Services Chat Software Development Kit (SDK) Overview](./sdk-features.md) for lists of SDKs, languages, platforms, and detailed feature support.
 
@@ -41,9 +43,10 @@ Azure Communication Services supports three levels of user access control, using
 
 Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
 
-[!INCLUDE [chat-retention-policy.md](../../includes/chat-retention-policy.md)]
-
-You can choose between indefinite thread retention, automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
+You can choose between:
+- Indefinite thread retention.
+- Automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread).
+- Immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
 
 Any thread created before the new retention policy isn't affected unless you specifically change the policy for that thread. If you submit a support request for a deleted chat thread more than 30 days after the retention policy deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, [open a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) as quickly as possible within the 30 day window after you create a thread so we can assist you.
 
@@ -74,14 +77,14 @@ There are two core parts to chat architecture: 1) Trusted service and 2) Client 
 
 ## Build intelligent, AI-powered chat experiences
 
-You can use Azure AI services with the Chat service to build use cases like:
+You can use Foundry Tools with the Chat service to build use cases like:
 
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
 - Generate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
-- Add a [Power Virtual Agent](https://powervirtualagents.microsoft.com/en-us/) (PVA) in an Azure Communication Services Chat channel with an Azure Bot and a [relay bot](/power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
+- Add an [Agent](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio/) in an Azure Communication Services Chat channel with an Azure Bot and a [relay bot](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
 - Configure a bot to run on one or more social channels alongside the Chat channel.
 
-:::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Azure AI services.":::
+:::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Foundry Tools.":::
 
 ## Message types
 
@@ -110,7 +113,7 @@ The client app can subscribe to following events:
  - `chatMessageEdited` - when a message is edited in a chat thread.
  - `chatMessageDeleted` - when a message is deleted in a chat thread.
  - `typingIndicatorReceived` - when another participant sends a typing indicator to the chat thread.
- - `readReceiptReceived` - when another participant sends a read receipt for a message they have read.
+ - `readReceiptReceived` - when another participant sends a read receipt for a message they read.
  - `chatThreadCreated` - when a Communication Services user creates a chat thread.
  - `chatThreadDeleted` - when a Communication Services user deletes a chat thread.
  - `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.
@@ -120,7 +123,7 @@ The client app can subscribe to following events:
  - `realTimeNotificationDisconnected` -when real time notification is disconnected.
 
 > [!NOTE] 
-> Real time notifications are not to be used with server applications.
+> Do not use real-time notifications with server applications.
 
 ## Server events
 
@@ -152,6 +155,9 @@ For more information, see [Push Notifications](../notifications.md).
 > [!div class="nextstepaction"]
 > [Get started with chat](../../quickstarts/chat/get-started.md)
 
+
 ## Related articles
 
-- Familiarize yourself with the [Chat SDK](./sdk-features.md)
+- Familiarize yourself with the [Chat SDK](./sdk-features.md).
+- Access control for participants on a thread using [Identity and Tokens](../identity-model.md).
+- Build an application or a mobile app with [UI Library](../ui-library/ui-library-overview.md).

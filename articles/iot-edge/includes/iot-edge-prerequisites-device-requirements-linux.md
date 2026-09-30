@@ -1,8 +1,8 @@
 ---
 ms.topic: include
-ms.date: 06/10/2024
-author: PatAltimore
-ms.author: patricka
+ms.date: 02/19/2026
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
@@ -10,8 +10,8 @@ services: iot-edge
 
 ### Device requirements
 
-An X64, ARM32, or ARM64 Linux device.
+An x64, ARM32, or ARM64 Linux device.
 
-Microsoft publishes installation packages for a variety of operating systems.
+Microsoft publishes installation packages for various operating systems.
 
-For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](../support.md#operating-systems).
+For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported platforms](../support.md#operating-systems).

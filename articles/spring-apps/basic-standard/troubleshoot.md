@@ -1,10 +1,11 @@
 ---
-title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
+title: Troubleshooting Guide for Azure Spring Apps
 description: Troubleshooting guide for Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: troubleshooting
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -23,7 +24,7 @@ This article provides instructions for troubleshooting Azure Spring Apps develop
 
 When your application can't start, you might find that its endpoint can't be connected or it returns a 502 after a few retries.
 
-For troubleshooting, export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
+For troubleshooting, export the logs to Azure Log Analytics. The table for Spring application logs is named `AppPlatformLogsforSpring`. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
 The following error message might appear in your logs: `org.springframework.context.ApplicationContextException: Unable to start web server`
 
@@ -36,15 +37,15 @@ Service bindings might also cause application start failures. To query the logs,
 
 > "java.sql.SQLException: The server time zone value 'Coordinated Universal Time' is unrecognized or represents more than one time zone."
 
-To fix this error, go to the `server parameters` of your MySQL instance, and change the `time_zone` value from *SYSTEM* to *+0:00*.
+To fix this error, go to the **server parameters** of your MySQL instance, and change the **time_zone** value from **SYSTEM** to **+0:00**.
 
 ### My application crashes or throws an unexpected error
 
-When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to **Apps** in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
+When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to **Apps** in the Azure portal to ensure that the statuses of all the applications are **Running** and **UP**.
 
-* If the status is *Running* but the discovery status isn't *UP*, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
+* If the status is **Running** but the discovery status isn't **UP**, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
 
-* If the discovery status is *UP*, go to Metrics to check the application's health. Inspect the following metrics:
+* If the discovery status is **UP**, go to Metrics to check the application's health. Inspect the following metrics:
 
   * `tomcat.global.error`:
 
@@ -129,11 +130,11 @@ The name of the Azure Spring Apps service instance is used for requesting a subd
 
 ### I can't deploy a .NET Core app
 
-You can't upload a *.zip* file for a .NET Core Steeltoe app by using the Azure portal or the Resource Manager template.
+You can't upload a **.zip** file for a .NET Core Steeltoe app by using the Azure portal or the Resource Manager template.
 
 When you deploy your application package by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
 
-Ensure that your application is packaged in the correct *.zip* file format. If it isn't packaged correctly, the process stops responding or you receive an error message.
+Ensure that your application is packaged in the correct **.zip** file format. If it isn't packaged correctly, the process stops responding or you receive an error message.
 
 ### I can't deploy a JAR package
 
@@ -184,7 +185,7 @@ Environment variables inform the Azure Spring Apps framework, ensuring that Azur
 
 1. Go to `https://<your-application-test-endpoint>/actuator/health`.
 
-   A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled. If the response is negative, include the following dependency in your *POM.xml* file:
+   A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled. If the response is negative, include the following dependency in your **POM.xml** file:
 
    ```xml
    <dependency>
@@ -220,9 +221,9 @@ Look for the child node named `systemEnvironment`. This node contains your appli
 
 ### I can't find metrics or logs for my application
 
-Go to **Apps** to ensure that the application statuses are *Running* and *UP*.
+Go to **Apps** to ensure that the application statuses are **Running** and **UP**.
 
-Check to see whether *JMX* is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
+Check to see whether `JMX` is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
 
 Check to see whether the `spring-boot-actuator` dependency is enabled in your application package and that it successfully boots up.
 
@@ -234,54 +235,6 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 ```
 
 If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you set up your workspace correctly. For more information, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). Also, be aware that the Basic plan doesn't provide a service-level agreement (SLA). For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
-
-## Enterprise plan
-
-### Error 112039: Failed to purchase on Azure Marketplace
-
-Creating an Azure Spring Apps Enterprise plan instance fails with error code "112039". For more information, check the detailed error message in the following list:
-
-* **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."**: Azure Spring Apps Enterprise plan purchase a SaaS offer from VMware.
-
-  You must register the `Microsoft.SaaS` resource provider before creating Azure Spring Apps Enterprise instance. See how to [register a resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
-
-* **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address isn't in the supported location.
-
-  For more information, see the section [No plans are available for market '\<Location>'](#no-plans-are-available-for-market-location).
-
-* **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subscription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.asa-ent-hr-mtr"**: Your Azure subscription hasn't signed the terms for the offer and plan to be purchased.
-
-  Go to your Azure subscription and run the following Azure CLI command to agree to the terms:
-
-  ```azurecli
-  az term accept \
-      --publisher vmware-inc \
-      --product azure-spring-cloud-vmware-tanzu-2 \
-      --plan asa-ent-hr-mtr
-  ```
-
-  If that doesn't help, you can contact the support team with the following info.
-
-  * `AZURE_TENANT_ID`: the Azure tenant ID that hosts the Azure subscription
-  * `AZURE_SUBSCRIPTION_ID`: the Azure subscription ID used to create the Azure Spring Apps instance
-  * `SPRING_CLOUD_NAME`: the failed instance name
-  * `ERROR_MESSAGE`: the observed error message
-
-### No plans are available for market '\<Location>'
-
-When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) in the Azure Marketplace, it might say "No plans are available for market '\<Location>'" as in the following image.
-
-:::image type="content" source="./media/troubleshoot/no-enterprise-plans-available.png" alt-text="Screenshot of the Azure portal that shows the No plans are available for market error message." lightbox="./media/troubleshoot/no-enterprise-plans-available.png":::
-
-The Azure Spring Apps Enterprise plan needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
-
-[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See the [Supported geographic locations](/partner-center/marketplace/marketplace-geo-availability-currencies#supported-geographic-locations) section of [Geographic availability and currency support for the commercial marketplace](/partner-center/marketplace/marketplace-geo-availability-currencies).
-
-You can view the billing account for your subscription if you have admin access. See [view billing accounts](../../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
-
-### I need VMware Spring Runtime Support (Enterprise plan only)
-
-The Enterprise plan has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see the [VMware Spring Runtime](https://tanzu.vmware.com/spring-runtime). For more information on registering and using this support service, see the Support section in the [Enterprise FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open a support ticket with Microsoft.
 
 ## Next steps
 

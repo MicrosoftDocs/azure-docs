@@ -2,14 +2,15 @@
 title: Create IoT Edge device on Linux using symmetric keys
 titleSuffix: Azure IoT Edge
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
-author: PatAltimore
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
-ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 03/04/2024
-ms.author: patricka
-ms.reviewer: mattmcinnes
+ms.date: 02/26/2026
+ms.custom:
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys
@@ -18,7 +19,7 @@ ms.reviewer: mattmcinnes
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device that includes installing IoT Edge.
 
-Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes:
+Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that tracks [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes:
 
 * IoT hub hostname
 * Device ID
@@ -28,7 +29,7 @@ The steps in this article walk through a process called *manual provisioning*, w
 
 * **Symmetric keys**: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating.
 
-  This authentication method is faster to get started, but not as secure.
+  This authentication method is faster to get started, but isn't as secure.
 
 * **X.509 self-signed**: You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint.
 
@@ -39,13 +40,13 @@ This article covers using symmetric keys as your authentication method. If you w
 > [!NOTE]
 > If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub device provisioning service:
 >
-> * [Create and provision IoT Edge devices at scale using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
-> * [Create and provision IoT Edge devices at scale with a TPM](how-to-provision-devices-at-scale-linux-tpm.md)
-> * [Create and provision IoT Edge devices at scale using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
+> * [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
+> * [Create and provision IoT Edge devices at scale with a TPM on Linux](how-to-provision-devices-at-scale-linux-tpm.md)
+> * [Create and provision IoT Edge devices at scale on Linux using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## Prerequisites
 
-This article shows how to register your IoT Edge device and install IoT Edge (also called IoT Edge runtime) on your device. Make sure you have the device management tool of your choice, for example Azure CLI, and device requirements before you register and install your device.
+This article shows how to register your IoT Edge device and install IoT Edge (also called IoT Edge runtime) on your device. Make sure you have the device management tool of your choice, such as Azure CLI, and review device requirements before you register and install your device.
 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
@@ -56,12 +57,11 @@ This article shows how to register your IoT Edge device and install IoT Edge (al
 <!-- Azure IoT extensions for Visual Studio Code-->
 ### Visual Studio Code extensions
 
-If you are using Visual Studio Code, there are helpful Azure IoT extensions that make the device creation and management process easier.
+If you're using Visual Studio Code, helpful Azure IoT extensions make the device creation and management process easier.
 
 Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 * [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
-
 * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
 <!-- Prerequisites end -->
@@ -74,17 +74,15 @@ Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 ## Provision the device with its cloud identity
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
+After you install the container engine and the IoT Edge runtime on your device, set up the device with its cloud identity and authentication information.
 
 # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-You can configure your IoT Edge device with symmetric key authentication using the following command:
+You can configure your IoT Edge device with symmetric key authentication by using the following command:
 
-   ```bash
-   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
-   ```
-
-   This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
+```bash
+sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
+```
 
 1. Apply the configuration changes.
 
@@ -155,19 +153,19 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    A successful status response shows the `aziot` services as running or ready.
 
-1. If you need to troubleshoot the service, retrieve the service logs.
+1. If you need to troubleshoot the service, retrieve the service logs:
 
    ```bash
    sudo iotedge system logs
    ```
 
-1. Use the `check` tool to verify configuration and connection status of the device.
+1. Use the `check` tool to verify configuration and connection status of the device:
 
    ```bash
    sudo iotedge check
    ```
 
-   You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
+   You can expect a range of responses that might include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
 
    :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/config-checks.png" alt-text="Screenshot of sample responses from the check command." lightbox="media/how-to-provision-single-device-linux-symmetric/config-checks.png":::
 
@@ -175,17 +173,17 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
    >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
 
    >[!NOTE]
-   >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+   >On a newly provisioned device, you might see an error related to IoT Edge Hub:
    >
    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
    >**Could not check current state of edgeHub container**
    >
-   >This error is expected on a newly provisioned device because the IoT Edge Hub module is not yet running. Be sure your IoT Edge modules were deployed in the previous steps. Deployment resolves this error.
+   >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't yet running. Be sure your IoT Edge modules were deployed in the previous steps. Deployment resolves this error.
    >
-   >Alternatively, you may see a status code as `417 -- The device's deployment configuration is not set`. Once your modules are deployed, this status will change.
+   >Alternatively, you might see a status code as `417 -- The device's deployment configuration is not set`. Once your modules are deployed, this status changes.
    >
 
-1. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+1. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any other modules that you deploy to your device.
 
    Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
 
@@ -199,14 +197,14 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
 ## Offline or specific version installation (optional)
 
-The steps in this section are for scenarios not covered by the standard installation steps. This may include:
+The steps in this section are for scenarios not covered by the standard installation steps. These scenarios might include:
 
 * Installing IoT Edge while offline
 * Installing a release candidate version
 
-Use the steps in this section if you want to install a [specific version of the Azure IoT Edge runtime](version-history.md) that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a [specific version of the Azure IoT Edge runtime](version-history.md) that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their subversions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
-If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+If you're using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
@@ -231,7 +229,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```
 
       # [Ubuntu Core snaps](#tab/snaps)
-      If you are using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+      If you're using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
       ---
 
@@ -250,7 +248,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```
 
       # [Ubuntu Core snaps](#tab/snaps)
-      If you are using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+      If you're using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
       ---
 

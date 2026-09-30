@@ -4,15 +4,21 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: nabhishek
 ms.author: abnarain
-ms.topic: conceptual
-ms.custom: synapse, devx-track-dotnet
-ms.date: 10/03/2024
+ms.topic: how-to
+ms.date: 03/27/2025
 ms.subservice: orchestration
+ms.custom:
+  - synapse
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> The Fabric equivalent of Custom activity is Azure Batch activity. For configuration details, see [Azure Batch activity](/fabric/data-factory/azure-batch-activity).
 
 There are two types of activities that you can use in an Azure Data Factory or Synapse pipeline.
 
@@ -30,7 +36,7 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 > [!IMPORTANT]
-> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
+> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'.  
 
 ## Add custom activities to a pipeline with UI
 
@@ -103,7 +109,7 @@ The following JSON snippet defines a pipeline with a simple Custom Activity. The
 }
 ```
 
-In this sample, the helloworld.exe is a custom application stored in the customactv2/helloworld folder of the Azure Storage account used in the resourceLinkedService. The Custom activity submits this custom application to be executed on Azure Batch. You can replace the command to any preferred application that can be executed on the target Operation System of the Azure Batch Pool nodes.
+In this sample, the helloworld.exe is a custom application stored in the customactv2/helloworld folder of the Azure Storage account used in the resourceLinkedService. The Custom activity submits this custom application to be executed on Azure Batch. You can replace the command to any preferred application that can be executed on the target Operating System of the Azure Batch Pool nodes.
 
 The following table describes names and descriptions of properties that are specific to this activity.
 
@@ -127,6 +133,10 @@ The following table describes names and descriptions of properties that are spec
 
 > [!NOTE]
 > Currently only Azure Blob storage is supported for resourceLinkedService in custom activity, and it is the only linked service that gets created by default and no option to choose other connectors like ADLS Gen2.
+
+> [!NOTE]
+> The `retentionTimeInDays` property supports a minimum retention period of **1 day**.
+> If you need cleanup more frequently than once per day, implement your own cleanup logic within the custom activity or associated scripts.
 
 ## Custom activity permissions
 
@@ -353,12 +363,11 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details.
 
-If the pool is using the default [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
+If the pool is using the default [autoScaleEvaluationInterval](/dotnet/api/azure.compute.batch.batchpool.autoscaleevaluationinterval), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
 
 ## Related content
 See the following articles that explain how to transform data in other ways:
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [Pig activity](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)

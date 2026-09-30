@@ -2,11 +2,12 @@
 title: Azure Traffic Manager - FAQ
 description: This article provides answers to frequently asked questions about Traffic Manager.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 12/03/2024
-ms.author: greglin
+ms.date: 06/01/2026
+ms.author: allensu
+# Customer intent: As a Cloud Architect, I want to understand Azure Traffic Manager functionalities and limitations, so that I can effectively implement it for DNS-based traffic routing and ensure optimal performance of my distributed applications.
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -62,7 +63,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
 
 ### Can I use Traffic Manager with a "naked" domain name?
 
-Yes. To learn how to create an alias record for your domain name apex to reference an Azure Traffic Manager profile, see [Configure an alias record to support apex domain names with Traffic Manager](../dns/tutorial-alias-tm.md).
+Yes. To learn how to use Traffic Manager at a domain name apex, see [Traffic Manager Linked Records](../dns/dns-traffic-manager-linked-records.md), which is the recommended approach. Traffic Manager Linked Records return IP addresses directly without a CNAME hop. You can also use an alias record—see [Configure an alias record to support apex domain names with Traffic Manager](../dns/tutorial-alias-tm.md).
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
 
@@ -92,7 +93,7 @@ For example, if your Traffic Manager profile name is **label1**, then **label1.t
 
 ### What version of TLS is required by Traffic Manager?
 
-The Microsoft implementation of older TLS versions is not known to be vulnerable, however, TLS 1.2 and later offer improved security with features such as perfect forward secrecy and stronger cipher suites. To enhance security and provide best-in-class encryption for your data, Traffic Manger requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manger support for TLS 1.0 and 1.1 will end on this date. This date might be different than the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
+The Microsoft implementation of older TLS versions is not known to be vulnerable, however, TLS 1.2 and later offer improved security with features such as perfect forward secrecy and stronger cipher suites. To enhance security and provide best-in-class encryption for your data, Traffic Manager requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manager support for TLS 1.0 and 1.1 will end on this date. This date might be different than the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
 
 **Recommended action** 
 
@@ -102,6 +103,36 @@ To avoid service disruptions, resources that interact with Traffic Manager must 
 - If resources still have a dependency on TLS 1.0 or 1.1, transition them to TLS 1.2 or later by February 28, 2025. 
 
 For information about migrating from TLS 1.0 and 1.1 to TLS 1.2, see [Solving the TLS 1.0 Problem](/security/engineering/solving-tls1-problem).
+
+### What TLS cipher suites are supported by Azure Traffic Manager?
+
+Azure Traffic Manager supports modern TLS cipher suites for TLS 1.2 and TLS 1.3 to ensure secure communications. The following cipher suites are supported:
+
+**TLS 1.3 Cipher Suites**
+
+These are associated with **Protocol 772** (which corresponds to TLS 1.3):
+
+| Cipher Suite | Protocol |
+|--------------|----------|
+| TLS_AES_256_GCM_SHA384 | 772 |
+| TLS_AES_128_GCM_SHA256 | 772 |
+
+**TLS 1.2 Cipher Suites**
+
+These are associated with **Protocol 771** (TLS 1.2) and/or 65277 (used by some systems as an internal/custom code for TLS 1.2):
+
+| Cipher Suite | Protocols |
+|--------------|-----------|
+| TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | 771, 65277 |
+| TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | 771, 65277 |
+| TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | 771, 65277 |
+| TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | 771, 65277 |
+| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | 771, 65277 |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | 771, 65277 |
+| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | 771, 65277 |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | 771, 65277 |
+
+These cipher suites provide strong encryption and are compliant with modern security standards. Traffic Manager automatically negotiates the best available cipher suite during the TLS handshake process.
 
 ## Traffic Manager Geographic traffic routing method
 
@@ -113,7 +144,7 @@ Geographic routing type can be used in any scenario where an Azure customer need
 
 The key difference between these two popular routing methods is that in Performance routing method your primary goal is to send traffic to the endpoint that can provide the lowest latency to the caller, whereas, in Geographic routing the primary goal is to enforce a geo fence for your callers so that you can deliberately route them to a specific endpoint. The overlap happens since there’s a correlation between geographical closeness and lower latency, although this isn’t always true. There might be an endpoint in a different geography that can provide a better latency experience for the caller and in that case Performance routing sends the user to that endpoint but Geographic routing always sends them to the endpoint you’ve mapped for their geographic region. To further make it clear, consider the following example - with Geographic routing you can make uncommon mappings such as send all traffic from Asia to endpoints in the US and all US traffic to endpoints in Asia. In that case, Geographic routing deliberately does exactly what you have configured it to do and performance optimization isn’t a consideration. 
 >[!NOTE]
->There may be scenarios where you might need both performance and geographic routing capabilities, for these scenarios nested profiles can be great choice. For example, you can set up a parent profile with geographic routing where you send all traffic from North America to a nested profile that has endpoints in the US and use performance routing to send those traffic to the best endpoint within that set. 
+>There may be scenarios where you might need both performance and geographic routing capabilities, for these scenarios nested profiles can be great choice. For example, you can set up a parent profile with geographic routing where you send all traffic from North America to a nested profile that has endpoints in the US and use performance routing to send that traffic to the best endpoint within that set. 
 
 ### What are the regions that are supported by Traffic Manager for geographic routing?
 
@@ -332,7 +363,7 @@ Traffic View pricing is based on the number of data points used to create the ou
 
 Using endpoints from multiple subscriptions isn't possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It isn't possible to use Web Apps from multiple subscriptions with the same domain name.
 
-For other endpoint types, it's possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC role)](../role-based-access-control/role-assignments-portal.yml). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
+For other endpoint types, it's possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC role)](/azure/role-based-access-control/role-assignments-portal). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
 
@@ -340,7 +371,7 @@ Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as Exter
 
 ### Does Traffic Manager support IPv6 endpoints?
 
-Traffic Manager doesn't currently provide IPv6-addressable name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints if the client's recursive DNS server supports IPv4. A client doesn't make DNS request directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. The recursive service must then be able to contact the Traffic Manager name servers using IPv4. Traffic Manager responds with the DNS name or IP address of the endpoint. 
+Yes, Traffic Manager fully supports IPv6 endpoints. Traffic Manager provides both IPv4 and IPv6-addressable name servers, allowing clients to connect seamlessly using either protocol. IPv6 clients can make DNS requests directly through IPv6-enabled recursive DNS services, and Traffic Manager can respond with the DNS name or IP address of the IPv6 endpoint, enabling full compatibility with IPv6 networks. 
 
 ### Can I use Traffic Manager with more than one Web App in the same region?
 
@@ -515,13 +546,27 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 
 One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](/azure/azure-monitor/alerts/alerts-metric) to get notifications when there's a change in the health status of your endpoint. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md). 
 
+### How do I setup Firewall rules to allow Health Checks
+
+Azure Traffic Manager relies on health probes to monitor endpoint availability and performance. For probes to succeed, endpoints must be reachable, and any firewalls or access control lists (ACLs) in the path must allow traffic from all Traffic Manager IP addresses. If probe IP addresses are not allowed, health checks may fail. Endpoints marked as unhealthy can cause unexpected traffic rerouting or downtime.
+
+**Option 1: Use Service Tags (recommended)**
+The recommended approach is to use the **AzureTrafficManager** Service Tag in NSGs, or Azure Firewall. Service Tags automatically include the latest IP ranges and don’t require manual updates.
+* [Use Service Tags with NSGs](/azure/virtual-network/service-tags-overview#use-service-tags-in-network-security-groups)
+* [Use Service Tags with Azure Firewall](/azure/firewall/service-tags)
+
+**Option 2: Manually update firewall rules**
+If Service Tags cannot be used (for example, with custom firewall appliances or in non-Azure environments), update ACLs or firewall rules to allow the latest Azure Traffic Manager IPs.
+* The full list of IP addresses is published in the [Azure IP Ranges and Service Tags – Public Cloud JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
+* Periodically refresh rules to ensure the most up-to-date IP addresses are included.
+
 ## Traffic Manager nested profiles
 
 ### How do I configure nested profiles?
 
 Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They're also supported via the new Azure portal.
 
-### How many layers of nesting does Traffic Manger support?
+### How many layers of nesting does Traffic Manager support?
 
 You can nest profiles up to 10 levels deep. 'Loops' aren't permitted.
 
@@ -568,7 +613,54 @@ The following table describes the behavior of Traffic Manager health checks for 
 
 In order to add Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.
 
-## Next steps:
+## Traffic Manager Linked Records
+
+> [!IMPORTANT]
+> Traffic Manager Linked Records and Strictly Typed Profiles are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### What are Traffic Manager Linked Records?
+
+Traffic Manager Linked Records is an Azure DNS feature that creates a direct link between a DNS record set and a Traffic Manager profile using the `trafficManagementProfile` property. When a client queries the DNS record, Azure DNS resolves the Traffic Manager profile internally and returns endpoint IP addresses directly—without a CNAME redirect to `trafficmanager.net`.
+
+For more information, see [Traffic Manager Linked Records overview](../dns/dns-traffic-manager-linked-records.md).
+
+### How are Traffic Manager Linked Records different from alias records?
+
+Traffic Manager Linked Records is the recommended approach and improves upon alias-to-Traffic Manager in the following ways:
+
+- **Resolution:** Traffic Manager Linked Records always return IP addresses directly. Alias CNAME records return the `trafficmanager.net` name, requiring a second DNS lookup.
+- **TTL:** Traffic Manager Linked Records always inherit the TTL from the Traffic Manager profile. Alias records use the TTL on the DNS record set.
+- **Type enforcement:** Traffic Manager Linked Records use [Strictly Typed Profiles](traffic-manager-strictly-typed-profiles.md) to enforce that endpoint IP types match the DNS record type. Alias records do a weaker check only at creation time.
+
+### What is a Strictly Typed Profile?
+
+A Traffic Manager profile type can be set during creation or configuration of a profile. The profile is locked to the IP address type (IPv4 for A records, IPv6 for AAAA records, or CNAME) and only DNS records of the respective type can be linked to the Traffic Manager profile. Traffic Manager then enforces that all endpoints added to the profile match the declared type. For more information, see [Strictly Typed Profiles](traffic-manager-strictly-typed-profiles.md).
+
+### Can a Traffic Manager profile be linked to both A and AAAA Traffic Manager Linked Records simultaneously?
+
+No. A profile can only be locked to one IP type at a time. The profile type is set when the profile is created or configured. A Traffic Manager Linked Record using a different IP record type than the profile's type will fail. CNAME Traffic Manager Linked Records don't impose an IP type restriction and can coexist with other CNAME records pointing to the same profile.
+
+### Do Traffic Manager Linked Records support nested profiles?
+
+Yes. Traffic Manager Linked Records support nested Traffic Manager profiles for all profile types.
+
+### Why don't Traffic Manager Linked Records expose `trafficmanager.net`?
+
+With Traffic Manager Linked Records, Azure DNS performs the Traffic Manager resolution internally and returns endpoint IP addresses directly to the client. The `trafficmanager.net` domain is never included in the DNS response. This is important for customers who restrict outbound DNS to specific domains—with alias records or CNAME records, clients had to resolve `trafficmanager.net`, a shared domain hosting profiles for all Azure customers. Traffic Manager Linked Records eliminate this requirement.
+
+### Are Traffic Manager Linked Records compatible with DNSSEC?
+
+Yes. Because Azure DNS resolves the Traffic Manager profile internally, there's no unsigned intermediate hop to `trafficmanager.net` in the DNS resolution chain. This preserves the DNSSEC chain of trust, making Traffic Manager Linked Records suitable for DNSSEC-signed zones.
+
+### What is the limit of records linked to Traffic Manager profiles?
+
+Both alias records and Traffic Manager Linked Records support up to 50 links per Traffic Manager profile.
+
+### What happens if I delete a Traffic Manager profile that has Linked Records?
+
+A Traffic Manager profile is blocked from being deleted while Traffic Manager Linked Records still reference it. You must remove all linked DNS records before the profile can be deleted. This prevents customers from accidentally breaking DNS record links and ensures clean management of linked resources.
+
+## Next steps
 
 - Learn more about Traffic Manager [endpoint monitoring and automatic failover](../traffic-manager/traffic-manager-monitoring.md).
 - Learn more about Traffic Manager [traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md).

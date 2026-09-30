@@ -2,12 +2,15 @@
 title: 'Connect VPN gateways to multiple on-premises policy-based VPN devices'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure an Azure route-based VPN gateway to multiple policy-based VPN devices using PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 10/15/2024
-ms.author: cherylmc
+ms.date: 06/10/2026
+ms.author: duau
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a network engineer, I want to configure a route-based VPN gateway to connect multiple on-premises policy-based VPN devices, so that I can enable secure communication between them and our Azure virtual network.
 ---
 # Connect a VPN gateway to multiple on-premises policy-based VPN devices
 
@@ -117,7 +120,7 @@ This section shows you how to enable policy-based traffic selectors on a connect
     $subnet1    = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
     $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
     
-    New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
+    New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw2AZ -VpnGatewayGeneration "Generation2"
     
     New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
     ```

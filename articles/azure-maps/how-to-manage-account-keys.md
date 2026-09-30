@@ -3,10 +3,11 @@ title: Manage your Azure Maps account in the Azure portal | Microsoft Azure Maps
 description: Learn how to use the Azure portal to manage an Azure Maps account. See how to create a new account and how to delete an existing account.
 author: pbrasil
 ms.author: peterbr
-ms.date: 04/26/2021
+ms.date: 08/28/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: manage-account
+ms.custom: sfi-image-nochange
 ---
 
 # Manage your Azure Maps account
@@ -54,9 +55,9 @@ Set up authentication with Azure Maps and learn how to get an Azure Maps subscri
 > [!div class="nextstepaction"]
 > [Manage authentication]
 
-Learn how to manage an Azure Maps account pricing tier:
+Learn about Azure Maps account pricing:
 > [!div class="nextstepaction"]
-> [Manage a pricing tier]
+> [Azure Maps account pricing]
 
 Learn how to see the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
@@ -65,8 +66,8 @@ Learn how to see the API usage metrics for your Azure Maps account:
 [Azure portal]: https://portal.azure.com
 [control-plane]: ../azure-resource-manager/management/control-plane-and-data-plane.md
 [geographic coverage]: geographic-coverage.md
-[Manage a pricing tier]: how-to-manage-pricing-tier.md
+[Azure Maps account pricing]: how-to-manage-pricing-tier.md
 [Manage authentication]: how-to-manage-authentication.md
 [managed identities for Azure resources]: ../active-directory/managed-identities-azure-resources/overview.md
-[sign up for a free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[sign up for a free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [View usage metrics]: how-to-view-api-usage.md

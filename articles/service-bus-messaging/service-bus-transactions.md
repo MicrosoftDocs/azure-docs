@@ -4,7 +4,9 @@ description: This article gives you an overview of transaction processing and th
 ms.topic: concept-article
 ms.date: 12/19/2024
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-ropc-nochange
 # Customer intent: I want to know how Azure Service Bus supports transactions. 
 ---
 

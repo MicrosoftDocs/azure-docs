@@ -7,20 +7,22 @@ services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 03/20/2024
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ms.service: azure-communication-services
 ---
 
 # Known issues associated with the Azure Communication Services Calling Native and Native UI SDKs
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 This article provides known issues related to using the Azure Communication Services native calling SDKs.
 
 ## Issues with Android API emulators
 
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22), some crashes are expected.
 
-## iOS ongoing video Picture in Picture (PiP)
+## iPhone and iPad simulators not working if CallKit is enabled
 
-Incoming video stops when app goes to background. If the application is in foreground the video renders correctly.
+CallKit only works if an application is deployed to real devices. In simulators, using CallKit will cause it to crash. Developers on simulators are encouraged to turn off CallKit in local development.
 
 ## Native SDK UI Library known issues
 

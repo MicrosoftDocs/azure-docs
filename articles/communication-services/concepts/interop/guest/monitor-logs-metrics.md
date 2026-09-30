@@ -5,12 +5,14 @@ description: Azure logs and metrics emitted for Teams external users
 author: tomaschladek
 ms.author: tchladek
 ms.date: 12/9/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
 # Monitor logs for Teams external users
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 In this article, you learn which Azure logs, Azure metrics & Teams logs are emitted for Teams external users when joining Teams meetings. Azure Communication Services user joining Teams meeting emits the following metrics: [Authentication API](../../metrics.md) and [Chat API](../../metrics.md). Communication Services resource additionally tracks the following logs: [Call Summary](../../analytics/logs/voice-and-video-logs.md) and [Call Diagnostic](../../analytics/logs/voice-and-video-logs.md) Log. Teams administrator can use [Teams Admin Center](https://aka.ms/teamsadmincenter) and [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com) to review logs stored for Teams external users joining Teams meetings organized by the tenant.
 

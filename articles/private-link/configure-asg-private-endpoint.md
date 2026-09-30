@@ -2,12 +2,17 @@
 title: Configure an application security group with a private endpoint
 titleSuffix: Azure Private Link
 description: Learn how to create a private endpoint with an application security group (ASG) or apply an ASG to an existing private endpoint.
-author: abell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 06/14/2022
-ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli
+ms.date: 08/10/2026
+ms.custom:
+  - template-how-to
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: As a cloud infrastructure engineer, I want to configure an application security group with a private endpoint, so that I can enhance network security for my Azure resources.
 ---
 
 # Configure an application security group with a private endpoint
@@ -16,8 +21,8 @@ Azure Private Link private endpoints support application security groups (ASGs) 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure web app with a Premium V2 tier or higher app service plan deployed in your Azure subscription.
+- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure web app on a Basic, Standard, Premium v2, Premium v3, Premium v4, or Isolated v2 App Service plan (or a function app on the Functions Premium plan) deployed in your Azure subscription. For the App Service plan tiers that support private endpoints, see [Use private endpoints for Azure App Service apps](../app-service/overview-private-endpoint.md).
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md).
     - The example web app in this article is named **myWebApp1979**. Replace the example with your web app name.
@@ -48,7 +53,7 @@ You can associate an ASG with a private endpoint when it's created. The followin
 
 1. Select **+ Create** in **Private endpoints**.
 
-1. On the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+1. On the **Basics** tab of **Create a private endpoint**, enter, or select the following information:
 
     | Value | Setting |
     | ----- | ------- |
@@ -80,11 +85,9 @@ You can associate an ASG with a private endpoint when it's created. The followin
     | **Networking** |   |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select your subnet. </br> In this example, it's **myVNet/myBackendSubnet(10.0.0.0/24)**. |
-    | Enable network policies for all private endpoints in this subnet. | Leave the default selected. |
+    | Enable network policies for all private endpoints in this subnet. | Enable network policies for network security groups. Network policies are disabled by default; they must be enabled for the network security group rules that reference the application security group to apply to the private endpoint. |
     | **Application security group** |   |
     | Application security group | Select **myASG**. |
-
-    :::image type="content" source="./media/configure-asg-private-endpoint/asg-new-endpoint.png" alt-text="Screenshot that shows ASG selection when creating a new private endpoint.":::
 
 1. Select **Next: DNS** at the bottom of the page.
 
@@ -170,8 +173,6 @@ You can associate an ASG with an existing private endpoint. The following proced
 1. In **myPrivateEndpoint**, in **Settings**, select **Application security groups**.
 
 1. In **Application security groups**, select **myASG** in the dropdown box.
-
-    :::image type="content" source="./media/configure-asg-private-endpoint/asg-existing-endpoint.png" alt-text="Screenshot that shows ASG selection when associating with an existing private endpoint.":::
 
 1. Select **Save**.
 

@@ -3,8 +3,13 @@ title: Kernels for Jupyter Notebook on Spark clusters in Azure HDInsight
 description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter Notebook available with Spark clusters on Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/15/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
 ---
 
 # Kernels for Jupyter Notebook on Apache Spark clusters in Azure HDInsight
@@ -80,7 +85,7 @@ Here are a few benefits of using the new kernels with Jupyter Notebook on Spark 
    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
 
    > [!NOTE]  
-   > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
+   > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.readthedocs.io/en/stable/interactive/magics.html), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
 
 - **Auto visualization**. The Pyspark kernel automatically visualizes the output of Hive and SQL queries. You can choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 

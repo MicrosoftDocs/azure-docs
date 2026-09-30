@@ -1,30 +1,31 @@
 ---
 title: Azure Storage encryption for data at rest
-description: Azure Storage protects your data by automatically encrypting it before persisting it to the cloud. You can rely on Microsoft-managed keys for the encryption of the data in your storage account, or you can manage encryption with your own keys.
+description: Learn how Azure Storage encryption protects data at rest by automatically encrypting it.
 services: storage
 author: normesta
 
 ms.service: azure-storage
-ms.date: 02/09/2023
-ms.topic: conceptual
+ms.date: 08/11/2026
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud security administrator, I want to implement encryption for data at rest in Azure Storage, so that I can ensure the protection and compliance of sensitive data stored in the cloud.
 ---
 
 # Azure Storage encryption for data at rest
 
-Azure Storage uses service-side encryption (SSE) to automatically encrypt your data when it is persisted to the cloud. Azure Storage encryption protects your data and to help you to meet your organizational security and compliance commitments.
+Azure Storage uses service-side encryption (SSE) to automatically encrypt your data when it persists to the cloud. Azure Storage encryption protects your data and helps you meet your organizational security and compliance commitments.
 
 Microsoft recommends using service-side encryption to protect your data for most scenarios. However, the Azure Storage client libraries for Blob Storage and Queue Storage also provide client-side encryption for customers who need to encrypt data on the client. For more information, see [Client-side encryption for blobs and queues](#client-side-encryption-for-blobs-and-queues).
 
 ## About Azure Storage service-side encryption
 
-Data in Azure Storage is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
+Data in Azure Storage is encrypted and decrypted transparently by using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
 
-Azure Storage encryption is enabled for all storage accounts, including both Resource Manager and classic storage accounts. Azure Storage encryption cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption.
+Azure Storage service-side encryption uses 256-bit AES Galois/Counter Mode (AES-GCM) to encrypt uploaded objects. Azure Storage encryption is enabled for all storage accounts. You can't disable Azure Storage encryption. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption.
 
-Data in a storage account is encrypted regardless of performance tier (standard or premium), access tier (hot or cool), or deployment model (Azure Resource Manager or classic). All new and existing block blobs, append blobs, and page blobs are encrypted, including blobs in the archive tier. All Azure Storage redundancy options support encryption, and all data in both the primary and secondary regions is encrypted when geo-replication is enabled. All Azure Storage resources are encrypted, including blobs, disks, files, queues, and tables. All object metadata is also encrypted.
+Data in a storage account is encrypted regardless of performance tier (standard or premium) or access tier (hot or cool). All new and existing block blobs, append blobs, and page blobs are encrypted, including blobs in the archive tier. All Azure Storage redundancy options support encryption, and all data in both the primary and secondary regions is encrypted when geo-replication is enabled. All Azure Storage resources are encrypted, including blobs, disks, files, queues, and tables. All object metadata is also encrypted.
 
 There is no additional cost for Azure Storage encryption.
 
@@ -36,7 +37,7 @@ For information about encryption and key management for Azure managed disks, see
 
 Data in a new storage account is encrypted with Microsoft-managed keys by default. You can continue to rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options. You can use either type of key management, or both:
 
-- You can specify a *customer-managed key* to use for encrypting and decrypting data in Blob Storage and in Azure Files.<sup>1,2</sup> Customer-managed keys must be stored in Azure Key Vault or Azure Key Vault Managed Hardware Security Model (HSM). For more information about customer-managed keys, see [Use customer-managed keys for Azure Storage encryption](./customer-managed-keys-overview.md).
+- You can specify a *customer-managed key* to use for encrypting and decrypting data in Blob Storage and in Azure Files.<sup>1,2</sup> Customer-managed keys must be stored in Azure Key Vault or Azure Key Vault Managed Hardware Security Module (HSM). For more information about customer-managed keys, see [Use customer-managed keys for Azure Storage encryption](./customer-managed-keys-overview.md).
 - You can specify a *customer-provided key* on Blob Storage operations. A client making a read or write request against Blob Storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob Storage](../blobs/encryption-customer-provided-keys.md).
 
 By default, a storage account is encrypted with a key that is scoped to the entire storage account. Encryption scopes enable you to manage encryption with a key that is scoped to a container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. Encryption scopes can use either Microsoft-managed keys or customer-managed keys. For more information about encryption scopes, see [Encryption scopes for Blob storage](../blobs/encryption-scope-overview.md).
@@ -60,7 +61,7 @@ The following table compares key management options for Azure Storage encryption
 
 ## Doubly encrypt data with infrastructure encryption
 
-Customers who require high levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. In this scenario, the additional layer of encryption continues to protect your data.
+If you need a high level of assurance that your data is secure, you can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When you enable infrastructure encryption, your data in a storage account is encrypted twice - once at the service level and once at the infrastructure level - with two different encryption algorithms and two different keys. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys is compromised. In this scenario, the extra layer of encryption continues to protect your data.
 
 Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key Vault. Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key.
 
@@ -73,13 +74,13 @@ The Azure Blob Storage client libraries for .NET, Java, and Python support encry
 > [!NOTE]
 > Consider using the service-side encryption features provided by Azure Storage to protect your data, instead of client-side encryption.
 
-The Blob Storage and Queue Storage client libraries uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. There are two versions of client-side encryption available in the client libraries:
+The Blob Storage and Queue Storage client libraries use [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt user data. There are two versions of client-side encryption available in the client libraries:
 
 - Version 2 uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES. The Blob Storage and Queue Storage SDKs support client-side encryption with v2.
 - Version 1 uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. The Blob Storage, Queue Storage, and Table Storage SDKs support client-side encryption with v1.
 
 > [!WARNING]
-> Using client-side encryption v1 is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using v1, we recommend that you update your application to use client-side encryption v2 and migrate your data.
+> Using client-side encryption v1 is no longer recommended due to a security vulnerability in the client library's implementation of CBC mode. For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog). If you are currently using v1, update your application to use client-side encryption v2 and migrate your data.
 >
 > The Azure Table Storage SDK supports only client-side encryption v1. Using client-side encryption with Table Storage is not recommended.
 

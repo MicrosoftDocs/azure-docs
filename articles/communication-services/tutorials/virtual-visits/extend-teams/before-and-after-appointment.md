@@ -8,9 +8,12 @@ ms.date: 05/22/2023
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom: sfi-image-nochange
 ---
 
 # Extend before and after appointment activities
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 Microsoft Power Automate and Logic Apps provide developers with no-code & low-code tools to configure the customer journey before and after the appointment via pre-existing connectors. You can use their triggers and actions to tailor your experience. 
 Microsoft 365 introduces triggers (examples of triggers are: button is selected, booking is created, booking is canceled, time recurrence, form submitted, or file upload), that allows you to automate your flows, and Azure Communication Services introduces actions to use various communication channels to communicate with your customers. Examples of actions are; send an SMS, send an email, send a chat message.

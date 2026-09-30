@@ -6,7 +6,7 @@ author: kevinguo-ed
 ms.author: kevinguo
 ms.date: 08/1/2023
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # How does Azure Web PubSub support the Socket.IO library?

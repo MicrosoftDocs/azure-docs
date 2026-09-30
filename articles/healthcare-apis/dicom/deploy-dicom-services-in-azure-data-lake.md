@@ -5,9 +5,12 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 06/30/2025
 ms.author: buchvarun
-ms.custom: mode-api, devx-track-arm-template
+ms.custom:
+  - mode-api
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Deploy the DICOM service with Azure Data Lake Storage
@@ -223,7 +226,7 @@ Note that a `ConditionNotMet` code typically indicates the blob file has been mo
 ## Next steps
 [Receive resource health alerts](/azure/service-health/resource-health-alert-monitor-guide)
 
-[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
+[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-fhir-and-dicom-services)
 
 [Review DICOM service conformance statement](/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
 

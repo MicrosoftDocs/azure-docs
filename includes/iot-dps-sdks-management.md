@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-dps
- author: kgremban
+ author: SoniaLopezBravo
  ms.service: azure-iot-hub
  ms.topic: include
  ms.date: 04/14/2023
- ms.author: kgremban
+ ms.author: sonialopez
  ms.custom: include file
  ms.subservice: azure-iot-hub-dps
 ---

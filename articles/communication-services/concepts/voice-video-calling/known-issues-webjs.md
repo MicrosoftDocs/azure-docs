@@ -7,13 +7,15 @@ services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 02/24/2024
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ms.service: azure-communication-services
 ms.custom:
 zone_pivot_groups: acs-web-safari-chrome-firefox-known-issues
 ---
 
 # Known issues in  Azure Communication Services calling WebJS SDKs
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 This article provides known issues related to using the  Azure Communication Services WebJS calling SDK.
 
 ::: zone pivot="all-browsers"

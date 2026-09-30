@@ -1,12 +1,13 @@
 ---
 title: Monitoring data reference for Azure NAT Gateway
 description: This article contains important reference material you need when you monitor Azure NAT Gateway by using Azure Monitor.
-ms.date: 12/02/2024
+ms.date: 08/10/2026
 ms.custom: horz-monitor
 ms.topic: reference
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
+# Customer intent: "As a cloud administrator, I want to access and understand the monitoring metrics for Azure NAT Gateway, so that I can effectively track network performance and troubleshoot connectivity issues."
 ---
 # Azure NAT Gateway monitoring data reference
 
@@ -37,7 +38,7 @@ The following table lists the metrics available for the Microsoft.Network/natgat
 [!INCLUDE [Microsoft.Network/natgateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-natgateways-metrics-include.md)]
 
 > [!NOTE]
-> Count aggregation is not recommended for any of the NAT gateway metrics. Count aggregation adds up the number of metric values and not the metric values themselves. Use Total aggregation instead to get the best representation of data values for connection count, bytes, and packets metrics.
+> Count aggregation is not recommended for any of the NAT gateway metrics. Count aggregation adds up the number of metric values and not the metric values themselves. Use Sum aggregation instead to get the best representation of data values for connection count, bytes, and packets metrics.
 >
 > Use Average for best represented health data for the datapath availability metric.
 >

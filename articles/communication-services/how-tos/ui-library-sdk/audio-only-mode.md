@@ -8,13 +8,15 @@ description: Enabling audio only calling experiences
 author:      ahammer # GitHub alias
 ms.author:   adamhammer # Microsoft alias
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date:     01/08/2024
 ms.subservice: calling
 zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 ---
 
 # Enable audio only mode in the ACS UI library
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 The UI Library allows you to modify the Audio Video mode of a Call for a local user. 
 

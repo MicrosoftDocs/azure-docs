@@ -1,0 +1,51 @@
+### YamlMime:FAQ
+metadata:
+  title: Everpure Cloud Azure Native FAQ
+  description: Frequently asked questions about developer resources and tools for Everpure Cloud Azure Native.
+  author: Reshmi-Sriram
+  ms.author: reshmisriram
+  ms.topic: faq
+  ms.date: 08/28/2026
+
+title: "FAQ: Everpure Cloud Azure Native"
+summary: |
+  This FAQ provides answers to common questions about resources and developer tools available for Everpure Cloud Azure Native. Use this guide to maximize the success of your Everpure Cloud deployment.
+
+sections:
+  - name: Everpure Cloud resources
+    questions:
+      - question: Where can I learn about Everpure Cloud design on Azure?
+        answer: |
+          For architecture and design guidance, visit the [Everpure Cloud design](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/design/c_psc_design.html) documentation.
+
+      - question: How can I understand the cost model for Everpure Cloud?
+        answer: |
+          To learn about pricing and billing, review the [Everpure Cloud cost model](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/design/c_cost_model.html).
+
+      - question: Where is information about encryption in Everpure Cloud?
+        answer: |
+          For security and encryption details, see the [Everpure Cloud encryption model](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/design/c_encryption_in_psc.html).
+
+  - name: Getting started and management
+    questions:
+      - question: How do I deploy Everpure Cloud on Azure?
+        answer: |
+          For step-by-step instructions, follow the [Everpure Cloud deployment guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/deployment/c_psc_deployment.html).
+
+      - question: What resources are available for managing Everpure Cloud?
+        answer: |
+          > [!IMPORTANT]
+          > **After you connect:**  
+          > See the [Everpure Cloud resource guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn how to manage your datastores and volumes.
+
+      - question: Who should I contact for support with Everpure Cloud?
+        answer: |
+          Pure Storage is the first point of contact for support. Azure Support is engaged as needed. For assistance, visit [Pure Storage's support site](https://pure1.purestorage.com).
+      
+      - question: Where can I find troubleshooting help?
+        answer: |
+          For solutions to common issues, access the [Troubleshooting guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html).
+
+      - question: Are there additional resources for optimizing Everpure Cloud?
+        answer: |
+          Yes. For best practices and advanced guidance, see [Resources in Everpure Cloud](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/design/c_resources_in_psc.html).

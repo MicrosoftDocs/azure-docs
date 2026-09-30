@@ -1,116 +1,92 @@
 ---
 title: "Tutorial: Work with well data records by using Wellbore DDMS APIs"
 titleSuffix: Microsoft Azure Data Manager for Energy
-description: Learn how to work with well data records in your Azure Data Manager for Energy instance by using Wellbore Domain Data Management Services (DDMS) APIs in Postman.
-author: vkamani21
-ms.author: vkamani
+description: Learn how to work with well data records in your Azure Data Manager for Energy instance by using Wellbore Domain Data Management Services (DDMS) APIs using cURL.
+author: Preetisingh
+ms.author: preetisingh
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
-ms.date: 09/07/2022
-ms.custom: template-tutorial
+ms.date: 7/22/2025
+ms.custom:
+  - template-tutorial
+  - sfi-image-blocked
 
 #Customer intent: As a developer, I want to learn how to use the Wellbore DDMS APIs so that I can store and retrieve similar kinds of data records.
 ---
 
 # Tutorial: Work with well data records by using Wellbore DDMS APIs
 
-Use Wellbore Domain Data Management Services (DDMS) APIs in Postman to work with well data in your instance of Azure Data Manager for Energy.
+Use Wellbore Domain Data Management Services (DDMS) APIs  to work with well data in your instance of Azure Data Manager for Energy.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
->
-> - Set up Postman to use a Wellbore DDMS collection.
-> - Set up Postman to use a Wellbore DDMS environment.
-> - Send requests via Postman.
-> - Generate an authorization token.
 > - Use Wellbore DDMS APIs to work with well data records.
 
 For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 
 ## Prerequisites
 
-- An Azure subscription
-- An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
+* An Azure subscription
+* An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
+* cURL command-line tool installed on your machine
+* Service principal access token to call the Wellbore APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 
-## Get your Azure Data Manager for Energy instance details
+### Get details for the Azure Data Manager for Energy instance
 
-The first step is to get the following information from your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
+For this tutorial, you need the following parameters:
 
-| Parameter          | Value             | Example                               |
-| ------------------ | ------------------------ |-------------------------------------- |
-| `client_id`          | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
-| `client_secret`      | Client secrets           |  `_fl******************`                |
-| `tenant_id`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  |
-| `base_url`           | URL                      | `https://<instance>.energy.azure.com` |
-| `data-partition-id`  | Data partitions        | `<data-partition-name>`               |
+| Parameter | Value to use | Example | Where to find this value |
+|----|----|----|----|
+| `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
+| `data-partition-id` | Data partition | `<data-partition-id>` | Find this value on the Data Partition section within the Azure Data Manager for Energy instance. |
+| `access_token`       | Access token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access token and save it.|
 
-You'll use this information later in the tutorial.
+Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
-## Set up Postman
+### Set up your environment
 
-1. Download and install the [Postman](https://www.postman.com/downloads/) desktop app.
-
-1. Import the following files in Postman:
-
-   - [Wellbore DDMS Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMS.postman_collection.json)
-   - [Wellbore DDMS Postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMSEnvironment.postman_environment.json)
-
-   To import the files:
-
-   1. Select **Import** in Postman.
-
-      :::image type="content" source="media/tutorial-ddms/postman-import-button.png" alt-text="Screenshot that shows the Import button in Postman."  lightbox="media/tutorial-ddms/postman-import-button.png":::
-
-   1. Paste the URL of each file into the search box.
-
-      :::image type="content" source="media/tutorial-ddms/postman-import-search.png" alt-text="Screenshot that shows importing collection and environment files in Postman via URL."  lightbox="media/tutorial-ddms/postman-import-search.png":::
-  
-1. In the Postman environment, update **Current value** with the information from your Azure Data Manager for Energy instance details:
-
-   1. In Postman, on the left menu, select **Environments**, and then select **Wellbore DDMS Environment**.
-
-   1. In the **Current value** column, enter the information from the table in the [Get your Azure Data Manager for Energy instance details](#get-your-azure-data-manager-for-energy-instance-details) section of this tutorial.
-
-   :::image type="content" source="media/tutorial-wellbore-ddms/postman-environment-current-values.png" alt-text="Screenshot that shows where to enter current values in the Wellbore DDMS environment.":::
-
-## Send an example Postman request
-
-The Postman collection for Wellbore DDMS contains requests that you can use to interact with data about wells, wellbores, well logs, and well trajectory in your Azure Data Manager for Energy instance.
-
-1. In Postman, on the left menu, select **Collections**, and then select **Wellbore DDMS**. Under **Setup**, select **Get an SPN Token**.
-
-1. In the environment dropdown list in the upper-right corner, select **Wellbore DDMS Environment**.
-
-   :::image type="content" source="media/tutorial-wellbore-ddms/postman-get-spn-token.png" alt-text="Screenshot that shows selections for getting an SPN token and choosing an environment." lightbox="media/tutorial-wellbore-ddms/postman-get-spn-token.png":::
-
-1. To send the request, select **Send**.
-
-   :::image type="content" source="media/tutorial-wellbore-ddms/postman-request-send.png" alt-text="Screenshot that shows the Send button for a request in Postman.":::
-
-1. The request validates the actual API response code against the expected response code. Select the **Test Results** tab to see whether the request succeeded or failed.
-
-   Here's an example of a successful Postman call:
-
-   :::image type="content" source="media/tutorial-wellbore-ddms/postman-test-success.png" alt-text="Screenshot that shows success for a Postman call." lightbox="media/tutorial-wellbore-ddms/postman-test-success.png":::
-
-   Here's an example of a failed Postman call:
-
-   :::image type="content" source="media/tutorial-wellbore-ddms/postman-test-failure.png" alt-text="Screenshot that shows failure for a Postman call." lightbox="media/tutorial-wellbore-ddms/postman-test-failure.png":::
+Ensure you have `cURL` installed on your system to make API calls.
 
 ## Use Wellbore DDMS APIs to work with well data records
 
-Successfully completing the Postman requests that are described in the following Wellbore DDMS APIs indicates successful ingestion and retrieval of well records in your Azure Data Manager for Energy instance.
+Successfully completing the cURL requests that are described in the following Wellbore DDMS APIs indicates successful ingestion and retrieval of well records in your Azure Data Manager for Energy instance.
+If you are interested in checking out all the APIs, you can check our [Swagger](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/wellbore_ddms_openapi.yaml) 
 
 ### Create a legal tag
 
-Create a legal tag that's automatically added to your Wellbore DDMS environment for data compliance.
+Create a legal tag for data compliance.
 
-API: **Setup** > **Create Legal Tag for WDMS**
+Run the following `cURL` command to create a legal tag:
 
-Method: `POST`
+```bash
+curl -X POST "https://<DNS>/api/legal/v1/legaltags" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "data-partition-id: <data-partition-id>" \
+     -d '{
+           "name": "LegalTagName",
+           "description": "Legal Tag added for Well",
+           "properties": {
+               "contractId": "123456",
+               "countryOfOrigin": ["US", "CA"],
+               "dataType": "Third Party Data",
+               "exportClassification": "EAR99",
+               "originator": "xyz",
+               "personalData": "No Personal Data",
+               "securityClassification": "Private",
+               "expirationDate": "2025-12-25"
+           }
+       }'
+```
 
-:::image type="content" source="media/tutorial-wellbore-ddms/postman-api-create-legal-tag.png" alt-text="Screenshot that shows the API that creates a legal tag." lightbox="media/tutorial-wellbore-ddms/postman-api-create-legal-tag.png":::
+**Sample Response:**
+```json
+{
+  "name": "LegalTagName",
+  "status": "Created"
+}
+```
 
 For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
@@ -118,51 +94,202 @@ For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
 Create a well record in your Azure Data Manager for Energy instance.
 
-API: **Well** > **Create Well**
-
 Method: `POST`
 
-:::image type="content" source="media/tutorial-wellbore-ddms/postman-api-create-well.png" alt-text="Screenshot that shows the API that creates a well record." lightbox="media/tutorial-wellbore-ddms/postman-api-create-well.png":::
+```bash
+curl -X POST "https://<DNS>/api/os-wellbore-ddms/ddms/v3/wells/<well_id>" \
+   -H "Authorization: Bearer <access_token>" \
+   -H "data-partition-id: <data-partition-id>" \
+   -H "Content-Type: application/json" \
+   -d '[
+         {
+            "acl": {
+               "owners": [
+               "data.default.owners@{{entitlement_domain}}"
+               ],
+               "viewers": [
+               "data.default.viewers@{{entitlement_domain}}"
+               ]
+            },
+            "data": {
+               "ExtensionProperties": {},
+               "FacilityName": "{{wellbore_well_name}}",
+               "FacilityNameAliases": [
+               {
+                  "AliasName": "20-000-00000-00",
+                  "AliasNameTypeID": "{{DATA_PARTITION_ID}}:reference-data--AliasNameType:UniqueIdentifier:"
+               }
+               ]
+            },
+            "id": "{{DATA_PARTITION_ID}}:master-data--Well:{{wellbore_well_id}}",
+            "kind": "osdu:wks:master-data--Well:1.1.0",
+            "legal": {
+               "legaltags": [
+               "{{legal_dafault_tag}}"
+               ],
+               "otherRelevantDataCountries": [
+               "FR",
+               "US"
+               ],
+               "status": "compliant"
+            }
+         }
+   ]'
+
+```
+
+**Sample Response:**
+```json
+{
+  "recordCount": 1,
+  "recordIdVersions": [
+    "opendes:master-data--Well:122:1753292228903506"
+  ],
+  "recordIds": [
+    "opendes:master-data--Well:122"
+  ],
+  "skippedRecordIds": []
+}
+```
 
 ### Get a well record
 
 Get the well record data for your Azure Data Manager for Energy instance.
 
-API: **Well** > **Well by ID**
-
 Method: `GET`
 
-:::image type="content" source="media/tutorial-wellbore-ddms/postman-api-get-well.png" alt-text="Screenshot that shows the API that gets a well record by ID." lightbox="media/tutorial-wellbore-ddms/postman-api-get-well.png":::
+```bash
+curl -X GET "https://<DNS>/api/os-wellbore-ddms/ddms/v3/wells/<well_id>" \
+   -H "Authorization: Bearer <access_token>" \
+   -H "data-partition-id: <data-partition-id>" \
+   -H 'accept: application/json'
+```
+**Sample Response:**
+```json
+{
+  "id": "opendes:master-data--Well:122",
+  "version": 1753292228903506,
+  "kind": "osdu:wks:master-data--Well:1.1.0",
+  "acl": {
+    "viewers": [
+      "data.default.viewers@opendes.dataservices.energy"
+    ],
+    "owners": [
+      "data.default.owners@opendes.dataservices.energy"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "opendes-welltesttag"
+    ],
+    "otherRelevantDataCountries": [
+      "FR",
+      "US"
+    ]
+  },
+  "meta": null,
+  "data": {
+    "ExtensionProperties": {},
+    "FacilityName": "opendes:master-data--Well:123",
+    "FacilityNameAliases": [
+      {
+        "AliasName": "20-000-00000-00",
+        "AliasNameTypeID": "opendes:reference-data--AliasNameType:UniqueIdentifier:"
+      }
+    ]
+  },
+  "createTime": "2025-07-23T17:37:09.290000+00:00",
+  "createUser": "3046ab2b-b04c-4933-8afd-***********"
+}
+```
 
 ### Get well versions
 
 Get the versions of each ingested well record in your Azure Data Manager for Energy instance.
 
-API: **Well** > **Well Versions**
 
 Method: `GET`
 
-:::image type="content" source="media/tutorial-wellbore-ddms/postman-api-get-well-versions.png" alt-text="Screenshot that shows the API that gets all well versions." lightbox="media/tutorial-wellbore-ddms/postman-api-get-well-versions.png":::
+```bash
+curl -X GET "https://<DNS>/api/os-wellbore-ddms/ddms/v3/wells/<well_id>/versions" \
+   -H "Authorization: Bearer <access_token>" \
+   -H "data-partition-id: <data-partition-id>" \
+   -H 'accept: application/json' \
+```
+**Sample Response:**
+```json
+{
+  "recordId": "opendes:master-data--Well:122",
+  "versions": [
+    1753292228903506
+  ]
+}
+```
 
 ### Get a specific well version
 
 Get the details of a specific version for a specific well record in your Azure Data Manager for Energy instance.
 
-API: **Well** > **Well Specific Version**
 
 Method: `GET`
 
-:::image type="content" source="media/tutorial-wellbore-ddms/postman-api-get-specific-well-version.png" alt-text="Screenshot that shows the API that gets a specific well version." lightbox="media/tutorial-wellbore-ddms/postman-api-get-specific-well-version.png":::
+```bash
+curl -X GET "https://<DNS>/api/os-wellbore-ddms/ddms/v3/wells/<well_id>/versions/<version>" \
+   -H "Authorization: Bearer <access_token>" \
+   -H "data-partition-id: <data-partition-id>" \
+   -H 'accept: application/json' \
+```
+**Sample Response:**
+```json
+{
+  "id": "opendes:master-data--Well:122",
+  "version": 1753292228903506,
+  "kind": "osdu:wks:master-data--Well:1.1.0",
+  "acl": {
+    "viewers": [
+      "data.default.viewers@opendes.dataservices.energy"
+    ],
+    "owners": [
+      "data.default.owners@opendes.dataservices.energy"
+    ]
+  },
+  "legal": {
+    "legaltags": [
+      "opendes-welltesttag"
+    ],
+    "otherRelevantDataCountries": [
+      "FR",
+      "US"
+    ]
+  },
+  "meta": null,
+  "data": {
+    "ExtensionProperties": {},
+    "FacilityName": "opendes:master-data--Well:123",
+    "FacilityNameAliases": [
+      {
+        "AliasName": "20-000-00000-00",
+        "AliasNameTypeID": "opendes:reference-data--AliasNameType:UniqueIdentifier:"
+      }
+    ]
+  },
+  "createTime": "2025-07-23T17:37:09.290000+00:00",
+  "createUser": "3046ab2b-b04c-4933-8afd-***********"
+}
+```
 
 ### Delete a well record
 
 Delete a specific well record from your Azure Data Manager for Energy instance.
 
-API: **Clean up** > **Well Record**
-
 Method: `DELETE`
 
-:::image type="content" source="media/tutorial-wellbore-ddms/postman-api-delete-well.png" alt-text="Screenshot that shows the API that deletes a well record." lightbox="media/tutorial-wellbore-ddms/postman-api-delete-well.png":::
+```bash
+curl -X DELETE "https://<DNS>/api/os-wellbore-ddms/ddms/v3/wells/<well_id>" \
+   -H "Authorization: Bearer <access_token>" \
+   -H "data-partition-id: <data-partition-id>"
+```
+**Response code: 204 No content**
 
 ## Next step
 

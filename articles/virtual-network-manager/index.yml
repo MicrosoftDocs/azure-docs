@@ -66,8 +66,8 @@ landingContent:
             url: concept-connectivity-configuration.md
       - linkListType: how-to-guide
         links:
-          - text: Create a hub-and-spoke topology
-            url: how-to-create-hub-and-spoke.md
+          - text: Create a mesh or hub-and-spoke topology
+            url: how-to-create-network-manager-topologies.md
            
   # Card
   - title: Security
@@ -114,7 +114,7 @@ landingContent:
           - text: Deploy Azure Virtual Network Manager - ARM Template
             url: create-virtual-network-manager-template.md
           - text: Hub-and-Spoke Deployment with Connected Groups - ARM Template
-            url: /samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/
+            url: /samples/azure-samples/azure-hub-spoke/hub-spoke-deployment-with-connected-groups/
         
   # Card
   - title: Monitoring

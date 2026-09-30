@@ -1,13 +1,14 @@
 ---
-title: Interpreting extractor paths from SBOM view in Firmware analysis
-description: Learn how to interpret extractor paths from the SBOM view in Firmware analysis results.
+title: Interpreting extractor paths from SBOM view in firmware analysis
+description: Learn how to interpret extractor paths from the SBOM view in firmware analysis results.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
-ms.date: 11/04/2024
+ms.topic: article
+ms.date: 03/05/2026
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ---
-
+ 
 # Overview of How Firmware Images are Structured
 
 A firmware image is a collection of files and file systems containing software that operates hardware. Often, it includes compressed files, executables, and system files. These file systems may or may not include other file systems within each file. For example, a firmware image that’s a .zip file may include individual files such as executables within it but may also include other compressed file systems, such as a SquashFS file. You can visualize it like the following:
@@ -22,17 +23,17 @@ Because of the complex structure of firmware images – any given layer could be
 
 **How the Extractor Works**
 
-The Firmware Analysis extractor identifies and decompresses data found within firmware images. There are multiple types of extractors, one for each type of file. For a full list of file formats that Firmware Analysis supports, check [Firmware analysis Frequently Asked Questions](firmware-analysis-faq.md).
+The firmware analysis extractor identifies and decompresses data found within firmware images. There are multiple types of extractors, one for each type of file. For a full list of file formats that firmware analysis supports, check [Firmware analysis Frequently Asked Questions](firmware-analysis-faq.md).
 
-For example, a `ZipArchive` extractor would extract a `ZipArchive` file. The extractor extracts the image as it sits on the disk in your system, and you will need to correlate the file path to the structure of files on your build environment. When you upload your firmware images to the Firmware Analysis service, the extractor recursively extracts the image until it cannot extract further. This means that the original firmware image is decompressed into individual files, and each individual file is sent again to the extractor to see if they can be further decompressed. This repeats until the extractor cannot decompress further.
+For example, a `ZipArchive` extractor would extract a `ZipArchive` file. The extractor extracts the image as it sits on the disk in your system, and you will need to correlate the file path to the structure of files on your build environment. When you upload your firmware images to the firmware analysis service, the extractor recursively extracts the image until it cannot extract further. This means that the original firmware image is decompressed into individual files, and each individual file is sent again to the extractor to see if they can be further decompressed. This repeats until the extractor cannot decompress further.
 
 Sometimes, there may be numerous files concatenated into one. Extractor will identify that there are numerous files in that one file, and use the appropriate extractor to extract each file, then put each file into its own respective directory. This means that if there were four files that were compiled with `GZip`, and they were concatenated into one file, extractor will identify that there are four `GZip` files at that level of extraction. Extractor will put the first `GZip` file into a directory named `GZipExtractor/1`, the second into a directory named `GZipExtractor/2`, and so on.
 
 ## Interpret File Paths Created by the Extractor
 
-In the Firmware Analysis service, the SBOM view of the analysis results contains the file paths:
+In the firmware analysis service, the SBOM view of the analysis results contains the file paths:
 
-:::image type="content" source="media/extractor-paths/sbom-view.png" alt-text="Screenshot of SBOM view in the Firmware analysis results." lightbox="media/extractor-paths/sbom-view.png":::
+:::image type="content" source="media/extractor-paths/sbom-view.png" alt-text="Screenshot of SBOM view in the firmware analysis results." lightbox="media/extractor-paths/sbom-view.png":::
 
 Here is an example of a file path that might be seen in analysis results, and how to visualize the path in a file-system structure:
 
@@ -82,3 +83,37 @@ When you hover over the number, you’ll see a pop-up that looks like this:
 
 This means that the SBOM can be found at these two executable paths.
 
+## How UEFI analysis capabilities affect extractor paths
+
+UEFI (Unified Extensible Firmware Interface) firmware differs from other firmware types in structure and content. A single UEFI firmware image can contain:
+
+- UEFI-specific modules
+- Other executable formats embedded within the firmware (for example, Linux ELF binaries)
+
+As a result, firmware analysis results—and the extractor paths shown in the SBOM view—may include a mix of executable types within the same analysis.
+
+For UEFI firmware, extractor path enhancements are currently provided as a **Preview** capability. When available, extractor paths may include:
+
+- The UEFI module name
+- GUID-based identifiers used internally by UEFI firmware
+
+These enhancements are intended to improve clarity when correlating SBOM entries with UEFI modules. However, they may not appear for all firmware images or all modules.
+
+> [!NOTE]
+> Because UEFI extractor path enhancements are in Preview, coverage may be incomplete. Missing module names or paths should be interpreted as **unknown**, not as evidence that a component is absent.
+
+
+### Relationship between UEFI analysis coverage and extractor paths
+
+UEFI analysis capabilities vary by feature maturity:
+
+- Detection of cryptographic certificates and keys embedded in UEFI firmware is **Generally Available (GA)**
+- SBOM extraction, weakness detection, binary hardening attributes, and extractor path enhancements for UEFI firmware are currently in **Preview**
+
+Because SBOM and weakness data for UEFI firmware are derived from detected components:
+
+- CVEs may appear only for components whose versions can be confidently identified
+- Some SBOM rows may have missing or partial data
+- Some extractor paths may apply only to non-UEFI executables embedded within the firmware
+
+Missing or empty values in UEFI-related rows should be interpreted as **unknown**, not as confirmation that a security feature is absent or a vulnerability does not exist.

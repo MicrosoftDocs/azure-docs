@@ -2,9 +2,8 @@
 title: Deploy secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the release and response phases of your web application project.
 author: msmbaldwin
-manager: rkarlin
 ms.author: mbaldwin
-ms.date: 09/29/2024
+ms.date: 12/03/2025
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -26,13 +25,13 @@ The focus of the release phase is readying a project for public release. This in
 
 ### Check your application’s performance before you launch
 
-Check your application's performance before you launch it or deploy updates to production. Use Azure Load Testing to run cloud-based [load tests](../../load-testing/index.yml) to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
+Check your application's performance before you launch it or deploy updates to production. Use Azure Load Testing to run cloud-based [load tests](../../app-testing/index.yml) to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
 
 ### Install a web application firewall
 
-Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks and cross-site scripting attacks. Preventing these attacks in application code can be challenging. It might require rigorous maintenance, patching, and monitoring at many layers of the application topology. A centralized WAF helps make security management simpler. A WAF solution can also react to a security threat by patching a known vulnerability at a central location versus securing each individual web application.
+Web applications are frequent targets of malicious attacks, such as SQL injection and cross-site scripting. Preventing these attacks in application code can be complex, requiring rigorous maintenance, patching, and monitoring across multiple layers of the application. A centralized Web Application Firewall (WAF) simplifies security management by addressing vulnerabilities at a central point rather than securing each individual web application.
 
-The [Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md) provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
+The [Azure Web Application Firewall](../../web-application-firewall/overview.md) for [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) and [Azure Front Door](../../web-application-firewall/afds/afds-overview.md) offers centralized protection against common exploits and vulnerabilities. The WAF uses rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9 to provide robust security for your web applications.
 
 ### Create an incident response plan
 

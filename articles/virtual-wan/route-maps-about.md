@@ -2,21 +2,17 @@
 title: 'About Route-maps'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN Route-maps.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/04/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom: references_regions
 
 ---
-# About Route-maps for virtual hubs (Preview)
+# About Route-maps for virtual hubs
 
 Route-maps is a feature that gives you the ability to control route advertisements and routing for Virtual WAN virtual hubs. Route-maps lets you have more control of the routing  that enters and leaves Azure Virtual WAN site-to-site (S2S) VPN connections, User VPN point-to-site (P2S) connections, ExpressRoute (ER) connections, and virtual network (VNet) connections. Route-maps can be configured using the Azure portal. For configuration steps, see [How to configure Route-maps](route-maps-how-to.md).
-
-> [!IMPORTANT]
-> [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-preview.md)]
->
 
 ## Why use Route-maps?
 
@@ -52,21 +48,21 @@ Route-maps lets you perform route aggregation, route filtering, and gives you th
 
 Before using Route-maps, take into consideration the following limitations:
 
-* During Preview, hubs that are using Route-maps must be deployed in their own virtual WANs.
-* The Route-maps feature is only available for virtual hubs running on the Virtual Machine Scale Sets infrastructure. For more information, see the [FAQ](virtual-wan-faq.md).
 * When using Route-maps to summarize a set of routes, the hub router strips the *BGP Community* and *AS-PATH* attributes from those routes. This applies to both inbound and outbound routes.
-* When adding ASNs to the AS-PATH, only use the Private ASN range 64512 - 65535, but don't use ASN's Reserved by Azure:
+* When using Route-maps, [do not use private ASNs for AS prepending](../expressroute/expressroute-optimize-routing.md) (note that the referenced article focuses on ExpressRoute Microsoft peerings, but the same applies for ExpressRoute private peerings).
+
+* When using Route-maps, do not use ASN's reserved by Azure for AS prepending:
   * Public ASNs: 8074, 8075, 12076
   * Private ASNs: 65515, 65517, 65518, 65519, 65520
 * When using Route-maps, do not remove the Azure BGP communities:
-  *  65517:12001 , 65517:12002 , 65517:12003 , 65517:12005 , 65517:12006 , 65518:65518 , 65517:65517 , 65517:12076 , 65518:12076 , 65515:10000 , 65515:20000
-* You can't apply Route-maps to connections between on-premises and SD-WAN/Firewall NVAs in the virtual hub. These connections aren't supported during Preview. You can still apply route-maps to other supported connections when an NVA in the virtual hub is deployed. This doesn't apply to the Azure Firewall, as the routing for Azure Firewall is provided through Virtual WAN [routing intent features](how-to-routing-policies.md).
-* Route-maps supports only 2-byte ASN numbers.
-* The point-to-site (P2S) Multipool feature isn't currently supported with Route-maps.
+  *  65517:12001, 65517:12002, 65517:12003, 65517:12005, 65517:12006, 65518:65518, 65517:65517, 65517:12076, 65518:12076, 65515:10000, 65515:20000
+* You can't apply Route-maps to connections between on-premises and SD-WAN/Firewall NVAs in the virtual hub. You can still apply route-maps to other supported connections when an NVA in the virtual hub is deployed. This doesn't apply to the Azure Firewall, as the routing for Azure Firewall is provided through Virtual WAN [routing intent features](how-to-routing-policies.md).
+* Route-maps only supports 2-byte ASN numbers.
 * Modifying the *Default* route is only supported when the default route is learned from on-premises or an NVA.
 * A prefix can be modified either by Route-maps, or by NAT, but not both.
 * Route-maps won't be applied to the [hub address space](virtual-wan-site-to-site-portal.md#hub).
-* Applying Route-Maps on NVAs in a spoke VNet isn't supported. 
+* When using Route-Maps on a VNet that contains an NVA. You can apply a Route-map on VNet addresses or the addresses advertised by the NVA. 
+* Route-Maps only supports route summarization. Do not use Route-Maps to create more specific routes. 
 
 ## Configuration workflow
 
@@ -109,32 +105,16 @@ Match conditions are used to select a set of routes. Once those routes are selec
 
 ### Supported configurations for route-map rules
 
-This section shows the match conditions and actions supported for the Route-maps Preview.
+This section shows the match conditions and actions supported in the Route-maps feature.
 
 #### Match conditions
 
-|Property|	Criterion|	Value (example)|	Interpretation|
-|---|---|---|---|
-|Route-prefix|	equals|	10.1.0.0/16,10.2.0.0/16,10.3.0.0/16,10.4.0.0/16|Matches these 4 routes only. Specific prefixes under these routes won't be matched.  |
-|Route-prefix	|contains|	10.1.0.0/16,10.2.0.0/16, 192.168.16.0/24, 192.168.17.0/24|	Matches all the specified routes and all prefixes underneath. (Example 10.2.1.0/24 is underneath 10.2.0.0/16) |
-|Community|	equals	|65001:100,65001:200	|Community property of the route must have both the communities. Order isn't relevant.|
-|Community	|contains|	65001:100,65001:200|Community property of the route can have one or more of the specified communities. |
-|AS-Path	|equals|	65001,65002,65003|	AS-PATH of the routes must have ASNs listed in the specified order.
-|AS-Path	|contains|	65001,65002,65003|	AS-PATH in the routes can contain one or more of the ASNs listed. Order isn't relevant.|
+[!INCLUDE [Route Maps match conditions](../../includes/route-maps-match-conditions.md)]
 
 #### Route modifications
 
-|Property|	Action|	Value	|Interpretation|
-|---|---|---|---|
-|Route-prefix|	drop	|10.3.0.0/8,10.4.0.0/8 |The routes specified in the rule are dropped. |
-|Route-prefix |	Replace|	10.0.0.0/8,192.168.0.0/16|Replace all the matched routes with the routes specified in the rule.  |
-|As-Path |	Add |	64580,64581	|Prepend AS-PATH with the list of ASNs specified in the rule. These ASNs are applied in the same order for the matched routes. |
-|As-Path |	Replace |	65004,65005 |AS-PATH will be set to this list in the same order, for every matched route. See key considerations for reserved AS numbers. |
-|As-Path |	Replace |	No value specified	|Remove all ASNs in the AS-PATH in the matched routes. |
-|Community |	Add	|64580:300,64581:300 |Add all the listed communities to all the matched routes Community attribute.  |
-|Community |	Replace |	64580:300,64581:300 |	Replace Community attribute for all the matched routes with the list provided. |
-|Community |	Replace |	No value specified |Remove Community attribute from all the matched routes. |
-|Community |	Remove|	65001:100,65001:200|Remove any of the listed communities that are present in the matched routes’ Community attribute. |
+[!INCLUDE [Route Maps route modifications](../../includes/route-maps-route-modifications.md)]
+
 
 ## Apply route-maps to connections
 
@@ -142,7 +122,7 @@ You can apply route-maps on each connection for the inbound, outbound, or both i
 
 * **Inbound direction:** When a route-map is configured on a connection in the inbound direction, all the ingress route advertisements on that connection are processed by the route-map before they're entered into the virtual hub router’s routing table, *defaultRouteTable*.
 
-* **Outbound direction:** When a route-map is configured on a connection in the outbound direction, the route-map processes all the egress route advertisements on that connection before they're advertised by the virtual hub router across the connection.
+* **Outbound direction:** When a route-map is configured on a connection in the outbound direction, the route-map processes all the egress route advertisements on that connection before they're advertised by the virtual hub router across the connection. Outbound route-maps can only modify the routes that are advertised by Virtual WAN to a specific connection and can't be used to select which route or path a connection uses to access a specific prefix. This is because best-path selection via [hub routing preference](about-virtual-hub-routing-preference.md) occurs prior to applying any outbound route-maps. Therefore, outbound routes can't be used to influence best-path selection in Azure.
 
 For steps to apply route-maps to connections, see [How to configure Route-maps](route-maps-how-to.md).
 

@@ -1,34 +1,42 @@
 ---
-title: "Quickstart: Upload firmware images to Firmware analysis using Python"
+title: "Quickstart: Upload firmware images to firmware analysis using Python"
 description: "Learn how to upload firmware images for analysis using a Python script."
 author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.date: 04/10/2024
+ms.date: 09/12/2025
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ---
 
-# Quickstart: Upload firmware images to Firmware analysis using Python
+# Quickstart: Upload firmware images to firmware analysis using Python
 
-This article explains how to use a Python script to upload firmware images to Firmware analysis.
+This article explains how to use a Python script to upload firmware images to firmware analysis.
 
 [Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Firmware Analysis. For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware Analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
+This quickstart assumes a basic understanding of firmware analysis. For more information, see [Overview of firmware analysis](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about firmware analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
+
+You must have a resource group and workspace to upload and analyze firmware images. To create a resource group and workspace, see [Firmware analysis tutorial](./quickstart-firmware-analysis-portal.md).
+
+You must have a resource group and workspace to upload and analyze firmware images. To create a resource group and workspace, see [Firmware analysis tutorial](./quickstart-firmware-analysis-portal.md).
 
 ### Prepare your environment
 
 1. Python version 3.8+ is required to use this package. Run the command `python --version` to check your Python version.
 2. Make note of your Azure subscription ID, the name of your Resource Group where you'd like to upload your images, your workspace name, and the name of the firmware image that you'd like to upload.
-3. Ensure that your Azure account has the necessary permissions to upload firmware images to Firmware analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Firmware Analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
+3. Ensure that your Azure account has the necessary permissions to upload firmware images to firmware analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Firmware analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
 4. Ensure that your firmware image is stored in the same directory as the Python script.
 5. Install the packages needed to run this script:
     ```python
-    pip install azure-mgmt-iotfirmwaredefense
+    pip install azure.storage.blob
+    pip install halo
+    pip install tabulate
     pip install azure-identity
+    pip install azure-mgmt-iotfirmwaredefense
     ```
 6. Log in to your Azure account by running the command [`az login`](/cli/azure/reference-index?#az-login).
 
@@ -68,8 +76,8 @@ def init_connections(firmware_id):
 def upload_firmware(fw_client, firmware_id):
     spinner = Halo(text="Uploading firmware to Azure...", spinner="dots")
     spinner.start()
-    token = fw_client.workspaces.generate_upload_url(resource_group_name, workspace_name, {"firmware_id": firmware_id})
-    fw_client.firmwares.create(resource_group_name, workspace_name, firmware_id, {"properties": {"file_name": firmware_file, "vendor": "Contoso Ltd.", "model": "Wifi Router", "version": "1.0.1", "status": "Pending"}})
+    token = fw_client.workspaces.generate_upload_url(resource_group_name, workspace_name, {"firmwareId": firmware_id})
+    fw_client.firmwares.create(resource_group_name, workspace_name, firmware_id, {"properties": {"fileName": firmware_file, "vendor": "Contoso Ltd.", "model": "Wifi Router", "version": "1.0.1", "status": "Pending"}})
     bl_client = BlobClient.from_blob_url(token.url)
     with open(file=firmware_file, mode="rb") as data:
         bl_client.upload_blob(data=data)
@@ -87,7 +95,7 @@ def get_results(fw_client, firmware_id):
 
     print("-"*107)
 
-    summary = fw_client.summaries.get(resource_group_name, workspace_name, firmware_id, summary_name=SummaryName.FIRMWARE)
+    summary = fw_client.summaries.get(resource_group_name, workspace_name, firmware_id, summary_type=SummaryType.FIRMWARE)
     print_summary(summary.properties)
     print()
 

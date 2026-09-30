@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 10/08/2021
 ms.topic: include
-ms.custom: include file
 ms.author: gistefan
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Set up prerequisites
@@ -123,14 +125,14 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/redirect', async (req, res) => {
-    // Create request parameters object for acquiring the AAD token and object ID of a Teams user
+    // Create request parameters object for acquiring the Microsoft Entra ID token and object ID of a Teams user
     const tokenRequest = {
         code: req.query.code,
         scopes: scopes,
         redirectUri: REDIRECT_URI,
         codeVerifier: pkceVerifier,
     };
-    // Retrieve the AAD token and object ID of a Teams user
+    // Retrieve the Microsoft Entra ID token and object ID of a Teams user
     pca.acquireTokenByCode(tokenRequest).then(async(response) => {
         console.log("Response:", response);
         let teamsUserAadToken = response.accessToken;

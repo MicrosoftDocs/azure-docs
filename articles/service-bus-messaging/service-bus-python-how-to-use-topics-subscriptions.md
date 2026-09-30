@@ -6,7 +6,11 @@ ms.author: spelluru
 ms.date: 02/06/2024
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - passwordless-python
+  - sfi-ropc-nochange
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)
@@ -32,7 +36,7 @@ In this tutorial, you complete the following steps:
 
 ## Prerequisites
 
-- An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python 3.8](https://www.python.org/downloads/) or higher
 
 >[!NOTE]

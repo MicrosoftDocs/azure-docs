@@ -1,12 +1,14 @@
 ---
 title: Troubleshoot web apps migration issues
 description: Troubleshoot web apps migration issues
-author: v-sreedevank
-ms.author: v-sreedevank
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.date: 10/11/2023
 ms.topic: troubleshooting
+ms.update:cycle: 365-days
 ms.custom: engagement-fy25
+# Customer intent: "As a web app developer migrating applications, I want to troubleshoot and resolve migration issues effectively, so that I can ensure a smooth transition to the cloud platform without disruptions to my deployment process."
 ---
 
 # Troubleshooting web apps migration issues

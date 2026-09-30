@@ -1,15 +1,16 @@
 ---
 title: 'Tutorial: Python connect to Azure services securely with Key Vault'
-description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively from a Python web app
+description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively using a Python web app.
 ms.devlang: python
 # ms.devlang: python, azurecli
 ms.topic: tutorial
-ms.date: 08/23/2024
+ms.date: 03/31/2026
 author: cephalin
 ms.author: cephalin
-
-ms.reviewer: madsd 
+ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, devx-track-python, AppServiceConnectivity
+ms.service: azure-app-service
+#customer intent: As a developer, I need to support back-end services that don't support managed identities and still require connection secrets.
 ---
 
 # Tutorial: Secure Cognitive Service connection from Python App Service using Key Vault
@@ -30,17 +31,17 @@ zip -r default.zip .
 appName=<app-name>
 
 az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region --is-linux
-az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "python:3.11"
+az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "python:3.14"
 az webapp config appsettings set --resource-group $groupName --name $appName --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 az webapp deploy --resource-group $groupName --name $appName --src-path ./default.zip
 ```
 
 The preceding commands:
 
-* Create a linux app service plan
-* Create a web app for Python 3.11
-* Configure the web app to install the python packages on deployment
-* Upload the zip file, and install the python packages
+- Create a Linux App Service plan
+- Create a Python web app
+- Configure the web app to install the Python packages on deployment
+- Upload the zip file, and install the Python packages
 
 ## Configure secrets as app settings
 

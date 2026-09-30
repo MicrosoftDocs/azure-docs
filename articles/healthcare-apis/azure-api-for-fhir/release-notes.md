@@ -1,17 +1,17 @@
 ---
-title: Azure API for FHIR monthly releases
-description: This article provides details about the Azure API for FHIR monthly features and enhancements.
+title: Azure API for FHIR monthly releases pre-2025
+description: This article provides details about the Azure API for FHIR monthly features and enhancements pre-2025.
 services: healthcare-apis
 author: kgaddam10
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/27/2023
+ms.date: 02/25/2026
 ms.custom: references_regions
 ms.author: kavitagaddam
 ---
 
-# Release notes: Azure API for FHIR
+# Release notes pre-2025: Azure API for FHIR
 
 [!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
@@ -302,7 +302,7 @@ Bug is now fixed and Resource will be updated if it matches the Etag header. For
 
 ## Next steps
 
-For information about the features and bug fixes in Azure Health Data Services (FHIR service, DICOM service, and MedTech service), see
+For information about the features and bug fixes in Azure Health Data Services (FHIR and DICOM services), see
 
 >[!div class="nextstepaction"]
 >[Release notes: Azure Health Data Services](../release-notes.md)

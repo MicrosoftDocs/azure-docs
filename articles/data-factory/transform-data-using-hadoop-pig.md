@@ -2,7 +2,7 @@
 title: Transform data using Hadoop Pig activity
 description: Learn how you can use the Pig Activity to run Pig scripts on an on-demand/your own HDInsight cluster with Azure Data Factory or Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
@@ -14,6 +14,9 @@ ms.subservice: orchestration
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Azure HDInsight activity](/fabric/data-factory/azure-hdinsight-activity).
 
 The HDInsight Pig activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes Pig queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
@@ -77,7 +80,6 @@ To use an HDInsight Pig activity to a pipeline, complete the following steps:
 ## Related content
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)

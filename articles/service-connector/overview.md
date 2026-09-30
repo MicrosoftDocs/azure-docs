@@ -7,7 +7,7 @@ ms.service: service-connector
 ms.custom:
   - build-2024
 ms.topic: overview
-ms.date: 10/15/2024
+ms.date: 11/21/2025
 ---
 
 # What is Service Connector?
@@ -18,7 +18,7 @@ This article provides an overview of Service Connector.
 
 ## What is Service Connector used for?
 
-Any application that runs on Azure compute services and requires a backing service, can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
+Any application that runs on Azure compute services and requires a backing service can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
 
 * **Database:** Use Service Connector to connect databases, such as PostgreSQL, MySQL, or Azure Cosmos DB, to your apps.
 * **Storage:** Use Service Connector to use your preferred storage products, such as Azure Storage for any of your apps.
@@ -42,26 +42,29 @@ Compute services:
 
 * Azure App Service
 * Azure Functions
-* Azure Spring Apps
-* Azure Container Apps
 * Azure Kubernetes Service (AKS)
+* Azure Spring Apps — [service scheduled for retirement](/azure/spring-apps/basic-standard/retirement-announcement)
 
 Target services:
 
-* Azure AI services
+* Foundry Tools
 * Azure App Configuration
-* Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
+* Azure Cache for Redis (Basic, Standard, Premium and Enterprise tiers)
 * Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Event Hubs
 * Azure Key Vault
+* Azure Managed Redis
 * Azure Service Bus
 * Azure SQL Database
 * Azure SignalR Service
 * Azure Storage (Blob, Queue, File and Table storage)
 * Azure Web PubSub
 * Apache Kafka on Confluent Cloud
+* MongoDB Atlas
+* Neon Serverless Postgres (Preview)
+* SQL database in Microsoft Fabric
 
 ## How to use Service Connector?
 
@@ -75,7 +78,7 @@ What's more, Service Connector is also supported in the following client tools w
 * **Azure Powershell:** manage connections with commands in Azure PowerShell.
 * **Terraform:** create and delete connections with infrastructure as code tool (be aware of the [limitations](known-limitations.md)).
 * **Visual Studio:** manage connections of a project by integrating with [Connected Services](/visualstudio/azure/overview-connected-services) feature in Visual Studio.
-* **Intellij:** list connections of Azure compute services in [Azure Toolkit for Intellij](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+* **IntelliJ:** list connections of Azure compute services in [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
 Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you're recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
 
@@ -84,5 +87,3 @@ Finally, you can also use Azure SDKs and API calls to interact with Service Conn
 - [Quickstart: Service Connector in Azure App Service](./quickstart-portal-app-service-connection.md)
 - [Quickstart: Service Connector in Azure Functions](./quickstart-portal-functions-connection.md)
 - [Quickstart: Service Connector in Azure Spring Cloud](./quickstart-portal-spring-cloud-connection.md)
-- [Quickstart: Service Connector in Azure Container Apps](./quickstart-portal-container-apps.md)
-- [Learn about Service Connector concepts](./concept-service-connector-internals.md)

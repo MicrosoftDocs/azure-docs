@@ -1,8 +1,8 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 09/05/2024
-ms.topic: conceptual
+ms.date: 07/30/2026
+ms.topic: reference
 ---
 
 # Azure Policy assignment structure
@@ -12,7 +12,7 @@ Policy assignments define which resources are evaluated by a policy definition o
 You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
 - [scope](#scope)
-- [policy definition ID and version](#policy-definition-id-and-version-preview)
+- [policy definition ID and version](#policy-definition-id-and-version)
 - [display name](#display-name-and-description)
 - [description](#display-name-and-description)
 - [metadata](#metadata)
@@ -51,11 +51,15 @@ For example, the following JSON shows a sample policy assignment request in _DoN
         "value": "-LC"
       }
     },
-    "identity": {
-      "type": "SystemAssigned"
+    "identity":  {
+      "principalId":  "<PrincipalId>",
+      "tenantId":  "<TenantId>",
+      "identityType":  "SystemAssigned",
+      "userAssignedIdentities":  null
     },
+    "location":  "westus",
     "resourceSelectors": [],
-    "overrides": []
+    "overrides": [],
   }
 }
 ```
@@ -64,15 +68,15 @@ For example, the following JSON shows a sample policy assignment request in _DoN
 
 The scope used for assignment resource creation time is the primary driver of resource applicability. For more information on assignment scope, see [Understand scope in Azure Policy](./scope.md#assignment-scopes).
 
-## Policy definition ID and version (preview)
+## Policy definition ID and version
 
 This field must be the full path name of either a policy definition or an initiative definition. The `policyDefinitionId` is a string and not an array. The latest content of the assigned policy definition or initiative is retrieved each time the policy assignment is evaluated. The recommendation is that if multiple policies are often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
 
-For built-in definitions and initiatives, you can use specific the `definitionVersion` of which to assess on. By default, the version is set to the latest major version and autoingest minor and patch changes.
+For both built-in and custom definitions and initiatives, you can use  `definitionVersion` of which to assess on. By default, the version is set to the latest major version and autoingest minor and patch changes.
 
 - To autoingest any minor changes of the definition, the version number would be `#.*.*`. The Wildcard represents autoingesting updates.
 - To pin to a minor version path, the version format would be `#.#.*`.
-- All patch changes must be autoinjested for security purposes. Patch changes are limited to text changes and break glass scenarios.
+- All patch changes must be autoingested for security purposes. Patch changes are limited to text changes and break glass scenarios.
 
 ## Display name and description
 
@@ -126,7 +130,7 @@ The optional `metadata` property stores information about the policy assignment.
 
 ## Resource selectors
 
-The optional `resourceSelectors` property facilitates safe deployment practices (SDP) by enabling you to gradually roll out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy only evaluates resources that are applicable to the specifications made in the resource selectors. Resource selectors can also be used to narrow down the scope of [exemptions](exemption-structure.md) in the same way.
+The optional `resourceSelectors` property facilitates safe deployment practices (SDP) by enabling you to gradually roll out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy only evaluates resources that are applicable to the specifications made in the resource selectors. Resource selectors can also be used to narrow down the scope of [exemptions](exemption-structure.md) and [enrollments](enrollment-structure.md) in the same way.
 
 In the following example scenario, the new policy assignment is evaluated only if the resource's location is either **East US** or **West US**.
 
@@ -249,9 +253,9 @@ Another common use case for overrides is rolling out a new version of a definiti
 
 Overrides have the following properties:
 
-- `kind`: The property the assignment overrides. The supported kinds are `policyEffect` and `policyVersion`.
+- `kind`: The property the assignment overrides. The supported kinds are `policyEffect` and `definitionVersion`. Overrides of kind definitionVersion are supported for built-in definitions and initiatives only. They aren't supported for custom definitions or initiatives.
 
-- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effect-basics.md). For `kind: policyVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
+- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effect-basics.md). For `kind: definitionVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
 
 - `selectors`: (Optional) The property used to determine what scope of the policy assignment should take on the override.
 
@@ -261,7 +265,7 @@ Overrides have the following properties:
 
     - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
 
-    Allowed value for  `kind: policyVersion`:
+    Allowed value for  `kind: definitionVersion`:
 
     - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
 
@@ -273,9 +277,7 @@ One override can be used to replace the effect of many policies by specifying mu
 
 ## Enforcement mode
 
-The `enforcementMode` property provides customers the ability to test the outcome of a policy on existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](/azure/azure-monitor/essentials/platform-logs-overview).
-
-This scenario is commonly referred to as _What If_ and aligns to safe deployment practices. `enforcementMode` is different from the [Disabled](./effect-disabled.md) effect, as that effect prevents resource evaluation from happening at all.
+The `enforcementMode` property provides customers the ability to control the outcome of a policy on existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](/azure/azure-monitor/essentials/platform-logs-overview).
 
 This property has the following values:
 
@@ -283,8 +285,29 @@ This property has the following values:
 |-|-|-|-|-|-|
 |Enabled |Default |string |Yes |Yes |The policy effect is enforced during resource creation or update. |
 |Disabled |DoNotEnforce |string |Yes |No | The policy effect isn't enforced during resource creation or update. |
+|Enroll |Enroll |string |Yes |Yes for enrolled resources |The policy effect is enforced during resource creation or update only for resources that are enrolled in the assignment. |
 
-If `enforcementMode` isn't specified in a policy or initiative definition, the value _Default_ is used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effect-deploy-if-not-exists.md) policies, even when `enforcementMode` is set to _DoNotEnforce_.
+If `enforcementMode` isn't specified in a policy or initiative definition, the value _Default_ is used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effect-deploy-if-not-exists.md) policies, even when `enforcementMode` is set to _DoNotEnforce_. For more information about Enroll mode, see [Azure Policy enrollment structure](./enrollment-structure.md).
+
+Use `Default` for standard policy assignments where the policy effect should apply to all resources in scope.
+
+Use `DoNotEnforce` when you want to evaluate the policy assignment before enforcement. This mode is useful for testing a new assignment, reviewing compliance impact, or validating policy logic before the policy effect is enforced.
+
+### Choose an enforcement mode
+
+Use the enforcement mode that matches how you want the assignment to affect resources.
+
+| Scenario | Enforcement mode |
+| --- | --- |
+| Enforce the policy effect for all resources in scope during resource creation or update. | `Default` |
+| Evaluate compliance without enforcing the policy effect or writing deny entries to the Azure Activity log. | `DoNotEnforce` |
+| Make the assignment available for staged enforcement through policy enrollments. | `Enroll` |
+
+Use `Default` for standard policy assignments where the policy effect should apply to all resources in scope.
+
+Use `DoNotEnforce` when you want to evaluate the policy assignment before enforcement. This mode is useful for testing a new assignment, reviewing compliance impact, or validating policy logic before the policy effect is enforced.
+
+Use `Enroll` when you want to make the assignment available for staged enforcement through policy enrollments. In this mode, scope owners can create enrollment resources to indicate that enforcement should be applied to specific scopes. When an enrollment resource isn't present, policy evaluation is the same as if the assignment used `DoNotEnforce` by default, but this behavior is configurable. This mode is useful when you want to slowly batch and add subscopes to an assignment.
 
 ## Excluded scopes
 
@@ -343,24 +366,36 @@ In this example, the parameters previously defined in the policy definition are 
 
 ## Identity
 
-For policy assignments with effect set to `deployIfNotExists` or `modify`, the requirement is to have an identity property to do remediation on non-compliant resources. When an assignment uses an identity, the user must also specify a location for the assignment.
+Policy assignments with effect set to `deployIfNotExists` or `modify` must have an identity property to do remediation on non-compliant resources. A single policy assignment can be associated with only one system-assigned or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
 
-> [!NOTE]
-> A single policy assignment can be associated with only one system- or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
+Assignments using a system-assigned managed identity must also specify a top-level `location` property to determine where it will be deployed. The location cannot be set to `global`, and it cannot be changed. The `location` property is only specified in [Rest API](/rest/api/policy-authorization/policy-assignments/create) versions 2018-05-01 and later. If a location is specified in an assignment that doesn't use an identity, then the location will be ignored.
+
 
 ```json
 # System-assigned identity
- "identity": {
-  "type": "SystemAssigned"
-}
+  "identity":  {
+    "principalId":  "<PrincipalId>",
+    "tenantId":  "<TenantId>",
+    "identityType":  "SystemAssigned",
+    "userAssignedIdentities":  null
+  },
+  "location":  "westus",
+  ...
+
 # User-assigned identity
   "identity": {
-  "type": "UserAssigned",
+  "identityType": "UserAssigned",
   "userAssignedIdentities": {
     "/subscriptions/SubscriptionID/resourceGroups/{rgName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {}
   }
 },
 ```
+
+> [!NOTE]
+>
+> For a `deployIfNotExists` policy, the assignment identity is always used for the ARM Template deployment. However, when the target resource is created or updated, the requestor's identity is used for the evaluation. 
+>
+> For example, imagine a policy which deploys `Microsoft.Insights/diagnosticSettings` on `Microsoft.KeyVault/vaults`. When a key vault is created, the caller identity will be used to get the `Microsoft.Insights/diagnosticSettings` resources to evaluate the existence condition of the policy definition. If the conditions are met, then the policy assignment's identity will be used to deploy the diagnostic settings on the key vault. This means that the caller would need `Microsoft.Insights/diagnosticSettings/read permissions`, and the assignment would need `Microsoft.Insights/diagnosticSettings/write permissions`.
 
 ## Next steps
 

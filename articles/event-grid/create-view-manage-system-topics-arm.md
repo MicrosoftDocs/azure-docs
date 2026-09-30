@@ -1,7 +1,7 @@
 ---
 title: Use Azure Resource Manager templates to create system topics in Azure Event Grid
 description: This article shows how to use Azure Resource Manager templates to create system topics in Azure Event Grid. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 07/22/2021
 ---

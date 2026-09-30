@@ -1,8 +1,8 @@
 ---
 title: Incrementally copy a table using PowerShell
 description: In this tutorial, you create an Azure Data Factory pipeline that incrementally copies data from an Azure SQL database to Azure Blob storage.'
-author: dearandyxu
-ms.author: yexu
+author: kromerm
+ms.author: makromer
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 10/03/2024
@@ -12,6 +12,8 @@ ms.subservice: data-movement
 # Incrementally load data from Azure SQL Database to Azure Blob storage using PowerShell
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this tutorial, you use Azure Data Factory to create a pipeline that loads delta data from a table in Azure SQL Database to Azure Blob storage.
 
@@ -48,7 +50,7 @@ Here are the important steps to create this solution:
     * Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time.
 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 

@@ -1,11 +1,9 @@
----
+﻿---
 title: Shared variable file pattern
 description: Describes the shared variable file pattern.
-author: johndowns
-ms.author: jodowns
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 12/22/2025
 ---
 
 # Shared variable file pattern
@@ -66,3 +64,4 @@ Define the NSG resource. Use the `concat()` function to combine the two arrays t
 ## Next steps
 
 [Learn about the configuration set pattern.](patterns-configuration-set.md)
+

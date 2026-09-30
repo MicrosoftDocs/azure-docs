@@ -6,8 +6,9 @@ author: normesta
 ms.author: normesta
 ms.date: 05/01/2024
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
+# Customer intent: "As a data engineer, I want to apply index tags to my blob storage objects, so that I can dynamically categorize and efficiently query my data across multiple containers, improving my data management and discovery processes."
 ---
 
 # Manage and find Azure Blob data with blob index tags
@@ -66,7 +67,7 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Status" = 'Unprocessed'
 > "Priority" = '01'
 
-To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft-deleted blobs cannot be modified.
+To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on soft-deleted blobs cannot be modified.
 
 The following limits apply to blob index tags:
 
@@ -95,7 +96,7 @@ The following limits apply to blob index tags:
   - Valid special characters: space, plus, minus, period, colon, equals, underscore, forward slash (` +-.:=_/`)
   
 > [!TIP]
-> You can use a _storage task_ to set tags on objects at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+> You can use a _storage task_ to set tags on objects at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md)
 
 ## Getting and listing blob index tags
 
@@ -255,7 +256,7 @@ Blob index tags are a subresource to the blob data. A user with permissions or a
 
 ### Role-based access control
 
-Callers using an [Microsoft Entra identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
+Callers using a [Microsoft Entra identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
 
 | Blob index tag operations                                          | Azure RBAC action                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -326,11 +327,14 @@ You're charged for the monthly average number of index tags within a storage acc
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
+> [!NOTE]
+> Blob Tags without indexing is available in Preview for hierarchical namespace (HNS) enabled storage accounts. To try this feature, users must register for “Blob Tags for Hierarchical Namespace” under the Preview features section of their subscription. Currently, Blob Tags on HNS enabled accounts are not integrated with blob storage features like Lifecycle Management.
+
 ## Conditions and known issues
 
 This section describes known issues and conditions.
 
-- Only general-purpose v2 accounts and premium block blob accounts are supported. Premium page blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
+- Only general-purpose v2 accounts and premium block blob accounts are supported. Premium page blob, legacy blob aren't supported. General-purpose v1 accounts won't be supported.
 
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 
@@ -346,7 +350,17 @@ This section describes known issues and conditions.
 
 ## Frequently asked questions (FAQ)
 
-See [Blob index tags FAQ](storage-blob-faq.yml#blob-index-tags).
+### Can blob index help me filter and query content inside my blobs?
+
+No. If you need to search within your blob data, use query acceleration or Azure Cognitive Search.
+
+### Are there any requirements on index tag values?
+
+Blob index tags only support string data types, and querying returns results with lexicographical ordering. For numbers, zero pad the number. For dates and times, store the value as an ISO 8601 compliant format.
+
+### Are blob index tags and Azure Resource Manager tags related?
+
+No. Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
 
 ## Next steps
 

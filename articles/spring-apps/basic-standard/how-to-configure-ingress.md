@@ -1,11 +1,13 @@
 ---
-title: Customize the ingress configuration in Azure Spring Apps
+title: Customize the Ingress Configuration in Azure Spring Apps
 description: Learn how to customize the ingress configuration in Azure Spring Apps.
 author: KarlErickson
-ms.author: haital
+ms.author: karler
+ms.reviewer: haital
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -21,16 +23,16 @@ The Azure Spring Apps service uses an underlying ingress controller to handle ap
 
 | Name                   | Ingress setting          | Default value | Valid range       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |------------------------|--------------------------|---------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ingress-read-timeout` | `proxy-read-timeout`     | 300           | \[1,1800\]        | The timeout in seconds for reading a response from a proxied server.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `ingress-send-timeout` | `proxy-send-timeout`     | 60            | \[1,1800\]        | The timeout in seconds for transmitting a request to the proxied server.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `ingress-read-timeout` | `proxy-read-timeout`     | `300`           | \[1,1800\]        | The timeout in seconds for reading a response from a proxied server.                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `ingress-send-timeout` | `proxy-send-timeout`     | `60`            | \[1,1800\]        | The timeout in seconds for transmitting a request to the proxied server.                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `session-affinity`     | `affinity`               | None          | `Session`, `None` | The type of the affinity that makes the request come to the same pod replica that was responding to the previous request. Set `session-affinity` to Cookie to enable session affinity. In the portal only, you must choose the enable session affinity box.                                                                                                                                                                                                                 |
-| `session-max-age`      | `session-cookie-max-age` | 0             | \[0, 604800\]     | The time in seconds until the cookie expires, corresponding to the `Max-Age` cookie directive. If you set `session-max-age` to 0, the expiration period is equal to the browser session period.                                                                                                                                                                                                                                                                             |
+| `session-max-age`      | `session-cookie-max-age` | `0`             | \[0, 604800\]     | The time in seconds until the cookie expires, corresponding to the `Max-Age` cookie directive. If you set `session-max-age` to 0, the expiration period is equal to the browser session period.                                                                                                                                                                                                                                                                             |
 | `backend-protocol`     | `backend-protocol`       | Default       | Default, `GRPC`   | Sets the backend protocol to indicate how NGINX should communicate with the backend service. Default means HTTP/HTTPS/WebSocket. The `backend-protocol` setting only applies to client-to-app traffic. For app-to-app traffic within the same service instance, choose any protocol for app-to-app traffic without modifying the `backend-protocol` setting. The protocol doesn't restrict your choice of protocol for app-to-app traffic within the same service instance. |
 | `client-auth`          | `client-auth`            | 0 selected    | -                 | Select the certificates with the public key you uploaded in the TLS/SSL settings. Ingress concatenates these certificates into one and then uses it for client authentication.                                                                                                                                                                                                                                                                                              |
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the spring-cloud extension, uninstall it to avoid configuration and version mismatches.
 
   ```azurecli
@@ -113,11 +115,11 @@ This command updates the app with the following settings:
 
 - How do you enable gRPC?
 
-  Set the backend protocol to *GRPC*.
+  Set the backend protocol to **GRPC**.
 
 - How do you enable WebSocket?
 
-  WebSocket is enabled by default if you set the backend protocol to *Default*. The WebSocket connection limit is 20000. When you reach that limit, the connection fails.
+  WebSocket is enabled by default if you set the backend protocol to **Default**. The WebSocket connection limit is 20000. When you reach that limit, the connection fails.
 
   You can also use RSocket based on WebSocket.
 

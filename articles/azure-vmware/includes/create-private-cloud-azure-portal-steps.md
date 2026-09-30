@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli, engagement-fy23
 ms.date: 12/5/2024
 author: suzizuber
 ms.author: v-szuber
+# Customer intent: As a cloud architect, I want to create an Azure VMware Solution private cloud using either the Azure portal or CLI, so that I can efficiently deploy and manage virtualized infrastructure in the cloud.
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
@@ -42,11 +43,12 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
    | **Location** | Select a location, such as **(US) East US 2**. It's the *region* you defined during the planning phase. |
    | **Size of host** | Select the **AV36**, **AV36P** or **AV52** SKU. |
    | **Host Location** | Select **All hosts in one availability zone** for a standard private cloud or **Hosts in two availability zones** for stretched clusters. |
+   | **Portable VCF (BYOL)** | Configure VCF License details for your private cloud, including the VCF license key, Site ID, serial number, VCF expiration date, and the number of VCF cores, all of which are obtained from Broadcom. For number of VCF cores, enter **only the number of BYOL cores deployed** on this private cloud. Do **not** enter the total number of cores purchased under your Broadcom entitlement unless all entitled cores are deployed on this private cloud.  |
    | **Number of hosts** | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment. If these nodes aren't listed as available, contact support to [request a quota increase](../request-host-quota-azure-vmware-solution.md?WT.mc_id=Portal-VMCP). You can also select the link labeled **If you need more hosts, request a quota increase** in the Azure portal. |
    | **Address block for private cloud** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks. |
    
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Screenshot showing the Basics tab on the Create a private cloud window." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/updated-portable-vcf-create-new-private-cloud-with-vcf-byol.png" alt-text="Screenshot showing the Basics tab on the Create a private cloud window." border="true":::
 
 1. Verify the information entered, and if correct, select **Create**.  
 

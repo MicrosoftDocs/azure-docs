@@ -2,12 +2,12 @@
 title: Microsoft Azure Stack Edge Pro R system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Stack Edge Pro R
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 06/26/2024
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Azure Stack Edge Pro R system requirements
 
@@ -40,7 +40,7 @@ When managed from Azure Stack, the following tiered storage accounts are support
 |    |  Blob storage: Block Blob       | Supported only for NAS     |
 
 *Page blobs and Azure Files are currently not supported in Azure Stack.
-**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier]()
+**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier](/azure/storage/blobs/access-tiers-online-manage)
 
 ## Supported storage types
 
@@ -79,7 +79,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 > [!NOTE]
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
-> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### URL patterns for gateway feature
 

@@ -2,11 +2,12 @@
 title: Hosting multiple sites on Azure Application Gateway
 description: This article provides an overview of the Azure Application Gateway multi-site support. Examples are provided of rule priority and the order of evaluation for rules applied to incoming requests. Application Gateway rule priority evaluation order is described in detail. Conditions and limitations for using wildcard rules are provided.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
-ms.date: 02/28/2024
-ms.author: greglin
+ms.date: 08/18/2026
+ms.author: mbender
 ms.topic: concept-article
+# Customer intent: "As a cloud architect, I want to configure multi-site hosting on an application gateway, so that I can efficiently manage traffic for multiple web applications using a single gateway and optimize resource allocation."
 ---
 
 # Application Gateway multi-site hosting
@@ -31,7 +32,7 @@ For example, if you have 2 listeners with associated host names of `*.contoso.co
 
 The ordering of rules can be established by providing a **Priority** field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. If incoming client traffic matches with multiple listeners, the request routing rule with highest priority is used to serve the request. Each request routing rule must have a unique priority value.
 
-The priority field only impacts the order of evaluation of a request routing rule, this wont change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
+The priority field only impacts the order of evaluation of a request routing rule, this won't change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
 > [!NOTE]
 > To use rule priority, you must specify rule priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created must have a rule priority field value as part of its configuration. 
@@ -68,13 +69,18 @@ In the Azure portal, under the multi-site listener, you must choose the **Multip
 
 <!-- docutune:disable -->
 
-### Conditions for using wildcard characters and multiple host names in a listener
+## Conditions for using wildcard characters and multiple host names in a listener
 
-* You can only mention up to 5 host names in a single listener
-* Asterisk `*` can be mentioned only once in a component of a domain style name or host name. For example, component1*.component2*.component3. `(*.contoso-*.com)` is valid.
-* There can only be up to two asterisks `*` in a host name. For example, `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid.
-* There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
-* Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
+The following conditions apply when you use wildcard characters or multiple host names in a listener.
+
+| Constraint | Limit | Example |
+| --- | --- | --- |
+| Host names in a single listener | Up to 5 | Not applicable |
+| Asterisk (`*`) in a component of a domain style name or host name | Can be mentioned only once | `component1*.component2*.component3`. `(*.contoso-*.com)` is valid. |
+| Asterisks (`*`) in a host name | Up to two | `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid. |
+| Wildcard characters in a host name | Maximum of 4 | `????.contoso.com` and `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid. |
+| Asterisk (`*`) and question mark (`?`) together in a component of a host name (`*?` or `?*` or `**`) | Invalid | `*?.contoso.com` and `**.contoso.com` are invalid. |
+| Match behavior of `*.contoso.com` | Doesn't match `contoso.com` | `*.contoso.com` specifies that a dot is present before contoso, so `contoso.com` doesn't match. |
 
 <!-- docutune:enable -->
 

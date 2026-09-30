@@ -8,12 +8,14 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
 # Azure Communication Services support for Teams identities — Use cases
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 Microsoft Teams provides identities managed by Microsoft Entra ID and calling experiences controlled by Teams Admin Center and policies. Users might have assigned licenses to enable phone calls and advanced calling capabilities of Microsoft Teams Phone. Azure Communication Services support for Teams identities allows managing Teams voice over IP (VoIP) calls, Teams phone calls, and join Teams meetings. Developers might extend the Azure Communication Services with Graph API to provide contextual data from Microsoft 365 ecosystem. This page is providing inspiration on how to use existing Microsoft technologies to provide an end-to-end experience for calling scenarios with Teams users and Azure Communication Services calling SDKs. 
 

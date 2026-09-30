@@ -1,8 +1,8 @@
 ---
 ms.topic: include
 ms.date: 11/09/2018
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ---
 
 ## Review deployed resources

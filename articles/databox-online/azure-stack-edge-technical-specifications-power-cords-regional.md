@@ -2,19 +2,17 @@
 title: Azure Stack Edge power cord specifications
 description: Learn about the technical specifications for Azure Stack Edge power cords.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 02/27/2024
-ms.author: alkohli
+ms.date: 03/20/2025
+ms.author: sipastak
 ---
 
 # Azure Stack Edge power cord specifications
 
-[!INCLUDE [applies-to-gpu-and-pro-fpga-sku](../../includes/azure-stack-edge-applies-to-gpu-pro-fpga-sku.md)]
-
-[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
+[!INCLUDE [Yes for Pro GPU SKU](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
 Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
 

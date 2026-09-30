@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Java REST SDK Developers Guide.
 author: sinnypan
 ms.author: sipa
-ms.date: 01/25/2023
+ms.date: 09/17/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-sdk
@@ -67,7 +67,7 @@ Once the maven project is created, there should be a `pom.xml` file with basic i
 <dependency> 
   <groupId>com.azure</groupId> 
   <artifactId>azure-maps-render</artifactId> 
-  <version>1.0.0-beta.1</version> 
+  <version>2.0.0-beta.1</version> 
 </dependency> 
 <dependency> 
   <groupId>com.azure</groupId> 
@@ -86,7 +86,7 @@ Once the maven project is created, there should be a `pom.xml` file with basic i
 </dependency> 
 ```
 
-Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure maps into the file:
+Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure Maps into the file:
 
 ```powershell
 cd DemoProject

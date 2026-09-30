@@ -6,11 +6,14 @@ ms.author: noelleli
 ms.topic: tutorial
 ms.date: 01/05/2024
 ms.subservice: authoring
+ms.custom: sfi-image-nochange
 ---
 
 # Manage Azure Data Factory studio preview experience
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You can choose whether you would like to enable preview experiences in your Azure Data Factory.
 

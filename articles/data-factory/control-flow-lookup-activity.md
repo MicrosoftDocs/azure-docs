@@ -2,17 +2,20 @@
 title: Lookup activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Lookup Activity in Azure Data Factory and Azure Synapse Analytics to look up a value from an external source. This output can be further referenced by succeeding activities. 
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 01/05/2024
+ms.topic: concept-article
+ms.date: 02/13/2025
 ---
 
 # Lookup activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Lookup activity](/fabric/data-factory/lookup-activity).
 
 Lookup activity can retrieve a dataset from any of the data sources supported by data factory and Synapse pipelines. You can use it to dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
 
@@ -40,7 +43,7 @@ Note the following:
 
 - The Lookup activity can return up to **5000 rows**; if the result set contains more records, the first 5000 rows will be returned.
 - The Lookup activity output supports up to **4 MB** in size, activity will fail if the size exceeds the limit. 
-- The longest duration for Lookup activity before timeout is **24 hours**.
+- The longest duration for Lookup activity before  time-out is **24 hours**.
 
 > [!Note]
 > When you use query or stored procedure to lookup data, make sure to return one and exact one result set. Otherwise, Lookup activity fails.

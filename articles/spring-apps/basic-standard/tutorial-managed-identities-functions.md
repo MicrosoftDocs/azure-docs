@@ -1,12 +1,14 @@
 ---
-title:  "Tutorial: Managed identity to invoke Azure Functions"
+title:  "Tutorial: Managed Identity to Invoke Azure Functions"
 description: Learn how to use a managed identity to invoke Azure Functions from an Azure Spring Apps app.
 author: KarlErickson
-ms.author: margard
+ms.author: karler
+ms.reviewer: margard
 ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 08/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app
@@ -21,7 +23,7 @@ Both Azure Functions and App Services have built in support for Microsoft Entra 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - [Git](https://git-scm.com/downloads).
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or higher.
@@ -44,7 +46,7 @@ To create a Function app, you must first create a backing storage account. You c
 > [!IMPORTANT]
 > Each Function app and storage account must have a unique name.
 
-Use the following command to create the storage account. Replace *\<function-app-name>* with the name of your Function app and *\<storage-account-name>* with the name of your storage account.
+Use the following command to create the storage account. Replace `<function-app-name>` with the name of your Function app and `<storage-account-name>` with the name of your storage account.
 
 ```azurecli
 az storage account create \
@@ -104,7 +106,7 @@ func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-By default, functions use key-based authentication to secure HTTP endpoints. To enable Microsoft Entra authentication to secure access to the functions, set the `authLevel` key to `anonymous` in the *function.json* file, as shown in the following example:
+By default, functions use key-based authentication to secure HTTP endpoints. To enable Microsoft Entra authentication to secure access to the functions, set the `authLevel` key to `anonymous` in the **function.json** file, as shown in the following example:
 
 ```json
 {
@@ -176,7 +178,7 @@ This sample invokes the HTTP triggered function by first requesting an access to
    vim src/main/resources/application.properties
    ```
 
-1. To use managed identity for Azure Spring Apps apps, add the following properties with these values to *src/main/resources/application.properties*.
+1. To use managed identity for Azure Spring Apps apps, add the following properties with these values to **src/main/resources/application.properties**:
 
    ```text
    azure.function.uri=https://<function-app-name>.azurewebsites.net

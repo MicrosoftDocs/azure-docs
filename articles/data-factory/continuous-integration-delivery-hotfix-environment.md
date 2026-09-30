@@ -2,17 +2,18 @@
 title: Using a hotfix production environment 
 description: Learn how to use a hotfix production environment with continuous integration and delivery in Azure Data Factory pipelines.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
-ms.reviewer: jburchel
-ms.topic: conceptual
-ms.date: 10/20/2023
-ms.custom:
+author: kromerm
+ms.author: makromer
+ms.reviewer: whhender
+ms.topic: how-to
+ms.date: 01/29/2025
 ---
 
 # Using a hotfix production environment
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
@@ -43,7 +44,7 @@ Use the following steps to deploy a hotfix in your production and test environme
 ## Video tutorial
 See the video below an in-depth video tutorial on how to hot-fix your environments. 
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=b0bab151-85b7-4684-a184-ec5e6b972415]
 
 ## Related content
 

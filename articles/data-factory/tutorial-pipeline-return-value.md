@@ -4,15 +4,17 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Set Variable activity to send information from child pipeline to main pipeline.
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2024
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ---
 
 # Set Pipeline Return Value in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In the calling pipeline-child pipeline paradigm, you can use the [Set Variable activity](control-flow-set-variable-activity.md) to return values from the child pipeline to the calling pipeline. In the following scenario, we have a child pipeline through [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md). And we want to __retrieve information from the child pipeline__, to then be used in the calling pipeline.
 

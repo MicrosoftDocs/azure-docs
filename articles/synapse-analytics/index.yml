@@ -8,10 +8,9 @@ metadata:
   ms.service: azure-synapse-analytics
   ms.subservice: overview 
   ms.topic: landing-page
-
-  author: WilliamDAssafMSFT
-  ms.author: wiassaf
-  ms.date: 07/19/2024
+  author: juluczni
+  ms.author: juluczni
+  ms.date: 05/28/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -39,6 +38,8 @@ landingContent:
         links:
           - text: Azure Synapse SQL architecture
             url: ./sql/overview-architecture.md
+          - text: Logical servers
+            url: sql/logical-servers.md
       - linkListType: quickstart
         links:
           - text: Use serverless SQL pool

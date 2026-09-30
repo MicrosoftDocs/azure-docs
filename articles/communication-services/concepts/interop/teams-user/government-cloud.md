@@ -5,12 +5,14 @@ description: Support for Teams user from Azure Communication Services connecting
 author: tinaharter
 ms.author: tinaharter
 ms.date: 9/22/2022
-ms.topic: conceptual
+ms.topic: feature-availability
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
 # Support for government clouds as Teams user
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 Developers can integrate Azure Communication Services to connect to Microsoft Teams also in government clouds. Azure Communication Services allows connecting to Microsoft 365 cloud that meets government security and compliance requirements.  The following sections show supported clouds and scenarios for Teams users.
 
 ## Supported cloud parity between Microsoft 365 and Azure 

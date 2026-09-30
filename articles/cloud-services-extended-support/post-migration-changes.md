@@ -2,15 +2,20 @@
 title: Azure Cloud Services (extended support) post-migration changes
 description: Overview of post migration changes after migrating to Cloud Services (extended support)
 ms.topic: how-to
-ms.service: azure-cloud-services-extended-support
-ms.subservice: classic-to-arm-migration
+ms.service: azure-cloud-services-classic
 author: tanmaygore
 ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support, classic-to-arm-migration
+# Customer intent: As an IT admin managing legacy deployments, I want to update deployment files, automation scripts, and resource configurations post-migration to Azure Resource Manager, so that I can ensure compatibility, manage endpoints, and leverage new features in Cloud Services (extended support).
 ---
  
 # Post-migration changes
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The Cloud Services (classic) deployment is converted to a Cloud Services (extended support) deployment. For more information, see [Cloud Services (extended support) documentation](deploy-prerequisite.md).  
 

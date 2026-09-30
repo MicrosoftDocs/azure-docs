@@ -2,28 +2,30 @@
 title: Configure mutual authentication on Azure Application Gateway through PowerShell
 description: Learn how to configure an Application Gateway to have mutual authentication through PowerShell
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/18/2022
-ms.author: greglin 
+ms.date: 11/18/2025
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As an IT admin, I want to configure mutual authentication for my Application Gateway using PowerShell, so that I can ensure secure client-server communication through certificate verification."
 ---
 
 # Configure mutual authentication with Application Gateway through PowerShell
-This article describes how to use the PowerShell to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
+This article describes how to use PowerShell to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+> [!NOTE]
+> We recommend that you use the Azure Az PowerShell module to interact with Azure. To get started, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell). To learn how to migrate to the Az PowerShell module, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
 
-This article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+This article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Before you begin
 
-To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate will be used to validate the certificate the client will present to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure.
+To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate is used to validate the certificate the client presents to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure.
 
-To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-authentication).
+To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-tls-strict-mode-authentication).
 
 ## Create a resource group
 
@@ -61,9 +63,9 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name $fipconfigName -Publ
 $port = New-AzApplicationGatewayFrontendPort -Name $frontendPortName  -Port 443
 ```
 
-## Configure frontend SSL 
+## Configure frontend TLS/SSL 
 
-Configure the SSL certificates for your Application Gateway.
+Configure the TLS/SSL certificates for your Application Gateway.
 
 ```azurepowershell
 $password = ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force
@@ -76,10 +78,10 @@ $sslCert = New-AzApplicationGatewaySslCertificate -Name $sslCertName -Certificat
 Configure client authentication on your Application Gateway. For more information on how to extract trusted client CA certificate chains to use here, see [how to extract trusted client CA certificate chains](./mutual-authentication-certificate-management.md).
 
 > [!IMPORTANT]
-> Please ensure that you upload the entire client CA certificate chain in one file, and only one chain per file.  
+> Ensure that you upload the entire client CA certificate chain in one file, and only one chain per file. The maximum size of each uploaded file must be 25 KB or less.
 
 > [!NOTE]
-> We recommend using TLS 1.2 with mutual authentication as TLS 1.2 will be mandated in the future. 
+> We recommend using TLS 1.2 with mutual authentication as TLS 1.2 will be mandated starting August 31, 2025. 
 
 ```azurepowershell
 $clientCertFilePath = $basedir + "/ScenarioTests/Data/TrustedClientCertificate.cer"
@@ -92,7 +94,7 @@ $listener = New-AzApplicationGatewayHttpListener -Name $listenerName -Protocol H
 
 ## Configure the backend pool and settings
 
-Set up backend pool and settings for your Application Gateway. Optionally, set up the backend trusted root certificate for end-to-end SSL encryption.  
+Set up backend pool and settings for your Application Gateway. Optionally, set up the backend trusted root certificate for end-to-end TLS/SSL encryption.  
 
 ```azurepowershell
 $certFilePath = $basedir + "/ScenarioTests/Data/ApplicationGatewayAuthCert.cer"
@@ -109,9 +111,9 @@ Set up a rule on your Application Gateway.
 $rule = New-AzApplicationGatewayRequestRoutingRule -Name $ruleName -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-## Set up default SSL policy for future listeners
+## Set up default TLS/SSL policy for future listeners
 
-You've set up a listener specific SSL policy while setting up mutual authentication. In this step, you can optionally set the default SSL policy for future listeners you create. 
+You've set up a listener specific TLS/SSL policy while setting up mutual authentication. In this step, you can optionally set the default TLS/SSL policy for future listeners you create.
 
 ```azurepowershell
 $sslPolicyGlobal = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401"
@@ -119,7 +121,7 @@ $sslPolicyGlobal = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -Pol
 
 ## Create the Application Gateway
 
-Using everything we created above, deploy your Application Gateway.
+Using everything we created, deploy your Application Gateway.
 
 ```azurepowershell
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2

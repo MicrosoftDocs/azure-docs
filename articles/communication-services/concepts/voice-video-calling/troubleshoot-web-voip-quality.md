@@ -7,12 +7,14 @@ ms.author: micahvivion
 
 services: azure-communication-services
 ms.date: 10/17/2024
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # Troubleshoot VoIP call quality 
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 This article describes how to troubleshoot and improve web Voice over Internet Protocol (VoIP) call quality in Azure Communication Services. Voice and video calling experiences are an essential communication tool for businesses, organizations, and individuals in today's world. However, customers can experience quality problems. Four network parameters can affect quality in calls: available bandwidth, round-trip time (RTT), packet loss, and jitter.
 

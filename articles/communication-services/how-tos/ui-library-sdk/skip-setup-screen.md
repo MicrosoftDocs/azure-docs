@@ -15,13 +15,15 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Skip the setup screen in an application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The Azure Communication Services UI Library offers the option to join a call without passing through the setup screen. It empowers developers to build a communication application in a way that enables users to join a call directly, without any user interaction. The feature also provides the capability to configure the default state of the camera and microphone (on or off) before users join a call.
 
 In this article, you learn how to set up the feature correctly in your application.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the call client. [Get a user access token](../../quickstarts/access-tokens.md).
 - Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).

@@ -4,9 +4,9 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about datasets in Azure Data Factory and Azure Synapse Analytics pipelines. Datasets represent input/output data.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
 ms.date: 12/16/2024
 ai-usage: ai-assisted
@@ -15,6 +15,8 @@ ai-usage: ai-assisted
 # Datasets in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 
 This article describes what datasets are, how they’re defined in JSON format, and how they’re used in Azure Data Factory and Synapse pipelines.

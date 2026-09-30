@@ -3,7 +3,7 @@ title: Azure Event Grid output binding for Azure Functions
 description: Learn to send an Event Grid event in Azure Functions.
 
 ms.topic: reference
-ms.date: 09/22/2023
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -24,14 +24,15 @@ For information on setup and configuration details, see [How to work with Event 
 
 ::: zone-end
 
-> [!IMPORTANT]
-> The Event Grid output binding is only available for Functions 2.x and higher.
-
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-The type of the output parameter used with an Event Grid output binding depends on the Functions runtime version, the binding extension version, and the modality of the C# function. The C# function can be created using one of the following C# modes:
+The type of the output parameter used with an Event Grid output binding depends on the binding extension version and the modality of the C# function. The C# function can be created using one of the following C# modes:
 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
 * [Isolated worker process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process isolated from the runtime.
@@ -617,7 +618,7 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 
+The parameter type supported by the Event Grid output binding depends on the extension package version and the C# modality used.
 
 # [Extension v3.x](#tab/extensionv3/in-process)
 
@@ -642,13 +643,6 @@ In-process C# class library functions supports the following types:
 Send messages by using a method parameter such as `out EventGridEvent paramName`. 
 To write multiple messages, you can instead use `ICollector<EventGridEvent>` or `IAsyncCollector<EventGridEvent>`.
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-In-process C# class library functions supports the following types:
-
-+ [Newtonsoft.Json.Linq.JObject][JObject]
-+ [System.String][String]
-
 # [Extension v3.x](#tab/extensionv3/isolated-process)
 
 [!INCLUDE [functions-bindings-event-grid-output-dotnet-isolated-types](../../includes/functions-bindings-event-grid-output-dotnet-isolated-types.md)]
@@ -656,10 +650,6 @@ In-process C# class library functions supports the following types:
 # [Extension v2.x](#tab/extensionv2/isolated-process)
 
 Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. 
 
 ---
 
@@ -693,6 +683,9 @@ There are two options for outputting an Event Grid message from a function:
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Event Grid message.
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Grid message.
 
+
+The output function parameter must be defined as `func.Out[str]`, `func.Out[bytes]`, `func.Out[func.EventGridOutputEvent]`, or `func.Out[List[func.EventGridOutputEvent]]`. Refer to the [output example](#example) for details.
+
 ::: zone-end
 
 ## Connections
@@ -716,7 +709,7 @@ Use the following steps to configure a topic key:
 
 ### Identity-based authentication
 
-When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using an [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
+When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using a [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
 
 You need to create an application setting that returns the topic endpoint URI. The name of the setting should combine a _unique common prefix_ (for example, `myawesometopic`) with the value `__topicEndpointUri`. Then, you must use that common prefix (in this case, `myawesometopic`) when you define the `Connection` property in the binding.
 

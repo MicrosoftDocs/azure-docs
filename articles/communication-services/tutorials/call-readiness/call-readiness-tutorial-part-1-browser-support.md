@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Creating a Call Readiness Experience using Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this tutorial, we're using Azure Communication Services with the [UI Library](https://aka.ms/acsstorybook) to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be used to produce a Call Readiness experience, and a rich set of APIs to understand the user state.
@@ -122,7 +124,7 @@ const App = (): JSX.Element => {
 
 ### Performing an Environment information check
 
-First create a utility file call `environmentSupportUtils.ts`. Inside this call, we add a method `checkEnvironmentSupport`. This method uses the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) to perform a request for the environment information that the Calling Stateful Client is running on.
+First create a utility file call `environmentSupportUtils.ts`. Inside this call, we add a method `checkEnvironmentSupport`. This method uses the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/stateful-client-overview--docs) to perform a request for the environment information that the Calling Stateful Client is running on.
 
 `src/environmentSupportUtils.ts`
 

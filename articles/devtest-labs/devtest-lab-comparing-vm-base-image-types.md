@@ -1,36 +1,41 @@
 ---
 title: Compare custom images and formulas
-titleSuffix: Azure DevTest Labs
 description: Explore the differences between custom images and formulas as virtual machine (VM) bases so you can decide which one best suits your environment.
 ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/26/2024
+ms.date: 12/15/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a developer, I want to know the differences between custom images and formulas as VM bases so I can choose the best approach for my environment.
 ---
 
-# Compare custom images and formulas in Azure DevTest Labs
+# Compare DevTest Labs custom images and formulas
 
-In Azure DevTest Labs, both [custom images](devtest-lab-create-template.md) and [formulas](devtest-lab-manage-formulas.md) can be used as bases for [creating new lab virtual machines (VMs)](devtest-lab-add-vm.md). The key distinction between custom images and formulas is that a custom image is simply an image based on a virtual hard drive (VHD). A formula is an image based on a VHD that also includes preconfigured settings. These settings can include VM size, virtual network, subnet, and artifacts. Preconfigured settings are set up with default values that you can override when you create the VM. 
+This article explores the pros and cons of using [custom images](devtest-lab-create-template.md) versus [formulas](devtest-lab-manage-formulas.md) as bases for creating new lab virtual machines (VMs) in Azure DevTest Labs. The key distinction between a custom image and a formula is that a custom image is simply an image based on a virtual hard drive (VHD), whereas a formula also includes preconfigured settings.
 
-In this article, you learn the pros and cons of using custom images versus formulas. You can also read [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md) and [Create a formula from a VM](devtest-lab-manage-formulas.md#create-formula-from-existing-vm) for more details.
+Preconfigured settings can include VM size, virtual network, subnet, and artifacts. These settings are created with default values that you can override when you create the VM.
 
-## Custom image benefits
+## Custom images
 
-Custom images provide a static, immutable way to create VMs from the environment you want. 
+Custom images are a static, immutable way to create VMs. All VMs created from a single custom image are identical.
 
-|Pros|Cons|
-|----|----|
-| VM provisioning from a custom image is fast. Nothing changes after you create a VM from an image. <br><br> There are no settings to apply. The custom image is just an image without settings. <br><br> VMs created from a single custom image are identical. | To update an aspect of the custom image, you must recreate the image. |
+VM provisioning from a custom image is fast. The custom image is just an image without settings, so there are no settings to apply.
 
-## Formula benefits
-  
-Formulas provide a dynamic way to create VMs from the configuration and settings you want.
+A drawback of custom images is that to update an aspect of the custom image, you must recreate the image.
 
-|Pros|Cons|
-|----|----|
-| Changes in the environment can be captured on the fly by using artifacts. You can use a formula to create a VM installed with the latest bits from your release pipeline. A formula also works when you want to enlist the VM with the latest code from your repository. The formula can specify an artifact that deploys the latest bits or enlists the latest code, together with the target base image. Whenever you use this formula to create VMs, the latest bits or code are deployed or enlisted to the VM. <br><br> Formulas can define default settings that custom images can't provide, such as VM sizes and virtual network settings. <br><br> The settings saved in a formula are shown as default values. You can change these values when you create the VM. | Creating a VM from a formula can take more time than creating a VM from a custom image. |
+## Formulas
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+Formulas provide a dynamic way to create VMs with the configuration and settings you want. Formulas can capture environment changes on the fly by using artifacts.
+
+For example, you can use a formula to create a VM that has the latest bits from your release pipeline, or that enlists the VM with the latest code from your repository. Along with the target base image, the formula specifies an artifact that deploys the bits or enlists the code repository.
+
+When you use the formula to create VMs, the latest bits or code are deployed or enlisted to the VM. For more information about using artifacts for VMs, see [Create custom artifacts for DevTest Labs](devtest-lab-artifact-author.md).
+
+Formulas can also define default settings that custom images can't specify, such as VM sizes and virtual network settings. The settings are saved in the formula as default values, which you can change when you create the VM. Because of the added configuration, creating a VM from a formula can take longer than creating a VM from a custom image.
+
+## Related content
+
+- [Create lab VMs in Azure DevTest Labs](devtest-lab-add-vm.md)
+- [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Manage Azure DevTest Labs formulas](devtest-lab-manage-formulas.md)

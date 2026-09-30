@@ -20,7 +20,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |                     | Join an Azure Communication Services call by using a group ID.   |
 |                     | Join an Azure Communication Services [room](../../rooms/room-concept.md). |
 |                     | Start an outbound call to another Azure Communication Services user. |
-|                     | Start an outbound call to a [phone number](../../telephony/telephony-concept.md#voice-calling-pstn). |
+|                     | Start an outbound call to a [phone number](../../telephony/telephony-concept.md#telephony-overview). |
 | [Teams interoperability](../../teams-interop.md)      | Join the call lobby.                                             |
 |                     | Display a transcription and recording alert banner.               |
 | Call controls       | Mute and unmute a call.                                       |
@@ -70,9 +70,9 @@ When you add both calling and chat to an application, remember that the chat cli
 
 If you use UI components to deliver Teams interoperability experiences, begin by using UI Library examples to create key pieces of the experience:
 
-- [Lobby example](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--lobby): A sample lobby where a participant can wait to be admitted to a call.
-- [Compliance banner](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--compliance-banner): A sample banner that shows the user if the call is being recorded.
-- [Teams theme](https://azure.github.io/communication-ui-library/?path=/story/examples-themes--teams): A sample theme that makes UI Library elements look like Microsoft Teams.
+- [Lobby example](https://azure.github.io/communication-ui-library/?path=/docs/concepts-teams-interop-lobby--docs): A sample lobby where a participant can wait to be admitted to a call.
+- [Compliance banner](https://azure.github.io/communication-ui-library/?path=/docs/concepts-teams-interop-compliance-banner--docs): A sample banner that shows the user if the call is being recorded.
+- [Teams theme](https://azure.github.io/communication-ui-library/?path=/docs/examples-themes-teams--docs): A sample theme that makes UI Library elements look like Microsoft Teams.
 - [Image sharing\*](../../../tutorials/inline-image-tutorial-interop-chat.md): A sample that shows how an Azure Communication Services user can receive images sent by the Teams user.
 - [File sharing\*](../../../tutorials/file-sharing-tutorial-interop-chat.md): A sample that shows how an Azure Communication Services user can receive file attachments sent by the Teams user.
 

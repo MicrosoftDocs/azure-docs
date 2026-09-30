@@ -4,12 +4,12 @@ description: Learn how to scale an Azure SignalR Service instance to add or redu
 author: vicancy
 ms.service: azure-signalr-service
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 02/10/2026
 ms.author: lianwei 
 ms.custom: devx-track-azurecli
 ---
 # How to scale an Azure SignalR Service instance?
-This article shows you how to scale your instance of Azure SignalR Service. There are two scenarios for scaling, scale up and scale out.
+This article shows you how to scale your instance of Azure SignalR Service. There are two scenarios for scaling: scale up and scale out.
 
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more units, connections, messages, and more. You scale up by changing the pricing tier from Free to Standard.
 * [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of SignalR units. You can scale out to as many as 100 units. There are limited unit options to select for the scaling: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 units for a single SignalR Service instance. If you want to scale beyond 100 units, the [Premium_P2](#enhanced-large-instance-support-with-premium_p2-sku) SKU offers expanded capabilities.
@@ -19,8 +19,16 @@ The scale settings take a few minutes to apply. In rare cases, it may take aroun
 For information about the pricing and capacities of individual SignalR Service, see [Azure SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Changing SignalR Service from **Free** tier to **Standard** or **Premium** tier or vice versa, the public service IP will be changed and it usually takes 30-60 minutes to propagate the change to DNS servers across the entire internet. 
-> Your service might be unreachable before DNS gets updated. Generally it’s not recommended to change your pricing tier too often.
+> Scaling Azure SignalR Service between different pricing tiers may result in service downtime.
+> The downtime behavior varies by tier combination and is summarized in the table.
+>
+> | Scale Scenario | Downtime Expected |
+> |--|--|
+> | Free ↔ Standard / Premium | Yes |
+> | Standard_S1 ↔ Premium_P1 | No |
+> | Premium_P1 ↔ Premium_P2 | No |
+>
+> For scale scenarios where downtime is expected, the downtime occurs because the **public service IP address changes** during the scaling operation. This IP change typically takes **30–60 minutes** to propagate across DNS servers globally, during which the service may be temporarily unreachable. Generally it’s not recommended to change your pricing tier too often.
 
 
 ## Scale Up on Azure portal
@@ -83,7 +91,7 @@ az signalr update \
   --unit-count 50
 ```
 
-Make a note of the actual name generated for the new resource group. You'll use that resource group name when you want to delete all group resources.
+Make a note of the actual name generated for the new resource group. Use that resource group name when you want to delete all group resources.
 
 [!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
@@ -99,10 +107,10 @@ The new Premium_P2 SKU is designed to facilitate extensive scalability for high-
 
 You can scale up the SKU to Premium_P2 using Azure portal or Azure CLI.
 
-The Premium_P2 tier uses a different architecture internally to manage a large amount of underlying resources. Thus, it's expected that scaling operations of this tier might take longer compared to those in smaller SKUs.
+The Premium_P2 tier uses a different architecture internally to manage a large amount of underlying resources. Thus, it's expected that scaling operations of this tier might take longer compared to those tiers in smaller SKUs.
 
 > [!NOTE]
-> Be aware that there is a default quota limit capping the number of SignalR units at **150** per subscription per region. This is a soft limit and can be increased upon request. To do so, simply submit a support ticket to request an adjustment to this quota.
+> There is a default quota limit capping the number of SignalR units at **150** per subscription per region. This is a soft limit and can be increased upon request. To do so, simply submit a support ticket to request an adjustment to this quota.
 
 ## Next steps
 

@@ -8,9 +8,9 @@ metadata:
   description: Learn about Web Application Firewall that can be deployed with Application Gateway and Front Door
   ms.service: azure-web-application-firewall
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
-  ms.date: 10/31/2024
+  author: halkazwini
+  ms.author: halkazwini
+  ms.date: 02/25/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -115,16 +115,18 @@ landingContent:
 # Card
   - title: Learn about Azure network security
     linkLists:
+      - linkListType: get-started
+        links:
+         - text: What is Azure network security?
+           url: /azure/networking/security/network-security
+         - text: Learm more about Azure network security
+           url: /azure/networking/security/
       - linkListType: overview
         links:
-         - text: Azure network security
-           url: ../networking/security/index.yml
-      - linkListType: concept
-        links:
           - text: Azure DDoS Protection
-            url: ../ddos-protection/index.yml
+            url: /azure/ddos-protection/ddos-protection-overview
           - text: Azure Firewall
-            url: ../firewall/index.yml
+            url: /azure/firewall/overview
 
 # Card
   - title: Reference

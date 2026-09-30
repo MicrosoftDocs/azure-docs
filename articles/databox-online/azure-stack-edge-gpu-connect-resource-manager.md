@@ -2,13 +2,16 @@
 title: Connect to Azure Resource Manager on your Azure Stack Edge GPU device
 description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge Pro GPU using Azure PowerShell.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 04/10/2024
-ms.author: alkohli
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.author: sipastak
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
 
@@ -584,7 +587,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
 
-    For more information, go to [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
+    For more information, go to [Set-AzureRMEnvironment](/previous-versions/powershell/module/azurerm.profile/set-azurermenvironment).
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
 

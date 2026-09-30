@@ -3,8 +3,11 @@ title: VMware HCX Mobility Optimized Networking (MON) guidance
 description: Learn about Azure VMware Solution-specific use cases for Mobility Optimized Networking (MON).  
 ms.topic: reference
 ms.service: azure-vmware
-ms.date: 2/28/2024
-ms.custom: engagement-fy23
+ms.date: 02/26/2025
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to configure VMware HCX Mobility Optimized Networking for my Azure VMware Solution environment, so that I can optimize traffic routing and ensure low latency and symmetric traffic flow between on-premises and cloud resources."
 ---
 
 # VMware HCX Mobility Optimized Networking (MON) guidance
@@ -17,13 +20,13 @@ ms.custom: engagement-fy23
 >
 >Before you enable HCX MON, please read the below limitations and unsupported configurations:
 >
->[Unsupported source configurations for HCX NE](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-DBDB4D1B-60B6-4D16-936B-4AC632606909.html)
+>[Unsupported source configurations for HCX NE](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/extending-networks-with-vmware-hcx/about-vmware-hcx-network-extension/restrictions-and-limitations-for-network-extension.html#GUID-DBDB4D1B-60B6-4D16-936B-4AC632606909-en_TITLE_A8631235-3084-46F6-A667-56A873A12F9B)
 > 
->[Limitations for any HCX deployment including MON](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BEC26054-D560-46D0-98B4-7FF09501F801.html)
+>[Limitations for any HCX deployment including MON](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/extending-networks-with-vmware-hcx/about-vmware-hcx-network-extension/restrictions-and-limitations-for-network-extension.html)
 >
 >VMware HCX Mobility Optimized Networking (MON) is not supported with the use of a 3rd party gateway. It may only be used with the T1 gateway directly connected to the T0 gateway without a network virtual appliance (NVA). You may be able to make this configuration function, but we do not support it.
 
-[HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) is an optional feature to enable when using [HCX Network Extensions (NE)](configure-hcx-network-extension.md). MON provides optimal traffic routing under certain scenarios to prevent network tromboning between the on-premises and cloud-based resources on extended networks. 
+[HCX Mobility Optimized Networking (MON)](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/extending-networks-with-vmware-hcx/hcx-network-extension-with-mobility-optimized-networking/about-hcx-mobility-optimized-networking.html) is an optional feature to enable when using [HCX Network Extensions (NE)](configure-hcx-network-extension.md). MON provides optimal traffic routing under certain scenarios to prevent network tromboning between the on-premises and cloud-based resources on extended networks. 
 
 As MON is an enterprise capability of the NE feature, make sure you [enabled the VMware HCX Enterprise](/azure/azure-vmware/install-vmware-hcx#hcx-license-edition) through the Azure portal. 
 
@@ -78,4 +81,4 @@ The MON policy routes can be updated with a default route (0.0.0.0/0). This resu
 
 As outlined in the above diagrams, the importance is to match a policy route to each required subnet. Otherwise, the traffic gets routed over the T0 and not tunneled over the NE.
 
-To learn more about policy routes, see [Mobility Optimized Networking Policy Routes](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-F45B1DB5-C640-4A75-AEC5-45C58B1C9D63.html).
+To learn more about policy routes, see [Mobility Optimized Networking Policy Routes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/extending-networks-with-vmware-hcx/hcx-network-extension-with-mobility-optimized-networking/mobility-optimized-networking-policy-routes.html).

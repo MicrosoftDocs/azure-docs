@@ -4,9 +4,13 @@ description: Set up Azure Container Apps to authenticate Azure Container Registr
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 02/03/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-azure-portal-console-bicep
 ---
@@ -37,7 +41,7 @@ The following steps describe the process to configure your container app to use 
 ### Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A private Azure Container Registry containing an image you want to pull.
 - Your Azure Container Registry must allow ARM audience tokens for authentication in order to use managed identity to pull images.
     Use the following command to check if ARM tokens are allowed to access your ACR:
@@ -156,7 +160,7 @@ The method to configure a system-assigned managed identity in the Azure portal i
 ### Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A private Azure Container Registry containing an image you want to pull. See [Create a private Azure Container Registry](/azure/container-registry/container-registry-get-started-portal#create-a-container-registry).
 
 ### Create a container app
@@ -240,7 +244,7 @@ This article describes how to configure your container app to use managed identi
 
 | Prerequisite | Description |
 |--------------|-------------|
-| Azure account | An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/). |
+| Azure account | An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
 | Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
 |Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli) or [Quickstart: Create a private container registry using Azure PowerShell](/azure/container-registry/container-registry-get-started-powershell)|
@@ -260,7 +264,7 @@ CONTAINERAPP_NAME="<YOUR_CONTAINERAPP_NAME>"
 IMAGE_NAME="<YOUR_IMAGE_NAME>"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -283,7 +287,7 @@ az group create \
   --location $LOCATION
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Location $Location -Name $ResourceGroupName
@@ -306,7 +310,7 @@ az containerapp env create \
   --location $LOCATION
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to variables.
 
@@ -366,7 +370,7 @@ az identity create \
   --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Create a user-assigned managed identity. Before you run the following command, replace the *\<PLACEHOLDERS\>* with the name of your managed identity. 
 
@@ -392,7 +396,7 @@ IDENTITY_ID=$(az identity show \
   --output tsv)
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Get the identity's resource and principal ID. 
 
@@ -438,7 +442,7 @@ az containerapp create \
   --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $CredentialArgs = @{
@@ -480,7 +484,7 @@ New-AzContainerApp @AppArgs
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
@@ -512,7 +516,7 @@ az containerapp create \
   --ingress external
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 $ImageParams = @{
@@ -561,7 +565,7 @@ az containerapp update \
   --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 $CredentialArgs = @{
@@ -601,7 +605,7 @@ Update-AzContainerApp @AppArgs
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
@@ -612,12 +616,12 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ::: zone-end
 ::: zone pivot="bicep"
 
-This article describes how to use a Bicep template to configure your container app to use user-assigned managed identities to pull images from private Azure Container Registry repositories.
+This article describes how to use a Bicep file to configure your container app to use user-assigned managed identities to pull images from private Azure Container Registry repositories.
 
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 - If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`.
 - A private Azure Container Registry containing an image you want to pull. To create a container registry and push an image to it, see [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli) or [Quickstart: Create a private container registry using Azure PowerShell](/azure/container-registry/container-registry-get-started-powershell)
@@ -642,7 +646,7 @@ az bicep upgrade
 
 For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install).
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 You must manually install Bicep for any use other than Azure CLI. For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install#install-manually).
 
@@ -670,7 +674,7 @@ APP_INSIGHTS_NAME="<APP_INSIGHTS_NAME>"
 ACR_PULL_DEFINITION_ID="7f951dda-4ed3-4680-a7ca-43fe172d538d"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -692,9 +696,9 @@ $AcrPullDefinitionId = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
 
 The [`AcrPull`](/azure/role-based-access-control/built-in-roles#acrpull) role grants your user-assigned managed identity permission to pull the image from the registry.
 
-## Bicep template
+## Bicep file
 
-Copy the following Bicep template and save it as a file with the extension `.bicep`.
+Copy the following Bicep file and save it as a file with the extension `.bicep`.
 
 ```bicep
 param environmentName string 
@@ -831,7 +835,7 @@ az deployment group create \
   location="${LOCATION}"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $params = @{
@@ -866,13 +870,13 @@ This command deploys the following.
 - A container to store the image.
 - A container app based on the image.
 
-If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep template file has the extension `.bicep`.
+If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep file has the extension `.bicep`.
 
 ## Additional resources
 
 For more information, see the following.
 - [Bicep format](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep)
-- [Example Bicep templates](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep#quickstart-templates)
+- [Example Bicep files](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep#quickstart-templates)
 - [Using Managed Identity and Bicep to pull images with Azure Container Apps](https://azureossd.github.io/2023/01/03/Using-Managed-Identity-and-Bicep-to-pull-images-with-Azure-Container-Apps/)
 
 ::: zone-end

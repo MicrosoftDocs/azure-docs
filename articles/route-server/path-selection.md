@@ -1,40 +1,69 @@
 ---
 title: Path selection with Azure Route Server
-description: Learn about how Azure Route Server enables path selection for your network virtual appliance (NVA).
-author: halkazwini
-ms.author: halkazwini
+description: Learn how Azure Route Server enables path selection and routing preference configuration for network virtual appliances to optimize performance or cost for hybrid connectivity.
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 12/13/2023
+ms.date: 08/27/2026
+ms.custom: sfi-image-nochange
 
-#CustomerIntent: As a network administrator, I want to control how traffic is routed from Azure to my on-premises network.
+#CustomerIntent: As a network administrator, I want to understand path selection options with Azure Route Server so I can optimize traffic routing between Azure and on-premises networks for either performance or cost.
 ---
 
 # Path selection with Azure Route Server
 
-Azure Route Server simplifies dynamic routing between Azure virtual network and your network virtual appliance (NVA) that you're using to control traffic between the virtual network and your on-premises network over the internet. In this article, you learn how Azure Route Server enables path selection to allow you to configure your SDWAN NVA to have a [routing preference](../virtual-network/ip-services/routing-preference-overview.md) when communicating with your on-premises network.
+Azure Route Server enables sophisticated path selection capabilities for network virtual appliances (NVAs) in hybrid connectivity scenarios. By configuring the routing preference on the public IP addresses your NVAs use, you can optimize traffic flows between Azure virtual networks and on-premises networks based on your specific requirements for performance, cost, or resilience.
 
-## How does it work?
+This article explains how path selection works with Azure Route Server and how to configure public IP routing preference to meet your business needs.
 
-:::image type="content" source="./media/path-selection/ip-routing-preference.png" alt-text="Diagram of Azure Route Server with an SDWAN appliance and a virtual network gateway showing the two paths from Azure to the customer premises.":::
+> [!NOTE]
+> The routing preference described in this article is the [Azure public IP routing preference](../virtual-network/ip-services/routing-preference-overview.md), which controls whether traffic travels over the Microsoft global network or the public internet. It's a different feature from [Azure Route Server hub routing preference](hub-routing-preference.md), which controls whether Route Server selects routes learned over ExpressRoute, VPN, or AS Path when the same prefix is advertised from more than one source.
 
-### Cold potato routing
+## What is path selection
 
-When you deploy an SDWAN NVA in the same virtual network as the Azure Route Server, it's configured with *Microsoft network* routing preference. Traffic from Azure travels over the *Microsoft global network* and exits it closest to your on-premises. Traffic from your on-premises enters the Microsoft network closest to it on the return path. This method of routing is performance optimized, therefore providing the best possible experience. 
+Path selection in Azure Route Server refers to the ability to control how traffic flows between Azure and external networks through different network paths. This capability allows you to:
 
-### Hot potato routing
+- **Optimize performance**: Route traffic through the fastest available paths
+- **Minimize costs**: Choose cost-effective routing paths for bulk data transfers
+- **Enhance resilience**: Implement multiple paths for redundancy and failover
+- **Meet compliance requirements**: Ensure traffic follows specific network routes
 
-As a way to optimize for cost, you can use the *Internet* routing preference to minimize the travel on the Microsoft global network. Traffic exits the Microsoft network in the same Azure region that hosts the service, then it travels through the internet using the ISPs network. Traffic from your on-premises enters the Microsoft network that's closest to the Azure region of the hosted service. This method of routing provides the best overall price when completing a task like transferring large amount of data.
+## Public IP routing preference options
 
-## How to enable internet routing preference?
+Azure supports two public IP routing preferences that determine how traffic travels between Azure and your on-premises networks.
 
-To enable internet routing preference for your NVA, create a new standard SKU Public IP address and select **Internet** as the **Routing preference**. Then, assign the public IP address to the NVA.
+### Microsoft network routing (cold potato routing)
 
-:::image type="content" source="./media/path-selection/ip-routing-preference-internet.png" alt-text="Screenshot of the internet routing preference of a public IP address in the Azure portal.":::
+Microsoft network routing prioritizes performance by keeping traffic on Microsoft's global network for as long as possible:
+
+:::image type="content" source="./media/path-selection/ip-routing-preference.png" alt-text="Diagram showing Azure Route Server with SD-WAN appliance demonstrating Microsoft network and internet routing paths between Azure and customer premises.":::
+
+In Microsoft network routing, outbound traffic travels over Microsoft's global network and exits at the point closest to your on-premises location, while inbound traffic enters Microsoft's network at the point closest to your on-premises network. This approach provides significant performance benefits through optimal latency and reliability via Microsoft's premium network infrastructure. Microsoft network routing is ideal for real-time applications, video conferencing, and mission-critical workloads that require the best possible performance.
+
+### Internet routing (hot potato routing)
+
+Internet routing optimizes for cost by minimizing traffic on Microsoft's global network. In internet routing, outbound traffic exits Microsoft's network in the same Azure region and then travels over the public internet to reach its destination. Inbound traffic enters Microsoft's network at the point closest to the Azure region hosting your services. This approach provides cost benefits by reducing data transfer costs through limited premium network usage. Internet routing is ideal for bulk data transfers, backup operations, and other non-time-sensitive workloads where cost optimization takes priority over performance.
+
+### Configure internet routing preference
+
+Implementing path selection with Azure Route Server involves configuring public IP addresses with appropriate routing preferences for your network virtual appliances.
+
+To enable cost-optimized internet routing for your NVA:
+
+1. Create a standard SKU public IP address in the Azure portal
+2. Select **Internet** as the routing preference during creation
+3. Assign the public IP address to your network virtual appliance
+
+:::image type="content" source="./media/path-selection/ip-routing-preference-internet.png" alt-text="Screenshot showing internet routing preference configuration for a public IP address in the Azure portal.":::
 
 Microsoft recommends implementing a connectivity solution using both the Microsoft network and the internet to provide your environment with an extra layer of resiliency.
 
 ## Related content
 
-- Learn more about [Azure Route Server](route-server-faq.md).
-- Learn how to [configure Azure Route Server](quickstart-configure-route-server-portal.md).
+Learn more about Azure Route Server and routing optimization:
+
+- [Azure Route Server overview](overview.md)
+- [Configure Azure Route Server](quickstart-configure-route-server-portal.md)
+- [Azure routing preference overview](../virtual-network/ip-services/routing-preference-overview.md)
+- [Monitor Azure Route Server](monitor-route-server.md)

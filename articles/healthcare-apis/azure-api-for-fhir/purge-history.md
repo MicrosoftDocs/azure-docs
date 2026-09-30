@@ -4,8 +4,8 @@ description: This article describes the $purge-history operation for Azure API f
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 09/27/2023
+ms.topic: concept-article
+ms.date: 11/21/2025
 ms.author: kesheth
 ---
 

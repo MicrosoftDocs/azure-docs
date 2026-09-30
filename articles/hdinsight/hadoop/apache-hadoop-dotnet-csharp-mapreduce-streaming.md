@@ -4,6 +4,9 @@ description: Learn how to use C# to create MapReduce solutions with Apache Hadoo
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet, devx-track-azurepowershell
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 
@@ -243,7 +246,7 @@ The following procedure describes how to run a MapReduce job using an SSH sessio
 
 Use the following PowerShell script to run a MapReduce job and download the results.
 
-[!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
+[!code-powershell[main](~/powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
 This script prompts you for the cluster login account name and password, along with the HDInsight cluster name. Once the job completes, the output is downloaded to a file named *output.txt*. The following text is an example of the data in the `output.txt` file:
 

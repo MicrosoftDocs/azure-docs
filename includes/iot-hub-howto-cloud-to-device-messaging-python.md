@@ -1,11 +1,15 @@
 ---
-author: kgremban
-ms.author: kgremban
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: include
 ms.date: 12/19/2024
-ms.custom: mqtt, devx-track-python, py-fresh-zinc
+ms.custom:
+  - mqtt
+  - devx-track-python
+  - py-fresh-zinc
+  - sfi-ropc-nochange
 ---
 
 ## Create a device application

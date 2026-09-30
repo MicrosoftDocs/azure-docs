@@ -6,12 +6,14 @@ author: Shamkh
 services: azure-communication-services
 ms.author: shamkh
 ms.date: 07/18/2024
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---
 
 # Advanced Messaging logs
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured for Advanced Messaging through the Azure portal by enabling the diagnostic setting for `Advanced Messaging Logs`.
 

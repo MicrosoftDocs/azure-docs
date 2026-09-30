@@ -1,9 +1,9 @@
 ---
-title: Use template deployment scripts | Microsoft Docs
+title: Use ARM template deployment scripts
 description: Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates).
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: tutorial
-ms.date: 06/20/2024
+ms.date: 08/17/2026
 ---
 
 # Tutorial: Use deployment scripts to create a self-signed certificate
@@ -28,8 +28,7 @@ For a Learn module that covers deployment scripts, see [Extend ARM templates by 
 
 To complete this article, you need:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Quickstart: Create ARM templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
-
+* **[Visual Studio Code](https://code.visualstudio.com/)**.
 * **A user-assigned managed identity**. This identity is used to perform Azure-specific actions in the script. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). You need the identity ID when you deploy the template. The format of the identity is:
 
   ```json
@@ -105,9 +104,6 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     },
     ```
 
-    > [!NOTE]
-    > The Resource Manager template extension of Visual Studio Code isn't capable to format deployment scripts yet. Don't use Shift+Alt+F to format the `deploymentScripts` resources, like the following one.
-
 1. Add a parameter for configuring the key vault access policies so that the managed identity can add certificates to the key vault:
 
     ```json
@@ -125,7 +121,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     }
     ```
 
-1. Update the existing key vault access policies to:
+1. Update the existing key vault access policies of the `Microsoft.KeyVault/vaults` resource to:
 
     ```json
     "accessPolicies": [
@@ -179,7 +175,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     ```json
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -358,6 +354,9 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 1. Select the storage account with the _azscripts_ suffix.
 1. Select the **File shares** tile. You will see an _azscripts_ folder that contains the deployment script execution files.
 1. Select _azscripts_. You will see two folders _azscriptinput_ and _azscriptoutput_. The input folder contains a system PowerShell script file and the user deployment script files. The output folder contains a _executionresult.json_ and the script output file. You can see the error message in _executionresult.json_. The output file isn't there because the execution failed.
+
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
 
 Remove the `Write-Output1` line and redeploy the template.
 

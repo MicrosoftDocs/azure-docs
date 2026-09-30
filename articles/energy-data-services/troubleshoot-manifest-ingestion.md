@@ -109,7 +109,7 @@ Records weren't ingested because schema validation failed.
 * The manifest body doesn't conform to the schema type.
 * The schema references are incorrect.
 * The schema service is throwing 5xx errors.
-  
+
 ### Workflow status
 
 The workflow status is marked as `finished`. You don't observe a failure in the workflow status because the invalid entities are skipped and the ingestion is continued.
@@ -163,7 +163,7 @@ Records weren't ingested because reference checks failed.
 * Referenced records weren't found.
 * Parent records weren't found.
 * The search service is throwing 5xx errors.
-  
+
 ### Workflow status
 
 The workflow status is marked as `finished`. You don't observe a failure in the workflow status because the invalid entities are skipped and the ingestion is continued.
@@ -205,7 +205,7 @@ Records weren't ingested because the manifest contains invalid legal tags or acc
 * ACLs are incorrect.
 * Legal tags are incorrect.
 * The storage service is throwing 5xx errors.
-  
+
 ### Workflow status
 
 The workflow status is marked as `finished`. You don't observe a failure in the workflow status.
@@ -240,6 +240,26 @@ The output indicates records that were retrieved. Manifest entity records that c
     [2023-02-05, 16:58:46 IST] {authorization.py:137} ERROR - {"code":400,"reason":"Validation error.","message":"createOrUpdateRecords.records[0].acl: Invalid group name 'data1.default.viewers@contoso-dp1.dataservices.energy'"}
     [2023-02-05, 16:58:46 IST] {single_manifest_processor.py:83} WARNING - Can't process entity SRN: surrogate-key:0ef20853-f26a-456f-b874-3f2f5f35b6fb
 ```
+## Skipped records logging
+During manifest ingestion, some records may be skipped due to validation failures, missing references, or other issues. Logging of skipped record IDs, Manifest Kind along with the reasons has been implemented to aid in debugging. A full skipped records report will be logged as part of final task along with total count of Skipped records.
+
+
+### How to use
+Check the Airflow task logs for provide_manifest_integrity_task, or validate_manifest_schema_task.
+Sample Kusto query:
+
+```kusto
+    OEPAirFlowTask
+    | where RunID has "<run_id>"
+```
+Look for entries like:
+```md
+=== SKIPPED ENTITIES REPORT ===
+Total skipped entities: 5
+Skipped entities Data: {'validate_manifest_schema_task': [{'id': 'opendes:master-data--Well:1112-1', 'kind': 'osdu:wks:master-data--Well:77777771.0.0', 'reason': 'Kind osdu:wks:master-data--Well:77777771.0.0 is not present in Schema service.'}], 'provide_manifest_integrity_task': [{'id': 'opendes:work-product--WorkProduct:feb22:11', 'kind': 'osdu:wks:work-product--WorkProduct:1.0.0', 'reason': 'Missing parents: {SRN: opendes:work-product-component--WellboreMarkerSet:feb22:11}'}, {'id': 'opendes:work-product-component--WellboreMarkerSet:feb22:11', 'kind': 'osdu:wks:work-product-component--WellboreMarkerSet:1.0.0', 'reason': 'Missing parents: {SRN: opendes:dataset--File.Generic:feb22:11}'}], 'process_single_manifest_file_task': [{'id': 'opendes:dataset--File.Generic:feb22:1', 'kind': 'osdu:wks:dataset--File.Generic:1.0.0', 'reason': 'Record storage failed: Invalid legal tags: mstest3807-data-R3FullManifest-Legal-Tag-Test3332279'}, {'id': 'opendes:reference-data--FacilityType:Well-11123', 'kind': 'osdu:wks:reference-data--FacilityType:1.0.0', 'reason': 'Record storage failed: Invalid legal tags: mstest3807-data-R3FullManifest-Legal-Tag-Test3332279'}]}
+=== END SKIPPED ENTITIES REPORT ===
+```
+This will help in identifying which specific records were excluded from ingestion.
 
 ## Known issues
 

@@ -1,12 +1,14 @@
 ---
-title: Enable system-assigned managed identity for applications in Azure Spring Apps
+title: Enable System-Assigned Managed Identity for Applications in Azure Spring Apps
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to enable system-assigned managed identity for applications.
 author: KarlErickson
-ms.author: xiading
+ms.author: karler
+ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -52,7 +54,7 @@ To set up a managed identity in the portal, first create an app, and then enable
 1. Create an app in the portal as you normally would. Navigate to it in the portal.
 2. Scroll down to the **Settings** group in the left navigation pane.
 3. Select **Identity**.
-4. Within the **System assigned** tab, switch **Status** to *On*. Select **Save**.
+4. Within the **System assigned** tab, switch **Status** to **On**. Select **Save**.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -60,7 +62,7 @@ You can enable system-assigned managed identity during app creation or on an exi
 
 ### Enable system-assigned managed identity during creation of an app
 
-The following example creates an app named *app_name* with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
+The following example creates an app named `app_name` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
 az spring app create \
@@ -70,7 +72,7 @@ az spring app create \
     --system-assigned
 ```
 
-### Enable system-assigned managed identity on an existing app**
+### Enable system-assigned managed identity on an existing app
 
 Use `az spring app identity assign` command to enable the system-assigned identity on an existing app.
 

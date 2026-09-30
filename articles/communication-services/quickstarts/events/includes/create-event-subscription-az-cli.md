@@ -3,17 +3,16 @@ author: pgrandhi
 ms.service: azure-communication-services
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 01/27/2024
+ms.date: 06/28/2024
 ms.author: pgrandhi
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 - An [Azure Communication Services resource](../../create-communication-resource.md).
-- Create a Webhook to receive events. See [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md).
-
+- To receive events, create a Webhook. See [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md).
 
 [!INCLUDE [register-provider-cli.md](register-provider-cli.md)]
 
@@ -68,4 +67,4 @@ az eventgrid event-subscription delete
 
 ## Next steps
 
-* For information about other commands, see [Azure Event Grid CLI](/cli/azure/eventgrid/event-subscription).
+- For information about other commands, see [Azure Event Grid CLI](/cli/azure/eventgrid/event-subscription).

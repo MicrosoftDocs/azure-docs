@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/27/2024
+ms.date: 08/07/2025
 
 # Customer intent: Learn how to customize the dashboard in an IoT Central application, and manage devices.
 ---
@@ -27,11 +27,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, complete the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
+Before you begin, complete the [Create and deploy an in-store analytics application template](./tutorial-in-store-analytics-create-app.md) tutorial.
 
 ## Change the dashboard name
 
-After you've created your condition-monitoring application, you can edit its default dashboard. You can also create more dashboards.
+After you create your condition-monitoring application, you can edit its default dashboard. You can also create more dashboards.
 
 The first step in customizing the application dashboard is to change the name:
 
@@ -113,7 +113,7 @@ To remove tiles that you don't plan to use in your application:
 
 1. Select **Save**. Removing unused tiles frees space on the edit page, and it simplifies the dashboard view for operators.
 
-After you've removed the unused tiles, rearrange the remaining tiles to create an organized layout. The new layout includes space for tiles that you add later.
+After you remove the unused tiles, rearrange the remaining tiles to create an organized layout. The new layout includes space for tiles that you add later.
 
 To rearrange the remaining tiles:
 
@@ -133,7 +133,7 @@ To rearrange the remaining tiles:
 
 After you customize the dashboard layout, you're ready to add tiles to display telemetry. To create a telemetry tile, select a device template and device instance, then select device-specific telemetry to display in the tile. The *In-store analytics - checkout* application template includes several telemetry tiles on the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** tile shows counts in the two checkout zones.
 
-In this section, you add two more telemetry tiles to display environmental telemetry from the RuuviTag sensors you added in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
+In this section, you add two more telemetry tiles to display environmental telemetry from the RuuviTag sensors you added in the [Create and deploy an in-store analytics application template](./tutorial-in-store-analytics-create-app.md) tutorial.
 
 To add tiles to display environmental data from the RuuviTag sensors:
 
@@ -173,7 +173,7 @@ To edit the **People traffic** tile to show telemetry for only two checkout zone
 
 1. Select **Update**.
 
-1. Select **Save**.  The updated dashboard displays counts for only your two checkout zones, which are based on the simulated occupancy sensor.
+1. Select **Save**. The updated dashboard displays counts for only your two checkout zones, which are based on the simulated occupancy sensor.
 
 :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/people-traffic-two-lanes.png" alt-text="Screenshot that shows the in-store analytics application dashboard 'People traffic' tile." lightbox="media/tutorial-in-store-analytics-customize-dashboard/people-traffic-two-lanes.png":::
 
@@ -208,4 +208,4 @@ To add a command tile to reboot the gateway:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Export data and visualize insights](./tutorial-in-store-analytics-export-data-visualize-insights.md)
+> [Tutorial: Export data from Azure IoT Central and visualize insights in Power BI](./tutorial-in-store-analytics-export-data-visualize-insights.md)

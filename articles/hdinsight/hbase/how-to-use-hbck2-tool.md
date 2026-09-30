@@ -2,12 +2,13 @@
 title: Use the Apache HBase HBCK2 tool
 description: Learn how to use the HBase HBCK2 tool.
 services: hdinsight
-author: robinroy
-ms.author: robinroy
 ms.service: azure-hdinsight
 ms.custom: troubleshooting
-ms.topic: conceptual
-ms.date: 06/15/2024
+ms.topic: how-to
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date:  06/15/2024
 ---
 # Use the Apache HBase HBCK2 tool
 
@@ -27,7 +28,7 @@ HBCK2 doesn't work the way HBCK1 used to, even in cases where commands are simil
 
 ## Obtain HBCK2
 
-You can find the release under the HBase distribution directory. For more information, see the [HBase downloads page](https://dlcdn.apache.org/hbase/hbase-operator-tools-1.2.0/hbase-operator-tools-1.2.0-bin.tar.gz).
+You can find the release under the HBase distribution directory. For more information, see the [HBase downloads page](https://archive.apache.org/dist/hbase/hbase-operator-tools-1.2.0/).
 
 ### Master UI: The HBCK Report
 

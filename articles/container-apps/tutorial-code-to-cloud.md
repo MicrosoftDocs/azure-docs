@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
 ms.topic: tutorial
-ms.date: 12/12/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
@@ -38,7 +38,7 @@ To complete this project, you need the following items:
 
 | Requirement | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. Make sure to use the most restrictive role for your context. <br><br>See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). You need the *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. Make sure to use the most restrictive role for your context. <br><br>See [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)for details. |
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
@@ -49,7 +49,7 @@ To complete this project, you need the following items:
 
 | Requirement | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current) for details. |
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
@@ -157,7 +157,7 @@ cd code-to-cloud/src
         --sku Basic
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
     ```azurepowershell
     $acr = New-AzContainerRegistry `
@@ -193,7 +193,7 @@ cd code-to-cloud/src
     az acr config authentication-as-arm update --registry "$ACR_NAME" --status enabled
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     
     ```azurepowershell
     $acr.AzureAdAuthenticationAsArmPolicyStatus
@@ -238,7 +238,7 @@ To avoid using administrative credentials, pull images from private repositories
         --output tsv)
     ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
 
@@ -284,7 +284,7 @@ Run the following command to initiate the image build and push process using ACR
 az acr build --registry $ACR_NAME --image $API_NAME .
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 The `az acr build` command does not have a PowerShell equivalent, but can be run in PowerShell.
 
@@ -322,7 +322,7 @@ The following command builds a container image for the album API and tags it wit
 docker build --tag $ACR_NAME.azurecr.io/$API_NAME .
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 docker build --tag "$ACRName.azurecr.io/$APIName" .
@@ -340,7 +340,7 @@ First, sign in to your Azure Container Registry.
 az acr login --name $ACR_NAME
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Connect-AzContainerRegistry -Name $ACRName
@@ -356,7 +356,7 @@ Now, push the image to your registry.
 docker push $ACR_NAME.azurecr.io/$API_NAME
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```bash
 docker push "$ACRName.azurecr.io/$APIName"
@@ -381,7 +381,7 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to variables.
 
@@ -445,7 +445,7 @@ az containerapp create \
 
 * This command adds the `acrPull` role to your user-assigned managed identity, so it can pull images from your container registry.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 To create the container app, create template objects that you pass in as arguments to the `New-AzContainerApp` command.
 
@@ -521,7 +521,7 @@ If you're not going to continue on to the [Communication between microservices](
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroup -Force

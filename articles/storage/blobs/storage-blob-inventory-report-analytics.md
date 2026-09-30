@@ -6,6 +6,7 @@ ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 12/01/2022
 ms.author: normesta
+# Customer intent: As a data analyst, I want to analyze and visualize blob inventory reports using Azure Synapse and Power BI, so that I can optimize storage use and manage costs effectively.
 ---
 
 # Tutorial: Analyze blob inventory reports
@@ -25,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - An Azure storage account - [create a storage account](../common/storage-account-create.md) 
   
@@ -46,7 +47,7 @@ You might have to wait up to 24 hours after enabling inventory reports for your 
 
 2. In the Synapse workspace, assign the **Contributor** role to your user identity. See [Azure RBAC: Owner role for the workspace](../../synapse-analytics/get-started-add-admin.md#azure-role-based-access-control-owner-role-for-the-workspace).
 
-3. Give the Synapse workspace permission to access the inventory reports in your storage account by navigating to your inventory report account, and then assigning the **Storage Blob Data Contributor** role to the system managed identity of the workspace. See [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+3. Give the Synapse workspace permission to access the inventory reports in your storage account by navigating to your inventory report account, and then assigning the **Storage Blob Data Contributor** role to the system managed identity of the workspace. See [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 4. Navigate to primary storage account and assign the **Blob Storage Contributor** role to your user identity.
 
@@ -151,7 +152,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 3. In the **Open** dialog box, change the file type to **Power BI template files (*.pbit)**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the the Power BI template files type that appears in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
+   > ![Screenshot of the Power BI template files type that appears in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
 
 4. Browse to the location of the **ReportAnalysis.pbit** file that you downloaded, and then select **Open**.
 

@@ -4,7 +4,7 @@ description: Describes some example deployments to help you understand how to sc
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 12/16/2024
+ms.date: 06/22/2026
 ms.service: azure-iot-operations
 
 #CustomerIntent: I want to see some scaling recommendations before I before deploying to production.
@@ -28,20 +28,22 @@ Example hardware specifications:
 
 - AKS-EE on P3 Tiny Workstation (13th Generation Intel® Core™ i7-13700 vPro® Processor), 16 core (24 threads), 32-GB memory, 1-TB storage.
 
+[!INCLUDE [supported-environments](../includes/supported-environments.md)]
+
 The following table shows the MQTT broker configuration for the single node example:
 
 | Parameter                | Value |
 |--------------------------|-------|
 | frontendReplicas         | 1     |
-| frontendWorkers          | 1     |
-| backendRedundancyFactor  | 1     |
+| frontendWorkers          | 2     |
+| backendRedundancyFactor  | 2     |
 | backendWorkers           | 1     |
 | backendPartitions        | 1     |
 | memoryProfile            | low   |
 
 The end-to-end data flow in the example looks like this:
 
-`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Dataflows -> Event Hubs`
+`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Data flows -> Event Hubs`
 
 The data volumes in the example are:
 
@@ -50,7 +52,7 @@ The data volumes in the example are:
 - The connector for OPC UA sends 125 message/second to the MQTT broker.
 - One data flow pipeline pushes 6,250 tags to an Event Hubs endpoint.
 
-In this example, Microsoft recommends using Event Hubs because you can only create one dataflow instance with a 4-core CPU. If you choose Event Grid, it can only handle 100 messages/sec.
+In this example, Microsoft recommends using Event Hubs because you can only create one data flow instance with a 4-core CPU. If you choose Event Grid, it can only handle 100 messages/sec.
 
 ### Performance
 
@@ -70,14 +72,17 @@ When Azure IoT Operations runs on a multi-node cluster, it can process more data
 Example hardware specifications:
 
 - 5-node K3s with Azure VMs (Standard_D8d_v5 with Intel Xeon Platinum 8370C), 8 core (8 vCPU), 32-GB memory, 30 GB.
+
 - 5-node K3S with P3 Tiny Workstations (13th Generation Intel® Core™ i7-13700 vPro® Processor), 16 core (24 threads), 32-GB memory, 1-TB storage.
+
+[!INCLUDE [supported-environments](../includes/supported-environments.md)]
 
 The following table shows the MQTT broker configuration for the multi-node example:
 
 | Parameter                | Value |
 |--------------------------|-------|
 | frontendReplicas         | 5     |
-| frontendWorkers          | 8     |
+| frontendWorkers          | 4     |
 | backendRedundancyFactor  | 2     |
 | backendWorkers           | 4     |
 | backendPartitions        | 5     |
@@ -89,7 +94,7 @@ In this example, an asset doesn't represent a real piece of equipment, but is a 
 
 The first end-to-end data flow in the example looks like this:
 
-`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Dataflows -> Event Hubs`
+`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Data flows -> Event Hubs`
 
 The data volumes in the first data flow in the example are:
 
@@ -100,7 +105,7 @@ The data volumes in the first data flow in the example are:
 
 The second end-to-end data flow in the example looks like this:
 
-`MQTT client (Paho) -> MQTT Broker -> Dataflows -> Event Hubs`
+`MQTT client (Paho) -> MQTT Broker -> Data flows -> Event Hubs`
 
 The data volumes in the second data flow in the example are:
 

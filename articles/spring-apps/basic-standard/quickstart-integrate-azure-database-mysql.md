@@ -5,8 +5,15 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, service-connector
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - mode-other
+  - service-connector
+  - sfi-image-nochange
 ---
 
 # Quickstart: Integrate Azure Spring Apps with Azure Database for MySQL
@@ -19,7 +26,7 @@ Pet Clinic, as deployed in the default configuration [Quickstart: Build and depl
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create an Azure Database for MySQL instance
 
@@ -97,11 +104,11 @@ Use [Service Connector](../../service-connector/overview.md) to connect the app 
    | Setting                   | Example                        | Description                                                                                                                                                                      |
    |---------------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Service type**          | *DB for MySQL flexible server* | Select DB for MySQL flexible server as your target service                                                                                                                       |
-   | **Connection name**       | *mysql_9e8af*                  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name. |
+   | **Connection name**       | **mysql_9e8af**                  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name. |
    | **Subscription**          | *My Subscription*              | The subscription that contains your target service. The default value is the subscription that contains the app deployed to Azure Spring Apps.                                   |
-   | **MySQL flexible server** | *MySQL80*                      | Select the MySQL flexible server you want to connect to.                                                                                                                         |
-   | **MySQL database**        | *petclinic*                    | Select the database you created earlier.                                                                                                                                         |
-   | **Client type**           | *SpringBoot*                   | Select the application stack that works with the target service you selected.                                                                                                    |
+   | **MySQL flexible server** | **MySQL80**                      | Select the MySQL flexible server you want to connect to.                                                                                                                         |
+   | **MySQL database**        | **petclinic**                    | Select the database you created earlier.                                                                                                                                         |
+   | **Client type**           | **SpringBoot**                   | Select the application stack that works with the target service you selected.                                                                                                    |
 
    :::image type="content" source="media/quickstart-integrate-azure-database-mysql/basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the basics tab in Service Connector.":::
 

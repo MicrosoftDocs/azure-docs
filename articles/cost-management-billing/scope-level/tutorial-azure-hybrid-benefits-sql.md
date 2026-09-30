@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Optimize centrally managed Azure Hybrid Benefit for SQL Server
 description: This tutorial guides you through proactively assigning SQL Server licenses in Azure to manage and optimize Azure Hybrid Benefit.
-author: bandersmsft
-ms.author: banders
-ms.date: 10/29/2024
+author: pri-mittal
+ms.author: primittal
+ms.date: 07/17/2026
 ms.topic: tutorial
 ms.service: cost-management-billing
-ms.subservice: ahb
-ms.reviewer: chrisrin
+ms.subservice: azure-hybrid-benefit
+ms.reviewer: primittal
 #customer intent: As a billing administrator, I want to learn how to assign SQL Server licenses in Azure using centrally managed Azure Hybrid Benefit.
 ---
 
@@ -49,7 +49,7 @@ Your recent Azure SQL usage details detected by the system are shown when you [c
 
 We recommend that you consult the appropriate people in your organization to validate that information and confirm any planned SQL Server usage growth.
 
-An optional, but useful, method to investigate your Azure SQL usage (including usage of Azure Hybrid Benefit at the resource level) is to use the Azure Hybrid Benefit [sql-license-usage PowerShell script](https://github.com/anosov1960/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit). It analyzes and tracks the combined SQL Server license usage of all the SQL resources in a specific subscription or an entire account.
+An optional, but useful, method to investigate your Azure SQL usage (including usage of Azure Hybrid Benefit at the resource level) is to use the Azure Hybrid Benefit [sql-license-usage PowerShell script](https://github.com/microsoft/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit). It analyzes and tracks the combined SQL Server license usage of all the SQL resources in a specific subscription or an entire account.
 
 ### Determine the number of eligible SQL Server core licenses available to assign to Azure
 
@@ -58,7 +58,7 @@ The quantity depends on how many licenses, with Software Assurance or subscripti
 Your software procurement or software asset management department is likely to have this information.
 
 > [!TIP]
-> When you migrate a workload from on-premises to Azure, the associated licenses are available to assign to Azure. That's because while you're using Azure Hybrid Benefit, you're granted 180 days of dual use rights (on-prem + in Azure) for the SQL Server license during migration. It's to help you ensure that they run seamlessly.
+> When you migrate a workload from on-premises to Azure, the associated licenses are available to assign to Azure. That's because while you're using Azure Hybrid Benefit, you're granted 180 days of migration allowance (on-premises + in Azure) for the SQL Server license during migration. It's to help you ensure that they run seamlessly.
 
 ## Buy more licenses if needed
 

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: reyjordi
 ms.custom: mvc
+# Customer intent: As a network administrator, I want to configure HSTS headers in the Azure Application Gateway so that I can enhance the security of my website and protect it against various attacks.
 ---
 # Add HSTS headers with Azure Application Gateway - Azure portal
 
@@ -15,7 +16,7 @@ This article describes how to use the [Header Rewrite](./rewrite-http-headers-ur
 
 HSTS policy helps protect or minimize your sites against man-in-the-middle, cookie-hijacking, and protocol downgrade attacks. After a client has established the first successful HTTPS connection with your HSTS-enabled website, HSTS header ensures going forward the client can access only through HTTPS.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Before you begin
 

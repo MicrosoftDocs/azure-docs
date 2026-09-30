@@ -1,11 +1,11 @@
 ---
 title: Migrate Bing Maps Data Source Management and Query API to Azure Maps API
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Data Source Management and Query API to the appropriate Azure Maps API.
+description: Learn how to migrate the Bing Maps Data Source Management and Query API to the appropriate Azure Maps API.
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 05/15/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: spatial
 ---
@@ -42,14 +42,14 @@ To load and present your data on a map, you need to build a service layer (an AP
 ### More information
 
 - [Create a data source for a map in Microsoft Azure Maps]
-- [How to use the Azure Maps spatial IO module]
+- [How to use the Azure Maps Spatial IO module]
 - [Read and write spatial data with Microsoft Azure Maps]
 
 ## Locator starter project
 
 If you need a locator solution, such as a store locator, job searching by location or finding a house to buy or rent, we have a store locator starter project that uses Azure Maps and Azure Cosmos DB to get you started quickly. The [Azure Maps Store Locator] provides an impressive range of capabilities to enhance your location-based services:
 
-- **Store Locator Backend**: Offers REST APIs and a ‘Store Locator Web Control’.
+- **Store Locator Backend**: Offers REST APIs and a 'Store Locator Web Control'.
 - **Robust Autocomplete Search**: Enables searching for store names, addresses, points of interest (POI), or zip codes.
 - **High Location Capacity**: Supports over 10,000 locations.
 - **Proximity Insights**: Displays nearby stores and their respective distances.
@@ -93,7 +93,7 @@ The Azure Maps store locator starter project gives you the following general arc
 [Data Source Management]: /bingmaps/spatial-data-services/data-source-management-api
 [Geocode Dataflow]: /bingmaps/spatial-data-services/geocode-dataflow-api
 [Geodata]: /bingmaps/spatial-data-services/geodata-api
-[How to use the Azure Maps spatial IO module]: how-to-use-spatial-io-module.md
+[How to use the Azure Maps Spatial IO module]: how-to-use-spatial-io-module.md
 [Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
 [Migrating Bing Maps SDS Geocode Dataflow API]: migrate-geocode-dataflow.md

@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the chat composite on the web.
+description: This article describes how to use the chat composite on the web.
 author: garchiro7
 ms.author: jorgegarc
 ms.date: 5/1/2023
@@ -8,11 +8,11 @@ ms.service: azure-communication-services
 ---
 
 > [!NOTE]
-> For detailed documentation and quickstarts about the web UI Library, see the [web UI Library storybook](https://aka.ms/acsstorybook).
+> For more information about the web UI Library, see the [web UI Library storybook](https://aka.ms/acsstorybook).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Azure Communication Services resource. [Create an Azure Communication Services resource](../../../create-communication-resource.md).
 - An Azure Communication Services token. See [this example](../../../identity/quick-create-identity.md).
 

@@ -1,11 +1,12 @@
 ---
-title: Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Apps
+title: Use the Diagnostic Settings of JVM Options for Advanced Troubleshooting in Azure Spring Apps
 description: Describes several best practices with JVM configuration to set heap dump, JFR, and GC logs.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 ---
 
@@ -20,8 +21,6 @@ ms.custom: devx-track-java
 This article shows you how to use diagnostic settings through JVM options to conduct advanced troubleshooting in Azure Spring Apps.
 
 There are several JVM-based application startup parameters related to heap dump, Java Flight Recorder (JFR), and garbage collection (GC) logs. In Azure Spring Apps, we support JVM configuration using JVM options.
-
-For more information on configuring JVM-based application startup parameters, see [az spring app deployment](/cli/azure/spring/app/deployment) in the Azure CLI reference documentation. The following sections provide several examples of useful values for the `--jvm-options` parameter.
 
 ## Prerequisites
 

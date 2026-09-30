@@ -1,18 +1,20 @@
 ---
 title: WhatsApp business account FAQ
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services article
 description: Learn about Communication Service WhatsApp Business Accounts FAQ.
 author: darmour
 manager: sundraman
 services: azure-communication-services
 ms.author: darmour
-ms.date: 02/29/2024
+ms.date: 05/01/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---
 
 # WhatsApp business account FAQ
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 There are some common issues you might see with the WhatsApp Business Account that you connected to your Azure Communication Services resource. Your WhatsApp Business Account is managed from the WhatsApp business portal. This article provides links to the WhatsApp documentation to learn more and troubleshoot these issues.
 
@@ -51,7 +53,9 @@ WhatsApp revokes WhatsApp Business Accounts that repeatedly violate its [Busines
 
 
 ## Resources
+
 Here are some other helpful resources regarding your WhatsApp Business Account:
+
 - [Business Platform \| WhatsApp Business](https://business.whatsapp.com/products/business-platform)
 - [Embedded Signup - WhatsApp Business Platform (facebook.com)](https://developers.facebook.com/docs/whatsapp/embedded-signup)
 - [Phone Numbers - WhatsApp Business Platform (facebook.com)](https://developers.facebook.com/docs/whatsapp/phone-numbers)

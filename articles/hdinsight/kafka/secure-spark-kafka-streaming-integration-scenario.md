@@ -3,9 +3,11 @@ title: Secure Spark and Kafka – Spark streaming integration scenario - Azure H
 description: Learn how to secure Spark and Kafka streaming integration.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.author: piyushgupta
-author: piyush-gupta1999
-ms.date: 11/25/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 02/14/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Secure Spark and Kafka – Spark streaming integration scenario
@@ -30,8 +32,8 @@ For more information about this topic, see
 
 ```
 ktutil
-ktutil: addent -password -p user1@TEST.COM -k 1 -e RC4-HMAC
-Password for user1@TEST.COM:
+ktutil: addent -password -p <username>@<DOMAIN.COM> -k 1 -e RC4-HMAC
+Password for <username>@<DOMAIN.COM>:
 ktutil: wkt user1.keytab
 ktutil: q
 ```

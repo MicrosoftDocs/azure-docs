@@ -4,8 +4,9 @@ description: Learn what's new with Azure Bastion, such as the latest release not
 author: aatsang
 ms.service: azure-bastion
 ms.topic: concept-article
-ms.date: 10/24/2024
+ms.date: 03/13/2025
 ms.author: aarontsang
+# Customer intent: As a cloud administrator, I want to review the latest updates and features of Azure Bastion, so that I can effectively implement and manage secure remote access solutions for my organization.
 ---
 
 # What's new in Azure Bastion?
@@ -20,18 +21,22 @@ You can also find the latest Bastion updates and subscribe to the RSS feed [here
 
 ## Recent releases and announcements
 
-| Type |  Name | Description | Date added | Limitations |
-|---|---|---|---|---|
-|Feature | [Graphical session recording](session-recording.md) | Graphical session recording is now generally available in all regions that Bastion is available in. | November 2024 | Can't currently be used with native client.
-| Feature | [Private Only Bastion](private-only-deployment.md)| Private Only Bastion is now generally available in all regions that Bastion is available in.| November 2024 | N/A|
-| SKU | [Bastion Premium SKU](bastion-overview.md#sku)| Bastion Premium SKU is now generally available in all regions that Bastion is available in. | June 2024 | N/A|
-| Feature | [Microsoft Entra ID support for portal (SSH)](bastion-connect-vm-ssh-linux.md#microsoft-entra-id-authentication)  |Microsoft Entra ID support for SSH connections in portal is now GA. | November 2024 | N/A|
-|Feature  |  [Availability Zones for Bastion](../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json) |Availability Zones is now in public preview as a customer-enabled feature in select regions. | May 2024 | See available region list [here](../reliability/reliability-bastion.md?toc=%2Fazure%2Fbastion%2FTOC.json#regions-supported).
-|SKU  |  [Bastion Developer SKU](quickstart-developer-sku.md) | Bastion Developer SKU is now in GA for select regions. | May 2024 | See available region list [here](quickstart-developer-sku.md#about-the-developer-sku).
-
+| Type |  Name | Description | Stage | Date added | Limitations |
+|---|---|---|---|---|---|
+|Feature|[IPv6 dual stack support](configuration-settings.md#ipv6-dual-stack-support-preview)|Bastion support for IPv6 dual stack configuration.| Public Preview | June 2026 | IPv6 only is not supported.|
+|Feature|[Managed identity support for session recording](session-recording.md)|Managed identity support for session recording is now in public preview.|Public Preview|April 2026|N/A|
+|Feature|[Microsoft Entra ID support for portal (RDP)](bastion-connect-vm-rdp-windows.md#microsoft-entra-id-authentication-preview)| Microsoft Entra ID support for RDP connections in portal is now in public preview in public cloud. To learn more about Microsoft Entra ID with Azure Bastion, see [Configure Microsoft Entra ID authentication with Azure Bastion](bastion-entra-id-authentication.md). | Public Preview | November 2025 | Cannot be used concurrently with graphical session recording.|
+|Feature |[Connectivity to AKS private clusters](bastion-connect-to-aks-private-cluster.md)|Connect to your private AKS clusters using the tunneling command with Bastion| Public Preview |August 2025|N/A|
+|Feature | [Graphical session recording](session-recording.md) | Graphical session recording is now generally available in all regions that Bastion is available in. | Generally available | November 2024 | Cannot be used concurrently with native client.
+| Feature | [Private Only Bastion](private-only-deployment.md)| Private Only Bastion is now generally available in all regions that Bastion is available in.| Generally available | November 2024 | N/A|
+| SKU | [Bastion Premium SKU](bastion-sku-comparison.md#premium-sku)| Bastion Premium SKU is now generally available in all regions that Bastion is available in. | Generally available | June 2024 | N/A|
+| Feature | [Microsoft Entra ID support for portal (SSH)](bastion-entra-id-authentication.md)  |Microsoft Entra ID support for SSH connections in portal is now GA. | Generally available | November 2024 | N/A|
+|Feature  |  [Availability Zones for Bastion](/azure/reliability/reliability-bastion?toc=/azure/bastion/TOC.json) |Availability Zones is now in public preview as a customer-enabled feature in select regions. | Public Preview | May 2024 | See available region list [here](/azure/reliability/reliability-bastion?toc=%2Fazure%2Fbastion%2FTOC.json#requirements).
+|Platform Capability|  [Bastion Developer](quickstart-host-portal.md) | Bastion Developer is now in GA for select regions. | Generally available | May 2024 | See available region list [here](quickstart-host-portal.md).
 
 ## Next steps
 
 * [What is Azure Bastion?](bastion-overview.md)
+* [Deploy Bastion](quickstart-host-portal.md)
 * [Bastion FAQ](bastion-faq.md)
-* [Bastion SKUs](bastion-overview.md#sku)
+* [Bastion SKU comparison](bastion-sku-comparison.md)

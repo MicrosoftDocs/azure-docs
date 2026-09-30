@@ -1,28 +1,39 @@
 ---
 title: Set up disaster recovery to another region using PowerShell
-description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC to the parent region where Azure Public MEC is an extension. 
-author: ankitaduttaMSFT
+description: This article describes how to replicate, failover, and failback Azure virtual machines running in an Azure Extended Zone to its parent region.
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/14/2022
-ms.author: ankitadutta
+ms.date: 01/13/2025
+ms.author: v-gajeronika
 
+# Customer intent: As an IT administrator, I want to set up disaster recovery for Azure virtual machines in an Extended Zone using PowerShell, so that I can ensure business continuity by replicating workloads and managing failovers effectively during outages.
 ---
 
-# Replicate virtual machines running in an Azure Public MEC to Azure region
+# Replicate virtual machines running in an Azure Extended Zone to an Azure region
+
+This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running on an Azure Extended Zone to its parent Azure region.
 
 > [!IMPORTANT]
-> The Azure Site Recovery functionality for Public MEC is in preview state.
+> The Azure Site Recovery functionality for Extended Zones is in preview state.
 
-This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running on Azure Public MEC to the parent Azure region where Azure Public MEC is an extension.
+## Disaster recovery in Azure Extended Zone 
 
-## Disaster recovery in Azure Public MEC 
+Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from a primary to a secondary location. The ASR functionality for Extended Zones is in preview. 
 
-Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. The ASR functionality for MEC is in preview. 
+Here the primary location is an Azure Extended Zone and secondary location is the parent region to which the Azure Extended Zone is connected. 
 
-Here the primary location is an Azure Public MEC and secondary location is the parent region to which the Azure Public MEC is connected. 
+> [!IMPORTANT]
+> -	During VM creation, we don't support replication in Extended Zone. It can be enabled in the VM or in the Vault pages once the VM is created.
+> -	If using an Extended Zone Storage account as cache storage account, only Block Blob Premium Storage Accounts will be supported.
+> -	If using an Extended Zone Storage account as cache storage account, only High-Churn is supported.
 
-## Set up disaster recovery for VMs in an Azure Public MEC using PowerShell
+If Azure region storage account is used as cache storage account, both normal & high churn are supported.
+
+
+## Set up disaster recovery for VMs in an Azure Extended Zone using PowerShell
+
+Following are the prerequisites to set up disaster recovery for VMs in an Azure Extended Zone using PowerShell:
 
 ### Prerequisites 
 
@@ -32,15 +43,16 @@ Here the primary location is an Azure Public MEC and secondary location is the p
     ```
     Get-InstalledModule -Name Az
     ```
+- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the  [support matrix](./azure-to-azure-support-matrix.md#linux).
 
-- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](./azure-to-azure-support-matrix.md#linux).
 
-## Replicate Virtual machines running in an Azure Public MEC to Azure region
+## Replicate Virtual machines running in an Azure Extended Zone to an Azure region
 
-To replicate VMs running in an Azure Public MEC to Azure region, Follow these steps: 
+To replicate VMs running in an Azure Extended Zone to an Azure region, follow these steps: 
+
 
 > [!NOTE] 
-> For this example, the primary location is an Azure Public MEC, and the secondary/recovery location is the Azure Public MEC's region.
+> For this example, the primary location is an Azure Extended Zone, and the secondary/recovery location is the Azure Extended Zone's region.
 
 1. Sign-in to your Azure account.
 
@@ -51,21 +63,20 @@ To replicate VMs running in an Azure Public MEC to Azure region, Follow these st
 
     ```
     $subscription = Get-AzSubscription -SubscriptionName "<SubscriptionName>" 
-    Set-AzContext $subscription.Id 
+    Set-AzContext $subscription.Id  
     ```
 
 1. Get the details of the virtual machine that you plan to replicate.
 
     ```
-    $VM = Get-AzVM -ResourceGroupName "<ResourceGroupName>" -Name "<VMName>" 
-	    
-    Write-Output $VM 
+    $VM = Get-AzVM -ResourceGroupName "<ResourceGroupName>" -Name "<VMName>"   
+    Write-Output $VM  
     ```
 
 1. Create a resource group for the recovery services vault in the secondary Azure region.
 
     ```
-    New-AzResourceGroup -Name "edgezonerecoveryrg" -Location "<EdgeZoneRegion>"
+    New-AzResourceGroup -Name "edgezonerecoveryrg" -Location "<AzureRegion>"
     ```
     
 1. Create a new Recovery services vault in the secondary region.
@@ -79,13 +90,13 @@ To replicate VMs running in an Azure Public MEC to Azure region, Follow these st
 1. Set the vault context.
 
     ```
-    Set-AzRecoveryServicesAsrVaultContext -Vault $vault 
+    Set-AzRecoveryServicesAsrVaultContext -Vault $vault  
     ```
 
 1. Create Primary Site Recovery fabric.
 
     ```
-    $TempASRJob = New-AzRecoveryServicesAsrFabric -Azure -Location “<EdgeZoneRegion>” -
+    $TempASRJob = New-AzRecoveryServicesAsrFabric -Azure -Location “<AzureRegion>” -
     Name "EdgeZoneFabric"
     ```
     
@@ -221,7 +232,7 @@ To replicate VMs running in an Azure Public MEC to Azure region, Follow these st
 
     ```
     $CacheStorageAccount = New-AzStorageAccount -Name "cachestorage" -ResourceGroupName 
-    "<primary ResourceGroupName>" -Location '<EdgeZoneRegion>' -SkuName Standard_LRS -
+    "<primary ResourceGroupName>" -Location '<AzureRegion>' -SkuName Standard_LRS -
     Kind Storage
     ```
 
@@ -229,20 +240,20 @@ To replicate VMs running in an Azure Public MEC to Azure region, Follow these st
     
     ```
     $recoveryVnet = New-AzVirtualNetwork -Name "recoveryvnet" -ResourceGroupName 
-    "recoveryrg" -Location '<EdgeZoneRegion>' -AddressPrefix "10.0.0.0/16" 
+    "recoveryrg" -Location '<AzureRegion>' -AddressPrefix "10.0.0.0/16" 
     Add-AzVirtualNetworkSubnetConfig -Name "defaultsubnetconf" -VirtualNetwork 
     $recoveryVnet -AddressPrefix "10.0.0.0/24" | Set-AzVirtualNetwork
     $recoveryNetwork = $recoveryVnet.Id
     ```
 
-1. Use the following PowerShell cmdlet to replicate an Azure Public MEC Azure virtual machine with managed disks. This step may take around 20 minutes to complete.
+1. Use the following PowerShell cmdlet to replicate an Azure Extended Zone virtual machine with managed disks. This step may take around 20 minutes to complete.
 
     1. Get the resource group that the virtual machine must be created in when it's failed 
     over.
 
         ```
         $RecoveryRG = Get-AzResourceGroup -Name "edgezonerecoveryrg" -Location "
-        <EdgeZoneRegion>"
+        <AzureRegion>"
         ```
     
     1. Get VM and display contents.
@@ -340,7 +351,7 @@ To replicate VMs running in an Azure Public MEC to Azure region, Follow these st
     
         ```
         $TFOVnet = New-AzVirtualNetwork -Name "TFOvnet" -ResourceGroupName "edgezonerecoveryrg" 
-        -Location '<EdgeZoneRegion>' -AddressPrefix "10.3.0.0/26"
+        -Location '<AzureRegion>' -AddressPrefix "10.3.0.0/26"
     
         Add-AzVirtualNetworkSubnetConfig -Name "default" -VirtualNetwork $TFOVnet -AddressPrefix 
         "10.3.0.0/26" | Set-AzVirtualNetwork
@@ -379,6 +390,7 @@ To replicate VMs running in an Azure Public MEC to Azure region, Follow these st
 
     After the test failover job completes successfully, you can connect to the test failed over virtual machine and validate the test failover. Once testing is complete on the test failed over virtual machine, clean up the test copy by starting the cleanup test failover operation. This operation deletes the test copy of the virtual machine that was created by the test failover.
     Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data is lost in the target VM. Now you can delete the test failover and start the failover.
+
 
     ```
     $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -
@@ -439,11 +451,11 @@ To replicate VMs running in an Azure Public MEC to Azure region, Follow these st
     
         ```
         $EdgeZoneCacheStorageAccount = New-AzStorageAccount -Name "cachestorageedgezone" -
-        ResourceGroupName "<ResourceGroupName>" -Location '<EdgeZoneRegion>' -SkuName 
+        ResourceGroupName "<ResourceGroupName>" -Location '<AzureRegion>' -SkuName 
         Standard_LRS -Kind Storage
         ```
     
-    1. Use the recovery protection container, the new cache storage account in Azure Public MEC's region, and the source region VM resource group. 
+    1. Use the recovery protection container, the new cache storage account in Azure Extended Zone's region, and the source region VM resource group. 
     
         ```
         $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -
@@ -471,3 +483,7 @@ To replicate VMs running in an Azure Public MEC to Azure region, Follow these st
     ```
     Remove-AzResourceGroup -Name $Name -Force
     ```
+
+## Next steps
+
+- View the [Azure Site Recovery PowerShell reference](/powershell/module/az.recoveryservices/?view=azps-13.0.0&preserve-view=true) to learn how you can create recovery plans, perform failovers, and failbacks with PowerShell.

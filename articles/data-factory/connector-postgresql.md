@@ -1,21 +1,29 @@
 ---
-title: Copy data From PostgreSQL
+title: Copy data From PostgreSQL V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-author: jianleishen
+description: Learn how to copy data from PostgreSQL V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+author: simplywilson
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 11/27/2024
-ms.author: jianleishen
+ms.topic: how-to
+ms.date: 02/09/2026
+ms.author: tinglee
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
-# Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
+# Copy data from PostgreSQL V2 using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
->[!IMPORTANT]
->The new PostgreSQL connector provides improved native PostgreSQL support. If you are using the legacy PostgreSQL connector in your solution, please [upgrade your PostgreSQL connector](#upgrade-the-postgresql-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-postgresql-and-postgresql-legacy) for details on the difference between the legacy and latest version. 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric PostgreSQL connector documentation](/fabric/data-factory/connector-postgresql-overview).
+
+
+> [!IMPORTANT]
+> The PostgreSQL V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the PostgreSQL connector](#upgrade-the-postgresql-linked-service) from V1 to V2.
 
 ## Supported capabilities
 
@@ -78,9 +86,9 @@ The following properties are supported for PostgreSQL linked service:
 | server | Specifies the host name - and optionally port - on which PostgreSQL is running. | Yes |
 | port | The TCP port of the PostgreSQL server.| No |
 | database | The PostgreSQL database to connect to. | Yes |
-| username | The username to connect with. Not required if using IntegratedSecurity. | Yes |
-| password | The password to connect with. Not required if using IntegratedSecurity. | Yes |
-| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: Fail the connection if the server doesn't support SSL.<br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| username | The username to connect with. | Yes |
+| password | The password to connect with. | Yes |
+| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disabled**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Preferred**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Required**: Fail the connection if the server doesn't support SSL.<br/>- **Verify_ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify_full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disabled (0) / Allow (1) / Preferred (2) **(Default)** / Required (3) / Verify_ca (4) / Verify_full (5) | No |
 | authenticationType | Authentication type for connecting to the database. Only supports **Basic**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 | ***Additional connection properties:*** |  |  |
@@ -254,13 +262,13 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-|PostgreSql data type | Interim service data type | Interim service data type for PostgreSQL (legacy) |
+|PostgreSQL data type | Interim service data type for PostgreSQL V2 | Interim service data type for PostgreSQL V1 |
 |:---|:---|:---|
 |`SmallInt`|`Int16`|`Int16`|
 |`Integer`|`Int32`|`Int32`|
 |`BigInt`|`Int64`|`Int64`|
 |`Decimal` (Precision <= 28)|`Decimal`|`Decimal`|
-|`Decimal` (Precision > 28)|Unsupport |`String`|
+|`Decimal` (Precision > 28)|Unsupported |`String`|
 |`Numeric`|`Decimal`|`Decimal`|
 |`Real`|`Single`|`Single`|
 |`Double`|`Double`|`Double`|
@@ -316,13 +324,13 @@ Here are steps that help you upgrade your PostgreSQL connector:
 
 1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
-1. The data type mapping for the latest PostgreSQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
+1. The data type mapping for the PostgreSQL V2 connector is different from that for V1. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
 
-## Differences between PostgreSQL and PostgreSQL (legacy)
+## <a name="differences-between-postgresql-and-postgresql-legacy"></a> Differences between PostgreSQL V2 and V1
 
-The table below shows the data type mapping differences between PostgreSQL and PostgreSQL (legacy).
+The table below shows the data type mapping differences between PostgreSQL V2 and V1.
 
-|PostgreSQL data type|Interim service data type for PostgreSQL|Interim service data type for PostgreSQL (legacy)|
+|PostgreSQL data type|Interim service data type for PostgreSQL V2|Interim service data type for PostgreSQL V1|
 |:---|:---|:---|
 |Money|Decimal|String|
 |Timestamp with time zone |DateTime|String|

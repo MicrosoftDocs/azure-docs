@@ -1,11 +1,13 @@
 ---
 title: Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
-author: reachnijel
-ms.author: nijelsf
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 01/04/2024
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
+ms.date: 08/08/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
@@ -19,8 +21,8 @@ Apache Hive offers support for database transactions that are Atomic, Consistent
 Apache Spark has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 & above, and Apache Hive 3.1.0 have separate metastore catalogs, which make interoperability difficult. 
 
 The Hive Warehouse Connector (HWC) makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel. This process makes it more efficient and adaptable than a standard JDBC connection from Spark to Hive. This brings out two different execution modes for HWC: 
-> - Hive JDBC mode via HiveServer2
-> - Hive LLAP mode using LLAP daemons **[Recommended]**
+ - Hive JDBC mode via HiveServer2
+ - Hive LLAP mode using LLAP daemons **[Recommended]**
 
 By default, HWC is configured to use Hive LLAP daemons. 
 For executing Hive queries (both read and write) using the above modes with their respective APIs, see [HWC APIs](./hive-warehouse-connector-apis.md).
@@ -40,7 +42,6 @@ Some of the operations supported by the Hive Warehouse Connector are:
 ## Hive Warehouse Connector setup
 
 > [!IMPORTANT]
-> - The HiveServer2 Interactive instance installed on Spark 2.4 Enterprise Security Package clusters is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate HiveServer2 Interactive cluster to host your HiveServer2 Interactive workloads. A Hive Warehouse Connector configuration that utilizes a single Spark 2.4 cluster is not supported.
 > - Hive Warehouse Connector (HWC) Library is not supported for use with Interactive Query Clusters where Workload Management (WLM) feature is enabled. <br>
 In a scenario where you only have Spark workloads and want to use HWC Library, ensure Interactive Query cluster doesn't have Workload Management feature enabled (`hive.server2.tez.interactive.queue` configuration is not set in Hive configs). <br>
 For a scenario where both Spark workloads (HWC) and LLAP native workloads exists, You need to create two separate Interactive Query Clusters with shared metastore database. One cluster for native LLAP workloads where WLM feature can be enabled on need basis and other cluster for HWC only workload where WLM feature shouldn't be configured.
@@ -55,14 +56,13 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 
 | HWC Version | Spark Version | InteractiveQuery Version |
 |:---:|:---:|---|
-| v1 | Spark 2.4 \| HDI 4.0 | Interactive Query 3.1 \| HDI 4.0 |
-| v2 | Spark 3.1 \| HDI 5.0 | Interactive Query 3.1 \| HDI 5.0 |
+| v2.1 | Spark 3.3.0 \| HDI 5.1 | Interactive Query 3.1 \| HDI 5.1 |
 
 ### Create clusters
 
-1. Create an HDInsight Spark **4.0** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
+1. Create an HDInsight Spark **5.1** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
 
-1. Create an HDInsight Interactive Query (LLAP) **4.0** cluster with the same storage account and Azure virtual network as the Spark cluster.
+1. Create an HDInsight Interactive Query (LLAP) **5.1** cluster with the same storage account and Azure virtual network as the Spark cluster.
 
 ### Configure HWC settings
 
@@ -100,6 +100,20 @@ value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.
 
 1. Save changes and restart all affected components.
 
+#### Additional configurations for Spark and Hive
+
+The following configuration needs to be done for **all** head and worker nodes of your Spark and Hive clusters.
+
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark and Apache Hive nodes. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+    
+1. Append the file content of /etc/hosts of hive cluster in /etc/hosts file of spark cluster and vice-versa.
+
+1. Once all nodes are updated then, restart both the clusters.
+
 ### Configure HWC for Enterprise Security Package (ESP) clusters
 
 The Enterprise Security Package (ESP) provides enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control for Apache Hadoop clusters in Azure HDInsight. For more information on ESP, see [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
@@ -116,15 +130,26 @@ Apart from the configurations mentioned in the previous section, add the followi
     
     * From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` where CLUSTERNAME is the name of your Interactive Query cluster. Click on **HiveServer2 Interactive**. You'll see the Fully Qualified Domain Name (FQDN) of the head node on which LLAP is running as shown in the screenshot. Replace `<llap-headnode>` with this value.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive warehouse connector Head Node." border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Screenshot of hive warehouse connector Head Node." border="true":::
 
     * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential won't be found.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain." border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Screenshot of Hive warehouse connector AAD Domain." border="true":::
 
     * For instance, `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
     
+1. The following configuration needs to be done for **all** head and worker nodes of your Spark and Hive clusters.
+
+   * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark and Apache Hive nodes. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+
+        ```cmd
+        ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+        ```
+        
+   * Append tenant domain name (e.g. "fabrikam.onmicrosoft.com”) in the last line of /etc/resolv.conf in head and worker nodes of your Spark and Hive clusters.
+
 1. Save changes and restart components as needed.
+
 
 ## Hive Warehouse Connector usage
 
@@ -170,9 +195,9 @@ This is a way to run Spark interactively through a modified version of the Scala
 
 ### Spark-submit
 
-Spark-submit is a utility to submit any Spark program (or job) to Spark clusters.
+`Spark-submit` is a utility to submit any Spark program (or job) to Spark clusters.
 
-The spark-submit job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
+The `spark-submit` job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
 
 Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application. Replace `<VERSION>`, and `<APP_JAR_PATH>` with the actual values.
 
@@ -232,21 +257,21 @@ kinit USERNAME
     hive.executeQuery("SELECT * FROM demo").show()
     ```
 
-    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="demo table before applying ranger policy." border="true":::
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="Screenshot of demo table before applying ranger policy." border="true":::
 
 1. Apply a column masking policy that only shows the last four characters of the column.  
     1. Go to the Ranger Admin UI at `https://LLAPCLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Click on the Hive service for your cluster under **Hive**.
-        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="ranger service manager." border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="Screenshot of ranger service manager." border="true":::
     1. Click on the **Masking** tab and then **Add New Policy**
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="hive warehouse connector ranger hive policy list." border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="Screenshot of hive warehouse connector ranger hive policy list." border="true":::
 
     1. Provide a desired policy name. Select database: **Default**, Hive table: **demo**, Hive column: **name**, User: **rsadmin2**, Access Types: **select**, and **Partial mask: show last 4** from the **Select Masking Option** menu. Click **Add**.
-                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="create policy." border="true":::
+                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="Screenshot of create policy." border="true":::
 1. View the table's contents again. After applying the ranger policy, we can see only the last four characters of the column.
 
-    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="demo table after applying ranger policy." border="true":::
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="Screenshot of demo table after applying ranger policy." border="true":::
 
 ## Next steps
 

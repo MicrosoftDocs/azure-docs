@@ -1,13 +1,14 @@
 ---
-title: Defend API Management against DDoS attacks 
+title: Defend API Management Against DDoS Attacks 
 description: Learn how to protect your API Management instance in an external virtual network against volumetric and protocol DDoS attacks by using Azure DDoS Protection.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/24/2023
-ms.author: danlep
+ms.date: 08/24/2026
+ms.custom: sfi-image-nochange
+
+#customer intent: As an API developer, I want to protect my API Management instance against DDoS attacks so that my APIs stay available during volumetric and protocol attacks.
 ---
 # Defend your Azure API Management instance against DDoS attacks
 
@@ -29,14 +30,12 @@ Enabling Azure DDoS Protection for API Management is supported only for instance
 * Instances that aren't VNet-injected
 * Instances configured with a [private endpoint](private-endpoint.md)
 
-
 ## Prerequisites
 
 * An API Management instance
     * The instance must be deployed in an Azure VNet in [external mode](api-management-using-with-vnet.md) or [internal mode](api-management-using-with-internal-vnet.md).
-    * The instance must be configured with an Azure public IP address resource, which is supported only on the API Management `stv2` [compute platform](compute-infrastructure.md). 
-        > [!NOTE]
-        > If the instance is hosted on the `stv1` platform, you must [migrate](compute-infrastructure.md#how-do-i-migrate-to-the-stv2-platform) to the `stv2` platform.
+    * The instance must be configured with an Azure public IP address resource.
+
 * An Azure DDoS Protection [plan](../ddos-protection/manage-ddos-protection.md)
     * The plan you select can be in the same, or different, subscription than the virtual network and the API Management instance. If the subscriptions differ, they must be associated to the same Microsoft Entra tenant.
     * You may use a plan created using either the Network DDoS protection SKU or IP DDoS Protection SKU. See [Azure DDoS Protection SKU Comparison](../ddos-protection/ddos-protection-sku-comparison.md).
@@ -59,9 +58,9 @@ Depending on the DDoS Protection plan you use, enable DDoS protection on the vir
 
 ### Enable DDoS protection on the API Management public IP address
 
-If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-an-existing-public-ip-address).
+If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#enable-ddos-ip-protection-for-a-public-ip-address).
 
-## Next steps
+## Related content
 
 * Learn how to verify DDoS protection of your API Management instance by [testing with simulation partners](../ddos-protection/test-through-simulations.md)
 * Learn how to [view and configure Azure DDoS Protection telemetry](../ddos-protection/telemetry.md)

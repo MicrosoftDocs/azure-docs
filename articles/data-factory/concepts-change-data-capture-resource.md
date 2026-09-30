@@ -6,12 +6,14 @@ author: n0elleli
 ms.author: noelleli
 ms.subservice: data-movement
 ms.custom:
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/29/2024
 ---
 
 # Change data capture resource overview
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Adapting to the cloud-first big data world can be incredibly challenging for data engineers who are responsible for building complex data integration and ETL pipelines. 
 
@@ -23,7 +25,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 :::image type="content" source="media/adf-cdc/change-data-capture-resource-1.png" alt-text="Screenshot of new top-level resource in Factory Resources panel.":::
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5geIG]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=add55f05-eabf-4185-8db6-aef373d635f1]
 
 > [!NOTE]
 > The Change Data Capture resource in Azure Data Factory is currently in public preview

@@ -1,12 +1,13 @@
 ---
-title: Azure VMware Solution datastore performance considerations for Azure NetApp Files | Microsoft Docs
+title: Azure VMware Solution datastore performance considerations for Azure NetApp Files 
 description: Describes considerations for Azure VMware Solution datastore design and sizing when used with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 3/22/2024
+ms.topic: concept-article
+ms.date: 3/22/2025
 ms.author: anfdocs
+# Customer intent: "As a virtualization administrator, I want to design and size datastores for Azure VMware Solution using Azure NetApp Files, so that I can optimize application performance and cost efficiency across multiple workloads."
 ---
 # Azure VMware Solution datastore performance considerations for Azure NetApp Files 
 
@@ -18,18 +19,18 @@ Azure NetApp Files provides an instantly scalable, high performance, and highly 
  
 ## Achieving higher storage performance for Azure VMware Solution using Azure NetApp Files   
 
-Provisioning multiple, potentially larger, datastores at one service level may cost less while also providing increased performance. The reason is due to the distribution of load across multiple TCP streams from Azure VMware Solution hosts to several datastores. You can use the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc) to calculate potential cost savings  by uploading an RVTools report or entering manual average VM sizing. 
+Provisioning multiple, potentially larger, datastores at one service level may cost less while also providing increased performance. The reason is due to the distribution of load across multiple TCP streams from Azure VMware Solution hosts to several datastores. You can use the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://azure.github.io/azure-netapp-files/avs-calc/) to calculate potential cost savings  by uploading an RVTools report or entering manual average VM sizing. 
 
 When you determine how to configure datastores, the easiest solution from a management perspective is to create a single Azure NetApp Files datastore, mount it, and put all your VMs in. This strategy works well for many situations, until more throughput or IOPS is required. To identify the different boundaries, the tests used a synthetic workload generator, the program [`fio`](https://github.com/axboe/fio) , to evaluate a range of workloads for each of these scenarios. This analysis can help you determine how to provision Azure NetApp Files volumes as datastores to maximize performance and optimize costs. 
+
+> [!NOTE]
+> Azure VMware Solution now supports the nconnect mount option, so you can raise per-datastore performance by setting nconnect=4. This opens four parallel TCP connections per NFS datastore on each host, which increases aggregate throughput and IOPS through greater network parallelism. In practice, nconnect=4 allows a single datastore approach the performance that previously required roughly four datastores, because it removes the single-connection bottleneck. You can also combine nconnect=4 with multiple datastores for further scaling, up to 64 datastores per AVS cluster. Support for nconnect=4 is available on both AVS Gen 1 and Gen 2 private clouds. See [Performance scaling](performance-benchmarks-azure-vmware-solution.md#performance-scaling) for results comparing 1 versus 4 datastores. Enabling nconnect on NFS datastores is a non-disruptive operation that can be performed without affecting active workloads. The nconnect option is enabled with a fixed connection value of 4, which cannot be customized. If necessary, it can be disabled to restore the default single-connection configuration (nconnect=1).
 
 ## Before you begin 
 
 For Azure NetApp Files performance data, see: 
 
-* [Azure NetApp Files: Getting the Most Out of Your Cloud Storage](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
-
-    On an Azure VMware Solution host, a single network connection is established per NFS datastore akin to using `nconnect=1` on the Linux tests referenced in Section 6 (*The Tuning Options*). This fact is key to understanding how Azure VMware Solution scales performance so well across multiple datastores. 
-
+* [Azure NetApp Files: Getting the Most Out of Your Cloud Storage](https://bluexp.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)    
 * [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](performance-benchmarks-azure-vmware-solution.md)
 
 

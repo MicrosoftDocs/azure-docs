@@ -1,14 +1,18 @@
 ---
 title: X.509 certificates | Microsoft Docs
 description: Reference documentation containing information about X.509 certificates, including certificate fields, certificate extensions, and certificate formats.
-author: kgremban
+author: sethmanheim
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: reference
 ms.date: 02/03/2022
-ms.author: kgremban
-ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
+ms.author: sethm
+ms.custom:
+  - mvc
+  - 'Role: Cloud Development'
+  - 'Role: Data Analytics'
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub, and I need to know what file formats, fields, and other details are supported by Azure IoT Hub. 
 ---
 
@@ -116,8 +120,8 @@ Certificates can be saved in various formats. Azure IoT Hub authentication typic
 
 You can authenticate a device to your IoT hub for testing purposes by using two self-signed certificates. This type of authentication is sometimes called *thumbprint authentication* because the certificates are identified by calculated hash values called *fingerprints* or *thumbprints*. These calculated hash values are used by IoT Hub to authenticate your devices.
 
->[!IMPORTANT]
->We recommend that you use certificates signed by an issuing Certificate Authority (CA), even for testing purposes. Never use self-signed certificates in production.
+> [!IMPORTANT]
+> We recommend that you use certificates signed by an issuing Certificate Authority (CA), even for testing purposes. Never use self-signed certificates in production.
 
 ### Create a self-signed certificate
 
@@ -233,7 +237,7 @@ When you upload your root certificate authority (CA) certificate or subordinate 
     openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
     ```
 
-    For more information, see [Tutorial - Create and upload certificates for testing](tutorial-x509-test-certs.md).
+    For more information, see [Tutorial - Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md).
 
 1. Select the new certificate in the **Certificate Details** view.
 
@@ -243,5 +247,5 @@ When you upload your root certificate authority (CA) certificate or subordinate 
 
 For more information about X.509 certificates and how they're used in IoT Hub, see the following articles:
 
-* [The layman’s guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
+* [The layman's guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
 * [Understand how X.509 CA certificates are used in IoT](./iot-hub-x509ca-concept.md)

@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - publish-to-dapr | Microsoft Docs
 description: Reference for the publish-to-dapr policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
-ms.author: danlep
 ---
 
 # Send message to Pub/Sub topic
@@ -43,7 +41,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
 

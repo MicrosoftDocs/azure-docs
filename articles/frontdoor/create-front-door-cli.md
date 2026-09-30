@@ -1,15 +1,17 @@
 ---
 title: 'Quickstart: Create an Azure Front Door using Azure CLI'
 description: Learn how to create an Azure Front Door using Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
-ms.topic: quickstart
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
+ms.topic: quickstart
 ms.date: 11/18/2024
 ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Front Door using Azure CLI
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 In this quickstart, you learn how to create an Azure Front Door using Azure CLI. You set up a profile with two Azure Web Apps as origins and add a WAF security policy. Finally, you verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
@@ -38,7 +40,7 @@ Next, create the Azure Front Door profile that your two App Services uses as ori
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 > [!NOTE]
-> If you want to deploy Azure Front Door Standard instead of Premium, substitute the value of the sku parameter with `Standard_AzureFrontDoor`. Managed rules with WAF Policy are not available with the Standard SKU. For a detailed comparison, see [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
+> If you want to deploy Azure Front Door Standard instead of Premium, substitute the value of the sku parameter with `Standard_AzureFrontDoor`. Managed rules with WAF Policy aren't available with the Standard tier. For a detailed comparison, see [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
 ```azurecli-interactive
 az afd profile create \
@@ -100,7 +102,7 @@ Make a note of the default host names for each web app, as you'll need them to d
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 > [!NOTE]
-> To deploy an Azure Front Door Standard instead of Premium, set the `sku` parameter to `Standard_AzureFrontDoor`. Managed rules with WAF Policy are not available with the Standard SKU. For a detailed comparison, see [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
+> To deploy an Azure Front Door Standard instead of Premium, set the `sku` parameter to `Standard_AzureFrontDoor`. Managed rules with WAF Policy aren't available with the Standard tier. For a detailed comparison, see [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
 ```azurecli-interactive
 az afd profile create \

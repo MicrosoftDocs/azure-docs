@@ -3,7 +3,8 @@ title: Create a Batch pool with specified public IP addresses
 description: Learn how to create an Azure Batch pool that uses your own static public IP addresses.
 ms.topic: how-to
 ms.custom:
-ms.date: 05/26/2023
+ms.date: 01/06/2026
+# Customer intent: "As a cloud infrastructure engineer, I want to create a Batch pool using static public IP addresses, so that I can maintain consistent network access for external services that require specific IP whitelisting."
 ---
 
 # Create an Azure Batch pool with specified public IP addresses
@@ -51,7 +52,7 @@ Make sure your public IP addresses meet the following requirements:
 
 ## Create a Batch pool with public IP addresses
 
-The following example shows how to create a pool through the [Azure Batch Service REST API](/rest/api/batchservice/pool/add) that uses public IP addresses.
+The following example shows how to create a pool through the [Azure Batch Service REST API](/rest/api/batchservice/pools/create-pool) that uses public IP addresses.
 
 REST API URI:
 

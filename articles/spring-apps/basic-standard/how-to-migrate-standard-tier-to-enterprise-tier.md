@@ -1,12 +1,14 @@
 ---
-title: How to migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan
+title: How to Migrate an Azure Spring Apps Basic or Standard Plan Instance to the Enterprise Plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
 author: KarlErickson
-ms.author: xiading
+ms.author: karler
+ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -22,7 +24,7 @@ This article uses the Pet Clinic sample apps as examples of how to migrate.
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - [!INCLUDE [install-enterprise-extension](../enterprise/includes/install-enterprise-extension.md)]
 - [Git](https://git-scm.com/downloads).
@@ -110,7 +112,7 @@ It takes about 5 minutes to finish the resource provisioning.
        --sku enterprise
    ```
 
-   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md).
+   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
 
 ---
 
@@ -155,10 +157,10 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 
 1. Select **Settings** and complete the form in **Repositories** to add a new entry with the following information:
 
-   - Name: `default`
-   - Patterns: `api-gateway,customers-service`
-   - URI: `https://github.com/Azure-Samples/spring-petclinic-microservices-config`
-   - Label: `master`
+   - Name: **default**
+   - Patterns: **api-gateway,customers-service**
+   - URI: **https://github.com/Azure-Samples/spring-petclinic-microservices-config**
+   - Label: **master**
 
    :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png" alt-text="Screenshot of the Azure portal showing the Settings tab of the Application Configuration Service page." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png":::
 
@@ -211,7 +213,7 @@ For more information, see [Use Application Configuration Service for Tanzu](../e
 
 ## Using Service Registry for Tanzu
 
-[Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.1/spring-cloud-services/GUID-service-registry-index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In the Enterprise plan, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is available only in the Basic and Standard plan and isn't available in the Enterprise plan.
+[Service Registry](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/spring-cloud-services-for-cloud-foundry/3-2/scs-tanzu/service-registry-index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In the Enterprise plan, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is available only in the Basic and Standard plan and isn't available in the Enterprise plan.
 
 | Component        | Standard plan                                                        | Enterprise plan                                                                   |
 |------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------|

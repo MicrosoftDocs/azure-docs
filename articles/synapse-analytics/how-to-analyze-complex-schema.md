@@ -1,16 +1,19 @@
 ---
 title: Analyze schema with arrays and nested structures
 description: How to analyze arrays and nested structures with Apache Spark and SQL
-author: Rodrigossz
+author: im-microsoft
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: spark
-ms.date: 06/15/2020
-ms.author: rosouz
-ms.reviewer: whhender
+ms.date: 12/08/2025
+ms.author: imotiwala
+ms.custom: sfi-image-nochange
+
 ---
 
 # Analyze complex data types in Azure Synapse Analytics
+
+[!INCLUDE[](./includes/appliesto-cosmos-synapse-link.md)]
 
 This article is relevant for Parquet files and containers in [Azure Synapse Link for Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). You can use Spark or SQL to read or transform data with complex schemas such as arrays or nested structures. The following example is completed with a single document, but it can easily scale to billions of documents with Spark or SQL. The code included in this article uses PySpark (Python).
 
@@ -165,7 +168,7 @@ First, depending how the data has been stored, users should use the following ta
 | Bulk | Format |
 | ------ | ------ |
 | 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |'Parquet' (ADLSg2)|
-| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |'CosmosDB' (Azure Synapse Link)|
+| `N'endpoint=https://ACCOUNTNAME.documents.azure.com:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET'` | CosmosDB (Azure Synapse Link) |
 
 
 Replace each field as follows:

@@ -1,16 +1,17 @@
 ---
-title: Request region access for Azure NetApp Files | Microsoft Docs
+title: Request region access for Azure NetApp Files
 description: Describes how to request access to a region for using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 05/10/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to request access to a specific region for Azure NetApp Files, so that I can utilize the storage resources necessary for my applications."
 ---
 # Request region access for Azure NetApp Files
 
-In some special situations, you might need to explicitly request access to a region. This article explains how to submit a request. 
+In special situations, you need to explicitly request access to a region. Learn how to submit a request. 
 
 ## Steps
 
@@ -23,7 +24,7 @@ In some special situations, you might need to explicitly request access to a reg
 
     ![Screenshot that shows the Problem Description tab.](./media/shared/support-problem-descriptions.png)
 
-3. Under the **Additional details** tab, click **Enter details** in the Request Details field.  
+3. In the **Additional details** tab, select **Enter details** in the Request Details field.  
 
     ![Screenshot that shows the Details tab and the Enter Details field.](./media/shared/quota-additional-details.png)
 
@@ -33,7 +34,7 @@ In some special situations, you might need to explicitly request access to a reg
 
     ![Screenshot that shows the Quota Details window for requesting region access.](./media/request-region-access/quota-details-region-access.png)
 
-5. Click **Save and continue**. Click **Review + create** to create the request.
+5. Select **Save and continue** then **Review + create** to create the request.
 
 ## Next steps  
 

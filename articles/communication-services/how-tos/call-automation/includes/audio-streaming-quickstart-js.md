@@ -2,7 +2,7 @@
 title: Include file - JavaScript
 description: JavaScript Media Streaming quickstart
 services: azure-communication-services
-author: Alvin
+author: alvin-l-han
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 11/26/2024
@@ -12,7 +12,7 @@ ms.author: alvinhan
 ---
 
 ## Prerequisites 
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp).
 - A new web service application created using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - [Node.js](https://nodejs.org/en/) LTS installation
@@ -26,7 +26,7 @@ You can review documentation [here](https://azure.microsoft.com/blog/introductio
 ## Receiving and sending audio streaming data
 There are multiple ways to start receiving audio stream, which can be configured using the `startMediaStreaming` flag in the `mediaStreamingOptions` setup. You can also specify the desired sample rate used for receiving or sending audio data using the `audioFormat` parameter. Currently supported formats are PCM 24K mono and PCM 16K mono, with the default being PCM 16K mono.
 
-To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. For more details, refer to the [API specifications](https://learn.microsoft.com/rest/api/communication/callautomation/answer-call/answer-call?view=rest-communication-callautomation-2024-06-15-preview&tabs=HTTP#mediastreamingoptions).
+To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. For more details, refer to the [API specifications](/rest/api/communication/callautomation/answer-call/answer-call?view=rest-communication-callautomation-2024-06-15-preview&preserve-view=true&tabs=HTTP#mediastreamingoptions).
 
 ### Start streaming audio to your webserver at time of answering the call
 Enable automatic audio streaming when the call is established by setting the flag `startMediaStreaming: true`.
@@ -34,21 +34,26 @@ Enable automatic audio streaming when the call is established by setting the fla
 This setting ensures that audio streaming starts automatically as soon as the call is connected.
 
 ``` JS
-var mediaStreamingOptions = new MediaStreamingOptions(
-	new Uri("wss://YOUR_WEBSOCKET_URL"),
-	MediaStreamingContent.Audio,
-	MediaStreamingAudioChannel.Mixed,
-	startMediaStreaming: true)
-{
-	EnableBidirectional = true,
-		AudioFormat = AudioFormat.Pcm24KMono
-}
-var options = new AnswerCallOptions(incomingCallContext, callbackUri)
-{
-	MediaStreamingOptions = mediaStreamingOptions,
+const mediaStreamingOptions = {
+    transportUrl: "wss://YOUR_WEBSOCKET_URL", 
+    transportType: "websocket",               
+    contentType: "audio",                     
+    audioChannelType: "mixed",                
+    startMediaStreaming: true,
+    enableDtmfTones: true,           
+    enableBidirectional: true,                
+    audioFormat: "Pcm24KMono"                 
 };
 
-AnswerCallResult answerCallResult = await client.AnswerCallAsync(options);
+const answerCallOptions = {
+    mediaStreamingOptions: mediaStreamingOptions
+};
+
+answerCallResult = await acsClient.answerCall(
+    incomingCallContext,
+    callbackUri,
+    answerCallOptions
+);
 ```
 
 When Azure Communication Services receives the URL for your WebSocket server, it establishes a connection to it. Once the connection is successfully made, streaming is initiated.
@@ -58,11 +63,12 @@ To start media streaming during the call, you can use the API. To do so, set the
 
 ``` JS
 const mediaStreamingOptions: MediaStreamingOptions = {
-	transportUrl: transportUrl,
+	transportUrl:  "wss://YOUR_WEBSOCKET_URL",
 	transportType: "websocket",
 	contentType: "audio",
 	audioChannelType: "unmixed",
 	startMediaStreaming: false,
+	enableDtmfTones: true,
 	enableBidirectional: true,
 	audioFormat: "Pcm24KMono"
 }
@@ -134,6 +140,9 @@ async function processWebsocketMessageAsync(receivedBuffer: ArrayBuffer) {
 
 The first packet you receive contains metadata about the stream, including audio settings such as encoding, sample rate, and other configuration details.
 
+### Additional Headers
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`. These are sent when Azure Communication Services tries to connect to your endpoint.
+
 ``` json
 {
   "kind": "AudioMetadata",
@@ -157,6 +166,17 @@ After sending the metadata packet, Azure Communication Services (ACS) will begin
     "participantRawID": "8:acs:3d20e1de-0f28-41c5…",
     "data": "5ADwAOMA6AD0A…",
     "silent": false
+  }
+}
+```
+#### DTMF example 
+When DTMF is enabled Azure Communication Services sends a `DtmfData` type.
+
+``` json
+{
+  "kind": "DtmfData",
+  "dtmfData": {
+    "data": "3"
   }
 }
 ```

@@ -13,6 +13,8 @@ ms.custom: mode-other
 
 # Quickstart: Place interop calls between Azure Communication Services and Microsoft Teams
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In this quickstart, you're going to learn how to start a call from Azure Communication Services user to Teams users. You're going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.
@@ -30,6 +32,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - A working [Communication Services calling web app](./getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 - An [access token](../identity/access-tokens.md).
+- Teams users must have a Teams Phone license and be [Enterprise Voice enabled](/microsoftteams/direct-routing-enable-users#use-powershell-1)
 
 ## Add the Call UI controls
 

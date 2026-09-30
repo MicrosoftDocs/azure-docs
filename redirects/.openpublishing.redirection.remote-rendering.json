@@ -1,0 +1,414 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/remote-rendering/index.yml",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/components.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/entities.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/graphics-bindings.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/lifetime.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/materials.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/meshes.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/models.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/object-bounds.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/rendering-modes.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/sessions.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/concepts/textures.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/authentication.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/create-an-account.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/frontend-apis.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/move-remote-rendering-account.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/performance-tracing.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/session-rest-api.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/tokens.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/conversion/blob-storage.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/conversion/configure-model-conversion.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/conversion/conversion-rest-api.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/conversion/get-information.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/conversion/layout-files-for-conversion.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/conversion/model-conversion.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/conversion/override-materials.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/unity/holographic-remoting.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/unity/install-remote-rendering-unity-package.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/unity/objects-components.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/unity/unity-render-pipelines.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/how-tos/unity/unity-setup.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/about.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/system-requirements.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/camera.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/color-materials.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/cut-planes.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/debug-rendering.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/fresnel-effect.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/late-stage-reprojection.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/lights.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/outlines.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/override-hierarchical-state.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/pbr-materials.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/performance-queries.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/point-cloud-rendering.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/shell-effect.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/single-sided-rendering.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/sky.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/spatial-queries.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/stage-space.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/overview/features/z-fighting-mitigation.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/quickstarts/convert-model.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/quickstarts/deploy-to-desktop.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/quickstarts/deploy-to-hololens.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/quickstarts/deploy-to-quest.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/quickstarts/render-model.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/quickstarts/native-cpp/hololens/deploy-native-cpp-openxr-tutorial.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/quickstarts/native-cpp/hololens/deploy-native-cpp-tutorial.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/reference/data-residency.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/reference/limits.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/reference/material-mapping.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/reference/network-requirements.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/reference/regions.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/reference/vm-sizes.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/resources/support.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/resources/troubleshoot.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/resources/tools/arr-inspector.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/resources/tools/tex-conv.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/samples/azure-remote-rendering-asset-tool.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/samples/powershell-example-scripts.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/samples/sample-model.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/samples/showcase-app.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/modeling/3dsmax-material-setup.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/modeling/maya-material-setup.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/unity/tutorial-landing.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/unity/commercial-ready/commercial-ready.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/unity/custom-models/custom-models.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/unity/manipulate-models/manipulate-models.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/unity/materials-lighting-effects/materials-lighting-effects.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/unity/security/security.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/remote-rendering/tutorials/unity/view-remote-models/view-remote-models.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        }
+    ]
+}

@@ -1,12 +1,12 @@
 ---
 title: Azure Firewall Manager deployment overview
 description: Learn the high-level deployment steps required for Azure Firewall Manager
-author: vhorne
+author: duongau
 ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: concept-article
 ms.date: 06/21/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall Manager deployment overview
@@ -25,7 +25,7 @@ To review network architecture options, see [What are the Azure Firewall Manager
 <br>*or*<br>
     - Derive a base policy and customize a local policy
 <br>*or*<br>
-    - Import rules from an existing Azure Firewall. Make sure to remove NAT rules from policies that should be applied across multiple firewalls
+    - Import rules from an existing Azure Firewall (Classic). By design, importing rules from an existing Firewall Policy is not supported by design. Note: NAT rules should be removed from policies intended for use across multiple firewalls. 
 1. Create your hub and spoke architecture
    - Create a Hub Virtual Network using Azure Firewall Manager and peer spoke virtual networks to it using virtual network peering
 <br>*or*<br>

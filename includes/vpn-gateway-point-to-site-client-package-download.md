@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 05/03/2024
- ms.author: cherylmc
+ ms.date: 02/10/2025
+ ms.author: duau
 ---
 
 1. At the top of the **Point-to-site configuration** page, click **Download VPN client**. It takes a few minutes for the client configuration package to generate.

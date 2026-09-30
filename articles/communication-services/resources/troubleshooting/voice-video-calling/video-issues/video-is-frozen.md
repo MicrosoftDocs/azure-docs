@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The sender's video is frozen
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When the receiver sees that the sender's video is frozen, it means that the incoming video frame rate is 0.
 
 The problem may occur due to poor network connection on either the receiving or sending end.

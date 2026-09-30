@@ -2,9 +2,12 @@
 title: Configure a site-to-site VPN in vWAN for Azure VMware Solution
 description: Learn how to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel into Azure VMware Solutions.
 ms.topic: how-to
-ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 2/27/2024
+ms.date: 2/2/2026
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure a site-to-site VPN connection between my on-premises environment and Azure VMware Solution, so that I can securely integrate my infrastructure with Azure resources for enhanced scalability and disaster recovery."
 ---
 
 # Configure a site-to-site VPN in vWAN for Azure VMware Solution
@@ -22,7 +25,7 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 
 ## Create a virtual hub
 
-A virtual hub is a virtual network that is created and used by Azure Virtual WAN. It's the core of your Virtual WAN network in a region.  It can contain gateways for site-to-site and ExpressRoute. 
+A virtual hub is a virtual network that is created and used by Azure Virtual WAN. It's the core of your Virtual WAN network in a region. It can contain gateways for site-to-site and ExpressRoute. 
 
 >[!TIP]
 >You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-expressroute-portal.md#existinghub).
@@ -43,7 +46,7 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
  
 3. On the **Basics** tab, enter the required fields. 
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot showing the Create VPN site page with the Basics tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="../networking/includes/virtual-wan/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot showing the Create VPN site page with the Basics tab open." lightbox="../networking/includes/virtual-wan/media/virtual-wan-tutorial-site-include/site-basics.png":::
 
    * **Region** - Previously referred to as location. It's the location you want to create this site resource in.
    
@@ -51,42 +54,42 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
    
    * **Device vendor** - The name of the VPN device vendor, for example, Citrix, Cisco, or Barracuda. It helps the Azure Team better understand your environment to add more optimization possibilities in the future or help you troubleshoot.
 
-   * **Private address space** - The CIDR IP address space located on your on-premises site. Traffic destined for this address space is routed to your local site. The CIDR block is only required if you [BGP](../vpn-gateway/bgp-howto.md) isn't enabled for the site.
+   * **Private address space** - The CIDR IP address space located on your on-premises site. Traffic destined for this address space is routed to your local site. The CIDR block is only required if you [BGP](../vpn-gateway/configure-bgp.md) isn't enabled for the site.
     
    >[!NOTE]
-   >If you edit the address space after creating the site (for example, add an additional address space) it can take 8-10 minutes to update the effective routes while the components are recreated.
+   >If you edit the address space (add more address spaces) after creating the site, it can take 8-10 minutes to update the effective routes while the components are recreated.
 
 1. Select **Links** to add information about the physical links at the branch. If you have a Virtual WAN partner CPE device, check with them to see if this information gets exchanged with Azure as a part of the branch information upload set up from their systems.
 
    Specifying link and provider names allow you to distinguish between any number of gateways that can eventually be created as part of the hub.  [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) and autonomous system number (ASN) must be unique inside your organization. BGP ensures that both Azure VMware Solution and the on-premises servers advertise their routes across the tunnel. If disabled, the subnets that need to be advertised must be manually maintained. If subnets are missed, HCX fails to form the service mesh. 
  
    >[!IMPORTANT]
-   >By default, Azure assigns a private IP address from the GatewaySubnet prefix range automatically as the Azure BGP IP address on the Azure VPN gateway. The custom Azure APIPA BGP address is needed when your on premises VPN devices use an APIPA address (169.254.0.1 to 169.254.255.254) as the BGP IP. Azure VPN Gateway will choose the custom APIPA address if the corresponding local network gateway resource (on-premises network) has an APIPA address as the BGP peer IP. If the local network gateway uses a regular IP address (not APIPA), Azure VPN Gateway will revert to the private IP address from the GatewaySubnet range.
+   >By default, Azure assigns a private IP address from the GatewaySubnet prefix range automatically as the Azure BGP IP address on the Azure VPN gateway. The custom Azure APIPA BGP address is needed when  on-premises VPN devices use an APIPA address (169.254.0.1 to 169.254.255.254) as the BGP IP. Azure VPN Gateway chooses the custom APIPA address if the corresponding local network gateway resource (on-premises network) has an APIPA address as the BGP peer IP. If the local network gateway uses a regular IP address (not APIPA), Azure VPN Gateway reverts to the private IP address from the GatewaySubnet range.
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-links.png" alt-text="Screenshot showing the Create VPN site page with the Links tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-links.png":::
+   :::image type="content" source="../networking/includes/virtual-wan/media/virtual-wan-tutorial-site-include/site-links.png" alt-text="Screenshot showing the Create VPN site page with the Links tab open." lightbox="../networking/includes/virtual-wan/media/virtual-wan-tutorial-site-include/site-links.png":::
 
 1. Select **Review + create**. 
 
 1. Navigate to the virtual hub you want, and deselect **Hub association** to connect your VPN site to the hub.
  
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="../../includes/media/virtual-wan-tutorial-site-include/connect.png":::   
+   :::image type="content" source="../networking/includes/virtual-wan/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="../networking/includes/virtual-wan/media/virtual-wan-tutorial-site-include/connect.png":::
 
 ## (Optional) Create policy-based VPN site-to-site tunnels
 
 >[!IMPORTANT]
->This is an optional step and applies only to policy-based VPNs. 
+>This optional step only applies to policy-based VPNs. 
 
-[Policy-based VPN setups](../virtual-wan/virtual-wan-custom-ipsec-portal.md) require on-premises and Azure VMware Solution networks to be specified, including the hub ranges.  These ranges specify the encryption domain of the policy-based VPN tunnel on-premises endpoint.  The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
+[Policy-based VPN setups](../virtual-wan/virtual-wan-custom-ipsec-portal.md) require on-premises and Azure VMware Solution networks to be specified, including the hub ranges. These ranges specify the encryption domain of the policy-based VPN tunnel on-premises endpoint. The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled.
 
 1. In the Azure portal, go to your Virtual WAN hub site and, under **Connectivity**, select **VPN (Site to site)**.
 
 2. Select the VPN Site for which you want to set up a custom IPsec policy.
 
-3. Select your VPN site name, select **More** (...) at the far right, and then select **Edit VPN Connection**.
+3. Select your VPN site name, select **More (...)** at the far right, and then select **Edit VPN Connection**.
 
    :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png" alt-text="Screenshot showing the context menu for an existing VPN site." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png":::
 
-   - Internet Protocol Security (IPSec), select **Custom**.
+   - Internet Protocol Security (IPsec), select **Custom**.
 
    - Use policy-based traffic selector, select **Enable**
 
@@ -113,15 +116,15 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
    >[!TIP]
    >If you don't have a previously defined key, you can leave this field blank. A key is generated for you automatically. 
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings. "::: 
+   :::image type="content" source="../networking/includes/virtual-wan/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Preshared key and associated settings. ":::
 
 1. If you're deploying a firewall in the hub and it's the next hop, set the **Propagate Default Route** option to **Enable**. 
 
-   When enabled, the Virtual WAN hub propagates to a connection only if the hub already learned the default route when deploying a firewall in the hub or if another connected site forced tunneling enabled. The default route doesn't originate in the Virtual WAN hub.  
+   When enabled, the Virtual WAN hub propagates to a connection if either: the hub already learned the default route when deploying a firewall in the hub or if another connected site forced tunneling enabled. The default route doesn't originate in the Virtual WAN hub.  
 
 1. Select **Connect**. After a few minutes, the site shows the connection and connectivity status.
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot that shows a site-to-site connection and connectivity status." lightbox="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png":::
+   :::image type="content" source="../networking/includes/virtual-wan/media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot that shows a site-to-site connection and connectivity status." lightbox="../networking/includes/virtual-wan/media/virtual-wan-tutorial-connect-vpn-site-include/status.png":::
 
    **Connection Status:** Status of the Azure resource for the connection that connects the VPN site to the Azure hub’s VPN gateway. Once this control plane operation is successful, the Azure VPN gateway and the on-premises VPN device establish connectivity.
 

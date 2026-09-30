@@ -5,7 +5,7 @@ author: wanlwanl
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 05/15/2023
-ms.author: wanl
+ms.author: jixin
 ---
 
 # Monitoring Azure Web PubSub data reference
@@ -25,6 +25,8 @@ Metrics provide insights into the operational state of the service. The availabl
 |Inbound Traffic|Bytes|Sum|The inbound traffic to the service.|No Dimensions|
 |Outbound Traffic|Bytes|Sum|The outbound traffic from the service.|No Dimensions|
 |Server Load|Percent|Max / Avg|The percentage of server load.|No Dimensions|
+|Rest API Response Time|Count|Sum|The response time of REST API request categorized by endpoint.|ResponseTime, RestApiCategory|
+|Client Request Status Code|Count|Sum|The status code of client connection requests.|ClientType, Status|
 
 For more information, see [Metrics](concept-metrics.md).
 

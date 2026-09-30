@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Add emergency calling
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Add emergency calling to your PSTN-enabled application by using the Azure Communication Services Calling SDK.
 
 ::: zone pivot="platform-web"

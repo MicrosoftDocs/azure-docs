@@ -3,7 +3,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: include
-ms.date: 06/17/2022
+ms.date: 02/25/2025
 ---
 > [!IMPORTANT]
-> Azure Route Servers created before November 1, 2021, that don't have a public IP address associated, are deployed with the [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) offering. The public preview offering is not backed by General Availability SLA and support. To deploy Azure Route Server with the General Availability offering, and to achieve General Availability SLA and support, please delete and recreate your Route Server.
+> Route servers created before November 1, 2021, without an associated public IP address, were deployed with the [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) offering. The public preview offering doesn't include General Availability SLA and support. To deploy a route server with the General Availability offering and qualify for the General Availability SLA and support, delete and recreate your route server.

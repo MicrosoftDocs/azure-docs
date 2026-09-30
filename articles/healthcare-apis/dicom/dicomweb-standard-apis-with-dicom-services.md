@@ -5,7 +5,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: tutorial
-ms.date: 05/29/2024
+ms.date: 07/17/2025
 ms.author: buchvarun
 ---
 
@@ -75,7 +75,7 @@ Postman is an excellent tool for designing, building, and testing REST APIs. [Do
 
 One important caution with Postman and the DICOMweb standard is that Postman only supports uploading DICOM files by using the single-part payload defined in the DICOM standard. This is because Postman can't support custom separators in a multipart/related POST request. For more information, see [Multipart POST not working for me # 576](https://github.com/postmanlabs/postman-app-support/issues/576). All examples in the Postman collection for uploading DICOM documents by using a multipart request are prefixed with **[won't work - see description]**. The examples for uploading by using a single-part request are included in the collection and are prefixed with **Store-Single-Instance**.
 
-To use the Postman collection, download it locally and then import the collection through Postman. To access the collection, see [Postman Collection Examples](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+To use the Postman collection, download it locally and then import the collection through Postman.
 
 ### Next steps
 
@@ -84,8 +84,6 @@ To use the Postman collection, download it locally and then import the collectio
 [Use DICOMweb Standard APIs with cURL](dicomweb-standard-apis-curl.md)
 
 [Use DICOMweb Standard APIs with Python](dicomweb-standard-apis-python.md)
-
-[Use DICOMWeb Standard APIs with the Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
 
 [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md)
 

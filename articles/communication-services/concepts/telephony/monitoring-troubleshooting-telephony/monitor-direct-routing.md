@@ -12,6 +12,8 @@ description: Learn how to monitor Azure Communication Services direct routing co
 
 # Monitor Direct Routing
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to monitor your direct routing configuration.
 
 The process of making and receiving calls through direct routing involves the following components:
@@ -56,7 +58,7 @@ When an SBC stops sending OPTIONS but not yet marked as demoted, Azure tries to 
 
 If two (or more) SBCs in one route are considered healthy and equal, Fisher-Yates shuffle is applied to distribute the calls between the SBCs.
 
-## Monitor with Azure Portal and SBC logs
+## Monitor with Azure portal and SBC logs
 
 During the initial pairing phase, there may be issues related particularly to misconfiguration of the SBCs or the direct routing service.
 

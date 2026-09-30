@@ -1,58 +1,46 @@
 ---
-title: Introduction to Azure File Sync
-description: An overview of Azure File Sync, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
+title: What is Azure File Sync?
+description: An overview of Azure File Sync, a service that centralizes file shares in Azure Files while maintaining fast local access on Windows servers through cloud tiering and multi-site sync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 09/14/2022
+ms.date: 08/17/2026
 ms.author: kendownie
+# Customer intent: "As an IT administrator looking to optimize file storage, I want to implement Azure File Sync so that I can centralize my file shares in the cloud while maintaining quick local access and ensuring data resilience across multiple sites."
 ---
 
 # What is Azure File Sync?
 
-Azure File Sync enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. While some users might opt to keep a full copy of their data locally, Azure File Sync additionally has the ability to transform Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+Azure File Sync centralizes your organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of on-premises Windows file servers. Each registered Windows Server syncs its data to and from a central Azure file share, and can optionally use cloud tiering to cache only the most frequently accessed files locally.
 
-## Videos
+You can have as many server caches as you need across the world — changes on any server sync through the Azure file share to all other servers automatically.
 
-| Introducing Azure File Sync | Azure Files with Sync (Ignite 2019)  |
-|-|-|
-| [![Screencast of the Introducing Azure File Sync video - click to play!](../files/media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation - click to play!](../files/media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
+> [!VIDEO https://www.youtube.com/embed/Zm2w8-TRn-o]
 
-## Benefits of Azure File Sync
+## Key benefits
 
-### Cloud tiering
+- **Cloud tiering** — Cache only frequently accessed files locally; tier infrequently used files to Azure. The full namespace remains visible and browsable, and tiered files are recalled seamlessly on access. Reduces on-premises storage costs significantly. [Learn more](file-sync-cloud-tiering-overview.md).
+- **Multi-site sync** — Keep files consistent across multiple offices without direct server-to-server connectivity. Changes sync through the Azure file share, so every site sees the same data.
+- **Disaster recovery** — Recover from a server failure by provisioning a new Windows Server, installing the Azure File Sync agent, and letting the namespace download from Azure. No local backup needed.
+- **Cloud-side backup** — Take centralized backups via [Azure Backup](../../backup/azure-file-share-backup-overview.md) with native snapshot capabilities. Reduce on-premises backup infrastructure.
+- **Seamless migration** — Move data from on-premises servers to Azure in the background without disrupting users. File structure, permissions, and access patterns remain intact.
 
-With cloud tiering enabled, your most frequently accessed files are cached on your local server and your least frequently accessed files are tiered to the cloud. You can control how much local disk space is used for caching. Tiered files can quickly be recalled on-demand, making the experience seamless while enabling you to cut down on costs as you only need to store a fraction of your data on-premises. For more information about cloud tiering, see [Cloud tiering overview](file-sync-cloud-tiering-overview.md).
+## How it works
 
-### Multi-site access and sync
+1. Deploy a [Storage Sync Service](file-sync-deployment-guide.md#deploy-a-storage-sync-service) in Azure.
+2. Install the [Azure File Sync agent](file-sync-deployment-guide.md#install-the-azure-file-sync-agent) on one or more Windows servers.
+3. Register each server with the Storage Sync Service.
+4. Create a sync group linking an Azure file share (cloud endpoint) with a folder on your server (server endpoint).
+5. Files sync automatically. Enable cloud tiering to free local disk space.
 
-Azure File Sync is ideal for distributed access scenarios. For each of your offices, you can provision a local Windows Server as part of your Azure File Sync deployment. Changes made to a server in one office automatically sync to the servers in all other offices.
+## Get started
 
-### Business continuity and disaster recovery
-
-Azure File Sync is backed by Azure Files, which offers several redundancy options for highly available storage. Because Azure contains resilient copies of your data, your local server becomes a disposable caching device. You can recover from a failed server by adding a new server to your Azure File Sync deployment. Rather than restoring from a local backup, you provision another Windows Server, install the Azure File Sync agent on it, and then add it to your Azure File Sync deployment. Azure File Sync downloads your file namespace before downloading data, so that your server can be up and running as soon as possible. For even faster recovery, you can have a warm standby server as part of your deployment, or you can use Azure File Sync with Windows Clustering.
-
-### Cloud-side backup
-
-Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. SMB Azure file shares have native snapshot capabilities, and the process can be automated using Azure Backup to schedule your backups and manage their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.
-
-## Training
-
-For self-paced training, see the following modules:
-
-- [Implement a hybrid file server infrastructure](/training/modules/implement-hybrid-file-server-infrastructure/)
-- [Extend your on-premises file share capacity using Azure File Sync](/training/modules/extend-share-capacity-with-azure-file-sync/)
-
-## Architecture
-
-For guidance on architecting solutions with Azure Files and Azure File Sync using established patterns and practices, see the following:
-
-- [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
-- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
-- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
-
-## Next Steps
-
-- [Planning for an Azure File Sync deployment](file-sync-planning.md)
+- [Plan for an Azure File Sync deployment](file-sync-planning.md)
+- [Deploy Azure File Sync](file-sync-deployment-guide.md)
 - [Cloud tiering overview](file-sync-cloud-tiering-overview.md)
-- [Monitor Azure File Sync](file-sync-monitoring.md)
+
+## Training and architecture
+
+- [Implement a hybrid file server infrastructure](/training/modules/implement-hybrid-file-server-infrastructure/) (self-paced training)
+- [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private) (architecture guidance)
+- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services) (architecture guidance)

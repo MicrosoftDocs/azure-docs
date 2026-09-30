@@ -48,7 +48,11 @@ You've added a custom feature filter named **Random** with a **Percentage** para
 1. Register the `RandomFilter` when creating the `FeatureManager`.
 
     ``` javascript
-    const fm = new FeatureManager(ffProvider, {customFilters: [new RandomFilter()]});
+    const fm = new FeatureManager(
+        new ConfigurationMapFeatureFlagProvider(appConfig), 
+        {
+            customFilters: [new RandomFilter()]
+        });
     ```
 
 ## Feature filter in action
@@ -79,3 +83,8 @@ To learn more about the built-in feature filters, continue to the following docu
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audience](./howto-targetingfilter.md)
+
+For the full feature rundown of the JavaScript feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [JavaScript Feature Management](./feature-management-javascript-reference.md)

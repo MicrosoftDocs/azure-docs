@@ -4,7 +4,7 @@ description: Azure Load Balancer health probes and configuration for detecting a
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 12/06/2024
+ms.date: 09/04/2026
 ms.author: mbender
 # Customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
 ---
@@ -34,7 +34,8 @@ Health probes have the following properties:
 | Protocol | Protocol of health probe. This is the protocol type you would like the health probe to use. Options are: TCP, HTTP, HTTPS |
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check its health |
 | Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probes on two consecutive health check attempts to the virtual machine |
-| Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
+| Threshold | Threshold of the health probe. The number of times the health probe needs to succeed or fail in order to allow or deny traffic from being delivered to the virtual machine
+| Used by | List of load balancer rules using this health probe. You should have at least one rule using the health probe for it to be effective |
 
 ## Probe configuration
 
@@ -56,24 +57,32 @@ The protocol used by the health probe can be configured to one of the following 
 | Probe failure behavior | A TCP probe fails when:</br> 1. The TCP listener on the instance doesn't respond at all during the timeout period. A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.</br> 2. The probe receives a TCP reset from the instance. | An HTTP/HTTPS probe fails when:</br> 1. Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500).</br> 2. Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests can go unanswered before the probe gets marked as not running and until the sum of all timeout intervals is reached.</br> 3. Probe endpoint closes the connection via a TCP reset.
 | Probe up behavior | TCP health probes are considered healthy and mark the backend endpoint as healthy when:</br> 1. The health probe is successful once after the VM boots.</br> 2. Any backend endpoint in a healthy state is eligible for receiving new flows. | The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. HTTP/HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:</br> 1. The health probe is successful once after the VM boots.</br> 2. Any backend endpoint in a healthy state is eligible for receiving new flows.
 
-> [!NOTE] 
+> [!NOTE]
 > The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
 
 ## Probe down behavior
 | Scenario | TCP connections | UDP datagrams |
 | --- | --- | --- | 
 | Single instance probes down |  New TCP connections succeed to remaining healthy backend endpoint. Established TCP connections to this backend endpoint continue. |   Existing UDP flows move to another healthy instance in the backend pool.|
-| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance. Basic Load Balancer terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
+| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance. Basic Load Balancer (retired) terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
 
 ## Probe interval & timeout
 
-The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 5 seconds by default in the Azure portal, but can be explicitly set to another value.
+The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, the load balancer immediately marks your backend pool instances as unhealthy. If the health probe succeeds on the next check, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 5 seconds by default in the Azure portal, but you can set it to another value. When you deploy through ARM templates, the REST API, the Azure CLI, or PowerShell, the default interval is 15 seconds (minimum 5 seconds).
 
 In order to ensure a timely response is received, HTTP/S health probes have built-in timeouts. The following are the timeout durations for TCP and HTTP/S probes:
 - TCP probe timeout duration: N/A (probes will fail once the configured probe interval duration is passed and the next probe is sent)
 - HTTP/S probe timeout duration: 30 seconds
 
 For HTTP/S probes, if the configured interval is longer than the above timeout period, the health probe times out and fails if no response is received during the timeout period. For example, if an HTTP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 30 seconds, the probe reaches its timeout period and fails. When the configured interval is shorter than the above timeout period, the health probe will fail if no response is received before the configured interval period completes and the next probe will be sent immediately.
+
+## Probe threshold
+
+The probe threshold value is the number of times a health probe will need to succeed or fail consecutively in order for the probe to mark a backend instance as healthy or unhealthy, respectively. 
+
+For TCP probes, if the probe threshold is configured to 2, the probe will need to receive 2 consecutive responses before a backend instance begins to receive traffic. Similarly, once a backend instance is deemed healthy, 2 consecutive failures or timeouts are required for the instance to be considered unhealthy and stop receiving new traffic. 
+
+For HTTP probes, explicit responses will immediately mark the probe as up or down for 200 and non-200 responses, and will effectively reset the threshold. This means that the threshold value only applies to HTTP probes if the probe times out due to no response.
 
 ## Design guidance
 
@@ -103,13 +112,37 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
 
 - It isn't recommended to block the Azure Load Balancer health probe IP or port with NSG rules. This is an unsupported scenario and can cause the NSG rules to take delayed effect, resulting in the health probes to inaccurately represent the availability of your backend instances.
 
+## Troubleshoot NVA health probe responses
+
+If a network virtual appliance (NVA) management network interface receives health probes but the appliance doesn't respond to them, use [Troubleshoot health probe failures in Azure Load Balancer](/troubleshoot/azure/load-balancer/troubleshoot-load-balancer-health-probe-failures) to check the probe configuration, network security rules, and listener. For an NVA with multiple network interfaces, also confirm that the appliance responds on the interface that received the probe, as described in [Design guidance](#design-guidance).
+
+To locate existing flow logs in the NVA's region, run the following Azure CLI command. Then, use [virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) or [Traffic analytics](../network-watcher/traffic-analytics.md) to filter traffic by the private IP address of the management network interface and the configured probe port. For an IPv4 probe, also filter by source IP address `168.63.129.16`. For an IPv6 probe, use the link-local source address listed in [Probe source IP address](#probe-source-ip-address).
+
+```azurecli-interactive
+az network watcher flow-log list --location '<region>' --output table
+```
+
+To validate an IPv4 probe at the packet level, start a filtered [packet capture on the NVA virtual machine](../network-watcher/packet-capture-manage.md#start-a-packet-capture). [Network Watcher packet capture](../network-watcher/packet-capture-overview.md) requires the `AzureNetworkWatcherExtension` on the target VM. Verify that the appliance supports the extension and meets the documented packet-capture prerequisites before using this command. For an appliance that can't use the extension, consult the vendor's supported capture procedure. Replace the placeholder values in the following command:
+
+```azurecli-interactive
+az network watcher packet-capture create \
+  --resource-group '<nva-resource-group>' \
+  --name 'nva-health-probe' \
+  --vm '<nva-vm-name>' \
+  --storage-account '<storage-account-name-or-id>' \
+  --time-limit 300 \
+  --filters '[{"protocol":"TCP","remoteIPAddress":"168.63.129.16","localIPAddress":"<management-interface-private-ip>","localPort":"<probe-port>"}]'
+```
+
+If the appliance exposes operating system or firewall logs, use the vendor's logging instructions to compare relevant entries with the capture timestamps and connection details. If the packet capture shows inbound probes but no response, investigate the listener, firewall, and return-path configuration using the [NVA troubleshooting checklist](/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-nva#checklist-for-troubleshooting-with-nva-vendor), and involve the appliance vendor as needed.
+
 ## Monitoring
 
-[Standard Load Balancer](./load-balancer-overview.md) exposes per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs aren't supported for Basic Load Balancer.
+[Standard Load Balancer](./load-balancer-overview.md) exposes per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs aren't supported for Basic Load Balancer (retired).
 
 ## Probe source IP address
 
-For Azure Load Balancer's health probe to mark up your instance, you must allow 168.63.129.16 IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies. The `AzureLoadBalancer` service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](../virtual-network/what-is-ip-address-168-63-129-16.md).
+For Azure Load Balancer's health probe to mark up your instance, you must allow 168.63.129.16 IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies. The `AzureLoadBalancer` service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
 If you don't allow the [source IP](#probe-source-ip-address) of the probe in your firewall policies, the health probe fails as it is unable to reach your instance. In turn, Azure Load Balancer marks your instance as -down- due to the health probe failure. This misconfiguration can cause your load balanced application scenario to fail. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source. IPv6 probes use a link-local address (fe80::1234:5678:9abc) as their source. For a dual-stack Azure Load Balancer, you must [configure a Network Security Group](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md#create-a-network-security-group-rule-for-inbound-and-outbound-connections) for the IPv6 health probe to function.
 
@@ -121,7 +154,7 @@ If you don't allow the [source IP](#probe-source-ip-address) of the probe in you
 
 - Enabling TCP timestamps can cause throttling or other performance issues, which can then cause health probes to time out.
 
-- A Basic SKU load balancer health probe isn't supported with a virtual machine scale set.
+- Health probes for Basic Load Balancer (retired) aren't supported with a virtual machine scale set.
 
 - HTTP probes don't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 

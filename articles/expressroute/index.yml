@@ -133,6 +133,8 @@ landingContent:
             url: expressroute-global-reach.md
       - linkListType: architecture
         links:
+          - text: Architecture best practices for Azure ExpressRoute
+            url: /azure/well-architected/service-guides/azure-expressroute
           - text: Extend an on-premises network using ExpressRoute
             url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
           - text: Connect an on-premises network to Azure using ExpressRoute
@@ -148,7 +150,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Scalable ExpressRoute gateway
-            url: expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview
+            url: scalable-gateway.md
           - text: ExpressRoute FastPath
             url: about-fastpath.md
           - text: About ExpressRoute Direct
@@ -173,12 +175,14 @@ landingContent:
             url: expressroute-troubleshooting-expressroute-overview.md
 
   # Card
-  - title: Hybrid connectivity
+  - title: Related hybrid connectivity services
     linkLists:
       - linkListType: get-started
         links:
-          - text: Documentation
-            url: https://aka.ms/hybridconnectivitydocs
+          - text: What is hybrid connectivity?
+            url: /azure/networking/hybrid-connectivity/hybrid-connectivity
+          - text: Learn more about hybrid connectivity
+            url: /azure/networking/hybrid-connectivity/  
       - linkListType: overview
         links:
           - text: Azure VPN Gateway

@@ -3,7 +3,7 @@ title: Linter rule - prefer unquoted property names
 description: Linter rule - prefer unquoted property names
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 10/30/2025
 ---
 
 # Linter rule - prefer unquoted property names
@@ -14,13 +14,13 @@ In Bicep, quotes are optionally allowed when the object property keys contain nu
 
 ## Linter rule code
 
-Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
+To customize rule settings, use the following value in the [Bicep configuration file](bicep-config-linter.md).
 
 `prefer-unquoted-property-names`
 
 ## Solution
 
-Quotes are not required in following code:
+Quotes aren't required in following code:
 
 ```bicep
 var obj = {
@@ -54,8 +54,6 @@ var x3 = obj.myProp
 ```
 
 Optionally, you can use **Quick Fix** to fix the issues:
-
-linter-rule-prefer-unquoted-property-names-quick-fix
 
 :::image type="content" source="./media/linter-rule-prefer-unquoted-property-names/linter-rule-prefer-unquoted-property-names-quick-fix.png" alt-text="The screenshot of Prefer unquoted property names quick fix.":::
 

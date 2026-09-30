@@ -2,20 +2,22 @@
 title: Pricing for PSTN
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' Telephony Pricing Model.
-author: sadas
-ms.author: sadas
+author: henikaraa
+ms.author: henikaraa
 ms.date: 1/28/2022
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ---
 # Telephony (PSTN) pricing
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 > [!IMPORTANT]
 > Number Retention and Portability: Phone numbers that are assigned to you during any preview program may need to be returned to Microsoft if you do not meet regulatory requirements before General Availability. During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
 
 [!INCLUDE [Azure Prepayment](../includes/azure-prepayment.md)]
 
-Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country/region) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
+Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country/region) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis (in 6-second increments). PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
 
 In most cases, customers with Azure subscriptions locations that match the country/region of the Number offer are able to buy the Number. See here for details on [in-country/region and cross-country/region purchases](../concepts/numbers/sub-eligibility-number-capability.md).
 

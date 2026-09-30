@@ -7,12 +7,14 @@ services: azure-communication-services
 
 ms.author: shwali
 ms.date: 05/25/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: data
 ---
 
 # Rooms Insights
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 In this document, we outline the available insights dashboard to monitor Rooms logs and metrics.
 

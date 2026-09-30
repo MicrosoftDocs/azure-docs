@@ -3,20 +3,19 @@ title: Configure TLS termination with Key Vault certificates - Portal
 titleSuffix: Azure Application Gateway
 description: Learn how to use an Azure portal to integrate your key vault with your application gateway for TLS/SSL termination certificates. 
 author: gaking
-ms.author: greglin
+ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: how-to 
-ms.date: 10/01/2021
-ms.custom: template-how-to
+ms.date: 08/04/2026
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
+# Customer intent: "As an IT admin, I want to configure TLS termination with Key Vault certificates for my application gateway, so that I can secure my web applications with SSL/TLS encryption."
 ---
 
 # Configure TLS termination with Key Vault certificates using Azure portal
 
-[Azure Key Vault](/azure/key-vault/general/overview) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
-
-For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
-
-This article shows you how to use Azure portal to integrate your key vault with your application gateway for TLS/SSL termination certificates.
+This article shows you how to use the Azure portal to integrate [Azure Key Vault](/azure/key-vault/general/overview) with your application gateway (v2 SKU) for TLS/SSL termination certificates. For background on how Application Gateway integrates with Key Vault, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 
 
 <!-- 3. Prerequisites 
@@ -26,7 +25,7 @@ Use clear and unambiguous language and use a list format.
 
 ## Prerequisites
 
-Before you begin, you must have an Azure subscription. If not, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Before you begin, you must have an Azure subscription. If not, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Configuration steps
 
@@ -113,10 +112,10 @@ You'll create the application gateway using the tabs on the **Create an applicat
     
     **Application gateway name**: Enter *_myAppGateway_* for the name of the application gateway.
 
-2. For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+1. Application Gateway needs a virtual network with two subnets: one for the application gateway and one for the backend servers. In this example, you create a new virtual network while creating the application gateway. For general guidance on the baseline gateway and virtual network setup, see the [Application Gateway portal quickstart](quick-create-portal.md).
 
     > [!Note]
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the Create virtual network window that opens, enter the following values to create the virtual network and two subnets:
 

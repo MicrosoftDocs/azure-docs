@@ -4,15 +4,18 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Set Variable activity to set the value of an existing variable defined in an Azure Data Factory or Azure Synapse Analytics pipeline or to set a pipeline return value. 
 ms.subservice: orchestration
 ms.custom: synapse
-ms.date: 01/05/2024
-ms.topic: conceptual
+ms.date: 02/13/2025
+ms.topic: how-to
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ---
 
 # Set Variable Activity in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Set Variable activity](/fabric/data-factory/set-variable-activity).
 
 Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory or Synapse pipeline or use the Set Variable activity to set a pipeline return value (preview).
 
@@ -32,7 +35,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 5. Select the variable for the Name property.
 
-6. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+6. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters).
 
 :::image type="content" source="media/control-flow-set-variable-activity/set-variable-activity.png" alt-text="Screenshot of the UI for a Set variable activity.":::
     

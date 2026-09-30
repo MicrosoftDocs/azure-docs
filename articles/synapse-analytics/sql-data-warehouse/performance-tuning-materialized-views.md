@@ -2,15 +2,17 @@
 title: Performance tune with materialized views
 description: Learn about recommendations and considerations you should know as you use materialized views to improve your query performance. 
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: sql-dw 
 ms.date: 08/17/2021
 author: XiaoyuMSFT
 ms.author: xiaoyul
-ms.reviewer: wiassaf
+
 ---
 
 # Performance tune with materialized views
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Materialized views for dedicated SQL pools in Azure Synapse provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
 

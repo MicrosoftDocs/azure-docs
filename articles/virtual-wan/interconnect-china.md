@@ -1,12 +1,11 @@
 ---
 title: 'Architecture: Interconnect with China using Azure Virtual WAN and secure Hub'
 description: Learn how to interconnect with China using Azure Virtual WAN and a secured hub.
-author: skishen525
+author: duongau
+ms.author: duau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 02/13/2023
-ms.author: sukishen
-
 ---
 
 # Interconnect with China using Azure Virtual WAN and Secure Hub
@@ -120,7 +119,7 @@ This section discusses a design that uses SDWAN or VPN to Hong Kong and to other
 
 :::image type="content" source="./media/interconnect-china/china-traffic.png" alt-text="Diagram shows China to Hong Kong traffic.":::
 
-In this architecture, every site is connected to the Microsoft Global Network by using VPN and Azure Virtual WAN. The traffic between the sites and Hong Kong is transmitted trough the Microsoft Network and only uses regular Internet connection on the last mile.
+In this architecture, every site is connected to the Microsoft Global Network by using VPN and Azure Virtual WAN. The traffic between the sites and Hong Kong is transmitted through the Microsoft Network and only uses regular Internet connection on the last mile.
 
 ### <a name="option-2"></a>Option 2: ExpressRoute and SDWAN or VPN
 

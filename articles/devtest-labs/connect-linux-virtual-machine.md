@@ -5,7 +5,10 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/17/2020
-ms.custom: UpdateFrequency2, linux-related-content
+ms.custom:
+  - UpdateFrequency2
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Connect to a Linux VM in your lab (Azure DevTest Labs)

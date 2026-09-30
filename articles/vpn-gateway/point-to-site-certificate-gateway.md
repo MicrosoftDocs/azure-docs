@@ -2,15 +2,17 @@
 title: 'Configure VPN gateway for P2S certificate authentication: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for point-to-site configurations - certificate authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 11/07/2024
-ms.author: cherylmc
+ms.date: 03/10/2025
+ms.author: duau
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure a point-to-site VPN gateway with certificate authentication, so that I can securely connect remote clients to our Azure virtual network."
 ---
 # Configure server settings for P2S VPN Gateway certificate authentication
 
-This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your virtual network from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network.
+This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect from individual client computers running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your virtual network from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network.
 
 P2S connections don't require a VPN device or a public-facing IP address. There are various different configuration options available for P2S. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md).
 
@@ -22,12 +24,11 @@ The steps in this article use the Azure portal to configure your Azure VPN gatew
 
 ## Prerequisites
 
-This article assumes the following prerequisites:
+This article assumes that you have already created a route-based VPN gateway that's compatible with the P2S configuration that you want to create, the authentication method that you want to use, and the connecting VPN clients.
 
-* An Azure virtual network.
-* A route-based VPN gateway that's compatible with the P2S configuration that you want to create and the connecting VPN clients. To help determine the P2S configuration that you need, see the [VPN client table](#type). If your gateway uses the Basic SKU, understand that the Basic SKU has P2S limitations and doesn't support IKEv2 or RADIUS authentication. For more information, see [About gateway SKUs](about-gateway-skus.md).
-
-If you don't yet have a functioning VPN gateway that's compatible with the P2S configuration that you want to create, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md). Create a compatible VPN gateway, then return to this article to configure P2S settings.
+* If you don't yet have a VPN gateway, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md), then return to this page to configure the point-to-site VPN gateway settings.
+* To help determine the P2S configuration that you need, see the [VPN client table](#type).
+* If you have a VPN gateway that uses the Basic SKU, understand that the Basic SKU has P2S limitations and doesn't support IKEv2 or RADIUS authentication. For more information, see [About gateway SKUs](about-gateway-skus.md).
 
 ## <a name="generatecert"></a>Generate certificates
 
@@ -72,6 +73,14 @@ The tunnel type and the authentication type must correspond to the VPN client so
 
 [!INCLUDE [Add public IP address](../../includes/vpn-gateway-third-public-ip.md)]
 
+## Important
+
+For non‑AZ gateway SKUs, the third Public IP used for P2S is Microsoft‑managed and not billed to the customer. <br>
+
+When migrating to an AZ‑supported SKU using the migration tool, the platform requires the third Public IP to be created within the customer’s subscription. This Public IP becomes customer‑managed and billable, as it is no longer provided automatically by the service. <br>
+
+This behavior is expected by design and ensures proper load balancing and redundancy for P2S connections on AZ‑redundant gateways.
+
 ## <a name="uploadfile"></a>Upload root certificate public key information
 
 In this section, you upload public root certificate data to Azure. Once the public certificate data is uploaded, Azure uses it to authenticate connecting clients. The connecting clients have an installed client certificate generated from the trusted root certificate.
@@ -90,7 +99,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-certificate-data.png" alt-text="Screenshot of certificate data field." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-certificate-data.png":::
 
 1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md).
-1. Select **Save** at the top of the page to save all of the configuration settings.
+1. Select **Save** at the top of the page to save all of the configuration settings. After the configuration settings deployment completes, you can generate and download the VPN client configuration package.
 
 ## <a name="profile-files"></a>Generate VPN client profile configuration files
 
@@ -100,7 +109,7 @@ You can generate client profile configuration files using PowerShell, or by usin
 
 ### Azure portal
 
-[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
+[!INCLUDE [Generate profile configuration files - Azure portal](../networking/includes/vpn-gateway/generate-profile-portal.md)]
 
 ## <a name="clientconfig"></a>Configure VPN clients and connect to Azure
 

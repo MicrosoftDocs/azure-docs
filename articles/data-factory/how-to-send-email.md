@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to send an email with an Azure Data Factory or Azure Synapse pipeline.
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: monitoring
@@ -14,11 +14,13 @@ ms.subservice: monitoring
 
 [!INCLUDE [appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 It's often necessary to send notifications during or after execution of a pipeline. Notification provides proactive alerting and reduces the need for reactive monitoring to discover issues.  This article shows how to configure email notifications from an Azure Data Factory or Azure Synapse pipeline. 
 
 ## Prerequisites
 
-- **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+- **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 - **Standard logic app workflow**. To trigger sending an email from the pipeline, you use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Standard logic app workflow, see [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md).
 
 ## Create the email workflow in your logic app
@@ -109,7 +111,3 @@ make your messages dynamic. For example:  
 
 The above expressions will return the relevant error messages from a Copy activity failure, which can be redirected then to your Web activity that sends the email. Refer to the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
-
-## Related content
-
-[How to send Teams notifications from a pipeline](how-to-send-notifications-to-teams.md)

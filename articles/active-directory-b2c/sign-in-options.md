@@ -4,11 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn about the sign-up and sign-in options you can use with Azure Active Directory B2C, including username and password, email, phone, or federation with social or external identity providers.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: concept-article
-ms.date: 03/22/2024
+ms.date: 01/05/2025
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer integrating Azure AD B2C into my application, I want to understand the different sign-in options available so that I can choose the appropriate method for my users and configure the sign-in flow accordingly.
 

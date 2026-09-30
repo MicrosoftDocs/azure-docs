@@ -1,12 +1,14 @@
 ---
-title: What changing to volume hard quota means for your Azure NetApp Files service | Microsoft Docs
+title: What changing to volume hard quota means for your Azure NetApp Files service
 description: Describes the change to using volume hard quota, how to plan for the change, and how to monitor and manage capacities.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 11/26/2024
+ms.topic: concept-article
+ms.date: 02/20/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud storage administrator, I want to configure and manage volume hard quotas in Azure NetApp Files, so that I can maintain control over provisioning, monitor capacity accurately, and prevent unexpected costs from automatic growth behaviors.
 ---
 # What changing to volume hard quota means for your Azure NetApp Files service
 
@@ -202,7 +204,7 @@ You can build an automated process to manage the changed behavior.
 
 ##### REST API   
 
-The REST API for the Azure NetApp Files service defines HTTP operations against resources such as the NetApp account, the capacity pool, the volumes, and snapshots. The REST API specification for Azure NetApp Files is published through the [Azure NetApp Files Resource Manager GitHub page](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager)]. You can find [example code for use with REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager/Microsoft.NetApp/stable/2020-06-01/examples) in GitHub.
+The REST API for the Azure NetApp Files service defines HTTP operations against resources such as the NetApp account, the capacity pool, the volumes, and snapshots. The REST API specification for Azure NetApp Files is published through the [Azure NetApp Files Resource Manager GitHub page](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager). You can find [example code for use with REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2020-06-01/examples) in GitHub.
 
 See [Develop for Azure NetApp Files with REST API](azure-netapp-files-develop-with-rest-api.md). 
 
@@ -240,7 +242,7 @@ Yes, the consumed snapshot capacity counts towards the provisioned space in the 
 
 A common misconception is that Azure NetApp Files *volumes* would automatically grow upon filling up. Volumes were thinly provisioned with a size of 100 TiB, regardless of the actual set quota, while the underlying *capacity pool* would automatically grow with 1-TiB increments. This change addresses the (visible and usable) *volume* size to the set quota, and *capacity pools* thus no longer automatically grow. This change results in commonly desired accurate client-side space and capacity reporting. It avoids "runaway" capacity consumption.
 
-### Does this change have any effect on volumes replicated with cross-region-replication (preview)? 
+### Does this change have any effect on volumes replicated with cross-region-replication? 
 
 The hard volume quota isn't enforced on replication destination volumes.
 

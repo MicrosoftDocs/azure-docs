@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/25/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a network engineer, I want to deploy a dual-stack Gateway Load Balancer with IPv6 configurations, so that I can ensure my infrastructure supports both IPv4 and IPv6 traffic efficiently.
 ---
 
 # Deploy a dual-stack Azure Gateway Load Balancer
@@ -32,9 +33,9 @@ Along with the Gateway Load Balancer, this scenario includes the following alrea
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing dual-stack load balancer. For more information on creating a dual-stack load balancer, see [Deploy IPv6 dual stack application - Standard Load Balancer](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
-- An existing IPv4 gateway balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer](./tutorial-gateway-powershell.md).
+- An existing IPv4 gateway balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer](./Tutorial-create-gateway-load-balancer.md).
 
 ## Add IPv6 address ranges to an existing subnet
 

@@ -6,13 +6,13 @@ ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 07/17/2025
 ms.author: buchvarun
 ---
 
 # Use DICOMweb Standard APIs with Python
 
-This article shows how to work with the DICOMweb service using Python and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+This article shows how to work with the DICOMweb service using Python and sample .dcm DICOM&reg; files.
 
 Use these sample files:
 

@@ -12,6 +12,7 @@ ms.author: akashdubey
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As an IT administrator, I want to assign Azure roles for access to queue data, so that I can manage permissions for users and applications effectively using Azure role-based access control.
 ---
 
 # Assign an Azure role for access to queue data
@@ -36,7 +37,7 @@ To access queue data in the Azure portal with Microsoft Entra credentials, a use
 - A data access role, such as **Storage Queue Data Contributor**
 - The Azure Resource Manager **Reader** role
 
-To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 The [Reader](../../role-based-access-control/built-in-roles.md#reader) role is an Azure Resource Manager role that permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to queues and messages in the Azure portal.
 

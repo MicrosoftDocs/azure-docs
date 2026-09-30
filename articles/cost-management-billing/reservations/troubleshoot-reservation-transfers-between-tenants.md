@@ -1,13 +1,13 @@
 ---
 title: Change an Azure reservation directory
 description: This article helps reservation owners transfer a reservation order from one Microsoft Entra tenant (directory) to another.
-author: bandersmsft
+author: pri-mittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.author: banders
-ms.reviewer: bshy
+ms.author: primittal
+ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 12/06/2024
+ms.date: 07/17/2026
 ---
 
 # Change an Azure reservation directory between tenants
@@ -58,4 +58,4 @@ For example, the current scope of the reserved instance is set to Single subscri
 
 ## Next steps
 
-- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md).
+- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

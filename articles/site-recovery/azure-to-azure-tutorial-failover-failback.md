@@ -2,12 +2,13 @@
 title: Tutorial to fail over Azure VMs to a secondary region for disaster recovery with Azure Site Recovery.
 description: Tutorial to learn how to fail over and reprotect Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 ms.topic: tutorial
-ms.date: 03/29/2024
+ms.date: 09/11/2026
 ms.custom: mvc
 ms.service: azure-site-recovery
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
 #Customer intent: As an Azure admin, I want to run a production failover of Azure VMs to a secondary Azure region.
+# Customer intent: As an Azure administrator, I want to execute a failover of virtual machines to a secondary region, so that I can ensure business continuity and disaster recovery for critical workloads.
 ---
 
 # Tutorial: Fail over Azure VMs to a secondary region
@@ -19,7 +20,6 @@ Learn how to fail over Azure VMs that are enabled for disaster recovery with [Az
 > * Verify VM settings
 > * Run a failover to the secondary region
 > * Start replicating the VM back to the primary region.
-
 
 > [!NOTE]
 > This tutorial shows you how to fail over VMs with minimal steps. If you want to run a failover with full settings, learn about Azure VM [networking](azure-to-azure-about-networking.md), [automation](azure-to-azure-powershell.md), and [troubleshooting](azure-to-azure-troubleshoot-errors.md).
@@ -49,7 +49,6 @@ Before you start this tutorial, you should have:
 
 ## Run a failover
 
-
 1. On the VM **Overview** page, select **Failover**.
 
     ![Failover button for the replicated item](./media/azure-to-azure-tutorial-failover-failback/failover-button.png)
@@ -75,6 +74,7 @@ Before you start this tutorial, you should have:
     ![Success notification](./media/azure-to-azure-tutorial-failover-failback/notification-failover-finish.png)     
 
 5. After the failover, the Azure VM created in the target region appears in **Virtual Machines**. Make sure that the VM is running, and sized appropriately. If you want to use a different recovery point for the VM, select **Change recovery point**, on the **Essentials** page.
+   Verify that any configured capacity reservation supports the target VM size and zone. Also verify the proximity placement group assignment. These placement settings depend on target availability and might require manual reassociation after failover or reprotection.
 6. When you're satisfied with the failed over VM, select **Commit** on the overview page, to finish the failover.
 
     ![Commit button](./media/azure-to-azure-tutorial-failover-failback/commit-button.png) 
@@ -86,6 +86,10 @@ Before you start this tutorial, you should have:
     ![Commit progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png)
     ![Commit success notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
 
+
+>[!NOTE]
+>You may also get alternative virtual machine SKU recommendation during test failover. [Learn more](alternative-vm-size-failover-flow.md).
+
 ## Reprotect the VM
 
 After failover, you reprotect the VM in the secondary region, so that it replicates back to the primary region. 
@@ -94,7 +98,7 @@ After failover, you reprotect the VM in the secondary region, so that it replica
 2. Check that you can access the primary region is available, and that you have permissions to create VMs in it.
 3. On the VM **Overview** page, select **Re-Protect**.
 
-   ![Button to enable reprotect for a VM for a VM.](./media/azure-to-azure-tutorial-failover-failback/reprotect-button.png)
+   ![Button to enable reprotect for a VM.](./media/azure-to-azure-tutorial-failover-failback/reprotect-button.png)
 
 4. In **Re-protect**, verify the replication direction (secondary to primary region), and review the target settings for the primary region. Resources marked as new are created by Site Recovery as part of the reprotect operation.
 
@@ -110,4 +114,3 @@ After failover, you reprotect the VM in the secondary region, so that it replica
 ## Next steps
 
 In this tutorial, you failed over from the primary region to the secondary, and started replicating VMs back to the primary region. Now you can [fail back from the secondary region to the primary](azure-to-azure-tutorial-failback.md).
-

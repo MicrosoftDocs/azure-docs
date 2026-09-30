@@ -3,12 +3,13 @@ title: 'Manage secure access to resources in spoke VNets for P2S clients'
 titleSuffix: Azure Virtual WAN
 description: This article helps you use Azure Virtual WAN and Azure Firewall rules to manage secure access to virtual networks for User VPN (point-to-site) clients.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: cherylmc
+ms.author: duau
+ms.custom: sfi-image-nochange
 
 ---
 # Manage secure access to resources in spoke VNets for User VPN clients
@@ -21,7 +22,7 @@ The steps in this article help you create the architecture in the following diag
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Prerequisites](../networking/includes/virtual-wan/before.md)]
 
 * You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Microsoft Entra authentication, or [Generate and export certificates](certificates-point-to-site.md).
 
@@ -47,7 +48,7 @@ When selecting the authentication method, you have three choices. Each method ha
 
 * **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
-[!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Define parameters](../networking/includes/virtual-wan/p2s-configuration.md)]
 
 ## <a name="hub"></a>Create the hub and gateway
 
@@ -63,25 +64,25 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ### Point to site page
 
-[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
+[!INCLUDE [Point to site page](../networking/includes/virtual-wan/p2s-gateway.md)]
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
 In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. 
 
-[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
+[!INCLUDE [Download profile](../networking/includes/virtual-wan/p2s-download-profile.md)]
 
 ## <a name="clients"></a>Configure VPN clients
 
 Use the downloaded profile to configure the remote access clients. The procedure for each operating system is different, follow the instructions that apply to your system.
 
-[!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
+[!INCLUDE [Configure clients](../networking/includes/virtual-wan/p2s-configure-clients.md)]
 
 ## <a name="connect-spoke"></a>Connect the spoke VNet
 
 In this section, you create a connection between your hub and the spoke VNet.
 
-[!INCLUDE [Connect spoke virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect spoke virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="create-vm"></a>Create virtual machines
 

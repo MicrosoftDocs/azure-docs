@@ -6,7 +6,7 @@ summary: Use the Education Hub to provide students with all the software, learni
 metadata:
   title: Azure Education Hub documentation
   description: Use the Education Hub to provide students with all the software, learning materials, and Azure services that they need to become cloud proficient.
-  ms.service: azure-education
+  ms.service: azure-education-hub
   ms.topic: landing-page
   author: tfosmark 
   ms.author: rymend 
@@ -54,20 +54,3 @@ landingContent:
         links:
           - text: What is Azure for Students Starter?
             url: about-azure-for-students-starter.md
-
-  - title: Azure Classroom
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Classroom?
-            url: about-education-hub.md
-      - linkListType: quickstart
-        links:
-          - text: Get started with the Azure Education Hub
-            url: get-started-education-hub.md
-      - linkListType: how-to-guide
-        links:
-          - text: Manage your academic sponsorship
-            url: hub-overview-page.md
-          - text: Find IDs
-            url: find-ids.md

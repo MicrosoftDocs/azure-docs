@@ -1,16 +1,19 @@
 ---
 title: Load data into Azure Data Lake Storage Gen2
 description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen2'
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 05/15/2024
+ms.topic: how-to
+ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
@@ -25,7 +28,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 ## Prerequisites
 
-* Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, [create an account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * AWS account with an S3 bucket that contains data: This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
 

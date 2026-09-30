@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ---
 
@@ -14,6 +14,9 @@ ms.date: 10/20/2023
 When you use a Wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities. 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Wait activity](/fabric/data-factory/wait-activity).
 
 ## Create a Wait activity with UI
 
@@ -24,7 +27,7 @@ To use a Wait activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-wait-activity/wait-activity.png" alt-text="Shows the UI for a Wait activity.":::
 
-1. Enter a number of seconds for the activity to wait. This can be a literal number, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+1. Enter a number of seconds for the activity to wait. This can be a literal number, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters).
 
 ## Syntax
 

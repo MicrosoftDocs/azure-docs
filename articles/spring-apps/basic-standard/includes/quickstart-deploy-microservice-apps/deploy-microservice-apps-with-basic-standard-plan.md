@@ -3,7 +3,8 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 01/10/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
@@ -80,8 +81,8 @@ Use the following steps to create the service instance:
    | Setting            | Suggested value                   | Description                                                                                                                                                                                                                                                                                         |
    |--------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**   | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription for which you'd like to be billed for the resource.                                                                                                                        |
-   | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                                |
-   | **Name**           | *myasa*                           | A unique name that identifies your Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Resource group** | **myresourcegroup**                 | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                                |
+   | **Name**           | **myasa**                           | A unique name that identifies your Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**           | **Standard**                      | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                   |
    | **Region**         | The region closest to your users. | The location that is closest to your users.                                                                                                                                                                                                                                                         |
    | **Zone Redundant** | Unselected                        | Creates your Azure Spring Apps service in an Azure availability zone. Not currently supported in all regions.                                                                                                                                                                                       |
@@ -104,7 +105,7 @@ Use the following steps to create the service instance:
 
 1. Select **Config Server** in the navigation pane.
 
-1. On the **Config Server** page, for **URI**, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* and then select **Validate**.
+1. On the **Config Server** page, for **URI**, enter **https://github.com/Azure-Samples/spring-petclinic-microservices-config.git** and then select **Validate**.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Default URI and the Validate button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
@@ -141,7 +142,7 @@ Use the following steps to create the required resources:
 
    ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
@@ -170,7 +171,7 @@ Use the following steps to deploy the microservice applications using the [Maven
    - **OAuth2 login**: Authorize the sign in to Azure based on the OAuth2 protocol.
    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd> directly.
    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd> directly.
-   - **Select apps to expose public access:(input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter *1,5* for `admin-server` and `api-gateway`.
+   - **Select apps to expose public access:(input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter **1,5** for `admin-server` and `api-gateway`.
    - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
 
 1. Use the following command to build and deploy each application:
@@ -243,7 +244,7 @@ Use the following steps to package the app, provision the Azure resources requir
 
 
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 

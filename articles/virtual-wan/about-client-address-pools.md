@@ -2,11 +2,11 @@
 title: 'About client address pools for P2S User VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn about client address pools for P2S User VPN.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 02/15/2023
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # About client address pools for Virtual WAN point-to-site configurations
@@ -80,7 +80,7 @@ This setting is configured on the **Point to site** page when you create your vi
 
 To modify this setting:
 
-[!INCLUDE [Modify client address pool](../../includes/virtual-wan-client-address-pool-include.md)]
+[!INCLUDE [Modify client address pool](../networking/includes/virtual-wan/client-address-pool.md)]
 
 ## Next steps
 

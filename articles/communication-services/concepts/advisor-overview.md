@@ -2,17 +2,19 @@
 title: Use Azure Advisor for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Advisor offerings for Azure Communication Services.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 10/10/2022
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-communication-services
 ms.subservice: data
 ---
 
 # Azure Advisor for Azure Communication Services
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 [Azure Advisor](/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Communication Services is onboarded to Azure Advisor and will post recommendations for ways to optimize your communication resources. You can view these recommendations in the [Azure portal](https://portal.azure.com) in the [Advisor blade](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview). Recommendations are stored in your [Azure Activity Log](/azure/azure-monitor/essentials/platform-logs-overview), and you can configure alerts for these recommendations via [ARM templates](/azure/advisor/advisor-alerts-arm) or the [portal](/azure/advisor/advisor-alerts-portal). 
 

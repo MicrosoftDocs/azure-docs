@@ -15,7 +15,7 @@ ms.custom: device-developer
 
 # Create a device template in your Azure IoT Central application
 
-A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application. For example, you can create a device template for a sensor that sends telemetry, such as temperature and properties, such as location. To learn more, see [What are device templates?](concepts-device-templates.md).
+A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application. For example, you can create a device template for a sensor that sends telemetry, such as temperature and properties, such as location. To learn more, see [What are device templates?](concepts-device-templates.md)
 
 This article describes some of the ways to create a device template in IoT Central such as [autogenerating a device template from a telemetry message](#autogenerate-a-device-template) or defining one in the [IoT Central UI](#create-a-device-template-in-your-azure-iot-central-application).
 
@@ -102,7 +102,7 @@ To create a device model, you can:
 
 1. To view the component ID, select **Edit Identity** on any of the component interfaces in the model.
 
-To learn more, see the [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
+To learn more, see the [IoT Plug and Play modeling guide](/previous-versions/azure/iot/concepts-modeling-guide).
 
 ### Interfaces and components
 
@@ -112,7 +112,7 @@ To view and manage the interfaces in your device model:
 
     :::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows root interface for a model":::
 
-1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot/concepts-modeling-guide.md) in the modeling guide.
+1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](/previous-versions/azure/iot/concepts-modeling-guide) in the modeling guide.
 
     :::image type="content" source="media/howto-set-up-template/add-interface.png" alt-text="Screenshot that shows how to add interface or component." lightbox="media/howto-set-up-template/add-interface.png":::
 
@@ -195,7 +195,7 @@ The following table shows the configuration settings for a command capability:
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 |Initial value | The default parameter value. This parameter is an IoT Central extension to DTDL. |
 
-To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](../../iot/concepts-message-payloads.md#commands).
+To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](/previous-versions/azure/iot/concepts-message-payloads#commands).
 
 #### Offline commands
 

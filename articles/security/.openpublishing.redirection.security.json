@@ -1,6 +1,36 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/security/fundamentals/azure-CA-details.md",
+            "redirect_url": "/azure/security/fundamentals/azure-certificate-authority-details",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/operational-security.md",
+            "redirect_url": "/azure/security/fundamentals/management-monitoring-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/cyber-services.md",
+            "redirect_url": "/azure/security/fundamentals/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/event-support-ticket.md",
+            "redirect_url": "/azure/security/fundamentals/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/management.md",
+            "redirect_url": "/azure/security/fundamentals/management-monitoring-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/technical-capabilities.md",
+            "redirect_url": "/azure/security/fundamentals/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security/journey/index.yml",
             "redirect_url": "/previous-versions/azure/security/fundamentals",
             "redirect_document_id": false
@@ -72,7 +102,7 @@
         },
         {
             "source_path_from_root": "/articles/security/fundamentals/iot-overview.md",
-            "redirect_url": "/azure/iot/iot-security-architecture",
+            "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
             "redirect_document_id": false
         },
         {

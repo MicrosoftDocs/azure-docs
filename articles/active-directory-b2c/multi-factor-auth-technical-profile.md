@@ -6,7 +6,7 @@ description: Custom policy reference for Microsoft Entra ID multifactor authenti
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Define a Microsoft Entra ID multifactor authentication technical profile in an Azure AD B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) provides support for verifying a phone number by using a verification code, or verifying a Time-based One-time Password (TOTP) code.
 

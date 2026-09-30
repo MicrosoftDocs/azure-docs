@@ -3,9 +3,12 @@ title: Configure Azure Blob Storage on Azure HDInsight
 description: Learn how to Configure Azure Blob storage on Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 11/25/2024
-
+ms.date: 01/13/2025
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ---
+
 # Configure Azure Blob Storage as primary storage account in Azure HDInsight
 
 Learn how to use managed identities to authenticate Blob storage while configuring primary storage during HDInsight cluster creation.  
@@ -96,7 +99,39 @@ The script is downloaded and implemented. This will work even if the script isn'
 
 The new feature specifically supports scripts that aren't publicly accessible but don't require a SAS key or token. This provides an additional layer of security for scripts that need to be kept private. 
 
-The conventional script action in which is anonymously accessible or if a SAS key is passed along with the script URI, still works without any changes. For more information, see [Customize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md)     
+The traditional script action, whether accessed anonymously or with a SAS key included in the script URI, continues to function without any modifications. For more information, see [Customize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md). 
+
+## Configure Azure Blob storage as secondary storage
+
+**Access Key as authentication**
+ 
+Use access keys to authenticate Azure blob storage while configuring it as secondary storage during HDInsight cluster creation.
+
+Learn how to use access keys to authenticate Blob storage while configuring secondary storage during HDInsight cluster creation.  
+
+> [!NOTE]
+> If the primary storage is already chosen as Blob storage, then same authentication mechanism may need to be chosen for secondary storage. (i.e. access key in this scenario).
+
+
+1. Select `Additional Azure Storage` in the storage section in portal during HDInsight cluster creation. 
+1. Choose the `Storage Account` from the drop-down. 
+1. Select authentication mechanism as `Use access key`. 
+1. Enter **Access key** details.
+1. Click **Next**.
+
+ **Managed Identity as authentication**
+
+Use manage identities to authenticate Azure blob storage while configuring it as secondary storage during HDInsight cluster creation. 
+
+> [!NOTE]
+> If the primary storage is chosen as Blob storage, then same authentication mechanism may need to be chosen for secondary storage (i.e. managed identity in this scenario). Only one Managed identity can be used to authenticate both primary and secondary storages and the managed identity need to have sufficient access to secondary storage being selected. 
+
+1. Configure Blob as secondary storage using Azure portal. 
+1. Select **Additional Azure Storage** in the storage section in portal during HDInsight cluster creation. 
+1. Choose the **Storage Account** from the drop-down. 
+1. Select authentication mechanism as `Use managed identity`. 
+1. Select the **managed identity** from the list. 
+1. Click **Next**.
 
 ## Next steps
 

@@ -1,20 +1,22 @@
 ---
 title: Connect to a SQL pool in Azure Synapse
 description: Learn how to connect to an SQL pool in Azure Synapse.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: joanpo
+author: joannapea
+ms.author: joanpo
 ms.date: 09/23/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - azure-synapse
   - devx-track-csharp
   - kr2b-contr-experiment
+  - sfi-image-nochange
 ---
 
 # Connect to a SQL pool in Azure Synapse
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Get connected to a SQL pool in Azure Synapse.
 

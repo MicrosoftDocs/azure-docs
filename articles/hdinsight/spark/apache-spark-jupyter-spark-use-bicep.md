@@ -1,8 +1,9 @@
 ---
 title: 'Quickstart: Create Apache Spark cluster using Bicep - Azure HDInsight'
 description: This quickstart shows how to use Bicep to create an Apache Spark cluster in Azure HDInsight, and run a Spark SQL query.
-author: apurbasroy
-ms.author: apsinhar
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 09/06/2024
 ms.topic: quickstart
 ms.service: azure-hdinsight
@@ -20,7 +21,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

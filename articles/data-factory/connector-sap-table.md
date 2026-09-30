@@ -2,19 +2,27 @@
 title: Copy data from an SAP table
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
-author: jianleishen
+author: simplywilson
 ms.author: ulrichchrist
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 09/25/2024
+ms.topic: how-to
+ms.date: 04/02/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from an SAP table using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use the copy activity in Azure Data Factory and Azure Synapse Analytics pipelines to copy data from an SAP table. For more information, see [Copy activity overview](copy-activity-overview.md).
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric SAP Table connector documentation](/fabric/data-factory/connector-sap-table-application-server-overview).
+
 
 >[!TIP]
 >To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
@@ -45,6 +53,9 @@ Specifically, this SAP table connector supports:
 - Copying data by using basic authentication or Secure Network Communications (SNC), if SNC is configured.
 - Connecting to an SAP application server or SAP message server.
 - Retrieving data via default or custom RFC.
+
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 The version 7.01 or later refers to SAP NetWeaver version instead of SAP ECC version. For example, SAP ECC 6.0 EHP 7 in general has NetWeaver version >=7.4. In case you are unsure about your environment, here are the steps to confirm the version from your SAP system:
 
@@ -106,7 +117,7 @@ The following properties are supported for the SAP BW Open Hub linked service:
 |:--- |:--- |:--- |
 | `type` | The `type` property must be set to `SapTable`. | Yes |
 | `server` | The name of the server on which the SAP instance is located.<br/>Use to connect to an SAP application server. | No |
-| `systemNumber` | The system number of the SAP system.<br/>Use to connect to an SAP application server.<br/>Allowed value: A two-digit decimal number represented as a string. | No |
+| `systemNumber` | The system number of the SAP system.<br/>Use to connect to an SAP application server.<br/>Affects the PORT number used when communicating with the SAP table.<br/>Allowed value: A two-digit decimal number represented as a string. | No |
 | `messageServer` | The host name of the SAP message server.<br/>Use to connect to an SAP message server. | No |
 | `messageServerService` | The service name or port number of the message server.<br/>Use to connect to an SAP message server. | No |
 | `systemId` | The ID of the SAP system where the table is located.<br/>Use to connect to an SAP message server. | No |
@@ -203,6 +214,9 @@ The following properties are supported for the SAP BW Open Hub linked service:
     }
 }
 ```
+
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 ## Dataset properties
 

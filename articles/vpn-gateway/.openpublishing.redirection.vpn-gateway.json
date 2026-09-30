@@ -1,6 +1,11 @@
 {
     "redirections": [
          {
+           "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-third-party-settings.md",
+           "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpn-devices",
+           "redirect_document_id": false
+        },
+         {
            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell.md",
            "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell",
            "redirect_document_id": false
@@ -77,22 +82,52 @@
         },
         {
             "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-client.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-windows",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-cert-linux.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-certificate-client-linux-azure-vpn-client",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-client-mac.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-mac",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-entra-vpn-client-windows.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-entra-vpn-client-mac.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-cert-windows.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-windows",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-other.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius",
             "redirect_document_id": false
         },
         {
@@ -101,8 +136,18 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate",
+            "source_path_from_root": "/articles/vpn-gateway/site-to-site-certificate-authentication-gateway-cli.md",
+            "redirect_url": "/azure/vpn-gateway/site-to-site-certificate-authentication-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/site-to-site-certificate-authentication-gateway-portal.md",
+            "redirect_url": "/azure/vpn-gateway/site-to-site-certificate-authentication-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/site-to-site-certificate-authentication-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/site-to-site-certificate-authentication-gateway",
             "redirect_document_id": false
         },
         {
@@ -199,6 +244,50 @@
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md",
             "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/troubleshoot-digital-certificate-authentication.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/troubleshoot-digital-certificate-authentication"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/troubleshoot-vpn-with-azure-diagnostics"
+        },
+        {   
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-point-to-site-osx-ikev2"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/troubleshoot-azure-vpn-client.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/troubleshoot-azure-vpn-client"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/feedback-hub-azure-vpn-client.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/feedback-hub-azure-vpn-client"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-cannot-connect.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-cannot-connect"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-error-codes.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-error-codes"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-validate-throughput-to-vnet.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet"
         },
         {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",

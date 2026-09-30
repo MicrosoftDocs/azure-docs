@@ -6,7 +6,7 @@ description: Provide sign-up and sign-in to customers with eBay accounts in your
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 09/16/2021
@@ -19,6 +19,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-up and sign-in with an eBay account using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -36,7 +38,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an eBay application
 
-To enable sign-in for users with an eBay account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [eBay developer console](https://developer.ebay.com). For more information, see [Creating a developer account](https://developer.ebay.com/api-docs/static/gs_join-the-ebay-developers-program.html). If you don't already have an eBay developer account, sign up at [https://developer.ebay.com/signin](https://developer.ebay.com/signin?tab=register).
+To enable sign-in for users with an eBay account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [eBay developer console](https://developer.ebay.com). If you don't already have an eBay developer account, sign up at [https://developer.ebay.com/signin](https://developer.ebay.com/signin?tab=register).
 
 To create an eBay application, follow these steps:
 

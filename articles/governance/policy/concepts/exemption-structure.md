@@ -1,8 +1,8 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 09/05/2024
-ms.topic: conceptual
+ms.date: 07/30/2026
+ms.topic: reference
 ---
 
 # Azure Policy exemption structure
@@ -118,7 +118,41 @@ Exemptions support an optional property `resourceSelectors` that works the same 
 }
 ```
 
-Regions can be added or removed from the `resourceLocation` list in the example. Resource selectors allow for greater flexibility of where and how exemptions can be created and managed.
+The follow resource selectors `kinds` are supported in the policy exemptions object:
+- resourceLocation: This property is used to select resources based on their location. Can't be used in the same resource selector as resourceWithoutLocation.
+- resourceType: This property is used to select resources based on their type.
+- resourceWithoutLocation: This property is used to select resources at the subscription level that don't have a location. Currently only supports subscriptionLevelResources. Can't be used in the same resource selector as resourceLocation.
+- in: The list of allowed values for the specified kind. Can't be used with notIn. Can contain up to 50 values.
+- notIn: The list of not-allowed values for the specified kind. Can't be used with in. Can contain up to 50 values.
+- userPrincipalId: the list of the allowed user object IDs can be exempt in the request. This can be associated with an individual user, an MSI, or a service principal. 
+- groupPrincipalId: the list of the allowed security group IDs can be exempt in the request. A resource selector can contain multiple selectors. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, up to 10 resourceSelectors can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
+
+
+### Identity based exemptions
+
+You can leverage selector kinds userPrincipalId and groupPrincipalId within the exemption structure to enable a specific service principal, MSI, user, or security group to bypass a policy assignment's enforcement.
+
+Take an example where you want to assign the built-in policy definition `Allowed virtual machine size SKUs` in your subscription to ensure that only A-family VMs can be deployed, with the exception of a high privileged group. You can use identity based conditions to exempt this group in your organization from this enforcement. 
+
+This is an example of an identity-based exemption:
+
+```json
+"properties": {   
+  "policyAssignmentId": "/subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/CostMgmt",   
+  "resourceSelectors": [{    
+      "name": "AllowedGroups",   
+      "selectors": [{   
+          "kind": "groupPrincipalId",   
+          "in": [ "<HighPrivEngGroupId>" ]   
+        },      
+      ]   
+    }   
+  ],   
+  "exemptionCategory": "Waiver",   
+  "displayName": "Exempt high SKU VM",   
+  "description": "Exempt high SKU VM for business need"   
+}   
+```
 
 ## Assignment scope validation (preview)
 
@@ -157,10 +191,42 @@ Exemptions are recommended for time-bound or specific scenarios where a resource
 
 Regularly revisit your exemptions to ensure that all eligible items are appropriately exempted and promptly remove any that don't qualify for exemption. At that time, expired exemption resources can be deleted as well.
 
+## Compliance substate
+
+When an exemption applies to a resource, its [compliance state](./compliance-states.md) is
+**Exempt**. The compliance substate shows what the resource's compliance state would be if the
+exemption were removed. Compliance substate is populated only for exempt resources. Nonexempt
+resources have a blank compliance substate.
+
+Compliance substate is part of the Policy Insights compliance result. It isn't a property that you
+configure on the policy exemption resource.
+
+To view the compliance substate in the Azure portal:
+
+1. Go to **Policy** > **Compliance**, and then select a policy assignment.
+1. On the assignment's compliance report, select **Edit columns**.
+1. Add **Compliance substate**, arrange the column as needed, and then select **Save**.
+
+You can also select the **Waiver** or **Mitigated** value in the **Compliance details** column to
+view the compliance substate in the details pane.
+
+For organization-wide reporting, query the `properties.stateDetails.complianceSubState` property in
+Azure Resource Graph. The following query lists exempt resources and their compliance substates:
+
+```kusto
+policyresources
+| where type == "microsoft.policyinsights/policystates"
+| extend complianceState = tostring(properties.complianceState)
+| extend complianceSubState = tostring(properties.stateDetails.complianceSubState),
+         resourceId = tostring(properties.resourceId),
+         policyAssignmentId = tostring(properties.policyAssignmentId)
+| where complianceState == "Exempt"
+| project resourceId, policyAssignmentId, complianceState, complianceSubState
+```
 
 ## Next steps
 
-- Learn about [Azure Resource Graph queries on exemptions](../samples/resource-graph-samples.md#azure-policy-exemptions).
+- Learn about [Azure Resource Graph queries on exemptions](/azure/governance/policy/samples/resource-graph-samples#azure-policy-exemptions).
 - Learn about [the difference between exclusions and exemptions](./scope.md#scope-comparison).
 - Review the [Microsoft.Authorization policyExemptions resource type](/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

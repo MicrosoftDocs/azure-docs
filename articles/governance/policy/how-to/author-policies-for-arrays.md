@@ -1,7 +1,7 @@
 ---
 title: Author policies for array properties on resources
 description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: how-to
 ---
 
@@ -90,7 +90,7 @@ To use this string with each SDK, use the following commands:
 
 - Azure CLI: Command [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) with parameter `params`.
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) with parameter `PolicyParameter`.
-- REST API: In the _PUT_ [create](/rest/api/policy/policy-assignments/create) operation as part of the Request Body as the value of the `properties.parameters` property.
+- REST API: In the _PUT_ [create](/rest/api/policy-authorization/policy-assignments/create) operation as part of the Request Body as the value of the `properties.parameters` property.
 
 ## Using arrays in conditions
 
@@ -691,7 +691,7 @@ The following outcomes are the result of the combination of the condition and th
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
 - Review [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policies](programmatically-create.md).

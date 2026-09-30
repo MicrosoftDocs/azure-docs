@@ -3,6 +3,9 @@ title: Apache Spark performance - Azure HDInsight IO Cache (Preview)
 description: Learn about Azure HDInsight IO Cache and how to use it to improve Apache Spark performance.
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 12/02/2024
 ---
 
@@ -69,7 +72,3 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 1. Select **Confirm Restart All**.
 
 If that doesn't work, disable IO Cache.
-
-## Next Steps
-
-Read more about IO Cache, including performance benchmarks in this blog post: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

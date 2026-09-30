@@ -8,12 +8,14 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---
 # Phone number types in Azure Communication Services
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 > [!IMPORTANT]
 > Phone number purchasing availability is currently restricted to paid Azure subscriptions. Phone numbers cannot be purchased on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](../numbers/sub-eligibility-number-capability.md) section of this document. For those on non-paid Azure subscriptions, you can [get a trial phone number](../../quickstarts/telephony/get-trial-phone-number.md).

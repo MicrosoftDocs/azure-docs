@@ -6,9 +6,13 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.custom: template-how-to, devx-track-azurecli
-ms.date: 01/22/2024
+ms.date: 01/29/2026
 ms.author: mbender
+ms.custom:
+  - template-how-to
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: As a network administrator, I want to configure the distribution mode of the Azure Load Balancer, so that I can optimize traffic distribution and ensure consistency for client sessions.
 ---
 
 # Configure the distribution mode for Azure Load Balancer
@@ -32,17 +36,17 @@ In this article, you learn how to configure the distribution mode for your Azure
 You can change the configuration of the distribution mode by modifying the load-balancing rule in the portal.
 
 1. Sign in to the Azure portal and locate the resource group containing the load balancer you wish to change by clicking on **Resource Groups**.
-2. In the load balancer overview screen, select **Load-balancing rules** under **Settings**.
-3. In the load-balancing rules screen, select the load-balancing rule that you wish to change the distribution mode.
-4. Under the rule, the distribution mode is changed by changing the **Session persistence** drop-down box. 
+1. In the load balancer overview screen, select **Load-balancing rules** under **Settings**.
+1. In the load-balancing rules screen, select the load-balancing rule that you wish to change the distribution mode.
+1. Under the rule, the distribution mode is changed by changing the **Session persistence** drop-down box. 
 
-The following options are available: 
+   The following options are available: 
+  
+   * **None (hash-based)** - Specifies that successive requests from the same client can be handled by any virtual machine.
+   * **Client IP (two-tuple: source IP and destination IP)** - Specifies that successive requests from the same client IP address are handled by the same virtual machine.
+   * **Client IP and protocol (three-tuple: source IP, destination IP, and protocol type)** - Specifies that successive requests from the same client IP address and protocol combination are handled by the same virtual machine.
 
-* **None (hash-based)** - Specifies that successive requests from the same client can be handled by any virtual machine.
-* **Client IP (two-tuple: source IP and destination IP)** - Specifies that successive requests from the same client IP address are handled by the same virtual machine.
-* **Client IP and protocol (three-tuple: source IP, destination IP, and protocol type)** - Specifies that successive requests from the same client IP address and protocol combination are handled by the same virtual machine.
-
-5. Choose the distribution mode and then select **Save**.
+1. Choose the distribution mode and then select **Save**.
 
 # [**PowerShell**](#tab/azure-powershell)
 
@@ -68,7 +72,7 @@ Set the value of the `LoadDistribution` element for the type of load balancing r
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule.  The following command updates the distribution mode:
+Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule. The following command updates the distribution mode:
 
 ```azurecli-interactive
 az network lb rule update \
@@ -94,3 +98,4 @@ For more information on the command used in this article, see [az network lb rul
 * [Azure Load Balancer overview](load-balancer-overview.md)
 * [Get started with configuring an internet-facing load balancer](quickstart-load-balancer-standard-public-powershell.md)
 * [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+

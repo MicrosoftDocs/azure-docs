@@ -1,15 +1,16 @@
 ---
 title: Restore a dedicated SQL pool from a dropped workspace
 description: How-to guide for restoring a dedicated SQL pool from a dropped workspace.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: stevehow, ajagadish
+author: joannapea 
+ms.author: joanpo
 ms.date: 07/29/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: how-to
 ---
 # Restore a dedicated SQL pool from a deleted workspace
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you learn how to restore a dedicated SQL pool in Azure Synapse Analytics after an accidental drop of a workspace using PowerShell.
 
@@ -87,7 +88,20 @@ The following sample script accomplishes these steps:
 
 ## <a id="troubleshooting"></a> Troubleshoot
 
-If "An unexpected error occurred while processing the request." message is received, the original database might not have any recovery points available due to the original workspace being short lived. Typically this is when the workspace existed for less than one hour.
+### Error: "An unexpected error occurred while processing the request."
+
+If this message is received, the original database might not have any recovery points available due to the original workspace being short lived. Typically this is when the workspace existed for less than one hour.
+
+### Error: "ValidationFailed: The provided resource ID is not valid for this operation. Please use a SQL pool resource"
+If you receive this error, verify that the `sourceDatabaseId` uses a supported resource ID format and identifies the intended source dedicated SQL pool.
+
+**Supported formats**
+
+**Synapse SQL pool resource ID**
+/subscriptions/{subscriptionId}/resourceGroups/{workspaceResourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}
+
+**Managed SQL Database Resource ID**
+/subscriptions/{subscriptionId}/resourceGroups/{managedResourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}
 
 ## Related content
 

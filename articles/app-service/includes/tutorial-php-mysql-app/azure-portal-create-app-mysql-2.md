@@ -3,6 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.date: 07/07/2022
+ms.service: azure-app-service
 ---
 In the **Create Web App + Database** page, fill out the form as follows.
 

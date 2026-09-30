@@ -2,17 +2,18 @@
 title: Using linked Resource Manager templates
 description: Learn how to use linked Resource Manager templates with continuous integration and delivery in Azure Data Factory pipelines.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
-ms.reviewer: jburchel
-ms.topic: conceptual
-ms.date: 10/20/2023
-ms.custom:
+author: kromerm
+ms.author: makromer
+ms.reviewer: whhender
+ms.topic: how-to
+ms.date: 01/29/2025
 ---
 
 # Linked Resource Manager templates with CI/CD
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 If you've set up continuous integration and delivery (CI/CD) for your data factories, you might exceed the Azure Resource Manager template limits as your factory grows bigger. For example, one limit is the maximum number of resources in a Resource Manager template. To accommodate large factories while generating the full Resource Manager template for a factory, Data Factory now generates linked Resource Manager templates. With this feature, the entire factory payload is broken down into several files so that you aren't constrained by the limits.
 
@@ -34,6 +35,14 @@ Remember to add the Data Factory scripts in your CI/CD pipeline before and after
 If you don't have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
 When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. Review [Deployment Modes](../azure-resource-manager/templates/deployment-modes.md).
+
+## Considerations for shared self-hosted integration runtimes
+
+> [!WARNING]
+> When deploying linked ARM templates to an environment that uses a **linked (shared) self-hosted integration runtime**, the Resource Manager deployment will overwrite the linked IR configuration with a plain self-hosted IR definition that has no registered nodes. This causes the IR to become **Unavailable**, breaking all linked services that depend on it.
+> This happens because the linked ARM templates generated during publish always export integration runtimes as standalone `Microsoft.DataFactory/factories/integrationRuntimes` resources, with no awareness of linked IR relationships in target environments.
+
+To prevent this, add a step in your CI/CD pipeline to remove IR resource definitions from the linked template files **before** the Resource Manager deployment step. If the target environment uses a different IR name than the source factory, add a rename step after the removal. The shared IR in the target environment remains intact and all linked services continue to resolve correctly after deployment.
 
 ## Related content
 

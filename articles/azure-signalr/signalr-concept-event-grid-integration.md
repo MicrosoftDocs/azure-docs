@@ -6,7 +6,7 @@ author: vicancy
 ms.author: lianwei
 ms.reviewer: zhshang
 ms.date: 11/13/2019
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-signalr-service
 ---
 

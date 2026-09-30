@@ -8,31 +8,33 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 11/17/2021
 ms.topic: include
-ms.custom: include file
 ms.author: tchladek
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python](https://www.python.org/downloads/) 3.8+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../../create-communication-resource.md).
 
 ## Final code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/access-tokens-quickstart).
+Find the finalized code at [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/access-tokens-quickstart).
 
 ## Set up your environment
 
 ### Create a new Python application
 
-1. In a terminal or Command Prompt window, create a new directory for your app, and then open it.
+1. In a terminal or command prompt window, create a new directory for your app, and then open it.
 
    ```console
    mkdir access-tokens-quickstart && cd access-tokens-quickstart
    ```
 
-1. Use a text editor to create a file called *issue-access-tokens.py* in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the sections that follow.
+2. Use a text editor to create a file called `issue-access-tokens.py` in the project root directory. Then add the structure for the program, including basic exception handling. You add all the source code to this file.
 
    ```python
    import os
@@ -49,7 +51,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ### Install the package
 
-While you're still in the application directory, install the Azure Communication Services Identity SDK for Python package by using the `pip install` command.
+While in the application directory, install the Azure Communication Services Identity SDK for Python package using the `pip install` command.
 
 ```console
 pip install azure-communication-identity
@@ -59,7 +61,7 @@ pip install azure-communication-identity
 
 Instantiate a `CommunicationIdentityClient` with your connection string. The following code, which you add to the `try` block, retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. 
 
-For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../create-communication-resource.md#store-your-connection-string).
+For more information, see [Create and manage Communication Services resources > Store your connection string](../../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # This code demonstrates how to retrieve your connection string
@@ -70,7 +72,7 @@ connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, if you've already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
+Alternatively, if you already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
 
 ```python
 endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
@@ -79,14 +81,14 @@ client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
 
 ## Create an identity
 
-To create access tokens, you need an identity. Azure Communication Services maintains a lightweight identity directory for this purpose. Use the `create_user` method to create a new entry in the directory with a unique `Id`. The identity is required later for issuing access tokens.
+To create access tokens, you need an identity. Azure Communication Services maintains a lightweight identity directory for this purpose. Use the `create_user` method to create a new entry in the directory with a unique `Id`. The identity is required later to issue access tokens.
 
 ```python
 identity = client.create_user()
 print("\nCreated an identity with ID: " + identity.properties['id'])
 ```
 
-Store the received identity with mapping to your application's users (for example, by storing it in your application server database).
+Store the received identity with mapping to your application users (for example, by storing it in your application server database).
 
 ## Issue an access token
 
@@ -99,17 +101,16 @@ print("\nIssued an access token with 'voip' scope that expires at " + token_resu
 print(token_result.token)
 ```
 
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expires_on` response property indicates the lifetime of the access token.
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application user experience. The `expires_on` response property indicates the lifetime of the access token.
 
 ## Set a custom token expiration time
 
-The default token expiration time is 24 hours, but you can configure it by providing a value between an hour and 24 hours to the optional parameter `token_expires_in`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
+The default token expiration time is 24 hours, but you can configure it by providing a value between an hour and 24 hours to the optional parameter `token_expires_in`. When requesting a new token, specify the expected typical length of a communication session for the token expiration time.
 
 ```python
 # Issue an access token with a validity of an hour and the "voip" scope for an identity
 token_expires_in = timedelta(hours=1)
 token_result = client.get_token(identity, ["voip"], token_expires_in=token_expires_in)
-
 ```
 
 ## Create an identity and issue an access token in the same request
@@ -141,7 +142,7 @@ token_result = client.get_token(identity, ["voip"])
 
 ## Revoke access tokens
 
-You might occasionally need to explicitly revoke an access token. For example, you would do so when application users change the password they use to authenticate to your service. The `revoke_tokens` method invalidates all active access tokens that were issued to the identity.
+You might need to explicitly revoke an access token. For example, when application users change the password they use to authenticate to your service. The `revoke_tokens` method invalidates all active access tokens that were issued to the identity.
 
 ```python
 client.revoke_tokens(identity)
@@ -150,7 +151,7 @@ print("\nSuccessfully revoked all access tokens for identity with ID: " + identi
 
 ## Delete an identity
 
-When you delete an identity, you revoke all active access tokens and prevent the further issuance of access tokens for the identity. Doing so also removes all persisted content that's associated with the identity.
+When you delete an identity, you revoke all active access tokens and prevent the further issuance of access tokens for the identity. Doing so also removes all persisted content associated with the identity.
 
 ```python
 client.delete_user(identity)
@@ -159,13 +160,13 @@ print("\nDeleted the identity with ID: " + identity.properties['id'])
 
 ## Run the code
 
-From a console prompt, go to the directory that contains the *issue-access-tokens.py* file, and then execute the following `python` command to run the app.
+From a console prompt, go to the directory that contains the `issue-access-tokens.py` file, and then execute the following `python` command to run the app.
 
 ```console
 python ./issue-access-tokens.py
 ```
 
-The app's output describes each completed action:
+The generated output describes each completed action:
 
 <!---cSpell:disable --->
 ```console

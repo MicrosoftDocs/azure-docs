@@ -1,11 +1,18 @@
 ---
-author: kgremban
-ms.author: kgremban
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 12/19/2024
-ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-track-csharp, devx-track-dotnet]
+ms.date: 1/6/2025
+ms.custom:
+  - amqp
+  - mqtt
+  - "Role: Cloud Development"
+  - "Role: IoT Device"
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 ## Create a device application
@@ -40,8 +47,6 @@ A device app can authenticate with IoT Hub using the following methods:
 #### Authenticate using a shared access key
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to receive messages on the device.
-
-### Supply the connection parameters
 
 Supply the IoT Hub primary connection string and Device ID to `DeviceClient` using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring) method. In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 
@@ -105,7 +110,7 @@ After the device receives a message, the device application calls the [CompleteA
 
 #### Message abandon, reject, or timeout
 
-With AMQP and HTTP version 1 protocols, but not the [MQTT protocol](../articles/iot/iot-mqtt-connect-to-iot-hub.md), the device can also:
+With AMQP and HTTP version 1 protocols, but not the [MQTT protocol](../articles/iot-hub/iot-mqtt-connect-to-iot-hub.md), the device can also:
 
 * Abandon a message by calling [AbandonAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.abandonasync). This results in IoT Hub retaining the message in the device queue for future consumption.
 * Reject a message by calling [RejectAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.rejectasync). This permanently removes the message from the device queue.
@@ -183,8 +188,6 @@ You can connect a backend service to IoT Hub using the following methods:
 [!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
 
 #### Connect using a shared access policy
-
-##### Supply the connection string
 
 Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring). In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 
@@ -278,7 +281,7 @@ var feedbackReceiver = serviceClient.GetFeedbackReceiver();
 // Define the cancellation token.
 CancellationTokenSource source = new CancellationTokenSource();
 CancellationToken token = source.Token;
-// Call ReceiveAsync, passing the token. Wait for the timout period.
+// Call ReceiveAsync, passing the token. Wait for the timeout period.
 var feedbackBatch = await feedbackReceiver.ReceiveAsync(token);
 if (feedbackBatch == null) continue;
 ```

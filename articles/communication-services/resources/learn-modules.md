@@ -1,16 +1,18 @@
 ---
 title: Learn modules for Azure Communication Services
 description: Learn about the available Learn modules for Azure Communication Services.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Learn modules
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 If you're looking for more guided experiences that teach you how to use Azure Communication Services then we have several Learn modules at your disposal. These modules provide a more structured experience of learning by providing a step by step guide to learning particular topics. Check them out, we'd love to know what you think.
 

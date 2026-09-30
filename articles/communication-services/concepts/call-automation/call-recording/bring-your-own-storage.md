@@ -7,11 +7,13 @@ manager: seaen
 services: azure-communication-services
 ms.author: dbasantes
 ms.date: 03/16/2023
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ---
 
 # Bring your own Azure storage overview
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 Bring Your Own Azure Storage for Call Recording allows you to specify an Azure blob storage account for storing call recording files. Bring your own Azure storage enables businesses to store their data in a way that meets their compliance requirements and business needs. For example, end-users could customize their own rules and access to the data, enabling them to store or delete content whenever they need it. Bring your own Azure Storage provides a simple and straightforward solution that eliminates the need for developers to invest time and resources in downloading and exporting files.
 

@@ -5,13 +5,18 @@ description: Learn about Azure Communication Services Call Automation API.
 author: ashwinder
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/19/2023
 ms.author: askaur
 ---
 # Call Automation Overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network (PSTN) channels. The SDKs, available in C#, Java, JavaScript, and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (such as answer, transfer, play audio, start recording, and so on) to steer and control calls based on your business logic.
+
+> [!IMPORTANT]
+> Following the Azure Communication Services telephony retirement announcement, Microsoft will update the Microsoft Product Terms. After this update, Azure Communication Services Call Automation, Call Recording, and Audio Streaming support only Microsoft Teams interoperability scenarios: Teams Meeting interop, Teams click-to-call, and Teams Phone extensibility (TPE). For more information, see the retirement announcement: https://aka.ms/acs-retirement
 
 ## Common use cases
 
@@ -19,12 +24,12 @@ Some of the common use cases that you can build using Call Automation:
 
 - Program VoIP or PSTN calls for transactional workflows such as click-to-call and appointment reminders to improve customer service.
 - Build interactive interaction workflows to self-serve customers for use cases like order bookings and updates, using Play (Audio URL, Text-to-Speech, and SSML) and Recognize (DTMF and Voice) actions.
-- Integrate your communication applications with Contact Centers and your private telephony networks using Direct Routing.
+- Integrate your communication applications with contact centers and Microsoft Teams by using Teams Phone extensibility.
 - Protect your customer's identity by building number masking services to connect buyers to sellers or users to partner vendors on your platform.
 - Increase engagement by building automated customer outreach programs for marketing and customer service.
 - Analyze in a post-call process your unmixed audio recordings for quality assurance purposes.  
 
-Use Azure Communication Services Call Automation to build calling workflows for customer service scenarios, as depicted in the high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like play a welcome message or connect the customer to a live agent on an Azure Communication Services Calling SDK client app to answer the incoming call request. With support for Azure Communication Services PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
+Use Azure Communication Services Call Automation to build calling workflows for customer service scenarios, as depicted in the high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like play a welcome message or connect the customer to a live agent on an Azure Communication Services Calling SDK client app to answer the incoming call request. By using Teams Phone extensibility, you can connect this workflow back to your contact center.  
 
 ![Diagram of calling flow for a customer service scenario.](./media/call-automation-architecture.png)
 
@@ -50,8 +55,10 @@ The following features are currently available in the Azure Communication Servic
 |                       | Stop continuous DTMF recognition                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Start/Stop audio streaming (public preview)       | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Start/Stop real-time transcription (public preview)| ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Hold participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Unhold participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop audio streaming                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop real-time transcription               | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
@@ -59,6 +66,7 @@ The following features are currently available in the Azure Communication Servic
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
 |                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them| ✔️    |  ✔️   |     ✔️         |    ✔️   |
+|                       | Move a participant to another call                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -90,6 +98,16 @@ These actions are performed before the destination endpoint listed in the `Incom
 
 **Connect Call** - Use the Connect Call action to connect to an ongoing call and take call actions on it. You can also use this action to connect and [manage a Rooms call programmatically](./../../quickstarts/rooms/manage-rooms-call.md), like performing PSTN dial outs for Room using your service. 
 
+> [!NOTE]
+> **Identifier formats and storage guidance**
+>
+> Azure Communication Services exposes two categories of identifiers on a call:
+>
+> - **Fixed-length GUID identifiers** — `CallConnectionId` and `CorrelationId` are GUID-formatted and have a stable, fixed length (36 characters in standard GUID string form).
+> - **Variable-length Base64-encoded identifiers** — `ServerCallId` (Call Automation, Call Recording) and `recordingId` (Call Recording) are opaque, Base64-encoded strings whose length can vary between calls and may change over time as the service evolves.
+>
+> When persisting `ServerCallId` or `recordingId`, use a **variable-length, unbounded string column**. Avoid fixed-width column types such as `VARCHAR(200)`, as the current observed length is not a contract and may grow in future releases. Treat both values as opaque tokens — do not parse, decode, or derive meaning from their contents.
+
 ### Mid-call actions
 
 Your application can perform these actions on calls that are answered or placed using Call Automation SDKs. Each mid-call action has a corresponding success or failure web hook callback event.
@@ -116,10 +134,11 @@ Your application can perform these actions on calls that are answered or placed 
 
 **Cancel media operations** – Based on business logic your application might need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, your application might receive a webhook event indicating that the action was canceled. 
 
-**Start/Stop audio streaming (public preview)** - Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see our [concept](audio-streaming-concept.md) and our [quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).
+**Start/Stop audio streaming** - Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see our [concept](audio-streaming-concept.md) and our [quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).
 
-**Start/Stop real-time transcription (public preview)** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
+**Start/Stop real-time transcription** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
 
+**Move a participant to another call** – When your application needs to move a participant from one ongoing call into another using the `MoveParticipants` API. This enables dynamic routing and flexible call orchestration, such as moving a translator into a doctor–patient call or transferring a customer from a lobby call into an active support call. To learn more, see [How to control and steer calls](../../how-tos/call-automation/actions-for-call-control.md).
 
 ### Query scenarios
 

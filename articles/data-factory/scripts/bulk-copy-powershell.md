@@ -1,8 +1,8 @@
 ---
 title: Copy data in bulk using PowerShell
 description: This PowerShell script shows how to use Azure Data Factory to copy data from a source data store to a destination data store in bulk.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: article
 ms.custom: devx-track-azurepowershell
@@ -24,7 +24,7 @@ See [tutorial: bulk copy](../tutorial-bulk-copy.md#prerequisites) for the prereq
 > [!IMPORTANT]
 > This script creates JSON files that define Data Factory entities (linked service, dataset, and pipeline) on your hard drive in the c:\ folder.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/bulk-copy-from-sql-databse-to-sql-data-warehouse/bulk-copy-from-sql-database-to-sql-data-warehouse.ps1 "Bulk copy from Azure SQL Database => Azure Synapse Analytics")]
+[!code-powershell[main](~/powershell_scripts/data-factory/bulk-copy-from-sql-databse-to-sql-data-warehouse/bulk-copy-from-sql-database-to-sql-data-warehouse.ps1 "Bulk copy from Azure SQL Database => Azure Synapse Analytics")]
 
 ## Clean up deployment
 

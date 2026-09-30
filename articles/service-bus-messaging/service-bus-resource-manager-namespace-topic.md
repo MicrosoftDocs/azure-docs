@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a topic and subscription within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a topic and subscription within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
@@ -57,7 +57,8 @@ The name of the Service Bus namespace to create.
 ### serviceBusTopicName
 
 The name of the topic created in the Service Bus namespace.
-
+> [!NOTE]
+> If your topic name contains forward slashes (`/`), use `~` (tilde) in place of `/` in the template parameter. For example, to create a topic named `events/billing`, specify the name as `events~billing`. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
 ```json
 "serviceBusTopicName": {
 "type": "string"
@@ -99,7 +100,7 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "Standard",
+            "name": "Standard"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
@@ -109,14 +110,14 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
                 "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
-                "path": "[parameters('serviceBusTopicName')]",
+                "path": "[parameters('serviceBusTopicName')]"
             },
             "resources": [{
                 "apiVersion": "[variables('sbVersion')]",
                 "name": "[parameters('serviceBusSubscriptionName')]",
                 "type": "Subscriptions",
                 "dependsOn": [
-                    "[parameters('serviceBusTopicName')]"
+                    "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'), '/Topics/', parameters('serviceBusTopicName'))]"
                 ],
                 "properties": {}
             }]
@@ -148,6 +149,10 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 
 * [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+
+> [!NOTE]
+> To create or manage topics and subscriptions using the REST API, see the [Service Bus REST API reference for subscriptions](/rest/api/servicebus/create-subscription).
+
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/resources/templates/?term=service+bus

@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-ios-android-windows
 
 # Manage call duration
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Provides developers with the capability to programmatically trigger and track events when a call starts. Capturing the initiation of a call enables businesses to execute crucial workflows, including logging call metadata, initiating timers for duration tracking, or triggering user interface updates to reflect the real-time call status.
 
 ## Start time
@@ -37,7 +39,7 @@ By retrieving the call start time, developers can measure call duration and inte
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - A deployed Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md)
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../quickstarts/voice-video-calling/getting-started-with-calling.md)

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/14/2023
- ms.author: cherylmc
+ ms.date: 03/27/2025
+ ms.author: duau
 ms.custom: include file
 ---
 

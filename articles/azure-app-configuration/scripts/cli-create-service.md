@@ -9,7 +9,9 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 04/12/2024
 ms.author: malev 
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Create an Azure App Configuration store with the Azure CLI
@@ -24,10 +26,12 @@ This sample script creates a new instance of Azure App Configuration using the A
 
 ## Sample script
 
+In the following example, replace the placeholder text _`<AppConfigurationStoreName>`_ with your desired App Configuration store name.
+
 ```azurecli-interactive
 #!/bin/bash
 
-appConfigName=myTestAppConfigStore
+appConfigName=<AppConfigurationStoreName>
 #resource name must be lowercase
 myAppConfigStoreName=${appConfigName,,}
 myResourceGroupName=$appConfigName"Group"

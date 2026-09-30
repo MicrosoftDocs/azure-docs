@@ -5,7 +5,7 @@ description: Define a UserInfo endpoint in a custom policy in Azure Active Direc
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -20,6 +20,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # UserInfo endpoint
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

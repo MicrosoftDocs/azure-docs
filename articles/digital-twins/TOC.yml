@@ -1,16 +1,9 @@
 - name: Azure Digital Twins documentation
   href: index.yml
-- name: Overview
-  items:
-  - name: About Azure Digital Twins
-    href: overview.md
-- name: Quickstarts
-  items:
-  - name: Get started with Azure Digital Twins Explorer
-    href: quickstart-azure-digital-twins-explorer.md
-  - name: Get started with 3D Scenes Studio
-    href: quickstart-3d-scenes-studio.md
-  expanded: true
+- name: Overview - About Azure Digital Twins
+  href: overview.md
+- name: Quickstart - Get started with Azure Digital Twins Explorer
+  href: quickstart-azure-digital-twins-explorer.md
 - name: Tutorials
   items:
   - name: Code a client app
@@ -33,10 +26,10 @@
       href: concepts-ontologies.md
     - name: Adopting DTDL-based industry ontologies
       href: concepts-ontologies-adopt.md
-    - name: Converting ontologies
-      href: concepts-ontologies-convert.md
     - name: Extending ontologies
       href: concepts-ontologies-extend.md
+    - name: Converting ontologies
+      href: concepts-ontologies-convert.md
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
@@ -214,7 +207,7 @@
     - name: Control plane
       items:
       - name: Control plane Swagger
-        href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable
+        href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/DigitalTwins/stable
       - name: .NET (C#) SDK - NuGet
         href: https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins
       - name: .NET (C#) SDK - Source code
@@ -230,7 +223,7 @@
       - name: Python SDK - PyPi
         href: https://pypi.org/project/azure-mgmt-digitaltwins/
       - name: Python SDK - Source code
-        href: https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins
+        href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins/azure-mgmt-digitaltwins
       - name: Go SDK - GoDoc
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt
       - name: Go - Source code
@@ -238,7 +231,7 @@
     - name: Data plane
       items:
       - name: Data plane Swagger
-        href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins
+        href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/DigitalTwins
       - name: .NET (C#) SDK - NuGet
         href: https://www.nuget.org/packages/Azure.DigitalTwins.Core
       - name: .NET (C#) SDK - Source code
@@ -287,18 +280,10 @@
       href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/DeleteModels
     - name: OWL2DTDL Converter
       href: https://github.com/Azure/opendigitaltwins-tools/tree/main/OWL2DTDL
-    - name: SignalR integration sample
-      href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
-    - name: Multivariate Anomaly Detection Toolkit
-      href: /samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/
   - name: Ontologies
     items:
     - name: Smart buildings
       href: https://github.com/Azure/opendigitaltwins-building
-    - name: Smart cities
-      href: https://github.com/Azure/opendigitaltwins-smartcities
-    - name: Energy grids
-      href: https://github.com/Azure/opendigitaltwins-energygrid/
     - name: Manufacturing
       href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
   - name: DTDL

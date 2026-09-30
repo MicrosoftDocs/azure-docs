@@ -7,10 +7,12 @@ manager: sphenry
 services: azure-communication-services
 ms.author: bashan
 ms.date: 03/31/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 # Email pricing in Azure Communication Services
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 Prices for Azure Communication Services are generally based on a pay-as-you-go model and Email offers pay-as-you-go pricing as well. The prices in the following examples are for illustrative purposes and may not reflect the latest Azure pricing.
 

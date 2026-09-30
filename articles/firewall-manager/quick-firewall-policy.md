@@ -2,12 +2,16 @@
 title: 'Quickstart: Create an Azure Firewall and a firewall policy - Resource Manager template'
 description: In this quickstart, you deploy an Azure Firewall and a firewall policy.
 services: firewall-manager
-author: vhorne
-ms.author: victorh
-ms.date: 09/28/2023
+author: duongau
+ms.author: duau
+ms.date: 01/08/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Firewall and a firewall policy - ARM template
@@ -18,9 +22,9 @@ Also, IP Groups are used in the rules to define the **Source** IP addresses.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
+For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md)
 
-For information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md).
+For information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
 For information about IP Groups, see [IP Groups in Azure Firewall](../firewall/ip-groups.md).
 
@@ -30,7 +34,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 
@@ -53,7 +57,7 @@ Multiple Azure resources are defined in the template:
 
 Deploy the ARM template to Azure:
 
-1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, a virtual WAN and virtual hub, the network infrastructure, and two virtual machines.
+1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates a hub virtual network, an Azure Firewall, a firewall policy with rule collection groups and IP groups, and the supporting network infrastructure.
 
    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json":::
 

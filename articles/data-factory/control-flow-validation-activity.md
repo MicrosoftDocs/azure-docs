@@ -4,15 +4,17 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The Validation activity in Azure Data Factory and Synapse Analytics delays execution of the pipeline until a dataset is validated with user-defined criteria.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2024
 ---
 
 # Validation activity in Azure Data Factory and Synapse Analytics pipelines
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You can use a Validation in a pipeline to ensure the pipeline only continues execution once it validates the attached dataset reference exists, that it meets the specified criteria, or times out.
 

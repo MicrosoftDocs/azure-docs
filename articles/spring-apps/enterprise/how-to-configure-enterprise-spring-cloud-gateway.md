@@ -2,11 +2,18 @@
 title: Configure VMware Spring Cloud Gateway
 description: Learn how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: xiading
+ms.author: karler
+ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 12/01/2023
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Configure VMware Spring Cloud Gateway
@@ -318,7 +325,7 @@ az spring gateway update \
 
 You must specify the protocol as HTTPS in the route configuration. The following JSON object instructs VMware Spring Cloud Gateway to use the HTTPS protocol for all traffic between the gateway and the app.
 
-1. Create a file named *test-tls-route.json* with the following content:
+1. Create a file named **test-tls-route.json** with the following content:
 
    ```json
    {
@@ -620,7 +627,7 @@ For other supported environment variables, see the following sources:
 - [Dynatrace environment variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
 - [New Relic environment variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 - [AppDynamics environment variables](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv24.3-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
-- [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+- [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/current/configuration.html)
 
 #### Configure APM integration on the service instance level (recommended)
 
@@ -864,7 +871,7 @@ Use the following steps to update the add-on configuration.
 
 ### [Azure CLI](#tab/Azure-CLI) 
 
-1. Prepare the JSON file for add-on configurations (*\<file-name-of-addon-configs-json\>.json*) with the following content:
+1. Prepare the JSON file for add-on configurations (**\<file-name-of-addon-configs-json\>.json**) with the following content:
 
    ```json
    {

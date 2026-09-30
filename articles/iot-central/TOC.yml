@@ -4,6 +4,8 @@
   items:
   - name: What is Azure IoT Central
     href: core/overview-iot-central.md
+  - name: Azure IoT Central evolution
+    href: core/iot-central-evolution.md
   - name: Tour of the UI
     href: core/overview-iot-central-tour.md
   - name: Tour of the API
@@ -25,8 +27,6 @@
         href: core/tutorial-connect-device.md
       - name: Create a device group
         href: core/tutorial-use-device-groups.md
-      - name: Connect an IoT Edge device
-        href: /training/modules/connect-iot-edge-device-to-iot-central/
       - name: Create a gateway device template
         href: core/tutorial-define-gateway-device-type.md
     - name: Extend your application
@@ -145,6 +145,8 @@
           href: core/howto-configure-file-uploads.md
         - name: Migrate devices to IoT Hub
           href: core/howto-migrate-to-iot-hub.md
+        - name: Migrate to native Azure IoT architecture
+          href: core/howto-migrate-to-azure-native-iot.md
     - name: Extend your application
       items:
         - name: Configure rules
@@ -259,8 +261,6 @@
       href: ../iot-edge/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
-    - name: Time Series Insights
-      href: ../time-series-insights/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs

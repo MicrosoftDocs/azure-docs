@@ -7,13 +7,15 @@ services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 02/24/2024
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ms.service: azure-communication-services
 ms.custom:
 zone_pivot_groups: acs-plat-web-native
 ---
 
 # Known issues in the SDKs and APIs
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 These articles provide information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
 

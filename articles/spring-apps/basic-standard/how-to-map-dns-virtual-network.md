@@ -1,11 +1,13 @@
 ---
-title: Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
+title: Map DNS Names to Applications in Multiple Azure Spring Apps Service Instances in the Same Virtual Network
 description: Learn how to map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network.
 author: KarlErickson
-ms.author: wenhaozhang
+ms.author: karler
+ms.reviewer: wenhaozhang
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-azurecli, engagement-fy23
 ---
 
@@ -19,7 +21,7 @@ This article shows how to map Domain Name System (DNS) names to applications to 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 - A virtual network deployed in an instance of Azure Spring Apps. For more information, see [Deploy Azure Spring Apps in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
 
@@ -60,7 +62,7 @@ Both approaches require the IP address for each application in the Azure Spring 
 
 1. Navigate to the virtual network you created for an Azure Spring Apps instance, and then select **Connected devices** in the navigation pane.
 
-1. On the **Connected devices** page, search for *kubernetes-internal*.
+1. On the **Connected devices** page, search for **kubernetes-internal**.
 
 1. In the search results, find each **Device** connected to a service runtime **Subnet** of an Azure Spring Apps service instance, and copy its **IP Address**. In the following screenshot example, the IP address of `azure-spring-apps-1` is `10.1.0.6`, and the IP address of `azure-spring-apps-2` is `10.1.2.6`.
 
@@ -146,7 +148,7 @@ Use the following steps to create this link:
 
 1. On the navigation pane, select **Virtual network links**, then select **Add**.
 
-1. For the **Link name**, enter *azure-spring-apps-dns-link*.
+1. For the **Link name**, enter **azure-spring-apps-dns-link**.
 
 1. For **Virtual network**, select the virtual network you created for [Prerequisites](#prerequisites).
 
@@ -226,7 +228,7 @@ Use the following steps to create a DNS record:
 
    | Setting    | Value                            |
    |------------|----------------------------------|
-   | Name       | *azure-spring-apps-1-hello-vnet* |
+   | Name       | **azure-spring-apps-1-hello-vnet** |
    | Type       | **A**                            |
    | TTL        | 1                                |
    | TTL unit   | **Hours**                        |
@@ -360,7 +362,7 @@ Use the following steps to create the A record in your DNS zone:
 
    | Setting    | Value                            |
    |------------|----------------------------------|
-   | Name       | *\*.azure-spring-apps-1*         |
+   | Name       | **\*.azure-spring-apps-1**         |
    | Type       | **A**                            |
    | TTL        | 1                                |
    | TTL unit   | **Hours**                        |

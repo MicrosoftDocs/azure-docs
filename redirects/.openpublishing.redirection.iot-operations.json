@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-layered-network-private-connectivity.md",
+      "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-layered-network-private-connectivity",
+      "redirect_document_id": true
+    }
+  ]
+}

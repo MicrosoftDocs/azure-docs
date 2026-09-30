@@ -4,12 +4,14 @@ description: A conceptual overview plus FAQ for trial phone numbers and verified
 author: jadacampbell
 ms.author: jadacampbell
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 07/19/2023
 ms.custom: template-concept
 ---
 
 # Frequently asked questions about trial phone numbers in Azure Communication Services
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 

@@ -3,13 +3,14 @@ title: Performance tuning for uploads and downloads with Azure Storage client li
 titleSuffix: Azure Storage
 description: Learn how to tune your uploads and downloads for better performance with Azure Storage client library for .NET. 
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 11/19/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to optimize data transfer performance using the Azure Storage client library, so that I can enhance speed, reduce memory usage, and ensure reliable uploads and downloads for my applications.
 ---
 
 # Performance tuning for uploads and downloads with .NET
@@ -43,9 +44,18 @@ If you're unsure of what value is best for your situation, a safe option is to s
 > When using a `BlobClient` object, uploading a blob smaller than the `InitialTransferSize` will be performed using [Put Blob](/rest/api/storageservices/put-blob), rather than [Put Block](/rest/api/storageservices/put-block).
 
 ### MaximumConcurrency
+
 [MaximumConcurrency](/dotnet/api/azure.storage.storagetransferoptions.maximumconcurrency) is the maximum number of workers that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations ignore this value and work in sequence.
 
-The effectiveness of this value is subject to connection pool limits in .NET, which may restrict performance by default in certain scenarios. To learn more about connection pool limits in .NET, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
+The effectiveness of this value is subject to connection pool limits in .NET, which may restrict performance by default in certain scenarios. You can use the following code to increase the default connection limit (which is usually two in a client environment or ten in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application. Set the connection limit before opening any connections.
+
+```csharp
+ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
+```
+
+To learn more about connection pool limits in .NET Framework, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
+
+For more information, see the [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads) method.
 
 ### MaximumTransferSize
 
@@ -82,6 +92,14 @@ await blobClient.UploadAsync(stream, options);
 
 In this example, we set the number of parallel transfer workers to 2, using the `MaximumConcurrency` property. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. The initial HTTP range request attempts to upload up to 8 MiB of data, as defined by the `InitialTransferSize` property. Note that `InitialTransferSize` only applies for uploads when [using a seekable stream](#initialtransfersize-on-upload). If the blob size is smaller than 8 MiB, only a single request is necessary to complete the operation. If the blob size is larger than 8 MiB, all subsequent transfer requests have a maximum size of 4 MiB, which we set with the `MaximumTransferSize` property.
 
+## Increasing the minimum number of threads
+
+If you're using synchronous calls together with asynchronous tasks, you may want to increase the number of threads in the thread pool:
+
+```csharp
+ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
+```
+
 ## Performance considerations for uploads
 
 During an upload, the Storage client libraries split a given upload stream into multiple subuploads based on the values defined in the `StorageTransferOptions` instance. Each subupload has its own dedicated call to the REST operation. For a `BlobClient` object or `BlockBlobClient` object, this operation is [Put Block](/rest/api/storageservices/put-block). For a `DataLakeFileClient` object, this operation is [Append Data](/rest/api/storageservices/datalakestoragegen2/path/update). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
@@ -115,8 +133,29 @@ Receiving multiple HTTP responses simultaneously with body contents has implicat
 
 During a download, the Storage client libraries make one download range request using `InitialTransferSize` before doing anything else. During this initial download request, the client libraries know the total size of the resource. If the initial request successfully downloaded all of the content, the operation is complete. Otherwise, the client libraries continue to make range requests up to `MaximumTransferSize` until the full download is complete.
 
+## Transfer validation with CRC64-NVME
+
+In addition to performance tuning with `StorageTransferOptions`, you can configure transfer validation to verify data integrity for uploads (`UploadTransferValidationOptions`) and downloads (`DownloadTransferValidationOptions`). While CRC64-NVME is generally performant to compute, enabling transfer validation may have performance implications that should be considered alongside other tuning decisions.
+
+[!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
+
+Transfer validation options can be defined at the client level using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions), which applies validation options to all methods called from a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) instance. Alternatively, you can override transfer validation options at the method level using [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) or [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadtooptions).
+
+```csharp
+BlobClientOptions options = new BlobClientOptions
+{
+    TransferValidation =
+    {
+        Upload   = { ChecksumAlgorithm = StorageChecksumAlgorithm.StorageCrc64 },
+        Download = { ChecksumAlgorithm = StorageChecksumAlgorithm.StorageCrc64 },
+    },
+};
+BlobServiceClient serviceClient = new BlobServiceClient(new Uri($"https://{account}.blob.core.windows.net"), credential, options);
+```
+
 ## Next steps
 
 - This article is part of the Blob Storage developer guide for .NET. See the full list of developer guide articles at [Build your app](storage-blob-dotnet-get-started.md#build-your-app).
 - To understand more about factors that can influence performance for Azure Storage operations, see [Latency in Blob storage](storage-blobs-latency.md).
 - To see a list of design considerations to optimize performance for apps using Blob storage, see [Performance and scalability checklist for Blob storage](storage-performance-checklist.md).
+

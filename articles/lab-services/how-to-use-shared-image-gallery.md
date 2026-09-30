@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 03/06/2022
 author: RoseHJM
 ms.author: rosemalcolm
+ms.custom: sfi-image-nochange
 ---
 
 # Use an Azure compute gallery in Azure Lab Services

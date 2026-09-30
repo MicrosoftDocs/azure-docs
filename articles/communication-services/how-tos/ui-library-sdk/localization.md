@@ -15,13 +15,15 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Localize the UI Library in an application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Localization is a key to making products that can be used across the world and by people who speak different languages. The Azure Communication Services UI Library provides out-of-the-box support for some languages and capabilities, such as right to left (RTL). Developers can provide their own localization files for the UI Library.
 
 In this article, you learn how to set up localization correctly by using the UI Library in your application.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
 - Optional: Completion of the [quickstart for getting started with UI Library composites](../../quickstarts/ui-library/get-started-composites.md).

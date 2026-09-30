@@ -1,9 +1,11 @@
 ---
 title: Access a private virtual network from a Bicep deployment script
 description: Learn how to run and test Bicep deployment scripts in private networks.
-ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 08/18/2026
+ms.custom:
+  - devx-track-bicep
+  - sfi-image-nochange
 ---
 
 # Access a private virtual network from a Bicep deployment script
@@ -12,6 +14,9 @@ With `Microsoft.Resources/deploymentScripts` version `2023-08-01`, you can run d
 
 - Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](./deployment-script-develop.md#identity).
 - Create a storage account in the private network, and specify the deployment script to use the existing storage account. For more information, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). Some additional configuration is required for the storage account:
+
+  > [!IMPORTANT]
+  > If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
 
     1. Open the storage account in the [Azure portal](https://portal.azure.com).
     1. On the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
@@ -34,7 +39,7 @@ param storageAccountName string = '${prefix}stg${uniqueString(resourceGroup().id
 param vnetName string = '${prefix}Vnet'
 param subnetName string = '${prefix}Subnet'
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: vnetName
   location: location
   properties: {
@@ -68,11 +73,11 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
   }
 }
 
-resource subnet 'Microsoft.Network/virtualNetworks/subnets@2023-05-01' existing = {
+resource subnet 'Microsoft.Network/virtualNetworks/subnets@2024-05-01' existing = {
   parent: vnet
   name: subnetName
 }
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -94,7 +99,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
 }
 
-resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
+resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2025-01-31-preview' = {
   name: userAssignedIdentityName
   location: location
 }
@@ -129,7 +134,7 @@ param vnetName string
 param subnetName string
 param userAssignedIdentityName string
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' existing = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' existing = {
   name: vnetName
 
   resource subnet 'subnets' existing = {
@@ -137,7 +142,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' existing = {
   }
 }
 
-resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' existing = {
+resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2025-01-31-preview' existing = {
   name: userAssignedIdentityName
 }
 

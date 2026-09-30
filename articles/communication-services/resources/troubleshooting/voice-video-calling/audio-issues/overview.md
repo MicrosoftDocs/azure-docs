@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # Overview of audio issues
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 Audio quality is important in conference calls. If any participants on a call can’t hear each other well enough, then the participants likely leave the call.
 To establish a voice call with good quality, several factors must be considered. These factors include:
 

@@ -2,11 +2,11 @@
 title: Transform data by using the Script activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Explains how to use the Script Activity to transform data in an Azure Data Factory or Synapse Analytics pipeline.
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 10/03/2024
+ms.date: 08/01/2025
 ms.subservice: orchestration
 ---
 
@@ -14,15 +14,19 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Script activity](/fabric/data-factory/script-activity).
+
 You use data transformation activities in a Data Factory or Synapse [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Script activity is one of the transformation activities that pipelines support. This article builds on the [transform data article](transform-data.md), which presents a general overview of data transformation and the supported transformation activities. 
 
 Using the script activity, you can execute common operations with Data Manipulation Language (DML), and Data Definition Language (DDL). DML statements like INSERT, UPDATE, DELETE and SELECT let users insert, modify, delete, and retrieve data in the database. DDL statements like CREATE, ALTER and DROP allow a database manager to create, modify, and remove database objects such as tables, indexes, and users.
 
 You can use the Script activity to invoke a SQL script in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
 
+- Azure Database for PostgreSQL (Version 2.0)
 - Azure SQL Database 
-- Azure Synapse Analytics 
-- SQL Server Database. If you are using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See the [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details. 
+- Azure Synapse Analytics
+- SQL Server Database. If you're using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See the [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details.
 - Oracle
 - Snowflake
 
@@ -36,7 +40,7 @@ The script can contain either a single SQL statement or multiple SQL statements 
 
 ## Syntax details
 
-Here is the JSON format for defining a Script activity: 
+Here's the JSON format for defining a Script activity: 
 
 ```json
 { 
@@ -142,7 +146,7 @@ Sample output:
 |Property name  |Description  |Condition  |
 |---------|---------|---------|
 |resultSetCount     |The count of result sets returned by the script.           |Always         |
-|resultSets     |The array which contains all the result sets.           |Always          |
+|resultSets     |The array that contains all the result sets.           |Always          |
 |resultSets.rowCount      |Total rows in the result set.         |Always          |
 |resultSets.rows      |The array of rows in the result set.           |Always         |
 |recordsAffected      |The row count of affected rows by the script.         |If scriptType is NonQuery         |
@@ -153,10 +157,10 @@ Sample output:
 
 > [!NOTE]
 > - The output is collected every time a script block is executed. The final output is the merged result of all script block outputs. The output parameter with same name in different script block will get overwritten. 
-> - Since the output has size / rows limitation, the output will be truncated in following order: logs -> parameters -> rows. Note, this applies to a single script block, which means the output rows of next script block won’t evict previous logs. 
+> - Since the output has size / rows limitation, the output will be truncated in the following order: logs -> parameters -> rows. This applies to a single script block, which means the output rows of next script block won’t evict previous logs. 
 > - Any error caused by log won’t fail the activity. 
-> - For consuming activity output resultSets in down stream activity please refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
-> - Use outputLogs when you are using 'PRINT' statements for logging purpose. If query returns resultSets, it will be available in the activity output and will be limited to 5000 rows/ 4MB size limit. 
+> - For consuming activity output resultSets in down stream activity, refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
+> - Use outputLogs when you're using 'PRINT' statements for logging purpose. If query returns resultSets, it will be available in the activity output and will be limited to 5000 rows/ 4MB size limit. 
 
 ## Configure the Script activity using UI
 
@@ -165,6 +169,36 @@ Sample output:
 :::image type="content" source="media/transform-data-using-script/inline-script.png" alt-text="Screenshot showing the UI to configure an inline script.":::
 
 Inline scripts integrate well with Pipeline CI/CD since the script is stored as part of the pipeline metadata.
+
+> [!TIP]
+> When you define parameters in a Script activity, you must explicitly reference each parameter in the query text to pass it at runtime.  
+> 
+> For example:
+> 
+> ```json
+> {
+>   "type": "Script",
+>   "typeProperties": {
+>     "scripts": [
+>       {
+>         "type": "Query",
+>         "text": "EXEC dbo.my_procedure @param1 = @param1",
+>         "parameters": [
+>           {
+>             "name": "param1",
+>             "type": "String",
+>             "value": {
+>               "value": "@pipeline().parameters.myValue",
+>               "type": "Expression"
+>             },
+>             "direction": "Input"
+>           }
+>         ]
+>       }
+>     ]
+>   }
+> }
+> ```
 
 ### Logging
 
@@ -182,7 +216,6 @@ Logging options:
 ## Related content
 See the following articles that explain how to transform data in other ways:
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [Pig activity](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)

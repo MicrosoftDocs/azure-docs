@@ -1,7 +1,7 @@
 ---
 title: Create multiple resource instances in Bicep
 description: Use different methods to create multiple resource instances in Bicep
-ms.date: 09/26/2024
+ms.date: 12/22/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to create multiple resources in Bicep.
@@ -21,7 +21,7 @@ This article contains the following topics:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). You also have either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
@@ -37,7 +37,7 @@ The following Bicep file defines one storage account:
 ```bicep
 param rgLocation string = resourceGroup().location
 
-resource createStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource createStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -81,7 +81,7 @@ A for loop with an index is used in the following sample to create two storage a
 param rgLocation string = resourceGroup().location
 param storageCount int = 2
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -132,7 +132,7 @@ param storageNames array = [
   'fabrikam'
 ]
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for name in storageNames: {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for name in storageNames: {
   name: '${name}str${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -161,7 +161,7 @@ param storages array = [
   }
 ]
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storage in storages: {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for storage in storages: {
   name: '${storage.name}obj${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -186,7 +186,7 @@ param storageNames array = [
   'fabrikam'
 ]
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for (name, i) in storageNames: {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for (name, i) in storageNames: {
   name: '${i}${name}${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -218,7 +218,7 @@ param storageConfig object = {
   }
 }
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for config in items(storageConfig): {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for config in items(storageConfig): {
   name: '${config.value.name}${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -241,7 +241,7 @@ param rgLocation string = resourceGroup().location
 param storageCount int = 2
 param createNewStorage bool = true
 
-resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): if(createNewStorage) {
+resource createStorages 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, storageCount): if(createNewStorage) {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: rgLocation
   sku: {
@@ -278,4 +278,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> [Create Bicep files by using Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

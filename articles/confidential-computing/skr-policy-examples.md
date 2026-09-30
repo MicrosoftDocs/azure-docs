@@ -2,11 +2,11 @@
 title: Secure Key Release Policy with Azure Key Vault and Azure Confidential Computing
 description: Examples of AKV SKR policies across offered Azure Confidential Computing Trusted Execution Environments
 author: angarg05
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
-ms.topic: conceptual
-ms.date: 3/5/2023
+ms.service: azure-confidential-computing
+ms.topic: concept-article
+ms.date: 09/09/2026
 ms.author: ananyagarg
+# Customer intent: As a security architect, I want to define secure key release policies for Azure Confidential Computing environments, so that I can ensure the integrity and compliance of encrypted data management across different trusted execution environments.
 ---
 
 # Secure Key Release policy examples for Azure Confidential Computing
@@ -130,7 +130,7 @@ Follow the policy [grammar](/azure/key-vault/keys/policy-grammar) for more examp
 
 ```
 
-**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across Azure)
+**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across Azure, edit the 'equals' part of the claim in the example below with the desired, unique VMID)
 
 ```json
 {
@@ -149,13 +149,63 @@ Follow the policy [grammar](/azure/key-vault/keys/policy-grammar) for more examp
         },
         {
           "claim": "x-ms-azurevm-vmid",
-          "equals": "B958DC88-E41D-47F1-8D20-E57B6B7E9825"
+          "equals": "<PLACE YOUR VMID here - for example - B958DC88-E41D-47F1-8D20-E57B6B7E9825>"
         }
       ]
     }
   ]
 }
 
+```
+
+## Trusted Launch VM (vTPM) SKR policy examples
+
+Secure Key Release isn't limited to confidential computing offerings. A [Trusted Launch VM](/azure/virtual-machines/trusted-launch) (Generation 2, Secure Boot + vTPM) also produces an MAA attestation token, and a release policy can gate on its vTPM measured-boot claims—`secureboot` and `x-ms-azurevm-attested-pcr-values.pcrN`. These claims don't require AMD SEV-SNP or Intel TDX hardware. Confidential computing additionally protects the released key material in memory from the host. Use it when that protection is required. For a full walkthrough, see [Protect intellectual property on Azure VMs with attestation-gated Secure Key Release](/azure/virtual-machines/secure-key-release-pattern-trusted-launch).
+
+**Example 1:** A Trusted Launch SKR policy that validates the VM booted with Secure Boot enabled (proves a genuine Trusted Launch platform and a validated vTPM quote).
+
+```json
+{
+  "version": "1.0.0",
+  "anyOf": [
+    {
+      "authority": "https://sharedweu.weu.attest.azure.net",
+      "allOf": [
+        {
+          "claim": "secureboot",
+          "equals": true
+        }
+      ]
+    }
+  ]
+}
+```
+
+**Example 2:** A Trusted Launch SKR policy that additionally pins the booted image by matching specific PCR values (commonly `pcr4` for the boot loader/kernel and `pcr7` for Secure Boot state). Read the expected values from a known-good attestation token, and then substitute them in the following code. A tampered, reimaged, or disk-swapped VM measures different PCRs and is denied.
+
+```json
+{
+  "version": "1.0.0",
+  "anyOf": [
+    {
+      "authority": "https://sharedweu.weu.attest.azure.net",
+      "allOf": [
+        {
+          "claim": "secureboot",
+          "equals": true
+        },
+        {
+          "claim": "x-ms-azurevm-attested-pcr-values.pcr4",
+          "equals": "<BASE64_PCR4>"
+        },
+        {
+          "claim": "x-ms-azurevm-attested-pcr-values.pcr7",
+          "equals": "<BASE64_PCR7>"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Confidential containers on Azure Container Instances (ACI) SKR policy examples
@@ -194,5 +244,7 @@ Follow the policy [grammar](/azure/key-vault/keys/policy-grammar) for more examp
 ## References
 
 [Microsoft Azure Attestation (MAA)](/azure/attestation/overview)
+
+[Protect intellectual property on Azure VMs with attestation-gated Secure Key Release](/azure/virtual-machines/secure-key-release-pattern-trusted-launch)
 
 [Secure Key Release Concept and Basic Steps](concept-skr-attestation.md)

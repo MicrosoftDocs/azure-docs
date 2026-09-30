@@ -1,13 +1,13 @@
 ---
 title: Common issues in Azure Migrate assessments
 description: Get help with assessment issues in Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
+ms.reviewer: v-gajeronika
 ms.date: 09/26/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24
+# Customer intent: As a cloud architect, I want to troubleshoot assessment errors in Azure Migrate, so that I can ensure successful migration and operation of applications in the cloud environment.
 ---
 
 # Common issues in Azure Migrate assessments
@@ -16,7 +16,7 @@ This article helps you troubleshoot issues with assessment and dependency visual
 
 ## Common assessment errors
 
-Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-calculation.md#how-does-the-appliance-calculate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
+Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-overview.md#how-does-the-appliance-aggregate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
 The following table summarizes the errors encountered while fetching the data by the assessment service. 
 
 ### Error Code: 60001:UnableToConnectToPhysicalServer	
@@ -299,7 +299,7 @@ Use a different target location before migration.
 
 #### Fix
 
-One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
+One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra Disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra Disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
 
 ### Issue: One or more unsuitable network adapters
 
@@ -317,7 +317,7 @@ Remove unused disks from the server before migration.
 
 #### Fix
 
-Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits.
+Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra Disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits.
 
 ### Issue: Disk unavailable in the specified location
 

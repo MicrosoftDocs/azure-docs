@@ -2,12 +2,12 @@
 title: Check network readiness for Azure Stack Edge using Azure Stack Network Readiness Checker
 description: Pre-qualify your network before deploying Azure Stack Edge Pro GPU, Pro R, or Mini R device using Azure Stack Network Readiness Checker.
 services: databox
-author: v-dalc
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2022
-ms.author: alkohli
+ms.author: sipastak
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
 ---

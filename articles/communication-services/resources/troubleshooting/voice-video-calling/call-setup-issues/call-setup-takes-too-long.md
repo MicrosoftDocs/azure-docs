@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The call setup takes too long
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When the user makes a call or accepts a call, multiple steps and messages are exchanged between the signaling layer and media transport.
 If the call setup takes too long, it's often due to network issues.
 Another factor that contributes to call setup delay is the stream acquisition delay, which is the time it takes for a browser to get the media stream.

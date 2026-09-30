@@ -2,19 +2,20 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/25/2023
+ms.date: 04/08/2026
 ms.author: wchi
 ---
 
-
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies.
+1. Install dependency.
+
     ```bash
     dotnet add package Azure.Messaging.WebPubSub
     ```
 
-1. Get the connection string from the environment variable added by Service Connector.
+1. Run the following code, getting the connection string from the Service Connector environment variables.
+
     ```csharp
     using Azure.Messaging.WebPubSub;
 
@@ -25,7 +26,9 @@ ms.author: wchi
     ```
 
 ### [Java](#tab/java)
+
 1. Add the following dependencies in your *pom.xml* file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -33,7 +36,9 @@ ms.author: wchi
         <version>1.0.0</version>
     </dependency>
     ```
-1. Get the connection string from the environment variable added by Service Connector.
+
+1. Run the following code, getting the connection string from the Service Connector environment variables.
+
     ```java
     String connectionString = System.getenv("AZURE_WEBPUBSUB_CONNECTIONSTRING");
 
@@ -43,12 +48,17 @@ ms.author: wchi
         .hub("<hub>")
         .buildClient();
     ```
+
 ### [Python](#tab/python)
-1. Install dependencies.
+
+1. Install dependency.
+
     ```bash
     python -m pip install azure-messaging-webpubsubservice
     ```
-1. Get the connection string from the environment variable added by Service Connector.
+
+1. Run the following code, getting the connection string from the Service Connector environment variables.
+
     ```python
     from azure.messaging.webpubsubservice import WebPubSubServiceClient
     
@@ -57,12 +67,17 @@ ms.author: wchi
     # Replace "<hub>" with your hub name.
     service = WebPubSubServiceClient.from_connection_string(connection_string=connection_string, hub='<hub>')
     ```
+
 ### [NodeJS](#tab/nodejs)
-1. Install dependencies.
+
+1. Install dependency.
+
     ```bash
     npm install @azure/web-pubsub
     ```
-1. Get the connection string from the environment variable added by Service Connector.
+
+1. Run the following code, getting the connection string from the Service Connector environment variables.
+
     ```javascript
     const { WebPubSubServiceClient } = require("@azure/web-pubsub");
     
@@ -73,4 +88,7 @@ ms.author: wchi
     ```
 
 ### [Other](#tab/none)
-For other languages, you can use the connection configuration properties that Service Connector sets to the environment variables to connect to Azure Web PubSub. For environment variable details, see [Integrate Azure Web PubSub with Service Connector](../how-to-integrate-web-pubsub.md).
+For other languages, you can use the connection configuration properties that Service Connector sets to the environment variables to connect to Azure Web PubSub.
+
+---
+

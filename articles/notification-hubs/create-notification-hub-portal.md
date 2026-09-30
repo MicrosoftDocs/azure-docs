@@ -1,20 +1,22 @@
 ---
-title: Create an Azure notification hub using the Azure portal | Microsoft Docs
-description: In this tutorial, you learn how to create an Azure notification hub by using the Azure portal.
+title: Create an Azure notification hub using the Azure portal
+description: Learn how to create an Azure notification hub using the Azure portal.
 services: notification-hubs
 author: sethmanheim
 ms.author: sethm
-manager: femila
+manager: lizross
 ms.reviewer: rebpen
-ms.date: 02/21/2024
+ms.date: 05/01/2025
 ms.topic: quickstart
 ms.service: azure-notification-hubs
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure notification hub in the Azure portal
 
-Azure Notification Hubs provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform (iOS, Android, Windows, Kindle, Baidu, etc.) from any backend (cloud or on-premises). For more information about the service, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
+Azure Notification Hubs provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform (iOS, Android, Windows, Kindle, Baidu, etc.) from any backend (cloud or on-premises). For more information about the service, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
 
 In this quickstart, you create a notification hub in the Azure portal. The first section gives you steps to create a Notification Hubs namespace and a hub in that namespace. The second section gives you steps to create a notification hub in an existing Notification Hubs namespace.
 
@@ -46,7 +48,7 @@ A namespace contains one or more notification hubs, so type a name for the hub i
 
     :::image type="content" source="./media/create-notification-hub-portal/notification-hub-details.png" alt-text="Screenshot showing notification hub details for existing namespaces." lightbox="./media/create-notification-hub-portal/notification-hub-details.png":::
 
-1. Review the [**Availability Zones**](./notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an additional fee is added to your tier.
+1. Review the [**Availability Zones**](/azure/reliability/reliability-notification-hubs?toc=/azure/notification-hubs/toc.json) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an extra fee is added to your tier.
 
 1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
 
@@ -57,4 +59,5 @@ A namespace contains one or more notification hubs, so type a name for the hub i
 ## Next steps
 
 - In this quickstart, you created a notification hub. To learn how to configure the hub with platform notification system (PNS) settings, see [Configure a notification hub with PNS settings](configure-notification-hub-portal-pns-settings.md).
-- For more information about availability zones, see [High availability for Azure Notification Hubs](notification-hubs-high-availability.md).
+- For more information about availability zones and disaster recovery, see [Reliability in Azure Notification Hubs](/azure/reliability/reliability-notification-hubs?toc=/azure/notification-hubs/toc.json).
+- To enable disaster recovery for an existing namespace, see [Enable disaster recovery for an existing namespace](enable-disaster-recovery-existing-namespace.md).

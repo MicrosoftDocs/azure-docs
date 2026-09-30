@@ -2,7 +2,9 @@
 title: Integrate with Apache Kafka Connect
 description: This article provides a walkthrough that shows you how to use Kafka Connect with Azure Event Hubs for Kafka.
 ms.topic: how-to
-ms.date: 07/31/2024
+ms.subservice: kafka
+ms.date: 03/06/2025
+ms.custom: sfi-ropc-nochange
 # customer intent: As a developer, I want to know how to use Apache Kafka Connect with Azure Event Hubs for Kafka. 
 ---
 
@@ -17,7 +19,7 @@ This article walks you through integrating Kafka Connect with an event hub and d
 ## Prerequisites
 To complete this walkthrough, make sure you have the following prerequisites:
 
-- Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Git](https://www.git-scm.com/downloads)
 - Linux/macOS
 - Latest Kafka release available from [kafka.apache.org](https://kafka.apache.org/downloads)
@@ -95,7 +97,7 @@ In this step, a Kafka Connect worker is started locally in distributed mode, usi
 > [!NOTE]
 > Kafka Connect uses the Kafka AdminClient API to automatically create topics with recommended configurations, including compaction. A quick check of the namespace in the Azure portal reveals that the Connect worker's internal topics have been created automatically.
 >
->Kafka Connect internal topics **must use compaction**.  The Event Hubs team is not responsible for fixing improper configurations if internal Connect topics are incorrectly configured.
+>Kafka Connect internal topics **must use compaction**. The Event Hubs team isn't responsible for fixing improper configurations if internal Connect topics are incorrectly configured.
 
 ### Create connectors
 This section walks you through spinning up `FileStreamSource` and `FileStreamSink` connectors. 

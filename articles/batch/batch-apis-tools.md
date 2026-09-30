@@ -1,8 +1,9 @@
 ---
 title: APIs and tools for developers
 description: Learn about the APIs and tools available for developing solutions with the Azure Batch service.
-ms.topic: conceptual
-ms.date: 06/27/2024
+ms.topic: concept-article
+ms.date: 08/10/2026
+# Customer intent: As a developer, I want to utilize Batch APIs and tools for parallel workload processing, so that I can efficiently manage compute resources and automate job scheduling in my applications.
 ---
 
 
@@ -28,7 +29,7 @@ Azure Batch has two sets of APIs, one for the service level and one for the mana
 
 Only actions from the management APIs are tracked in the activity log. Service level APIs bypass the Azure Resource Management layer (management.azure.com) and are not logged.
 
-For example, the [Batch service API to delete a pool](/rest/api/batchservice/pool/delete) is targeted directly on the batch account: `DELETE {batchUrl}/pools/{poolId}`
+For example, the [Batch service API to delete a pool](/rest/api/batchservice/pools/delete-pool) is targeted directly on the batch account: `DELETE {batchUrl}/pools/{poolId}`
 
 Whereas the [Batch management API to delete a pool](/rest/api/batchmanagement/pool/delete)  is targeted at the management.azure.com layer: `DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/pools/{poolName}`
 
@@ -52,7 +53,7 @@ The Azure Resource Manager APIs for Batch provide programmatic access to Batch a
 | --- | --- | --- | --- | --- |
 | **Batch Management REST** |[Azure REST API - Docs](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Batch Management .NET** |[Azure SDK for .NET - Docs](/dotnet/api/overview/azure/resourcemanager.batch-readme) |[NuGet](https://www.nuget.org/packages/Azure.ResourceManager.Batch/) | [Tutorial](batch-management-dotnet.md) |[GitHub](https://aka.ms/azuresdk-net-mgmt-samples) |
-| **Batch Management Python** |[Azure SDK for Python - Docs](/samples/azure-samples/azure-samples-python-management/batch/) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
+| **Batch Management Python** |[Azure SDK for Python - Docs](/python/api/azure-mgmt-batch/azure.mgmt.batch) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
 | **Batch Management JavaScript** |[Azure SDK for JavaScript - Docs](/javascript/api/overview/azure/arm-batch-readme) |[npm](https://www.npmjs.com/package/@azure/arm-batch) |- |- |
 | **Batch Management Java** |[Azure SDK for Java - Docs](/java/api/overview/azure/batch/management) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
 

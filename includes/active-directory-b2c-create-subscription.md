@@ -3,7 +3,7 @@ author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 03/29/2023
+ms.date: 05/20/2025
 ms.author: kengaderdus
 ---
 

@@ -1,12 +1,11 @@
 ---
 title: Export API from Azure API Management to Postman for testing and monitoring | Microsoft Docs
 description: Learn how to export an API definition from API Management to Postman and use Postman for API testing, monitoring, and development
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/06/2024
-ms.author: danlep
+ms.date: 06/26/2025
+ms.custom: sfi-image-blocked
 ---
 # Export API definition to Postman for API testing, monitoring, and development
 
@@ -35,9 +34,6 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 
 1. In the portal, under **APIs**, select an API.
 1. In the context menu (**...**), select **Export** > **Postman**. 
-
-    :::image type="content" source="media/export-api-postman/export-to-postman.png" alt-text="Screenshot of exporting an API to Postman in the Azure portal.":::
-
 1. In the **Run in** dialog, select the Postman location to export to. You can select the option for the desktop app if you've installed it locally.
 1. In Postman, select a Postman workspace to import the API to. The default is *My Workspace*.
 1. In Postman, select **Generate collection from this API** to automatically generate a collection from the API definition. If needed, configure advanced import options, or accept default values. Select **Import**.
@@ -50,7 +46,7 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 
 API developers can rapidly iterate on API changes by using Postman's API testing, monitoring, and development capabilities.
 
-APIs developed in Postman can then be exported and imported back into API Management as API revisions. This enables you to develop APIs in Postman and then deploy them to API Management for runtime access and management. [Learn more](https://learning.postman.com/docs/designing-and-developing-your-api/deploying-an-api/deploying-an-api-azure/)
+APIs developed in Postman can then be exported and imported back into API Management as API revisions. This enables you to develop APIs in Postman and then deploy them to API Management for runtime access and management. For more information, see [Deploy to Azure API Management from the Postman API Builder](https://learning.postman.com/v11/docs/integrations/available-integrations/azure-api-management/deploying-an-api-azure).
 
 
 > [!CAUTION]
@@ -58,6 +54,6 @@ APIs developed in Postman can then be exported and imported back into API Manage
 
 ## Related content
 
-* [Blog: Enhanced API developer experience with the Microsoft-Postman partnership](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/enhanced-api-developer-experience-with-the-microsoft-postman/ba-p/3650304)
+* [Blog: Enhanced API developer experience with the Microsoft-Postman partnership](https://techcommunity.microsoft.com/blog/appsonazureblog/enhanced-api-developer-experience-with-the-microsoft-postman-partnership/3650304)
 * Learn more about [importing API definitions to Postman](https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/).
 * Learn more about [authorizing requests in Postman](https://learning.postman.com/docs/sending-requests/authorization/).

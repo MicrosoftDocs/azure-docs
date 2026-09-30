@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Manage tag governance with Azure Policy"
 description: In this tutorial, you use the modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: tutorial
 ---
 
@@ -24,7 +24,7 @@ In this tutorial, you complete the following tasks:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
+To complete this tutorial, you need an Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Identify requirements
 

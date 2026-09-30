@@ -8,12 +8,14 @@ manager: nmurav
 
 services: azure-communication-services
 ms.date: 2/15/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # Video Constraints
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 The Video Constraints API enables developers to control the video quality from within video calls. With this API, developers can set maximum video resolutions, frame rate, and bitrate so that the call is optimized for the user's device and network conditions.
 

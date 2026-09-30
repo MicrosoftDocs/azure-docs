@@ -4,7 +4,7 @@ description: This article describes how to output data from Azure Stream Analyti
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/13/2021
 ---
 

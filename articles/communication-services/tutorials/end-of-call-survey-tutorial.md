@@ -15,11 +15,13 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Use the End of Call Survey to collect user feedback
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This tutorial shows you how to use the Azure Communication Services End of Call Survey.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 - An active Log Analytics Workspace, also known as Azure Monitor Logs. See [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md).
 - To conduct a survey with custom questions using free form text, you need an [App Insight resource](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource).

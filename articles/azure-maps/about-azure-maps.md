@@ -3,7 +3,7 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: faterceros
 ms.author: aterceros
-ms.date: 10/21/2022
+ms.date: 09/17/2026
 ms.topic: overview
 ms.service: azure-maps
 ms.subservice: general
@@ -32,6 +32,12 @@ The following video explains Azure Maps in depth:
 
 > [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
 
+## Maps in Microsoft Fabric
+
+Maps (preview) in [Microsoft Fabric] is a powerful geospatial visualization tool within Real-Time Intelligence that turns static and real-time spatial data into actionable insights by uncovering patterns and trends often missed in traditional charts. With an intuitive interface, you can create interactive maps featuring multiple layers, and rich customization options. Seamlessly integrated with other Fabric experiences and powered by Azure Maps services, it delivers accurate, scalable, and secure mapping for enterprise scenarios. Whether monitoring IoT devices, tracking assets, or analyzing regional trends, Maps helps you make sense of spatial data in real time. For more information, see [Create a map].
+
+:::image type="content" source="./media/about-azure-maps/intro-fabric-maps.png" lightbox="./media/about-azure-maps/intro-fabric-maps.png" alt-text="A screenshot showing Maps in Microsoft Fabric.":::
+
 ## Map controls
 
 ### Web SDK
@@ -39,18 +45,6 @@ The following video explains Azure Maps in depth:
 The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can use this interactive map for both your web or mobile applications. The map control makes use of WebGL, so you can render large data sets with high performance. You can develop with the SDK by using JavaScript or TypeScript.
 
 :::image type="content" source="./media/about-azure-maps/intro_web_map_control.png" lightbox="./media/about-azure-maps/intro_web_map_control.png" alt-text="Example map of population change created by using Azure Maps Web SDK.":::
-
-### Android SDK
-
-> [!NOTE]
->
-> **Azure Maps Android SDK retirement**
->
-> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
-
-Use the Azure Maps Android SDK to create mobile mapping applications.
-
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" lightbox="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Map examples on a mobile device.":::
 
 ## Services in Azure Maps
 
@@ -68,12 +62,6 @@ For more information, see [Geolocation] in the Azure Maps REST API documentation
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" lightbox="./media/about-azure-maps/intro_map.png" alt-text="Example of a map from the Render service.":::
 
-> [!NOTE]
->
-> **Azure Maps Render v1 service retirement**
->
-> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
-
 ### Route service
 
 The route service is used to calculate the estimated arrival times (ETAs) for each requested route. Factors such as real-time traffic information and historic traffic data, like the typical road speeds on the requested day of the week and time of day are considered. The route service returns the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. The service allows developers to calculate directions across several travel modes, such as car, truck, bicycle, or walking, and electric vehicle. The service also considers inputs, such as departure time, weight restrictions, or hazardous material transport.
@@ -90,7 +78,7 @@ For more information, see [Route] in the Azure Maps REST API documentation.
 
 ### Search service
 
-The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. Also, services can [reverse geocode] addresses and cross streets based on latitudes and longitudes.
+Use the Search service to search for addresses, places, business listings by name or category, and other geographic information. Also, use the service to [reverse geocode] addresses and cross streets based on latitudes and longitudes. Use [Geocode Autocomplete] to suggest location completions as you type, based on partial input and optional location context.
 
 :::image type="content" source="./media/about-azure-maps/intro_search.png" lightbox="./media/about-azure-maps/intro_search.png"  alt-text="Example of a search on a map.":::
 
@@ -154,7 +142,7 @@ For more information, see [Traffic] in the Azure Maps REST API documentation.
 
 ### Weather service
 
-The Weather service offers API to retrieve weather information for a particular location. This information includes observation date and time, weather conditions, precipitation indicator flags, temperature, and wind speed information. Other details such as RealFeel™ Temperature and UV index are also returned.
+The Weather service offers API to retrieve weather information for a particular location. This information includes observation date and time, weather conditions, precipitation indicator flags, temperature, and wind speed information. Other details such as RealFeel&trade; Temperature and UV index are also returned.
 
 Developers can use the [Get Weather along route API] to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints affected by weather hazards, such as flooding or heavy rain.
 
@@ -192,7 +180,7 @@ Azure Maps uses a key-based authentication scheme. When you create your account,
 Azure Maps services are currently available except in the following countries/regions:
 
 * China
-* South Korea
+* Korea
 
 Verify that the location of your current IP address is in a supported country/region.
 
@@ -212,23 +200,28 @@ Stay up to date on Azure Maps:
 [Quickstart: Create a web app]: quick-demo-map-app.md
 
 <!---------   REST API Links     --------------->
+[Geocode Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
 [Geolocation]: /rest/api/maps/geolocation
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
 [Render]: /rest/api/maps/render
-[Render v1]: /rest/api/maps/render?view=rest-maps-1.0
-[Render v2]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
+
 <!---------   JavaScript API Links     --------------->
 [JavaScript map control]: /javascript/api/azure-maps-control
+
+<!---------   Microsoft Fabric Maps Links     --------------->
+[Create a map]: /fabric/real-time-intelligence/map/create-map
+[Microsoft Fabric]: /fabric/fundamentals/microsoft-fabric-overview
+
 <!---------   External Links     --------------->
 [Azure Maps account]: https://azure.microsoft.com/services/azure-maps/
-[Azure Maps blog]: https://azure.microsoft.com/blog/topics/azure-maps/
+[Azure Maps blog]: https://learn.microsoft.com/azure/azure-maps/
 [Azure portal]: https://portal.azure.com
 [IANA ID]: https://www.iana.org/
 [Microsoft Trust Center]: https://www.microsoft.com/trust-center/privacy

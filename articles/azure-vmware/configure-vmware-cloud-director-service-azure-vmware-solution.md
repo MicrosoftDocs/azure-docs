@@ -5,8 +5,11 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-vmware
 ms.topic: how-to
-ms.date: 4/15/2024
-ms.custom: engagement-fy23
+ms.date: 2/17/2026
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to configure VMware Cloud Director Service in Azure VMware Solution, so that I can manage and optimize resources between my private cloud and the VMware infrastructure efficiently.
 ---
 
 # Configure VMware Cloud Director Service in Azure VMware Solution
@@ -26,12 +29,12 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 
 ## Plan and prepare Azure VMware Solution private cloud for VMware Reverse proxy
 
-- VMware Reverse proxy VM is deployed within the Azure VMware Solution private cloud and requires outbound connectivity to your VMware Cloud director Service Instance. [Plan how you would provide this internet connectivity.](architecture-design-public-internet-access.md) 
+- VMware Reverse proxy virtual machine (VM) is deployed within the Azure VMware Solution private cloud and requires outbound connectivity to your VMware Cloud director Service Instance. [Plan how you would provide this internet connectivity.](architecture-design-public-internet-access.md) 
 
 - Public IP on NSX Edge can be used to provide outbound access for the VMware Reverse proxy VM as shown in this article. Learn more on, [How to configure a public IP in the Azure portal](enable-public-ip-nsx-edge.md#set-up-a-public-ip-address-or-range) and [Outbound Internet access for VMs](enable-public-ip-nsx-edge.md#outbound-internet-access-for-vms)
  
 - VMware Reverse proxy can acquire an IP address through either DHCP or manual IP configuration.
-- Optionally create a dedicated Tier-1 router for the reverse proxy VM segment.
+- You can optionally choose to create a dedicated Tier-1 router for the reverse proxy VM segment.
 
 ### Prepare your Azure VMware Solution private cloud for deploying VMware Reverse proxy VM OVA
 
@@ -45,7 +48,7 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
  
 1. Create a segment for VMware Reverse proxy VM. 
     1. Sign in to Azure VMware Solution NSX Manager and under segments, select **ADD SEGMENT**
-    1. Provide name, Connected Gateway, Transport Zone and Subnet information and then select save.
+    1. Provide name, Connected Gateway, Transport Zone, and Subnet information and then select save.
     
     :::image type="content" source="./media/vmware-cloud-director-service/pic-create-reverse-proxy.png" alt-text="Screenshot showing how to create an NSX segment for reverse proxy VM." lightbox="./media/vmware-cloud-director-service/pic-create-reverse-proxy.png":::
     
@@ -72,8 +75,8 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 
 ### Prerequisites on VMware cloud service
 
-- Verify you're assigned the network administrator service role. See [Managing Roles and Permissions](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-84E54AD5-A53F-416C-AEBE-783927CD66C1.html) and make changes using VMware Cloud Services Console.
-- If you're accessing VMware Cloud Director service through VMware Cloud Partner Navigator, verify that you're a Provider Service Manager user and that you're assigned the provider:**admin** and provider:**network service** roles.
+- Verify you're assigned to the network administrator service role. See [Managing Roles and Permissions](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-84E54AD5-A53F-416C-AEBE-783927CD66C1.html) and make changes using VMware Cloud Services Console.
+- If you're accessing VMware Cloud Director service through VMware Cloud Partner Navigator, verify that you're a Provider Service Manager user and that you're assigned as the provider:**admin** and provider:**network service** roles.
 - See [How do I change the roles of users in my organization](https://docs.vmware.com/en/VMware-Cloud-Partner-Navigator/services/Cloud-Partner-Navigator-Using-Provider/GUID-BF0ED645-1124-4828-9842-18F5C71019AE.html) in the VMware Cloud Partner Navigator documentation.
 
 ### Procedure
@@ -83,18 +86,18 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 1. The **Generate VMware Reverse proxy OVA** wizard opens. Fill in the required information.
 1. Enter Network Name
     - Network name is the name of the NSX segment you created in previous section for reverse proxy VM.
-1. Enter the required information such as vCenter FQDN, Management IP for vCenter, NSX FQDN or IP and more hosts within the private cloud to proxy. 
+1. Enter the required information like: vCenter FQDN, Management IP for vCenter, NSX FQDN, or IP and more hosts within the private cloud to proxy. 
 1. vCenter and NSX IP address of your Azure VMware Solution private cloud can be found under **Azure portal** -> **manage**-> **VMware credentials**
 
     :::image type="content" source="./media/vmware-cloud-director-service/pic-obtain-vmware-credential.png" alt-text="Screenshot showing how to obtain VMware credentials using Azure portal." lightbox="./media/vmware-cloud-director-service/pic-obtain-vmware-credential.png":::
 
 1. To find FQDN of vCenter of your Azure VMware Solution private cloud, sign in to the vCenter using VMware credential provided on Azure portal.
 1. In vSphere Client, select vCenter, which displays FQDN of the vCenter Server. 
-1. To obtain FQDN of NSX, replace vc with nsx. NSX FQDN in this example would be,  “nsx.f31ca07da35f4b42abe08e.uksouth.avs.azure.com”
+1. To obtain FQDN of NSX, replace the 'vc' with 'nsx'. NSX FQDN in this example would be, “nsx.f31ca07da35f4b42abe08e.uksouth.avs.azure.com”
  
     :::image type="content" source="./media/vmware-cloud-director-service/pic-vcenter-vmware.png" alt-text="Screenshot showing how to obtain vCenter and NSX FQDN in Azure VMware solution private cloud." lightbox="./media/vmware-cloud-director-service/pic-vcenter-vmware.png":::
 
-1. Obtain ESXi management IP addresses and CIDR for adding IP addresses in allowlist when generating reverse proxy VM OVA.
+1. Obtain ESXi management IP addresses and CIDR for adding IP addresses in allow list when generating reverse proxy VM OVA.
 
     :::image type="content" source="./media/vmware-cloud-director-service/pic-manage-ip-address.png" alt-text="Screenshot showing how to obtain management IP address and CIDR for ESXi hosts in Azure VMware solution private cloud." lightbox="./media/vmware-cloud-director-service/pic-manage-ip-address.png":::
 
@@ -132,23 +135,23 @@ This process pools all the resources from Azure private Solution private cloud a
 
 1.	Sign in to VMware Cloud Director service.
 1.	Select **Cloud Director Instances**.
-1. In the card of the VMware Cloud Director instance for which you want to associate your Azure VMware Solution private cloud, select **Actions** and then select **Associate datacenter via VMware reverse proxy**.
+1. In the card of the VMware Cloud Director instance for which you want to associate your Azure VMware Solution private cloud, select **Actions**, then select **Associate datacenter via VMware reverse proxy**.
 1. Review datacenter information. 
 1. Select a proxy network for the reverse proxy appliance to use. Ensure correct NSX segment is selected where reverse proxy VM is deployed.
 
     :::image type="content" source="./media/vmware-cloud-director-service/pic-proxy-network.png" alt-text="Screenshot showing how to review a proxy network information." lightbox="./media/vmware-cloud-director-service/pic-proxy-network.png":::
 
 6. In the **Data center name** text box, enter a name for the private cloud that you want to associate with datacenter.
-The name entered is only used to identify the data center in the VMware Cloud Director inventory, so it doesn't need to match the private cloud name  entered when you generated the reverse proxy appliance OVA.
+The private cloud name you enter is only used to identify the data center in the VMware Cloud Director inventory. That name doesn't need to match the private cloud name entered when you generated the reverse proxy appliance OVA.
 7.	Enter the FQDN for your vCenter Server instance.
 8.	Enter the URL for the NSX Manager instance and wait for a connection to establish.
 9.	Select **Next**.
 10.	Under **Credentials**, enter your user name and password for the vCenter Server endpoint.
 11.	Enter your user name and password for NSX Manager.
-12.	To create infrastructure resources for your VMware Cloud Director instance, such as a network pool, an external network and a provider VDC, select **Create Infrastructure**.
+12.	To create infrastructure resources for your VMware Cloud Director instance, such as a network pool, an external network, and a provider VDC, select **Create Infrastructure**.
 13.	Select **Validate Credentials**. Ensure that validation is successful.
 14.	Confirm that you acknowledge the costs associated with your instance, and select Submit.
-15.	Check activity log to note the progress.
+15.	To see progress, check the activity log.
 16.	Once this process is completed, you should see that your VMware Azure Solution private cloud is securely associated with your VMware Cloud Director instance. 
 17.	When you open the VMware Cloud Director instance, the vCenter Server and the NSX Manager instances that you associated are visible in Infrastructure Resources.
 
@@ -167,4 +170,4 @@ You can use your VMware cloud director instance provider portal to configure ten
 
 - Learn more about VMware cloud director service using [VMware Cloud Director Service Documentation](https://docs.vmware.com/en/VMware-Cloud-Director-service/index.html)
 
-- To learn about Cloud director Service provider admin portal, Visit [VMware Cloud Director™ Service Provider Admin Portal Guide](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-F8F4B534-49B2-43B2-AEEE-7BAEE8CE1844.html).
+- Learn more about Cloud director Service provider admin portal using [VMware Cloud Director™ Service Provider Admin Portal Guide](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-F8F4B534-49B2-43B2-AEEE-7BAEE8CE1844.html).
