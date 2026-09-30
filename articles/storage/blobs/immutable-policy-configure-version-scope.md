@@ -44,7 +44,7 @@ Before you can apply a time-based retention policy to a blob version, you must e
 You can enable support for version-level immutability only when you create a new storage account.
 
 > [!IMPORTANT]
-> Immutability Policies may take up to 35 seconds to take effect. During the activation time items can continue to be deleted/overwritten. Within that time a visible CLW policy on the Container Properties is not a guarantee that the policy has taken effect.
+> Immutability policies can take up to 35 seconds to take effect. During the activation time, items can continue to be deleted or overwritten. Within that time, a visible CLW policy on the Container Properties isn't a guarantee that the policy has taken effect.
 
 ##### [Portal](#tab/azure-portal)
 
