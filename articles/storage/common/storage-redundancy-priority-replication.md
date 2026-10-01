@@ -52,7 +52,7 @@ These limitations are critical to understanding how and when the SLA applies, an
 
 ## Monitor compliance
 
-To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you have the ability to view the new **Geo Blob Lag metric** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. This metric allows you to assess the performance trends and identify potential SLA breaches for your account.
+To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you can view the new **Geo Blob Lag metric** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. This metric allows you to assess the performance trends and identify potential SLA breaches for your account.
 
 After geo priority replication is enabled and you register for the Geo Blob Lag metric you have the ability to view the new metric.
 
