@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/03/2025
+ms.date: 10/01/2026
 ms.author: anfdocs
 # Customer intent: As an IT administrator managing Azure NetApp Files, I want to break file locks on volumes, so that I can resolve issues with file accessibility and ensure uninterrupted client operations.
 ---
@@ -14,6 +14,10 @@ ms.author: anfdocs
 In case you encounter (stale) file locks on NFS, SMB, or dual-protocol volumes that need to be cleared, Azure NetApp Files allows you to break these locks.
 
 You can break file locks for all files in a volume or break all file locks initiated by a specified client. Breaking file locks may be disruptive.   
+
+If a file appears to be locked but you can't identify an active file lock, check whether a symbolic link (symlink) references the file. A symbolic link can cause the file to appear to be in use even when you can't identify an active lock on the file.
+
+Verify whether any symbolic links reference the affected file before you break file locks on the volume.
 
 ## Break file locks
 
