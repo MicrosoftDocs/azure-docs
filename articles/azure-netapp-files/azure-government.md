@@ -26,6 +26,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
 | Elastic zone-redundant storage service level | Preview | No |
+| Microsoft Entra Kerberos authentication for SMB volumes with Azure NetApp Files | Preview | No |
 
 
 ## Portal access
