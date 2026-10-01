@@ -77,6 +77,9 @@ If you already have a private certificate from a third-party provider, you can u
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates and the root certificate in the certificate chain.
 
+> [!IMPORTANT]
+> If the certificate chain uses a cross-signed certificate, API Management might return any of the valid chains, and you can't guarantee or control which one is returned. Ensure clients are configured to trust every possible valid chain rather than relying on a specific one.
+
 # [Key Vault](#tab/key-vault)
 
 We recommend using Azure Key Vault to [manage your certificates](/azure/key-vault/certificates/about-certificates) and setting them to `autorenew`.
@@ -97,6 +100,11 @@ To fetch a TLS/SSL certificate, API Management must have the list and get secret
 If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service. This update can take up to 1-2 days. You can trigger certificate synchronization manually if you don't want to wait for API Management to update the certificate automatically.
 
 For more information about synchronization and help with troubleshooting Azure Key Vault certificate access issues, see [Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates](#certificate-synchronization-and-troubleshooting-for-azure-key-vault-backed-certificates) later in this article.
+
+> [!IMPORTANT]
+> * The certificate PFX file in key vault must contain all intermediate certificates and the root certificate in the chain.
+> * If the certificate chain uses a cross-signed certificate, API Management might return any of the valid chains, and you can't guarantee or control which one is returned. Ensure clients are configured to trust every possible valid chain rather than relying on a specific one.
+
 
 # [Managed](#tab/managed)
 

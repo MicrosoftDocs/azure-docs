@@ -47,9 +47,9 @@ Start with [What is Azure Enclave?](./what-azure-enclave.md), review the [learn 
 
 ## Customer planning
 
-### Is Azure Enclave in Preview?
+### Is Azure Enclave generally available?
 
-Yes. Azure Enclave is currently in Preview and is provided without a service-level agreement. Azure Enclave shouldn't be used for production workloads during Preview. For more information, see [What is Azure Enclave?](./what-azure-enclave.md).
+Yes. Azure Enclave is generally available for production workloads. For current service scope and availability details, see [What is Azure Enclave?](./what-azure-enclave.md) and [Quotas and region availability in Azure Enclave](./quotas-region-availability.md). 
 
 ### Where can I find a quickstart for Azure Enclave?
 
