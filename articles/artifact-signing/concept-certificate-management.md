@@ -18,7 +18,7 @@ The certificates that are used in the Artifact Signing service follow standard p
 
 Artifact Signing code-signing certificate authorities (CAs) are scheduled for removal from the Common CA Database (CCADB). Although these CAs are no longer included in the Microsoft Trusted Root Program, they remain on the Windows Platform Trust List. Windows continues to trust certificates that chain to these CAs.
  
-Artifact Signing maintains rigorous standards for identity validation, certificate issuance, and ongoing trust and safety monitoring. The team also monitors evolving industry standards,and assess opportunities to support them as they mature.
+Artifact Signing maintains rigorous standards for identity validation, certificate issuance, and ongoing trust and safety monitoring. The team also monitors evolving industry standards and assesses opportunities to support them as they mature.
 
 ## Certificate attributes
 
