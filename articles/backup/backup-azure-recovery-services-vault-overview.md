@@ -2,7 +2,7 @@
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
 ms.topic: overview
-ms.date: 11/10/2025
+ms.date: 02/10/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
