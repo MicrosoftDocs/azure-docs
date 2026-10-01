@@ -11,7 +11,7 @@ ms.date: 09/15/2026
 
 # Customer intent: As a network security engineer, I want to investigate network security risks using natural language prompts with Traffic Analytics, so that I can identify exposure, unusual denied traffic, and unexpected cross-network communication.
 ---
-# Get security insights from Azure Traffic Analytics through Natural Language
+# Get security insights from Azure Traffic Analytics through natural language
  
 This article describes a set of security investigations that you can perform by using [Traffic Analytics](traffic-analytics.md) prompts in Network Watcher. For each investigation, it explains the scenario you're analyzing, the insights that are returned, how to interpret the results, and recommended follow-up actions.
 Traffic Analytics already captures network flow telemetry such as direction, status, source and destination, ports, Network Security Groups, virtual networks, virtual machines, and flow counts. The following insights turn those signals into focused security review areas that help you understand exposure, suspicious access patterns, denied activity, and segmentation behavior.
