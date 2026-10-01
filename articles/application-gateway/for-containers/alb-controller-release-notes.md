@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: release-notes
-ms.date: 9/8/2026
+ms.date: 10/1/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to access the release notes for the ALB Controller, so that I can understand the latest updates and changes to optimize my configuration and deployments of Application Gateway for Containers.
 ---
@@ -31,7 +31,7 @@ If using the AKS add-on, updates are automatically applied to the cluster.
 | ---------------------- | ------------------- | --------------------------------------- | ------------------ | ------------- |
 | 1.12.1 | v1.5.1 | v1.3.1 | v1.32 | Security patches, bug fixes [helm chart pre-delete tolerations](https://github.com/Azure/AKS/issues/5729) [session affinity cookie fix](https://github.com/Azure/AKS/issues/5805), request mirror |
 
-# AKS add-on releases
+## AKS add-on releases
 
 The Application Gateway for Containers add-on uses a pinned version of ALB Controller based on the AKS cluster version. The AKS version determines the supported Gateway API bundle, which in turn determines the compatible ALB Controller version. The AKS managed Gateway API documentation lists the Gateway API bundle supported by each Kubernetes version.
 
