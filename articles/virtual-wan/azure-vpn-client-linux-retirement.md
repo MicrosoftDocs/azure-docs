@@ -1,5 +1,5 @@
 ---
-title: 'Virtual WAN Azure VPN Client for Linux - Retirement Overview and Migration Guide'
+title: 'Virtual WAN Azure VPN Client for Linux (Retired) - Retirement Overview and Migration Guide'
 titleSuffix: Azure Virtual WAN
 description: Learn how to migrate from the Azure VPN Client for Linux to a supported client for Azure Virtual WAN P2S connections.
 author: flapinski
@@ -9,7 +9,7 @@ ms.date: 05/27/2026
 ms.author: duau
 # Customer intent: As a Linux user, I want to migrate from the Azure VPN Client for Linux to a supported client so that I can securely connect to my organization's virtual network.
 ---
-# Azure VPN Client for Linux: Retirement overview and migration guide - Virtual WAN
+# Azure VPN Client for Linux (Retired): Retirement overview and migration guide - Virtual WAN
 
 The Azure VPN Client for Linux (preview), the Microsoft-provided VPN client application used to establish Point-to-Site (P2S) connections from Linux devices to Azure VPN gateways (for both Virtual WAN and VPN Gateway), retired on August 31, 2026.
 
