@@ -30,15 +30,15 @@ When you replicate a virtual machine by using Azure Site Recovery or perform oth
 > [!NOTE]
 > If you are enabling replication for an Azure VM and want to allow Site Recovery to manage updates, then while enabling replication you may also want to create a new Automation account in which case you would need permission to create an automation account in the same subscription as the vault as well.
 
-| **Operation Type** | **Permissions required** | **Scope required** |
-| --- | --- | --- |
-| Enable Replication, Update Replication, Reprotect | Permissions required | Source VM, Target Resource Group |
-|  | Microsoft.Compute/virtualMachines/read | Source VM, Target Resource Group |
+| **Operation Type** | **Permissions required** | **Scope required** | **Recommended built-in roles** |
+| --- | --- | --- | --- |
+| Enable Replication, Update Replication, Reprotect | Microsoft.Compute/virtualMachines/read | Source VM, Target Resource Group | Site Recovery Contributor, Virtual Machine Contributor, Network Contributor, Storage Account Contributor, Key Vault Contributor, Reader |
 |  | Microsoft.Compute/virtualMachines/write | Source VM |
 |  | Microsoft.Compute/disks/read | Source VM, Target Resource Group |
 |  | Microsoft.Compute/disks/write | Source VM |
 |  | Microsoft.Compute/disks/delete | Source VM |
-|  | Microsoft.Compute/diskEncryptionSets/read | Source VM, Target Resource Group |
+|  | Microsoft.Compute/diskAccesses/read | Target Disk Access |
+|  | Microsoft.Compute/diskEncryptionSets/read | Target Disk Encryption Set |
 |  | Microsoft.Compute/availabilitySets/read | Target Availability Set |
 |  | Microsoft.Compute/availabilitySets/write | Target Availability Set |
 |  | Microsoft.Compute/virtualMachineScaleSets/read | Target Virtual Machine Scale Set (VMSS) |
@@ -47,18 +47,21 @@ When you replicate a virtual machine by using Azure Site Recovery or perform oth
 |  | Microsoft.Compute/capacityReservationGroups/read | Target Capacity reservation group |
 |  | Microsoft.Network/virtualNetworks/read | Target Virtual Network |
 |  | Microsoft.Network/virtualNetworks/write | Target Virtual Network |
-|  | Microsoft.Storage/storageAccounts/read | Cache Storage Account |
+|  | Microsoft.Network/networkSecurityGroups/read | Target Network Security Group |
+|  | Microsoft.Network/networkInterfaces/read | Target Resource Group | 
+|  | Microsoft.Storage/storageAccounts/read | Cache Storage Account, Target Boot Diagnostics Storage Account |
 |  | Microsoft.Storage/storageAccounts/write | Cache Storage Account |
 |  | Microsoft.KeyVault/vaults/deploy/action | Target Key Vault |
 |  | Microsoft.Automation/automationAccounts/read | Azure Automation Account (only if using ASR managed Site Recovery extension updates) |
-| Add disks for replication | Microsoft.Compute/virtualMachines/read | Source VM, Target Resource Group |
+| Add disks for replication | Microsoft.Compute/virtualMachines/read | Source VM, Target Resource Group | Site Recovery Contributor, Reader |
 |  | Microsoft.Compute/disks/read | Source VM, Target Resource Group |
-|  | Microsoft.Compute/diskEncryptionSets/read | Source VM, Target Resource Group |
+|  | Microsoft.Compute/diskAccesses/read | Target Disk Access |
+|  | Microsoft.Compute/diskEncryptionSets/read | Target Disk Encryption Set |
 |  | Microsoft.Storage/storageAccounts/read| Cache Storage Account | 
-| Failover, Test Failover | Microsoft.Network/virtualNetworks/read | Target Virtual Network |
+| Failover, Test Failover | Microsoft.Network/virtualNetworks/read | Target Virtual Network | Site Recovery Operator, Reader |
 |  | Microsoft.Compute/capacityReservationGroups/read | Target Capacity reservation group |
 
-Consider using the "Contributor" or other relevant least privilege [built-in roles](../role-based-access-control/built-in-roles.md) or create a custom role with the required permissions.
+Consider using the preceding recommended roles or other relevant least privilege [built-in roles](../role-based-access-control/built-in-roles.md) or create a custom role with the required permissions.
 
 ## Next steps
 
