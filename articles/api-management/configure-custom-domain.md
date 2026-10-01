@@ -78,7 +78,7 @@ If you already have a private certificate from a third-party provider, you can u
 * Contains all intermediate certificates and the root certificate in the certificate chain.
 
 > [!IMPORTANT]
-> If the certificate chain uses a cross-signed certificate, API Management may return any of the valid chains, and which one is returned can't be guaranteed or controlled. Ensure clients are configured to trust every possible valid chain rather than relying on a specific one.
+> If the certificate chain uses a cross-signed certificate, API Management might return any of the valid chains, and you can't guarantee or control which one is returned. Ensure clients are configured to trust every possible valid chain rather than relying on a specific one.
 
 # [Key Vault](#tab/key-vault)
 
