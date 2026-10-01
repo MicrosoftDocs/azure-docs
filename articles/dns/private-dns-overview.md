@@ -27,7 +27,7 @@ To resolve the records of a private DNS zone from your virtual network, you must
 When you create a private DNS zone, Azure stores the zone data as a global resource. This process means that the private zone isn't dependent on a single virtual network or region. You can link the same private zone to multiple VNets in different regions. If service is interrupted in one virtual network, your private zone is still available. For more information, see [Azure Private DNS zone resiliency](private-dns-resiliency.md). 
 
 > [!NOTE]
-> In the event of a regional failure, Private DNS zones support CRUD operations via API call by using the SDKs provided in the product. For more information, see [API reference](https://learn.microsoft.com/en-us/rest/api/dns/privatedns/private-zones?view=rest-dns-privatedns-2018-09-01).
+> In the event of a regional failure, Private DNS zones support CRUD operations via API call by using the SDKs provided in the product. For more information, see [API reference](https://learn.microsoft.com/rest/api/dns/privatedns/private-zones?view=rest-dns-privatedns-2018-09-01).
 
 
 ## Benefits
