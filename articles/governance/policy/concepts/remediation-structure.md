@@ -74,6 +74,11 @@ An optional property refines what resources are applicable to the remediation ta
 
 This property decides how to discover resources that are eligible for remediation. For a resource to be eligible, it must be non-compliant. By default, this property is set to `ExistingNonCompliant`. It could also be set to `ReEvaluateCompliance`, which triggers a new compliance scan for that assignment and remediate any resources that are found non-compliant.
 
+> [!NOTE]
+> `ReEvaluateCompliance` is only supported for remediation tasks created at or below
+> subscription scope. For remediation tasks created at management group scope, only
+> `ExistingNonCompliant` is supported. 
+
 ## Provisioning state and deployment summary
 
 Once a remediation task is created, `ProvisioningState` and `DeploymentSummary` properties are populated. The `ProvisioningState` indicates the status of the remediation task. Allow values are `Running`, `Canceled`, `Cancelling`, `Failed`, `Complete`, or `Succeeded`. The `DeploymentSummary` is an array property indicating the number of deployments along with number of successful and failed deployments.
