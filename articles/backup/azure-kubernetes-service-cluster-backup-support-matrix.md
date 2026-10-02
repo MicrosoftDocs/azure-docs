@@ -19,13 +19,11 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ## Supported regions
 
-- Azure Backup for AKS supports storing backup data in both Vault and Operational (Snapshot) tiers in the following Azure regions:
+- **Operational tier backups for AKS clusters** are available in all Azure public regions and Azure Government clouds. 
 
-Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Brazil Southeast, Canada Central, Canada East, Central India, Central US, East Asia, East US, East US 2, France Central, France South, Germany North, Germany West Central, Italy North, Japan East, Japan West, Jio India West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Africa West, South Central US, South India, Southeast Asia, Sweden Central, Switzerland North, Switzerland West, UAE North, UK South, UK West,  West Central US, West Europe, West US, West US 2, West US 3
+- **Vault tier backups** are available in all Azure public regions except Austria East, Belgium Central, Chile Central, Indonesia Central, Israel Northwest, Malaysia South, Malaysia West, Mexico Central, Qatar Central, South Central US 2, Southeast US, Southeast US 3, Southeast US 5, Southwest US, and West India. 
 
-- The following regions support only the Operational (Snapshot) tier:
-
-China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV Texas, US GOV Virginia,  Israel Central, Poland Central, and Spain Central 
+  Vault tier backups are not supported in Azure Government clouds.
 
 >[!Note]
   >If you require geo-redundant backups with the ability to restore on demand, store your backups in the Vault tier and enable Cross Region Restore on your Backup Vault. This ensures that your backups are also available in the paired Azure region, allowing you to perform restores even if the primary region is unavailable. See the [list of Azure Paired Region](/azure/reliability/cross-region-replication-azure#azure-paired-regions).

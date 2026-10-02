@@ -582,6 +582,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-testing/playwright-workspaces/how-to-playwright-workspaces-remote-mcp.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/quickstart-automate-browser-tasks-remote-mcp.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/troubleshoot-remote-mcp-server.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/healthcare-apis/iot/concepts-machine-learning.md",
       "redirect_url": "/previous-versions/azure/healthcare-apis/iot/concepts-machine-learning",
       "redirect_document_id": false
@@ -8141,6 +8156,11 @@
     {
       "source_path": "articles/enclave/1-8-migrate-workload-resources.md",
       "redirect_url": "/azure/enclave/migrate-azure-resources-azure-enclave",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/enclave/preview-terms.md",
+      "redirect_url": "/azure/enclave/azure-enclave-faq#is-azure-enclave-generally-available",
       "redirect_document_id": false
     },
     {

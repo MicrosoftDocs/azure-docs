@@ -570,6 +570,10 @@ When using SMB, a request for a UNC path using an IP address (for example, `\\x.
 
 ### NFSv4.1 Kerberos behavior with IP addresses and DNS names
 
-When using NFSv4.1, a mount request to an IP address using one of the `sec=[krb5/krb5i/krb5p]` options uses reverse-DNS lookups via PTR to resolve an IP address to a hostname. That hostname is then used to formulate the SPN for Kerberos ticket retrieval. If you use NFSv4.1 with Kerberos, you should have an A/AAAA and PTR for the Azure NetApp Files volume to cover both hostname and IP address access to mounts. Azure NetApp Files creates a dynamic DNS A/AAAA record. If a reverse DNS zone exists for that subnet, a PTR record is automatically created also. For deviations from the standard Azure NetApp Files hostname conventions, use CNAME records for DNS aliases.
+When an NFSv4.1 mount request specifies an IP address with `sec=krb5`, `sec=krb5i`, or `sec=krb5p`, the client performs a reverse DNS lookup to resolve the IP address to a hostname. The client uses the hostname to formulate the SPN for Kerberos ticket retrieval.
+
+To support Kerberos mounts by hostname or IP address, the Azure NetApp Files volume requires an A record and a matching PTR record. Azure NetApp Files uses dynamic DNS to register the volume's DNS records. A reverse lookup zone must exist for the applicable subnet so that the PTR record can be created automatically. Before you mount the volume, ensure that both records exist. If the PTR record doesn't exist, the mount fails. If the PTR record isn't created automatically, create it manually. Use a CNAME record for an alias that differs from the standard Azure NetApp Files hostname.
+
+You also need PTR records for every AD DS domain controller or LDAP server that Azure NetApp Files can discover or use for Kerberos-authenticated LDAP user and group lookups. Missing PTR records can prevent the LDAP bind or identity lookup from succeeding.
 
 For more information, see [Understand DNS in Azure NetApp Files](domain-name-system-concept.md)

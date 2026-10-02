@@ -30,19 +30,38 @@ When you replicate a virtual machine by using Azure Site Recovery or perform oth
 > [!NOTE]
 > If you are enabling replication for an Azure VM and want to allow Site Recovery to manage updates, then while enabling replication you may also want to create a new Automation account in which case you would need permission to create an automation account in the same subscription as the vault as well.
 
-| **Operation Type** | **Permissions required** | **Scope required** |
-| --- | --- | --- |
-| Enable Replication, Add disks for replication, Update replication, Failover, Test Failover | Microsoft.Compute/virtualMachines/read | Source VM, Target Resource Group |
+| **Operation Type** | **Permissions required** | **Scope required** | **Recommended built-in roles** |
+| --- | --- | --- | --- |
+| Enable Replication, Update Replication, Reprotect | Microsoft.Compute/virtualMachines/read | Source VM, Target Resource Group | Site Recovery Contributor, Virtual Machine Contributor, Network Contributor, Storage Account Contributor, Key Vault Contributor, Reader |
+|  | Microsoft.Compute/virtualMachines/write | Source VM |
 |  | Microsoft.Compute/disks/read | Source VM, Target Resource Group |
+|  | Microsoft.Compute/disks/write | Source VM |
+|  | Microsoft.Compute/disks/delete | Source VM |
+|  | Microsoft.Compute/diskAccesses/read | Target Disk Access |
+|  | Microsoft.Compute/diskEncryptionSets/read | Target Disk Encryption Set |
+|  | Microsoft.Compute/availabilitySets/read | Target Availability Set |
+|  | Microsoft.Compute/availabilitySets/write | Target Availability Set |
 |  | Microsoft.Compute/virtualMachineScaleSets/read | Target Virtual Machine Scale Set (VMSS) |
 |  | Microsoft.Compute/proximityPlacementGroups/read | Target Proximity Placement Group (PPG) |
+|  | Microsoft.Compute/proximityPlacementGroups/write | Target Proximity Placement Group (PPG) |
 |  | Microsoft.Compute/capacityReservationGroups/read | Target Capacity reservation group |
-|  | Microsoft.Compute/diskEncryptionSets/read | Source VM, Target Resource Group |
 |  | Microsoft.Network/virtualNetworks/read | Target Virtual Network |
-|  | Microsoft.Storage/storageAccounts/read | Cache Storage Account |
-|  | Microsoft.Automation/automationAccounts/read | Azure Automation Account (only if using ASR managed Site Recovery extension updates) | 
+|  | Microsoft.Network/virtualNetworks/write | Target Virtual Network |
+|  | Microsoft.Network/networkSecurityGroups/read | Target Network Security Group |
+|  | Microsoft.Network/networkInterfaces/read | Target Resource Group | 
+|  | Microsoft.Storage/storageAccounts/read | Cache Storage Account, Target Boot Diagnostics Storage Account |
+|  | Microsoft.Storage/storageAccounts/write | Cache Storage Account |
+|  | Microsoft.KeyVault/vaults/deploy/action | Target Key Vault |
+|  | Microsoft.Automation/automationAccounts/read | Azure Automation Account (only if using ASR managed Site Recovery extension updates) |
+| Add disks for replication | Microsoft.Compute/virtualMachines/read | Source VM, Target Resource Group | Site Recovery Contributor, Reader |
+|  | Microsoft.Compute/disks/read | Source VM, Target Resource Group |
+|  | Microsoft.Compute/diskAccesses/read | Target Disk Access |
+|  | Microsoft.Compute/diskEncryptionSets/read | Target Disk Encryption Set |
+|  | Microsoft.Storage/storageAccounts/read| Cache Storage Account | 
+| Failover, Test Failover | Microsoft.Network/virtualNetworks/read | Target Virtual Network | Site Recovery Operator, Reader |
+|  | Microsoft.Compute/capacityReservationGroups/read | Target Capacity reservation group |
 
-Consider using the [built-in roles](../role-based-access-control/built-in-roles.md).
+Consider using the preceding recommended roles or other relevant least privilege [built-in roles](../role-based-access-control/built-in-roles.md) or create a custom role with the required permissions.
 
 ## Next steps
 

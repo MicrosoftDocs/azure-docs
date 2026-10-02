@@ -4,7 +4,7 @@ description: This article shows you how to migrate your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 09/15/2026
-zone_pivot_groups: programming-languages-set-functions-no-go
+zone_pivot_groups: programming-languages-set-functions
 ms.custom:
   - template-how-to-pattern
   - devx-track-extended-java
@@ -19,6 +19,13 @@ ms.custom:
 ---
 
 # <a name="top"></a>Migrate apps from Azure Functions version 1.x to version 4.x 
+
+::: zone pivot="programming-language-go"
+
+> [!IMPORTANT]
+> Go isn't supported by version 1.x of the Azure Functions runtime, so there's no Go-specific migration path. To create a first-class Go function app on version 4.x, see the [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go).
+
+::: zone-end
 
 ::: zone pivot="programming-language-java"
 
@@ -553,7 +560,7 @@ This section details changes made after version 1.x in both trigger and binding 
 
 ### Changes in triggers and bindings
 
-Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](functions-bindings-register.md).
+Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exceptions are HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](functions-bindings-register.md).
 
 There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](functions-triggers-bindings.md#supported-bindings) for links to documentation for each binding.
 

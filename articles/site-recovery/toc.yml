@@ -583,10 +583,16 @@
     href: https://azure.microsoft.com/updates/?searchterms=Azure+Site+Recovery
   - name: Pricing
     items:
-    - name: Azure Site Recovery Pricing
+    - name: Azure Site Recovery Pricing 
       href: https://azure.microsoft.com/pricing/details/site-recovery/
-    - name: Pricing calculator
-      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Pricing Calculator for Total Cost of Ownership for A2A
+      href: https://azure.microsoft.com/updates/?id=482319
+    - name: Understand Pricing Components
+      items:
+      - name: Azure to Azure - costs
+        href: site-recovery-cost.md
+      - name: Azure Site Recovery Deployment Planner
+        href: deployment-planner-cost-estimation.md
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
   - name: Microsoft Q&A question page

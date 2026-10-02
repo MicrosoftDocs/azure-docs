@@ -17,7 +17,7 @@ Playwright Workspaces is a fully managed cloud browser platform for testing appl
 
 Get started:
 - [Quickstart: Run your Playwright tests at scale](./quickstart-run-end-to-end-tests.md).
-- [Quickstart: Automate browser tasks](./quickstart-automate-browser-tasks-remote-mcp.md).
+- [Quickstart: Automate browser tasks](./../playwright-cloud-browsers/quickstart-automate-browser-tasks-remote-mcp.md).
 
 
 ## Why use Playwright Workspaces?
@@ -76,7 +76,7 @@ You can connect Playwright Workspaces to compatible MCP clients and agent platfo
 - Information retrieval workflows
 - Human-in-the-loop automation
 
-By using the remote MCP server, your organization can centralize browser infrastructure while enabling multiple AI tools and agents to access cloud browsers through a consistent interface. To learn more, see [Playwright Workspaces remote MCP](./how-to-playwright-workspaces-remote-mcp.md).
+By using the remote MCP server, your organization can centralize browser infrastructure while enabling multiple AI tools and agents to access cloud browsers through a consistent interface. To learn more, see [Playwright Workspaces remote MCP](./../playwright-cloud-browsers/how-to-playwright-workspaces-remote-mcp.md).
 
 ## Core capabilities
 
@@ -133,4 +133,4 @@ Playwright Workspaces automatically encrypts all data stored in your workspace w
 ## Related content
 
 - [Quickstart: Run Playwright tests at scale](quickstart-run-end-to-end-tests.md)
-- [Quickstart: Automate browser tasks](./quickstart-automate-browser-tasks-remote-mcp.md)
+- [Quickstart: Automate browser tasks](./../playwright-cloud-browsers/quickstart-automate-browser-tasks-remote-mcp.md)

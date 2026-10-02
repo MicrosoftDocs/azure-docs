@@ -1,13 +1,13 @@
 ---
 title: Manage a Conditional Azure Credit Offer (CACO) Resource
 description: Learn how to manage your Conditional Azure Credit Offer (CACO) resource, including moving it across resource groups or subscriptions.
-author: dekadays
-ms.reviewer: liuyizhu
+author: pri-mittal
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 2/23/2026
-ms.author: liuyizhu
+ms.date: 09/30/2026
+ms.author: primittal
 #customer intent: As a Microsoft Customer Agreement billing owner, I want to learn about managing a CACO so that I can move it when necessary.
 
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8

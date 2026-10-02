@@ -143,6 +143,8 @@ items:
       href: how-to-connect-analytics-consumption-zone-to-fabric.md
     - name: Connect Analytics Consumption Zone (ACZ) to Azure Databricks
       href: how-to-connect-analytics-consumption-zone-to-databricks.md
+    - name: Connect Analytics Consumption Zone (ACZ) to Snowflake
+      href: how-to-connect-analytics-consumption-zone-to-snowflake.md
 - name: References
   items:
   - name: REST API

@@ -55,8 +55,6 @@ Use Azure functions to handle device registration data. Create three separate we
 
 You should use a database to store device information. In this example, we're using MongoDB for simplicity. However, feel free to use any database you feel comfortable with.
 
-**You can use the code from the class [Azure Communication Services Calling Event Grid - Calling Native Device Token Registrar](https://github.com/Azure-Samples/azure-communication-services-calling-event-grid/blob/main/add-calling-push-notifications-event-grid/ACSCallingNativeRegistrarLite/Functions/ACSCallingNativeDeviceTokenRegistrar.cs).**
-
 #### Azure function to deliver the notifications
 
 ```csharp
@@ -95,11 +93,9 @@ You should use a database to store device information. In this example, we're us
                 
 ```
 
-**You can use the code from the class [Azure Communication Services Calling Event Grid - Incoming Call Event Handler](https://github.com/Azure-Samples/azure-communication-services-calling-event-grid/blob/main/add-calling-push-notifications-event-grid/ACSCallingNativeRegistrarLite/Functions/IncomingCallEventHandler.cs).**
-
 #### Azure function to handle Event Grid Trigger
 
-After deploying the Azure functions, configure the Event Grid and Azure Communication Services resource to listen for `IncomingCall` event. You can follow [these steps](https://github.com/Azure-Samples/azure-communication-services-calling-event-grid/tree/main/add-calling-push-notifications-event-grid#steps) to easily configure your resources.
+After deploying the Azure functions, configure the Event Grid and Azure Communication Services resource to listen for `IncomingCall` event.
 
 ### Register the Push Notifications
 
@@ -122,7 +118,7 @@ This article described how to implement Azure Communication Services Calling wit
 ## Sample
 
 The following sample works for any Native platforms (iOS, Android, Windows).
-Code sample is provided on GitHub at [Use Event Grid to deliver VOIP push to devices](https://github.com/Azure-Samples/azure-communication-services-calling-event-grid/tree/main/add-calling-push-notifications-event-grid).
+You can find the code sample on GitHub at [Use Event Grid to deliver VOIP push to devices](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication/Azure.Communication.Calling.EventGrid/samples).
 
 ## Next steps
 

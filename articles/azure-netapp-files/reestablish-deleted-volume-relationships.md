@@ -6,12 +6,12 @@ author: b-ahibbard
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/21/2025
+ms.date: 09/28/2026
 # Customer intent: As a cloud administrator, I want to re-establish replication relationships for deleted volumes in Azure NetApp Files, so that I can ensure data continuity and maintain operational efficiency without losing previous snapshot states.
 ---
 # Re-establish deleted volume replication relationships in Azure NetApp Files (preview)
 
-Azure NetApp Files enables you to re-establish a replication relationship between two volumes if you previously deleted it. This condition occurs if the source volume becomes unavailable and you're replicating a source volume to two destination volumes with cross-zone-region replication. While reversing the replication direction, the second replication relationship can't continue to exist and needs to be deleted. After the source volume is available again, and the reverse resync completes, you can return to normal operation and re-establish the relationship from the destination volume.
+Azure NetApp Files enables you to re-establish a replication relationship between two volumes if you previously deleted it. Use this capability to restore a deleted replication relationship between the same source and destination volumes, regardless of whether the relationship was removed as part of a disaster recovery workflow, a replication direction reversal, or another operational activity. After you complete the required recovery or resynchronization operations, you can re-establish the replication relationship and resume normal replication operations.
 
 If the destination volume remains operational and no snapshots are deleted or lost, the replication reestablish operation uses the last common snapshot. The operation incrementally synchronizes the destination volume based on the last known good snapshot. In this condition, a baseline transfer isn't required.
 

@@ -43,7 +43,7 @@ Planetary Computer Pro supports ingestion of geospatial assets from the followin
 >All data ingested into Planetary Computer Pro requires [STAC Items](./stac-overview.md#introduction-to-stac-items). 
 
 >[!TIP]
-> To accelerate the creation of STAC Items, we have a [detailed tutorial](./create-stac-item.md) and also have an open source tool called [STAC Forge](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/tools/stacforge-functions).
+> To accelerate the creation of STAC Items, use the [detailed tutorial](./create-stac-item.md) and the open source tool *STAC Forge*.
 
 ## Ingestion Methods
 

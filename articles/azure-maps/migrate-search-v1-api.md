@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to migrate from Azure Maps Search service version 1 to the latest version.
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 03/28/2026
+ms.date: 09/30/2026
 ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: search
@@ -130,8 +130,6 @@ GET https://atlas.microsoft.com/search/fuzzy/json
   &query=1%20Mic
   &typeahead=true
 ```
-
-<!--For a fully functional sample of Fuzzy Search, see [Fuzzy Search with Services Module](https://samples.azuremaps.com/services-module/fuzzy-search-using-services-module).-->
 
 #### Search 2026‑01‑01 – Get Geocode Autocomplete
 

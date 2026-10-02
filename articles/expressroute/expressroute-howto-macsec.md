@@ -159,9 +159,6 @@ Every ExpressRoute Direct instance consists of two physical ports. You can activ
     ```
     
     SCI is now enabled on the ExpressRoute Direct ports.
-
-    > [!IMPORTANT]
-    > MACsec on ExpressRoute Direct is only supported on Juniper MSEE devices. If your ExpressRoute Direct resource is on a Cisco MSEE, you need to recreate the ExpressRoute Direct resource to land on a Juniper device. To verify your MSEE device type, check the ExpressRoute Direct resource in the Azure portal.
     
 ### How to disable MACsec
 

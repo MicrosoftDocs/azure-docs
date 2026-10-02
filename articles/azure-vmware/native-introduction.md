@@ -3,11 +3,11 @@ title: Introduction to Azure VMware Solution Generation 2 Private Clouds
 description: Learn about Azure VMware Solution Gen 2 private clouds.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 4/24/2026
+ms.date: 9/30/2026
 ms.custom:
   - engagement-fy25
   - build-2025
-ms.author: jacobjaygbay
+ms.author: apriladams
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Gen 2 private clouds so that I can understand the features and benefits of this offering.
 # Customer intent: As a cloud administrator, I want to understand the features and benefits of Azure VMware Solution Generation 2 private clouds so that I can make informed decisions about deploying and managing cost-effective, secure, and high-performance cloud architectures in Azure.
 ---
@@ -55,6 +55,7 @@ Gen 2 private clouds are supported on the following SKU type:
 Gen 2 is available in the following Azure public regions. 
 
 - Australia East
+- Australia Southeast
 - Belgium Central
 - Brazil South
 - Canada Central
@@ -81,6 +82,7 @@ Gen 2 is available in the following Azure public regions.
 - UK South
 - UK West
 - West US 2
+- West US 3
 
 There could be other regions that have Gen 2 available. To confirm coverage in other regions, contact your Microsoft account team or Microsoft Support.
 

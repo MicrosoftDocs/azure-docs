@@ -261,6 +261,10 @@
       items:
       - name: Manage a Microsoft discount resource
         href: benefits/discounts/manage-azure-discount.md
+    - name: Discover promotions
+      items:
+      - name: Discover and redeem eligible Azure promotions
+        href: benefits/promos/browse-redeem-consumption-promos.md
     - name: Manage Microsoft Azure Consumption Commitment
       items:
       - name: Track your Microsoft Azure Consumption Commitment

@@ -1,18 +1,18 @@
 ---
-title: The Azure Maps Web SDK migration guide
+title: Migrate Azure Maps Web SDK Map Control v1 and v2.0.x to v3
 titleSuffix: Microsoft Azure Maps
-description: Find out how to migrate your Azure Maps Web SDK v1 and v2 applications to the most recent version of the Web SDK.
+description: Learn how to migrate Azure Maps Web SDK Map Control v1 and v2.0.x applications to version 3.
 author: sinnypan
 ms.author: sipa
-ms.date: 08/18/2023
+ms.date: 09/30/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
 ---
 
-# The Azure Maps Web SDK migration guide
+# Migrate Azure Maps Web SDK Map Control v1 and v2.0.x to v3
 
-Thank you for choosing the Azure Maps Web SDK for your mapping needs. This migration guide helps you transition from v1 and v2 to v3, allowing you to take advantage of the latest features and enhancements.
+Azure Maps Web SDK Map Control v1 and Map Control versions 2.0.0 through 2.0.32 are retired. Upgrade all applications that use these versions to Map Control v3. This guide explains how to complete the migration.
 
 ## Understand the changes
 
@@ -22,23 +22,27 @@ Before you start the migration process, it's important to familiarize yourself w
 
 ### CDN
 
-If you're using CDN ([content delivery network]), update the references to the [v3](#v3) stylesheet and JavaScript in the `head` element of your HTML files.
+If you're using a CDN ([content delivery network]), update the stylesheet and JavaScript references in the `head` element of your HTML files.
 
-#### v1
+#### Before migration: Map Control v1
 
 ```html
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
 <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
 ```
 
-#### v2
+#### Before migration: Map Control v2
+
+The generic Map Control v2 CDN path loads the latest v2 release, not a specific v2.0.x release. Therefore, this URL alone doesn't indicate that an application uses an affected v2.0.x version:
 
 ```html
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
 <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 ```
 
-#### v3
+For applications that install Map Control through npm, check the resolved `azure-maps-control` version in the package lock file. Versions from 2.0.0 through 2.0.32 were retired.
+
+#### After migration: Map Control v3
 
 ```html
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
@@ -47,7 +51,7 @@ If you're using CDN ([content delivery network]), update the references to the [
 
 ### npm
 
-If you're using [npm], update to the latest Azure Maps control by running the following command:
+If you're using [npm], update to the latest release of the Azure Maps control by running the following command:
 
 ```shell
 npm install azure-maps-control@latest
@@ -65,7 +69,7 @@ Comprehensive testing is essential during migration. Conduct thorough testing of
 
 Consider a gradual rollout strategy for the updated version. Release the migrated version to a smaller group of users or in a controlled environment before making it available to your entire user base.
 
-By following these steps and considering best practices, you can successfully migrate your application from Azure Maps Web SDK v1 and v2 to v3. Embrace the new capabilities and improvements offered by the latest version while ensuring a smooth and seamless transition for your users. For more information, see [Azure Maps Web SDK best practices].
+By following these steps and considering best practices, you can migrate your application from Azure Maps Web SDK Map Control v1 or v2.0.x to v3. For more information, see [Azure Maps Web SDK best practices].
 
 ## Next steps
 
