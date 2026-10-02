@@ -158,6 +158,8 @@
       items:
         - name: Diagnostic logs
           href: network-security-perimeter-diagnostic-logs.md
+        - name: Metrics
+          href: network-security-perimeter-metrics.md
 - name: Troubleshoot
   items:
     - name: Troubleshoot Azure Private Link
