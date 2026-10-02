@@ -322,6 +322,13 @@ Select-AzSubscription -Subscription <subscription_id> or <subscription_name>
 Register-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderNamespace Microsoft.Network
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
+A fresh PUT operation will then need to be submitted on the Azure Firewall for it apply the feature.
+
+```
+Set-AzContext -SubscriptionName <SubscriptionName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+Set-AzFirewall -AzureFirewall $firewall
+```
 
 It can take several minutes for this change to take effect. Once the feature is registered, consider performing an update on Azure Firewall for the change to take effect immediately.
 
