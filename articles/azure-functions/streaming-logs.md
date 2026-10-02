@@ -65,6 +65,9 @@ This setting connects your app to the log streaming service and application logs
 
 :::image type="content" source="./media/functions-monitoring/streaming-logs-window.png" alt-text="Screenshot showing how to view streaming logs in the portal.":::
 
+>[!IMPORTANT]
+>By default, the Application Logs stream includes logs from all apps connected to a given Application Insights instance. When you have more than one app sending data, you may need to switch to a filtered view per app in Live Metrics or use the per Functions logs. 
+
 ## [Visual Studio Code](#tab/vs-code/built-in)
 
 To turn on the streaming logs for your function app in Azure:
