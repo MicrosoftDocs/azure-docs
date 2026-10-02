@@ -78,7 +78,7 @@ Connectivity to Microsoft online services (Microsoft 365, Azure PaaS services, a
 For more information on supported services, costs, and configuration details, see the [FAQ page](expressroute-faqs.md). For a list of connectivity providers offering Microsoft peering support, see the [ExpressRoute locations](expressroute-locations.md) page.
 
 > [!IMPORTANT]
-> For ExpressRoute circuits using the Unlimited Data plan, ExpressRoute does not charge separately for inbound or outbound data transfer. When accessing Azure services over Microsoft Peering, charges associated with the Azure service or resource may still apply according to that service's pricing. These service-level charges are separate from ExpressRoute data-transfer charges.
+> For ExpressRoute circuits that use the Unlimited Data plan, ExpressRoute doesn't charge separately for inbound or outbound data transfer. When you access Azure services over Microsoft peering, charges associated with the Azure service or resource might still apply according to that service's pricing. These service-level charges are separate from ExpressRoute data-transfer charges.
 
 ## <a name="peeringcompare"></a>Peering comparison
 
