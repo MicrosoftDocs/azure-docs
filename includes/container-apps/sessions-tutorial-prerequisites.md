@@ -69,15 +69,15 @@ The sample app in this quickstart uses an LLM from Azure OpenAI. It also uses Az
         --custom-domain $AZURE_OPENAI_NAME
     ```
 
-1. Create a GPT 3.5 Turbo model deployment named `gpt-35-turbo` in the Azure OpenAI account:
+1. Create a GPT 4.1 Mini model deployment named `gpt-4.1-mini` in the Azure OpenAI account:
 
     ```bash
     az cognitiveservices account deployment create \
         --resource-group $RESOURCE_GROUP_NAME \
         --name $AZURE_OPENAI_NAME \
-        --deployment-name gpt-35-turbo \
-        --model-name gpt-35-turbo \
-        --model-version "1106" \
+        --deployment-name gpt-4.1-mini \
+        --model-name gpt-4.1-mini \
+        --model-version "2025-04-14" \
         --model-format OpenAI \
         --sku-capacity "100" \
         --sku-name "Standard"
