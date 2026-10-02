@@ -26,38 +26,38 @@ The following tables provide information about what kind of traffic information 
 | Canada         |     ✓     |  ✓  |
 | Chile          |     ✓     |  ✓  |
 | Colombia       |     ✓     |  ✓  |
-| Guadeloupe<sup>3</sup> |   |     |
-| Martinique<sup>3</sup> |   |     |
+| Guadeloupe<sup>1</sup> |   |     |
+| Martinique<sup>1</sup> |   |     |
 | Mexico         |     ✓     |  ✓  |
 | Peru           |     ✓     |  ✓  |
 | United States  |     ✓     |  ✓  |
-| Uruguay<sup>4</sup> |   ✓  |  ✓  |
+| Uruguay<sup>2</sup> |   ✓  |  ✓  |
 
 ## Asia Pacific
 
 | Country/Region | Incidents | Flow |
 |----------------|:---------:|:----:|
 | Australia      |     ✓     |  ✓  |
-| Brunei<sup>3</sup> |           |     |
+| Brunei<sup>1</sup> |           |     |
 | Hong Kong SAR  |     ✓     |  ✓  |
 | India          |     ✓     |  ✓  |
-| Indonesia<sup>4</sup> |     ✓     |  ✓  |
-| Japan<sup>4</sup> |     ✓     |  ✓  |
+| Indonesia<sup>2</sup> |     ✓     |  ✓  |
+| Japan<sup>2</sup> |     ✓     |  ✓  |
 | Kazakhstan     |     ✓     |  ✓  |
-| Macao SAR<sup>3</sup> |           |     |
-| Malaysia<sup>4</sup> |     ✓     |  ✓  |
+| Macao SAR<sup>1</sup> |           |     |
+| Malaysia<sup>2</sup> |     ✓     |  ✓  |
 | New Zealand    |     ✓     |  ✓  |
-| Philippines<sup>4</sup> |     ✓     |  ✓  |
+| Philippines<sup>2</sup> |     ✓     |  ✓  |
 | Singapore      |     ✓     |  ✓  |
-| Taiwan<sup>4</sup> |     ✓     |  ✓  |
-| Thailand<sup>4</sup> |     ✓     |  ✓  |
-| Vietnam<sup>4</sup> |     ✓     |  ✓  |
+| Taiwan<sup>2</sup> |     ✓     |  ✓  |
+| Thailand<sup>2</sup> |     ✓     |  ✓  |
+| Vietnam<sup>2</sup> |     ✓     |  ✓  |
 
 ## Europe
 
 | Country/Region         | Incidents | Flow |
 |------------------------|:---------:|:----:|
-| Belarus<sup>3</sup>    |           |     |
+| Belarus<sup>1</sup>    |           |     |
 | Belgium                |     ✓     |  ✓  |
 | Bosnia and Herzegovina |     ✓     |  ✓  |
 | Bulgaria               |     ✓     |  ✓  |
@@ -86,7 +86,7 @@ The following tables provide information about what kind of traffic information 
 | Poland                 |     ✓     |  ✓  |
 | Portugal               |     ✓     |  ✓  |
 | Romania                |     ✓     |  ✓  |
-| Russia<sup>3</sup>     |           |     |
+| Russia<sup>1</sup>     |           |     |
 | San Marino             |     ✓     |  ✓  |
 | Serbia                 |     ✓     |  ✓  |
 | Slovakia               |     ✓     |  ✓  |
@@ -95,32 +95,32 @@ The following tables provide information about what kind of traffic information 
 | Sweden                 |     ✓     |  ✓  |
 | Switzerland            |     ✓     |  ✓  |
 | Türkiye                |     ✓     |  ✓  |
-| Ukraine<sup>3</sup>    |           |     |
+| Ukraine<sup>1</sup>    |           |     |
 | United Kingdom         |     ✓     |  ✓  |
 
 ## Middle East & Africa
 
 | Country/Region       | Incidents | Flow |
 |----------------------|:---------:|:----:|
-| Bahrain<sup>4</sup>  |     ✓     |  ✓  |
+| Bahrain<sup>2</sup>  |     ✓     |  ✓  |
 | Egypt                |     ✓     |  ✓  |
-| Israel<sup>3</sup>   |           |     |
+| Israel<sup>1</sup>   |           |     |
 | Kenya                |     ✓     |  ✓  |
 | Kuwait               |     ✓     |  ✓  |
 | Lesotho              |     ✓     |  ✓  |
-| Morocco<sup>4</sup>  |     ✓     |  ✓  |
+| Morocco<sup>2</sup>  |     ✓     |  ✓  |
 | Mozambique           |     ✓     |  ✓  |
-| Nigeria<sup>3</sup>  |           |     |
-| Oman<sup>4</sup>     |     ✓     |  ✓  |
+| Nigeria<sup>1</sup>  |           |     |
+| Oman<sup>2</sup>     |     ✓     |  ✓  |
 | Qatar                |     ✓     |  ✓  |
-| Reunion<sup>3</sup>  |           |     |
+| Reunion<sup>1</sup>  |           |     |
 | Saudi Arabia         |     ✓     |  ✓  |
 | South Africa         |     ✓     |  ✓  |
 | United Arab Emirates |     ✓     |  ✓  |
 
-<sup>3</sup> Traffic service is temporarily unavailable because current traffic data doesn't meet quality requirements.
+<sup>1</sup> Traffic service is temporarily unavailable because current traffic data doesn't meet quality requirements.
 
-<sup>4</sup> Traffic service is available with reduced traffic-data volume.
+<sup>2</sup> Traffic service is available with reduced traffic-data volume.
 
 ## Next steps
 
