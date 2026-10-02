@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn about traffic coverage in Azure Maps. See whether information on traffic flow and incidents is available in various regions throughout the world.
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 03/24/2025
+ms.date: 10/02/2026
 ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: traffic
@@ -26,36 +26,38 @@ The following tables provide information about what kind of traffic information 
 | Canada         |     ✓     |  ✓  |
 | Chile          |     ✓     |  ✓  |
 | Colombia       |     ✓     |  ✓  |
-| Guadeloupe     |     ✓     |  ✓  |
-| Martinique     |     ✓     |  ✓  |
+| Guadeloupe<sup>3</sup> |   |     |
+| Martinique<sup>3</sup> |   |     |
 | Mexico         |     ✓     |  ✓  |
 | Peru           |     ✓     |  ✓  |
 | United States  |     ✓     |  ✓  |
-| Uruguay        |     ✓     |  ✓  |
+| Uruguay<sup>4</sup> |   ✓  |  ✓  |
 
 ## Asia Pacific
 
 | Country/Region | Incidents | Flow |
 |----------------|:---------:|:----:|
 | Australia      |     ✓     |  ✓  |
-| Brunei         |     ✓     |  ✓  |
+| Brunei<sup>3</sup> |           |     |
 | Hong Kong SAR  |     ✓     |  ✓  |
 | India          |     ✓     |  ✓  |
-| Indonesia      |     ✓     |  ✓  |
+| Indonesia<sup>4</sup> |     ✓     |  ✓  |
+| Japan<sup>4</sup> |     ✓     |  ✓  |
 | Kazakhstan     |     ✓     |  ✓  |
-| Macao SAR      |     ✓     |  ✓  |
-| Malaysia       |     ✓     |  ✓  |
+| Macao SAR<sup>3</sup> |           |     |
+| Malaysia<sup>4</sup> |     ✓     |  ✓  |
 | New Zealand    |     ✓     |  ✓  |
-| Philippines    |     ✓     |  ✓  |
+| Philippines<sup>4</sup> |     ✓     |  ✓  |
 | Singapore      |     ✓     |  ✓  |
-| Taiwan         |     ✓     |  ✓  |
-| Thailand       |     ✓     |  ✓  |
-| Vietnam        |     ✓     |  ✓  |
+| Taiwan<sup>4</sup> |     ✓     |  ✓  |
+| Thailand<sup>4</sup> |     ✓     |  ✓  |
+| Vietnam<sup>4</sup> |     ✓     |  ✓  |
 
 ## Europe
 
 | Country/Region         | Incidents | Flow |
 |------------------------|:---------:|:----:|
+| Belarus<sup>3</sup>    |           |     |
 | Belgium                |     ✓     |  ✓  |
 | Bosnia and Herzegovina |     ✓     |  ✓  |
 | Bulgaria               |     ✓     |  ✓  |
@@ -84,6 +86,7 @@ The following tables provide information about what kind of traffic information 
 | Poland                 |     ✓     |  ✓  |
 | Portugal               |     ✓     |  ✓  |
 | Romania                |     ✓     |  ✓  |
+| Russia<sup>3</sup>     |           |     |
 | San Marino             |     ✓     |  ✓  |
 | Serbia                 |     ✓     |  ✓  |
 | Slovakia               |     ✓     |  ✓  |
@@ -92,26 +95,32 @@ The following tables provide information about what kind of traffic information 
 | Sweden                 |     ✓     |  ✓  |
 | Switzerland            |     ✓     |  ✓  |
 | Türkiye                |     ✓     |  ✓  |
+| Ukraine<sup>3</sup>    |           |     |
 | United Kingdom         |     ✓     |  ✓  |
 
 ## Middle East & Africa
 
 | Country/Region       | Incidents | Flow |
 |----------------------|:---------:|:----:|
-| Bahrain              |     ✓     |  ✓  |
+| Bahrain<sup>4</sup>  |     ✓     |  ✓  |
 | Egypt                |     ✓     |  ✓  |
+| Israel<sup>3</sup>   |           |     |
 | Kenya                |     ✓     |  ✓  |
 | Kuwait               |     ✓     |  ✓  |
 | Lesotho              |     ✓     |  ✓  |
-| Morocco              |     ✓     |  ✓  |
+| Morocco<sup>4</sup>  |     ✓     |  ✓  |
 | Mozambique           |     ✓     |  ✓  |
-| Nigeria              |     ✓     |  ✓  |
-| Oman                 |     ✓     |  ✓  |
+| Nigeria<sup>3</sup>  |           |     |
+| Oman<sup>4</sup>     |     ✓     |  ✓  |
 | Qatar                |     ✓     |  ✓  |
-| Reunion              |     ✓     |  ✓  |
+| Reunion<sup>3</sup>  |           |     |
 | Saudi Arabia         |     ✓     |  ✓  |
 | South Africa         |     ✓     |  ✓  |
 | United Arab Emirates |     ✓     |  ✓  |
+
+<sup>3</sup> Traffic service is temporarily unavailable because current traffic data doesn't meet quality requirements.
+
+<sup>4</sup> Traffic service is available with reduced traffic-data volume.
 
 ## Next steps
 
