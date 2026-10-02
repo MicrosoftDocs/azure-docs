@@ -126,7 +126,7 @@ Can manage service and the APIs
 
 ## API Management Service Operator Role
 
-Can manage service but not the APIs
+Can manage service but not the APIs. Although this role does not grant write permissions on individual service entities (APIs, policies, products, etc.), the Microsoft.ApiManagement/service/restore/action permission allows a full service restore from a backup, which can create, modify, or replace those entities as a side effect. Grant this role only to principals you'd also trust with write access to all service configuration.
 
 [Learn more](/azure/api-management/api-management-role-based-access-control)
 
