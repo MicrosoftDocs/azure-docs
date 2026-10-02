@@ -17,7 +17,7 @@ ms.custom: template-how-to
 In this article, you learn how to configure an inbound access rule that uses an Azure service tag in a network security perimeter profile. A service tag represents a group of IP address prefixes for an Azure service. Microsoft manages and automatically updates these prefixes as addresses change.
 
 > [!NOTE]
-> Service tags can include traffic from multiple Microsoft-owned service instances. Evaluate whether service tag-based access meets your security requirements, and use it only where broader service-level trust is acceptable. For stricter network isolation, consider more granular access controls, such as specific IP ranges and subscriptions. Service Tags can represent multi‑tenant workloads and may run third‑party/untrusted code, and may expose your resources to associated risks
+> Service tags can include traffic from multiple Microsoft-owned service instances. Evaluate whether service tag-based access meets your security requirements, and use it only where broader service-level trust is acceptable. For stricter network isolation, consider more granular access controls, such as specific IP ranges and subscriptions. Service Tags can represent multitenant workloads and might run third‑party or untrusted code, and might expose your resources to associated risks.
 
 ## Prerequisites
 

@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 07/08/2026
+ms.date: 10/02/2026
 ms.custom:
   - references_regions, ignite-2024
   - ai-gen-docs-bap
@@ -16,15 +16,15 @@ ms.custom:
 
 # What is a network security perimeter?
 
-Azure Network Security Perimeter creates logical network boundaries around your platform-as-a-service (PaaS) resources that are deployed outside your virtual networks. Network security perimeter helps you control public network access to resources like Azure Storage accounts and Azure Key Vault by establishing a secure perimeter.
+Azure Network Security Perimeter creates logical network boundaries around your platform-as-a-service (PaaS) resources that you deploy outside your virtual networks. By establishing a secure perimeter, network security perimeter helps you control public network access to resources like Azure Storage accounts and Azure Key Vault.
 
 By default, network security perimeter restricts public access to PaaS resources within the boundary. You can grant exceptions through explicit access rules for inbound and outbound traffic. This approach helps prevent data exfiltration while maintaining necessary connectivity for your applications.
 
-For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md)
+For access patterns that involve traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md)
 
 Features of a network security perimeter include:
 
-- Resource to resource access communication within perimeter members, preventing data exfiltration to nonauthorized destinations.
+- Resource-to-resource access communication within perimeter members, which prevents data exfiltration to nonauthorized destinations.
 - External public access management with explicit rules for PaaS resources associated with the perimeter.
 - Access logs for audit and compliance.
 - Unified experience across PaaS resources.
