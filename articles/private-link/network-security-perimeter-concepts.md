@@ -134,9 +134,10 @@ Network security perimeter is currently available in all Azure public cloud regi
 Network security perimeter supports the following access rule types:
 
 | Direction | Access rule type | 
-|---------------------------|---------------|
+| --------------------------- | --------------- |
 | Inbound | Subscription-based rules |
-| Inbound | IP-based rules (check respective onboarded private link resources for v6 support)| 
+| Inbound | IP-based rules (check respective onboarded private link resources for v6 support) |
+| Inbound | [Service tags (Preview)](configure-network-security-perimeter-service-tag.md) |
 | Outbound | FQDN-based rules |
 
 > [!NOTE]
