@@ -102,7 +102,7 @@ ms.reviewer: wchi
 
     ```python
     import os
-    import OpenAI
+    from openai import AzureOpenAI
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential, get_bearer_token_provider
     
     # Uncomment the following lines corresponding to the authentication type you want to use.
