@@ -11,7 +11,7 @@ ms.date: 12/12/2023
 ---
 # Network planning for Oracle AI Database@Azure
 In this article, learn about network topologies and constraints in Oracle AI Database@Azure.
-After you purchase an offer through Azure Marketplace and provision the Oracle Exadata infrastructure, the next step is to create your virtual machine cluster to host your instance of Oracle Exadata Database@Azure. The Oracle AI Database clusters are connected to your Azure virtual network via a virtual network interface card (virtual NIC) from your delegated subnet (delegated to `Oracle.Database/networkAttachment`).  
+After you purchase an offer through Azure Marketplace and provision the Oracle Exadata infrastructure, the next step is to create your virtual machine cluster to host your instance of Oracle Exadata Database@Azure. The Oracle AI Database clusters are connected to your Azure virtual network via a virtual network interface card (virtual NIC) from your delegated subnet (delegated to `Oracle.Database/networkAttachments`).  
 
 ## Network features
 
@@ -65,7 +65,7 @@ Advanced network features enhance the virtual networking experience, offering im
 > ### Registration required for delegated subnets
 >To use advanced network features, use the following commands (via AZCLI) to register before creating a new delegated subnet  for the Oracle AI Database@Azure deployment.
 >
-> ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
+> ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.BareMetal" ```
 >
 > ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" ```
 
