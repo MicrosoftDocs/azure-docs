@@ -41,6 +41,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | Inbound | Internet | * | VirtualNetwork | [80], 443 |  TCP                | Allow           | **Client communication to API Management**                     | External only            |
 | Inbound | ApiManagement | * | VirtualNetwork | 3443                                 | TCP                | Allow       | **Management endpoint for Azure portal and PowerShell**         | External & Internal  |
 | Outbound | VirtualNetwork | * | Internet | 80                  |  TCP | Allow  | **Validation and management of Microsoft-managed and customer-managed certificates**      | External & Internal  |
+| Outbound | VirtualNetwork | * | Internet | 443                  |  TCP | Allow  | **Internal infrastructure and diagnostics**      | External & Internal  |
 | Outbound | VirtualNetwork | * | Storage | 443                  |  TCP                | Allow             | **Dependency on Azure Storage**                             | External & Internal  |
 | Outbound | VirtualNetwork |  * | AzureActiveDirectory | 443                             | TCP                | Allow | [Microsoft Entra ID, Microsoft Graph,](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureConnectors | 443                  |  TCP                | Allow | [API Management credential manager endpoint](credentials-overview.md) dependency (optional)              | External & Internal  |
