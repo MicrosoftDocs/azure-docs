@@ -137,7 +137,7 @@ ms.reviewer: wchi
 
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
-    const { TableClient } = require("@azure/data-tables");
+    const { TableServiceClient } = require("@azure/data-tables");
     
     const account_url = process.env.AZURE_STORAGETABLE_RESOURCEENDPOINT;
     
