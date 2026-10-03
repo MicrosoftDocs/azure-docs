@@ -39,7 +39,8 @@ Accelerated Networking has the following benefits:
 
 - For best results, enable Accelerated Networking on at least two VMs in the same Azure virtual network. This feature has minimal effect on latency when you communicate across virtual networks or connect on-premises.
 
-- You can't enable Accelerated Networking on a running VM. You can enable Accelerated Networking on a supported VM only when the VM is stopped and deallocated.
+- On VM sizes where Accelerated Networking is listed as *Supported*, you can't enable it on a running VM. You can enable it only when the VM is stopped and deallocated. On VM sizes where Accelerated Networking is listed as *Required* (for example the Dv5, Dsv5, Ev5 and Esv5 families), the virtual function is always attached and you can enable the setting on the network interface while the VM is running.
+
 
 - You can't deploy virtual machines (classic) with Accelerated Networking through Azure Resource Manager.
 
