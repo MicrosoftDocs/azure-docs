@@ -110,6 +110,8 @@ items:
         href: ./ag/geomatch-custom-rules.md
       - name: Use geomatch custom rules to enhance network security
         href: geomatch-custom-rules-examples.md
+      - name: IPv6 geo-based custom rules (preview)
+        href: ./ag/custom-rules-geo-based-ipv6.md
       - name: Rate limiting
         href: ./ag/rate-limiting-overview.md
       - name: Create rate limiting rules
