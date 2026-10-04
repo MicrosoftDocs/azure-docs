@@ -119,7 +119,7 @@ This creates the following resources in Azure, based on the values in the build.
 + App Service plan. Serverless Consumption plan hosting for your function app in the specified _region_. The name is generated randomly.
 + Function app. A function app is the deployment and execution unit for your functions. The name is your _appName_, appended with a randomly generated number. 
 
-The deployment also packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy), with run-from-package mode enabled.
+The deployment also packages the project files and deploys them to the new function app by using [ZIP deployment](functions-deployment-technologies.md#zip-deployment), with run-from-package mode enabled.
 
 The authLevel for HTTP Trigger in sample project is `ANONYMOUS`, which will skip the authentication. However, if you use other authLevel like `FUNCTION` or `ADMIN`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
 

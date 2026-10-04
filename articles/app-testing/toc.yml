@@ -8,9 +8,9 @@ items:
       href: overview-what-is-azure-app-testing.md
 
 - name: Azure Load Testing
-  expanded: true
   items:
     - name: Overview
+      expanded: true
       items:
         - name: What is Azure Load Testing?
           displayName: ALT, load, MALT
@@ -190,14 +190,20 @@ items:
           href: load-testing/responsible-ai-faq.md
 
 - name: Playwright Workspaces
-  expanded: true
   items:
     - name: Overview
+      expanded: true
       items: 
         - name: What is Playwright Workspaces?
           displayName: Playwright, MPT, overview, introduction
           href: playwright-workspaces/overview-what-is-microsoft-playwright-workspaces.md
-        - name: Try Playwright Workspaces for free
+        - name: Run Playwright tests at scale
+          href: playwright-workspaces/overview-run-playwright-tests-at-scale.md
+        - name: Pricing and billing
+          href: https://aka.ms/pww/pricing
+        - name: Regional availability
+          href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table
+        - name: Free trial
           displayName: free trial, free, trial, try
           href: playwright-workspaces/how-to-try-playwright-workspaces-free.md
     - name: Quickstarts
@@ -233,11 +239,13 @@ items:
           displayName: local, localhost, internal app, private apps, private endpoint
           href: playwright-workspaces/how-to-test-local-applications.md
         - name: Configure visual comparisons
-          href: playwright-workspaces/how-to-configure-visual-comparisons.md    
+          href: playwright-workspaces/how-to-configure-visual-comparisons.md
         - name: Manage authentication
           href: playwright-workspaces/how-to-manage-authentication.md
         - name: Use service package options
           href: playwright-workspaces/how-to-use-service-config-file.md
+        - name: Access privately hosted applications
+          href: playwright-workspaces/how-to-access-private-websites.md
     - name: Tutorials
       items: 
         - name: Accelerate Playwright test run and troubleshoot efficiently
@@ -278,8 +286,27 @@ items:
           href: https://playwright.dev
         - name: Pricing
           href: https://aka.ms/pww/pricing
-        - name: Regional availability
-          href: https://azure.microsoft.com/regions/services/
         - name: Service limits
           displayName: quotas, limits, capacity, supported browsers, supported platforms, supported operating systems, supported OS, supported OSes, supported OSs, supported devices, supported device, supported mobile devices, supported mobile device, supported mobile OS, supported mobile OSes, supported mobile operating systems, supported mobile operating system,
           href: playwright-workspaces/resource-limits-quotas-capacity.md
+
+- name: Playwright Cloud Browsers MCP
+  items:
+    - name: Overview
+      expanded: true
+      items:
+        - name: Remote MCP server for AI agents
+          href: playwright-cloud-browsers/how-to-playwright-workspaces-remote-mcp.md
+        - name: Pricing and billing
+          href: https://aka.ms/pww/pricing
+        - name: Regional availability
+          href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table
+    - name: Quickstarts
+      items:
+        - name: Get started with the remote MCP server
+          displayName: MCP, browser automation, AI agent, GitHub Copilot CLI, Microsoft Foundry
+          href: playwright-cloud-browsers/quickstart-automate-browser-tasks-remote-mcp.md
+    - name: Troubleshoot & debug
+      items:
+        - name: Troubleshoot the remote MCP server
+          href: playwright-cloud-browsers/troubleshoot-remote-mcp-server.md

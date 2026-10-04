@@ -25,7 +25,7 @@ This article helps you delete a virtual network gateway. There are a couple of d
 
 To delete a virtual network gateway, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies.
 
-[!INCLUDE [delete gateway](../../includes/vpn-gateway-delete-vnet-gateway-portal-include.md)]
+[!INCLUDE [delete gateway](../networking/includes/vpn-gateway/delete-vnet-gateway-portal.md)]
 
 At this point, the virtual network gateway is deleted.
 

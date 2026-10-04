@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 ---
 # Email domains and sender authentication for Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 An email domain is a unique name that appears after the **@** sign-in email addresses. It typically takes the form of your organization's name and brand that is recognized in public. Using your domain in email enables users to trust that this message isn't a phishing attempt, and that it's coming from a trusted source, building credibility for your brand. If you prefer, you can use an email domain offered through the Azure Communication Services. We offer an email domain that you can use to send emails on behalf of your organization.
 
 ## Email domains and sender authentication

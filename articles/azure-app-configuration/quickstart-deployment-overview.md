@@ -58,7 +58,7 @@ To use the Azure portal to configure the Azure Resource Manager authentication m
 
 1. Select **Settings** > **Access settings**.
 
-    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot of the Azure portal side pane for an App Configuration resource. Under Settings, Access settings is highlighted.":::
+    :::image type="content" border="true" source="./media/quickstart-deployment-overview/access-settings-blade.png" alt-text="Screenshot of the Azure portal side pane for an App Configuration resource. Under Settings, Access settings is highlighted.":::
 
 1. On the **Access settings** page, go to the **Azure Resource Manager Authentication Mode** section. Next to **Authentication mode**, select an authentication mode. **Pass-through** is the recommended mode.
 
@@ -104,7 +104,7 @@ To use the Azure portal to enable Azure Resource Manager private network access 
 
 1. Select **Settings** > **Networking**.
 
-    :::image type="content" border="true" source="./media/networking-blade.png" alt-text="Screenshot of the Azure portal side pane for an App Configuration resource. Under Settings, Networking is highlighted.":::
+    :::image type="content" border="true" source="./media/quickstart-deployment-overview/networking-blade.png" alt-text="Screenshot of the Azure portal side pane for an App Configuration resource. Under Settings, Networking is highlighted.":::
 
 1. Go to the **Private Access** tab, and then select **Enable Azure Resource Manager Private Network Access**. 
 

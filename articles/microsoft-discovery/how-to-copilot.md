@@ -16,6 +16,9 @@ The [Microsoft Discovery Studio preview experience](/azure/microsoft-discovery/c
 > [!IMPORTANT]
 > GitHub Copilot in Microsoft Discovery is currently in **preview**. You need a GitHub account to use AI features with GitHub-hosted models.
 
+> [!NOTE]
+> The Workbench preview experience is intended for testing and evaluation only. Don't use it for production workloads.
+
 ## Prerequisites
 
 - An Azure subscription with access to [Microsoft Discovery](overview-what-is-microsoft-discovery.md)

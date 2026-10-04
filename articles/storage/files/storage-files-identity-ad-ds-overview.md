@@ -44,6 +44,8 @@ To help you set up identity-based authentication for common use cases, we publis
 
 Before you enable AD DS authentication for Azure file shares, complete the following prerequisites:
 
+- Make sure the storage account's SMB security settings allow Kerberos authentication. If you use a custom SMB security profile, verify that **Kerberos** is selected under **Authentication methods**. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 - Select or create your [AD DS environment](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) and [sync it to Microsoft Entra ID](../../active-directory/hybrid/how-to-connect-install-roadmap.md) by using either the on-premises [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) application or [Microsoft Entra Cloud sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync), a lightweight agent that you can install from the Microsoft Entra Admin Center.
 
     You can enable the feature on a new or existing on-premises AD DS environment. Identities used for access must be synced to Microsoft Entra ID or use a default share-level permission. The Microsoft Entra tenant that contains the synced identities must be the same tenant that manages the subscription containing the storage account and file share.

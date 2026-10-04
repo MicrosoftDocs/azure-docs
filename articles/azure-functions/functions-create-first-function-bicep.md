@@ -72,7 +72,7 @@ This deployment file creates these Azure resources needed by a function app that
     ::: zone pivot="programming-language-powershell"  
     ```azurecli
     az group create --name exampleRG --location <SUPPORTED_REGION>
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=powerShell functionAppRuntimeVersion=7.4
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=powerShell functionAppRuntimeVersion=7.6
     ```
     ::: zone-end 
     ### [Azure PowerShell](#tab/azure-powershell)
@@ -104,7 +104,7 @@ This deployment file creates these Azure resources needed by a function app that
     ::: zone pivot="programming-language-powershell" 
     ```azurepowershell  
     New-AzResourceGroup -Name exampleRG -Location <SUPPORTED_REGION>
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "powershell" -functionAppRuntimeVersion "7.4"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "powershell" -functionAppRuntimeVersion "7.6"
     ``` 
     ::: zone-end 
 

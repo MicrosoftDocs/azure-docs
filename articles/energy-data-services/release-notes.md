@@ -5,7 +5,7 @@ author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: article
-ms.date: 07/13/2026
+ms.date: 09/16/2026
 ms.custom: template-concept
 ---
 
@@ -21,6 +21,17 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 <hr width = 100%>
+
+## September 2026
+### Apache Airflow 3 upgrade
+
+Azure Data Manager for Energy Workflow Service orchestration engine was upgraded from Apache Airflow 2 to Apache Airflow 3. This upgrade provides improved security, scalability, and performance for ingestion workloads, while keeping existing Workflow Service APIs unchanged. No customer action is required.
+
+### External Data Services ingestion performance and reliability improvements
+
+External Data Services (EDS) now supports larger metadata ingestion workloads with improved reliability and operational visibility. Memory-based batching distributes processing across available workers, reducing peak memory use and memory-related ingestion failures while increasing throughput through horizontal scaling.
+
+Interrupted ingestion jobs can make a best-effort recovery from checkpoints, reducing repeated work and duplicate ingestion attempts. Failed jobs automatically retry after recoverable service interruptions. EDS also tracks ingestion jobs until completion instead of relying on a fixed wait period, so workflows can finish as soon as all ingestion jobs complete. Enhanced status tracking, telemetry, and logging provide clearer insight into failures and workflow state at key processing milestones.
 
 ## August 2026
 ### Seismic single file restore - Preview

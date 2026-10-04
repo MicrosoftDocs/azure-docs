@@ -2,7 +2,7 @@
 title: Java developer reference for Azure Functions
 description: Understand how to develop functions with Java.
 ms.topic: concept-article
-ms.date: 06/04/2025
+ms.date: 08/27/2026
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -142,7 +142,7 @@ Here's the generated corresponding `function.json` by the [azure-functions-maven
 
 ## Java versions
 
-The version of Java on which your app runs in Azure is specified in the pom.xml file. The Maven archetype currently generates a pom.xml for Java 8, which you can change before publishing. The Java version in pom.xml should match the version of Java on which you develop and test your app locally. 
+The version of Java on which your app runs in Azure is specified in the `pom.xml` file. Unless you specify a Java version when you generate the project, the Maven archetype generates a `pom.xml` file for Java 17. The Java version in `pom.xml` should match the version of Java on which you develop and test your app locally.
 
 ### Supported versions
 
@@ -154,7 +154,8 @@ The following table shows current supported Java versions for each major version
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
-Unless you specify a Java version for your deployment, the Maven archetype defaults to Java 8 during deployment to Azure.
+> [!IMPORTANT]
+> If an existing Java 8, 11, or 17 app on a Linux Elastic Premium or Dedicated (App Service) plan uses a Debian Bullseye managed image, [update the app to an Ubuntu Noble image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image) to remain on a supported Linux distribution.
 
 ### Specify the deployment version
 

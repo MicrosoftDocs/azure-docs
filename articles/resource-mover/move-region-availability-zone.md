@@ -4,6 +4,7 @@ description: Learn how to move Azure VMs to availability zones with Azure Resour
 author: RochakSingh-blr
 ms.author: v-rochak2
 ms.date: 07/31/2025
+ms.update-cycle: 1095-days
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.custom: sfi-image-nochange

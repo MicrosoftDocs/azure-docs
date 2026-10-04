@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Number types
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services enables you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). This article describes the phone number types, region availability, and use cases for planning your telephony and SMS solution using Azure Communication Services.
 
 ## Available options

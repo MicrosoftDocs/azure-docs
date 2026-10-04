@@ -31,6 +31,10 @@ If you're new to Azure Files, read the [planning guide](storage-files-planning.m
 
 Before you enable Microsoft Entra Domain Services over SMB for Azure file shares, complete the following prerequisites:
 
+1.  **Allow Kerberos authentication in the storage account's SMB security settings.**
+
+    If you use a custom SMB security profile, verify that **Kerberos** is selected under **Authentication methods**. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 1.  **Select or create a Microsoft Entra tenant.**
 
     You can [use an existing tenant](/entra/identity-platform/quickstart-create-new-tenant#use-an-existing-microsoft-entra-tenant) or [create a new tenant](/entra/fundamentals/create-new-tenant) in Microsoft Entra ID. The tenant and the file share that you want to access must be associated with the same subscription.
@@ -46,7 +50,7 @@ Before you enable Microsoft Entra Domain Services over SMB for Azure file shares
 
 1.  **Domain-join a VM with Microsoft Entra Domain Services.**
 
-    To access an Azure file share by using Microsoft Entra credentials from a VM, your VM must be domain-joined to Microsoft Entra Domain Services. For more information, see [Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/join-windows-vm). Microsoft Entra Domain Services authentication over SMB with Azure file shares is supported only on Windows VMs running OS versions later than Windows 7 or Windows Server 2008 R2, or on [Linux VMs](storage-files-identity-auth-linux-kerberos-enable.md) running Ubuntu 18.04+ or an equivalent RHEL or SLES VM.
+    To access an Azure file share by using Microsoft Entra credentials from a VM, your VM must be domain-joined to Microsoft Entra Domain Services. For more information, see [Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/join-windows-vm). Microsoft Entra Domain Services authentication over SMB with Azure file shares is supported only on Windows VMs running OS versions later than Windows 7 or Windows Server 2008 R2, or on [Linux VMs](storage-files-identity-auth-linux-kerberos-entra-domain-services.md) running Ubuntu 18.04+ or an equivalent RHEL or SLES VM.
 
     > [!NOTE]
     > Non-domain-joined VMs can access Azure file shares using Microsoft Entra Domain Services authentication only if the VM has unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services. Usually this connectivity requires either site-to-site or point-to-site VPN.

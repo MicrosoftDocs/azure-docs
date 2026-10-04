@@ -20,9 +20,7 @@ Packet capture is an extension that is remotely started through Network Watcher.
 You can trigger packet captures through the portal, PowerShell, Azure CLI, or REST API. You can also use virtual machine alerts to trigger packet captures. You can choose to save captured data in the local disk or in Azure storage blob.
 
 > [!IMPORTANT]
-> Packet capture requires the Network Watcher agent VM extension `AzureNetworkWatcherExtension`. For more information, see:
-> - [Manage Network Watcher Agent VM extension](network-watcher-agent-manage.md).
-> - [Update Network Watcher extension to the latest version](network-watcher-agent-update.md).
+> Packet capture requires the Network Watcher agent VM extension `AzureNetworkWatcherExtension`. For more information, see [Manage Network Watcher Agent VM extension](network-watcher-agent-manage.md).
 
 ## Continuous packet capture (preview) 
 

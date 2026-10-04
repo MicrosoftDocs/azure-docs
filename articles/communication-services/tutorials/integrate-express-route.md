@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Integrate Azure Communication Services with ExpressRoute
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services enables developers to integrate voice, video, chat, and SMS capabilities into their applications by using cloud-based services. Organizations can use Azure ExpressRoute to establish private, dedicated network connections between their on-premises environments and Azure. This approach enhances the performance, reliability, and security of communication services.
 
 This article describes how to integrate Azure Communication Services with ExpressRoute to extend your local networks into the Microsoft Cloud over a private connection.

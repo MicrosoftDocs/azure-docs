@@ -12,6 +12,8 @@ ms.subservice: teams-interop
 
 # Communication as Teams external user
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 You can use Azure Communication Services to build applications that enable external users to join and participate in Teams meetings as Teams anonymous users. Customers can join Teams meetings from within your applications or websites. The main benefits are:
 - No requirement to download Teams desktop, mobile or web clients for external users
 - External users don't lose context by switching to another application

@@ -355,7 +355,7 @@ For example, if you use the **Reassert** function on a .NET object, the rules en
 
 1. From the **XML Schemas** tab, drag the entity node that you want to the argument in the **Reassert** function.
 
-If you reassert a top-level **TypedXmlDocument** entity, the **TypedXmlDocument** child entities, which were created when the the top-level **TypedXmlDocument** entity was first asserted, can behave differently, depending on the state of each **TypedXmlDocument** child entity.
+If you reassert a top-level **TypedXmlDocument** entity, the **TypedXmlDocument** child entities, which were created when the top-level **TypedXmlDocument** entity was first asserted, can behave differently, depending on the state of each **TypedXmlDocument** child entity.
 
 For example, if a new or existing child entity is "dirty", meaning that at least one field was changed in the ruleset using an action, then an **Assert** function or **Reassert** function is performed on that child. Any existing child that isn't dirty stays in working memory.
 

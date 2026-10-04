@@ -11,7 +11,7 @@ ms.date: 08/13/2026
 
 # Application (layer 7) DDoS protection
 
-**Applies to:** :heavy_check_mark: Application Gateway V2 :heavy_check_mark: Front Door Premium
+**Applies to:** :heavy_check_mark: Application Gateway v2 :heavy_check_mark: Front Door Premium
 
 Azure Web Application Firewall (WAF) includes several defense mechanisms that help prevent distributed denial of service (DDoS) attacks. DDoS attacks can target both the network layer (L3/L4) and the application layer (L7). Azure DDoS Protection defends you against large network layer volumetric attacks. Azure WAF, operating at layer 7, protects web applications against L7 DDoS attacks such as HTTP floods. Together, these defenses prevent attackers from reaching your application and affecting its availability and performance.
 

@@ -5,6 +5,7 @@ author: Aarthi-Vijayaraghavan
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.date: 09/26/2025
+ms.update-cycle: 1095-days
 ms.custom: engagement-fy23
 ms.author: AarthiV
 ms.reviewer: v-jasmineme

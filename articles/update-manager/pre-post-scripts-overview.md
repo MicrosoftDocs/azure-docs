@@ -4,8 +4,8 @@ description: This article provides an overview on pre and post events and its re
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: overview
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator managing scheduled updates, I want to configure pre and post events in Azure Update Manager so that I can automate tasks before and after maintenance windows, ensuring seamless updates and minimizing downtime.
 ---

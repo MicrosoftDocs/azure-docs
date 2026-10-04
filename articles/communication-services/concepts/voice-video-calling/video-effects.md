@@ -14,6 +14,8 @@ ms.custom: sfi-ropc-nochange
 
 # Adding visual effects to a video call
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 >[!IMPORTANT]

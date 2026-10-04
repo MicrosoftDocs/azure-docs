@@ -24,7 +24,7 @@ You can use the steps in the [Download profiles](global-hub-profile.md) article 
 
 For information about how to configure a VPN client, select the article from the following table that corresponds to you P2S gateway configuration and client.
 
-[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
+[!INCLUDE [P2S client configuration articles](../networking/includes/virtual-wan/vpn-client-install-articles.md)]
 
 ## Next steps
 

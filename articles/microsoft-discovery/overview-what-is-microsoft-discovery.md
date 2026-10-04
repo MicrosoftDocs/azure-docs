@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.topic: overview
 ms.service: azure
-ms.date: 05/28/2026
+ms.date: 09/04/2026
 ms.custom:
   - template-overview
 ---
@@ -148,4 +148,9 @@ Microsoft Discovery brings together:
 * **Admins and IT teams** who operate the platform securely 
 * **Leaders** who drive outcomes at scale 
 
-All within a single, enterprise‑ready discovery platform. 
+All within a single, enterprise‑ready discovery platform.
+
+## Next steps
+
+- Review the [Microsoft Discovery FAQ](faq.yml) for answers about deployment, security, agents, models, knowledge retrieval, and operational utilities.
+- [Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md).

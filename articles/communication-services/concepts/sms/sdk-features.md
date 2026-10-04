@@ -14,6 +14,8 @@ ms.subservice: sms
 ---
 # SMS SDK overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 This article describes how you can use the Azure Communication Services short message service (SMS) software development kits (SDKs) to add SMS messaging to your applications.

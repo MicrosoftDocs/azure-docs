@@ -1,9 +1,9 @@
 ---
 title: Send events from Azure API Management to Event Grid
-description: In this quickstart, you enable Event Grid events for your Azure API Management instance, then send  events to a sample application.
+description: In this quickstart, you enable Event Grid events for your Azure API Management instance, then send events to a sample application.
 ms.topic: how-to
 ms.service: azure-api-management
-ms.date: 05/07/2025
+ms.date: 09/11/2026
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
@@ -18,7 +18,7 @@ API Management integrates with [Azure Event Grid](../event-grid/overview.md) so 
 You can subscribe to the following types of API Management events:
 
 * **Control plane events**: These events are generated when you create, update, or delete certain API Management resources. For example, you can receive an event when a new user or new product is created in your API Management instance.
-* **Data plane events** (preview): These events are generated  during operation of the API Management gateway. Currently, API Management can generate events for [backend circuit breakers](backends.md#circuit-breaker) and for the lifecycle of self-hosted gateway [access tokens](self-hosted-gateway-overview.md#authentication-options).
+* **Data plane events** (preview): These events are generated during operation of the API Management gateway. Currently, API Management can generate events for [backend circuit breakers](backends.md#circuit-breaker) and for the lifecycle of self-hosted gateway [access tokens](self-hosted-gateway-overview.md#authentication-options).
 
 For a complete list of available events, see the [Event Grid schema for API Management](../event-grid/event-schema-api-management.md).
 
@@ -39,8 +39,8 @@ In this section, you use a Resource Manager template to deploy a pre-built sampl
 
 To deploy the sample app, you can use the Azure CLI, Azure PowerShell, or the Azure portal. The following example uses the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command in the Azure CLI.
 
-* Set `RESOURCE_GROUP_NAME` to the name of an existing resource group
-* Set `SITE_NAME` to a unique name for your web app
+* Set `RESOURCE_GROUP_NAME` to the name of an existing resource group.
+* Set `SITE_NAME` to a unique name for your web app.
 
   The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view the events.
 

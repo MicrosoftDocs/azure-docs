@@ -1,10 +1,11 @@
 ---
 title: Overview
 description: In this overview, learn about Azure CycleCloud, an enterprise-friendly tool to orchestrate and manage High Performance Computing (HPC) environments on Azure.
+ai-usage: ai-assisted
 author: jermth
-ms.date: 07/09/2026
+ms.date: 09/16/2026
 ms.topic: overview
-ms.author: jechia
+ms.author: anhoward
 ---
 
 # What is Azure CycleCloud?
@@ -14,6 +15,28 @@ Azure CycleCloud is an enterprise-friendly tool for orchestrating and managing H
 HPC admins and users who want to set up an HPC environment with a specific scheduler use Azure CycleCloud. It supports popular schedulers like Slurm, PBSPro, LSF, Grid Engine, and HT-Condor. CycleCloud is the sister product to [Azure Batch](/azure/batch/batch-technical-overview), which provides a Scheduler as a Service on Azure.
 
 For information about how CycleCloud compares with other Azure HPC solutions, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+
+## Choose an Azure service for batch and HPC workloads
+
+Choose a service based on the scheduling experience and level of infrastructure control your workload requires:
+
+| Service | Best fit | Operating model |
+| --- | --- | --- |
+| **[Azure Batch](/azure/batch/batch-technical-overview)** | Parallel and high-throughput workloads that don't require you to operate scheduler software | Azure provides scheduling as a service. You build with Batch APIs and tools while Batch manages pools, nodes, jobs, and tasks. |
+| **Azure CycleCloud** | HPC environments that require a specific scheduler, custom cluster topology, or close alignment with existing on-premises workflows | You deploy and manage the scheduler and cluster configuration. CycleCloud provisions and autoscales the Azure infrastructure. |
+| **[Azure CycleCloud Workspace for Slurm](overview-ccws.md)** | Teams that want a ready-to-deploy Slurm environment for HPC or AI workloads | A Marketplace solution deploys CycleCloud, Slurm, networking, storage, and access components in your Azure subscription. |
+
+Use your current environment as the deciding factor:
+
+| Starting point | Prefer | Why |
+| --- | --- | --- |
+| You must preserve scheduler-specific job scripts, queues, policies, or integrations. | Azure CycleCloud | CycleCloud lets you operate a supported scheduler and customize the cluster around existing workflows. |
+| You require Slurm, but a predefined environment meets your topology and integration requirements. | Azure CycleCloud Workspace for Slurm | The Marketplace solution reduces the infrastructure design and integration work required before users can submit jobs. |
+| You're building an application that can submit independent tasks or MPI jobs through an API and doesn't depend on scheduler-specific behavior. | Azure Batch | Batch provides scheduling as a service, so your team doesn't operate scheduler software. |
+
+Don't choose CycleCloud only because the workload uses Slurm. If a predefined Slurm environment meets your requirements, Workspace for Slurm reduces setup work. If the workload has no scheduler dependency, Batch can avoid the operational responsibility of running a scheduler and cluster configuration.
+
+Before production implementation, record why CycleCloud fits, which alternatives you rejected, the scheduler compatibility test, cluster topology, peak capacity and quota, storage benchmark, failure-recovery approach, and time and cost per representative job. For guidance, see [Plan and size HPC clusters](concepts/plan-and-size-hpc-clusters.md).
 
 > [!VIDEO https://www.youtube.com/embed/qkiGJWGM6Ew]
 

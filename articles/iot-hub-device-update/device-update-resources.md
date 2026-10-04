@@ -30,7 +30,7 @@ In order for Device Update to receive change notifications from IoT Hub, Device 
 > [!NOTE]
 > Do not disable local authentication on the IoT Hub. Device Update requires local authentication to be enabled. 
 
-### Message Routing
+### Message routing
 
 The following Message Routes are automatically configured in your linked IoT hub to enable Device Update:
 

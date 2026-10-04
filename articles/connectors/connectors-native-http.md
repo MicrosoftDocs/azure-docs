@@ -72,7 +72,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following articles:
 
-   * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Add authentication to outbound calls](../logic-apps/set-up-security-permissions.md#add-authentication-outbound)
    * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
 
 1. Add any other actions that you want to run when the trigger fires.
@@ -95,7 +95,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following articles:
 
-   * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Add authentication to outbound calls](../logic-apps/set-up-security-permissions.md#add-authentication-outbound)
    * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
 
 1. Add any other actions that you want to run when the trigger fires.
@@ -130,7 +130,7 @@ This built-in action sends an HTTPS or HTTP call to the specified URL for an end
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following articles:
 
-   * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Add authentication to outbound calls](../logic-apps/set-up-security-permissions.md#add-authentication-outbound)
    * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
 
 1. Add any other actions that you want to run when the trigger fires.
@@ -153,7 +153,7 @@ This built-in action sends an HTTPS or HTTP call to the specified URL for an end
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following articles:
 
-   * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Add authentication to outbound calls](../logic-apps/set-up-security-permissions.md#add-authentication-outbound)
    * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
 
 1. Add any other actions that you want to run when the trigger fires.
@@ -184,7 +184,7 @@ An HTTP trigger or action outputs the following information:
 
 ## URL security for outbound calls
 
-For information about encryption, security, and authorization for outbound calls from your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), self-signed certificates, or [Microsoft Entra ID Open Authentication](../active-directory/develop/index.yml), see [Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
+For information about encryption, security, and authorization for outbound calls from your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), self-signed certificates, or [Microsoft Entra ID Open Authentication](../active-directory/develop/index.yml), see [Access for outbound calls to other services and systems](../logic-apps/set-up-security-permissions.md#secure-outbound-requests).
 
 <a id="single-tenant-authentication"></a>
 

@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Enable audio noise suppression improvements
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to add audio effects in your calls using Azure Communication Services.
 
 ::: zone pivot="platform-web"

@@ -1,10 +1,10 @@
 ---
 title: Migrate .NET Apps to Azure App Service
-description: Learn about .NET migration resources available to help you assess and migrate web apps to Azure App Service.
+description: Learn about tools for assessing and migrating .NET web apps to Azure App Service, including Managed Instance and GitHub Copilot modernization.
 author: msangapu-msft
 
 ms.topic: concept-article
-ms.date: 06/02/2026
+ms.date: 08/28/2026
 ms.author: msangapu
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
@@ -15,6 +15,16 @@ ms.service: azure-app-service
 Azure App Service provides easy-to-use tools to quickly discover on-premises .NET web apps, assess them for readiness, and migrate both the content and supported configurations to App Service.
 
 These tools are developed to support different kinds of scenarios, focused on discovery, assessment, and migration. Following is list of .NET migration tools and use cases.
+
+## Migrate with GitHub Copilot modernization
+
+[GitHub Copilot modernization for .NET](/dotnet/azure/migration/appmod/overview) provides an agentic workflow for assessing application readiness, planning and applying code changes, validating the result, preparing Azure resources, and deploying to Azure.
+
+[!INCLUDE [copilot-modernization-availability](./includes/managed-instance/copilot-modernization-availability-note.md)]
+
+For .NET Framework web apps that depend on Windows features or operating system-level customization, use [Managed Instance on Azure App Service](overview-managed-instance.md) as the migration target. Managed Instance supports configuration scripts, registry adapters, storage mounts, private networking, and other capabilities that can reduce the refactoring required to move infrastructure-dependent applications to App Service.
+
+In Visual Studio Code, set the assessment target to `AppServiceManagedInstance.Windows` to receive target-specific findings and recommendations. To start the workflow, see [Assess and migrate a .NET project](/dotnet/azure/migration/appmod/quickstart). For more information, see [Work with application assessments](/dotnet/azure/migration/appmod/working-with-assessment) and [Deploy a migrated project to Azure](/dotnet/azure/migration/appmod/deploy).
 
 ## Migrate from multiple servers at-scale
 
@@ -46,6 +56,7 @@ __App Service Migration Assistant tool and App Service migration assistant for P
 
 |Migration tools| Description | Documentation |
 |-----------|-------------|---------------|
+|[GitHub Copilot modernization for .NET](/dotnet/azure/migration/appmod/overview)|Assess, remediate, validate, and deploy .NET applications to Azure. Use `AppServiceManagedInstance.Windows` to target Managed Instance for Windows applications that require operating system-level customization.|[Assess and migrate a .NET project](/dotnet/azure/migration/appmod/quickstart)<br>[Work with application assessments](/dotnet/azure/migration/appmod/working-with-assessment)<br>[Deploy a project to Azure](/dotnet/azure/migration/appmod/deploy)|
 |[App Service Migration Assistant](https://aka.ms/AppServiceMigrationAssistantInstaller)|Migrate .NET web apps from Windows OS to App Service.|[App Service Migration Assistant documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki)|
 |[App Service migration assistant for Java on Apache Tomcat (Windows—preview)](https://aka.ms/AppServiceMigrationAssistantInstaller)|Download prerelease software for migrating Java web applications on Tomcat web server running on Windows servers.|[App Service Migration Assistant documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki)|
 |[App Service Migration Assistant PowerShell scripts](https://aka.ms/AppServiceMigrationAssistantScripts)|Download PowerShell scripts for discovering and assessing all Microsoft Internet Information Services (IIS) web apps on a single server in bulk and migrating .NET web apps from Windows OS to App Service.|[App Service Migration Assistant PowerShell documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki/PowerShell-Scripts)<br>[SHA256 Identifier](https://github.com/Azure/App-Service-Migration-Assistant/wiki/Release-Notes)|

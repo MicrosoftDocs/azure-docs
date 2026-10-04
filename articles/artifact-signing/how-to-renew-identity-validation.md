@@ -32,12 +32,14 @@ You can check the expiration date of your Identity Validation on the Identity Va
 
 1. If you encounter validation errors while renewing through the renew button or if Identity Validation is Expired, you need to create a new Identity Validation. 
     - To learn more about creating new Identity Validation, see [Quickstart](quickstart.md). 
-1. After the Identity Validation status changes to Completed.
-1. To ensure you can continue with your existing metadata.json.
+1. With renewal process, once the Identity Validation status changes to Completed.
+1. Within 24 hours, when new certificate is rotated. Ensure the identity validation id, is of the renewed identity validation that completed.  
+1. If the new identity validation id does not appear, and to ensure you can continue with your existing metadata.json.
     - Navigate back to the Artifact Signing account overview page or from Objects, select **Certificate Profile**.
     - On the **Certificate Profiles**, delete the existing cert profile associated to the Identity Validation expiring soon:
-    - Create new cert profile with the same name.
-    - Select the Identity Validation from the pull-down. Once the certificate profile is created successfully, signing resumes requiring no configuration changes on your end.
+    - Create new cert profile with the same name. Note this changes the EKU associated to the certificate profile. 
+    - Select the Identity Validation from the pull-down. Once the certificate profile is created successfully, signing resumes requiring no configuration changes on your end. 
+  
     
 ## Delete Identity Validation
 

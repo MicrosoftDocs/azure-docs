@@ -25,7 +25,7 @@ By default, an MQTT broker:
 >
 > - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-brokerlistener.md).
 > - [Configure authentication in the MQTT broker](./howto-configure-authentication.md).
-> - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) by using port forwarding or a virtual switch with Azure Kubernetes Services (AKS) Edge Essentials.
+> - [Expose Kubernetes services to external devices](/azure/aks-hybrid-edge/edge-essentials/aks-edge-howto-expose-service) by using port forwarding or a virtual switch with Azure Kubernetes Services (AKS) Edge Essentials.
 
 Before you begin, [install or configure Azure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to the MQTT broker with MQTT clients in a nonproduction environment.
 
@@ -161,7 +161,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = 'aio-broker-nodeport'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -169,12 +169,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
+resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-07-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -331,7 +331,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = 'aio-broker-loadbalancer'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -339,12 +339,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-07-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -478,7 +478,7 @@ For AKS Edge Essentials, you need to perform a few more steps. With AKS Edge Ess
 
 1. Use the host's public IP address to connect to the MQTT broker.
 
-For more information about port forwarding, see [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service).
+For more information about port forwarding, see [Expose Kubernetes services to external devices](/azure/aks-hybrid-edge/edge-essentials/aks-edge-howto-expose-service).
 
 #### Access through localhost
 
@@ -550,7 +550,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = '<LISTENER_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -558,12 +558,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
+resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-07-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {

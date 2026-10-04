@@ -3,7 +3,7 @@ title: Use Azure Identity with WebPubSubServiceClient
 description: Learn how to authenticate WebPubSubServiceClient with Microsoft Entra ID in .NET, Java, JavaScript, and Python.
 author: terencefan
 ms.author: lianwei
-ms.date: 08/28/2026
+ms.date: 09/18/2026
 ms.service: azure-web-pubsub
 ms.custom:
   - devx-track-dotnet
@@ -25,6 +25,8 @@ This article shows how to create a `WebPubSubServiceClient` that uses Microsoft 
 
 > [!IMPORTANT]
 > Assign the Microsoft Entra identity an Azure role that includes the data-plane permissions required by the SDK operations your application calls. To generate a client access token and use it to connect, the identity requires both `Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action` and `Microsoft.SignalRService/WebPubSub/clientConnection/write`. The built-in **Web PubSub Service Owner** role includes both permissions but grants access to all data-plane APIs. No narrower built-in role includes both permissions. For least-privilege access, use a custom role that contains only the permissions your application needs.
+
+## Create a service client
 
 Choose a language:
 

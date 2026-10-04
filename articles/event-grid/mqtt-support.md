@@ -150,7 +150,7 @@ In MQTT v5, topic aliases allow a client to use a shorter alias in place of the 
 
 ### Flow control
 
-In MQTT v5, flow control refers to the mechanism for managing the rate and size of messages that a client can handle. To configure flow control, set the `Maximum Packet Size` and `Receive Maximum` parameters in the CONNECT packet. The `Receive Maximum` parameter allows the client to limit the number of messages sent by the broker to the number of messages that the client can handle. The `Maximum Packet Size` parameter defines the maximum size of packets that the client can receive. The MQTT broker has a message size limit of 512 KiB. This feature ensures the reliability and stability of the communication for constrained devices with limited processing speed or storage capabilities.
+In MQTT v5, flow control refers to the mechanism for managing the rate and size of messages that a client can handle. To configure flow control, set the `Maximum Packet Size` and `Receive Maximum` parameters in the CONNECT packet. The `Receive Maximum` parameter allows the client to limit the number of messages sent by the broker to the number of messages that the client can handle. The `Maximum Packet Size` parameter defines the maximum size of packets that the client can receive. The MQTT broker has a message size limit of 1 MB (1024 KB). This feature ensures the reliability and stability of the communication for constrained devices with limited processing speed or storage capabilities.
 
 ### Negative acknowledgments and server-initiated disconnect packet
 
@@ -215,7 +215,6 @@ Support for MQTT v5 currently differs from the [MQTT v5 specification](https://d
 
 - The effective will delay interval is the lesser of the provided Will Delay Interval and the session expiry interval (if provided).
 - Maximum QoS is 1.
-- Maximum packet size is 512 KiB.
 - Topic alias maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within the set limit.
 - CONNACK doesn't return the `Response Information` property even if the CONNECT request contains the `Request Response Information` property.
 - User properties on CONNECT, SUBSCRIBE, DISCONNECT, PUBACK, and AUTH packets aren't used by the service, so they aren't supported. If any of these requests include user properties, the request fails.
@@ -226,7 +225,7 @@ Support for MQTT v5 currently differs from the [MQTT v5 specification](https://d
 
 The MQTT broker currently differs from the [MQTT v3.1.1 specification](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
 
-- QoS 2 isn't supported. A publish request with a `RETAIN` flag or with a QoS 2 fails and closes the connection.
+- QoS 2 isn't supported. 
 - Keep Alive maximum is 1,160 seconds.
 
 ## Code samples

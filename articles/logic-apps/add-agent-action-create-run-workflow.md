@@ -37,7 +37,7 @@ In Foundry, add workflows from Azure Logic Apps to agents as *actions*. Your age
 
 The following diagram shows how agent actions in Foundry (classic) relate to workflows in Azure Logic Apps:
 
-:::image type="content" source="media/add-agent-action-create-run-workflow/foundry-logic-apps-arch-full.png" alt-text="Architecture diagram that shows relationship between an agent action in Foundry and workflow in Azure Logic Apps that can integrate Microsoft and non-Microsoft services, systems, and APIs." border="false" lightbox="media/add-agent-action-create-run-workflow/foundry-logic-apps-arch-full.png":::
+:::image type="content" source="media/add-agent-action-create-run-workflow/foundry-logic-apps-arch-full.png" alt-text="Diagram that shows Foundry agent action calling a workflow in Azure Logic Apps with connectors to Microsoft and non-Microsoft services." border="false" lightbox="media/add-agent-action-create-run-workflow/foundry-logic-apps-arch-full.png":::
 
 The agent focuses on choosing the correct action to call the integration workflow, while the workflow handles the orchestration and integration tasks.
 

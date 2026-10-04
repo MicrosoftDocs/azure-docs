@@ -155,6 +155,8 @@
       href: how-to-retrieve-iot-edge-logs.md
     - name: Access built-in metrics
       href: how-to-access-built-in-metrics.md
+    - name: Migrate to Metrics Collector 2.0
+      href: migrate-metrics-collector.md
     - name: Azure Monitor integration
       items:
       - name: Collect and transport metrics

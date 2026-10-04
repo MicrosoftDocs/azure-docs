@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before beginning](../networking/includes/virtual-wan/before.md)]
 
 ## <a name="wan"></a>Create a virtual WAN
 
@@ -54,7 +54,7 @@ The instructions you follow depend on the authentication method you want to use.
 
 ### Configuration steps
 
-[!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Create P2S configuration](../networking/includes/virtual-wan/p2s-configuration.md)]
 
 ## <a name="hub"></a>Create a virtual hub and gateway
 
@@ -64,9 +64,9 @@ The instructions you follow depend on the authentication method you want to use.
 
 ### Point to site page
 
-[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
+[!INCLUDE [Point to site page](../networking/includes/virtual-wan/p2s-gateway.md)]
 
-[!INCLUDE [Point to site page](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
+[!INCLUDE [Point to site page](../networking/includes/virtual-wan/hub-router-provisioning-warning.md)]
 
 ## <a name="download"></a>Generate client configuration files
 
@@ -74,20 +74,20 @@ When you connect to VNet using User VPN (P2S), you can use the VPN client that i
 
 There are two different types of configuration profiles that you can download: global and hub. The global profile is a WAN-level configuration profile. When you download the WAN-level configuration profile, you get a built-in Traffic Manager-based User VPN profile. When you use a global profile, if for some reason a hub is unavailable, the built-in traffic management provided by the service ensures connectivity (via a different hub) to Azure resources for point-to-site users. For more information, or to download a hub-level profile VPN client configuration package, see [Global and hub profiles](global-hub-profile.md).
 
-[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
+[!INCLUDE [Download profile](../networking/includes/virtual-wan/p2s-download-profile.md)]
 
 ## <a name="configure-client"></a>Configure VPN clients
 
 Use the downloaded profile package to configure the native VPN client on your computer. The procedure for each operating system is different. Follow the instructions that apply to your system.
 Once you have finished configuring your client, you can connect.
 
-[!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
+[!INCLUDE [Configure clients](../networking/includes/virtual-wan/p2s-configure-clients.md)]
 
 ## <a name="connect-vnet"></a>Connect VNet to hub
 
 In this section, you create a connection between your virtual hub and your virtual network. For this tutorial, you don't need to configure the routing settings.
 
-[!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="viewwan"></a>Point to site sessions dashboard
 
@@ -99,7 +99,7 @@ In this section, you create a connection between your virtual hub and your virtu
 
 ### <a name="address-pool"></a>Modify client address pool
 
-[!INCLUDE [Modify client address pool](../../includes/virtual-wan-client-address-pool-include.md)]
+[!INCLUDE [Modify client address pool](../networking/includes/virtual-wan/client-address-pool.md)]
 
 ### <a name="dns"></a>Modify DNS servers
 
@@ -117,7 +117,7 @@ In this section, you create a connection between your virtual hub and your virtu
 
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
+[!INCLUDE [Delete resources](../networking/includes/virtual-wan/resource-cleanup.md)]
 
 ## Next steps
 

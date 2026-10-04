@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The speaking participant's microphone has a problem
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When the speaking's participant's microphone has a problem, it might cause the outgoing audio to be silent, resulting in one-way audio issue in the call.
 
 ## How to detect using the SDK

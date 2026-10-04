@@ -19,10 +19,13 @@ Learn how to get started with Nutanix Cloud Clusters (NC2) on Azure. You can als
 
 To deploy NC2 on Azure you must have the following:
 
-* An **active subscription** which will need to be allowlisted.
+* An **active subscription** 
 * An **Azure account ** associated with an active subscription and a **Microsoft Entra ID** with permissions to create an app registration in Microsoft Entra ID with access to the subscription.
 * A **My Nutanix** account.
 * In addition, there are **networking and Azure quota** requirements to consider.
+  * Nutanix Cloud Cluster requires the deployment of a Flow Gateway for network connectivity. The following types are supported:
+  * Standard_D32_v4 or Standard_D4_v4
+  * (Recommended) Standard_D32_v5 or Standard_D4_v5
 
 For further details review [Cloud Clusters (NC2) Hosted - Nutanix Cloud Clusters on Azure Deployment and User Guide](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure), including sections:
 
@@ -42,7 +45,7 @@ The following details are important considerations for Nutanix on Azure BareMeta
 
 **Track the trial period**: There's no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
 
-For more information, see *[Starting a Free Trial for NC2](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html)*
+For more information, see *[Starting a Free Trial for NC2](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html)*.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Describes how to enable Accelerated Networking with Azure Site Reco
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 02/12/2026
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom: engagement-fy23, linux-related-content
@@ -25,43 +25,13 @@ Before you begin, make sure you understand:
 -	[Setting up replication](azure-to-azure-tutorial-enable-replication.md) for Azure virtual machines
 -	[Failing over](azure-to-azure-tutorial-failover-failback.md) Azure virtual machines
 
-## Accelerated Networking with Windows VMs
+## Support requirements
 
-Azure Site Recovery supports enabling Accelerated Networking for replicated virtual machines only if the source virtual machine has Accelerated Networking enabled. If your source virtual machine doesn't have Accelerated Networking enabled, you can learn how to enable Accelerated Networking for Windows virtual machines [here](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
+Site Recovery preserves Accelerated Networking only when it is enabled on the source NIC and the exact recovery VM size, image, operating system, region, and NIC configuration support it. Validate the recovery configuration by capability rather than relying on a static VM-family or operating-system list.
 
-### Supported operating systems
-The following distributions are supported out of the box from the Azure Gallery:
-* **Windows Server 2022 Datacenter**
-* **Windows Server 2019 Datacenter**
-* **Windows Server 2016 Datacenter**
-* **Windows Server 2012 R2 Datacenter**
+Some NC and NV sizes can appear in capability-query results even though they don't support Accelerated Networking. Confirm support for the exact target size before failover. For maintained requirements and capability checks, see [Accelerated Networking limitations and constraints](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints).
 
-### Supported VM instances
-Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with two or more vCPUs. These supported series are: D/DSv2 and F/Fs.
-
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with four or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms.
-
-For more information on VM instances, see [Windows VM sizes](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-## Accelerated Networking with Linux VMs
-
-Azure Site Recovery supports enabling Accelerated Networking for replicated virtual machines only if the source virtual machine has Accelerated Networking enabled. If your source virtual machine doesn't have Accelerated Networking enabled, you can learn how to enable Accelerated Networking for Linux virtual machines [here](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Supported operating systems
-The following distributions are supported out of the box from the Azure Gallery:
-* **Ubuntu 16.04**
-* **SLES 12 SP3**
-* **RHEL 7.4**
-* **CoreOS Linux**
-* **Debian "Stretch" with backports kernel**
-* **Oracle Linux 7.4**
-
-### Supported VM instances
-Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with two or more vCPUs. These supported series are: D/DSv2 and F/Fs.
-
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with four or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms.
-
-For more information on VM instances, see [Linux VM sizes](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
+If the source VM doesn't have Accelerated Networking enabled, enable it before expecting Site Recovery to preserve it.
 
 ## Enabling Accelerated Networking for replicated VMs
 

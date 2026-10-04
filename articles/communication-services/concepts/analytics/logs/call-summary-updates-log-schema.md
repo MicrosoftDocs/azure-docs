@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Call summary updates log schema
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 The only difference in properties between the call summary updates log schema and the [call summary log schema](call-summary-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The call summary updates log schema has lower latency than the [call summary log schema](call-summary-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [call summary log schema](call-summary-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. 
 
 The call summary updates log contains data to help you identify key properties of all calls. A different call summary updates log is created for each `participantId` (or `endpointId` for peer-to-peer [P2P] calls) value in the call.

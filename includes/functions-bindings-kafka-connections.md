@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/07/2026
+ms.date: 08/31/2026
 ms.author: glenga
 ---
 
@@ -45,7 +45,7 @@ While using this form of authentication, make sure that `Protocol` is set to eit
 | **BrokerList** | `BootstrapServer` | App setting named `BootstrapServer` contains the value of bootstrap server found in Confluent Cloud settings page. The value resembles `xyz-xyzxzy.westeurope.azure.confluent.cloud:9092`. |
 | **Username** | `ConfluentCloudUsername` | App setting named `ConfluentCloudUsername` contains the API access key from the Confluent Cloud web site. |
 | **Password** | `ConfluentCloudPassword` | App setting named `ConfluentCloudPassword` contains the API secret obtained from the Confluent Cloud web site. |
-| **SslCaPEM** | `SSLCaPemCertificate` | App setting named `SSLCaPemCertificate` that contains the CA certificate as a string in PEM format. The value should follow the standard format, for example: `-----BEGIN CERTIFICATE-----\nMII....JQ==\n-----END CERTIFICATE-----`. |
+| **SslCaPEM** | `%SSLCaPemCertificate%` | App setting named `SSLCaPemCertificate` that references an Azure Key Vault secret containing the CA certificate in PEM format. |
 
 #### SSL authentication
 
@@ -54,11 +54,17 @@ Ensure that `Protocol` is set to `SSL`.
 | Setting | Recommended Value | Description |
 | --- | --- | --- |
 | **BrokerList** | `BootstrapServer` | App setting named `BootstrapServer` contains the value of bootstrap server found in Confluent Cloud settings page. The value resembles `xyz-xyzxzy.westeurope.azure.confluent.cloud:9092`. |
-| **SslCaPEM** | `SslCaCertificatePem` | App setting named `SslCaCertificatePem` that contains PEM value of the CA certificate as a string. The value should follow the standard format: `-----BEGIN CERTIFICATE-----\nMII...JQ==\n-----END CERTIFICATE-----` |
-| **SslCertificatePEM** | `SslClientCertificatePem` | App setting named `SslClientCertificatePem` that contains PEM value of the client certificate as a string. The value should follow the standard format: `-----BEGIN CERTIFICATE-----\nMII...JQ==\n-----END CERTIFICATE-----` |
-| **SslKeyPEM** | `SslClientKeyPem` | App setting named `SslClientKeyPem` that contains PEM value of the client private key as a string. The value should follow the standard format: `-----BEGIN PRIVATE KEY-----\nMII...JQ==\n-----END PRIVATE KEY-----` |
-| **SslCertificateandKeyPEM** | `SslClientCertificateAndKeyPem` | App setting named `SslClientCertificateAndKeyPem` that contains PEM value of the client certificate and client private key concatenated as a string. The value should follow the standard format: `-----BEGIN CERTIFICATE-----\nMII....JQ==\n-----END CERTIFICATE-----\n-----BEGIN PRIVATE KEY-----\nMIIE....BM=\n-----END PRIVATE KEY-----` |
-| **SslKeyPassword** | `SslClientKeyPassword` | App setting named `SslClientKeyPassword` that contains the password for the private key (if any). |
+| **SslCaPEM** | `%SslCaCertificatePem%` | App setting named `SslCaCertificatePem` that references an Azure Key Vault secret containing the CA certificate in PEM format. |
+| **SslCertificatePEM** | `%SslClientCertificatePem%` | App setting named `SslClientCertificatePem` that references an Azure Key Vault secret containing the client certificate in PEM format. |
+| **SslKeyPEM** | `%SslClientKeyPem%` | App setting named `SslClientKeyPem` that references an Azure Key Vault secret containing the client private key in PEM format. |
+| **SslCertificateandKeyPEM** | `%SslClientCertificateAndKeyPem%` | App setting named `SslClientCertificateAndKeyPem` that references an Azure Key Vault secret containing the concatenated client certificate and client private key in PEM format. |
+| **SslKeyPassword** | `%SslClientKeyPassword%` | App setting named `SslClientKeyPassword` that references an Azure Key Vault secret containing the password for the private key (if any). |
+
+Store certificate and private key values in Azure Key Vault rather than directly in your function app settings. Set the corresponding app setting to a [Key Vault reference](/azure/app-service/app-service-key-vault-references), such as:
+
+```text
+@Microsoft.KeyVault(SecretUri=https://<keyVaultName>.vault.azure.net/secrets/<secretName>)
+```
 
 #### OAuth authentication
 

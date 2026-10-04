@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # networkRelaysNotReachable UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `networkRelaysNotReachable` UFD event with a `true` value occurs when the media connection fails to establish and no relay candidates are available. This issue usually happens when the firewall policy blocks connections between the local client and relay servers.
 
 When users see the `networkRelaysNotReachable` UFD event, it also indicates that the local client isn't able to make a direct connection to the remote endpoint.

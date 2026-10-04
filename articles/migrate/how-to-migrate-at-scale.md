@@ -5,7 +5,7 @@ author: sunishvohra-ms
 ms.author: sunishvohra
 ms.service: azure-migrate
 ms.manager: vijain
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.update-cycle: 1095-days

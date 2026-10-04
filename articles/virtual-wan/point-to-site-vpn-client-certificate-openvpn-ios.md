@@ -13,7 +13,7 @@ ms.author: duau
 
 This article helps you connect to your Azure virtual network (VNet) using Virtual WAN User VPN point-to-site (P2S) and **Certificate authentication** on iOS using an OpenVPN client.
 
-[!INCLUDE [Prerequisites- iOS](../../includes/virtual-wan-user-vpn-openvpn-prerequisites.md)]
+[!INCLUDE [Prerequisites- iOS](../networking/includes/virtual-wan/user-vpn-openvpn-prerequisites.md)]
 
 ## Generate client certificates
 

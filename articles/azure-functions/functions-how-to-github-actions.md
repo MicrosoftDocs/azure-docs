@@ -2,7 +2,7 @@
 title: Deploy to Azure Functions by using GitHub Actions
 description: Set up continuous deployment for your Azure Functions app by using GitHub Actions with OpenID Connect (OIDC) authentication.
 ms.topic: how-to
-ms.date: 08/06/2026
+ms.date: 08/28/2026
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
@@ -397,7 +397,7 @@ The following table describes the input parameters supported by [`Azure/function
 | --------- | --------- |
 | **app-name** | (Required) The name of your function app in Azure. |
 | **package** | (Required) The path to your project to publish. Default: `.` (all files in the repository). |
-| **remote-build** | Set to `true` to enable a build action from Kudu when deploying to a Flex Consumption app. Oryx build is always performed; don't also set **scm-do-build-during-deployment** or **enable-oryx-build**. Default: `false`. |
+| **remote-build** | Set to `true` to request a remote build when you deploy to an app in the Flex Consumption plan. The remote build always uses Oryx. Don't also set **scm-do-build-during-deployment** or **enable-oryx-build**. Default: `false`. |
 | **scm-do-build-during-deployment** | Allow the Kudu site to perform pre-deployment operations such as [remote builds](functions-deployment-technologies.md#remote-build). Set to `true` to have Kudu build your project during deployment. Default: `false`. For more information, see [`SCM_DO_BUILD_DURING_DEPLOYMENT`](./functions-app-settings.md#scm_do_build_during_deployment). |
 | **enable-oryx-build** | Allow Kudu to resolve project dependencies by using [Oryx](https://github.com/Microsoft/Oryx). Set both this and **scm-do-build-during-deployment** to `true` to use Oryx instead of the workflow. Default: `false`. Linux only. |
 | **slot-name** | The [deployment slot](functions-deployment-slots.md) to deploy to. Default: production slot. |
@@ -427,10 +427,10 @@ When you use GitHub Actions, the deployment method depends on your hosting plan:
 
 | Hosting plan | Deployment method |
 | ---- | ----- |
-| [Flex Consumption](./flex-consumption-plan.md) | [One deploy] |
-| [Elastic Premium](./functions-premium-plan.md) | [Zip deploy] |
-| [Dedicated (App Service)](./dedicated-plan.md) | [Zip deploy] |
-| [Consumption](./consumption-plan.md) | Windows: [Zip deploy]<br/>Linux: [external package URL](./functions-deployment-technologies.md#external-package-url)<sup>*</sup> |
+| [Flex Consumption](./flex-consumption-plan.md) | [Package deployment] |
+| [Elastic Premium](./functions-premium-plan.md) | [ZIP deployment] |
+| [Dedicated (App Service)](./dedicated-plan.md) | [ZIP deployment] |
+| [Consumption](./consumption-plan.md) | Windows: [ZIP deployment]<br/>Linux: [external package URL](./functions-deployment-technologies.md#external-package-url)<sup>*</sup> |
 
 \* The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
 
@@ -442,6 +442,6 @@ For more information, see [Deployment technologies in Azure Functions](functions
 - [Learn more about Azure and GitHub integration](/azure/developer/github/)
 
 [Azure portal]: https://portal.azure.com
-[Zip deploy]: functions-deployment-technologies.md#zip-deploy
-[One deploy]: functions-deployment-technologies.md#one-deploy
+[ZIP deployment]: functions-deployment-technologies.md#zip-deployment
+[Package deployment]: functions-deployment-technologies.md#flex-consumption-package-deployment
 [`Azure/functions-action`]: https://github.com/Azure/functions-action

@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # Overview of device and permission issues
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 In the WebJS calling SDK, there are two types of permissions: browser permissions and system permissions.
 When an application needs to access a user's audio or video input device, it requires permissions granted at both the browser and system level.
 

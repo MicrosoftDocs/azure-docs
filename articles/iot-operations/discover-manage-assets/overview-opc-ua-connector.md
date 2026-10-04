@@ -66,6 +66,7 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 | [High availability](#high-availability-for-opc-ua-connections) | Yes | Uses active and passive connector instances to reduce interruptions |
 | [Key frame generation](#key-frames-for-opc-ua-data-points) | Yes | Enables downstream services to recover state more quickly |
 | [Dataset triggering](#control-dataset-publishing-with-a-triggering-item) | Yes | Publishes sampled data points when a selected data point changes |
+| [Server heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md) | Yes | Detects OPC UA server liveness and reports inbound endpoint health |
 
 ## How it works
 
@@ -124,6 +125,12 @@ High availability uses active and passive connector instances for an OPC UA inbo
 You can combine high availability with dedicated or shared session mode. High availability reduces interruptions caused by connector failures, but it doesn't make the OPC UA server itself highly available and it doesn't guarantee that no data is lost during failover.
 
 To plan capacity, configure redundant connectors, and verify failover, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
+
+## Server heartbeat monitoring
+
+The connector for OPC UA can monitor whether an OPC UA server is alive, independently of your asset data collection. A dedicated monitoring session watches the server's current time and reports server liveness as inbound endpoint health, so you can tell a server outage apart from a data configuration problem.
+
+Server heartbeat monitoring is separate from dataset publishing behavior, session sharing, and connector high availability. To learn how it works, how to configure it per endpoint, and how to monitor the heartbeat state, see [Monitor OPC UA server availability with heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md).
 
 ## Connector for OPC UA message format
 

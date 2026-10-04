@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - build-2025
-ms.date: 12/21/2025
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -24,7 +24,6 @@ This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-d
 
 > [!IMPORTANT]
 > This version of the Azure Cosmos DB binding extension supports [Azure Functions version 4.x](functions-versions.md). If your app still uses version 1.x of the Functions runtime, instead see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb.md).
-> In the Functions v1.x runtime, this binding was originally named `DocumentDB`. 
 
 ## Supported APIs
 
@@ -61,7 +60,7 @@ This version also changes the types that you can bind to, replacing the types fr
 
 This extension version is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 4.x.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
+# [Extension 3.x](#tab/functionsv2/in-process)
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or 3.x._
 
@@ -82,7 +81,7 @@ hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (
 ) |> ignore
 ```
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Extension 3.x](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 3.x.
 
@@ -134,7 +133,7 @@ The Azure Cosmos DB extension supports parameter types according to the table be
 
 <sup>1</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
+# [Extension 3.x](#tab/functionsv2/in-process)
 
 Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Documents] namespace. Newer types from [Microsoft.Azure.Cosmos] are exclusive to **extension 4.x and higher**.
 
@@ -154,7 +153,7 @@ The isolated worker process supports parameter types according to the tables bel
 
 [!INCLUDE [functions-bindings-cosmosdb-v2-output-dotnet-isolated-types](../../includes/functions-bindings-cosmosdb-v2-output-dotnet-isolated-types.md)]
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Extension 3.x](#tab/functionsv2/isolated-process)
 
 Earlier versions of extensions in the isolated worker process only support binding to JSON serializable types. Additional options are available to **extension 4.x and higher**.
 
@@ -223,7 +222,7 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 |**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`. |
 
 
-# [Functions 2.x+](#tab/functionsv2)
+# [Extension 3.x](#tab/functionsv2)
 
 ```json
 {

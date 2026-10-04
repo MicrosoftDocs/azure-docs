@@ -1,23 +1,37 @@
 ---
 title: "High-Performance Computing (HPC) performance and benchmarking overview"
 description: Learn about understanding and measuring the performance concepts and benchmarking methodologies.
+ai-usage: ai-assisted
 author: padmalathas
 ms.author: padmalathas
-ms.date: 02/23/2026
+ms.date: 09/16/2026
 ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 # Customer intent: "As an HPC administrator, I want to learn about performance metrics and benchmarking methodologies, so that I can optimize system performance and ensure my applications meet required operational standards."
 ---
 
-# High-Performance Computing (HPC) Performance and Benchmarking Overview
+# High-performance computing (HPC) performance and benchmarking overview
 
-This article introduces HPC- AI benchmarking on Azure. It is designed for architects, engineers, and decision-makers who need to:
+This article introduces HPC and AI benchmarking on Azure. It's designed for architects, engineers, and decision-makers who need to:
 
 - Evaluate Azure infrastructure for new or existing workloads
 - Establish performance baselines
 - Compare VM families using objective data
 - Optimize performance and cost efficiency
+
+## Define the benchmark decision
+
+Start with the decision that the benchmark must support. Define the workload, candidate configurations, acceptance criteria, and cost boundary before you provision infrastructure.
+
+| Decision | Evidence to collect |
+| --- | --- |
+| Choose a VM family or size | Application runtime plus the compute, memory, and network metrics that constrain the workload |
+| Validate multinode scaling | Runtime and scaling efficiency at increasing node counts, including communication time |
+| Choose storage | Application I/O throughput, latency, IOPS, metadata rate, and compute time spent waiting for data |
+| Approve a production design | Repeatable application results, failure behavior, regional capacity, quota, and total cost per run |
+
+Use synthetic benchmarks to isolate a component and application benchmarks to validate the complete workload. Don't choose a production configuration from a single peak metric.
  
 ## Why benchmarking matters
 
@@ -30,7 +44,7 @@ Benchmarking provides evidence-based insights that support both technical and bu
 - Support procurement decisions: Provide repeatable, defensible performance data to stakeholders.
 
 
-## Key Performance Metrics
+## Key performance metrics
 
 Understanding the core metrics used to measure HPC system performance is essential for meaningful system evaluation and comparison. They provide objective measurements for comparison, identify system bottlenecks thereby enabling the performance tuning and help predict application performance. Metrics vary by workload type, but they generally fall into four categories.  
 
@@ -106,23 +120,13 @@ Application benchmarks reflect real-world behavior and are often more representa
 
 ## Getting started
 
-Follow this recommended path to begin benchmarking on Azure:
+Follow this path to plan and run a benchmark on Azure:
 
-```
-1. Set up infrastructure
-   └── Setting Up Your First HPC Cluster (CycleCloud + Slurm)
-   
-2. Run baseline benchmarks
-   ├── Running Your First Benchmark: STREAM (CPU/memory)
-   └── Running NCCL Benchmarks (GPU communication)
-   
-3. Compare VM options
-   ├── CPU HPC VMs Comparison
-   └── GPU AI VMs Comparison
-   
-4. Optimize for your workload
-   └── Optimizing NCCL for Azure (AI training)
-```
+1. [Choose an Azure platform for AI model training and fine-tuning](platform-selection-best-practices-for-hpc-ai-models.md), if applicable.
+2. Plan the infrastructure by using [CycleCloud cluster planning](/azure/cyclecloud/concepts/plan-and-size-hpc-clusters) or [Batch capacity planning](/azure/batch/batch-capacity-planning).
+3. [Evaluate storage requirements](hpc-storage-options.md#evaluate-storage-requirements) with representative data and access patterns.
+4. [Run a baseline STREAM benchmark](stream-benchmark.md) for CPU and memory performance.
+5. [Optimize the selected HPC or AI VM configuration](optimize-performance.md), then rerun the same tests under consistent conditions.
 
 ## Best practices
 

@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your chat app to a Teams meeting
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams. 
 
 ::: zone pivot="platform-web"

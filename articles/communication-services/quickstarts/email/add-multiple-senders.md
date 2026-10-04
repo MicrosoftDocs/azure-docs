@@ -15,6 +15,8 @@ ms.devlang: azurecli
 ---
 # Quickstart: How to add and remove Multiple Sender Addresses to Email Communication Service
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In this quick start, you learn about how to add and remove multiple email sender addresses in Azure Communication Services.
 
 ::: zone pivot="platform-azp"

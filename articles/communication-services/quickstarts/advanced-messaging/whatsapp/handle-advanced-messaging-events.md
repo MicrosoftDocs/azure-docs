@@ -15,6 +15,8 @@ ms.custom: template-quickstart
 
 # Handle Advanced Messaging events
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services enables you to send and receive WhatsApp messages using the Advanced Messaging SDK. Get started with setting up Event Grid events for receiving WhatsApp messages send/receive status reports. Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites

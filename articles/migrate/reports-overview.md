@@ -1,8 +1,8 @@
 ---
 title: Azure Migrate Reports Overview 
 description: Learn how Azure Migrate Reports help you create decision‑ready reports with insights into security, readiness, cost, ROI, and migration strategies for Azure planning
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/25/2026

@@ -11,7 +11,7 @@ ms.date: 07/06/2026
 
 # Azure Application Gateway WAF exceptions list (preview)
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 The Azure Application Gateway Web Application Firewall (WAF) helps protect your web applications from common threats and attacks. This article describes how to configure WAF exception lists in a WAF policy associated with your Application Gateway.
 

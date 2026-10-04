@@ -16,6 +16,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Exception Policy
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 An Exception Policy is a set of rules that defines what actions to execute when a condition is triggered.  You can save these policies inside Job Router and then attach them to one or more Queues.
 
 ## Triggers

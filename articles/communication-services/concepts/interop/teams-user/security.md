@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 # Security of communication as Teams user
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 In this article, you'll learn about the security measures and frameworks implemented by Microsoft Teams, Azure Communication Services, and Microsoft Entra ID to provide a secure collaboration environment. The products implement data encryption, secure real-time communication, two-factor authentication, user authentication, and authorization to prevent common security threats. The security frameworks for these services are based on industry standards and best practices. 
 
 ## Microsoft Teams

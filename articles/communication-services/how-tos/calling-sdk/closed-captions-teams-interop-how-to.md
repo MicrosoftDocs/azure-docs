@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Enable closed captions for Teams interop
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Provide your users with the option to enable closed captions during a Teams interoperability scenario. If your users are in a meeting between an Azure Communication Services user and a Teams client user, or when your users are using Azure Communication Services calling SDK with their Microsoft 365 identity.
 
 ::: zone pivot="platform-windows"

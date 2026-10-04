@@ -12,6 +12,8 @@ description: Learn how to monitor Azure Communication Services direct routing co
 
 # Monitor Direct Routing
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to monitor your direct routing configuration.
 
 The process of making and receiving calls through direct routing involves the following components:

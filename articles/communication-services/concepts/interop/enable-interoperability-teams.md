@@ -13,6 +13,8 @@ ms.custom: mode-other
 
 # Enable interoperability between Azure Communication Services and a Microsoft Teams tenant
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services can be used to build applications that enable Microsoft Teams external users to participate in calls and meetings with Microsoft Teams users. [Standard Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no extra fee for the interoperability capability.
 
 For calls with Teams users, ensure the user is Enterprise Voice enabled. To assign the license, use the [Set-CsPhoneNumberAssignment cmdlet](/powershell/module/teams/set-csphonenumberassignment) and set the **EnterpriseVoiceEnabled** parameter to $true. For additional information, see [Set up Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system).

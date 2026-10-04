@@ -1,43 +1,40 @@
 ---
-title: Kerberos Authentication for Linux Clients with Azure Files
-description: Learn how to enable identity-based Kerberos authentication for Linux clients over Server Message Block (SMB) for Azure Files using on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services.
+title: Configure Linux clients for Azure Files with AD DS
+description: Learn how to configure Linux clients to use Kerberos authentication for Azure Files with on-premises Active Directory Domain Services (AD DS).
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 07/21/2026
+ms.date: 08/31/2026
 ms.author: kendownie
-# Customer intent: "As a Linux administrator, I want to enable Kerberos authentication for accessing Azure file shares, so that I can securely manage file access using Active Directory and streamline authentication processes for users."
+# Customer intent: "As a Linux administrator, I want to configure Linux clients to use on-premises AD DS authentication for Azure file shares, so that users can access shares with their domain credentials."
 ---
 
-# Enable Active Directory authentication over SMB for Linux clients accessing Azure Files
+# Configure Linux clients for Azure Files with on-premises AD DS
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) by using the Kerberos authentication protocol through the following identity sources:
-
-- On-premises Windows Active Directory Domain Services (AD DS)
-- Microsoft Entra Domain Services
-
-To use AD DS, you must sync your AD DS to Microsoft Entra ID by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis).
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) by using the Kerberos authentication protocol with on-premises Active Directory Domain Services (AD DS). To use this procedure, you must sync your AD DS environment to Microsoft Entra ID by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis).
 
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
 
 > [!NOTE]
-> This article uses Ubuntu for the example steps. Similar configurations work for RHEL and SLES clients, allowing you to mount Azure file shares using Active Directory.
+> This article uses Ubuntu for the example steps. Similar configurations work for RHEL and SLES clients, allowing you to mount Azure file shares by using on-premises AD DS.
 
 ## Linux SMB client limitations
 
-You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time by using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. You can use an `fstab` entry and specify the `noauto` option to enable a user to mount the file share after sign in by using a simple mount command without all the parameters. You can also use [`autofs`](storage-how-to-use-files-linux.md?tabs=smb311#dynamically-mount-with-autofs) to mount the share upon access.
+You can't use identity-based authentication to mount Azure file shares on Linux clients at boot time by using `fstab` entries. This limitation exists because the client can't get the Kerberos ticket early enough to mount at boot time. You can use an `fstab` entry and specify the `noauto` option to enable a user to mount the file share after sign in by using a simple mount command without all the parameters. You can also use [`autofs`](storage-how-to-use-files-linux.md?tabs=smb311#dynamically-mount-with-autofs) to mount the share upon access.
 
 ## Prerequisites
 
-Before you enable Active Directory authentication over SMB for Azure file shares, make sure you complete the following prerequisites.
+Before you configure a Linux client to use on-premises AD DS authentication over SMB for Azure file shares, complete the following prerequisites:
 
-- A Linux VM running Ubuntu 18.04+, or an equivalent RHEL or SLES VM. If running on Azure, the VM must have at least one network interface on the virtual network containing Microsoft Entra Domain Services. If using an on-premises VM, your AD DS must be synced to Microsoft Entra ID.
+- A Linux VM running Ubuntu 18.04+, or an equivalent RHEL or SLES VM. The VM must have network connectivity to your on-premises AD DS domain controllers and use DNS servers that can resolve the AD DS domain.
+- An on-premises AD DS environment synchronized to Microsoft Entra ID by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis).
+- An SMB Azure file share in a storage account configured for [on-premises AD DS authentication](storage-files-identity-ad-ds-enable.md).
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
-- The Linux VM isn't joined already to another AD domain. If it's already a part of a domain, it must first leave that domain before it can join this domain.
-- A Microsoft Entra tenant [fully configured](/entra/identity/domain-services/tutorial-create-instance), with domain user already set up.
+- The Linux VM isn't already joined to another AD DS domain. If it is, leave that domain before you join the VM to this domain.
+- An AD DS domain user account with permission to join computers to the domain.
 
 Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Run the following commands to install it. If you're asked for any input values during installation, leave them blank.
 
@@ -48,7 +45,7 @@ sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-us
 
 The `wbinfo` tool is part of the samba suite and is useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
 
-Make sure that the Linux host keeps the time synchronized with the domain server. See the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Edit `/etc/systemd/timesyncd.conf` to include the following. Replace `ntp.server` with the same NTP server hostname or IP address that your domain server uses.
+Make sure that the Linux host keeps the time synchronized with the AD DS domain controllers. See the documentation for your Linux distribution. For some distributions, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Edit `/etc/systemd/timesyncd.conf` to include the following configuration. Replace `ntp.server` with the same Network Time Protocol (NTP) server hostname or IP address that your AD DS environment uses.
 
 ```plaintext
 [Time]
@@ -62,15 +59,13 @@ Then restart the service:
 sudo systemctl restart systemd-timesyncd.service
 ```
 
-## Enable AD Kerberos authentication
+## Enable AD DS Kerberos authentication
 
-Follow these steps to enable AD Kerberos authentication using either on-premises AD DS or Microsoft Entra Domain Services. [This Samba documentation](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member) might be helpful as a reference.
+Follow these steps to enable Kerberos authentication with on-premises AD DS. For more information about configuring Samba, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
 
-### Make sure the domain server is reachable and discoverable
+### Make sure the AD DS domain controllers are reachable and discoverable
 
-The following section assumes you have an existing, on-premises AD DS. If you're using Microsoft Entra Domain Services instead, skip this section and proceed to [Connect to Entra Domain Services and make sure the services are discoverable](#connect-to-microsoft-entra-domain-services-and-make-sure-the-services-are-discoverable).
-
-1. Make sure that the DNS servers you enter contain the domain server IP addresses.
+1. Ensure that the configured DNS servers can resolve your AD DS domain and domain controllers.
 
    ```bash
    systemd-resolve --status
@@ -118,11 +113,11 @@ The following section assumes you have an existing, on-premises AD DS. If you're
              DNS Domain: domain1.contoso.com
    ```
 
-1. If the DNS servers contain the domain server IP addresses, proceed to [Set up hostname and FQDN](#set-up-hostname-and-fully-qualified-domain-name-fqdn). If the command doesn't produce the expected output, see [Troubleshoot domain server discovery](#troubleshoot-domain-server-discovery).
+1. If the DNS servers contain the domain controller IP addresses, proceed to [Set up hostname and FQDN](#set-up-hostname-and-fully-qualified-domain-name-fqdn). If the command doesn't produce the expected output, see [Troubleshoot AD DS domain controller discovery](#troubleshoot-ad-ds-domain-controller-discovery).
 
-#### Troubleshoot domain server discovery
+#### Troubleshoot AD DS domain controller discovery
 
-1. Make sure that you can ping the domain server IP addresses.
+1. Ensure that you can ping the AD DS domain controller IP addresses.
 
    ```bash
    ping 10.0.2.5
@@ -140,7 +135,7 @@ The following section assumes you have an existing, on-premises AD DS. If you're
    rtt min/avg/max/mdev = 0.898/0.922/0.946/0.024 ms
    ```
 
-1. If the ping doesn't work, go back to [prerequisites](#prerequisites), and make sure that your VM is on a virtual network that has access to the Entra tenant.
+1. If the ping doesn't work, review the [prerequisites](#prerequisites), and ensure that your VM has network connectivity to the AD DS domain controllers.
 
 1. If the IP addresses respond to ping but the DNS servers aren't automatically discovered, you can add the DNS servers manually. Edit `/etc/netplan/50-cloud-init.yaml` by using your favorite text editor.
 
@@ -198,50 +193,6 @@ The following section assumes you have an existing, on-premises AD DS. If you're
 
 After resolving the issue, proceed to [set up a hostname and fully qualified domain name](#set-up-hostname-and-fully-qualified-domain-name-fqdn).
 
-<a name='connect-to-azure-ad-ds-and-make-sure-the-services-are-discoverable'></a>
-
-### Connect to Microsoft Entra Domain Services and make sure the services are discoverable
-
-If you're using AD DS and not Microsoft Entra Domain Services, you can skip this section and proceed to [set up a hostname and fully qualified domain name](#set-up-hostname-and-fully-qualified-domain-name-fqdn).
-
-Make sure that you can ping the domain server by the domain name.
-
-```bash
-ping contosodomain.contoso.com
-```
-
-```output
-PING contosodomain.contoso.com (10.0.2.4) 56(84) bytes of data.
-64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=1 ttl=128 time=1.41 ms
-64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=2 ttl=128 time=1.02 ms
-64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=3 ttl=128 time=0.740 ms
-64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=4 ttl=128 time=0.925 ms 
-
-^C 
-
---- contosodomain.contoso.com ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss, time 3016ms
-rtt min/avg/max/mdev = 0.740/1.026/1.419/0.248 ms 
-```
-
-Make sure you can discover the Entra services on the network.
-
-```bash
-nslookup
-> set type=SRV
-> _ldap._tcp.contosodomain.contoso.com.
-```
-
-```output
-Server:         127.0.0.53
-Address:        127.0.0.53#53
-
-Non-authoritative answer: 
-
-_ldap._tcp.contosodomain.contoso.com service = 0 100 389 pwe-oqarc11l568.contosodomain.contoso.com.
-_ldap._tcp.contosodomain.contoso.com service = 0 100 389 hxt4yo--jb9q529.contosodomain.contoso.com. 
-```
-
 ### Set up hostname and fully qualified domain name (FQDN)
 
 Using your text editor, update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter for now because this line is mainly used to translate short hostname to FQDN. For more information, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
@@ -291,7 +242,7 @@ contosovm.contosodomain.contoso.com
 
 ### Set up krb5.conf
 
-Configure `/etc/krb5.conf` so that the Kerberos key distribution center (KDC) with the domain server can be contacted for authentication. For more information, see [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). Here's a sample `/etc/krb5.conf` file.
+Configure `/etc/krb5.conf` so that the Kerberos key distribution center (KDC) on an AD DS domain controller can be contacted for authentication. For more information, see [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). Here's a sample `/etc/krb5.conf` file.
 
 ```plaintext
 [libdefaults]
@@ -312,10 +263,7 @@ sudo smbd -b | grep "CONFIGFILE"
    CONFIGFILE: /etc/samba/smb.conf
 ```
 
-Change the SMB configuration to act as a domain member. For more information, see [Setting up samba as a domain member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member). Here's a sample `smb.conf` file.
-
-> [!NOTE]
-> This example is for Microsoft Entra Domain Services, for which setting `backend = rid` is recommended when configuring idmap. On-premises AD DS users might prefer to [choose a different idmap backend](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member#Choosing_an_idmap_backend).
+Change the SMB configuration to act as an AD DS domain member. The following example uses the `rid` idmap backend. Review [Choosing an idmap backend](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member#Choosing_an_idmap_backend) and select the backend that meets the requirements of your AD DS environment.
 
 ```plaintext
 [global]
@@ -357,7 +305,7 @@ Force winbind to reload the changed config file.
 sudo smbcontrol all reload-config
 ```
 
-### Join the domain
+### Join the AD DS domain
 
 Use the `net ads join` command to join the host to the domain. If the command returns an error, see [Troubleshooting samba domain members](https://wiki.samba.org/index.php/Troubleshooting_Samba_Domain_Members) to resolve the problem.
 
@@ -372,7 +320,7 @@ Using short domain name -- CONTOSODOMAIN
 Joined 'CONTOSOVM' to dns domain 'contosodomain.contoso.com' 
 ```
 
-Make sure that the DNS record exists for this host on the domain server.
+Ensure that the DNS record exists for this host in AD DS DNS.
 
 ```bash
 nslookup contosovm.contosodomain.contoso.com 10.0.2.5
@@ -455,7 +403,7 @@ getent group 'domain users'
 domain users:x:10513: 
 ```
 
-If the preceding steps don't work, check if the domain controller is reachable by using the `wbinfo` tool:
+If the preceding steps don't work, check whether an AD DS domain controller is reachable by using the `wbinfo` tool:
 
 ```bash
 wbinfo --ping-dc
@@ -499,9 +447,9 @@ contososmbadmin@contosovm:~$ id
 uid=12604(contososmbadmin) gid=10513(domain users) groups=10513(domain users),10520(group policy creator owners),10572(denied rodc password replication group),11102(dnsadmins),11104(aad dc administrators),11164(group-readwrite),11165(fileshareallaccess),12604(contososmbadmin) 
 ```
 
-## Verify Active Directory authentication on Linux
+## Verify AD DS authentication on Linux
 
-To verify that the client machine is joined to the domain, look up the FQDN of the client on the domain controller and find the DNS entry listed for this particular client. In many cases, `<dnsserver>` is the same as the domain name that the client is joined to.
+To verify that the client machine is joined to the AD DS domain, look up the FQDN of the client by using an AD DS DNS server and confirm that the DNS entry exists for the client. In many cases, `<dnsserver>` is the same as the AD DS domain name that the client is joined to.
 
 ```bash
 nslookup <clientname> <dnsserver>
@@ -548,9 +496,9 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o sec=krb5,cruid=$UID,serverino,noshares
 
 #### Single-user versus multi-user mount
 
-In a single-user mount use case, a single user in the AD domain accesses the mount point and doesn't share it with other users in the domain. Each file access happens in the context of the user whose krb5 credentials are used to mount the file share. Any user on the local system who accesses the mount point impersonates that user.
+In a single-user mount use case, a single user in the AD DS domain accesses the mount point and doesn't share it with other users in the domain. Each file access happens in the context of the user whose krb5 credentials are used to mount the file share. Any user on the local system who accesses the mount point impersonates that user.
 
-In a multi-user mount use case, there's still a single mount point, but multiple AD users can access that same mount point. In scenarios where multiple users on the same client access the same share, and the system is configured for Kerberos and mounted with `sec=krb5`, consider using the `multiuser` mount option.
+In a multi-user mount use case, there's still a single mount point, but multiple AD DS users can access that same mount point. In scenarios where multiple users on the same client access the same share, and the system is configured for Kerberos and mounted with `sec=krb5`, consider using the `multiuser` mount option.
 
 #### File permissions
 
@@ -561,7 +509,7 @@ File permissions matter, especially if both Linux and Windows clients access the
 File ownership matters, especially if both Linux and Windows clients access the file share. Choose one of the following mount options to convert file ownership UID/GID to owner/group SID on file DACL:
 
 - Use a default such as **uid=<>,gid=<>**
-- Configure UID/GID mapping via RFC2307 and Active Directory (**nss_winbind** or **nss_sssd**)
+- Configure UID/GID mapping through RFC2307 and AD DS by using **nss_winbind** or **nss_sssd**.
 
 #### File attribute cache coherency
 

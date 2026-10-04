@@ -14,6 +14,8 @@ ms.subservice: calling
 ---
 # Getting started with Call Readiness and the UI Library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ![Flow of a user joining a call from an email link](../media/call-readiness/joining-call-from-email-link.png)

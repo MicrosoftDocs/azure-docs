@@ -3,7 +3,7 @@ title: 'Tutorial - Migrate a web app from Google Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
 author: sinnypan
 ms.author: sipa
-ms.date: 09/28/2023
+ms.date: 09/30/2026
 ms.topic: tutorial
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -1686,7 +1686,7 @@ The following are some more code samples related to Google Maps migration:
 
 **Services:**
 
-* [Using the Azure Maps services module]
+* [JavaScript/TypeScript REST SDK developer guide]
 * [Search for points of interest]
 * [Get information from a coordinate (reverse geocode)]
 * [Show directions from A to B]
@@ -1725,15 +1725,15 @@ The following appendix provides a cross reference of the commonly used classes i
 
 ## Service Classes
 
-The Azure Maps Web SDK includes a services module, which can be loaded separately. This module wraps the Azure Maps REST services with a web API and can be used in JavaScript, TypeScript, and Node.js applications.
+Use the service-specific Azure Maps REST client libraries in JavaScript, TypeScript, and Node.js applications. Install `@azure-rest/maps-search` for geocoding and place search, and install `@azure-rest/maps-route` for directions.
 
 | Google Maps            | Azure Maps                 |
 |------------------------|----------------------------|
-| `google.maps.Geocoder` | [atlas.service.SearchUrl]  |
-| `google.maps.GeocoderRequest` | [atlas.SearchAddressOptions]<br>[atlas.SearchAddressReverseOptions]<br>[atlas.SearchAddressReverseCrossStreetOptions]<br>[atlas.SearchAddressStructuredOptions]<br>[atlas.SearchAlongRouteOptions]<br>[atlas.SearchFuzzyOptions]<br>[atlas.SearchInsideGeometryOptions]<br>[atlas.SearchNearbyOptions]<br>[atlas.SearchPOIOptions]<br>[atlas.SearchPOICategoryOptions] |
-| `google.maps.DirectionsService` | [atlas.service.RouteUrl] |
-| `google.maps.DirectionsRequest` | [atlas.CalculateRouteDirectionsOptions] |
-| `google.maps.places.PlacesService` | [f] |
+| `google.maps.Geocoder` | [Azure Maps Search REST client] |
+| `google.maps.GeocoderRequest` | [Azure Maps Search REST client] request options |
+| `google.maps.DirectionsService` | [Azure Maps Route REST client] |
+| `google.maps.DirectionsRequest` | [Azure Maps Route REST client] request options |
+| `google.maps.places.PlacesService` | [Azure Maps Search REST client] |
 
 ## Libraries
 
@@ -1779,7 +1779,6 @@ Learn more about migrating to Azure Maps:
 [Adding a polygon]: #adding-a-polygon
 [Adding a polyline]: #adding-a-polyline
 [atlas.BubbleLayerOptions]: /javascript/api/azure-maps-control/atlas.bubblelayeroptions
-[atlas.CalculateRouteDirectionsOptions]: /javascript/api/azure-maps-rest/atlas.service.calculateroutedirectionsoptions
 [atlas.CameraBoundsOptions]: /javascript/api/azure-maps-control/atlas.cameraboundsoptions
 [atlas.CameraOptions]: /javascript/api/azure-maps-control/atlas.cameraoptions
 [atlas.data.BoundingBox]: /javascript/api/azure-maps-control/atlas.data.boundingbox
@@ -1805,18 +1804,6 @@ Learn more about migrating to Azure Maps:
 [atlas.PolygonLayerOptions]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
 [atlas.Popup]: /javascript/api/azure-maps-control/atlas.popup
 [atlas.PopupOptions]: /javascript/api/azure-maps-control/atlas.popupoptions
-[atlas.SearchAddressOptions]: /javascript/api/azure-maps-rest/atlas.service.searchaddressoptions
-[atlas.SearchAddressReverseCrossStreetOptions]: /javascript/api/azure-maps-rest/atlas.service.searchaddressreversecrossstreetoptions
-[atlas.SearchAddressRevrseOptions]: /javascript/api/azure-maps-rest/atlas.service.searchaddressreverseoptions
-[atlas.SearchAddressStructuredOptions]: /javascript/api/azure-maps-rest/atlas.service.searchaddressstructuredoptions
-[atlas.SearchAlongRouteOptions]: /javascript/api/azure-maps-rest/atlas.service.searchalongrouteoptions
-[atlas.SearchFuzzyOptions]: /javascript/api/azure-maps-rest/atlas.service.searchfuzzyoptions
-[atlas.SearchInsideGeometryOptions]: /javascript/api/azure-maps-rest/atlas.service.searchinsidegeometryoptions
-[atlas.SearchNearbyOptions]: /javascript/api/azure-maps-rest/atlas.service.searchnearbyoptions
-[atlas.SearchPOICategoryOptions]: /javascript/api/azure-maps-rest/atlas.service.searchpoicategoryoptions
-[atlas.SearchPOIOptions]: /javascript/api/azure-maps-rest/atlas.service.searchpoioptions
-[atlas.service.RouteUrl]: /javascript/api/azure-maps-rest/atlas.service.routeurl
-[atlas.service.SearchUrl]: /javascript/api/azure-maps-rest/atlas.service.searchurl
 [atlas.ServiceOptions]: /javascript/api/azure-maps-control/atlas.serviceoptions
 [atlas.StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
 [atlas.SymbolLayerOptions]: /javascript/api/azure-maps-control/atlas.symbollayeroptions
@@ -1835,8 +1822,9 @@ Learn more about migrating to Azure Maps:
 [Display an info window]: #display-an-info-window
 [Drawing tools module]: set-drawing-options.md
 [Drawing tools]: map-add-drawing-toolbar.md
-[f]: /javascript/api/azure-maps-rest/atlas.service.searchurl
 [free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
+[Azure Maps Route REST client]: /javascript/api/@azure-rest/maps-route
+[Azure Maps Search REST client]: /javascript/api/@azure-rest/maps-search
 [Get information from a coordinate (reverse geocode)]: map-get-information-from-coordinate.md
 [Heat map layer class]: /javascript/api/azure-maps-control/atlas.layer.heatmaplayer
 [Heat map layer options]: /javascript/api/azure-maps-control/atlas.heatmaplayeroptions
@@ -1888,5 +1876,5 @@ Learn more about migrating to Azure Maps:
 [Traffic overlay options]: https://samples.azuremaps.com/?sample=traffic-overlay-options
 [Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
 [Use the Azure Maps map control]: how-to-use-map-control.md
-[Using the Azure Maps services module]: how-to-use-services-module.md
+[JavaScript/TypeScript REST SDK developer guide]: how-to-dev-guide-js-sdk.md
 [Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps

@@ -31,7 +31,7 @@ Follow the documents to create an ASP.NET Core app with dynamic configuration.
 Add a feature flag called *Beta* to the App Configuration store (created in the [Prerequisites](./quickstart-feature-flag-aspnet-core.md#prerequisites) steps), and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
+> ![Enable feature flag named Beta](./media/quickstart-feature-flag-aspnet-core/add-beta-feature-flag.png)
 
 ## Use a feature flag
 

@@ -125,8 +125,8 @@ AV64 host types are available per availability zone. The following table lists t
 | West US 2 | AZ02 | **AV36P**, AV64 | No | 7 |
 | West US 2 | AZ03 | AV48 | No | N/A |
 | West US 3 | AZ01 | AV36P, AV64 | No | 7 |
-| US Gov Arizona | AZ02 | AV36P | No | N/A |
-| US Gov Virginia | AZ03 | AV36 | No | N/A |
+| US Gov Arizona | AZ02 | AV36P, AV48 | No | N/A |
+| US Gov Virginia | AZ03 | AV36, AV48 | No | N/A |
 
 ## Clusters
 

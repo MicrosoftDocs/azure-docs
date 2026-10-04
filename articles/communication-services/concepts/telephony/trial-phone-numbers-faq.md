@@ -11,6 +11,8 @@ ms.custom: template-concept
 
 # Frequently asked questions about trial phone numbers in Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This article answers commonly asked questions about Trial Phone Numbers and Verified Phone Numbers. 

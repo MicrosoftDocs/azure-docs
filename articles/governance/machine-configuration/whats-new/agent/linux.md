@@ -28,18 +28,55 @@ For information on release notes for the connected machine agent, see
 The following sections of this article detail the notes for each release of the agent. The heading
 for each section includes the specific version for that release and the date for the release.
 
-## Version 1.26.113.0 - July 2026
+## Version 1.26.119 - September 2026
 
-<a id="1.26.113.0"></a>
+<a id="1.26.119"></a>
+<a id="2026-09"></a>
+
+### Updated
+
+- Updated OpenSSL library from version `3.6.3` to `3.6.4`.
+
+## Version 1.26.118 - September 2026
+
+<a id="1.26.118"></a>
+<a id="2026-09"></a>
+
+### Updated
+
+- Updated bundled PowerShell version from `7.4.15` to `7.4.19`.
+- Improved configuration package download performance.
+
+### Fixed
+
+- Prevented security baseline settings intended for one Linux distribution from being applied to another distribution.
+
+## Version 1.26.116 - July 2026
+
+<a id="1.26.116"></a>
 <a id="2026-07"></a>
 
 ### Updated
 
-- Updated OpenSSL library from version 3.6.2 to 3.6.3.
+- Improved baseline customization pre-installation support for PowerShell script and module files.
 
-## Version 1.26.111.0 - June 2026
+### Fixed
 
-<a id="1.26.111.0"></a>
+- Fixed an issue where Machine Configuration assignments that failed during processing were not fetched again.
+- Strengthened configuration package extraction validation.
+
+## Version 1.26.113 - July 2026
+
+<a id="1.26.113"></a>
+<a id="2026-07"></a>
+
+### Updated
+
+- Updated OpenSSL library from version `3.6.2` to `3.6.3`.
+
+## Version 1.26.111 - June 2026
+
+<a id="1.26.111"></a>
 <a id="2026-06"></a>
 
 ### New features
@@ -49,7 +86,7 @@ for each section includes the specific version for that release and the date for
 ### Updated
 
 - Strengthened TLS certificate validation to address CVE-2026-47632.
-- Updated bundled PowerShell version from 7.4.14 to 7.4.15.
+- Updated bundled PowerShell version from `7.4.14` to `7.4.15`.
 - Improved network efficiency by avoiding repeated downloads of unchanged policy assignments.
 
 ### Fixed
@@ -59,9 +96,9 @@ for each section includes the specific version for that release and the date for
 - Fixed a crash related to a heap memory corruption error that could occur on service shut down.
 - Unsupported Linux distributions are now reported as non-compliant for CIS baseline assignments.
 
-## Version 1.26.109.0 - April 2026
+## Version 1.26.109 - April 2026
 
-<a id="1.26.109.0"></a>
+<a id="1.26.109"></a>
 <a id="2026-04"></a>
 
 ### New Features
@@ -74,18 +111,18 @@ for each section includes the specific version for that release and the date for
 - Updated bundled PowerShell version from `7.4.13` to `7.4.14`.
 - Improved compliance reporting for security baseline policy assignments.
 
-## Version 1.26.107.0 - March 2026
+## Version 1.26.107 - March 2026
 
-<a id="1.26.107.0"></a>
+<a id="1.26.107"></a>
 <a id="2026-03"></a>
 
 ### Updated
 
 - Updated OpenSSL library from version `3.4.3` to `3.6.1`.
 
-## Version 1.26.104.0 - January 2026
+## Version 1.26.104 - January 2026
 
-<a id="1.26.104.0"></a>
+<a id="1.26.104"></a>
 <a id="2026-01"></a>
 
 ### Updated
@@ -100,9 +137,9 @@ for each section includes the specific version for that release and the date for
   policy assignments.
 - Fixed bugs that cause Machine Configuration agent and GC worker to crash.
 
-## Version 1.26.101.0 - November 2025
+## Version 1.26.101 - November 2025
 
-<a id="1.26.101.0"></a>
+<a id="1.26.101"></a>
 <a id="2025-11"></a>
 
 ### New Features
@@ -111,16 +148,16 @@ for each section includes the specific version for that release and the date for
 
 ### Updated
 
-- Updated OpenSSL library from version 3.4.1 to 3.4.3.
+- Updated OpenSSL library from version `3.4.1` to `3.4.3`.
 
 ### Fixed
 
 - Use `systemctl daemon-reload` instead of `systemctl daemon-reexec` for better stability and
   compatibility.
 
-## Version 1.26.93.0 - July 2025
+## Version 1.26.93 - July 2025
 
-<a id="1.26.93.0"></a>
+<a id="1.26.93"></a>
 <a id="2025-07"></a>
 
 ### New Features

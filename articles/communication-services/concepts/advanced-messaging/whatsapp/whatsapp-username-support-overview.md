@@ -13,6 +13,8 @@ ms.subservice: advanced-messaging
 
 # WhatsApp usernames and business-scoped user IDs (BSUID)
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 WhatsApp is launching usernames in 2026. Usernames are an optional feature that allows WhatsApp users to display a username instead of their phone number. To support this change, Meta introduces a new identifier called the **business-scoped user ID (BSUID)** that uniquely identifies a WhatsApp user within a specific business portfolio.
 
 This article explains what BSUIDs are, how they affect Azure Communication Services Advanced Messaging, and how to prepare your integration.

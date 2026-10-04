@@ -63,10 +63,12 @@ items:
               href: sandboxes-quickstart-bicep.md
             - name: Python SDK
               href: sandboxes-quickstart-python-sdk.md
-        - name: Snapshots and state management
+        - name: Lifecycle (preview)
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
           href: sandboxes-egress-policies.md
+        - name: Reliability in Container Apps Sandboxes
+          href: /azure/reliability/reliability-container-apps-sandboxes?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Express
       items:
         - name: Overview
@@ -259,7 +261,7 @@ items:
               href: tutorial-gpu-image-generation.md
         - name: Override auto-generated KEDA scale rules
           href: functions-scale-rule-override.md
-        - name: Migrate from Functions v1 to v2
+        - name: Migrate from Functions on Azure Container Apps V1 to Functions on Azure Container Apps V2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
           href: functions-unified-platform.md
@@ -408,6 +410,8 @@ items:
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Secure your Azure Container Apps deployment
+      href: secure-deployment.md
     - name: Overview
       href: security.md
       displayName: Security overview
@@ -421,8 +425,6 @@ items:
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
-    - name: Secure deployments
-      href: secure-deployment.md
     - name: Confidential compute
       href: confidential-compute.md
 - name: Resiliency (preview)
@@ -435,6 +437,8 @@ items:
   items:
     - name: Reliability in Azure Container Apps
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+    - name: Reliability in Container Apps Sandboxes
+      href: /azure/reliability/reliability-container-apps-sandboxes?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
     - name: Relocate to another region
@@ -556,8 +560,8 @@ items:
         - name: Overview
           href: dotnet-overview.md
           displayName: .NET overview
-        - name: Deploy a .NET Aspire app
-          href: /dotnet/aspire/deployment/azure/aca-deployment
+        - name: Deploy an Aspire app
+          href: https://aspire.dev/deployment/azure/container-apps/
         - name: Deploy and scale an ASP.NET Core app
           href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
     - name: Java
@@ -681,22 +685,26 @@ items:
           href: /javascript/api/overview/azure/arm-appcontainers-readme
         - name: Python
           href: /python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers
-- name: Azure Arc
+- name: Azure Arc-enabled Kubernetes
   items:
-    - name: Azure Arc-enabled Kubernetes clusters
+    - name: Overview
       href: azure-arc-overview.md
-    - name: 1 - Set up Azure Arc-enabled Kubernetes clusters
+    - name: Plan deployment
+      href: azure-arc-plan.md
+    - name: Set up cluster
       href: azure-arc-enable-cluster.md
-    - name: 2 - Create container app
+    - name: Create first app
       href: azure-arc-create-container-app.md
+    - name: Troubleshoot
+      href: azure-arc-troubleshoot.md
 - name: Compliance
   items:
+    - name: Secure your Azure Container Apps deployment
+      href: secure-deployment.md
     - name: Microsoft Azure Compliance Offerings
       href: https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3
     - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
       href: /azure/compliance/offerings/
-    - name: Azure security baseline for Azure Container Apps
-      href: /security/benchmark/azure/baselines/azure-container-apps-security-baseline
 - name: Samples & FAQs
   items:
     - name: Samples

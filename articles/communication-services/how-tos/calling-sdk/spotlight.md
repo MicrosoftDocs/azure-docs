@@ -14,6 +14,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Enable spotlight
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to implement spotlight capability with Azure Communication Services Calling SDKs. Spotlight enables users in the call or meeting to signal to other participants that selected user should be **in the spotlight**. Spotlight also enables users to tag other users in the call and notify all the participants that someone is spotlighted and other clients need to change the User Interface layout for that user.
 
 ## Overview

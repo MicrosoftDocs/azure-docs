@@ -25,7 +25,7 @@ Microsoft offers three complementary layers for bringing AI to SAP environments:
 
 | Layer | What it provides | Tools |
 | --- | --- | --- |
-| Use out of the box | Prebuilt AI experiences across SAP and Microsoft apps | Joule (SAP), Microsoft 365 Copilot |
+| Use out of the box | Prebuilt AI experiences across SAP and Microsoft apps | Joule (SAP), Microsoft Copilot |
 | Extend with custom agents | Company-specific agents with low-code or pro-code development | Microsoft Copilot Studio, Microsoft 365 Agents SDK |
 | Build enterprise AI solutions | Full AI platform for advanced agents, custom models, and orchestration | Foundry, Copilot Studio |
 
@@ -89,7 +89,7 @@ SAP SuccessFactors integration for employee self-service and HR operations:
 - Query Employee Central data (background, work history, team info).
 - Create and manage Family and Medical Leave Act (FMLA) requests.
 - Surface leave summaries and balances in natural language.
-- Integrate with the Microsoft 365 Copilot Employee Self-Service agent.
+- Integrate with the Microsoft Copilot Employee Self-Service agent.
 
 ### SAP Center of Expertise assistant
 
@@ -111,7 +111,7 @@ AI-enabled process automation for complex financial accounting workflows:
 
 ## Multi-agent orchestration
 
-A key pattern emerging from enterprise deployments is *multi-agent orchestration*. In that process, Microsoft 365 Copilot acts as the front end and orchestrates multiple specialized agents:
+A key pattern emerging from enterprise deployments is *multi-agent orchestration*. In that process, Microsoft Copilot acts as the front end and orchestrates multiple specialized agents:
 
 | Agent | Role |
 | --- | --- |
@@ -120,7 +120,7 @@ A key pattern emerging from enterprise deployments is *multi-agent orchestration
 | Microsoft 365 agent | Access to emails, chats, documents, and calendar |
 | Custom agents | ServiceNow, Salesforce, Workday, or any other system |
 
-Users interact through a single natural language interface in Teams or Microsoft 365 Copilot Chat. The orchestrator routes requests to the appropriate agent.
+Users interact through a single natural language interface in Teams or Microsoft Copilot Chat. The orchestrator routes requests to the appropriate agent.
 
 ## Architecture and data flow
 

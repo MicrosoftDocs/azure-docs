@@ -3,7 +3,7 @@ title: End-user entry point configuration
 description: Learn how to configure end-user entry points during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 02/23/2026
+ms.date: 08/24/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
@@ -33,7 +33,8 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
 
 * **Remote desktop access:**
   - Allow users to request and establish remote desktop sessions for graphical applications.
-  - Provide VDI solutions that support various operating systems and applications.
+  - Determine whether users need hardware-accelerated 3D rendering. Post-processing and visualization workloads do; terminal and administrative access doesn't.
+  - Provide VDI solutions that support the applications your users run.
 
 * **Web browser-based access:**
   - Support web browser-based sessions for running applications such as Jupyter Lab or RStudio.
@@ -46,12 +47,14 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
   - Configure SSH keys and user permissions to ensure secure and efficient access.
 
 * **Remote desktop access:**
-  - Utilize VDI solutions such as Windows Virtual Desktop or non-Microsoft VDI providers.
-  - Configure remote desktop protocols (RDP, VNC) and ensure compatibility with user applications.
+  - For administrative and terminal-oriented access, a basic remote desktop server such as xrdp is sufficient. See [Use xrdp with Linux](/azure/virtual-machines/linux/use-remote-desktop).
+  - For visualization and post-processing workloads that render in 3D, use a GPU-enabled VM size and a session technology that supports hardware-accelerated OpenGL. See [Remote visualization for HPC workloads on Azure](remote-visualization-overview.md).
+  - Select the VM size accordingly. NV-family sizes expose the graphics driver functionality that accelerated rendering depends on; compute-oriented sizes generally don't.
 
 * **Web browser-based access:**
   - Deploy web-based platforms like JupyterHub or RStudio Server for interactive sessions.
   - To allow seamless access to compute resources, integrate these platforms with the HPC environment.
+  - Where a scheduler is in use, [Open OnDemand](/azure/cyclecloud/how-to/ccws/configure-open-ondemand) provides browser-based shell, file management, and interactive sessions in one portal.
 
 ## Best practices
 
@@ -60,12 +63,13 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
   - Use role-based access control (RBAC) to manage user permissions and ensure compliance with security policies.
 
 * **Optimize user experience:**
-  - Provide clear documentation and training for users on how to access and utilize different entry points.
+  - Provide clear documentation and training for users on how to access and use different entry points.
   - To ensure a smooth user experience, continuously monitor and optimize the performance of access points.
 
 * **Ensure compatibility and integration:**
   - Test and validate the compatibility of remote desktop and web-based access solutions with HPC applications.
-  - To provide seamless resource management, integrate access solutions with the existing HPC infrastructure.
+  - Verify that GPU acceleration is active in remote desktop sessions. A session that renders correctly but slowly usually falls back to software rendering.
+  - Integrate access solutions with the existing HPC infrastructure to provide seamless resource management.
 
 * **Scalability and performance:**
    - Configure access points to scale based on user demand, ensuring availability and performance during peak usage.
@@ -86,7 +90,7 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
       sudo systemctl start ssh
       ```
 
-2. **User authentication:**
+1. **User authentication:**
 
     - Set up SSH key-based authentication and configure the SSH server to disable password authentication for added security.
 
@@ -97,19 +101,26 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
 
 **Setting up remote desktop access:**
 
-1. **Deploy VDI solution:**
+The steps depend on whether users need hardware-accelerated rendering.
 
-    - Choose and deploy a VDI solution that fits your HPC environment (for example, Windows Virtual Desktop, VNC).
-    - Configure remote desktop protocols and ensure they're compatible with user applications.
-2. **Configure remote desktop access:**
+1. **For administrative access without 3D acceleration:**
 
-    - Set up remote desktop services on the HPC sign-in nodes and configure user permissions.
+    - Install a remote desktop server on the sign-in nodes and configure user permissions.
 
       ```bash
       sudo apt-get install xrdp
       sudo systemctl enable xrdp
       sudo systemctl start xrdp
       ```
+
+    - This setup provides a working desktop for terminal work and file management. It doesn't accelerate OpenGL applications.
+
+1. **For visualization workloads with 3D acceleration:**
+
+    - Deploy the session on an NV-family VM size and install the graphics driver, not the compute driver.
+    - Choose a session technology that supports GPU-accelerated rendering.
+    - Verify acceleration explicitly before handing the environment to users.
+    - For the deployment models, GPU size selection, and session technology options, see [Remote visualization for HPC workloads on Azure](remote-visualization-overview.md).
 
 **Setting up web browser-based access:**
 
@@ -123,7 +134,7 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
       sudo systemctl start jupyterhub
       ````
 
-2. **Integrate with HPC resources:**
+1. **Integrate with HPC resources:**
 
     - Configure the web-based platforms to integrate with the HPC scheduler and compute resources.
 
@@ -134,10 +145,12 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
 ## Resources
 
 - Azure CycleCloud CLI installation guide: [product website](/azure/cyclecloud/how-to/install-cyclecloud-cli?view=cyclecloud-8&preserve-view=true)
-- Azure CycleCloud CLI reference guide: [product website](/azure/cyclecloud/cli?view=cyclecloud-8&preserve-view=true)
 - Azure CycleCloud REST API reference guide: [product website](/azure/cyclecloud/api?view=cyclecloud-8&preserve-view=true)
 - Azure CycleCloud Python API reference guide: [product website](/azure/cyclecloud/python-api?view=cyclecloud-8&preserve-view=true)
-- Remote visualization via OnDemand and AzHop: [blog post](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/azure-hpc-ondemand-platform-cloud-hpc-made-easy/ba-p/2537338)
+- Azure CycleCloud CLI reference guide: [product website](/azure/cyclecloud/cli?view=cyclecloud-8&preserve-view=true)
+- Remote visualization for HPC workloads on Azure: [Remote visualization for HPC workloads on Azure](remote-visualization-overview.md)
+- Choose a remote visualization deployment model: [Choose a remote visualization deployment model](remote-visualization-choose-deployment-model.md)
+- Configure Open OnDemand with CycleCloud: [product website](/azure/cyclecloud/how-to/ccws/configure-open-ondemand)
 - LSF Scheduler CLI commands: [external](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=reference-command)
 - PBS Scheduler CLI commands: [external](https://2021.help.altair.com/2021.1.2/PBS%20Professional/PBSUserGuide2021.1.2.pdf)
 - Slurm Scheduler CLI commands: [external](https://slurm.schedmd.com/pdfs/summary.pdf)

@@ -14,7 +14,7 @@ ms.date: 05/19/2026
 
 # Key concepts for Azure Deployment Environments
 
-[!INCLUDE [note-deployment-environments-maintenance-mode](includes/note-deployment-environments-maintenance-mode.md)]
+[!INCLUDE [note-deployment-environments-retirement](includes/note-deployment-environments-retirement.md)]
 
 In this article, you learn about the key concepts and components of Azure Deployment Environments. This knowledge helps you more effectively deploy environments for your scenarios.
 

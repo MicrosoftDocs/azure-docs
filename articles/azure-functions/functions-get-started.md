@@ -93,7 +93,7 @@ Here are some common scenarios to help you get started:
 
 + [Process file uploads](functions-scenarios.md#process-file-uploads)
 + [Real-time stream and event processing](functions-scenarios.md#real-time-stream-and-event-processing)
-+ [Machine learning and AI](functions-scenarios.md#machine-learning-and-ai)
++ [Build AI-enabled apps](functions-scenarios.md#build-ai-enabled-apps)
 + [Run scheduled tasks](functions-scenarios.md#run-scheduled-tasks)
 + [Build a scalable web API](functions-scenarios.md#build-a-scalable-web-api)
 + [Build a serverless workflow](functions-scenarios.md#build-a-serverless-workflow)

@@ -4,7 +4,7 @@ description: This article describes ways to troubleshoot common errors in failin
 ms.service: azure-site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 12/09/2025
+ms.date: 09/11/2026
 author: Jeronika-MS
 ms.author: v-gajeronika 
 ms.custom:
@@ -85,6 +85,20 @@ Test failover or failover operation can fail for a machine with the error "One o
 To resolve this issue, ensure that a complete test failover cleanup has been performed, so that the failover or test failover operation can succeed. 
 
 ---
+
+## Hydration VM size and allocation failures
+
+During some failovers, Site Recovery uses a temporary helper VM to prepare recovery disks. This helper VM can use a different size from the final recovered VM.
+
+Error | Recommended action
+--- | ---
+`SkuNotAvailableForHydrationVM` | Site Recovery couldn't find a compatible helper size. Verify that the configured final VM size is x64-compatible, supports generation 1 and the required number of attached source disks, supports Premium storage when required, and is available in the target region and zone. Try another supported final VM size.
+`ComputeRpVmAllocationFailedV2` | A compatible helper size was selected, but Azure Compute couldn't allocate it. Retry after capacity conditions change, or select another size or availability zone.
+`CoreCountSubscriptionQuotaReached` | Request more vCPU quota for the VM family in the target region, or select a smaller compatible family.
+`UserErrorArm64WindowsVmNotSupported` | Select an x64-compatible target size.
+`UserErrorVMSizeDoesntSupportPremiumStorage` | Select a size that supports Premium storage, or correct an unsupported recent disk-tier change.
+
+When you contact Microsoft Support, include the helper VM size and final VM size shown in the Site Recovery job error details.
 
 ## Unable to connect/RDP/SSH
 

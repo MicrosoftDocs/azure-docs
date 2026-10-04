@@ -1,16 +1,16 @@
 ---
-title: What is an Azure standard service endpoint?
+title: What is a standard service endpoint?
 titleSuffix: Azure Private Link
 description: Learn about Azure standard service endpoints, which provide scalable, secure IaaS-to-PaaS connectivity using Network Security Perimeter and network identifiers.
 author: asudbring
 ms.author: allensu
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 07/08/2026
+ms.date: 09/14/2026
 ms.custom: references_regions
 ---
 
-# What is an Azure standard service endpoint?
+# What is a standard service endpoint?
 
 A standard service endpoint enables you to securely connect IaaS workloads to PaaS resources using [network security perimeter](network-security-perimeter-concepts.md) and network identifiers ([public IPs](../virtual-network/ip-services/public-ip-addresses.md)). This capability addresses the scale limitations in basic [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and simplifies configuration for more secure and efficient cloud environments.
 

@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: overview
-ms.date: 03/14/2026
+ms.date: 09/14/2026
 ms.author: onwokolo
 ---
 
@@ -26,8 +26,7 @@ Savings plans are based on a dollar‑per‑hour spend commitment and automatica
 
 ## What savings plans are available
 
-There are two savings plans - Savings plan for compute and Savings plan for databases.
-The compute savings plan is available as a 1-year or 3-year commitment, while the database savings plan is available as a 1-year commitment.
+There are two savings plans - Savings plan for compute and Savings plan for databases. Both savings plans are available as 1-year or 3-year commitments.
 
 Savings plan for compute applies to infrastructure costs from a broad set of Azure compute services, including:
 - Azure Virtual Machines

@@ -39,4 +39,4 @@ You can configure the regional settings for your workspace in the Azure portal.
 
 - [Manage a Playwright workspace](./how-to-manage-playwright-workspace.md)
 
-- [Understand how Playwright Workspaces works](./overview-what-is-microsoft-playwright-workspaces.md#how-it-works)
+- [Understand how Playwright Workspaces works](./overview-run-playwright-tests-at-scale.md#how-it-works)

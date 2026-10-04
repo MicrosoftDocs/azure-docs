@@ -1,30 +1,36 @@
 ---
-title: Create a community
-description: Create a community.
+title: Create a community in the Azure portal
+description: Learn how to create a community in Azure Enclave using the Azure portal.
 author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
 ms.topic: how-to
 ms.service: azure-enclave
-ms.date: 06/10/2026
+ms.date: 09/09/2026
 ---
 
 # Create a community in the Azure portal
 
 [Communities](./what-community.md) are isolated hub networks that securely and logically group multiple enclaves for governance, management, and security. A community owner can enable connectivity to other communities or on-premises networks through transit hubs or endpoints.
 
+In this how-to guide, you create a community in the Azure portal.
+
 ## Prerequisites
 
-To access Azure Enclave, you need an Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/), and then sign in to the [Azure portal](https://portal.azure.com).
+To access Azure Enclave, you need an Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/).
 
-## Create community
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
+
+## Create a community
 
 1. Enter `Azure Enclave` in the search.
 1. Under `Services`, select `Azure Enclave`. You're directed to the Azure Enclave homepage.
 
-   :::image type="content" source="./media/azure-enclave-homepage.png#lightbox" alt-text="Screenshot showing the Azure portal homepage for Azure Enclave with the Create a community button." border="True" lightbox="./media/azure-enclave-homepage.png#lightbox":::
+   :::image type="content" source="./media/azure-enclave-homepage.png" alt-text="Screenshot showing the Azure portal homepage for Azure Enclave with the Create a community button." border="True" lightbox="./media/azure-enclave-homepage.png#lightbox":::
 
-1. Select the `Create a community` button. The community deployment can take several minutes to complete.
+1. Select the `Create a community` button.
 1. Enter details for your community on the `Basics` tab:
    - `Subscription`: Select an Azure subscription.
    - `Resource group`: Create a new resource group or select an existing one.
@@ -49,10 +55,10 @@ To access Azure Enclave, you need an Azure subscription. If you don't already ha
 
    :::image type="content" source="./media/create-community-tab-4-approvals.png" alt-text="Screenshot showing the community approvals settings page during community creation in the portal." border="True" lightbox="./media/create-community-tab-4-approvals.png":::
 
-1. Select `Next`. On the `Policy management` tab, and customize your settings as needed.
+1. Select `Next`. On the `Policy management` tab, customize your settings as needed.
 
    :::image type="content" source="./media/create-community-tab-5-policy-management.png" alt-text="Screenshot showing the community policy management settings page during community creation in the portal." border="True" lightbox="./media/create-community-tab-5-policy-management.png":::
-    
+
    > [!NOTE]
    > For community governance, you can configure the following settings for each service:
    >
@@ -63,7 +69,7 @@ To access Azure Enclave, you need an Azure subscription. If you don't already ha
    >   - `Deny`: The service isn't allowed.
    >   - `ExceptionOnly`: The service isn't allowed by default, but manual [policy exemptions](/azure/governance/policy/concepts/exemption-structure) can be made.
 
-1. Select `Next`. On the `Monitoring` tab, and configure monitoring for your community.
+1. Select `Next`. On the `Monitoring` tab, configure monitoring for your community.
 
    :::image type="content" source="./media/create-community-tab-6-monitor.png" alt-text="Screenshot showing the community monitoring settings page during community creation in the portal." border="True" lightbox="./media/create-community-tab-6-monitor.png":::
 

@@ -4,7 +4,7 @@ description: Access built-in metrics from IoT Edge runtime components to monitor
 #customer intent: As a system administrator, I want to access built-in metrics in Azure IoT Edge so that I can monitor and understand the health of my IoT Edge devices.  
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/02/2026
+ms.date: 09/11/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -17,6 +17,8 @@ services: iot-edge
 The IoT Edge runtime components, IoT Edge hub, and IoT Edge agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 
 Use your own solution to access these metrics, or use the [metrics-collector module](https://mcr.microsoft.com/artifact/mar/azureiotedge-metrics-collector/tags), which collects the built-in metrics and sends them to Azure Monitor or Azure IoT Hub. For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
+
+Metrics Collector 2.0 sends direct uploads to a Log Analytics custom table by using a DCR and Microsoft Entra authentication. To upgrade an existing deployment, see [Migrate the metrics collector](migrate-metrics-collector.md).
 
 By default, the **edgeHub** and **edgeAgent** modules expose metrics on **port 9600** (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metrics`). The metrics aren't mapped to the host by default.
 
@@ -59,6 +61,8 @@ Metrics include tags that identify the nature of the metric being collected. All
 The Prometheus exposition format includes four core metric types: counter, gauge, histogram, and summary. For more information about the different metric types, see the [Prometheus metric types documentation](https://prometheus.io/docs/concepts/metric_types/).
 
 The quantiles for the built-in histogram and summary metrics are 0.1, 0.5, 0.9, and 0.99.
+
+Metrics Collector 2.0 omits non-finite values (`NaN` and infinity) from direct Azure Monitor uploads. Finite `_sum` and `_count` samples can remain when a summary's base sample is absent.
 
 The **edgeHub** module generates the following metrics:
 
@@ -117,5 +121,6 @@ The **edgeAgent** module generates the following metrics:
 ## Next steps
 
 * [Collect and transport metrics](how-to-collect-and-transport-metrics.md)
+* [Migrate the IoT Edge metrics collector](migrate-metrics-collector.md)
 * [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md)
 * [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md)

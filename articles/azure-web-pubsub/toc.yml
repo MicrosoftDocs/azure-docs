@@ -35,6 +35,8 @@
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
       href: tutorial-build-chat.md
+    - name: Run an app with Web PubSub Chat
+      href: tutorial-build-chat-client.md
     - name: Develop with Visual Studio Code
       href: tutorial-develop-with-visual-studio-code.md
     - name: Client streaming with a service-supported subprotocol
@@ -43,6 +45,8 @@
       href: tutorial-permission.md
     - name: Build a serverless chat app with Azure Functions
       href: quickstart-serverless.md
+    - name: Deploy a serverless app with Web PubSub Chat
+      href: tutorial-serverless-chat.md
     - name: Authenticate and authorize MQTT client
       href: tutorial-upstream-auth-mqtt-client.md
 - name: How-to guides
@@ -195,6 +199,10 @@
           href: chat-faq.md
         - name: SDKs and REST API
           href: chat-reference-sdk-and-rest.md
+        - name: Service SDK - Java
+          href: chat-reference-service-sdk-java.md
+        - name: Service SDK - JavaScript
+          href: chat-reference-service-sdk-javascript.md
         - name: Error codes
           href: chat-reference-errors.md
 - name: Socket.IO

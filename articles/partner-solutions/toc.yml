@@ -39,13 +39,13 @@ items:
       href: ./commvault/index.yml
     - name: Confluent
       href: ./apache-kafka-confluent-cloud/index.yml
-    - name: Dell PowerScale Preview
+    - name: Dell PowerScale
       href: ./dell/index.yml
     - name: Informatica
       href: ./informatica/index.yml
     - name: MongoDB Atlas
       href: ./mongo-db/index.yml
-    - name: Pure Storage Cloud
+    - name: Everpure Cloud
       href: ./pure-storage/index.yml
     - name: Qumulo
       href: ./qumulo/index.yml

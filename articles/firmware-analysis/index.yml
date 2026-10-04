@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: karengu0
   ms.author: karenguo
-  ms.date: 10/03/2025
+  ms.date: 09/04/2026
   ms.service: azure
 
 
@@ -56,5 +56,7 @@ landingContent:
             url: interpreting-extractor-paths.md
           - text: Understand and interpret weaknesses data
             url: understand-weaknesses-data.md
+          - text: Understand unsafe function call data
+            url: understand-unsafe-function-calls.md
           - text: UEFI firmware analysis capabilities
             url: unified-extensible-firmware-interface-firmware-analysis.md

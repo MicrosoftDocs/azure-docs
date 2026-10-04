@@ -3,7 +3,7 @@ title: Run a Failover During Disaster Recovery With Azure Site Recovery
 description: Learn how to run a failover of on-premises machines to Azure with Azure Site Recovery to keep workloads running during an outage. Start now.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 08/31/2026
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 author: Jeronika-MS
@@ -18,6 +18,7 @@ This article describes how to fail over on-premises machines to Azure in [Azure 
 - [Learn](failover-failback-overview-modernized.md) about the failover process in disaster recovery.
 - If you want to fail over multiple machines, [learn](recovery-plan-overview.md) how to gather machines together in a recovery plan.
 - Before you do a full failover, run a [disaster recovery drill](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected.
+- Run a successful test failover at least once every 180 days. Site Recovery raises a failover-readiness health issue if no successful test failover exists or the most recent success is older than 180 days.
 
 ## Prepare to connect after failover
 
@@ -44,7 +45,7 @@ Run the recovery plan failover as follows:
 1. In the Site Recovery vault, select **Recovery Plans** > *recoveryplan_name*.
 2. Select **Failover**.
 
-    :::image type="content" source="./media/site-recovery-failover/failover.png" alt-text="Screenshot from Azure Site Recovery showing the ADRP pane with Failover selected from the More menu.":::
+    :::image type="content" source="./media/site-recovery-failover/Failover.png" alt-text="Screenshot from Azure Site Recovery showing the ADRP pane with Failover selected from the More menu.":::
 
 3. In **Failover** > **Failover direction**, keep the default if you're replicating to Azure.
 4. In **Failover**, select a **Recovery Point** to which to fail over.
@@ -79,7 +80,7 @@ You can run a planned failover for Hyper-V VMs.
 
 Failover has associated jobs.
 
-:::image type="content" source="./media/site-recovery-failover/failoverjob.png" alt-text="Screenshot of the Jobs page showing a list of Jobs with Group 1: Start(1) expanded in the Name column. The line for the SQLServer job is highlighted.":::
+:::image type="content" source="./media/site-recovery-failover/FailoverJob.png" alt-text="Screenshot of the Jobs page showing a list of Jobs with Group 1: Start(1) expanded in the Name column. The line for the SQLServer job is highlighted.":::
 
 - **Prerequisites check**: Ensures that all conditions required for failover are met.
 - **Failover**: Processes the data so that an Azure VM can be created from it. If you choose **Latest** recovery point, the service creates a recovery point from the data it receives.
@@ -143,7 +144,7 @@ Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.m
 
 After you fail over, you need to reprotect to start replicating the Azure VMs back to the on-premises site. After replication is up and running, you can fail back on-premises when you're ready.
 
-- [Learn more](failover-failback-overview.md#reprotectionfailback) about reprotection and failback.
+- [Learn more](failover-failback-overview-modernized.md) about reprotection and failback.
 - [Prepare](vmware-azure-reprotect.md) for VMware reprotection and failback.
 - [Fail back](hyper-v-azure-failback.md) Hyper-V VMs.
 - [Learn about](physical-to-azure-failover-failback.md) the failover and failback process for physical servers.

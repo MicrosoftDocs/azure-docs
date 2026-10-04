@@ -29,6 +29,44 @@ For information on release notes for the connected machine agent, see
 The following sections of this article detail the notes for each release of the agent. The heading
 for each section includes the specific version for that release and the date for the release.
 
+## Version 1.29.119.0 - September 2026
+
+<a id="1.29.119.0"></a>
+<a id="2026-09"></a>
+
+### Updated
+
+- Updated OpenSSL library from version 3.6.3 to 3.6.4.
+
+## Version 1.29.118.0 - September 2026
+
+<a id="1.29.118.0"></a>
+<a id="2026-09"></a>
+
+### Updated
+
+- Updated bundled PowerShell version from 7.4.15 to 7.4.19.
+- Improved configuration package download performance.
+
+### Fixed
+
+- Fixed PowerShell-based policy execution failures caused by Mark-of-the-Web metadata.
+- Strengthened configuration package integrity validation.
+
+## Version 1.29.116.0 - July 2026
+
+<a id="1.29.116.0"></a>
+<a id="2026-07"></a>
+
+### Updated
+
+- Improved baseline customization pre-installation support for PowerShell script and module files.
+
+### Fixed
+
+- Fixed an issue where Machine Configuration assignments that failed during processing were not fetched again.
+- Strengthened configuration package extraction validation.
+
 ## Version 1.29.113.0 - July 2026
 
 <a id="1.29.113.0"></a>

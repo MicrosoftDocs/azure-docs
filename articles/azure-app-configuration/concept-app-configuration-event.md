@@ -21,7 +21,7 @@ Common App Configuration event scenarios include refreshing application configur
 
 Take a look at [Use Event Grid for data change notifications](./howto-app-configuration-event.md) for a quick example.
 
-:::image type="content" source="./media/event-grid-functional-model.png" alt-text="Diagram that shows Event Grid Model.":::
+:::image type="content" source="./media/concept-app-configuration-event/event-grid-functional-model.png" alt-text="Diagram that shows Event Grid Model.":::
 
 [!INCLUDE [event-schema-app-configuration](../event-grid/includes/schema-app-configuration.md)]
 

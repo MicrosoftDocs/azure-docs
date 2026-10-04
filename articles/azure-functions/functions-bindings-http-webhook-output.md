@@ -3,7 +3,7 @@ title: Azure Functions HTTP output bindings
 description: Learn how to return HTTP responses in Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 03/04/2022
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -11,10 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 HTTP-triggered functions use HTTP output to respond to the HTTP request sender. In most languages, this output is represented as an HTTP output binding. In Go, HTTP responses are written directly with the `http.ResponseWriter` passed to your HTTP trigger handler rather than with a separate output binding configuration.
 
-The default return value for an HTTP-triggered function is:
-
-- `HTTP 204 No Content` with an empty body in Functions 2.x and higher
-- `HTTP 200 OK` with an empty body in Functions 1.x
+The default return value for an HTTP-triggered function is `HTTP 204 No Content` with an empty body.
 
 ::: zone pivot="programming-language-csharp"
 ## Attribute

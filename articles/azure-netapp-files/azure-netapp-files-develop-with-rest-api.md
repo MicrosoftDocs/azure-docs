@@ -110,7 +110,7 @@ curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: applicati
 
 ### PUT request examples
 
-You use a PUT request to create new objects in Azure NetApp Files, as the following examples show. The body of the PUT request can include the JSON formatted data for the changes. It must be included in the curl command as text or references as a file. To reference the body as a file, save the json example to a file and add `-d @<filename>` to the curl command.
+You use a PUT request to create new objects in Azure NetApp Files, as the following examples show. The body of the PUT request can include the JSON formatted data for the changes. It must be included in the curl command as text or references as a file. To reference the body as a file, save the JSON example to a file and add `-d @<filename>` to the curl command.
 
 ```azurecli
 #create a NetApp account  
@@ -199,3 +199,4 @@ The following example shows how to create a snapshot of a volume:
 ## Next steps
 
 * [Azure NetApp Files REST API reference](/rest/api/netapp/)
+* [Azure NetApp Files API 2026-07-01 update](api-2026-07-01-update.md)

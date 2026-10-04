@@ -161,7 +161,7 @@ az storage advanced-platform-metric create \
 
 ### [Portal](#tab/azure-portal)
 
-To view advanced platform metrics in the Azure portal:
+To enable advanced platform metrics in the Azure portal:
 
 1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
 1. Under **Monitoring**, select **Advanced platform metrics**.
@@ -197,7 +197,7 @@ az storage advanced-platform-metric list \
 
 ### [Portal](#tab/azure-portal)
 
-To view advanced platform metrics in the Azure portal:
+To view and manage advanced platform metrics rules in the Azure portal:
 
 1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
 1. Under **Monitoring**, select **Advanced platform metrics**.
@@ -235,7 +235,7 @@ az storage advanced-platform-metric update \
 
 ### [Portal](#tab/azure-portal)
 
-To view advanced platform metrics in the Azure portal:
+To update advanced platform metrics rules in the Azure portal:
 
 1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
 1. Under **Monitoring**, select **Advanced platform metrics**.
@@ -339,6 +339,8 @@ If you have **50 containers** in your storage account:
 The actual number of data points depends on your specific configuration, including the number of containers, enabled metrics, and the blob types and access tiers in use.
 
 ## Limits and considerations
+> [!NOTE]
+> Advanced platform metrics is supported only on storage accounts that support Azure Blob Storage. Premium Azure Files accounts, and Premium Page Blob accounts aren't supported.
 
 The following limit applies when using advanced platform metrics:
 

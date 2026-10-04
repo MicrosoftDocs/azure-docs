@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Manage email opt-out
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-document.md)]
 
 > [!IMPORTANT]

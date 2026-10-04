@@ -5,7 +5,7 @@ description: Provides an overview of networking for replication of Azure VMs usi
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 10/31/2025
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator managing disaster recovery for Azure VMs, I want to configure networking settings using network security groups and service tags, so that I can ensure reliable replication and connectivity during failover scenarios."
@@ -18,6 +18,8 @@ This article provides networking guidance for platform connectivity when you're 
 ## Before you start
 
 Learn how Site Recovery provides disaster recovery for [this scenario](azure-to-azure-architecture.md).
+
+Before you enable replication, verify that the target virtual network and subnet exist and that the target VM size supports the configured NIC count and accelerated networking setting. For failover, also verify static or private IP availability, public IP ownership, and compatibility of multiple NICs and IP configurations. Site Recovery validates these settings together with Azure Compute and Azure Network requirements.
 
 ## Typical network infrastructure
 

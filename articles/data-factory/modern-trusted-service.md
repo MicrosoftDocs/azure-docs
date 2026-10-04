@@ -59,8 +59,8 @@ The legacy trusted services capability is scheduled to retire in August 2027. Af
 By transitioning to **Modern** trusted service, organizations can strengthen their security posture, reduce reliance on firewall exceptions, and prepare for the retirement of legacy trusted service access in August 2027.
 
 > [!NOTE]
-> To ensure uninterrupted service and a seamless transition, customers are encouraged to begin planning their migration to the Modern Trusted Service well in advance of the August 2027 timeline.
-
+> To ensure a smooth transition and avoid service disruptions, migrate to **Modern** mode before August 1, 2027.
+After August 1, 2027, **Legacy** mode retires and is no longer available. After this date, all **Trusted Service** configurations operate only in **Modern** mode.
 
 ## Changes in trusted service bypass behavior
 

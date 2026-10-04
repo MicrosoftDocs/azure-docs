@@ -5,12 +5,13 @@ author: avanigupta
 ms.author: avgupta
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 02/16/2024
+ms.date: 9/1/2026
+ai-usage: ai-assisted
 ---
 
 # Resiliency and disaster recovery
 
-Azure App Configuration is a regional service. Each configuration store is created in a particular Azure region. A region-wide outage affects all stores in that region, and failover between regions isn't available by default. However, Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. Utilizing geo-replication is the recommended solution for high availability.
+Azure App Configuration is a regional service. You create each configuration store in a specific Azure region. A region-wide outage affects all stores in that region, and failover between regions isn't available by default. However, Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. Using geo-replication is the recommended solution for high availability.
 
 This article provides general guidance on how you can use multiple replicas across Azure regions to increase the geo-resiliency of your application.
 
@@ -19,11 +20,11 @@ This article provides general guidance on how you can use multiple replicas acro
 
 ## High-availability architecture
 
-The original App Configuration store is also considered a replica, so to realize cross-region redundancy, you need to create at least one new replica in a different region. However, you can choose to create multiple App Configuration replicas in different regions based on your requirements. You may then utilize these replicas in your application in the order of your preference. With this setup, your application has at least one additional replica to fall back on if the primary replica becomes inaccessible.
+The original App Configuration store is also considered a replica, so to achieve cross-region redundancy, you need to create at least one new replica in a different region. You can create multiple App Configuration replicas in different regions based on your requirements. You can then use these replicas in your application in your preferred order. With this setup, your application has at least one additional replica to fall back on if the primary replica becomes inaccessible.
 
 The following diagram illustrates the topology between your application and two replicas:
 
-:::image type="content" source="./media/geo-redundant-app-configuration-replicas.png" alt-text="Diagram of geo-redundant replicas." lightbox="./media/geo-redundant-app-configuration-replicas.png":::
+:::image type="content" source="./media/concept-disaster-recovery/geo-redundant-app-configuration-replicas.png" alt-text="Diagram of geo-redundant replicas." lightbox="./media/concept-disaster-recovery/geo-redundant-app-configuration-replicas.png":::
 
 Your application loads its configuration from the more preferred replica. If the preferred replica is not available, configuration is loaded from the less preferred replica. This increases the chance of successfully getting the configuration data. The data in both replicas is always in sync. 
 
@@ -31,7 +32,7 @@ Your application loads its configuration from the more preferred replica. If the
 
 If you want to leverage automatic failover between replicas, follow [these instructions](./howto-geo-replication.md#scale-and-failover-with-replicas) to set up failover using App Configuration provider libraries. This is the recommended approach for building resiliency in your application.
 
-If the App Configuration provider libraries don't meet your requirements, you can still implement your own failover strategy. When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for accessing your configuration.
+If the App Configuration provider libraries don't meet your requirements, you can still implement your own failover strategy. When geo-replication is enabled and one replica isn't accessible, your application can fail over to another replica to access your configuration.
 
 ## Next steps
 

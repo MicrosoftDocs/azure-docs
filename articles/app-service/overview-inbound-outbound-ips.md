@@ -4,7 +4,7 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: concept-article
-ms.date: 01/14/2026
+ms.date: 09/17/2026
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
@@ -143,6 +143,9 @@ You can configure the IP mode behavior using the `IPMode` property:
 IPMode is a DNS-only feature. Every App Service site can receive requests via both IPv4 and IPv6 endpoints—regardless of the configured IpMode. IpMode only influences how DNS resolves the endpoint, so it affects clients that rely on DNS resolution (which should be most clients), but it doesn't restrict which protocol endpoints can be reached.
 
 ### Configure IPv6 support
+
+> [!IMPORTANT]
+> If your app uses private endpoints, set `ipMode` to `IPv4` or `IPv4AndIPv6`. Setting it to `IPv6` (IPv6-only) prevents connections through private endpoints because the private endpoint forwarding service requires IPv4 DNS resolution for the app. To enable IPv6 while maintaining private endpoint connectivity, use `IPv4AndIPv6`. For more information, see [Private endpoint limitations](./overview-private-endpoint.md#limitations).
 
 # [Azure portal](#tab/azure-portal)
 

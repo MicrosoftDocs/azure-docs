@@ -2,7 +2,8 @@
 title: Security Best Practices
 description: Learn security best practices and useful tips for deploying and operating Azure CycleCloud more securely.
 author: prkannap
-ms.date: 06/23/2026
+ai-usage: ai-assisted
+ms.date: 08/10/2026
 ms.topic: concept-article
 ms.update-cycle: 3650-days
 ms.author: bewatrou
@@ -54,6 +55,8 @@ Azure CycleCloud provides a set of built-in roles that control user access to th
 For detailed guidance, consult the Azure [network security best practices](/azure/security/fundamentals/network-best-practices).
 
 Lock down the target [virtual network](/azure/virtual-network/virtual-networks-overview) for your clusters by using [Network Security Groups](/azure/virtual-network/network-security-groups-overview) (NSGs). A Network Security Group contains security rules that allow or deny inbound network traffic or outbound network traffic from several types of Azure resources.
+
+Use the [CycleCloud ports and traffic matrix](../how-to/network-security.md#required-ports-and-traffic) to scope NSG and firewall rules by source, destination, and deployment mode.
 
 Use at least two subnets. Use one subnet for the CycleCloud installation virtual machine (VM) and any other VMs with the same access policies. Use additional subnets for the compute clusters. For large clusters, the IP range of the subnet might become a limiting factor. In general, use a small CIDR (Classless Inter-Domain Routing) range for the CycleCloud subnet and a larger range for the compute subnets.
 

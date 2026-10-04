@@ -5,12 +5,13 @@ author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 06/12/2026
+ms.service: azure-enclave
+ms.date: 09/15/2026
 ---
 
 # Create a community endpoint in the Azure portal
 
-In this how-to article, you create a [community endpoint](./what-community-endpoint.md) and add a rule that defines an allowed destination for enclave connections.
+In this how-to guide, you create a [community endpoint](./what-community-endpoint.md) and add a rule that defines an allowed destination for enclave connections.
 
 ## Prerequisites
 
@@ -24,7 +25,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a community endpoint
 
-1. Go to an existing community in your Azure subscription.
+1. In the Azure portal, search for `Azure Enclave`.
+
+1. Under `Services`, select `Azure Enclave`.
+
+1. In the `Azure Enclave` page, select `Communities` in the left menu, and then select an existing community.
+
 1. In the left menu, select `Community Endpoints`, and then select `Create`.
 
     ![Screenshot showing the community endpoint list.](./media/tutorial-step-five-fabrikam-endpoint-list.png)
@@ -35,13 +41,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Before you add the rule, choose the destination type that matches the endpoint you need to allow.
 
-- `IPAddress`: Enable traffic from an enclave to an IP address outside of the community Virtual WAN.
-- `FQDN`: Enable traffic from an enclave to a trusted fully qualified domain name (FQDN), such as `*.portal.azure.com`. FQDN rules support `HTTP`, `HTTPS`, `TCP`, or `UDP`; use only one protocol and one port per rule.
-- `FQDNTag`: Enable traffic from enclaves to known Microsoft Azure services through FQDN tags, such as `AzurePortal`.
-- `ServiceTag`: Enable traffic from enclaves to Azure services by using Azure service tags. Service tags represent groups of IP address prefixes for specific Azure services, such as `Storage`, `AzureKeyVault`, and `Sql`. For a complete list of available service tags, see [Virtual Network service tags](/azure/virtual-network/service-tags-overview).
-- `PrivateNetwork`: Enable traffic from enclaves to an external private network through a [transit hub](./create-transit-hub-portal.md) connection.
+- `IPAddress`: Allow traffic from an enclave to one or more destination IP addresses or CIDR ranges.
+- `FQDN`: Allow traffic from an enclave to a trusted fully qualified domain name (FQDN). FQDN rules support `HTTP`, `HTTPS`, `TCP`, or `UDP`; use only one protocol and one port per rule. Basic firewall SKU doesn't support FQDN rules.
+- `FQDNTag`: Allow traffic from enclaves to known Microsoft Azure services through FQDN tags. Use `HTTPS`, except that the `windowsupdate` tag supports `HTTP` or `HTTPS`, and specify one port. Basic firewall SKU doesn't support FQDN tag rules.
+- `ServiceTag`: Allow traffic from enclaves to Azure services by using Azure service tags. This destination type is available in the `2025-11-01-preview` API version and later. Supported protocols include `TCP`, `UDP`, `ICMP`, and `ANY`. Use `ANY` by itself; don't combine it with another protocol.
+- `PrivateNetwork`: Allow traffic from enclaves to an external private network. Specify destination CIDR ranges and a succeeded [transit hub](./create-transit-hub-portal.md) in the same community.
 
-Enter the rule name, destination type, destination, port, and protocol, and then select `Add`.
+Enter the `Rule name`, `Destination type`, `Destination`, `Port`, and `Protocol`, and then select `Add`.
 
 [ ![Screenshot showing the creation page for the community endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png) ](./media/tutorial-step-five-fabrikam-endpoint-rules.png#lightbox)
 
@@ -59,9 +65,14 @@ When you create a `ServiceTag` rule:
 
 1. Select `Review + create`, and then select `Create`.
 
+## Verify the community endpoint
+
+After deployment finishes, open the community and select **Community Endpoints**. Confirm that the new endpoint and its rule appear in the list.
+
 ## Related content
 
 - [What is a community endpoint?](./what-community-endpoint.md)
 - [What is a community?](./what-community.md)
 - [Create a community](./create-community-portal.md)
+- [Create an enclave connection](./create-enclave-connection-portal.md)
 - [Best practices](./best-practices.md)

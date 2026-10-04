@@ -171,6 +171,13 @@ productDirectory:
         - ai-machine-learning
       url: /azure/open-datasets/
     # Card
+    - title: Azure SRE Agent
+      summary: Automate tasks, accelerate incident response, and optimize resources with an autonomous agent.
+      imageSrc: ./media/index/azure-sre-agent.svg
+      azureCategories:
+        - ai-machine-learning
+      url: /azure/sre-agent/
+    # Card
     - title: Azure Communication Services
       summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
       imageSrc: ./media/index/communication-services.svg
@@ -418,7 +425,7 @@ productDirectory:
         - web
       url: spring-apps/index.yml
     # Card
-    - title: Azure Compute Fleet (Preview)
+    - title: Azure Compute Fleet
       summary: Easily provision and manage Azure compute capacity at scale
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:

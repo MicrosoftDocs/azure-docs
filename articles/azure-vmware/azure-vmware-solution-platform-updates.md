@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 8/16/2026
+ms.date: 08/28/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
@@ -107,9 +107,9 @@ The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware So
 
 Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage. [Learn more](introduction.md#hosts-clusters-and-private-clouds)
 
-**Azure Native Pure Storage Cloud (preview)**
+**Everpure Cloud Azure Native (preview)**
 
-Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for Azure VMware Solution, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
+Everpure Cloud Azure Native for Azure VMware Solution is now in public preview. You can use Everpure Cloud Azure Native from Pure Storage to deploy vVols-based block storage for Azure VMware Solution, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
 
 **Azure VMware Solution Generation 2 Private Clouds (preview)**
 

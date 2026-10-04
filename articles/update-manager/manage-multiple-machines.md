@@ -4,8 +4,8 @@ description: This article explains how to use Azure Update Manager in Azure to m
 ms.service: azure-update-manager
 ms.date: 12/04/2024
 ms.topic: overview
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator managing multiple servers, I want to use a centralized update management tool, so that I can efficiently assess, deploy, and monitor updates across my Azure and on-premises environments."

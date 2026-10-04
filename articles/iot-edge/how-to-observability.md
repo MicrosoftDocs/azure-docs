@@ -3,7 +3,7 @@ title: How to implement IoT Edge observability using monitoring and troubleshoot
 description: Learn how to build an observability solution for an IoT Edge System
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/06/2025
+ms.date: 09/15/2026
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -20,8 +20,8 @@ In this article, you learn the concepts and techniques for implementing both obs
 * Monitor metrics and detect issues by using Azure Monitor workbooks
 * Troubleshoot basic issues by using curated workbooks
 * Troubleshoot advanced issues by using distributed tracing and correlated logs
-* Optionally, deploy a sample scenario to Azure to practice what you learn
 
+Use Metrics Collector 2.0 to send metrics directly to a Log Analytics custom table. To configure the DCR, authentication, and collection, use [Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md). For existing deployments, use [Migrate the metrics collector](migrate-metrics-collector.md).
 
 ## Scenario 
 
@@ -90,11 +90,21 @@ Azure .NET Function picks up the telemetry message from the IoT Hub events endpo
 
 An IoT Hub device comes with system modules `edgeHub` and `edgeAgent`. These modules expose through a Prometheus endpoint [a list of built-in metrics](how-to-access-built-in-metrics.md). These metrics are collected and pushed to Azure Monitor Log Analytics service by the [metrics collector module](how-to-collect-and-transport-metrics.md) running on the IoT Edge device. In addition to the system modules, the `Temperature Sensor` and `Filter` modules can be instrumented with some business specific metrics too. However, the service level indicators that we've defined can be measured with the built-in metrics only. So, we don't really need to implement anything else at this point. 
 
+Metrics Collector 2.0 sends metrics to a DCR-based custom table. Curated workbooks use `IoTEdgeMetrics_CL` by default, with numeric `Value`, JSON-string `Tags`, and ordinary `ResourceId`. For another table with the same schema, set the workbook's `MetricsTableName` parameter.
+
+Query the Log Analytics workspace and filter for the intended IoT resource. Normalize both selected and stored resource IDs with `tolower()` before matching or grouping. This procedure uses the [pass-through schema](migrate-metrics-collector.md#understand-resource-matching-and-query-scope).
+
+The `IotMessage` transport sends metrics through IoT Hub. Any cloud workflow that forwards those messages to Log Analytics needs separate ingestion configuration.
+
 In this scenario, we have a fleet of 10 buoys. One of the buoys is intentionally set up to malfunction so that we can demonstrate the issue detection and the follow-up troubleshooting. 
 
 ### How do we monitor
 
-We're going to monitor Service Level Objectives (SLO) and corresponding Service Level Indicators (SLI) with Azure Monitor Workbooks. This scenario deployment includes the *La Nina SLO/SLI* workbook assigned to the IoT Hub. 
+Use Azure Monitor Workbooks to monitor Service Level Objectives (SLO) and corresponding Service Level Indicators (SLI). The illustrative scenario uses a conceptual *La Nina SLO/SLI* workbook assigned to the IoT Hub.
+
+For Metrics Collector 2.0, configure this saved workbook to query the workspace and custom table. Use [Update saved workbooks and alerts](migrate-metrics-collector.md#update-saved-workbooks-and-alerts) for its queries and navigation links.
+
+In curated workbooks, select **New only** under **Metrics source**. Use **Combine legacy and new history** only when you need both tables. Enter **Cutover time (UTC)** when that control appears.
 
 :::image type="content" source="media/how-to-observability/dashboard-path.png" alt-text="Screenshot of I o T Hub monitoring showing the Workbooks. From the Gallery in the Azure portal.":::
 
@@ -112,6 +122,8 @@ Only 90% of the devices send the data frequently, and the service clients expect
 All SLO and threshold values are configurable on the workbook settings tab:
 
 :::image type="content" source="media/how-to-observability/workbook-settings.png" alt-text="Screenshot of the workbook settings in the Azure portal.":::
+
+Saving or customizing this workbook creates a separate customer-owned copy. Future public template changes don't update that copy automatically. Before a collector cutover, inventory the saved workbook and migrate every metric query, parameter query, no-data gate, and drill-through link in a separate copy.
 
 #### Scan
 
@@ -199,28 +211,10 @@ The message frequency on the problematic device returns to normal. The overall S
 
 :::image type="content" source="media/how-to-observability/green-workbook.png" alt-text="Screenshot of the monitoring summary report in the Azure portal.":::
 
-## Try the sample
+For cutover continuity, use a declared UTC boundary and read legacy `InsightsMetrics` only before it and the custom table only at or after it. Don't raw-union overlapping data. Replace legacy-only table gates and test legacy-only, new-only, and transition modes. Preserve event-time ordering, complete `Tags` series identity, counter reset handling, and histogram `_sum` and `_count` pairs. The collector retains endpoint-specific subsecond scrape timestamps, so use an appropriate time bin when combining edgeAgent and edgeHub cycles rather than joining on exact timestamps.
 
-At this point, you can deploy the scenario sample to Azure to follow the steps and try your own use cases.
-
-To deploy this solution, you need:
-
-- [PowerShell](/powershell/scripting/install/installing-powershell)
-- [Azure CLI](/cli/azure/install-azure-cli)
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-
-1. Clone the [IoT Elms](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution) repository.
-
-   ```sh
-   git clone https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution.git
-1. Open a PowerShell console and run the `deploy-e2e-tutorial.ps1` script.
-
-
-   ```powershell
-   ./Scripts/deploy-e2e-tutorial.ps1
+Alert rules remain separate resources. Migrating a workbook does not change their query, scope, dimensions, thresholds, or action groups. Review and test firing, resolution, resource and device identification, and notification delivery separately.
 
 ## Next steps
 
-In this article, you set up a solution with end-to-end observability capabilities for monitoring and troubleshooting. A common challenge in these solutions for IoT systems is sending observability data from devices to the cloud. The devices in this scenario are expected to be online and have a stable connection to Azure Monitor, but that's not always the case.
-
-Go to follow-up articles like [Distributed Tracing with IoT Edge](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution/blob/main/docs/iot-edge-distributed-tracing.md) for recommendations and techniques to handle scenarios when devices are usually offline or have limited or restricted connections to the observability backend in the cloud.
+In this article, you reviewed an illustrative solution with end-to-end observability capabilities for monitoring and troubleshooting. A common challenge in these solutions for IoT systems is sending observability data from devices to the cloud. The devices in this scenario are expected to be online and have a stable connection to Azure Monitor, but that's not always the case.

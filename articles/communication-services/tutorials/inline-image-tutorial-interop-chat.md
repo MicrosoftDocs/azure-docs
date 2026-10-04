@@ -13,6 +13,8 @@ ms.subservice: chat
 
 # Add inline image support in Teams interop chat
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 With Teams Interoperability Chat, or *Interop Chat*, you can enable Azure Communication Services users to receive inline images sent by Teams users. When you enable a rich text editor, Azure Communication Services users can send inline images to Teams users. For more information, see [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md).
 
 The feature in Azure Communication Services for receiving inline images comes with the `CallWithChat` composite without extra setup. To enable the feature in Azure Communication Services for sending inline images, set `richTextEditor` to `true` under `CallWithChatCompositeOptions`.

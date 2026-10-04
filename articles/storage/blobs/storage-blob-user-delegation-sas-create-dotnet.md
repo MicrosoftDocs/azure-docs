@@ -114,7 +114,33 @@ public static async Task<Uri> CreateUserDelegationSASQueue(
     return uriBuilder.ToUri();
 }
 ```
+You can also create a user-bound user delegation SAS for a blob container, blob, file share, file, or queue. This example shows how to create a user-bound user delegation SAS for a blob, but the delegatedUserId can be used for any Azure service. 
 
+```csharp
+public static async Task<Uri> CreateUserDelegationSasBlob(BlobClient blobClient, UserDelegationKey userDelegationKey){
+
+    //Create a SAS token for the blob resource that's valid for 1 day 
+    BlobSasBuilder sasBuilder = new BlobSasBuilder(){ 
+        BlobContainerName = blobClient.BlobContainerName, 
+        BlobName = blobClient.Name, 
+        Resource = "b", 
+        StartsOn = DateTimeOffset.UtcNow, 
+        ExpiresOn = DateTimeOffset.UtcNow.AddDays(1), 
+        DelegatedUserObjectId = "delegatedUserId" 
+    };
+
+    //Specify the necessary permissions 
+    sasBuilder.SetPermissions(BlobSasPermissions.Read | BlobSasPermissions.Write); 
+     
+    //Add the SAS token to the blob URI 
+    BlobUriBuilder uriBuilder = new BlobUriBuilder(blobClient.Uri){ 
+        Sas = sasBuilder.ToSasQueryParameters( 
+            userDelegationKey, 
+            blobClient.GetParentBlobContainerClient().GetParentBlobServiceClient().AccountName) 
+    }; 
+    return uriBuilder.ToUri(); 
+} 
+```
 
 ---
 

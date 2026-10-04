@@ -5,15 +5,13 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
-ms.date: 11/21/2017
+ms.date: 09/15/2026
 ---
 
 # Mobile Apps bindings for Azure Functions 
 
-> [!NOTE]
-> Azure Mobile Apps bindings are only available to Azure Functions 1.x. They are not supported in Azure Functions 2.x and higher.
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+> [!IMPORTANT]
+> Azure Mobile Apps bindings are only available to Azure Functions 1.x. They are not supported in Azure Functions 2.x and later. [Support ended for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). [Migrate your apps to version 4.x](/azure/azure-functions/migrate-version-1-version-4) for full support.
 
 This article explains how to work with [Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) bindings in Azure Functions. Azure Functions supports input and output bindings for Mobile Apps.
 
@@ -23,7 +21,13 @@ The Mobile Apps bindings let you read and update data tables in mobile apps.
 
 Mobile Apps bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet package, version 1.x.
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+The following table lists how to add support for the binding in each development environment.
+
+| Development environment | To add support in Functions 1.x |
+| --- | --- |
+| Local development: C# class library | [Install the package](/azure/azure-functions/functions-develop-vs#add-bindings). |
+| Local development: C# script, JavaScript, F# | Automatic |
+| Portal development | Automatic |
 
 ## Input
 
@@ -35,7 +39,7 @@ See the language-specific example:
 
 # [C# script](#tab/input-csharp-example)
 
-The following example shows a Mobile Apps input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
+The following example shows a Mobile Apps input binding in a *function.json* file and a [C# script function](/azure/azure-functions/functions-reference-csharp) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
 
 Here's the binding data in the *function.json* file:
 
@@ -80,7 +84,7 @@ public static void Run(string myQueueItem, JObject record)
 
 # [JavaScript](#tab/input-javascript-example)
 
-The following example shows a Mobile Apps input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
+The following example shows a Mobile Apps input binding in a *function.json* file and a [JavaScript function](/azure/azure-functions/functions-reference-node) that uses the binding. The function is triggered by a queue message that has a record identifier. The function reads the specified record and modifies its `Text` property.
 
 Here's the binding data in the *function.json* file:
 
@@ -119,7 +123,7 @@ module.exports = async function (context, myQueueItem) {
 
 ## Input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
+In [C# class libraries](/azure/azure-functions/functions-dotnet-class-library), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
 
 For information about attribute properties that you can configure, see [the following configuration section](#input---configuration).
 
@@ -137,7 +141,7 @@ The following table explains the binding configuration properties that you set i
 |**connection**|**Connection**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `https://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|The name of an app setting that has your mobile app's API key. Provide the API key if you implement an API key in your Node.js mobile app, or implement an API key in your .NET mobile app. To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+When you're developing locally, add your application settings in the [local.settings.json file](/azure/azure-functions/functions-develop-local#local-settings-file) in the `Values` collection.
 
 > [!IMPORTANT]
 > Don't share the API key with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. Azure Functions stores your connection information and API keys as app settings so that they are not checked into your source control repository. This safeguards your sensitive information.
@@ -159,7 +163,7 @@ Use the Mobile Apps output binding to write a new record to a Mobile Apps table.
 
 # [C#](#tab/output-csharp-example)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that is triggered by a queue message and creates a record in a mobile app table.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that is triggered by a queue message and creates a record in a mobile app table.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -175,7 +179,7 @@ public static object Run(
 # [C# script](#tab/output-csharp-script-example)
 
 
-The following example shows a Mobile Apps output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
+The following example shows a Mobile Apps output binding in a *function.json* file and a [C# script function](/azure/azure-functions/functions-reference-csharp) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
 
 Here's the binding data in the *function.json* file:
 
@@ -217,7 +221,7 @@ public static void Run(string myQueueItem, out object record)
 # [JavaScript](#tab/output-javascript-example)
 
 
-The following example shows a Mobile Apps output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
+The following example shows a Mobile Apps output binding in a *function.json* file and a [JavaScript function](/azure/azure-functions/functions-reference-node) that uses the binding. The function is triggered by a queue message and creates a new record with hard-coded value for the `Text` property.
 
 Here's the binding data in the *function.json* file:
 
@@ -259,7 +263,7 @@ module.exports = async function (context, myQueueItem) {
 ---
 ## Output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
+In [C# class libraries](/azure/azure-functions/functions-dotnet-class-library), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
 
 For information about attribute properties that you can configure, see [Output - configuration](#output---configuration). Here's a `MobileTable` attribute example in a method signature:
 
@@ -291,7 +295,7 @@ The following table explains the binding configuration properties that you set i
 |**connection**|**MobileAppUriSetting**|The name of an app setting that has the mobile app's URL. The function uses this URL to construct the required REST operations against your mobile app. Create an app setting in your function app that contains the mobile app's URL, then specify the name of the app setting in the `connection` property in your input binding. The URL looks like `https://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|The name of an app setting that has your mobile app's API key. Provide the API key if you implement an API key in your Node.js mobile app backend, or implement an API key in your .NET mobile app backend. To provide the key, create an app setting in your function app that contains the API key, then add the `apiKey` property in your input binding with the name of the app setting. |
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+When you're developing locally, add your application settings in the [local.settings.json file](/azure/azure-functions/functions-develop-local#local-settings-file) in the `Values` collection.
 
 > [!IMPORTANT]
 > Don't share the API key with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. Azure Functions stores your connection information and API keys as app settings so that they are not checked into your source control repository. This safeguards your sensitive information.
@@ -309,4 +313,4 @@ In Node.js functions, use `context.bindings.<name>` to access the output record.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+> [Learn more about Azure Functions triggers and bindings](/azure/azure-functions/functions-triggers-bindings)

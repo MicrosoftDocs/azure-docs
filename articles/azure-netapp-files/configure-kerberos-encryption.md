@@ -19,7 +19,12 @@ Azure NetApp Files supports NFS client encryption in Kerberos modes (krb5, krb5i
 The following requirements apply to NFSv4.1 client encryption: 
 
 * Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services connection to facilitate Kerberos ticketing
-* DNS A/PTR record creation for both the client and Azure NetApp Files NFS server IP addresses
+* DNS A and PTR records for:
+    * Each NFS client that uses Kerberos.
+    * The Azure NetApp Files NFS server or volume endpoint.
+    * Every AD DS domain controller or LDAP server that Azure NetApp Files can discover or use for UNIX user and group lookups.
+
+    Forward and reverse records must resolve consistently and must be accessible through the DNS servers configured in the Azure NetApp Files Active Directory connection. Ensure that a reverse lookup zone exists for each applicable subnet. If you configure an AD site or preferred LDAP servers, validate forward and reverse DNS resolution for every applicable domain controller or LDAP server. For more information, see [Troubleshoot volume errors](troubleshoot-volumes.md#errors-for-missing-or-inconsistent-dns-records).
 * **A Linux client:** This article provides guidance for RHEL and Ubuntu clients. Other clients also work with similar configuration steps. 
 * **NTP server access:** You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
 * To leverage Domain or LDAP user authentication, ensure that NFSv4.1 volumes are enabled for LDAP. See [Configure ADDS LDAP with extended groups](configure-ldap-extended-groups.md).

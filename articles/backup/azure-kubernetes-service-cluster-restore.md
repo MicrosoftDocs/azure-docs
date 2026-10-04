@@ -46,6 +46,7 @@ To restore the backed-up AKS cluster, follow these steps:
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-protected-item.png" alt-text="Screenshot that shows the selection of a protected AKS cluster for restore." lightbox="./media/azure-kubernetes-service-cluster-restore/select-protected-item.png":::
 
 1. On the **Select Protected item** pane, select a backed-up AKS cluster from the list, and then click **Select**.
+
 1. On the **Recover** pane, select **Continue**.
 
 1. On the **Restore** pane, on the **Basics** tab, select **Next: Restore point**.
@@ -78,8 +79,14 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/restore-parameter-storage.png" alt-text="Screenshot shows the storage parameter to add for restore from Vault-standard storage.":::
 
-   >[!Note]
-   >Currently, resources created in the staging location can't belong within a Private Endpoint. Ensure that you enable _public access_ on the storage account provided as a staging location.
+   > [!NOTE]
+    >During the restore operation, the Backup vault and the AKS cluster need to have certain roles assigned to perform the restore:
+    >
+    > - *Target AKS* cluster should have *Contributor* role on the *Snapshot Resource Group*.
+    > - The *User Identity* attached with the Backup Extension should have *Storage Blob Data Contributor* roles on the *storage account* where backups are stored in case of Operational Tier and on the *staging storage account* in case of Vault Tier. 
+    > - The *Backup vault* should have a *Reader* role on the *Target AKS cluster* and *Snapshot Resource Group* in case of restoring from Operational Tier.
+    > - The *Backup vault* should have a *Contributor* role on the *Staging Resource Group* in case of restoring backup from Vault Tier. 
+    > - The *Backup vault* should have a *Storage Account Contributor* and *Storage Blob Data Owner* role on the *Staging Storage Account* in case of restoring backup from Vault Tier. 
 
 1. Select **Validate** to run validation on the cluster selections for restore.
 
@@ -91,9 +98,13 @@ To restore the backed-up AKS cluster, follow these steps:
 
 
 1. After the validation is successful, select **Next: Review + restore**.
+
 1. On the **Review + restore** pane, review the selections, and then select **Restore** to restore the backups to the selected cluster.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/review-restore-tab.png" alt-text="Screenshot shows the Review + restore tab for restore." lightbox="./media/azure-kubernetes-service-cluster-restore/review-restore-tab.png":::
+   
+   >[!NOTE]
+   >The restore job doesn't automatically clean up the resources hydrated in the staging resource group and storage account. Delete these resources manually.
 
 ### Configure item-level restore for AKS cluster
 

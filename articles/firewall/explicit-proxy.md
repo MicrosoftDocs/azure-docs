@@ -20,6 +20,8 @@ Explicit proxy mode supports HTTP and HTTPS traffic. You define proxy settings i
 ## Prerequisites
 
 - An Azure Firewall with an associated firewall policy. You configure explicit proxy in the firewall policy, not on the firewall resource. For more information, see [Azure Firewall policy rule sets](policy-rule-sets.md).
+- Explicit proxy is supported by Azure Firewall Standard and Premium SKUs.
+- This setting can be configured for Standard and Premium tier policies.
 
 - To host a PAC file, you also need:
 
@@ -32,7 +34,7 @@ Explicit proxy mode supports HTTP and HTTPS traffic. You define proxy settings i
 
    :::image type="content" source="media/explicit-proxy/enable-explicit-proxy.png" alt-text="Screenshot showing the Enable explicit proxy setting.":::
    > [!NOTE]
-   > You can use a single port **HTTP Port** for both HTTP and HTTPS traffic.
+   > You must use a single port **HTTP Port** for both HTTP and HTTPS traffic.
 
 - Create an **application** rule in the firewall policy to allow the traffic through the firewall.
 

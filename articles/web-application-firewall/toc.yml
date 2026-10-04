@@ -110,6 +110,8 @@ items:
         href: ./ag/geomatch-custom-rules.md
       - name: Use geomatch custom rules to enhance network security
         href: geomatch-custom-rules-examples.md
+      - name: IPv6 geo-based custom rules (preview)
+        href: ./ag/custom-rules-geo-based-ipv6.md
       - name: Rate limiting
         href: ./ag/rate-limiting-overview.md
       - name: Create rate limiting rules
@@ -158,6 +160,10 @@ items:
         href: geomatch-custom-rules-examples.md
       - name: Configure IP restrictions
         href: ./afds/waf-front-door-configure-ip-restriction.md
+      - name: AS number matching
+        href: ./afds/asn-match-condition.md
+      - name: Client fingerprint matching
+        href: ./afds/client-fingerprint-match-condition.md
     - name: Tuning
       href: ./afds/waf-front-door-tuning.md
   - name: Use Azure Policy

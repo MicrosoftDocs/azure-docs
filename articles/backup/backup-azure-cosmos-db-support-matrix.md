@@ -27,7 +27,8 @@ Azure Backup supports the following backup and restore scenarios for Azure Cosmo
 - Daily incremental backups with a weekly full backup are supported, providing a 1-day recovery point objective (RPO). Every policy must include one weekly full backup; incremental backups run on the remaining days. Incremental-only policies aren't supported. 
 - Cosmos DB accounts on [continuous (PITR) backup mode](/azure/cosmos-db/continuous-backup-restore-introduction) are only supported.
 - Cross subscription restores are supported.
-- Cross region backups are supported.
+- Backups are supported to Backup Vault with geo-redundant storage enabled.
+- Supports [Immutable vault](backup-azure-immutable-vault-concept.md) with WORM (Write Once, Read Many) storage, which helps protect your backup data by preventing operations that could result in the loss of recovery points.
 - Restore operation to an empty, single-region target Cosmos DB account is supported.
 - Restore operation to a target Cosmos DB account using the same API type as source Cosmos DB account is supported.
 - Cosmos DB accounts with partitions upto 2,500 are supported (approximately 125 TB). 

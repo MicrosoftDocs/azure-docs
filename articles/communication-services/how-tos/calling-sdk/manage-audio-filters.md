@@ -14,6 +14,8 @@ zone_pivot_groups: acs-plat-ios-android-windows
 
 # Manage audio filters
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Learn how to manage audio processing features with the Azure Communication Services SDKS. You learn how to apply different audio features before and during calls using audio filters. 
 
 Currently, there are five different filters available to control.

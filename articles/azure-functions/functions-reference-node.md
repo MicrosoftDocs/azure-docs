@@ -2315,7 +2315,7 @@ By default, Azure Functions automatically monitors the load on your application 
 This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes. You can increase the number of worker processes per host from the default of 1 up to a max of 10 by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. This behavior makes it less likely that a CPU-intensive function blocks other functions from running. The setting applies to each host that Azure Functions creates when scaling out your application to meet demand.
 
 > [!WARNING]
-> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, [running from a package file](./run-functions-from-deployment-package.md) can offset these downsides.
+> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, [running from a package file](./deployment-zip-push.md#run-functions-from-the-deployment-package) can offset these downsides.
 
 ## Node version
 
@@ -2652,7 +2652,7 @@ When you create a function app that uses the App Service plan, select a single-v
 
 ### Run from a package file
 
-When you develop Azure Functions in the serverless hosting model, cold starts are a reality. _Cold start_ refers to the first time your function app starts after a period of inactivity, taking longer to start up. For Node.js apps with large dependency trees in particular, cold start can be significant. To speed up the cold start process, [run your functions as a package file](run-functions-from-deployment-package.md) when possible. Many deployment methods use this model by default, but if you're experiencing large cold starts, check to make sure you're running this way.
+When you develop Azure Functions in the serverless hosting model, cold starts are a reality. _Cold start_ refers to the first time your function app starts after a period of inactivity, taking longer to start up. For Node.js apps with large dependency trees in particular, cold start can be significant. To speed up the cold start process, [run your functions as a package file](deployment-zip-push.md#run-functions-from-the-deployment-package) when possible. Many deployment methods use this model by default, but if you're experiencing large cold starts, check to make sure you're running this way.
 
 <a name="connection-limits"></a>
 

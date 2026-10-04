@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 06/08/2026
+ms.date: 08/17/2026
 ms.author: duau
 ms.custom:
   - linux-related-content
@@ -25,6 +25,8 @@ Point-to-site VPN can use one of the following protocols:
 * **Secure Socket Tunneling Protocol (SSTP)**, a proprietary TLS-based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. SSTP is only supported on Windows devices. 
 
 * **IKEv2 VPN**, a standards-based IPsec VPN solution. Use IKEv2 VPN to connect from Mac devices (macOS versions 13.0 and above).
+
+P2S VPN gateways support IPv6 with IKEv2 and OpenVPN. P2S VPN gateways don't support IPv6 with SSTP.
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
 

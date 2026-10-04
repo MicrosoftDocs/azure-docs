@@ -27,7 +27,7 @@ The steps in this article create a virtual network, a subnet, a gateway subnet, 
 
 The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. Some of the limitations of the Basic SKU are:
 
-[!INCLUDE [Basic SKU limitations](../../includes/vpn-gateway-basic-sku-limitations.md)]
+[!INCLUDE [Basic SKU limitations](../networking/includes/vpn-gateway/basic-sku-limitations.md)]
 
 ## Before you begin
 

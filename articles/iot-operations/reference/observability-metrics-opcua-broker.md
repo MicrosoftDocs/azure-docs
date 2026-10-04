@@ -111,6 +111,7 @@ Dimensions marked with **(1)** are emitted only when `ExperimentalConfiguration.
 | aio.opc.managed_service.running | UpDownCounter | Number of currently running managed services. | [`service_type`](#service_type) |
 | aio.opc.managed_service.crashes | Counter | Number of managed service crashes. | [`service_type`](#service_type) |
 | aio.opc.managed_service.restarts | Counter | Number of managed service restarts. | [`service_type`](#service_type) |
+| aio.opc.commander.server.heartbeat.state | Gauge | Current OPC UA server liveness state observed by the server heartbeat monitor. Values are `1` (alive), `0` (not alive), and `-1` (unknown). For more information, see [Monitor OPC UA server availability with heartbeat monitoring](../discover-manage-assets/concept-opc-ua-server-heartbeat-monitoring.md). | [`aio.opc.inbound.endpoint`](#aioopcinboundendpoint) |
 
 ## MCP Tool
 
@@ -211,6 +212,10 @@ OPC UA session name. This attribute has unbounded cardinality and is emitted onl
 ### aio.opc.endpoint
 
 Endpoint address of the OPC UA server. This attribute has unbounded cardinality and is emitted only when `ExperimentalConfiguration.EnableUnboundedMetricDimensions` is set to `true`.
+
+### aio.opc.inbound.endpoint
+
+Name of the OPC UA inbound endpoint for which the server heartbeat monitor reports server liveness.
 
 ### aio.opc.connect.result
 

@@ -5,7 +5,8 @@ ms.date: 02/06/2024
 ms.topic: reference
 ms.service: azure-migrate
 author: MaggiePucciEvans
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
+ms.update-cycle: 365-days
 ms.custom: subject-policy-reference
 # Customer intent: "As a cloud administrator, I want to access built-in policy definitions for Azure Migrate, so that I can effectively manage and govern our Azure resources in compliance with organizational standards."
 ---

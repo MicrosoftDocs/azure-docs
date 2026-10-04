@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create a container app on Azure Arc'
-description: Get started with Azure Container Apps on Azure Arc-enabled Kubernetes deploying your first app.
+description: Get started with Azure Container Apps on Azure Arc-enabled Kubernetes by deploying your first app.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -8,107 +8,149 @@ ms.custom:
   - devx-track-azurecli
   - build-2025
 ms.topic: tutorial
-ms.date: 05/02/2025
+ms.date: 09/15/2026
 ms.author: cshoe
 ---
 
-# Tutorial: Create an Azure Container App on Azure Arc-enabled Kubernetes
+# Tutorial: Create a container app on Azure Arc-enabled Kubernetes
 
-In this tutorial, you create a [Container app to an Azure Arc-enabled Kubernetes cluster](azure-arc-enable-cluster.md) and learn to:
+In this tutorial, you deploy a container app to an existing Container Apps connected environment on an Azure Arc-enabled Kubernetes cluster. You then verify provisioning, DNS, ingress, application response, and logs.
 
 > [!div class="checklist"]
-> * Create a container app on Azure Arc
-> * View your application's diagnostics
+>
+> * Retrieve a specific connected environment by name.
+> * Create a container app with external ingress.
+> * Verify the application revision and fully qualified domain name.
+> * Send a request to the application.
+> * View application logs in Log Analytics, if configured.
+> * Delete the tutorial application.
 
 ## Prerequisites
 
-Before you proceed to create a container app, you first need to set up an [Azure Arc-enabled Kubernetes cluster to run Azure Container Apps](azure-arc-enable-cluster.md).
+Before you begin, verify the following requirements:
 
-## Add Azure CLI extensions
+* A connected environment created by completing [Enable Azure Container Apps on Azure Arc-enabled Kubernetes](azure-arc-enable-cluster.md).
+* Azure CLI access to the subscription that contains the connected environment.
+* Azure permission to create container apps in the target resource group and connected environment.
+* The connected environment's resource group and name.
+* Network and DNS access from your workstation to the connected environment's ingress address.
+* Optional permission to query the Log Analytics workspace configured during extension installation.
+
+Before deploying a production application, review [Azure Container Apps on Azure Arc](azure-arc-overview.md). If the application doesn't provision or become reachable, see [Troubleshoot Azure Container Apps on Azure Arc-enabled Kubernetes](azure-arc-troubleshoot.md).
+
+## Add the Azure CLI extension
 
 Launch the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
 [![Launch Cloud Shell in a new window.](media/azure-cloud-shell-button.png)](https://shell.azure.com)
 
-Next, add the required Azure CLI extensions.
-
-> [!WARNING]
-> The following command installs a custom Container Apps extension that can't be used with the public cloud service. You need to uninstall the extension if you switch back to the Azure public cloud.
+Next, add the required Azure CLI extension.
 
 ```azurecli
-az extension add --upgrade --yes --name customlocation
-az extension add --name containerapp  --upgrade --yes
+az extension add --name containerapp --upgrade --yes
 ```
 
-## Create a resource group
+## Create a resource group for the application
 
-Create a resource group for the services created in this tutorial.
+The container app can use a different resource group from the connected environment. Set the application resource group and the Azure region used to store its resource metadata. The application container runs in the Kubernetes cluster associated with the connected environment.
 
 ```azurecli
-GROUP_NAME="my-container-apps-resource-group"
-az group create --name $GROUP_NAME --location eastus 
+APP_RESOURCE_GROUP="my-container-apps-resource-group"
+AZURE_LOCATION="eastus"
+az group create --name $APP_RESOURCE_GROUP --location $AZURE_LOCATION
 ```
 
-## Get custom location information
+## Get the connected environment
 
-Get the following location group, name, and ID from your cluster administrator. See [Create a custom location](azure-arc-enable-cluster.md) for details.
+Set the resource group and name of the connected environment:
 
 ```azurecli
-CUSTOM_LOCATION_GROUP="<RESOURCE_GROUP_CONTAINING_CUSTOM_LOCATION>"
+CONNECTED_ENVIRONMENT_RESOURCE_GROUP="<CONNECTED_ENVIRONMENT_RESOURCE_GROUP>"
+CONNECTED_ENVIRONMENT_NAME="<CONNECTED_ENVIRONMENT_NAME>"
 ```
+
+Retrieve that specific connected environment and verify that it's ready:
 
 ```azurecli
-CUSTOM_LOCATION_NAME="<NAME_OF_CUSTOM_LOCATION>"
+CONNECTED_ENVIRONMENT_ID=$(az containerapp connected-env show \
+  --resource-group $CONNECTED_ENVIRONMENT_RESOURCE_GROUP \
+  --name $CONNECTED_ENVIRONMENT_NAME \
+  --query id \
+  --output tsv)
+
+az containerapp connected-env show \
+  --resource-group $CONNECTED_ENVIRONMENT_RESOURCE_GROUP \
+  --name $CONNECTED_ENVIRONMENT_NAME \
+  --query "{Id:id,State:properties.provisioningState,Domain:properties.defaultDomain}" \
+  --output yaml
 ```
 
-Get the custom location ID.
+Continue only when `State` is `Succeeded`.
 
-```azurecli
-CUSTOM_LOCATION_ID=$(az customlocation show \
-    --resource-group $CUSTOM_LOCATION_GROUP \
-    --name $CUSTOM_LOCATION_NAME \
-    --query id \
-    --output tsv)
-```
+## Create and verify the app
 
-## Retrieve connected environment ID
-
-Now that you have the custom location ID, you can query for the connected environment.
-
-A connected environment is largely the same as a standard Container Apps environment, but the underlying Arc-enabled Kubernetes cluster controls the network restrictions.
+Create the sample application:
 
 ```azurecli
 CONTAINER_APP_NAME="my-container-app"
-CONNECTED_ENVIRONMENT_ID=$(az containerapp connected-env list --custom-location $CUSTOM_LOCATION_ID -o tsv --query '[].id')
+
+az containerapp create \
+  --resource-group $APP_RESOURCE_GROUP \
+  --name $CONTAINER_APP_NAME \
+  --environment $CONNECTED_ENVIRONMENT_ID \
+  --environment-type connected \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
+  --target-port 80 \
+  --ingress external
 ```
 
-## Create an app
-
-The following example creates a Node.js app.
+Wait for provisioning to succeed:
 
 ```azurecli
- az containerapp create \
-    --resource-group $GROUP_NAME \
-    --name $CONTAINER_APP_NAME \
-    --environment $CONNECTED_ENVIRONMENT_ID \
-    --environment-type connected \
-    --image mcr.microsoft.com/k8se/quickstart:latest \
-    --target-port 80 \
-    --ingress external
+CONTAINER_APP_ID=$(az containerapp show \
+  --resource-group $APP_RESOURCE_GROUP \
+  --name $CONTAINER_APP_NAME \
+  --query id \
+  --output tsv)
 
-az containerapp browse --resource-group $GROUP_NAME --name $CONTAINER_APP_NAME
+az resource wait --ids $CONTAINER_APP_ID --created --timeout 600
+
+az containerapp show \
+  --resource-group $APP_RESOURCE_GROUP \
+  --name $CONTAINER_APP_NAME \
+  --query "{State:properties.provisioningState,Revision:properties.latestReadyRevisionName,FQDN:properties.configuration.ingress.fqdn}" \
+  --output yaml
+
+APP_FQDN=$(az containerapp show \
+  --resource-group $APP_RESOURCE_GROUP \
+  --name $CONTAINER_APP_NAME \
+  --query properties.configuration.ingress.fqdn \
+  --output tsv)
 ```
+
+Continue only when `State` is `Succeeded`, `Revision` isn't empty, and `FQDN` contains the connected-environment domain. Test DNS and the application response from a network that can reach the connected environment's ingress address:
+
+```bash
+nslookup $APP_FQDN
+curl --fail --show-error "https://$APP_FQDN"
+```
+
+You can also open the application in a browser:
+
+```azurecli
+az containerapp browse \
+  --resource-group $APP_RESOURCE_GROUP \
+  --name $CONTAINER_APP_NAME
+```
+
+If DNS doesn't resolve, the request times out, or the response isn't successful, see [Application ingress isn't reachable](azure-arc-troubleshoot.md#application-ingress-isnt-reachable).
 
 ## Get diagnostic logs using Log Analytics
 
 > [!NOTE]
-> A Log Analytics configuration is required as you [install the Container Apps extension](azure-arc-enable-cluster.md) to view diagnostic information. If you installed the extension without Log Analytics, skip this step.
+> This section applies only when you configure Log Analytics during [Container Apps extension installation](azure-arc-enable-cluster.md#install-the-container-apps-extension). If you didn't configure Log Analytics, skip this section.
 
-Navigate to the [Log Analytics workspace that's configured with your Container Apps extension](azure-arc-enable-cluster.md), then select **Logs** in the left navigation.
-
-Run the following sample query to show logs over the past 72 hours.
-
-If there's an error when running a query, try again in 10-15 minutes. There might be a delay for Log Analytics to start receiving logs from your application.
+Open the Log Analytics workspace configured for the Container Apps extension and select **Logs**. Run the following query to show logs from the past 72 hours. Initial ingestion can take 10–15 minutes.
 
 ```kusto
 let StartTime = ago(72h);
@@ -120,11 +162,30 @@ ContainerAppConsoleLogs_CL
 
 The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppConsoleLogs_CL`.
 
-* **Log_s** contains application logs for a given Container Apps extension
-* **AppName_s** contains the Container App app name. In addition to logs you write via your application code, the *Log_s* column also contains logs on container startup and shutdown.
+* `Log_s` contains application log messages and container lifecycle messages.
+* `ContainerAppName_s` identifies the container app. This field is used by the preceding query.
 
 You can learn more about log queries in [getting started with Kusto](/azure/azure-monitor/logs/get-started-queries).
 
+## Clean up the tutorial application
+
+Delete the sample container app:
+
+```azurecli
+az containerapp delete \
+  --resource-group $APP_RESOURCE_GROUP \
+  --name $CONTAINER_APP_NAME \
+  --yes
+```
+
+If you created the application resource group only for this tutorial and it doesn't contain any other resources, delete it.
+
+```azurecli
+az group delete --name $APP_RESOURCE_GROUP --yes --no-wait
+```
+
+Don't delete the connected environment, custom location, extension, or connected cluster because other applications can share these resources.
+
 ## Next steps
 
-- [Communication between microservices](communicate-between-microservices.md)
+* [Communication between microservices](communicate-between-microservices.md)

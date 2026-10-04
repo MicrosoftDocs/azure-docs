@@ -4,8 +4,8 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
-ms.date: 01/12/2024
-zone_pivot_groups: programming-languages-set-functions-no-go
+ms.date: 09/09/2026
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Migrate function apps from Azure Service Bus extension version 4.x to version 5.x 
@@ -16,6 +16,13 @@ This article highlights considerations for upgrading your existing Azure Functio
 > On March 31, 2025 the Azure Service Bus extension version 4.x will be retired. The extension and all applications using the extension will continue to function, but Azure Service Bus will cease to provide further maintenance and support for this extension. We recommend migrating to the latest version 5.x of the extension.
 
 This article walks you through the process of migrating your function app to run on version 5.x of the Azure Service Bus extension. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+
+::: zone pivot="programming-language-go"
+
+> [!NOTE]
+> This migration doesn't apply to Go function apps. First-class Go support wasn't available with version 4.x of the Azure Service Bus extension. For current Go trigger guidance, see the [Azure Service Bus trigger](functions-bindings-service-bus-trigger.md?pivots=programming-language-go).
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -33,16 +40,13 @@ Update your `.csproj` project file to use the latest extension version for your 
 ### [Isolated worker model](#tab/isolated-process)
 
 ```xml
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Azure.Functions.Sdk/1.0.0">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" Version="5.16.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

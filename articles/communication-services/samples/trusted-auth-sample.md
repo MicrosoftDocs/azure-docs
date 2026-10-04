@@ -17,6 +17,8 @@ zone_pivot_groups: acs-js-csharp
 
 # Authentication service hero sample
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!IMPORTANT]
 > This sample is available on GitHub Azure Samples for [Node.js](https://github.com/Azure-Samples/communication-services-authentication-hero-nodejs) and [C#](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp).
 

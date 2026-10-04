@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: concept-article
-ms.date: 07/24/2025
+ms.date: 09/22/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure a custom TLS policy for the Application Gateway in my Kubernetes environment, so that I can enhance security and compliance by controlling the TLS version and cipher suites used for secure connections.
 ---
@@ -38,15 +38,14 @@ The following table shows the list of cipher suites and minimum protocol version
 | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256	| &check;	| &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384	| &check;	| &check; |
 | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256	| &check;	| &check; |
-| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384	| &check;	| &cross; |
-| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256	| &check;	| &cross; |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384	| &check;	| &cross; |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | &check; | &cross; |
 | **Elliptical curves** | | |
 | P-384 | &check; | &check; |
 | P-256 | &check; | &check; |
 
 Protocol versions, ciphers, and elliptical curves not specified in the table above aren't supported and won't be negotiated.
+
+>[!NOTE]
+>The 2023-06 and 2023-06-S policies currently enforce the same ciphers. In future releases, new policies will introduce different cipher sets.
 
 ### Default TLS policy
 

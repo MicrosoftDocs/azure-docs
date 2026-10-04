@@ -13,6 +13,8 @@ ms.subservice: data
 
 # Chat metrics overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services currently provides metrics for all Communication Services services. You can use [Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started) to:
 
 - Plot your own charts.

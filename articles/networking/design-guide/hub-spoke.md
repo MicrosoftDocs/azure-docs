@@ -5,7 +5,7 @@ description: Design a hub-and-spoke network in Azure. Learn about shared service
 author: duongau
 ms.author: duau
 ms.reviewer: mbender
-ms.date: 06/17/2026
+ms.date: 09/16/2026
 ms.topic: concept-article
 ms.service: azure-virtual-network
 zone_pivot_groups: networking-scenario
@@ -18,7 +18,7 @@ This article explains how to design a hub-and-spoke network in Azure. A central 
 
 ## What this article covers
 
-This article covers hub virtual network shared services, spoke isolation, and routing patterns (standard, direct peering, and stamp-based). It also covers gateway transit for hybrid connectivity and scaling hub-spoke topologies with Azure Virtual Network Manager.
+This article covers hub virtual network shared services, spoke isolation, and routing patterns (standard, direct peering, and stamp-based). It also covers gateway transit for hybrid connectivity and scaling hub-and-spoke topologies with Azure Virtual Network Manager.
 
 ## Who needs this article
 
@@ -56,7 +56,7 @@ If you have a single workload with no shared-service requirements, start with a 
 
 The following table lists the Azure services and features that support a hub-and-spoke topology:
 
-| Service or feature | Role in hub-spoke | Learn more |
+| Service or feature | Role in hub-and-spoke | Learn more |
 |---|---|---|
 | Azure Virtual Network | Provides the hub and spoke virtual networks | [Virtual network overview](../../virtual-network/virtual-networks-overview.md) |
 | VNet peering | Connects each spoke to the hub | [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) |
@@ -127,7 +127,7 @@ Hub-and-spoke has three common variants. Choose based on your isolation and comm
 
 This variant is the most common. All spoke-to-spoke traffic passes through the hub firewall for inspection. Spokes communicate only through the hub, never directly.
 
-**Routing pattern:** Apply a user-defined route (UDR) to each spoke subnet with the default route (`0.0.0.0/0`) pointing to the hub firewall's private IP address. This forces all outbound traffic, including spoke-to-spoke, through the firewall for logging and filtering.
+**Routing pattern:** Apply a user-defined route (UDR) to each spoke subnet with the default route (`0.0.0.0/0`) pointing to the hub firewall's private IP address. This routing forces all outbound traffic, including spoke-to-spoke, through the firewall for logging and filtering.
 
 **Peering limit:** A single hub virtual network supports up to 500 peering connections (standard platform limit). If you use Azure Virtual Network Manager (AVNM) with a hub-spoke connectivity configuration, the limit increases to 1,000 spokes.
 
@@ -146,13 +146,13 @@ Use direct spoke peering when:
 
 ### Stamps pattern (fully isolated)
 
-The Stamps pattern is an alternative for scenarios that require strict blast-radius isolation. Each workload deploys into a fully independent virtual network with no hub and no peering to other workloads.
+The Stamps pattern works well for scenarios that require strict blast-radius isolation. Each workload deploys into a fully independent virtual network with no hub and no peering to other workloads.
 
 **When to use Stamps:**
 
 - Regulatory compliance requires no network path between workloads.
 - Multitenant SaaS where each tenant has an independent stack.
-- Maximum fault isolation: a failure in one stamp can't propagate to others.
+- Maximum fault isolation: a failure in one stamp can't affect other stamps.
 
 **Example: Multitenant SaaS isolation**
 
@@ -169,7 +169,7 @@ If your workloads need any shared services or cross-workload communication, use 
 
 ## Spoke-to-spoke communication patterns
 
-Because VNet peering is non-transitive, spoke-to-spoke communication requires explicit routing. This section walks through how traffic flows between spokes using the hub firewall.
+Because VNet peering isn't transitive, spoke-to-spoke communication requires explicit routing. This section explains how traffic flows between spokes by using the hub firewall.
 
 ### Traffic flow: Spoke A to Spoke B through the hub firewall
 
@@ -202,7 +202,7 @@ If you don't need firewall inspection between specific spokes, AVNM connected gr
 
 ## Gateway transit
 
-Gateway transit lets all spokes share a single VPN or ExpressRoute gateway deployed in the hub. Without gateway transit, each spoke needs its own gateway to reach on-premises networks.
+With gateway transit, all spokes share a single VPN or ExpressRoute gateway that you deploy in the hub. Without gateway transit, each spoke needs its own gateway to reach on-premises networks.
 
 ### Configuration steps
 
@@ -211,13 +211,13 @@ Gateway transit lets all spokes share a single VPN or ExpressRoute gateway deplo
 3. **On the spoke-side peering connection** (spoke → hub): enable **Use remote gateways**.
 4. **Verify route propagation.** After configuration, check the effective routes on a spoke VM NIC. The route table shows on-premises prefixes learned through the hub gateway with a next hop type of `VNetGlobalPeering` or `VNetPeering`.
 
-When configured, routes learned by the hub gateway (for example, on-premises prefixes from ExpressRoute) automatically propagate to spoke routing tables.
+When you configure gateway transit, routes learned by the hub gateway (for example, on-premises prefixes from ExpressRoute) automatically propagate to spoke routing tables.
 
 ### Gateway transit limitations
 
 - Gateway transit works with all VPN Gateway tiers **except the Basic tier**. If you use the Basic VPN Gateway, you can't share it with peered virtual networks.
 - A spoke virtual network can use only one remote gateway. You can't enable `Use remote gateways` on a spoke that peers with multiple hubs.
-- If you use UDRs to force traffic through the firewall, make sure UDR doesn't override the gateway-propagated on-premises routes unintentionally. Set more specific routes for on-premises prefixes if needed.
+- If you use UDRs to force traffic through the firewall, ensure UDR doesn't override the gateway-propagated on-premises routes unintentionally. Set more specific routes for on-premises prefixes if needed.
 
 > [!NOTE]
 > When you use ExpressRoute with gateway transit, enable **Allow gateway transit** before you establish the spoke peerings. The gateway must exist and be provisioned first.
@@ -229,7 +229,7 @@ When your environment grows beyond a handful of spokes, managing peering connect
 | AVNM capability | What it does |
 |---|---|
 | Hub-spoke connectivity configuration | Automatically creates and maintains peering between the hub and all spokes in a network group. Supports up to 1,000 spokes per hub. |
-| Connected groups | Enables direct spoke-to-spoke connectivity without manual peering. Default limit: 250 virtual networks per group (expandable to 1,000 by request). |
+| Connected groups | Enables direct spoke-to-spoke connectivity without manual peering. Default limit: 250 virtual networks per group (expandable to 5,000 by request). |
 | Network groups with dynamic membership | Uses Azure Policy conditions to automatically add virtual networks to groups based on tags, naming, or subscriptions. |
 | UDR management | Automates route table deployment across multiple hub-spoke topologies. |
 
@@ -244,13 +244,13 @@ As your hub-spoke topology grows, plan for the following platform limits and org
 | Dimension | Standard limit | With AVNM | Notes |
 |---|---|---|---|
 | VNet peerings per virtual network | 500 | 1,000 (hub-spoke config) | Each spoke-to-hub peering consumes one slot on both sides |
-| Virtual networks per AVNM connected group | 250 (default) | Up to 1,000 (by request) | Request increase through Azure support |
+| Virtual networks per AVNM connected group | 250 (default) | Up to 5,000 (by request) | Supports up to 3,000 with feature registration in supported regions; request an increase to 5,000 by using the [scaling request form](https://forms.cloud.microsoft.com/r/BBNK1V8qTD) |
 | Subscriptions per AVNM scope | N/A | 1,000 | Scope can span multiple subscriptions in a management group |
 
 ### Subscription organization
 
-- **Separate spokes into workload-specific subscriptions** for environments with more than 10 spokes. This isolates billing, RBAC, and quota limits per workload team.
-- **Use a dedicated connectivity subscription** for the hub VNet, gateways, and firewall. This is the pattern recommended by Azure landing zones (platform subscription).
+- **Separate spokes into workload-specific subscriptions** for environments with more than 10 spokes. This approach isolates billing, RBAC, and quota limits per workload team.
+- **Use a dedicated connectivity subscription** for the hub VNet, gateways, and firewall. This pattern is recommended by Azure landing zones (platform subscription).
 - **Group subscriptions under a management group** so AVNM can dynamically discover and manage spoke VNets across subscriptions by using Azure Policy conditions.
 
 ### Enforcing topology with Azure Policy
@@ -297,7 +297,7 @@ If you started with a [flat network topology](flat-network.md) and your environm
 
 ## When to consider Virtual WAN instead
 
-If your hub-spoke topology is growing in complexity, evaluate whether Azure Virtual WAN offers a better fit:
+If your hub-and-spoke topology is growing in complexity, evaluate whether Azure Virtual WAN offers a better fit:
 
 | Factor | Hub-and-spoke (traditional) | Azure Virtual WAN |
 |---|---|---|
@@ -326,7 +326,7 @@ For a lift-and-shift migration, deploy a single hub with shared services that al
 
 For a migrate-and-modernize scenario, plan for dual-hub topology that separates platform infrastructure from application workloads:
 
-- **Dual-hub deployment.** Deploy a hub in your primary region and a second hub in your backup region. Each hub contains its own firewall, gateway, and Bastion. This supports active-active architectures for PaaS workloads.
+- **Dual-hub deployment.** Deploy a hub in your primary region and a second hub in your backup region. Each hub contains its own firewall, gateway, and Bastion. This setup supports active-active architectures for PaaS workloads.
 - **IT-owned hubs, app-team-owned spokes.** The platform team manages hub subscriptions (connectivity subscription pattern, a dedicated Azure subscription for shared hub networking resources, separate from workload subscriptions). Application teams own their spoke subscriptions with delegated control over their Private Link subnets and workload resources.
 - **Per-spoke Private Link subnets.** Each spoke VNet includes a dedicated subnet for Private Endpoints. Application teams create Private Link connections to their PaaS services (Azure SQL, Storage, Key Vault) within their own spokes.
 - **Hub firewall as SNAT/DNAT.** The central firewall in each hub provides source NAT for outbound traffic and destination NAT for inbound traffic patterns. Application teams can't bypass centralized inspection.
@@ -335,11 +335,11 @@ For a migrate-and-modernize scenario, plan for dual-hub topology that separates 
 
 ::: zone pivot="cross-cloud"
 
-For cross-cloud connectivity, evaluate whether traditional hub-spoke or Virtual WAN provides the right transit model:
+For cross-cloud connectivity, evaluate whether traditional hub-and-spoke or Virtual WAN provides the right transit model:
 
-- **Hub-spoke vs Virtual WAN decision.** If you have fewer than 30 branch connections, a small number of cross-cloud VPN tunnels, and operate in one or two Azure regions, traditional hub-spoke with VPN Gateway is simpler. If you have many VPCs, branches, regions, or cloud edges, Virtual WAN provides automated routing that scales better.
-- **VPN Gateway for cross-cloud tunnels.** In a hub-spoke model, deploy VPN Gateway in the hub and create site-to-site connections to AWS Virtual Private Gateways and Google Cloud VPN endpoints. Each connection uses IPSec/IKE encryption.
-- **Evaluate complexity growth.** If your cross-cloud estate grows (more AWS accounts, Google Cloud projects, or Azure regions), revisit the hub-spoke versus Virtual WAN decision. Virtual WAN becomes more cost-effective when managing many tunnels at scale.
+- **Hub-and-spoke vs. Virtual WAN decision.** If you have fewer than 30 branch connections, a small number of cross-cloud VPN tunnels, and operate in one or two Azure regions, traditional hub-and-spoke with VPN Gateway is simpler. If you have many VPCs, branches, regions, or cloud edges, Virtual WAN provides automated routing that scales better.
+- **VPN Gateway for cross-cloud tunnels.** In a hub-and-spoke model, deploy VPN Gateway in the hub and create site-to-site connections to AWS Virtual Private Gateways and Google Cloud VPN endpoints. Each connection uses IPSec/IKE encryption.
+- **Evaluate complexity growth.** If your cross-cloud estate grows (more AWS accounts, Google Cloud projects, or Azure regions), revisit the hub-and-spoke versus Virtual WAN decision. Virtual WAN becomes more cost-effective when managing many tunnels at scale.
 
 For a full comparison, see [Azure Virtual WAN topology](virtual-wan.md).
 

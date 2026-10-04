@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-windows-android-ios
 
 # Local preview mirroring
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Meeting participants can now choose to stop mirroring their video preview—the small window showing how they appear during meetings.
 
 This ability is especially useful for situations like:

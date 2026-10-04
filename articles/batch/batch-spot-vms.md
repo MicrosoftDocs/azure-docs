@@ -1,8 +1,9 @@
 ---
 title: Run Batch workloads on cost-effective Spot VMs
 description: Learn how to provision Spot VMs to reduce the cost of Azure Batch workloads.
+ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 05/20/2026
+ms.date: 09/16/2026
 ms.custom:
 # Customer intent: "As a cloud solutions architect, I want to deploy Batch workloads using Spot VMs, so that I can reduce costs while managing jobs with flexible completion times and efficient resource allocation."
 ---
@@ -18,6 +19,30 @@ The tradeoff for using Spot VMs is that these VMs have no SLA and no availabilit
 If a preemption occurs, the Spot compute node will be evicted and all work that wasn't appropriately checkpointed will be lost. Checkpointing is optional and is up to the Batch end-user to implement. The running Batch task that was interrupted due to preemption will be automatically requeued for execution by a different compute node. A preempted VM may later be restored by the Azure platform, but restoration is only attempted for the first 48 hours after preemption and is not guaranteed to eventually succeed.
 
 Spot VMs are offered at a reduced price compared with dedicated VMs. To learn more about pricing, see [Batch pricing](https://azure.microsoft.com/pricing/details/batch/).
+
+## Decide whether Spot VMs fit your workload
+
+Evaluate how your workload handles interruption and variable capacity before you add Spot VMs to a pool:
+
+| Workload factor | Favor Spot VMs when | Favor dedicated VMs when |
+| --- | --- | --- |
+| Task recovery | Tasks are short, restartable, or checkpoint progress to durable storage. | An interruption would lose costly work that can't be resumed. |
+| Completion time | The deadline is flexible and the workload can tolerate temporary capacity loss. | The workload needs predictable capacity or has a strict completion deadline. |
+| Workload shape | Work is distributed across many independent tasks. | The workload uses long-running, tightly coupled, multi-node MPI jobs. |
+| Capacity strategy | The pool can run with reduced capacity or use dedicated VMs as a baseline or fallback. | The workload must maintain its full target capacity. |
+
+You can combine dedicated and Spot VMs to balance cost and progress guarantees. Before you set pool targets, see [Plan for Batch capacity](batch-capacity-planning.md) to evaluate quota, regional capacity, VM availability, and fallback options.
+
+### Validate Spot savings before production
+
+Test a representative job with the planned dedicated and Spot node mix. Approve the design only after you:
+
+- In a nonproduction pool, remove a Spot node that runs a test task and set the node deallocation option to `requeue`. Verify that Batch requeues the task, the workload restores progress from durable checkpoints when applicable, and the retried task produces one correct result.
+- Run with reduced Spot capacity and verify that the dedicated baseline or fallback strategy still meets the completion deadline.
+- Measure cost per completed job, including duplicate compute, checkpoint storage, and the additional runtime caused by interruption.
+- Define an alert and owner for sustained preemption or a pool that can't reach its target, plus the condition for increasing dedicated capacity.
+
+If interruption causes unacceptable data loss, rerun time, or deadline risk, use more dedicated nodes or redesign task boundaries and checkpointing before production. A lower VM price doesn't reduce workload cost when repeated work offsets the savings.
 
 ## Batch support for Spot VMs
 

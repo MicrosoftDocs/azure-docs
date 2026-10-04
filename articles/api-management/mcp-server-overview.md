@@ -3,7 +3,7 @@ title: Overview of MCP servers in Azure API Management
 description: Learn how Azure API Management enables secure, scalable access to remote MCP servers for AI agents, including architecture and management features.
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/13/2025
+ms.date: 09/11/2026
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.custom: ignite-2025
@@ -42,13 +42,13 @@ The architecture consists of the following components:
 | **MCP hosts**  | LLM applications such as chat apps or AI assistants in your IDEs (like GitHub Copilot in Visual Studio Code) that need to access external capabilities |
 | **MCP clients**| Protocol clients, inside the host application, that maintain 1:1 connections with servers        |
 | **MCP servers**| Lightweight programs that each expose specific capabilities and provide context, tools, and prompts to clients |
-| **MCP protocol**| Transport layer in the middle        |
+| **MCP protocol**| Communication protocol based on JSON-RPC 2.0 |
 
-The MCP architecture is built on [JSON-RPC 2.0 for messaging](https://modelcontextprotocol.io/docs/concepts/architecture). Communication between clients and servers occurs over defined transport layers, and supports primarily two modes of operation:
+The MCP architecture uses [JSON-RPC 2.0 for messaging](https://modelcontextprotocol.io/docs/concepts/architecture). Communication between clients and servers occurs over defined transport layers and supports primarily two modes of operation:
 
-* **Remote MCP servers** - Run as independent processes accessible over the internet using HTTP-based transports (like Streamable HTTP), enabling MCP clients to connect to external services and APIs hosted anywhere.
+* **Remote MCP servers**: Run as independent processes accessible over the internet using HTTP-based transports (like Streamable HTTP), enabling MCP clients to connect to external services and APIs hosted anywhere.
 
-* **Local MCP servers** MCP clients use standard input/output as a local transport method to connect to MCP servers on the same machine.
+* **Local MCP servers**: MCP clients use standard input/output as a local transport method to connect to MCP servers on the same machine.
 
 ## MCP server endpoints
 
@@ -57,8 +57,8 @@ MCP provides the following transport types and typical endpoints for remote serv
 
 | Transport Type  | Endpoints | Notes |
 |----------------|----------|-------|
-| Streamable HTTP |  `/mcp`  | Replaces HTTP + SSE transport |
-| SSE (server-sent events) |  `/sse` - Used to establish SSE connection<br/><br/>`/messages` - Used for bidirectional messaging between MCP client and server | Deprecated as of protocol version `2024-11-05` |
+| Streamable HTTP | `/mcp` | Replaces HTTP + SSE transport |
+| SSE (server-sent events) | `/sse` - Used to establish SSE connection<br/><br/>`/messages` - Used for bidirectional messaging between MCP client and server | Deprecated HTTP+SSE transport from protocol version `2024-11-05` |
 
 ## Expose MCP servers in API Management
 
@@ -69,7 +69,7 @@ API Management provides two built-in ways to expose MCP servers:
 | Source                                   | Description                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------|
 | **REST API as MCP server**                    | Expose any REST API managed in API Management as an MCP server, including REST APIs imported from Azure resources. API operations become MCP tools. [Learn more](export-rest-mcp-server.md) |
-| **Existing MCP server**                       | Expose an MCP-compatible server (for example, LangChain, LangServe, Azure logic app, Azure function app) via API Management. [Learn more](expose-existing-mcp-server.md) |
+| **Existing MCP server**                       | Expose an MCP-compatible server (for example, LangChain, LangServe, Azure Logic Apps, Azure Functions) via API Management. [Learn more](expose-existing-mcp-server.md) |
 
 See the linked articles for step-by-step instructions and limitations.
 
@@ -100,7 +100,7 @@ To monitor MCP servers in Azure API Management, use API Management's built-in [i
 
 * Configure [Azure Application Insights](api-management-howto-app-insights.md) or Azure Monitor to capture MCP server requests, responses, and detailed telemetry.
 * Include correlation IDs in request headers to track requests across multiple systems and components.  
-* Configure [trace](trace-policy.md) policies for your MCP servers to add a custom trace into the request tracing output in the test console, Application Insights telemetries,  or resource logs.
+* Configure [trace](trace-policy.md) policies for your MCP servers to add a custom trace to the request tracing output in the test console, Application Insights telemetry, or resource logs.
 
 For more information, see:
 

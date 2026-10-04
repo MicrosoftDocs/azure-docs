@@ -1,6 +1,6 @@
 ---
 title: Upgrade Basic Public IP Address to Standard SKU in Azure
-description: Upgrade basic public IP addresses to standard SKU in Azure. Learn migration steps, compare SKUs, and prepare for the September 30 2025 retirement.
+description: Upgrade Basic SKU public IP addresses to Standard SKU in Azure. Learn migration steps, compare SKUs, and understand your options after retirement.
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.custom:
@@ -9,7 +9,7 @@ ms.custom:
 ms.topic: overview
 author: mbender-ms
 ms.author: mbender
-ms.date: 11/20/2025
+ms.date: 09/05/2026
 # Customer intent: As a cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
@@ -46,8 +46,8 @@ We recommend the following approach to upgrade to Standard SKU public IP address
   | Virtual Machine Scale Sets | [Replace basic SKU instance public IP addresses](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine) with new standard SKU. |
   | Load Balancer (Basic SKU) | New Load Balancer SKU required. Use the upgrade script [Upgrade Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade to Standard Load Balancer. |
   | VPN Gateway (using Basic IPs) | VPN Gateway migration is required. All non-AZ SKUs become AZ SKUs. Follow the [VPN Gateway migration guidance](../../vpn-gateway/basic-public-ip-migrate-howto.md) to upgrade to Standard SKU public IPs. For the latest migration timeline, please see [this page](/azure/vpn-gateway/whats-new#upcoming-projected-changes). |
-  |  ExpressRoute Gateway (using Basic IPs) | ExpressRoute Gateway migration is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md)   |
-  | Application Gateway (v1 SKU) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md). The Basic SKU public IP is scheduled to be retired by September 2025; however, Basic IP resources linked to Application Gateway V1 deployments will not be affected until V1 Application Gateway itself is retired. For more details, please see [here](/azure/application-gateway/retirement-faq#does-the-retirement-of-basic-sku-public-ips-in-september-2025-affect-my-existing-v1-application-gateways). |
+  | ExpressRoute gateway (using Basic SKU public IP addresses) | Use the [ExpressRoute gateway migration experience](../../expressroute/gateway-migration.md#enable-zone-redundancy) to migrate to a Standard SKU public IP address. For zone redundancy, select an availability zone-enabled gateway SKU during migration. Azure automatically assigns and manages the zone-redundant public IP address for the migrated gateway. |
+  | Application Gateway (v1 SKU) | Migrate to Application Gateway v2. Microsoft retired Application Gateway v1 on April 28, 2026. For guidance, see [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](../../application-gateway/migrate-v1-v2.md). |
   | Azure Databricks (using Basic IPs) | For ephemeral workloads, Standard SKU public IP addresses are automatically deployed as virtual machines (VMs) cycle out through regular usage attrition with new VMs. For long running workloads, we recommended manually [restarting the compute resources](/azure/databricks/compute/clusters-manage#restart) which replaces existing Basic IPs with Standard IPs.  |
 
 > [!NOTE]

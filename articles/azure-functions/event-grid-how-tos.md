@@ -1,7 +1,7 @@
 ---
 title: How to work with Event Grid triggers and bindings in Azure Functions
 description: Contains various procedures for integrating Azure Event Grid and Azure Functions using triggers and bindings. 
-ms.date: 08/07/2024
+ms.date: 09/15/2026
 ms.topic: how-to
 ms.service: azure-functions
 ms.custom: sfi-image-nochange
@@ -22,20 +22,11 @@ To start receiving Event Grid HTTP requests, you need a subscription to events r
 
 ## Get the webhook endpoint URL
 
-The URL endpoint for your Event Grid triggered function depends on the version of the Functions runtime. The following example shows the version-specific URL pattern:
-
-### [v2.x+](#tab/v2)
+The following example shows the URL pattern for an Event Grid triggered function:
 
 ```http
 https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 ```
-
-### [v1.x](#tab/v1) 
-
-```http
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
----
 
 >[!NOTE]  
 >There is a version of the Blob storage trigger that also uses event subscriptions. The endpoint URL for this kind of Blob storage trigger has a path of `/runtime/webhooks/blobs`, whereas the path for an Event Grid trigger would be `/runtime/webhooks/EventGrid`. For a comparison of options for processing blobs, see [Trigger on a blob container](storage-considerations.md#trigger-on-a-blob-container).
@@ -53,19 +44,9 @@ For more information, see [Work with access keys in Azure Functions](function-ke
 
 You can get the system key from your function app by using the following administrator APIs (HTTP GET):
 
-### [v2.x+](#tab/v2)
-
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
-
-### [v1.x](#tab/v1) 
-
-```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
-```
-
----
 
 This REST API is an administrator API, so it requires your function app [master key](function-keys-how-to.md). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key. 
 
@@ -102,7 +83,7 @@ For more information about how to create subscriptions by using the Azure portal
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command. Examples use the v2.x+ version of the URL and are written to run in [Azure Cloud Shell](../cloud-shell/overview.md). You'll need to modify the examples to run from a Windows command prompt.
+To create a subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command. The examples are written to run in [Azure Cloud Shell](../cloud-shell/overview.md). You need to modify the examples to run from a Windows command prompt.
 
 This example creates a subscription to a blob storage account, with a placeholder for the [system key](#obtain-the-system-key):
 
@@ -172,19 +153,9 @@ Use your HTTP test tool to create an HTTP POST request:
 * Paste the RequestBin data into the request body.
 * Send an HTTP POST request to the endpoint that manually starts the Event Grid trigger.
   
-    ### [v2.x+](#tab/v2)
-
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
-
-    ### [v1.x](#tab/v1)
-  
-    ```
-    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
-    ```
-
-    ---
 
 The `functionName` parameter must be the name specified in the `FunctionName` attribute. 
 

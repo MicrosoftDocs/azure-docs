@@ -1,11 +1,11 @@
 ---
-title: Workspaces in Azure API Management | Microsoft Docs
+title: Workspaces in Azure API Management
 description: Learn about Azure API Management workspaces. With workspaces, decentralized API development teams manage and productize APIs in a common service infrastructure.
 services: api-management
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/12/2026
+ms.date: 09/16/2026
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 ms.custom:
   - build-2025
@@ -13,7 +13,7 @@ ms.custom:
 
 # Federated API management with workspaces
 
-[!INCLUDE [api-management-availability-basicv2-standardv2-premium-premium-v2](../../includes/api-management-availability-basicv2-standardv2-premium-premiumv2.md)]
+[!INCLUDE [api-management-availability-basicv2-standardv2-premium-premium-v2](../../includes/api-management-availability-premium-premium-v2.md)]
 
 This article provides an overview of API Management *workspaces* and how they empower decentralized API development teams to manage and productize their APIs in a common service infrastructure. 
 
@@ -34,10 +34,10 @@ Federated API management provides:
 
 In Azure API Management, use *workspaces* to implement federated API management. Workspaces function like "folders" within an API Management service:
 
-* Each workspace contains APIs, products, subscriptions, named values, and related resources. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview&preserve-view=true) for a full list of resources and operations supported in workspaces.
-* Teams' access to resources within a workspace is managed through Azure's role-based access control (RBAC) with built-in or custom roles assignable to Microsoft Entra accounts and scoped to a workspace. 
+* Each workspace contains APIs, products, subscriptions, named values, and related resources. For a full list of resources and operations supported in workspaces, see the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview&preserve-view=true).
+* Manage teams' access to resources within a workspace through Azure's role-based access control (RBAC) by using built-in or custom roles that you assign to Microsoft Entra accounts and scope to a workspace. 
 * Each workspace is associated with one or more gateways for routing API traffic to the backend services of APIs in the workspace. Depending on the service tier and your requirements, a workspace can use the service's default managed gateway or one or more [workspace gateways](#workspace-gateway). 
-* The platform team can apply policies spanning APIs and products in workspaces to govern API runtime across the organization. A built-in [Azure Policy definition](policy-reference.md) (`API Management policies should inherit parent scope policies using <base/>`) lets you audit or enforce that these policies are applied across all workspace resources.
+* The platform team can apply policies spanning APIs and products in workspaces to govern API runtime across the organization. Use a built-in [Azure Policy definition](policy-reference.md) (`API Management policies should inherit parent scope policies using <base/>`) to audit or enforce that these policies are applied across all workspace resources.
 * The platform team can implement a centralized API discovery experience with a developer portal.
 * Each workspace team can gather and analyze gateway resource logs to monitor their own workspace APIs, while the platform team has federated access to logs across all workspaces in the API Management service, providing oversight, security, and compliance across their API ecosystem.
 
@@ -46,7 +46,7 @@ In Azure API Management, use *workspaces* to implement federated API management.
 
 [!INCLUDE [api-management-workspace-intro-note](../../includes/api-management-workspace-intro-note.md)]
 
-While workspaces are managed independently from the API Management service and other workspaces, by design they can reference selected service-level resources. See [Workspaces and other API Management features](#workspaces-and-other-api-management-features), later in this article.
+While you manage workspaces independently from the API Management service and other workspaces, by design they can reference selected service-level resources. See [Workspaces and other API Management features](#workspaces-and-other-api-management-features), later in this article.
 
 ## Example scenario overview
 
@@ -68,8 +68,8 @@ Each workspace is configured with one or more gateways to enable runtime of APIs
 
 | Option | Availability | Benefits | Considerations |
 |---|---|---|---|
-| Default managed gateway | Currently in v2 tiers | No extra cost for gateway resource; availability in all regions where the tier is available; workspaces can take advantage of built-in gateway capabilities that aren't available in workspace gateways, such as multi-region deployments, custom hostnames, or private link connectivity if supported in the service tier | Less isolation; all workspaces share the gateway's capacity and configuration |
-| Workspace gateway | Basic v2, Standard v2, Premium, Premium v2 | Strong runtime isolation; independent scaling, hostname, and network configuration per workspace gateway | Extra cost; longer deployment time; support in fewer regions |
+| Default managed gateway | Currently in v2 tiers | No extra cost for gateway resource; availability in all regions where the tier is available; workspaces can take advantage of built-in gateway capabilities that aren't available in workspace gateways, such as multiregion deployments, custom hostnames, or private link connectivity if supported in the service tier | Less isolation; all workspaces share the gateway's capacity and configuration |
+| Workspace gateway | Premium, Premium v2 | Strong runtime isolation; independent scaling, hostname, and network configuration per workspace gateway | Extra cost; longer deployment time; support in fewer regions |
 
 ### Default managed gateway
 
@@ -138,17 +138,17 @@ For a current list of regions where workspace gateways are available, see [Avail
 
 ## Workspace and workspace gateway constraints
 
-### Workspaces constraints
+### Workspace constraints
 
-- A workspace can't be associated with a self-hosted gateway
-- APIs in workspaces aren't covered by Defender for APIs
-- Workspaces don't support credential manager
-- Workspaces support only internal cache; external cache isn't supported
-- Workspaces don't support synthetic GraphQL APIs
-- Workspaces don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on in the Azure portal
-- Workspaces don't support MCP servers
-- Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
-- Workspaces don't support CA certificates
+- You can't associate a workspace with a self-hosted gateway.
+- Defender for APIs doesn't cover APIs in workspaces.
+- Workspaces don't support credential manager.
+- Workspaces support only internal cache; they don't support external cache.
+- Workspaces don't support synthetic GraphQL APIs.
+- You can't create APIs directly from Azure resources such as Azure OpenAI Service, App Service, or Function Apps in the Azure portal.
+- Workspaces don't support MCP servers.
+- You can't split request metrics by workspace in Azure Monitor; all workspace metrics are aggregated at the service level.
+- Workspaces don't support CA certificates.
 - Workspaces support using managed identities by using the service's identity. To learn more, see [our capabilities and security considerations](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).
 
 
@@ -156,9 +156,9 @@ For a current list of regions where workspace gateways are available, see [Avail
 
 The following constraints apply to the managed workspace gateway resource. They don't apply when using workspaces on the service's default managed gateway.
 
-- Workspace gateways don't support inbound private endpoints
-- Workspace gateways don't support custom hostnames
-- Workspaces can only be associated with workspace gateways located in the same region and subscription as the API Management resource
+- Workspace gateways don't support inbound private endpoints.
+- Workspace gateways don't support custom hostnames.
+- You can only associate workspaces with workspace gateways located in the same region and subscription as the API Management resource.
 
 ### Global policy inheritance in workspace gateways
 
@@ -174,11 +174,11 @@ Workspace gateways execute the full policy chain, including the service-level gl
 
 ## RBAC roles for workspaces
 
-Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
+Use Azure RBAC to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 
 To manage APIs and other resources in the workspace, assign roles to workspace members (or equivalent permissions through custom roles) that are scoped to the API Management service and the workspace. The service-scoped role enables referencing certain service-level resources from workspace-level resources. For example, organize a user into a workspace-level group to control API and product visibility.
 
-If the workspace uses a dedicated workspace gateway, members who manage the gateway should also be assigned a role scoped to the workspace gateway resource.  
+If the workspace uses a dedicated workspace gateway, assign a role scoped to the workspace gateway resource to members who manage the gateway.  
 
 > [!NOTE]
 > For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.

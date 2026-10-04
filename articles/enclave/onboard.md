@@ -1,12 +1,12 @@
 ---
 title: Get started with Azure Enclave
-description: Get started with Azure Enclave by registering the required resource providers and permissions.
+description: Get started with Azure Enclave by registering the required resource providers and configuring permissions.
 author: aserfass-msft
 ms.author: aserfass
 ai-usage: ai-assisted
 ms.topic: how-to
 ms.service: azure-enclave
-ms.date: 08/14/2026
+ms.date: 09/15/2026
 ---
 
 # Get started with Azure Enclave
@@ -15,14 +15,14 @@ Use this article to onboard to Azure Enclave by registering the required resourc
 
 ## Prerequisites
 
-- You must already have an Azure tenant and subscription.
-- You must be an Owner of an existing Azure subscription.
+- You must already have an Azure tenant and subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/), and then sign in to the [Azure portal](https://portal.azure.com).
+- You must be an [Owner of an existing Azure subscription](/azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription).
 
-## Register the required resource providers and configure `NetworkWatcherRG` access
+## Register Azure Enclave resource providers and configure `NetworkWatcherRG` access
 
-### Option 1: PowerShell
+### [Option 1: PowerShell](#tab/powershell)
 
-PowerShell is the fastest way to register all required resource providers to begin using Azure Enclave.
+PowerShell is the fastest way to register the resource providers required by Azure Enclave itself.
 
 1. Sign in to your Azure tenant and open the subscription.
 1. In the Azure portal, select the `Cloud Shell` icon at the top of the window.
@@ -33,51 +33,47 @@ PowerShell is the fastest way to register all required resource providers to beg
 1. Copy and paste this code into Cloud Shell, and then press Enter.
 
    ```powershell
-   # Register the Azure Enclave Resource Provider and grant permissions to the Resource Provider application 
+   # Register the Azure Enclave resource providers
    
    $resourceProviders = @(
-      "Microsoft.Advisor",
-      "Microsoft.AlertsManagement",
-      "Microsoft.Authorization",
-      "Microsoft.Automation",
-      "Microsoft.Billing",
-      "Microsoft.Capacity",
-      "Microsoft.ChangeAnalysis",
-      "Microsoft.ClassicSubscription",
-      "Microsoft.CognitiveServices",
-      "Microsoft.Compute",
-      "Microsoft.Consumption",
-      "Microsoft.CostManagement",
-      "Microsoft.DesktopVirtualization",
-      "Microsoft.Features",
-      "Microsoft.GuestConfiguration",
-      "Microsoft.Insights",
-      "Microsoft.KeyVault",
-      "Microsoft.Logic",
-      "Microsoft.ManagedIdentity",
-      "Microsoft.MarketplaceOrdering",
+      "Microsoft.Mission",
       "Microsoft.Network",
-      "Microsoft.OperationalInsights",
-      "Microsoft.OperationsManagement",
-      "Microsoft.PolicyInsights",
-      "Microsoft.Portal",
-      "Microsoft.ResourceGraph",
-      "Microsoft.ResourceHealth",
-      "Microsoft.ResourceNotifications",
-      "Microsoft.Resources",
-      "Microsoft.Security",
-      "Microsoft.SecurityInsights",
-      "Microsoft.SerialConsole",
-      "Microsoft.SqlVirtualMachine",
       "Microsoft.Storage",
-      "Microsoft.Support",
-      "Microsoft.Web",
-      "Microsoft.Mission"
+      "Microsoft.KeyVault",
+      "Microsoft.OperationalInsights",
+      "Microsoft.Insights",
+      "Microsoft.ManagedIdentity"
    )
    
    $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ -Verbose}
    
    ```
+
+### Conditional resource providers
+
+Register these resource providers only when you use the corresponding workload:
+
+- `Microsoft.SecurityInsights` for Microsoft Sentinel.
+- `Microsoft.Logic` for Logic Apps.
+- `Microsoft.Compute` for virtual machines.
+- `Microsoft.DesktopVirtualization` for Azure Virtual Desktop.
+- `Microsoft.SqlVirtualMachine` for SQL virtual machines.
+
+For example, run the following PowerShell code for the workloads that you use:
+
+```powershell
+$conditionalResourceProviders = @(
+   "Microsoft.SecurityInsights",
+   "Microsoft.Logic",
+   "Microsoft.Compute",
+   "Microsoft.DesktopVirtualization",
+   "Microsoft.SqlVirtualMachine"
+)
+
+$conditionalResourceProviders | ForEach-Object {
+   Register-AzResourceProvider -ProviderNamespace $_ -Verbose
+}
+```
 
 1. (Optional) Enable the `EncryptionAtHost` feature.
 
@@ -96,15 +92,11 @@ PowerShell is the fastest way to register all required resource providers to beg
 
 1. After the update is complete, proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
-### Option 2: Azure portal
+### [Option 2: Azure portal](#tab/portal)
 
 1. Sign in to your Azure tenant and open the subscription.
 1. Under `Settings`, select `Resource providers`.
-1. Register the resource providers listed in [Option 1: PowerShell](#option-1-powershell) in the subscription. The PowerShell script is the fastest option and the authoritative source for the required registrations. These images show the expected end state.
-
-   :::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-1.png":::
-
-   :::image type="content" source="./media/onboard-providers-2.png" alt-text="Screenshot showing the second set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-2.png":::
+1. Register the resource providers listed in the **Option 1: PowerShell** tab for the subscription. Register the conditional providers only when you use the corresponding workloads. 
 
 1. Search for and select `Microsoft.Mission`, and then select `Register`.
 
@@ -113,6 +105,8 @@ PowerShell is the fastest way to register all required resource providers to beg
 1. Proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
 For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
+
+---
 
 ### Configure `NetworkWatcherRG` access
 
@@ -147,8 +141,8 @@ Existing preview customers must re-register the Azure Enclave resource provider 
 Complete these steps to use the latest Azure Enclave API:
 
 1. In the Azure portal, navigate to your subscription.
-1. Under `Settings`, select `Resource providers`.
-1. Search for and select `Microsoft.Mission`, and then select `Re-register`.
+1. Under **Settings**, select **Resource providers**.
+1. Search for and select **Microsoft.Mission**, and then select **Re-register**.
 1. Repeat these steps for any additional subscriptions.
 
 ## Next steps

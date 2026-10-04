@@ -46,7 +46,7 @@ The following table compares features across all Azure Firewall SKUs:
 |  | Service tags and FQDN tags for easy policy management | ✓ | ✓ | ✓ |
 |  | Easy DevOps integration using REST/PowerShell/CLI/templates/Terraform | ✓ | ✓ | ✓ |
 | **Advanced networking** | Multiple public IP addresses | ✓ | Up to 250 | Up to 250 |
-|  | Forced tunneling |  | ✓ | ✓ |
+|  | Forced tunneling |✓ | ✓ | ✓ |
 |  | Deployment without public IP address in Forced Tunnel Mode |  | ✓ | ✓ |
 | **Compliance** | Certifications (PCI, SOC, ISO) | ✓ | ✓ | ✓ |
 |  | Capabilities for PCI DSS payment processing environments |  |  | ✓ |
@@ -83,6 +83,8 @@ Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to
 
 - **Certifications**: Azure Firewall Basic is Payment Card Industry (PCI), Service Organization Controls (SOC), and International Organization for Standardization (ISO) compliant.
 
+- **Forced Tunneling**: You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you can have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet.
+
 ### Basic limitations
 
 - **Throughput**: Limited to 250 Mbps
@@ -90,7 +92,6 @@ Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to
 - **Threat intelligence**: Alert mode only (cannot deny traffic)
 - **Network FQDN filtering**: Not supported (application FQDN filtering only)
 - **Web categories**: Not supported
-- **Forced tunneling**: Not supported
 
 ## Azure Firewall Standard features
 
@@ -208,4 +209,4 @@ Premium also provides the capabilities that payment processing environments typi
 - [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md)
 - [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal-policy.md)
 - [Azure Firewall Premium certificates](premium-certificates.md)
-- [Learn more about Azure network security](../networking/security/index.yml)
+- [Learn more about Azure network security](../networking/security/index.yml).

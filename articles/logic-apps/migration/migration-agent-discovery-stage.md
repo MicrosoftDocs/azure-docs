@@ -1,7 +1,7 @@
 ---
 title: "Migration Stage 1 - Discovery: Catalog Artifacts"
-description: "Learn how the Migration Agent scans, analyzes, and catalogs source artifacts for migration to Azure Logic Apps (Standard) during the Discovery stage."
 titleSuffix: Azure Logic Apps
+description: Learn how the Migration Agent scans, analyzes, and catalogs source artifacts for migration to Azure Logic Apps Standard during the Discovery stage.
 services: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -10,17 +10,13 @@ ms.reviewers: estfan, azla
 ms.topic: concept-article
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
-ms.date: 04/27/2026
-# Customer intent: As a developer who works with enterprise integration platforms, such as BizTalk Server, MuleSoft, and others, I want to learn how the Azure Logic Apps (Standard) Migration Agent in Visual Studio Code scans my source integration projects to find, catalog, and analyze integration artifacts during the Discovery stage.
+ms.date: 09/13/2026
+# Customer intent: As an enterprise integration developer who works with BizTalk Server, MuleSoft, TIBCO BusinessWorks, or others, I want to learn how the Azure Logic Apps (Standard) Migration Agent in Visual Studio Code scans my source integration projects to find, catalog, and analyze integration artifacts during the Discovery stage.
 ---
 
-# Migration to Azure Logic Apps Stage 1 - Discovery: Catalog integration artifacts (preview)
+# Migration to Azure Logic Apps Stage 1 - Discovery: Catalog integration artifacts
 
 [!INCLUDE [logic-apps-sku-standard](../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
->
-> This preview feature is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Before you can start a migration, you need to understand the artifacts in your source integration projects. In Visual Studio Code, the Azure Logic Apps Migration Agent helps automate this task by scanning your source project files during the Discovery stage, detecting the source platform, and cataloging artifacts and dependencies. The agent then identifies logical flow groups, architecture, and migration gaps so you have the information you need to move to the Planning stage.
 
@@ -32,9 +28,9 @@ In Visual Studio Code, after you open the Azure Logic Apps Migration Agent on th
 
 | Step | Action | Description |
 |------|--------|-------------|
-| 1 | **Detect platform** | Examines file patterns to identify the source platform. <br><br>For example, `.btproj` and `.odx` files indicate a BizTalk Server project, while `mule-*.xml` files indicate a MuleSoft Anypoint project. <br><br>For more information, see: <br>- [BizTalk artifact support](migration-agent-overview.md#biztalk-support) <br>- [MuleSoft artifact support](migration-agent-overview.md#mulesoft-support) |
+| 1 | **Detect platform** | Examines file patterns to identify the source platform. <br><br>For example, `.btproj` and `.odx` files indicate a BizTalk Server project, `pom.xml` and `mule-*.xml` files indicate a MuleSoft Anypoint project, and `tibco.xml`, `module.bwm`, `.process`, or `.bwp` files indicate a TIBCO BusinessWorks project. <br><br>For more information, see: <br>- [BizTalk artifact support](migration-agent-overview.md#biztalk-support) <br>- [MuleSoft artifact support](migration-agent-overview.md#mulesoft-support) <br>- [TIBCO BusinessWorks artifact support](migration-agent-overview.md#tibco-support) |
 | 2 | **Scan files** | Scans source files and extracts metadata into Intermediate Representation (IR) format by using a built-in parser for the detected platform. |
-| 3 | **Catalog artifacts** | Inventories discovered artifacts, including the following items: <br><br>- Orchestrations and workflows <br>- Schemas (XSD, JSON) <br>- Maps and transformations <br>- Pipelines <br>- Send ports and receive ports <br>- Bindings and endpoint configurations |
+| 3 | **Catalog artifacts** | Inventories supported artifacts for the detected platform. Examples include projects, orchestrations or flows, schemas, maps and transformations, pipelines, ports, bindings, endpoint configurations, business rules, and host data layouts. |
 | 4 | **Build dependency graph** | Generates a dependency graph that shows how artifacts relate to each other. For example, the graph shows which orchestrations reference which schemas and maps. |
 
 <a id="source-design-analysis-results"></a>

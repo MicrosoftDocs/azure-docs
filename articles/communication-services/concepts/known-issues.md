@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-web-native
 
 # Known issues in the SDKs and APIs
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 These articles provide information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
 
 > [!IMPORTANT]

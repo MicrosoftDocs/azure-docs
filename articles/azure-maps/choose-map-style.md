@@ -3,7 +3,7 @@ title: Change the style of the Azure Maps Web Map Control
 description: "Learn how to change a map's style and options. See how to add a style picker control to a map in Azure Maps so that users can switch between different styles."
 author: sinnypan
 ms.author: sipa
-ms.date: 04/26/2020
+ms.date: 08/28/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -166,11 +166,7 @@ The following image shows the style picker control displayed in `list` layout.
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Style picker list layout":::
 
 > [!IMPORTANT]
-> By default the style picker control lists all the styles available under the Gen1 (S0) pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using Gen1 (S1) or Gen2 pricing tier and want to show all available styles, set the `mapStyles` option of the style picker to `"all"`.
->
-> **Azure Maps Gen1 pricing tier retirement**
->
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
+> By default, the style picker control displays a base set of map styles. To display all available styles, set the `mapStyles` option to `"all"`. To display a custom set, pass an array of style names to the `mapStyles` option.
 
 The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list the base styles to display in the style picker control.
 
@@ -228,7 +224,6 @@ See the following articles for more code samples to add to your maps:
 [Add map controls]: map-add-controls.md
 [Azure Maps Samples]: https://samples.azuremaps.com
 [grayscale_dark]: supported-map-styles.md#grayscale_dark
-[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Map style options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Map%20style%20options/Map%20style%20options.html
 [Map style options]: https://samples.azuremaps.com/map/map-style-options
 [Map]: /javascript/api/azure-maps-control/atlas.map

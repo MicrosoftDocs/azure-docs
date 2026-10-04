@@ -6,6 +6,7 @@ ms.topic: how-to
 author: RochakSingh-blr
 ms.author: v-rochak2
 ms.date: 07/31/2025
+ms.update-cycle: 1095-days
 ms.custom: sfi-image-nochange
 # Customer intent: As an Azure administrator, I want to remove resources from a move collection, so that I can efficiently manage the migration of resources between regions.
 ---

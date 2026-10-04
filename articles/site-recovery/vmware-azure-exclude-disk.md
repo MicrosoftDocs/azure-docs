@@ -6,7 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
-ms.date: 02/13/2026
+ms.date: 09/17/2026
 
 # Customer intent: As a cloud administrator managing VMware VMs, I want to exclude specific disks from replication to Azure, so that I can optimize bandwidth and resource usage during disaster recovery operations.
 ---
@@ -36,16 +36,13 @@ Before you exclude disks from replication:
 - **Failback-Windows**: When you fail back to your on-premises site after failover, Windows disks that you create manually in Azure aren't failed back. For example, if you fail over three disks and create two disks directly on Azure VMs, only the three disks that were failed over are failed back.
 - **Failback-Linux**: For failback of Linux machines, disks that you create manually in Azure are failed back. For example, if you fail over three disks and create two disks directly on Azure VMs, all five are failed back. You can't exclude disks that were created manually in the failback, or in reprotection of VMs.
 
-
-
 ## Exclude disks from replication
 
-1. When you [enable replication](./hyper-v-azure-tutorial.md) for a VMware VM, after selecting the VMs that you want to replicate, review the **Disks to Replicate** column in the **Enable replication** > **Properties** > **Configure properties** page. By default, all disks are selected for replication.
+1. When you [enable replication](/azure/site-recovery/vmware-azure-enable-replication) for a VMware VM, after selecting the VMs that you want to replicate, review the **Disks to Replicate** column in the **Enable replication** > **Source Settings** page. By default, all disks are selected for replication.
 1. If you don't want to replicate a specific disk, clear the selection for any disks you want to exclude. 
 
-    :::image type="content" source="./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png" alt-text="Exclude disks from replication.":::
-
-
+    :::image type="content" source="./media/vmware-azure-exclude-disk/source-settings.png" alt-text="Screenshot showing Source settings.":::
 
 ## Next steps
+
 After your deployment is set up and running, [learn more](failover-failback-overview.md) about different types of failover.

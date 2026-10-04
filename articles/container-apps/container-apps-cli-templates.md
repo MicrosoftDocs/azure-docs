@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: landing-page
-ms.date: 03/20/2026
+ms.date: 09/04/2026
 ms.author: cshoe
 ai-usage: ai-generated
 ---
@@ -155,7 +155,7 @@ Additional Azure Container Apps templates covering infrastructure, DevOps, and o
 
 | Template | Author | Language | Azure Services | IaC |
 |----------|--------|----------|----------------|-----|
-| [.NET Aspire Azure Storage Demo](https://github.com/FBoucher/AspireAzStorage) | Frank Boucher | .NET/C# | — | Bicep |
+| [Aspire Azure Storage Demo](https://github.com/FBoucher/AspireAzStorage) | Frank Boucher | .NET/C# | — | Bicep |
 | [Deploy DeepSeek-R1 on Azure Container Apps with Serverless GPUs.](https://github.com/daverendon/azd-deepseek-r1-on-azure-container-apps) | Dave Rendon | — | Azure Log Analytics | — |
 | [Deploy Label Studio directly from Docker Hub on Azure Container Apps](https://github.com/bderusha/azd-label-studio) | Bill DeRusha | — | Azure Blob Storage, Azure Application Insights, Azure Log Analytics, Azure Managed Identity | Bicep |
 | [Docusaurus with Azure Container Apps](https://github.com/jsburckhardt/docusaurus-aca) | Juan Burckhardt | JavaScript | — | Bicep |

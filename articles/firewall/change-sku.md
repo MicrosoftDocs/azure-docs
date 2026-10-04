@@ -48,6 +48,10 @@ Use the easy SKU change method when:
 - You have a standard deployment without complex custom configurations
 - **For downgrade**: A firewall policy created for a higher SKU (Premium or Standard) can't be attached to a lower SKU firewall. To downgrade, you must create a new firewall policy or use an existing policy that is compatible with the target SKU.
 
+> [!NOTE]
+> Use the easy SKU migration method only when the Azure Firewall resource has **four or fewer instances**. If the firewall has more than four instances, manually scale it down to four or fewer instances before starting the SKU migration.
+
+
 ### Policy considerations for SKU changes
 
 #### Upgrade to Premium
@@ -123,6 +127,7 @@ The easy SKU change method has the following limitations:
 - Not available for firewalls with certain complex configurations
 - Limited availability in some regions
 - Requires existing firewall policy (not available for Classic rules)
+- Azure Firewall resources with **more than four** instances aren't supported by the easy SKU migration method. Scale the firewall down to four or fewer instances before performing the migration.
 
 **Downgrade-specific limitations:**
 - Premium features (TLS inspection, IDPS Alert and Deny mode, URL filtering) must be removed before downgrade.

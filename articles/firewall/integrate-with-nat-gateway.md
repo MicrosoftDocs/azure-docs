@@ -19,7 +19,7 @@ One of the challenges with using a large number of public IP addresses is when t
 
 A better option to scale and dynamically allocate outbound SNAT ports is to use an [Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md). It provides 64,512 SNAT ports per public IP address and supports up to 16 IPv4 public IP addresses. This effectively provides up to 1,032,192 outbound SNAT ports. Azure NAT Gateway also [dynamically allocates SNAT ports](/azure/nat-gateway/nat-gateway-resource#nat-gateway-dynamically-allocates-snat-ports) on a subnet level, so all the SNAT ports provided by its associated IP addresses is available on demand to provide outbound connectivity.
 
-When a NAT gateway resource is associated with an Azure Firewall subnet, all outbound Internet traffic automatically uses the public IP address of the NAT gateway. There’s no need to configure [User Defined Routes](../virtual-network/tutorial-create-route-table-portal.md). Response traffic to an outbound flow also passes through NAT gateway. If there are multiple IP addresses associated with the NAT gateway, the IP address is randomly selected. It isn't possible to specify what address to use.
+When you associate a NAT gateway with **AzureFirewallSubnet**, outbound internet traffic from the firewall uses the NAT gateway's public IP addresses. You don't need an additional user-defined route (UDR) to send that traffic from the firewall through the NAT gateway. Keep the [workload subnet routes](../nat-gateway/tutorial-hub-spoke-nat-firewall.md#create-spoke-network-route-table) that direct traffic to the firewall's private IP address for inspection. Response traffic to an outbound flow also passes through the NAT gateway. If multiple public IP addresses are associated with the NAT gateway, it selects an address randomly. You can't specify which address to use.
 
 There’s no double NAT with this architecture. Azure Firewall instances send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
@@ -27,14 +27,16 @@ There’s no double NAT with this architecture. Azure Firewall instances send th
 
 When your firewall runs low on SNAT ports, you can either add multiple public IP addresses or use a NAT gateway:
 
-- **Add multiple public IP addresses** when you're cost sensitive and your scale needs are moderate. Each public IP address adds 2,496 SNAT ports, and you can associate up to 250. For steps, see [Deploy an Azure Firewall with multiple public IP addresses](deploy-multi-public-ip-powershell.md).
-- **Use a NAT gateway** (described in this article) when you need a more scalable and robust solution. It provides up to 64,512 SNAT ports per public IP address and dynamically allocates them across the subnet.
+- **Add multiple public IP addresses** when you're cost sensitive and your scale needs are moderate. Each public IP address adds 2,496 SNAT ports per backend instance, and you can associate up to 250 public IP addresses. For steps, see [Deploy an Azure Firewall with multiple public IP addresses](deploy-multi-public-ip-powershell.md).
+- **Use a NAT gateway** when you need dynamic SNAT port allocation across the subnet. It provides up to 64,512 SNAT ports per public IP address.
 
 For a full comparison of advantages and disadvantages, see [Best practices for Azure Firewall performance](firewall-best-practices.md#recommendations).
 
+To create a StandardV2 NAT gateway as part of an Azure Firewall deployment in the portal, select **Enable NAT gateway** on the **Advanced** tab. For the complete procedure, see [Create Azure Firewall with a StandardV2 NAT gateway](../nat-gateway/tutorial-hub-spoke-nat-firewall.md#create-azure-firewall). The following PowerShell and CLI examples associate a Standard NAT gateway with an existing firewall subnet.
+
 > [!NOTE]
-> Deploying NAT gateway with a zone redundant firewall isn't a recommended deployment option, as Standard NAT gateway doesn't support zone-redundant deployments. StandardV2 NAT Gateway does support zone-redundant deployments. For a step-by-step tutorial, see [Integrate Azure Firewall with NAT Gateway V2](integrate-with-nat-gateway-v2.md). For more information about SKU differences, see [NAT Gateway SKUs](/azure/nat-gateway/nat-sku).
-> Azure NAT Gateway isn't supported in the secured virtual hub (vWAN) architecture. To use in a vWAN architecture, NAT Gateway must be configured directly to the spoke virtual networks associated with the secured virtual hub (vWAN). For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture, refer to the [NAT gateway and Azure Firewall integration tutorial](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
+> Use a StandardV2 NAT gateway with a zone-redundant firewall. A Standard NAT gateway doesn't support zone-redundant deployments. For steps, see [Integrate Azure Firewall with NAT Gateway V2](integrate-with-nat-gateway-v2.md). For more information about SKU differences, see [NAT Gateway SKUs](/azure/nat-gateway/nat-sku).
+> Azure NAT Gateway isn't supported inside a secured virtual hub (vWAN). In a vWAN architecture, configure NAT Gateway directly on the spoke virtual networks instead. For steps to integrate NAT Gateway with a firewall in a hub virtual network, see the [NAT gateway and Azure Firewall integration tutorial](../nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
 
 ## Associate a NAT gateway with an Azure Firewall subnet - Azure PowerShell
 
@@ -73,4 +75,4 @@ az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --
 
 - [Scale Azure Firewall SNAT ports with NAT Gateway for large workloads](https://azure.microsoft.com/blog/scale-azure-firewall-snat-ports-with-nat-gateway-for-large-workloads/).
 - [Design virtual networks with NAT gateway](../virtual-network/nat-gateway/nat-gateway-resource.md)
-- [Integrate NAT gateway with Azure Firewall in a hub and spoke network](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md)
+- [Integrate NAT gateway with Azure Firewall in a hub and spoke network](../nat-gateway/tutorial-hub-spoke-nat-firewall.md)

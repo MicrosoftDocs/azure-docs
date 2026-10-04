@@ -77,7 +77,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 There are two types of virtual WANs: Basic and Standard. The following table shows the available configurations for each type.
 
-[!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
+[!INCLUDE [Basic and Standard SKUs](../networking/includes/virtual-wan/standard-basic.md)]
 
 > [!NOTE]
 > Basic Virtual WAN doesn't support adjusting gateway scale units to increase throughput. If you need higher aggregate throughput, upgrade to Standard Virtual WAN. For more information about gateway scale units, see [About Virtual WAN gateway settings](gateway-settings.md).
@@ -114,7 +114,7 @@ You can connect an Azure virtual network to a virtual hub. For more information,
 
 Virtual WAN allows transit connectivity between VNets. VNets connect to a virtual hub via a virtual network connection. Transit connectivity between the VNets in **Standard Virtual WAN** is enabled due to the presence of a router in every virtual hub. This router is instantiated when the virtual hub is first created.
 
-[!INCLUDE [virtual hub router status](../../includes/virtual-wan-hub-router-status.md)]
+[!INCLUDE [virtual hub router status](../networking/includes/virtual-wan/hub-router-status.md)]
 
 Every virtual hub router supports an aggregate throughput up to 50 Gbps.
 

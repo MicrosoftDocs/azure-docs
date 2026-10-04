@@ -5,8 +5,9 @@ ms.topic: how-to
 author: dhananjayanr98 
 ms.author: dhananjayanr
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 03/13/2026
+ms.update-cycle: 365-days
 monikerRange: migrate 
 Customer intent: This article is intended to guide users on leveraging the new portal for executing and tracking server migrations. 
 ---

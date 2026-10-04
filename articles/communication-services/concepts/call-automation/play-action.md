@@ -11,6 +11,8 @@ ms.author: kpunjabi
 
 # Playing audio in call
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The play action provided through the Azure Communication Services Call Automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. You can play audio to call participants through one of two methods;
 - Providing Azure Communication Services access to prerecorded audio files in WAV format, which Azure Communication Services can access with support for authentication.
 - Regular text that can be converted into speech output through the integration with Foundry Tools.

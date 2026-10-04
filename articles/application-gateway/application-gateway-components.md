@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 08/18/2026
+ms.date: 09/04/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to understand the components of an application gateway, so that I can effectively design and implement a solution to manage incoming application traffic and distribute it across backend resources.
 ---
@@ -162,6 +162,9 @@ After you add virtual machine scale sets as a backend pool member, you need to u
 By default, an application gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool when they become available and respond to health probes.
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure a custom hostname, URL path, probe interval, and how many failed responses to accept before marking the backend pool instance as unhealthy, custom status codes and response body match, etc. We recommend that you configure custom probes to monitor the health of each backend pool.
+
+> [!NOTE]
+> For HTTPS health probes on Application Gateway v2, when certificate subject name validation is enabled, the SNI hostname used by the probe must match a subject alternative name (SAN) in the backend TLS certificate, or its common name (CN) if no SAN is present. Before you configure the probe, review [Server Name Indication (SNI) behavior for probe traffic](ssl-overview.md#for-probe-traffic). If **Backend health** reports a certificate name mismatch, follow the configuration-specific guidance in [Common Name (CN) doesn't match](/troubleshoot/azure/application-gateway/application-gateway-backend-health-troubleshooting#common-name-cn-doesnt-match). This guidance includes the [host name override](configuration-http-settings.md#host-name-override) option.
 
 For more information, see [Monitor the health of your application gateway](../application-gateway/application-gateway-probe-overview.md).
 

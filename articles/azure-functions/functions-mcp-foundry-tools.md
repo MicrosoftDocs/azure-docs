@@ -49,7 +49,7 @@ To learn more about the MCP server authentication options that the Foundry Agent
 
 ## Get the remote MCP server endpoint
 
-Before you can connect the agent to a Functions-hosed MCP server, you must get the endpoint URL for the service. The specific URL format depends on how you created and deployed your MCP server:
+Before you can connect the agent to a Functions-hosted MCP server, you must get the endpoint URL for the service. The specific URL format depends on how you created and deployed your MCP server:
 
 ```console
 https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/mcp
@@ -182,7 +182,7 @@ To connect to your MCP server endpoint:
 
 1. In the **Custom** tab in **Select a tool**, select **Model Context Protocol (MCP)** > **Create**.
 
-1. In **Add Model Content Protocol tool**, provide information from this table to configure an access key-based connection: 
+1. In **Add Model Context Protocol tool**, provide information from this table to configure an access key-based connection:
 
     | Field | Description | Example |
     | ----- | ----------- | ------- |
@@ -209,7 +209,7 @@ To connect to your MCP server endpoint:
 
 1. In the **Custom** tab in **Select a tool**, select **Model Context Protocol (MCP)** > **Create**.
 
-1. In **Add Model Content Protocol tool**, enter the information from this table to configure a Microsoft Entra-based connection:
+1. In **Add Model Context Protocol tool**, enter the information from this table to configure a Microsoft Entra-based connection:
 
     | Field | Description | Example |
     | ----- | ----------- | ------- |
@@ -235,7 +235,7 @@ When you use OAuth identity passthrough, the agent prompts the user to sign in a
 
 1. In the **Custom** tab in **Select a tool**, select **Model Context Protocol (MCP)** > **Create**.
 
-1. In **Add Model Content Protocol tool**, enter the information from this table to configure OAuth Identity Passthrough connection:
+1. In **Add Model Context Protocol tool**, enter the information from this table to configure OAuth Identity Passthrough connection:
 
     | Field | Description | Example |
     | ----- | ----------- | ------- |
@@ -271,7 +271,7 @@ To connect to your MCP server endpoint:
 
 1. In the **Custom** tab in **Select a tool**, select **Model Context Protocol (MCP)** > **Create**.
 
-1. In **Add Model Content Protocol tool**, provide information from this table to configure an unauthenticated connection:
+1. In **Add Model Context Protocol tool**, provide information from this table to configure an unauthenticated connection:
 
     | Field | Description | Example |
     | ----- | ----------- | ------- |

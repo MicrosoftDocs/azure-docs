@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.topic: how-to
-ms.date: 02/12/2026
+ms.date: 09/21/2026
 ms.service: azure-site-recovery
 ms.custom: template-how-to
 
@@ -29,15 +29,20 @@ By using built-in Azure Policy capabilities, you can enable Site Recovery on spe
 
 - [Understand how to assign a policy](../governance/policy/assign-policy-portal.md).
 - [Learn more about the architecture of Azure-to-Azure disaster recovery](./azure-to-azure-architecture.md).
-- Review the following support matrix for Azure Site Recovery policy support:
+- Review the following Azure Policy auto-enable limitations. This table describes policy onboarding, not general Site Recovery support. For configurations that policy can't onboard, use the [manual replication instructions](azure-to-azure-how-to-enable-replication.md).
 
   **Scenario** | **Support statement**
   --- | ---
   Managed disks | Supported. The OS disk should be 1 GB to 4 TB in size. Data disks should be 1 GB to 32 TB in size.
-  Unmanaged disks  | Not supported
-  Multiple disks | Supported for up to 100 disks per VM
+  Unmanaged disks | Not supported. Unmanaged Azure VM disks retired on March 31, 2026.
+  Multiple disks | Supported for up to 64 data disks per VM, subject to the selected VM size and current Site Recovery limits.
   Ephemeral disks | Not supported
   Ultra Disks | Not supported
+  Premium SSD v2 | Not supported
+  Shared disks | Not supported
+  Performance Plus disks | Not supported
+  NVMe disk controllers | Not supported
+  Restricted disk network access | Not supported
   Availability sets | Supported
   Availability zones | Supported
   Azure Disk Encryption enabled VMs | Not supported

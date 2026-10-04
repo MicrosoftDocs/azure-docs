@@ -1,9 +1,9 @@
 ---
-title: Manage device groups for Azure Device Update for IoT Hub | Microsoft Docs
+title: Manage device groups for Azure Device Update for IoT Hub
 description: Learn how to configure Azure Device Update for IoT Hub device groups by using tags in the Azure portal or with Azure CLI.
 author: sethmanheim
 ms.author: sethm
-ms.date: 01/23/2025
+ms.date: 09/17/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -19,6 +19,12 @@ If you create and assign user-defined Device Update tag values to devices, Devic
 This article describes how to use the Azure portal or Azure CLI to create and manage user-defined Device Update device tags and groups. To deploy updates to user-defined or default device groups, see [Deploy a device update](deploy-update.md).
 
 ## Prerequisites
+
+Before you begin, note the following prerequisites:
+
+- Devices must be successfully onboarded to Device Update before group assignment can occur.
+- Devices must report a supported Plug and Play model ID. For a list of supported model IDs, see [Device Update models](device-update-plug-and-play.md#device-update-models). 
+- For IoT Edge scenarios, the Device Update agent runs as a module and must report the model ID through the appropriate identity.
 
 # [Azure portal](#tab/portal)
 
@@ -48,7 +54,7 @@ This article describes how to use the Azure portal or Azure CLI to create and ma
 
 ## Add tags to your devices
 
-To assign a Device Update device group, you add the `ADUGroup` tag to a target set of Device Update connected devices in IoT Hub. Add the tag to the device twin if your Device Update agent is provisioned with device identity, or to the corresponding module twin if the Device Update agent is provisioned with a module identity.
+To assign a Device Update device group, add the `ADUGroup` tag to a target set of Device Update connected devices in IoT Hub. Add the tag to the device twin if your Device Update agent is provisioned with device identity, or to the corresponding module twin if the Device Update agent is provisioned with a module identity.
 
 The Device Update `ADUGroup` tag uses a key-value format, as shown in the following device or module twin example:
 
@@ -62,9 +68,12 @@ The Device Update `ADUGroup` tag uses a key-value format, as shown in the follow
 }
 ```
 
- For more information and examples of twin JSON syntax, see [Understand and use device twins](../iot-hub/iot-hub-devguide-device-twins.md) or [Understand and use module twins](../iot-hub/iot-hub-devguide-module-twins.md).
+> [!IMPORTANT]
+> Adding an `ADUGroup` tag doesn't onboard a device into Device Update. Group assignment only occurs after Device Update successfully recognizes and manages the device.
+
+For more information and examples of twin JSON syntax, see [Understand and use device twins](../iot-hub/iot-hub-devguide-device-twins.md) or [Understand and use module twins](../iot-hub/iot-hub-devguide-module-twins.md).
  
- The `ADUGroup` tag has the following properties and limitations:
+The `ADUGroup` tag has the following properties and limitations:
 
 - A device can only have one `ADUGroup` tag and belong to only one Device Update group at a time. Adding another tag named `ADUGroup` overrides the existing `ADUGroup` value.
 - You can use any value for the tag except the reserved values `Uncategorized` and `$default`.
@@ -98,7 +107,7 @@ You can also add or update the `ADUGroup` tag directly in the device or module t
 1. Select **Devices** under **Device management** in the left navigation pane. If you have an IoT Edge device, select **IoT Edge** instead.
 1. On the **Devices** page, select your device.
 1. On the device page, either select **Device twin** from the top menu, or select the module identity under **Module identities** and then select the module twin.
-1. In the twin, add the `ADUGroup` tag with a user-defined value, as follows. To update an existing `ADUGroup` tag value, overwrite it with a different user-defined value.
+1. In the twin, add the `ADUGroup` tag with a user-defined value. To update an existing `ADUGroup` tag value, overwrite it with a different user-defined value.
 
    ```JSON
        "tags": {
@@ -127,15 +136,15 @@ az iot hub module-twin update \
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the IoT hub connected to your Device Update instance.
+1. In the [Azure portal](https://portal.azure.com), go to the IoT hub connected to your Device Update instance.
 1. Select the **Updates** option under **Device Management** in the left navigation.
 1. Select the **Groups and Deployments** tab.
 
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-Once you create a group, the compliance chart and group list update. The Device Update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+When you create a group, the compliance chart and group list update. The Device Update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
 
-Existing Device Update groups and any available updates for the devices in those groups appear in the group list. Any devices that don't meet the device class requirements of the group appear in a corresponding invalid group. You can deploy the best available update to a group from this view by selecting **Deploy** next to the group.
+The group list shows existing Device Update groups and any available updates for the devices in those groups. Devices that don't meet the device class requirements of the group appear in a corresponding invalid group. You can deploy the best available update to a group from this view by selecting **Deploy** next to the group.
 
 :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot of update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
@@ -149,7 +158,7 @@ az iot du device group list \
     --instance <Device Update instance name>
 ```
 
-You can use the `--order-by` argument to order the returned list by aspects like group ID, count of devices, or count of subgroups with new updates available.
+Use the `--order-by` argument to order the returned list by group ID, count of devices, or count of subgroups with new updates available.
 
 ---
 
@@ -220,6 +229,19 @@ To be deleted, a group must meet the following requirements:
 >   If you have unhealthy devices tagged as part of the group, you must change the tag value or delete the device before you can delete the group.
 
 If a device is ever assigned to a deleted group name again, Device Update automatically recreates the group, but there's no associated device or deployment history.
+
+## Troubleshooting
+
+If you tag a device but don't see a group, try the following troubleshooting steps:
+
+- Verify the tag is configured correctly.
+- Verify the device includes a valid Plug and Play model ID and a valid `ADUGroup` tag.
+- Confirm that the IoT Hub message routes are correctly configured. For more information, see [Message routing](device-update-resources.md#message-routing).
+- Ensure the IoT Hub is correctly associated with the Device Update instance.
+- Run Device Update diagnostics and the agent check.
+- Run device sync if necessary.
+
+For more information, see [Plug and Play in Azure Device Update](device-update-plug-and-play.md) and [Device Update for Azure IoT Hub agent check](device-update-agent-check.md).
 
 ## Related content
 

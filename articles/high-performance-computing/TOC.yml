@@ -105,6 +105,12 @@
   - name: Run your first benchmark using STREAM
     href: performance-benchmarking/stream-benchmark.md   
 
+- name: Remote visualization for HPC
+  href: remote-visualization-overview.md
+
+- name: Choose a remote visualization deployment model
+  href: remote-visualization-choose-deployment-model.md
+
 - name: AI training
   items:
       

@@ -51,7 +51,7 @@ Send a request to `<your-SignalR-resource-endpoint>/client` and it should return
   ```
 Send a request to the same health endpoint of Azure SignalR through Azure Front Door `http://<the-hostname-of-your-Azure-Front-Door-resource>/client`. Go to the Overview tab of the created Azure Front Door resource, and locate the endpoint hostname.
 
-  :::image type="content" source="./media/signalr-howto-work-with-azure-front-door/afd-hostname.jpg" alt-text="Screenshot of the the hostname of Azure Front Door resource":::
+  :::image type="content" source="./media/signalr-howto-work-with-azure-front-door/afd-hostname.jpg" alt-text="Screenshot of the hostname of Azure Front Door resource":::
   
   ```bash
   curl -I http://<the-hostname-of-your-Azure-Front-Door-resource>/client

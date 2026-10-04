@@ -1,21 +1,22 @@
 ---
-title: Azure Container Apps Express Overview (preview)
+title: Azure Container Apps express overview
 description: Learn about Azure Container Apps express, a developer-first platform that lets you deploy containerized web apps to Azure with minimal configuration and rapid provisioning.
 ms.topic: overview
-ms.date: 08/27/2026
+ms.date: 09/21/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-container-apps
 ms.custom: references_regions
 ---
 
-# Azure Container Apps express overview (preview)
+# Azure Container Apps express overview
 
 Azure Container Apps express provides the fastest way to deploy containerized web applications to Azure. With opinionated defaults and a minimal configuration surface, express is a developer-first and agent-first platform designed to get your web apps running in the cloud as fast as possible.
 
 By using express, you can create a container app directly without waiting for environment provisioning first. The rapid provisioning and scale-from-zero features make express an ideal host for AI-powered applications and agent backends.
 
-:::image type="content" source="media/express-overview/azure-container-apps-express-welcome.png" alt-text="Screenshot of the Azure Container Apps express welcome screen.":::
+> [!NOTE]
+> Some Azure portal windows for Express environments aren't functional.
 
 ## Key capabilities
 
@@ -91,16 +92,15 @@ Keep these important points in mind when using express:
 
 - **Opinionated configuration**: The express model uses opinionated defaults with a minimal configuration surface. If you need fine-grained control over compute, networking, or cold-start behavior, use standard Container Apps with a [workload profiles environment](environment.md).
 
-- **Focused networking**: Express supports internal or external ingress, IP restrictions, CORS, virtual network egress, and environment private endpoints. For virtual network egress, use either an environment-level subnet or an app-level outbound subnet. An app-level subnet can't be combined with an environment-level virtual network, can only be shared by apps in the same environment, and can't be changed or removed after it's set. Custom domains, client certificates, session affinity, and built-in service discovery aren't yet supported.
+- **Focused networking**: Express supports internal or external ingress, IP restrictions, CORS, virtual network egress, and environment private endpoints. For virtual network egress, connect the Express environment to a virtual network subnet. Custom domains, client certificates, session affinity, and built-in service discovery aren't supported.
 
-- **Feature availability**: Express offers a focused set of Container Apps capabilities. User-assigned managed identities, HTTP, CPU, and memory scale rules, `EmptyDir` volume mounts, and custom ephemeral storage are available with the limitations described in the following table. Dapr, jobs, workload profiles, and system-assigned managed identities aren't yet supported.
+- **Feature availability**: Express offers a focused set of Container Apps capabilities. User-assigned managed identities, HTTP, CPU, and memory scale rules, `EmptyDir` volume mounts, and custom ephemeral storage are available with the limitations described in the following table. Dapr, jobs, workload profiles, and system-assigned managed identities aren't supported.
 
 ## Supported features
 
-Express provides a streamlined set of Azure Container Apps capabilities. Each feature falls into one of three availability states:
+Express provides a streamlined set of Azure Container Apps capabilities. Each feature falls into one of two availability states:
 
 - ✅ **Supported**: Works directly in Express.
-- ⚠️ **Use case supported**: The main scenario works, but some options aren't available.
 - ❌ **Not supported**: Not available in Express.
 
 ### Available capabilities
@@ -118,25 +118,25 @@ Express provides a streamlined set of Azure Container Apps capabilities. Each fe
 | [Regional availability](#region-availability) | ✅ Supported in the regions listed below |
 | Start and stop apps | ✅ Supported |
 | [Consumption-based billing](billing.md) | ✅ Supported: Usage-based billing |
-| [Rolling updates](revisions.md#zero-downtime-deployment) | ⚠️ Use case supported: Updates replace the active revision automatically. Traffic splitting isn't supported. |
+| [Rolling updates](revisions.md#zero-downtime-deployment) | ✅ Supported: Updates replace the active revision automatically. Traffic splitting isn't supported. |
 | [IP restrictions](ip-restrictions.md) | ✅ Supported: Allow or deny traffic by CIDR range |
 | [Console access](container-console.md) | ✅ Supported: Browser-based, per-container console |
 | [Internal and external ingress](ingress-overview.md#external-and-internal-ingress) | ✅ Supported |
 | [Single-revision deployment](revisions.md#revision-modes) | ✅ Supported: Built in |
-| [App-to-app communication](connect-apps.md) | ⚠️ Use case supported: Apps can communicate using their public app URLs. Internal service discovery isn't supported. |
-| [Manual secrets](manage-secrets.md) | ⚠️ Use case supported: Add secrets directly to the app. Key Vault references aren't supported. |
+| [App-to-app communication](connect-apps.md) | ✅ Supported: Apps communicate by using their public app URLs. Internal service discovery isn't supported. |
+| [Secrets](manage-secrets.md) | ✅ Supported: Add secrets directly to the app. Key Vault references aren't available. |
 | [Metrics (Azure Monitor)](metrics.md) | ✅ Supported in the app overview and environment dashboard |
-| [Logs (Log Analytics)](log-monitoring.md) | ⚠️ Use case supported: Logs can be sent to Log Analytics when it's enabled for the Express environment. |
-| [Autoscaling](scale-app.md) | ⚠️ Use case supported: Apps can scale on HTTP traffic, CPU, or memory. Authenticated scaling rules aren't supported. |
-| [User-assigned managed identity for app runtime](managed-identity.md) | ⚠️ Use case supported: Apps can use user-assigned managed identities. System-assigned managed identities aren't supported. |
-| [User-assigned managed identity for image pulls](managed-identity-image-pull.md) | ⚠️ Use case supported: Apps can use a user-assigned identity to pull images from supported Azure Container Registry servers. |
-| [Virtual network integration](custom-virtual-networks.md) | ⚠️ Use case supported: Apps can send outbound traffic through either an environment subnet or an app subnet. App-level networking has the limitations described previously. |
-| [Volume mounts](storage-mounts.md) | ⚠️ Use case supported: Apps can mount up to 10 `EmptyDir` volumes, with up to 10 mounts per container. Other volume types and `subPath` aren't supported. |
-| [Ephemeral storage](storage-mounts.md#ephemeral-storage) | ⚠️ Use case supported: Apps can use ephemeral storage. Combined container and `EmptyDir` storage must not exceed 40 GiB per replica. |
+| [Logs (Log Analytics)](log-monitoring.md) | ✅ Supported: Send logs to Log Analytics by enabling it for the Express environment. |
+| [Autoscaling](scale-app.md) | ✅ Supported: Apps can scale on HTTP traffic, CPU, or memory. Custom KEDA scalers aren't supported. |
+| [User-assigned managed identity for app runtime](managed-identity.md) | ✅ Supported: Apps can use user-assigned managed identities. System-assigned managed identities aren't supported. |
+| [User-assigned managed identity for image pulls](managed-identity-image-pull.md) | ✅ Supported: Apps can use a user-assigned identity to pull images from supported Azure Container Registry servers. System-assigned managed identities aren't supported. |
+| [Virtual network integration](custom-virtual-networks.md) | ✅ Supported: Apps can send outbound traffic through the virtual network configured for their Express environment. |
+| [Volume mounts](storage-mounts.md) | ✅ Supported: Each container can mount up to 10 `EmptyDir` volumes. Other volume types and `subPath` aren't supported. |
+| [Ephemeral storage](storage-mounts.md#ephemeral-storage) | ✅ Supported: Combined container and `EmptyDir` storage must not exceed 40 GiB per replica. |
 | [Express environment quotas](quotas.md) | ✅ Supported: Regional and global Express environment limits apply |
-| [Health probes](health-probes.md) | ⚠️ Use case supported: Apps can use HTTP and TCP health probes. Exec-based probes aren't supported. |
-| [CORS](cors.md) | ⚠️ Use case supported: CORS is available, except for exposed response headers. |
-| [Private endpoints](how-to-use-private-endpoint.md) | ⚠️ Use case supported: Express environments can use a private endpoint when public network access is disabled. |
+| [Health probes](health-probes.md) | ✅ Supported: Apps can use HTTP and TCP health probes. Exec-based probes aren't supported. |
+| [CORS](cors.md) | ✅ Supported: Exposed response headers aren't supported. |
+| [Private endpoints](how-to-use-private-endpoint.md) | ✅ Supported: Express environments can use a private endpoint when public network access is disabled. |
 
 ### Not supported
 
@@ -176,7 +176,7 @@ Express doesn't support the following capabilities:
 
 ## Region availability
 
-During public preview, Express is available in the following Azure regions:
+Express is available in the following Azure regions:
 
 - Australia East
 - Austria East

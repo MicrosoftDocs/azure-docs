@@ -107,7 +107,7 @@ You can also export a specification using the Command Palette:
     
 ## Create M365 declarative agent
 
-You can create a [declarative agent for Microsoft 365 Copilot](/microsoft-365-copilot/extensibility/overview-declarative-agent) from an OpenAPI definition in your API center. With a declarative agent, you customize Microsoft 365 Copilot to help you meet the unique business needs of your users. When you build a declarative agent, you provide the instructions, actions, and knowledge to tailor Copilot for your business scenarios. 
+You can create a [declarative agent for Microsoft Copilot](/microsoft-365-copilot/extensibility/overview-declarative-agent) from an OpenAPI definition in your API center. With a declarative agent, you customize Microsoft Copilot to help you meet the unique business needs of your users. When you build a declarative agent, you provide the instructions, actions, and knowledge to tailor Copilot for your business scenarios. 
 
 To export a declarative agent in the extension's tree view:
 

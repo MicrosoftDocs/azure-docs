@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: azure
 ms.custom: references_regions
 ms.topic: overview
-ms.date: 08/25/2026
+ms.date: 09/11/2026
 ---
 
 # What is Azure Multicloud Interconnect Preview?
@@ -16,6 +16,9 @@ Azure Multicloud Interconnect is a managed service that provides private connect
 > [!IMPORTANT]
 > Azure Multicloud Interconnect is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+> [!NOTE] 
+> Need support in additional regions? Submit your requirements through the [Multicloud Interconnect Form](https://aka.ms/MCIForm).
 
 During preview, Azure Multicloud Interconnect supports connectivity to Amazon Web Services (AWS). For current provider, region, and bandwidth support, see [Availability and limits](availability-limits.md).
 

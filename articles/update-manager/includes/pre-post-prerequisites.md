@@ -1,6 +1,6 @@
 ---
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: include
 ms.date: 09/24/2024
 # Customer intent: As a cloud administrator, I want to assign permissions to managed identities by using PowerShell, so that I can ensure secure access for my automation runbooks.

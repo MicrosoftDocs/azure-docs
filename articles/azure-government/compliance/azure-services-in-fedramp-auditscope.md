@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 2/25/2026
+ms.date: 9/21/2026
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -331,7 +331,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure OpenAI](/azure/ai-services/openai/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Red Hat OpenShift](/azure/openshift/) | &#x2705; | &#x2705; | &#x2705; |  |  |
+| [Azure Red Hat OpenShift](/azure/openshift/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |  |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

@@ -94,11 +94,7 @@ When you finish specifying your point-to-site configuration, select **Save** at 
 
 The VPN client profile configuration packages contain the settings that help you configure VPN client profiles for a connection to the Azure virtual network.
 
-To generate a VPN client configuration package and configure a VPN client, see one of the following articles:
-
-* [RADIUS - certificate authentication for VPN clients](point-to-site-vpn-client-configuration-radius-certificate.md)
-* [RADIUS - password authentication for VPN clients](point-to-site-vpn-client-configuration-radius-password.md)
-* [RADIUS - other authentication methods for VPN clients](point-to-site-vpn-client-configuration-radius-other.md)
+To generate a VPN client configuration package and configure a VPN client, see [Configure a VPN client for point-to-site: RADIUS authentication](point-to-site-vpn-client-configuration-radius.md).
 
 After you configure the VPN client, connect to Azure.
 

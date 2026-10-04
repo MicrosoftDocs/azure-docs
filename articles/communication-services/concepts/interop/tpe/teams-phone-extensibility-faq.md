@@ -15,6 +15,8 @@ services: azure-communication-services
 
 # Teams Phone extensibility FAQ
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article answers frequently asked questions about the Teams Phone extensibility (TPE).
 
 ## Can I use an Azure Communication Services phone number to place and receive PSTN calls for TPE scenarios?

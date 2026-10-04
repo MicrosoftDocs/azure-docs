@@ -12,6 +12,8 @@ description: This section describes how to get the serverCallid from a JavaScrip
 
 # Get serverCallId as a requirement for call recording server APIs from JavaScript application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In a peer to peer calling scenario using the [Calling client SDK](get-started-with-video-calling.md), in order to use Call Recording from Azure Communications you'll have to get the `serverCallId`.
 The following example shows you how to get the `serverCallId` from a JavaScript server application.
 

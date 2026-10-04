@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 08/18/2026
+ms.date: 09/15/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to integrate Application Gateway with Key Vault for managing TLS certificates, so that I can enhance security and automate certificate renewal without manual intervention."
 ---
@@ -65,7 +65,7 @@ The terms *secret identifier*, *secret URI*, and *secret ID* all refer to the sa
 
 Application Gateway uses a managed identity to retrieve certificates from Key Vault on your behalf. 
 
-You can either create a new user-assigned managed identity or reuse an existing with the integration. To create a new user-assigned managed identity, see [Create a user-assigned managed identity using the Azure portal](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). 
+You can either create a new user-assigned managed identity or reuse an existing one with the integration. To create a new user-assigned managed identity, see [Create a user-assigned managed identity using the Azure portal](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). 
 > [!NOTE]
 > Only one managed identity can be used on an Application Gateway.
 
@@ -133,7 +133,9 @@ For Cert name, type a friendly name for the certificate to be referenced in Key 
 
 Once selected, select  **Add** (if creating) or **Save** (if editing) to apply the referenced Key Vault certificate to the listener.
 
-#### Key Vault Azure role-based access control permission model
+<a name="key-vault-azure-role-based-access-control-permission-model"></a>
+
+#### Use the Azure RBAC permission model
 
 Use this procedure when your key vault uses the Azure role-based access control permission model. You start in PowerShell (or an ARM template, Bicep, or the Azure CLI) and finish in the Azure portal.
 
@@ -143,6 +145,9 @@ Application Gateway supports certificates referenced in Key Vault via the Role-b
 > Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
 
 In this example, we’ll use PowerShell to reference a new Key Vault secret.
+
+For a complete deployment example that uses `New-AzApplicationGatewaySslCertificate` with a versionless secret identifier, see [Configure TLS termination with Key Vault certificates by using Azure PowerShell](configure-keyvault-ps.md#point-the-tlsssl-certificate-to-your-key-vault).
+
 ```
 # Get the Application Gateway we want to modify
 $appgw = Get-AzApplicationGateway -Name MyApplicationGateway -ResourceGroupName MyResourceGroup
@@ -170,7 +175,7 @@ Under **Choose a certificate** select the certificate named in the previous step
  
 Azure Application Gateway doesn't just poll for the renewed certificate version on Key Vault at every four-hour interval. It also logs any error and is integrated with Azure Advisor to surface any misconfiguration with a recommendation for its fix.
  
-1. Sign-in to your Azure portal
+1. Sign in to your Azure portal
 2. Select Advisor
 3. Select Operational Excellence category from the left menu.
 4. You find a recommendation titled **Resolve Azure Key Vault issue for your Application Gateway**, if your gateway is experiencing this issue. Ensure the correct subscription is selected from the drop-down options above.

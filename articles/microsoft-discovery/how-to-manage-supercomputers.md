@@ -1,18 +1,18 @@
 ---
-title: Manage Supercomputer and Nodepools in Microsoft Discovery
-description: How to create and manage supercomputer and Nodepools
+title: Manage supercomputers and node pools in Microsoft Discovery
+description: Learn how to create and manage supercomputers and node pools in Microsoft Discovery.
 author: anzaman
 ms.author: alzam
 ms.service: azure
 ms.topic: how-to
-ms.date: 08/10/2026
+ms.date: 09/10/2026
 ---
 
-# How to create a supercomputer and nodepools in Microsoft Discovery
+# Manage supercomputers and node pools in Microsoft Discovery
 
-> **Applies to:** Microsoft Discovery (Public Preview)
+> **Applies to:** Microsoft Discovery
 
-This article describes how to create a **Supercomputer** and **NodePools** using the Azure portal. It follows Microsoft Learn conventions and is safe for preview documentation.
+This article describes how to create a **Supercomputer** and **NodePools** by using the Azure portal.
 
 ---
 

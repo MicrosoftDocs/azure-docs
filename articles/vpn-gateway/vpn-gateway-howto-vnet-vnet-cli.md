@@ -106,7 +106,7 @@ We use the following values in the examples:
 
 If you want to use the Azure CLI locally (instead of using Azure CloudShell), use the following steps to connect to your Azure subscription. If you're using CloudShell, skip to the next section.
 
-[!INCLUDE [CLI sign-in](../../includes/vpn-gateway-cli-login-numbers-include.md)]
+[!INCLUDE [CLI sign-in](../networking/includes/vpn-gateway/cli-login-numbers.md)]
 
 ### <a name="TestVNet1"></a>Step 2 - Create and configure TestVNet1
 
@@ -517,4 +517,4 @@ See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#V2VMulti) for VNet-to-VNet freq
 ## Next steps
 
 * Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see the [Virtual Machines documentation](../index.yml).
-* For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](configure-bgp.md).
