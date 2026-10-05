@@ -33,12 +33,14 @@ List of supported parameters:
 | **Name** | `Name` |
 | **ID** | `Id` |
 | **Tags**| `tag['tagName']` |
-| **Subscription Name** | `[subscription().Name]` |
-| **Subscription ID** | `[subscription().Id]` |
-| **Subscription Tags** | `[subscription().tags['tagName']]` |
-| **Resource Group Name** | `[resourceGroup().Name]` |
-| **Resource Group ID** | `[resourceGroup().Id]` |
-| **Resource Group Tags** | `[resourceGroup().tags['tagName']]` |
+| **Subscription Name*** | `[subscription().displayName]` |
+| **Subscription ID*** | `[subscription().Id]` |
+| **Subscription Tags*** | `[subscription().tags['tagName']]` |
+| **Resource Group Name*** | `[resourceGroup().Name]` |
+| **Resource Group ID*** | `[resourceGroup().Id]` |
+| **Resource Group Tags*** | `[resourceGroup().tags['tagName']]` |
+
+> *These are [value expressions](../governance/policy/concepts/definition-structure-policy-rule.md) usually used with **value** instead of **field**.
 
 List of supported operators:
 
@@ -238,6 +240,33 @@ In this example, a conditional statement is created that finds virtual networks 
    > [!NOTE]
    > Conditionals should filter on resource type Microsoft.Network/virtualNetwork to improve efficiency.
    > This condition is prepended for you on any conditionals specified through the portal.
+
+### Example 4: Using value expression to select subscription through displayName
+
+In this example, a conditional statement is created that finds virtual networks in subscriptions containing in the displayName **-prod**.
+
+* Advanced editor:
+
+   ```json
+
+     {
+          "allOf": [
+            {
+               "field": "type",
+               "equals": "Microsoft.Network/virtualNetwork"
+            },      
+            {
+               "value": "[subscription().displayName]",
+               "contains": "-prod"
+            }
+          ]    
+     }
+
+   ```
+
+   > [!NOTE]
+   > the expression can be used both with **value** or **operator**
+
 ## Next steps
 
 - Learn about [Network groups](concept-network-groups.md).
