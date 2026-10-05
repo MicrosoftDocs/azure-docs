@@ -289,6 +289,8 @@
   items:
   - name: Overview
     href: storage-files-developer-overview.md
+  - name: Change feed for Azure Files
+    href: storage-files-change-feed.md
   - name: Configure connection strings
     href: ../common/storage-configure-connection-string.md?toc=/azure/storage/files/toc.json
   - name: .NET
