@@ -6,7 +6,7 @@ services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
-ms.date: 06/01/2026
+ms.date: 10/05/2026
 ms.author: allensu
 ms.custom:
   - template-tutorial
@@ -17,9 +17,6 @@ ms.custom:
 # Tutorial: Create a Traffic Manager Linked Record using Azure CLI
 
 In this tutorial, you create a **Traffic Manager Linked Record** in Azure DNS using the Azure CLI. A Traffic Manager Linked Record connects a DNS record set directly to an Azure Traffic Manager profile, returning IP addresses to clients without an intermediate CNAME resolution.
-
-> [!IMPORTANT]
-> Traffic Manager Linked Records is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For a portal-based walkthrough, see [Create a Traffic Manager Linked Record using the Azure portal](tutorial-traffic-manager-linked-records-portal.md). For a conceptual overview, see [Traffic Manager Linked Records overview](dns-traffic-manager-linked-records.md).
 
@@ -249,7 +246,7 @@ echo "Traffic Manager profile ID: $TM_PROFILE_ID"
 Use `az network dns record-set a create` with the `--traffic-management-profile` parameter to create the Traffic Manager Linked Record. The following command creates an A record at the zone apex (`@`).
 
 > [!NOTE]
-> The `--traffic-management-profile` parameter is available in Azure CLI version 2.60 and later, and requires the Traffic Manager Linked Records preview API (`2024-06-01-preview` or later).
+> The `--traffic-management-profile` parameter is available in Azure CLI version 2.60 and later, and requires an API version that supports Traffic Manager Linked Records (`2024-06-01-preview` or later).
 
 ```azurecli-interactive
 az network dns record-set a create \
