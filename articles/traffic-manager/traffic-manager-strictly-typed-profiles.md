@@ -6,7 +6,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 06/01/2026
+ms.date: 10/05/2026
 ms.author: allensu
 # Customer intent: "As a network administrator, I want to understand Strictly Typed Profiles in Azure Traffic Manager, so that I can correctly configure Traffic Manager profiles that are linked to Azure DNS record sets and avoid endpoint type misconfigurations."
 ---
@@ -16,7 +16,7 @@ ms.author: allensu
 **Strictly Typed Profiles (STP)** is a Traffic Manager feature that enforces IP address type consistency for Traffic Manager profiles, so DNS record sets can be linked to a profile via [Traffic Manager Linked Records](../dns/dns-traffic-manager-linked-records.md). Profile types can be set upon creation of a profile or in the configuration settings of a profile. Once the type is set, it can't be changed—preventing the type of misconfigurations that were possible with the older alias-to-Traffic Manager approach.
 
 > [!IMPORTANT]
-> Strictly Typed Profiles is currently in PREVIEW and applies only to Traffic Manager profiles linked through Traffic Manager Linked Records. Existing Traffic Manager profiles used with alias records aren't affected unless you migrate them to Traffic Manager Linked Records. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Strictly Typed Profiles applies only to Traffic Manager profiles linked through Traffic Manager Linked Records. Existing Traffic Manager profiles used with alias records aren't affected unless you migrate them to Traffic Manager Linked Records.
 
 ## Why Strictly Typed Profiles?
 
