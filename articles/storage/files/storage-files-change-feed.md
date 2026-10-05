@@ -2,11 +2,11 @@
 title: Change feed for Azure Files
 titleSuffix: Azure Storage
 description: Learn how Azure Files change feed records file and directory changes and how applications can consume those records.
-author: khdownie
+author: Athreyasubash
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/05/2026
-ms.author: kendownie
+ms.author: subhashn
 # Customer intent: As an application developer, I want to process file and directory changes without repeatedly scanning an Azure file share.
 ---
 
