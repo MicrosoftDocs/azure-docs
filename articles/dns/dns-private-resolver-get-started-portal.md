@@ -184,7 +184,7 @@ Add three new conditional forwarding rules to the ruleset.
     - Rule Name: **Internal**
     - Domain Name: **internal.contoso.com.**
     - Rule State: **Enabled**
-4. Under **Destination IP address** enter 192.168.1.2, and then select **Add**.
+4. Under **Destination IP address** enter 10.1.0.5, and then select **Add**.
 5. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **Wildcard**
     - Domain Name: **.** (enter only a dot)
@@ -195,7 +195,7 @@ Add three new conditional forwarding rules to the ruleset.
 
 In this example: 
 - 10.0.0.4 is the resolver's inbound endpoint. 
-- 192.168.1.2 is an on-premises DNS server.
+- 10.1.0.5 is an on-premises DNS server.
 - 10.5.5.5 is a protective DNS service.
 
 ## Test the private resolver
