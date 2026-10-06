@@ -266,7 +266,7 @@ The storage container roles don't grant access to the underlying blob contents. 
 
 ### Discovery NSP Perimeter Joiner (custom role)
 
-**Target persona:** Microsoft Discovery first-party service principal (**Discovery control-plane service App**, app ID `92c174ac-8e41-4815-a1b7-d81b19ab03ce`) — *not* a human user.
+**Target persona:** Microsoft Discovery first-party service principal (**Discovery control-plane service App**, app ID `00001111-aaaa-2222-bbbb-3333cccc4444`) — *not* a human user.
 
 **Assignable scopes:** Subscription
 

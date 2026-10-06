@@ -36,20 +36,20 @@ The Discovery first-party app (**Discovery control-plane service App**) has the 
 
 | Property | Value |
 |----------|-------|
-| **Application (client) ID** | `92c174ac-8e41-4815-a1b7-d81b19ab03ce` |
+| **Application (client) ID** | `00001111-aaaa-2222-bbbb-3333cccc4444` |
 | **Display name** | Discovery control-plane service App |
 
 Verify the service principal exists in your tenant:
 
 ```azurecli
-az ad sp show --id 92c174ac-8e41-4815-a1b7-d81b19ab03ce \
+az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 \
   --query "{displayName:displayName, objectId:id, appId:appId}"
 ```
 
 > [!TIP]
 > If the service principal doesn't exist in your tenant, create it:
 > ```azurecli
-> az ad sp create --id 92c174ac-8e41-4815-a1b7-d81b19ab03ce
+> az ad sp create --id 00001111-aaaa-2222-bbbb-3333cccc4444
 > ```
 
 ### Create the custom role definition
@@ -112,7 +112,7 @@ New-AzRoleDefinition -InputFile "nsp-perimeter-joiner-role.json"
 SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 
 az role assignment create \
-  --assignee "92c174ac-8e41-4815-a1b7-d81b19ab03ce" \
+  --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
   --role "Discovery NSP Perimeter Joiner" \
   --scope "/subscriptions/$SUBSCRIPTION_ID"
 ```
@@ -123,7 +123,7 @@ az role assignment create \
 $subscriptionId = (Get-AzContext).Subscription.Id
 
 New-AzRoleAssignment `
-  -ApplicationId "92c174ac-8e41-4815-a1b7-d81b19ab03ce" `
+  -ApplicationId "00001111-aaaa-2222-bbbb-3333cccc4444" `
   -RoleDefinitionName "Discovery NSP Perimeter Joiner" `
   -Scope "/subscriptions/$subscriptionId"
 ```
@@ -134,7 +134,7 @@ New-AzRoleAssignment `
 2. Select **Access control (IAM)** > **+ Add** > **Add role assignment**.
 3. Search for **Discovery NSP Perimeter Joiner** and select it > **Next**.
 4. Select **User, group, or service principal** > **+ Select members**.
-5. Search for `Discovery control-plane service App` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
+5. Search for `Discovery control-plane service App` or `00001111-aaaa-2222-bbbb-3333cccc4444`.
 6. Select the service principal > **Select** > **Review + assign**.
 
 ---
@@ -143,7 +143,7 @@ New-AzRoleAssignment `
 
 ```azurecli
 az role assignment list \
-  --assignee "92c174ac-8e41-4815-a1b7-d81b19ab03ce" \
+  --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
   --scope "/subscriptions/$SUBSCRIPTION_ID" \
   --query "[].{role:roleDefinitionName, scope:scope}" \
   -o table
@@ -165,7 +165,7 @@ The Discovery data-plane service app also requires **Reader** access at subscrip
 
 ```azurecli
 az role assignment create \
-  --assignee "92c174ac-8e41-4815-a1b7-d81b19ab03ce" \
+  --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
   --role "Reader" \
   --scope "/subscriptions/$SUBSCRIPTION_ID"
 ```
@@ -176,7 +176,7 @@ az role assignment create \
 $subscriptionId = (Get-AzContext).Subscription.Id
 
 New-AzRoleAssignment `
-  -ApplicationId "92c174ac-8e41-4815-a1b7-d81b19ab03ce" `
+  -ApplicationId "00001111-aaaa-2222-bbbb-3333cccc4444" `
   -RoleDefinitionName "Reader" `
   -Scope "/subscriptions/$subscriptionId"
 ```
@@ -187,7 +187,7 @@ New-AzRoleAssignment `
 2. Select **+ Add** > **Add role assignment**.
 3. Search for **Reader** and select it > **Next**.
 4. Select **User, group, or service principal** > **+ Select members**.
-5. Search for `Discovery control-plane service App` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
+5. Search for `Discovery control-plane service App` or `00001111-aaaa-2222-bbbb-3333cccc4444`.
 6. Select the service principal > **Select** > **Review + assign**.
 
 ---
@@ -475,7 +475,7 @@ The custom role assignment is missing or hasn't propagated.
 The Discovery Control Plane service principal doesn't exist in your tenant yet:
 
 ```azurecli
-az ad sp create --id 92c174ac-8e41-4815-a1b7-d81b19ab03ce
+az ad sp create --id 00001111-aaaa-2222-bbbb-3333cccc4444
 ```
 
 Then retry the role assignment.
@@ -521,4 +521,3 @@ If DNS queries return a public IP instead of your private endpoint IP:
 - [Network security for Microsoft Discovery](concept-network-security.md) - Understand the architecture, supported resource types, and limitations.
 - [End-to-end network-hardened deployment](how-to-deploy-network-hardened-stack.md)
 - [What is Azure Private Link?](/azure/private-link/private-link-overview)
-
