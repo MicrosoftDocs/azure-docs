@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/22/2026
+ms.date: 10/06/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull custom connectors, WASM modules, and graph definitions from container registries for use in data flow graphs and connectors.
@@ -76,7 +76,7 @@ az iot ops registry create \
   --resource-group $RESOURCE_GROUP \
   --host $ACR_NAME.azurecr.io \
   --auth-type SystemAssignedManagedIdentity \
-  --audience https://management.azure.com/
+  --audience https://containerregistry.azure.net
 ```
 
 For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
@@ -111,7 +111,7 @@ resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2
     authentication: {
       method: 'SystemAssignedManagedIdentity'
       systemAssignedManagedIdentitySettings: {
-        audience: 'https://management.azure.com/'
+        audience: 'https://containerregistry.azure.net'
       }
     }
   }
@@ -192,7 +192,7 @@ az iot ops registry create \
   --resource-group $RESOURCE_GROUP \
   --host $ACR_NAME.azurecr.io \
   --auth-type SystemAssignedManagedIdentity \
-  --audience https://management.azure.com/
+  --audience https://containerregistry.azure.net
 ```
 
 # [Bicep](#tab/bicep)
@@ -201,7 +201,7 @@ az iot ops registry create \
 authentication: {
   method: 'SystemAssignedManagedIdentity'
   systemAssignedManagedIdentitySettings: {
-    audience: 'https://management.azure.com/'
+    audience: 'https://containerregistry.azure.net'
   }
 }
 ```
@@ -214,7 +214,10 @@ authentication: {
 | `extensionName` | Specific extension name to use. | No |
 | `tenantId` | Tenant ID for authentication. | No |
 
-The operator attempts to infer the audience from the endpoint if you don't provide it. For ACR, the audience is typically `https://management.azure.com/`.
+For ACR, use `https://containerregistry.azure.net` as the audience. With Dataflows operator version 1.5.5, the operator uses this audience if you omit the optional `audience` property and rejects an explicitly configured audience that doesn't match it.
+
+> [!IMPORTANT]
+> Dataflows operator version 1.4.11 defaulted to `https://management.azure.com/`. Before upgrading to Dataflows operator version 1.5.5, check existing ACR registry endpoints and update any explicitly configured ARM audience to `https://containerregistry.azure.net`.
 
 #### User-assigned managed identity
 
@@ -262,7 +265,7 @@ authentication: {
 | `tenantId` | Tenant ID where the managed identity is located. | Yes |
 | `scope` | Scope of the resource with `.default` suffix. | No |
 
-The operator attempts to infer the scope from the endpoint if you don't provide it.
+For ACR, use `https://containerregistry.azure.net/.default` as the scope. With Dataflows operator version 1.5.5, the operator uses this scope if you omit the optional `scope` property and rejects an explicitly configured scope that doesn't match it. Before upgrading to Dataflows operator version 1.5.5, update any existing ACR registry endpoint that explicitly uses `https://management.azure.com/.default` to use the ACR scope.
 
 #### Artifact pull secret
 
