@@ -86,7 +86,7 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | SetContainerMetadata        | [Set Container Metadata](/rest/api/storageservices/set-container-metadata)                | Other                     | Other                       | Write                       |
 | SetContainerServiceMetadata | [Set Immutability Policy](/rest/api/storageservices/set-blob-immutability-policy)         | Other                     | Other                       | Other                       |
 | SetContainerServiceMetadata | [Set Legal Hold](/rest/api/storageservices/set-blob-legal-hold)                           | Other                     | Other                       | Other                       |
-| SnapshotBlob                | [Snapshot Blob](/rest/api/storageservices/snapshot-blob)                                  | Other                     | Other                       | Read                        |
+| SnapshotBlob                | [Snapshot Blob](/rest/api/storageservices/snapshot-blob)                                  | Other                     | Other                       | Write                       |
 | UndeleteBlob                | [Undelete Blob](/rest/api/storageservices/undelete-blob)                                  | Write                     | Write                       | Write                       |
 
 <sup>1</sup>    In addition to a read charge, charges are incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
