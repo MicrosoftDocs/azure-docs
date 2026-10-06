@@ -93,7 +93,7 @@ The response to this request looks like the following example. The role values i
       "email": "user1@contoso.com"
     },
     {
-      "id": "dc1c916b-a652-49ea-b128-7c465a54c759",
+      "id": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
       "type": "email",
       "roles": [
         {
@@ -131,14 +131,14 @@ The response to this request looks like the following example. The role values i
 Use the following request to retrieve details of an individual user from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/users/dc1c916b-a652-49ea-b128-7c465a54c759?api-version=2022-07-31
+GET https://{your app subdomain}.azureiotcentral.com/api/users/aaaabbbb-0000-cccc-1111-dddd2222eeee?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example. The role value identifies the role ID the user is associated with:
 
 ```json
 {
-  "id": "dc1c916b-a652-49ea-b128-7c465a54c759",
+  "id": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "type": "email",
   "roles": [
     {
