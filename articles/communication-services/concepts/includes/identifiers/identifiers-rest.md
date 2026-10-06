@@ -183,8 +183,8 @@ Alternatively, you can find the object ID as the `oid` claim and the tenant ID a
 {
     "teamsExtensionUser": {
         "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
-        "tenantId": "d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d",
-        "resourceId": "f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45"
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "resourceId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1"
     }
 }
 
@@ -194,8 +194,8 @@ Alternatively, you can find the object ID as the `oid` claim and the tenant ID a
     "rawId": "8:acs:f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45_d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d_00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
     "teamsExtensionUser": {
         "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
-        "tenantId": "d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d",
-        "resourceId": "f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45"
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "resourceId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1"
     }
 }
 
@@ -204,8 +204,8 @@ Alternatively, you can find the object ID as the `oid` claim and the tenant ID a
 {
     "microsoftTeamsUser": {
         "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
-        "tenantId": "d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d",
-        "resourceId": "f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "resourceId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
         "cloud": "gcch"
     }
 }
@@ -216,8 +216,8 @@ Alternatively, you can find the object ID as the `oid` claim and the tenant ID a
     "rawId": "8:gcch-acs:f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45_d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d_00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
     "teamsExtensionUser": {
         "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
-        "tenantId": "d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d",
-        "resourceId": "f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "resourceId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
         "cloud": "gcch"
     }
 }
