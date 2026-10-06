@@ -6,7 +6,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 10/05/2026
+ms.date: 10/06/2026
 ms.author: allensu
 # Customer intent: "As a network administrator, I want to understand Strictly Typed Profiles in Azure Traffic Manager, so that I can correctly configure Traffic Manager profiles that are linked to Azure DNS record sets and avoid endpoint type misconfigurations."
 ---
@@ -40,7 +40,7 @@ The following table shows how the DNS record type maps to the Traffic Manager pr
 > The profile type is locked once set and can't be changed. A new profile with a different type must be created if a change is necessary.
 
 > [!NOTE]
-> Strictly Typed Profiles are available in the **2024-04-01-preview** API version. The `RecordType` property on `ProfileProperties` controls the profile type:
+> Use the stable **2026-09-01** API version for Strictly Typed Profiles. The `RecordType` property on `ProfileProperties` controls the profile type:
 >
 > ```json
 > "recordType": {
