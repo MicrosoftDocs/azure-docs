@@ -24,7 +24,7 @@ In your IoT hub in the Azure portal, IoT Edge devices are created and managed se
    * Create a descriptive device ID. Make a note of this device ID, as you use it later.
    * Check the **IoT Edge Device** checkbox.
    * Select **X.509 Self-Signed** as the authentication type.
-   * Provide the primary and secondary identity certificate thumbprints. Thumbprint values are 40-hex characters for SHA-1 hashes or 64-hex characters for SHA-256 hashes. The Azure portal supports hexadecimal values only. Remove column separators and spaces from the thumbprint values before entering them in the portal. For example, `D2:68:D9:04:9F:1A:4D:6A:FD:84:77:68:7B:C6:33:C0:32:37:51:12` is entered as `D268D9049F1A4D6AFD8477687BC633C032375112`.
+   * Provide the primary and secondary identity certificate thumbprints. Thumbprint values are 40-hex characters for SHA-1 hashes or 64-hex characters for SHA-256 hashes. The Azure portal supports hexadecimal values only. Remove column separators and spaces from the thumbprint values before entering them in the portal. For example, `D2:68:D9:04:9F:1A:4D:6A:FD:84:77:68:7B:C6:33:C0:32:37:51:12` is entered as `AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00`.
 
    > [!TIP]
    > If you're testing and want to use one certificate, you can use the same certificate for both the primary and secondary thumbprints.
@@ -49,7 +49,7 @@ This command includes several parameters:
 * `hub-name` or `-n`: Provide the name of your IoT hub.
 * `--edge-enabled` or `--ee`: Declare that the device is an IoT Edge device.
 * `--auth-method` or `--am`: Declare the authorization type the device is going to use. In this case, we're using X.509 certificate thumbprints.
-* `--primary-thumbprint` or `--ptp`: Provide an X.509 certificate thumbprint to use as a primary key. Only hexadecimal values are supported. Remove column separators and spaces from the thumbprint value. For example, `D2:68:D9:04:9F:1A:4D:6A:FD:84:77:68:7B:C6:33:C0:32:37:51:12` is entered as `D268D9049F1A4D6AFD8477687BC633C032375112`.
+* `--primary-thumbprint` or `--ptp`: Provide an X.509 certificate thumbprint to use as a primary key. Only hexadecimal values are supported. Remove column separators and spaces from the thumbprint value. For example, `D2:68:D9:04:9F:1A:4D:6A:FD:84:77:68:7B:C6:33:C0:32:37:51:12` is entered as `AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00`.
 * `--secondary-thumbprint` or `--stp`: Provide an X.509 certificate thumbprint to use as a secondary key. Remove column separators and spaces from the thumbprint value. If you're testing and want to use one certificate, you can use the same certificate for both the primary and secondary thumbprints.
 ---
 
