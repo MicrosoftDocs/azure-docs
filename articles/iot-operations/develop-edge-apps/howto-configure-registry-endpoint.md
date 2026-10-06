@@ -214,10 +214,10 @@ authentication: {
 | `extensionName` | Specific extension name to use. | No |
 | `tenantId` | Tenant ID for authentication. | No |
 
-For ACR, use `https://containerregistry.azure.net` as the audience. With Dataflows operator version 1.5.5, the operator uses this audience if you omit the optional `audience` property and rejects an explicitly configured audience that doesn't match it.
+For ACR, use `https://containerregistry.azure.net` as the audience. The `audience` property is optional; if you omit it, the operator infers the audience from the registry hostname. Specify the ACR audience explicitly in your deployment configuration to avoid relying on defaults.
 
-> [!IMPORTANT]
-> Dataflows operator version 1.4.11 defaulted to `https://management.azure.com/`. Before upgrading to Dataflows operator version 1.5.5, check existing ACR registry endpoints and update any explicitly configured ARM audience to `https://containerregistry.azure.net`.
+> [!NOTE]
+> If an existing ACR registry endpoint uses `https://management.azure.com/`, see [Upgrade fails with an ACR registry endpoint audience mismatch](../troubleshoot/known-issues.md#upgrade-fails-with-an-acr-registry-endpoint-audience-mismatch).
 
 #### User-assigned managed identity
 
@@ -265,7 +265,9 @@ authentication: {
 | `tenantId` | Tenant ID where the managed identity is located. | Yes |
 | `scope` | Scope of the resource with `.default` suffix. | No |
 
-For ACR, use `https://containerregistry.azure.net/.default` as the scope. With Dataflows operator version 1.5.5, the operator uses this scope if you omit the optional `scope` property and rejects an explicitly configured scope that doesn't match it. Before upgrading to Dataflows operator version 1.5.5, update any existing ACR registry endpoint that explicitly uses `https://management.azure.com/.default` to use the ACR scope.
+For ACR, use `https://containerregistry.azure.net/.default` as the scope. The `scope` property is optional; if you omit it, the operator infers the scope from the registry hostname. Specify the ACR scope explicitly in your deployment configuration to avoid relying on defaults.
+
+If an existing ACR registry endpoint uses `https://management.azure.com/.default`, see [Upgrade fails with an ACR registry endpoint audience mismatch](../troubleshoot/known-issues.md#upgrade-fails-with-an-acr-registry-endpoint-audience-mismatch).
 
 #### Artifact pull secret
 
