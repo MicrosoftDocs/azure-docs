@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/28/2026
+ms.date: 08/19/2026
 ms.custom: horz-monitor
 # Customer intent: As a network administrator, I want to access Azure Firewall logs and metrics so that I can monitor traffic, analyze performance, and ensure compliance with security protocols effectively.
 ---
@@ -43,6 +43,32 @@ You can also connect to your storage account and retrieve the JSON log entries f
 > If you're familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+## Monitor firewall health with Resource Health
+
+Azure Firewall integrates with Azure Resource Health to report the current health of your firewall, a history of health events, and recommended actions when a problem is detected. Resource Health is available across all Azure Firewall deployment types and SKUs. Use Resource Health to determine whether a problem originates in Azure Firewall or elsewhere in your network.
+
+Resource Health complements the *Firewall health state* metric, which reports firewall health as a numeric metric that you can chart and use for alerts. For definitions of the Resource Health states and events reported for Azure Firewall, see [Resource Health states and events](monitor-firewall-reference.md#resource-health-states-and-events).
+
+### View current health and health history
+
+1. In the Azure portal, go to your Azure Firewall resource.
+1. Under **Help**, select **Resource health**.
+1. Review the current health state. If the state is **Degraded** or **Unavailable**, expand **What actions can you take?** to view recommended mitigations and support options.
+
+  :::image type="content" source="media/monitor-firewall/resource-health-current.png" alt-text="Screenshot of Azure Firewall Resource Health showing a degraded state and recommended actions." lightbox="media/monitor-firewall/resource-health-current.png":::
+
+The **Health history** section shows when the firewall changed state and how many health events occurred. Expand an event to review its details and recommended actions.
+
+:::image type="content" source="media/monitor-firewall/resource-health-history.png" alt-text="Screenshot of expanded Azure Firewall Resource Health history events and recommended actions." lightbox="media/monitor-firewall/resource-health-history.png":::
+
+### Create a Resource Health alert
+
+1. On the firewall's **Resource health** page, select **Add resource health alert**.
+1. Choose the health-state changes to monitor, such as **Degraded** and **Unavailable**.
+1. Select or create an action group to define how Azure notifies you.
+
+For alert permissions and complete configuration options, see [Create Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
 ## Change tracking (Preview) 
 

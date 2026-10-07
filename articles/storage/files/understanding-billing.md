@@ -14,7 +14,7 @@ ms.custom:
 
 # Understand Azure Files billing
 
-This article helps you understand the different billings models for Azure Files so you can manage costs and determine total cost of ownership. For pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+This article helps you understand the different billing models for Azure Files so you can manage costs and determine total cost of ownership. For pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Determine the cost of an Azure Files deployment
 
@@ -192,36 +192,7 @@ Shares provisioned before guardrails were introduced that exceed the 5× limit c
 
 ### Provisioned v2 bursting
 
-Credit-based IOPS bursting provides added flexibility around IOPS usage. Use this flexibility as a buffer against unanticipated IO spikes. For established IO patterns, provision for IO peaks.
-
-Burst IOPS credits accumulate whenever traffic for your file share is less than provisioned (baseline) IOPS. Whenever a file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the file share can burst up to the maximum allowed burst IOPS limit. File shares can continue to burst as long as there are credits remaining, based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. After all credits are consumed, the share returns to the provisioned IOPS. IOPS against the file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
-
-Share credits have three states:
-
-- **Accruing**, when the file share is using less than the provisioned IOPS.
-- **Declining**, when the file share is using more than the provisioned IOPS and in the bursting mode.
-- **Constant**, when the file share is using exactly the provisioned IOPS and there are either no credits accrued or used.
-
-A new file share starts with the full number of credits in its burst bucket. Burst credits don't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a file share:
-
-| Item | SSD formula | HDD formula |
-|-|-|-|
-| Burst IOPS limit | `MIN(MAX(3 * ProvisionedIOPS, 10000), 102400)` | `MIN(MAX(3 * ProvisionedIOPS, 5000), 50000)` |
-| Burst IOPS credits | `(BurstLimit - ProvisionedIOPS) * 3600` | `(BurstLimit - ProvisionedIOPS) * 3600` |
-
-The following table illustrates a few examples of these formulas for various provisioned IOPS amounts:
-
-| Provisioned IOPS | SSD burst IOPS limit | SSD burst credits | HDD burst IOPS limit | HDD burst credits |
-|-|-|-|-|-|
-| 500 | -- | -- | Up to 5,000 | 16,200,000 |
-| 1,000 | -- | -- | Up to 5,000 | 14,400,000 |
-| 3,000 | Up to 10,000 | 25,200,000 | Up to 9,000 | 21,600,000 |
-| 5,000 | Up to 15,000 | 36,000,000 | Up to 15,000 | 36,000,000 |
-| 10,000 | Up to 30,000 | 72,000,000 | Up to 30,000 | 72,000,000 |
-| 25,000 | Up to 75,000 | 180,000,000 | Up to 50,000 | 90,000,000 |
-| 50,000 | Up to 102,400 | 188,640,000 | Up to 50,000 | 0 |
-| 75,000 | Up to 102,400 | 98,640,000 | -- | -- |
-| 102,400 | Up to 102,400 | 0 | -- | -- |
+[!INCLUDE [files-provisioned-v2-bursting](../../../includes/files-provisioned-v2-bursting.md)]
 
 ### Provisioned v2 resource models
 
@@ -374,51 +345,11 @@ The provisioned v1 model supports two types of bursting: **credit-based bursting
 
 #### Provisioned v1 credit-based bursting
 
-Credit-based IOPS bursting provides added flexibility around IOPS usage. Use this flexibility as a buffer against unanticipated IO spikes. For established IO patterns, provision for IO peaks.
-
-Burst IOPS credits accumulate whenever traffic for your classic file share is less than provisioned (baseline) IOPS. Whenever a classic file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the classic file share can burst up to the maximum allowed burst IOPS limit. Classic file shares can continue to burst as long as there are credits remaining, based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. After all credits are consumed, the classic file share returns to the provisioned IOPS. IOPS against the classic file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
-
-Share credits have three states:
-
-- **Accruing**, when the classic file share is using less than the provisioned IOPS.
-- **Declining**, when the classic file share is using more than the provisioned IOPS and in the bursting mode.
-- **Constant**, when the classic file share is using exactly the provisioned IOPS and there are either no credits accrued or used.
-
-A new classic file share starts with the full number of credits in its burst bucket. Burst credits don't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a classic file share:
-
-| Item | Formula |
-|-|-|
-| Burst limit | `MIN(MAX(3 * ProvisionedStorageGiB, 10000), 102400)` |
-| Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
-
-The following table illustrates a few examples of these formulas for the provisioned sizes:
-
-| Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Throughput (MiB/sec) |
-|-|-|-|-|-|
-| 100 | 3,100 | Up to 10,000 | 24,840,000 | 110 |
-| 500 | 3,500 | Up to 10,000 | 23,400,000 | 150 |
-| 1,024 | 4,024 | Up to 10,000 | 21,513,600 | 203 |
-| 5,120 | 8,120 | Up to 15,360 | 26,064,000 | 613 |
-| 10,240 | 13,240 | Up to 30,720 | 62,928,000 | 1,125 |
-| 33,792 | 36,792 | Up to 102,400 | 227,548,800 | 3,480 |
-| 51,200 | 54,200 | Up to 102,400 | 164,880,000 | 5,220 |
-| 102,400 | 102,400 | Up to 102,400 | 0 | 10,340 |
+[!INCLUDE [files-provisioned-v1-credit-bursting](../../../includes/files-provisioned-v1-credit-bursting.md)]
 
 #### Provisioned v1 paid bursting
 
-Paid bursting is an advanced feature of the provisioned v1 model designed to support customers who never want to be throttled. Paid bursting adds extra usage-based billing for any amount of IOPS or throughput above the provisioned storage. This feature is distinct from credit-based bursting, which is included for free as part of provisioned storage. While paid bursting can add powerful flexibility to how you provision your classic file share, it can also lead to unexpected billing if used incorrectly.
-
-Like credit-based bursting, paid bursting isn't a replacement for provisioning the correct amount of IOPS and throughput. Rather, it provides further protection against throttling if you run into unexpected demand. If you have a consistent level of IOPS or throughput usage, it's cheaper to provision enough IOPS and throughput (through storage provisioning) to cover demand instead of relying on paid bursting.
-
-Paid bursting is disabled by default, but you can enable it by following the instructions to [change the cost and performance characteristics of a provisioned v1 classic file share](./modify-file-share.md?tabs=azure-powershell#provisioned-v1-billing-model) ( PowerShell and CLI only). If you enable paid bursting, monitor IOPS and throughput usage by using the following metrics available through Azure Monitor:
-
-- File Share Provisioned IOPS
-- File Share Provisioned Bandwidth MiB/s (throughput)
-- Transactions by Max IOPS
-- Bandwidth by Max MiB/sec (throughput)
-- Burst Credits for IOPS (credit-based bursting)
-- Paid Bursting IOS (IOs)
-- Paid Bursting Bandwidth
+[!INCLUDE [files-provisioned-v1-paid-bursting](../../../includes/files-provisioned-v1-paid-bursting.md)]
 
 ### Provisioned v1 resource models
 

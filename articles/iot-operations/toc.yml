@@ -48,9 +48,9 @@ items:
             href: deploy-iot-ops/overview-deploy.md
             displayName: Kubernetes, k3s, Ubuntu, AKS, Azure Local, secure, permissions, sites
           - name: Best practices for namespaces
-            href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
+            href: ../iot/device-registry/best-practices-namespaces.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Best practices for schema registries
-            href: ../iot/iot-device-registry-schema-registry-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
+            href: ../iot/device-registry/best-practices-schema-registries.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Prepare a cluster
             href: deploy-iot-ops/howto-prepare-cluster.md
             displayName: Kubernetes, Arc-enable
@@ -91,6 +91,9 @@ items:
               - name: Validate images
                 href: secure-iot-ops/howto-validate-images.md
                 displayName: docker, helm, integrity, container, certificate
+              - name: Mirror deployment images
+                href: secure-iot-ops/howto-mirror-images-private-registry.md
+                displayName: DIL, Deployment Image List, air-gap, air-gapped, disconnected, offline, private registry, ACR, MCR, image inventory, image scan, container registry, image mirroring
               - name: Secure your solution
                 href: ../iot/iot-overview-security.md
                 displayName: security, best practice, guidelines, defender

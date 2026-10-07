@@ -35,7 +35,7 @@ The following table is updated regularly. Capacity availability in Azure regions
 | Canada Central  | ✅ | ✅ | ✅ |  |
 | Canada East  | ✅ | ✅ | |  |
 | Central India  | ✅ | ✅ | |  |
-| Central US  | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
+| Central US  | ✅ | ✅ | ⚠️ ¹ |  |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
 | East US 2 | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
@@ -54,7 +54,7 @@ The following table is updated regularly. Capacity availability in Azure regions
 | South India | ✅ | ✅ |  |  |
 | Southeast Asia | ✅ | ✅ |  |  |
 | Spain Central | ✅ | ✅ |  |  |
-| Sweden Central | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
+| Sweden Central | ✅ | ✅ | ⚠️ ¹ |  |
 | Switzerland North | ✅ |✅ |  |  |
 | UAE North | ✅ | ✅ | |  |
 | UK South | ⚠️ ¹ | ⚠️ ¹ | ⚠️ ¹ | ⚠️ ¹ |

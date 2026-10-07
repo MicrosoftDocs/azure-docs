@@ -14,6 +14,8 @@ ms.subservice: teams-interop
 
 # Build a custom event management platform with Microsoft Teams, Microsoft Graph and Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 The goal of this document is to reduce the time it takes for Event Management Platforms to apply the power of Microsoft Teams Webinars through integration with Microsoft Graph APIs and Azure Communication Services UI Library. The target audience is developers and decision makers. To achieve the goal, this document provides the following two functions: 1) an aid to help event management platforms quickly decide what level of integration would be right for them, and 2) a step-by-step end-to-end QuickStart to speed up implementation. 
 
 ## What are virtual events and event management platforms?

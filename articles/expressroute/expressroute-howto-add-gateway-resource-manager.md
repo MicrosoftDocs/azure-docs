@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 11/06/2025
+ms.date: 09/05/2026
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ---
@@ -237,7 +237,7 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 ```
 
 > [!NOTE]
-> You can only upgrade within the same SKU family (non-availability zone or availability zone-enabled). For more information, see [Upgrade a gateway SKU](expressroute-howto-add-gateway-portal-resource-manager.md#upgrade-a-gateway-sku).
+> You can resize only within the same SKU family (non-availability zone or availability zone-enabled). To move an eligible Standard, HighPerformance, or UltraPerformance gateway to an availability zone-enabled SKU, use the [ExpressRoute gateway migration experience](gateway-migration.md#supported-migration-scenarios). For other SKU changes, see [Upgrade a gateway SKU](expressroute-howto-add-gateway-portal-resource-manager.md#upgrade-a-gateway-sku).
 
 ---
 

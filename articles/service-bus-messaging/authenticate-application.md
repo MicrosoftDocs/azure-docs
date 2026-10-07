@@ -2,7 +2,7 @@
 title: Authenticate an Application to Access Azure Service Bus Entities
 description: This article provides information about authenticating an application with Microsoft Entra ID to access Azure Service Bus entities like queues and topics.
 ms.topic: concept-article
-ms.date: 04/29/2025
+ms.date: 09/15/2026
 ms.custom:
   - subject-rbac-steps
   - sfi-image-nochange
@@ -40,6 +40,8 @@ For Azure Service Bus, the Azure RBAC model helps protect the management of name
 - [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Use this role to give full access to the Service Bus resources.
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use this role to give sending access to Service Bus namespace and its entities.
 - [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Use this role to give receiving access to Service Bus namespace and its entities.
+
+Azure resource management permissions to configure autoforwarding can enable indirect access to messages even without receive access on the source. Before granting these permissions, review the [security considerations for autoforwarding](service-bus-auto-forwarding.md#autoforwarding-considerations).
 
 ### Resource scope
 

@@ -2,7 +2,6 @@
 title: Create a lab plan using Python
 titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab plan using Python and the Azure Python SDK. 
-author: RogerBestMSFT
 ms.topic: how-to
 ms.custom: devx-track-python
 ms.date: 02/15/2022

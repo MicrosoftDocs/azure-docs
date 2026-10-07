@@ -11,6 +11,8 @@ description: Steps on how to integrate CallKit with Azure Communication Services
 
  # Integrate with CallKit
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
   In this document, we'll go through how to integrate CallKit with your iOS application. 
   
   ## Prerequisites

@@ -32,7 +32,7 @@ In this section, you create a chat completion configuration in Azure portal usin
     - **Model**: Select **gpt-4o**.
     
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the create new AI configuration form.](./media/create-ai-chat-completion-config.png)
+    > ![Screenshot shows the create new AI configuration form.](./media/howto-chat-completion-config/create-ai-chat-completion-config.png)
     
 1. Leave the rest of the values as default then select **Apply**.
 

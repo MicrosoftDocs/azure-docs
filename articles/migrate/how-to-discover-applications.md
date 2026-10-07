@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 08/28/2026
 ms.custom: engagement-fy23
 # Customer intent: As an IT professional, I want to discover software inventory on my on-premises servers using a cloud-based assessment tool, so that I can effectively plan and implement a migration strategy to Azure for my workloads.

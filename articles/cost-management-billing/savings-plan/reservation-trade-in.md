@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/22/2026
+ms.date: 09/14/2026
 ms.author: onwokolo
 ---
 
@@ -16,7 +16,7 @@ ms.author: onwokolo
 If your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) (VM), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations don't provide the flexibility you need, trade them in for a compute savings plan. 
 When you trade in compute reservations for a compute savings plan, you make a new commitment of either one year or three years.
 
-In addition, if your [database reservations](https://azure.microsoft.com/products/category/databases) aren't sufficiently flexible, you can trade them in for a database savings plan. When you trade in database reservations for a database savings plan, you make a new commitment of one year.
+In addition, if your [database reservations](https://azure.microsoft.com/products/category/databases) aren't sufficiently flexible, you can trade them in for a database savings plan. When you trade in database reservations for a database savings plan, you make a new commitment of either one year or three years.
 
 Although you can trade in compute and database reservations for compute and database savings plans, respectively, you can't exchange a savings plan for a reservation or for another savings plan. You may only trade in up to 100 reservations at a time as part of a savings plan purchase.
 

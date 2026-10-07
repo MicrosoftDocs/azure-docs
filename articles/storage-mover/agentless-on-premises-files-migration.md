@@ -27,7 +27,7 @@ Before you begin, ensure that you have:
 - An on-premises SMB source file share such as a Windows Server file services or NAS, accessible through private network connectivity.
 - A [Storage Mover resource](storage-mover-create.md) in your Azure subscription.
 - An [Azure Storage account](../storage/common/storage-account-create.md) and destination Azure file share.
-- A private connection set up for private source access. See [Migrations requiring private connections](migrations-requiring-private-connections.md) and [Plan private networking for cloud-to-cloud migrations](cloud-to-cloud-private-network-configuration.md).
+- A private connection set up for private source access. See [Migrations requiring private connections](migrations-requiring-private-connections.md) and [Configure private network connectivity for on-premises to Azure migrations](on-premises-private-network-configuration.md?pivots=on-premises-smb).
 - An Azure Key Vault that stores SMB credentials in two secrets: one for the username and one for the password.
 - Permissions to create Storage Mover resources and assign required RBAC roles.
 

@@ -13,6 +13,8 @@ services: azure-communication-services
 
 # Place server-initiated outbound calls with Teams Phone Extensibility
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Teams Phone extensibility (TPE) lets a server application place outbound calls from a Teams resource account by using Azure Communication Services Call Automation. This pattern supports proactive customer outreach, callbacks, and contact center workflows while using the resource account's Teams Phone number and PSTN connectivity.
 
 This article shows how to place an outbound PSTN call with the .NET Call Automation SDK. For other supported targets and operations, see [Microsoft Teams Phone capabilities in Calling and Call Automation SDKs](../../concepts/interop/tpe/teams-phone-extensibility-capabilities.md).

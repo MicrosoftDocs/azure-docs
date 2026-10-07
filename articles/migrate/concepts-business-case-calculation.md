@@ -3,7 +3,7 @@ title: Business Case in Azure Migrate
 description: Learn what a business case in Azure Migrate is, what reports it contains, and the core concepts and formulas that are used.
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 10/29/2024
 ms.custom: engagement-fy25
 ms.update-cycle: 1825-days

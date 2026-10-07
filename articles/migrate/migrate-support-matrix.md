@@ -4,7 +4,7 @@ description: This article provides a summary of support settings and limitations
 author: Vikram1988
 ms.author: vibansa
 ms.topic: concept-article
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 05/08/2025
 ms.update-cycle: 1095-days
 ms.custom: engagement-fy24

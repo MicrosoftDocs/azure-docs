@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your calling app to a Teams meeting
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/teams-interop/teams-interop-javascript.md)]
 ::: zone-end

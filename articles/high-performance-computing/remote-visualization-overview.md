@@ -15,7 +15,7 @@ ms.subservice: hpc
 
 Remote visualization runs a graphical application on an Azure virtual machine (VM) and streams the application's display to a user's device. The application stays close to the high-performance computing (HPC) resources and data that it uses. Instead of moving large result sets to a workstation, the remote-display protocol sends rendered pixels to the user and returns keyboard and pointer input to the application.
 
-Remote visualization is an access pattern, not a single Azure service. A complete solution combines Azure infrastructure with remote-display software, identity, networking, storage, and, for cluster-integrated deployments, an HPC scheduler or web portal.
+Remote visualization is an access pattern, not a single Azure service. A complete solution combines Azure infrastructure with remote-display software, identity, networking, storage, and, for cluster-integrated deployments, an HPC scheduler or web portal. Remote visualization that provides a complete Linux desktop is also commonly described as Linux virtual desktop infrastructure (VDI).
 
 ## Why visualization moves to the data
 
@@ -81,6 +81,8 @@ Remote visualization for HPC commonly uses one of two deployment models:
 
 Some workloads don't require either model. Browser-native notebooks, application-specific web interfaces, or noninteractive rendering might provide a simpler entry point. For a detailed comparison, see [Choose a remote visualization deployment model for Azure HPC](remote-visualization-choose-deployment-model.md).
 
+For implementation guidance, see [Deploy GPU-accelerated Linux virtual desktops with ThinLinc on Azure](/azure/virtual-machines/linux/thinlinc-linux-vdi) for the standalone model or [Configure ThinLinc with Open OnDemand in CycleCloud Workspace for Slurm](/azure/cyclecloud/how-to/ccws/configure-thinlinc) for the cluster-integrated model.
+
 ## GPU considerations
 
 Select a VM based on the application's supported GPU vendor and driver, graphics memory, CPU and memory requirements, storage throughput, session density, and regional availability. Don't assume that all Azure GPU VM families use the same GPU vendor or driver stack.
@@ -124,7 +126,7 @@ Session technologies offer different user experiences and support boundaries.
 | HPC web portal | Files, jobs, shells, notebooks, or interactive apps from one portal | Scheduler-integrated shared clusters | Portal and scheduler configuration, app definitions, access-node capacity, and release-specific features |
 | VNC-based session | Remote Linux desktop through a VNC client or web gateway | Controlled environments and proofs of concept | Encryption, authentication, GPU acceleration, and vendor support vary by implementation |
 
-Open OnDemand is an example of an HPC web portal. Azure CycleCloud Workspace for Slurm can deploy Open OnDemand as a web entry point for its Slurm environment. Available interactive applications and integrations depend on the workspace release and configuration. For current authentication guidance, see [Configure Open OnDemand with CycleCloud](/azure/cyclecloud/how-to/ccws/configure-open-ondemand).
+Open OnDemand is an example of an HPC web portal. Azure CycleCloud Workspace for Slurm can deploy Open OnDemand as a web entry point for its Slurm environment. ThinLinc is one application option for browser-based Linux VDI sessions scheduled through Slurm. Microsoft provides limited support for the packaged integration, while Cendio supports the ThinLinc product and its licensing. For deployment steps, see [Configure ThinLinc with Open OnDemand in CycleCloud Workspace for Slurm](/azure/cyclecloud/how-to/ccws/configure-thinlinc).
 
 ## Storage and data access
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Microsoft Entra authentication."
 author: pbrasil
 ms.author: peterbr 
-ms.date: 07/05/2023
+ms.date: 08/28/2026
 ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: authentication
@@ -205,7 +205,7 @@ For example, a single SAS token with a `maxRatePerSecond` of 10 can be used to l
 
 Consider the application topology where the endpoint `https://us.atlas.microsoft.com` routes to the same US locations that the Azure Maps services are hosted, such as `East US`, `West Central US`, or `West US 2`. The same idea applies to other geographical endpoints such as `https://eu.atlas.microsoft.com` between `West Europe` and `North Europe`. To prevent unexpected authorization denials, use a SAS token that uses the same Azure locations that the application consumes. The endpoint location is defined using the Azure Maps Management REST API.
 
-#### Default rate limits take precedent over SAS token rate limits
+#### Default rate limits take precedence over SAS token rate limits
 
 As described in [Azure Maps QPS rate limits](azure-maps-qps-rate-limits.md), the rate limits for individual service offerings are enforced collectively at the account level.
 
@@ -289,9 +289,9 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 [CORS] is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy] that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. Using the Azure Maps account resource, you can configure which origins are allowed to access the Azure Maps REST API from your applications.
 
 > [!IMPORTANT]
-> CORS isn't an authorization mechanism. Requests made to a map account using REST API, when CORS is enabled, also needs a valid map account authentication scheme such as Shared Key, Microsoft Entra ID, or SAS token.
+> CORS isn't an authorization mechanism. Requests made to a map account by using REST API, when CORS is enabled, also need a valid map account authentication scheme such as Shared Key, Microsoft Entra ID, or SAS token.
 >
-> CORS is supported for all map account pricing tiers, data-plane endpoints, and locations.
+> CORS is supported for all Azure Maps accounts, data-plane endpoints, and locations.
 
 ### Prerequisites
 

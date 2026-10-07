@@ -3,7 +3,7 @@ title: Render custom data on a raster map in Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: faterceros
 ms.author: aterceros 
-ms.date: 06/20/2024
+ms.date: 08/28/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: render
@@ -31,13 +31,6 @@ The following are examples of custom data:
 > In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 This article uses the [Bruno] application, but you can use a different API development environment.
-
-> [!NOTE]
-> The examples in this article require an Azure Maps account in the Gen2 pricing tier.
->
-> **Azure Maps Gen1 pricing tier retirement**
->
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 ## Get static image with custom pins and labels
 
@@ -91,7 +84,7 @@ To render a polygon with color and opacity:
 
 ## Render a circle and pushpins with custom labels
 
-You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` "scale style" modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 makes the pins larger, and values smaller than 1 makes them smaller. For more information about style modifiers, see the [Path] parameter of the [Get Map Static Image] command.
+You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` scale style modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 make the pins larger, and values smaller than 1 make them smaller. For more information about style modifiers, see the [Path] parameter of the [Get Map Static Image] command.
 
 To render a circle and pushpins with custom labels:
 
@@ -223,7 +216,6 @@ For more information the different styles available using the TilesetId paramete
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Bruno]: https://www.usebruno.com/
 [Get Map Static Image]: /rest/api/maps/render/get-map-static-image
-[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [path]: /rest/api/maps/render/get-map-static-image#uri-parameters
 [Render - Get Map Static Image]: /rest/api/maps/render/get-map-static-image
 [Render]: /rest/api/maps/render/get-map-static-image

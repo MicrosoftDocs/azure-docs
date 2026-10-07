@@ -4,7 +4,7 @@ description: Learn how to use SMB Azure file shares for virtual desktop workload
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/03/2026
+ms.date: 10/06/2026
 ms.author: kendownie
 # Customer intent: "As an IT administrator managing virtual desktop environments, I want to use Azure Files to store user profiles and disk images, so that I can ensure high availability, performance, and scalability for our users across multiple sessions."
 ---
@@ -103,7 +103,7 @@ The following table lists general recommendations for **non-FSLogix** profile st
 | **Number of concurrent users** | **Recommended file storage** | **Notes** |
 |------------------------------------------------|------------------------------|--------------|
 | Less than 400 users                | HDD pay-as-you-go file shares              | Suitable for low-concurrency workloads with minimal IOPS demands |
-| 400-1,000 users                       | HDD provisioned v2 file shares or multiple HDD pay-as-you-go file shares  | Might require tuning for peak login bursts |
+| 400-1,000 users                       | HDD provisioned v2 file shares or multiple HDD pay-as-you-go file shares  | Might require tuning for peak sign-in bursts. HDD provisioned v2 file shares can use [credit-based bursting](understand-performance.md#bursting) for short IOPS peaks. |
 | 1,000-2,000 users                 | SSD or multiple HDD file shares | SSDs recommended due to better metadata latency |
 | More than 2,000 users             | Multiple SSD file shares with [metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview) | Critical to avoid handle limits and achieve consistent login performance |
 

@@ -81,20 +81,6 @@ The connector doesn't receive a notification when device credentials stored in A
 
 Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
 
-### For Akri connectors, the only supported authentication type for registry endpoints is `artifact pull secrets`
-
----
-
-Issue ID: 4570
-
----
-
-Log signature: N/A
-
----
-
-When you specify the registry endpoint reference in a connector template, there are multiple supported authentication methods. Akri connectors only support `artifact pull secrets` authentication.
-
 ### Akri connectors don't work with registry endpoint resources
 
 ---
@@ -135,27 +121,6 @@ Users may encounter an error regarding expired webhook certificates with Akri wh
 
 Workaround: Run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
 
-### Device inbound endpoints don't enforce authentication when none is specified
-
----
-
-Issue ID: 7337
-
----
-
-Log signature: N/A
-
----
-
-The Azure Device Registry Device resource schema lists certificate-based (X.509) authentication as the default authentication method for an inbound endpoint. However, the authentication property itself is nullable, so it's possible to create a device inbound endpoint without specifying any authentication method.
-
-When authentication is omitted, the implied default of X.509 certificates isn't applied at runtime. The device inbound endpoint is created with no authentication enforced.
-
-Recommendations:
-
-- Always communicate with device inbound endpoints over an authenticated protocol.
-- Explicitly configure certificate-based authentication, or another supported authentication method, in the authentication property of every inbound endpoint. Don't rely on the schema default — it isn't applied implicitly.
-
 ## Connector for OPC UA issues
 
 This section lists current known issues for the connector for OPC UA.
@@ -183,6 +148,10 @@ Schema generation fails if event names contain special characters such as `#`, `
 ---
 
 Issue ID: 1330
+
+---
+
+Fixed in version 1.4.73 (2608) and later
 
 ---
 

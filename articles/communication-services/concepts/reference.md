@@ -15,6 +15,8 @@ ms.service: azure-communication-services
 
 # Reference documentation overview
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 <!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 ## External links and docs

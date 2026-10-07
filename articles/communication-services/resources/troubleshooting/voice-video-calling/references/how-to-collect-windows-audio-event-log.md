@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # How to collect Windows audio event logs
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The Windows audio event log provides information on the audio device state around the time when the issue we're investigating occurred.
 
 To collect the audio event log:

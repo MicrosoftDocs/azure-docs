@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 07/21/2026
+ms.date: 10/02/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
@@ -20,6 +20,26 @@ Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 
 ## Can I use Windows Server 2025? 
 
 Yes, Windows Server 2025 domain controllers are supported as of September 9, 2025. Windows Server 2025 domain controllers must have all cumulative security updates installed, including [KB5065426](https://support.microsoft.com/en-us/topic/september-9-2025-kb5065426-update-for-windows-server-2025-os-build-26100-6584-6a59dc6a-1ff2-48f4-b375-81e93deee5dd), released on September 9, 2025. You must also enable AES encryption (AES-256) on the Active Directory connection if you plan to introduce any Windows Server 2025 domain controllers into your Active Directory environment. For more information, see [Create and Manage Active Directory connections for Azure NetApp Files](create-active-directory-connections.md).
+
+> [!IMPORTANT]
+> Azure NetApp Files relies on forward and reverse DNS resolution for Kerberos-authenticated LDAP communication. When you use Windows Server 2025 domain controllers with LDAP signing enabled, you need valid forward and reverse DNS records for every domain controller or LDAP server that Azure NetApp Files can discover or use.
+>
+> Ensure that each applicable server has:
+>
+> * An A record that resolves the hostname to the correct IP address.
+> * A matching PTR record that resolves the IP address back to the expected fully qualified domain name.
+>
+> Include all domain controllers in the Active Directory site specified by the Azure NetApp Files Active Directory connection and any preferred LDAP servers configured for the connection.
+>
+> Missing or inconsistent PTR records can prevent signed LDAP communication even when the domain controller is reachable and the required Windows updates and AES configuration are present. For more information, see [Troubleshoot volume errors](troubleshoot-volumes.md#errors-for-missing-or-inconsistent-dns-records).
+
+## What happens if LDAP signing is required but I don't enable LDAP signing for the Azure NetApp Files Active Directory connection?
+
+If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. 
+
+For environments that use Windows Server 2025 domain controllers, enabling LDAP signing on the Active Directory connection remains the recommended configuration. Enabling LDAP signing avoids relying on the fallback behavior.
+
+PTR records are required for the Active Directory domain controllers for the LDAP signing fallback mechanism to function.
 
 ## What SMB minimum version should be configured on Windows Server 2025 domain controllers for Azure NetApp Files?
 

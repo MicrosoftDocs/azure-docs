@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python-portal-rest
 
 # Connect a verified email domain to send email
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to connect a verified domain in Azure Communication Services to send email.
 
 ::: zone pivot="azure-portal"

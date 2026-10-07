@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Target a Preferred Worker
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In the context of a call center, customers might be assigned an account manager or have a relationship with a specific worker. As such, You'd want to route a specific job to a specific worker if possible.
 
 ## Prerequisites

@@ -22,7 +22,7 @@ To create a namespace:
 1. On the left navigation bar, select **Integration**.
 1. Scroll down to **Messaging services**, hover your mouse over **Service Bus**, and then select **Create**. 
     
-   :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Screenshot showing selection of Create a resource, Integration, and then Service Bus in the menu." lightbox="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png":::
+   :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Screenshot showing selection of Create a resource, Integration, and then Service Bus in the menu." lightbox="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" border="true":::
 
 1. In the **Basics** tab of the **Create namespace** page, follow these steps:
 
@@ -48,15 +48,15 @@ To create a namespace:
 
    1. Select **Review + create** at the bottom of the page. 
    
-      :::image type="content" source="./media/service-bus-create-namespace-portal/create-namespace.png" alt-text="Screenshot showing the Create a namespace page." lightbox="./media/service-bus-create-namespace-portal/create-namespace.png":::
+      :::image type="content" source="./media/service-bus-create-namespace-portal/create-namespace.png" alt-text="Screenshot showing the Create a namespace page." lightbox="./media/service-bus-create-namespace-portal/create-namespace.png" border="true":::
 
    1. On the **Review + create** page, review the settings, and select **Create**. 
 
 1. After the deployment of the resource is successful, select **Go to resource** on the deployment page. 
 
-   :::image type="content" source="./media/service-bus-create-namespace-portal/deployment-alert.png" alt-text="Screenshot showing the deployment succeeded page with the Go to resource link." lightbox="./media/service-bus-create-namespace-portal/deployment-alert.png":::
+   :::image type="content" source="./media/service-bus-create-namespace-portal/deployment-alert.png" alt-text="Screenshot showing the deployment succeeded page with the Go to resource link." lightbox="./media/service-bus-create-namespace-portal/deployment-alert.png" border="true":::
 
 1. You see the home page for your service bus namespace. 
 
-   :::image type="content" source="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" lightbox="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="Screenshot showing the home page of the Service Bus namespace created." :::
+   :::image type="content" source="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" lightbox="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="Screenshot showing the home page of the Service Bus namespace created." border="true":::
 

@@ -65,7 +65,7 @@ While the concept of Virtual WAN is global, the actual Virtual WAN resource is R
 ### How do I delete or clean up my Virtual WAN resources?
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
+[!INCLUDE [Delete resources](../networking/includes/virtual-wan/resource-cleanup.md)]
 
 ### Is it possible to share the Firewall in a protected hub with other hubs?
 
@@ -220,7 +220,7 @@ Virtual WAN has concepts of VPN connection, link connection, and tunnels. A sing
 
 **Values for various scale units supported in Virtual WAN**
 
-[!INCLUDE [values for scale units](../../includes/virtual-wan-tunnels-throuput-instance-include.md)]
+[!INCLUDE [values for scale units](../networking/includes/virtual-wan/tunnels-throughput-instance.md)]
 
 ### Which device providers (Virtual WAN partners) are supported?
 
@@ -501,7 +501,7 @@ No. Virtual WAN doesn't support ASN changes for Virtual Hubs or any gateways.
 
 ### In Virtual WAN, what are the estimated performances by ExpressRoute gateway SKU?
 
-[!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
+[!INCLUDE [ExpressRoute Performance](../networking/includes/virtual-wan/expressroute-performance.md)]
 
 ### If I connect an ExpressRoute Local circuit to a Virtual WAN hub, will I only be able to access regions in the same metro location as the Local circuit? 
 

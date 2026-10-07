@@ -104,21 +104,39 @@ items:
       - name: Vulnerability assessment
         href: /azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview
       - name: Advanced Threat Protection
-        href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: ../sql/threat-detection-overview.md
     - name: Auditing
-      href: /azure/azure-sql/database/auditing-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-    - name: Audit log format
-      href: /azure/azure-sql/database/audit-log-format?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      items:
+      - name: Overview
+        href: ../sql/auditing-overview.md
+      - name: Set up auditing
+        href: ../sql/auditing-setup.md
+      - name: Audit log format
+        href: ../sql/audit-log-format.md
+      - name: Analyze audit logs and reports
+        href: ../sql/auditing-analyze-audit-logs.md
+      - name: Best practices
+        href: ../sql/auditing-best-practices.md
+      - name: Manage auditing using APIs
+        href: ../sql/auditing-manage-using-api.md
+      - name: Auditing using managed identity
+        href: ../sql/auditing-managed-identity.md
+      - name: Audit Microsoft support operations
+        href: ../sql/auditing-microsoft-support-operations.md
+      - name: Server-level and database-level policies
+        href: ../sql/auditing-server-level-database-level.md
+      - name: Audit to protected storage
+        href: ../sql/audit-write-storage-account-behind-vnet-firewall.md
     - name: Network security
       items:
       - name: Network access controls
-        href: /azure/azure-sql/database/network-access-controls-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: ../sql/network-access-controls-overview.md
       - name: Firewall rules
         href: ../sql/firewall-configure.md
       - name: Private Link
-        href: /azure/azure-sql/database/private-endpoint-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: ../sql/private-endpoint-overview.md
       - name: Virtual network service endpoints
-        href: /azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: ../sql/vnet-service-endpoint-rule-overview.md
       - name: Outbound firewall rules 
         href: /azure/azure-sql/database/outbound-firewall-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: DNS alias
@@ -158,11 +176,11 @@ items:
     - name: Data protection
       items:
       - name: Dynamic data masking
-        href: /azure/azure-sql/database/dynamic-data-masking-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: ../sql/dynamic-data-masking-overview.md
       - name: Transparent Data Encryption (TDE) overview
-        href: /azure/azure-sql/database/transparent-data-encryption-tde-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-      - name: TDE with Bring Your Own Key
-        href: /azure/azure-sql/database/transparent-data-encryption-byok-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: ../sql/transparent-data-encryption-tde-overview.md
+      - name: Customer-managed TDE
+        href: ../sql/transparent-data-encryption-byok-overview.md
   - name: Data ingestion and preparation
     items:
     - name: Overview
@@ -330,17 +348,17 @@ items:
     - name: Virtual network rules by PowerShell
       href: /azure/azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Audit to storage account behind vNet and firewall
-      href: /azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      href: ../sql/audit-write-storage-account-behind-vnet-firewall.md
     - name: Enable encryption - portal
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL
       href: sql-data-warehouse-encryption-tde-tsql.md
     - name: Configure TDE with BYOK
-      href: /azure/azure-sql/database/transparent-data-encryption-byok-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      href: ../sql/transparent-data-encryption-byok-configure.md
     - name: Rotate TDE BYOK keys
-      href: /azure/azure-sql/database/transparent-data-encryption-byok-key-rotation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      href: ../sql/transparent-data-encryption-byok-key-rotation.md
     - name: Remove TDE protector
-      href: /azure/azure-sql/database/transparent-data-encryption-byok-remove-tde-protector?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      href: ../sql/transparent-data-encryption-byok-remove-tde-protector.md
   - name: Load and prepare data
     items:
     - name: From Azure Data Lake Storage (ADLS)

@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp
 
 # Call Automation and Azure OpenAI
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This sample application was demonstrated during Microsoft Ignite 2024. It highlights the integration of Azure Communication Services with Azure OpenAI to enable intelligent conversational agents.
 
 This article covers what this sample does and what you need as prerequisites before the sample runs locally on your machine.

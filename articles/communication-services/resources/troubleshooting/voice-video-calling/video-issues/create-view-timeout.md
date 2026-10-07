@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # CreateView timeout
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When the calling SDK expects to receive video frames but there are no incoming video frames,
 the SDK detects this issue and throws an createView timeout error.
 

@@ -3,7 +3,7 @@ title: Enable disaster recovery across Azure regions across the globe
 description: This article describes the global disaster recovery feature in Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/14/2023
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a cloud administrator managing global applications, I want to enable disaster recovery across Azure regions so that I can ensure business continuity during outages in any region."
@@ -22,9 +22,9 @@ Azure Site Recovery service contributes to your business continuity and disaster
 
 Azure was the first large public cloud provider to launch a first-class cloud native disaster recovery solution with Azure-to-Azure Disaster Recovery. This offering  was allowing you to replicate and fail over your applications from one Azure region to another, in the same continent. also supporting zone-to-zone Disaster Recovery.   
 
-Azure Site Recovery now supports global disaster recovery. You can now replicate and fail over your applications from any Azure region, across continents.
+Azure Site Recovery supports replication between supported source and target regions worldwide. Availability is subject to subscription access, sovereign-cloud boundaries, restricted-region rules, vault-location restrictions, and directional limitations such as Brazil South. Review the [region support requirements](azure-to-azure-support-matrix.md#region-support) before choosing the recovery region.
 
-Many of you run global businesses and would like to host and replicate your applications across the world by leveraging Azure’s global presence. This is where you can leverage global disaster recovery via Azure Site Recovery. This new offering removes the continental boundaries of Azure to Azure Disaster Recovery. Supported by our powerful global networking backbone, you can replicate and fail over your applications to any Azure region of your choice, around the globe.  
+Many of you run global businesses and want to host and replicate your applications across the world by leveraging Azure’s global presence. By using Azure Site Recovery, you can take advantage of global disaster recovery. This offering removes the continental boundaries of Azure to Azure Disaster Recovery. By using Azure's global network, you can replicate and fail over applications across continents when both regions meet the support requirements.
 
 This offering completes the native-public cloud disaster recovery portfolio of zone-to-zone disaster recovery, within-continent disaster recovery, and global disaster recovery.
 

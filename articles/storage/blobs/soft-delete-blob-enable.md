@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 10/02/2026
 ms.author: normesta
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud storage administrator, I want to enable soft delete for blobs, so that I can protect data from accidental deletions and ensure it can be restored within a specified retention period."
@@ -20,7 +20,9 @@ Blob soft delete is part of a comprehensive data protection strategy for blob da
 
 ## Enable blob soft delete
 
-You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
+You can enable or disable soft delete for a storage account at any time by using Azure built-in-policy, Azure portal, PowerShell, or Azure CLI.
+
+To enable blob and container soft delete at scale via Azure built-in policy, reference [Configure soft delete for blobs and containers on storage accounts](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9fbd64e3-67b8-489b-98e5-fa0007d17e76).
 
 ### [Portal](#tab/azure-portal)
 
@@ -31,18 +33,18 @@ To enable blob soft delete for an existing storage account by using the Azure po
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 1. Locate the **Data Protection** option under **Data management**.
 1. In the **Recovery** section, select **Turn on soft delete for blobs**.
-1. Specify a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
+1. Enter a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
 1. Save your changes.
 
 :::image type="content" source="media/soft-delete-blob-enable/blob-soft-delete-configuration-portal.png" alt-text="Screenshot showing how to enable soft delete in the Azure portal":::
 
 ### [PowerShell](#tab/azure-powershell)
 
-Blob soft delete is not enabled when you create a new storage account with PowerShell. You can enable blob soft delete after the new account has been created.
+Blob soft delete isn't enabled when you create a new storage account with PowerShell. You can enable blob soft delete after the new account is created.
 
-To enable blob soft delete for an existing storage account with PowerShell, call the [Enable-AzStorageBlobDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command, specifying the retention period in days.
+To enable blob soft delete for an existing storage account with PowerShell, call the [Enable-AzStorageBlobDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command and specify the retention period in days.
 
-The following example enables blob soft delete and sets the retention period to seven days. Remember to replace the placeholder values in brackets with your own values:
+The following example enables blob soft delete and sets the retention period to seven days. Replace the placeholder values in brackets with your own values:
 
 ```azurepowershell
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName <resource-group> `
@@ -61,11 +63,11 @@ $properties.DeleteRetentionPolicy.Days
 
 ### [Azure CLI](#tab/azure-CLI)
 
-Blob soft delete is not enabled when you create a new storage account with Azure CLI. You can enable blob soft delete after the new account has been created.
+Blob soft delete isn't enabled when you create a new storage account with Azure CLI. You can enable blob soft delete after the new account is created.
 
-To enable blob soft delete for an existing storage account with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, specifying the retention period in days.
+To enable blob soft delete for an existing storage account with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command and specify the retention period in days.
 
-The following example enables blob soft delete and sets the retention period to seven days. Remember to replace the placeholder values in brackets with your own values:
+The following example enables blob soft delete and sets the retention period to seven days. Replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage account blob-service-properties update --account-name <storage-account> \
@@ -88,7 +90,7 @@ To enable blob soft delete with an Azure Resource Manager template, create a tem
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **Deploy a custom template**, and then press **ENTER**.
 1. Choose **Build your own template in the editor**.
-1. In the template editor, paste in the following JSON. Replace the `<account-name>` placeholder with the name of your storage account.
+1. In the template editor, paste the following JSON. Replace the `<account-name>` placeholder with the name of your storage account.
 
     ```json
       {
@@ -129,9 +131,9 @@ Blob soft delete can also protect blobs and directories in accounts that have th
 To enable blob soft delete for your storage account by using the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
-1. Locate the **Data Protection** option under **Data Management**.
+1. Find the **Data Protection** option under **Data Management**.
 1. In the **Recovery** section, select **Enable soft delete for blobs**.
-1. Specify a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
+1. Enter a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
 1. Save your changes.
 
 > [!div class="mx-imgBorder"]
@@ -151,7 +153,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.7.1-preview -AllowClobber -AllowPrerelease -Force
     ```
 
-    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
+    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 3. Obtain storage account authorization by using either a storage account key, a connection string, or Microsoft Entra ID. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
@@ -177,7 +179,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
 ### [Azure CLI](#tab/azure-CLI)
 
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. Install the `storage-preview` extension.
 
@@ -188,9 +190,9 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 3. Connect to your storage account. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account).
 
    > [!NOTE]
-   > The example presented in this article show Microsoft Entra authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
+   > The following example shows Microsoft Entra authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
-4. To enable soft delete with Azure CLI, call the `az storage fs service-properties update` command, specifying the retention period in days.
+4. To enable soft delete with Azure CLI, call the `az storage fs service-properties update` command and specify the retention period in days.
 
    The following example enables blob and directory soft delete and sets the retention period to 5 days.
 
@@ -211,7 +213,7 @@ To enable blob soft delete with an Azure Resource Manager template, create a tem
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **Deploy a custom template**, and then press **ENTER**.
 1. Choose **Build your own template in the editor**.
-1. In the template editor, paste in the following JSON. Replace the `<account-name>` placeholder with the name of your storage account.
+1. In the template editor, paste the following JSON. Replace the `<account-name>` placeholder with the name of your storage account.
 
     ```json
       {

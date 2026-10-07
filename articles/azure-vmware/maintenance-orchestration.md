@@ -55,6 +55,11 @@ Once rescheduled, the system updates the schedule with the new date, visible in 
 > [!Note]
 > Users cannot reschedule maintenance after the upgrade deadline, on freeze days, or for tasks addressing critical security vulnerabilities.
 
+## Multi-activity maintenance
+Multi-activity maintenance provides a simpler and more transparent experience for planned maintenance in Azure VMware Solution by allowing you to group multiple related maintenance activities under a single maintenance schedule. You can see the activities included in the maintenance event without tracking each activity as a separate schedule. This approach provides a consolidated view of the planned work and makes it easier to understand and plan for maintenance that affects your environment.
+:::image type="content" source="media/self-service-orchestration/multiple-activity-maintenance.png" alt-text="Screenshot showing multiple activities consolidated together for a simpler and transparent experience." lightbox="media/self-service-orchestration/multiple-activity-maintenance.png":::
+
+
 ## Errors and restrictions
 The following system error or warning messages appear while trying to reschedule maintenance tasks:
 - Each maintenance event has an internal deadline. You can schedule/reschedule maintenance only before the maintenance deadline. Dates beyond the deadline appear greyed out on the portal. To reschedule past this point, raise a support ticket. 

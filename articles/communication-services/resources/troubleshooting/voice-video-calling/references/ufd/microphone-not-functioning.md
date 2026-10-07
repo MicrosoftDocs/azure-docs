@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # microphoneNotFunctioning UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `microphoneNotFunctioning` UFD event with a `true` value occurs when the SDK detects that the microphone track was ended. The microphone track ending happens in many situations.
 For example, unplugging a microphone in use triggers the browser to end the microphone track. The SDK would then fire `microphoneNotFunctioning` UFD event.
 It can also occur when the user removes the microphone permission at browser or at OS level. The underlying layers, such as audio driver or media stack at OS level, may also end the session, causing the browser to end the microphone track.

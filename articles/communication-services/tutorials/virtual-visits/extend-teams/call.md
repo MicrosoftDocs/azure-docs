@@ -14,6 +14,8 @@ ms.custom: sfi-ropc-blocked
 ---
 
 # Extend call experience
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 You can use out-of-the-box Virtual appointments experience created via Microsoft Teams Virtual Appointment Booking or through Microsoft Graph Virtual appointment API to allow consumers to join a Microsoft hosted Virtual appointment experience of Virtual appointment. If you have Microsoft Teams Premium, you can further customize the experience via Meeting theme that allows you to choose images, logos, and colors used throughout the experience. 
 Azure Communication Services can help developers who want to self-host the solution or customize the experience. 
 

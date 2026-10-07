@@ -7,8 +7,9 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 07/01/2026
-ms.custom: generated
+ms.date: 09/10/2026
+ai-usage: ai-assisted
+ms.custom: generated, msecd-doc-authoring-1028
 ---
 
 # Azure built-in roles
@@ -556,6 +557,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='log-analytics-contributor'></a>[Log Analytics Contributor](./built-in-roles/monitor.md#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | <a name='log-analytics-data-reader'></a>[Log Analytics Data Reader](./built-in-roles/monitor.md#log-analytics-data-reader) | Log Analytics Data Reader can query and search the logs it is allowed to view over Log Analytics workspaces and tables | 3b03c2da-16b3-4a49-8834-0f8130efdd3b |
 > | <a name='log-analytics-reader'></a>[Log Analytics Reader](./built-in-roles/monitor.md#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. | 73c42c96-874c-492b-b04d-ab87d138a893 |
+> | <a name='monitored-objects-contributor'></a>[Monitored Objects Contributor](/azure/azure-monitor/agents/azure-monitor-agent-windows-client#step-1-assign-the-monitored-objects-contributor-role-to-the-operator) | Grants permissions to create and link a monitored object to a user or group. For more information, see [Set up the Azure Monitor Agent on Windows client devices](/azure/azure-monitor/agents/azure-monitor-agent-windows-client#create-and-associate-a-monitored-object). | 56be40e2-4db1-4ccf-93c3-7e44c597135b |
 > | <a name='monitoring-contributor'></a>[Monitoring Contributor](./built-in-roles/monitor.md#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | <a name='monitoring-metrics-publisher'></a>[Monitoring Metrics Publisher](./built-in-roles/monitor.md#monitoring-metrics-publisher) | Enables publishing metrics against Azure resources | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | <a name='monitoring-policy-contributor'></a>[Monitoring Policy Contributor](./built-in-roles/monitor.md#monitoring-policy-contributor) | Allows read access to all monitoring data, update permissions for monitoring settings and permissions to deploy and remediate Azure Monitor alert policies. | 47be4a87-7950-4631-9daf-b664a405f074 |

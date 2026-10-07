@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add maps to node.js applications by using the map control npm package in Azure Maps. 
 author: sinnypan
 ms.author: sipa
-ms.date: 07/04/2023
+ms.date: 09/30/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Use the azure-maps-control npm package
 
-The [azure-maps-control] npm package is a client-side library that allows you to embed the Azure Maps map control into your node.js applications using JavaScript or TypeScript. This library makes it easy to use the Azure Maps REST services and lets you customize interactive maps with your content and imagery.
+The [azure-maps-control] npm package is a client-side library that you can use to embed the Azure Maps map control into your Node.js applications by using JavaScript or TypeScript. Use the library to customize interactive maps with your content and imagery.
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ To use the npm package in an application, you must have the following prerequisi
 
 ## Installation
 
-Install the latest [azure-maps-control] package.
+Install the latest release of the [azure-maps-control] package.
   
 ```powershell
-npm install azure-maps-control
+npm install azure-maps-control@latest
 ```
 
 This package includes a minified version of the source code, CSS Style Sheet, and the TypeScript definitions for the Azure Maps map control.
@@ -75,10 +75,10 @@ Embed a map in a web page using the map control npm package.
 
     `npm init` is a command that helps you create a _package.json_ file for your node project. It asks you some questions and generates the file based on your answers. You can also use `-y` or `–yes` to skip the questions and use the default values. The _package.json_ file contains information about your project, such as its name, version, dependencies, scripts, etc.
 
-2. Install the latest [azure-maps-control] package.
+2. Install the latest release of the [azure-maps-control] package.
   
     ```powershell
-    npm install azure-maps-control
+  npm install azure-maps-control@latest
     ```
 
 3. Install webpack and other dev dependencies.
@@ -102,7 +102,7 @@ Embed a map in a web page using the map control npm package.
       "author": "",
       "license": "ISC",
       "dependencies": {
-        "azure-maps-control": "^2.3.1"
+        "azure-maps-control": "^3.7.4"
       },
       "devDependencies": {
         "css-loader": "^6.8.1",
@@ -275,7 +275,7 @@ The following sample shows how to import a module and use it in your application
    };
    ```
 
-This image is a screenshot of the sample’s output.
+This image is a screenshot of the sample's output.
 
 :::image type="content" source="./media/how-to-use-npm-package/map-of-seattle.png" alt-text="A screenshot showing a map of Seattle with a blue dot.":::
 

@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Managed applications
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how you can use Azure managed applications to offer cloud solutions that are easy for customers to deploy and operate.
 
 Customers also control the permissions that enable full access to resources in the managed resource group. Customers can make sure that all end users are using approved versions, compliant with organizational standards. Your customers don't need to develop application-specific domain knowledge to manage these applications. Your customers automatically acquire application updates without the need to worry about troubleshooting and diagnose issues with the applications.

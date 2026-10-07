@@ -7,7 +7,7 @@ ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/03/2024
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
 ms.custom:
   - engagement-fy24

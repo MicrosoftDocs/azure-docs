@@ -4,7 +4,7 @@ description: Shows you how to connect to other Azure services such as a database
 author: cephalin
 ms.author: cephalin
 ms.topic: overview
-ms.date: 03/12/2026
+ms.date: 09/22/2026
 #customer intent: As a developer, I want to learn how to securely connect to Azure resources from Azure App Service so that I can protect sensitive data and ensure secure communication.
 ms.service: azure-app-service
 ms.custom:
@@ -14,15 +14,16 @@ ms.custom:
 ---
 # Secure connectivity to Azure services and databases from Azure App Service
 
-Your app service might need to connect to other Azure services such as a database, storage, or another app. This overview recommends different methods for connecting and when to use them.
+Your App Service app might need to connect to other Azure services such as a database, storage, or another app, or to external services such as Microsoft 365 and Salesforce. This overview recommends different methods for connecting and when to use them.
 
 Today, the decision for a connectivity approach is closely related to secrets management. The common pattern of using connection secrets in connection strings, such as username and password, secret key, etc. is no longer considered the most secure approach for connectivity. The risk is even higher today because threat actors regularly crawl public GitHub repositories for accidentally committed connection secrets. For cloud applications, the best secrets management is to have no secrets at all. When you migrate to Azure App Service, your app might start with secrets-based connectivity, and App Service lets you keep secrets securely. However, Azure can help secure your app's back-end connectivity through Microsoft Entra authentication, which eliminates secrets altogether in your app.
 
 |Connection method|When to use|
 |--|--|
-|[Connect with an app identity](#connect-with-an-app-identity)|* You want to remove credentials, keys, or secrets completely from your application.<br/>* The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.<br/>* The downstream resource doesn't need to know the current signed-in user or doesn't need granular authorization of the current signed-in user.|
-|[Connect on behalf of the signed-in user](#connect-on-behalf-of-the-signed-in-user)| * The app must access a downstream resource on behalf of the signed-in user.<br/>* The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.<br/>* The downstream resource must perform granular authorization of the current signed-in user.|
-|[Connect using secrets](#connect-using-secrets)|* The downstream resource requires connection secrets.<br/>* Your app connects to non-Azure services, such as an on-premises database server.<br/>* The downstream Azure service doesn't support Microsoft Entra authentication yet.|
+|[Connect with an app identity](#connect-with-an-app-identity)|<ul><li>You want to remove credentials, keys, or secrets completely from your application.</li><li>The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.</li><li>The downstream resource doesn't need to know the current signed-in user or doesn't need granular authorization of the current signed-in user.</li></ul>|
+|[Connect on behalf of the signed-in user](#connect-on-behalf-of-the-signed-in-user)|<ul><li>The app must access a downstream resource on behalf of the signed-in user.</li><li>The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.</li><li>The downstream resource must perform granular authorization of the current signed-in user.</li></ul>|
+|[Connect using secrets](#connect-using-secrets)|<ul><li>The downstream resource requires connection secrets.</li><li>Your app connects to non-Azure services, such as an on-premises database server.</li><li>The downstream Azure service doesn't support Microsoft Entra authentication yet.</li></ul>|
+|[Connect using managed connectors](#connect-using-managed-connectors)|<ul><li>Your app needs to receive events or call operations in external services through supported connectors.</li><li>You want a connector namespace to manage service connections, OAuth tokens, and event subscriptions.</li></ul>|
 
 ## Connect with an app identity
 
@@ -96,10 +97,22 @@ Examples of using application secrets to connect to a database:
 * [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
 * [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
 
+## Connect using managed connectors
+
+[Managed connectors](overview-managed-connectors.md) let your App Service app receive events and call operations in services such as Microsoft 365, Microsoft Teams, SharePoint, and third-party systems. A [connector namespace](../connector-namespace/connector-namespace-overview.md) manages the external-service connections and their authentication.
+
+For inbound events, select **App Service** as the trigger destination in the Managed Connectors portal. Your app receives an authenticated HTTP callback at an application route. For outbound operations, your code uses connector SDK clients or HTTP endpoints to call actions through the namespace's connections.
+
+Managed connectors complement identity-based connectivity rather than replace it. You can use App Service built-in authentication to validate the namespace's managed identity on callbacks and your app's managed identity to call connector actions. The trigger wizard doesn't configure authentication on the receiving app; you must configure that trust separately.
+
+> [!NOTE]
+> Managed Connectors, including the App Service trigger destination, is in public preview. For prerequisites, authentication guidance, code examples, and a working sample, see [Use managed connectors in Azure App Service](overview-managed-connectors.md).
+
 ## Related content
 
 * Securely store secrets in [Azure Key Vault](app-service-key-vault-references.md).
 * Access resources using a [managed identity](overview-managed-identity.md).
+* [Use managed connectors](overview-managed-connectors.md) for events and actions in external services.
 * Store secrets using App Service [app settings](configure-common.md).
 * [Connect to Microsoft Graph](scenario-secure-app-access-microsoft-graph-as-user.md) as the user.
 * [Connect to a SQL database](tutorial-connect-app-access-sql-database-as-user-dotnet.md) as the user.

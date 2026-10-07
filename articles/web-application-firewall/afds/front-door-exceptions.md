@@ -10,7 +10,7 @@ ms.date: 06/29/2026
 
 ---
 
-# Azure Front Door WAF exceptions list (preview)
+# Azure Front Door WAF exceptions list
 
 **Applies to:** :heavy_check_mark: Front Door Premium
 

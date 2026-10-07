@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create and run an Azure Container Apps sandbox using the Python SDK (preview)'
+title: 'Quickstart: Create and run an Azure Container Apps sandbox using the Python SDK'
 description: Create a sandbox group, run a command in an Azure Container Apps sandbox, and clean up resources by using the Python SDK.
 author: craigshoemaker
 ms.author: cshoe
@@ -10,13 +10,9 @@ ms.date: 08/21/2026
 # customer intent: As a developer, I want to create an Azure Container Apps sandbox with the Python SDK so that I can automate isolated compute workflows from code.
 ---
 
-# Quickstart: Create and run an Azure Container Apps sandbox using the Python SDK (preview)
+# Quickstart: Create and run an Azure Container Apps sandbox using the Python SDK
 
 In this quickstart, you use the Python SDK to provision a sandbox group, launch a sandbox, run a command, and clean up all created resources.
-
-> [!IMPORTANT]
-> Azure Container Apps Sandboxes are currently in preview. Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
-
 
 ## Prerequisites
 

@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The speaking participant doesn't grant the microphone permission
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When the speaking participant doesn't grant microphone permission, it can result in a one-way audio issue in the call.
 This issue occurs if the user denies permission at the browser level or doesn't grant access at the operating system level.
 

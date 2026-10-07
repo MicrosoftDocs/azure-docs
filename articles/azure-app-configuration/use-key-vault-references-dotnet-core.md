@@ -90,7 +90,7 @@ To test Key Vault retrieval in your app, first add a secret to the vault by taki
    - For **Subscription**, **Resource group**, and **Key Vault**: Enter the values you used when you created the key vault earlier in this tutorial.
    - For **Secret**: Select the secret named **Message** that you created in the previous section.
 
-   :::image type="content" source="./media/create-key-vault-reference.png" alt-text="Screenshot of the dialog for creating a Key Vault reference. The Key, Subscription, Resource group, Key Vault, and Secret fields are populated.":::
+   :::image type="content" source="./media/use-key-vault-references-dotnet-core/create-key-vault-reference.png" alt-text="Screenshot of the dialog for creating a Key Vault reference. The Key, Subscription, Resource group, Key Vault, and Secret fields are populated.":::
 
 ## Update your code to use a Key Vault reference
 
@@ -182,7 +182,7 @@ After you deploy your app to an Azure service with managed identity enabled, suc
 
 1. In the output of the `dotnet run` command, find a URL that the web app is listening on, such as `http://localhost:5292`. Open a browser and go to that URL.
 
-   :::image type="content" source="./media/key-vault-reference-launch-local.png" alt-text="Screenshot of a browser open to localhost:5292. Text on the page states Data from Azure App Configuration and Hello from Key Vault.":::
+   :::image type="content" source="./media/use-key-vault-references-dotnet-core/key-vault-reference-launch-local.png" alt-text="Screenshot of a browser open to localhost:5292. Text on the page states Data from Azure App Configuration and Hello from Key Vault.":::
 
    The text on the webpage includes the following components:
 

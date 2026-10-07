@@ -117,7 +117,7 @@ sections:
       - question: |
           Does Azure Maps Web SDK natively support Weather service integration?
         answer: |
-          The Azure Maps Web SDK provides a services module. The services module is a helper library that makes it easy to use Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript. To get started, see [Use the Azure Maps services module](./how-to-use-services-module.md).
+          No. The Azure Maps Web SDK doesn't natively call the Weather service. JavaScript and TypeScript applications can call the [Azure Maps Weather REST API](/rest/api/maps/weather) by using `fetch` or another HTTP client. If the application starts with a city name or address, use the [Azure Maps Search REST client library for JavaScript](/javascript/api/@azure-rest/maps-search) to obtain coordinates before calling the Weather API.
           
       - question: |
           Does Azure Maps Android SDK natively support Weather service integration? 

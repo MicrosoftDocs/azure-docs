@@ -14,6 +14,8 @@ ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 # Call recording quickstart
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes call recording for voice and video calls. To start using the Call Recording APIs, you must have a call in place. To build the end-user calling experience, make sure you're familiar with [Calling client SDK](get-started-with-video-calling.md) and [Call Automation](../call-automation/callflows-for-customer-interactions.md#build-a-customer-interaction-workflow-using-call-automation).
 
 ::: zone pivot="programming-language-csharp"

@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: concept-article
-ms.date: 04/28/2023
+ms.date: 09/08/2026
 ms.custom: mode-other
 ---
 
@@ -21,6 +21,9 @@ Here are some important terms used by the service:
 
 > [!IMPORTANT]
 > `Hub`, `Group`, `UserId` are important roles when you manage clients and send messages. They will be required parameters in different REST API calls as plain text. So __DO NOT__ put sensitive information in these fields. For example, credentials or bearer tokens which will have high leak risk.
+
+> [!NOTE]
+> If your application uses REST APIs to address groups or users, avoid forward slashes (`/`) in group names and user IDs. URL-encoding `/` as `%2F` might not allow a REST operation to address the intended group or user. For details and a workaround, see [Group names and user IDs in request paths](reference-rest-api-data-plane.md#group-names-and-user-ids-in-request-paths).
 
 ## Workflow
 

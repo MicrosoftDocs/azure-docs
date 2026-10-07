@@ -14,6 +14,8 @@ ms.subservice: advanced-messaging
 
 # Register WhatsApp Business Account
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with the Azure Communication Services Advanced Messaging, which extends messaging to users on WhatsApp. This feature enables your organization to send and receive messages with WhatsApp users using a WhatsApp Business Account. The Advanced Communication Messages SDK extends your communications to interact with the large global WhatsApp community for common scenarios:
 
 - Receive inquiries from your customers for product feedback or support, price quotes, and reschedule appointments.

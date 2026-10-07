@@ -278,6 +278,8 @@ items:
         href: api-reference.md
       - name: Deploy with Infrastructure as Code
         href: deploy-iac.md
+      - name: Disaster recovery
+        href: disaster-recovery.md
       - name: Frequently asked questions
         items:
           - name: General

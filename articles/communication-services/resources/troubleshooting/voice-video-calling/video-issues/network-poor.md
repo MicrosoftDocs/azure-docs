@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The network is poor during the call
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The quality of the network affects video quality on the sender and receiver's side.
 If the sender's network bandwidth becomes poor, the sender's SDK may adjust the video's encoding resolution and frame rate. In doing so, the SDK ensures that it doesn't send more data than the current network can support.
 

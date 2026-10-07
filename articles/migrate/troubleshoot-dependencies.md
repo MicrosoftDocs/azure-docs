@@ -5,8 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.topic: troubleshooting
+ms.update:cycle: 365-days
 ms.date: 09/09/2024
 ms.custom:
   - engagement-fy23

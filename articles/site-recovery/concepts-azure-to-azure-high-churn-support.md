@@ -5,7 +5,7 @@ description: Describes how to protect your Azure Virtual Machines having high ch
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 06/30/2026
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.custom: references_regions 
 # Customer intent: As a cloud administrator, I want to enable High Churn support for Azure Virtual Machines, so that I can effectively protect high churning workloads and achieve better disaster recovery performance.
@@ -29,6 +29,8 @@ The following requirements determine whether a virtual machine is eligible for H
 - High Churn supports only disaster recovery of Azure virtual machines (Azure-to-Azure scenario). 
 - Source disks must be managed disks. 
 - To achieve churn up to 500 MB/s, source disks must be Premium SSD v1, Premium SSD v2, or Ultra Disk.  
+- Normal Churn uses a Standard general-purpose v2 cache account. High Churn uses a Premium Block Blob cache account in the source region. Cache soft delete isn't supported; storage encryption with customer-managed keys is supported.
+- Source, replica, and failover disk SKUs can differ. For the disk mappings, see the [Azure-to-Azure support matrix](azure-to-azure-support-matrix.md#replicated-machines---storage).
 
 ### Memory (RAM) 
 
@@ -47,7 +49,7 @@ The churn limit a virtual machine can reach depends on its RAM. A minimum of 32 
 ### Operating system 
 
 - Windows. 
-- Linux – Support up to 100 MB/s in all ASR supported Linux distros. However, support beyond 100 MB/s up to 500 MB/s is supported only for RHEL 9, SLES 15, and Ubuntu 24.04. 
+- Linux – Churn up to 100 MB/s is supported for all Site Recovery-supported Linux distributions. Churn beyond 100 MB/s is supported only for RHEL 9, SLES 15, and Ubuntu 24.04.
 
 ### Disk size and I/O size 
 
@@ -56,7 +58,7 @@ The churn supported per disk is based on the source disk size and the applicatio
 ### Region availability 
 
 - High churn (up to 100 MB/s) is available in all regions where Azure Site Recovery is supported and Premium Block Blob storage accounts are available. 
-- Enhanced churn (up to 500 MB/s) is available in a limited set of regions. 
+- Enhanced churn (up to 500 MB/s) is available in a limited set of Azure public regions. It isn't supported in Azure Government or Azure operated by 21Vianet regions.
 
 Enhanced churn support for 500 MB/s is supported for replications where both source and target regions are from the following regions: 
 - Australia Central

@@ -2,7 +2,7 @@
 title: Availability zone down drills support matrix for Infrastructure Resiliency Manager
 description: Provides a summary regional availability, supported scenarios, and limitations for availability zone down drills in Infrastructure Resiliency Manager.
 ms.topic: reference
-ms.date: 06/02/2026
+ms.date: 09/28/2026
 ms.service: resiliency
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -56,7 +56,7 @@ The following table lists the minimum roles required for drill operations:
 
 Register the following resource providers in the relevant subscriptions:
 
-- **`Microsoft.Chaos`**: Required in the subscription where you create the Chaos Workspace.
+- **`Microsoft.Chaos`**: Required in the subscription where you create the Chaos Workspace (an [Azure Chaos Studio Workspace](/azure/chaos-studio/chaos-studio-workspaces-overview)).
 - **`Microsoft.Insights`**: Required in the subscription where you create the monitoring setup.
 - **`Microsoft.OperationalInsights`**: Required in the subscription where you create the monitoring setup.
 - **`Microsoft.Automation`**: Required for creation of Automation Accounts for fault injection.

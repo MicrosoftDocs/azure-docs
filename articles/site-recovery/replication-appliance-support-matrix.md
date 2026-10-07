@@ -3,7 +3,7 @@ title: Support Requirements for Azure Site Recovery Replication Appliance
 description: This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 ms.service: azure-site-recovery
 ms.topic: faq
-ms.date: 04/21/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a VMware administrator, I want to deploy the Azure Site Recovery replication appliance so that I can ensure effective disaster recovery of my virtual machines to Azure."
@@ -14,7 +14,7 @@ author: Jeronika-MS
 This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 
 >[!NOTE]
-> The information in this article applies to Azure Site Recovery with modernized architecture. For information about configuration server requirements in classic releases, see [Deprecation of classic experience to protect VMware and physical machines using Site Recovery](vmware-azure-configuration-server-requirements.md).
+> The information in this article applies to Azure Site Recovery with modernized architecture. 
 
 Create a new and exclusive Recovery Services vault for setting up the Site Recovery replication appliance. Don't use an existing vault.
 
@@ -35,7 +35,7 @@ Number of disks | 2, including the OS disk (80 GB) and a data disk (620 GB)
 
 ### Software requirements
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 Component | Requirement
 --- | ---
@@ -64,7 +64,7 @@ The appliance needs access to the following URLs (directly or via proxy) over an
 
 **URL (Mandatory)** | **Details**  
 --- | --- |
-login.windows.net <br> graph.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.live.com <br> *.office.com <br> m365.cloud.microsoft.com | Used to sign in to your Azure subscription 
+login.windows.net <br> graph.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.live.com <br> *.office.com <br> copilot.cloud.microsoft | Used to sign in to your Azure subscription 
 developer.microsoft.com <br> graph.microsoft.com | Used for access control and identity management by Microsoft Entra ID.
 login.microsoftonline.com |  Create Microsoft Entra apps for the appliance to communicate with Site Recovery 
 *.vault.azure.net | Manage secrets in Azure Key Vault. Ensure that the machines that need to be replicated have access to this URL.
