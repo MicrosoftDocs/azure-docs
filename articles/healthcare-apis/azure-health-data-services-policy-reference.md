@@ -11,7 +11,7 @@ ms.custom: subject-policy-reference
 
 # Azure Policy built-in definitions for Azure Health Data Services
 
-This article is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
+This article lists [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Health Data Services workspaces, FHIR&reg; services, and DICOM&reg; services.
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
