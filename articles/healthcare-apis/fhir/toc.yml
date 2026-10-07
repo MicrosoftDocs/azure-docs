@@ -138,6 +138,8 @@ items:
       href: fhir-expand.md
 - name: API reference
   items: 
+    - name: Azure Policy built-ins
+      href: ../azure-health-data-services-policy-reference.md#fhir-service
     - name: Access the FHIR service
       items: 
         - name: Access using cURL
