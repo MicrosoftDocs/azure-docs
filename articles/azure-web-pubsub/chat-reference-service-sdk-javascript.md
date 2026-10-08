@@ -37,4 +37,4 @@ Before using the SDK, create an [Azure Web PubSub resource](howto-develop-create
 - [Chat SDKs and REST API](chat-reference-sdk-and-rest.md)
 - [Create and manage rooms](chat-howto-manage-rooms.md)
 - [Configure roles and permissions](chat-howto-roles-permissions.md)
-- [Chat REST API](/rest/api/webpubsub/dataplane/webpubsubchat/web-pub-sub-chat-service)
+- [Chat REST API](/rest/api/webpubsub/dataplane/webpubsubchat/operation-groups)
