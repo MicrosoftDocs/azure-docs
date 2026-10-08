@@ -323,7 +323,9 @@ Register-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderN
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-It can take several minutes for this change to take effect. Once the feature is registered, consider performing an update on Azure Firewall for the change to take effect immediately.
+It can take several minutes for this change to take effect. Once the feature is registered, a configuration update is required for Flow Trace logging to take effect.
+If the Azure Firewall is managed by using Firewall Policy, update the associated Firewall Policy—for example, by adding, modifying, or removing a rule—and wait for the policy deployment to complete.
+To prevent impact to production traffic, do not modify rules that currently match production traffic.
 
 #### Check registration status
 
