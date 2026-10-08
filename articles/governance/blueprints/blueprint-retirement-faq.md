@@ -1,8 +1,6 @@
 ---
 title: Azure Blueprints retirement FAQ
 description: Frequently asked questions about the Azure Blueprints retirement, including what changes at retirement, data retention, deny-assignment impact, and migration to Azure Deployment Stacks and template specs.
-author: mumian
-ms.author: jgao
 ms.service: azure-blueprints
 ms.topic: concept-article
 ms.date: 06/26/2026
