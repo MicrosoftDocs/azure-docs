@@ -33,11 +33,11 @@ The resource-level minimum TLS setting applies to inbound client connections. A 
 
 You can specify the minimum TLS version when creating an Event Grid topic or a domain in the Azure portal on the **Security** tab. The screenshots are for an Event Grid topic. The user interface for configuring this property for a domain is similar.
 
-:::image type="content" source="./media/transport-layer-security-configure-minimum-version/create-topic-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version when creating an Event Grid topic.":::
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/create-topic-tls.png" alt-text="Screenshot of the Create Topic Security tab with Minimum TLS version set to Version 1.3.":::
 
-You can also specify the minimum TLS version for an existing topic on the **Configuration** page.
+You can also specify the minimum TLS version for an existing topic on the **Configuration** page. The minimum TLS version list includes TLS 1.3.
 
-:::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-topic-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version for an existing Event Grid topic.":::
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-topic-tls.png" alt-text="Screenshot of an existing Event Grid topic Configuration page with the Minimum TLS version list showing versions 1.0 through 1.3.":::
 
 ## Require TLS 1.3 for a topic using a Resource Manager template
 
