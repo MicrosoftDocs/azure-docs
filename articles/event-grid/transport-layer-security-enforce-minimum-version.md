@@ -3,8 +3,8 @@ title: Enforce a minimum TLS version for requests to Event Grid Basic resources
 description: Require a minimum version of Transport Layer Security (TLS) for inbound requests to Azure Event Grid Basic resources.
 ms.topic: how-to
 ms.date: 10/08/2026
-ms.author: spelluru
-author: spelluru
+ms.author: seshanmugam
+author: seshanmugam
 ---
 
 # Enforce a minimum TLS version for requests to Event Grid Basic resources

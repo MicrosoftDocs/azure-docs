@@ -1,8 +1,8 @@
 ---
 title: Configure the minimum TLS version for an Event Grid topic or domain
 description: Configure an Azure Event Grid topic or domain to use a minimum version of Transport Layer Security (TLS).
-author: spelluru
-ms.author: spelluru
+author: seshanmugam
+ms.author: seshanmugam
 ms.topic: how-to
 ms.date: 10/08/2026
 ---
