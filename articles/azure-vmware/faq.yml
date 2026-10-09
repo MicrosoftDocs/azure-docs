@@ -50,7 +50,7 @@ sections:
 
 
  - name: Licensing
-    questions:
+   questions:
 
       - question: What is the difference between the Azure VMware Solution license-included SKU and the Azure VMware Solution VCF BYOL SKU?
         answer: Operationally, there is no difference. Microsoft remains your first-party solution provider, delivering customer support and Azure benefits such as Azure Hybrid Benefit (AHB) and Extended Security Updates (ESUs). With the Azure VMware Solution VCF BYOL SKU, you purchase your portable VCF licenses separately from Broadcom and use those licenses with Azure VMware Solution.
