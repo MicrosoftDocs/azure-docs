@@ -138,7 +138,7 @@ items:
     - name: Move Azure VMs from Microsoft Configuration Manager to Azure Update Manager
       href: guidance-migration-azure.md
     - name: Enable Periodic Assessment for Azure Virtual Machine Scale Sets Uniform
-      href: enable-periodic-assessment-vmss-uniform.md
+      href: enable-periodic-assessment-azure-vmss-uniform.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot issues
