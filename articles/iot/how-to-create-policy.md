@@ -1,182 +1,118 @@
 ---
-title: Create or Edit a Policy with Microsoft Root CA in Azure Device Registry
-titleSuffix: Azure IoT Hub
-description: Create or edit a policy in your Azure Device Registry namespace to issue Microsoft-backed X.509 certificates for IoT devices.
+title: Set up a managed root and intermediate CA (preview)
+titleSuffix: Azure Device Registry
+description: Learn how to provision a Microsoft-managed root certificate authority and create an intermediate CA policy in Azure Device Registry.
 author: sethmanheim
 ms.author: sethm
-ms.service: azure-iot-hub
-services: iot-hub
+ms.service: azure-device-registry
 ms.topic: how-to
-ai-usage: ai-generated
-ms.date: 04/14/2026
-#Customer intent: As an IoT administrator, I want to create or edit a policy in Azure Device Registry so I can issue Microsoft-backed X.509 device certificates with the validity period my deployment requires.
+ai-usage: ai-assisted
+ms.date: 09/16/2026
+
+# Customer intent: As an IoT administrator, I want to set up a root and intermediate certificate authority so that Azure Device Registry can issue device certificates.
 ---
 
-# Create or edit a policy with a Microsoft root CA (preview)
+# Set up a managed root and intermediate CA (preview)
 
-This article explains how to create or edit a policy within your [Azure Device Registry (ADR)](../iot-hub/iot-hub-device-registry-overview.md) namespace to manage an __issuing CA__ signed by your namespace's unique __root CA__.
-
-Use this workflow if you want ADR to provide a fully managed public key infrastructure (PKI) for your namespace. When a device requests a certificate, the platform returns a full certificate chain consisting of:
-
-- __The device certificate:__ Unique to the specific IoT device.
-
-- __The issuing CA (ICA):__ The CA managed by ADR that signs the device request.
-
-- __The namespace root CA:__ The unique, namespace-level root managed by the credential resource.
-
-Your device identities are cryptographically scoped to their namespace, providing high tenant isolation and a simplified management experience without the need for an external private PKI.
+This article explains how to create root and intermediate certificate authorities within your [Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md) namespace. Use this workflow if you want Azure Device Registry to provision certificate authorities in Microsoft cloud PKI on your behalf.
 
 [!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
-In certificate management, a credential manages the namespace-level root CA, and a policy manages the issuing CA that signs device certificates. 
+For information about how the root and intermediate CAs establish trust, see [CA hierarchy in Azure Device Registry](concept-managed-ca-hierarchy.md).
 
 ## Prerequisites
 
 Before you begin, make sure you have:
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing ADR namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md).
-- A configured credential in the ADR namespace. For setup steps, see [Configure a credential in Azure Device Registry](how-to-configure-credential.md).
-- Permissions to manage policies in the ADR namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.
+- An existing Azure Device Registry namespace. For setup instructions, see [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md).
+- Permission to manage certificate authorities and policies in the namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.
+## Set up the certificate authorities
 
-## Create a policy
-
-You can create a policy by using the Azure portal or the Azure CLI. In this preview workflow, use the Azure portal when you need to change the validity period for an existing policy.
+Use the Azure portal or Azure CLI to create root and intermediate certificate authorities.
 
 # [Azure portal](#tab/portal)
 
-## Create a policy by using the Azure portal
+### Create a root CA
+
+#### Option 1: Create a root CA for a new namespace
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Azure Device Registry**.
+1. Select **Namespaces**, and then select **Create** to create a new namespace. Check the box to let Azure create a Microsoft-managed root CA by default, or leave it unchecked if you plan to bring your own external root CA.
 
-1. Open your **Azure Device Registry** namespace.
+   :::image type="content" source="media/how-to-create-policy/create-namespace.png" alt-text="Screenshot of portal page showing create namespace." lightbox="media/how-to-create-policy/create-namespace.png":::
+   
+#### Option 2: Create a root CA for an existing namespace
 
-1. In the sidebar menu, under **Namespace resources**, select **Credential policies**.
+1. In the **Namespaces** list, select your namespace.
+1. Under **Security**, select **Certificate Authorities**.
+1. Select **Create**. **Root Certificate Authority** is disabled if the namespace already has one root CA by default.
 
-1. Select **Create Policy**.
+   :::image type="content" source="media/how-to-create-policy/create-certificate-authority.png" alt-text="Screenshot of the credential policies portal page showing the option to create a policy." lightbox="media/how-to-create-policy/create-certificate-authority.png":::  
 
-    :::image type="content" source="media/how-to-create-policy/certificate-management.png" alt-text="Screenshot showing the Credential policies pane.":::
+1. Select **Root Certificate Authority**. 
+1. Give the certificate authority a name that is 3-63 characters in length, then select **Create**.
+1. Wait for Azure to finish provisioning the root CA. When provisioning is complete, the resource appears on the **Certificate Authorities** page.
 
-1. In the **Basics** tab, complete the fields as follows:
+### Create an intermediate certificate authority
 
-    | Property | Value |    
-    | -------- | ----- |
-    | **Name** | Enter a unique name for your policy. The name must be between 3 and 50 alphanumeric characters and can include hyphens (`'-'`). |
-    | **Validity period (days)** | Enter the number of days the issued certificates are valid. |
-    | **Select a Root CA for certificates in this policy** | Accept the default value, **Use this namespace's Microsoft-issued Root CA (Default)**. |
+1. On the **Certificate Authorities** page, select **Create**.
+1. Select **Intermediate Certificate Authority.** 
 
-    :::image type="content" source="media/how-to-create-policy/add-policy.png" alt-text="Screenshot showing the Create polcy dialog.":::
-
-1. Select **Next**, then **Review + create**.
-
-1. Refresh the **Policies** list if needed, and verify that the new policy appears.
-
-## Edit a policy
-
-Edit an existing policy to update its validity period when security or operational requirements change.
-
-1. In the sidebar menu of your ADR namespace, under **Namespace resources**, select **Credential policies**.
-
-1. Select the policy that you want to edit.
-
-1. On the **Overview** page, select **edit** next to **Validity period**.
-
-1. Change the **Validity period** value.
-
-1. Select **Save**.
-
-1. Refresh the page to verify that the updated validity period appears.
-
-## Synchronize the credential
-
-Synchronize your new or updated policy.
-
-1. In the sidebar menu of your ADR namespace, under **Namespace resources**, select **Credential policies**.
-
-1. Select **Sync all**, and then **Yes**.
-
-    :::image type="content" source="media/how-to-create-policy/sync-credential.png" alt-text="Screenshot showing the Sync all button.":::
-
+1. Select **Use this namespace's Root CA**, enter a name for the intermediate CA, and then select **Create**.
 # [Azure CLI](#tab/cli)
 
-## Azure CLI prerequisites
+### Prepare the Azure CLI
 
-Prepare the Azure CLI and authenticate to Azure so you can run the policy commands against the correct subscription and namespace.
+1. [Install Azure CLI](/cli/azure/install-azure-cli). To check the installed version, run `az version`. To install the latest version, run `az upgrade`.
+1. Sign in to Azure by running `az login`.
+1. Install the `azure-iot` extension when prompted on first use. To update an existing installation, run `az extension update --name azure-iot`.
 
-- [Azure CLI](/cli/azure/install-azure-cli) installed on your machine.
-- The `azure-iot` extension. Install it by running the following command:
+### Set variables
 
-  ```azurecli
-  az extension add --name azure-iot
-  ```
-
-- Sign in to Azure by running `az login`.
-
-## Set variables for the Azure CLI
-
-Define shared variables before running the commands.
+Optionally, define variables for the commands in this article.
 
 ```azurecli
 RG_NAME="<resource-group>"
 NS_NAME="<adr-namespace>"
-POLICY_NAME="<policy-name>"
-VALIDITY_DAYS="<validity-days>"
 ```
 
-## Create the policy by using the Azure CLI
+### Create the root CA
 
-Run this command to create a policy that chains to your credential.
+Run the following command to enable certificate management and provision a root CA for the namespace:
 
 ```azurecli
-az iot adr ns policy create \
-  --namespace "$NS_NAME" \
-  -g "$RG_NAME" \
-  --name "$POLICY_NAME" \
-  --cert-validity-days "$VALIDITY_DAYS"
+az iot adr ns ca create --name "<root-ca-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id> --location <region> --type Root
 ```
 
-To set a custom certificate subject during creation, add the `--cert-subject` parameter.
-
-## Verify the policy by using the Azure CLI
-
-Run this command to view the policy details.
+Verify that provisioning succeeded and review the root CA certificate information:
 
 ```azurecli
-az iot adr ns policy show \
-  --namespace "$NS_NAME" \
-  -g "$RG_NAME" \
-  --name "$POLICY_NAME"
+az iot adr ns ca show --name "<root-ca-name>" --namespace "$NS_NAME" --resource-group "$RG_NAME"
 ```
 
-Verify that the policy is returned and that the displayed properties match the values you created.
+### Create an intermediate CA
 
-## Edit policy validity period
-
-You can update the validity period for an existing external CA policy by using the following command. This example changes the validity period to *10* days.
+Create an intermediate certificate authority that's issued by the namespace root CA.
 
 ```azurecli
-az iot adr ns policy update \
-  --name "$POLICY_NAME" \
-  --cert-validity-days 10 \
-  --namespace "$NS_NAME" \
-  -g "$RG_NAME"
+az iot adr ns ca create --name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id> --location <location> --type ICA --issuer-type Microsoft --issuer-ca-name "<root-ca-name>"
+
 ```
 
-## Synchronize the credential
-
-Use the following command to synchronize your new or updated policy.
+Verify that the intermediate certificate authority properties match the values that you specified:
 
 ```azurecli
-az iot adr ns credential sync \
-  --ns "$NS_NAME" \
-  -g "$RG_NAME"
+az iot adr ns ca show --ca-name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id>
 ```
 
 ---
 
 ## Related content
 
-- [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md)
-- [Configure a credential in Azure Device Registry](how-to-configure-credential.md)
-- [Revoke certificates and delete policies in Azure Device Registry](how-to-revoke-certificate-delete-policy.md)
-- [Key concepts for certificate management (preview)](iot-certificate-management-concepts.md)
+- [CA hierarchy in Azure Device Registry](concept-managed-ca-hierarchy.md)
+- [Create an intermediate CA with an external root CA](how-to-create-policy-external-certificate.md)
+- [Certificate revocation and policy management](concepts-certificate-policy-management.md)
+
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)

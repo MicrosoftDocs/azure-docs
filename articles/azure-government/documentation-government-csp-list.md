@@ -131,7 +131,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[CuroGens, Inc.](https://www.curogens.com/)|
 |[CWPS](https://www.cwps.com/)|
 |[Cyber Advisors](https://cyberadvisors.com)|
-|[Cyber Cloud Technologies](https://www.cyber-cloud.com)|
+|[Cyber Cloud Technologies](https://cyber-cloud.ai/)|
 |[Cyber Korp Inc.](https://cyberkorp.com/)|
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
 |Dasher Technologies, Inc.|
@@ -159,7 +159,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[ECS Federal, LLC](https://ecstech.com/)|
 |[Edafio Technology Partners](https://edafio.com)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
-|[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
+|[Enabling Technologies Corp.](https://egroup-us.com/about/)|
 |[Enavate](https://www.enavate.com)|
 |[Enlighten IT Consulting](https://www.eitccorp.com)|
 |[Ensono](https://www.ensono.com)|
@@ -285,7 +285,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Mobomo, LLC](https://www.mobomo.com)|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
-|[NCI](https://www.nciinc.com/)|
+|[NCI](https://www.empower.ai/)|
 |[NeoSystems LLC](https://www.neosystemscorp.com/)|
 |[NeoTech Solutions Inc.](https://neotechreps.com)|
 |[Neovera Inc.](https://www.neovera.com)|
@@ -414,7 +414,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[SWC Technology Partners (BDO USA)](https://www.bdo.com/)|
 |[Sybatech, Inc. (Codepal Toolkit)](https://www.codepaltoolkit.com)|
 |[SyCom Technologies](https://intervision.com/)|
-|[Syndo LLC](https://www.syndo.llc/)|
+|[Syndo LLC](https://www.syndo.us/)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.systemsengineering.com)|
@@ -465,7 +465,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[VPLS](https://www.vpls.com/)|
 |[vSolvIT](https://www.vsolvit.com/)|
 |[Warren Averett Technology Group](https://warrenaverett.com/warren-averett-technology-group/)|
-|[Wintellisys, Inc.](https://wintellisys.com)|
+|[Wintellisys, Inc.](https://marketplace.microsoft.com/product/wintellisys-inc-4561600.onecall)|
 |[Withum](https://www.withum.com/service/cyber-information-security-services/)|
 |[Workspot, Inc.](https://workspot.com)|
 |[WorkMagic LLC](https://www.workmagic.com)|

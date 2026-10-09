@@ -1,15 +1,14 @@
 ---
-title: T-SQL feature in Synapse SQL pool
+title: T-SQL Feature in Synapse SQL Pool
 description: List of Transact-SQL features that are available in Synapse SQL.
-services: synapse analytics
 author: jovanpop-msft
 ms.author: jovanpop
+ms.date: 10/05/2026
 ms.service: azure-synapse-analytics
-ms.topic: overview
 ms.subservice: sql
-ms.date: 02/04/2026
-ms.custom: sfi-ropc-nochange
-
+ms.topic: overview
+ms.custom:
+  - sfi-ropc-nochange
 ---
 
 # Transact-SQL features supported in Azure Synapse SQL
@@ -58,7 +57,7 @@ Query languages used in Synapse SQL can have different supported features depend
 | **MERGE statement** | Yes ([preview](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true)) | No, merge Parquet/CSV data using Spark and the changes will be automatically available in serverless pool. |
 | **CTAS statement**  | Yes | No, [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) statement is not supported in the serverless SQL pool. |
 | **CETAS statement** | Yes, you can perform initial load into an external table using [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). | Yes, you can perform initial load into an external table using [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). CETAS supports Parquet and CSV output formats. |
-| **[Transactions](develop-transactions.md)** | Yes | Yes, transactions are applicable only on the meta-data objects. |
+| **[Transactions](develop-transactions.md)** | Yes | Yes, transactions are applicable only on the metadata objects. |
 | **[Labels](develop-label.md)** | Yes | No, labels are not supported in serverless SQL pools.  |
 | **Data load** | Yes. Preferred utility is [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement, but the system supports both BULK load (BCP) and [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) for data loading. | No, you cannot load data into the serverless SQL pool because data is stored on external storage. You can initially load data into an external table using CETAS statement. |
 | **Data export** | Yes. Using [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). | Yes. You can export data from external storage (Azure Data Lake, Dataverse, Azure Cosmos DB) into Azure data lake using [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). |
@@ -87,7 +86,7 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 | **Storage Microsoft Entra passthrough authentication** | Yes | Yes, [Microsoft Entra passthrough authentication](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) is applicable to Microsoft Entra logins. The identity of the Microsoft Entra user is passed to the storage if a credential is not specified. Microsoft Entra passthrough authentication is not available for the SQL users. |
 | **Storage shared access signature (SAS) token authentication** | No | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) with [shared access signature token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) or instance-level [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) with [shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential). |
 | **Storage Access Key authentication** | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No, [use SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) instead of storage access key. |
-| **Storage [Managed Identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) authentication** | Yes, using [Managed Service Identity Credential](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest&preserve-view=true) | Yes, The query can access the storage using the workspace [Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) credential. |
+| **Storage [Managed Identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) authentication** | Yes, using [Managed Service Identity Credential](vnet-service-endpoint-rule-overview.md) | Yes, The query can access the storage using the workspace [Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) credential. |
 | **Storage Application identity/Service principal (SPN) authentication** | [Yes](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, you can create a [credential](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential) with a [service principal application ID](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types) that will be used to authenticate on the storage. |
 | **Server roles** | No | Yes, sysadmin, public, and other server-roles are supported. |
 | **SERVER LEVEL CREDENTIAL** | No | Yes, the [server level credentials](develop-storage-files-storage-access-control.md?tabs=user-identity#server-level-credential) are used by the `OPENROWSET` function that do not uses explicit data source. |
@@ -101,11 +100,11 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 | **Row-level security** | [Yes](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No, there is no built-in support for the row-level security. Use custom views as a [workaround](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759). |
 | **Data masking** | [Yes](../guidance/security-white-paper-access-control.md#dynamic-data-masking) | No, built-in data masking is not supported in the serverless SQL pools. Use wrapper SQL views that explicitly mask some columns as a workaround. |
 | **Built-in/system security &amp; identity functions** | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators are supported:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER`, `IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SESSION_CONTEXT`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`. Security functions cannot be used to query external data (store the result in variable that can be used in the query).  |
-| **Transparent Data Encryption (TDE)** | [Yes](/azure/azure-sql/database/transparent-data-encryption-tde-overview) | No, Transparent Data Encryption is not supported. | 
+| **Transparent Data Encryption (TDE)** | [Yes](transparent-data-encryption-tde-overview.md) | No, Transparent Data Encryption isn't supported. |
 | **Data Discovery & Classification** | [Yes](/azure/azure-sql/database/data-discovery-and-classification-overview) | No, Data Discovery & Classification is not supported. |
 | **Vulnerability Assessment** | [Yes](/sql/relational-databases/security/sql-vulnerability-assessment) | No, Vulnerability Assessment is not available.  |
-| **Advanced Threat Protection** | [Yes](/azure/azure-sql/database/threat-detection-overview) | No, Advanced Threat Protection is not supported.   |
-| **Auditing** | [Yes](/azure/azure-sql/database/auditing-overview) | Yes, [auditing is supported](/azure/azure-sql/database/auditing-overview) in serverless SQL pools. |
+| **Advanced Threat Protection** | [Yes](threat-detection-overview.md) | No, Advanced Threat Protection is not supported.   |
+| **Auditing** | [Yes](auditing-overview.md) | Yes, [auditing is supported](auditing-overview.md) in serverless SQL pools. |
 | **[Firewall rules](../security/synapse-workspace-ip-firewall.md)**| Yes | Yes, the firewall rules can be set on the serverless SQL endpoint. |
 | **[Private endpoint](../security/synapse-workspace-managed-private-endpoints.md)**| Yes | Yes, the private endpoint can be set on the serverless SQL pool. |
 
@@ -170,8 +169,7 @@ Data that is analyzed can be stored in various storage formats. The following ta
 | **[Delta Lake](https://delta.io/)** | No | Yes, you can [query delta lake files](query-delta-lake-format.md), including the files with [nested types](query-parquet-nested-types.md). |
 | **[Common Data Model (CDM)](/common-data-model/)** | No | No, serverless SQL pool cannot read data stored using Common Data Model. |
 
-## Next steps
-Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
+## Related content
 
-- [Best practices for dedicated SQL pool](best-practices-dedicated-sql-pool.md)
-- [Best practices for serverless SQL pool](best-practices-serverless-sql-pool.md)
+- [Best practices for dedicated SQL pools in Azure Synapse Analytics](best-practices-dedicated-sql-pool.md)
+- [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)

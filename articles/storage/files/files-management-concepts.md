@@ -4,7 +4,7 @@ description: Understand the two resource providers for Azure Files — classic f
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/18/2026
+ms.date: 10/03/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to understand the Azure Files resource providers and management models so that I can choose the right approach for deploying file shares.
@@ -26,9 +26,9 @@ This video provides a comprehensive overview of the differences between the stor
 
 ## Classic file shares (Microsoft.Storage)
 
-Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports, including SMB and NFS, SSD and HDD media tiers, every redundancy type, and availability in every region. While classic file shares support the entire breadth of Azure Files features, they have important limitations:
+Classic file shares are file shares deployed in storage accounts. They support SMB and NFS, SSD and HDD media tiers, and multiple redundancy options. Supported combinations and regional availability depend on the protocol, media tier, and billing model. For example, NFS requires SSD storage. The storage account model has the following considerations:
 
-- **Capacity planning**: Classic file shares, as well as the child objects like blob containers that live within the same storage account, share a common pool of storage, IOPS, and throughput. This architecture means you must plan carefully to avoid capacity bottlenecks when you place multiple classic file shares in a storage account. Consider both the current and future needs of each classic file share placed in a storage account, since the growth of one classic file share can crowd out other file shares.
+- **Capacity planning**: Classic file shares share the limits of their storage account. Provisioned storage accounts contain only file shares. Pay-as-you-go storage accounts can also contain blob containers, queues, and tables. Consider the combined storage, IOPS, and throughput needs of the resources in each account.
 
 - **Shared settings**: You apply many important settings, such as network and security rules, at the storage account level. As a result, you must carefully consider how you place classic file shares in the same storage account. Consider the storage account to be a trust boundary and only place classic file shares in the same storage account if you're okay with them having the same security settings.
 
@@ -48,13 +48,13 @@ The `Microsoft.FileShares` resource provider offers file shares as a new top-lev
 
 - **Simplified management**: Create file shares directly as top-level resources in the Azure portal or through management APIs. This approach removes the requirement to manage a storage account and streamlines the deployment experience.
 
-- **Independent capacity and performance**: Each file share has its own dedicated storage, IOPS, and throughput. This design avoids the need to plan capacity against your storage account's limited resources and enables file shares to freely grow as workload demands grow.
+- **Independent capacity and performance**: Each file share has its own provisioned storage, IOPS, and throughput. You can scale these quantities within the file share's limits without managing a shared storage account limit.
 
 - **Granular configuration**: Apply networking and security settings at the file share level, so you have precise control of access boundaries and isolation. This configuration makes it easier to enforce security policies for specific apps, teams, or environments.
 
 - **Predictable, flexible billing**: File shares use the provisioned v2 billing model, which enables you to independently provision storage, IOPS, and throughput per share. Because Azure bills per top-level Azure resource, you can easily track the costs of each individual share for cost attribution back to the project, team, or customer that is using the file share.
 
-- **Improved scale and performance**: File shares support higher limits and lower deployment times than classic file shares. For more information, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md).
+- **Resource limits**: File shares have per-share and subscription limits that differ from storage account limits. For the limits of both resource providers, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md).
 
 ### Regional availability
 
@@ -104,8 +104,7 @@ Currently, you can create a file share with Microsoft.FileShares in the followin
 
 Evaluate the new file share experience with Microsoft.FileShares for all your new Azure Files NFS protocol deployments.
 
-
-If a specific feature requirement isn't yet available in the new file share experience, or the workload requires SMB protocol support, use the classic file share experience. 
+Use the following table to compare feature support for your workload. Classic file shares support SMB and NFS. Microsoft.FileShares currently supports NFS.
 
 | Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-file-share.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 |-|-|-|
@@ -124,9 +123,10 @@ If a specific feature requirement isn't yet available in the new file share expe
 | ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | GRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Per share level billing, networking, and security configurations | ![No](../media/icons/no-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
-| Single virtual network configurations for a file share | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Single virtual network configuration for multiple file shares | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Independent top-level resource for each file share | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Network rules configured on each file share | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Network rules shared by file shares in a storage account | ![Yes](../media/icons/yes-icon.png) | Not applicable |
+| [Service endpoint policies](storage-files-networking-overview.md#restrict-outbound-access-with-service-endpoint-policies) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | AKS CSI driver | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Data plane REST APIs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Soft delete support | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |

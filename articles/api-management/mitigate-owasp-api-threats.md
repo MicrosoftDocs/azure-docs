@@ -16,7 +16,7 @@ ms.custom: sfi-ropc-nochange
 
 The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) Foundation works to improve software security through its community-led open source software projects, hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.
 
-The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we discuss the latest recommendations to mitigate the top 10 API threats identified by OWASP in their *2023* list using Azure API Management.
+The OWASP [API Security Project](https://owasp.org/projects/api-security-project) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we discuss the latest recommendations to mitigate the top 10 API threats identified by OWASP in their *2023* list using Azure API Management.
 
 Even though API Management provides comprehensive controls for API security, other Microsoft services provide complementary functionality to detect or protect against OWASP API threats:
 

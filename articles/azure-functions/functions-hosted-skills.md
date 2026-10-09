@@ -2,7 +2,7 @@
 title: Azure Functions hosted skills
 description: "Add AI reasoning to your function apps with Azure Functions hosted skills. Define behavior in Markdown, respond to events, and connect to tools and services."
 ms.topic: concept-article
-ms.date: 09/08/2026
+ms.date: 10/01/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -16,7 +16,14 @@ ms.collection:
 
 Azure Functions hosted skills let you add AI reasoning to your function apps. In an `.agent.md` file, you provide natural-language instructions, a trigger configuration, and optional tool bindings. When an event fires, the runtime calls a model, runs any tools the model requests, and returns a result. You deploy the app like any other function app.
 
-To create and deploy your first hosted skills app, see [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md).
+To get started, choose the experience that matches your goal:
+
++ To create and test a hosted skill locally by using an interactive canvas in
+  GitHub Copilot, see [Build and test a hosted skill with the Azure Functions
+  hosted skills canvas](functions-hosted-skills-canvas.md).
++ To provision Azure resources and deploy a complete hosted skills app by
+  using the Azure Developer CLI (`azd`), see [Build an event-driven AI app with
+  Azure Functions hosted skills](scenario-hosted-skills.md).
 
 For the most up-to-date and comprehensive runtime documentation, see [Azure Functions Agents Runtime](https://azure.github.io/azure-functions-agents-runtime/).
 
@@ -109,6 +116,16 @@ Each `.agent.md` file defines one hosted skill. The file name derives the Azure 
 
 For the full list of `.agent.md` file fields, app configuration options, and variable substitution rules, see [Azure Functions hosted skills reference](functions-hosted-skills-reference.md).
 
+## Create and test with the hosted skills canvas
+
+As part of the hosted skills preview, Azure Functions provides an optional hosted skills canvas in GitHub Copilot. The canvas is an [interactive surface](https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions) where you and GitHub Copilot can create a starter app, choose Timer, HTTP, or Queue event controls, edit the skill instructions, select a compatible model, start the local Functions host, invoke the trigger, and inspect the activity and result.
+
+From the canvas, you can open the generated project in Visual Studio Code or use the built-in **Deploy to Azure** action. The deployment action uses the Azure Developer CLI (`azd`).
+
+The canvas guides and visualizes the development workflow, but it doesn't replace the hosted skills runtime or project format. An app created through the canvas remains a standard Python v2 function app that uses the [hosted skills project files](#hosted-skills-project-files). You can continue to edit, run, and deploy the app outside the canvas.
+
+The canvas quickstart focuses on creating, running, and inspecting one local Timer-triggered hosted skill. For the guided workflow, see [Build and test a hosted skill with the Azure Functions hosted skills canvas](functions-hosted-skills-canvas.md).
+
 ## App startup process
 
 When the Functions host loads the app, the [`create_function_app`](https://github.com/Azure/azure-functions-agents-runtime/blob/main/src/azure_functions_agents/app.py#L90) method discovers `.agent.md` files, MCP servers, skills, and custom tools in the project. It validates the configuration, assembles the tools for each hosted skill, and registers the required triggers and endpoints.
@@ -180,6 +197,7 @@ For the latest configuration details, telemetry fields, and usage guidance, use 
 
 + [Azure Functions Agents Runtime documentation](https://azure.github.io/azure-functions-agents-runtime/)
 + [Azure Functions hosted skills reference](functions-hosted-skills-reference.md)
++ [Build and test a hosted skill with the Azure Functions hosted skills canvas](functions-hosted-skills-canvas.md)
 + [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)
 + [Dynamic workflows in Azure Functions hosted skills](functions-hosted-skills-dynamic-workflows.md)
 + [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md)

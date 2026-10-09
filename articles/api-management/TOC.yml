@@ -126,8 +126,12 @@
       href: ai-gateway-setup.md
     - name: Manage models and tools
       href: ai-gateway-manage-models-tools.md
+    - name: Tool threat protection
+      href: ai-gateway-policy-tool-threat.md
     - name: Govern, secure, and operate
       href: ai-gateway-govern-secure-assets.md
+  - name: Govern tools with Agent 365
+    href: agent-365.md
 - name: Create and import APIs
   items:
   - name: Add an API manually

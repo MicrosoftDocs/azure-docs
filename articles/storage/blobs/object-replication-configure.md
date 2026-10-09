@@ -363,8 +363,90 @@ To disable replicating blob index tags for exsiting rules, follow these steps:
 N/A.
 
 #### [Azure CLI](#tab/azure-cli)
+For more information, see [CLI documentation](/cli/azure/storage/account/or-policy)
 
-N/A.
+Enable tags replication on a new policy
+Add the `--tags-replication true` parameter when you create the policy on the destination account, then copy the policy definition to the source account.
+
+```azurecli
+az storage account or-policy create \
+    --resource-group <resource-group> \
+    --account-name <dest-storage-account> \
+    --source-account <source-storage-account> \
+    --destination-account <dest-storage-account> \
+    --source-container <source-container> \
+    --destination-container <dest-container> \
+    --tags-replication true
+```
+```azurecli
+az storage account or-policy show \
+    --resource-group <resource-group> \
+    --account-name <dest-storage-account> \
+    --policy-id <policy-id> |
+az storage account or-policy create \
+    --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --policy "@-"
+```
+
+Enable tags replication on an existing policy
+Use the shared policy ID to update the flag on both accounts.
+
+```azurecli
+az storage account or-policy update \
+    --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --policy-id <policy-id> \
+    --source-account <source-storage-account> \
+    --destination-account <dest-storage-account> \
+    --tags-replication true
+
+az storage account or-policy update \
+    --resource-group <resource-group> \
+    --account-name <dest-storage-account> \
+    --policy-id <policy-id> \
+    --source-account <source-storage-account> \
+    --destination-account <dest-storage-account> \
+    --tags-replication true
+```
+Verify that tags replication is enabled
+Query the `tagsReplication.enabled` property on each account. A return value of `true` confirms it's enabled.
+
+```azurecli
+az storage account or-policy show \
+    --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --policy-id <policy-id> \
+    --query "tagsReplication.enabled" \
+    --output tsv
+
+az storage account or-policy show \
+    --resource-group <resource-group> \
+    --account-name <dest-storage-account> \
+    --policy-id <policy-id> \
+    --query "tagsReplication.enabled" \
+    --output tsv
+```
+Disable tags replication
+Set `--tags-replication false` on both the source and the destination account using the shared policy ID.
+
+```azurecli
+az storage account or-policy update \
+    --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --policy-id <policy-id> \
+    --source-account <source-storage-account> \
+    --destination-account <dest-storage-account> \
+    --tags-replication false
+
+az storage account or-policy update \
+    --resource-group <resource-group> \
+    --account-name <dest-storage-account> \
+    --policy-id <policy-id> \
+    --source-account <source-storage-account> \
+    --destination-account <dest-storage-account> \
+    --tags-replication false
+```
 
 #### [REST API](#tab/rest-api)
 

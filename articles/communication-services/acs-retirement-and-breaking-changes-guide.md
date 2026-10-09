@@ -55,9 +55,15 @@ ms.service: azure-communication-services
 ## What's changing and why?
 
 > [!NOTE]
-> Beginning October 23, 2026, new customers can't sign up for **Azure Communication Services retiring services**. Customers with an Azure Communication Services resource created before October 23, 2026, can continue using their existing resources and retiring services to support current business workloads during the transition period.
+> Beginning October 23, 2026, Microsoft will begin limiting onboarding to and expanding on retiring Azure Communication Services in accordance with Azure lifecycle management policies.
+>  - Limitations are for retiring services only.
+>  - Services subject to breaking changes aren't impacted by these restrictions. Customers using supported Microsoft Teams scenarios, including Teams Phone - Extensibility and Teams Meeting Interoperability, can continue to create and use Azure Communication Services resources required for those scenarios.
+>  - Customers with an Azure Communication Services resource created before October 23, 2026, can continue using their existing resources to support current business workloads during the transition period.
+>
+>Restrictions on retiring services will begin with limiting onboarding for customers without an Azure Communication Services resource created before October 23, 2026.   These customers will not be able to acquire phone numbers for retiring telephony workloads, including PSTN calling and SMS.  Additional measures to limit expansion of additional retiring services will be introduced during the retirement period at any time after October 23, 2026. Therefore, customers should plan and execute their migration strategy accordingly and monitor this page for future updates.
+>
 
-Microsoft announced the retirement of Azure Communication Services (ACS) as a standalone offering, effective September 30, 2028. This decision reflects our evolving strategy to prioritize deeply integrated communication experiences within Microsoft platforms, specifically Teams, Dynamics 365, and Azure, while working with leading Communications Platform as a Service (CPaaS) providers to fill gaps and accelerate innovation for Azure customers.
+On September 23, 2026, Microsoft announced the retirement of Azure Communication Services (ACS) as a standalone offering, effective September 30, 2028. This decision reflects our evolving strategy to prioritize deeply integrated communication experiences within Microsoft platforms, specifically Teams, Dynamics 365, and Azure, while working with leading Communications Platform as a Service (CPaaS) providers to fill gaps and accelerate innovation for Azure customers.
 
 The products listed in this document fall into one of two categories:
 
@@ -121,16 +127,16 @@ The following integrated solutions are supported scenarios:
 
 | Service | Change type | Microsoft alternatives or supported scenarios | Requirements | Third-Party Partner Alternatives (listed in alphabetical order) |
 |---|---|---|---|---|
-| Email | Retirement | Microsoft 365 High Volume Email (HVE) (internal), Exchange Online (EXO) | Microsoft 365 license | [Infobip](https://marketplace.microsoft.com/en-us/product/infobipdoo.infobip_cpaas), [Telesign](https://marketplace.microsoft.com/en-us/product/telesigncorporation1779799505747.telesign-communications-suite-azure?tab=Overview) |
-| SMS | Retirement | - | - | [Infobip](https://marketplace.microsoft.com/en-us/product/infobipdoo.infobip_cpaas), [Telesign](https://marketplace.microsoft.com/en-us/product/telesigncorporation1779799505747.telesign-communications-suite-azure?tab=Overview) |
-| Chat (including Teams interoperability) | Retirement | [Microsoft Graph Chat APIs](acs-chat-to-graph-chat-migration-guide.md) | Teams license | [Infobip](https://marketplace.microsoft.com/en-us/product/infobipdoo.infobip_cpaas) |
-| WhatsApp (Advanced Messaging) | Retirement | Dynamics 365 Contact Center | Dynamics 365 license | [Infobip](https://marketplace.microsoft.com/en-us/product/infobipdoo.infobip_cpaas), [Telesign](https://marketplace.microsoft.com/en-us/product/telesigncorporation1779799505747.telesign-communications-suite-azure?tab=Overview) |
-| PSTN (Direct Offer) | Retirement | Teams Phone Extensibility, Teams Calling Plan, Teams Direct Routing, Operator Connect | Teams and Teams Phone licenses | [Infobip](https://marketplace.microsoft.com/en-us/product/infobipdoo.infobip_cpaas), [Telesign](https://marketplace.microsoft.com/en-us/product/telesigncorporation1779799505747.telesign-communications-suite-azure?tab=Overview) |
-| Direct Routing | Retirement | Teams Phone Extensibility, Teams Direct Routing | Teams and Teams Phone licenses | [Infobip](https://marketplace.microsoft.com/en-us/product/infobipdoo.infobip_cpaas), [Telesign](https://marketplace.microsoft.com/en-us/product/telesigncorporation1779799505747.telesign-communications-suite-azure?tab=Overview) |
-| ACS Rooms | Retirement | Teams Meeting interoperability, Microsoft Graph APIs | Teams license | [Infobip](https://marketplace.microsoft.com/en-us/product/infobipdoo.infobip_cpaas), [Telesign](https://marketplace.microsoft.com/en-us/product/telesigncorporation1779799505747.telesign-communications-suite-azure?tab=Overview) |
+| Email | Retirement | Microsoft 365 High Volume Email (HVE) (internal), Exchange Online (EXO) | Microsoft 365 license | [Blip](https://aka.ms/acs-blip), [Infobip](https://aka.ms/acs-infobip), [Telesign](https://aka.ms/acs-telesign) |
+| SMS | Retirement | - | - |  [Blip](https://aka.ms/acs-blip), [Infobip](https://aka.ms/acs-infobip), [Telesign](https://aka.ms/acs-telesign)  |
+| Chat (including Teams interoperability) | Retirement | [Microsoft Graph Chat APIs](acs-chat-to-graph-chat-migration-guide.md) | Teams license | [Infobip](https://aka.ms/acs-infobip) |
+| WhatsApp (Advanced Messaging) | Retirement | Dynamics 365 Contact Center | Dynamics 365 license |  [Blip](https://aka.ms/acs-blip), [Infobip](https://aka.ms/acs-infobip), [Telesign](https://aka.ms/acs-telesign)  |
+| PSTN (Direct Offer) | Retirement | Teams Phone Extensibility, Teams Calling Plan, Teams Direct Routing, Operator Connect | Teams and Teams Phone licenses | [Infobip](https://aka.ms/acs-infobip), [Telesign](https://aka.ms/acs-telesign) |
+| Direct Routing | Retirement | Teams Phone Extensibility, Teams Direct Routing | Teams and Teams Phone licenses |[Infobip](https://aka.ms/acs-infobip), [Telesign](https://aka.ms/acs-telesign)  |
+| ACS Rooms | Retirement | Teams Meeting interoperability, Microsoft Graph APIs | Teams license | [Infobip](https://aka.ms/acs-infobip), [Telesign](https://aka.ms/acs-telesign)  |
 | UI Library (Web and Mobile) | Retirement | - | - | - |
 | Job Router | Retirement | Dynamics 365 Contact Center | - | [Luware](https://aka.ms/acs-luware), [Talkdesk](https://aka.ms/acs-talkdesk) |
-| Voice and Video Calling SDK | Breaking change | Teams Meeting interoperability | SDK change; applicable Teams license | [Infobip](https://marketplace.microsoft.com/en-us/product/infobipdoo.infobip_cpaas), [Telesign](https://marketplace.microsoft.com/en-us/product/telesigncorporation1779799505747.telesign-communications-suite-azure?tab=Overview) |
+| Voice and Video Calling SDK | Breaking change | Teams Meeting interoperability | SDK change; applicable Teams license | [Infobip](https://aka.ms/acs-infobip), [Telesign](https://aka.ms/acs-telesign)  |
 | Call Automation | Breaking change | Teams Phone Extensibility for documented Call Automation scenarios; see the [Teams integration scenario matrix](#call-automation-scenario-matrix) | SDK change; applicable Teams and Teams Phone licenses, resource-account configuration, and PSTN connectivity | - |
 
 
@@ -161,6 +167,7 @@ Review the third-party alternatives in the [Migration Recommendations](#migratio
 
 Listed in alphabetical order:
 
+- [Blip](https://aka.ms/acs-blip)
 - [Infobip](https://aka.ms/acs-infobip)
 - [Luware](https://aka.ms/acs-luware)
 - [Talkdesk](https://aka.ms/acs-talkdesk)
@@ -275,6 +282,9 @@ No. Azure Service Health is a separate Azure platform capability and it keeps pr
 
 ### ACS Number Management (Direct Offer)
 
+> [!NOTE]
+> Restrictions on retiring services will begin with limiting onboarding for customers without an Azure Communication Services resource created before October 23, 2026. These customers will not be able to acquire phone numbers for retiring telephony workloads, including PSTN calling and SMS.
+
 <!--
 > [!WARNING]
 > Azure Communication Services is introducing breaking changes, and some services are being retired.
@@ -286,7 +296,7 @@ No. Azure Service Health is a separate Azure platform capability and it keeps pr
 > [!TIP]
 > To get started planning your migration, visit the [Teams Phone Extensibility (TPE) migration guide](https://aka.ms/acs-numbermanagement-tpe).
 
-> [!NOTE]
+> [!TIP]
 > Remove ACS phone numbers before deleting an ACS resource. If phone numbers are not removed first, charges can continue on orphaned numbers. A support ticket is required to resolve this issue.
 
 |  | Teams Direct Routing | Teams Calling Plan | Teams Operator Connect |
@@ -296,17 +306,13 @@ No. Azure Service Health is a separate Azure platform capability and it keeps pr
 | **Benefit** | • Reuses existing telephony investments<br>• Maximum routing and carrier control<br>• Can build Teams DR in parallel<br>• ACS can remain as rollback until validation | • Closest Microsoft-managed replacement for ACS Direct Offer<br>• No SBC or operator onboarding dependency<br>• Simpler procurement and operations model<br>• Integrated Teams Phone management | • Simpler administration through Teams Admin Center<br>• Operator handles PSTN connectivity<br>• No Microsoft Calling Plan required<br>• Good fit for carrier-standardized environments |
 | **Considerations** | • Teams Direct Routing design required<br>• Review SBC capacity, certificates, and FQDNs<br>• Same SBC FQDN can't be used simultaneously for ACS and Teams DR<br>• Requires Teams Phone licensing and D365 mapping | • Validate Calling Plan coverage and service numbers<br>• Numbers might need to be ported or moved<br>• Calling Plan / Pay-As-You-Go charges apply<br>• Rollback can be difficult after number port completion | • Porting schedule controlled by operator<br>• Coverage and service-number availability vary<br>• Emergency addressing model varies by operator<br>• Support responsibility shifts to the operator |
 
-**Will there be any changes to my existing phone number?**
-
-Customers who already have ACS resources and acquired ACS phone numbers before the September 2026 announcement can continue to acquire more phone numbers during the two-year transition window.
-
-Tenants that create their first ACS resource after the September 2026 announcement aren't eligible to request phone numbers.
-
-
-
 **Can I port my existing ACS phone numbers to a third-party provider before retirement?**
 
-Yes, you may port your number from ACS to another provider. See your destination communication provider's documentation on how to port numbers from external providers like ACS. To initiate a port request for Microsoft to release your existing number to an external provider, create a [support ticket here](https://aka.ms/acs-retirement-support). To learn more, visit the [Microsoft Phone Number Service Portal](https://pstnsd.powerappsportals.com/).
+Yes, you can port your number from ACS to another provider. See your destination communication provider's documentation on how to port numbers from external providers like ACS.
+
+To initiate a port request for Microsoft to release your existing number to an external provider, create a [support ticket here](https://aka.ms/acs-retirement-support).
+
+
 
 **Can I port my number from an existing external provider into ACS during the retirement period?**
 
@@ -389,6 +395,9 @@ Yes. There are third‑party providers that offer similar email and messaging ca
 
 ### ACS SMS
 
+> [!NOTE]
+> Restrictions on retiring services will begin with limiting onboarding for customers without an Azure Communication Services resource created before October 23, 2026. These customers will not be able to acquire phone numbers for retiring telephony workloads, including PSTN calling and SMS.
+
 |  | ACS SMS<br>*Current state — retiring* | Marketplace partners<br>*Third-party CPaaS* | Dynamics 365 Contact Center<br>*For D365 customers* |
 |---|---|---|---|
 | **Best fit** | A2P transactional, alerts, OTP, bulk, and two-way conversational messaging | The primary destination for standalone A2P and CPaaS messaging scenarios | Omnichannel contact center messaging inside Dynamics 365 |
@@ -470,17 +479,7 @@ At this time, Azure Communication Services hasn't published a migration path fro
 
 You can use WhatsApp's phone number migration process to move an existing phone number from an ACS WhatsApp channel to another Business Solution Provider (BSP), provided the destination BSP supports this process.
 
-**What are my options after ACS WhatsApp is retired?**
 
-Alternatives to consider:
-
-- Dynamics 365
-
-- Infobip
-
-- Telesign
-
-Or migrate your WhatsApp Business Account to another Business Solution Provider (BSP). 
     
 
 ---
@@ -631,6 +630,9 @@ However, this documentation and code aren't intended to support new Virtual Appo
 ---
 
 ### ACS Direct Routing
+
+> [!NOTE]
+> Restrictions on retiring services will begin with limiting onboarding for customers without an Azure Communication Services resource created before October 23, 2026. These customers will not be able to acquire phone numbers for retiring telephony workloads, including PSTN calling and SMS.
 
 > [!TIP]
 > To get started planning your migration, visit the [Teams Phone Extensibility (TPE) migration guide](https://aka.ms/acs-directrouting-tpe).

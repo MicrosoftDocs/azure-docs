@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 09/04/2026
+ms.date: 10/01/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -328,19 +328,21 @@ You must sign in with your Microsoft Entra ID credentials for your work or schoo
 > [!NOTE]
 > If you have access to multiple Microsoft Entra tenants, select the right tenant by selecting your profile icon on the top right corner of the page.
 
-### 8. Create storage containers
+### 8. (Optional) Create a standalone storage container
 
-After you sign in to the studio, create storage containers to organize and manage your storage assets used in your projects.
+Every project requires a storage container. The recommended way to provision it is to select **Create a storage container for me** during project creation in [step 9](#9-create-a-project). Follow this step only if you want to create and manage a standalone storage container—for example, to reuse one container across multiple projects.
 
 Storage containers store both input and output data as storage assets. Both inputs and outputs use a storage container of type Azure Storage Blob, backed by the storage account created in [step 1](#e-create-an-azure-blob-storage-account).
 
-1. In [Microsoft Discovery Studio](https://studio.discovery.microsoft.com), on the left navigation pane, select the **Data** tab.
-1. **Storage Containers (new)** tab is selected by default.
+1. In [Microsoft Discovery Studio](https://studio.discovery.microsoft.com), in the left navigation pane under **Resources**, select **Data**.
 1. Select **Create Container**.
 1. Enter details such as name, subscription, resource group, and location.
 1. Select the storage account created in [step 1](#e-create-an-azure-blob-storage-account).
    :::image type="content" source="media/quickstart-infrastructure-portal/create-storage-containers.jpg" alt-text="Screenshot showing the Storage Container creation page in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-storage-containers.jpg":::
 1. Select **Create**.
+1. When you create the project, you can select this storage container.
+
+:::image type="content" source="media/quickstart-infrastructure-portal/create-project-details.jpg" alt-text="Screenshot showing the Create a project dialog with the select storage container option in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project-details.jpg":::
 
 > [!NOTE]
 > After you select **Create**, the resource is initially in the **Accepted** state. Refresh the page and wait until the **Provisioning State** changes to **Succeeded** before proceeding. This operation typically takes a few minutes.
@@ -356,13 +358,19 @@ You can create a project by opening your workspace in the studio.
 1. In **Microsoft Discovery Studio**, on the left navigation pane, select **Workspaces**. This lists all existing workspaces across your Azure subscriptions.
    :::image type="content" source="media/quickstart-infrastructure-portal/workspace-list.jpg" alt-text="Screenshot showing the Workspace list page in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/workspace-list.jpg":::
 1. Select the workspace you created in [step 4](#4-create-a-workspace). This action opens your workspace in the studio.
-   :::image type="content" source="media/quickstart-infrastructure-portal/create-project.jpg" alt-text="Screenshot showing the Project list page in a workspace in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project.jpg":::
 1. Select **Create Project**.
-1. Enter the name of the project and select the storage container you created in [step 8](#8-create-storage-containers).
-1. Select **Create**.
-   :::image type="content" source="media/quickstart-infrastructure-portal/create-project-new.jpg" alt-text="Screenshot showing the Project creation page with details in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project-new.jpg":::
+1. Enter a name for the project.
+1. Keep the **Create a storage container for me** option selected.
+1. Under **Select Storage Account**, select the storage account you created in [step 1](#e-create-an-azure-blob-storage-account). A new storage container is created for the project.
 
-   :::image type="content" source="media/quickstart-infrastructure-portal/create-project-list.jpg" alt-text="Screenshot showing the Project list page after project creation in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project-list.jpg":::
+   > [!NOTE]
+   > The **Create a storage container for me** option creates a new storage container resource in the same resource group as your workspace and project. This method is the recommended way to provision the storage container a project requires. To create and manage standalone storage containers for other scenarios, use [step 8](#8-optional-create-a-standalone-storage-container).
+
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-project.jpg" alt-text="Screenshot showing the Create a project button in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project.jpg":::
+
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-project-with-storage.jpg" alt-text="Screenshot showing the Create a project dialog with the Create a storage container for me option selected and a storage account chosen in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project-with-storage.jpg":::
+
+1. Select **Create**.
 
 > [!NOTE]
 > After you select **Create**, the project is initially in the **Accepted** state. Refresh the page and wait until the **Provisioning State** changes to **Succeeded** before proceeding.

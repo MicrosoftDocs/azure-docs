@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: troubleshooting
-ms.date: 9/9/2026
+ms.date: 10/1/2026
 ms.author: mbender
 # Customer intent: As a cloud platform administrator, I want to troubleshoot issues with Application Gateway for Containers, so that I can ensure the service operates smoothly and effectively resolves any deployment or configuration problems.
 ---
@@ -33,7 +33,7 @@ In this example, the ALB controller version is **1.12.1**.
 The ALB Controller version can be upgraded by running the `helm upgrade alb-controller` command. For more information, see the ALB Controller install guide for [Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md).
 
 > [!Tip]
-> The latest ALB Controller version can be found in the [ALB Controller release notes](alb-controller-release-notes.md#latest-release-recommended).
+> The latest ALB Controller version can be found in the [ALB Controller release notes](alb-controller-release-notes.md).
 
 ## Collect ALB Controller logs
 

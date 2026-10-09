@@ -674,6 +674,9 @@
     - name: Overview
       displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
       href: functions-hosted-skills.md
+    - name: Canvas quickstart
+      displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
+      href: functions-hosted-skills-canvas.md
     - name: Dynamic workflows overview
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
       href: functions-hosted-skills-dynamic-workflows.md

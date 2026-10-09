@@ -165,6 +165,8 @@
     href: flow-logs-power-bi.md
   - name: Migrate NSG flow logs
     href: nsg-flow-logs-migrate.md
+  - name: Monitor AKS traffic flows
+    href: vnet-flow-logs-aks-scenarios.md
 - name: Traffic analytics
   items:
   - name: Overview

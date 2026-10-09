@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn what level of coverage Azure Maps provides in various regions for routing, routing with traffic, and truck routing. 
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 06/12/2025
+ms.date: 10/02/2026
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: routing
@@ -69,10 +69,10 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Austria                                 | ✓                                                           | ✓                 | ✓           |
 | Azerbaijan                              | ✓                                                           |                   |             |
 | Bahamas                                 | ✓                                                           |                   |             |
-| Bahrain                                 | ✓                                                           | ✓                 |             |
+| Bahrain                                 | ✓                                                           | ✓<sup>4</sup>     |             |
 | Bangladesh<sup>1</sup>                  | ✓                                                           |                   |             |
 | Barbados                                | ✓                                                           |                   |             |
-| Belarus                                 | ✓                                                           | ✓                 |             |
+| Belarus                                 | ✓                                                           | <sup>3</sup>      |             |
 | Belgium                                 | ✓                                                           | ✓                 | ✓           |
 | Belize                                  | ✓                                                           |                   |             |
 | Benin<sup>1</sup>                       | ✓                                                           |                   |             |
@@ -84,7 +84,7 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Bouvet Island<sup>1</sup>               | ✓                                                           |                   |             |
 | Brazil                                  | ✓                                                           | ✓                 | ✓           |
 | British Virgin Islands                  | ✓                                                           |                   |             |
-| Brunei                                  | ✓                                                           | ✓                 |             |
+| Brunei                                  | ✓                                                           | <sup>3</sup>      |             |
 | Bulgaria                                | ✓                                                           | ✓                 | ✓           |
 | Burkina Faso<sup>1</sup>                | ✓                                                           |                   |             |
 | Burundi                                 | ✓                                                           |                   |             |
@@ -140,7 +140,7 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Greece                                  | ✓                                                           | ✓                 | ✓           |
 | Greenland<sup>1</sup>                   | ✓                                                           |                   |             |
 | Grenada                                 | ✓                                                           |                   |             |
-| Guadeloupe                              | ✓                                                           | ✓                 |             |
+| Guadeloupe                              | ✓                                                           | <sup>3</sup>      |             |
 | Guam                                    | ✓                                                           | ✓                 |             |
 | Guatemala                               | ✓                                                           |                   |             |
 | Guernsey                                | ✓                                                           | ✓                 |             |
@@ -153,12 +153,12 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Hungary                                 | ✓                                                           | ✓                 | ✓           |
 | Iceland                                 | ✓                                                           | ✓                 |             |
 | India                                   | ✓                                                           | ✓                 |             |
-| Indonesia                               | ✓                                                           | ✓                 | ✓           |
+| Indonesia                               | ✓                                                           | ✓<sup>4</sup>     | ✓           |
 | Iran<sup>1</sup>                        | ✓                                                           |                   |             |
 | Iraq                                    | ✓                                                           |                   |             |
 | Ireland                                 | ✓                                                           | ✓                 | ✓           |
 | Isle of Man                             | ✓                                                           | ✓                 |             |
-| Israel                                  | ✓                                                           | ✓                 | ✓           |
+| Israel                                  | ✓                                                           | <sup>3</sup>      | ✓           |
 | Italy                                   | ✓                                                           | ✓                 | ✓           |
 | Jamaica                                 | ✓                                                           |                   |             |
 | Jersey                                  | ✓                                                           | ✓                 |             |
@@ -178,15 +178,15 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Liechtenstein                           | ✓                                                           | ✓                 | ✓           |
 | Lithuania                               | ✓                                                           | ✓                 | ✓           |
 | Luxembourg                              | ✓                                                           | ✓                 | ✓           |
-| Macao SAR                               | ✓                                                           | ✓                 |             |
+| Macao SAR                               | ✓                                                           | <sup>3</sup>      |             |
 | Madagascar<sup>1</sup>                  | ✓                                                           |                   |             |
 | Malawi                                  | ✓                                                           |                   |             |
-| Malaysia                                | ✓                                                           | ✓                 | ✓           |
+| Malaysia                                | ✓                                                           | ✓<sup>4</sup>     | ✓           |
 | Maldives<sup>1</sup>                    | ✓                                                           |                   |             |
 | Mali<sup>1</sup>                        | ✓                                                           |                   |             |
 | Malta                                   | ✓                                                           | ✓                 | ✓           |
 | Marshall Islands<sup>1</sup>            | ✓                                                           |                   |             |
-| Martinique                              | ✓                                                           | ✓                 |             |
+| Martinique                              | ✓                                                           | <sup>3</sup>      |             |
 | Mauritania<sup>1</sup>                  | ✓                                                           |                   |             |
 | Mauritius                               | ✓                                                           |                   |             |
 | Mayotte                                 | ✓                                                           |                   |             |
@@ -197,7 +197,7 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Mongolia<sup>1</sup>                    | ✓                                                           |                   |             |
 | Montenegro                              | ✓                                                           |                   | ✓           |
 | Montserrat                              | ✓                                                           |                   |             |
-| Morocco                                 | ✓                                                           | ✓                 |             |
+| Morocco                                 | ✓                                                           | ✓<sup>4</sup>     |             |
 | Mozambique                              | ✓                                                           | ✓                 |             |
 | Myanmar                                 | ✓                                                           |                   |             |
 | Namibia                                 | ✓                                                           |                   |             |
@@ -208,28 +208,28 @@ The following tables provide coverage information for the Azure Maps routing ser
 | New Zealand                             | ✓                                                           | ✓                 | ✓           |
 | Nicaragua                               | ✓                                                           |                   |             |
 | Niger<sup>1</sup>                       | ✓                                                           |                   |             |
-| Nigeria                                 | ✓                                                           | ✓                 |             |
+| Nigeria                                 | ✓                                                           | <sup>3</sup>      |             |
 | Niue<sup>1</sup>                        | ✓                                                           |                   |             |
 | Norfolk Island<sup>1</sup>              | ✓                                                           |                   |             |
 | North Macedonia                         | ✓                                                           |                   |             |
 | Northern Mariana Islands                | ✓                                                           |                   |             |
 | Norway                                  | ✓                                                           | ✓                 | ✓           |
-| Oman                                    | ✓                                                           | ✓                 |             |
+| Oman                                    | ✓                                                           | ✓<sup>4</sup>     |             |
 | Pakistan<sup>1</sup>                    | ✓                                                           |                   |             |
 | Palau<sup>1</sup>                       | ✓                                                           |                   |             |
 | Panama                                  | ✓                                                           |                   |             |
 | Papua New Guinea<sup>1</sup>            | ✓                                                           |                   |             |
 | Paraguay                                | ✓                                                           |                   |             |
 | Peru                                    | ✓                                                           | ✓                 |             |
-| Philippines                             | ✓                                                           | ✓                 | ✓           |
+| Philippines                             | ✓                                                           | ✓<sup>4</sup>     | ✓           |
 | Pitcairn Islands<sup>1</sup>            | ✓                                                           |                   |             |
 | Poland                                  | ✓                                                           | ✓                 | ✓           |
 | Portugal                                | ✓                                                           | ✓                 | ✓           |
 | Puerto Rico                             | ✓                                                           | ✓                 |             |
 | Qatar                                   | ✓                                                           | ✓                 |             |
-| Réunion                                 | ✓                                                           | ✓                 |             |
+| Réunion                                 | ✓                                                           | <sup>3</sup>      |             |
 | Romania                                 | ✓                                                           | ✓                 | ✓           |
-| Russia                                  | ✓                                                           | ✓                 | ✓           |
+| Russia                                  | ✓                                                           | <sup>3</sup>      | ✓           |
 | Rwanda                                  | ✓                                                           |                   |             |
 | Samoa<sup>1</sup>                       | ✓                                                           |                   |             |
 | San Marino                              | ✓                                                           | ✓                 | ✓           |
@@ -262,10 +262,10 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Sweden                                  | ✓                                                           | ✓                 | ✓           |
 | Switzerland                             | ✓                                                           | ✓                 | ✓           |
 | Syria<sup>1</sup>                       | ✓                                                           |                   |             |
-| Taiwan                                  | ✓                                                           | ✓                 | ✓           |
+| Taiwan                                  | ✓                                                           | ✓<sup>4</sup>     | ✓           |
 | Tajikistan<sup>1</sup>                  | ✓                                                           |                   |             |
 | Tanzania                                | ✓                                                           |                   |             |
-| Thailand                                | ✓                                                           | ✓                 | ✓           |
+| Thailand                                | ✓                                                           | ✓<sup>4</sup>     | ✓           |
 | Timor-Leste<sup>1</sup>                 | ✓                                                           |                   |             |
 | Togo<sup>1</sup>                        | ✓                                                           |                   |             |
 | Tokelau<sup>1</sup>                     | ✓                                                           |                   |             |
@@ -278,16 +278,16 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Tuvalu                                  | ✓                                                           |                   |             |
 | U.S. Virgin Islands                     | ✓                                                           | ✓                 |             |
 | Uganda                                  | ✓                                                           |                   |             |
-| Ukraine                                 | ✓                                                           | ✓                 |             |
+| Ukraine                                 | ✓                                                           | <sup>3</sup>      |             |
 | United Arab Emirates                    | ✓                                                           | ✓                 |             |
 | United Kingdom                          | ✓                                                           | ✓                 | ✓           |
 | United States                           | ✓                                                           | ✓                 | ✓           |
-| Uruguay                                 | ✓                                                           | ✓                 | ✓           |
+| Uruguay                                 | ✓                                                           | ✓<sup>4</sup>     | ✓           |
 | Uzbekistan<sup>1</sup>                  | ✓                                                           |                   |             |
 | Vanuatu<sup>1</sup>                     | ✓                                                           |                   |             |
 | Vatican City                            | ✓                                                           | ✓                 | ✓           |
 | Venezuela                               | ✓                                                           |                   |             |
-| Vietnam                                 | ✓                                                           | ✓                 | ✓           |
+| Vietnam                                 | ✓                                                           | ✓<sup>4</sup>     | ✓           |
 | Wallis & Futuna<sup>1</sup>             | ✓                                                           |                   |             |
 | Yemen                                   | ✓                                                           |                   |             |
 | Zambia                                  | ✓                                                           |                   |             |
@@ -296,6 +296,10 @@ The following tables provide coverage information for the Azure Maps routing ser
 <sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
 <sup>2</sup> Korea is only supported in the latest version of the Route service, with coverage dependent on enabling data processing. For more information, see [Configure global data processing](how-to-manage-consent.md).
+
+<sup>3</sup> Real-time traffic is temporarily unavailable because current traffic data doesn't meet quality requirements. Map and routing data remain available.
+
+<sup>4</sup> Real-time traffic is available with reduced traffic-data volume.
 
 <!-----------------------------  ::: zone pivot="service-latest"   ---------------------------------------------------------------------
 
@@ -319,10 +323,10 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Austria                                |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Azerbaijan                             |               ✓                  |                    |                        |          ✓           |
 | Bahamas                                |               ✓                  |                    |                        |          ✓           |
-| Bahrain                                |               ✓                  |         ✓          |                        |          ✓           |
+| Bahrain                                |               ✓                  |    ✓<sup>4</sup>    |                        |          ✓           |
 | Bangladesh<sup>1</sup>                 |               ✓                  |                    |                        |          ✓           |
 | Barbados                               |               ✓                  |                    |                        |          ✓           |
-| Belarus                                |               ✓                  |                    |                        |          ✓           |
+| Belarus                                |               ✓                  |     <sup>3</sup>    |                        |          ✓           |
 | Belgium                                |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Belize                                 |               ✓                  |                    |                        |          ✓           |
 | Benin<sup>1</sup>                      |               ✓                  |                    |                        |          ✓           |
@@ -336,7 +340,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Brazil                                 |               ✓                  |         ✓          |           ✓            |          ✓           |
 | British Indian Ocean Territory<sup>1</sup>|            ✓                  |                    |                        |                      |
 | British Virgin Islands                 |               ✓                  |                    |                        |          ✓           |
-| Brunei                                 |               ✓                  |         ✓          |                        |          ✓           |
+| Brunei                                 |               ✓                  |     <sup>3</sup>    |                        |          ✓           |
 | Bulgaria                               |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Burkina Faso<sup>1</sup>               |               ✓                  |                    |                        |          ✓           |
 | Burundi                                |               ✓                  |                    |                        |          ✓           |
@@ -358,7 +362,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Congo (DRC)<sup>1</sup>                |               ✓                  |                    |                        |          ✓           |
 | Cook Islands<sup>1</sup>               |               ✓                  |                    |                        |          ✓           |
 | Costa Rica                             |               ✓                  |                    |                        |          ✓           |
-| Côte d’Ivoire<sup>1</sup>              |               ✓                  |                    |                        |          ✓           |
+| Côte d'Ivoire<sup>1</sup>              |               ✓                  |                    |                        |          ✓           |
 | Croatia                                |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Cuba                                   |               ✓                  |                    |                        |          ✓           |
 | Curaçao                                |               ✓                  |                    |                        |          ✓           |
@@ -393,7 +397,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Greece                                 |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Greenland<sup>1</sup>                  |               ✓                  |                    |                        |          ✓           |
 | Grenada                                |               ✓                  |                    |                        |          ✓           |
-| Guadeloupe                             |               ✓                  |         ✓          |                        |          ✓           |
+| Guadeloupe                             |               ✓                  |     <sup>3</sup>    |                        |          ✓           |
 | Guam                                   |               ✓                  |         ✓          |                        |          ✓           |
 | Guatemala                              |               ✓                  |                    |                        |          ✓           |
 | Guernsey                               |               ✓                  |         ✓          |                        |          ✓           |
@@ -407,12 +411,12 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Hungary                                |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Iceland                                |               ✓                  |         ✓          |                        |          ✓           |
 | India                                  |               ✓                  |         ✓          |                        |          ✓           |
-| Indonesia                              |               ✓                  |         ✓          |           ✓            |          ✓           |
+| Indonesia                              |               ✓                  |    ✓<sup>4</sup>    |           ✓            |          ✓           |
 | Iran<sup>1</sup>                       |               ✓                  |                    |                        |          ✓           |
 | Iraq                                   |               ✓                  |                    |                        |          ✓           |
 | Ireland                                |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Isle of Man                            |               ✓                  |         ✓          |                        |          ✓           |
-| Israel                                 |               ✓                  |         ✓          |           ✓            |          ✓           |
+| Israel                                 |               ✓                  |     <sup>3</sup>    |           ✓            |          ✓           |
 | Italy                                  |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Jamaica                                |               ✓                  |                    |                        |          ✓           |
 | Jan Mayen                              |               ✓                  |                    |                        |                      |
@@ -434,15 +438,15 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Liechtenstein                          |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Lithuania                              |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Luxembourg                             |               ✓                  |         ✓          |           ✓            |          ✓           |
-| Macao SAR                              |               ✓                  |         ✓          |                        |          ✓           |
+| Macao SAR                              |               ✓                  |     <sup>3</sup>    |                        |          ✓           |
 | Madagascar<sup>1</sup>                 |               ✓                  |                    |                        |          ✓           |
 | Malawi                                 |               ✓                  |                    |                        |          ✓           |
-| Malaysia                               |               ✓                  |         ✓          |           ✓            |          ✓           |
+| Malaysia                               |               ✓                  |    ✓<sup>4</sup>    |           ✓            |          ✓           |
 | Maldives<sup>1</sup>                   |               ✓                  |                    |                        |          ✓           |
 | Mali<sup>1</sup>                       |               ✓                  |                    |                        |          ✓           |
 | Malta                                  |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Marshall Islands<sup>1</sup>           |               ✓                  |                    |                        |          ✓           |
-| Martinique                             |               ✓                  |         ✓          |                        |          ✓           |
+| Martinique                             |               ✓                  |     <sup>3</sup>    |                        |          ✓           |
 | Mauritania<sup>1</sup>                 |               ✓                  |                    |                        |          ✓           |
 | Mauritius                              |               ✓                  |                    |                        |          ✓           |
 | Mayotte                                |               ✓                  |                    |                        |          ✓           |
@@ -453,7 +457,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Mongolia<sup>1</sup>                   |               ✓                  |                    |                        |          ✓           |
 | Montenegro                             |               ✓                  |                    |           ✓            |          ✓           |
 | Montserrat                             |               ✓                  |                    |                        |          ✓           |
-| Morocco                                |               ✓                  |         ✓          |                        |          ✓           |
+| Morocco                                |               ✓                  |    ✓<sup>4</sup>    |                        |          ✓           |
 | Mozambique                             |               ✓                  |         ✓          |                        |          ✓           |
 | Myanmar                                |               ✓                  |                    |                        |          ✓           |
 | Namibia                                |               ✓                  |                    |                        |          ✓           |
@@ -464,14 +468,14 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | New Zealand                            |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Nicaragua                              |               ✓                  |                    |                        |          ✓           |
 | Niger<sup>1</sup>                      |               ✓                  |                    |                        |          ✓           |
-| Nigeria                                |               ✓                  |         ✓          |                        |          ✓           |
+| Nigeria                                |               ✓                  |     <sup>3</sup>    |                        |          ✓           |
 | Niue<sup>1</sup>                       |               ✓                  |                    |                        |          ✓           |
 | Norfolk Island<sup>1</sup>             |               ✓                  |                    |                        |          ✓           |
 | North Korea<sup>1</sup>                |               ✓                  |                    |                        |                      |
 | North Macedonia                        |               ✓                  |                    |                        |          ✓           |
 | Northern Mariana Islands               |               ✓                  |                    |                        |          ✓           |
 | Norway                                 |               ✓                  |         ✓          |           ✓            |          ✓           |
-| Oman                                   |               ✓                  |         ✓          |                        |          ✓           |
+| Oman                                   |               ✓                  |    ✓<sup>4</sup>    |                        |          ✓           |
 | Pakistan<sup>1</sup>                   |               ✓                  |                    |                        |          ✓           |
 | Palau<sup>1</sup>                      |               ✓                  |                    |                        |          ✓           |
 | Palestinian Authority<sup>1</sup>      |               ✓                  |                    |                        |                      |
@@ -479,15 +483,15 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Papua New Guinea<sup>1</sup>           |               ✓                  |                    |                        |          ✓           |
 | Paraguay                               |               ✓                  |                    |                        |          ✓           |
 | Peru                                   |               ✓                  |         ✓          |                        |          ✓           |
-| Philippines                            |               ✓                  |         ✓          |           ✓            |          ✓           |
+| Philippines                            |               ✓                  |    ✓<sup>4</sup>    |           ✓            |          ✓           |
 | Pitcairn Islands<sup>1</sup>           |               ✓                  |                    |                        |          ✓           |
 | Poland                                 |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Portugal                               |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Puerto Rico                            |               ✓                  |         ✓          |                        |          ✓           |
 | Qatar                                  |               ✓                  |         ✓          |                        |          ✓           |
-| Réunion                                |               ✓                  |         ✓          |                        |          ✓           |
+| Réunion                                |               ✓                  |     <sup>3</sup>    |                        |          ✓           |
 | Romania                                |               ✓                  |         ✓          |           ✓            |          ✓           |
-| Russia                                 |               ✓                  |                    |           ✓            |          ✓           |
+| Russia                                 |               ✓                  |     <sup>3</sup>    |           ✓            |          ✓           |
 | Rwanda                                 |               ✓                  |                    |                        |          ✓           |
 | Saba                                   |               ✓                  |                    |                        |                      |
 | Samoa<sup>1</sup>                      |               ✓                  |                    |                        |          ✓           |
@@ -523,10 +527,10 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Sweden                                 |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Switzerland                            |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Syria<sup>1</sup>                      |               ✓                  |                    |                        |          ✓           |
-| Taiwan                                 |               ✓                  |         ✓          |           ✓            |          ✓           |
+| Taiwan                                 |               ✓                  |    ✓<sup>4</sup>    |           ✓            |          ✓           |
 | Tajikistan<sup>1</sup>                 |               ✓                  |                    |                        |          ✓           |
 | Tanzania                               |               ✓                  |                    |                        |          ✓           |
-| Thailand                               |               ✓                  |         ✓          |           ✓            |          ✓           |
+| Thailand                               |               ✓                  |    ✓<sup>4</sup>    |           ✓            |          ✓           |
 | Timor-Leste<sup>1</sup>                |               ✓                  |                    |                        |          ✓           |
 | Togo<sup>1</sup>                       |               ✓                  |                    |                        |          ✓           |
 | Tokelau<sup>1</sup>                    |               ✓                  |                    |                        |          ✓           |
@@ -540,16 +544,16 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | U.S. Outlying Islands<sup>1</sup>      |               ✓                  |                    |                        |                      |
 | U.S. Virgin Islands                    |               ✓                  |         ✓          |                        |          ✓           |
 | Uganda                                 |               ✓                  |                    |                        |          ✓           |
-| Ukraine                                |               ✓                  |                    |                        |          ✓           |
+| Ukraine                                |               ✓                  |     <sup>3</sup>    |                        |          ✓           |
 | United Arab Emirates                   |               ✓                  |         ✓          |                        |          ✓           |
 | United Kingdom                         |               ✓                  |         ✓          |           ✓            |          ✓           |
 | United States                          |               ✓                  |         ✓          |           ✓            |          ✓           |
-| Uruguay                                |               ✓                  |         ✓          |           ✓            |          ✓           |
+| Uruguay                                |               ✓                  |    ✓<sup>4</sup>    |           ✓            |          ✓           |
 | Uzbekistan<sup>1</sup>                 |               ✓                  |                    |                        |          ✓           |
 | Vanuatu<sup>1</sup>                    |               ✓                  |                    |                        |          ✓           |
 | Vatican City                           |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Venezuela                              |               ✓                  |                    |                        |          ✓           |
-| Vietnam                                |               ✓                  |         ✓          |           ✓            |          ✓           |
+| Vietnam                                |               ✓                  |    ✓<sup>4</sup>    |           ✓            |          ✓           |
 | Wallis & Futuna<sup>1</sup>            |               ✓                  |                    |                        |          ✓           |
 | Yemen                                  |               ✓                  |                    |                        |          ✓           |
 | Zambia                                 |               ✓                  |                    |                        |          ✓           |
@@ -558,6 +562,10 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 <sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
 <sup>2</sup> Coverage is dependent on enabling data processing in Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
+
+<sup>3</sup> Real-time traffic is temporarily unavailable because current traffic data doesn't meet quality requirements. Map and routing data remain available.
+
+<sup>4</sup> Real-time traffic is available with reduced traffic-data volume.
 
 ::: zone-end -------------------------------------------------------------------------------------------------------------------------->
 
