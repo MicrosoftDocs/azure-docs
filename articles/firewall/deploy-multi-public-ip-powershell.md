@@ -15,11 +15,13 @@ ms.custom: devx-track-azurepowershell
 This feature enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
-- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. Azure Firewall randomly selects the first source public IP address to use for a connection and selects another public IP after ports from the first IP are exhausted. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md) to simplify this configuration.
+- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. Azure Firewall randomly selects the first source public IP address to use for a connection and selects another public IP after ports from the first IP are exhausted. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
 
 You can access Azure Firewall with multiple public IP addresses through the Azure portal, Azure PowerShell, Azure CLI, REST, and templates.
-You can deploy an Azure Firewall in a hub virtual network with up to 250 public IP addresses. However, DNAT destination rules also count toward the 250 maximum.
-The limit for an Azure Firewall in a VHUB deployment with Bring your own Public IP is 250 addresses, and for classic VHUB deployment, it's 80 public IP addresses.
+You can associate up to 250 public IP addresses with an Azure Firewall deployed in a virtual network. DNAT destination rules also count toward the 250 maximum. For an Azure Firewall deployed in a secured virtual hub (VHub), you can associate up to 80 public IP addresses.
+
+> [!IMPORTANT]
+> Azure Firewall doesn't support attaching a Public IP Prefix. You must associate individual Standard public IP addresses with the firewall.
 
 > [!NOTE]
 > Adding multiple public IP addresses is the lower-cost way to scale SNAT ports. In scenarios with high traffic volume and throughput, use a [NAT Gateway](/azure/nat-gateway/nat-overview) instead for a more scalable solution. NAT Gateway dynamically allocates SNAT ports across all public IPs associated with it. For more information, see [Integrate NAT Gateway with Azure Firewall](/azure/firewall/integrate-with-nat-gateway) and the [option comparison in best practices](firewall-best-practices.md#recommendations).

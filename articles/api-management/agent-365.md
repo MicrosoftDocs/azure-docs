@@ -63,7 +63,7 @@ To grant consent:
 
 1. Select **Gateways**.
 
-1. Enable **Azure API Management service and Azure AI Gateway**. By consenting, you let this organization read the tools published through the AI gateway.
+1. Enable **Azure API Management service and AI Gateway**. By consenting, you let this organization read the tools published through the AI gateway.
 
     :::image type="content" source="./media/ai-gateway-agent-365/give-consent-azure-api-management.png" lightbox="./media/ai-gateway-agent-365/give-consent-azure-api-management.png" alt-text="Screenshot of the consent granting page for Microsoft Azure gateways." :::
 

@@ -34,6 +34,9 @@ You need the following permissions to create subscriptions for an EA:
 
 For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
+> [!NOTE]
+> **Sign-in directory requirement:** Enterprise Administrators and Account Owners must sign in to their **primary Microsoft Entra directory**, also referred to as their primary tenant, to create an Enterprise Agreement subscription. Subscription creation isn't supported while the user is signed in to another directory as a guest, irrespective of their Microsoft Entra role or permissions in that directory.
+
 ## Create an EA subscription
 
 A user with Enterprise Administrator or Account Owner permissions can use the following steps to create a new EA subscription for themselves or for another user. If the subscription is for another user, the user is sent a notification that they must approve.
@@ -41,7 +44,7 @@ A user with Enterprise Administrator or Account Owner permissions can use the fo
 >[!NOTE]
 > If you want to create an Enterprise Dev/Test subscription, an enterprise administrator must enable account owners to create them. Otherwise, the option to create them isn't available. To enable the dev/test offer for an enrollment, see [Enable the enterprise dev/test offer](direct-ea-administration.md#enable-the-enterprise-devtest-offer).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you’re signed in to a directory where you’re a guest, switch to your primary directory before creating an EA subscription. This requirement applies to both Enterprise Administrators and Account Owners. 
+1. Sign in to the [Azure portal](https://portal.azure.com)using an account that has Enterprise Administrator or Account Owner permissions. You must be signed in to your **primary Microsoft Entra directory** to create an EA subscription. If you’re currently signed in to another directory where you’re a guest, switch to your primary directory before continuing. 
 
 1. Navigate to **Subscriptions** and then select **Add**.  
     :::image type="content" source="./media/create-enterprise-subscription/subscription-add.png" alt-text="Screenshot showing the Subscription page where you Add a subscription." lightbox="./media/create-enterprise-subscription/subscription-add.png" :::
@@ -75,12 +78,14 @@ Or, if you're already on the Subscriptions page, you can refresh your browser's 
 
 ## Create subscription in other tenant and view transfer requests
 
-A user with the following permission can create subscriptions in their customer's directory if they're allowed or exempted with subscription policy. For more information, see [Setting subscription policy](manage-azure-subscription-policy.md#setting-subscription-policy).
+While signed in to their primary directory, a user with one of the following EA billing roles can request that the subscription be created in another directory. 
 
 - Enterprise Administrator
 - Account Owner
 
-When you try to create a subscription for someone in a directory outside of the current directory (such as a customer's tenant), a _subscription creation request_ is created. You specify the subscription directory and subscription owner details on the Advanced tab when creating the subscription. The subscription owner must accept the subscription ownership request before the subscription is created. The subscription owner is the customer in the target tenant where the subscription is being provisioned.
+The request is subject to the subscription policies configured for the source and target directories. For more information, see [Setting subscription policy](manage-azure-subscription-policy.md#setting-subscription-policy).
+
+When you try to create a subscription in a directory other than their primary directory (such as a customer's tenant), a _subscription creation request_ is created. You specify the subscription directory and subscription owner details on the **Advanced** tab when creating the subscription. The subscription owner must accept the subscription ownership request before the subscription is created. The subscription owner is the customer in the target tenant where the subscription is being provisioned.
 
 :::image type="content" source="./media/create-enterprise-subscription/create-subscription-other-directory.png" alt-text="Screenshot showing Create a subscription outside the current directory." lightbox="./media/create-enterprise-subscription/create-subscription-other-directory.png" :::
 
@@ -124,3 +129,4 @@ If you have questions or need help, [create a support request](https://go.micros
 - [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Create management groups for resource organization and management](../../governance/management-groups/create-management-group-portal.md)
 - [Cancel your subscription for Azure](cancel-azure-subscription.md)
+

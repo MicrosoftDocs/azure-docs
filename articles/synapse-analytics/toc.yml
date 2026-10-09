@@ -451,21 +451,61 @@ items:
       items:
       - name: Database access control
         href: /azure/azure-sql/database/logins-create-manage?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+      - name: Managed identity authentication
+        href: sql/authentication-azure-ad-user-assigned-managed-identity.md
       - name: Shared database access control
         href: sql/shared-databases-access-control.md
-      - name: Data security
-        items:
-        - name: Column-level security
-          href: ./sql-data-warehouse/column-level-security.md?context=/azure/synapse-analytics/context/context
-        - name: Row-level security
-          href: /sql/relational-databases/security/row-level-security?context=/azure/synapse-analytics/context/context
-      - name: Data Encryption
-        items:
-        - name: Transparent Data Encryption overview
-          href: /azure/azure-sql/database/transparent-data-encryption-tde-overview?toc=%2fazure%2fsynapse-analytics%2ftoc.json
-        - name: TDE with bring your own key
-          displayName: transparent, data, encryption
-          href: /azure/azure-sql/database/transparent-data-encryption-byok-overview?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+    - name: Data security
+      items:
+      - name: Dynamic data masking
+        href: sql/dynamic-data-masking-overview.md
+      - name: Column-level security
+        href: ./sql-data-warehouse/column-level-security.md?context=/azure/synapse-analytics/context/context
+      - name: Row-level security
+        href: /sql/relational-databases/security/row-level-security?context=/azure/synapse-analytics/context/context
+    - name: Auditing
+      items:
+      - name: Overview
+        href: sql/auditing-overview.md
+      - name: Set up auditing
+        href: sql/auditing-setup.md
+      - name: Audit log format
+        href: sql/audit-log-format.md
+      - name: Analyze audit logs and reports
+        href: sql/auditing-analyze-audit-logs.md
+      - name: Best practices
+        href: sql/auditing-best-practices.md
+      - name: Manage auditing using APIs
+        href: sql/auditing-manage-using-api.md
+      - name: Auditing using managed identity
+        href: sql/auditing-managed-identity.md
+      - name: Audit Microsoft support operations
+        href: sql/auditing-microsoft-support-operations.md
+      - name: Server-level and database-level policies
+        href: sql/auditing-server-level-database-level.md
+      - name: Audit to protected storage
+        href: sql/audit-write-storage-account-behind-vnet-firewall.md
+    - name: Network security
+      items:
+      - name: Network access controls
+        href: sql/network-access-controls-overview.md
+      - name: Virtual network service endpoints
+        href: sql/vnet-service-endpoint-rule-overview.md
+      - name: Azure Private Link
+        href: sql/private-endpoint-overview.md
+    - name: Data encryption
+      items:
+      - name: Transparent Data Encryption overview
+        href: sql/transparent-data-encryption-tde-overview.md
+      - name: Customer-managed TDE
+        displayName: transparent, data, encryption, bring your own key, byok
+        href: sql/transparent-data-encryption-byok-overview.md
+      - name: Configure TDE with BYOK
+        href: sql/transparent-data-encryption-byok-configure.md
+      - name: Rotate the TDE protector
+        href: sql/transparent-data-encryption-byok-key-rotation.md
+      - name: Remove a TDE protector
+        href: sql/transparent-data-encryption-byok-remove-tde-protector.md
     - name: Workload management
       items:
       - name: Overview

@@ -495,8 +495,6 @@
       href: application-volume-group-delete.md  
   - name: Manage hybrid data mobility and protection  
     items:
-    - name: Manage data restores
-      href: azure-netapp-files-manage-data-restores.md
     - name: Manage snapshot-based protection 
       items:
       - name: Create an on-demand snapshot
@@ -539,6 +537,10 @@
         href: restore-single-file-backup.md
       - name: Delete backups 
         href: backup-delete.md 	
+    - name: Manage restores
+      items:
+      - name: Manage data restores
+        href: azure-netapp-files-manage-data-restores.md
     - name: Manage replication
       items:
       - name: Create cross-region replication

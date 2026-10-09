@@ -164,6 +164,8 @@ items:
         href: ./afds/asn-match-condition.md
       - name: Client fingerprint matching
         href: ./afds/client-fingerprint-match-condition.md
+      - name: Service tag matching
+        href: ./afds/service-tag-match-condition.md
     - name: Tuning
       href: ./afds/waf-front-door-tuning.md
   - name: Use Azure Policy

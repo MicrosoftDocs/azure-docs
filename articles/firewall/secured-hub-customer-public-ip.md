@@ -17,6 +17,9 @@ Azure Firewall in Virtual WAN secured hubs now supports the use of customer-prov
 
 With this feature, instead of relying on Azure-managed public IP addresses, you can specify your own public IP addresses that are already allocated in your Azure subscription. This is particularly valuable for organizations that require consistent IP addresses for compliance, security policies, or integration with third-party systems.
 
+> [!IMPORTANT]
+> Azure Firewall doesn't support attaching a Public IP Prefix. You must associate individual Standard public IP addresses with the firewall. In a secured virtual hub, you can associate up to 80 public IP addresses.
+
 You can configure this feature using either the Azure portal or Azure PowerShell.
 
 ## Benefits
@@ -26,8 +29,6 @@ Using customer-provided public IP addresses with secured hub Azure Firewalls off
 - **IP lifecycle management**: You own and control the complete lifecycle of the Azure Firewall public IP addresses, including creation, configuration, and deletion.
 
 - **Enhanced DDoS protection**: Secured hub firewalls can enable enhanced DDoS mitigation features to defend against DDoS attacks when using customer-provided public IPs.
-
-- **IP prefix allocation**: You can allocate Azure Firewall public IP addresses from an IP address prefix pool, enabling better IP address management and simplified routing configurations.
 
 - **Compliance and consistency**: Maintain consistent public IP addresses across deployments to meet regulatory requirements or integrate with existing network security policies.
 
@@ -52,9 +53,6 @@ Before you can use customer-provided public IP addresses with secured hub Azure 
   - Manage public IP addresses
   - Modify Virtual WAN hub configurations
 
-- **IP prefix (recommended)**: For better management, allocate your public IP addresses from a public IP address prefix pool.ided public IP address support in secured hubs
-description: Learn how to use customer-provided public IP addresses with Azure Firewall in secured Virtual WAN hubs for enhanced control and DDoS protection.
-
 The capability is available for both new and existing deployments of secured hub Firewalls. 
 
 ## Configure a new Secure Hub Azure Firewall with customer tenant public IP 
@@ -63,7 +61,7 @@ You can configure this feature using either the Azure portal or Azure PowerShell
 
 ### [Portal](#tab/portal)
 
-You can associate a preexisting public IP address with a secured hub firewall. You should allocate public IP addresses from an IP prefix pool to simplify downstream security access control lists (ACLs).          
+You can associate preexisting public IP addresses with a secured hub firewall. You can associate up to 80 individual public IP addresses.
 :::image type="content" source="media/secured-hub-customer-public-ip/new-secured-hub-customer-public-ip.png" alt-text="Screenshot showing new secured virtual hub.":::
 
 ### [PowerShell](#tab/powershell)

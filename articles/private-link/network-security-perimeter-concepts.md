@@ -101,6 +101,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 |---------------------------|---------------|-----------| --------- | --------- |
 | [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service | Generally available | Not Available |
 | [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | | Generally Available | Not Available |
+| [Azure App Configuration](/azure/azure-app-configuration/overview) | Microsoft.AppConfiguration/configurationStores | | Public Preview | Not Available |
 | [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | | Public Preview | Not Available |
 | [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | | Generally Available | Not Available |
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | | Generally Available | Generally Available |
@@ -113,6 +114,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 
 > [!IMPORTANT]
 > The following onboarded services are in public preview with Network Security Perimeter:
+> - Azure App Configuration
 > - Cosmos DB
 > - SQL DB
 > - Azure OpenAI Service

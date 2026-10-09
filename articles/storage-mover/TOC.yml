@@ -70,6 +70,8 @@ items:
     href: amazon-files-azure-files-migration.md
   - name: Transfer from Azure Blob to Blob
     href: azure-to-azure-migration.md
+  - name: Copy data from Azure Files to Azure Files (preview)
+    href: azure-files-to-azure-files-copy.md
   - name: Migrate across Microsoft Entra tenants from Azure Blob to Blob
     href: azure-cross-tenant-blob-migration.md
 - name: Reliability and resiliency

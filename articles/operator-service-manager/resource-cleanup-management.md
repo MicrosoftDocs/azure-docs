@@ -13,23 +13,19 @@ This article describes a new Azure Operator Service Manager (AOSM) feature that 
 
 ## Publisher resource clean-up historic approach 
 Before this feature, to clean-up AOSM publisher resources a user first executes an Azure Resource Graph (ARG) query to check for in-use references of target resources. For example, check to see if a Network Service Design Version (NSDV) is still used by a Site Network Services (SNS). If the ARG query responds with no references, then the user executes a command to delete the target resource. While most resource types support reference discovery, artifact references in an artfact-store didn't, making safe artifact clean-up challenging. Other historic shortcomings include:
-* NSDV and NFDV have only artifact-store references, making querying for discovery of artifact references impossible.
-* Artifacts directly uploaded to artifact-store backing Azure Container Registry (ACR) don't build any references.  
+* `NSDV` and `NFDV` have only `artifact-store` references, making querying for discovery of artifact references impossible.
+* Artifacts directly uploaded to `artifact-store` backing Azure Container Registry (ACR) don't build any references.  
 * Where helm charts reference artifacts in non-Azure ACRs, it's difficult to figure out references. 
 
 ## Publisher resource clean-up new approach
-This feature introduces an automated two-step process that first untags, and then later purges, unused artifacts when a `artifact manifest` is deleted. To support this capability, the `artifact-manifest` resource type is expanded to include references between an artifact, such as a helm chart or container image, and other resources, such as Network Function Design Version (NFDV) or NSDV. 
+This feature introduces an automated two-step process that first untags, and then later purges, unused artifacts when an `artifact manifest` is deleted. To support this capability, the `artifact manifest` resource type is expanded to include references between an artifact, such as a helm chart or container image, and other resources, such as Network Function Design Version (NFDV) or `NSDV`. 
 
-Upon attempted deletion of an `artifact manifest`, these references are checked to ensure the artifact isn't associated to any in-use resources. If this validation passes, artifacts are marked for deletion (untagged) and a success message is returned. If this validation fails, the deletion request results in a failure and returns an error message indicating the artifact found to be in-use, along with the resource which still using it. The following snippet is an example of a failure message:
+Upon attempted deletion of an `artifact manifest`, these references are checked to ensure the artifact isn't associated with any in-use resources. If this validation passes, artifacts are marked for deletion (untagged) and a success message is returned. If this validation fails, the deletion request results in a failure and returns an error message indicating the artifact is found to be in-use, along with the resource which still using it. The following is an example of a failure message: `The resource '<artifactmanifest resourceId>' has some resources attached to it. The dependent resources are: "<NSDV/NFDV resource ids>"`
 
-```azurecli
-The resource '<artifactmanifest resourceId>' has some resources attached to it. The dependent resources are :"<NSDV/NFDV resource ids>"
-```
-
-To purge the untagged artifacts, an Azure CLI command must be run. This command is administrator executed, automated via a customer pipeline, or time-based scheduled using crontab. This delayed purge operation allows for extra time to manually validate the deletion accuracy or simply creates a buffer for a delete request to be reverted.
+To purge the untagged artifacts, an Azure CLI command is run. Valid use-case scenarios include: An administrator executing the command ad-hoc, an automated customer pipeline executing the command, or a time-based scheduler, such as crontab, executing the command. The delayed purge approach provides extra time for any necessary manual validation or approvals, to ensure deletion accuracy or to revert a delete request entirely.
 
 ## Changes to artifact manifest resource type
-In order to support the expanded `artifact-manifest` resource type specifications, changes are introduced to the resource provider API, starting with version `2025-03-30`. The following sections describe the behavior of AOSM before, and after, implementing this feature change. Migration to this new expanded resource type is optional and migration is discussed laster in this article.
+To support the expanded `artifact manifest` resource type specifications, changes are introduced to the resource provider API, starting with version `2025-03-30`. The following sections describe the behavior of AOSM before, and after, implementing this feature change. Migration to this new expanded resource type is optional and migration is discussed later in this article.
 
 ### Artifact manifest uses strong correlation
 The `artifact manifest` resource type has a strong correlation to helm artifacts (images and charts) uploaded into an artifact-store backing ACR. All artifacts used by a nfApp are kept in uniquely versioned artifact manifest instances. This builds reference connections between artifacts and nfApps. 
@@ -105,7 +101,7 @@ No pathing requirements when uploading artifacts.
 * testapp
 
 #### From `2025-03-30`
-Pathing requirements enforced for artifacts in `artifact-manifest` resource type.
+Pathing requirements are enforced for artifacts in the `artifact manifest` resource type.
 
 **Repositories**
 * cnfmanifest/nginx
@@ -130,7 +126,7 @@ No condition prevented deletion of `artifact manifest` resource type.
 For successful deletion, the `artifact manifest` must not contain any tagged resource references.
 
 ### Artifact manifest purge untagged
-Purge untagged artifacts using Azure CLI command `az acr purge` given appropriate scheduling parameters.
+Purge untagged artifacts by using the Azure CLI command `az acr repository delete` with the appropriate scheduling parameters.
 
 #### Before `2025-03-30` 
 No condition prevented purging of deleted artifacts.
@@ -138,9 +134,16 @@ No condition prevented purging of deleted artifacts.
 #### From `2025-03-30`
 The following Azure CLI command can be used to purge artifacts. The command can be scheduled via crontab or run on-demand.
 
-```azurecli
-az acr manifest list-metadata -n myRegistry –r myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -image myRepository@$_ --yes }
+_PowerShell example:_
+```powershell
+az acr manifest list-metadata -n myRegistry –r myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry --image myRepository@$_ --yes }
 ```
+_Bash example:_
+```bash
+az acr manifest list-metadata $(destination_acr_name).azurecr.io/$repo --query "[?tags[0]==null].digest" -o tsv --only-show-errors | while read -r line; do az acr repository delete -n $(destination_acr_name) --image "$repo@$line" --yes
+```
+> [!NOTE]
+> You need proper RBAC permissions to run this command. Generally, you need either the `ArcDelete` or `Container Registry Repository Contributor` roles. If you don't have the right permissions, the command returns an `Error: authentication required` result.
 
 ### NSDV/NFDV updated artifact manifest reference
 NSDV and NFDV include reference to `artifact manifest` resource type.
@@ -174,10 +177,12 @@ The proper API version must be used to create the `artifact manifest` resource t
 ## Migrating to the new artifact manifest 
 Use the following task list to migrate a deployed `artifact manifest` resource, created before API version `20025-03-30`, to the new `artifact manifest` resource type, available after API version `2025-03-30`:
 * Prepare platform by installing network function operator (NFO) extension version `3.0.3131-220` or later.
-* For existing resources created with older APIs, the NSDVs, NFDVs, and `artifact manifest` should be updated to newer API version.
-  * First change the artifact store references to `artifact manifest` references.
-  * Then update the `artifact manifests` with the expanded artifact references.
-  * Finally upload the artifacts to the proper `artifact manifest` path. 
+* To migrate existing resources created with older APIs, execute the following steps. **Don't deploy any changes until all reaching the deployment step.**
+  * Change the `NSDV`, `NFDV` and `artifact manifest` to the new API version.
+  * Change the `artifact-store` references to use the new `artifact manifest` references.
+  * Update the `artifact manifests` with the new expanded artifact references.
+  * Upload artifacts to the meet the new `artifact manifest` path requirements.
+  * Deploy changes and updates made across all resources.
 * The publisher clean-up action only supports resources created with API version `2025-03-30`
   * Resources created in older version can be updated to `2025-03-30` version.
   * Only artifacts uploaded after the upgrade are considered for clean-up.
@@ -195,7 +200,7 @@ resources
  | project id,subscriptionId,resourceGroup
 ```
 
-Optionally, to query on a specific NFDV or NSDV, insert a reference into the query with the resource ID.
+Optionally, to query on a specific `NFDV` or `NSDV`, insert a reference into the query with the resource ID.
 ```powershell
 resources
  | where type == "microsoft.hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions" or type  == "microsoft.hybridnetwork/publishers/networkservicedesigngroups/networkservicedesignversions"

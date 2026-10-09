@@ -10,7 +10,7 @@ ms.date: 06/29/2026
 
 ---
 
-# Azure Front Door WAF exceptions list (preview)
+# Azure Front Door WAF exceptions list
 
 **Applies to:** :heavy_check_mark: Front Door Premium
 
@@ -21,10 +21,6 @@ For an overview of WAF policies, see [Azure Web Application Firewall on Azure Fr
 In some cases, WAF might block requests that are safe and expected for your application. Exception lists allow you to bypass WAF inspection for specific requests. You can configure exceptions at the rule, rule group, or managed ruleset level.
 
 Only the next generation of WAF engine supports exceptions, and you can use them only if your managed ruleset version is DRS 2.1, or later. For more information, see [DRS rule groups and rules](waf-front-door-drs.md).
-
-> [!IMPORTANT]
-> Exceptions in Azure Front Door Web Application Firewall (WAF) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Define request attributes
 

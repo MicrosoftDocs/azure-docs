@@ -4,7 +4,7 @@ description: Learn how to diagnose a virtual machine network traffic filter prob
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: troubleshooting
-ms.date: 04/01/2025
+ms.date: 10/07/2026
 ms.author: allensu
 ms.devlang: azurecli
 ms.custom:
@@ -182,6 +182,83 @@ You can diagnose the problem described in the [scenario](#scenario) using the Az
 | Name                    | Allow-HTTP-All                                                                     |
 
 After rule creation, port 80 is allowed inbound from the internet because its priority is higher than the default *DenyAllInBound* rule. If NSGs are associated with both the network interface and the subnet, create the same rule in both NSGs. Learn how to [create a security rule](manage-network-security-group.md#create-a-security-rule).
+
+### Windows management scenarios requiring RPC/DCOM
+
+Windows Management Instrumentation (WMI) and Distributed Component Object Model (DCOM) use Remote Procedure Call (RPC). The client first connects to the RPC Endpoint Mapper on TCP port 135. The endpoint mapper then directs the client to a dynamically allocated TCP port. On current Windows defaults, the dynamic TCP range is `49152-65535`. Verify the configured range on the target Windows VM before creating the rule; if the host uses a customized range, use that verified range instead of assuming `49152-65535`.
+
+For each NSG associated with the target VM's subnet or network interface, create both inbound allow rules. Replace `<management-source-prefix>` with the approved management network, host, or service, and replace `<target-vm-nic-or-subnet-prefix>` with the target VM, NIC, or subnet destination. Replace `<priority-rpc-endpoint-mapper>` and `<priority-rpc-dynamic>` with distinct unused integer priorities between 100 and 4096. Both rules are required because a TCP 135-only test can succeed while the subsequent dynamic RPC connection is blocked.
+
+For more information about this WMI/DCOM flow, see [Troubleshoot NSG misconfigurations that block traffic in Azure Virtual Network](/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-nsg-blocking-traffic#windows-management-tools-that-require-rpc-and-dcom). For the Windows port and RPC details, see [Service overview and network port requirements](/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements), [Troubleshooting a remote WMI connection](/windows/win32/wmisdk/troubleshooting-a-remote-wmi-connection), and [RPC dynamic port work with firewalls](/troubleshoot/windows-server/networking/configure-rpc-dynamic-port-allocation-with-firewalls).
+
+```azurecli
+az network nsg rule create \
+  --resource-group <resource-group> \
+  --nsg-name <nsg-name> \
+  --name Allow-RpcEndpointMapper \
+  --priority <priority-rpc-endpoint-mapper> \
+  --source-address-prefixes <management-source-prefix> \
+  --source-port-ranges '*' \
+  --destination-address-prefixes <target-vm-nic-or-subnet-prefix> \
+  --destination-port-ranges 135 \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound
+
+az network nsg rule create \
+  --resource-group <resource-group> \
+  --nsg-name <nsg-name> \
+  --name Allow-RpcDynamic \
+  --priority <priority-rpc-dynamic> \
+  --source-address-prefixes <management-source-prefix> \
+  --source-port-ranges '*' \
+  --destination-address-prefixes <target-vm-nic-or-subnet-prefix> \
+  --destination-port-ranges 49152-65535 \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound
+```
+
+The `49152-65535` value in the dynamic rule is the default only. If you verified a customized range on the target Windows VM, replace it in that rule.
+
+```azurepowershell
+$managementSourcePrefix = "<management-source-prefix>"
+$targetDestinationPrefix = "<target-vm-nic-or-subnet-prefix>"
+$rpcEndpointMapperPriority = 300
+$rpcDynamicPriority = 310
+
+$networkSecurityGroup = Get-AzNetworkSecurityGroup `
+  -Name "<nsg-name>" `
+  -ResourceGroupName "<resource-group>"
+
+Add-AzNetworkSecurityRuleConfig `
+  -Name "Allow-RpcEndpointMapper" `
+  -Description "Allow RPC Endpoint Mapper from approved management source" `
+  -NetworkSecurityGroup $networkSecurityGroup `
+  -Access Allow `
+  -Protocol Tcp `
+  -Direction Inbound `
+  -Priority $rpcEndpointMapperPriority `
+  -SourceAddressPrefix $managementSourcePrefix `
+  -SourcePortRange "*" `
+  -DestinationAddressPrefix $targetDestinationPrefix `
+  -DestinationPortRange "135"
+
+Add-AzNetworkSecurityRuleConfig `
+  -Name "Allow-RpcDynamic" `
+  -Description "Allow RPC dynamic ports from approved management source" `
+  -NetworkSecurityGroup $networkSecurityGroup `
+  -Access Allow `
+  -Protocol Tcp `
+  -Direction Inbound `
+  -Priority $rpcDynamicPriority `
+  -SourceAddressPrefix $managementSourcePrefix `
+  -SourcePortRange "*" `
+  -DestinationAddressPrefix $targetDestinationPrefix `
+  -DestinationPortRange "49152-65535"
+
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
+```
 
 When Azure processes inbound traffic, it processes rules in the NSG associated to the subnet (if there's an associated NSG), and then it processes the rules in the NSG associated to the network interface. If there's an NSG associated to the network interface and the subnet, the port must be open in both NSGs, for the traffic to reach the VM. To ease administration and communication problems, we recommend that you associate an NSG to a subnet, rather than individual network interfaces. If VMs within a subnet need different security rules, you can make the network interfaces members of an application security group (ASG), and specify an ASG as the source and destination of a security rule. Learn more about [application security groups](./network-security-groups-overview.md#application-security-groups).
 

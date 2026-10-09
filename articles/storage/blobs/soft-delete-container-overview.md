@@ -20,11 +20,11 @@ Container soft delete protects your containers from accidental deletion by keepi
 
 Container soft delete is part of a comprehensive in-account data protection strategy. For optimal protection for your storage account, Microsoft recommends enabling the following data protection features:
 
-- Blob soft delete, to restore a blob, snapshot, or version that you deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](https://github.com/MicrosoftDocs/azure-docs-pr/blob/9dff4252ed2e5c9e51ca94956025ea01988a7fac/articles/storage/blobs/soft-delete-blob-enable.md).
+- Blob soft delete, to restore a blob, snapshot, or version that you deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
 
-- Container soft delete, to restore a container that you deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](https://github.com/MicrosoftDocs/azure-docs-pr/blob/9dff4252ed2e5c9e51ca94956025ea01988a7fac/articles/storage/blobs/soft-delete-container-enable.md).
+- Container soft delete, to restore a container that you deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
 
-For protection against broader data loss scenarios such as accidental account deletion or ransomware, consider enabling Azure Backup in addition to in-account features. To learn more about Microsoft's recommendations for data protection based on your workload, see [Data protection overview](https://github.com/MicrosoftDocs/azure-docs-pr/blob/9dff4252ed2e5c9e51ca94956025ea01988a7fac/articles/storage/blobs/data-protection-overview.md).
+For protection against broader data loss scenarios such as accidental account deletion or ransomware, consider enabling Azure Backup in addition to in-account features. To learn more about Microsoft's recommendations for data protection based on your workload, see [Data protection overview](data-protection-overview.md).
 
 > [!TIP]
 > To enable blob and container soft delete at scale, use the built-in Azure Policy **[Configure soft delete for blobs and containers on storage accounts](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9fbd64e3-67b8-489b-98e5-fa0007d17e76)**.

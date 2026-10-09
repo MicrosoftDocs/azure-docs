@@ -12,7 +12,10 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template
 
-In this quickstart, use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+In this quickstart, use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with multiple public IP addresses. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+
+> [!NOTE]
+> Azure Firewall doesn't support attaching a Public IP Prefix. The firewall is configured with individual Standard public IP addresses. You can associate up to 250 public IP addresses with a firewall in a virtual network.
 
 
 :::image type="content" source="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png" alt-text="Diagram showing the network configuration for this quickstart." lightbox="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png":::
