@@ -1,7 +1,7 @@
 ---
 title: Reference - CIS Security Benchmarks for AKS Optimized Azure Linux via Machine Configuration
 description: Reference - CIS Security Benchmarks for AKS Optimized Azure Linux via Machine Configuration
-ms.date: 06/18/2026
+ms.date: 09/11/2026
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference

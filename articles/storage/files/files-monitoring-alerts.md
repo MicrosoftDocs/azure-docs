@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/08/2026
+ms.date: 10/06/2026
 ms.author: kendownie
 ms.custom: monitoring
 # Customer intent: As a cloud administrator, I want to create monitoring alerts for Azure Files metrics and logs, so that I can proactively identify and resolve issues before they impact users.
@@ -140,7 +140,7 @@ Follow these steps to create an alert that fires when the file share bandwidth u
    - Confirm the share has had recent traffic, or generate some I/O against it, then wait a few minutes and reopen the drop-down.
    - Widen the metric time range (for example, the last hour instead of the last few minutes) so that it includes a period when the share was active.
 
-1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because bandwidth usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert.
+1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because bandwidth usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert. [Credit-based bursting](understand-performance.md#bursting) applies to IOPS only. It doesn't increase throughput above the provisioned throughput.
 
 1. Select the **Details** tab and provide a name for the alert rule as well as a severity level and optional description.
 
@@ -171,7 +171,7 @@ Follow these steps to create an alert that fires when the file share IOPS utiliz
    - Confirm the share has had recent traffic, or generate some I/O against it, then wait a few minutes and reopen the drop-down.
    - Widen the metric time range (for example, the last hour instead of the last few minutes) so that it includes a period when the share was active.
 
-1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because IOPS usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert.
+1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because IOPS usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert. Provisioned file shares can use [credit-based bursting](understand-performance.md#bursting) to absorb short IOPS spikes above the provisioned IOPS.
 
 1. Select the **Details** tab and provide a name for the alert rule as well as a severity level and optional description.
 

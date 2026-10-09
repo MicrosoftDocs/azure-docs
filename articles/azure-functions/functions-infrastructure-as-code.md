@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 08/28/2026
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content, ignite-2024
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -1121,7 +1121,7 @@ Your Bicep file or ARM template can optionally also define a deployment for your
 ::: zone pivot="flex-consumption-plan"  
 The Flex Consumption plan maintains your project code in a zip-compressed package file in a blob storage container known as the _deployment container_. You can configure both the storage account and container used for deployment. For more information, see [Deployment](flex-consumption-plan.md#deployment). 
 
-You must use _[one deploy](functions-deployment-technologies.md#one-deploy)_ to publish your code package to the deployment container. During an ARM template or Bicep deployment, you can do this step by [defining a package source](#deployment-package) that uses the `/onedeploy` extension. If you choose to instead directly upload your package to the container, the package isn't automatically deployed.
+You must use [package deployment](functions-deployment-technologies.md#flex-consumption-package-deployment) to publish your code package to the deployment container. During an ARM template or Bicep deployment, define a [package source](#deployment-package) that uses the literal `/onedeploy` extension resource name. If you instead upload your package directly to the container, the package isn't automatically deployed.
 
 ### Configure the deployment container
 
@@ -1167,11 +1167,11 @@ When you use a connection string instead of managed identities, set the `authent
 
 ### Deployment package
 
-The Flex Consumption plan uses _one deploy_ for deploying your code project. The code package itself is the same as the package you use for zip deployment in other Functions hosting plans. However, the name of the package file must be `released-package.zip`. 
+The Flex Consumption plan uses package deployment for your code project. The code package itself is the same as the package you use for ZIP deployment in other Functions hosting plans. However, the name of the package file must be `released-package.zip`.
 
-To include a one deploy package in your template, use the `/onedeploy` resource definition for the remote URL that contains the deployment package. The Functions host must be able to access both this remote package source and the deployment container.  
+To include a deployment package in your template, use the `/onedeploy` resource definition for the remote URL that contains the package. The Functions host must be able to access both this remote package source and the deployment container.
 
-This example adds a one deploy source to an existing app:  
+This example adds a package source to an existing app:
 
 ### [Bicep](#tab/bicep)
 
@@ -1347,9 +1347,7 @@ To enable the same build processes that you get with continuous integration, add
 
 ### [Linux](#tab/linux)
 
-To enable the same build processes that you get with continuous integration, add `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to your application settings in your deployment code and remove the `WEBSITE_RUN_FROM_PACKAGE` setting entirely.
-
-The `ENABLE_ORYX_BUILD` setting is set to `true` by default. If you have problems building a .NET or Java function app, set it to `false`. 
+To enable the same build processes that you get with continuous integration, add both `SCM_DO_BUILD_DURING_DEPLOYMENT=true` and `ENABLE_ORYX_BUILD=true` to your application settings in your deployment code. Remove the `WEBSITE_RUN_FROM_PACKAGE` setting entirely when you request the remote build.
 
 Function apps that are built remotely on Linux can run from a package.
 

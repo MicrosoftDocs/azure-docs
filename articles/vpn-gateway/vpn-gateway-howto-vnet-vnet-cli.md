@@ -106,7 +106,7 @@ We use the following values in the examples:
 
 If you want to use the Azure CLI locally (instead of using Azure CloudShell), use the following steps to connect to your Azure subscription. If you're using CloudShell, skip to the next section.
 
-[!INCLUDE [CLI sign-in](../../includes/vpn-gateway-cli-login-numbers-include.md)]
+[!INCLUDE [CLI sign-in](../networking/includes/vpn-gateway/cli-login-numbers.md)]
 
 ### <a name="TestVNet1"></a>Step 2 - Create and configure TestVNet1
 

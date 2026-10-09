@@ -47,12 +47,10 @@ For more information, see [Azure IoT Hub Device Provisioning Service (DPS)](../i
 
 To use IoT Hub with Azure Device Registry and certificate management, deploy instances of IoT Hub, Azure Device Registry, and Device Provisioning Service in one of the following supported regions:
 
-- East US
-- East US 2
-- West US
-- West US 2
-- West Europe
-- North Europe
+- Australia East
+- Japan East
+- Central US
+- UK South
 
 ## Get started with ADR and certificate management
 
@@ -64,7 +62,8 @@ To use these preview features, you must create a new IoT Hub instance with ADR i
 
 For more information, see [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md).
 
-The preview period offers these features at no extra cost on top of your standard IoT Hub pricing.
+> [!IMPORTANT]
+> Starting in October 2026, Azure Device Registry integration and certificate management remain available at no cost during preview. The IoT Hub and Device Provisioning Service (DPS) instances that you use with these features are billed at their standard rates. For details, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Related content
 

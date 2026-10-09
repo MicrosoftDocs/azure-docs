@@ -1,10 +1,10 @@
 ---
 title: Web App Migration and Modernization - Move and Upgrade Apps for Scalability and Performance
 description: Learn what web app migration and modernization means—moving apps to the cloud and upgrading them with modern architectures for better scalability, performance, and security.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1095-days
 ms.topic: upgrade-and-migration-article
 ms.date: 08/28/2026
@@ -51,5 +51,5 @@ Deploying containerized applications with Azure DevOps automates building, testi
 
 ## Next steps
 
-- Review best practices for [deploying to Azure App service](/azure/app-service/deploy-best-practices). 
-- Review best practices for [deploying to Azure Kubernetes service](/azure/aks/best-practices). 
+- Review best practices for [deploying to Azure App Service](/azure/app-service/deploy-best-practices). 
+- Review best practices for [deploying to Azure Kubernetes Service](/azure/aks/best-practices).

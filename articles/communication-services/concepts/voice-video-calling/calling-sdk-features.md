@@ -18,6 +18,8 @@ ms.custom:
 
 # Calling SDK overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services enables end-user browsers, apps, and services to drive voice and video communication. This article focuses on Calling client SDK, which can be embedded in websites and native applications. This article provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manages and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds more features to a voice or video call, such as roles and permissions.
 
 <!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->

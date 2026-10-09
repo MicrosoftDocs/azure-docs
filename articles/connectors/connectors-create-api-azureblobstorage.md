@@ -90,7 +90,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection Name** | Yes | A name for your connection. |
-   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions). |
+   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication](../logic-apps/set-up-security-permissions.md#authentication-types-supported-triggers-actions). |
 
    For example, this connection uses **Access Key** authentication and provides the access key value for the storage account along with the following property values:
 
@@ -142,7 +142,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection Name** | Yes | A name for your connection |
-   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-connectors-that-support-authentication). |
+   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/set-up-security-permissions.md#authentication-types-for-connectors-that-support-authentication). |
 
    For example, this connection uses **Connection String** authentication and provides the connection string value for the storage account:
 
@@ -206,7 +206,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection Name** | Yes | A name for your connection |
-   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-connectors-that-support-authentication). |
+   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/set-up-security-permissions.md#authentication-types-for-connectors-that-support-authentication). |
 
    For example, this connection uses **Access Key** authentication and provides the access key value for the storage account along with the following property values:
 
@@ -267,7 +267,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection Name** | Yes | A name for your connection |
-   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions). |
+   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication](../logic-apps/set-up-security-permissions.md#authentication-types-supported-triggers-actions). |
 
    For example, this connection uses **Access Key** authentication and provides the access key value for the storage account along with the following property values:
 
@@ -330,7 +330,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection Name** | Yes | A name for your connection |
-   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-connectors-that-support-authentication). |
+   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/set-up-security-permissions.md#authentication-types-for-connectors-that-support-authentication). |
 
    For example, this connection uses **Connection String** authentication and provides the connection string value for the storage account:
 
@@ -384,7 +384,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection Name** | Yes | A name for your connection. |
-   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-connectors-that-support-authentication). |
+   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/set-up-security-permissions.md#authentication-types-for-connectors-that-support-authentication). |
 
    For example, this connection uses access **Key Authentication** and provides the access key value for the storage account along with the following property values:
 

@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Files
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 10/06/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As an IT administrator, I want to assess the scalability and performance targets for Azure Files, so that I can ensure my storage solutions meet the needs of my organization’s workload requirements.
@@ -107,7 +107,7 @@ The following select regions have an increased maximum IOPS and throughput for H
 
 The following limits apply at the classic file share level. All classic file shares are also subject to the limits of the storage account in which they're deployed:
 
-- **SSD and HDD provisioned v2 storage accounts**: You can't provision more storage, IOPS, or throughput than the storage account supports. However, provisioned v2 file shares support credit-based IOPS bursting above the provisioned IOPS on a best-effort basis. If multiple classic file shares in the account burst at the same time, performance is capped at the storage account's IOPS limits.
+- **SSD and HDD provisioned v2 storage accounts**: You can't provision more storage, IOPS, or throughput than the storage account supports. However, provisioned v2 file shares support [credit-based IOPS bursting](understand-performance.md#bursting) above the provisioned IOPS on a best-effort basis. If multiple classic file shares in the account burst at the same time, performance is capped at the storage account's IOPS limits.
 
 - **SSD provisioned v1 storage accounts**: You can't provision more storage than the storage account supports, but you can provision more IOPS or throughput than the storage account supports. If the total usage of IOPS or throughput exceeds the storage account's limits, the storage account throttles requests.
 

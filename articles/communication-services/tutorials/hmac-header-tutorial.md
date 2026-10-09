@@ -17,6 +17,8 @@ zone_pivot_groups: acs-programming-languages-csharp-python
 
 # Sign an HTTP request using hash-based message authentication code (HMAC)
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to sign an HTTP request with a hash-based message authentication code (HMAC) signature.
 
 > [!NOTE]

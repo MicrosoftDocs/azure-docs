@@ -14,6 +14,8 @@ ms.subservice: advanced-messaging
 
 # Send WhatsApp template messages
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This document provides guidance to send WhatsApp Template messages using Advanced Communication Messages SDK.   
 
 ## Why do I need to send a template message?

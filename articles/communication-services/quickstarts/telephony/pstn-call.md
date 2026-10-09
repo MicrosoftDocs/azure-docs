@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Outbound call to a telephone number
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add PSTN calling to your app.
 
 ::: zone pivot="platform-web"

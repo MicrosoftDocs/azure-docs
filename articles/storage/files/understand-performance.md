@@ -1,10 +1,10 @@
 ---
 title: Understand Azure Files Performance
-description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, latency, and queue depth.
+description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, bursting, latency, and queue depth.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/17/2026
+ms.date: 10/06/2026
 ms.author: kendownie
 # Customer intent: "As a cloud storage administrator, I want to understand the factors affecting Azure file share performance, so that I can optimize configurations for IOPS, throughput, and latency to meet application demands."
 ---
@@ -64,13 +64,37 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **IOPS and throughput requirements:** SSD file shares support larger IOPS and throughput limits than HDD file shares. For more information, see [file share scale targets](./storage-files-scale-targets.md).
 
-- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are less likely to reach the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration helps determine the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is running performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, make sure you test at a sufficiently high frequency and duration.
+- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are less likely to reach the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration helps determine the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is running performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, make sure you test at a sufficiently high frequency and duration. On provisioned file shares, a short test can measure credit-based burst IOPS instead of provisioned IOPS. For more information, see [Bursting](#bursting).
 
 - **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, SSD file shares provide a clear advantage over HDD file shares: SMB Multichannel. For more information, see [Improve SMB Azure file share performance](smb-performance.md).
 
 - **API operation distribution**: Metadata heavy workloads, such as workloads that perform read operations against a large number of files, are a better fit for SSD file shares. For more information, see [Metadata or namespace heavy workload](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-2-metadata-or-namespace-heavy-workload).
 
 - **Zonal placement**: Use [zonal placement](zonal-placement.md) to select the specific availability zone in which your storage account resides. This feature allows you to place your VMs in the same availability zone as your storage, which can reduce latency by up to 30 percent. This feature is currently available only for SSD storage accounts using locally redundant storage (LRS) in [supported regions](zonal-placement.md#region-support).
+
+## Bursting
+
+File shares that use the provisioned v2 or provisioned v1 billing model support credit-based IOPS bursting. Credit-based bursting lets a file share use more IOPS than it has provisioned for a limited time. Credit-based bursting is a feature of the file share. Bursty traffic is a workload pattern with short spikes in IOPS or throughput. Credit-based bursting can absorb short IOPS spikes from bursty traffic.
+
+Credit-based bursting is included in the cost of the provisioned file share and doesn't add charges to your bill. Credit-based bursting applies to IOPS only. It doesn't increase throughput above the provisioned throughput.
+
+Bursting doesn't apply to pay-as-you-go file shares. Classic file shares that burst are still subject to the IOPS limits of the storage account. For more information, see [Classic file share data plane limits](storage-files-scale-targets.md#classic-file-share-data-plane-limits). For information about how bursting affects cost, see [Understand Azure Files billing](understanding-billing.md).
+
+### Provisioned v2 bursting
+
+[!INCLUDE [files-provisioned-v2-bursting](../../../includes/files-provisioned-v2-bursting.md)]
+
+### Provisioned v1 bursting
+
+The provisioned v1 model supports two types of bursting: credit-based bursting, which is included at no extra cost, and paid bursting, which you can optionally enable to allow IOPS and throughput above the provisioned amount for usage-based charges.
+
+#### Provisioned v1 credit-based bursting
+
+[!INCLUDE [files-provisioned-v1-credit-bursting](../../../includes/files-provisioned-v1-credit-bursting.md)]
+
+#### Provisioned v1 paid bursting
+
+[!INCLUDE [files-provisioned-v1-paid-bursting](../../../includes/files-provisioned-v1-paid-bursting.md)]
 
 ## Latency
 

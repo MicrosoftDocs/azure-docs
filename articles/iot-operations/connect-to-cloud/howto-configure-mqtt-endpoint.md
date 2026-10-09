@@ -102,13 +102,13 @@ To edit the default endpoint, create a Bicep `.bicep` file with the following co
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
+resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {
@@ -240,13 +240,13 @@ param mqttBrokerHostname string = '<HOSTNAME>:<PORT>'
 param trustedCA string = '<TRUST_BUNDLE>'
 param serviceAccountAudience string = '<SA_AUDIENCE>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
+resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -425,13 +425,13 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param eventGridHostName string = '<NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {

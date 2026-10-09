@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-pytho
 
 # Quickstart: Configure voice routing programmatically
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Configure outbound voice routing rules for Azure Communication Services direct routing.
 
 ::: zone pivot="platform-azp"

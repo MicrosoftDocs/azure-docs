@@ -140,13 +140,13 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param hostName string = '<NAMESPACE>.servicebus.windows.net:9093'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -423,7 +423,7 @@ az iot ops dataflow endpoint apply --resource-group myResourceGroup --instance m
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
  parent: aioInstance
   name: '<ENDPOINT NAME>'
   extendedLocation: {

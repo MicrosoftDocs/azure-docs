@@ -82,7 +82,7 @@ To use the reporting feature in Playwright Workspaces, see [Quickstart: Perform 
 
 ### Run browser automation tasks
 
-To use the remote MCP to run browser automation tasks using an AI agent, see [Quickstart: Automate browser tasks with the Playwright Workspaces remote MCP server](./quickstart-automate-browser-tasks-remote-mcp.md).
+To use the remote MCP to run browser automation tasks using an AI agent, see [Quickstart: Automate browser tasks with the Playwright Workspaces remote MCP server](./../playwright-cloud-browsers/quickstart-automate-browser-tasks-remote-mcp.md).
 
 ## Known limitations
 

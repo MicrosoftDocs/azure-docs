@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Look up operator information for a phone number using Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [JavaScript](./includes/number-lookup-js.md)]
 ::: zone-end

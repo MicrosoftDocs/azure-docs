@@ -60,6 +60,8 @@ Use the following core counts for each host type:
 | AV52 | 52 |
 | AV64 | 64 |
 
+Note: BYOL cores are accounted for before License-Included cores are calculated.
+
 Multiply the number of BYOL hosts by the cores per host. For example, three AV64 BYOL hosts require 192 registered portable VCF cores: 3 hosts * 64 cores per host = 192 cores.
 
 In a mixed-licensing private cloud, register only the cores for BYOL hosts. For example, a private cloud with three license-included AV36P hosts and four BYOL AV36P hosts has 252 deployed cores:

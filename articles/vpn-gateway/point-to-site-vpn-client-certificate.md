@@ -145,7 +145,7 @@ If you experience connection issues and you're running version 4.0.0.0 or later 
 
 ##### <a name="secondary"></a>Configure a secondary profile
 
-[!INCLUDE [Secondary profile](../../includes/vpn-gateway-azure-vpn-client-secondary-profile.md)]
+[!INCLUDE [Secondary profile](../networking/includes/vpn-gateway/azure-vpn-client-secondary-profile.md)]
 
 #### Working with connections
 

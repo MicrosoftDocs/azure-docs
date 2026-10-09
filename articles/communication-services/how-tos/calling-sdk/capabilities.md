@@ -14,6 +14,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Get local capabilities
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 During a call, does a participant have permission to turn on video, turn on mic, or share screen?
 
 These permissions are examples of participant capabilities that you can learn from the capabilities API operation. You can use capabilities to build a user interface that only shows the buttons related to the actions the local user can perform.

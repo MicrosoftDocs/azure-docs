@@ -1,11 +1,11 @@
 ---
 title: Hydration process
 description: Learn about the hydration process in Azure Migrate.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 05/15/2025
 ms.update-cycle: 365-days
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content

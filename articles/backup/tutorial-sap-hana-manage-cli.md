@@ -3,6 +3,7 @@ title: 'Tutorial: Manage backed-up SAP HANA DB using CLI'
 description: In this tutorial, learn how to manage backed-up SAP HANA databases running on an Azure VM using Azure CLI.
 ms.topic: tutorial
 ms.date: 10/17/2025
+ms.update-cycle: 1825-days
 ms.custom: devx-track-azurecli
 author: AbhishekMallick-MS
 ms.author: v-mallicka

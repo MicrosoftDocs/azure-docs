@@ -32,18 +32,24 @@ includes a direct link to the relevant release for more information.
 
 | Platform |   Version    |  Release date  |                   Link                   |
 |:--------:|:------------:|:--------------:|:----------------------------------------:|
+| Windows  | `1.29.119.0` | September 2026 | [Release notes](./windows.md#1.29.119.0) |
+|  Linux   | `1.26.119`   | September 2026 |   [Release notes](./linux.md#1.26.119)   |
+| Windows  | `1.29.118.0` | September 2026 | [Release notes](./windows.md#1.29.118.0) |
+|  Linux   | `1.26.118`   | September 2026 |   [Release notes](./linux.md#1.26.118)   |
+| Windows  | `1.29.116.0` |   July 2026    | [Release notes](./windows.md#1.29.116.0) |
+|  Linux   | `1.26.116`   |   July 2026    |   [Release notes](./linux.md#1.26.116)   |
 | Windows  | `1.29.113.0` |   July 2026    | [Release notes](./windows.md#1.29.113.0) |
-|  Linux   | `1.26.113.0` |   July 2026    |  [Release notes](./linux.md#1.26.113.0)  |
+|  Linux   | `1.26.113`   |   July 2026    |   [Release notes](./linux.md#1.26.113)   |
 | Windows  | `1.29.112.0` |   July 2026    | [Release notes](./windows.md#1.29.112.0) |
-|  Linux   | `1.26.111.0` |   June 2026    |  [Release notes](./linux.md#1.26.111.0)  |
+|  Linux   | `1.26.111`   |   June 2026    |   [Release notes](./linux.md#1.26.111)   |
 | Windows  | `1.29.110.0` |   June 2026    | [Release notes](./windows.md#1.29.110.0) |
-|  Linux   | `1.26.109.0` |   April 2026   |  [Release notes](./linux.md#1.26.109.0)  |
+|  Linux   | `1.26.109`   |   April 2026   |   [Release notes](./linux.md#1.26.109)   |
 | Windows  | `1.29.108.0` |   April 2026   | [Release notes](./windows.md#1.29.108.0) |
-|  Linux   | `1.26.104.0` |  January 2026  |  [Release notes](./linux.md#1.26.104.0)  |
+|  Linux   | `1.26.104`   |  January 2026  |   [Release notes](./linux.md#1.26.104)   |
 | Windows  | `1.29.104.0` |  January 2026  | [Release notes](./windows.md#1.29.104.0) |
-|  Linux   | `1.26.101.0` | November 2025  |  [Release notes](./linux.md#1.26.101.0)  |
+|  Linux   | `1.26.101`   | November 2025  |   [Release notes](./linux.md#1.26.101)   |
 | Windows  | `1.29.101.0` | November 2025  | [Release notes](./windows.md#1.29.101.0) |
-|  Linux   | `1.26.93.0`  |   July 2025    |  [Release notes](./linux.md#1.26.93.0)   |
+|  Linux   | `1.26.93`    |   July 2025    |   [Release notes](./linux.md#1.26.93)    |
 | Windows  | `1.29.98.0`  |   July 2025    | [Release notes](./windows.md#1.29.98.0)  |
 |  Linux   |  `1.26.87`   |   April 2025   |   [Release notes](./linux.md#1.26.87)    |
 | Windows  | `1.29.92.0`  |   April 2025   | [Release notes](./windows.md#1.29.92.0)  |

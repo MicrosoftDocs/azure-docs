@@ -496,7 +496,7 @@ To create a certificate profile in the Azure portal:
       For more information, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
 
       The value for **Certificate Type** is autopopulated based on the certificate profile type you selected.
-      For **Program Type**, keep the default None. Change it only if you're enrolled in the Windows endpoint security platform program.
+      For **Program Type**, keep the default None. Change it only if you're enrolled in the Windows endpoint security platform or [windows recovery environment](https://learn.microsoft.com/windows-hardware/manufacture/desktop/winre-remote-recovery-management-overview?view=windows-11) program.
    
    b. For **Verified CN and O**, select an identity validation that must be displayed on the certificate.
    - If the street address must be displayed on the certificate, select the **Include street address** checkbox.
@@ -610,6 +610,7 @@ To delete Artifact Signing resources by using the Azure portal:
 2. In the search box, enter and then select **Artifact Signing Accounts**.
 3. On **Artifact Signing Accounts**, select the Artifact Signing account that you want to delete.
 4. On the command bar, select **Delete**.
+5. Deleting an Artifact Signing account also deletes its associated certificate profiles. Identity validation requests remain available because they're scoped at the subscription level.
 
 > [!NOTE]
 > This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with the certificate profiles stops.

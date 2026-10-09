@@ -4,7 +4,7 @@ description: Learn about mapping virtual networks between two Azure regions for 
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 02/12/2026
+ms.date: 09/18/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom:
@@ -28,16 +28,16 @@ Before you map networks, create [Azure VNets](../virtual-network/virtual-network
 
 Map networks as follows:
 
-1. In **Site Recovery Infrastructure**, select **+Network Mapping**.
+1. In the Recovery Services vault, go to **Site Recovery infrastructure** > For **Azure virtual machines** > **Network mapping**. Then select **+ Network mapping**.
 
-    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png" alt-text="Screenshot of Create a network mapping." lightbox="./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png":::
+    :::image type="content" source="./media/azure-to-azure-network-mapping/site-recovery-infrastructure-network-mapping-page.png" alt-text="Screenshot of the Site Recovery infrastructure Network mapping page with no networks mapped and the Network mapping button." lightbox="./media/azure-to-azure-network-mapping/site-recovery-infrastructure-network-mapping-page.png":::
 
-1. In **Add network mapping**, select the source and target locations. In the following example, the source virtual machine runs in the East Asia region, and replicates to the Southeast Asia region.
+1. In **Add network mapping**, select the source and target Subscriptions, locations and Virtual Networks. In the following example, the source virtual machine runs in the East Asia region, and replicates to the Southeast Asia region.
 
-    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png" alt-text="Screenshot of Select source and target." lightbox="./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png":::
+    :::image type="content" source="./media/azure-to-azure-network-mapping/add-network-mapping.png" alt-text="Screenshot of Add network mapping page." lightbox="./media/azure-to-azure-network-mapping/add-network-mapping.png":::
 1. Create a network mapping in the opposite direction. In the following example, the source is now Southeast Asia, and the target is East Asia.
 
-    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png" alt-text="Screenshot of Add network mapping pane - Select source and target locations for the target network." lightbox="./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png":::
+    :::image type="content" source="./media/azure-to-azure-network-mapping/add-network-mapping-options.png" alt-text="Screenshot of Add network mapping pane - Select source and target locations for the target network." lightbox="./media/azure-to-azure-network-mapping/add-network-mapping-options.png":::
 
 
 ## Map networks when you enable replication
@@ -64,7 +64,7 @@ The subnet of the target virtual machine is selected based on the name of the su
 - If a subnet with the same name doesn't exist in the target network, the first subnet in the alphabetical order is set as the target subnet.
 - You can modify the target subnet in the **Network** settings for the virtual machine.
 
-    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png" alt-text="Screenshot of Network compute properties window." lightbox="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png":::
+    :::image type="content" source="./media/azure-to-azure-network-mapping/replicated-item-network-subnet-settings.png" alt-text="Screenshot of the replicated item Network page showing target network, test failover network, and highlighted subnet settings." lightbox="./media/azure-to-azure-network-mapping/replicated-item-network-subnet-settings.png":::
 
 ## Set up IP addressing for target virtual machines
 

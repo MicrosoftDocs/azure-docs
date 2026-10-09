@@ -5,7 +5,7 @@ ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
 ms.date: 09/09/2026
-zone_pivot_groups: programming-languages-set-functions-no-go
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Migrate function apps from Azure Service Bus extension version 4.x to version 5.x 
@@ -16,6 +16,13 @@ This article highlights considerations for upgrading your existing Azure Functio
 > On March 31, 2025 the Azure Service Bus extension version 4.x will be retired. The extension and all applications using the extension will continue to function, but Azure Service Bus will cease to provide further maintenance and support for this extension. We recommend migrating to the latest version 5.x of the extension.
 
 This article walks you through the process of migrating your function app to run on version 5.x of the Azure Service Bus extension. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+
+::: zone pivot="programming-language-go"
+
+> [!NOTE]
+> This migration doesn't apply to Go function apps. First-class Go support wasn't available with version 4.x of the Azure Service Bus extension. For current Go trigger guidance, see the [Azure Service Bus trigger](functions-bindings-service-bus-trigger.md?pivots=programming-language-go).
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 

@@ -216,6 +216,18 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: programming-languages-set-app-service-connectors
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-python
+    title: Python
 - id: durable-functions-storage-providers-options
   title: Storage provider
   prompt: Choose a storage provider
@@ -1044,6 +1056,17 @@ groups:
     title: Previous
   - id: service-latest
     title: Latest
+# Owner: duau
+- id: azure-portal-powershell-cli
+  title: Deployment method
+  prompt: Choose a deployment method
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: powershell
+    title: Azure PowerShell
+  - id: cli
+    title: Azure CLI
 # Owner: richbrun
 - id: azure-maps-android
   title: Programming languages
@@ -2127,7 +2150,13 @@ groups:
     title: Google Cloud
   - id: oracle
     title: Oracle Cloud
-  - id: on-premises
+- id: storage-mover-on-premises
+  title: Storage Mover on-premises migration sources
+  prompt: Select your on-premises source.
+  pivots:
+  - id: on-premises-smb
+    title: On-premises SMB
+  - id: on-premises-s3
     title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv

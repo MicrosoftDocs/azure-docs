@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # How to get estimated wait time and job position
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In the context of a call center, customers might want to know how long they need to wait before they're connected to an agent. As such, Job Router can calculate the estimated wait time or position of a job in a queue.
 
 ## Prerequisites

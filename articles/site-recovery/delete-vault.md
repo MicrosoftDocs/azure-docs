@@ -28,7 +28,7 @@ Before you can delete a vault, you must remove registered servers and items in t
 
 ## Delete a vault-Azure VM to Azure
 
-1. Follow [these instructions](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure) to delete all protected VMs.
+1. Follow [these instructions](site-recovery-manage-registration-and-protection.md) to delete all protected VMs.
 1. Delete the vault.
 
 ## Delete a vault-VMware VM to Azure

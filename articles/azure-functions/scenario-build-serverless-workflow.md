@@ -42,7 +42,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 + [Apache Maven](https://maven.apache.org/)
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell 7.4](/powershell/scripting/install/installing-powershell)
++ [PowerShell 7.6](/powershell/scripting/install/installing-powershell)
 ::: zone-end  
 
 ## Initialize the project

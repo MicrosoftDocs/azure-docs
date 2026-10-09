@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Discover how to accept or decline Job Router job offers
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This guide lays out the steps you need to take to observe a Job Router offer. It also outlines how to accept or decline job offers.
 
 ## Prerequisites

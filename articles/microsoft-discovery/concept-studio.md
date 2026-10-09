@@ -5,21 +5,21 @@ author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 10/01/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand Microsoft Discovery Studio and its interface so that I can navigate the platform and customize it to fit my research workflow.
 ---
 
 # What is Microsoft Discovery Studio?
 
-Microsoft Discovery Studio is the web-based, unified research environment for [Microsoft Discovery](overview-what-is-microsoft-discovery.md). You use Discovery Studio to create and manage workspaces, projects, agents, shared sessions, knowledge bases, tools, and data—all from a single browser-based interface.
+Microsoft Discovery Studio is the web-based, unified research environment for [Microsoft Discovery](overview-what-is-microsoft-discovery.md). You use Discovery Studio to create and manage workspaces, projects, agents, shared sessions, bookshelves, tools, and project data—all from a single browser-based interface.
 
 You can customize the layout and tailor the environment to match your specific research workflows—all without leaving the browser.
 
 You can access Microsoft Discovery Studio at [studio.discovery.microsoft.com](https://studio.discovery.microsoft.com) using any supported modern browser. It requires no local installation or client software.
 
 > [!TIP]
-> If you're new to Microsoft Discovery, start with the [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md) to set up your workspace and project before exploring Studio.
+> If you're new to Microsoft Discovery, start with the [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md) to set up your workspace before exploring Studio.
 
 In this article, you learn about the different parts of Microsoft Discovery Studio and how to navigate the interface.
 
@@ -54,7 +54,7 @@ The following sections describe the key elements of the Studio interface.
 
 The navigation sidebar is always visible on the left side of Microsoft Discovery Studio. It provides quick access to the platform's core areas and stays consistent regardless of what you're working on.
 
-The sidebar is organized into two groups:
+The sidebar is organized into two groups.
 
 **Top-level navigation:**
 
@@ -67,6 +67,9 @@ The sidebar is organized into two groups:
 - **Tools**: Browse the computational tools available to agents.
 - **Knowledge**: Manage Bookshelves and Knowledge Bases that provide agents with domain-specific context through GraphRAG-indexed documents.
 - **Data**: Access and manage storage containers linked to your projects for input and output data.
+
+> [!NOTE]
+> You can also create and manage agents, bookshelves, tools, and data from within a project, by using the **AI Capabilities** and **Project data** tabs. These in-project surfaces are the recommended way to work with a project's resources and are gradually replacing the global **Resources** sidebar. For details, see [Project view](#project-view).
 
 ## Workspaces view
 
@@ -85,21 +88,34 @@ Use the **Refresh** and **Filter** controls above the table to update the list o
 
 :::image type="content" source="media/concept-studio/studio-workspaces.jpg" alt-text="Screenshot of the Workspaces view in Microsoft Discovery Studio showing a table of workspaces with name, region, and provisioning state columns." lightbox="media/concept-studio/studio-workspaces.jpg":::
 
+## Workspace view
+
+When you open a workspace, you see the list of projects it contains. Select a project to open it.
+
 :::image type="content" source="media/concept-studio/studio-projects.jpg" alt-text="Screenshot showing the list of projects within a workspace in Microsoft Discover Studio." lightbox="media/concept-studio/studio-projects.jpg":::
 
-## Projects view
+## Project view
 
-To open a project, select **Workspaces** in the sidebar, open the workspace that contains the project, and then select the project name. When you open a workspace, Microsoft Discovery Studio transitions into a full **Visual Studio Code for the Web** environment. This portal is where you conduct your research—running shared sessions, interacting with agents, and managing project resources.
+To open a project, select **Workspaces** in the sidebar, open the workspace that contains the project, and then select the project name. When you open a project, Microsoft Discovery Studio transitions into a full **Visual Studio Code for the Web** environment. This portal is where you conduct your research—running shared sessions, interacting with agents, and managing project resources.
 
-The project includes:
+The project view includes:
 
-- **Discovery tab**: A sidebar that lists quick actions and all shared sessions in the current project. Select a shared session to open it and begin chatting with agents.
+- **Discovery tab**: The main sidebar for the project. It provides quick actions—**New session**, **New task**, **Project data**, and **AI Capabilities**—and lists all shared sessions in the current project. Select a shared session to open it and begin chatting with agents.
 - **Chat interface**: Open a shared session to view the chat interface where you interact with agents through natural language conversations. Use the agent selector dropdown or type `@` to route messages to specific agents.
 - **Preferences**: Manage user and project preferences, which help you customize agentic behavior to your style.
 - **Agent logs**: Use agent logs to view a detailed view of your agent interaction including prompts, responses, and tool call logs including raw log output.
-- **Resources**: A sidebar that lists all project related resources that you can use such as agents, tools, and knowledge bases. The **Project Storage** pane lets you browse storage containers and storage assets available in the project.
+- **AI Capabilities**: A tab where you create and manage the building blocks that agents use. It's organized into three sections: **Agents** (create, add, and configure agents), **Bookshelves** (curate your data to ground responses through high-level reasoning), and **Tools** (containerized executables that agents run on supercomputer instances).
+- **Project data**: A tab where you browse and manage the project's storage containers, storage assets, and the files within them.
 
 :::image type="content" source="media/concept-studio/studio-project-vscode.jpg" alt-text="Screenshot of the project view in Microsoft Discovery Studio showing the shared sessions panel and chat." lightbox="media/concept-studio/studio-project-vscode.jpg":::
+
+The **AI Capabilities** tab opens in the working area with **Agents**, **Bookshelves**, and **Tools** sections in a secondary navigation pane.
+
+:::image type="content" source="media/concept-studio/studio-ai-capabilities.png" alt-text="Screenshot of the AI Capabilities tab in Microsoft Discovery Studio showing the Agents, Bookshelves, and Tools sections with a list of agents." lightbox="media/concept-studio/studio-ai-capabilities.png":::
+
+The **Project data** tab opens a file browser for the project's storage container. Use it to navigate storage assets (folders and files), preview, upload or download files, and open the **Storage Container Details** view.
+
+:::image type="content" source="media/concept-studio/studio-project-data.png" alt-text="Screenshot of the Project data tab in Microsoft Discovery Studio showing the storage container tree and a table of folders and files." lightbox="media/concept-studio/studio-project-data.png":::
 
 ### Customizing your research environment
 

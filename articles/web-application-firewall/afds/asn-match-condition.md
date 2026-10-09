@@ -169,6 +169,7 @@ Keep the following in mind when you build rules on AS numbers:
 
 - [Custom rules for Azure Web Application Firewall on Azure Front Door](waf-front-door-custom-rules.md)
 - [What is client fingerprint matching for Azure Front Door?](client-fingerprint-match-condition.md)
+- [What is service tag matching for Azure Front Door?](service-tag-match-condition.md)
 - [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-geo-filtering.md)
 - [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
 - [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md)

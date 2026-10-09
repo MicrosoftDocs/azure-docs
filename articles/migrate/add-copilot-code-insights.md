@@ -5,7 +5,7 @@ ms.topic: how-to
 author: sudesai
 ms.author: sudesai
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 10/23/2025
 ms.update-cycle: 180-days
 ms.custom: engagement-fy24

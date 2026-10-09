@@ -73,6 +73,8 @@ After your IoT Edge device connects, continue configuring the `UpstreamProtocol`
 
 ## Deployment
 
+* **Important**
+  * Plan for IoT Hub identity operation throttling at large fleet scale.
 * **Helpful**
   * Be consistent with upstream protocol.
   * Set up host storage for system modules.
@@ -80,6 +82,24 @@ After your IoT Edge device connects, continue configuring the `UpstreamProtocol`
   * Use correct module images in deployment manifests.
   * Be mindful of twin size limits when using custom modules.
   * Configure how updates to modules are applied.
+
+### Plan for IoT Hub identity operation throttling at large fleet scale
+
+Before deploying many thousands of IoT Edge devices to a single IoT hub, check the [identity registry operations throttle](../iot-hub/iot-hub-devguide-quotas-throttling.md#identity-registry-operations-throttle) for your hub tier and units. Each IoT Edge hub (`$edgeHub`) refreshes its device and module identity scope from IoT Hub every hour by default. Across a dense fleet, these refreshes can exceed the per-hub throttle and interfere with device connections. Plan capacity based on the number of IoT Edge devices and modules per hub, not just the traffic from an individual device.
+
+If the default refresh rate would put pressure on your hub, increase the `DeviceScopeCacheRefreshRateSecs` environment variable on the `$edgeHub` module. The default is `3600` seconds; for example, `43200` seconds refreshes the scope every 12 hours. In the deployment manifest, add the variable under `$edgeAgent` desired properties, `systemModules.edgeHub.env`:
+
+```json
+{
+  "env": {
+    "DeviceScopeCacheRefreshRateSecs": {
+      "value": "43200"
+    }
+  }
+}
+```
+
+Choose the interval for your gateway requirements. A longer interval delays propagation of changes to cached downstream device identities, including disabling or removing a device. New device authentication still refreshes an individual identity on demand. Standalone IoT Edge devices with only local modules have less of this tradeoff. Test the change on a few devices before rolling it out, and check `aziot-identityd` logs for fewer `HTTP request throttled` warnings. You can also distribute devices across more IoT hubs or reduce the number of modules per device to lower identity operation pressure. For symptoms and mitigation details, see [IoT Hub identity operation quota is exceeded on a large fleet](troubleshoot-common-errors.md#iot-hub-identity-operation-quota-is-exceeded-on-a-large-fleet).
 
 ### Be consistent with upstream protocol
 

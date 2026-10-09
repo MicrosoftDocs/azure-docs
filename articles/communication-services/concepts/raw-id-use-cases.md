@@ -15,6 +15,8 @@ ms.service: azure-communication-services
 
 # Use cases for string identifiers in Communication SDKs
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article provides use cases for choosing a string (Raw ID) as a representation type of the [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Follow this guidance to understand some use cases when you might want to choose a Raw ID over the CommunicationIdentifier derived types.
 
 ## Use cases for choosing an identifier

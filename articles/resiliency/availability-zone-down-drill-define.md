@@ -5,14 +5,14 @@ description: Learn how to define and execute a Zone Down Drill in Infrastructure
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 06/02/2026
+ms.date: 09/28/2026
 ms.topic: how-to
 ms.service: resiliency
 ---
 
 # Define a Zone Down Drill in Infrastructure Resiliency Manager (preview)
 
-This article describes how to define a Zone Down Drill (preview) in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resiliency. It also covers configuring Chaos Workspaces, managing identities, designing faults, and verifying Service Group readiness for zonal failures.
+This article describes how to define a Zone Down Drill (preview) in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resiliency. It also covers configuring Chaos Workspaces ([Azure Chaos Studio Workspaces](/azure/chaos-studio/chaos-studio-workspaces-overview)), managing identities, designing faults, and verifying Service Group readiness for zonal failures.
 
 ## Prerequisites
 

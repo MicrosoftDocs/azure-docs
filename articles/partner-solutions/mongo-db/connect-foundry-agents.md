@@ -41,7 +41,7 @@ Before you begin, ensure you have:
 
 The [MongoDB MCP Server](https://github.com/mongodb-js/mongodb-mcp-server) acts as a bridge between Foundry agents and MongoDB Atlas.
 
-1. Deploy the MCP Server to Azure Container Apps or another Azure-hosted environment. For details on hosting, see the [MongoDB MCP Server Azure deployment guide](https://github.com/mongodb-js/mongodb-mcp-server/blob/main/deploy/azure/README.md).
+1. Deploy the MCP Server to Azure Container Apps or another Azure-hosted environment.
 1. Configure the server with:
    - MongoDB Atlas connection details
    - Enabled tools (vector search, aggregation)

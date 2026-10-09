@@ -22,7 +22,7 @@ The steps in this article apply to Microsoft Entra ID authentication using the M
 
 Verify that you are on the correct article. The following table shows the configuration articles available for Azure Virtual WAN point-to-site (P2S) VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
 
-[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
+[!INCLUDE [P2S client configuration articles](../networking/includes/virtual-wan/vpn-client-install-articles.md)]
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ After your Virtual WAN  server configuration is complete, your next steps are as
 
 ## Install the Azure VPN Client
 
-[!INCLUDE [Download the Azure VPN Client for Linux](../../includes/virtual-wan-download-azure-vpn-client-linux.md)]
+[!INCLUDE [Download the Azure VPN Client for Linux](../networking/includes/virtual-wan/download-azure-vpn-client-linux.md)]
 
 ## Extract the VPN client profile configuration package
 
@@ -58,7 +58,7 @@ If your P2S gateway configuration was previously configured to use the older, ma
 
 ## Import VPN client profile configuration settings
 
-[!INCLUDE [Import Azure VPN Client settings for Linux](../../includes/virtual-wan-import-azure-vpn-client-settings-linux.md)]
+[!INCLUDE [Import Azure VPN Client settings for Linux](../networking/includes/virtual-wan/import-azure-vpn-client-settings-linux.md)]
 
 ## Next steps
 

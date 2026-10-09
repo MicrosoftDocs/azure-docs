@@ -247,7 +247,7 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2025-05-01-preview
 
 ## Management
 
-After you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication** blade. 
+After you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication** blade.
 
 The secondary region can be in one of the following states:
 
@@ -309,7 +309,7 @@ You can automate promotion either with monitoring systems or with custom-built m
 
 ### Using the Azure portal
 
-In the portal, select the **Promote** icon, and follow the instructions in the pop-up pane to delete the region. 
+In the portal, select the **Promote** icon, and follow the instructions in the pop-up pane to delete the region.
 
 :::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screenshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
 
@@ -322,27 +322,37 @@ az servicebus namespace failover --namespace-name <your-namespace-name> --resour
 ```
 
 ### Monitoring data replication
-You can monitor the progress of the replication job by checking the replication lag metrics. For a complete list of available metrics, see [Service Bus metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-servicebus-namespaces-metrics).
+Monitor replication with the lag metrics in Azure Monitor. For the available aggregations and dimensions, see [Service Bus metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-servicebus-namespaces-metrics).
 
 Two replication lag metrics are available, both reported per entity (the `EntityName` dimension):
 
-- **ReplicationLagDuration** – the replication lag in seconds, that is, how far behind the secondary region is from the primary. This metric is the recommended metric for monitoring your recovery point objective (RPO) and for configuring alerts. When the lag reaches the configured maximum, the primary throttles incoming requests.
-- **ReplicationLagCount** – the number of pending replication operations by which the secondary region is behind the primary. Use it as a relative indicator of replication backlog: a sustained increase means the secondary is falling behind. This value reflects internal replication-log operations, not a count of unreplicated messages.
+- **ReplicationLagDuration** - the time-based distance, in seconds, represented by outstanding replication work between the primary and secondary regions. Use it to monitor your recovery point objective (RPO) in time and to configure time-based alerts. It isn't the time since the last message was sent or an exact estimate of how long catch-up takes. When lag reaches the configured maximum, the primary throttles incoming requests.
+- **ReplicationLagCount** - the number of outstanding replication-log operations, including message and message-state changes. Use it alongside duration to identify a growing backlog. It isn't a count of unreplicated messages, and neither metric predicts the exact number of messages that a forced promotion might lose.
+
+During initial synchronization or rebuilding, duration can represent an estimated catch-up time and count can represent the workload measured at the start of synchronization. Interpret these values separately from steady-state replication lag.
+
+The **Replication lag** value beside a secondary region on the **Geo-Replication** page shows the largest current duration across the namespace's queues and topics. The historical chart on that page instead shows the **Maximum** of `ReplicationLagDuration` within each chart interval. A historical peak can remain visible after current lag has decreased. If the current value shows `--`, the service can't determine the aggregate lag; `--` doesn't mean zero. The configured maximum replication lag is a separate setting, not a measured value.
 
 #### View replication lag in the Azure portal
 To monitor replication lag in the Azure portal:
 1. Go to your Service Bus namespace in the Azure portal.
 1. Select **Metrics** under the **Monitoring** section.
-1. Select the **ReplicationLagDuration** metric from the dropdown.
-1. The chart displays the replication lag between primary and secondary regions in seconds.
+1. Select **ReplicationLagDuration** to view time-based lag in seconds, or **ReplicationLagCount** to view outstanding replication operations.
+1. Split or filter the chart by **EntityName** to find the entities contributing to lag. Select **Maximum** to inspect peaks and compare them with **Minimum** to distinguish short spikes from sustained lag.
 
-You can also set up alerts on this metric to be notified when lag exceeds a threshold.
+#### Configure replication lag alerts
+Use `ReplicationLagDuration` for time-based RPO alerts. Choose a threshold in **seconds** that reflects your acceptable lag, and monitor the `EntityName` dimension so an affected entity isn't hidden by an aggregate. Use **Maximum** in a chart to investigate peaks, but avoid a static alert on **Maximum** over a long lookback period when you need a *sustained* breach: even one short peak can keep that window above the threshold. For periodic workloads, compare the duration chart with count and the current lag before treating a peak as an ongoing replication delay. **Average** can hide a brief but significant peak.
+
+To alert on sustained lag with a fixed threshold, create an [Azure Monitor metric alert rule](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule) for `ReplicationLagDuration` with **Static** threshold, **Greater than**, and **Minimum** aggregation over a lookback period such as 10 to 15 minutes. Check every minute and tune both the threshold and lookback period to your workload and RPO. This condition fires when the reported lag stays above the threshold throughout the lookback window, rather than when a single peak occurs. If you also alert on `ReplicationLagCount`, use it as a supporting indicator of persistent replication work, not as a message-loss or time-based RPO threshold.
+
+> [!NOTE]
+> The **Number of violations** and **Evaluation period** options for consecutive breaches apply to *dynamic-threshold* metric alerts. A dynamic threshold adapts to observed behavior; use a static threshold with **Minimum** over the lookback period when you need to enforce a fixed time-based limit.
 
 #### View replication lag in Log Analytics
 To use Log Analytics for querying and historical analysis:
-1. Enable Metrics logs in your Service Bus namespace as described in [Monitor Azure Service Bus](monitor-service-bus.md). 
-1. After you enable Metrics logs, you need to produce and consume data from the namespace for a few minutes before you start to see the logs. 
-1. To view Metrics logs, go to the Monitoring section of Service Bus and select the **Logs** blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary regions. 
+1. Enable Metrics logs in your Service Bus namespace as described in [Monitor Azure Service Bus](monitor-service-bus.md).
+1. After you enable Metrics logs, you need to produce and consume data from the namespace for a few minutes before you start to see the logs.
+1. To view Metrics logs, go to the Monitoring section of Service Bus and select the **Logs** blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary regions.
 
 ```kusto
 AzureMetrics

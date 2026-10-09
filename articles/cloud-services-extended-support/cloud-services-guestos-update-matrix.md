@@ -7,7 +7,7 @@ author: srtiruma
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 09/16/2026
+ms.date: 09/22/2026
 ms.update-cycle: 3650-days
 ms.author: srtiruma
 ms.custom: compute-evergreen
@@ -41,8 +41,7 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 ## News updates
 
 ###### **September 16, 2026**
-The August  Guest OS released*. <br>
- *except to SouthCentralUS2, WestUS3 and SoutheastUS.
+The August 2026 Guest OS released.
 
 ###### **August 13, 2026**
 The July 2026 Guest OS released.

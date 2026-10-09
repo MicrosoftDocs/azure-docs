@@ -2,13 +2,13 @@
 title: Optimize Azure VM network throughput
 description: Optimize network throughput for Windows and Linux virtual machines, including major distributions such as Ubuntu and Red Hat.
 services: virtual-network
-author: asudbring
+author: mabicca
 manager: Gerald DeGrace
 ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 08/02/2024
-ms.author: allensu
+ms.date: 09/24/2026
+ms.author: mabicca
 # Customer intent: As a system administrator managing Azure virtual machines, I want to optimize network throughput for both Windows and Linux VMs, so that I can improve performance and ensure efficient resource utilization during data transfers.
 ---
 
@@ -20,10 +20,12 @@ Azure virtual machines (VMs) have default network settings that can be optimized
 > Many of the optimizations described in this article (for example, congestion control, queue discipline, buffer sizes, and NIC tuning) affect how traffic flows between systems.
 >
 > For best results, apply these settings consistently across all virtual machines participating in the workload, including:
+>
 > - Client systems
 > - Server systems
 >
 > Applying these configurations to only a subset of virtual machines can lead to:
+>
 > - Inconsistent throughput
 > - Increased packet retransmissions
 > - Suboptimal congestion behavior
@@ -32,7 +34,7 @@ Azure virtual machines (VMs) have default network settings that can be optimized
 
 ## Windows virtual machines
 
-If your Windows VM supports *accelerated networking*, enable that feature for optimal throughput. For more information, see [Create a Windows VM with accelerated networking](create-vm-accelerated-networking-powershell.md).
+If your Windows VM supports _accelerated networking_, enable that feature for optimal throughput. For more information, see [Create a Windows VM with accelerated networking](create-vm-accelerated-networking-powershell.md).
 
 For all other Windows VMs, Receive Side Scaling (RSS) can provide higher maximum throughput than a VM without RSS. RSS might be disabled by default. To check whether RSS is enabled and enable it, follow these steps:
 
@@ -81,75 +83,32 @@ uname -r
 6.8.0-1017-azure
 ```
 
-### Other Linux distributions
-
-Most modern distributions include major networking improvements in newer kernels. Check your kernel version and use 4.19 or later when possible. Newer kernels include better networking behavior and support modern congestion control options such as BBR.
+> [!IMPORTANT]
+> VM sizes that use the [MANA](/azure/virtual-network/accelerated-networking-mana-overview) network adapter require a minimum kernel version per distribution for Accelerated Networking support. For non-endorsed distributions or custom kernels, use Linux kernel 6.14 or later. For the full list of minimum supported kernel versions by distribution, see [Supported operating systems](/azure/virtual-network/accelerated-networking-overview).
 
 ## Achieving consistent transfer speeds in Linux VMs in Azure
 
 Linux VMs can show inconsistent transfer speeds, especially during large regional transfers (for example, 1 GB to 50 GB between West Europe and West US). Common causes include older kernels, default buffer sizes, and untuned congestion control or queue discipline settings.
 
-To get more consistent throughput, apply the following baseline tuning and then test congestion/qdisc combinations for your workload.
+Apply the following baseline tuning to any Linux VM on Azure. These are three distinct areas — apply all of them, not just one:
 
-### Baseline sysctl tuning (copy/paste)
+- [Congestion control and qdisc testing](#congestion-control-and-qdisc-testing): the TCP congestion control algorithm and queue discipline (qdisc).
+- [NIC ring buffer sizes](#nic-ring-buffer-sizes): RX/TX ring buffer sizing at the network interface level, set independently of `sysctl`.
+- [Sysctl parameters](#sysctl-parameters): a minimal, Azure-specific `sysctl` set applied to `/etc/sysctl.d/99-azure-network-tuning.conf`.
 
-Apply the following baseline sysctl settings:
+### Congestion control and qdisc testing
 
-```bash
-sudo tee /etc/sysctl.d/99-azure-network-tuning.conf > /dev/null <<'EOF'
-# Buffer and memory tuning
-# Overall TCP memory pressure thresholds (min, pressure, max pages)
-net.ipv4.tcp_mem = 4096 87380 67108864
-# Overall UDP memory pressure thresholds (min, pressure, max pages)
-net.ipv4.udp_mem = 4096 87380 33554432
-# Per-socket TCP read buffer limits (min, default, max bytes)
-net.ipv4.tcp_rmem = 4096 87380 67108864
-# Per-socket TCP write buffer limits (min, default, max bytes)
-net.ipv4.tcp_wmem = 4096 65536 67108864
-# Default socket receive buffer size in bytes
-net.core.rmem_default = 33554432
-# Default socket send buffer size in bytes
-net.core.wmem_default = 33554432
-# Minimum UDP send buffer per socket in bytes
-net.ipv4.udp_wmem_min = 16384
-# Minimum UDP receive buffer per socket in bytes
-net.ipv4.udp_rmem_min = 16384
-# Maximum socket send buffer size in bytes
-net.core.wmem_max = 134217728
-# Maximum socket receive buffer size in bytes
-net.core.rmem_max = 134217728
-# Busy polling time in microseconds for low-latency packet receive
-net.core.busy_poll = 50
-# Busy read time in microseconds when polling sockets
-net.core.busy_read = 50
+> [!NOTE]
+> BBR support is only available on kernels 4.19 and later.
 
-# Extra TCP and networking settings
-# Enable TCP timestamps for RTT measurement and PAWS protection
-net.ipv4.tcp_timestamps = 1
-# Allow safer TIME-WAIT socket reuse for outbound connections
-net.ipv4.tcp_tw_reuse = 1
-# Expand available ephemeral source port range
-net.ipv4.ip_local_port_range = 1024 65535
-# Increase packets processed per NAPI polling cycle
-net.core.netdev_budget = 1000
-# Increase per-socket ancillary/option memory limit in bytes
-net.core.optmem_max = 65535
-# Disable F-RTO (typically unnecessary on stable wired paths)
-net.ipv4.tcp_frto = 0
-# Increase maximum listen backlog for pending connections
-net.core.somaxconn = 32768
-# Increase ingress packet backlog queue length
-net.core.netdev_max_backlog = 32768
-# Increase per-CPU packet processing quota per softirq cycle
-net.core.dev_weight = 64
-EOF
+Congestion control and qdisc settings affect how traffic flows end-to-end. They can impact throughput and latency as much as buffer sizes. Test these combinations and keep the one that performs best for your workload.
 
-sudo sysctl --system
-```
+As a general guideline:
 
-### Congestion control and qdisc tests (sysctl)
+- If your architecture spans different Azure regions (long-haul, higher-latency paths), BBR is usually the better fit.
+- For localized communication within a region or availability zone (lower-latency paths), CUBIC is usually sufficient.
 
-Different workloads behave differently. Test these combinations and keep the one that gives the best results for your latency, throughput, and retransmission profile.
+Also test both `fq` and `pfifo_fast` qdisc with BBR, since the qdisc choice can affect results as much as the congestion control algorithm itself.
 
 1. **BBR + FQ** (often a strong default for high-throughput and long-haul transfers)
    ```bash
@@ -161,7 +120,7 @@ Different workloads behave differently. Test these combinations and keep the one
    sudo sysctl -w net.ipv4.tcp_congestion_control=bbr
    sudo sysctl -w net.core.default_qdisc=pfifo_fast
    ```
-3. **CUBIC + PFIFO_FAST** (common legacy baseline for compatibility and comparison)
+3. **CUBIC + PFIFO_FAST** (common baseline for localized, low-latency communication)
    ```bash
    sudo sysctl -w net.ipv4.tcp_congestion_control=cubic
    sudo sysctl -w net.core.default_qdisc=pfifo_fast
@@ -169,39 +128,140 @@ Different workloads behave differently. Test these combinations and keep the one
 
 Measure each option with representative traffic, then use the best-performing combination for your environment.
 
+> [!IMPORTANT]
+> The `sysctl -w` commands above apply immediately but don't persist across reboots. Once you settle on a combination, persist it by adding the following lines to `/etc/sysctl.d/99-azure-congestion.conf` (BBR + FQ shown as an example; substitute your chosen combination):
+>
+> ```ini
+> net.ipv4.tcp_congestion_control = bbr
+> net.core.default_qdisc = fq
+> ```
+>
+> Then apply the changes: `sudo sysctl --system`
+
 > [!NOTE]
 > `pfifo_fast` availability can vary by distro/kernel. If it isn't available, use the closest supported qdisc option in your environment and continue benchmarking.
 
-### UDEV rule for NIC ring buffers (TX/RX)
+### NIC ring buffer sizes
 
-Create a udev rule in `/etc/udev/rules.d/99-azure-ring-buffer.rules` to apply ring buffer settings to network interfaces:
+Tuning NIC ring buffers is a baseline requirement for any Linux VM on Azure. The following settings apply at the network interface level, rather than through `sysctl`.
 
-Use `rx 4096 tx 4096` for Accelerated Networking interfaces (`hv_pci`) and keep `rx 1024 tx 1024` for synthetic `hv_netvsc` interfaces.
+RX/TX ring buffers are the memory areas a NIC driver uses to hold packets that arrive from (or are waiting to go out to) the wire, before the kernel gets a chance to process them. When the CPU is momentarily busy (for example, servicing an interrupt storm, a scheduling delay, or another burst of traffic), a larger ring buffer gives the driver more room to keep incoming or outgoing packets queued instead of dropping them. Dropping packets causes intermittent timeouts and retransmissions under bursty or high-concurrency traffic. This ring buffer concept is the same RX/TX ring documented for the `-g`/`--show-ring` and `-G`/`--set-ring` options in [ethtool(8)](https://man7.org/linux/man-pages/man8/ethtool.8.html). The tradeoff is added latency: a much larger buffer can absorb bigger bursts, but packets sitting longer in the queue before being processed also increases latency. Treat ring buffer size as a balance between drop tolerance and latency rather than "bigger is always better."
 
-If you prefer an interactive approach for ring buffer tuning, you can also use this helper tool: [Azure Linux NIC setup (bash)](https://github.com/mabicca/azure-linux-tuning/tree/main/azure-nic-setup/bash).
+```bash
+# Accelerated Networking interface (mlx4_en, mlx5_core, or mana, depending on the VM SKU)
+sudo ethtool -G <accel-interface> rx 4096 tx 4096
+# Synthetic (hv_netvsc) interface
+sudo ethtool -G <synthetic-interface> rx 1024 tx 1024
+```
 
-> [!NOTE]
-> This GitHub tool is an optional helper and isn't part of Microsoft Learn product documentation. Review the scripts and test changes in a non-production environment before broad rollout.
+> [!IMPORTANT]
+> On SUSE Linux Enterprise Server (SLES), SAP HANA systems under **heavy load** and other high-concurrency, multithreaded workloads can trigger Accelerated Networking ring buffer saturation. This condition shows up as intermittent connection timeouts (`rc=110`/`ETIMEDOUT`) even though interface counters show no drops or errors. These workloads typically need larger ring buffer values than the defaults shown in this article. For the recommended `ethtool` values and the steps to persist them across reboots (udev rule and initramfs rebuild), see [Intermittent Network Connection Timeouts (rc=110) on Azure Due to Accelerated Networking Ring Buffer Saturation](https://support.scc.suse.com/s/kb/Intermittent-Network-Connection-Timeouts-rc-110-on-Azure-Due-to-Accelerated-Networking-Ring-Buffer-Saturation?language=en_US) from SUSE.
 
-````plaintext
-# Setup Accelerated Interface ring buffers (Mellanox / Mana) 
-SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add",  RUN+="/usr/sbin/ethtool -G $env{INTERFACE} rx 4096 tx 4096"
+> [!IMPORTANT]
+> These settings don't persist across reboots on their own. To make them permanent, add a udev rule as described in [Persisting NIC ring buffer sizes (RX/TX)](#persisting-nic-ring-buffer-sizes-rxtx).
 
-# Setup Synthetic interface ring buffers (hv_netvsc)
-SUBSYSTEM=="net", DRIVERS=="hv_netvsc*", ACTION=="add",  RUN+="/usr/sbin/ethtool -G $env{INTERFACE} rx 1024 tx 1024"
-````
-  
-### UDEV rule for NIC transmit queue length
+### Sysctl parameters
+
+Add the following lines to `/etc/sysctl.d/99-azure-network-tuning.conf`. Most values are safe defaults, but two groups need to be recalculated for your VM instead of copied as-is:
+
+- **Memory-scaled values** (`net.ipv4.tcp_mem`, `net.ipv4.udp_mem`) size the networking stack's memory pressure thresholds (low, pressure, max, in 4-KB pages) relative to total RAM. The values shown assume a VM with roughly 4 GB of RAM. Scale them up proportionally for larger VMs (for example, roughly double for 8 GB of RAM) so the network stack has enough memory headroom without starving other workloads on the VM.
+- **Bandwidth-scaled values** (`net.core.rmem_max`, `net.core.wmem_max`, `net.ipv4.tcp_rmem`, `net.ipv4.tcp_wmem`) size socket buffers to the connection's bandwidth-delay product: `buffer size (bytes) ≈ (NIC bandwidth in bits/second ÷ 8) × round-trip time (seconds)`. The values shown assume a ~12 Gbps Accelerated Networking interface and a ~2 ms round-trip time, which is typical for communication within a single Azure region: (12,000,000,000 ÷ 8) × 0.002 ≈ 3,000,000 bytes ≈ 3 MB, which is why `rmem_max`, `wmem_max`, and the max field of `tcp_rmem`/`tcp_wmem` are set to 3145728. Recalculate for your VM size's actual NIC line rate (see [Accelerated Networking throughput by VM size](/azure/virtual-machines/sizes)) and for your workload's expected round-trip time, which is higher for cross-region traffic.
+
+```ini
+# TCP memory pressure thresholds in 4-KB pages (low, pressure, max): pages = RAM bytes x fraction / 4096; shown values ≈ 9%/12.5%/19% of 4 GB RAM
+net.ipv4.tcp_mem = 98304 131072 196608
+# Same memory-pressure thresholds as tcp_mem, applied to UDP sockets
+net.ipv4.udp_mem = 98304 131072 196608
+
+# Max receive buffer per socket, sized to the bandwidth-delay product: (NIC bandwidth in bytes/sec) x RTT in seconds ≈ (12 Gbps / 8) x 0.002 s ≈ 3 MB
+net.core.rmem_max = 3145728
+# Max send buffer per socket; same bandwidth-delay product calculation as rmem_max
+net.core.wmem_max = 3145728
+# Per-socket TCP receive buffer (min, default, max bytes); max matches the bandwidth-delay product above
+net.ipv4.tcp_rmem = 4096 87380 3145728
+# Per-socket TCP send buffer (min, default, max bytes); max matches the bandwidth-delay product above
+net.ipv4.tcp_wmem = 4096 65536 3145728
+
+# Default receive buffer for sockets that don't request a larger size; kept modest so many concurrent sockets don't exhaust RAM on a 4 GB VM
+net.core.rmem_default = 262144
+# Default send buffer for sockets that don't request a larger size; same rationale as rmem_default
+net.core.wmem_default = 262144
+
+# Minimum guaranteed UDP receive buffer per socket, even under memory pressure
+net.ipv4.udp_rmem_min = 16384
+# Minimum guaranteed UDP send buffer per socket, even under memory pressure
+net.ipv4.udp_wmem_min = 16384
+
+# Max packets processed per NAPI polling cycle across all interfaces, per CPU pass; raised from the kernel default of 300 for high-throughput NICs
+net.core.netdev_budget = 1000
+# Max packets allowed to queue when the kernel can't drain the NIC's ring buffer fast enough
+net.core.netdev_max_backlog = 32768
+# Max packets processed per network device, per NAPI polling pass (64 is also the kernel default; listed here for explicitness)
+net.core.dev_weight = 64
+
+# Enable TCP timestamps (RFC 7323), needed for RTT estimation and required by tcp_tw_reuse below
+net.ipv4.tcp_timestamps = 1
+# Allow reusing TIME_WAIT sockets for new outgoing connections, reducing ephemeral port exhaustion under high connection churn
+net.ipv4.tcp_tw_reuse = 1
+# Widen the ephemeral source port range to support more concurrent outgoing connections
+net.ipv4.ip_local_port_range = 1024 65535
+# Max pending-connection backlog for listening sockets, raised for servers accepting many concurrent connection attempts
+net.core.somaxconn = 32768
+# Max ancillary (control message) buffer size per socket
+net.core.optmem_max = 65535
+# Disable F-RTO (Forward RTO-recovery), an algorithm for lossy/wireless links that's unnecessary on stable wired Azure networks
+net.ipv4.tcp_frto = 0
+# Microseconds to busy-poll a socket before sleeping, trading CPU time for lower latency on latency-sensitive workloads
+net.core.busy_poll = 50
+# Microseconds to busy-poll specifically during read() calls; used together with busy_poll
+net.core.busy_read = 50
+```
+
+Then apply the changes:
+
+```bash
+sudo sysctl --system
+```
+
+### Persisting NIC ring buffer sizes (RX/TX)
+
+Create a udev rule in `/etc/udev/rules.d/99-azure-ring-buffer.rules` to apply ring buffer settings to network interfaces. Matching on `ENV{ID_NET_DRIVER}` detects whichever Accelerated Networking driver is present (`mana`, `mlx4_core`, or `mlx5_core`, depending on the VM SKU`) without needing to know the driver ahead of time. Use `rx 4096 tx 4096` for Accelerated Networking interfaces and keep `rx 1024 tx 1024` for synthetic `hv_netvsc` interfaces:
+
+```ini
+# Set up accelerated networking ring buffers (mana, mlx4_core, or mlx5_core, depending on the VM SKU)
+SUBSYSTEM=="net", ACTION=="add|move", ENV{ID_NET_DRIVER}=="mana", RUN+="/usr/sbin/ethtool -G %k rx 4096 tx 4096"
+SUBSYSTEM=="net", ACTION=="add|move", ENV{ID_NET_DRIVER}=="mlx4_core", RUN+="/usr/sbin/ethtool -G %k rx 4096 tx 4096"
+SUBSYSTEM=="net", ACTION=="add|move", ENV{ID_NET_DRIVER}=="mlx5_core", RUN+="/usr/sbin/ethtool -G %k rx 4096 tx 4096"
+
+# Set up synthetic interface ring buffers (hv_netvsc)
+SUBSYSTEM=="net", ACTION=="add|move", ENV{ID_NET_DRIVER}=="hv_netvsc", RUN+="/usr/sbin/ethtool -G %k rx 1024 tx 1024"
+```
+
+> [!IMPORTANT]
+> On Red Hat Enterprise Linux 9 versions older than 9.8 (for example, 9.6), this udev rule doesn't take effect because the `initscripts-rename-device` package is installed and interferes with `RUN+=` actions on network device udev rules. Either remove the `initscripts-rename-device` package, or apply the ring buffer settings through another mechanism (for example, a systemd service or NetworkManager dispatcher script) instead of relying on this udev rule. This issue doesn't occur on RHEL 9.8 and later.
+
+### NIC transmit queue length
 
 Create the following rule in `/etc/udev/rules.d/99-azure-txqueue-len.rules` to increase transmit queue length:
 
-```plaintext
-SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000" 
+```ini
+SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="en*|eth*", ATTR{tx_queue_len}="10000"
 ```
+
+### Testing udev rules without rebooting
+
+After adding or updating the ring buffer or transmit queue length udev rules, apply them to already-present interfaces without a reboot:
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger --action=add --subsystem-match=net
+```
+
+This step re-triggers udev's `add` action for existing network interfaces, so the rules run against them immediately instead of waiting for the next boot or hot-plug event. Confirm the new values took effect with `ethtool -g <interface>` (ring buffers) or `ip link show <interface>` (transmit queue length).
 
 ### SR-IOV dual-interface behavior and side effects
 
-In Linux high-performance networking, Azure uses SR-IOV (for example, with Mellanox drivers such as `mlx4` or `mlx5`). In this model, you can see both a synthetic interface and a virtual function (VF) interface for the same VM networking path. [Learn more](/azure/virtual-network/accelerated-networking-how-it-works).
+For high-performance networking on Linux, Azure uses SR-IOV, with the VF interface bound to the `mlx4_en`, `mlx5_core`, or `mana` driver depending on the VM SKU. In this model, you can see both a synthetic interface and a virtual function (VF) interface for the same VM networking path. [Learn more](/azure/virtual-network/accelerated-networking-how-it-works).
 
 This design is expected, but it can create confusion during tuning and troubleshooting if both interfaces are treated as independent data paths.
 
@@ -216,13 +276,10 @@ To reduce risk:
 - Validate which interface carries your workload traffic before tuning.
 - Keep udev and sysctl tuning consistent with your interface strategy.
 - Re-test throughput and latency after reboot, driver updates, or accelerated networking state changes.
- 
 
-### Additional notes
+## Additional notes
 
 System administrators can implement these recommendations by editing configuration files such as `/etc/sysctl.d/`, `/etc/modules-load.d/`, and `/etc/udev/rules.d/`. Review kernel and driver updates carefully to avoid regressions.
-
-For more information about specific configurations and troubleshooting, see Azure documentation on networking performance.
 
 ## Related content
 

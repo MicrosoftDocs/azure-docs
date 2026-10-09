@@ -20,7 +20,7 @@ The following limits apply only for networking resources managed through **Azure
 | --- | --- |
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
-| Virtual network peerings per virtual network |500 |
+| Virtual network peerings per virtual network |650 |
 | [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/about-gateway-skus.md#benchmark) |1 |
 | [Virtual network gateways (ExpressRoute gateways) per virtual network](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | DNS servers per virtual network |20 |
@@ -40,7 +40,7 @@ The following limits apply only for networking resources managed through **Azure
 | Application security groups per IP configuration, per NIC | 20 |
 | Application security groups referenced as source/destination per NSG rule | 10 |
 | IP configurations per application security group |4,000 |
-| Application security groups that can be specified within all security rules of a network security group |600 |
+| Application security groups that can be specified within all security rules of a network security group |100 |
 | User-defined route tables |600 |
 | User-defined routes per route table |1,000 |
 | Routes with service tag per route table | 25 |

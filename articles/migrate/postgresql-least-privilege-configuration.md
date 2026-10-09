@@ -1,8 +1,8 @@
 ---
 title: PostgreSQL least privilege configuration
 description: Learn how to securely set up a minimally privileged PostgreSQL account for Azure Migrate without requiring superuser access, using a built-in utility to streamline configuration and enhance security.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate 
 ms.topic: concept-article 
 ms.date: 08/01/2025

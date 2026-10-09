@@ -19,10 +19,25 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## October 2026
+### FHIR service
+
+**Extra large bundle support**: The FHIR service now supports extra large bundles beyond the standard size limit, enabling scenarios that require larger payload sizes.
+
+**Updated retirement notification message**: The Azure API for FHIR service now displays an updated retirement notification message to inform users about the service retirement timeline and recommended migration steps.
+
+#### Bug fixes:
+
+**Fix for forged metadata in internal Bundle context**: Fixed a security issue where internal Bundle context could potentially allow forged metadata to change authorization behavior. Bundle context is now passed securely through internal request properties.
+
 ## September 2026
 ### FHIR service
 
 **SMART-on-FHIR compartment authorization enforced on `_include` and `_revinclude`**: SMART-on-FHIR compartment authorization is now enforced on `_include` and `_revinclude` query results. Previously, included resources could be returned without verifying they belonged to the authorized patient compartment. Queries using `_include` or `_revinclude` under SMART scopes might now return fewer results.
+
+**Improved error handling for `$export` with invalid resource types**: `$export` jobs with invalid resource types now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error.
+
+**`permission-v1` added to SMART configuration endpoint**: The FHIR service now includes `permission-v1` in the `/.well-known/smart-configuration` endpoint alongside the existing `permission-v2` capability, improving compatibility with SMART on FHIR clients that rely on v1 permissions.
 
 #### Bug fixes:
 
@@ -31,6 +46,18 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 **Fix for intermittent errors from non-thread-safe HTTP header access**: Fixed intermittent errors in request processing caused by non-thread-safe HTTP header access, improving overall service stability.
 
 **Fix for capability statement rebuild exceptions from stale request context**: Fixed unexpected exceptions during capability statement rebuilds caused by stale request context in background processing.
+
+**Fix for delete by URL failures**: Fixed an issue where deleting a resource by URL could fail in certain scenarios. Delete operations by URL now work correctly.
+
+**Fix for `$validate` fatal error on Bundles with entries lacking a resource**: Fixed an issue where the `$validate` operation returned a fatal error (code 5003) for Bundles containing entries without a resource, such as transaction DELETE entries. Validation now correctly handles these entries.
+
+**Fix for HTTP 500 on searches with extreme dates**: Fixed an issue where FHIR search queries with extreme dates (for example, `_lastUpdated=gt9999-12-31`) caused an internal overflow and returned HTTP 500. These queries now return proper results.
+
+**Fix for whitespace in `$export` resource type parameters**: Fixed an issue where `$export` operations could include unexpected whitespace in resource type parameters, potentially causing export failures. Resource type inputs are now trimmed correctly.
+
+**Fix for SMART-scoped requests creating bulk delete or update jobs**: Fixed an issue where SMART-scoped requests could create bulk delete or bulk update background jobs. SMART-scoped tokens are now properly restricted from initiating these bulk operations.
+
+**Fix for `StructureDefinition` imports bypassing `editProfileDefinitions` permission**: Fixed an issue where `StructureDefinition` resources could be imported via `$import` without requiring the `editProfileDefinitions` data action permission. Import now correctly excludes `StructureDefinition` resources, aligning with the existing permission requirements for profile management.
 
 ## August 2026
 ### FHIR service

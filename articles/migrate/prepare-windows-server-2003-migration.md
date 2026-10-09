@@ -1,12 +1,12 @@
 ---
 title: Prepare Windows Server 2003 servers for migration with Azure Migrate
 description: Learn how to prepare Windows Server 2003 servers for migration with Azure Migrate.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.manager: kmadnani
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 06/30/2023
 ms.update-cycle: 1825-days
 ms.custom: engagement-fy25

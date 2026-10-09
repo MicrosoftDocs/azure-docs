@@ -8,7 +8,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: overview
-ms.date: 05/05/2026
+ms.date: 09/18/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -74,6 +74,7 @@ For detailed encryption options and best practices, see [Azure encryption overvi
 |[Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)| Single-tenant, FIPS 140-3 Level 3 validated HSM service offering full customer control with confidential key support. Integrates with Azure PaaS services.|
 |[Azure Cloud HSM](/azure/cloud-hsm/overview)| Fully managed, single-tenant FIPS 140-3 Level 3 validated HSM cluster supporting PKCS#11, SSL/TLS offloading, and on-premises migration scenarios. IaaS only.|
 |[Azure Payment HSM](/azure/payment-hsm/overview)| Single-tenant, FIPS 140-2 Level 3 validated, PCI HSM v3 compliant HSM for payment processing operations.|
+|[Azure Payment HSM v2](/azure/payment-hsm-v2/overview)| Single-tenant, FIPS 140-3 Level 3 certified, PCI DSS, PCI 3DS, and PCI PIN compliant Microsoft-managed payment HSM cluster for payment processing operations. In preview.|
 
 For comprehensive key management options, see [Key management in Azure](key-management.md).
 
@@ -138,7 +139,7 @@ For comprehensive container security guidance, see [Container security in Micros
 |[Microsoft Defender for SQL](/azure/defender-for-cloud/defender-for-sql-introduction)|Advanced threat protection detecting SQL injection, brute-force attacks, anomalous activities, and vulnerability exploits.|
 |[SQL Vulnerability Assessment](/azure/azure-sql/database/sql-vulnerability-assessment)|Discovers, tracks, and helps remediate database vulnerabilities with actionable security recommendations.|
 |[Row-Level Security (RLS)](/sql/relational-databases/security/row-level-security)|Restricts row access based on user identity, role, or execution context for fine-grained data access control.|
-|[Dynamic Data Masking](/azure/azure-sql/database/dynamic-data-masking-overview)|Masks sensitive data to non-privileged users without changing underlying data, reducing exposure risk.|
+|[Dynamic Data Masking](../../synapse-analytics/sql/dynamic-data-masking-overview.md)|Masks sensitive data to non-privileged users without changing underlying data, reducing exposure risk.|
 |[Azure SQL Database Ledger](/sql/relational-databases/security/ledger/ledger-overview)|Tamper-evident capabilities with immutable transaction records for data integrity verification and compliance.|
 |[Azure Cosmos DB security](/azure/cosmos-db/database-security)|Encryption at rest and in transit, network isolation, RBAC, and audit logging for NoSQL and multimodel workloads.|
 

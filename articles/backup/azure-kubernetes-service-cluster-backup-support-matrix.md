@@ -19,13 +19,11 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ## Supported regions
 
-- Azure Backup for AKS supports storing backup data in both Vault and Operational (Snapshot) tiers in the following Azure regions:
+- **Operational tier backups for AKS clusters** are available in all Azure public regions and Azure Government clouds. 
 
-Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Brazil Southeast, Canada Central, Canada East, Central India, Central US, East Asia, East US, East US 2, France Central, France South, Germany North, Germany West Central, Italy North, Japan East, Japan West, Jio India West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Africa West, South Central US, South India, Southeast Asia, Sweden Central, Switzerland North, Switzerland West, UAE North, UK South, UK West,  West Central US, West Europe, West US, West US 2, West US 3
+- **Vault tier backups** are available in all Azure public regions except Austria East, Belgium Central, Chile Central, Indonesia Central, Israel Northwest, Malaysia South, Malaysia West, Mexico Central, Qatar Central, South Central US 2, Southeast US, Southeast US 3, Southeast US 5, Southwest US, and West India. 
 
-- The following regions support only the Operational (Snapshot) tier:
-
-China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV Texas, US GOV Virginia,  Israel Central, Poland Central, and Spain Central 
+  Vault tier backups are not supported in Azure Government clouds.
 
 >[!Note]
   >If you require geo-redundant backups with the ability to restore on demand, store your backups in the Vault tier and enable Cross Region Restore on your Backup Vault. This ensures that your backups are also available in the paired Azure region, allowing you to perform restores even if the primary region is unavailable. See the [list of Azure Paired Region](/azure/reliability/cross-region-replication-azure#azure-paired-regions).
@@ -68,7 +66,9 @@ China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV
 
 - If the AKS cluster is deployed within a private virtual network, a private endpoint must be configured to enable backup operations.
 
-- The Backup Extension can only be installed on node pools that use x86-based processors and run Ubuntu or Azure Linux as the operating system.
+- The Backup Extension can be installed on node pools with both x86-based and ARM64-based processors.
+
+- The Backup Extension can only be installed on node pools that run Ubuntu or Azure Linux as the operating system.
 
 - Both the AKS cluster and the Backup Extension pods must be in a running and healthy state before performing any backup or restore operations, including the deletion of expired recovery points.
 
@@ -94,7 +94,7 @@ China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV
 
 - Any unsupported persistent volume types are automatically skipped during the backup process for the AKS cluster. This includes in-tree volumes (where provisioner: `kubernetes.io/azure-disk` or `kubernetes.io/azure-file`) which must be migrated to CSI driver-based volumes.
 
-- The Backup Extension cannot be installed on Windows-based node pools or ARM64-based node pools. AKS clusters using such nodes should provision a separate Linux-based node pool (preferably a system node pool with x86-based processors) to support the installation of the Backup Extension.
+- The Backup Extension cannot be installed on Windows-based node pools. AKS clusters using such nodes should provision a separate Linux-based node pool to install the Backup Extension.
 
 - Don't install the AKS Backup Extension alongside Velero or any Velero-based backup solutions, as this can cause conflicts during backup and restore operations. Additionally, ensure that your Kubernetes resources do not use labels or annotations containing the prefix `velero.io`, unless explicitly required by a supported scenario. The presence of such metadata may lead to unexpected behavior.
 

@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # networkReconnect UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `networkReconnect` UFD event with a `Bad` value occurs when the Interactive Connectivity Establishment (ICE) transport state on the connection is `failed`.
 This event indicates that there may be network issues between the two endpoints, such as packet loss or firewall issues.
 The connection failure is detected by the ICE consent freshness mechanism implemented in the browser.

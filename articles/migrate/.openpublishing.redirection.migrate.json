@@ -374,6 +374,11 @@
             "source_path_from_root": "/articles/migrate/contoso-migration-overview.md",
             "redirect_url": "/azure/cloud-adoption-framework/migrate/",
             "redirect_document_id": false
-        }
+        },
+		{
+     		"source_path_from_root": "/articles/migrate/tutorial-app-containerization-java-container-apps.md",
+     		"redirect_url": "/azure/migrate/index",
+      		"redirect_document_id": false,
+		}
     ]
 }
