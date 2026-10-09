@@ -137,6 +137,8 @@ items:
       href: /azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
     - name: Move Azure VMs from Microsoft Configuration Manager to Azure Update Manager
       href: guidance-migration-azure.md
+    - name: Enable Periodic Assessment for Azure Virtual Machine Scale Sets Uniform
+      href: enable-periodic-assessment-vmss-uniform.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot issues
