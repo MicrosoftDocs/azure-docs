@@ -317,7 +317,7 @@ resource exampleScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     }
   }
   properties: {
-    azPowerShellVersion: '14.0'
+    azPowerShellVersion: '16.2.0'
     scriptContent: loadTextContent('myscript.ps1')
     retentionInterval: 'P1D'
   }

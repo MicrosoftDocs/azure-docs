@@ -8,7 +8,7 @@ ms.date: 08/05/2025
 
 # Linter rule - use recent AZ PowerShell version for deployment scripts
 
-This rule checks for AZ PowerShell versions below 11.0. It is recommended to use AZ PowerShell version 14.0.
+This rule checks for AZ PowerShell versions below 11.0. It is recommended to use AZ PowerShell version 16.2.0.
 
 ## Linter rule code
 
@@ -51,7 +51,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '14.0'
+    azPowerShellVersion: '16.2.0'
     scriptContent: '''
       $output = 'Hello world!'
       $DeploymentScriptOutputs = @{}

@@ -90,7 +90,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: name
     scriptContent: 'echo "The argument is ${name}."; jq -n -c --arg st "Hello ${name}" \'{"text": $st}\' > $AZ_SCRIPTS_OUTPUT_PATH'
     retentionInterval: 'PT1H'
@@ -111,7 +111,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '14.0'
+    azPowerShellVersion: '16.2.0'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -201,7 +201,7 @@ resource script 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     }
   }
   properties: {
-    azCliVersion: '2.59.0'
+    azCliVersion: '2.89.1'
     retentionInterval: 'PT1H'
     arguments: '${storageAccount.properties.primaryEndpoints.blob} ${storageAccountData.container}'
     scriptContent: '''
@@ -232,7 +232,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: name
     scriptContent: 'echo "The argument is ${name}."; jq -n -c --arg st "Hello ${name}" \'{"text": $st}\' > $AZ_SCRIPTS_OUTPUT_PATH'
     cleanupPreference: 'OnExpiration'
@@ -254,7 +254,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '14.0'
+    azPowerShellVersion: '16.2.0'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -314,7 +314,7 @@ The output of the list command is similar to this example:
 ```json
 {
   "arguments": "John Dole",
-  "azCliVersion": "2.52.0",
+  "azCliVersion": "2.89.1",
   "cleanupPreference": "OnExpiration",
   "containerSettings": {
     "containerGroupName": null
@@ -378,7 +378,7 @@ SubscriptionId      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ProvisioningState   : Succeeded
 Identity            :
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 14.0
+AzPowerShellVersion : 16.2.0
 StartTime           : 12/11/2023 9:45:50 PM
 EndTime             : 12/11/2023 9:46:59 PM
 ExpirationDate      : 12/11/2023 10:46:59 PM
@@ -430,7 +430,7 @@ The output is similar to this example:
   },
   "properties": {
     "provisioningState": "Succeeded",
-    "azCliVersion": "2.52.0",
+    "azCliVersion": "2.89.1",
     "scriptContent": "echo \"The argument is John Dole.\"; jq -n -c --arg st \"Hello John Dole\" '{\"text\": $st}' > $AZ_SCRIPTS_OUTPUT_PATH",
     "arguments": "John Dole",
     "retentionInterval": "1:00:00",

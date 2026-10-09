@@ -191,7 +191,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
       "kind": "AzurePowerShell",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "3.0",
+        "azPowerShellVersion": "16.2.0",
         "timeout": "PT30M",
         "arguments": "[format(' -vaultName {0} -certificateName {1} -subjectName {2}', parameters('keyVaultName'), parameters('certificateName'), parameters('subjectName'))]", // can pass an argument string, double quotes must be escaped
         "scriptContent": "
@@ -254,7 +254,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     * `identity`: Deployment script uses a user-assigned managed identity to perform the operations in the script.
     * `kind`: Specify the type of script. Currently, only PowerShell scripts are supported.
     * `forceUpdateTag`: Determine whether the deployment script should be executed even if the script source hasn't changed. Can be current time stamp or a GUID. To learn more, see [Run script more than once](./deployment-script-template.md#run-script-more-than-once).
-    * `azPowerShellVersion`: Specifies the Azure PowerShell module version to be used. Currently, deployment script supports version 2.7.0, 2.8.0, and 3.0.0.
+    * `azPowerShellVersion`: Specifies the Azure PowerShell module version to be used. This example uses version 16.2.0. See the list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
     * `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
     * `arguments`: Specify the parameter values. The values are separated by spaces.
     * `scriptContent`: Specify the script content. To run an external script, use `primaryScriptURI` instead. For more information, see [Use external script](./deployment-script-template.md#use-external-scripts).

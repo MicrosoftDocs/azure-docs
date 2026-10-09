@@ -118,7 +118,7 @@ The following JSON is an example. For more information, see the latest [template
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "14.0",  // or "azCliVersion": "2.47.0",
+    "azPowerShellVersion": "16.2.0",  // or "azCliVersion": "2.89.1",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -232,7 +232,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
       "kind": "AzurePowerShell",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "8.3",
+        "azPowerShellVersion": "16.2.0",
         "scriptContent": "
           param([string] $name)
           $output = \"Hello {0}\" -f $name
@@ -339,7 +339,7 @@ The following template shows how to pass values between two `deploymentScripts` 
       "kind": "AzurePowerShell",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "8.3",
+        "azPowerShellVersion": "16.2.0",
         "timeout": "PT1H",
         "arguments": "[concat('-name', ' ', concat('\\\"', parameters('name'), '\\\"'))]",
         "scriptContent": "
@@ -364,7 +364,7 @@ The following template shows how to pass values between two `deploymentScripts` 
       ],
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "8.3",
+        "azPowerShellVersion": "16.2.0",
         "timeout": "PT1H",
         "arguments": "[concat('-textToEcho', ' ', concat('\\\"', reference('scriptInTemplate1').outputs.text, '\\\"'))]",
         "scriptContent": "
@@ -426,7 +426,7 @@ In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose 
       },
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "AzCliVersion": "2.40.0",
+        "AzCliVersion": "2.89.1",
         "timeout": "PT30M",
         "arguments": "'foo' 'bar'",
         "environmentVariables": [
@@ -582,7 +582,7 @@ SubscriptionId      : aaaabbbb-0000-cccc-1111-dddd2222eeee
 ProvisioningState   : Succeeded
 Identity            : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 14.0
+AzPowerShellVersion : 16.2.0
 StartTime           : 5/11/2023 7:46:45 PM
 EndTime             : 5/11/2023 7:49:45 PM
 ExpirationDate      : 5/12/2023 7:49:45 PM
@@ -613,7 +613,7 @@ The list command output is similar to:
 [
   {
     "arguments": "'foo' 'bar'",
-    "azCliVersion": "2.40.0",
+    "azCliVersion": "2.89.1",
     "cleanupPreference": "OnExpiration",
     "containerSettings": {
       "containerGroupName": null
@@ -721,7 +721,7 @@ The output is similar to:
   "properties": {
     "provisioningState": "Succeeded",
     "forceUpdateTag": "20220625T025902Z",
-    "azPowerShellVersion": "14.0",
+    "azPowerShellVersion": "16.2.0",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "arguments": "-name \\\"John Dole\\\"",
     "retentionInterval": "P1D",
@@ -1025,7 +1025,7 @@ You can use the following ARM template to test the deployment:
       "kind": "AzureCLI",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azCliVersion": "2.47.0",
+        "azCliVersion": "2.89.1",
         "storageAccountSettings": {
           "storageAccountName": "[parameters('storageAccountName')]"
         },
