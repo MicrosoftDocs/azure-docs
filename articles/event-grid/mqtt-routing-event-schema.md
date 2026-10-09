@@ -26,10 +26,7 @@ For MQTT v3 messages or MQTT v5 messages of a payload format indicator=0, the pa
 	"type": "MQTT.EventPublished", // set type for all MQTT messages enveloped by the service.
 	"source": "testnamespace", // namespace name
 	"subject": "campus/buildings/building17", // topic of the MQTT publish request.
-	"data_base64": 
-    {
-		IlRlbXAiOiAiNzAiLAoiaHVtaWRpdHkiOiAiNDAiCg==
-	}
+	"data_base64": "IlRlbXAiOiAiNzAiLAoiaHVtaWRpdHkiOiAiNDAiCg=="
 }
 ```
 
