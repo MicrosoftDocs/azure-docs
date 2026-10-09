@@ -122,5 +122,5 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## Next steps
 
-- [Manage update configuration settings in Azure Update Manager]([](/update-manager/manage-update-settings.md))
+- [Manage update configuration settings in Azure Update Manager](/update-manager/manage-update-settings.md)
 - [About Azure Update Manager](/update-manager/overview.md)
