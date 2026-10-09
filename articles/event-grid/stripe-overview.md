@@ -10,32 +10,47 @@ ms.author: robece
 
 # Stripe partner topics with Azure Event Grid
 
-Stripe, the financial infrastructure platform for businesses, provides developers and enterprises with the tools they need to accept payments, grow revenue, and accelerate business operations.
+Stripe provides businesses with tools to accept payments and manage financial operations. By using a Stripe partner topic, you can send Stripe events to Azure services to automate payment workflows, manage subscriptions, monitor financial activity, and synchronize data.
 
-By using the Stripe partner topic, you can use events emitted by Stripe's system to accomplish many tasks: automate payment workflows, manage subscription lifecycles, and react to financial signals in real time.
+Azure Event Grid routes these events to services such as Azure Functions, Azure Logic Apps, Azure Monitor, and Microsoft Fabric.
 
-With this integration, you can stream your Stripe payment events with high reliability into Azure. There, you can consume the events by using your favorite Azure resources. By using this integration, you can react to events, gain insights, monitor for payment anomalies, and interact with other powerful data pipelines.
+## Choose an event format
 
-For organizations that use Stripe and Azure, this integration allows you to seamlessly integrate payment data across your entire stack.
+Stripe supports two event formats:
+
+- **Thin events** contain the event type, resource ID, and other event metadata. Your application can use this information to retrieve the latest resource state from the Stripe API. Thin event notifications are unversioned, so you can upgrade your Stripe API version without changing your event destination configuration. Use thin events for new applications.
+- **Snapshot events** contain the complete Stripe `Event` object, including a point-in-time snapshot of the related resource. Snapshot event payloads use the API version configured for the event destination. Use snapshot events for existing or third-party integrations that depend on receiving resource data in the pushed event payload.
+
+Choose the event format when you configure your Stripe event destination. You can then select the event types that you want Stripe to send.
 
 ## Available event types
 
-For a full list of available Stripe event types and their descriptions, see the [Stripe API documentation](https://docs.stripe.com/api/events/types).
+The available event types depend on the event format:
 
-Common event types include:
+- For thin events, see the [thin event catalog](https://docs.stripe.com/api/v2/core/events/event-types).
+- For snapshot events, see the [snapshot event catalog](https://docs.stripe.com/api/events/types).
+
+Subscribe only to the event types that your application processes. Limiting the selected event types reduces unnecessary traffic and processing. Common thin event types include:
 
 | Event type | Description |
 |---|---|
-| `payment_intent.succeeded` | A payment intent was successfully confirmed and funds captured. |
-| `payment_intent.payment_failed` | A payment intent failed to confirm. |
-| `charge.refunded` | A charge was refunded, either partially or fully. |
-| `charge.failed` | A charge attempt failed. |
-| `customer.subscription.created` | A new subscription was created for a customer. |
-| `customer.subscription.updated` | A subscription was updated, such as a plan change or quantity adjustment. |
-| `customer.subscription.deleted` | A subscription was canceled or ended. |
-| `invoice.paid` | An invoice was paid successfully. |
-| `invoice.payment_failed` | A payment attempt for an invoice failed. |
-| `checkout.session.completed` | A checkout session was completed by the customer. |
+| `v1.payment_intent.succeeded` | A payment intent succeeded. |
+| `v1.payment_intent.payment_failed` | A payment intent failed. |
+| `v1.charge.refunded` | A charge was partially or fully refunded. |
+| `v1.customer.subscription.created` | A subscription was created. |
+| `v1.customer.subscription.updated` | A subscription changed. |
+| `v1.customer.subscription.deleted` | A subscription ended. |
+| `v1.invoice.paid` | An invoice was paid. |
+| `v1.invoice.payment_failed` | An invoice payment failed. |
+| `v1.checkout.session.completed` | A customer completed a Checkout Session. |
+
+Note: Thin event notifications contain identifiers and event metadata. Retrieve the related resource from the Stripe API when your application needs its latest state.
+
+## Event delivery behavior
+
+Stripe delivers events asynchronously. Your application might receive the same event more than once, and events might not arrive in the order in which they occurred.
+
+Use the event ID to identify events that you've already processed, and make your event handlers idempotent so that repeated delivery doesn't repeat an operation. When event order matters, retrieve the latest resource state from the Stripe API before taking action.
 
 ## Use cases
 
@@ -67,3 +82,4 @@ Maintaining a consistent view of your customers across business systems is criti
 
 - [Subscribe to Stripe events](subscribe-to-stripe-events.md)
 - [Azure Event Grid partner topics overview](partner-events-overview.md)
+- [Stripe events documentation](https://docs.stripe.com/event-destinations)
