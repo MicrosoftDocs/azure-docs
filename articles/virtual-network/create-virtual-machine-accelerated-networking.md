@@ -732,9 +732,9 @@ Results:
 
 1. From a shell on the remote VM, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
 
-   - **Ubuntu 16.04**: 4.11.0-1013.
-   - **SLES SP3**: 4.4.92-6.18.
-   - **RHEL**: 3.10.0-693, 2.6.32-573. RHEL 6.7-6.10 are supported if the Mellanox VF version 4.5+ is installed before Linux Integration Services 4.3+.
+   - **Ubuntu 22.04 / 24.04**: 5.15, 6.8
+   - **SLES 15 SP6 / SP7 / 16**: 6.4.0-150600.23.84, 6.4.0-150700.51, 6.12.0-160000.5
+   - **RHEL**: 5.14.0-570, 6.12.0-55
 
    > [!NOTE]
    > Other kernel versions might be supported. For an updated list, see the compatibility tables for each distribution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows), and confirm that SR-IOV is supported. You can find more details in the release notes for [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). *
