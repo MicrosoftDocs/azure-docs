@@ -2176,6 +2176,8 @@ groups:
   pivots:
   - id: elastic-search
     title: Elastic Search
+  - id: elastic-vector-database
+    title: Elastic Vector Database
   - id: elastic-observability
     title: Elastic Observability
   - id: elastic-security

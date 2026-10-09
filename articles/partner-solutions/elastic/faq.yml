@@ -1,12 +1,12 @@
 ### YamlMime:FAQ
 metadata:
   title: Elastic integration with Azure frequently asked questions
-  description: Answers to common questions about using Elastic Cloud (Elasticsearch), Elastic Observability, and Elastic Security in Azure.
+  description: Answers to common questions about using Elastic Cloud (Elasticsearch), Elastic Vector Database, Elastic Observability, and Elastic Security in Azure.
   author: pdjokar96
   ms.author: piyushdash
   ms.topic: faq 
   ai-usage: ai-generated
-  ms.date: 12/17/2025
+  ms.date: 10/09/2026
 
 title: Elastic integration with Azure FAQ
 summary: |
@@ -16,14 +16,16 @@ sections:
     questions:
       - question: What is Elastic in Azure?
         answer: |
-            Elastic in Azure is a set of managed services that deliver search, log analytics, and security monitoring functions for Azure environments. Microsoft and Elastic developed these services and manage them together. The three services are:
-            - **Elastic Cloud (Elasticsearch):** A managed Elasticsearch service for storing, searching, and analyzing structured and unstructured data.
+            Elastic in Azure is a set of managed services that deliver search, vector database, log analytics, and security monitoring functions for Azure environments. Microsoft and Elastic developed these services and manage them together. The four services are:
+            - **Elastic Search:** A managed Elasticsearch service for storing, searching, and analyzing structured and unstructured data. The corresponding Azure Marketplace offer is named **Elastic Cloud (Elasticsearch)**.
+            - **Elastic Vector Database:** A serverless, vector-optimized Elasticsearch project for semantic search, RAG, native embeddings, and AI-powered retrieval.
             - **Elastic Observability:** Collects and analyzes telemetry data (logs, metrics, traces) to monitor the performance and health of applications and infrastructure.
             - **Elastic Security:** Collects and analyzes security-related data to support threat detection, investigation, and response across Azure resources.
       - question: How do I subscribe to Elastic?
         answer: |
-            You can subscribe to Elastic through Azure Marketplace. Choose from three offerings:
-            - [ElasticCloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+            You can subscribe to Elastic through Azure Marketplace. Choose from four offerings:
+            - [Elastic Cloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+            - [Elastic Vector Database](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-vector?tab=Overview)
             - [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
             - [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
             
@@ -31,10 +33,15 @@ sections:
       - question: What are the differences between Serverless and Cloud Hosted deployment options?
         answer: |
             Elastic resources are available as Serverless and Cloud Hosted:
-            - **Serverless:** Usage-based scaling with automatic infrastructure management. Available for Elastic Search, Elastic Observability, and Elastic Security.
+            - **Serverless:** Usage-based scaling with automatic infrastructure management. Available for Elastic Search, Elastic Vector Database, Elastic Observability, and Elastic Security.
             - **Cloud Hosted:** Dedicated, managed clusters with configurable versions and sizes. Provides more control over deployment specifications.
-            
+
+            Elastic Vector Database is serverless only.
+
             For more information, see [Compare Elastic Cloud Hosted and Serverless](https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/differences-from-other-elasticsearch-offerings).
+      - question: Where is Elastic Serverless available?
+        answer: |
+            Elastic Serverless is available in East US, West US 2, Australia East, Southeast Asia, North Europe, Sweden Central, Central US, Germany West Central, Spain Central, UAE North, Brazil South, and East US 2 EUAP.
       - question: Where can I learn more about Elastic integration with Azure?
         answer: |
             For more help using the Elastic service, see the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
@@ -42,7 +49,7 @@ sections:
     questions:
       - question: Is single sign-on (SSO) supported?
         answer: |
-            Yes. The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled by using single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
+            Yes. You can navigate between the Azure portal and Elastic Cloud by using single sign-on (SSO) with Microsoft Entra ID. The first time you select an SSO link in a tenant with no earlier Elastic resources, Microsoft Entra ID might ask you to grant the Elasticsearch (Elastic Cloud) app permission. If your organization requires administrator consent, you see a **Need admin approval** message, and a tenant administrator must approve the app. To avoid the prompt, a tenant administrator can optionally add the Elasticsearch (Elastic Cloud) gallery app to your tenant before users select the SSO link.
       - question: What permissions do I need to create an Elastic resource?
         answer: |
             You must have *Owner* or *Contributor* access on the Azure subscription to create an Elastic resource. If you're unable to create a resource, confirm that you have the appropriate access.

@@ -177,7 +177,7 @@ The proper API version must be used to create the `artifact manifest` resource t
 ## Migrating to the new artifact manifest 
 Use the following task list to migrate a deployed `artifact manifest` resource, created before API version `20025-03-30`, to the new `artifact manifest` resource type, available after API version `2025-03-30`:
 * Prepare platform by installing network function operator (NFO) extension version `3.0.3131-220` or later.
-* To migrate existing resources created with older APIs, execute the following steps. **Don't deploy any changes until all reaching the deployment step.**
+* To migrate existing resources created with older APIs, execute the following steps. **Don't deploy any changes until reaching the deployment step.**
   * Change the `NSDV`, `NFDV` and `artifact manifest` to the new API version.
   * Change the `artifact-store` references to use the new `artifact manifest` references.
   * Update the `artifact manifests` with the new expanded artifact references.
