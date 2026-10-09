@@ -139,7 +139,7 @@ For comprehensive container security guidance, see [Container security in Micros
 |[Microsoft Defender for SQL](/azure/defender-for-cloud/defender-for-sql-introduction)|Advanced threat protection detecting SQL injection, brute-force attacks, anomalous activities, and vulnerability exploits.|
 |[SQL Vulnerability Assessment](/azure/azure-sql/database/sql-vulnerability-assessment)|Discovers, tracks, and helps remediate database vulnerabilities with actionable security recommendations.|
 |[Row-Level Security (RLS)](/sql/relational-databases/security/row-level-security)|Restricts row access based on user identity, role, or execution context for fine-grained data access control.|
-|[Dynamic Data Masking](/azure/azure-sql/database/dynamic-data-masking-overview)|Masks sensitive data to non-privileged users without changing underlying data, reducing exposure risk.|
+|[Dynamic Data Masking](../../synapse-analytics/sql/dynamic-data-masking-overview.md)|Masks sensitive data to non-privileged users without changing underlying data, reducing exposure risk.|
 |[Azure SQL Database Ledger](/sql/relational-databases/security/ledger/ledger-overview)|Tamper-evident capabilities with immutable transaction records for data integrity verification and compliance.|
 |[Azure Cosmos DB security](/azure/cosmos-db/database-security)|Encryption at rest and in transit, network isolation, RBAC, and audit logging for NoSQL and multimodel workloads.|
 

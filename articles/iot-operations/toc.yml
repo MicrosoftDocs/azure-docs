@@ -48,9 +48,9 @@ items:
             href: deploy-iot-ops/overview-deploy.md
             displayName: Kubernetes, k3s, Ubuntu, AKS, Azure Local, secure, permissions, sites
           - name: Best practices for namespaces
-            href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
+            href: ../iot/device-registry/best-practices-namespaces.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Best practices for schema registries
-            href: ../iot/iot-device-registry-schema-registry-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
+            href: ../iot/device-registry/best-practices-schema-registries.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Prepare a cluster
             href: deploy-iot-ops/howto-prepare-cluster.md
             displayName: Kubernetes, Arc-enable

@@ -34,10 +34,6 @@ items:
     items:
     - name: Create a storage mover resource
       href: storage-mover-create.md
-    - name: Migrate from Oracle Cloud to Azure Blob Storage
-      href: oracle-cloud-azure-blob.md
-    - name: Migrate from on-premises SMB to Azure Files (agentless)
-      href: agentless-on-premises-files-migration.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
     - name: Register an agent
@@ -48,6 +44,12 @@ items:
       href: project-manage.md
     - name: Define and start a migration job
       href: job-definition-create.md
+    - name: Migrate from on-premises SMB to Azure Files (agentless)
+      href: agentless-on-premises-files-migration.md
+    - name: Migrate from on-premises S3-compatible storage to Azure Blob Storage
+      href: on-premises-s3-compatible-migration.md
+    - name: Migrate from on-premises to Azure over private networks
+      href: on-premises-private-network-configuration.md
   - name: Manage and decommission
     items:
     - name: Schedule a migration job
@@ -62,10 +64,14 @@ items:
     href: cloud-to-cloud-migration.md
   - name: Migrate from Google S3 to Azure
     href: google-migration.md
+  - name: Migrate from Oracle Cloud to Azure Blob Storage
+    href: oracle-cloud-azure-blob.md
   - name: Migrate from AWS FSx to Azure Files
     href: amazon-files-azure-files-migration.md
   - name: Transfer from Azure Blob to Blob
     href: azure-to-azure-migration.md
+  - name: Copy data from Azure Files to Azure Files (preview)
+    href: azure-files-to-azure-files-copy.md
   - name: Migrate across Microsoft Entra tenants from Azure Blob to Blob
     href: azure-cross-tenant-blob-migration.md
 - name: Reliability and resiliency
@@ -82,7 +88,7 @@ items:
     href: status-code.md
   - name: Collect a support bundle
     href: troubleshooting.md
-  - name: Monitor copy and job run logs
+  - name: Monitor copy, job run, and audit logs
     href: log-monitoring.md
   - name: Release notes
     href: release-notes.md

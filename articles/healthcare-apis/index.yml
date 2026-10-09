@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page # Required
   author: EXPEkesheth #Required; your GitHub user alias, with correct capitalization.
   ms.author: kesheth #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/08/2024 #Required; mm/dd/yyyy format.
+  ms.date: 10/04/2026 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   items:
@@ -156,5 +156,5 @@ additionalContent:
       items:
         # Card
         - title: Azure API for FHIR
-          summary: This service is retiring on September 30, 2026.
+          summary: Microsoft deprecated Azure API for FHIR on September 30, 2026. For questions or assistance, create an Azure support request by using Azure API for FHIR Extension Request.
           url: ./azure-api-for-fhir/overview.md

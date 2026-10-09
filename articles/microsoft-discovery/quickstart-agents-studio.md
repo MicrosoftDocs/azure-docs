@@ -5,7 +5,7 @@ author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: quickstart
-ms.date: 09/04/2026
+ms.date: 10/01/2026
 ms.custom:
   - template-quickstart
 
@@ -61,11 +61,13 @@ In this example, create a basic Chemistry Agent that answers questions about che
 1. Select the workspace you created in the [previous tutorial](./quickstart-infrastructure.md#4-create-a-workspace). This selection opens your workspace in the studio.
 1. Select the project that you created in the [previous tutorial](./quickstart-infrastructure.md#9-create-a-project).
    :::image type="content" source="media/quickstart-infrastructure-portal/create-project-list.jpg" alt-text="Screenshot showing the Project list page after project creation in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project-list.jpg":::
-1. In the **Resources** tab in the left navigation pane, select the **+** button next to **AGENTS (FOUNDRY)** to create a new agent.
+1. In the **Discovery** tab in the left navigation pane, select **AI Capabilities**.
+1. In the **AI Capabilities** tab, select **Agents**, and then select **New agent** > **Create new agent**.
+   :::image type="content" source="media/quickstart-agents-studio/ai-capabilities-agents.png" alt-text="Screenshot showing the Agents section of the AI Capabilities tab with the New agent button in Discovery Studio." lightbox="media/quickstart-agents-studio/ai-capabilities-agents.png":::
 1. Enter a **Name** and **Description** for the agent. For example:
    - **Name**: `ChemistryAgent`
    - **Description**: `A chemistry expert agent that answers questions about chemical properties of molecules and provides high-level plans for computational needs.`
-1. Under **Chat model**, select the model deployment created in the [previous tutorial](./quickstart-infrastructure.md#6-create-chat-model-deployment).
+1. Under **Model**, select the model deployment created in the [previous tutorial](./quickstart-infrastructure.md#6-create-chat-model-deployment).
 
    > [!NOTE]
    > The following parameters are currently unsupported with reasoning models: `temperature`, `top_p`. To learn more about reasoning models, see [Azure OpenAI reasoning models](/azure/foundry/openai/how-to/reasoning#not-supported).
@@ -74,12 +76,11 @@ In this example, create a basic Chemistry Agent that answers questions about che
    ```
    You are a chemistry expert agent who can answer questions about chemical properties of molecules and provide high-level plans for the user's computational needs.
    ```
-1. Select **Create agent**.
-:::image type="content" source="media/quickstart-agents-studio/create-agent.jpg" alt-text="Screenshot showing the Create Agent page in Discovery Studio." lightbox="media/quickstart-agents-studio/create-agent.jpg":::
-:::image type="content" source="media/quickstart-agents-studio/create-agent-resources.jpg" alt-text="Screenshot showing the recently created Agent and resources pane in Discovery Studio." lightbox="media/quickstart-agents-studio/create-agent-resources.jpg":::
+1. Select **Save**.
+:::image type="content" source="media/quickstart-agents-studio/create-agent-form.png" alt-text="Screenshot showing the agent creation form with name, description, model, instructions, tools, and bookshelves fields in Discovery Studio." lightbox="media/quickstart-agents-studio/create-agent-form.png":::
 
 > [!NOTE]
-> Once your agent is created, you can create more agents to the project from the **Resources** pane. Just select the **+** button next to Agents and select **Create new agent** and repeat the process.
+> After you create your agent, you can create more agents from the **Agents** section of the **AI Capabilities** tab. Select **New agent** > **Create new agent** and repeat the process. To reuse an agent from another project, select **New agent** > **Add existing agent**.
 
 ## 3. Create a shared session
 
@@ -87,7 +88,7 @@ Shared sessions are research studies within a project where you can chat with yo
 
 To create a shared session, simply type a prompt in the chat box on the Welcome page and select **Send**. A new shared session is automatically created and the agent responds to your prompt. By default, the **Discovery** agent is selected.
 
-Alternatively, you can select **New shared session** from the **Discovery** tab in the left navigation pane.
+Alternatively, select **New session** from the **Discovery** tab in the left navigation pane.
 
 ## 4. Start a chat
 

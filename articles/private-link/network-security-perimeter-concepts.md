@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 07/08/2026
+ms.date: 10/02/2026
 ms.custom:
   - references_regions, ignite-2024
   - ai-gen-docs-bap
@@ -16,15 +16,15 @@ ms.custom:
 
 # What is a network security perimeter?
 
-Azure Network Security Perimeter creates logical network boundaries around your platform-as-a-service (PaaS) resources that are deployed outside your virtual networks. Network security perimeter helps you control public network access to resources like Azure Storage accounts and Azure Key Vault by establishing a secure perimeter.
+Azure Network Security Perimeter creates logical network boundaries around your platform-as-a-service (PaaS) resources that you deploy outside your virtual networks. By establishing a secure perimeter, network security perimeter helps you control public network access to resources like Azure Storage accounts and Azure Key Vault.
 
 By default, network security perimeter restricts public access to PaaS resources within the boundary. You can grant exceptions through explicit access rules for inbound and outbound traffic. This approach helps prevent data exfiltration while maintaining necessary connectivity for your applications.
 
-For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md)
+For access patterns that involve traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md)
 
 Features of a network security perimeter include:
 
-- Resource to resource access communication within perimeter members, preventing data exfiltration to nonauthorized destinations.
+- Resource-to-resource access communication within perimeter members, which prevents data exfiltration to nonauthorized destinations.
 - External public access management with explicit rules for PaaS resources associated with the perimeter.
 - Access logs for audit and compliance.
 - Unified experience across PaaS resources.
@@ -101,6 +101,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 |---------------------------|---------------|-----------| --------- | --------- |
 | [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service | Generally available | Not Available |
 | [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | | Generally Available | Not Available |
+| [Azure App Configuration](/azure/azure-app-configuration/overview) | Microsoft.AppConfiguration/configurationStores | | Public Preview | Not Available |
 | [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | | Public Preview | Not Available |
 | [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | | Generally Available | Not Available |
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | | Generally Available | Generally Available |
@@ -113,6 +114,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 
 > [!IMPORTANT]
 > The following onboarded services are in public preview with Network Security Perimeter:
+> - Azure App Configuration
 > - Cosmos DB
 > - SQL DB
 > - Azure OpenAI Service
@@ -134,9 +136,10 @@ Network security perimeter is currently available in all Azure public cloud regi
 Network security perimeter supports the following access rule types:
 
 | Direction | Access rule type | 
-|---------------------------|---------------|
+| --------------------------- | --------------- |
 | Inbound | Subscription-based rules |
-| Inbound | IP-based rules (check respective onboarded private link resources for v6 support)| 
+| Inbound | IP-based rules (check respective onboarded private link resources for v6 support) |
+| Inbound | [Service tags (Preview)](configure-network-security-perimeter-service-tag.md) |
 | Outbound | FQDN-based rules |
 
 > [!NOTE]

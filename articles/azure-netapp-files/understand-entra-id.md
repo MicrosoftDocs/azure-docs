@@ -19,6 +19,54 @@ This article provides recommendations to help you develop a Microsoft Entra ID d
 > [!NOTE]
 > Microsoft Entra ID support in Azure NetApp Files applies to SMB volumes only. NFS, dual-protocol, and NFSv4.1 Kerberos volumes continue to rely on Active Directory Domain Services (AD DS).
 
+## Supported regions
+
+* Australia Central
+* Australia Central 2
+* Australia East
+* Australia Southeast
+* Brazil South
+* Brazil Southeast
+* Canada Central
+* Canada East
+* Central India
+* Central US
+* East Asia
+* East US
+* East US 2
+* France Central
+* Germany North
+* Germany West Central
+* Israel Central
+* Italy North
+* Japan East
+* Japan West
+* Korea Central
+* Korea South
+* Malaysia West
+* New Zealand North
+* North Central US
+* North Europe
+* Norway East
+* Norway West
+* Qatar Central
+* South Africa North
+* South Central US
+* South India
+* Southeast Asia
+* Spain Central
+* Sweden Central
+* Switzerland North
+* Switzerland West
+* UAE Central
+* UAE North
+* UK South
+* UK West
+* West Europe
+* West US
+* West US 2
+* West US 3
+
 ## Microsoft Entra Kerberos authentication requirements for Azure NetApp Files
 
 Before you deploy Azure NetApp Files SMB volumes that use Microsoft Entra Kerberos authentication, identify the integration requirements to ensure that Azure NetApp Files is well connected to Microsoft Entra ID.

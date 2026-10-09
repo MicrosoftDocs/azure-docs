@@ -610,6 +610,7 @@ To delete Artifact Signing resources by using the Azure portal:
 2. In the search box, enter and then select **Artifact Signing Accounts**.
 3. On **Artifact Signing Accounts**, select the Artifact Signing account that you want to delete.
 4. On the command bar, select **Delete**.
+5. Deleting an Artifact Signing account also deletes its associated certificate profiles. Identity validation requests remain available because they're scoped at the subscription level.
 
 > [!NOTE]
 > This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with the certificate profiles stops.

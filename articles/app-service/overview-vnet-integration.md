@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: seligj95
 ms.topic: concept-article
-ms.date: 02/25/2026
+ms.date: 10/06/2026
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -77,6 +77,44 @@ When you scale up/down in instance size, the amount of IP addresses used by the 
 Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, we recommend allocating double the IPs of your planned maximum scale. A `/26` with 64 addresses cover the maximum scale of a single multitenant App Service plan. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of `/27` is required. If the subnet already exists before integrating through the portal, you can use a `/28` subnet.
 
 With multi plan subnet join (MPSJ), you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
+
+### Windows worker IP address overlap
+
+For Windows apps, an outbound connection through virtual network integration fails if the destination IP address matches an infrastructure IP address of the App Service worker hosting the app. Windows treats the destination as a local address instead of routing the connection through the virtual network. The destination can be a private endpoint, a virtual machine network interface, or another resource in your virtual network.
+
+When planning your virtual network address space, choose subnet ranges that don't overlap with the App Service worker infrastructure ranges. Consider the subnets that contain resources your app needs to reach, not just the dedicated integration subnet. The worker infrastructure IP address is different from the integration-subnet address exposed by `WEBSITE_PRIVATE_IP`.
+
+The following table lists the Windows worker infrastructure ranges as of October 2026. Choose destination subnet ranges that don't overlap with any of the listed ranges for the SKUs you use or plan to use. Where multiple layouts are listed, avoid both layouts. Also avoid the additional managed-worker ranges where listed.
+
+| App Service plan SKU | Infrastructure ranges in `10.0.0.0/8` | Infrastructure ranges in `172.16.0.0/12` | Additional managed-worker ranges |
+| --- | --- | --- | --- |
+| B1, S1, P1 | `10.10.0.0/19`, `10.11.0.0/19` | `172.18.0.0/19`, `172.19.0.0/19` | Not listed |
+| B2, S2, P2 | `10.10.32.0/19`, `10.11.32.0/19` | `172.18.32.0/19`, `172.19.32.0/19` | Not listed |
+| B3, S3, P3 | `10.10.64.0/19`, `10.11.64.0/19` | `172.18.64.0/19`, `172.19.64.0/19` | Not listed |
+| P1v2 | `10.20.0.0/19`, `10.21.0.0/19` | `172.20.0.0/19`, `172.21.0.0/19` | Not listed |
+| P2v2 | `10.20.32.0/19`, `10.21.32.0/19` | `172.20.32.0/19`, `172.21.32.0/19` | Not listed |
+| P3v2 | `10.20.64.0/19`, `10.21.64.0/19` | `172.20.64.0/19`, `172.21.64.0/19` | Not listed |
+| P0v3 | Layout A: `10.70.96.0/19`, `10.71.96.0/19`<br>Layout B: `10.70.0.0/19`, `10.71.0.0/19` | `172.22.96.0/19`, `172.23.96.0/19` | Not listed |
+| P1v3 | Layout A: `10.70.0.0/19`, `10.71.0.0/19`<br>Layout B: `10.70.32.0/19`, `10.71.32.0/19` | `172.22.0.0/19`, `172.23.0.0/19` | Not listed |
+| P2v3 | Layout A: `10.70.32.0/19`, `10.71.32.0/19`<br>Layout B: `10.70.64.0/19`, `10.71.64.0/19` | `172.22.32.0/19`, `172.23.32.0/19` | Not listed |
+| P3v3 | Layout A: `10.70.64.0/19`, `10.71.64.0/19`<br>Layout B: `10.70.96.0/19`, `10.71.96.0/19` | `172.22.64.0/19`, `172.23.64.0/19` | Not listed |
+| P1mv3 | `10.90.0.0/19`, `10.91.0.0/19` | Not listed | Not listed |
+| P2mv3 | `10.90.32.0/19`, `10.91.32.0/19` | Not listed | Not listed |
+| P3mv3 | `10.90.64.0/19`, `10.91.64.0/19` | Not listed | Not listed |
+| P4mv3 | `10.90.96.0/19`, `10.91.96.0/19` | Not listed | Not listed |
+| P5mv3 | `10.90.128.0/19`, `10.91.128.0/19` | Not listed | Not listed |
+| P0v4 | `10.150.0.0/19`, `10.151.0.0/19` | Not listed | `10.190.0.0/19` |
+| P1v4 | `10.150.32.0/19`, `10.151.32.0/19` | Not listed | `10.190.32.0/19` |
+| P2v4 | `10.150.64.0/19`, `10.151.64.0/19` | Not listed | `10.190.64.0/19` |
+| P3v4 | `10.150.96.0/19`, `10.151.96.0/19` | Not listed | `10.190.96.0/19` |
+| P1mv4 | `10.160.0.0/19`, `10.161.0.0/19` | Not listed | `10.200.0.0/19` |
+| P2mv4 | `10.160.32.0/19`, `10.161.32.0/19` | Not listed | `10.200.32.0/19` |
+| P3mv4 | `10.160.64.0/19`, `10.161.64.0/19` | Not listed | `10.200.64.0/19` |
+| P4mv4 | `10.160.96.0/19`, `10.161.96.0/19` | Not listed | `10.200.96.0/19` |
+| P5mv4 | `10.160.128.0/19`, `10.161.128.0/19` | Not listed | `10.200.128.0/19` |
+
+> [!IMPORTANT]
+> These ranges describe current infrastructure allocations and can change. "Not listed" means no range is provided in this table, not a guarantee that no range is used. For SKUs or configurations not listed, or to confirm current allocations, contact Microsoft Support. Don't rely on avoiding only the current worker IP address, because the app can move to a different worker during scaling or platform maintenance.
 
 ### Windows Containers specific limits
 
@@ -220,6 +258,7 @@ There are some limitations with using virtual network integration:
 
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network. MPSJ requires a `/26` block or larger.
 * The app and the virtual network must be in the same region.
+* Windows apps can't connect to a destination IP address that matches an App Service worker infrastructure IP address. Choose nonoverlapping subnet ranges for destination resources. For more information, see [Windows worker IP address overlap](#windows-worker-ip-address-overlap).
 * The integration subnet can't have [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) enabled.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
 * You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.

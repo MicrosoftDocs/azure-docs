@@ -101,6 +101,9 @@ Site Recovery supports replication of Azure VMs running the operating systems li
 
 [!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
+>[!NOTE]
+>Azure Site Recovery doesn't preserve the Windows client license type after failover. For Windows client operating systems, verify and configure the appropriate licensing setting on the recovered virtual machine after failover.
+
 Operating system | Details
 --- | ---
 Windows Server 2025 | Supported.

@@ -11,7 +11,7 @@ ms.date: 09/15/2026
 
 # Customer intent: As a network security engineer, I want to investigate network security risks using natural language prompts with Traffic Analytics, so that I can identify exposure, unusual denied traffic, and unexpected cross-network communication.
 ---
-# Get security insights from Azure Traffic Analytics by using natural language
+# Get security insights from Azure Traffic Analytics through natural language
  
 This article describes a set of security investigations that you can perform by using [Traffic Analytics](traffic-analytics.md) prompts in Network Watcher. For each investigation, it explains the scenario you're analyzing, the insights that are returned, how to interpret the results, and recommended follow-up actions.
 Traffic Analytics already captures network flow telemetry such as direction, status, source and destination, ports, Network Security Groups, virtual networks, virtual machines, and flow counts. The following insights turn those signals into focused security review areas that help you understand exposure, suspicious access patterns, denied activity, and segmentation behavior.
@@ -55,7 +55,7 @@ The agent uses the supplied context to generate and run queries, validate the re
 
 Use the following prompt to investigate Azure resources receiving inbound internet traffic on SSH or RDP. Replace the placeholder values with details from your Azure environment, and then submit the prompt to the agent.
 
-```text
+```prompt
 Help me investigate internet exposure of Azure management ports using Traffic Analytics data in my Log Analytics workspace.
 
 **Environment**
@@ -97,7 +97,7 @@ Return the exact queries that successfully executed, the execution time window, 
 
 Investigate internet-exposed ports by using Traffic Analytics data in a Log Analytics workspace. Replace the placeholder values with details from your Azure environment and submit the prompt to the agent.
 
-```text
+```prompt
 Help me investigate potentially dangerous services exposed to the internet using Traffic Analytics data in my Log Analytics workspace.
 
 **Environment**
@@ -145,7 +145,7 @@ Use the results to understand internet exposure across your environment and iden
 
 Use this prompt to identify Azure virtual machines receiving inbound traffic from public IP addresses and review workloads that might be reachable from the internet. Replace the placeholder values with details from your Azure environment and submit the prompt to the agent.
 
-```text
+```prompt
 Help me investigate Azure virtual machines exposed to inbound internet traffic using Traffic Analytics data in my Log Analytics workspace.
 
 **Environment**
@@ -189,7 +189,7 @@ Return the exact queries that successfully executed, the execution time window, 
 
 Use this prompt to investigate changes in denied network traffic, identify unusual spikes, and understand which workloads, endpoints, ports, or network rules are contributing to blocked connections.
 
-```text
+```prompt
 Help me investigate unusual trends in denied network traffic using Traffic Analytics data in my Log Analytics workspace.
 
 **Environment**
@@ -233,7 +233,7 @@ Return the exact queries that successfully executed, the execution and baseline 
 
 Use this prompt to investigate traffic between Azure virtual networks, validate network segmentation, and identify unexpected communication paths between workloads.
 
-```text
+```prompt
 Help me investigate communication between Azure virtual networks using Traffic Analytics data in my Log Analytics workspace.
 
 **Environment**

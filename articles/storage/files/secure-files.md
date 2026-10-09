@@ -1,100 +1,148 @@
 ---
 title: Secure your Azure Files
-description: Learn how to secure Azure Files, with best practices specific to file shares, SMB and NFS protocols, and identity-based access.
+description: Learn how to secure classic and Microsoft.FileShares file shares with network controls, authentication, encryption, recovery, monitoring, and governance.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-file-storage
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 08/19/2026
+ms.date: 10/03/2026
 ai-usage: ai-assisted
 # Customer intent: As an administrator using Azure Files, I want to implement file-share-specific security best practices.
 ---
 
 # Secure your Azure Files
 
-Azure Files provides fully managed SMB and NFS file shares in the cloud. Because file shares are typically mounted directly by end-user workstations, application servers, and hybrid workloads, they demand strong identity-based authentication, protocol-level protection, and share-scoped authorization.
+This article provides security guidance for Azure Files, including classic file shares created with Microsoft.Storage and file shares created with Microsoft.FileShares. It covers the resources that hold your shares, client access, data protection, and operational controls.
 
-> [!NOTE]
-> This article covers security practices specific to Azure Files. For account-level security guidance, see [Secure your Azure Storage account](../common/secure-storage.md).
+Security controls depend on the resource provider and protocol. For a comparison of supported features, see [Azure Files management concepts](files-management-concepts.md).
+
+## Resource isolation
+- **Treat the storage account as a trust boundary**: Creating separate classic file shares in the same storage account doesn't isolate their network rules, SMB identity source, or encryption key configuration. Changes to these account-level settings affect all shares in the account. Group classic shares together only when they can share these controls. Microsoft.FileShares avoids this shared account-level boundary by providing independent network and security configuration for each share.
+
+- **Protect client systems**: A client with write access can modify or delete file data. Keep client operating systems updated and restrict local administrative access. Use endpoint protection appropriate to the client environment. Network isolation and encryption don't prevent an authorized client from making destructive changes.
 
 ## Network security
 
+### Inbound access and outbound filtering
+- **Limit inbound access to the clients that need it**: Both resource providers support private endpoints and service endpoints with virtual network restrictions. Access to NFS Azure file shares requires one of these paths. Classic SMB and FileREST clients can also use public endpoints with IP address rules. For configuration steps, see [Configure network endpoints for Azure file shares](storage-files-networking-endpoints.md).
+
+- **Disable public access when it isn't needed**: Public endpoints can be used securely with network access controls, authentication, and encryption appropriate to the protocol. Keep public access enabled when your workloads require it and your security model permits it, including for connections through service endpoints. Creating a private endpoint doesn't automatically disable public access. For classic shares, review any trusted service or resource instance exceptions that can remain effective after public access is disabled. For more information, see [Restrict public endpoint access](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
+
+- **Enable trusted service access only when needed**: Available only for classic file shares, the trusted services setting lets supported Azure services bypass the storage account's network rules. Enable it only when an integration needs this access. These services must still be authorized to access your file data.
+
+- **Optional filtering for service endpoint traffic**: When clients use service endpoints to access classic file shares, you can optionally apply a service endpoint policy to their subnet. The policy limits which storage accounts those clients can access through service endpoints, where traffic bypasses Azure Firewall and network virtual appliances. It applies only to service endpoint traffic and doesn't filter private endpoint traffic or other outbound paths. The destination's network rules and authorization requirements still apply. Microsoft.FileShares doesn't currently support these policies. Clients in a subnet with a policy must use a private endpoint to access Microsoft.FileShares shares. For more information, see [Service endpoint policies](storage-files-networking-overview.md#restrict-outbound-access-with-service-endpoint-policies).
+
+- **Check protocol support before using a network security perimeter**: For classic shares, perimeter support differs by protocol and authentication method. In Enforced mode, a perimeter denies NFS access through the public endpoint, including service endpoint traffic. Private endpoint traffic is outside perimeter enforcement. Check the restrictions for Azure Backup and Azure File Sync before applying a perimeter. For more information, see [Network security perimeter for Azure Files](files-network-security-perimeter.md).
+
 ### SMB protocol hardening
 
-- **Require SMB channel encryption**: Configure the file share's SMB security settings to require encrypted SMB 3.x connections and reject unencrypted SMB 2.x. This protects data in transit at the protocol level, in addition to the account's HTTPS requirement. For more information, see [SMB security settings for Azure file shares](../files/files-smb-protocol.md).
+These recommendations apply to classic SMB file shares.
 
-- **Restrict permitted SMB versions and authentication mechanisms**: Disable NTLMv2 in favor of Kerberos, and disable SMB 2.1 in favor of SMB 3.1.1. Older versions lack modern encryption and integrity protection. For more information, see [SMB security settings for Azure file shares](../files/files-smb-protocol.md).
+- **Require SMB channel encryption**: Use encrypted SMB 3.x connections. SMB 2.1 doesn't support channel encryption. The HTTPS requirement for FileREST doesn't replace the SMB encryption configuration. For more information, see [SMB encryption and security settings](files-smb-protocol.md#smb-security-settings).
 
-- **Require AES-256 Kerberos ticket encryption**: In the file share's SMB security settings, restrict Kerberos ticket encryption to AES-256 and disallow RC4-HMAC. RC4-HMAC is deprecated and vulnerable to known attacks. For more information, see [SMB security settings for Azure file shares](../files/files-smb-protocol.md).
+- **Restrict protocol versions and algorithms to those your clients need**: Use the most secure SMB profile compatible with your workloads. Verify client support before requiring SMB 3.1.1 or AES-256-GCM, because incompatible clients can't connect. SMB channel encryption and Kerberos ticket encryption are separate controls. For more information, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
 
-- **Reset the storage account's Kerberos key on a defined cadence**: When AD DS or Entra Kerberos authentication is enabled, the storage account maintains a Kerberos key that authenticates the account to the directory. Rotate the key periodically and after any suspected compromise of directory admin credentials. For more information, see [Update the password of your storage account identity in AD DS](../files/storage-files-identity-ad-ds-update-password.md).
+- **Limit SMB authentication methods**: Use Kerberos for identity-based access. If no clients need storage account key authentication over SMB, remove NTLMv2 from the allowed SMB authentication methods after testing. This control applies to SMB; it doesn't disable key-based FileREST access.
+
+- **Maintain AD DS credentials where applicable**: For AD DS authentication, manage the password of the directory principal that represents the storage account according to your directory policy. Follow the documented rotation procedure to keep the directory password and storage account Kerberos key synchronized. For more information, see [Update the storage account identity password in AD DS](storage-files-identity-ad-ds-update-password.md).
 
 ### NFS 4.1 file shares
 
-- **Restrict NFS shares to private endpoints or service endpoints**: NFS 4.1 shares don't support internet clients and require a private connection from a virtual network. Configure a private endpoint and disable the account's public network access. For more information, see [Azure Files networking overview](../files/storage-files-networking-overview.md).
+These recommendations apply to NFS file shares with either resource provider. NFS uses network-based authentication and POSIX permissions, not SMB identity-based authentication.
 
-- **Configure root squash to limit client privileges**: NFS root squash maps root operations from mounting clients to a less-privileged UID/GID, reducing the impact of a compromised client. For more information, see [Root squashing for NFS Azure file shares](../files/nfs-root-squash.md).
+- **Limit access to trusted networks**: Allow only the subnets and private connections needed by the workload. NFS relies on the identities presented by the client, so control which systems and administrators can use those connections.
 
-- **Encrypt NFS traffic in transit**: Configure encryption in transit for NFS file shares to protect data as it moves between the client and the file share. For more information, see [Encryption in transit for NFS Azure file shares](../files/encryption-in-transit-for-nfs-shares.md).
+- **Manage POSIX permissions and client identities**: Use consistent user IDs and group IDs across clients. Restrict file and directory permissions to the users and groups that need access. Azure RBAC permissions for managing the Azure resource don't grant NFS file access. For more information, see [NFS authentication and network access](files-nfs-protocol.md#authentication-and-network-access).
+
+- **Configure root squash where compatible with the workload**: Root squash maps requests from UID/GID 0 to an anonymous identity. It doesn't restrict other identities or make a share read-only. For settings and configuration steps for both resource providers, see [Root squashing for NFS Azure file shares](nfs-root-squash.md).
+
+- **Require encryption in transit**: Both resource providers support TLS through the AZNFS mount helper. Microsoft.FileShares requires encryption in transit by default. Classic shares have storage account-level NFS encryption settings. For defaults and configuration links, see [NFS encryption](files-nfs-protocol.md#encryption).
 
 ## Identity and access management
 
+### Azure resource management
+- **Use least privilege for management access**: Grant Azure RBAC permissions at the smallest scope needed to create, configure, or delete resources. For classic shares, account-level permissions can affect every share in the account. You can manage Microsoft.FileShares resources independently. Management roles and data access permissions have different purposes. For more information, see [Azure control plane and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md).
+
+- **Limit standing administrative access**: Use Microsoft Entra Privileged Identity Management where appropriate for privileged Azure roles. Require approval and multifactor authentication for administrative activation according to your organization's policy. For more information, see [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure).
+
 ### Identity-based authentication for SMB file shares
 
-Storage account keys grant unrestricted access to every share in an account. For SMB shares, use identity-based authentication so that access is authorized by a directory identity, not by a shared secret.
+SMB identity-based access is available for classic file shares. A storage account key grants broad data access across the shares in an account and doesn't identify an individual user.
 
-- **Use Microsoft Entra Kerberos for hybrid users accessing SMB shares from Entra-joined clients**: Microsoft Entra Kerberos supports hybrid identities and doesn't require line-of-sight to a domain controller from the client. Prefer it for cloud-first and hybrid environments. For more information, see [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files](../files/storage-files-identity-auth-hybrid-identities-enable.md).
+- **Use an identity source supported by your clients**: Azure Files supports AD DS, Microsoft Entra Domain Services, and Microsoft Entra Kerberos. Their client and identity requirements differ. For supported scenarios and setup guides, see [Identity-based authentication for Azure Files](storage-files-active-directory-overview.md).
 
-- **Use on-premises Active Directory Domain Services for domain-joined workloads**: When clients are already domain-joined to on-premises AD DS, integrate Azure Files directly with AD DS so users authenticate with their existing corporate identities. For more information, see [Enable AD DS authentication for Azure file shares](../files/storage-files-identity-ad-ds-enable.md).
+- **Use managed identities for supported application workloads**: Managed identities can provide SMB access without distributing storage account keys. Verify the compute, client, and authentication prerequisites for your deployment. For more information, see [Access SMB shares by using managed identities](files-managed-identities.md).
 
-- **Use Microsoft Entra Domain Services when no on-premises directory exists**: Entra Domain Services provides a fully managed domain in Azure for cloud-only workloads that need Kerberos-based SMB authentication. For more information, see [Enable Microsoft Entra Domain Services authentication on Azure Files](../files/storage-files-identity-auth-domain-services-enable.md).
-
-- **Don't use storage account keys as a substitute for identity-based authentication**: Account keys can't be scoped to a user, share, directory, or file, and can't be logged as a specific identity. Reserve keys for administrative scenarios (share creation, permission bootstrap) and disable them for data-plane use where possible.
+- **Protect account keys when they're required**: Restrict permission to retrieve or regenerate keys. Store required keys in Azure Key Vault and rotate them after exposure or according to your credential policy. Plan rotation around clients and integrations that still use the keys. For more information, see [Manage storage account access keys](../common/storage-account-keys-manage.md?toc=/azure/storage/files/toc.json).
 
 ### Share-level and NTFS permissions
 
-- **Assign share-level RBAC roles at the smallest reasonable scope**: Use the built-in **Storage File Data SMB Share Reader**, **Contributor**, and **Elevated Contributor** roles at the specific file share (not the storage account) so that a role assignment on one share doesn't leak to another. For more information, see [Assign share-level permissions to an identity](../files/storage-files-identity-assign-share-level-permissions.md).
+These permissions apply to classic SMB file shares.
 
-- **Configure NTFS permissions on directories and files, not on the share root**: After granting share-level access with RBAC, restrict which files and directories users can read or modify with standard NTFS ACLs. Set ACLs on directories with inheritance rather than on every file. For more information, see [Configure directory and file-level permissions over SMB](../files/storage-files-identity-configure-file-level-permissions.md).
+- **Assign share-level roles at the required scope**: Grant read, write, or administrative access only to the identities that need it. Share-level role assignments avoid granting access to unrelated shares in the same storage account. For more information, see [Assign share-level permissions](storage-files-identity-assign-share-level-permissions.md).
 
-- **Reserve the elevated contributor role for administrative accounts**: **Storage File Data SMB Share Elevated Contributor** grants the ability to modify NTFS ACLs. Restrict it to identities that manage share permissions.
+- **Apply directory and file permissions**: Use Windows ACLs, including on the share's root directory where needed, to control access within the share. Use inheritance to keep permissions manageable. Both share-level permissions and Windows ACLs are enforced. For more information, see [Configure directory-level and file-level permissions](storage-files-identity-configure-file-level-permissions.md).
+
+- **Restrict permission administration**: Limit elevated roles and ACL modification rights to identities responsible for managing permissions. Review both role assignments and inherited ACLs when access requirements change.
+
+### FileREST access and SAS
+FileREST data access is available for classic shares. Microsoft.FileShares doesn't currently support FileREST data access.
+
+- **Use OAuth for supported administrative data access**: Microsoft Entra identities, including managed identities, can access classic shares through FileREST. The privileged roles used by this access method can bypass file and directory permissions, so grant them only where that access is required. For more information, see [Azure Files OAuth over REST](authorize-oauth-rest.md).
+
+- **Limit SAS permissions and lifetime**: When a supported tool requires a shared access signature (SAS), restrict its scope, permissions, and validity period, and require HTTPS. Protect the SAS as a credential. SAS tokens aren't used to mount shares over SMB or NFS. For more information, see [Shared access signatures](../common/storage-sas-overview.md?toc=/azure/storage/files/toc.json).
+
+- **Require HTTPS for FileREST**: HTTPS protects REST requests in transit. SMB channel encryption and NFS TLS tunneling are separate from the HTTPS requirement. For configuration steps, see [Require secure transfer](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
+
+## Data protection
+- **Understand encryption at rest**: Both resource providers encrypt file data at rest with Microsoft-managed keys by default. Encryption at rest protects stored data; it doesn't prevent authorized clients from reading or changing files.
+
+- **Use customer-managed keys when required**: Classic shares support customer-managed keys in Azure Key Vault or Managed HSM. Microsoft.FileShares doesn't currently support customer-managed keys. Protect the key store, plan key rotation, and understand that loss of key access can make the data unavailable. For more information, see [Customer-managed keys for Azure Files](customer-managed-keys.md).
+
+- **Evaluate infrastructure encryption for applicable classic deployments**: Classic storage accounts can have an additional encryption layer when required by your compliance policy. This option is selected at account creation and can't be changed afterward. For supported account types, see [Infrastructure encryption](../common/infrastructure-encryption-enable.md?toc=/azure/storage/files/toc.json).
+
+- **Use resource locks to protect management operations**: A **CanNotDelete** lock on the appropriate Azure resource or parent scope can prevent deletion through Azure Resource Manager. Locks don't prevent clients from modifying or deleting file data. For classic shares, they also don't prevent deletion through FileREST data-plane APIs. For lock behavior and operational effects, see [Lock Azure resources](../../azure-resource-manager/management/lock-resources.md).
 
 ## Backup and recovery
 
-- **Enable soft delete for file shares**: Soft delete retains deleted shares for a configurable retention period, protecting against accidental or malicious share deletion. Soft delete for shares works alongside share snapshots for file-level recovery. For more information, see [Prevent accidental deletion of Azure file shares](../files/storage-files-prevent-file-share-deletion.md).
+- **Take share snapshots according to recovery needs**: Both resource providers support share snapshots for recovery of earlier file versions. Set a schedule and retention policy that meet your recovery objectives. Share snapshots remain associated with the source share, so they don't provide an independent backup if that share is permanently deleted. For more information, see [Share snapshots for Azure Files](storage-snapshots-files.md).
 
-- **Take share snapshots on a defined schedule**: Share snapshots capture the state of a share at a point in time and let users restore individual files without a full share restore. Automate snapshots with Azure Backup or a runbook. For more information, see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md).
+- **Enable soft delete for classic shares**: Soft delete retains deleted shares for a configured period. It doesn't recover individual files or individually deleted snapshots. Microsoft.FileShares doesn't currently support soft delete. For more information, see [Prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
 
-- **Use Azure Backup for centrally managed file-share recovery**: Azure Backup adds centralized policy, alerting, and long-term retention on top of share snapshots, plus separation of duties between backup operators and share administrators. For more information, see [About Azure file share backup](/azure/backup/azure-file-share-backup-overview).
+- **Choose a backup solution supported by the protocol**: Azure Backup supports classic SMB shares, with snapshot and vaulted backup options. It doesn't currently support NFS shares with either resource provider. For NFS, choose a backup solution that supports the protocol and meets your retention and isolation requirements. For Azure Backup coverage, see [Azure file share backup support](../../backup/azure-file-share-support-matrix.md).
+
+- **Separate backup administration and test recovery**: Limit who can delete recovery points or change retention. Test restores of files, permissions, and complete workloads. Verify that recovery remains possible if production credentials or the source share are compromised.
+
+- **Plan for infrastructure failures separately from data recovery**: Redundancy improves resilience to infrastructure failures but also replicates data changes. It doesn't replace backups for unwanted changes or deletion. Available redundancy options differ by media tier and resource provider. For more information, see [Azure Files redundancy](files-redundancy.md).
 
 ## Logging and monitoring
 
-- **Alert on failed identity-based authentication and NTLM attempts**: When identity-based authentication is enabled, log and alert on Kerberos preauth failures and any NTLM attempts (especially after NTLMv2 is disabled). Unexpected NTLM traffic is a signal that a client isn't properly domain-configured or that account keys are being used where identity should be. For more information, see [Monitor Azure Files](../files/storage-files-monitoring.md).
+- **Audit management changes for both resource providers**: Use the Azure Activity Log to monitor resource deletion, configuration changes, and role assignments. Review changes to public access, network rules, encryption requirements, and recovery controls. For more information, see [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
-- **Alert on storage-account-key mount attempts against identity-enabled shares**: After identity-based authentication is the intended path, shared-key mounts represent a bypass. Query storage logs for `AuthenticationType == "AccountKey"` on file share endpoints and alert on any hits. For more information, see [Monitor Azure Files](../files/storage-files-monitoring.md).
+- **Collect supported data access logs**: For classic SMB and FileREST access, use file service resource logs to review callers, authorization methods, failed requests, and deletion activity. Collect the logs required by your retention policy in Log Analytics or another supported destination. Don't assume the same request logging coverage for NFS or Microsoft.FileShares. For supported operations and fields, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
-- **Audit Kerberos key rotation events on the storage account identity**: Successful rotations should be planned and expected. Unplanned rotations might indicate credential compromise response by a different admin. Log key-rotation activity from Activity Log. For more information, see [Update the password of your storage account identity in AD DS](../files/storage-files-identity-ad-ds-update-password.md).
+- **Correlate alerts with client and identity logs**: Investigate unexpected key use, failed authentication, share deletion, and security configuration changes. Use client and directory logs when an authentication failure occurs before the request reaches Azure Files. Route alerts to the team responsible for the workload.
 
-- **Alert on unexpected share deletion or snapshot deletion**: Combine soft delete with alerts on `DeleteShare` and `DeleteShareSnapshot` operations to catch malicious or accidental destruction quickly, before soft-delete retention windows expire. For more information, see [Monitor Azure Files](../files/storage-files-monitoring.md).
+- **Evaluate Defender for Storage for classic deployments**: Defender for Storage provides threat detection for supported storage accounts. Verify feature and protocol coverage for your deployment; account protection doesn't imply that every file operation is scanned for malware. For more information, see [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction).
+
+## Compliance and governance
+- **Apply policies that match the resource provider**: Use Azure Policy to audit or enforce your organization's requirements where the resource type and properties are supported. Check each definition's scope and effects. A policy targeting Microsoft.Storage storage accounts doesn't automatically evaluate Microsoft.FileShares resources. For more information, see [Azure Policy definitions](../../governance/policy/concepts/definition-structure-basics.md).
+
+- **Record ownership and data requirements**: Use resource tags to identify the responsible team, environment, and data classification. For classic shares, account-level controls affect all shares in the account. Record exceptions and review them when workload ownership changes.
+
+- **Validate compliance for the deployment**: Confirm that the selected service, region, protocol, and protection features meet your requirements. Use the [Microsoft cloud security benchmark](/security/benchmark/azure/overview) to organize control reviews. For certification information, see [Azure Storage compliance offerings](../common/storage-compliance-offerings.md?toc=/azure/storage/files/toc.json).
 
 ## Azure File Sync
 
-For hybrid workloads that use Azure File Sync to tier or cache Azure Files locally, secure both the cloud and the on-premises endpoints.
+Azure File Sync supports classic SMB shares. It doesn't support NFS or Microsoft.FileShares. Secure both the cloud share and the Windows Server endpoints.
 
-- **Use managed identities for File Sync registered servers**: Enable a system-assigned managed identity on each registered File Sync server so that the agent authenticates to the Azure File Sync service and the storage account without a stored shared key. For more information, see [Use managed identities with Azure File Sync](../file-sync/file-sync-managed-identities.md).
+- **Use managed identities for supported File Sync deployments**: Follow the managed identity configuration for the Storage Sync Service and registered servers to remove the dependency on shared keys. For more information, see [Use managed identities with Azure File Sync](../file-sync/file-sync-managed-identities.md).
 
-- **Restrict File Sync management-plane access with Azure RBAC**: Assign built-in Storage Sync roles at the specific Storage Sync Service resource rather than at subscription scope, so that operators can manage sync groups without broader permissions. For more information, see [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
-
-## Related security articles
-
-- [Secure your Azure Storage account](../common/secure-storage.md) - Cross-cutting Azure Storage security guidance.
-- [Secure your Azure Blob Storage](../blobs/secure-blobs.md) - Blob-specific security.
-- [Secure your Azure Queue Storage](../queues/secure-queues.md) - Queue-specific security.
-- [Secure your Azure Table Storage](../tables/secure-tables.md) - Table-specific security.
+- **Limit administrative access to sync resources and servers**: Use the required Storage Sync roles at the appropriate scope. Protect local file permissions and server administration because changes made through a server endpoint can be synchronized to the cloud share. For more information, see [Plan an Azure File Sync deployment](../file-sync/file-sync-planning.md).
 
 ## Next steps
 
-- [What is Azure Files?](../files/storage-files-introduction.md)
-- [Planning for an Azure Files deployment](../files/storage-files-planning.md)
-- [Azure Files networking overview](../files/storage-files-networking-overview.md)
+- [Plan an Azure Files deployment](storage-files-planning.md)
+- [Azure Files networking overview](storage-files-networking-overview.md)
+- [Configure network endpoints for Azure file shares](storage-files-networking-endpoints.md)

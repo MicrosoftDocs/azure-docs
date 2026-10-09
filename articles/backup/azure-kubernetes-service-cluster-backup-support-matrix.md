@@ -66,7 +66,9 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - If the AKS cluster is deployed within a private virtual network, a private endpoint must be configured to enable backup operations.
 
-- The Backup Extension can only be installed on node pools that use x86-based processors and run Ubuntu or Azure Linux as the operating system.
+- The Backup Extension can be installed on node pools with both x86-based and ARM64-based processors.
+
+- The Backup Extension can only be installed on node pools that run Ubuntu or Azure Linux as the operating system.
 
 - Both the AKS cluster and the Backup Extension pods must be in a running and healthy state before performing any backup or restore operations, including the deletion of expired recovery points.
 
@@ -92,7 +94,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Any unsupported persistent volume types are automatically skipped during the backup process for the AKS cluster. This includes in-tree volumes (where provisioner: `kubernetes.io/azure-disk` or `kubernetes.io/azure-file`) which must be migrated to CSI driver-based volumes.
 
-- The Backup Extension cannot be installed on Windows-based node pools or ARM64-based node pools. AKS clusters using such nodes should provision a separate Linux-based node pool (preferably a system node pool with x86-based processors) to support the installation of the Backup Extension.
+- The Backup Extension cannot be installed on Windows-based node pools. AKS clusters using such nodes should provision a separate Linux-based node pool to install the Backup Extension.
 
 - Don't install the AKS Backup Extension alongside Velero or any Velero-based backup solutions, as this can cause conflicts during backup and restore operations. Additionally, ensure that your Kubernetes resources do not use labels or annotations containing the prefix `velero.io`, unless explicitly required by a supported scenario. The presence of such metadata may lead to unexpected behavior.
 

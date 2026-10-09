@@ -2150,7 +2150,13 @@ groups:
     title: Google Cloud
   - id: oracle
     title: Oracle Cloud
-  - id: on-premises
+- id: storage-mover-on-premises
+  title: Storage Mover on-premises migration sources
+  prompt: Select your on-premises source.
+  pivots:
+  - id: on-premises-smb
+    title: On-premises SMB
+  - id: on-premises-s3
     title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv

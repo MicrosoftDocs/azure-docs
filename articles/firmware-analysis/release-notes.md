@@ -16,6 +16,12 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 > `https://learn.microsoft.com/api/search/rss?search=%22What%27s+new+in+firmware+analysis%22&locale=en-us`
 
+## October 5, 2026
+
+- **SBOM component expansion**: Firmware analysis now supports detection of 21 more SBOM components: wireless-tools, procps-ng, xz-utils, liblzma, portmap, libjpeg / libjpeg-turbo, apparmor, asterisk, atftp, avahi, autoipd, binutils, bird, boa, cifs-utils, cryptsetup, cups, davfs2, dhcpcd, dmidecode, dpkg, file. This expansion further improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
+
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on September 23rd, 2026 to incorporate newer CVE data.
+
 ## September 21, 2026
 
 - **Unsafe function calls analysis (preview)**: Firmware analysis now identifies references to potentially unsafe functions in supported ELF user-space executables. The preview supports AMD64 or x86-64, ARM64 or AArch64, and ARM32.
@@ -263,7 +269,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 - **Added support for file systems**: Firmware analysis now supports extraction of the following file systems. For more information, see [Firmware analysis FAQs](firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support):
     - ISO
-    - RomFS
+  - RomFS
     - Zstandard and nonstandard LZMA implementations of SquashFS
 
 

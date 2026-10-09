@@ -77,7 +77,7 @@ Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to
 
 - **Inbound DNAT support**: Inbound Internet network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks.
 
-- **Multiple public IP addresses**: You can associate multiple public IP addresses with your firewall for enhanced DNAT and SNAT scenarios.
+- **Multiple public IP addresses**: You can associate multiple public IP addresses with your firewall for enhanced DNAT and SNAT scenarios. Azure Firewall doesn't support attaching a Public IP Prefix; you must associate individual public IP addresses. You can associate up to 250 public IP addresses with a firewall in a virtual network, and up to 80 with a firewall in a secured virtual hub.
 
 - **Azure Monitor logging**: All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your event hub, or send them to Azure Monitor logs.
 
@@ -119,7 +119,7 @@ Standard includes all Basic features, plus:
 
 - **Web categories**: Web categories let administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. In Standard, categorization is based on FQDN only.
 
-- **Enhanced multiple public IP support**: You can associate up to 250 public IP addresses with your firewall.
+- **Enhanced multiple public IP support**: You can associate up to 250 public IP addresses with a firewall in a virtual network (up to 80 with a firewall in a secured virtual hub). Azure Firewall doesn't support attaching a Public IP Prefix; you must associate individual public IP addresses.
 
 ### Standard limitations compared to Premium
 

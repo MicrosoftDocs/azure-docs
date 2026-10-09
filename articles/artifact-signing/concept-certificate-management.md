@@ -6,7 +6,7 @@ author: TacoTechSharma
 ms.author: mesharm
 ms.service: azure-artifact-signing
 ms.topic: concept-article
-ms.date: 09/24/2026
+ms.date: 09/30/2026
 ms.custom: template-concept
 ---
 
@@ -15,6 +15,10 @@ ms.custom: template-concept
 This article describes Artifact Signing certificates, including short-lived certificates, certificate profile-specific Extended Key Usage (EKU) values, zero-touch certificate lifecycle management, time stamp countersignatures, and Microsoft's active threat monitoring and revocation actions.
 
 The certificates that are used in the Artifact Signing service follow standard practices for X.509 code signing certificates. To support a healthy ecosystem, the service includes a fully managed experience for X.509 certificates and asymmetric keys for signing. The fully managed Artifact Signing experience provides all certificate lifecycle actions for all certificates in an Artifact Signing certificate profile resource.
+
+Artifact Signing code-signing certificate authorities (CAs) are scheduled for removal from the Common CA Database (CCADB). Although Microsoft no longer includes these CAs in the Trusted Root Program, they remain on the Windows Platform Trust List. Windows continues to trust certificates that chain to these CAs.
+ 
+Artifact Signing maintains rigorous standards for identity validation, certificate issuance, and ongoing trust and safety monitoring. The team also monitors evolving industry standards and assesses opportunities to support them as they mature.
 
 ## Certificate attributes
 

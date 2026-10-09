@@ -8140,7 +8140,7 @@
     },
     {
       "source_path": "articles/iot-hub/how-to-revoke-certificate-delete-policy.md",
-      "redirect_url": "../iot/how-to-revoke-certificate-delete-policy",
+      "redirect_url": "../iot/concepts-certificate-policy-management",
       "redirect_document_id": false
     },
     {
@@ -8156,6 +8156,11 @@
     {
       "source_path": "articles/enclave/1-8-migrate-workload-resources.md",
       "redirect_url": "/azure/enclave/migrate-azure-resources-azure-enclave",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/enclave/preview-terms.md",
+      "redirect_url": "/azure/enclave/azure-enclave-faq#is-azure-enclave-generally-available",
       "redirect_document_id": false
     },
     {
@@ -8228,6 +8233,6 @@
       "source_path": "articles/dns/private-dns-resiliency.md",
       "redirect_url": "/azure/reliability/reliability-dns-private",
       "redirect_document_id": false
-    }
+    }    
   ]
 }

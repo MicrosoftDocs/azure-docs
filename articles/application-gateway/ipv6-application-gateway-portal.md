@@ -53,9 +53,6 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
     - Custom rules that use IP address-based match conditions do not support IPv6 traffic.
     - Geo-based custom rules are not supported for IPv6 traffic.
 
-> [!NOTE]
-> Geo-based custom rules can be defined in a WAF policy. However, associating a policy that includes geo-based rules with a dual-stack (IPv4 + IPv6) Application Gateway may fail.
-
 ## Prerequisites
 
 An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).

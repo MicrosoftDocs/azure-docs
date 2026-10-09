@@ -35,6 +35,7 @@ Before you start this tutorial:
 
 - [Review supported regions](azure-to-azure-support-matrix.md#region-support). 
 - You need one or more Azure VMs. Verify that [Windows](azure-to-azure-support-matrix.md#windows) or [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage) VMs are supported.
+    - Azure Site Recovery doesn't preserve the Windows Client license after Azure-to-Azure failover. After failover, validate and configure the appropriate licensing property on the recovered VM.
 - Review VM [compute](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), [storage](azure-to-azure-support-matrix.md#replicated-machines---storage), and [networking](azure-to-azure-support-matrix.md#replicated-machines---networking) requirements.
 - This tutorial presumes that VMs aren't encrypted. If you want to set up disaster recovery for encrypted VMs, [follow this article](azure-to-azure-how-to-enable-replication-ade-vms.md).
 - For shared disks, follow the [shared-disk guidance](tutorial-shared-disk.md). Don't use the generic **Add disks** operation for a shared cluster disk; disable and re-enable protection for the complete cluster configuration.

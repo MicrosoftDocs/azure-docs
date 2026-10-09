@@ -98,6 +98,7 @@ The following table shows locations by service provider. If you want to view ava
 | **`DCI Indonesia`** |&check; |&check; | Jakarta Metro |
 | **[`DE-CIX`](https://www.de-cix.net/en/services/directcloud/microsoft-azure)** | &check; |&check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Chennai<br/>Chicago2<br/>Copenhagen<br/>Dallas<br/>Doha2<br/>Dubai2<br/>Frankfurt<br/>Frankfurt2<br/>Frankfurt Metro<br/>Jakarta<br/>Jakarta2<br/>Kuala Lumpur<br/>Madrid<br/>Madrid2<br/>Madrid Metro<br/>Marseille<br/>Mumbai<br/>Munich<br/>New York<br/>New York Metro<br/>Osaka<br/>Oslo<br/>Phoenix<br/>Queretaro<br/>Rio de Janeiro<br/>Sao Paulo<br/>Seattle<br/>Singapore2<br/>Singapore Metro<br/>Tokyo2 |
 | **[`Devoli`](https://devoli.com/)** | &check; |&check; | Auckland<br/>Melbourne<br/>Sydney |
+| **[`DEEP`](https://www.deep.eu/)** | &check; | &check; | Luxembourg |
 | **[`Deutsche Telekom AG IntraSelect`](https://business.telekom.com/global/products-and-solutions/next-level-networking/mpls/intraselect-transport-connect/)** | &check; |&check; | Frankfurt |
 | **[`Deutsche Telekom AG`](https://www.t-systems.com/de/en/cloud-services/solutions/public-cloud/azure-managed-cloud-services/cloud-connect-for-azure)** | &check; |&check; | Amsterdam<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Hong Kong2 |
 | **[`Digital Realty`](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Amsterdam Metro<br/>Amsterdam2<br/>Atlanta2<br/>Brussels<br/>Dallas2<br/>Hong Kong2<br/>London<br/>Phoenix2<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore2<br/>Stockholm2<br/>Sydney2<br/>Tokyo2<br/>Vienna<br/>Washington DC<br/>Zurich Metro |
@@ -115,6 +116,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[`Fastweb`](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | &check; |&check; | Milan |
 | **[`Fibrenoire`](https://fibrenoire.ca/en/services/cloudextn-2/)** | &check; | &check; | Montreal<br/>Quebec City<br/>Toronto2 |
 | **[`Flo Networks`](https://flo.net/microsoft)** | &check; | &check; | Dallas<br/>Los Angeles<br/>Miami<br/>Queretaro(Mexico City)<br/>Sao Paulo<br/>Washington DC<br/>**Locations are listed under Neutrona (company name is Neutrona Networks) Networks and Transtelco as providers for circuit creation* |
+| **[`GARR`](https://www.garr.it/)** | &check; | &check; | Milan |
 | **[`GBI`](https://www.gbiinc.com/microsoft-azure/)** | &check; | &check; | Dubai2<br/>Frankfurt |
 | **[`GÉANT`](https://www.geant.org/Networks)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>Madrid2<br/>Marseille |
 | **[`GlobalConnect`](https://www.globalconnect.no/)** | &check; | &check; | Amsterdam<br/>Copenhagen<br/>Oslo<br/>Stavanger<br/>Stockholm | 
@@ -156,7 +158,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[`LGUplus`](http://www.uplus.co.kr/)** |&check; |&check; | Seoul<br/>Seoul2 |
 | **[`Marlink`](https://www.marlink.com/)** | &check; | &check; | London2<br/>Madrid |
 | **[`MCM Telecom`](https://www.mcmtelecom.com/alianza-microsoft)** | &check; | &check; | Dallas<br/>Queretaro (Mexico)|
-| **[`Megaport`](https://www.megaport.com/services/microsoft-expressroute/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Auckland<br/>Chicago<br/>Chicago Metro<br/>Chicago2<br/>Dallas<br/>Dallas Metro<br/>Denver<br/>Dubai2<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Madrid Metro<br/>Melbourne<br/>Miami<br/>Milan<br/>Milan Metro<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>New York Metro<br/>Osaka<br/>Oslo<br/>Paris<br/>Paris2<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro<br/>San Antonio<br/>Sao Paulo<br/>Sao Paulo2<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC Metro<br/>Washington DC2<br/>Zurich |
+| **[`Megaport`](https://www.megaport.com/services/microsoft-expressroute/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Auckland<br/>Chicago<br/>Chicago Metro<br/>Chicago2<br/>Dallas<br/>Dallas Metro<br/>Denver<br/>Dubai2<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Madrid Metro<br/>Melbourne<br/>Miami<br/>Milan<br/>Milan Metro<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>New York Metro<br/>Omaha<br/>Osaka<br/>Oslo<br/>Paris<br/>Paris2<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro<br/>San Antonio<br/>Sao Paulo<br/>Sao Paulo2<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC Metro<br/>Washington DC2<br/>Zurich |
 | **[`Momentum Telecom`](https://gomomentum.com/)** | &check; | &check; | Atlanta<br/>Atlanta2<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dallas2<br/>Denver<br/>London<br/>Los Angeles<br/>Madrid<br/>Miami<br/>New York<br/>Seattle<br/>Silicon Valley<br/>Silicon Valley2<br/>Washington DC<br/>Washington DC2 |
 | **`MODMC`** | &check; | &check; | Atlanta<br/>Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[`MTN`](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** | &check; | &check; | London |
@@ -191,6 +193,7 @@ The following table shows locations by service provider. If you want to view ava
 | **`Pacific Northwest Gigapop`** | &check; | &check; | Seattle |
 | **[`PacketFabric`](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** | &check; | &check; | Amsterdam<br/>Atlanta<br/>Chicago<br/>Dallas<br/>Denver<br/>Las Vegas<br/>London<br/>Los Angeles2<br/>Miami<br/>New York<br/>Seattle<br/>Silicon Valley<br/>Toronto<br/>Washington DC |
 | **`PitChile`** | &check; | &check; | Miami<br/>Santiago<br/>Washington DC |
+| **[`Proximus NXT Luxembourg`](https://www.proximusnxt.lu/)** | &check; | &check; | Frankfurt Metro<br/>Luxembourg |
 
 #### [R-S](#tab/r-s)
 
@@ -199,8 +202,9 @@ The following table shows locations by service provider. If you want to view ava
 | **[`REANNZ`](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | &check; | &check; | Auckland |
 | **`RedCLARA`** | &check; | &check; | Sao Paulo |
 | **[`Reliance Jio`](https://www.jio.com/business/services/connectivity/cloud-connect/)** | &check; | &check; | Chennai<br/>Mumbai |
-| **[`Retelit`](https://www.retelit.it/EN/Home.aspx)** | &check; | &check; | Milan |
+| **[`Retelit`](https://retelit.it/en/)** | &check; | &check; | Milan |
 | **`RISQ`** |&check; | &check; | Quebec City<br/>Montreal |
+| **`SamsungSDS`** |&check; | &check; | Seoul |
 | **`SCSK`** |&check; | &check; | Tokyo3 |
 | **[`Sejong Telecom`](https://www.sejongtelecom.net/)** | &check; | &check; | Seoul |
 | **[`SES`](https://www.ses.com/network-and-technology/technology-enablers/azure-expressroute)** | &check; | &check; | London2<br/>Washington DC |
@@ -217,7 +221,7 @@ The following table shows locations by service provider. If you want to view ava
 
 |Service provider | Microsoft Azure | Microsoft 365  | Locations |
 | --- | --- | --- | --- |
-| **[`Tata Communications`](https://www.tatacommunications.com/solutions/network/cloud-ready-networks/)** | &check; | &check; | Amsterdam<br/>Chennai<br/>Chicago<br/>Frankfurt2<br/>Hong Kong SAR<br/>London<br/>London2<br/>Mumbai<br/>Paris2<br/>Pune<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stockholm<br/>Washington DC |
+| **[`Tata Communications`](https://www.tatacommunications.com/solutions/network/cloud-ready-networks/)** | &check; | &check; | Amsterdam<br/>Chennai<br/>Chicago<br/>Frankfurt2<br/>Hong Kong SAR<br/>London<br/>London2<br/>Mumbai<br/>Paris2<br/>Pune<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stockholm<br/>Tokyo Metro<br/>Washington DC |
 | **`Telecom Italia Sparkle`**| &check; | &check; | Amsterdam |
 | **[`Telefonica`](https://www.telefonica.com/es/)** | &check; | &check; | Amsterdam<br/>Dallas<br/>Frankfurt2<br/>Hong Kong SAR<br/>London<br/>Madrid<br/>Sao Paulo<br/>Singapore<br/>Washington DC |
 | **[`Telehouse - KDDI`](https://www.telehouse.net/solutions/cloud-services/cloud-link)** | &check; | &check; | London<br/>London2<br/>Singapore2 |
@@ -238,6 +242,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[`UIH`](https://www.uih.co.th/products-services/managed-services/cloud-direct/)** | &check; | &check; | Bangkok |
 | **[`Verizon`](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong SAR<br/>London<br/>Mumbai<br/>Paris<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC |
 | **[`Viasat`](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)** | &check; | &check; | Washington DC2 |
+| **[`Vocus`](https://www.vocus.com.au/)** | &check; | &check; | Melbourne<br/>Sydney |
 | **[`Vocus Group NZ`](https://www.2degrees.nz/business/business-services/data-centres)** | &check; | &check; | Auckland<br/>Sydney |
 | **`Vodacom`** | &check; | &check; | Cape Town<br/>Johannesburg|
 | **[`Vodafone`](https://www.vodafone.com/business/products/cloud-and-edge)** | &check; | &check; | Amsterdam2<br/>Chicago<br/>Dallas<br/>Hong Kong2<br/>London<br/>London2<br/>Milan<br/>Silicon Valley<br/>Singapore |
