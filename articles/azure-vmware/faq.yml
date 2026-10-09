@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  05/28/2026
+  ms.date:  10/09/2026
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -43,18 +43,47 @@ sections:
 
       - question: How is pricing structured for Azure VMware Solution?
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
-          
-      - question: Is VMware HCX Enterprise available, and if so, how much does it cost?
-        answer: VMware HCX Enterprise is available on Azure VMware Solution at no other cost and is enabled by default.
 
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: |
           [!INCLUDE [data-charges](includes/data-charges.md)]
 
-      - question:  Is it necessary to procure other VMware licensing and resources other than the AV36 instance when migrating from the on-premises VM environment with an L2 extension?  
-        answer: | 
-          No, you don't need to procure other VMware licensing beyond the Azure VMware Solution service. For more information, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) to see what VMware technology is included.     
 
+  - name: Licensing
+    questions:
+
+      - question: What is the difference between the Azure VMware Solution license-included SKU and the Azure VMware Solution VCF BYOL SKU?
+        answer: Operationally, there is no difference. Microsoft remains your first-party solution provider, delivering customer support and Azure benefits such as Azure Hybrid Benefit (AHB) and Extended Security Updates (ESUs). With the Azure VMware Solution VCF BYOL SKU, you purchase your portable VCF licenses separately from Broadcom and use those licenses with Azure VMware Solution.
+
+      - question: How can I use my portable VCF licenses with a new or existing Azure VMware Solution private cloud?
+        answer: You can configure your portable VCF licenses when you deploy a new Azure VMware Solution private cloud or add them to an existing private cloud through the self-service process.  [Learn More](vmware-cloud-foundations-license-portability.md)
+
+      - question: What do I need to do if my portable VCF licenses expire before my Azure VMware Solution Reserved Instance (RI) term ends?
+        answer:  If you choose to continue with Azure VMware Solution, you must renew your portable VCF licenses with Broadcom and update the licensing information for your Azure VMware Solution private cloud through the Azure portal.
+
+      - question: Can I purchase VMware add-ons, such as Site Recovery Manager (SRM) or Firewall, through Azure Marketplace?
+        answer: No. VMware no longer offers these products through Azure Marketplace. You must purchase VMware add-ons directly from Broadcom.
+
+      - question: Will Microsoft continue to provide support when I use my portable VCF licenses with Azure VMware Solution?
+        answer: Yes, Microsoft will continue to provide support when you use your portable VCF licenses with Azure VMware Solution.
+
+      - question: Why do I need to change my licensing arrangement when I purchased a three- or five-year Azure VMware Solution license-included RI that extends beyond August 30, 2027?
+        answer: Microsoft explored a range of options to preserve the existing customer experience. However, changes to VMware licensing requirements mean that Microsoft must align Azure VMware Solution with the new licensing model, making this transition necessary.
+
+      - question: Is Azure VMware Solution being discontinued, or can I continue using it with VCF BYOL?
+        answer: Azure VMware Solution is not being discontinued. It will continue through the VCF BYOL offering. Under BYOL, you obtain and maintain the required Broadcom licenses, while Microsoft continues to provide the Azure VMware Solution service and Azure infrastructure. 
+
+      - question: Can I exchange my Azure VMware Solution license-included RI for an Azure VMware Solution VCF BYOL RI?
+        answer: Yes. General Azure reservation exchange guidance applies to Azure VMware Solution, and you can exchange your Azure VMware Solution license-included RI for an eligible Azure VMware Solution VCF BYOL RI through the self-service RI exchange process. [Learn More](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)
+
+      - question: What are my options if my Azure VMware Solution license-included RI extends beyond August 30, 2027, and I want to continue running my workloads on Azure VMware Solution?
+        answer: You must transition away from the license-included offering even if your reservation term extends beyond August 30, 2027. The preferred option is to exchange your existing RI for an eligible replacement reservation before the transition deadline. 
+
+      - question: What are my renewal options if my Azure VMware Solution license-included RI expires before August 30, 2027?
+        answer: You must renew into an available Azure VMware Solution VCF BYOL RI or choose another valid option. Azure VMware Solution license-included RIs are no longer available. 
+
+      - question: Can I exchange the value of an Azure VMware Solution RI for reservations of other Azure services?
+        answer: Yes, Azure VMware Solution RIs can be exchanged for other Azure VMware Solution RIs, Azure VM RIs, or Nutanix on Azure RIs. Refer to the reservation exchange guidance for details. [Learn More](../cost-management-billing/reservations/reservation-exchange-policy-changes.md)
 
   - name: Support
     questions:

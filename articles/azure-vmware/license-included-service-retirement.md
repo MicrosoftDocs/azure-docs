@@ -4,7 +4,7 @@ ms.author: jobingeorge
 description: Learn about Azure VMware Solution license-included service retirement, using portable VCF and other options.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 08/25/2026
+ms.date: 10/09/2026
 ---
 
 # Azure VMware Solution license-included service retirement, using portable VCF and other options
@@ -28,7 +28,7 @@ Using Azure VMware Solution VCF BYOL is the least disruptive path as customers w
 
 ## Switch private clouds
 
-For organizations looking for alternative Private Cloud offerings, Microsoft offers [Nutanix Cloud Clusters on Azure](/azure/nutanix), a Nutanix platform running on Azure bare-metal infrastructure.
+[Nutanix Cloud Clusters on Azure](../nutanix/about-nc2-on-azure.md) offers a hybrid cloud platform for VMs, containers & data with a unified operating model across on-prem and cloud. Nutanix Cloud Cluster enables organizations to migrate and modernize in Azure without refactoring. The solution offers modern compute (AHV hypervisor, NKP), storage, and networking services along with enterprise-grade management, built-in disaster recovery, scalable support for unstructured data with Nutanix Files, and automated database lifecycle management with Nutanix Database Service (NDB). Workload migration is handled seamlessly by Nutanix Move, a no-cost tool that can import the deployment from a variety of sources.
 
 ## Modernize with other Azure services
 For organizations looking to accelerate application modernization, Azure offers a variety of destinations including Azure native infrastructure, Azure Red Hat OpenShift, Azure App Services, and many other Azure services. Explore the variety of [VMware destinations in Azure](https://azure.microsoft.com/solutions/migrate-and-modernize-vmware-in-azure).
