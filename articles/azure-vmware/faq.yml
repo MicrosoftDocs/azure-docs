@@ -56,7 +56,7 @@ sections:
         answer: Operationally, there is no difference. Microsoft remains your first-party solution provider, delivering customer support and Azure benefits such as Azure Hybrid Benefit (AHB) and Extended Security Updates (ESUs). With the Azure VMware Solution VCF BYOL SKU, you purchase your portable VCF licenses separately from Broadcom and use those licenses with Azure VMware Solution.
 
       - question: How can I use my portable VCF licenses with a new or existing Azure VMware Solution private cloud?
-        answer: You can configure your portable VCF licenses when you deploy a new Azure VMware Solution private cloud or add them to an existing private cloud through the self-service process.  [Learn More](../vmware-cloud-foundations-license-portability.md)
+        answer: You can configure your portable VCF licenses when you deploy a new Azure VMware Solution private cloud or add them to an existing private cloud through the self-service process.  [Learn More](vmware-cloud-foundations-license-portability.md)
 
       - question: What do I need to do if my portable VCF licenses expire before my Azure VMware Solution Reserved Instance (RI) term ends?
         answer:  If you choose to continue with Azure VMware Solution, you must renew your portable VCF licenses with Broadcom and update the licensing information for your Azure VMware Solution private cloud through the Azure portal.
