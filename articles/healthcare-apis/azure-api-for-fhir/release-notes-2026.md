@@ -19,17 +19,6 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
-## October 2026
-### FHIR service
-
-**Extra large bundle support**: The FHIR service now supports extra large bundles beyond the standard size limit, enabling scenarios that require larger payload sizes.
-
-**Updated retirement notification message**: The Azure API for FHIR service now displays an updated retirement notification message to inform users about the service retirement timeline and recommended migration steps.
-
-#### Bug fixes:
-
-**Fix for forged metadata in internal Bundle context**: Fixed a security issue where internal Bundle context could potentially allow forged metadata to change authorization behavior. Bundle context is now passed securely through internal request properties.
-
 ## September 2026
 ### FHIR service
 
