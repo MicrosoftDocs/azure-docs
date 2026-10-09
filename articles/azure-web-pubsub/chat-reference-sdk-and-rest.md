@@ -51,7 +51,7 @@ The Azure Web PubSub Chat data-plane REST API manages Chat resources from your s
 The Chat REST API uses the same resource endpoint and hub route as the Web PubSub data-plane REST API (`{endpoint}/api/hubs/{hub}/chat/...`). Authenticate with an access key or a Microsoft Entra ID token. For information about getting a token and signing each request, see [Using the REST API](reference-rest-api-data-plane.md#using-rest-api).
 
 > [!NOTE]
-> For the detailed REST API specification, see the [Web PubSub Chat REST API reference](/rest/api/webpubsub/dataplane/webpubsubchat/web-pub-sub-chat-service).
+> For the detailed REST API specification, see the [Web PubSub Chat REST API reference](/rest/api/webpubsub/dataplane/webpubsubchat/operation-groups).
 
 With a bearer token from either method, you call a chat endpoint with any HTTP client. For example:
 
