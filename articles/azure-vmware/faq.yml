@@ -49,7 +49,7 @@ sections:
           [!INCLUDE [data-charges](includes/data-charges.md)]
 
 
-- name: Licensing
+ - name: Licensing
     questions:
 
       - question: What is the difference between the Azure VMware Solution license-included SKU and the Azure VMware Solution VCF BYOL SKU?
