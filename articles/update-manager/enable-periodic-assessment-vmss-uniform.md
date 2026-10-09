@@ -1,3 +1,14 @@
+---
+title: Enable periodic assessment for Azure Virtual Machine Scale Sets with Uniform orchestration
+description: This article describes how to enable periodic assessment on Azure Virtual Machine Scale Sets with Uniform orchestration by using Azure Update Manager.
+ms.service: azure-update-manager
+ms.topic: how-to
+ms.date: 10/09/2026
+author: kanik09
+ms.author: kanik
+#Customer intent: As an IT admin, I want to enable periodic assessment on Uniform orchestration scale sets so that I can identify missing patches and compliance issues.
+---
+
 # Enable periodic assessment for Azure Virtual Machine Scale Sets with Uniform orchestration (preview)
 
 **Applies to:** : heavy_check_mark: Azure Virtual Machine Scale Sets with Uniform orchestration
