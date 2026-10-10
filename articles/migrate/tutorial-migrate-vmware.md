@@ -83,10 +83,10 @@ Enable replication as follows:
 5. In **Workloads**,
    - Select the **Target VM security type**.
         - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
-        - You can also migrate eligible machines to Confidential virtual machines (Preview) [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out.
+        - You can also migrate eligible machines to Confidential virtual machines [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out. Refer [CVM support matrix](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines).
    - Then, select the machines you want to replicate and migrate and click **Next**.
 
-7. In **Target settings**, select the subscription, target region, and Storage account.
+6. In **Target settings**, select the subscription, target region, and Storage account.
      
     - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
@@ -118,7 +118,10 @@ Enable replication as follows:
                - Confidential encryption with platform-managed key (available, if you selected **Confidential compute encryption**)
                - Confidential encryption with customer-managed key (available, if you selected **Confidential compute encryption**)
                   > [!NOTE]
-                  > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, remove these VMs from the selection.
+                  > - Secure Boot is enabled by default on target VMs when Confidential OS disk encryption is selected.
+                  > - Only customer-managed key (CMK) are supported for confidential OS disk encryption for disks larger than 127 GB. For disks smaller than 127 GB, both platform-managed key (PMK) and customer-managed key (CMK) are supported.
+                  > - Confidential OS disk encryption can lengthen the standard initial VM creation time during migration due to the encryption process.
+                  > - Data disks currently don't support confidential encryption. However, you can secure them by using host-based encryption with customer-managed keys (CMK) or platform-managed keys (PMK).
 	   
          - **Disk encryption type**, select:
               - Encryption-at-rest with platform-managed key
