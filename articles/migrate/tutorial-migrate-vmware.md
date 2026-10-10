@@ -189,10 +189,10 @@ Enable replication as follows:
          - Servers for which test migrations are completed or skipped move to this stage. You can perform final migrations (Cutover) for these servers.
          - After migration is completed, perform **Complete migration** to clean up the migration resources by using the drop-downs available in the server drill-down blade.
 
-## Monitor and expedite migrations
+## Monitor and expedite migrations to remediate slow or stuck replications
        
-1. Use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
-1. Open the **Azure portal**, and then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
+1. You can use PowerShell to view **Time Remaining** across all stages of server migration in Azure Migrate. This helps you monitor replication progress and remediate slow or stuck replications and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
+2. Open the **Azure portal**, and then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
 3. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
 
     ```powershell
@@ -206,7 +206,7 @@ Enable replication as follows:
     :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
 
 6. The output shows the server replication status, disk progress, time left, upload speed, and datastore details.
-7. Run the command with the `Expedite` flag. This retrieves appliance operating parameters and a prioritized list of recommended actions to help reduce the remaining migration time for the specified server.
+7. **Remediate slow or stuck replications using "Expedite" command**: To retrieve appliance operating parameters and a prioritized list of recommended actions to help reduce the remaining migration time for the specified server and to remediate slow or stuck replications. Run the command with the Expedite flag.
 
     ```powershell
 
