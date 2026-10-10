@@ -246,9 +246,9 @@ You can install the Mobility service using the Mobility service agent software. 
 4. In **Discovery method**, select the appliance that matches your source environment (Physical) and then select **Next**.
 
 5.  In **Workloads**:
-     - Select the **Target VM security type**:
-         - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
-         - You can also migrate eligible machines to Confidential virtual machines (Preview). [Learn more](../confidential-computing/confidential-vm-overview.md). If **Confidential virtual machines** is selected, only the eligible servers are available for selection and the rest are grayed out.
+    - Select the **Target VM security type**.
+        - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
+        - You can also migrate eligible machines to Confidential virtual machines [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out. Refer [CVM support matrix](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines).
      - Select the replication appliance you set up from the drop-down menu or set up a new replication appliance by referring to the steps provided in the previous section.
          - In **Guest credentials**, specify the VM admin account that you use for push installation of the Mobility service.
      - Then, select **Next** after selecting the VMs you want to replicate.
@@ -267,18 +267,24 @@ You can install the Mobility service using the Mobility service agent software. 
          - **Availability Set** places the migrated machine in an Availability Set. The selected target resource group must contain one or more availability sets.
          - **No infrastructure redundancy required**– Select this option if you don't require Availability Zones or Availability Sets for the migrated machines.
         
-   -  In **Security Details**,
-         - If the target security type selected is **Standard or Trusted Launch virtual machines**:
+    -  In **Security Details**,
+         - If the selected target security type is **Standard or Trusted Launch virtual machines**:
             - **Secure boot** is enabled by default (recommended). You can choose to remove this option. Then, proceed to **Disk encryption type** selection.
-         - If the target security type selected is **Confidential virtual machines**:
-            - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the virtual machine's TPM and makes the disk content accessible only to the VM.
-            - To enable this encryption, check the **Confidential compute encryption** option and proceed to **OS disk encryption type** selection. Otherwise, proceed to **Disk encryption type** selection.
-            - **OS disk encryption type**, select:
-               - Encryption at rest with platform-managed key (Default, if you didn't select **Confidential compute encryption**)
-               - Confidential encryption with platform-managed key (Available, if you selected **Confidential compute encryption**)
-               - Confidential encryption with customer-managed key (Available, if you selected **Confidential compute encryption**)
+         - If the selected target security type is **Confidential virtual machines**:
+            - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the
+              virtual machine's TPM and makes the disk content accessible only to the VM.
+            - To enable this encryption, select the **Confidential compute encryption** option and proceed to **OS disk encryption type** selection. Otherwise, proceed to **Disk
+              encryption type** selection.
+            - Under **OS disk encryption type**, select one of the following options:
+               - Encryption at rest with platform-managed key (default, if you didn't select **Confidential compute encryption**)
+               - Confidential encryption with platform-managed key (available, if you selected **Confidential compute encryption**)
+               - Confidential encryption with customer-managed key (available, if you selected **Confidential compute encryption**)
                   > [!NOTE]
-                  > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, remove these VMs from the selection.
+                  > - Secure Boot is enabled by default on target VMs when Confidential OS disk encryption is selected.
+                  > - Only customer-managed key (CMK) are supported for confidential OS disk encryption for disks larger than 127 GB. For disks smaller than 127 GB, both platform-managed key (PMK) and customer-managed key (CMK) are supported.
+                  > - Confidential OS disk encryption can lengthen the standard initial VM creation time during migration due to the encryption process.
+                  > - Data disks currently don't support confidential encryption. However, you can secure them by using host-based encryption with customer-managed keys (CMK) or platform-managed keys (PMK).
+  
 	   
          - **Disk encryption type**, select:
               - Encryption-at-rest with platform-managed key
