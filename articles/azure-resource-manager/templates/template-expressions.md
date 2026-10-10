@@ -148,7 +148,7 @@ In resource definition, double-escape values within an expression. The `scriptOu
   "variables": {
     "deploymentScriptSharedProperties": {
       "forceUpdateTag": "[parameters('forceUpdateTag')]",
-      "azPowerShellVersion": "16.2.0",
+      "azPowerShellVersion": "16.2",
       "retentionInterval": "P1D"
     }
   },
@@ -187,7 +187,7 @@ With [languageVersion 2.0](./syntax.md#languageversion-20), double-escape is on 
   "variables": {
     "deploymentScriptSharedProperties": {
       "forceUpdateTag": "[parameters('forceUpdateTag')]",
-      "azPowerShellVersion": "16.2.0",
+      "azPowerShellVersion": "16.2",
       "retentionInterval": "P1D"
     }
   },

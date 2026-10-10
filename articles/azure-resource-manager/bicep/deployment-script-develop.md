@@ -84,7 +84,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
       ]
     }
     environmentVariables: []
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     arguments: '<script-arguments>'
     scriptContent: '''<azure-cli-or-azure-powershell-script>''' // or primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/inlineScript.ps1'
     supportingScriptUris: []
@@ -199,7 +199,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -271,7 +271,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: loadTextContent('./scripts/hello.ps1')
     retentionInterval: 'P1D'
@@ -315,7 +315,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/hello.ps1'
     arguments: '-name ${name}'
     retentionInterval: 'P1D'
@@ -366,7 +366,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -436,7 +436,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     }
   }
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     scriptContent: '''
       $kvs=Get-AzKeyVault
 
@@ -512,7 +512,7 @@ resource deploymentScript1 'Microsoft.Resources/deploymentScripts@2023-08-01' = 
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -529,7 +529,7 @@ resource deploymentScript2 'Microsoft.Resources/deploymentScripts@2023-08-01' = 
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     arguments: '-textToEcho \\"${deploymentScript1.properties.outputs.text}\\"'
     scriptContent: '''
       param([string] $textToEcho)
@@ -587,7 +587,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     environmentVariables: [
       {
         name: 'UserName'
@@ -658,7 +658,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     scriptContent: '''
       Write-Output "AZ_SCRIPTS_AZURE_ENVIRONMENT is : ${Env:AZ_SCRIPTS_AZURE_ENVIRONMENT}"
       Write-Output "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : ${Env:AZ_SCRIPTS_CLEANUP_PREFERENCE}"

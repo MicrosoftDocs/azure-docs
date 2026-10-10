@@ -111,7 +111,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -254,7 +254,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '16.2.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -378,7 +378,7 @@ SubscriptionId      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ProvisioningState   : Succeeded
 Identity            :
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 16.2.0
+AzPowerShellVersion : 16.2
 StartTime           : 12/11/2023 9:45:50 PM
 EndTime             : 12/11/2023 9:46:59 PM
 ExpirationDate      : 12/11/2023 10:46:59 PM
