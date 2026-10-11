@@ -51,8 +51,7 @@ Number of AAUs consumed per 1 million tokens:
 | Model | Input | Output | Cache read | Cache write |
 |-------|-------|--------|------------|-------------|
 | Claude Opus 5.5 | 80 AAUs | 400 AAUs | 4 AAUs | 100 AAUs |
-| Claude Opus 5 | 100 AAUs | 500 AAUs | 10 AAUs | 125 AAUs |
-| Claude Opus 4.6 | 100 AAUs | 500 AAUs | 10 AAUs | 125 AAUs |
+| Claude Opus 4.6 and 5 | 100 AAUs | 500 AAUs | 10 AAUs | 125 AAUs |
 | GPT 5.6 Terra | 40 AAUs | 200 AAUs | 4 AAUs | 50 AAUs |
 | GPT 5.3 Codex | 35 AAUs | 280 AAUs | 3.5 AAUs | 0 AAUs |
 | GPT 5.2 | 35 AAUs | 280 AAUs | 3.5 AAUs | 0 AAUs |
