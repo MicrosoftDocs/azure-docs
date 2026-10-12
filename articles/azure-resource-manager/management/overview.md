@@ -139,7 +139,6 @@ Resource Manager is designed for resiliency and availability. Resource Manager a
 
 This resiliency applies to the Resource Manager portion of a control plane operation. After Resource Manager forwards a request, the operation also depends on the target resource provider and resource.
 
-
 Using the global endpoint `management.azure.com` is recommended for Azure Resource Manager routing because it enables DNS-based traffic distribution, automatic failover, and optimal routing to the closest or healthiest region, which improves latency and reliability for users worldwide.
 Global endpoints typically result in faster response times, as users are directed to the nearest available region, reducing network hops and delays.
 
