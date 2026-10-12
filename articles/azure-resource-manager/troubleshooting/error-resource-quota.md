@@ -8,7 +8,7 @@ ms.date: 04/28/2025
 
 # Resolve errors for resource quotas
 
-This article describes resource quota errors that might occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
+This article helps you identify, understand, and resolve resource quota errors that occur when deploying resources using an Azure Resource Manager (ARM) template or Bicep file.
 
 ## Symptom
 
@@ -31,9 +31,22 @@ please delete some resources of this type before creating a new one.
 
 ## Cause
 
-Quotas are applied per resource group, subscriptions, accounts, and other scopes. For example, your subscription might be configured to limit the number of vCPUs for a region. If you attempt to deploy a virtual machine with more vCPUs than the permitted amount, you receive an error that the quota was exceeded.
+Azure quotas are enforced at different scopes, such as per subscription, per region, or per resource group. The scope depends on the resource type being deployed. For example, your subscription might be configured to limit the number of vCPUs for a region. If you attempt to deploy a virtual machine with more vCPUs than the permitted amount, you receive an error that the quota was exceeded.
 
 For quota information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+
+
+## How to determine what quota was exceeded
+
+Use the error message to identify the quota scope:
+
+| Error mentions | Quota scope |
+|---------------|------------|
+| vCPUs or VM cores | Subscription + region |
+| Resource count per resource group | Resource group |
+| Total instances of a resource type | Subscription |
+
+
 
 # [Azure CLI](#tab/azure-cli)
 

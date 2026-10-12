@@ -226,6 +226,9 @@ A StandardV2 NAT gateway can process up to 10 million packets per second. A Stan
 
 * You can't use Standard public IPs with a StandardV2 NAT gateway. You must re-IP to new StandardV2 public IPs to use a StandardV2 NAT gateway.
 
+* NAT Gateway doesn't support connection continuity for existing flows when a virtual machine undergoes live migration. Existing connections through the NAT gateway might be disrupted and need to be reestablished after the migration completes.
+
+
 For more known limitations of StandardV2 NAT gateways, see [Azure NAT Gateway SKUs](nat-sku.md).
 
 ## Related content

@@ -4,20 +4,20 @@ description: Learn how Synapse Spark runtime release channels provide stable, ea
 author: arali
 ms.author: arali
 ms.reviewer: arali
-ms.date: 09/21/2026
+ms.date: 10/12/2026
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ---
 
-# Synapse Spark runtime release channels (Preview)
+# Synapse Spark runtime release channels
 
 A release channel controls which updates your Spark pool receives within a supported runtime version. Use a stable channel for production and a matching Early Access channel to test upcoming changes before they reach production.
 
 This article covers release channels for Synapse Runtime 3.5. Choosing a channel doesn't change whether your runtime version is supported. For support dates and policies, see [Synapse runtime lifecycle and supportability](runtime-for-apache-spark-lifecycle-and-supportability.md).
 
 > [!NOTE]
-> The release channel feature is in preview, but the Synapse Runtime 3.5 it uses is already generally available (GA). If you don't configure a release channel, your pool uses `default`, which runs the GA runtime. You don't need to change your configuration to continue using this channel.
+> Release channels are generally available (GA) for Synapse Runtime 3.5. If you don't configure a release channel, your pool uses `default` channel. You don't need to change your configuration to continue using this `default` channel.
 
 ## Choose a release channel
 
