@@ -138,6 +138,7 @@ Don't delete or modify a Discovery-managed private endpoint, private link, DNS r
 - No required subnet overlaps with another connected network.
 
 7. Deploy the supercomputer with the following tag:
+
 | Name | Value |
 |---|---|
 | `discovery.enableprivatecluster` | `true` |
