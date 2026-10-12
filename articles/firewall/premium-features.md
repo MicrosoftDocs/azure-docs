@@ -5,7 +5,7 @@ author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: concept-article
-ms.date: 09/18/2025
+ms.date: 10/09/2026
 ms.author: duau
 ms.custom:
   - references_regions
@@ -21,7 +21,7 @@ Azure Firewall Premium offers advanced threat protection suitable for highly sen
 
 This guide provides detailed implementation information for Azure Firewall Premium features. For a high-level comparison of all Azure Firewall features across SKUs, see [Azure Firewall features by SKU](features-by-sku.md).
 
-Organizations can leverage Premium SKU features like IDPS and TLS inspection to prevent malware and viruses from spreading across networks. To meet the increased performance demands of these features, Azure Firewall Premium uses a more powerful virtual machine SKU. Similar to the Standard SKU, the Premium SKU can scale up to 100 Gbps and integrate with availability zones to support a 99.99% SLA. The Premium SKU complies with Payment Card Industry Data Security Standard (PCI DSS) requirements.
+Organizations can leverage Premium SKU features like IDPS and TLS inspection to prevent malware and viruses from spreading across networks. To meet the increased performance demands of these features, Azure Firewall Premium uses a more powerful virtual machine SKU. Similar to the Standard SKU, the Premium SKU can scale up to 100 Gbps. For new deployments, omit explicit firewall zones; Azure manages zone-redundant backend allocation in [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). For availability commitments, see [Azure Firewall service level agreements](deploy-availability-zone-powershell.md#service-level-agreements-sla). The Premium SKU complies with Payment Card Industry Data Security Standard (PCI DSS) requirements.
 
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall Premium overview diagram":::
 

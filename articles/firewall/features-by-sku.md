@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 08/27/2026
+ms.date: 10/09/2026
 ms.author: duau
 # Customer intent: As a network security administrator, I want to understand all Azure Firewall features across different SKUs, so that I can choose the right version and effectively implement network security for our Azure Virtual Network resources.
 ---
@@ -61,7 +61,7 @@ Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to
 
 - **Built-in high availability**: High availability is built in, so no extra load balancers are required and there's nothing you need to configure.
 
-- **Availability Zones**: Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. You can also associate Azure Firewall to a specific zone for proximity reasons.
+- **Availability Zones**: For new deployments, don't specify firewall zones. Azure manages zone-redundant backend allocation in [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). Existing non-zone-redundant firewalls are migrated automatically in regions that support multiple availability zones.
 
 - **Application FQDN filtering rules**: You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require Transport Layer Security (TLS) termination.
 
@@ -179,6 +179,8 @@ All Azure Firewall SKUs include:
 - Built-in high availability with no extra load balancers required
 - Support for Availability Zones deployment for increased availability
 - No extra cost for deployment across multiple Availability Zones
+
+For new deployments, omit explicit firewall zone settings and let Azure manage zone allocation. Zone redundancy by default is available in the [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). In regions without **Availability Zones**, the firewall remains regional. 
 
 ### Network Address Translation (NAT)
 
