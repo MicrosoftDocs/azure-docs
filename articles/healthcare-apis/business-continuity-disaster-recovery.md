@@ -7,7 +7,7 @@ ms.author: ounyman
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.date: 05/01/2026
+ms.date: 10/12/2026
 ---
 # Business continuity and disaster recovery in Azure Health Data Services
 
@@ -28,12 +28,16 @@ In most cases, Azure Health Data Services handles disruptive events that might o
 
 ## Database backups for the FHIR service
 
-Database backups are an essential part of any business continuity strategy because they help protect your data from corruption or deletion. These backups enable you to restore service to a previous state. Azure Health Data Services automatically keeps backups of your data for the FHIR&reg; service for the last seven days.
+Database backups are an essential part of any business continuity strategy because they help protect your data from corruption or deletion. These backups enable you to restore service to a previous state. Azure Health Data Services automatically retains backups of your data for the FHIR&reg; service for seven days.
 
-The support team handles the backups and restores of the FHIR database. To restore the data, submit a support ticket with these details:
+The support team handles the backups and restores of the FHIR database. To allow time to process your request, submit a support ticket at least 24 business hours before the backup for the requested restore point expires. Requests submitted with less than 24 business hours remaining are at risk of not being completed before the requested restore point is no longer available.
+
+To restore the data, submit a support ticket with these details:
 
 - Name of the service.
-- Restore point date and time within the last seven days. If the requested restore point isn't available, the nearest one is used, unless you specify otherwise. Include this information in your support request.
+- Requested restore point in UTC, within the last seven days. For example, `2026-10-01 18:47:39 UTC`.
+- Backup expiry time in UTC, which is seven days after the requested restore point. For example, a requested restore point of `2026-10-01 18:47:39 UTC` expires at `2026-10-08 18:47:39 UTC`.
+- Whether the support team can use the nearest available restore point if the requested restore point is unavailable. If you don't specify otherwise, the nearest available restore point is used.
 
 Learn more: [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 
