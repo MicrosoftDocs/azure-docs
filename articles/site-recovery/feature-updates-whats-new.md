@@ -15,6 +15,12 @@ The Azure Site Recovery service is updated and improved on an ongoing basis. To 
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
 
+## Updates (October 2026)
+
+### Azure Site Recovery support for Azure ARC-enabled Windows VMware/Physical servers
+
+Azure Site Recovery (ASR) now supports protection for ARC-enabled Windows VMware virtual machines and on-premises physical servers. Previously, customers using Azure ARC on these machines could encounter compatibility issues. With this update, ASR detects the presence of ARC services on source machines and is able to maintain compatibility with existing ARC configurations during protection enablement. This update enables customers to adopt ASR for disaster recovery without disrupting existing ARC-based configurations for governance, inventory, monitoring, and management of these machines.
+
 ## Updates (August 2026)
 
 ### Azure Site Recovery support for Linux Azure VMs with NVMe disk controllers
