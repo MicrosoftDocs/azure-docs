@@ -65,7 +65,7 @@ In this example, Durable Task Scheduler processes each action as shown here:
 
 ## Dedicated SKU pricing and capacity
 
-The Dedicated SKU provides predictable performance through preallocated Capacity Units (CUs). Each deployment supports up to three CUs. You can create up to 25 schedulers and 25 task hubs per region per subscription with the Dedicated SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+The Dedicated SKU provides predictable performance through preallocated Capacity Units (CUs). Each deployment supports up to three CUs. You can create up to 25 schedulers and 25 task hubs per region per subscription with the Dedicated SKU. For more scheduler quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues). The task hub quota can't be increased.
 
 ### Key features
 
@@ -116,7 +116,7 @@ A software as a service (SaaS) platform supports 800 million orchestrations mont
 
 The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads and development scenarios. 
 
-You can create up to 10 schedulers per region per subscription and up to 5 task hubs per scheduler with the Consumption SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+You can create up to 10 schedulers per region per subscription and up to 5 task hubs per scheduler with the Consumption SKU. For more scheduler quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues). The task hub quota can't be increased.
 
 ### Key features
 
