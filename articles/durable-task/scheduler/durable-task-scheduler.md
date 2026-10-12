@@ -18,7 +18,7 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 - Data processing
 - Infrastructure management
 
-Durable Task Scheduler is the recommended storage provider for [Durable Functions](../durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). 
+Durable Task Scheduler is the recommended storage provider for [Durable Functions](../durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). By using the Durable Task SDKs, you can bring durable execution to apps running on any Azure compute platform, including Azure Container Apps (ACA), Azure Kubernetes Service (AKS), Azure App Service, and Azure virtual machines.
 
 ## Supported SKUs
 
