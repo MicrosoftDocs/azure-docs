@@ -102,9 +102,16 @@ To enable a private supercomputer when you create the supercomputer, add the fol
 
 1. A management subnet is required and must be separate from the nodepool subnet and delegated to Microsoft.ContainerService/managedClusters.
 
-2. Disable Private Link service network policies on the subnet used for Discovery private management-plane connectivity.
+2. Disable Private Link service network policies on the subnet used for Discovery private management-plane connectivity. Use the following CLI command:
 
-3. Ensure that there is a default route to Azure Firewall or another supported network virtual appliance
+```azurecli
+az network vnet subnet update --resource-group <resource-group-name> \
+  --vnet-name <vnet-name> \
+  --name <subnet-name> \
+  --private-link-service-network-policies Disabled
+```
+
+3. Ensure that there is a default route to Azure Firewall or another supported network virtual appliance. NAT Gateway is not supported for private supercomputer.
 
 4. Configure firewall rules
 
