@@ -37,7 +37,7 @@ We support Microsoft Entra ID and non-Microsoft identity providers that support 
 
 ### What is the backup and recovery policy for the FHIR service?
 
-Azure Health Data Services automatically retains FHIR database backups for seven days. To request a restore, submit a support ticket at least 24 business hours before the requested restore point expires. Include the service name, the requested restore point in UTC, and the backup expiry time in UTC. For details, see [Database backups for the FHIR service](../business-continuity-disaster-recovery.md#database-backups-for-the-fhir-service).
+Azure Health Data Services automatically retains FHIR database backups for seven days. To request a restore, submit a support ticket at least 24 business hours before the requested restore point expires. Include the service name and the requested restore point in UTC. For details, see [Database backups for the FHIR service](../business-continuity-disaster-recovery.md#database-backups-for-the-fhir-service).
 
 ### Can I use Azure AD B2C with the FHIR service?
 

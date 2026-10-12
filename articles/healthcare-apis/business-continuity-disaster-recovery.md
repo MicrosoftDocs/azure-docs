@@ -36,7 +36,6 @@ To restore the data, submit a support ticket with these details:
 
 - Name of the service.
 - Requested restore point in UTC, within the last seven days. For example, `2026-10-01 18:47:39 UTC`.
-- Backup expiry time in UTC, which is seven days after the requested restore point. For example, a requested restore point of `2026-10-01 18:47:39 UTC` expires at `2026-10-08 18:47:39 UTC`.
 - Whether the support team can use the nearest available restore point if the requested restore point is unavailable. If you don't specify otherwise, the nearest available restore point is used.
 
 Learn more: [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
