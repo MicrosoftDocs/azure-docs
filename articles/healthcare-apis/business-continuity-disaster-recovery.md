@@ -30,7 +30,7 @@ In most cases, Azure Health Data Services handles disruptive events that might o
 
 Database backups are an essential part of any business continuity strategy because they help protect your data from corruption or deletion. These backups enable you to restore service to a previous state. Azure Health Data Services automatically retains backups of your data for the FHIR&reg; service for seven days.
 
-The support team handles the backups and restores of the FHIR database. Your requested restore point is available for seven days after that time. Submit your support ticket as soon as possible and at least 24 business hours before the seven-day retention period ends. Requests submitted later might not be processed before the requested restore point is no longer available.
+The support team handles the backups and restores of the FHIR database. Your requested restore point is available for seven days after that time. Submit your support ticket as soon as possible and at least 24 business hours before the seven-day retention period ends. Late requests might not be completed before the restore point expires.
 
 To restore the data, submit a support ticket with these details:
 
