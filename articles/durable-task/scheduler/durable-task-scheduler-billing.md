@@ -65,7 +65,7 @@ In this example, Durable Task Scheduler processes each action as shown here:
 
 ## Dedicated SKU pricing and capacity
 
-The Dedicated SKU provides predictable performance through preallocated Capacity Units (CUs). Each deployment supports up to three CUs. You can create up to 25 schedulers and 25 task hubs per region per subscription with the Dedicated SKU. For more scheduler quota, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). The task hub quota can't be increased.
+The Dedicated SKU provides predictable performance through preallocated Capacity Units (CUs). Each deployment supports up to three CUs. You can create up to 25 schedulers and 25 task hubs per region per subscription with the Dedicated SKU. To request more scheduler quota, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). You can't increase the task hub quota.
 
 ### Key features
 
