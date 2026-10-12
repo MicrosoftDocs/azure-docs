@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Flask web app with PostgreSQL'
 description: Create a Python Flask web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Flask framework and Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/12/2025
+ms.date: 10/08/2026
 ms.update-cycle: 180-days
 ms.author: msangapu
 author: msangapu-msft
@@ -400,6 +400,8 @@ Having issues? Check the [Troubleshooting guide](configure-language-python.md#tr
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the Linux container in App Service. 
 
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
+
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the **App Service** page, in the left menu, 
@@ -606,7 +608,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
-1. You need to use the four app settings for connectivity in App service. Open *azureproject/production.py*, uncomment the following lines (lines 3-8), and save the file:
+1. You need to use the four app settings for connectivity in App Service. Open *azureproject/production.py*, uncomment the following lines (lines 3-8), and save the file:
 
     ```python
     DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
@@ -635,6 +637,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 ## Generate database schema
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the Linux container in App Service.
+
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
 
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 

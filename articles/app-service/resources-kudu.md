@@ -3,7 +3,7 @@ title: Kudu service overview
 description: Learn about the engine that powers continuous deployment in App Service and its features.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 03/17/2021
+ms.date: 10/08/2026
 ms.topic: reference
 ms.service: azure-app-service
 ---
@@ -41,6 +41,8 @@ It also provides features like these:
 - Allow ZIP deployment UI with `/ZipDeploy`.
 - Generate [custom deployment scripts](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 - Allow access with a [REST API](https://github.com/projectkudu/kudu/wiki/REST-API).
+
+For Linux apps, Kudu also provides an authenticated proxy for container access without requiring an SSH server or an embedded SSH password in a custom image. The preview `az webapp exec` command opens a shell in the main app container, or in the Kudu container with `--target kudu`. These are separate environments. Detached execution targets only the main app container. For examples and limitations, see [Open a container shell (SSH) and run commands](configure-linux-open-ssh-session.md?pivots=container-linux).
 
 ## RBAC permissions required to access Kudu
 

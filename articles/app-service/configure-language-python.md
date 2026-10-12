@@ -2,7 +2,7 @@
 title: Configure Linux Python Apps
 description: Learn how to configure the Python container in which web apps are run by using both the Azure portal and the Azure CLI.
 ms.topic: quickstart
-ms.date: 09/01/2025
+ms.date: 10/08/2026
 ms.reviewer: astay
 ms.author: msangapu
 author: msangapu-msft
@@ -139,7 +139,7 @@ You can redeploy existing web applications to Azure as follows:
 
 1. **Continuous deployment**. Set up continuous deployment from GitHub Actions, Bitbucket, or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or set up continuous deployment from local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
 
-1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container by using SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#generate-database-schema).
+1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, [open an interactive container shell](configure-linux-open-ssh-session.md). The preview `az webapp exec` command also supports [detached execution](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session), which requires separate completion verification. For an example of running Django database migrations interactively, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#generate-database-schema).
     - When using continuous deployment, you can perform those actions by using post-build commands, as described earlier in the [Customize build automation](#customize-build-automation) section.
 
 With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.
