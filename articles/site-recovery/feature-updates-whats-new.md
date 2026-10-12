@@ -17,7 +17,7 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 ## Updates (October 2026)
 
-### Azure Site Recovery Support for Azure ARC-enabled Windows VMWare/Physical servers
+### Azure Site Recovery support for Azure ARC-enabled Windows VMware/Physical servers
 
 Azure Site Recovery (ASR) now supports protection for ARC-enabled Windows VMWare virtual machines and on-premise physical servers. Previously, customers using Azure ARC on these machines could encounter compatibility issues. With this update, ASR detects the presence of ARC services on source machines and is able to maintain compatibility with existing ARC configurations during protection enablement. This enables customers to adopt ASR for disaster recovery without disrupting existing ARC-based configurations for governance, inventory, monitoring and management of these machines.
 
