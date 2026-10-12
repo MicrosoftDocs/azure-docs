@@ -46,6 +46,10 @@ By retiring legacy blob storage accounts, Azure simplifies the platform and ensu
 >[!Warning]
 >If you do not migrate your legacy blob storage account to GPv2 by October, 2026, all existing legacy blob storage accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
 
+> [!IMPORTANT]
+> GPv1 storage accounts are expected to transition to GPv2 pricing shortly after the retirement date, regardless of when the backend update of your storage accounts from GPv1 to GPv2 is completed. To maintain control over your update timeline, proactively update your GPv1 accounts to GPv2 before the Microsoft-initiated conversion begins.
+ 
+
 | Date           | Milestone                                      |
 |----------------|------------------------------------------------|
 | **September 2025** | Retirement announced                          |
