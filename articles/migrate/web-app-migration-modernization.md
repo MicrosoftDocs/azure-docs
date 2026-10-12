@@ -2,7 +2,7 @@
 title: Web App Migration and Modernization - Move and Upgrade Apps for Scalability and Performance
 description: Learn what web app migration and modernization means—moving apps to the cloud and upgrading them with modern architectures for better scalability, performance, and security.
 author: Jeronika-MS
-ms.author: v-gajeronika
+ms.author: nikitabajaj
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
 ms.update-cycle: 1095-days
