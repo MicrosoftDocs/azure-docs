@@ -2,7 +2,7 @@
 title: Containerization and migration of Java web applications to Azure App Service.
 description: Tutorial:Containerize & migrate Java web applications to Azure App Service.
 author: Jeronika-MS
-ms.author: v-gajeronika
+ms.author: nikitabajaj
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/06/2025
