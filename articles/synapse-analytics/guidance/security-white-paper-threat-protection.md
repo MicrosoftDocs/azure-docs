@@ -26,7 +26,7 @@ Used with [Data discovery and classification](/azure/azure-sql/database/data-dis
 
 [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a tool for security posture management and threat detection. It protects workloads running in Azure, including (but not exclusively) servers, app service, key vaults, Kubernetes services, storage accounts, and Azure SQL Databases.
 
-As one of the options available with Microsoft Defender for Cloud, [Microsoft Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql) extends Defender for Cloud's data security package to secure databases. It can discover and mitigate potential database vulnerabilities by detecting anomalous activities that could be a potential threat to the database. Specifically, it continually monitors your database for:
+As one of the options available with Microsoft Defender for Cloud, [Microsoft Defender for SQL](../sql/azure-defender-for-sql.md) extends Defender for Cloud's data security package to secure databases. It can discover and mitigate potential database vulnerabilities by detecting anomalous activities that could be a potential threat to the database. Specifically, it continually monitors your database for:
 
 > [!div class="checklist"]
 > - Potential SQL injection attacks

@@ -58,7 +58,7 @@ Microsoft Entra ID benefits include:
 * Supports Multi-Factor authentication through Active Directory Universal Authentication for various tools including [SQL Server Management Studio](/azure/azure-sql/database/authentication-mfa-ssms-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 > [!NOTE]
-> Microsoft Entra ID is still relatively new and has some limitations. To ensure that Microsoft Entra ID is a good fit for your environment, see [Microsoft Entra features and limitations](/azure/azure-sql/database/authentication-aad-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), specifically the Additional considerations.
+> Microsoft Entra ID is still relatively new and has some limitations. To ensure that Microsoft Entra ID is a good fit for your environment, see [Microsoft Entra features and limitations](../sql/authentication-aad-overview.md#limitations).
 
 ### Configuration steps
 
@@ -75,7 +75,7 @@ Currently Microsoft Entra users are not shown in SSDT Object Explorer. As a work
 
 ### Find the details
 
-* The steps to configure and use Microsoft Entra authentication are nearly identical for Azure SQL Database and Synapse SQL in Azure Synapse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Pool By Using Microsoft Entra authentication](/azure/azure-sql/database/authentication-aad-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* To configure and use Microsoft Entra authentication, follow the steps in [Microsoft Entra authentication for Azure Synapse Analytics](../sql/authentication-aad-overview.md).
 * Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## Next steps
