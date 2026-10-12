@@ -55,8 +55,8 @@ The table below summarizes the key differences most customers care about:
 
 > [!WARNING]
 > If you **do not** migrate your general purpose v1 (GPv1) with ZRS redundancy accounts by the retirement date, Microsoft will **automatically upgrade** remaining accounts to **GPv2** with an equivalent or nearest redundancy setting available in the region. This may change your billing.
->
-> > [!IMPORTANT]
+
+> [!IMPORTANT]
 > GPv1 storage accounts are expected to transition to GPv2 pricing shortly after the retirement date, regardless of when the backend update of your storage accounts from GPv1 to GPv2 is completed. To maintain control over your update timeline, proactively update your GPv1 accounts to GPv2 before the Microsoft-initiated conversion begins.
 
 | Date               | Milestone |
