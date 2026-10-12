@@ -5,7 +5,7 @@ author: duau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 03/28/2026
+ms.date: 10/09/2026
 # Customer intent: "As a network administrator, I want to apply Azure Policies to govern Azure Firewall configurations, so that I can ensure compliance with security best practices and organizational standards."
 ---
 
@@ -76,9 +76,6 @@ You see an error that says your resource was disallowed by policy, confirming th
 
 ## Additional Azure Policy definitions
 
-For more Azure Policy definitions specifically designed for Azure Firewall, including policies for explicit proxy configuration, see the [Azure Network Security GitHub repository](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Policy%20-%20Azure%20Policy%20Definitions). This repository contains community-contributed policy definitions that you can deploy in your environment.
-
-## Related content
 
 - [What's Azure Policy?](../governance/policy/overview.md)
 - [Govern your Azure Firewall configuration with Azure Policies](https://techcommunity.microsoft.com/t5/azure-network-security-blog/govern-your-azure-firewall-configuration-with-azure-policies/ba-p/4189902)

@@ -1,13 +1,13 @@
 ---
 title: Deploy Azure Firewall with Availability Zones
-description: In this article, you learn how to deploy an Azure Firewall with Availability Zones. 
+description: Learn how to deploy Azure Firewall with platform-managed zone redundancy, without specifying availability zones, and review regional rollout coverage.
 services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 10/09/2026
 ms.author: duau 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, references_regions
 # Customer intent: "As a cloud administrator, I want to deploy Azure Firewall across multiple Availability Zones, so that I can ensure high availability and enhance the reliability of my network security infrastructure."
 ---
 
@@ -24,11 +24,12 @@ For Azure Firewall, availability zones determine how firewall instances are plac
 
 Azure Firewall uses a **Zone-redundant-by-default** deployment model to improve resiliency, availability, and protection against zonal failures.
 
-Current behavior:
-- **All new Azure Firewall deployments that don't explicitly specify zones (that is, set to None)** are zone redundant by default in regions that support availability zones.
-- **All existing firewalls without a specified zone (that is, set to None)** are being platform-migrated to become zone redundant (ZR).
-- **All existing firewalls deployed in a single zone** aren't migrated at this time.
-- You don't need to take any administrator action to migrate.  
+For new deployments, **don't specify availability zones for the firewall**. Azure manages backend zone allocation across multiple availability zones in regions where the default is available. You don't need to choose zone identifiers to get zone redundancy.
+
+- New firewalls with no specified zones are zone redundant by default in the [ZR compatible regions](#zr-compatible-regions).
+- Existing non-zone-redundant firewalls, including firewalls with an explicitly specified single zone, are platform-migrated in regions that support multiple availability zones.
+- Migration is complete in the listed regions. Other regions are enabled as the migration progresses.
+- You don't need to deallocate, redeploy, or change the firewall's zone settings to receive the automatic migration.
 
 ## Definitions
 
@@ -37,44 +38,88 @@ Azure Firewall deployment options fall into the following categories.
 | Deployment type | Description |
 | --- | --- |
 | **Zone Redundant (ZR)** | Firewall is deployed across multiple availability zones (two or more). |
-| **Zonal (single zone)** | Firewall deployed into a single zone (for example, Zone 1 only). |
-| **Regional (no zones)** | Firewall deployed to no zones. The platform automatically migrates these firewalls to zone redundant. |
+| **Zonal (single zone)** | Firewall configured with a single zone (for example, Zone 1 only). |
+| **Regional (no zones)** | Firewall configured to no zones. |
 
 Some regions don't support availability zones. In those regions, Azure Firewall continues to deploy as a regional resource.
 
 ## Platform migration of existing firewalls
 
-Azure Firewall is actively migrating existing non-ZR firewalls to become zone redundant:
+Azure Firewall migrates existing non-zone-redundant firewalls to become zone redundant in regions that support multiple availability zones:
 - Migration is automatic and transparent.
 - No downtime or administrator action is required.
+
+### ZR compatible regions
+
+As of October 9, 2026, migration is complete and zone redundancy by default is available in the following regions.
+
+| Cloud | Region identifier |
+| --- | --- |
+| Azure public | `eastus2` |
+| Azure public | `eastus` |
+| Azure public | `japaneast` |
+| Azure public | `australiaeast` |
+| Azure public | `canadacentral` |
+| Azure public | `westus2` |
+| Azure public | `centralus` |
+| Azure public | `westeurope` |
+| Azure public | `northeurope` |
+| Azure public | `southcentralus` |
+| Azure public | `francecentral` |
+| Azure public | `centralindia` |
+| Azure public | `koreacentral` |
+| Azure public | `southeastasia` |
+| Azure public | `germanywestcentral` |
+| Azure public | `uksouth` |
+| Azure public | `swedencentral` |
+| Azure public | `uaenorth` |
+| Azure public | `switzerlandnorth` |
+| Azure public | `southafricanorth` |
+| Azure public | `eastasia` |
+| Azure public | `brazilsouth` |
+| Azure public | `westus3` |
+| Azure public | `israelcentral` |
+| Azure public | `polandcentral` |
+| Azure public | `norwayeast` |
+| Azure public | `italynorth` |
+| Azure public | `spaincentral` |
+| Azure public | `qatarcentral` |
+| Azure public | `mexicocentral` |
+| Azure public | `newzealandnorth` |
+| Azure public | `indonesiacentral` |
+| Azure public (EUAP) | `centraluseuap` |
+| Azure public (EUAP) | `eastus2euap` |
+| Azure China | `chinanorth3` |
+| Azure Government | `usgovvirginia` |
+
+EUAP regions have restricted access. Use a region available to your subscription in the appropriate Azure cloud.
 
 ## Understanding zone properties after migration
 
 After migration:
-- For backward compatibility, migration status (that is, updated zone configuration) doesn't immediately appear in ARM template, JSON, or Azure Resource Group (ARG) properties.
+- For backward compatibility, migration status (that is, updated zone configuration) doesn't immediately appear in ARM template, JSON, or Azure Resource Graph (ARG) properties.
 - The firewall is still zone redundant at the backend.
 - The platform infrastructure manages zone redundancy independently of the ARM template properties.
 
+
 ## Configure availability zones in Azure Firewall
 
-You can configure Azure Firewall to use availability zones during deployment to enhance availability and reliability. Use the Azure portal, Azure PowerShell, or other deployment methods to set this configuration.
+For the recommended deployment path, omit firewall zone settings and let Azure manage allocation. Choose a [ZR compatible region](#zr-compatible-regions) when you require zone redundancy by default. 
 
 ### Using Azure portal
 
-- By default, the Azure portal doesn't provide an option to select specific Availability Zones when creating a new Azure Firewall. Azure Firewall is deployed as Zone Redundant by default, adhering to zone redundancy requirements.
+- The Azure portal doesn't require you to select specific availability zones when creating a new firewall. In ZR compatible regions, Azure manages zone-redundant placement by default.
 
 ### Using APIs
 
-- Don't specify any zones during deployment. The backend automatically configures the firewall as Zone Redundant by default.
-- If you provide specific zones during deployment via API, the specified zones are honored.
+- Omit the firewall's `zones` property in API requests, ARM templates, Bicep, and Terraform configurations. In compatible regions, Azure manages zone redundancy at the backend.
+- Don't add explicit zones to existing configurations solely to obtain zone redundancy. Eligible existing firewalls are migrated automatically.
 
 ### Using Azure PowerShell
 
-You can configure Availability Zones by using Azure PowerShell. The following example demonstrates how to create a firewall in zones 1, 2, and 3.
+The following example creates a firewall without passing `-Zone` to `New-AzFirewall`. Azure manages the firewall's backend zone allocation in East US, a ZR compatible region.
 
 When you create a standard public IP address without specifying a zone, it's configured as zone-redundant by default. Standard public IP addresses can be associated with all zones or a single zone.
-
-A firewall can't be deployed in one zone while its public IP address is in another zone. However, you can deploy a firewall in a specific zone and associate it with a zone-redundant public IP address, or deploy both the firewall and the public IP address in the same zone for proximity purposes.
 
 ```azurepowershell
 $rgName = "Test-FW-RG"
@@ -96,18 +141,15 @@ New-AzFirewall `
   -ResourceGroupName $rgName `
   -Location "eastus" `
   -VirtualNetwork $vnet `
-  -PublicIpAddress @($pip1) `
-  -Zone 1,2,3
+  -PublicIpAddress @($pip1)
 ```
 
 ### Limitations
 
-- Azure Firewall with Availability Zones is supported only in regions that offer Availability Zones.
-- In regions with zonal restrictions due to capacity constraints, deploying a Zone Redundant Firewall fails. In such cases, you can deploy the firewall in a single zone or in available zones to proceed with the deployment.
-- Zonal restrictions are documented in the [Azure Firewall known issues](firewall-known-issues.md) page.
-- The Azure portal doesn't explicitly display Availability Zone information for Azure Firewalls created through the portal in regions offering Availability Zones. However, such firewalls are still deployed as zone redundant by default. In contrast, when you use Azure PowerShell or Azure CLI and explicitly provide zone values, the Azure portal displays the zone information.
+- Zone redundancy requires a region that supports multiple availability zones. In regions without availability zones, Azure Firewall remains a regional resource.
+- Regional capacity restrictions can affect deployment. Omitting zones doesn't bypass capacity restrictions. Review deployment errors and the [Azure Firewall known issues](firewall-known-issues.md) before changing your configuration.
+- Portal and resource zone properties don't necessarily display platform-managed backend placement. For more information, see [Understanding zone properties after migration](#understanding-zone-properties-after-migration).
 
-By configuring Availability Zones, you can achieve higher availability and ensure your network security infrastructure is more resilient. 
 
 ## Service level agreements (SLA)
 

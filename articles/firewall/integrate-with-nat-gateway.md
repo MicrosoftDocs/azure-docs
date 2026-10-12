@@ -5,7 +5,7 @@ services: firewall
 author: alittleton
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 09/19/2025
+ms.date: 10/09/2026
 ms.author: alittleton
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As a network architect, I want to integrate Azure NAT Gateway with Azure Firewall, so that I can efficiently scale SNAT ports to accommodate high outbound traffic demands without compromising on IP address management.
