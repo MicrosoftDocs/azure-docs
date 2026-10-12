@@ -94,7 +94,7 @@ resources
 
 ## Special Cases: Databricks DBFS Accounts
 
-If you see a storage account that is part of a **Databricks-managed resource group** in your subscription, **no action is required**. These accounts are read-only for you and are used by Databricks for workspace operations. Microsoft will migrate these DBFS accounts to **GPv2 automatically** after the October 13, 2026 retirement. The account conversion will be done in waves and will extend to Q1CY2027.
+If you see a storage account that's part of a **Databricks-managed resource group** in your subscription, **no action is required**. Databricks manages these accounts, and they're read-only for you. Databricks uses these accounts for workspace operations. Microsoft migrates these DBFS accounts to **GPv2 automatically** after the October 13, 2026 retirement. The account conversion happens in waves and extends to Q1CY2027.
 
 ### How to identify DBFS accounts
 - Most DBFS accounts start with the prefix `dbstorage`.  
