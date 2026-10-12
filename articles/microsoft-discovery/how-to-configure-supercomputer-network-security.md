@@ -98,6 +98,50 @@ To enable a private supercomputer when you create the supercomputer, add the fol
 > [!IMPORTANT]
 > You can't change this tag after supercomputer creation. Adding the tag doesn't remove the outbound connectivity requirements for node pools and tools described earlier in this article.
 
+#### Important considerations
+
+1. A management subnet is required and must be separate from the nodepool subnet and delegated to Microsoft.ContainerService/managedClusters.
+
+2. Disable Private Link service network policies on the subnet used for Discovery private management-plane connectivity.
+
+3. Ensure that there is a default route to Azure Firewall or another supported network virtual appliance
+
+4. Configure firewall rules
+
+At minimum, allow the following core FQDNs:
+- `mcr.microsoft.com`, `*.data.mcr.microsoft.com`, and `mcr-0001.mcr-msedge.net` provide container images for core features of the Supercomputer.
+- `management.azure.com` is required for Kubernetes operations against the Azure API.
+- `login.microsoftonline.com` is required for identity management.
+- `packages.microsoft.com` is required for OS package management.
+- `packages.aks.azure.com` and `acs-mirror.azureedge.net` are required for managing core Kubernetes software.
+
+5. Configure private DNS
+
+If the virtual network uses custom DNS:
+
+- Ensure system and node-pool subnets can reach the DNS servers over both UDP and TCP port 53.
+- Ensure the DNS servers listen and respond over both protocols.
+- Configure a conditional forwarder for the management-plane private DNS zone.
+- Forward the zone to Azure DNS at `168.63.129.16` from a DNS server hosted in Azure, or use Azure DNS Private Resolver in a virtual network linked to the private DNS zone.
+- Verify that NSGs, firewalls, NVAs, and routes don't block either DNS protocol.
+- Link any hub, spoke, or administrator VNet that must resolve the private endpoint.
+
+Don't delete or modify a Discovery-managed private endpoint, private link, DNS record, or private DNS zone unless the Microsoft Discovery documentation explicitly instructs you to do so. Changing these resources can make the underlying cluster inoperable.
+
+6. Before deployment, confirm that:
+
+- The management subnet has the required delegation.
+- Private Link service network policies are disabled on the required subnet.
+- The system and node-pool subnets have the expected route table.
+- Custom DNS responds over UDP and TCP.
+- The firewall allows all required platform dependencies.
+- No required subnet overlaps with another connected network.
+
+7. Deploy the supercomputer with the following tag:
+| Name | Value |
+|---|---|
+| `discovery.enableprivatecluster` | `true` |
+
 ## Related content
 
 - [Microsoft Discovery Supercomputer](concept-supercomputer.md)
