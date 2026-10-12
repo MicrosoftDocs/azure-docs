@@ -87,7 +87,7 @@ When you set `outboundType` to `UserDefinedRouting`, you must configure a `manag
 
 ### Private supercomputer [Preview]
 
-A private supercomputer removes the public IP address from the supercomputer management plane. The Microsoft Discovery service provisions and manages an Azure Private Link into the supercomputer's assigned subnet to access the management plane instead. You need a management subnet to enable this feature.
+A private supercomputer removes the public IP address from the supercomputer management plane. The Microsoft Discovery service provisions and manages an Azure Private Link into the supercomputer's assigned subnet to access the management plane instead. You need to enable User Defined Routing and provide a management subnet to enable this feature.
 
 To enable a private supercomputer when you create the supercomputer, add the following resource tag:
 
