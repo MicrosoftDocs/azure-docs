@@ -77,6 +77,8 @@ Administrators can suppress these announcements by setting the Teams meeting pol
 When you disable these notifications, you're responsible for ensuring that your contact center solution informs participants of recording and transcription in real time in accordance with applicable laws.
 
 For configuration details, see [`Set-CsTeamsMeetingPolicy - DisableAudioAnnouncementsForResourceAccounts`](/powershell/module/microsoftteams/set-csteamsmeetingpolicy#-disableaudioannouncementsforresourceaccounts).
+> [!NOTE]
+> This setting is available in PowerShell [version 7.8.0](https://www.powershellgallery.com/packages/MicrosoftTeams/7.8.0) and later.
 
 ## How do Microsoft Purview Information Barriers (IB) apply to Teams Phone extensibility?
 
