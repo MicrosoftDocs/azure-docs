@@ -2,7 +2,7 @@
 title: Authentication Types by Deployment Methods
 description: Learn the available types of authentication with Azure App Service when you're deploying application code.
 ms.topic: concept-article
-ms.date: 04/06/2026
+ms.date: 10/08/2026
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to understand the authentication options available for different deployment methods in Azure App Service.
@@ -12,6 +12,8 @@ ms.service: azure-app-service
 # Authentication types by deployment methods in Azure App Service
 
 With Azure App Service, you have multiple options for deploying your web application code and configuration. These deployment methods support one or more authentication mechanisms. This article provides details about the deployment methods and authentication mechanisms.
+
+For Linux container access, the preview [`az webapp exec`](/cli/azure/webapp#az-webapp-exec) command is available in Azure CLI 2.90.0 or later. It supports Microsoft Entra authentication when SCM basic authentication is disabled; when SCM basic authentication is enabled, the CLI can use publishing credentials. Container access isn't a file-upload method. See [Open a container shell (SSH) and run commands](configure-linux-open-ssh-session.md?pivots=container-linux).
 
 > [!NOTE]
 > To disable basic authentication for your App Service app, see [Disable basic authentication in App Service deployments](configure-basic-auth-disable.md).
