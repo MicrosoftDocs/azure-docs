@@ -13,7 +13,7 @@ ms.date: 10/12/2026
 # What are some resources and tools you can use with Apache Airflow on Astro?
 
 > [!IMPORTANT]
-> The Azure Native ISV Service for Apache Airflow on Astro is now retired. Astro remains available directly from Astronomer. For more information, see the [Astro documentation](https://www.astronomer.io/docs/astro/overview).
+> The Azure Native ISV Service for Apache Airflow on Astro is now retired. You can still get Astro directly from Astronomer. For more information, see the [Astro documentation](https://www.astronomer.io/docs/astro/overview).
 
 In this article, you learn about resources and tools for use with Apache Airflow on Astro - An Azure Native ISV Service.
 
