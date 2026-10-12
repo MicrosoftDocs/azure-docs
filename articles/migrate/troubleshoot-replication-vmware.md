@@ -39,7 +39,7 @@ While performing replications, you might observe that replication for a particul
     :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
 
 6. The output shows the server replication status, disk progress, time left, upload speed, and datastore details.
-7. **Remediate slow or stuck replications using "Expedite" command**: To retrieve appliance operating parameters and a prioritized list of recommended actions that can help reduce the remaining migration time for the specified server and to remediate slow or stuck replications. Run the command with the `Expedite` flag. For guidance on resolving issues identified by the command, see the Frequent issues section.
+7. **Remediate slow or stuck replications using "Expedite" command**: To retrieve appliance operating parameters and a prioritized list of recommended actions that can help reduce the remaining migration time for the specified server and to remediate slow or stuck replications. Run the command with the `Expedite` flag. For guidance on resolving issues identified by the command, see the [Frequent issues section](troubleshoot-replication-vmware.md#frequent-issues-that-cause-slow-or-stuck-replications).
     ```powershell
 
     Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -MachineName "<your-server-name>" -Expedite 
