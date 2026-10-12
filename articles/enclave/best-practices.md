@@ -66,6 +66,12 @@ You should follow, wherever possible, underlying Azure service best practices do
 - [Azure Virtual WAN Network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology)
 - [Azure Virtual WAN FAQ](/azure/virtual-wan/virtual-wan-faq)
 
+When you choose your community address space, verify that it doesn't overlap with your on-premises network address space, even if both use private address ranges (for example, both starting with `10.`). An overlapping address space can conflict with your on-premises network:
+
+- If you connect over VPN Gateway, configure NAT on the VPN Gateway to resolve the conflict. For more information, see [NAT for VPN Gateway](/azure/vpn-gateway/nat-overview).
+- If you connect over ExpressRoute, configure NAT on your on-premises router instead, because ExpressRoute doesn't provide this NAT capability for you.
+- If you connect using virtual network peering, Azure doesn't allow peering between virtual networks with overlapping address spaces, so choose a non-overlapping community address space before you peer your networks.
+
 #### Enclave network design considerations
 
 You should follow, wherever possible, underlying Azure service best practices documentation when planning your enclave networks. Including these best practices:
