@@ -23,7 +23,7 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 
 [!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
 
-* Configure an identity connection for the NetApp account. See [Configure an identity connection](azure-netapp-files-create-volumes-smb#configure-an-identity-connection).
+* Configure an identity connection for the NetApp account. See [Configure an identity connection](azure-netapp-files-create-volumes-smb.md#configure-an-identity-connection).
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
@@ -31,7 +31,7 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 
 Before you create an SMB volume, configure the identity connection for the authentication method you want to use:
 
-* For Active Directory Domain Services (AD DS) authentication, see [Create and manage Active Directory connections](create-active-directory-connections.md)
+* For Active Directory Domain Services (AD DS) authentication, see [Create and manage Active Directory connections](create-active-directory-connections.md).
 * For Microsoft Entra Kerberos authentication, see [Configure Microsoft Entra Kerberos authentication with Azure NetApp Files](configure-entra-kerberos-authentication-for-hybrid-cloud-identities.md).
 
 
