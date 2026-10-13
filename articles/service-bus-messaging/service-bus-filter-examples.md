@@ -1,8 +1,12 @@
 ---
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
-ms.topic: how-to
-ms.date: 10/06/2026
+ms.topic: how-to-guide
+ms.date: 10/13/2026
+author: EldertGrootenboer
+ms.author: egrootenboer
+ms.service: azure-service-bus
+ms.subservice: service-bus-messaging
 ms.devlang: csharp
 ms.custom:
   - devx-track-dotnet
@@ -52,11 +56,89 @@ user.SuperHero like 'SuperMan%'
 ```
 
 ## Filter on message properties with special characters
-If the message property name has special characters, use double quotes (`"`) to enclose the property name. For example if the property name is `"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName"`, use the following syntax in the filter.
+Use square brackets (`[]`) around a property name that contains spaces or punctuation. The brackets identify the property name; single quotation marks identify a string value. If the property name contains a closing bracket (`]`), represent that character as two closing brackets (`]]`).
 
-```csharp
+The following examples use string-valued application properties. The matching and nonmatching values refer to the property named in the first column. Single quotation marks in the table delimit strings; they aren't part of the message property value.
+
+| Property name | SQL filter | Matching value | Nonmatching value |
+| --- | --- | --- | --- |
+| `Order Type` | `[Order Type] = 'priority'` | `'priority'` | `'standard'` |
+| `HR-EmployeeID` | `user.[HR-EmployeeID] = 'E123'` | `'E123'` | `'E124'` |
+| `http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName` | `[http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName] = 'account'` | `'account'` | `'contact'` |
+| `Order]Type` | `[Order]]Type] = 'priority'` | `'priority'` | `'standard'` |
+
+Double quotation marks also delimit property names. For example, the following expression is equivalent to the bracket-delimited URI property example:
+
+```sql
 "http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName" = 'account'
 ```
+
+For the identifier grammar, see [SQL filter syntax: property names](service-bus-messaging-sql-filter.md#property_name).
+
+## Match strings with wildcards
+
+Use `LIKE` to match a string-valued property against a pattern. `%` matches zero or more characters, and `_` matches exactly one character. Use `NOT LIKE` to exclude values that match the pattern.
+
+In the following examples, `Code` is an application property of type string. Single quotation marks delimit strings; they aren't part of the message property value. `''` represents an empty string.
+
+| SQL filter | Matching values | Nonmatching values |
+| --- | --- | --- |
+| `user.Code LIKE 'order-%'` | `'order-'`, `'order-123'` | `'preorder-123'` |
+| `user.Code LIKE '%-complete'` | `'-complete'`, `'order-complete'` | `'order-complete-extra'` |
+| `user.Code LIKE '%order%'` | `'order'`, `'preorder-123'` | `'invoice-123'` |
+| `user.Code LIKE 'item-_'` | `'item-A'`, `'item-7'` | `'item-'`, `'item-AB'` |
+| `user.Code LIKE '%'` | `''`, `'order-123'` | A message without the `Code` property |
+| `user.Code NOT LIKE 'test-%'` | `'order-123'` | `'test-'`, `'test-123'` |
+
+An absent application property evaluates as unknown, so it doesn't satisfy either `LIKE` or `NOT LIKE`. For the pattern grammar, see [SQL filter syntax: patterns](service-bus-messaging-sql-filter.md#pattern).
+
+## Match literal wildcard and escape characters
+
+Use `=` for an exact string comparison. In an equality expression, `%` and `_` are ordinary characters. To match them literally within a `LIKE` pattern, choose a single-character escape string with `ESCAPE` and put it before each literal wildcard.
+
+The following examples use `!` as the escape character and a string-valued `Code` application property:
+
+| SQL filter | Matching values | Nonmatching values |
+| --- | --- | --- |
+| `user.Code = 'discount%_code'` | `'discount%_code'` | `'discount10_code'` |
+| `user.Code LIKE '%!%%' ESCAPE '!'` | `'discount%code'`, `'%'` | `'discount10code'` |
+| `user.Code LIKE 'order!_%' ESCAPE '!'` | `'order_'`, `'order_123'` | `'orderX123'` |
+| `user.Code LIKE 'folder!!%' ESCAPE '!'` | `'folder!'`, `'folder!archive'` | `'folderarchive'` |
+
+In `'%!%%'`, the first and last `%` are wildcards, and `!%` represents a literal percent sign. In `'order!_%'`, `!_` represents a literal underscore and the final `%` remains a wildcard. In `'folder!!%'`, `!!` represents the escape character itself.
+
+These are SQL filter expressions. If you embed them in a programming-language string, a JSON document, or a shell command, apply that format's string-escaping rules separately. For the SQL escape grammar, see [SQL filter syntax: escape characters](service-bus-messaging-sql-filter.md#escape_char).
+
+## Filter on string values with special characters
+
+Enclose a string value in single quotation marks. Represent an embedded single quotation mark with two single quotation marks. Punctuation such as spaces, hyphens, slashes, and ampersands can appear directly in the string.
+
+The following examples use a `CustomerName` application property of type string:
+
+| SQL filter | Matching value | Nonmatching value |
+| --- | --- | --- |
+| `user.CustomerName = 'O''Brien'` | `'O''Brien'` | `'OBrien'` |
+| `user.CustomerName = 'North & South - Retail/Online'` | `'North & South - Retail/Online'` | `'North & South - Retail'` |
+
+In the first row, the message property value is `O'Brien`, with one single quotation mark. This string-value escaping is separate from the brackets or double quotation marks used for [property names](#filter-on-message-properties-with-special-characters). For the string grammar, see [SQL filter syntax: string constants](service-bus-messaging-sql-filter.md#string_constant).
+
+## Combine string and numeric conditions
+
+Use parentheses to group related conditions when you combine `AND` and `OR`. For example, this filter selects a code beginning with `order-` or `return-` when its quantity is at least 10:
+
+```sql
+(user.Code LIKE 'order-%' OR user.Code LIKE 'return-%') AND user.Quantity >= 10
+```
+
+In these examples, `Code` is an application property of type string and `Quantity` is an application property of type integer.
+
+| Code value | Quantity value | Matches |
+| --- | --- | --- |
+| `'order-123'` | `10` | Yes |
+| `'return-123'` | `15` | Yes |
+| `'order-123'` | `9` | No |
+| `'return-123'` | `9` | No |
+| `'invoice-123'` | `15` | No |
 
 ## Filter on message properties with numeric values
 The following examples show how you can use properties with numeric values in filters.
