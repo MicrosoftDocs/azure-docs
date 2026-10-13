@@ -53,7 +53,7 @@ https://contoso-ai-gateway.westus2-02.ai.gateway.azure.com/
 
 ### Authorization header for keys
 
-Clients connecting to the runtime URL and authenticating using keys should use `Authorization` header with a `Bearer` scheme.
+Clients connecting to the runtime URL and authenticating by using keys should use the `Authorization` header with a `Bearer` scheme.
 
 | Earlier resource | New resource |
 | --- | --- |
