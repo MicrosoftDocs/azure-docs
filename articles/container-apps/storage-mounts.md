@@ -238,7 +238,7 @@ Azure Files storage has the following characteristics:
 
 Azure Files supports both SMB (Server Message Block) and NFS (Network File System) protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
 
-For new SMB file mounts, we recommend **managed identity authentication (preview)** instead of storage account keys. Container Apps uses a system-assigned or user-assigned managed identity assigned to the **Container Apps environment**, not the individual container app, to authenticate to Azure Files. This mode eliminates the need to retrieve, store, or rotate a storage account key. You must explicitly select managed identity authentication in the storage definition; existing storage account key mounts remain supported.
+For new SMB file mounts, use **managed identity authentication (preview)** instead of storage account keys. Container Apps uses a system-assigned or user-assigned managed identity assigned to the **Container Apps environment**, not the individual container app, to authenticate to Azure Files. This mode eliminates the need to retrieve, store, or rotate a storage account key. You must explicitly select managed identity authentication in the storage definition; existing storage account key mounts remain supported.
 
 Managed identity authentication applies only to SMB shares. NFS shares use network-based access controls and don't use SMB authentication settings.
 
