@@ -10,13 +10,23 @@ metadata:
   ms.topic: landing-page
   author: sidontha
   ms.author: sidontha
-  ms.date: 02/12/2025
+  ms.date: 10/13/2026
+  ms.custom: msecd-doc-authoring-1030
+  ai-usage: ai-assisted
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
+  - title: Plan for Azure Data Share retirement
+    summary: Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027.
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Review retirement timelines and transition guidance
+            url: https://aka.ms/ADS-Deprecation
+
   # Card (optional)
   - title: About Azure Data Share
     linkLists:

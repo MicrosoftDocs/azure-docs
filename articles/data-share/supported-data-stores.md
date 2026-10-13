@@ -5,9 +5,14 @@ ms.service: azure-data-share
 author:  chvukosw
 ms.author: chvukosw
 ms.topic: concept-article
-ms.date: 01/21/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 # Supported data stores in Azure Data Share
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and data consumers can choose a data store to receive the data.
 

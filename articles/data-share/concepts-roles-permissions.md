@@ -5,11 +5,15 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: concept-article
-ms.date: 01/20/2026
-ms.custom: subject-rbac-steps
+ms.date: 10/13/2026
+ms.custom: subject-rbac-steps, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Roles and requirements for Azure Data Share
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 This article describes roles and permissions required to share and receive data using Azure Data Share service. 
 

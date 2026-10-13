@@ -5,10 +5,15 @@ ms.service: azure-data-share
 author:  chvukosw
 ms.author: chvukosw
 ms.topic: concept-article
-ms.date: 01/21/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 
 # Azure Data Share concepts
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 Azure Data Share introduces some new terminology related to data sharing. This article explains some frequently used terms that you could see used throughout the service.
 

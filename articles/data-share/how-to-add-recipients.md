@@ -5,11 +5,15 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 01/20/2026
-ms.custom: sfi-image-nochange
+ms.date: 10/13/2026
+ms.custom: sfi-image-nochange, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # How to add a recipient to your share
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 You can add recipient when you create a new share or to an existing share. From Azure Data Share UI, you can add recipient using the Azure sign-in email of the user. From API, you can use a combination of user/service principal and tenant ID. When a tenant ID is specified, the invitation can only be accepted into this tenant. Also from API, you can create an invitation without sending an email to the recipient.
 

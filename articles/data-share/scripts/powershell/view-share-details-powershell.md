@@ -5,10 +5,15 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 01/23/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 
 # Use PowerShell to view the details of a sent data share
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 This PowerShell script lists data shares from an existing account and gets the details of a specific share.
 

@@ -5,11 +5,15 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 01/21/2026
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 10/13/2026
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Share data using Azure Data Share and ARM template
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 Learn how to set up a new Azure Data Share from an Azure storage account by using an Azure Resource Manager template (ARM template). And, start sharing your data with customers and partners outside of your Azure organization. For a list of the supported data stores, see [Supported data stores in Azure Data Share](./supported-data-stores.md).
 

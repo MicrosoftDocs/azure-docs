@@ -5,9 +5,14 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 01/20/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 # Disaster recovery for Azure Data Share
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 This article explains how to configure a disaster recovery environment for Azure Data Share. Azure data center outages are rare, but can last anywhere from a few minutes to hours. Data Center outages can cause disruption to environments that are relying on data being shared by the data provider. By following the steps detailed in this article, data providers can continue to share data with their data consumers if there's a data center outage for the primary region hosting your data share.
 

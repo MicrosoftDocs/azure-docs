@@ -5,11 +5,15 @@ author:  chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 01/20/2026
-ms.custom: sfi-image-nochange
+ms.date: 10/13/2026
+ms.custom: sfi-image-nochange, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 [!INCLUDE [appliesto-sql](includes/appliesto-sql.md)]
 

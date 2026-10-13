@@ -1,15 +1,19 @@
 ---
 title: Monitor Azure Data Share
 description: Start here to learn how to monitor Azure Data Share.
-ms.date: 01/20/2026
-ms.custom: horz-monitor
+ms.date: 10/13/2026
+ms.custom: horz-monitor, msecd-doc-authoring-1030
 ms.topic: concept-article
 author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
+ai-usage: ai-assisted
 ---
 
 # Monitor Azure Data Share
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 

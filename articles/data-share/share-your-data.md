@@ -4,12 +4,16 @@ description: Tutorial - Share data with customers and partners using Azure Data 
 author:  chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, msecd-doc-authoring-1030
 ms.topic: tutorial
-ms.date: 01/21/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
 ---
 
-# Tutorial: Share data using Azure Data Share  
+# Tutorial: Share data using Azure Data Share
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 In this tutorial, you learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
 

@@ -4,12 +4,16 @@ description: Tutorial - Accept and receive data using Azure Data Share
 author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, msecd-doc-authoring-1030
 ms.topic: tutorial
-ms.date: 01/21/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
 ---
 
-# Tutorial: Accept and receive data using Azure Data Share  
+# Tutorial: Accept and receive data using Azure Data Share
+
+> [!IMPORTANT]
+> Azure Data Share is being retired. You can no longer create new Azure Data Share accounts, and existing capabilities will remain in maintenance mode through October 30, 2027. For retirement timelines, transition guidance, and recommended next steps, see the [Azure Data Share retirement announcement](https://aka.ms/ADS-Deprecation).
 
 In this tutorial, you learn how to accept a data share invitation using Azure Data Share. You learn how to receive data being shared with you, and how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
 
