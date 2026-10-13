@@ -323,7 +323,7 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 To prepare an OpenShift cluster, you need a single-node or multi-node OpenShift cluster, version
 4.20 or later.
 
-OpenShift enforces [security context constraints (SCCs)](https://docs.openshift.com/container-platform/latest/authentication/managing-security-context-constraints.html), which control the privileges that pods can request. By default, OpenShift assigns each project a UID range and admits pods under the `restricted-v2` constraint. Some Azure IoT Operations components request fixed user IDs outside that range, so you grant additional constraints before you deploy.
+OpenShift enforces [security context constraints (SCCs)](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/authentication_and_authorization/managing-pod-security-policies), which control the privileges that pods can request. By default, OpenShift assigns each project a UID range and admits pods under the `restricted-v2` constraint. Some Azure IoT Operations components request fixed user IDs outside that range, so you grant additional constraints before you deploy.
 
 ### Grant security context constraints
 
