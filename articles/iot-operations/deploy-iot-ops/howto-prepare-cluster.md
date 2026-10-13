@@ -83,7 +83,7 @@ To prepare an Azure Arc-enabled OpenShift cluster, you need:
 
 - A Red Hat OpenShift cluster, version 4.20 or later.
 
-- The [OpenShift CLI (`oc`)](https://docs.openshift.com/container-platform/latest/cli_reference/openshift_cli/getting-started-cli.html) installed on your development machine, signed in to your cluster with an account that has the `cluster-admin` role. Granting security context constraints requires `cluster-admin`.
+- The [OpenShift CLI (`oc`)](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/cli_tools/openshift-cli-oc) installed on your development machine, signed in to your cluster with an account that has the `cluster-admin` role. Granting security context constraints requires `cluster-admin`.
 
 - Hardware that meets the system requirements:
   - [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
