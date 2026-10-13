@@ -48,7 +48,7 @@ Container Apps features an intelligent and interactive diagnostics experience th
 
 ## Troubleshoot SMB managed identity authentication
 
-For new SMB Azure Files mounts, we recommend [managed identity authentication (preview)](storage-mounts.md#azure-files). This mode uses a managed identity assigned to the **Container Apps environment**, not the individual container app. If a mount using this mode fails, check the following:
+For new SMB Azure Files mounts, use [managed identity authentication (preview)](storage-mounts.md#azure-files). This mode uses a managed identity assigned to the **Container Apps environment**, not the individual container app. If a mount using this mode fails, check the following:
 
 1. **Azure CLI extension**: Use the latest Azure CLI and update the Container Apps extension:
 
