@@ -1020,11 +1020,11 @@ Migrate my Windows Consumption Function App <APP_NAME> to Flex Consumption.
 
 Replace `<APP_NAME>` with your source app name. Copilot presents the migration plan, performs assessment, inventories configuration, and creates a new Flex Consumption app alongside the source.
 
-By default, the workflow proposes `<APP_NAME>-flex` for the target app name and reuses the source storage account. You can request a different target name, a new storage account, or a specific existing storage account in your prompt. Review the storage choice because shared dependencies can let both apps process the same events.
+By default, the workflow proposes `<APP_NAME>-flex` for the target app name. Copilot asks you to choose whether to reuse the source storage account, create a new one, or use a specific existing account before creating the target app. You can request a different target name or state your storage preference in the prompt. Review the storage choice because shared dependencies can let both apps process the same events.
 
 Before deployment, Copilot guides Windows-to-Linux code preparation, target configuration, built-in authentication, and non-HTTP trigger safety. It then offers deployment through an updated pipeline, a local project, or a compatible deployment package.
 
-Copilot records progress in `.azure-upgrade/<SOURCE_APP_NAME>/`. To resume, use this prompt:
+By default, Copilot records progress in `.azure-upgrade/<SOURCE_APP_NAME>/upgrade-status.md`. To resume, use this prompt:
 
 ```text
 Resume the Flex Consumption migration for <APP_NAME>.
