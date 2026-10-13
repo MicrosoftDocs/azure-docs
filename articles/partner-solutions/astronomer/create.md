@@ -4,13 +4,16 @@ description: Learn how to create an Astro resource in the Azure portal.
 author: praveenrajap
 ms.author: praveenrajap
 ms.topic: quickstart
-ms.date: 02/07/2025
+ms.date: 10/12/2026
 ms.custom:
   - references_regions
   - ignite-2023
 ---
 
 # Quickstart: Get started with Apache Airflow on Astro
+
+> [!IMPORTANT]
+> The Azure Native ISV Service for Apache Airflow on Astro is now retired. You can still get Astro directly from Astronomer. For more information, see the [Astro documentation](https://www.astronomer.io/docs/astro/overview).
 
 In this quickstart, you create an instance of Apache Airflow on Astro.
 

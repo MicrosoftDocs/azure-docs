@@ -358,6 +358,22 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: durable-task-sdk-languages
+  title: Durable Task SDK programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: csharp
+    title: C#
+  - id: javascript
+    title: JavaScript
+  - id: python
+    title: Python
+  - id: powershell
+    title: PowerShell
+  - id: java
+    title: Java
+  - id: go
+    title: Go (beta)
 - id: function-worker-process
   title: .NET Azure Functions process model
   prompt: Choose your .NET mode

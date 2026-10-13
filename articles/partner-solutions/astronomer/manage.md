@@ -6,10 +6,13 @@ ms.author: praveenrajap
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 02/07/2025
+ms.date: 10/12/2026
 ---
 
 # Manage an Astro resource
+
+> [!IMPORTANT]
+> The Azure Native ISV Service for Apache Airflow on Astro is now retired. You can still get Astro directly from Astronomer. For more information, see the [Astro documentation](https://www.astronomer.io/docs/astro/overview).
 
 This article describes how to manage the settings for Astro resources.
 

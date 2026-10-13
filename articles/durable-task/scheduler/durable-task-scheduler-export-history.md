@@ -2,9 +2,9 @@
 author: hhunter-ms
 title: "Export Orchestration History with Durable Task Scheduler (Preview)"
 titleSuffix: Durable Task
-description: Learn how to export orchestration execution history from Durable Task Scheduler to Azure Blob Storage using the Durable Task .NET SDK. Set up batch or continuous export jobs for auditing and compliance.
+description: Learn about exporting Durable Task Scheduler orchestration histories to Azure Blob Storage with the .NET SDK and the Go SDK beta.
 ms.topic: feature-guide
-ms.date: 05/04/2026
+ms.date: 10/12/2026
 ms.author: torosent
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
@@ -16,7 +16,9 @@ ms.devlang: csharp
 The orchestration history export feature lets your app extract execution histories for terminal orchestration instances (completed, failed, or terminated status) from [Durable Task Scheduler](durable-task-scheduler.md) and write them to Azure Blob Storage. Use this feature for auditing, compliance, analytics, and long-term archival of orchestration data outside of the scheduler.
 
 > [!NOTE]
-> The orchestration history export feature is currently in preview and available for the [Durable Task .NET SDK](../sdks/durable-task-overview.md). It requires the `Microsoft.DurableTask.ExportHistory` package.
+> Orchestration history export is in preview. The examples in this article use the [Durable Task .NET SDK](../sdks/durable-task-overview.md) and its `Microsoft.DurableTask.ExportHistory` package. The [Go SDK beta](../sdks/durable-task-go.md) also supports history export with its own Go APIs.
+
+For Go, see the [Go SDK export history sample](https://github.com/microsoft/durabletask-go/tree/main/samples/exporthistory), which creates export jobs and downloads the exported JSON and JSONL histories. Use an isolated, Go-only task hub and export destination. The .NET registration and environment variables in this article don't apply to Go.
 
 > [!TIP]
 > A complete, runnable reference sample is available at [ExportHistoryWebApp](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/dotnet/ExportHistoryWebApp). We recommend using it as a reference as you follow this guide.

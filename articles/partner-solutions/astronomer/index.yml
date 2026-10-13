@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Apache Airflow on Astro – An Azure Native ISV Service
-summary: Seamless cloud-native data orchestration using Apache Airflow.
+title: Apache Airflow on Astro – An Azure Native ISV Service (now retired)
+summary: The Azure Native ISV Service for Apache Airflow on Astro is now retired.
 
 metadata:
   title: Apache Airflow on Astro – An Azure Native ISV Service
@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   ms.custom:
     - ignite-2023
-  ms.date: 09/15/2025
+  ms.date: 10/12/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

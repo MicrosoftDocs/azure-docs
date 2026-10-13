@@ -2,16 +2,16 @@
 author: spelluru
 ms.service: azure-service-bus
 ms.topic: include
-ms.date: 05/12/2025
+ms.date: 10/06/2026
 ms.author: spelluru
 ---
 
-The following limits are common across all tiers. 
+The following limits are common across all tiers.
 
 | Quota name | Value | Notes | 
 | --- | --- | --- |
 | Maximum number of namespaces per Azure subscription per region | 1000 (default and maximum) | This limit is based on the `Microsoft.ServiceBus` provider, not based on the tier. Therefore, it's the total number of namespaces across all tiers. Subsequent requests for additional namespaces are rejected. |
-| Number of concurrent connections on a namespace | Net Messaging: 1,000.<br /><br />AMQP: 5,000. | Subsequent requests for additional connections are rejected. REST operations don't count toward concurrent TCP connections. |
+| Number of concurrent connections on a namespace | AMQP: 5,000. | Subsequent requests for additional connections are rejected. REST operations don't count toward concurrent TCP connections. |
 | Number of concurrent receive requests on a queue, topic, or subscription entity | 5,000 | Subsequent receive requests are rejected with a server busy error. This quota applies to the combined number of concurrent receive operations across all subscriptions on a topic. For more information, see [Throttling when concurrent receive requests exceed the limit](/azure/service-bus-messaging/service-bus-throttling#throttling-when-concurrent-receive-requests-exceed-the-limit). |
 | Maximum size of any messaging entity path: queue or topic | 260 characters. | &nbsp; |
 | Maximum size of any messaging entity name: namespace, subscription, or subscription rule | 50 characters. | &nbsp; |
@@ -27,7 +27,6 @@ The following limits are common across all tiers.
 | Maximum number of messages deleted in DeleteMessagesAsync call | 500 | 	The DeleteMessagesAsync API supports deleting up to 500 messages per call. Requests exceeding this limit (e.g., 4000) will throw an ArgumentOutOfRangeException.|
 | Maximum number of messages returned in PeekMessagesAsync call | 250 | 
 | Number of virtual network and IP filter rules |  128 |&nbsp; |
-
 
 
 

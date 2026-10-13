@@ -106,7 +106,7 @@ Monitor container deletion events by using Azure Monitor activity logs. To view 
 
 - **I need to restore multiple containers at once:** Bulk restoration isn't available in the Azure portal. Use Azure PowerShell or the Azure CLI to script restoration across multiple containers.
 
-- **I need to disable soft delete at scale after enabling too broadly:** Reference [Enable soft delete for containers](https://github.com/MicrosoftDocs/articles/storage/blobs/soft-delete-container-enable.md) for instructions on disabling soft delete using various tools. 
+- **I need to disable soft delete at scale after enabling too broadly:** Reference [Enable soft delete for containers](soft-delete-container-enable.md) for instructions on disabling soft delete using various tools. 
 
 ## Next steps
 

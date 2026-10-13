@@ -447,12 +447,34 @@ items:
         href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?context=/azure/synapse-analytics/context/context
       - name: Recommendations
         href: ./sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?context=/azure/synapse-analytics/context/context
+      - name: Create alerts
+        href: sql/alerts-create.md
     - name: Security
       items:
       - name: Database access control
-        href: /azure/azure-sql/database/logins-create-manage?toc=%2fazure%2fsynapse-analytics%2ftoc.json
-      - name: Managed identity authentication
-        href: sql/authentication-azure-ad-user-assigned-managed-identity.md
+        href: sql/logins-create-manage.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+      - name: Microsoft Defender for SQL
+        href: sql/azure-defender-for-sql.md
+      - name: Data Discovery & Classification
+        href: sql/data-discovery-and-classification-overview.md        
+      - name: Authentication
+        items:
+        - name: Microsoft Entra authentication
+          href: sql/authentication-aad-overview.md
+        - name: Configure Microsoft Entra authentication
+          href: sql/authentication-aad-configure.md
+        - name: Connect with Microsoft Entra authentication
+          href: sql/authentication-microsoft-entra-connect-to-azure-sql.md
+        - name: Microsoft Entra server principals
+          href: sql/authentication-azure-ad-logins.md
+        - name: Create Microsoft Entra server logins
+          href: sql/authentication-azure-ad-logins-tutorial.md
+        - name: Assign Directory Readers role
+          href: sql/authentication-aad-directory-readers-role-tutorial.md
+        - name: Microsoft Entra-only authentication
+          href: sql/authentication-azure-ad-only-authentication.md
+        - name: Managed identity authentication
+          href: sql/authentication-azure-ad-user-assigned-managed-identity.md
       - name: Shared database access control
         href: sql/shared-databases-access-control.md
     - name: Data security
