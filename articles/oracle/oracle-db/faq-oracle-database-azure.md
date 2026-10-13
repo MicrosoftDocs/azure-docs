@@ -32,11 +32,13 @@ Oracle AI Database@Azure is enabled by hosting the Oracle Cloud Infrastructure (
 
 ### Is Oracle AI Database@Azure available on a dedicated infrastructure or is it available only as a shared service? What is the isolation level?
 
-Two services are offered as part of Oracle AI Database@Azure:
+The following services are offered as part of Oracle AI Database@Azure:
 
 - Oracle Exadata Database on a dedicated infrastructure runs on a dedicated Exadata infrastructure in Azure. You get dedicated Oracle CPUs (OCPUs) and storage. Isolation is at the node level.
 
-- Oracle Autonomous Database is the other Oracle AI Database service offered at Azure. Autonomous Database is on a shared Exadata infrastructure.
+- Oracle Autonomous Database on Shared Exadata Infrastructure runs on shared Exadata infrastructure. The underlying Exadata infrastructure is shared across customers, while individual Autonomous Databases remain logically isolated.
+
+- Oracle Autonomous Database on Dedicated Exadata Infrastructure runs on dedicated Exadata infrastructure allocated to a single customer, providing infrastructure-level isolation from other customers while retaining the automated capabilities of Autonomous Database.
 
 ### What Oracle database versions are supported on Oracle AI Database@Azure?
 
