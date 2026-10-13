@@ -174,7 +174,7 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 
 - **Max work item completion size:**
 
-    Each serialized work item completion request sent to Durable Task Scheduler must be at most **3.9 MB**. This limit applies to the entire completion request, not to each individual payload.
+    Each work item completion request sent to a Durable Task Scheduler must be at most **3.9 MB**. This limit applies to the entire completion request, not to each individual payload.
 
     If you expect work item completions to exceed this limit, enable [Large payload support](./durable-task-scheduler-large-payloads.md) to offload supported payloads to Azure Blob Storage and reduce the completion request size.
 
