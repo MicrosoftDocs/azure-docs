@@ -33,16 +33,16 @@ After the virtual machine is created, Azure Migrate will invoke the [Custom Scri
 >[!NOTE]
 >Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
 
-## Temporary Hydration Azure VM SKU selection logic
-Before you perform a test or final migration, you can determine the VM size (SKU) that Azure Migrate is expected to use for the hydration VM. You can then verify that the required VM size is available in the target subscription and that sufficient vCPU quota is available. The calculation follows the same VM-size selection logic used by the Azure Site Recovery service. The hydration VM size is selected as follows:
+## Temporary hydration Azure VM SKU selection logic
+Before you perform a test or final migration, you can determine the VM size (SKU) that Azure Migrate uses for the hydration VM. You can then verify that the required VM size is available in the target subscription and that sufficient vCPU quota is available. The calculation follows the same VM-size selection logic used by the Azure Site Recovery service. The hydration VM size is selected as follows:
 
 1. **Determine disk requirements**:
     - Windows: Only the OS disk is attached.
     - Linux: All protected disks are attached.
-    - A maximum of 64 disks is considered.
-2. **Try the configured target VM size first**: The target VM size is used if it meets the below requirements:
+    - Consider up to 64 disks.
+2. **Try the configured target VM size first**: Use the target VM size if it meets the following requirements:
     - Supports the required number of disks.
-    - Is not included in the hydration VM SKU exclusion list.
+    - Not be included in the hydration VM SKU exclusion list.
     - Is not a Basic or ARM64 SKU.
     - Supports Generation 1.
     - Meets zone and disk requirements, including Premium or Ultra Disk when applicable.
@@ -52,13 +52,13 @@ Before you perform a test or final migration, you can determine the VM size (SKU
     - Match the VM size regex configured for the subscription.
     - Is not included in the hydration VM SKU exclusion list.
     - Meet the required zone and disk capabilities.
-4. **Select the hydration VM size**: SKUs from the target VM family are preferred. Eligible SKUs are then ranked as follows:
+4. **Select the hydration VM size**: Prefers SKUs from the target VM family. Rank eligible SKUs as follows:
     1. Maximum supported data disks.
     2. Number of vCPUs.
     3. Azure API order when the above values are equal.
    The highest-ranked SKU is the expected hydration VM size.
 5. **Verify availability and quota**: Before failover, verify that the identified SKU is available in the target subscription and that sufficient:
-    - VM-family vCPU quota is available
+    - VM-family vCPU quota is available.
     - Regional vCPU quota is available.
 
 ## Changes performed during the hydration process
