@@ -33,6 +33,34 @@ After the virtual machine is created, Azure Migrate will invoke the [Custom Scri
 >[!NOTE]
 >Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
 
+## Temporary Hydration Azure VM SKU selection logic
+Before you perform a test or final migration, you can determine the VM size (SKU) that Azure Migrate is expected to use for the hydration VM. You can then verify that the required VM size is available in the target subscription and that sufficient vCPU quota is available. The calculation follows the same VM-size selection logic used by the Azure Site Recovery service. The hydration VM size is selected as follows:
+
+1. **Determine disk requirements**:
+    - Windows: Only the OS disk is attached.
+    - Linux: All protected disks are attached.
+    - A maximum of 64 disks is considered.
+2. **Try the configured target VM size first**: The target VM size is used if it meets the below requirements:
+    - Supports the required number of disks.
+    - Is not excluded by the hydration SKU blacklist.
+    - Is not a Basic or ARM64 SKU.
+    - Supports Generation 1.
+    - Meets zone and disk requirements, including Premium or Ultra Disk when applicable.
+3. **Find an alternative VM size**: If the target VM size isn't eligible, candidate SKUs must:
+    - Have at least 2 vCPUs and 2 GB RAM.
+    - Support the required number of disks.
+    - Match the VM size regex configured for the subscription.
+    - Not be excluded by the hydration SKU blacklist.
+    - Meet the required zone and disk capabilities.
+4. **Select the hydration VM size**: SKUs from the target VM family are preferred. Eligible SKUs are then ranked as follows:
+    1. Maximum supported data disks.
+    2. Number of vCPUs.
+    3. Azure API order when the above values are equal.
+   The highest-ranked SKU is the expected hydration VM size.
+5. **Verify availability and quota**: Before failover, verify that the identified SKU is available in the target subscription and that sufficient:
+    - VM-family vCPU quota is available
+    - Regional vCPU quota is available.
+
 ## Changes performed during the hydration process
 
 The preparation script executes the following changes based on the OS type of the source VM to be migrated. You can also use this section as a guide to manually prepare the VMs for migration for operating systems versions not supported for hydration.
