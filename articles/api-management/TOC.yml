@@ -130,6 +130,8 @@
       href: ai-gateway-policy-tool-threat.md
     - name: Govern, secure, and operate
       href: ai-gateway-govern-secure-assets.md
+    - name: Migrate to AI Gateway resource type
+      href: ai-gateway-resource.md
   - name: Govern tools with Agent 365
     href: agent-365.md
 - name: Create and import APIs
