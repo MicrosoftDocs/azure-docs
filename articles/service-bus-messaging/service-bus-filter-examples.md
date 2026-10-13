@@ -124,7 +124,7 @@ In the first row, the message property value is `O'Brien`, with one single quota
 
 ## Combine string and numeric conditions
 
-Use parentheses to group related conditions when you combine `AND` and `OR`. For example, this filter selects a code beginning with `order-` or `return-` when its quantity is at least 10:
+Use parentheses to group related conditions when you combine `AND` and `OR`. For example, this filter selects a code that begins with `order-` or `return-` when its quantity is at least 10:
 
 ```sql
 (user.Code LIKE 'order-%' OR user.Code LIKE 'return-%') AND user.Quantity >= 10
