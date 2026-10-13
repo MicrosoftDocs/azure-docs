@@ -270,10 +270,10 @@ To enable Azure Files storage in your container, you need to set up your environ
 
 When you configure a container app to mount an Azure Files volume by using Azure CLI, you must use a YAML definition to create or update your container app.
 
-Install the latest [Azure CLI](/cli/azure/install-azure-cli) and update the Container Apps extension, including preview features:
+Install the latest [Azure CLI](/cli/azure/install-azure-cli) and update the Container Apps extension:
 
 ```azure-cli
-az extension add --name containerapp --upgrade --allow-preview true
+az extension add --name containerapp --upgrade
 ```
 
 For a step-by-step tutorial on mounting an SMB file share, see [Create an Azure Files storage mount in Azure Container Apps](storage-mounts-azure-files.md).

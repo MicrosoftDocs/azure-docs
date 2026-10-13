@@ -80,13 +80,13 @@ The following commands define environment variables and ensure your Container Ap
     # [Bash](#tab/bash)
 
     ```azurecli
-    az extension add -n containerapp --upgrade --allow-preview true
+    az extension add -n containerapp --upgrade
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    az extension add -n containerapp --upgrade --allow-preview true
+    az extension add -n containerapp --upgrade
     ```
 
     ---

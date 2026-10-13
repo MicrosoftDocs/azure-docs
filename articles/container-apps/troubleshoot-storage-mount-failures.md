@@ -50,10 +50,10 @@ Container Apps features an intelligent and interactive diagnostics experience th
 
 For new SMB Azure Files mounts, we recommend [managed identity authentication (preview)](storage-mounts.md#azure-files). This mode uses a managed identity assigned to the **Container Apps environment**, not the individual container app. If a mount using this mode fails, check the following:
 
-1. **Azure CLI extension**: Use the latest Azure CLI and install the Container Apps extension with preview features enabled:
+1. **Azure CLI extension**: Use the latest Azure CLI and update the Container Apps extension:
 
     ```azurecli
-    az extension add --name containerapp --upgrade --allow-preview true
+    az extension add --name containerapp --upgrade
     ```
 
 1. **Environment identity**: Enable the environment's system-assigned identity or assign the selected user-assigned identity to the environment. Set `--azure-file-identity` to `system` for the system-assigned identity, or to the full resource ID of the user-assigned identity. Don't use its client ID or principal ID. Assigning an identity only to the container app doesn't configure it for the mount.
