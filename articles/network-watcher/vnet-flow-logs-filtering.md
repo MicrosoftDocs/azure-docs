@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 03/24/2026
 ---
 
-# Filter virtual network flow logs (preview)
+# Filter virtual network flow logs 
 
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
