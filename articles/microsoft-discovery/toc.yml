@@ -26,6 +26,23 @@ items:
       - name: Quickstart - First set of Agent and investigation
         href: quickstart-agents-studio.md
         displayName: Microsoft Discovery, quickstart, project, studio, getting started
+  - name: Agent catalog
+    displayName: Microsoft Discovery, agents, catalog, capabilities
+    items:
+      - name: Chemistry and drug discovery
+        href: concept-agent-catalog.md#chemistry-and-drug-discovery
+      - name: Engineering and hardware
+        href: concept-agent-catalog.md#engineering-and-hardware
+      - name: Genomics and systems biology
+        href: concept-agent-catalog.md#genomics-and-systems-biology
+      - name: Materials and simulation
+        href: concept-agent-catalog.md#materials-and-simulation
+      - name: Proteins and structure
+        href: concept-agent-catalog.md#proteins-and-structure
+      - name: Research and data
+        href: concept-agent-catalog.md#research-and-data
+      - name: Spectroscopy and metabolomics
+        href: concept-agent-catalog.md#spectroscopy-and-metabolomics
   - name: Plan and prepare
     items:
       - name: Onboarding prerequisites
