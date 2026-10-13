@@ -50,7 +50,7 @@ Before you perform a test or final migration, you can determine the VM size (SKU
     - Have at least 2 vCPUs and 2 GB RAM.
     - Support the required number of disks.
     - Match the VM size regex configured for the subscription.
-    - Is not included in the hydration VM SKU exclusion list.
+    - Not be included in the hydration VM SKU exclusion list.
     - Meet the required zone and disk capabilities.
 4. **Select the hydration VM size**: Prefers SKUs from the target VM family. Rank eligible SKUs as follows:
     1. Maximum supported data disks.
