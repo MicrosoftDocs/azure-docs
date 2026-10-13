@@ -12,7 +12,7 @@ ms.custom:
 
 # Troubleshoot storage mount failures in Azure Container Apps
 
-Azure Container Apps supports persistent storage by mounting Azure Files shares over SMB or NFS. These file shares are mounted as volumes in the container's file system during container startup. For supported storage types and configuration instructions, see [Use storage mounts in Azure Container Apps](storage-mounts.md).
+Azure Container Apps supports persistent storage by mounting Azure Files shares over SMB or NFS. The container mounts these file shares as volumes in the container's file system during container startup. For supported storage types and configuration instructions, see [Use storage mounts in Azure Container Apps](storage-mounts.md).
 
 Storage mount failures occur when your app's container is unable to successfully mount or access required storage resources, such as volumes or file systems.
 
