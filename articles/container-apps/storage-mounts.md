@@ -242,7 +242,7 @@ For new SMB file mounts, use **managed identity authentication (preview)** inste
 
 Managed identity authentication applies only to SMB shares. NFS shares use network-based access controls and don't use SMB authentication settings.
 
-To enable Azure Files storage in your container, you need to set up your environment and container app as follows:
+To enable Azure Files storage in your container, set up your environment and container app as follows:
 
 * Create a storage definition in the Container Apps environment.
 * If you're using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
