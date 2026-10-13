@@ -3,7 +3,7 @@ author: hhunter-ms
 title: Large payload support with Durable Task Scheduler (Preview)
 description: Learn how to use preview large payload support in Durable Functions and the Durable Task SDKs with Durable Task Scheduler and Azure Blob Storage.
 ms.topic: feature-guide
-ms.date: 03/14/2026
+ms.date: 10/12/2026
 ms.author: torosent
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
@@ -20,6 +20,7 @@ This feature is available for:
 - [Durable Functions](../durable-functions/durable-functions-overview.md) with the .NET isolated worker
 - [.NET Durable Task SDK](../sdks/durable-task-overview.md)
 - [Python Durable Task SDK](../sdks/durable-task-overview.md)
+- [Go Durable Task SDK (beta)](../sdks/durable-task-go.md)
 
 If your workflow stores data in Blob Storage and passes only a URI or identifier, keep using that pattern. Use large payload support when your orchestration logic must pass the payload between durable operations. For general guidance, see [Data persistence and serialization in Durable Functions](../durable-functions/durable-functions-serialization-and-persistence.md#keep-durable-functions-inputs-and-outputs-small).
 
@@ -30,7 +31,7 @@ This table shows large payload support by framework.
 | Framework | Support status | What you need |
 | --- | --- | --- |
 | Durable Functions | Supported in .NET isolated C# | Use Durable Task Scheduler as the storage provider and use `AzureWebJobsStorage` for payload blobs |
-| Durable Task SDKs | Supported in .NET and Python | Use the language-specific Azure Blob payload extension with Azure Blob Storage |
+| Durable Task SDKs | Supported in .NET, Python, and Go (beta) | Use the language-specific Azure Blob payload support with Azure Blob Storage |
 | JavaScript, PowerShell, and Java | Not available | Use external storage and pass references between durable operations |
 
 ## How it works
@@ -123,7 +124,17 @@ Large payload support with Durable Task Scheduler is available only for .NET iso
 
 ::: zone pivot="durable-task-sdks"
 
-Large payload support in the Durable Task SDKs is available for .NET and Python apps.
+Durable Task SDKs support large payloads for .NET, Python, and Go (beta) apps.
+
+To enable large payload support in a Go app, configure it in your code:
+
+1. Create an Azure Blob payload store by calling `payload.NewAzureBlobStore`.
+1. In your `durabletaskscheduler.Options`, set `LargePayloads` to an `api.LargePayloadOptions` value. Set both its `Store` and `Resolver` fields to the payload store.
+1. Pass the same options to both `durabletaskscheduler.NewClient` and `durabletaskscheduler.NewWorker`. The client and the worker both read and write payload blobs.
+
+For a complete Go example that you can run locally with the Azurite storage emulator, see the [Go SDK large payloads sample](https://github.com/microsoft/durabletask-go/tree/main/samples/largepayloads).
+
+The following tabs show how to enable large payload support for .NET and Python.
 
 # [C#](#tab/csharp)
 
@@ -172,11 +183,11 @@ For an end-to-end .NET example, see the [Durable Task SDK large payload sample](
 
 # [JavaScript](#tab/javascript)
 
-Large payload support with Durable Task Scheduler is available for the .NET and Python Durable Task SDKs.
+Large payload support with Durable Task Scheduler is available for the .NET, Python, and Go (beta) Durable Task SDKs.
 
 # [PowerShell](#tab/powershell)
 
-Large payload support with Durable Task Scheduler is available for the .NET and Python Durable Task SDKs.
+Large payload support with Durable Task Scheduler is available for the .NET, Python, and Go (beta) Durable Task SDKs.
 
 # [Python](#tab/python)
 
@@ -225,7 +236,7 @@ For an end-to-end Python example, see the [Durable Task SDK large payload Python
 
 # [Java](#tab/java)
 
-Large payload support with Durable Task Scheduler is available for the .NET and Python Durable Task SDKs.
+Large payload support with Durable Task Scheduler is available for the .NET, Python, and Go (beta) Durable Task SDKs.
 
 ---
 
@@ -272,7 +283,7 @@ Large payload support with Durable Task Scheduler is available only for .NET iso
 
 ::: zone pivot="durable-task-sdks"
 
-Use these environment variables with the current Durable Task SDK samples.
+Use these environment variables with the current .NET and Python Durable Task SDK samples.
 
 # [C#](#tab/csharp)
 

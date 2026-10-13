@@ -4,7 +4,7 @@ description: "Implement the monitor pattern in durable orchestrations using Dura
 ms.topic: concept-article
 ms.service: durable-task
 ms.custom: devx-track-js, devx-track-python
-ms.date: 05/04/2026
+ms.date: 10/12/2026
 ms.author: hannahhunter
 author: hhunter-ms
 zone_pivot_groups: azure-durable-approach
@@ -32,6 +32,8 @@ The Durable Functions examples include a weather monitoring scenario (C#/JavaScr
 ::: zone pivot="durable-task-sdks"
 
 The Durable Task SDKs example demonstrates job status monitoring with configurable polling intervals by using .NET, JavaScript, Python, and Java.
+
+For Go, build the polling loop from activity calls and [durable timers](durable-task-timers.md?pivots=durable-task-sdks&tabs=go). Use the Go SDK's timer and activity APIs, not `time.Sleep` or direct I/O in the orchestrator.
 
 ::: zone-end
 

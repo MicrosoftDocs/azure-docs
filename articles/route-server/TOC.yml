@@ -63,10 +63,12 @@
       href: route-maps-scenario-tag-bgp-communities.md
     - name: Drop inbound routes
       href: route-maps-scenario-drop-inbound-routes.md
-  - name: Troubleshoot Route Server issues
-    href: troubleshoot-route-server.md
+- name: Monitor and troubleshoot
+  items:
   - name: Monitor Route Server
     href: monitor-route-server.md
+  - name: Troubleshoot Route Server issues
+    href: troubleshoot-route-server.md
 - name: Security
   items:
   - name: Secure Route Server deployment

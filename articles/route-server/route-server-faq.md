@@ -59,6 +59,10 @@ By default, an Azure Route Server is deployed with a capacity of two routing inf
 
 You can specify more routing infrastructure units to increase Route Server's capacity in increments of 1,000 VMs. Each additional routing infrastructure unit costs $0.10/hour in the United States. Prices in other regions may vary. Full pricing, including regional differences, will be available in mid-December in the official [Azure pricing page](https://azure.microsoft.com/pricing/details/route-server/).
 
+### How do I troubleshoot Azure Route Server issues?
+
+For troubleshooting steps and solutions to common connectivity, control-plane, and operational issues, see [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md).
+
 
 ## Routing
 
@@ -195,7 +199,7 @@ Azure Route Server has the following limits (per deployment).
 
 [!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
-For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+To troubleshoot issues with Azure Route Server, including BGP peering, NVA route exchange, and gateway connectivity, see [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md). For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 
 
 ### Why am I seeing an error about invalid scope and authorization to perform operations on Route Server resources?

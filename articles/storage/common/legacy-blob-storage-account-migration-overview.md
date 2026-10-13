@@ -54,9 +54,7 @@ By retiring legacy blob storage accounts, Azure simplifies the platform and ensu
 |----------------|------------------------------------------------|
 | **September 2025** | Retirement announced                          |
 | **September 2026**    | Creation of new legacy blob storage accounts disabled                         |
-| **October 2026** | Full retirement; Any remaining legacy blob storage accounts automigrated to GPv2. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf. |
-
-After the retirement date, **data access will be blocked** for all legacy blob storage accounts. This change takes effect globally across all Azure regions.
+| **October 2026** | Full retirement. If you don't migrate an existing legacy blob storage account, Microsoft interprets that choice as consent to convert the account to GPv2 on your behalf. Billing changes start in November 2026. Accounts conversion starts in early November and extends to Q1CY26.|
 
 ## Preparing for migration
 >[!Tip]
