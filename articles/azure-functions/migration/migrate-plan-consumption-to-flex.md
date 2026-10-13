@@ -92,9 +92,9 @@ The portal provides a manual migration path. Your high-level steps are:
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-Set up GitHub Copilot using the [prerequisites](#prerequisites), then use the prompt in [Start the migration](#start-the-migration). Copilot guides you through assessment, Windows-to-Linux code preparation, target creation and configuration, deployment, validation, and production cutover. It asks for your input or approval when needed.
+Set up GitHub Copilot by using the [prerequisites](#prerequisites), and then use the prompt in [Start the migration](#start-the-migration). Copilot guides you through assessment, Windows-to-Linux code preparation, target creation and configuration, deployment, validation, and production cutover. It asks for your input or approval when needed.
 
-The sections below explain the checks and migration tasks for reference; you don't need to perform the manual CLI or portal steps when following the Copilot workflow.
+The following sections explain the checks and migration tasks for reference. You don't need to perform the manual CLI or portal steps when you follow the Copilot workflow.
 
 Copilot keeps the source app read-only during assessment and replication. Changes to source triggers, settings, app state, or resources require explicit approval for the specific action.
 
@@ -674,7 +674,7 @@ Plan mitigation strategies to protect data for the specific function triggers in
 
 Before creating your new Flex Consumption app, gather some information about your current app. This step ensures you don't lose any settings during the transition.
 
-When using Copilot, the skill inventories this configuration as part of the migration workflow. Review its findings and decisions rather than running the manual commands again.
+When you use Copilot, the skill inventories this configuration as part of the migration workflow. Review its findings and decisions rather than running the manual commands again.
 
 > [!TIP]
 > **This step is mostly copy-paste work.** Collect settings from your existing app so you can apply them to the new app.
@@ -1036,7 +1036,7 @@ The `az functionapp flex-migration` commands don't support Windows Consumption a
 
 ### [Azure portal](#tab/azure-portal)
 
-Follow [Premigration tasks](#premigration-tasks) and the Windows [Migration steps](#migration-steps) to create and configure the target app manually.
+Follow the [Premigration tasks](#premigration-tasks) and the Windows [Migration steps](#migration-steps) to create and configure the target app manually.
 
 ---
 
@@ -1138,7 +1138,7 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
 
 ### [GitHub Copilot](#tab/github-copilot)
 
-Copilot asks for a local source directory first. If source is unavailable, it offers to retrieve the deployed package from the source app's content share or external package URL. It checks whether the package is suitable for Linux and Flex Consumption; Windows-specific builds require preparation rather than direct redeployment.
+Copilot asks for a local source directory first. If the source is unavailable, it offers to retrieve the deployed package from the source app's content share or external package URL. It checks whether the package is suitable for Linux and Flex Consumption; Windows-specific builds require preparation rather than direct redeployment.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -1325,7 +1325,7 @@ If any critical settings are missing or incorrect, manually configure them by us
 
 Before proceeding with the migration process, take a moment to perform these last preparatory steps:
 
-When using Copilot, review the assessment, configuration inventory, code changes, deployment choice, and trigger-safety decisions before approving target creation and deployment. A successful validation-only migration doesn't mean production traffic or triggers have been cut over.
+When you use Copilot, review the assessment, configuration inventory, code changes, deployment choice, and trigger-safety decisions before you approve target creation and deployment. A successful validation-only migration doesn't mean production traffic or triggers are cut over.
 
 + **Review all the collected information**: Go through all the notes, configuration details, and application settings you documented in the previous assessment and premigration sections. If anything is unclear, rerun the Azure CLI commands again or get the information from the portal.
 
@@ -1801,7 +1801,7 @@ For more information, see these provider-specific articles:
 After you configure your new Flex Consumption plan app based on the settings from the original app, deploy your code to the new app resources in Azure.
 
 >[!CAUTION]
->After a successful deployment, enabled triggers in your new app can immediately start processing data from connected services. To minimize duplicated data and prevent data loss while starting the new app and shutting down the original app, review the strategies that you defined in [mitigations by trigger type](#mitigations-by-trigger-type).
+> After a successful deployment, enabled triggers in your new app can immediately start processing data from connected services. To minimize duplicated data and prevent data loss while starting the new app and shutting down the original app, review the strategies that you defined in [mitigations by trigger type](#mitigations-by-trigger-type).
 
 :::zone pivot="platform-windows"
 
@@ -2189,7 +2189,7 @@ When you're confident the new app is working correctly, you can clean up the ori
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-The Copilot migration skill can remove the original app after production traffic and triggers have completed cutover and target validation. If readiness work remains deferred or the source still processes production workloads, retain the source app. Copilot always asks for your explicit confirmation before deleting anything. Use this prompt:
+The Copilot migration skill can remove the original app after production cutover and target validation are complete. If readiness work remains deferred or the source still processes production workloads, retain the source app. Copilot always asks for your explicit confirmation before deleting anything. Use this prompt:
 
 ```
 delete my original consumption app <ORIGINAL_APP_NAME>
