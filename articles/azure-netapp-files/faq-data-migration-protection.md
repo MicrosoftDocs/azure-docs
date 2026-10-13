@@ -97,6 +97,10 @@ Yes, the inputs provided in the migration assistant tool are case-sensitive.
 
 No. If you want to use the existing subnet, you should clean up the IP addresses on the subnet or use a different subnet.
 
+### What happens if user-defined routes (UDRs) are not configured correctly?
+
+When configuring peering, verify that any UDRs are configured correctly. Incorrect UDR configuration can prevent the peering operation from succeeding.
+
 ### Can I enable cool access on a migration volume in the migration assistant tool?
 
 You should only enable cool access if you've finalized migration. Otherwise, use a different volume. Finalizing the migration converts the volume to a regular Azure NetApp Files volume, allowing you to enable cool access.
