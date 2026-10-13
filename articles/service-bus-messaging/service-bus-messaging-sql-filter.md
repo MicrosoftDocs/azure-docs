@@ -6,7 +6,6 @@ ms.date: 10/13/2026
 author: EldertGrootenboer
 ms.author: egrootenboer
 ms.service: azure-service-bus
-ms.subservice: service-bus-messaging
 ---
 
 # Subscription Rule SQL Filter Syntax
