@@ -397,7 +397,7 @@ Now you can update the container app configuration to support the storage mount.
 
     ---
 
-    This command creates a link between the Container Apps environment and the file share created with the `az storage share-rm` command. The `--azure-file-identity system` option authenticates to Azure Files using the environment's system-assigned managed identity.
+    This command creates a link between the Container Apps environment and the file share created with the `az storage share-rm` command. The `--azure-file-identity system` option authenticates to Azure Files by using the environment's system-assigned managed identity.
 
     For a user-assigned managed identity, assign the identity to the environment and use its full resource ID instead of `system`. Storage account key authentication remains supported as an alternative. Don't combine `--azure-file-identity` with `--azure-file-account-key` or `--azure-file-key-vault-secret-url`. For examples, see [Use storage mounts in Azure Container Apps](storage-mounts.md).
 
