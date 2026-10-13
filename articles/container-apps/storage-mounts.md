@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/12/2026
+ms.date: 10/13/2026
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -438,7 +438,21 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
 
     **Managed identity authentication (recommended)**
 
-    Use API version `2026-03-02-preview` for the storage resource. Set `identity` to `system` to use the existing environment's system-assigned managed identity:
+    First, enable a managed identity on the `Microsoft.App/managedEnvironments` resource, not the `Microsoft.App/containerApps` resource. To enable the environment's system-assigned identity, add the following top-level `identity` property to your environment resource:
+
+    ```json
+    {
+      "identity": {
+        "type": "SystemAssigned"
+      }
+    }
+    ```
+
+    Merge this fragment into your existing environment resource, keeping its other configuration. Use an environment API version that supports managed identities, such as `2026-03-02-preview`. For the resource schema, see [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/2026-03-02-preview/managedenvironments).
+
+    Enable **Managed Identity for SMB** (`SMBOAuth`) on the storage account and assign the environment identity the **Storage File Data SMB MI Admin** role at the storage account scope, as described in the prerequisites.
+
+    Then use API version `2026-03-02-preview` for the storage resource. Set `properties.azureFile.identity` to `system` to select the environment's system-assigned identity:
 
     ```json
     {
@@ -456,7 +470,24 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
     }
     ```
 
-    To use a user-assigned managed identity, set `identity` to its full Azure resource ID instead. The identity must already be assigned to the environment and have the required role on the storage account. Don't include `accountKey` or `accountKeyVaultProperties` when using managed identity authentication. For the resource schema, see [Microsoft.App/managedEnvironments/storages](/azure/templates/microsoft.app/2026-03-02-preview/managedenvironments/storages).
+    To use a user-assigned managed identity instead, add it to the environment's top-level `identity` property:
+
+    ```json
+    {
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[parameters('managed_identity_resource_id')]": {}
+        }
+      }
+    }
+    ```
+
+    Define the `managed_identity_resource_id` parameter as a `string` containing the identity's full Azure resource ID. In the storage resource, set `properties.azureFile.identity` to `[parameters('managed_identity_resource_id')]` instead of `system`. Grant that identity the same role on the storage account.
+
+    Preserve any identities already assigned to the environment. If you enable both identity types, use `SystemAssigned,UserAssigned` for the environment's `identity.type` and retain its `userAssignedIdentities` entries.
+
+    Don't include `accountKey` or `accountKeyVaultProperties` when using managed identity authentication. For the storage resource schema, see [Microsoft.App/managedEnvironments/storages](/azure/templates/microsoft.app/2026-03-02-preview/managedenvironments/storages).
 
     **Storage account key authentication (alternative)**
 
@@ -477,6 +508,8 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
       }
     }
     ```
+
+    These storage snippets assume that the environment and file share already exist. If you deploy them in the same template, add the environment and file share resources to the storage resource's `dependsOn` array. For managed identity authentication, also add a dependency on the role assignment if you create it in that template. A deployment dependency doesn't eliminate role assignment propagation delays.
 
     # [NFS](#tab/nfs)
 
@@ -504,7 +537,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
         "vnetConfiguration": {
           "infrastructureSubnetId": "[parameters('custom_vnet_subnet_id')]",
           "internal": false
-        },
+        }
       },
       "resources": [
         {
@@ -532,6 +565,8 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
     ---
 
 1. Update the container app resource to add a volume and volume mount.
+
+    SMB authentication is configured in the environment's storage definition. The app-level volume configuration is the same for managed identity and storage account key authentication. If you deploy the storage resource and container app in the same template, add the storage resource to the container app's `dependsOn` array.
 
     # [SMB](#tab/smb)
 
@@ -646,12 +681,11 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 
 ::: zone pivot="azure-portal"
 
-To configure a volume mount for Azure Files storage in the Azure portal, add a file share to your Container Apps environment and then add a volume mount to your container app by creating a new revision.
-
-> [!NOTE]
-> The SMB storage-definition steps in this portal procedure use storage account key authentication. To use the recommended managed identity authentication, create the environment's storage definition with Azure CLI or an ARM template as shown in the corresponding sections. Then continue this portal procedure from the step to go to your container app and create a new revision.
+To configure a volume mount for Azure Files storage in the Azure portal, add a file share to your Container Apps environment and then add a volume mount to your container app by creating a new revision. For new SMB mounts, select managed identity authentication.
 
 1. In the Azure portal, navigate to your Container Apps environment.
+
+1. For SMB managed identity authentication, select **Settings** > **Identity** and enable a system-assigned identity or add a user-assigned identity to the environment. Complete the storage account settings and role assignment described in the Azure Files prerequisites before adding the share.
 
 1. In the navigation pane, under *Settings*, select **Volume mounts**.
 
@@ -663,11 +697,14 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
     # [SMB](#tab/smb)
 
-    - **Name**: A name for the file share.
+    - **Name**: A name for the environment's storage definition.
     - **Storage account name**: The name of the storage account that contains the file share.
-    - **Storage account key**: The access key for the storage account.
-    - **File share**: The name of the file share.
+    - **Authentication**: Select **Managed identity** (recommended).
+    - **Identity**: Select the environment's system-assigned identity or a user-assigned identity assigned to the environment from the managed identity list. Select the identity that has the **Storage File Data SMB MI Admin** role on the storage account.
+    - **File share name**: The name of the SMB file share.
     - **Access mode**: The access mode for the file share. Valid values are **Read/Write** and **Read only**.
+
+    To use storage account key authentication instead, select **Storage account key** under **Authentication** and enter the storage account's access key. Choose one authentication method for the storage definition.
 
     # [NFS](#tab/nfs)
 
