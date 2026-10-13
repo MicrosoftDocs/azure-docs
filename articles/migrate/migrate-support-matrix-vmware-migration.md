@@ -98,7 +98,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **NVMe disks** | Not supported.
-**Migration to NVMe only SKU Families(V6 and later)** | Supported. VMs with NVMe eligible Operating systems will be automatically converted from Generation 1 to Generation 2 during migration to these SKU families.
+**Migration to NVMe only SKU Families (V6 and later)** | Supported. VMs with NVMe eligible operating systems are automatically converted from Generation 1 to Generation 2 during migration to these SKU families.
 **Target disk** | VMs can be migrated only to managed disks (Standard HDD, Standard SSD, Premium SSD v2 (preview) for data disks) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](how-to-scale-out-for-migration.md) is deployed.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 10.X, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 13, 12, 11, 10, 9, 8, 7<br/>- Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
