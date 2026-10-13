@@ -42,7 +42,7 @@ Before you perform a test or final migration, you can determine the VM size (SKU
     - A maximum of 64 disks is considered.
 2. **Try the configured target VM size first**: The target VM size is used if it meets the below requirements:
     - Supports the required number of disks.
-    - Is not excluded by the hydration SKU blacklist.
+    - Is not included in the hydration VM SKU exclusion list.
     - Is not a Basic or ARM64 SKU.
     - Supports Generation 1.
     - Meets zone and disk requirements, including Premium or Ultra Disk when applicable.
@@ -50,7 +50,7 @@ Before you perform a test or final migration, you can determine the VM size (SKU
     - Have at least 2 vCPUs and 2 GB RAM.
     - Support the required number of disks.
     - Match the VM size regex configured for the subscription.
-    - Not be excluded by the hydration SKU blacklist.
+    - Is not included in the hydration VM SKU exclusion list.
     - Meet the required zone and disk capabilities.
 4. **Select the hydration VM size**: SKUs from the target VM family are preferred. Eligible SKUs are then ranked as follows:
     1. Maximum supported data disks.
