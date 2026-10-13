@@ -181,7 +181,7 @@ The following steps create a resource group and a Container Apps environment.
 
     Once created, the command returns a "Succeeded" message.
 
-    The `--mi-system-assigned` flag enables the environment's system-assigned managed identity. In later steps, you grant this identity access to the file share.
+    Use the `--mi-system-assigned` flag to enable the environment's system-assigned managed identity. In later steps, you grant this identity access to the file share.
 
     Storage mounts are associated with a Container Apps environment and configured within individual container apps.
 
