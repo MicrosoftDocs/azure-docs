@@ -69,6 +69,10 @@ For new SMB Azure Files mounts, use [managed identity authentication (preview)](
 1. **Network access**: Verify that the storage account is reachable from the environment and that network rules allow SMB traffic on port 445. Managed identity authentication doesn't replace the storage account's network access requirements. See [Grant access from a virtual network](/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
 
 After updating the extension, you can inspect the environment's identities and the identity selected for a storage definition without retrieving a storage account key:
+```bash
+az containerapp env storage-identity show --name <storage-definition-name> --resource-group <resource-group-name> --environment <environment-name>
+az containerapp env storage-identity list --resource-group <resource-group-name> --environment <environment-name>
+```
 
 ```azurecli
 az containerapp env identity show \
