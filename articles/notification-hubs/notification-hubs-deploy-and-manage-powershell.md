@@ -34,9 +34,7 @@ The cmdlets included with Azure PowerShell don't directly support managing Notif
 
 ## Prerequisites
 
-- An Azure subscription. Azure is a subscription-based platform. For more
-  information about obtaining a subscription, see [Purchase Options],
-  [Member Offers], or [Free Trial].
+- An Azure subscription. Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options], [Member Offers], or [Free Trial].
 - A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell].
 - A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
 
@@ -74,7 +72,7 @@ catch [System.Exception]
 
 ## Create the `NamespaceManager` class
 
-To provision Notification Hubs, create an instance of the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) class from the SDK.
+To provision Notification Hubs, create an instance of the [NamespaceManager](/dotnet/api/microsoft.azure.notificationhubs.namespacemanager) class from the Notification Hubs client library.
 
 You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string. A reference to the `NamespaceManager` instance is stored in the `$NamespaceManager` variable. `$NamespaceManager` is used to provision a notification hub.
 

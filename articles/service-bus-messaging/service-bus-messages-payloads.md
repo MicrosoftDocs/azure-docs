@@ -3,7 +3,7 @@ title: Azure Service Bus Messages, Payloads, and Serialization
 description: Learn how Azure Service Bus handles messages, payloads, and serialization. Explore message properties, routing, and best practices for efficient communication.
 #customer intent: As a developer, I want to understand the structure of Azure Service Bus messages so that I can effectively design my messaging system.
 ms.topic: concept-article
-ms.date: 02/10/2026
+ms.date: 10/06/2026
 ---
 
 # Messages, payloads, and serialization
@@ -50,7 +50,7 @@ A subset of the broker properties described previously, specifically `To`, `Repl
 - **Simple request/reply**: A publisher sends a message into a queue and expects a reply from the message consumer. To receive the reply, the publisher owns a queue into which it expects replies to be delivered. The address of the queue is expressed in the **ReplyTo** property of the outbound message. When the consumer responds, it copies the **MessageId** of the handled message into the **CorrelationId** property of the reply message and delivers the message to the destination indicated by the **ReplyTo** property. One message can yield multiple replies, depending on the application context.
 - **Multicast request/reply**: As a variation of the prior pattern, a publisher sends the message into a topic and multiple subscribers become eligible to consume the message. Each of the subscribers might respond in the fashion described previously. This pattern is used in discovery or roll-call scenarios and the respondent typically identifies itself with a user property or inside the payload. If **ReplyTo** points to a topic, such a set of discovery responses can be distributed to an audience.
 - **Multiplexing**: This session feature enables multiplexing of streams of related messages through a single queue or subscription such that each session (or group) of related messages, identified by matching **SessionId** values, are routed to a specific receiver while the receiver holds the session under lock. Read more about the details of sessions [here](message-sessions.md).
-- **Multiplexed request/reply**: This session feature enables multiplexed replies, allowing several publishers to share a reply queue. By setting **ReplyToSessionId**, the publisher can instruct the consumers to copy that value into the **SessionId** property of the reply message. The publishing queue or topic doesn't need to be session-aware. As the message is sent, the publisher can then specifically wait for a session with the given **SessionId** to materialize on the queue by conditionally accepting a session receiver. 
+- **Multiplexed request/reply**: This session feature enables multiplexed replies, allowing several publishers to share a reply queue. By setting **ReplyToSessionId**, the publisher can instruct the consumers to copy that value into the **SessionId** property of the reply message. The publishing queue or topic doesn't need to be session-aware. As the message is sent, the publisher can then specifically wait for a session with the given **SessionId** to materialize on the queue by conditionally accepting a session receiver.
 
 Routing inside of a Service Bus namespace can be realized using autoforward chaining and topic subscription rules. Routing across namespaces can be realized [using Azure LogicApps](https://azure.microsoft.com/services/logic-apps/). As indicated in the previous list, the **To** property is reserved for future use and might eventually be interpreted by the broker with a specially enabled feature. Applications that wish to implement routing should do so based on user properties and not lean on the **To** property; however, doing so now doesn't cause compatibility issues.
 
@@ -58,17 +58,12 @@ Routing inside of a Service Bus namespace can be realized using autoforward chai
 
 When in transit or stored inside of Service Bus, the payload is always an opaque, binary block. The `ContentType` property enables applications to describe the payload, with the suggested format for the property values being a MIME content-type description according to IETF RFC2045; for example, `application/json;charset=utf-8`.
 
-Unlike the Java or .NET Standard variants, the .NET Framework version of the Service Bus API supports creating **BrokeredMessage** instances by passing arbitrary .NET objects into the constructor. 
+Choose an explicit serialization format, such as JSON, and use the same format in senders and receivers. In the supported .NET library, [ServiceBusMessage.Body](/dotnet/api/azure.messaging.servicebus.servicebusmessage.body) uses `BinaryData`. The Java library also provides a [BinaryData message body](/java/api/com.azure.messaging.servicebus.servicebusmessage). These types let your application work with bytes, strings, and serialized objects.
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+For interoperability across languages and protocols, serialize application objects before sending them and set `ContentType` to describe the format. Deserialize the body using that format on the receiver.
 
-When you use the legacy SBMP protocol, those objects are then serialized by using the default binary serializer or by using a serializer that you supply externally. The object is serialized into an AMQP object. The receiver can retrieve those objects by using the [`GetBody<T>()`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method, supplying the expected type. With AMQP, the objects are serialized into an AMQP graph of `ArrayList` and `IDictionary<string,object>` objects, and any AMQP client can decode them. 
-
-[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
-
-While this hidden serialization magic is convenient, applications should take explicit control of object serialization and turn their object graphs into streams before including them into a message, and do the reverse on the receiver side. This yields interoperable results. While AMQP has a powerful binary encoding model, it's tied to the AMQP messaging ecosystem, and HTTP clients have trouble decoding such payloads. 
-
-The .NET Standard and Java API variants only accept byte arrays, which means that the application must handle object serialization control.
+> [!NOTE]
+> Existing messages sent by the retired `WindowsAzure.ServiceBus` library can contain bodies serialized by `DataContractSerializer` or encoded as AMQP values. Preserve compatibility with those messages during migration. See [AMQP serialization details](service-bus-amqp-dotnet.md#message-serialization) and the [.NET interoperability sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample08_Interop.md).
 
 When handling object deserialization from the message payload, developers should take into consideration that messages might arrive from multiple sources using different serialization methods. This situation can also happen when evolving a single application, where old versions continue to run alongside newer versions. In these cases, consider having additional deserialization methods to try if the first attempt at deserialization fails. One library that supports this approach is [NServiceBus](https://docs.particular.net/nservicebus/serialization/#specifying-additional-deserializers). If all deserialization methods fail, then [dead-letter the message](./service-bus-dead-letter-queues.md?source=recommendations#application-level-dead-lettering).
 

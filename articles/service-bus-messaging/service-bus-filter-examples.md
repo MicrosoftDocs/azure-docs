@@ -2,7 +2,7 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 10/06/2026
 ms.devlang: csharp
 ms.custom:
   - devx-track-dotnet
@@ -20,18 +20,18 @@ To set subscription filters in the Azure portal, use the **Filters** section of 
 
 ## Use Azure CLI
 
-Use the [`az servicebus topic subscription rule create`](/cli/azure/servicebus/topic/subscription/rule) to create a rule or filter on a subscription. 
+Use the [`az servicebus topic subscription rule create`](/cli/azure/servicebus/topic/subscription/rule) to create a rule or filter on a subscription.
 
 ## Use Azure PowerShell
 
-Use the [`Set-AzServiceBusRule`](/powershell/module/az.servicebus/set-azservicebusrule) to create a rule or filter on a subscription. 
+Use the [`Set-AzServiceBusRule`](/powershell/module/az.servicebus/set-azservicebusrule) to create a rule or filter on a subscription.
 
 > [!NOTE]
 > A subscription rule consists of filters and actions. You can specify actions using CLI and PowerShell, but not using the Azure portal. 
 
 
 ## Filter on system properties
-To refer to a system property in a filter, use the following format: `sys.<system-property-name>`. 
+To refer to a system property in a filter, use the following format: `sys.<system-property-name>`.
 
 ```csharp
 sys.label LIKE '%bus%'
@@ -41,28 +41,25 @@ sys.correlationid like 'abc-%'
 
 > [!NOTE]
 > - For a list of system properties, see [Messages, payloads, and serialization](service-bus-messages-payloads.md). 
-> - Use system property names from [Azure.Messaging.ServiceBus.ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) in your filters. 
-> - `Subject` from [Azure.Messaging.ServiceBus.ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) maps to `Label` in the deprecated [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties). 
+> - Filter expressions use broker property names. For example, use `sys.Label` to filter the [ServiceBusMessage.Subject](/dotnet/api/azure.messaging.servicebus.servicebusmessage.subject) property.
 
 ## Filter on message properties
-Here are the examples of using application or user properties in a filter. You can access application properties set by using [Azure.Messaging.ServiceBus.ServiceBusMessage.ApplicationProperties](/dotnet/api/azure.messaging.servicebus.servicebusmessage.applicationproperties)) (latest) or user properties set by [Microsoft.Azure.ServiceBus.ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) (deprecated) using the syntax: `user.property-name` or just `property-name`.
+Access properties in [ServiceBusMessage.ApplicationProperties](/dotnet/api/azure.messaging.servicebus.servicebusmessage.applicationproperties) by using `user.property-name` or `property-name` in a filter.
 
 ```csharp
 MessageProperty = 'A'
 user.SuperHero like 'SuperMan%'
 ```
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
-
 ## Filter on message properties with special characters
-If the message property name has special characters, use double quotes (`"`) to enclose the property name. For example if the property name is `"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName"`, use the following syntax in the filter. 
+If the message property name has special characters, use double quotes (`"`) to enclose the property name. For example if the property name is `"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName"`, use the following syntax in the filter.
 
 ```csharp
 "http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName" = 'account'
 ```
 
 ## Filter on message properties with numeric values
-The following examples show how you can use properties with numeric values in filters. 
+The following examples show how you can use properties with numeric values in filters.
 
 ```csharp
 MessageProperty = 1
@@ -101,10 +98,10 @@ For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/a
 ### Correlation filter using CorrelationID
 
 ```csharp
-new CorrelationFilter("Contoso");
+new CorrelationRuleFilter("Contoso");
 ```
 
-It filters messages with `CorrelationID` set to `Contoso`. 
+It filters messages with `CorrelationID` set to `Contoso`.
 
 > [!NOTE]
 > The [CorrelationRuleFilter](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter) class in .NET is in the [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) namespace. For sample code that shows how to create filters in general using .NET, see [this code on GitHub](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters/Program.cs#L179).
@@ -114,7 +111,7 @@ It filters messages with `CorrelationID` set to `Contoso`.
 
 ```csharp
 var filter = new CorrelationRuleFilter();
-filter.Label = "Important";
+filter.Subject = "Important";
 filter.ReplyTo = "johndoe@contoso.com";
 filter.Properties["color"] = "Red";
 ```
@@ -129,10 +126,10 @@ Here's a .NET C# example that creates the following Service Bus entities:
 - Service Bus topic named `topicfiltersampletopic`
 - Subscription to the topic named `AllOrders` with a True Rule filter, which is equivalent to a SQL rule filter with expression `1=1`.
 - Subscription named `ColorBlueSize10Orders` with a SQL filter expression `color='blue' AND quantity=10`
-- Subscription named `ColorRed` with a SQL filter expression `color='red'` and an action 
+- Subscription named `ColorRed` with a SQL filter expression `color='red'` and an action
 - Subscription named `HighPriorityRedOrders` with a correlation filter expression `Subject = "red", CorrelationId = "high"`
 
-For more information, see the inline code comments. 
+For more information, see the inline code comments.
 
 ### [Passwordless](#tab/passwordless)
 
@@ -634,14 +631,14 @@ namespace SendAndReceiveMessages
 
 
 ## Next steps
-See the following samples: 
+See the following samples:
 
 - [Managing rules](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample12_ManagingRules.md)
 - [.NET - Topic filters](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/servicebus/topic-filters)
 - [Azure Resource Manager template](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 
-To explore Azure Service Bus features, try the samples in the language of your choice. 
+To explore Azure Service Bus features, try the samples in the language of your choice.
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)

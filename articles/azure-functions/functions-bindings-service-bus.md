@@ -3,7 +3,7 @@ title: Azure Service Bus bindings for Azure Functions
 description: Learn to send Azure Service Bus triggers and bindings in Azure Functions.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 09/15/2026
+ms.date: 10/06/2026
 ms.custom:
   - fasttrack-edit
   - devx-track-extended-java
@@ -27,7 +27,7 @@ Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/
 
 ## Install extension
 
-The extension NuGet package you install depends on the C# mode you're using in your function app: 
+The extension NuGet package you install depends on the C# mode you're using in your function app:
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -39,7 +39,7 @@ Add the extension to your project installing this [NuGet package](https://www.nu
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._ 
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
@@ -59,7 +59,7 @@ This extension version is available by installing the [NuGet package], version 5
 
 # [Extension 4.x and earlier](#tab/functionsv2/in-process)
 
-Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, versions < 5.x. 
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, versions < 5.x.
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
@@ -77,7 +77,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ---
 
-::: zone-end 
+::: zone-end
 ::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
@@ -92,11 +92,11 @@ Register Service Bus queue triggers with `app.ServiceBusQueue()` and topic trigg
 
 ## Binding types
 
-The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following:
    
 # [Isolated worker model](#tab/isolated-process)
 
-An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
 # [In-process class library](#tab/in-process)
 
@@ -124,7 +124,7 @@ The Service Bus extension supports parameter types according to the table below.
 
 # [Extension 4.x and earlier](#tab/functionsv2/in-process)
 
-Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.ServiceBus] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**.
+Earlier versions of the extension expose types from the retired [Microsoft.Azure.ServiceBus] library. Use **Extension 5.x+** for types from the supported [Azure.Messaging.ServiceBus] library. To update an existing function app, see [Migrate from Service Bus extension version 4.x to version 5.x](migrate-service-bus-version-4-version-5.md).
 
 [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
@@ -186,7 +186,7 @@ Earlier versions of extensions in the isolated worker process only support bindi
 
 ## SDK Binding Types
 
-SDK Types for Azure Service Bus are in Preview. Follow the [Python SDK Bindings for Service Bus Sample](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/README.md) to get started with SDK Types for Service Bus in Python. 
+SDK Types for Azure Service Bus are in Preview. Follow the [Python SDK Bindings for Service Bus Sample](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/README.md) to get started with SDK Types for Service Bus in Python.
 > [!IMPORTANT]  
 > Using SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings).
 
@@ -201,7 +201,7 @@ SDK Types for Azure Service Bus are in Preview. Follow the [Python SDK Bindings 
 
 :::zone-end
 
-<a name="host-json"></a>  
+<a name="host-json"></a>
 
 ## host.json settings
 
