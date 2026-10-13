@@ -34,8 +34,9 @@ After the virtual machine is created, Azure Migrate will invoke the [Custom Scri
 >Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
 
 ## Temporary hydration Azure VM SKU selection logic
-Before you perform a test or final migration, you can determine the VM size (SKU) that Azure Migrate uses for the hydration VM. You can then verify that the required VM size is available in the target subscription and that sufficient vCPU quota is available. The calculation follows the same VM-size selection logic used by the Azure Site Recovery service. The hydration VM size is selected as follows:
 
+ The temporary hydration VM size is selected as follows:
+ 
 1. **Determine disk requirements**:
     - Windows: Only the OS disk is attached.
     - Linux: All protected disks are attached.
