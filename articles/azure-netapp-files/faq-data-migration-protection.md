@@ -97,7 +97,7 @@ Yes, the inputs provided in the migration assistant tool are case-sensitive.
 
 No. If you want to use the existing subnet, you should clean up the IP addresses on the subnet or use a different subnet.
 
-### What happens if user-defined routes (UDRs) are not configured correctly?
+### What happens if user-defined routes (UDRs) aren't configured correctly?
 
 When configuring peering, verify that any UDRs are configured correctly. Incorrect UDR configuration can prevent the peering operation from succeeding.
 
