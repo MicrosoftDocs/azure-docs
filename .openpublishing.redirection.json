@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-web-pubsub/chat-reference-service-sdk-java.md",
       "redirect_url": "/java/api/overview/azure/messaging-webpubsub-chat-readme",
       "redirect_document_id": false

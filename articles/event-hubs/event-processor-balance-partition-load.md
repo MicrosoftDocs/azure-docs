@@ -15,7 +15,7 @@ In the newer SDK versions (5.0 onwards), **EventProcessorClient** (.NET and Java
 This article describes a sample scenario for using multiple instances of client applications to read events from an event hub. It also explains key concepts like partition ownership, checkpointing, and load balancing.
 
 > [!TIP]
-> If you're using an older version of the client library, see the migration guides: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md), and [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
+> If you're using an older version of the Event Hubs client library, see the migration guides: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventhub/azure-eventhub/migration_guide.md), and [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/event-hubs/migrationguide.md). For `WindowsAzure.ServiceBus`, use its [Event Hubs migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide_WindowsAzureServiceBus.md).
 
 > [!NOTE]
 > The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](/previous-versions/msp-n-p/dn568101(v=pandp.10)) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end-to-end parallelism.
@@ -43,7 +43,7 @@ For most production scenarios, use the event processor client for reading and pr
 
 ## Partition ownership 
 
-An event processor instance typically owns and processes events from one or more partitions. The system evenly distributes ownership of partitions among all the active event processor instances associated with an event hub and consumer group combination. 
+An event processor instance typically owns and processes events from one or more partitions. The system evenly distributes ownership of partitions among all the active event processor instances associated with an event hub and consumer group combination.
 
 Each event processor has a unique identifier and claims ownership of partitions by adding or updating an entry in a checkpoint store. All event processor instances communicate with this store periodically to update their own processing state and to learn about other active instances. The system uses this data to balance the load among the active processors. New instances can join the processing pool to scale up. When instances go down, either because of failures or to scale down, the system gracefully transfers partition ownership to other active processors.
 
@@ -70,9 +70,9 @@ Process events relatively fast. That is, do as little processing as possible. If
 
 ## Checkpoint
 
-*Checkpointing* is a process by which an event processor marks or commits the position of the last successfully processed event within a partition. Marking a checkpoint typically happens within the function that processes the events and occurs on a per-partition basis within a consumer group. 
+*Checkpointing* is a process by which an event processor marks or commits the position of the last successfully processed event within a partition. Marking a checkpoint typically happens within the function that processes the events and occurs on a per-partition basis within a consumer group.
 
-If an event processor disconnects from a partition, another instance can resume processing the partition at the checkpoint that the last processor of that partition in that consumer group previously committed. When the processor connects, it passes the offset to the event hub to specify the location at which to start reading. In this way, you can use checkpointing to both mark events as "complete" by downstream applications and to provide resiliency when an event processor goes down. You can return to older data by specifying a lower offset from this checkpointing process. 
+If an event processor disconnects from a partition, another instance can resume processing the partition at the checkpoint that the last processor of that partition in that consumer group previously committed. When the processor connects, it passes the offset to the event hub to specify the location at which to start reading. In this way, you can use checkpointing to both mark events as "complete" by downstream applications and to provide resiliency when an event processor goes down. You can return to older data by specifying a lower offset from this checkpointing process.
 
 When the checkpoint marks an event as processed, it adds or updates an entry in the checkpoint store with the event's offset and sequence number. Decide the frequency of updating the checkpoint. Updating after each successfully processed event can have performance and cost implications  as it triggers a write operation to the underlying checkpoint store. Also, checkpointing every single event is indicative of a queued messaging pattern for which a Service Bus queue might be a better option than an event hub. The idea behind Event Hubs is that you get "at least once" delivery at great scale. By making your downstream systems idempotent, it's easy to recover from failures or restarts that result in the same events being received multiple times.
 

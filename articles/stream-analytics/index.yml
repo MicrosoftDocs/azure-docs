@@ -180,8 +180,6 @@ landingContent:
             url: stream-analytics-edge.md
           - text: Build a sentiment analysis solution
             url: stream-analytics-twitter-sentiment-analysis-trends.md 
-          - text: Build an IoT solution
-            url: stream-analytics-build-an-iot-solution-using-stream-analytics.md
           - text: High-frequency trading simulation
             url: stream-analytics-high-frequency-trading.md
           - text: Alert based on adjustable rule thresholds
