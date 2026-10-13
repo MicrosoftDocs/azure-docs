@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - build-2025
 ms.topic: how-to
-ms.date: 10/12/2026
+ms.date: 06/03/2025
 ms.author: cshoe
 ---
 
@@ -20,9 +20,6 @@ Your container app can be granted two types of identities:
 
 - A **system-assigned identity** is tied to your container app and is deleted when your container app is deleted. An app can only have one system-assigned identity.
 - A **user-assigned identity** is a standalone Azure resource that you can assign to your container app and other resources. A container app can have multiple user-assigned identities. User-assigned identities exist until you delete them.
-
-> [!NOTE]
-> The identity configuration steps in this article apply to container apps. Azure Files SMB volume mounts use a managed identity assigned to the Container Apps **environment** instead. See [Use managed identity for Azure Files SMB mounts](#use-managed-identity-for-azure-files-smb-mounts).
 
 ## Why use a managed identity?
 
@@ -52,14 +49,6 @@ User-assigned identities are ideal for workloads that:
 ## Limitations
 
 [Init containers](containers.md#init-containers) can't access managed identities in [consumption-only environments](environment.md#types) and [dedicated workload profile environments](environment.md#types)
-
-## Use managed identity for Azure Files SMB mounts
-
-For new SMB Azure Files volume mounts, we recommend managed identity authentication (preview) instead of storage account keys. This mode authenticates with a system-assigned or user-assigned managed identity assigned to the **Container Apps environment**, not the individual container app. You don't need to retrieve, store, or rotate a storage account key to mount the share.
-
-Before using this mode, enable **Managed Identity for SMB** (`SMBOAuth`) on the storage account and grant the selected environment identity the **Storage File Data SMB MI Admin** role at the storage account scope. Enabling an identity on the container app alone doesn't configure the environment identity used for the mount.
-
-For the prerequisites and configuration instructions, see [Use storage mounts in Azure Container Apps](storage-mounts.md#azure-files). For a step-by-step example using the environment's system-assigned identity, see [Create an Azure Files volume mount in Azure Container Apps](storage-mounts-azure-files.md).
 
 ## Configure managed identities
 
