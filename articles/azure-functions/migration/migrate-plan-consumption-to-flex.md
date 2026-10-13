@@ -92,18 +92,11 @@ The portal provides a manual migration path. Your high-level steps are:
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-The Azure skill guides a side-by-side migration from Windows Consumption to a Linux-based Flex Consumption app. Your high-level steps are:
+Set up GitHub Copilot using the [prerequisites](#prerequisites), then use the prompt in [Start the migration](#start-the-migration). Copilot guides you through assessment, Windows-to-Linux code preparation, target creation and configuration, deployment, validation, and production cutover. It asks for your input or approval when needed.
 
-> [!div class="checklist"]
-> + [Set up GitHub Copilot](#prerequisites)
-> + [Identify potential apps to migrate](#identify-potential-apps-to-migrate)
-> + [Assess Windows-to-Linux compatibility](#assess-your-existing-app)
-> + [Review dependent services](#consider-dependent-services)
-> + [Start the migration](#start-the-migration)
-> + [Deploy, validate, and cut over](#migration-steps)
-> + [Complete post-migration tasks](#post-migration-tasks)
+The sections below explain the checks and migration tasks for reference; you don't need to perform the manual CLI or portal steps when following the Copilot workflow.
 
-Copilot inventories the source configuration, helps prepare compatible code, creates and configures the target app, and guides deployment and validation. It keeps the source app read-only during assessment and replication. Changes to source triggers, settings, app state, or resources require explicit approval for the specific action.
+Copilot keeps the source app read-only during assessment and replication. Changes to source triggers, settings, app state, or resources require explicit approval for the specific action.
 
 #### [Azure CLI](#tab/azure-cli)
 
