@@ -44,7 +44,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Supported |Supported |
 | Cisco |Meraki (MX) | MX v15.12 |Not compatible | [Configuration guide](https://documentation.meraki.com/MX/Site-to-site_VPN/Configuring_Site_to_Site_VPN_tunnels_to_Azure_VPN_Gateway) |
 | Cisco | vEdge (Viptela OS) | 18.4.0 (Active/Passive Mode) | Not compatible |  [Manual configuration (Active/Passive)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454) |
-| Citrix |NetScaler MPX, SDX, VPX |10.1 and later |[Configuration guide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
+| Citrix |NetScaler MPX, SDX, VPX |10.1 and later |[Configuration guide](https://docs.citrix.com/en-us/citrix-cloud/citrix-cloud-resource-locations/citrix-cloud-connector) |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://community.f5.com/t5/technical-articles/connecting-to-windows-azure-with-the-big-ip/ta-p/282476) |[Configuration guide](https://community.f5.com/t5/technical-articles/big-ip-to-azure-dynamic-ipsec-tunneling/ta-p/282665) |
 | Fortinet |FortiGate |FortiOS 5.6 | Not tested |[Configuration guide](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
 | Fsas Technologies | Si-R G series | V04: V04.12<br>V20: V20.14 | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) |
