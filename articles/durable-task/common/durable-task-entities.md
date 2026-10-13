@@ -4,7 +4,8 @@ description: "Discover what durable entities are and how to use them to manage s
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 07/21/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -56,6 +57,7 @@ Entity functions and related features are available in [Durable Functions 2.0](.
 | Java | ✅ |
 | Python | ✅ |
 | JavaScript | ✅ |
+| Go (beta) | ✅ |
 | PowerShell | ❌ |
 
 ::: zone-end
@@ -371,6 +373,10 @@ public String counterEntity(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -566,6 +572,94 @@ return ctx -> {
 };
 ```
 
+# [Go](#tab/go)
+
+The Go SDK supports function-based entities. This counter reads existing state, handles an operation, and persists updates:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func counter(ctx *task.EntityContext) (any, error) {
+	var value int
+	if ctx.HasState() {
+		if err := ctx.GetState(&value); err != nil {
+			return nil, err
+		}
+	}
+	switch ctx.Operation {
+	case "get":
+		return value, nil
+	case "add":
+		var amount int
+		if err := ctx.GetInput(&amount); err != nil {
+			return nil, err
+		}
+		value += amount
+	case "reset":
+		value = 0
+	case "delete":
+		ctx.DeleteState()
+		return nil, nil
+	default:
+		return nil, fmt.Errorf("unknown counter operation %q", ctx.Operation)
+	}
+	if err := ctx.SetState(value); err != nil {
+		return nil, err
+	}
+	return value, nil
+}
+```
+
+Save the following functions in another file in the same package. Call `registerCounter` on the worker's registry before creating the worker. Start `UseCounter` with a unique entity key as its string input.
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func useCounter(ctx *task.OrchestrationContext) (any, error) {
+	var key string
+	if err := ctx.GetInput(&key); err != nil {
+		return nil, err
+	}
+	if key == "" {
+		return nil, fmt.Errorf("entity key must not be empty")
+	}
+	id := api.NewEntityID("Counter", key)
+	if err := ctx.SignalEntity(id, "add", task.WithSignalEntityInput(1)); err != nil {
+		return nil, err
+	}
+	var value int
+	if err := ctx.CallEntity(id, "get").Await(&value); err != nil {
+		return nil, err
+	}
+	return value, nil
+}
+
+func registerCounter(registry *task.TaskRegistry) error {
+	if err := registry.AddEntityN("Counter", counter); err != nil {
+		return err
+	}
+	return registry.AddOrchestratorN("UseCounter", useCounter)
+}
+```
+
+Signals don't return operation results. Calls wait for a result. Operations for one entity instance execute serially. For registration models, factories, and locked transfers, see the [Go SDK entity sample](https://github.com/microsoft/durabletask-go/tree/main/samples/entity).
+
+> [!WARNING]
+> Go and Python use a different multi-entity lock ordering from .NET. Don't concurrently acquire overlapping lock sets from Go/Python and .NET orchestrations.
+
 ---
 
 ::: zone-end
@@ -706,6 +800,10 @@ public HttpResponseMessage signalCounter(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 The term *signal* means that the entity API invocation is one-way and asynchronous. A client function can't know when the entity processes the operation. The client function can't observe result values or exceptions.
@@ -751,6 +849,10 @@ PowerShell support for durable entities isn't yet available. Check back for futu
 EntityInstanceId counterId = new EntityInstanceId("Counter", "myCounter");
 client.getEntities().signalEntity(counterId, "add", 1);
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -864,6 +966,10 @@ public HttpResponseMessage getCounter(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -919,6 +1025,10 @@ if (entityMetadata != null) {
     System.out.printf("Current value: %d%n", state);
 }
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -1026,6 +1136,10 @@ public String counterOrchestration(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 Only orchestrations can call entities and get a response, which can be a return value or an exception. Client functions that use the [client binding](../durable-functions/durable-functions-bindings.md#entity-client) can only signal entities.
@@ -1114,6 +1228,10 @@ return ctx -> {
     ctx.complete(currentValue);
 };
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -1218,6 +1336,10 @@ public class AccountEntity extends AbstractTaskEntity<Integer> {
     }
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -1339,6 +1461,10 @@ In the preceding example, an orchestrator function transfers funds from a source
 > [!NOTE]
 > Java doesn't currently support critical sections.
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 > [!NOTE]
@@ -1404,6 +1530,10 @@ Unlike transactions, critical sections don't automatically roll back changes whe
 > [!NOTE]
 > Java doesn't currently support critical sections.
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ### Critical section rules
@@ -1438,6 +1568,10 @@ If you violate any of these rules, the runtime throws an error. The error messag
 
 > [!NOTE]
 > Java doesn't currently support critical sections.
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 

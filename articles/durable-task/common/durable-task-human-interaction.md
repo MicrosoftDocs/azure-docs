@@ -3,7 +3,7 @@ title: "Human Interaction Pattern"
 description: "Learn how to implement the human interaction pattern for approval workflows and timeouts in durable orchestrations. Build reliable workflows with Durable Functions or Durable Task SDKs."
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 04/23/2026
+ms.date: 10/12/2026
 ms.author: hannahhunter
 author: hhunter-ms
 ms.devlang: csharp
@@ -48,6 +48,8 @@ This sample shows how to build a [Durable Functions](what-is-durable-task.md) or
 ::: zone pivot="durable-task-sdks"
 
 This article shows how to implement the human interaction pattern by using the Durable Task SDKs. The example implements an approval workflow in which an orchestration waits for a person to approve or reject a request before it continues.
+
+For Go, see the [external event code](durable-task-external-events.md?pivots=durable-task-sdks&tabs=go), which waits for an approval event with a timeout, and the [Go SDK external events sample](https://github.com/microsoft/durabletask-go/tree/main/samples/externalevents).
 
 ::: zone-end
 

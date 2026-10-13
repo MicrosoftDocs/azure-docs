@@ -4,7 +4,8 @@ title: "Handle External Events in Durable Orchestrations"
 description: "Learn how to handle external events in durable orchestrations. Discover how to wait for, send, and process external events like human approvals using the Durable Task framework."
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 05/04/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 # ms.devlang: csharp, javascript, powershell, python, java
 zone_pivot_groups: azure-durable-approach
@@ -175,6 +176,10 @@ if ($approved) {
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -249,6 +254,31 @@ const budgetApproval: TOrchestrator = async function* (ctx: OrchestrationContext
     return approved;
 };
 ```
+
+# [Go](#tab/go)
+
+Register `budgetApproval` as `BudgetApproval`. This example waits up to 30 seconds; a missing event fails the workflow rather than silently approving it.
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func budgetApproval(ctx *task.OrchestrationContext) (any, error) {
+	var approved bool
+	if err := ctx.WaitForSingleEvent("Approval", 30*time.Second).Await(&approved); err != nil {
+		return nil, fmt.Errorf("wait for approval: %w", err)
+	}
+	return approved, nil
+}
+```
+
+Use a negative timeout for an indefinite wait. On timeout, `Await` returns `task.ErrTaskCanceled`. For typed and repeated events, timeouts, and cross-instance events, see the [Go SDK external events sample](https://github.com/microsoft/durabletask-go/tree/main/samples/externalevents).
 
 # [PowerShell](#tab/powershell)
 
@@ -417,6 +447,10 @@ if ($winner -eq $event1) {
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -520,6 +554,10 @@ const selectOrchestrator: TOrchestrator = async function* (ctx: OrchestrationCon
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -658,6 +696,10 @@ Wait-DurableTask -Task @($gate1, $gate2, $gate3)
 Invoke-ActivityFunction -FunctionName 'IssueBuildingPermit' -Input $applicationId
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -751,6 +793,10 @@ const newBuildingPermit: TOrchestrator = async function* (
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -887,6 +933,10 @@ param($instanceId)
 Send-DurableExternalEvent -InstanceId $InstanceId -EventName "Approval"
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -915,6 +965,25 @@ client.raiseEvent(instanceId, "Approval", true);
 
 ```typescript
 await client.raiseOrchestrationEvent(instanceId, "Approval", true);
+```
+
+# [Go](#tab/go)
+
+Use the management client you create with `durabletaskscheduler.NewClient`:
+
+```go
+package main
+
+import (
+	"context"
+
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/durabletaskscheduler"
+)
+
+func sendApproval(ctx context.Context, durableClient *durabletaskscheduler.Client, id api.InstanceID, approved bool) error {
+	return durableClient.RaiseEvent(ctx, id, "Approval", api.WithEventPayload(approved))
+}
 ```
 
 # [PowerShell](#tab/powershell)
