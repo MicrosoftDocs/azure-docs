@@ -1,17 +1,20 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 10/06/2026
+ms.date: 10/13/2026
 ms.custom: horz-monitor
 ms.topic: reference
-author: spelluru
-ms.author: spelluru 
+author: EldertGrootenboer
+ms.author: egrootenboer
+ms.service: azure-service-bus
 ---
 # Azure Service Bus monitoring data reference
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Service Bus](monitor-service-bus.md) for details on the data you can collect for Service Bus and how to use it.
+
+To correlate quota and capacity concerns with metric display names and REST API names, see [Monitor quota usage and throttling](service-bus-quotas.md#monitor-quota-usage-and-throttling). The mapping distinguishes usage metrics from diagnostic signals and identifies limits without a dedicated usage metric.
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
