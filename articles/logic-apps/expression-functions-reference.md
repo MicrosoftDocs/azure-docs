@@ -44,9 +44,9 @@ Here are some other general ways that you can use functions in expressions:
 | Task | Function syntax in an expression |
 | ---- | -------------------------------- |
 | Perform work with an item by passing that item to a function. | "\@<*functionName*>(<*item*>)" |
-| 1. Get the *parameterName*`s value by using the nested `parameters()` function. <br>2. Perform work with the result by passing that value to *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" |
+| 1. Get the *parameterName*'s value by using the nested `parameters()` function. <br>2. Perform work with the result by passing that value to *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" |
 | 1. Get the result from the nested inner function *functionName*. <br>2. Pass the result to the outer function *functionName2*. | "\@<*functionName2*>(<*functionName*>(<*item*>))" |
-| 1. Get the result from *functionName*. <br>2. Given that the result is an object with property *propertyName*, get that property`s value. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
+| 1. Get the result from *functionName*. <br>2. Given that the result is an object with property *propertyName*, get that property's value. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
 
 For example, the `concat()` function can take two or more string values as parameters. This function combines those strings into one string. You can either pass in string literals, for example, "Sophia" and "Owen" so that you get a combined string, "SophiaOwen":
 
@@ -1102,8 +1102,8 @@ These examples show the different supported types of input for `bool()`:
 | `bool(1)` | Integer | `true` |
 | `bool(0)` | Integer    | `false` |
 | `bool(-1)` | Integer | `true` |
-| `bool(`true`)` | String | `true` |
-| `bool(`false`)` | String | `false` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 ## C
 
