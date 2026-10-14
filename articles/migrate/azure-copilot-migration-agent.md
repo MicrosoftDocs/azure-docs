@@ -72,10 +72,10 @@ To open the agent experience in Azure Migrate, follow these steps:
 Azure Copilot Migration Agent provides comprehensive analysis and guidance for the following phases of your migration journey:
 
 - [Discovery and inventory analysis](#discovery-and-inventory-analysis) 
-- [Application discovery and analysis (Preview)](#application-discovery-and-analysis-preview)
-- [Business case and ROI analysis (Preview)](#business-case-and-roi-analysis-preview) 
+- [Application discovery and analysis (preview)](#application-discovery-and-analysis-preview)
+- [Business case and ROI analysis (preview)](#business-case-and-roi-analysis-preview) 
 - [Migration strategy and readiness analysis](#migration-strategy-and-readiness-analysis) 
-- [Wave planning and execution (Preview)](#wave-planning-and-execution-preview) 
+- [Wave planning and execution (preview)](#wave-planning-and-execution-preview) 
 - [Azure landing zone generation](#azure-landing-zone-generation) 
 
 ### Discovery and inventory analysis 
@@ -86,11 +86,11 @@ After discovery, the agent can help you explore and analyze your inventory using
 
 The agent helps you enrich your inventory by adding business context, such as environment classifications (development, test, or production) and migration intent (retain or retire). These insights help you better understand your estate, organize workloads, and prepare for migration planning.
 
-### Application discovery and analysis (Preview) 
+### Application discovery and analysis (preview) 
 
 Azure Copilot Migration Agent automatically identifies related workloads and groups them into applications using workload metadata, software inventory, and network dependencies. The agent classifies applications as custom or packaged and provides insights into their business criticality and complexity. Use these insights to understand your application portfolio, review application groupings, and make informed migration and modernization decisions.
 
-### Business case and ROI analysis (Preview) 
+### Business case and ROI analysis (preview) 
 
 Azure Copilot Migration Agent helps you understand the financial and business value of migrating to Azure by using business cases in your Azure Migrate project. With a multi-strategy business case, you can compare options such as rehosting workloads on Azure virtual machines (lift and shift), modernizing workloads with Azure platform as a service (PaaS), or using a recommended combination of both approaches.
 
@@ -106,7 +106,7 @@ You can compare modernization strategies, such as rehosting workloads on Azure v
 
 When code analysis results are available, the agent can also highlight code readiness, modernization opportunities, estimated refactoring effort, and suitable Azure services. These insights help teams plan remediation, make informed migration decisions, and prepare workloads for wave planning and execution.
 
-### Wave planning and execution (Preview) 
+### Wave planning and execution (preview) 
 
 Azure Copilot Migration Agent automatically groups applications and workloads into a proposed wave plan. It explains the factors behind the grouping and sequencing, highlighting dependencies, risks, and other considerations that influence migration planning.
 
@@ -136,7 +136,7 @@ The following examples show prompts that you can use with the Migration Agent. A
 - I want to enrich my inventory. How does tagging work?
 - List workloads tagged as Environment: Production.
 
-### Application discovery and analysis (Preview)
+### Application discovery and analysis (preview)
 
 - Show all applications discovered in my data center.
 - How many applications were discovered automatically?
@@ -144,7 +144,7 @@ The following examples show prompts that you can use with the Migration Agent. A
 - Show details for the Contoso_ERP application.
 - Show applications with high criticality.
 
-### Business case and ROI analysis (Preview)
+### Business case and ROI analysis (preview)
 
 - Summarize my business case.
 - Compare the migration strategies in my business case side by side.
@@ -165,7 +165,7 @@ The following examples show prompts that you can use with the Migration Agent. A
 - Which servers were downsized the most in the recommendation?
 - Tell me about the readiness of server ABC.
 
-### Wave planning and execution (Preview)
+### Wave planning and execution (preview)
 
 - What is a wave plan?
 - Generate a wave plan for this assessment.
