@@ -73,8 +73,6 @@ landingContent:
             url: functions-create-ai-enabled-apps.md
       - linkListType: reference
         links:
-          - text: Azure OpenAI bindings
-            url: functions-bindings-openai.md
           - text: MCP bindings
             url: functions-bindings-mcp.md
   - title: Develop functions
