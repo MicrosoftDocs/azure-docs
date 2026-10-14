@@ -12,7 +12,7 @@ ms.custom:
 
 # What are Azure Service Groups?
 
-Azure Service Groups allow the ability to create flexible, custom groupings of Azure resources — across subscriptions and resource groups — without changing the existing resource hierarchy. Think of them as a way to build virtual folders of resources for specific teams, projects, or workloads, giving each group its own view with as minimal permissions as needed.
+Azure Service Groups enable you to create flexible, custom groupings of Azure resources across subscriptions and resource groups without changing the existing resource hierarchy. Use them to build virtual folders of resources for specific teams, projects, or workloads, giving each group its own view with minimal permissions.
 
 Service Groups are ideal for scenarios requiring cross-boundary grouping, low privileged permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and important facts.
 
