@@ -633,7 +633,7 @@ For more information, see [Tutorial: Trigger Azure Functions on blob containers 
 
 Flex Consumption runs on Linux. Review your app for Windows-only APIs, packages, native binaries, Windows-specific paths and case assumptions, PowerShell modules, and Windows certificate-store access. Apps targeting .NET Framework or published for a Windows runtime identifier also require preparation.
 
-PowerShell managed dependencies aren't supported on Flex Consumption. Before migration, package all required PowerShell modules with your application in its root `Modules` folder, and verify that those modules support Linux. A `requirements.psd1` file alone doesn't install modules on the target app. For more information, see [PowerShell dependency management](../functions-reference-powershell.md#dependency-management).
+Flex Consumption doesn't support PowerShell managed dependencies. Before migration, package all required PowerShell modules with your application in its root `Modules` folder, and verify that those modules support Linux. A `requirements.psd1` file alone doesn't install modules on the target app. For more information, see [PowerShell dependency management](../functions-reference-powershell.md#dependency-management).
 
 During assessment, Copilot offers a heuristic dependency scan. Provide a local source directory or a checked-out repository when possible. If source is unavailable, Copilot can retrieve the deployed package, but compiled artifacts can limit scan coverage. The scan isn't exhaustive, and you're responsible for verifying Linux compatibility.
 
