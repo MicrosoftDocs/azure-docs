@@ -65,7 +65,7 @@ Use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az featu
 
 Before creating a new Entra ID connection, complete the following steps:     
 
-1. Ensure your Microsoft Entra ID environment is configured for the identity model you intend to use:
+1. Ensure your Microsoft Entra ID environment is configured for the identity model you want to use:
 
     * **Hybrid identities**: Configure Microsoft Entra Connect Sync to synchronize on-premises Active Directory users with Microsoft Entra ID.
     * **Cloud-only identities**: No Microsoft Entra Connect Sync or on-premises Active Directory configuration is required.
@@ -183,7 +183,7 @@ Before creating a new Entra ID connection, complete the following steps:
     * Obtain a cloud-issued Kerberos ticket during interactive sign-in.
     * Mount the Azure NetApp Files SMB volume using Kerberos authentication.
 
-    To configure the Entra ID-joined virtual machine:
+    To configure the Entra ID–joined virtual machine:
     
     * Go to **Work and school account** > **Connect to Azure** > **Use global Entra ID cloud account username and password**.
 
@@ -205,7 +205,7 @@ Before creating a new Entra ID connection, complete the following steps:
     * Sign in with a global Microsoft Entra ID account.
     * Register the device with Microsoft Entra ID.
 
-    To configure the Entra ID-registered virtual machine:
+    To configure the Entra ID–registered virtual machine:
 
     * Go to **Work and school account** > **Connect to Azure** > **Use global Entra ID cloud account username and password**.
     * Sign in with a global Microsoft Entra ID account.
