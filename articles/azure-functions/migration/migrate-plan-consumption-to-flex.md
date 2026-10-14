@@ -614,6 +614,9 @@ To determine whether your function app has any Blob storage triggers that don't 
 
 If your app has any Blob storage triggers that don't have an Event Grid source, you must change to an Event Grid source before you migrate to the Flex Consumption plan.
 
+> [!IMPORTANT]
+> Before converting a polling Blob trigger, verify that Event Grid can reach the target function app's event-delivery endpoint. [Event Grid push delivery doesn't support delivery through private endpoints](../../event-grid/consume-private-endpoints.md). If the target is private-only, resolve the event-delivery architecture before migration; virtual network integration alone doesn't provide inbound connectivity from Event Grid.
+
 The basic steps to change an existing Blob storage trigger to an Event Grid source are:
 
 1. Add or update the `source` property in your Blob storage trigger definition to `EventGrid` and redeploy the app.
