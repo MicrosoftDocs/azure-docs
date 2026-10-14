@@ -65,7 +65,11 @@ Use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az featu
 
 Before creating a new Entra ID connection, complete the following steps:     
 
-1. If you plan to use this feature with hybrid identities, first configure Microsoft Entra Connect Sync and sync on-premises Active Directory users by using [Microsoft Entra Connect Sync](https://portal.azure.com/?Microsoft_Azure_NetApp=development#view/Microsoft_AAD_Connect_Provisioning/AADConnectMenuBlade/%7E/ConnectSync) to enable hybrid identities.
+1. Ensure your Microsoft Entra ID environment is configured for the identity model you want to use:
+
+    * **Hybrid identities**: Configure Microsoft Entra Connect Sync to synchronize on-premises Active Directory users with Microsoft Entra ID.
+    * **Cloud-only identities**: No Microsoft Entra Connect Sync or on-premises Active Directory configuration is required.
+
 
 1. [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app). Register the application by using either the Microsoft Entra admin center or the Azure portal. Use the Azure portal so you can stay in a single workflow while configuring Azure NetApp Files resources. Complete the application registration with the following settings:
 
@@ -81,6 +85,20 @@ Before creating a new Entra ID connection, complete the following steps:
     > From the application’s Overview page, record the Application (client) ID. This ID uniquely identifies your application and is used in your application's code as part of validating the security tokens it receives from the Microsoft identity platform.
  
     After you register your application, create and upload the certificate for authorization and set up permissions to configure Microsoft Entra ID connections.   
+
+1. Enable a system-assigned managed identity for the NetApp account
+
+    Before creating and uploading the certificate and granting Azure Key Vault permissions, enable the system-assigned managed identity for the NetApp account.
+    
+    1. In the Azure portal, navigate to **Azure NetApp Files > NetApp account**.
+    1. Under **Settings**, select **Identity**.
+    
+        Azure NetApp Files supports either a system-assigned or user-assigned managed identity. For this procedure, select the system-assigned identity.
+
+    1. On the **System assigned** tab, set the status to On.
+    1. Select **Save**.
+
+        Azure NetApp Files uses the NetApp account managed identity to access Azure Key Vault during Microsoft Entra Kerberos authentication configuration. 
 
 1. Upload the certificate and set up permissions:
 
@@ -105,7 +123,6 @@ Before creating a new Entra ID connection, complete the following steps:
         1. Select **Microsoft Graph**, and then select **Application permissions**.  
         1. Validate that the following permissions are assigned:  
             * Application.ReadWrite.OwnedBy
-            * DelegatedPermissionGrant.ReadWrite.All
             * User.Read
         1. After adding permissions, select **Grant admin consent for tenant-name** and confirm the consent action.
 
@@ -161,6 +178,12 @@ Before creating a new Entra ID connection, complete the following steps:
     **Entra ID–joined virtual machine (Primary)** 
 
     Create an Entra ID–joined virtual machine to use Kerberos authentication and SMB access to Azure NetApp Files. Use this virtual machine to:  
+
+    * Sign in as a hybrid user using Microsoft Entra ID credentials.
+    * Obtain a cloud-issued Kerberos ticket during interactive sign-in.
+    * Mount the Azure NetApp Files SMB volume using Kerberos authentication.
+
+    To configure the Entra ID–joined virtual machine:
     
     * Go to **Work and school account** > **Connect to Azure** > **Use global Entra ID cloud account username and password**.
 
@@ -172,12 +195,17 @@ Before creating a new Entra ID connection, complete the following steps:
 
     This virtual machine represents the client that uses the end-to-end Microsoft Entra Kerberos authentication flow.
 
-    **Entra ID–registered virtual machine (optional)**
+    **Entra ID–registered virtual machine (if required for remote access)**
 
     > [!NOTE]
     > The Entra ID–registered virtual machine is a jump host to facilitate testing.
 
     Create an Entra ID–registered virtual machine to facilitate access to the Entra ID–joined virtual machine. Use this virtual machine to:  
+
+    * Sign in with a global Microsoft Entra ID account.
+    * Register the device with Microsoft Entra ID.
+
+    To configure the Entra ID–registered virtual machine:
 
     * Go to **Work and school account** > **Connect to Azure** > **Use global Entra ID cloud account username and password**.
     * Sign in with a global Microsoft Entra ID account.
@@ -214,16 +242,22 @@ Before creating a new Entra ID connection, complete the following steps:
         1. Enable **Network security: Allow PKU2U authentication requests to this computer to use online identities**.
         1. Add the hybrid user to the **Remote Desktop Users** by running the command:
             
-            net localgroup "Remote Desktop Users" /add AzureAD\UPN
+            net localgroup "Remote Desktop Users" /add <AzureAD\UPN>
 
-        1. Add a system managed identity: 
+    1. Grant admin consent to the Microsoft Entra application:
+        
+        To mount the volume, grant admin consent to the new Microsoft Entra application registered in your Microsoft Entra tenant. 
 
-            1. In the Azure Portal, go to **Azure NetApp Files** > **NetApp account**. 
-            1. Under **Settings**, select **Identity**.
-
-            You can now select a system-assigned or user-assigned identity
-	    
-        1. To select a system-assigned identity, ensure you're on the **System assigned** tab, enable the status, and then select **Save**.
+        1. Open Microsoft Entra ID.
+        1. Under **Manage**, select **App registrations**.
+        1. Select **All Applications**.
+        1. Select the application with the name that matches SMB-PREFIX.Random chars. This name appears in the mount instruction for the volume on the Volume Overview screen.
+        1. Under **Manage**, select **API permissions**.
+        1. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
+        1. Select **Yes**.
+        
+        > [!NOTE]
+        > The service principal is autogenerated and isn't used for authorization to the file share. Don't make any edits to this autogenerated service principal other than the ones listed here. If you do, you might get an error. 
     
 ## Create Entra ID connection
 
