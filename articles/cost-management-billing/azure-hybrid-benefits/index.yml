@@ -24,7 +24,7 @@ highlightedContent:
       url: /training/modules/understand-windows-server-iaas-vm-cost-management/5-describe-azure-hybrid-license-benefits
     - title: SQL Server in Azure Virtual Machines
       itemType: download
-      url: https://msazurecourses.azurewebsites.net/eBooks/SQL%20Server%20on%20Azure%20Virtual%20Machines.pdf
+      url: https://azure.microsoft.com/mediahandler/files/resourcefiles/sql-server-on-azure-virtual-machines/SQL%20VMs%20perf%20study%20datasheet.pdf
     - title: Explore Azure Hybrid Benefit for SQL VMs
       itemType: reference
       url: /azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change#azure-hybrid-benefit

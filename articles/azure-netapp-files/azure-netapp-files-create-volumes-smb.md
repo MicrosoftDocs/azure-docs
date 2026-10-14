@@ -23,12 +23,17 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 
 [!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
 
+* Configure an identity connection for the NetApp account. See [Configure an identity connection](azure-netapp-files-create-volumes-smb.md#configure-an-identity-connection).
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-## Configure Active Directory connections 
+## Configure an identity connection 
 
-Before creating an SMB volume, you need to create an Active Directory connection. If you haven't configured Active Directory connections for Azure NetApp files, follow instructions described in [Create and manage Active Directory connections](create-active-directory-connections.md).
+Before you create an SMB volume, configure the identity connection for the authentication method you want to use:
+
+* For Active Directory Domain Services (AD DS) authentication, see [Create and manage Active Directory connections](create-active-directory-connections.md).
+* For Microsoft Entra Kerberos authentication, see [Configure Microsoft Entra Kerberos authentication with Azure NetApp Files](configure-entra-kerberos-authentication-for-hybrid-cloud-identities.md).
+
 
 ## Add an SMB volume
 
@@ -102,7 +107,9 @@ Before creating an SMB volume, you need to create an Active Directory connection
 4. Select **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume.  
 
-    * Select your **Active Directory** connection from the drop-down list.  
+    * Select the identity connection for the authentication method you're using: 
+        - For AD DS authentication, select your **Active Directory** connection.  
+        - For Microsoft Entra Kerberos authentication, confirm the correct value appears in **Entra ID** connection.
     
     * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
         - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region.  
@@ -144,7 +151,10 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
 ## Control access to an SMB volume  
 
-Access to an SMB volume is managed through permissions. 
+The method you use to configure access to an SMB volume depends on the authentication method configured for the volume:
+
+* For Active Directory Domain Services (AD DS) authentication, configure [NTFS file and folder permissions](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) and [SMB share permissions](azure-netapp-files-create-volumes-smb.md#modify-smb-share-permissions).
+* For Microsoft Entra Kerberos authentication, see [Configure directory-level and file-level permissions for Azure NetApp Files shares](configure-entra-kerberos-authentication-for-hybrid-cloud-identities.md#configure-directory-level-and-file-level-permissions-for-azure-netapp-files-shares).
 
 ### NTFS file and folder permissions  
 
