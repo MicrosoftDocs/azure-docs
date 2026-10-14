@@ -1811,6 +1811,10 @@ Before deployment, Copilot classifies every trigger and offers to disable non-HT
 
 Function names containing a hyphen (`-`) [can't be disabled on Linux](../disable-function.md#considerations) through per-function app settings. For these functions, Copilot requires a separate safety decision: isolate dependencies, rename and repackage, approve a source-first cutover, or explicitly accept active processing. It doesn't treat an ineffective disable flag as protection.
 
+**Plan function-key handling before HTTP cutover.** The new app has its own host and function keys. For callers that use these keys, either preserve compatible source host and HTTP-function keys or update callers to use the target app's keys before redirecting traffic. Copilot asks which strategy to use and, if you choose preservation, copies and verifies the selected keys after deployment. Validate authenticated requests against the target endpoint before cutover.
+
+Copilot doesn't copy the `_master` key or extension-managed system keys. Update webhook integrations that require target-generated system keys separately. Preserving client keys means those credentials authorize both apps while they coexist.
+
 When using Copilot, choose whether to update your CI/CD pipeline, publish a prepared local project, or deploy a compatible retrieved package. After validation, Copilot guides production cutover and asks for explicit approval before changing the source app.
 
 :::zone-end
