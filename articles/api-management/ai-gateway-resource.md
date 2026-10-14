@@ -51,6 +51,14 @@ https://contoso-ai-gateway.westus2-02.ai.gateway.azure.com/
 > * Don't construct the hostname yourself. Read it from `properties.frontend.defaultHostname` (this property doesn't include `https://`).
 > * Update the runtime URL in application settings, SDK clients, secret stores, health checks, allow lists, proxies, DNS configuration, monitoring rules, and code samples.
 
+### Authorization header for keys
+
+Clients connecting to the runtime URL and authenticating by using keys should use the `Authorization` header with a `Bearer` scheme.
+
+| Earlier resource | New resource |
+| --- | --- |
+| `api-key: <your-key>` | `Authorization: Bearer <your-key>` |
+
 ### Azure Resource Manager contract
 
 The two resource types use different Azure Resource Manager contracts.
