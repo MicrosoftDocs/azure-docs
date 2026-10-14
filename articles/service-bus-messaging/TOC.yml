@@ -249,6 +249,16 @@
         href: service-bus-amqp-request-response.md
       - name: AMQP errors
         href: service-bus-amqp-troubleshoot.md
+    - name: REST and HTTP
+      items:
+      - name: REST APIs and client libraries
+        href: service-bus-rest-overview.md
+      - name: Namespace addressing
+        href: service-bus-rest-namespace-access.md
+      - name: HTTP message headers and properties
+        href: service-bus-rest-message-properties.md
+      - name: Send a message with Microsoft Entra ID authentication
+        href: service-bus-rest-send-entra-token-how-to.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Test locally with Service Bus emulator

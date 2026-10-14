@@ -450,7 +450,7 @@ The runtime uses managed identities when connecting to Azure resources that supp
 | Blob-backed session history<sup>3</sup> | `AzureWebJobsStorage__clientId` | `AZURE_CLIENT_ID`, then `DefaultAzureCredential` |
 
 1. When you don't configure an identity setting, the runtime uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential), which resolves to the system-assigned managed identity in Azure and your developer identity (Azure CLI or Visual Studio) locally.
-1. When you configure an API key in Azure OpenAI (using `AZURE_OPENAI_API_KEY`), the model provider uses the key instead of a managed identity. For more information, see [Azure OpenAI extension for Azure Functions](functions-bindings-openai.md#connections).
+1. When you configure an API key in Azure OpenAI (using `AZURE_OPENAI_API_KEY`), the model provider uses the key instead of a managed identity. For more information about SDK authentication with API keys or Microsoft Entra ID, see [Azure OpenAI v1 API authentication](/azure/foundry/openai/api-version-lifecycle#code-changes).
 1. Session history uses the same default host storage identity configuration as the Azure Functions host. Use `AzureWebJobsStorage`, `AzureWebJobsStorage__blobServiceUri`, and `AzureWebJobsStorage__clientId` to configure identity-based storage for blob-backed history. The runtime doesn't use a separate agent-specific identity setting for session history. For more information, see [Define connections](manage-connections.md?tabs=host&pivots=functions-auth-identity#define-connections) in the Functions developer guide.
 
 ## Built-in endpoints

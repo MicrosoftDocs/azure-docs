@@ -3,7 +3,7 @@ title: Configure connections to remote services in Azure Functions
 description: Learn how to securely and efficiently connect to remote services from your function app in Azure.
 ms.topic: concept-article
 ms.custom: devx-track-csharp, peer-review-program
-ms.date: 09/18/2026
+ms.date: 10/12/2026
 ai-usage: ai-assisted
 zone_pivot_groups: functions-auth-method
 
@@ -187,7 +187,6 @@ These binding extensions currently support identity-based connections:
 | [Azure Cosmos DB (NoSQL API)][cosmosv4] | 4.0.0 | 4.0.2 |
 | [Azure Event Grid](functions-bindings-event-grid.md?tabs=extensionv3) | 3.3.0 | 3.3.0 |
 | [Azure Event Hubs](functions-bindings-event-hubs.md) | 5.0.0 | 3.3.0 |
-| [Azure OpenAI](./functions-bindings-openai.md) | 0.19.0-alpha | 4.32.0 |
 | [Azure Queues storage](functions-bindings-storage-queue.md) | 5.0.0 | 3.3.0 |
 | [Azure Tables storage](functions-bindings-storage-table.md)<sup>*</sup>  | 1.0.0 | 3.3.0 |
 | [Azure Service Bus](functions-bindings-service-bus.md) | 5.0.0 | 3.3.0 |
@@ -240,7 +239,6 @@ These other settings are required by specific binding extensions:
 | Azure Cosmos DB | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | The Azure Cosmos DB account endpoint URI, such as `https://<database_account_name>.documents.azure.com:443/`.|       
 | Azure Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified namespace of the event hub, such as `<MY_EVENT_HUB_DNS>.servicebus.windows.net`. | 
 | Azure Event Grid (output) | `<CONNECTION_NAME_PREFIX>__topicEndpointUri` | The topic endpoint used by the output binding to write to the topic, such as `https://<TOPIC_NAME>.centralus-1.eventgrid.azure.net/api/events`. |
-| Azure OpenAI | `<CONNECTION_NAME_PREFIX>__endpoint` | Sets the URI endpoint of the Azure OpenAI service. This setting is always required. | 
 | Azure Queue storage | `<CONNECTION_NAME_PREFIX>__queueServiceUri`<sup>*</sup> | The URI of the queue storage service to which you're connecting, such as `https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net`. |
 | Azure Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Service Bus namespace, such as `<service_bus_namespace>.servicebus.windows.net`  |
 | Azure SignalR | `<CONNECTION_NAME_PREFIX>__serviceUri`| The URI of the SignalR service, such as `https://<SIGNALR_RESOURCE_NAME>.service.signalr.net`.|

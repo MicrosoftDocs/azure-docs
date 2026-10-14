@@ -14,7 +14,7 @@ The object model of the official Service Bus clients for .NET and Java reflects 
  
 A Service Bus message consists of a binary payload section that Service Bus never handles in any form on the service side, and two sets of properties. The **broker properties** are predefined by the system. These predefined properties either control message-level functionality inside the broker, or they map to common and standardized metadata items. The **user properties** are a collection of key-value pairs that the application can define and set.
  
-The following table lists the predefined broker properties. All official client APIs use these names. The [`BrokerProperties`](/rest/api/servicebus/introduction) JSON object of the HTTP protocol mapping also uses these names.
+The following table lists the predefined broker properties. All official client APIs use these names. The [`BrokerProperties`](service-bus-rest-message-properties.md) JSON object of the HTTP protocol mapping also uses these names.
  
 The equivalent names used at the Advanced Message Queuing Protocol (AMQP) protocol level are listed in parentheses. While the following names use pascal casing, JavaScript and Python clients use camel and snake casing respectively.
 
