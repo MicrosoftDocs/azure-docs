@@ -113,7 +113,7 @@ az network vnet subnet update --resource-group <resource-group-name> \
   --private-link-service-network-policies Disabled
 ```
 
-4. Ensure that there is a default route to Azure Firewall or another supported network virtual appliance. NAT Gateway is not supported for private supercomputer.
+4. Ensure that there is a default route to Azure Firewall or another supported network virtual appliance. NAT Gateway isn't supported for private supercomputer.
 
 5. Configure firewall rules
 
