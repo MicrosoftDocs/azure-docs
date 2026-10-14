@@ -3,13 +3,13 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: srtiruma
+author: kumarjai
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 09/16/2026
+ms.date: 10/14/2026
 ms.update-cycle: 3650-days
-ms.author: srtiruma
+ms.author: kumarjai
 ms.custom: compute-evergreen
 ---
 
@@ -20,6 +20,38 @@ ms.custom: compute-evergreen
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## September 2026 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | GuestOS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-09 | [5123099] | Latest Cumulative Update(LCU) | [5.122] | 08-Sep-26 |
+| Rel 26-09 | [5122876] | Latest Cumulative Update(LCU) | [6.98] | 08-Sep-26 |
+| Rel 26-09 | [5122882] | Latest Cumulative Update(LCU) | [7.68] | 08-Sep-26 |
+| Rel 26-09 | [5126047] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.122] | 08-Sep-26 |
+| Rel 26-09 | [5126043] | .NET Framework DotNet  | [6.98] | 08-Sep-26 |
+| Rel 26-09 | [5126050] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.68] | 08-Sep-26 |
+| Rel 26-09 | [4494175] | January '20 Microcode | [5.122] | 08-Sep-26 |
+| Rel 26-09 | [4494175] | January '20 Microcode | [6.98] | 08-Sep-26 |
+| Rel 26-09 | [5122874] | SSU LKG | [5.122] | 08-Sep-26 |
+| Rel 26-09 | [5122875] | SSU LKG | [6.98] | 08-Sep-26 |
+| Rel 26-09 | [5122881] | Servicing Stack Update | [7.68] | 08-Sep-26 |
+
+
+[5123099]: https://support.microsoft.com/kb/5123099
+[5122876]: https://support.microsoft.com/kb/5122876
+[5122882]: https://support.microsoft.com/kb/5122882
+[5126047]: https://support.microsoft.com/kb/5126047
+[5126043]: https://support.microsoft.com/kb/5126043
+[5126050]: https://support.microsoft.com/kb/5126050
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5122874]: https://support.microsoft.com/kb/5122874
+[5122875]: https://support.microsoft.com/kb/5122876
+[5122881]: https://support.microsoft.com/kb/5122882
+
+[5.122]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.98]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.68]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 ## August 2026 Guest OS
 
 | Product Category | Parent KB Article | Vulnerability Description | GuestOS | Date First Introduced |
