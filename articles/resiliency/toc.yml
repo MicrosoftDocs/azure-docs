@@ -61,6 +61,8 @@
       href: recovery-orchestration-plan-support-matrix.md
   - name: Security levels
     href: security-levels-concept.md
+  - name: Frequently asked questions
+    href: resiliency-agent-transparency.md
   - name: Protect Azure Elastic SAN via Azure Backup (preview)
     href: ../backup/azure-elastic-storage-area-network-backup-overview.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      
 - name: How-to guides
@@ -95,7 +97,7 @@
         href: availability-zone-down-drill-execute.md    
     - name: Assign and use Goals and recommendations
       items:
-      - name: Assign goals and view resiliency posture
+      - name: Assign goals and view resilience posture
         href: goals-recommendations-assign-goals-view-posture.md
       - name: Review recommendations
         href: goals-recommendations-review-recommendations.md
