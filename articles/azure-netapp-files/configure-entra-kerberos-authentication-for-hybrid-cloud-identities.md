@@ -245,8 +245,8 @@ Before creating a new Entra ID connection, complete the following steps:
             net localgroup "Remote Desktop Users" /add <AzureAD\UPN>
 
     1. Grant admin consent to the Microsoft Entra application:
-
-        To mount the volume, grant admin consent to the new Microsoft Entra application registered in your Entra tenant:
+        
+        To mount the volume, grant admin consent to the new Microsoft Entra application registered in your Microsoft Entra tenant. 
 
         1. Open Microsoft Entra ID.
         1. Under **Manage**, select **App registrations**.
