@@ -22,7 +22,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## September 2026 Guest OS
 
-| Product Category | Parent KB Article | Vulnerability Description | GuestOS | Date First Introduced |
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 26-09 | [5123099] | Latest Cumulative Update(LCU) | [5.122] | 08-Sep-26 |
 | Rel 26-09 | [5122876] | Latest Cumulative Update(LCU) | [6.98] | 08-Sep-26 |
