@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 03/28/2026
+ms.date: 10/14/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a network administrator, I want to deploy Azure Firewall with multiple public IP addresses using PowerShell, so that I can efficiently manage incoming and outgoing network traffic while ensuring high availability and reducing port exhaustion."
 ---
@@ -21,7 +21,7 @@ You can access Azure Firewall with multiple public IP addresses through the Azur
 You can associate up to 250 public IP addresses with an Azure Firewall deployed in a virtual network. DNAT destination rules also count toward the 250 maximum. For an Azure Firewall deployed in a secured virtual hub (VHub), you can associate up to 80 public IP addresses.
 
 > [!IMPORTANT]
-> Azure Firewall doesn't support attaching a Public IP Prefix. You must associate individual Standard public IP addresses with the firewall.
+> Azure Firewall doesn't support attaching a public IP prefix itself, but it can use individual Standard SKU public IP addresses provisioned from a public IP prefix.
 
 > [!NOTE]
 > Adding multiple public IP addresses is the lower-cost way to scale SNAT ports. In scenarios with high traffic volume and throughput, use a [NAT Gateway](/azure/nat-gateway/nat-overview) instead for a more scalable solution. NAT Gateway dynamically allocates SNAT ports across all public IPs associated with it. For more information, see [Integrate NAT Gateway with Azure Firewall](/azure/firewall/integrate-with-nat-gateway) and the [option comparison in best practices](firewall-best-practices.md#recommendations).
