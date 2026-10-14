@@ -948,6 +948,9 @@ When running in the Flex Consumption plan, you can recreate these inbound IP-bas
 
 ## Start the migration
 
+> [!IMPORTANT]
+> If Shared Key access is disabled on the selected host or deployment storage account, or your organization requires keyless storage access, configure managed identity authentication and the required role assignments for **both host storage and deployment storage**. The basic CLI-based creation flows described here use storage connection strings. Creating the app with keys and converting it afterward doesn't satisfy a requirement to prohibit Shared Key authentication during provisioning. For more information, see [Identity-based host storage connections](../manage-connections.md?pivots=functions-auth-identity&tabs=host) and [Configure deployment settings](../flex-consumption-how-to.md#configure-deployment-settings).
+
 ::: zone pivot="platform-linux"
 
 ### [GitHub Copilot](#tab/github-copilot)
@@ -1026,6 +1029,15 @@ Migrate my Windows Consumption Function App <APP_NAME> to Flex Consumption.
 Replace `<APP_NAME>` with your source app name. Copilot presents the migration plan, performs assessment, inventories configuration, and creates a new Flex Consumption app alongside the source.
 
 By default, the workflow proposes `<APP_NAME>-flex` for the target app name. Copilot asks you to choose whether to reuse the source storage account, create a new one, or use a specific existing account before creating the target app. You can request a different target name or state your storage preference in the prompt. Review the storage choice because shared dependencies can let both apps process the same events.
+
+Copilot checks whether the selected storage accounts permit Shared Key authentication and asks about identity-only policy requirements. If key-based creation isn't permitted, Copilot pauses before creating the target. Provision an empty Flex Consumption app dedicated to this migration in the same subscription, using identity-first infrastructure as code. Configure managed identity access for both host and deployment storage, the required role assignments, and monitoring. Don't deploy function code yet. For provisioning examples, see the [Flex Consumption infrastructure-as-code samples](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC).
+
+Return with the target's full Azure resource ID and the saved progress-file path. Copilot verifies the existing target and, after your approval, resumes configuration and deployment without creating another app. Use this prompt:
+
+```text
+Resume the Flex Consumption migration for <APP_NAME> using progress at <PROGRESS_FILE_PATH>.
+I provisioned a keyless target at <TARGET_RESOURCE_ID>. Use that existing target; do not create another app.
+```
 
 Before deployment, Copilot guides Windows-to-Linux code preparation, target configuration, built-in authentication, and non-HTTP trigger safety. It then offers deployment through an updated pipeline, a local project, or a compatible deployment package.
 
