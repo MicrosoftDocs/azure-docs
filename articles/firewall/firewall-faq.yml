@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: faq
-  ms.date: 10/09/2026
+  ms.date: 10/14/2026
   ms.author: duau
 title: Azure Firewall FAQ
 summary: |
@@ -253,6 +253,10 @@ sections:
       - question: How can I increase my firewall throughput?
         answer: |
           Azure Firewall scales automatically based on CPU usage, throughput, and connection count. Throughput capacity ranges from 2.5–3 Gbps initially to 30 Gbps (Standard SKU) or 100 Gbps (Premium SKU).
+
+      - question: How many firewalls can reference a single IP Group?
+        answer: |
+          A single IP Group has a soft limit of 50 referencing firewalls. Exceeding this limit might affect performance and cause IP Group updates to fail. For more information, see [Azure Firewall limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) and [IP Groups in Azure Firewall](ip-groups.md).
 
       - question: Are there limits for the number of IP addresses supported by IP Groups?
         answer: |
