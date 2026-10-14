@@ -70,7 +70,7 @@ ms.reviewer: wchi
 1. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
 
     ```javascript
-    const { TableClient } = require("@azure/data-tables");
+    const { TableServiceClient } = require("@azure/data-tables");
 
     const connection_str = process.env.AZURE_STORAGETABLE_CONNECTIONSTRING;
     const serviceClient = TableServiceClient.fromConnectionString(connection_str);
