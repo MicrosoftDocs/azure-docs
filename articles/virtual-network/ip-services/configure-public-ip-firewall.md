@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 01/07/2025
+ms.date: 10/14/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to manage public IP configurations for Azure Firewall so that I can optimize network security and connectivity for my Azure Virtual Network resources.
 ---
@@ -18,7 +18,7 @@ In this article, you learn how to manage public IP addresses for Azure Firewall 
 
 Azure Firewall is a cloud-based network security service that protects your Azure Virtual Network resources. Azure Firewall requires at least one public static IP address to be configured. This IP or set of IPs is the external connection point to the firewall. 
 
-Azure Firewall supports Standard SKU public IP addresses. Basic SKU public IP addresses and Public IP Prefixes aren't supported. You must associate individual Standard public IP addresses with the firewall. You can associate up to 250 public IP addresses with a firewall in a virtual network, and up to 80 with a firewall in a secured virtual hub.
+Azure Firewall supports Standard SKU public IP addresses. Basic SKU public IP addresses aren't supported. Azure Firewall doesn't support attaching a public IP prefix itself, but it can use individual Standard SKU public IP addresses provisioned from a public IP prefix. You can associate up to 250 public IP addresses with a firewall in a virtual network, and up to 80 with a firewall in a secured virtual hub.
 
 ## Prerequisites
 
