@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 04/14/2026
+ms.date: 10/14/2026
 ms.author: anfdocs
 # Customer intent: As an IT administrator managing Azure NetApp Files, I want to understand the resource limits and how to request limit increases, so that I can effectively plan and allocate storage resources for my organization’s needs.
 ---
@@ -27,7 +27,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Number of NetApp accounts per Azure region per subscription  |  100    |  Yes   |
 |  Number of capacity pools per NetApp account   |    100     |   Yes   |
 |  Number of volumes per subscription   |    2000     |   Yes   |
-|  Number of volumes per capacity pool  |    500   |    Yes     |
+|  Number of volumes per capacity pool  |    1000   |    Yes     |
 |  Number of snapshots per volume  |    255     |    No        |
 |  Number of IPs in a virtual network (including immediately peered virtual networks [VNets]) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  1 TiB*     |    No  |
