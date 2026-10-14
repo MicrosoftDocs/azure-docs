@@ -22,9 +22,27 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Extra large bundle support**: The FHIR service now supports extra large bundles beyond the standard size limit, enabling scenarios that require larger payload sizes.
 
+**SMART-on-FHIR authorization hardening: fail closed**: When a search parameter required for SMART-on-FHIR authorization is unavailable (disabled, pending delete, or awaiting reindex), the service now returns HTTP 403 Forbidden instead of silently dropping the access restriction. This breaking change strengthens security.
+
+**Default `smartUser` role permissions updated**: The default `smartUser` role no longer grants write or delete data actions under SMART scopes.
+
+**SearchParameter canonical URL conflict validation**: Creating or updating a SearchParameter with a canonical URL that conflicts with a built-in parameter is now rejected, preventing unintended overrides of standard search behavior.
+
+**`$import` support restored for profile resources**: The `$import` operation again supports importing `StructureDefinition`, `ValueSet`, and `CodeSystem` resources, restoring bulk profile loading capability.
+
+**Token introspection returns the correct client ID**: The token introspection endpoint now returns the Entra v1 `appid` or v2 `azp` claim as the RFC 7662 `client_id`, improving compatibility with SMART on FHIR clients.
+
+**SQL ingestion performance improvement**: SQL ingestion performance is improved by using efficient hashing for row deduplication, reducing overhead for large datasets.
+
 #### Bug fixes:
 
 **Fix for forged metadata in internal Bundle context**: Fixed a security issue where internal Bundle context could potentially allow forged metadata to change authorization behavior. Bundle context is now passed securely through internal request properties.
+
+**Fix for SMART clinical scope filtering across search types**: Fixed an issue where SMART clinical scopes did not correctly filter resources during system-wide, `_type`, history, and compartment searches. Scope filtering is now correctly applied across all search types.
+
+**Fix for composite search parameter hash codes**: Fixed an issue where composite search parameter values could produce inconsistent hash codes, causing duplicate detection to fail in certain scenarios.
+
+**Fix for sorted SQL searches with `$includes`**: Fixed an issue where sorted SQL searches with `$includes` could return missing or incorrect included resources. Pagination now works correctly for sorted searches with includes.
 
 ## September 2026
 ### FHIR service
