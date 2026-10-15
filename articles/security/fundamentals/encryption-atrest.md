@@ -8,7 +8,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/08/2026
+ms.date: 10/15/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -81,6 +81,16 @@ You use more than one encryption key in an encryption at rest implementation. St
 Resource providers and application instances store the encrypted DEKs as metadata. Only an entity with access to the KEK can decrypt these DEKs. Azure supports different models of key storage. For more information, see [data encryption models](encryption-models.md).
 
 When services cache DEKs locally for active cryptographic operations, Azure platform security controls protect the cached keys, including [host-level compute isolation](isolation-choices.md) and process-level protections. Cached operational keys are an availability and performance mechanism - the KEK in Key Vault remains the root of trust, and key revocation governs access to encrypted data.
+
+### Customer-managed key control, caching, and revocation
+
+With Azure Key Vault or Azure Key Vault Managed HSM, your organization controls key policies and authorized key use. The following error-handling and caching rules apply to Azure Key Vault Premium, Managed HSM, and Managed HSM with external keys.
+
+Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses indicating loss of key access also require consuming Azure services to flush all affected, previously authorized cached data encryption keys (DEKs) and stop using them. By default, affected encrypted data becomes inaccessible within one hour of your disabling the key, revoking access, or deleting it. This window includes polling, detection, and enforcement; it doesn't start with the first failed request. Longer revocation windows apply only if you explicitly opt in, where the service supports them.
+
+For other errors, services attempt to preserve workload availability using previously authorized cached DEKs, when available, within documented service-specific cache limits. Continued availability isn't guaranteed. Later transient errors don't override an observed denial or extend its revocation deadline.
+
+Managed HSM's architecture and technical controls prevent Microsoft personnel from overriding your key policies and authorized key-use decisions. When you use Managed HSM with external key management (EKM), your key encryption key remains in your HSM outside Microsoft infrastructure. For more information about Managed HSM's architectural protections, see [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details). The shared revocation behavior doesn't mean Azure Key Vault Premium has the same sovereignty architecture as Managed HSM.
 
 ## Encryption at rest in Microsoft cloud services
 
