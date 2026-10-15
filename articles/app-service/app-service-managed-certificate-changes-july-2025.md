@@ -1,8 +1,8 @@
 ---
 title: App Service Managed Certificate (ASMC) Changes – July 28, 2025
 description: Learn about the upcoming changes to App Service Managed Certificates due to DigiCert's validation platform update and how to mitigate impact.
-author: yutanglin16
-ms.author: yutlin
+author: nitinme
+ms.author: nitinme
 ms.service: azure-app-service
 ms.topic: whats-new
 ms.date: 07/28/2025
