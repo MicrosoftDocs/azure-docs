@@ -30,6 +30,9 @@ The Azure Blob container-to-container transfer feature in Azure Storage Mover ha
 - Blob container-to-container migration doesn't allow you to select the same Source and Target Endpoint in the same Migration Job Creation.
 - Blobs aren't truly moved but copied. The source Blob container continues to exist in its current location along with the Target location set.
 
+> [!NOTE]
+> Migrations between Storage Accounts with secure endpoints are supported. To allow the Storage Mover service to work with secured storage accounts, enable Trusted Microsoft services to access your Storage Account within the Storage Account Networking resource settings. For more information, see [Trusted Azure services for Azure Storage network security](../storage/common/storage-network-security-trusted-azure-services.md#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant).
+
 
 ## Configure source and target endpoints
 In the context of the Azure Storage Mover service, an *endpoint* is a resource that contains the path to either a source or target location and other relevant information. Storage Mover *job definitions* use endpoints to define the source and target locations for copy operations.
