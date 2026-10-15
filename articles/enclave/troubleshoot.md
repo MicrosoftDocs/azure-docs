@@ -16,9 +16,9 @@ The following are examples of errors that might be encountered and their solutio
 The general troubleshooting steps that aren't specific to an Azure Enclave resource.
 
 ### Portal Links don't work in the Air Gapped Azure environments
-Azure Enclave portal links (for example, **Learn More**) don't work in some Azure air-gapped environments.
+Azure Enclave portal links (for example, **Learn More**) don't work in some Azure clouds.
 
-Solution: Those documentation links work on the low side so you can navigate to the same URL from a computer with access to github.io.
+Solution: Those documentation links work on Azure and Azure for US Government. Documentation with the same article name can be found in the Learn portal for each cloud.
 
 ## Community Troubleshooting
 The community troubleshooting steps that are specific to the Azure Enclave community resource.
