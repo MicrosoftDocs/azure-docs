@@ -117,6 +117,8 @@ A typical workday includes two periods of concentrated storage activity as users
 
 The important distinction is between steady-state demand and short peak demand. The following example shows how to size an Azure Files SMB share that requires approximately 20,000 IOPS during normal operation and temporarily reaches 75,000 IOPS during sign-in or sign-out activity.
 
+:::image type="content" source="media/virtual-desktop-workloads/sign-in-sign-out-storm.svg" alt-text="Line chart of a typical workday showing short 75,000-IOPS peaks during morning sign-in and evening sign-out, with steady demand of about 20,000 IOPS between the peaks." border="false":::
+
 #### Example: Size Azure Files for 2,000 Azure Virtual Desktop users
 
 This example illustrates a sizing approach. The workload values are sample assumptions, not universal sizing requirements. Test your workload to determine its actual steady-state and peak requirements.
