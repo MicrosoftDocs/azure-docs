@@ -2,7 +2,7 @@
 title: Azure Functions hosted skills reference
 description: "Reference for agent file fields, app configuration, MCP servers, skills, tools, model providers, managed identity, and built-in endpoints in Azure Functions hosted skills."
 ms.topic: reference
-ms.date: 08/25/2026
+ms.date: 10/14/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -74,9 +74,6 @@ The following table lists the supported `trigger.type` values, their required `a
 | `sql_trigger` | `table_name`, `connection_string_setting` | [SQL trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#sql-trigger) |
 | `mysql_trigger` | `table_name`, `connection_string_setting` | [MySQL trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#mysql-trigger) |
 | `kafka_trigger` | `topic`, `broker_list` | [Kafka trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#kafka-trigger) |
-| `dapr_binding_trigger` | `binding_name` | [Dapr binding trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#dapr-binding-trigger) |
-| `dapr_service_invocation_trigger` | `method_name` | [Dapr service invocation trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#dapr-service-invocation-trigger) |
-| `dapr_topic_trigger` | `pub_sub_name`, `topic` | [Dapr topic trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#dapr-topic-trigger) |
 | `generic_trigger` | `type` (binding type name) | [Generic trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#generic-trigger) |
 | `connector_trigger` | Configured in the [Connector Namespace](./functions-connectors-overview.md). | [Connector trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#connector-triggers) |
 

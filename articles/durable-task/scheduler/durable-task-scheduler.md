@@ -7,7 +7,7 @@ description: "Discover how the Durable Task Scheduler provides durable execution
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 05/04/2026
+ms.date: 10/13/2026
 ---
 
 # Durable Task Scheduler
@@ -171,6 +171,12 @@ Stale orchestration data should be purged periodically to ensure efficient stora
     | Entity state | 1 MB |
 
     If your data exceeds these limits, see [Large payload support](./durable-task-scheduler-large-payloads.md) for available workarounds.
+
+- **Max work item completion size:**
+
+    Each work item completion request sent to a Durable Task Scheduler must be at most **3.9 MB**. This limit applies to the entire completion request, not to each individual payload.
+
+    If you expect work item completions to exceed this limit, enable [Large payload support](./durable-task-scheduler-large-payloads.md) to offload supported payloads to Azure Blob Storage and reduce the completion request size.
 
 - **Orchestration instance ID length:**
   
