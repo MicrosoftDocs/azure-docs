@@ -3,7 +3,7 @@ title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Rec
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 10/07/2026
+ms.date: 10/15/2026
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.custom: references_regions
@@ -40,7 +40,7 @@ Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2025, V
 
 ## Replicated VMs
 
-[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system.
 

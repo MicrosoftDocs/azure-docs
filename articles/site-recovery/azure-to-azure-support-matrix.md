@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 09/11/2026
+ms.date: 10/15/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -99,7 +99,7 @@ Site Recovery supports replication of Azure VMs running the operating systems li
 
 ### Windows
 
-[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 >[!NOTE]
 >Azure Site Recovery doesn't preserve the Windows client license type after failover. For Windows client operating systems, verify and configure the appropriate licensing setting on the recovered virtual machine after failover.
