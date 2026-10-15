@@ -85,7 +85,7 @@ When you set `outboundType` to `UserDefinedRouting`, you must configure a `manag
 - The management subnet must be separate from the nodepool subnet and delegated to `Microsoft.ContainerService/managedClusters`.
 - If you use private supercomputer, access to the management plane by nodes and by the Discovery Service is always through this subnet. Otherwise, the management plane provides a public IP for ingress, restricted to the Discovery service when the `Microsoft.ContainerService/EnableServiceTagAuthorizedIPPreview` feature is enabled.
 
-### Private supercomputer (Preview)
+### Private Supercomputer
 
 A private supercomputer removes the public IP address from the supercomputer management plane. The Microsoft Discovery service provisions and manages an Azure Private Link into the supercomputer's assigned subnet to access the management plane instead. You need to enable User Defined Routing and provide a management subnet to enable this feature.
 
