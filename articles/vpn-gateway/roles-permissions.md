@@ -40,11 +40,25 @@ Depending on whether you're creating new resources or using existing ones, add t
 | IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
 | Local Network Gateway  | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write |
-| Connection | Create new/ Update existing| Microsoft.Network/connections/write |
+| Connection | Create new/ Update existing| Microsoft.Network/connections/write <br> Microsoft.Network/virtualNetworkGateways/write on each linked virtual network gateway when an operation triggers linked-resource authorization |
 | Connection/Preshared Key | Update existing | Microsoft.Network/connections/sharedKey/action | 
 | Azure VPN Gateway | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write<br>Microsoft.Network/publicIPAddresses/join/action<br>Microsoft.Network/virtualNetworks/subnets/join/action | 
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
+
+# Linked-resource authorization for connections
+
+A virtual network gateway connection references one or more virtual network gateways. When a connection operation requires Gateway Manager to apply or validate configuration on a linked gateway, Azure performs a linked-resource authorization check.
+
+In these cases, the caller must have both:
+
+- Microsoft.Network/connections/write on the connection
+
+- Microsoft.Network/virtualNetworkGateways/write on each linked virtual network gateway identified by the operation
+
+This requirement can apply to connection configuration changes, including but not limited to custom IPsec/IKE policy changes. It does not necessarily mean that the virtual network gateway ARM resource is directly modified; the permission authorizes the operation against the linked gateway.
+
+If authorization is missing, the operation fails with LinkedAuthorizationFailed. The error identifies the required action and linked resource scope.
 
 ## Roles scope
 
