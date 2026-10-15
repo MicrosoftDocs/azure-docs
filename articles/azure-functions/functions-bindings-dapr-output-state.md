@@ -2,7 +2,7 @@
 title: Dapr State output binding for Azure Functions
 description: Learn how to provide Dapr State output binding data during a function execution in Azure Functions.
 ms.topic: reference
-ms.date: 05/10/2024
+ms.date: 10/13/2026
 ms.author: nigreenf
 ms.reviewer: hannahhunter
 ms.subservice: dapr
@@ -13,6 +13,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Dapr State output binding for Azure Functions
+
+[!INCLUDE [dapr-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr state output binding allows you to save a value to a Dapr state during a function execution.
 
