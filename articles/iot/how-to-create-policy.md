@@ -35,16 +35,6 @@ Use the Azure portal or Azure CLI to create root and intermediate certificate au
 
 ### Create a root CA
 
-#### Option 1: Create a root CA for a new namespace
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Azure Device Registry**.
-1. Select **Namespaces**, and then select **Create** to create a new namespace. Check the box to let Azure create a Microsoft-managed root CA by default, or leave it unchecked if you plan to bring your own external root CA.
-
-   :::image type="content" source="media/how-to-create-policy/create-namespace.png" alt-text="Screenshot of portal page showing create namespace." lightbox="media/how-to-create-policy/create-namespace.png":::
-   
-#### Option 2: Create a root CA for an existing namespace
-
 1. In the **Namespaces** list, select your namespace.
 1. Under **Security**, select **Certificate Authorities**.
 1. Select **Create**. **Root Certificate Authority** is disabled if the namespace already has one root CA by default.
@@ -61,6 +51,8 @@ Use the Azure portal or Azure CLI to create root and intermediate certificate au
 1. Select **Intermediate Certificate Authority.** 
 
 1. Select **Use this namespace's Root CA**, enter a name for the intermediate CA, and then select **Create**.
+After you create an intermediate CA, you must create a certificate policy before you can issue device certificates. For instructions, see [Create or edit a certificate policy](how-to-create-edit-certificate-policy.md).
+
 # [Azure CLI](#tab/cli)
 
 ### Prepare the Azure CLI
@@ -103,9 +95,12 @@ az iot adr ns ca create --name "<ica-name>" --ns "$NS_NAME" --resource-group "$R
 
 Verify that the intermediate certificate authority properties match the values that you specified:
 
+
 ```azurecli
 az iot adr ns ca show --ca-name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id>
 ```
+
+After you create an intermediate CA, you must create a certificate policy before you can issue device certificates. For instructions, see [Create or edit a certificate policy](how-to-create-edit-certificate-policy.md).
 
 ---
 
