@@ -12,11 +12,11 @@ ms.custom: MVC
 
 # Reprotect from Azure to Azure VMware Solution private cloud
 
-After [failover](avs-tutorial-failover.md) of Azure VMware Solution VMs to Azure, the first step in failing back to your Azure VMware Solution private cloud is to reprotect the Azure VMs that were created during failover. This article describes how to do this. 
+After [failover](avs-tutorial-failover.md) of Azure VMware Solution VMs to Azure, the first step in failing back to your Azure VMware Solution private cloud is to reprotect the Azure VMs that were created during failover. This article describes how to do this.
 
 ## Before you begin
 
-[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 1. Follow the steps in [this article](vmware-azure-prepare-failback.md) to prepare for reprotection and failback, including setting up a process server in Azure, and an Azure VMware Solution private cloud master target server, and configuring a site-to-site VPN, or ExpressRoute private peering, for failback.
 2. Make sure that the Azure VMware Solution private cloud configuration server is running and connected to Azure. During failback, the VM must exist in the configuration server database. Otherwise, failback is unsuccessful.
@@ -35,8 +35,7 @@ After [failover](avs-tutorial-failover.md) of Azure VMware Solution VMs to Azure
     - A VM that's been moved to another resource group.
     - A replica Azure VM that's been deleted.
     - A replica Azure VM that isn't protected.
-10. [Review the types of failback](concepts-types-of-failback.md) you can use - original location recovery and alternate location recovery.
-
+11. [Review the types of failback](concepts-types-of-failback.md) you can use - original location recovery and alternate location recovery.
 
 ## Enable reprotection
 
@@ -71,10 +70,7 @@ Enable reprotection as follows:
     - The Azure VMware Solution VM is turned off during reprotection. This helps ensure data consistency during replication.
     - Don't turn on the Azure VMware Solution VM after reprotection finishes.
    
-
 ## Next steps
 
 - If you encounter any issues, review the [troubleshooting article](vmware-azure-troubleshoot-failback-reprotect.md).
 - After the Azure VMs are protected, you can [run a failback](avs-tutorial-failback.md). Failback shuts down the Azure VM and boots the Azure VMware Solution VM. Expect some downtime for the application, and choose a failback time accordingly.
-
-
