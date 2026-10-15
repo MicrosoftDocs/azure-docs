@@ -91,6 +91,7 @@ The following table lists services that can access your storage account data if 
 | Security Center                 | `Microsoft.Security/dataScanners`       | Enables access to storage accounts. |
 | Singularity                     | `Microsoft.Singularity/accounts`        | Enables access to storage accounts. |
 | Azure Storage Actions           | `Microsoft.Storageactions/Storagetasks` | Enables access to storage accounts. |
+| Azure Storage Mover             | `Microsoft.StorageMover/storageMovers`  | Enables access to storage accounts. |
 | Azure SQL Database              | `Microsoft.Sql`                         | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure SQL Servers               | `Microsoft.Sql/servers`                 | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure Synapse Analytics         | `Microsoft.Sql`                         | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview). |
