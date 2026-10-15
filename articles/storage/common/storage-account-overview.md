@@ -124,7 +124,7 @@ A storage account provides a unique namespace in Azure for your data. Every obje
 
 There are two types of service endpoints available for a storage account:
 
-- [Standard endpoints](#standard-endpoints) (recommended). By default, you can create up to 250 storage accounts per region with standard endpoints in a subscription. With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
+- [Standard endpoints](#standard-endpoints) (recommended). By default, you can create up to 250 storage accounts per region with standard endpoints in a subscription. With a quota increase, you can create up to 1000 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 - [Azure DNS zone endpoints](#azure-dns-zone-endpoints-preview) (preview). You can create up to 5,000 storage accounts per region per subscription with Azure DNS zone endpoints in a subscription.
 
 > [!IMPORTANT]
