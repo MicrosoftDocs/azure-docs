@@ -5,7 +5,7 @@ services: security
 author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.date: 09/18/2026
+ms.date: 09/22/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 ms.collection:
@@ -38,7 +38,7 @@ Azure Key Vault standard tier is a FIPS 140-2 Level 1 validated multitenant clou
 
 ### Azure Key Vault (premium tier)
 
-Azure Key Vault premium tier is a FIPS 140-3 Level 3 validated, PCI-compliant, multitenant HSM offering. Use it to store asymmetric keys, secrets, and certificates. It stores keys in a secure hardware boundary by using Marvell LiquidSecurity HSMs. Microsoft manages and operates the underlying HSM. Use keys stored in Azure Key Vault premium tier for encryption at rest and custom applications. Azure Key Vault premium tier also provides a modern API, broad regional deployments, and integrations with Azure services.
+Azure Key Vault premium tier is a FIPS 140-3 Level 3 validated, PCI-compliant, multitenant HSM offering. Use it to store asymmetric keys, secrets, and certificates, and to create HSM-protected symmetric keys (oct-HSM/AES) in public preview. It stores keys in a secure hardware boundary by using Marvell LiquidSecurity HSMs. Microsoft manages and operates the underlying HSM. Use keys stored in Azure Key Vault premium tier for encryption at rest and custom applications. Azure Key Vault premium tier also provides a modern API, broad regional deployments, and integrations with Azure services.
 
 > [!IMPORTANT]
 > Azure Integrated HSM is a separate Azure infrastructure capability for cryptographic operations in supported virtual machines (VMs). This capability is generally available on supported AMD v7 VM SKUs for Windows Trusted Launch VMs with 8 vCPUs or more and requires customer opt-in. For more information, see [Azure Integrated HSM overview](azure-integrated-hardware-security-module-overview.md).

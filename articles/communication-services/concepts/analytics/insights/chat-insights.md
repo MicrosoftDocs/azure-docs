@@ -14,6 +14,8 @@ ms.subservice: data
 
 # Chat insights
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes the insights dashboard you can view to monitor Chat logs and metrics.
 
 Within your Communications Resource, we provide an **Insights Preview** feature that displays many data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services.

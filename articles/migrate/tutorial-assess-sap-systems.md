@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 02/06/2025
 ms.custom: engagement-fy25
 # Customer intent: As an IT administrator, I want to assess my on-premises SAP systems for migration to Azure, so that I can understand the cost and performance requirements for a successful transition.

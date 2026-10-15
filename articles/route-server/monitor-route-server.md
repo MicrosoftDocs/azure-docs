@@ -139,10 +139,12 @@ For detailed steps on creating alerts, see [Create metric alerts in Azure Monito
 
 Use Route Server metrics to diagnose common issues:
 
-- **BGP connectivity problems**: Check BGP peer status and verify network connectivity
-- **Missing routes**: Compare advertised vs. learned route counts to identify propagation issues  
-- **Performance concerns**: Monitor route counts against service limits
-- **Peer-specific issues**: Use dimension splitting to isolate problems with individual NVAs
+- **BGP connectivity problems**: Check BGP peer status and verify network connectivity. If your BGP session is down or flapping, see [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md) for BGP configuration and peering requirements.
+- **Missing routes**: Compare advertised vs. learned route counts to identify propagation issues. If advertised routes aren't learned or installed in effective routes, see [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md).
+- **Performance concerns**: Monitor route counts against service limits.
+- **Peer-specific issues**: Use dimension splitting to isolate problems with individual NVAs.
+
+For more troubleshooting scenarios, see [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md).
 
 ## Next steps
 
@@ -150,5 +152,6 @@ Now that you understand how to monitor Route Server, explore these related artic
 
 - [Create and configure Route Server](quickstart-configure-route-server-portal.md)
 - [Configure peering between Azure Route Server and an NVA](peer-route-server-with-virtual-appliance.md)
+- [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md)
 - [Azure Route Server FAQ](route-server-faq.md)
 - [Create metric alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-create-new-alert-rule)

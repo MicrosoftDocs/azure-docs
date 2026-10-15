@@ -14,6 +14,8 @@ ms.subservice: data
 
 # End of call survey 
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!NOTE]
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 

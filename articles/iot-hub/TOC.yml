@@ -39,7 +39,7 @@
       href: iot-hub-understand-ip-address.md
       displayName: service tags, firewall rules, IP filter
     - name: Best practices for Azure Device Registry namespaces
-      href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/device-registry/best-practices-namespaces.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Protocol support
       items:
         - name: MQTT support
@@ -172,8 +172,6 @@
   items: 
   - name: Azure Device Registry integration (preview)
     href: iot-hub-device-registry-overview.md
-  - name: Enable or disable device in ADR (preview)
-    href: how-to-disable-enable-device.md
   - name: IoT Hub device management
     items:
     - name: Overview of device management

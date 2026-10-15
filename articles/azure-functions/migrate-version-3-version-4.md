@@ -4,7 +4,7 @@ description: Learn how to migrate your existing function apps running on version
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 09/09/2026
-zone_pivot_groups: programming-languages-set-functions-no-go
+zone_pivot_groups: programming-languages-set-functions
 ms.custom:
   - devx-track-dotnet
   - devx-track-extended-java
@@ -27,6 +27,13 @@ Azure Functions version 4.x is highly backwards compatible to version 3.x. Most 
 [!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project migration instructions are language dependent, make sure to choose your development language from the selector at the top of the article.
+
+::: zone pivot="programming-language-go"
+
+> [!IMPORTANT]
+> First-class Go function apps aren't supported on version 3.x of the Azure Functions runtime, so there's no Go-specific migration path. To create a first-class Go function app on version 4.x, see the [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go).
+
+::: zone-end
 
 ## Identify function apps to migrate
 

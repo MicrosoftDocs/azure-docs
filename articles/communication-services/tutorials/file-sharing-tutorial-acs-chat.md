@@ -15,6 +15,8 @@ ms.subservice: chat
 
 #  Add file sharing in chat using UI Library and Azure Blob storage
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 In an Azure Communication Services Chat, we can enable file sharing between communication users. Azure Communication Services Chat is different from the Teams Interoperability Chat, or *Interop Chat*. If you want to enable file sharing in an Interop Chat, see [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md).

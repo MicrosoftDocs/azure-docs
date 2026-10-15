@@ -216,6 +216,18 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: programming-languages-set-app-service-connectors
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-python
+    title: Python
 - id: durable-functions-storage-providers-options
   title: Storage provider
   prompt: Choose a storage provider
@@ -346,6 +358,22 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: durable-task-sdk-languages
+  title: Durable Task SDK programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: csharp
+    title: C#
+  - id: javascript
+    title: JavaScript
+  - id: python
+    title: Python
+  - id: powershell
+    title: PowerShell
+  - id: java
+    title: Java
+  - id: go
+    title: Go (beta)
 - id: function-worker-process
   title: .NET Azure Functions process model
   prompt: Choose your .NET mode
@@ -2138,7 +2166,13 @@ groups:
     title: Google Cloud
   - id: oracle
     title: Oracle Cloud
-  - id: on-premises
+- id: storage-mover-on-premises
+  title: Storage Mover on-premises migration sources
+  prompt: Select your on-premises source.
+  pivots:
+  - id: on-premises-smb
+    title: On-premises SMB
+  - id: on-premises-s3
     title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
@@ -2158,6 +2192,8 @@ groups:
   pivots:
   - id: elastic-search
     title: Elastic Search
+  - id: elastic-vector-database
+    title: Elastic Vector Database
   - id: elastic-observability
     title: Elastic Observability
   - id: elastic-security

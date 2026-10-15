@@ -111,6 +111,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/how-to-use-services-module.md",
+            "redirect_url": "/azure/azure-maps/how-to-dev-guide-js-sdk",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/indoor-map-dynamic-styling.md",
             "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false

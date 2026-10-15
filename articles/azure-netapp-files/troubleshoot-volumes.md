@@ -72,6 +72,12 @@ Identifying whether the failure occurs during authentication or authorization ca
 | When only primary group IDs are seen and user belongs to auxiliary groups too. | This is caused by a query timeout: <br> -Use [LDAP search scope option](configure-ldap-extended-groups.md). <br> -Use [preferred Active Directory servers for LDAP client](create-active-directory-connections.md#preferred-server-ldap). |
 | `Error describing volume - Entry doesn't exist for username: <username>, please try with a valid username` | -Check if the user is present on LDAP server. <br> -Check if the LDAP server is healthy. |
 
+## Errors for missing or inconsistent DNS records
+
+|     Error conditions    |     Resolutions    |
+|--|----|
+| An SMB, dual-protocol, LDAP-enabled, or NFSv4.1 Kerberos operation fails even though the domain controller or LDAP server is reachable on the required ports. | One or more discovered domain controllers or LDAP servers don't have a valid PTR record, or the PTR record resolves to an unexpected hostname. <br> Verify the DNS configuration for every applicable AD DS domain controller and LDAP server: <ol><li>Verify that an appropriate reverse DNS lookup zone exists for each applicable subnet.</li><li>Verify that each hostname resolves to the expected IPv4 address.</li><li>Verify that each IP address resolves through a PTR record to the expected fully qualified domain name.</li><li>Validate all domain controllers in the Active Directory site specified in the Azure NetApp Files Active Directory connection and all configured preferred LDAP servers.</li><li>Verify that forward and reverse DNS records are resolvable by using the DNS servers configured in the Azure NetApp Files Active Directory connection.</li></ol> For more information, see [About DNS in Azure NetApp Files](domain-name-system-concept.md). |
+
 ## Errors for volume allocation
 
 When you create a new volume or resize an existing volume in Azure NetApp Files, Microsoft Azure allocates storage and networking resources to your subscription. You might occasionally experience resource allocation failures because of unprecedented growth in demand for Azure services in specific regions.

@@ -1,12 +1,12 @@
 ---
 title: Migrate Hyper-V VMs to Azure with the Migration and modernization tool
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with the Migration and modernization tool.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update-cycle: 365-days
 ms.date: 04/11/2025
 ms.custom:
@@ -166,8 +166,10 @@ It can take up to 15 minutes after finalizing registration until discovered VMs 
 4. In **Discovery method**, select the appliance that matches your source environment (Hyper-V) and then select **Next**. If you completed the site recovery provider setup for Hyper-V, you can proceed to **Workloads**. Otherwise, complete the setup as per the steps provided in the previous section.
 
 5. In **Workloads**,
-   - Select the **Target VM security type**: Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
-   - Then, select the servers you want to migrate and select **Next**.
+  - Select the **Target VM security type**.
+     - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
+     - You can also migrate eligible machines to Confidential virtual machines [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out. Refer [CVM support matrix](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines).
+  - Then, select the servers you want to migrate and select **Next**.
 
 6. In **Target settings**, select the subscription and target region to which you want to migrate, and specify the resource group where the Azure VMs reside after migration. Complete the following settings:
 
@@ -186,8 +188,24 @@ It can take up to 15 minutes after finalizing registration until discovered VMs 
       - **No infrastructure redundancy required**– Select this option if you don't require Availability Zones or Availability Sets for the migrated machines.
         
  - In **Security Details**, 
-    - If the target security type selected is **Standard or Trusted Launch virtual machines**, 
-	  - **Secure boot** is enabled by default (recommended). You can choose to remove this option. Then, proceed to **Disk encryption type** selection.
+    - If the selected target security type is **Standard or Trusted Launch virtual machines**:
+        - **Secure boot** is enabled by default (recommended). You can choose to remove this option. Then, proceed to **Disk encryption type** selection.
+    - If the selected target security type is **Confidential virtual machines**:
+        - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the
+          virtual machine's TPM and makes the disk content accessible only to the VM.
+        - To enable this encryption, select the **Confidential compute encryption** option and proceed to **OS disk encryption type** selection. Otherwise, proceed to **Disk
+          encryption type** selection.
+        - Under **OS disk encryption type**, select one of the following options:
+           - Encryption at rest with platform-managed key (default, if you didn't select **Confidential compute encryption**)
+           - Confidential encryption with platform-managed key (available, if you selected **Confidential compute encryption**)
+           - Confidential encryption with customer-managed key (available, if you selected **Confidential compute encryption**)	
+
+    > [!NOTE]
+    > - Secure Boot is enabled by default on target VMs when Confidential OS disk encryption is selected.
+    > - Only customer-managed key (CMK) are supported for confidential OS disk encryption for disks larger than 127 GB. For disks smaller than 127 GB, both platform-managed key (PMK) and customer-managed key (CMK) are supported.
+    > - Confidential OS disk encryption can lengthen the standard initial VM creation time during migration due to the encryption process.
+    > - Data disks currently don't support confidential encryption. However, you can secure them by using host-based encryption with customer-managed keys (CMK) or platform-managed keys (PMK).
+   
        
  - **Disk encryption type**, select:
    - Encryption-at-rest with platform-managed key

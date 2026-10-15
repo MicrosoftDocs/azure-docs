@@ -14,6 +14,8 @@ ms.custom: mode-api, devx-track-extended-java
 ---
 # Call recording: Bring your own Azure storage quickstart
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This quickstart gets you started with Bring your own Azure storage for Call Recording. To start using Bring your own Azure Storage functionality, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
 
 ## Prerequisite: Setting up Managed Identity and Role Based Access Controls(RBAC) role assignments

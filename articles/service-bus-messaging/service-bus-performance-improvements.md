@@ -2,7 +2,7 @@
 title: Performance Best Practices
 description: Learn best practices for optimizing Service Bus performance, including resource planning, protocol selection, client reuse, batching, and prefetching.
 ms.topic: best-practice
-ms.date: 07/16/2026
+ms.date: 10/06/2026
 ms.devlang: csharp
 ms.custom:
   - devx-track-dotnet
@@ -90,50 +90,26 @@ Sharding can also help when increasing the compute (Messaging Units) allocated t
 
 ## Service Bus messaging protocols
 
-Service Bus enables clients to send and receive messages via one of three protocols:
+Service Bus enables clients to send and receive messages by using:
 
 1. Advanced Message Queuing Protocol (AMQP)
-1. Service Bus Messaging Protocol (SBMP)
 1. Hypertext Transfer Protocol (HTTP)
 
-AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements batching and [prefetching](#prefetch-service-bus-messages). Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
-
-> [!IMPORTANT]
-> The SBMP protocol is only available for .NET Framework. AMQP is the default for .NET Standard.
-
-[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
+AMQP maintains a connection to Service Bus and supports batching and [prefetching](#prefetch-service-bus-messages). Unless explicitly mentioned, the guidance in this article assumes AMQP, which is the transport used by the supported Service Bus client libraries.
 
 ## Choosing the appropriate Service Bus .NET SDK
 
-The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SDK available as of November 2020. There are two older .NET SDKs that will continue to receive critical bug fixes until 30 September 2026, but we strongly encourage you to use the latest SDK instead. Read the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md) for details on how to move from the older SDKs.
-
-| NuGet Package | Primary Namespaces | Minimum Platforms | Protocols |
-|---------------|----------------------|---------------------|-------------|
-| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) (**latest**) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
-| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
-
-For more information on minimum .NET Standard platform support, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).
+Use the supported [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) package. It uses AMQP for messaging and HTTP for administration operations. For supported frameworks and installation instructions, see the [client library README](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md).
 
 [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Reusing factories and clients
 
-# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+The Service Bus clients that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared). ServiceBusClient (factory) can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs).
 
-The Service Bus clients that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared). ServiceBusClient (factory) can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
-
-We recommend that you don't close or dispose these clients after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. 
+We recommend that you don't close or dispose these clients after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service.
 
 This guidance doesn't apply to the [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), as its lifetime is the same as the session itself. For applications working with the `ServiceBusSessionReceiver`, it's recommended to use a singleton instance of the `ServiceBusClient` to accept each session, which spans a new `ServiceBusSessionReceiver` bound to that session. Once the application finishes processing that session, it should dispose the associated `ServiceBusSessionReceiver`.
-
-# [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
-
-> [!NOTE]
-> A newer package Azure.Messaging.ServiceBus is available as of November 2020. While the Microsoft.Azure.ServiceBus package will continue to receive critical bug fixes until 30 September 2026, we strongly encourage you to upgrade. Read the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md) for more details.
-
-Service Bus client objects, such as implementations of [`IQueueClient`](/dotnet/api/microsoft.azure.servicebus.queueclient) or [`IMessageSender`](/dotnet/api/microsoft.azure.servicebus.core.messagesender), should be registered for dependency injection as singletons (or instantiated once and shared). We recommend that you don't close messaging factories, queue, topic, or subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service. A new connection is established when recreating the factory. 
-
----
 
 The following note applies to all SDKs:
 
@@ -146,8 +122,6 @@ The following note applies to all SDKs:
 Operations such as send, receive, delete, and so on, take some time. This time includes the time that the Service Bus service takes to process the operation and the latency of the request and the response. To increase the number of operations per time, operations must execute concurrently.
 
 The client schedules concurrent operations by performing **asynchronous** operations. The next request is started before the previous request is completed. The following code snippet is an example of an asynchronous send operation:
-
-# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
 
 ```csharp
 var messageOne = new ServiceBusMessage(body);
@@ -169,32 +143,7 @@ Console.WriteLine("All messages sent");
 
 ```
 
-# [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
-
-```csharp
-var messageOne = new Message(body);
-var messageTwo = new Message(body);
-
-var sendFirstMessageTask =
-    queueClient.SendAsync(messageOne).ContinueWith(_ =>
-    {
-        Console.WriteLine("Sent message #1");
-    });
-var sendSecondMessageTask =
-    queueClient.SendAsync(messageTwo).ContinueWith(_ =>
-    {
-        Console.WriteLine("Sent message #2");
-    });
-
-await Task.WhenAll(sendFirstMessageTask, sendSecondMessageTask);
-Console.WriteLine("All messages sent");
-```
-
----
-
 The following code is an example of an asynchronous receive operation.
-
-# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
 
 ```csharp
 var client = new ServiceBusClient(connectionString);
@@ -223,36 +172,6 @@ static async Task MessageHandler(ProcessMessageEventArgs args)
 await processor.StartProcessingAsync();
 ```
 
-# [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
-
-See the [GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues) for full source code examples. 
-
-```csharp
-var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
-
-static Task LogErrorAsync(Exception exception)
-{
-    Console.WriteLine(exception);
-    return Task.CompletedTask;
-};
-
-receiver.RegisterMessageHandler(
-    async (message, cancellationToken) =>
-    {
-        Console.WriteLine("Handle message");
-        await receiver.CompleteAsync(message.SystemProperties.LockToken);
-    },
-    new MessageHandlerOptions(e => LogErrorAsync(e.Exception))
-    {
-        AutoComplete = false,
-        MaxConcurrentCalls = 20
-    });
-```
-
-The `MessageReceiver` object is instantiated with the connection string, queue name, and a peek-look receive mode. Next, the `receiver` instance is used to register the message handler.
-
----
-
 ## Service Bus receive modes
 
 When creating a queue or subscription client, you can specify a receive mode: *Peek-lock* or *Receive and Delete*. The default receive mode is `PeekLock`. When operating in the default mode, the client sends a request to receive a message from Service Bus. After the client has received the message, it sends a request to complete the message.
@@ -275,23 +194,12 @@ The time-to-live (TTL) property of a message is checked by the server at the tim
 
 Prefetching doesn't affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol doesn't support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
-# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
-
 For more information, see the following `PrefetchCount` properties:
 
 - [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
 - [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
 
 You can set values for these properties in [ServiceBusReceiverOptions](/dotnet/api/azure.messaging.servicebus.servicebusreceiveroptions) or [ServiceBusProcessorOptions](/dotnet/api/azure.messaging.servicebus.servicebusprocessoroptions).
-
-# [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
-
-For more information, see the following `PrefetchCount` properties:
-
-* [`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount)
-* [`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount)
-
----
 
 ## Prefetching and ReceiveMessagesAsync
 
@@ -315,7 +223,7 @@ More queues or topics mean that you have more entities to manage at deployment t
 The tier of service you use impacts performance predictability. If you choose **Standard** tier, throughput and latency are best effort over a shared multitenant infrastructure. Other tenants on the same cluster can impact your throughput. If you choose **Premium**, you get resources that give you predictable performance, and your multiple queues or topics get processed out of that resource pool. For more information, see [Pricing tiers](#pricing-tier).
 
 ## Use partitioned premium namespaces
-When you use [partitioned premium tier namespaces](service-bus-partitioning.md), multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs. 
+When you use [partitioned premium tier namespaces](service-bus-partitioning.md), multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs.
 
 ## Service Bus performance scenarios
 
@@ -325,15 +233,15 @@ The following sections describe typical messaging scenarios and outline the pref
 
 Goal: Maximize the throughput of a single queue. The number of senders and receivers is small.
 
-* To increase the overall send rate into the queue, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
-* To increase the overall receive rate from the queue, use multiple message factories to create receivers.
+* To increase the overall send rate into the queue, use multiple `ServiceBusClient` instances to create senders. For each sender, use asynchronous operations or multiple threads.
+* To increase the overall receive rate from the queue, use multiple `ServiceBusClient` instances to create receivers.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Multiple high-throughput queues
 
 Goal: Maximize overall throughput of multiple queues. The throughput of an individual queue is moderate or high.
 
-To obtain maximum throughput across multiple queues, use the settings outlined to maximize the throughput of a single queue. Also, use different factories to create clients that send or receive from different queues.
+To obtain maximum throughput across multiple queues, use the settings outlined to maximize the throughput of a single queue. Also, use different `ServiceBusClient` instances to create senders and receivers for different queues.
 
 ### Low latency queue
 
@@ -346,22 +254,22 @@ Goal: Minimize latency of a queue or topic. The number of senders and receivers 
 
 Goal: Maximize throughput of a queue or topic with a large number of senders. Each sender sends messages with a moderate rate. The number of receivers is small.
 
-Service Bus enables up to 1,000 concurrent connections to a messaging entity. This limit is enforced at the namespace level, and queues, topics, or subscriptions are capped by the limit of concurrent connections per namespace. For queues, this number is shared between senders and receivers. If all 1,000 connections are required for senders, replace the queue with a topic and a single subscription. A topic accepts up to 1,000 concurrent connections from senders. The subscription accepts an extra 1,000 concurrent connections from receivers. If more than 1,000 concurrent senders are required, the senders should send messages to the Service Bus protocol via HTTP.
+Plan AMQP connections against the [namespace connection quota](service-bus-quotas.md). Senders and receivers created from the same `ServiceBusClient` share a connection. Reuse clients to keep the connection count within the namespace limit.
 
 To maximize throughput, follow these steps:
 
-* If each sender is in a different process, use only a single factory per process.
+* If each sender is in a different process, reuse a single `ServiceBusClient` per process.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Queue with a large number of receivers
 
 Goal: Maximize the receive rate of a queue or subscription with a large number of receivers. Each receiver receives messages at a moderate rate. The number of senders is small.
 
-Service Bus enables up to 1,000 concurrent connections to an entity. If a queue requires more than 1,000 receivers, replace the queue with a topic and multiple subscriptions. Each subscription can support up to 1,000 concurrent connections. Alternatively, receivers can access the queue via the HTTP protocol.
+Plan for both the namespace connection quota and the concurrent receive-request quota in [Service Bus quotas](service-bus-quotas.md). Reuse `ServiceBusClient` instances so that receivers in the same process can share an AMQP connection.
 
 To maximize throughput, follow these guidelines:
 
-* If each receiver is in a different process, use only a single factory per process.
+* If each receiver is in a different process, reuse a single `ServiceBusClient` per process.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
 
 ### Topic with a few subscriptions
@@ -370,8 +278,8 @@ Goal: Maximize the throughput of a topic with a few subscriptions. A message is 
 
 To maximize throughput, follow these guidelines:
 
-* To increase the overall send rate into the topic, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
-* To increase the overall receive rate from a subscription, use multiple message factories to create receivers. For each receiver, use asynchronous operations or multiple threads.
+* To increase the overall send rate into the topic, use multiple `ServiceBusClient` instances to create senders. For each sender, use asynchronous operations or multiple threads.
+* To increase the overall receive rate from a subscription, use multiple `ServiceBusClient` instances to create receivers. For each receiver, use asynchronous operations or multiple threads.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Topic with a large number of subscriptions

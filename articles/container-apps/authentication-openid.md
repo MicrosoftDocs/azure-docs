@@ -20,7 +20,7 @@ You can configure your app to use one or more OIDC providers. Each must be given
 Your provider requires you to register the details of your application with it. One of these steps involves specifying a redirect URI. This redirect URI is of the form `<app-url>/.auth/login/<provider-name>/callback`. Each identity provider should provide more instructions on how to complete these steps.
 
 > [!NOTE]
-> Some providers require further steps for their configuration and different guidance on how to use the values they provide. For example, Apple provides a private key, which isn't used as the OIDC client secret. Instead, you must use it to craft a JSON Web Token (JWT), which is treated as the secret you provide in your app config. For more information, see the "Creating the Client Secret" section of the [Sign in with Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens).
+> Some providers require further steps for their configuration and different guidance on how to use the values they provide. For example, Apple provides a private key, which isn't used as the OIDC client secret. Instead, you must use it to craft a JSON Web Token (JWT), which is treated as the secret you provide in your app config.
 
 You need to collect a **client ID** and **client secret** for your application.
 

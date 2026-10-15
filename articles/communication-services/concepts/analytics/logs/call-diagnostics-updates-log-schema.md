@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Call diagnostics updates log schema
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 The only difference in properties between the call diagnostics updates log schema and the [call diagnostics log schema](call-diagnostics-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The call diagnostics updates log schema has lower latency than the [call diagnostics log schema](call-diagnostics-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [call diagnostics log schema](call-diagnostics-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. 
 
 The call diagnostics updates logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.

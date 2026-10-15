@@ -93,6 +93,14 @@ The following table lists the required parameters for adding/removing SAP ASE in
 >
 > `sudo ./<script name> -us`
 
+## Support for High Availability (HA) configuration
+
+Azure Backup supports backing up SAP ASE (Sybase) databases deployed in a High Availability (HA) configuration across multiple Azure virtual machines (for example, active/passive or primary/secondary node setups). In such deployments, Azure Backup treats all participating nodes as a single logical HA container and automatically handles backup operations during failover without requiring manual intervention.
+
+HA configurations that span multiple Azure VMs are supported. HA implemented within a single Azure VM (for example, multiple ASE instances or HA constructs confined to one VM) isn't supported.
+
+For details on configuring Azure Backup for SAP ASE HA clusters, including prerequisites and registration requirements, see [Configure backup for an SAP ASE high-availability cluster](sap-ase-database-backup.md#configure-backup-for-an-sap-ase-high-availability-cluster).
+
 ## Next steps
 
 - [Configure backup for SAP ASE (Sybase) databases on Azure VMs using Azure portal](sap-ase-database-backup.md).

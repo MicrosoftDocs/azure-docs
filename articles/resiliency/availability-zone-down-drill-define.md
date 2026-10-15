@@ -5,22 +5,23 @@ description: Learn how to define and execute a Zone Down Drill in Infrastructure
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 06/02/2026
+ms.date: 09/28/2026
 ms.topic: how-to
 ms.service: resiliency
 ---
 
-# Define a Zone Down Drill in Infrastructure Resiliency Manager (preview)
+# Define a zone down drill in Infrastructure Resiliency Manager (preview)
 
-This article describes how to define a Zone Down Drill (preview) in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resiliency. It also covers configuring Chaos Workspaces, managing identities, designing faults, and verifying Service Group readiness for zonal failures.
+This article describes how to define a zone down drill (preview) in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resilience. It also covers configuring Chaos Workspaces ([Azure Chaos Studio Workspaces](/azure/chaos-studio/chaos-studio-workspaces-overview)), managing identities, designing faults, and verifying service group readiness for zone failures.
 
 ## Prerequisites
 
 Before you define a zone down drill, ensure that you review the following prerequisites:
 
 - Verify that your existing service group has the required resources.
+- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available.
 - Set up an Azure role-based access control (RBAC) permissions. See the [Support Matrix](availability-zone-down-drills-support-matrix.md#required-roles-and-permissions).
-- Set up a Recovery Plan for your Service Group.
+- Set up a recovery plan for your service group.
 - Register the `Microsoft.Chaos`, `Microsoft.Insights`, `Microsoft.OperationalInsights`, and `Microsoft.Automation` resource provider namespaces in the subscription where the Chaos Workspace gets created.
 
 ## Register the resource provider namespaces
@@ -33,11 +34,11 @@ To register a resource provider namespace, follow these steps:
 1. On the **Subscriptions** pane, select **Settings** > **Resource providers**.
 1. On the **Resource providers** pane, search the resource provider namespace (for example **Microsoft.Chaos**), select it from the list, and select **Register**.
 
-The registration process completes in 15-20 minutes approximately.
+The registration process takes about 15-20 minutes.
 
-## Create an Availability Zone Down Drill definition
+## Create an availability zone down drill definition
 
-Drill definition allows you to set parameters for a Zone Down Drill and prepare for execution. You can configure included resources, design faults for supported resources, and confirm readiness before execution.
+A drill definition sets the parameters for a zone down drill and prepares it for execution. You can configure the included resources, design faults for supported resources, and confirm readiness before execution.
 
 To define an Availability Zone Down simulation drill, follow these steps:
 
@@ -91,11 +92,11 @@ To review drill role assignment status, follow these steps:
 
 ### Review the resources included in the drill
 
-Zone down drill allows you to review the resources included in the drill. The drill does the following actions:
+The zone down drill allows you to review the resources included in the drill. The drill performs the following actions:
 
-- Includes resources with a native zonal resiliency solution by default; these resources qualify for fault injection.
-- Associates a Recovery Plan with the Service Group for resources that require manual failover (for example, Virtual Machines with Azure Site Recovery).
-- Excludes resources that lack native zonal resiliency, aren't part of a Recovery Plan, or don't support zonal resiliency detection for the resource type.
+- Includes resources with a native zone-resilience solution by default. These resources qualify for fault injection.
+- Associates a recovery plan with the service group for resources that require manual failover, such as virtual machines with Azure Site Recovery.
+- Excludes resources that lack native zone resilience, aren't part of a recovery plan, or don't support zone-resilience detection for the resource type.
 
 To include resources in the drill, follow these steps:
 
@@ -119,7 +120,7 @@ To review the metrics for drill execution, follow these steps:
 To design faults for supported and unsupported resources in the drill, follow these steps:
 
 1. On the **selected drill instance** pane, select **Settings** > **Drills scope**.
-1. On the **Drills scope** pane, on the **Fault designer** tab, to review or modify the corresponding fault design status of resources, select a resource from the list and select **Edit fault**.
+1. On the **Drills scope** pane, on the **Fault designer** tab, select a resource from the list and select **Edit fault** to review or modify the corresponding fault design status of resources.
 
    :::image type="content" source="./media/availability-zone-down-drill-define/edit-fault.png" alt-text="Screenshot that shows how to edit fault details." lightbox="./media/availability-zone-down-drill-define/edit-fault.png":::
 
@@ -137,7 +138,7 @@ All resources appear in the **Needs Attention** status by default. To troublesho
 
 ### Verify readiness and fix configuration drifts
 
-After the fault design is complete, review readiness across all summary widgets.
+After you complete the fault design, review readiness across all summary widgets.
 
 To review and fix configuration drifts, follow these steps:
 

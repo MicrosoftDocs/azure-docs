@@ -111,7 +111,7 @@ This section describes ways that your app can use connector namespaces and conne
 
 - Connector namespaces support the following Azure compute services where your app can use available connector operations:
 
-  - Azure App Service
+  - [Azure App Service](../app-service/overview-managed-connectors.md)
   - Azure Container Apps
   - [Azure Functions](../azure-functions/functions-connectors-overview.md)
 

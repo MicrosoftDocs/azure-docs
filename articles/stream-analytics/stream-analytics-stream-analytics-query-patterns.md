@@ -11,9 +11,9 @@ ms.custom: devx-track-js
 
 [!INCLUDE [stream-analytics-fabric-event-stream-query-language](./includes/stream-analytics-fabric-event-stream-query-language.md)]
 
-Queries in Azure Stream Analytics are expressed in a SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference) guide. 
+Queries in Azure Stream Analytics are expressed in a SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference) guide.
 
-The query design can express simple pass-through logic to move event data from one input stream into an output data store, or it can do rich pattern matching and temporal analysis to calculate aggregates over various time windows as in the [Build an IoT solution by using Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md) guide. You can join data from multiple inputs to combine streaming events, and you can do lookups against static reference data to enrich the event values. You can also write data to multiple outputs.
+The query design can express simple pass-through logic to move event data from one input stream into an output data store, or it can do rich pattern matching and temporal analysis to calculate aggregates over various time windows. For an example, see [Detect fraud in real time with Stream Analytics](stream-analytics-real-time-fraud-detection.md). You can join data from multiple inputs to combine streaming events, and you can do lookups against static reference data to enrich the event values. You can also write data to multiple outputs.
 
 This article outlines solutions to several common query patterns based on real-world scenarios.
 
@@ -37,7 +37,7 @@ Consider the following **input**:
 | Make2 |2023-01-01T00:00:03.0000000Z |
 ```
 
-And, you want the following two outputs from the query: 
+And, you want the following two outputs from the query:
 
 **ArchiveOutput**:
 
@@ -268,7 +268,7 @@ Sample **input**:
 | MDR 6128 |Make4 |2023-07-27T00:13:45.0000000Z |
 ```
 
-Sample **output** with information about last cars in two ten-minute time windows: 
+Sample **output** with information about last cars in two ten-minute time windows:
 
 ```
 | License_plate | Make | Time |
@@ -301,7 +301,7 @@ FROM
 	AND Input.Time = LastInWindow.LastEventTime
 ```
 
-The first step on the query finds the maximum time stamp in 10-minute windows, that is, the time stamp of the last event for that window. The second step joins the results of the first query with the original stream to find the event that matches the last time stamps in each window. 
+The first step on the query finds the maximum time stamp in 10-minute windows, that is, the time stamp of the last event for that window. The second step joins the results of the first query with the original stream to find the event that matches the last time stamps in each window.
 
 **DATEDIFF** is a date-specific function that compares and returns the time difference between two DateTime fields, for more information, see [date functions](/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
@@ -444,7 +444,7 @@ For more information, see [LAG](/stream-analytics-query/lag-azure-stream-analyti
 
 The duration of an event can be computed by looking at the last Start event once an End event is received. This query can be useful to determine the time a user spends on a page or a feature.
 
-Sample **input**:  
+Sample **input**:
 
 ```
 | User | Feature | Event | Time |
@@ -453,7 +453,7 @@ Sample **input**:
 | user@location.com |RightMenu |End |2023-01-01T00:00:08.0000000Z |
 ```
 
-Sample **output**:  
+Sample **output**:
 
 ```
 | User | Feature | Duration |
@@ -589,7 +589,7 @@ For more information, see [**IsFirst**](/stream-analytics-query/isfirst-azure-st
 
 When you perform an operation such as calculating averages over events in a given time window, duplicate events should be filtered. In the following example, the second event is a duplicate of the first.
 
-Sample **input**:  
+Sample **input**:
 
 ```
 | DeviceId | Time | Attribute | Value |
@@ -602,7 +602,7 @@ Sample **input**:
 | 1 |2018-07-27T00:00:10.0000000Z |Temperature |100 |
 ```
 
-Sample **output**:  
+Sample **output**:
 
 ```
 | AverageValue | DeviceId |
@@ -628,7 +628,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-When the first statement executes, the duplicate records are combined into one as the fields in the group by clause are all the same. Therefore, it removes the duplicates. 
+When the first statement executes, the duplicate records are combined into one as the fields in the group by clause are all the same. Therefore, it removes the duplicates.
 
 ## Specify logic for different cases/values (CASE statements)
 
@@ -762,8 +762,7 @@ The End_fault is the current nonfaulty event where the previous event was faulty
 
 ## Process events with independent time (Substreams)
 
-Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency.
-For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, and the device clock for *TollID* 3 is 10 seconds behind *TollID* 1. A computation can happen independently for each toll, considering only its own clock data as a timestamp.
+Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, and the device clock for *TollID* 3 is 10 seconds behind *TollID* 1. A computation can happen independently for each toll, considering only its own clock data as a timestamp.
 
 Sample **input**:
 
@@ -906,8 +905,7 @@ For more information, see [JavaScript](./stream-analytics-javascript-user-define
 
 ## Advanced pattern matching with MATCH_RECOGNIZE
 
-**MATCH_RECOGNIZE** is an advanced pattern matching mechanism that can be used to match a sequence of events to a well-defined regular expression pattern.
-For example, an ATM is being monitored at real time for failures, during the operation of the ATM if there are two consecutive warning messages the administrator needs to be notified.
+**MATCH_RECOGNIZE** is an advanced pattern matching mechanism that can be used to match a sequence of events to a well-defined regular expression pattern. For example, an ATM is being monitored at real time for failures, during the operation of the ATM if there are two consecutive warning messages the administrator needs to be notified.
 
 **Input**:
 
@@ -948,18 +946,13 @@ MATCH_RECOGNIZE (
 ) AS patternMatch
 ```
 
-This query matches at least two consecutive failure events and generates an alarm when the conditions are met.
-**PATTERN** defines the regular expression to be used on the matching, in this case, at least two consecutive warnings after at least one successful operation.
-Success and Warning are defined using Return_Code value and once the condition is met. The MEASURES** are projected with *ATM_id*, the first warning operation, and first warning time.
+This query matches at least two consecutive failure events and generates an alarm when the conditions are met. **PATTERN** defines the regular expression to be used on the matching, in this case, at least two consecutive warnings after at least one successful operation. Success and Warning are defined using Return_Code value and once the condition is met. The **MEASURES** are projected with *ATM_id*, the first warning operation, and first warning time.
 
 For more information, see [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
 ## Geofencing and geospatial queries
 
-Azure Stream Analytics provides built-in geospatial functions that can be used to implement scenarios such as fleet management, ride sharing, connected cars, and asset tracking.
-Geospatial data can be ingested in either GeoJSON or WKT formats as part of eventstream or reference data.
-For example, a company that is specialized in manufacturing machines for printing passports, leases their machines to governments and consulates. The location of those machines is heavily controlled as to avoid the misplacing and possible use for counterfeiting of passports. Each machine is fitted with a GPS tracker, that information is relayed back to an Azure Stream Analytics job.
-The manufacture would like to keep track of the location of those machines and be alerted if one of them leaves an authorized area, this way they can remotely disable, alert authorities and retrieve the equipment.
+Azure Stream Analytics provides built-in geospatial functions that can be used to implement scenarios such as fleet management, ride sharing, connected cars, and asset tracking. Geospatial data can be ingested in either GeoJSON or WKT formats as part of eventstream or reference data. For example, a company that is specialized in manufacturing machines for printing passports, leases their machines to governments and consulates. The location of those machines is heavily controlled as to avoid the misplacing and possible use for counterfeiting of passports. Each machine is fitted with a GPS tracker, that information is relayed back to an Azure Stream Analytics job. The manufacture would like to keep track of the location of those machines and be alerted if one of them leaves an authorized area, this way they can remotely disable, alert authorities and retrieve the equipment.
 
 **Input**:
 

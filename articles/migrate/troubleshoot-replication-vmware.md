@@ -7,7 +7,7 @@ ms.manager: vijain
 ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.update:cycle: 365-days
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 05/08/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy25
 # Customer intent: As a VMware administrator, I want to troubleshoot slow replication or stuck migration, so that I can ensure efficient and timely replication of virtual machines during the migration process.
@@ -18,12 +18,73 @@ ms.custom: vmware-scenario-422, mvc, engagement-fy25
 This article helps you troubleshoot slow replication or stuck migration issues that you may encounter when you replicate on-premises VMware VMs using the Server Migration agentless method.
 
 
-
 ## Replication is slow or stuck for VM 
 
 While performing replications, you might observe that replication for a particular VM isn't progressing at the expected pace. Generally, the underlying reason for this issue is an unavailability or scarcity of some resources required for replication. The resources might be consumed by other VMs that are replicating or some other process running on the appliance in the datacenter. 
 
-Following are some reasons that generally cause this issue and remediations. 
+## Expedite and remediate slow or stuck replications using monitoring and expedite tool
+
+1. You can use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and remediate slow or stuck replications and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
+2. Open the Azure portal, and then select Cloud Shell at the upper right of the page. When prompted, select PowerShell.
+3. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
+
+    ```powershell
+    
+    Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -MachineName "<your-server-name>"
+
+    ```
+4. Replace `your-project-name`, `your-resource-group`, and `your-server-name` with the actual Azure Migrate project, resource group, and server name.
+5.  You can run the command and get the following output: 
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
+
+6. The output shows the server replication status, disk progress, time left, upload speed, and datastore details.
+7. **Remediate slow or stuck replications using "Expedite" command**: To retrieve appliance operating parameters and a prioritized list of recommended actions that can help reduce the remaining migration time for the specified server and to remediate slow or stuck replications. Run the command with the `Expedite` flag. For guidance on resolving issues identified by the command, see the [Frequent issues section](troubleshoot-replication-vmware.md#frequent-issues-that-cause-slow-or-stuck-replications).
+    ```powershell
+
+    Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -MachineName "<your-server-name>" -Expedite 
+
+    ```
+
+8. You get the following output: 
+    
+  :::image type="content" source="./media/tutorial-migrate-vmware/server-migration.png"alt-text="Screenshot shows the output of the server migration status. "lightbox="./media/tutorial-migrate-vmware/server-migration.png":::
+    
+9. You can run the command without `-MachineName` parameter to view migration status and time remaining for all servers in the project. For example: 
+
+    ```powershell
+
+    Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>" -ResourceGroupName "<your-resource-group>"
+    ```
+10. Replace `your-project-name` and `your-resource-group` with the actual Azure Migrate project and resource group names.
+11. You run this command and get the following output: <br /><br />
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/replication-status.png"alt-text="Screenshot shows the overall replication status. "lightbox="./media/tutorial-migrate-vmware/replication-status.png":::
+12. If there's a problem with replication or cutover, the `-Health` flag shows **errors, possible causes, and recommended actions** to troubleshoot the migration.
+
+```powershell
+    
+    Get-AzMigrateServerMigrationStatus   -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>"   -            MachineName "<your-server-name>" -Health
+```
+13. You run this command and get the following output: <br /><br />
+
+:::image type="content" source="./media/tutorial-migrate-vmware/replication-complete.png" alt-text="Screenshot shows the               replication complete status." lightbox="./media/tutorial-migrate-vmware/replication-complete.png":::
+
+14. To view the migration status, time remaining, and health details for **all servers connected to that appliance**, run the command with only `-ApplianceName`.
+
+```powershell
+   Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -                ApplianceName "<your-appliance-
+ ```
+15. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Migrate setup.
+
+16. Run this command to get the following output: <br /><br />
+
+:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows Azure Migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
+
+>[!NOTE]
+> You can run the above commands in Azure Cloud Shell. You can also use PowerShell or Windows PowerShell on any Windows machine. A machine refers to any Windows PC, not an appliance, or server, as long as it has access to the Azure Migrate project.
+
+## Frequent issues that cause slow or stuck replications
 
 ### NFC buffer size low 
 

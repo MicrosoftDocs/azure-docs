@@ -2,13 +2,13 @@
 title: Use managed connectors in Azure Functions
 description: Learn how Azure Functions integrates with Azure Connector Namespace so that you can create managed connectors to interact with services like Office 365, Teams, and SharePoint and respond to events in these services.
 ms.topic: concept-article
-ms.date: 09/04/2026
+ms.date: 09/24/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
   - build-2026
   - references_regions
-zone_pivot_groups: programming-languages-set-functions-no-go
+zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I want to understand how Azure Functions uses managed connectors in a connector namespace to enable connector-based triggers and SDK actions instead of writing my own webhook code and having to use service-native client SDKs.
 ---
 
@@ -71,9 +71,10 @@ Managed connectors in Azure Functions are additive. The right choice depends on 
 | --- | --- | --- |
 | [Logic Apps Standard](../logic-apps/logic-apps-overview.md) | Orchestrating a workflow across connectors; team prefers a visual designer; little custom code between steps. | Low-code designer for the same connector ecosystem. |
 | [Azure Functions with managed connectors](#how-connectors-enhance-functions) | Code-first experiences including custom branching, in-process libraries, other bindings, and AI model calls between trigger and action. | .NET, Python, or Node.js authoring; Functions deployment and monitoring; no webhook or OAuth code for external services. |
+| [Azure App Service with managed connectors](../app-service/overview-managed-connectors.md) | Adding connector events and actions to an existing web app or API. | Authenticated HTTP callbacks through your app's routes and the same connector SDK clients for outbound actions; receiving-app authentication configured separately from the trigger. |
 | [HTTP triggers](./functions-bindings-http-webhook-trigger.md) with service SDKs | Cases where no managed connector exists for the targeted service or you need protocol-level controls that aren't provided by the connector. | Full control over auth, retry, and webhook validation; no requirements for a connector namespace. |
 
-A single function app can combine all three patterns. You can add a connector trigger to an existing HTTP-trigger app and adopt SDK clients incrementally.
+A function app can use connector triggers and direct service SDKs, and participate in Logic Apps workflows. You can add a connector trigger to an existing HTTP-trigger app and adopt SDK clients incrementally.
 
 ## Packages and prerequisites
 
@@ -143,9 +144,10 @@ Use the typed entry points in `@azure/functions-extensions-connectors` (for exam
 
 ::: zone-end
 
-::: zone pivot="programming-language-java,programming-language-powershell"
+::: zone pivot="programming-language-go,programming-language-java,programming-language-powershell"
 
-Java and PowerShell aren't supported in the public preview. See [Preview availability](#preview-availability) for the current list of supported runtimes.
+> [!IMPORTANT]
+> Go, Java, and PowerShell aren't supported in the public preview. See [Preview availability](#preview-availability) for the current list of supported runtimes.
 
 ::: zone-end
 
@@ -301,9 +303,10 @@ app.connectorTrigger('OnNewItem', {
 
 ::: zone-end
 
-::: zone pivot="programming-language-java,programming-language-powershell"
+::: zone pivot="programming-language-go,programming-language-java,programming-language-powershell"
 
-The connector trigger isn't available in this language for the public preview.
+> [!IMPORTANT]
+> The connector trigger isn't available in this language for the public preview.
 
 ::: zone-end
 
@@ -487,14 +490,16 @@ In Node.js, install `@azure/connectors` for typed clients (for example, `office3
 
 ::: zone-end
 
-::: zone pivot="programming-language-java,programming-language-powershell"
+::: zone pivot="programming-language-go,programming-language-java,programming-language-powershell"
 
-The connector SDK isn't available in these languages for the public preview.
+> [!IMPORTANT]
+> The connector SDK isn't available in these languages for the public preview.
 
 ::: zone-end
 
 ## Related articles
 
+- [Use managed connectors in Azure App Service](../app-service/overview-managed-connectors.md)
 - [Azure Functions connectors samples (canonical index)](https://aka.ms/functions-connectors-samples)
 - [End-to-end .NET sample: email → user lookup → Teams](https://github.com/Azure-Samples/functions-connectors-net-e2e-email-users-teams)
 - [.NET sample: built-in authentication with managed identity](https://github.com/Azure-Samples/functions-connectors-net-builtinauth)

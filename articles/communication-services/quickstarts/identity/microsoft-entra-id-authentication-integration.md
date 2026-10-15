@@ -16,6 +16,8 @@ ms.custom: mode-other, devx-track-js, has-azure-ad-ps-ref
 ---
 # Quickstart: Set up and obtain access tokens for Microsoft Entra ID users
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 This quickstart demonstrates how to use the Communication Services Common SDK along with Azure Identity SDK in a console application to authenticate a Microsoft Entra ID user and obtain an Azure Communication Services access token. The resulting Azure Communication Services access token allows you to integrate calling features using the Communication Services Calling SDK. Messaging (Chat) via Microsoft Entra ID integration isn't supported in the public preview.

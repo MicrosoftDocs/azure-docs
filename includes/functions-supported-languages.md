@@ -104,6 +104,8 @@ The following table shows the language versions supported for PowerShell functio
 | [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 14, 2028 |
 | [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
+PowerShell 7.6 is supported on all Azure Functions hosting plans except Linux Consumption, including Premium and Dedicated on Windows and Linux, Windows Consumption, and Flex Consumption.
+
 [!INCLUDE [PowerShell 7.6 Linux Consumption migration](./functions-powershell-76-linux-consumption-migration.md)]
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).

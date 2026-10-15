@@ -64,7 +64,8 @@ The following table describes whether a feature is supported in a standard gener
 | [Customer-provided keys](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
 | [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
+| [Immutable storage (Container-level WORM)](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
+| [Immutable storage (Version-level WORM)](immutable-storage-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
 | [Last access time tracking for lifecycle management](lifecycle-management-policy-structure.md#access-time-tracking) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

@@ -3,6 +3,7 @@ title: Offline backup for Data Protection Manager (DPM) and Microsoft Azure Back
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for previous versions of DPM and Azure Backup Server.
 ms.topic: how-to
 ms.date: 10/15/2025
+ms.update-cycle: 1825-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup

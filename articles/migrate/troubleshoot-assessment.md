@@ -3,7 +3,7 @@ title: Common issues in Azure Migrate assessments
 description: Get help with assessment issues in Azure Migrate.
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 09/26/2024
 ms.update-cycle: 365-days
 ms.custom: engagement-fy24

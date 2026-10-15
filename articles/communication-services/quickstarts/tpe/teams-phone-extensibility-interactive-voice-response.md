@@ -13,6 +13,8 @@ ms.subservice: call-automation
 ---
 
 # Build an IVR Bot for Teams Auto Attendant
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 This guide shows how to build an IVR (Interactive Voice Response) bot that works with a Microsoft Teams Auto Attendant by using Azure Communication Services Call Automation and Teams Phone Extensibility.
 After completing this quickstart, you can:
 - Answer calls routed from a Teams Auto Attendant

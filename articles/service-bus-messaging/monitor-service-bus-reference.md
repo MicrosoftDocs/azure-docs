@@ -1,17 +1,20 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 07/28/2026
+ms.date: 10/13/2026
 ms.custom: horz-monitor
 ms.topic: reference
-author: spelluru
-ms.author: spelluru 
+author: EldertGrootenboer
+ms.author: egrootenboer
+ms.service: azure-service-bus
 ---
 # Azure Service Bus monitoring data reference
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Service Bus](monitor-service-bus.md) for details on the data you can collect for Service Bus and how to use it.
+
+To correlate quota and capacity concerns with metric display names and REST API names, see [Monitor quota usage and throttling](service-bus-quotas.md#monitor-quota-usage-and-throttling). The mapping distinguishes usage metrics from diagnostic signals and identifies limits without a dedicated usage metric.
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
@@ -141,7 +144,7 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Virtual network and IP filtering logs
 - Runtime Audit logs
 
-Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](/azure/azure-monitor/essentials/resource-logs) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
+Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](/azure/azure-monitor/essentials/resource-logs) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables.
 
 :::image type="content" source="media/monitor-service-bus-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-service-bus-reference/destination-table-toggle.png":::
 
@@ -278,7 +281,7 @@ Resource specific table entry:
 
 ## Runtime audit logs
 
-Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
+Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.
 
 > [!NOTE]
 > Runtime audit logs are currently available only in the **premium** tier.  
@@ -305,6 +308,9 @@ Runtime audit logs include the elements listed in the following table:
 | `Type`  | Type of Logs emitted | No | Yes|
 
 Here's an example of a runtime audit log entry:
+
+> [!NOTE]
+> These historical examples include the `SBMP` protocol value. SBMP was retired on September 30, 2026. The value remains relevant when interpreting logs from applications that used that protocol.
 
 AzureDiagnostics:
 
@@ -406,9 +412,7 @@ Resource specific table entry:
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
-
-Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. 
+Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics.
 
 ### Service Bus Microsoft.ServiceBus/namespaces
 

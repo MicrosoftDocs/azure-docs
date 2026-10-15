@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The user experiences echo during the call
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 Acoustic echo happens when the microphone picks up sound from speakers, creating a loop of sound that results in an echo.
 Modern browsers have built-in acoustic echo cancellation capabilities in their audio processing modules.
 These capabilities are designed to remove near-end echoes, which can improve the overall audio quality of web based Azure Communication Service calls.

@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: azure-firewall
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 08/19/2026
+ms.date: 10/09/2026
 ai-usage: ai-assisted
 ---
 
@@ -102,7 +102,7 @@ Logging and monitoring for Azure Firewall provide visibility into traffic flows,
 
 Compliance and governance for Azure Firewall help you maintain consistent policy, inventory, and security baselines across subscriptions, regions, and network architectures.
 
-- **Use Azure Policy for configuration enforcement**: Assign built-in and custom Azure Policy definitions to audit or enforce requirements such as threat intelligence, diagnostic settings, allowed SKUs, and availability zone deployment. For more information, see [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md).
+- **Use Azure Policy for configuration enforcement**: Assign built-in and custom Azure Policy definitions to audit or enforce requirements such as threat intelligence, diagnostic settings, and allowed SKUs. For more information, see [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md).
 
 - **Maintain resource inventory with Azure Resource Graph**: Query Azure Firewall, Firewall Policy, public IP, route table, and diagnostic setting resources across subscriptions to identify coverage gaps and configuration drift. Use saved queries or dashboards for recurring reviews. For more information, see [Azure Resource Graph overview](../governance/resource-graph/overview.md).
 
@@ -124,7 +124,7 @@ Backup and recovery for Azure Firewall focus on preserving Firewall Policy as th
 
 - **Manage Firewall Policy as infrastructure as code**: Define and version Firewall Policy in Bicep, ARM templates, or Terraform stored in a source-controlled repository. Treat that repository as the source of truth. Use policy export as a bootstrap or point-in-time snapshot, not as the ongoing source of truth. For more information, see [Export template in the Azure portal](../azure-resource-manager/templates/export-template-portal.md).
 
-- **Deploy Azure Firewall across Availability Zones**: Use zone-redundant deployments in supported regions to improve resilience to datacenter-level failures. Include zone requirements in deployment standards and Azure Policy assignments. For more information, see [Deploy Azure Firewall with Availability Zones using Azure PowerShell](deploy-availability-zone-powershell.md).
+- **Let Azure manage firewall zone redundancy**: For new deployments, omit explicit firewall zones and choose a region where zone redundancy by default is available. Azure manages backend zone allocation to improve resilience to zone failures. Eligible existing firewalls, including single-zone firewalls, are migrated automatically; don't deallocate or redeploy solely to obtain redundancy. For coverage and deployment examples, see [Deploy Azure Firewall with availability zones](deploy-availability-zone-powershell.md).
 
 - **Plan multiregion firewall deployment for disaster recovery**: Deploy Azure Firewall and aligned policies in paired or strategically selected regions for workloads that require regional disaster recovery. Ensure you can recreate route tables, public IPs, diagnostics, and policy assignments in the secondary region. For more information, see [Use Azure Firewall to route a hub-and-spoke topology across multiple hubs](firewall-multi-hub-spoke.md).
 

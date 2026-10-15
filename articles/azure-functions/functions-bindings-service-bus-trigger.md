@@ -3,7 +3,7 @@ title: Azure Service Bus trigger for Azure Functions
 description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 09/15/2026
+ms.date: 09/23/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 zone_pivot_groups: programming-languages-set-functions
@@ -461,6 +461,7 @@ For Python v2 functions defined using a decorator, the following properties on t
 | `arg_name` | The name of the variable that represents the queue or topic message in function code. |
 | `queue_name` | Name of the queue to monitor. Set only if monitoring a queue, not for a topic. |
 | `connection` | The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections). |
+| `cardinality` | Set to `"many"` or `func.Cardinality.MANY` to enable batching. If omitted or set to `"one"` or `func.Cardinality.ONE`, a single message is passed to the function. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
 ::: zone-end
@@ -477,6 +478,7 @@ The `ServiceBusQueueTrigger` annotation allows you to create a function that run
 |**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**cardinality**| Set to `Cardinality.MANY` to enable batching. If omitted or set to `Cardinality.ONE`, a single message is passed to the function.|
 
 The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subscription to target what data triggers the function.
 
@@ -507,6 +509,7 @@ The following table explains the properties that you can set on the `options` ob
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 |**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime call `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
+|**cardinality**| Set to `"many"` to enable batching. If omitted or set to `"one"`, a single message is passed to the function.|
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -544,6 +547,7 @@ The following table explains the binding configuration properties that you set i
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 |**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime call `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
+|**cardinality**| Set to `"many"` to enable batching. If omitted or set to `"one"`, a single message is passed to the function.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

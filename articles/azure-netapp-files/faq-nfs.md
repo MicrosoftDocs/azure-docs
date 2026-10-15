@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 12/08/2025
+ms.date: 10/03/2026
 # Customer intent: As a cloud administrator, I want to configure NFS volume mounts for Azure Virtual Machines, so that I can ensure persistent access to data upon VM startup or reboot.
 ---
 # NFS FAQs for Azure NetApp Files
@@ -46,6 +46,13 @@ The common symptoms are:
 * TCP connection establishes (SYN/SYN-ACK completes) connection, but the mount does not complete.
 * Mount succeeds when TCP timestamps are disabled on the client.
 
+## What happens if LDAP signing is required but I don't enable LDAP signing for the Azure NetApp Files Active Directory connection?
+
+If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. 
+
+For environments that use Windows Server 2025 domain controllers, enabling LDAP signing on the Active Directory connection remains the recommended configuration. Enabling LDAP signing avoids relying on the fallback behavior.
+
+PTR records are required for the Active Directory domain controllers for the LDAP signing fallback mechanism to function.
 
 ## How do I enable root squashing?
 

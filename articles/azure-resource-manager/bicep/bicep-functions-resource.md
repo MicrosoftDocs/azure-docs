@@ -309,7 +309,7 @@ resource dScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   ...
   properties: {
-    azCliVersion: '2.0.80'
+    azCliVersion: '2.89.1'
     storageAccountSettings: {
       storageAccountName: storageAccount.name
       storageAccountKey: storageAccount.listKeys().keys[0].value

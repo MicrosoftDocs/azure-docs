@@ -3,7 +3,7 @@ title: Message Transfers, Locks, and Settlement
 description: Learn how Azure Service Bus handles message transfers, locks, and settlement operations to ensure reliable message delivery and processing.
 #customer intent: As a developer, I want to understand how message transfers work in Azure Service Bus so that I can implement reliable messaging in my application.
 ms.topic: concept-article
-ms.date: 07/15/2026
+ms.date: 10/06/2026
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -22,11 +22,9 @@ When you use any of the supported Service Bus API clients, the send operations i
 
 If Service Bus rejects the message, the rejection contains an error indicator and text with a **tracking-id** in it. The rejection also includes information about whether the operation can be retried with any expectation of success. The client turns this information into an exception and raises it to the caller of the send operation. If the message is accepted, the operation silently completes.
 
-Advanced Messaging Queuing Protocol (AMQP) is the only protocol supported for .NET Standard, Java, JavaScript, Python, and Go clients. For [.NET Framework clients](service-bus-amqp-dotnet.md), you can use Service Bus Messaging Protocol (SBMP) or AMQP. When you use the AMQP protocol, message transfers and settlements are pipelined and asynchronous. We recommend that you use the asynchronous programming model API variants.
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+The supported Service Bus clients for .NET, Java, JavaScript, Python, and Go use Advanced Message Queuing Protocol (AMQP). With AMQP, message transfers and settlements are pipelined and asynchronous. Use the asynchronous APIs to take advantage of this behavior.
  
-A sender can put several messages on the wire in rapid succession without waiting for each message to be acknowledged, as would otherwise be the case with the SBMP protocol or with HTTP 1.1. Those asynchronous send operations complete as the respective messages are accepted and stored, on partitioned entities or when send operation to different entities overlap. The completions might also occur out of the original send order.
+A sender can put several messages on the wire in rapid succession without waiting for each message to be acknowledged, as would otherwise be the case with HTTP 1.1. Those asynchronous send operations complete as the respective messages are accepted and stored, on partitioned entities or when send operation to different entities overlap. The completions might also occur out of the original send order.
 
 The strategy for handling the outcome of send operations can have immediate and significant performance impact for your application. The examples in this section are written in C# and apply to Java futures, Java monos, JavaScript promises, and equivalent concepts in other languages.
 
@@ -95,7 +93,7 @@ The receiver doesn't need to take any further action on the message and isn't sl
 
 ### PeekLock
 
-The [Peek-Lock](/dotnet/api/azure.messaging.servicebus.servicebusreceivemode) mode tells the broker that the receiving client wants to settle received messages explicitly. The message is available for the receiver to process, while the service holds an exclusive lock so that other competing receivers can't see it. The queue or subscription initially defines the duration of the lock. The client that owns the lock can extend it by using the [RenewMessageLockAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.renewmessagelockasync) operation. For more information about renewing locks, see the [Renew locks](#renew-locks) section in this article. 
+The [Peek-Lock](/dotnet/api/azure.messaging.servicebus.servicebusreceivemode) mode tells the broker that the receiving client wants to settle received messages explicitly. The message is available for the receiver to process, while the service holds an exclusive lock so that other competing receivers can't see it. The queue or subscription initially defines the duration of the lock. The client that owns the lock can extend it by using the [RenewMessageLockAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.renewmessagelockasync) operation. For more information about renewing locks, see the [Renew locks](#renew-locks) section in this article.
 
 When a message is locked, other clients receiving from the same queue or subscription can take on locks and retrieve the next available messages that aren't under active lock. When the lock on a message is explicitly released or when the lock expires, the message goes back to the front of the retrieval order for redelivery.
 
@@ -113,7 +111,7 @@ If a receiving client fails to process a message and knows that redelivering the
 > [!NOTE]
 > A dead-letter subqueue exists for a queue or a topic subscription only when you enable the [dead-letter feature](service-bus-dead-letter-queues.md) for the queue or subscription. 
 
-A special case of settlement is deferral. See the [Message deferral](message-deferral.md) article for details. 
+A special case of settlement is deferral. See the [Message deferral](message-deferral.md) article for details.
 
 The `Complete`, `DeadLetter`, or `RenewLock` operations might fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus doesn't support recovery of existing AMQP links on a different connection.
 
@@ -134,11 +132,11 @@ Designing for idempotent message handling becomes critical. For practical techni
 > When the lock is lost, Azure Service Bus generates a `MessageLockLostException` or `SessionLockLostException`, which surfaces in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation. Moreover, the delivery count of the message isn't incremented.
 
 ## Renew locks
-The default value for the lock duration is **1 minute**. You can specify a different value for the lock duration at the [queue](/dotnet/api/azure.messaging.servicebus.administration.createqueueoptions.lockduration) or [subscription](/dotnet/api/azure.messaging.servicebus.administration.createsubscriptionoptions.lockduration) level. The client owning the lock can renew the message lock by using methods on the receiver object. You can also use the automatic lock-renewal feature where you specify the time duration for which you want to keep getting the lock renewed. 
+The default value for the lock duration is **1 minute**. You can specify a different value for the lock duration at the [queue](/dotnet/api/azure.messaging.servicebus.administration.createqueueoptions.lockduration) or [subscription](/dotnet/api/azure.messaging.servicebus.administration.createsubscriptionoptions.lockduration) level. The client owning the lock can renew the message lock by using methods on the receiver object. You can also use the automatic lock-renewal feature where you specify the time duration for which you want to keep getting the lock renewed.
 
 Set the lock duration to a value that's higher than your normal processing time, so you don't have to renew the lock. The maximum value is 5 minutes, so you need to renew the lock if you want to have it longer. Having a longer lock duration than needed has some implications as well. For example, when your client stops working, the message becomes available again only after the lock duration passes.
 
 ## Next steps
-- A special case of settlement is deferral. See the [Message deferral](message-deferral.md) for details. 
+- A special case of settlement is deferral. See the [Message deferral](message-deferral.md) for details.
 - To learn about dead-lettering, see [Dead-letter queues](service-bus-dead-letter-queues.md).
 - To learn more about Service Bus messaging in general, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).

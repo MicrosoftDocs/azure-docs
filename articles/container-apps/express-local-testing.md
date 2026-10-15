@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/20/2026
+ms.date: 09/21/2026
 ms.author: cshoe
 ---
 

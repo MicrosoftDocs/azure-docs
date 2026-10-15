@@ -430,6 +430,9 @@ items:
               - name: What-if
                 displayName: whatif, what if, preview, changes
                 href: deployment-stacks-what-if.md
+              - name: Noise reduction
+                displayName: noise, false positive, baseline, whatif, what if
+                href: deployment-stacks-what-if-noise-reduction.md
               - name: Known issues
                 displayName: limitations, troubleshoot, deny assignment, stack out of sync
                 href: deployment-stacks-known-issues.md

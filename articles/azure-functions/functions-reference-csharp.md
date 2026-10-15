@@ -32,7 +32,7 @@ The *.csx* format allows you to write less "boilerplate" and focus on writing ju
 
 A function app's *.csx* files are compiled when an instance is initialized. This compilation step means things like cold start may take longer for C# script functions compared to C# class libraries. This compilation step is also why C# script functions are editable in the Azure portal, while C# class libraries aren't.
 
-C# script code always runs in the same process as the Functions host. 
+C# script code always runs in the same process as the Functions host.
 
 ## Folder structure
 
@@ -70,13 +70,13 @@ func init --worker-runtime dotnet --csx
 
 When working with a C# script app, you must supply the `--csx` option for other Core Tools where it's supported.
 
-When deploying your C# script project to a function app in Azure, you can only deploy it to an app that uses the [in-process model for C#](functions-dotnet-class-library.md).  
+When deploying your C# script project to a function app in Azure, you can only deploy it to an app that uses the [in-process model for C#](functions-dotnet-class-library.md).
 
 ### [Azure portal](#tab/azure-portal)
 
 Create a C# script project by creating an app that uses a currently supported in-process .NET **version**, such as **8 (LTS), in-process model**. Don't select the Flex Consumption plan, which doesn't support the in-process model.
 
-On the main page for your new app in the portal, select **Create function** under **Create in Azure portal**. This creates a C# script project, which you can code and test directly in the portal. 
+On the main page for your new app in the portal, select **Create function** under **Create in Azure portal**. This creates a C# script project, which you can code and test directly in the portal.
 
 ---
 
@@ -255,7 +255,7 @@ The `#load` directive works only with *.csx* files, not with *.cs* files.
 
 ## Binding to method return value
 
-You can use a method return value for an output binding, by using the name `$return` in *function.json*. 
+You can use a method return value for an output binding, by using the name `$return` in *function.json*.
 
 ```json
 {
@@ -449,7 +449,7 @@ The directory that contains the function script file is automatically watched fo
 
 ## Using NuGet packages
 
-By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](extension-bundles.md). 
+By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](extension-bundles.md).
 
 If you need to add custom NuGet packages not included in an extension bundle, you should instead develop your C# functions locally as a [compiled C# class library project that uses the isolated process model](./dotnet-isolated-process-guide.md).
 
@@ -541,8 +541,7 @@ In C# and other .NET languages, you can use an [imperative](https://en.wikipedia
 Define an imperative binding as follows:
 
 - **Do not** include an entry in *function.json* for your desired imperative bindings.
-- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs)
-or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
 - Use the following C# pattern to perform the data binding.
 
 ```cs
@@ -552,8 +551,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is an input or output type that's
-supported by that binding type. `T` can't be an `out` parameter type (such as `out JObject`). For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
+`BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is an input or output type that's supported by that binding type. `T` can't be an `out` parameter type (such as `out JObject`). For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
 
 ### Single attribute example
 
@@ -572,15 +570,11 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)
-defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
-[TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and [TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
 
 ### Multiple attributes example
 
-The preceding example gets the app setting for the function app's main Storage account connection string (which is `AzureWebJobsStorage`). You can specify a custom app setting to use for the Storage account by adding the
-[StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
-and passing the attribute array into `BindAsync<T>()`. Use a `Binder` parameter, not `IBinder`.  For example:
+The preceding example gets the app setting for the function app's main Storage account connection string (which is `AzureWebJobsStorage`). You can specify a custom app setting to use for the Storage account by adding the [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) and passing the attribute array into `BindAsync<T>()`. Use a `Binder` parameter, not `IBinder`.  For example:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -621,7 +615,7 @@ The easiest way to convert a C# script function app to a compiled C# class libra
 
 If you are using C# scripting for portal editing, you can [download the app content to your local machine](./deployment-zip-push.md#download-your-function-app-files). Choose the **Site content** option instead of **Content and Visual Studio project**. You don't need to generate a project, and don't include application settings in the download. You're defining a new development environment, and this environment shouldn't have the same permissions as your hosted app environment.
 
-These instructions show you how to convert C# script functions (which run in-process with the Functions host) to C# class library functions that run in an [isolated worker process](dotnet-isolated-process-guide.md). 
+These instructions show you how to convert C# script functions (which run in-process with the Functions host) to C# class library functions that run in an [isolated worker process](dotnet-isolated-process-guide.md).
 
 1. Complete the **Create a functions app project** section from your preferred quickstart:
    
@@ -641,7 +635,7 @@ These instructions show you how to convert C# script functions (which run in-pro
 
 1. Copy the contents of the original `host.json` file into the new project's `host.json` file, except for the `extensionBundles` section (compiled C# projects don't use [extension bundles](extension-bundles.md) and you must explicitly add references to all extensions used by your functions). When merging host.json files, remember that the [`host.json`](./functions-host-json.md) schema is versioned, with most apps using version 2.0. The contents of the `extensions` section can differ based on specific versions of the binding extensions used by your functions. See individual extension reference articles to learn how to correctly configure the host.json for your specific versions.
 
-1. For any [shared files referenced by a `#load` directive](#reusing-csx-code), create a new `.cs` file for each of these shared references. It's simplest to create a new `.cs` file for each shared class definition. If there are static methods without a class, you need to define new classes for these methods. 
+1. For any [shared files referenced by a `#load` directive](#reusing-csx-code), create a new `.cs` file for each of these shared references. It's simplest to create a new `.cs` file for each shared class definition. If there are static methods without a class, you need to define new classes for these methods.
 
 1. Perform the following tasks for each `<FUNCTION_NAME>` folder in your original project:
 
@@ -658,7 +652,7 @@ These instructions show you how to convert C# script functions (which run in-pro
     1. For any `#load` statement in your `run.csx` file, add a new `using` statement for the namespace you used for the shared code.
     1. In the new file, define a class for your function under the namespace you are using for the project.
     1. Create a new method named `RunHandler` or something similar. This new method serves as the new entry point for the function.
-    1. Copy the static method that represents your function, along with any functions it calls, from `run.csx` into your new class as a second method. From the new method you created in the previous step, call into this static method. This indirection step is helpful for navigating any differences as you continue the upgrade. You can keep the original method exactly the same and simply control its inputs from the new context. You may need to create parameters on the new method which you then pass into the static method call. After you have confirmed that the migration has worked as intended, you can remove this extra level of indirection. 
+    1. Copy the static method that represents your function, along with any functions it calls, from `run.csx` into your new class as a second method. From the new method you created in the previous step, call into this static method. This indirection step is helpful for navigating any differences as you continue the upgrade. You can keep the original method exactly the same and simply control its inputs from the new context. You may need to create parameters on the new method which you then pass into the static method call. After you have confirmed that the migration has worked as intended, you can remove this extra level of indirection.
     1. For each binding in the `function.json` file, add the corresponding attribute to your new method. To quickly find binding examples, see [Manually add bindings based on examples](add-bindings-existing-function.md?tabs=csharp).
     1. Add any extension packages required by the bindings to your project, if you haven't already done so.
      
@@ -798,11 +792,11 @@ namespace MyFunctionApp
 
 ## Binding configuration and examples
 
-This section contains references and examples for defining triggers and bindings in C# script. 
+This section contains references and examples for defining triggers and bindings in C# script.
 
 ### Blob trigger
 
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -858,7 +852,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 
 ### Blob input
 
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -913,7 +907,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 ### Blob output
 
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -1061,7 +1055,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 ### Queue output
 
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -1132,7 +1126,7 @@ public static void Run(
 
 This section outlines support for the [Tables API version of the extension](./functions-bindings-storage-table.md?tabs=in-process%2Ctable-api) only.
 
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -1146,7 +1140,7 @@ The following table explains the binding configuration properties for C# script 
 |**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
 |**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](./functions-bindings-storage-table-input.md#connections). |
 
-The following example shows a table input binding in a *function.json* file and C# script code that uses the binding. The function uses a queue trigger to read a single table row. 
+The following example shows a table input binding in a *function.json* file and C# script code that uses the binding. The function uses a queue trigger to read a single table row.
 
 The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value `{queueTrigger}` indicates that the row key comes from the queue message string.
 
@@ -1202,7 +1196,7 @@ public class Person : ITableEntity
 
 This section outlines support for the [Tables API version of the extension](./functions-bindings-storage-table.md?tabs=in-process%2Ctable-api) only.
 
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property | Description|
 |---|---|
@@ -1267,7 +1261,7 @@ public class Person
 
 ### Timer trigger
 
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -1442,14 +1436,13 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-To get access to event metadata in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object. You can also access the same properties by using binding expressions in the method signature. The following example shows both ways to get the same data:
+To get access to event metadata in function code, bind to an [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) object. You can also access the same properties by using binding expressions in the method signature. The following example shows both ways to get the same data:
 
 ```cs
 #r "Microsoft.Azure.EventHubs"
 
 using System.Text;
 using System;
-using Microsoft.ServiceBus.Messaging;
 using Microsoft.Azure.EventHubs;
 
 public void Run(EventData myEventHubMessage,

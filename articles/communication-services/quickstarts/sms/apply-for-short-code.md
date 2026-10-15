@@ -15,6 +15,8 @@ ms.custom: mode-other
 ---
 # Apply for a short code
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 > [!TIP]

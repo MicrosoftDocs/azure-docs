@@ -2,7 +2,7 @@
 title: AI Integration Options for Azure Functions
 description: "Compare Azure Functions options for hosted skills, Model Context Protocol (MCP) tools, agentic workflows, Microsoft Foundry agents, and AI frameworks."
 ms.topic: concept-article
-ms.date: 09/17/2026
+ms.date: 09/18/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -22,6 +22,7 @@ Use the following table to choose an integration based on how work starts and ho
 | Option | Best fit | Invocation model | Key considerations |
 | --- | --- | --- | --- |
 | [Azure Functions hosted skills](#azure-functions-hosted-skills) | Add AI reasoning to event-driven workloads by using declarative instructions and tools. | Functions triggers or optional built-in HTTP and MCP endpoints | Preview |
+| [Agent bindings for Python](#agent-bindings-for-python) | Add bounded Agent reasoning to a Python function while retaining code-driven control of validation, branching, errors, and outputs. | A standard Functions trigger invokes Python code, which calls an injected Microsoft Agent Framework `Agent` object | Preview; Python only |
 | [Model Context Protocol (MCP) endpoint implementations](#choose-how-to-expose-an-mcp-endpoint) | Expose synchronous, reusable tools to Microsoft Foundry agents and other MCP clients. | Streamable HTTP | Choose among hosted skills, the generally available MCP extension, and preview SDK-based hosting. |
 | [Queue-based Azure Functions tools](#choose-queue-based-azure-functions-tools-for-microsoft-foundry-agent-service) | Run asynchronous background tools for Microsoft Foundry agents. | Azure Queue Storage input and output queues | Foundry-specific; requires a Foundry agent with the standard setup. |
 | [Agentic workflows](#agentic-workflows) | Coordinate long-running or multistep AI work that must survive restarts and waits. | Durable orchestrations started by application events | Choose direct Durable Functions orchestration or hosted-skills dynamic workflows. |
@@ -43,6 +44,16 @@ To get started, see these articles:
 + [Overview: Azure Functions hosted skills](functions-hosted-skills.md)
 + [Get started: Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)
 + [Reference: Azure Functions hosted skills configuration](functions-hosted-skills-reference.md)
+
+## Agent bindings for Python
+
+[!INCLUDE [functions-agent-bindings-preview](../../includes/functions-agent-bindings-preview.md)]
+
+Agent bindings add a configured Microsoft Agent Framework `Agent` object to a standard Python function invocation. The function keeps control of its trigger and deterministic application logic, and its handler decides whether, when, and how to invoke the Agent.
+
+Use Agent bindings when the Python function is the primary execution model and Agent reasoning is one bounded part of its work. Use [Azure Functions hosted skills](#azure-functions-hosted-skills) instead when a declaratively defined hosted skill is the application's primary execution model. Use the Microsoft Agent Framework SDK directly when your code must control the complete Agent lifecycle rather than receive a configured Agent through a binding.
+
+Agent bindings also support replay-safe Agent calls from Durable Functions orchestrations. To learn more and get started, see [Agent bindings for Python in Azure Functions](functions-agent-bindings.md).
 
 ## Tools and MCP servers
 

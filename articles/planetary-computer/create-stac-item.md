@@ -941,4 +941,4 @@ For Bulk Ingestion:
 > [!div class="nextstepaction"]
 > [Ingest data into GeoCatalog with the Bulk Ingestion API](./bulk-ingestion-api.md)
 
-We also offer the [STAC Forge tool](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/tools/stacforge-functions) which provides increased automation using templates around data.
+Use the *STAC Forge tool* for increased automation by using templates around data.

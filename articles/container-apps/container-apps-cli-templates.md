@@ -58,7 +58,7 @@ Templates for AI-powered applications including RAG, ChatGPT-style experiences, 
 | Template | Author | Language | Azure Services | IaC |
 |----------|--------|----------|----------------|-----|
 | [.NET Redis OutputCache with Azure OpenAI](https://github.com/CawaMS/OutputCacheOpenAI) | Catherine Wang | .NET/C# | Azure Cache for Redis, Azure OpenAI Service | — |
-| [Advanced multi agent application based on Autogen and Azure Open AI](https://github.com/Azure-Samples/dream-team) | Yaniv Vaknin ✓ | Python | Azure Managed Identity, Azure OpenAI Service, Azure Key Vault, Azure Log Analytics, Azure Application Insights | Bicep |
+| [Advanced multi agent application based on Autogen and Azure Open AI](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/build-your-dream-team-with-autogen/4157961) | Yaniv Vaknin ✓ | Python | Azure Managed Identity, Azure OpenAI Service, Azure Key Vault, Azure Log Analytics, Azure Application Insights | Bicep |
 | [Agentic Voice Assistant based on Azure Container Apps, Azure OpenAI and Azure Logic Apps](https://github.com/Azure-Samples/agentic-voice-assistant) | Evgeny Minkevich | Python | Azure Cosmos DB, Azure Application Insights, Azure Storage | Bicep |
 | [Azure Container Apps dynamic sessions with a custom container and Microsoft Agent Framework](https://github.com/Azure-Samples/dynamic-sessions-custom-container) | Jeff Martinez ✓ | Python | Azure Managed Identity, Azure OpenAI Service | Bicep |
 | [Azure Container Apps dynamic sessions with a Python code interpreter](https://github.com/Azure-Samples/aca-python-code-interpreter-session) | Jeff Martinez ✓ | Python | Azure Managed Identity, Azure OpenAI Service | Bicep |
@@ -85,7 +85,7 @@ Templates for AI-powered applications including RAG, ChatGPT-style experiences, 
 | [Simple Chat Application using Azure OpenAI](https://github.com/Azure-Samples/chatgpt-quickstart) | Azure Content Team ✓ | Python | Azure OpenAI Service | Bicep |
 | [Simple Chat Application using Azure OpenAI (Python)](https://github.com/Azure-Samples/openai-chat-app-quickstart) | Azure Content Team ✓ | Python | Azure OpenAI Service | Bicep |
 | [Spring Petclinic Microservices with AI on Azure Container Apps](https://github.com/Azure-Samples/java-on-aca) | Songbo Wang ✓ | Java | Azure MySQL, Azure Monitor, Azure Managed Identity, Azure Key Vault, Azure Application Insights, Azure OpenAI Service | Bicep |
-| [Sprint Petclinic AI application on Azure Container Apps](https://github.com/Azure-Samples/spring-petclinic-ai) | Songbo Wang ✓ | Java | Azure Managed Identity, Azure OpenAI Service | Bicep |
+| [Sprint Petclinic AI application on Azure Container Apps](https://github.com/spring-petclinic/spring-petclinic-ai) | Songbo Wang ✓ | Java | Azure Managed Identity, Azure OpenAI Service | Bicep |
 | [VoiceRAG: RAG + Voice Using Azure AI Search and GPT-4o Realtime API](https://github.com/Azure-Samples/aisearch-openai-rag-audio) | Azure Content Team ✓ | Python, TypeScript, JavaScript | Azure OpenAI Service, Azure AI Search | Bicep |
 
 ## Microservices (Dapr)

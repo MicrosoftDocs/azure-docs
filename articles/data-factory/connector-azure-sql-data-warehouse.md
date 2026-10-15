@@ -43,7 +43,7 @@ This Azure Synapse Analytics connector is supported for the following capabiliti
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
 - Copy data by using SQL authentication and Microsoft Entra Application token authentication with a service principal or managed identities for Azure resources.
-- As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source, see the [Parallel copy from Azure Synapse Analytics](#parallel-copy-from-azure-synapse-analytics) section for details.
+- As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source. For more information, see [Parallel copy from Azure Synapse Analytics](#parallel-copy-from-azure-synapse-analytics).
 - As a sink, load data by using [COPY statement](#use-copy-statement) or [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) or bulk insert. We recommend COPY statement or PolyBase for better copy performance. The connector also supports automatically creating destination table with DISTRIBUTION = ROUND_ROBIN if not exists based on the source schema.
 
 > [!IMPORTANT]
@@ -60,7 +60,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 
 Use the following steps to create an Azure Synapse Analytics linked service in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the **Manage** tab in your Azure Data Factory or Synapse workspace and select **Linked Services**, then select **New**:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -201,9 +201,12 @@ You also need to follow the steps below:
    - Application key
    - Tenant ID
 
-2. **[Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server in the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+2. **[Provision a Microsoft Entra administrator](../synapse-analytics/sql/authentication-aad-configure.md)** for your server in the Azure portal if you didn't already. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-3. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+   > [!NOTE]
+   > Microsoft Entra server principals are currently in preview for Azure Synapse Analytics.
+
+3. **[Create contained database users](../synapse-analytics/sql/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
     ```sql
     CREATE USER [your_application_name] FROM EXTERNAL PROVIDER;
@@ -247,9 +250,9 @@ A data factory or Synapse workspace can be associated with a [system-assigned ma
 
 To use system-assigned managed identity authentication, specify the generic properties that are described in the preceding section, and follow these steps.
 
-1. **[Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with system-assigned managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+1. **[Provision a Microsoft Entra administrator](../synapse-analytics/sql/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you didn't already. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with system-assigned managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-2. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the system-assigned managed identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL.
+2. **[Create contained database users](../synapse-analytics/sql/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the system-assigned managed identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL.
   
     ```sql
     CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
@@ -297,9 +300,9 @@ To use user-assigned managed identity authentication, in addition to the generic
 
 You also need to follow the steps below:
 
-1. **[Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with user-assigned managed identity an admin role, skip steps 3. The administrator will have full access to the database.
+1. **[Provision a Microsoft Entra administrator](../synapse-analytics/sql/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you didn't already. The Microsoft Entra administrator can be a Microsoft Entra user or Microsoft Entra group. If you grant the group with user-assigned managed identity an admin role, skip step 3. The administrator will have full access to the database.
 
-2. **[Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities)** for the user-assigned managed identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL.
+2. **[Create contained database users](../synapse-analytics/sql/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the user-assigned managed identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL.
   
     ```sql
     CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
@@ -551,11 +554,11 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | polyBaseSettings  | A group of properties that can be specified when the `allowPolybase` property is set to **true**. | No.<br/>Apply  when using PolyBase. |
 | allowCopyCommand | Indicates whether to use [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) to load data into Azure Synapse Analytics. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br>Apply  when using COPY. |
 | copyCommandSettings | A group of properties that can be specified when `allowCopyCommand` property is set to TRUE. | No.<br/>Apply  when using COPY. |
-| writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, the service dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
+| writeBatchSize    | Number of rows to insert into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, the service dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
 | writeBatchTimeout | The wait time for the insert, upsert and stored procedure operation to complete before it times out. <br/>Allowed values are for the timespan. An example is "00:30:00" for 30 minutes. If no value is specified, the  time-out defaults to "00:30:00". | No.<br/>Apply  when using bulk insert.        |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure Synapse Analytics in each run. Use this property to clean up the preloaded data. | No                                            |
 | tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables), if it does not exist, based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
-| disableMetricsCollection | The service collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| disableMetricsCollection | The service collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduces additional `master` database access. If you're concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure Synapse Analytics. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
 | upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
@@ -685,7 +688,7 @@ Azure Synapse Analytics COPY statement directly supports Azure Blob and Azure Da
 
     >[!IMPORTANT]
     >- When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
-    >- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+    >- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
 
 2. Format settings are with the following:
 
@@ -765,7 +768,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 >[!IMPORTANT]
 >- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively. You also need to grant permissions to your Azure Synapse Analytics workspace managed identity in your staging Azure Blob Storage or Azure Data Lake Storage Gen2 account. To learn how to grant this permission, see [Grant permissions to workspace managed identity](/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions).
->- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
+>- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
 
 >[!IMPORTANT]
 >If your staging Azure Storage is configured with Managed Private Endpoint and has the storage firewall enabled, you must use managed identity authentication and grant Storage Blob Data Reader permissions to the Synapse SQL Server to ensure it can access the staged files during the COPY statement load.
@@ -843,7 +846,7 @@ If the requirements aren't met, the service checks the settings and automaticall
 
     >[!IMPORTANT]
     >- When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
-    >- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+    >- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
 
 2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
@@ -904,7 +907,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 >[!IMPORTANT]
 >- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively. You also need to grant permissions to your Azure Synapse Analytics workspace managed identity in your staging Azure Blob Storage or Azure Data Lake Storage Gen2 account. To learn how to grant this permission, see [Grant permissions to workspace managed identity](/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions).
->- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
+>- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
 
 >[!IMPORTANT]
 >If your staging Azure Storage is configured with Managed Private Endpoint and has the storage firewall enabled, you must use managed identity authentication and grant Storage Blob Data Reader permissions to the Synapse SQL Server to ensure it can access the staged files during the PolyBase load.
@@ -1028,7 +1031,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 **Enable Staging** It is highly recommended that you use this option in production workloads with Azure Synapse Analytics sources. When you execute a [data flow activity](control-flow-execute-data-flow-activity.md) with Azure Synapse Analytics sources from a pipeline, you will be prompted for a staging location storage account and will use that for staged data loading. It is the fastest mechanism to load data from Azure Synapse Analytics.
 
 - When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
-- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
 - When you use Azure Synapse **serverless** SQL pool as source, enable staging is not supported.
 
 **Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.
@@ -1062,7 +1065,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 **Enable staging:** This enables loading into Azure Synapse Analytics SQL Pools using the copy command and is recommended for most Synapse sinks. The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). 
 
 - When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
-- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+- If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
 
 **Batch size**: Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data.
 
@@ -1090,7 +1093,7 @@ By default, a data flow run will fail on the first error it gets. You can choose
 
 **Transaction Commit:** Choose whether your data gets written in a single transaction or in batches. Single transaction will provide better performance and no data written will be visible to others until the transaction completes. Batch transactions have worse performance but can work for large datasets.
 
-**Output rejected data:** If enabled, you can output the error rows into a csv file in Azure Blob Storage or an Azure Data Lake Storage Gen2 account of your choosing. This will write the error rows with three additional columns: the SQL operation like INSERT or UPDATE, the data flow error code, and the error message on the row.
+**Output rejected data:** If enabled, you can output the error rows into a CSV file in Azure Blob Storage or an Azure Data Lake Storage Gen2 account of your choosing. The output will contain error rows with three additional columns: the SQL operation like INSERT or UPDATE, the data flow error code, and the error message on the row.
 
 **Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
 

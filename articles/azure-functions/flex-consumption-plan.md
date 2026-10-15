@@ -195,7 +195,7 @@ This table shows the language stack versions that are currently supported for Fl
 | C# (isolated worker model)<sup>1</sup> | .NET 8, .NET 9, .NET 10 |
 | Java | Java 8, Java 11, Java 17, Java 21, Java 25 |
 | Node.js | Node.js 22, Node.js 24   |
-| PowerShell | PowerShell 7.4   |
+| PowerShell | PowerShell 7.6, PowerShell 7.4 |
 | Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13, Python 3.14  | 
 | Custom handlers | 1.0 |
 
@@ -207,7 +207,7 @@ All Flex Consumption apps in a subscription and region share a compute quota, li
 
 ### Default quota
 
-Each region in a subscription has a default quota of **250 cores** (equivalent to **512,000 MB**) for all Flex Consumption app instances combined. You can use any combination of instance sizes and counts, as long as the total cores stay under the quota.
+The default regional quota for all Flex Consumption app instances combined is **250 cores** (equivalent to **512,000 MB**). Azure Free Trial and Azure for Students subscriptions have a default regional quota of **15 cores** (equivalent to **30,720 MB**). You can use any combination of instance sizes and counts, as long as the total cores stay under the applicable quota.
 
 To calculate the cores used, multiply the cores per instance by the number of instances:
 
@@ -219,7 +219,7 @@ To calculate the cores used, multiply the cores per instance by the number of in
 
 ### Quota examples
 
-Each of these scenarios reaches the 250 core quota limit. When the quota is reached, apps in the region stop scaling:
+Each of these scenarios reaches the standard 250-core quota. Because Azure Free Trial and Azure for Students subscriptions have a 15-core default quota, these examples don't apply to them. When the quota is reached, apps in the region stop scaling:
 
 | Scenario                                                                | Calculation           | Total cores |
 | ----------------------------------------------------------------------- | --------------------- | ----------- |

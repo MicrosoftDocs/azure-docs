@@ -4,18 +4,25 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
-ms.date: 09/09/2026
-zone_pivot_groups: programming-languages-set-functions-no-go
+ms.date: 10/06/2026
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Migrate function apps from Azure Service Bus extension version 4.x to version 5.x 
 
-This article highlights considerations for upgrading your existing Azure Functions applications that use the Azure Service Bus extension version 4.x to use the newer [extension version 5.x](./functions-bindings-service-bus.md?tabs=extensionv5). Migrating from version 4.x to version 5.x of the Azure Service Bus extension has breaking changes for your application. 
+This article highlights considerations for upgrading your existing Azure Functions applications that use the Azure Service Bus extension version 4.x to use the newer [extension version 5.x](./functions-bindings-service-bus.md?tabs=extensionv5). Migrating from version 4.x to version 5.x of the Azure Service Bus extension has breaking changes for your application.
 
 > [!IMPORTANT]
-> On March 31, 2025 the Azure Service Bus extension version 4.x will be retired. The extension and all applications using the extension will continue to function, but Azure Service Bus will cease to provide further maintenance and support for this extension. We recommend migrating to the latest version 5.x of the extension.
+> Azure Service Bus extension version 4.x was retired on March 31, 2025. Applications can continue to function with the extension, but it no longer receives maintenance or support. Migrate to extension version 5.x, which uses the supported `Azure.Messaging.ServiceBus` library. The `Microsoft.Azure.ServiceBus` library used by version 4.x was retired on September 30, 2026. For details of the library retirement, see the [retirement announcement](https://techcommunity.microsoft.com/blog/messagingonazureblog/some-azure-service-bus-sdk-libraries-will-be-retired-on-30-september-2026%E2%80%94migrat/3917853).
 
 This article walks you through the process of migrating your function app to run on version 5.x of the Azure Service Bus extension. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+
+::: zone pivot="programming-language-go"
+
+> [!NOTE]
+> This migration doesn't apply to Go function apps. First-class Go support wasn't available with version 4.x of the Azure Service Bus extension. For current Go trigger guidance, see the [Azure Service Bus trigger](functions-bindings-service-bus-trigger.md?pivots=programming-language-go).
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -81,12 +88,12 @@ Update your `.csproj` project file to use the latest extension version for your 
 
 ## Azure Service Bus SDK changes
 
-The underlying SDK used by extension changed to use the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) SDK, for cases where you were using SDK related types, please look at the [Guide for migrating to Azure.Messaging.ServiceBus from Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md) for more information.
+Extension version 5.x uses [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus). If your function code uses types from the retired `Microsoft.Azure.ServiceBus` library, update them by following the [client library migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
 
 ---
 
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"  
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"
 
 ## Update the extension bundle
 
@@ -104,12 +111,12 @@ To update your application to use the latest extension bundle, update your `host
 }
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
+::: zone-end
+::: zone pivot="programming-language-csharp"
 ## Modify your function code
 
 The Azure Functions Azure Service Bus extension version 5 is built on top of the Azure.Messaging.ServiceBus SDK version 3, which removed support for the `Message` class. Instead, use the `ServiceBusReceivedMessage` type to receive message metadata from Service Bus Queues and Subscriptions.
-::: zone-end  
+::: zone-end
 
 
 ## Next steps

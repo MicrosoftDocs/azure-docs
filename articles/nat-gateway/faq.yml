@@ -146,7 +146,11 @@ sections:
       - question: Can I use NAT Gateway to connect to a storage account public endpoint in the same region?
         answer: |
           No, NAT gateway public IPs aren't used to connect to storage accounts in the same region. Services deployed in the same region as an Azure storage account use private Azure IP addresses for communication. You can't restrict access to specific Azure services based on their public outbound IP address range. For more information, see restrictions for [IP network rules](/azure/storage/common/storage-network-security?tabs=azure-portal#restrictions-for-ip-network-rules).
-          
+
+      - question: Does NAT Gateway maintain existing connections when a virtual machine undergoes live migration?
+        answer: |
+          No. NAT Gateway doesn't support connection continuity for existing flows during virtual machine live migration. Existing connections through the NAT gateway may be disrupted and need to be reestablished after the migration completes.
+      
   - name: Traffic routes
     questions:
       - question: What happens to a NAT gateway if I force tunnel 0.0.0.0/0 (internet) traffic to an NVA, Azure VPN Gateway, or Azure ExpressRoute? 

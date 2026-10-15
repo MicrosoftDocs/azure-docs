@@ -6,7 +6,7 @@ ms.author: molir
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 05/26/2026
 ms.custom: engagement-fy26
 ms.update-cycle: 1095-days
@@ -99,7 +99,7 @@ To verify that the downloaded collector installer ZIP file is secure, check its 
 
    | Algorithm | Version | Download | SHA256 |
    | --- | --- | --- | --- |
-   | Collector zip file (670.25 MB) | 20260827.3 | [Latest version](https://aka.ms/Migrate/DownloadCollector) | 1AF404274728EAC90B9B0F500FA4D12B75A7AFE68373E3FFEC51A42170BA5F69 |
+   | Collector zip file (656.67 MB) | 20261006.1 | [Latest version](https://aka.ms/Migrate/DownloadCollector) | D4308A6BC50A31025623D61B1D532A67743A67402E0CA66E5BE7CB3919F9B464 |
 
 ### Provide vCenter credentials
 

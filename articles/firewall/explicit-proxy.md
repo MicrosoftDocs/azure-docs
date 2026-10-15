@@ -34,7 +34,7 @@ Explicit proxy mode supports HTTP and HTTPS traffic. You define proxy settings i
 
    :::image type="content" source="media/explicit-proxy/enable-explicit-proxy.png" alt-text="Screenshot showing the Enable explicit proxy setting.":::
    > [!NOTE]
-   > You can use a single port **HTTP Port** for both HTTP and HTTPS traffic.
+   > You must use a single port **HTTP Port** for both HTTP and HTTPS traffic.
 
 - Create an **application** rule in the firewall policy to allow the traffic through the firewall.
 

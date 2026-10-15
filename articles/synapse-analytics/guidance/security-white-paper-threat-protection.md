@@ -16,7 +16,7 @@ Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Ass
 
 ## Auditing
 
-[Auditing for Azure SQL Database](/azure/azure-sql/database/auditing-overview#overview) and Azure Synapse tracks database events and writes them to an audit log in an Azure storage account, Log Analytics workspace, or Event Hubs. For any database, auditing is important. It produces an audit trail over time to help understand database activity and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
+[Auditing in Azure Synapse Analytics](../sql/auditing-overview.md) tracks database events and writes them to an audit log in an Azure storage account, Log Analytics workspace, or Event Hubs. For any database, auditing is important. It produces an audit trail over time to help you understand database activity and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 Used with [Data discovery and classification](/azure/azure-sql/database/data-discovery-and-classification-overview), when any sensitive columns or tables are queried by users, entries will appear in a field named **data_sensitivity_information** of the **sql_audit_information** table.
 
 > [!NOTE]
@@ -26,7 +26,7 @@ Used with [Data discovery and classification](/azure/azure-sql/database/data-dis
 
 [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a tool for security posture management and threat detection. It protects workloads running in Azure, including (but not exclusively) servers, app service, key vaults, Kubernetes services, storage accounts, and Azure SQL Databases.
 
-As one of the options available with Microsoft Defender for Cloud, [Microsoft Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql) extends Defender for Cloud's data security package to secure databases. It can discover and mitigate potential database vulnerabilities by detecting anomalous activities that could be a potential threat to the database. Specifically, it continually monitors your database for:
+As one of the options available with Microsoft Defender for Cloud, [Microsoft Defender for SQL](../sql/azure-defender-for-sql.md) extends Defender for Cloud's data security package to secure databases. It can discover and mitigate potential database vulnerabilities by detecting anomalous activities that could be a potential threat to the database. Specifically, it continually monitors your database for:
 
 > [!div class="checklist"]
 > - Potential SQL injection attacks

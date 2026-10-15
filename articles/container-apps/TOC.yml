@@ -63,7 +63,7 @@ items:
               href: sandboxes-quickstart-bicep.md
             - name: Python SDK
               href: sandboxes-quickstart-python-sdk.md
-        - name: Snapshots and state management
+        - name: Lifecycle (preview)
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
           href: sandboxes-egress-policies.md
@@ -261,7 +261,7 @@ items:
               href: tutorial-gpu-image-generation.md
         - name: Override auto-generated KEDA scale rules
           href: functions-scale-rule-override.md
-        - name: Migrate from Functions v1 to v2
+        - name: Migrate from Functions on Azure Container Apps V1 to Functions on Azure Container Apps V2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
           href: functions-unified-platform.md
@@ -468,8 +468,6 @@ items:
               href: microservices-dapr-azure-resource-manager.md
             - name: Configure Dapr on an existing container app
               href: enable-dapr.md
-            - name: Deploy using the Dapr extension for Azure Functions
-              href: dapr-functions-extension.md
         - name: Components
           items:
             - name: Components overview

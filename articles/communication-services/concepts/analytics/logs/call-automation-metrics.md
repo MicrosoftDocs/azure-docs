@@ -12,6 +12,8 @@ ms.subservice: data
 ---
 # Call automation metrics overview
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services currently provides metrics for all Communication Services primitives.
 
 ## Where to find metrics

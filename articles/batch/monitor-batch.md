@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Start here to learn how to monitor Azure Batch.
-ms.date: 08/31/2026
+ms.date: 09/30/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 ms.service: azure-batch
@@ -54,6 +54,8 @@ Examples of metrics in a Batch account are Pool Create Events, Low-Priority Node
 
 > [!NOTE]
 > Metrics emitted in the last 3 minutes might still be aggregating, so values might be underreported during this time frame. Metric delivery isn't guaranteed and might be affected by out-of-order delivery, data loss, or duplication.
+
+Node and core count metrics, such as **Low-Priority Node Count** and **Dedicated Node Count**, are gauge metrics that represent point-in-time totals for the Batch account. Don't use the **Total** aggregation to determine the number of nodes or cores over a time range. The **Total** aggregation adds all samples in the selected time interval and can overstate the count when the interval contains multiple samples. Use **Maximum** to view the highest observed count or **Average** to view the average of the samples in the interval.
 
 For a complete list of available metrics for Batch, see [Batch monitoring data reference](monitor-batch-reference.md#metrics).
 

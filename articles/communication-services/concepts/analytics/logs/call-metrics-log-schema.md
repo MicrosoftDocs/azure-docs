@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Call metrics log schema
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This document explains the ACSCallingMetrics logs available to you through Azure Monitor in the form of [Resource Logs](/azure/azure-monitor/data-sources#azure-resources). 
 
 Call metrics logs are used in the **[voice and video insights dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK API calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. 

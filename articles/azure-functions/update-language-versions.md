@@ -103,8 +103,6 @@ Before updating your function app's language version, create a [deployment slot]
 
 **Flex Consumption plan**: Slots aren't currently supported. You should first verify your updated code in a non-production function app. When deploying to a running app, you might be able to use the rolling update strategy. For more information, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md).
 
-[!INCLUDE [functions-flex-rolling-updates-preview-note](../../includes/functions-flex-rolling-updates-preview-note.md)]
-
 ## Update the stack configuration
 
 The way that you update the stack configuration depends on whether your function app runs on Windows or on Linux in Azure.

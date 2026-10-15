@@ -4,8 +4,8 @@ description: This article provides information on how workbooks provide a flexib
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: overview
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days
 # Customer intent: "As a data analyst, I want to create interactive visual reports using workbooks, so that I can effectively analyze data and share insights within my team."

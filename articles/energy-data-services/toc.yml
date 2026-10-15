@@ -34,6 +34,8 @@ items:
           href: tutorial-seismic-change-tier.md
         - name: Restore a seismic dataset
           href: tutorial-seismic-restore-dataset.md
+        - name: Schedule seismic analytics reports
+          href: tutorial-seismic-analytics.md
     - name: Use Wellbore DDMS APIs
       href: tutorial-wellbore-ddms.md
     - name: Use Well Delivery DDMS APIs
@@ -143,6 +145,8 @@ items:
       href: how-to-connect-analytics-consumption-zone-to-fabric.md
     - name: Connect Analytics Consumption Zone (ACZ) to Azure Databricks
       href: how-to-connect-analytics-consumption-zone-to-databricks.md
+    - name: Connect Analytics Consumption Zone (ACZ) to Snowflake
+      href: how-to-connect-analytics-consumption-zone-to-snowflake.md
 - name: References
   items:
   - name: REST API

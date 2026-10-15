@@ -43,8 +43,8 @@ The stack you evaluated doesn't need to exist yet. If it doesn't, what-if report
 
 What-if for deployment stacks shares the underlying [what-if limitations](./deploy-what-if.md) of Azure Resource Manager template deployments, including [result accuracy](./deploy-what-if.md#change-types) for certain resource types and properties. Always review the predicted changes carefully before you apply a stack, particularly when `actionOnUnmanage` is set to a delete option.
 
-- **Noise reduction doesn't remove every difference.** What-if filters many common differences that aren't real changes, but it doesn't filter all of them. For more information, see [Noise reduction](#noise-reduction).
-- **Stored results persist until their retention interval elapses.** Each what-if result is a resource in the scope you create it in, and it counts toward that scope's resource limits. A result that uses a retention interval longer than `PT3H` isn't deleted automatically, so delete results you no longer need. For more information, see [Retrieve and delete stored results](#retrieve-and-delete-stored-results).
+- **Noise reduction doesn't remove every difference.** What-if filters many common differences that aren't real changes, but it doesn't filter all of them. For more information, see [Noise reduction in deployment stack what-if results](./deployment-stacks-what-if-noise-reduction.md).
+- **A scope can contain up to 800 what-if results.** This limit is separate from the limits on deployments and deployment stacks, so running what-if doesn't consume the deployment history for the scope. Results are deleted automatically when their retention interval elapses. For more information, see [Retrieve and delete stored results](#retrieve-and-delete-stored-results).
 
 ## How what-if works with deployment stacks
 
@@ -66,23 +66,22 @@ What-if also surfaces resources that are **detached** from the stack (no longer 
 
 ## Noise reduction
 
-What-if compares your template against the current state of the resources that the stack manages. Not every difference it finds is a change that you made. Resource providers add and normalize values after a resource is deployed, so a property can differ from your template even when nothing meaningful changed. These differences are noise, and they make a result harder to read.
+What-if compares your template against the current state of the resources that the stack manages, and not every difference it finds is a change that deploying your template would actually make. Resource providers add and normalize values after a resource is deployed, so a property can differ from your template even when nothing meaningful changed. These differences are noise.
 
-Deployment stacks filter this noise for you. When you deploy or update a stack, Azure evaluates what-if for the stack at that moment and keeps the result as a baseline. When you run what-if against the stack later, any property that is unchanged between that baseline and the current evaluation is removed from the result as noise. What remains is closer to the set of changes that your template actually introduces.
+Deployment stacks filter noise for you. When you deploy or update a stack, Azure evaluates what-if for the stack at that moment and keeps the result as a baseline. When you run what-if against the stack later, any property that is unchanged between that baseline and the current evaluation is removed from the result. Noise reduction is enabled in all regions.
 
-Because the baseline is recorded when the stack is deployed, noise reduction applies to stacks that were created or updated after the feature became available. If a stack hasn't been deployed or updated since then, its what-if results still include noise. Deploy or update the stack once to establish the baseline.
+Because Azure records the baseline when you deploy the stack, noise reduction applies to stacks that you created or updated on or after August 13, 2026. If you haven't deployed or updated a stack since then, its what-if results still include noise. Deploy or update the stack once to establish the baseline.
 
 > [!NOTE]
 > Noise reduction removes many common differences, but it doesn't remove every one. Review the reported changes rather than assuming that every difference is a real change.
+
+For where noise comes from, what the filtering removes, and what it doesn't, see [Noise reduction in deployment stack what-if results](./deployment-stacks-what-if-noise-reduction.md).
 
 ## Run what-if before you create or update a stack
 
 Run the what-if command to preview the changes without applying them. You identify the target stack by its resource ID: use `--stack-id` in Azure CLI or `-StackResourceId` in Azure PowerShell. The `--name` (Azure CLI) or `-Name` (Azure PowerShell) value names the stored what-if result, and the operation keeps that result for the retention interval you set so you can retrieve it later.
 
-The retention interval uses ISO 8601 duration format, such as `PT3H` for three hours or `P7D` for seven days.
-
-> [!TIP]
-> Set the retention interval to `PT3H` or less. Results that use a longer retention interval aren't deleted automatically, so you need to delete them yourself when you no longer need them.
+The retention interval uses ISO 8601 duration format and must be between `PT1H` (one hour) and `PT3H` (three hours). Azure deletes the result automatically when the retention interval elapses.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -174,7 +173,7 @@ To preview the effect of an update on an existing stack, run the same what-if co
 
 ## Retrieve and delete stored results
 
-Because each what-if result is its own resource, you can list, retrieve, and delete results at any scope. Delete results you no longer need, especially when you set a retention interval longer than `PT3H`.
+Because each what-if result is its own resource, you can list, retrieve, and delete results at any scope. A scope is limited to 800 what-if results. Azure automatically deletes results when their retention interval ends. You can delete a result before then when you no longer need it.
 
 # [Azure CLI](#tab/azure-cli)
 

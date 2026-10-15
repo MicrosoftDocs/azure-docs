@@ -105,6 +105,8 @@ items:
     items:
     - name: Develop
       items:
+      - name: Go SDK (beta)
+        href: ../sdks/durable-task-go.md
       - name: Unit testing
         href: ../durable-functions/durable-functions-unit-testing.md
       - name: Schedules
@@ -285,6 +287,8 @@ items:
       href: /python/api/overview/azure/durable-task
     - name: Java API
       href: /java/api/com.microsoft.durabletask
+    - name: Go API (beta)
+      href: https://pkg.go.dev/github.com/microsoft/durabletask-go@v1.0.0-beta3
   - name: Durable Functions
     items:
     - name: Host.json settings

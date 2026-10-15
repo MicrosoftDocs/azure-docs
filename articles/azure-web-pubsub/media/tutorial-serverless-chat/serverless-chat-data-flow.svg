@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="360" viewBox="0 0 980 360" role="img" aria-labelledby="title desc">
+  <title id="title">Serverless Web PubSub Chat architecture</title>
+  <desc id="desc">Browsers load the app and request client access URLs from Azure Functions. The browsers then exchange chat data directly with Azure Web PubSub Chat, which persists rooms and messages in Azure Storage.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#505050" />
+    </marker>
+    <style>
+      .box { fill: #fff; stroke: #0078d4; stroke-width: 2; rx: 8; }
+      .storage { fill: #f5f5f5; stroke: #505050; stroke-width: 2; rx: 8; }
+      .title { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #172b4d; text-anchor: middle; }
+      .label { font: 14px 'Segoe UI', Arial, sans-serif; fill: #505050; text-anchor: middle; }
+      .flow { fill: none; stroke: #505050; stroke-width: 2; marker-end: url(#arrow); }
+      .direct { fill: none; stroke: #0078d4; stroke-width: 3; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="980" height="360" fill="#fff" />
+
+  <rect class="box" x="30" y="235" width="200" height="100" />
+  <text class="title" x="130" y="275">Browser clients</text>
+  <text class="label" x="130" y="303">Chat client SDK</text>
+
+  <rect class="box" x="400" y="25" width="200" height="100" />
+  <text class="title" x="500" y="65">Azure Functions</text>
+  <text class="label" x="500" y="93">App hosting and negotiate</text>
+
+  <rect class="box" x="400" y="235" width="200" height="100" />
+  <text class="title" x="500" y="275">Web PubSub Chat</text>
+  <text class="label" x="500" y="303">Rooms and messages</text>
+
+  <rect class="storage" x="750" y="235" width="200" height="100" />
+  <text class="title" x="850" y="275">Azure Storage</text>
+  <text class="label" x="850" y="303">Persistent chat data</text>
+
+  <path class="flow" d="M130 235 V75 H400" />
+  <text class="label" x="265" y="58">Load app and get access URL</text>
+
+  <path class="direct" d="M230 285 H400" />
+  <text class="label" x="315" y="263">Direct Chat connection</text>
+
+  <path class="flow" d="M600 285 H750" />
+  <text class="label" x="675" y="263">Persist data</text>
+</svg>

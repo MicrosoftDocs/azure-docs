@@ -72,10 +72,6 @@ landingContent:
             url: tutorial-seismic-ddms-sdutil.md
           - text: Seismic DDMS tutorial
             url: tutorial-seismic-ddms.md
-          - text: Change tier for seismic workloads
-            url: tutorial-seismic-change-tier.md
-          - text: Restore a seismic dataset
-            url: tutorial-seismic-restore-dataset.md
           - text: Wellbore DDMS tutorial
             url: tutorial-wellbore-ddms.md
           - text: Well delivery DDMS tutorial
@@ -102,6 +98,16 @@ landingContent:
             url: how-to-register-external-data-services.md
           - text: How to enable legal tags restricted COO (Country of Origin)
             url: how-to-enable-legal-tags-restricted-country-of-origin.md
+  - title: Manage seismic data
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Change tier for seismic workloads
+            url: tutorial-seismic-change-tier.md
+          - text: Restore a seismic dataset
+            url: tutorial-seismic-restore-dataset.md
+          - text: Schedule seismic analytics reports
+            url: tutorial-seismic-analytics.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide

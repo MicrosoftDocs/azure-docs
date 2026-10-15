@@ -14,6 +14,8 @@ ms.custom: mode-other
 
 # Integrate an OpenAI bot with chat
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article demonstrates how to integrate a conversational OpenAI bot with an Azure Communication Services chat. The OpenAI chat bot uses [Microsoft Bot Framework](https://dev.botframework.com) integrated with [Semantic Kernel](https://github.com/microsoft/semantic-kernel). The OpenAI bot retrieves and summarizes responses from an internal knowledge base to answer user questions in natural language.
 
 :::image type="content" source="./media/chat-azure-open-ai-architecture.png" alt-text="Azure OpenAI Architecture Diagram.":::
@@ -119,7 +121,7 @@ When you have a Communication Services resource, you can set up a Communication 
 
 ## Step 7: Deploy the web app
 
-1. Open the `ChatBot` folder in the [Sample Repo](https://github.com/Azure/ai-solution-with-azurecommunicationchat) in Visual Studio Code (VS Code). Make sure to use VS Code because it supports Microsoft Entra ID in code deployment.
+1. Open the `ChatBot` folder in the Sample Repo in Visual Studio Code (VS Code). Use VS Code because it supports Microsoft Entra ID in code deployment.
 
 1. Replace the placeholders in the sample repo with actual values:
 

@@ -4,7 +4,7 @@ description: Learn how to migrate an existing function app in Azure running in a
 ms.service: azure-functions
 ms.collection: 
  - migration
-ms.date: 09/08/2026
+ms.date: 10/13/2026
 ms.topic: concept-article
 zone_pivot_groups: app-service-platform-windows-linux
 
@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Migrate Consumption plan apps to the Flex Consumption plan
 
-This article shows you how to migrate your existing function apps from the [Consumption plan](../consumption-plan.md) to the [Flex Consumption plan](../flex-consumption-plan.md). For most apps, this migration is straightforward and your code doesn't need to change.
+This article shows you how to migrate your existing function apps from the [Consumption plan](../consumption-plan.md) to the [Flex Consumption plan](../flex-consumption-plan.md). For most apps, this migration is straightforward. Apps migrating from Windows must also be compatible with Linux and might require code changes.
 
 > [!IMPORTANT]
 > Support for hosting function apps on Linux in a Consumption plan retires on September 30, 2028. As of today, feature and language enhancements aren't being made to the Linux Consumption plan. 
@@ -28,7 +28,7 @@ The following table shows which migration methods are available for each operati
 
 | Migration method | Description | Linux | Windows |
 | --- | --- | --- | --- |
-| [Azure Skills in GitHub Copilot](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-skills/skills/azure-upgrade/references/services/functions/consumption-to-flex.md).  | Let Copilot guide and automate your migration interactively (recommended for Linux). | ✅ | ❌ |
+| [Azure Skills in GitHub Copilot](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-skills/skills/azure-upgrade/SKILL.md) | Let Copilot guide and automate your migration interactively. | ✅ | ✅ |
 | CLI migration command | Use [`az functionapp flex-migration`](/cli/azure/functionapp/flex-migration) to automate migration. | ✅ | ❌ |
 | Standard CLI commands | Stepwise migration using Azure CLI commands. | ➖ | ✅ |
 | [Azure portal](https://portal.azure.com) | Stepwise migration in the Azure portal. | ✅ | ✅ |
@@ -37,6 +37,8 @@ The following table shows which migration methods are available for each operati
 ✅ Supported and featured &nbsp;|&nbsp; ➖ Supported, not featured &nbsp;|&nbsp; ❌ Not supported
 
 To see the right instructions for your app, select your operating system at the top of the article.
+
+You can review the [Linux Consumption migration workflow](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-skills/skills/azure-upgrade/references/services/functions/consumption-to-flex/linux/workflow.md) and [Windows Consumption migration workflow](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-skills/skills/azure-upgrade/references/services/functions/consumption-to-flex/windows/workflow.md) in the Azure skills repository.
 
 ## What to expect
 
@@ -90,7 +92,11 @@ The portal provides a manual migration path. Your high-level steps are:
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Set up GitHub Copilot by using the [prerequisites](#prerequisites), and then use the prompt in [Start the migration](#start-the-migration). Copilot guides you through assessment, Windows-to-Linux code preparation, target creation and configuration, deployment, validation, and production cutover. It asks for your input or approval when needed.
+
+The following sections explain the checks and migration tasks for reference. You don't need to perform the manual CLI or portal steps when you follow the Copilot workflow.
+
+Copilot keeps the source app read-only during assessment and replication. Changes to source triggers, settings, app state, or resources require explicit approval for the specific action.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -124,7 +130,7 @@ Windows migration requires manual steps for app creation and configuration. Your
 
 Regardless of your migration method, here are the general principles of the migration:
 
-- **Your code stays the same.** You don't need to rewrite your functions if you're on a Flex Consumption supported language version. This guide helps you check.
+- **Check code compatibility.** Linux apps on a supported language version generally don't need code changes. Windows apps must also remove Windows-specific dependencies before running on Linux. This guide helps you check.
 - **You must create a new app.** The migration process creates a new Flex Consumption app alongside your existing one, so you can test before switching over.
 - **Use the same resource group.** Your new app runs in the same resource group with access to the same dependencies.
 - **You control the timing.** Test your new app thoroughly before redirecting traffic and retiring the old one.
@@ -134,7 +140,7 @@ Regardless of your migration method, here are the general principles of the migr
 
 ## Benefits of migrating to Flex Consumption
 
-When you migrate, your functions get these benefits without changing your code:
+When you migrate a compatible app, your functions get these benefits:
 
 + **Faster cold starts**: Always-ready instances mean your functions respond more quickly.
 + **Better scaling**: Per-function scaling and concurrency controls give you more control.
@@ -181,12 +187,9 @@ After a successful migration, [update your resource deployment files](#update-yo
 
     + The [`jq` tool](https://jqlang.org/download/), which is used to work with JSON output.    
     ::: zone-end  
-::: zone pivot="platform-linux"
 + To migrate using GitHub Copilot, configure GitHub Copilot in your desired mode: 
 
     [!INCLUDE [functions-copilot-setup](~/includes/functions-copilot-setup.md)]
-
-::: zone-end  
 
 ## Identify potential apps to migrate
 
@@ -259,7 +262,15 @@ This command creates a table with the app name, location, resource group, and ru
 
 ### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+To identify Windows Consumption apps in your subscription without starting a migration, use this prompt:
+
+```text
+What Windows Consumption Function Apps can I upgrade to Flex Consumption?
+```
+
+Copilot discovers candidate apps and checks their region, runtime, deployment configuration, and other compatibility requirements. Discovery identifies candidates, not a guarantee that each app is ready to migrate. Review the assessment before proceeding.
+
+To migrate a specific app, use the prompt in [Start the migration](#start-the-migration).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -312,6 +323,18 @@ Before migrating, run through this quick checklist to make sure your app is read
 > + [Verify the use of certificates](#verify-the-use-of-certificates)
 > + [Verify your Blob storage triggers](#verify-your-blob-storage-triggers)
 
+:::zone pivot="platform-windows"
+
+When using Copilot, request an assessment without creating a target app:
+
+```text
+Assess whether my Windows Consumption Function App <APP_NAME> is ready to migrate to Flex Consumption.
+```
+
+Replace `<APP_NAME>` with your source app name. Copilot generates a compatibility assessment and records blockers and required preparation. For Windows apps, also [check Windows-specific code dependencies](#check-windows-specific-code-dependencies).
+
+:::zone-end
+
 ### Confirm region compatibility
 
 Confirm that the Flex Consumption plan is currently supported in the same region as the Consumption plan app you intend to migrate.
@@ -328,7 +351,7 @@ Confirm that the Flex Consumption plan is currently supported in the same region
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot checks whether Flex Consumption is available in the source app's region and records the result in the assessment. If the region isn't supported, resolve the location choice before creating the target app.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -385,6 +408,12 @@ If your function app uses an unsupported runtime stack:
 
 + For C# apps that run in-process with the runtime (`dotnet`), you must first migrate your app to .NET isolated. For more information, see [Migrate C# apps from the in-process model to the isolated worker model](../migrate-dotnet-to-isolated-model.md).
 
+:::zone pivot="platform-windows"
+
+Copilot reads the source runtime and Functions host version during assessment. An unsupported worker runtime or a Functions host version other than version 4 requires preparation before migration.
+
+:::zone-end
+
 ### Verify stack version compatibility
 
 Before migrating, make sure that your app's runtime stack version is supported when running in a Flex Consumption plan in the current region.
@@ -401,7 +430,7 @@ Before migrating, make sure that your app's runtime stack version is supported w
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot compares the source language version with the versions supported by Flex Consumption in the target region. It uses project or deployment-package metadata when Azure configuration is missing or ambiguous, and asks you to select a target version when the evidence doesn't identify a single supported version.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -457,7 +486,7 @@ Consumption plan apps can have a deployment slot defined. For more information, 
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot detects source deployment slots and records them in the assessment. Because Flex Consumption doesn't support slots, choose how to consolidate their functionality or use separate apps before continuing.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -508,7 +537,7 @@ The Flex Consumption plan supports TLS/SSL certificates through a [site-scoped c
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot inventories certificates used by the source app and checks the site-scoped certificate limits. It doesn't automatically transfer certificates. Re-add required certificates by using the [site-scoped certificate process](../flex-consumption-how-to.md#add-a-certificate), and update code that reads the Windows certificate store to use Linux certificate file paths.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -542,7 +571,7 @@ Currently, the Flex Consumption plan only supports event-based triggers for Azur
 
 :::zone pivot="platform-linux"
 
->**Confirmed:** If the `az functionapp flex-migration list` command or Copilot assessment includes your app in the `eligible_apps` list, your Linux Consumption app isn't using Blob storage triggers with `EventGrid` as the source. You can continue to [Consider dependent services](#consider-dependent-services).
+>**Confirmed:** If the `az functionapp flex-migration list` command or Copilot assessment includes your app in the `eligible_apps` list, your Linux Consumption app isn't using polling Blob storage triggers. You can continue to [Consider dependent services](#consider-dependent-services).
 
 >**Action required:** If the output includes your app in the `ineligible_apps` list with an error message stating `The site '<name>' has blob storage triggers that don't use Event Grid as the source: <list> Flex Consumption only supports Event Grid-based blob triggers. Please convert these triggers to use Event Grid or replace them with Event Grid triggers before migration.`, your Linux Consumption app isn't compatible with Flex Consumption.
 
@@ -551,7 +580,7 @@ Currently, the Flex Consumption plan only supports event-based triggers for Azur
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot identifies Blob trigger bindings by type and flags any trigger whose source isn't explicitly `EventGrid`. It guides the required code change and event subscription setup before deployment.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -559,7 +588,7 @@ Use this [`az functionapp function list`] command to determine if your app has a
 
 ```azurecli
 az functionapp function list  --name <APP_NAME> --resource-group <RESOURCE_GROUP> \
-  --query "[?config.bindings[0].type=='blobTrigger' && config.bindings[0].source!='EventGrid'].{Function:name,TriggerType:config.bindings[0].type,Source:config.bindings[0].source}" \
+  --query "[].{Function:name, BlobTrigger:(config.bindings[?type=='blobTrigger'] | [0])} | [?BlobTrigger && BlobTrigger.source!='EventGrid'].{Function:Function, TriggerType:BlobTrigger.type, Source:BlobTrigger.source}" \
   --output table
 ```
 
@@ -585,6 +614,9 @@ To determine whether your function app has any Blob storage triggers that don't 
 
 If your app has any Blob storage triggers that don't have an Event Grid source, you must change to an Event Grid source before you migrate to the Flex Consumption plan.
 
+> [!IMPORTANT]
+> Before converting a polling Blob trigger, verify that Event Grid can reach the target function app's event-delivery endpoint. [Event Grid push delivery doesn't support delivery through private endpoints](../../event-grid/consume-private-endpoints.md). If the target is private-only, resolve the event-delivery architecture before migration; virtual network integration alone doesn't provide inbound connectivity from Event Grid.
+
 The basic steps to change an existing Blob storage trigger to an Event Grid source are:
 
 1. Add or update the `source` property in your Blob storage trigger definition to `EventGrid` and redeploy the app.
@@ -594,6 +626,20 @@ The basic steps to change an existing Blob storage trigger to an Event Grid sour
 1. [Create an event subscription](../functions-event-grid-blob-trigger.md#create-the-event-subscription) on your Blob storage container.
 
 For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](../functions-event-grid-blob-trigger.md).
+
+:::zone pivot="platform-windows"
+
+### Check Windows-specific code dependencies
+
+Flex Consumption runs on Linux. Review your app for Windows-only APIs, packages, native binaries, Windows-specific paths and case assumptions, PowerShell modules, and Windows certificate-store access. Apps targeting .NET Framework or published for a Windows runtime identifier also require preparation.
+
+Flex Consumption doesn't support PowerShell managed dependencies. Before migration, package all required PowerShell modules with your application in its root `Modules` folder, and verify that those modules support Linux. A `requirements.psd1` file alone doesn't install modules on the target app. For more information, see [PowerShell dependency management](../functions-reference-powershell.md#dependency-management).
+
+During assessment, Copilot offers a heuristic dependency scan. Provide a local source directory or a checked-out repository when possible. If source is unavailable, Copilot can retrieve the deployed package, but compiled artifacts can limit scan coverage. The scan isn't exhaustive, and you're responsible for verifying Linux compatibility.
+
+Build and validate any required code changes before deploying to the new app. If you can't remove required Windows dependencies, consider the [Premium plan on Windows](../functions-premium-plan.md) instead of Flex Consumption.
+
+:::zone-end
 
 ## Consider dependent services
 
@@ -633,6 +679,8 @@ Plan mitigation strategies to protect data for the specific function triggers in
 
 Before creating your new Flex Consumption app, gather some information about your current app. This step ensures you don't lose any settings during the transition.
 
+When you use Copilot, the skill inventories this configuration as part of the migration workflow. Review its findings and decisions rather than running the manual commands again.
+
 > [!TIP]
 > **This step is mostly copy-paste work.** Collect settings from your existing app so you can apply them to the new app.
 
@@ -651,7 +699,7 @@ If you plan to use the same trigger and bindings sources and other settings from
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot reviews app-setting names without displaying secret values. It asks whether to copy filtered source settings or defer them so you can configure isolated target dependencies. If you defer settings, deployment waits until the required target configuration is ready.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -700,7 +748,7 @@ Review these settings. If any of them exist in the current app, decide whether t
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot inventories site settings, scale limits, CORS, custom domains, and other configuration. It records unsupported or manually handled items in the assessment. Explicit Azure Files mount metadata is inventory-only for this Windows migration.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -770,7 +818,7 @@ Before migrating, document whether your app relies on the system-assigned manage
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot inventories system-assigned and user-assigned managed identities and their role assignments. It uses this inventory to configure the target's identities and recreate required access on the appropriate resources.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -833,7 +881,7 @@ Pay special attention to redirect URIs, allowed external redirects, and token se
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot inventories enabled providers and authentication behavior without exposing provider secrets. It identifies target-specific callback URIs and guides provider configuration before code deployment. It doesn't copy provider registrations or secrets automatically.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -870,7 +918,7 @@ You can set [inbound access restrictions](../functions-networking-options.md#inb
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot inventories and recreates compatible access restrictions. It doesn't automatically weaken those restrictions to make deployment health checks or HTTP validation succeed.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -897,9 +945,13 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 When running in the Flex Consumption plan, you can recreate these inbound IP-based restrictions. You can further secure your app by implementing other networking restrictions, such as virtual network integration and inbound private endpoints. For more information, see [Virtual network integration](../flex-consumption-plan.md#virtual-network-integration).
 
 :::zone-end  
-::: zone pivot="platform-linux"
 
 ## Start the migration
+
+> [!IMPORTANT]
+> If Shared Key access is disabled on the selected host or deployment storage account, or your organization requires keyless storage access, configure managed identity authentication and the required role assignments for **both host storage and deployment storage**. The basic CLI-based creation flows described in this article use storage connection strings. Creating the app with keys and converting it afterward doesn't satisfy a requirement to prohibit Shared Key authentication during provisioning. For more information, see [Identity-based host storage connections](../manage-connections.md?pivots=functions-auth-identity&tabs=host) and [Configure deployment settings](../flex-consumption-how-to.md#configure-deployment-settings).
+
+::: zone pivot="platform-linux"
 
 ### [GitHub Copilot](#tab/github-copilot)
 
@@ -961,6 +1013,49 @@ The Azure portal doesn't provide an automated migration command for Linux apps. 
 ---
 
 After you successfully start the migration, continue to [Get the code deployment package](#get-the-code-deployment-package).
+
+::: zone-end
+
+::: zone pivot="platform-windows"
+
+### [GitHub Copilot](#tab/github-copilot)
+
+If you already know which app to migrate, use this prompt:
+
+```text
+Migrate my Windows Consumption Function App <APP_NAME> to Flex Consumption.
+```
+
+Replace `<APP_NAME>` with your source app name. Copilot presents the migration plan, performs assessment, inventories configuration, and creates a new Flex Consumption app alongside the source.
+
+By default, the workflow proposes `<APP_NAME>-flex` for the target app name. Copilot asks you to choose whether to reuse the source storage account, create a new one, or use a specific existing account before creating the target app. You can request a different target name or state your storage preference in the prompt. Review the storage choice because shared dependencies can let both apps process the same events.
+
+Copilot checks whether the selected storage accounts allow Shared Key authentication and asks about identity-only policy requirements. If key-based creation isn't allowed, Copilot pauses before creating the target app. Provision an empty Flex Consumption app dedicated to this migration in the same subscription, using identity-first infrastructure as code. Configure managed identity access for both host and deployment storage, the required role assignments, and monitoring. Don't deploy function code yet. For provisioning examples, see the [Flex Consumption infrastructure-as-code samples](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC).
+
+Return the target's full Azure resource ID and the saved progress-file path. Copilot verifies the existing target and, after your approval, resumes configuration and deployment without creating another app. Use this prompt:
+
+```text
+Resume the Flex Consumption migration for <APP_NAME> using progress at <PROGRESS_FILE_PATH>.
+I provisioned a keyless target at <TARGET_RESOURCE_ID>. Use that existing target; do not create another app.
+```
+
+Before deployment, Copilot guides Windows-to-Linux code preparation, target configuration, built-in authentication, and non-HTTP trigger safety. It then offers deployment through an updated pipeline, a local project, or a compatible deployment package.
+
+By default, Copilot records progress in `.azure-upgrade/<SOURCE_APP_NAME>/upgrade-status.md`. To resume, use this prompt:
+
+```text
+Resume the Flex Consumption migration for <APP_NAME>.
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+The `az functionapp flex-migration` commands don't support Windows Consumption apps. Follow [Premigration tasks](#premigration-tasks) and the Windows [Migration steps](#migration-steps) instead.
+
+### [Azure portal](#tab/azure-portal)
+
+Follow the [Premigration tasks](#premigration-tasks) and the Windows [Migration steps](#migration-steps) to create and configure the target app manually.
+
+---
 
 ::: zone-end
 
@@ -1060,7 +1155,7 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
 
 ### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot asks for a local source directory first. If the source is unavailable, it offers to retrieve the deployed package from the source app's content share or external package URL. It checks whether the package is suitable for Linux and Flex Consumption; Windows-specific builds require preparation rather than direct redeployment.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -1247,6 +1342,8 @@ If any critical settings are missing or incorrect, manually configure them by us
 
 Before proceeding with the migration process, take a moment to perform these last preparatory steps:
 
+When you use Copilot, review the assessment, configuration inventory, code changes, deployment choice, and trigger-safety decisions before you approve target creation and deployment. A successful validation-only migration doesn't mean production traffic or triggers are cut over.
+
 + **Review all the collected information**: Go through all the notes, configuration details, and application settings you documented in the previous assessment and premigration sections. If anything is unclear, rerun the Azure CLI commands again or get the information from the portal.
 
 + **Define your migration plan**: Based on your findings, create a checklist for your migration that highlights:
@@ -1266,6 +1363,7 @@ You can create a function app in the Flex Consumption plan along with other requ
 
 | Create option | Reference articles |
 | ----- | ----- |
+| GitHub Copilot | Use the Windows prompt in [Start the migration](#start-the-migration). Copilot confirms the target resources and creates the app as part of the guided workflow. |
 | Azure CLI | [Create a Flex Consumption app](../flex-consumption-how-to.md?tabs=azure-cli#create-a-flex-consumption-app)|
 | Azure portal | [Create a function app in the Azure portal](../functions-create-function-app-portal.md) |
 | Infrastructure as code | [ARM template](../functions-create-first-function-resource-manager.md)<br/>[azd](../create-first-function-azure-developer-cli.md)<br/>[Bicep](../functions-create-first-function-bicep.md)<br/>[Terraform](../functions-create-first-function-terraform.md) |
@@ -1284,7 +1382,7 @@ Before deploying your code, configure the new app with the relevant Flex Consump
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+After approval, Copilot copies supported app settings without displaying or persisting raw secret values. It preserves target-owned storage and Application Insights settings. It also reviews `:` to `__` name conversions required on Linux and stops if source names map ambiguously.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -1368,7 +1466,7 @@ Find the list of other app configurations from your old app that you [collected 
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot applies compatible site configuration from the inventory and verifies the target. Unsupported settings and items that require manual handling remain explicit follow-up work rather than being silently copied.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -1439,7 +1537,7 @@ The default maximum instance count is 100. Set it to a value between 1 and 1,000
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot checks any source maximum scale-out setting against the supported Flex Consumption range before applying it. If the source didn't set a custom limit, it keeps the target default. Review workload-specific concurrency tuning after migration.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -1470,7 +1568,7 @@ If your original app had any bound custom domains or CORS settings, recreate the
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot recreates compatible CORS configuration and guides custom-domain setup. Any change to source bindings, DNS, or production routing requires separate approval; creating the target app doesn't complete traffic cutover.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -1520,11 +1618,11 @@ Recreating the role assignments correctly is key to ensuring your function app h
 
 #### [System-assigned](#tab/system-assigned/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot enables a system-assigned identity on the target and recreates required role assignments for its new principal. It verifies access against the target resources rather than reusing the source principal.
 
 #### [User-assigned](#tab/user-assigned/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot attaches the selected user-assigned identities and verifies their required role assignments. Reusing an identity doesn't replace the need to validate access to target-specific resources.
 
 #### [System-assigned](#tab/system-assigned/azure-cli)
 
@@ -1617,7 +1715,7 @@ If your original app had any IP-based inbound access restrictions, recreate any 
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-[!INCLUDE [functions-copilot-linux-only](~/includes/functions-copilot-linux-only.md)]
+Copilot recreates compatible source access restrictions and verifies them. If those restrictions prevent direct HTTP tests, it records validation as deferred rather than opening access automatically.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -1672,6 +1770,8 @@ Implement a comprehensive monitoring strategy that covers app metrics, logs, and
 
 If you plan to compare this new app with your current app, make sure your scheme also collects the required benchmarks for comparison. For more information, see [Configure monitoring](../flex-consumption-how-to.md#monitor-your-app-in-azure).
 
+When using Copilot, the skill verifies the target's Application Insights configuration before deployment. It preserves Microsoft Entra-authenticated ingestion when the source used it and validates telemetry after deployment.
+
 :::zone-end
 
 ### Configure built-in authentication
@@ -1680,7 +1780,16 @@ If your original app used built-in client authentication (sometimes called Easy 
 
 #### [GitHub Copilot](#tab/github-copilot)
 
+:::zone pivot="platform-linux"
+
 The Copilot migration skill for Linux doesn't automate built-in authentication configuration. Use the **Azure CLI** or **Azure portal** tabs to manually recreate your authentication settings.
+
+:::zone-end
+:::zone pivot="platform-windows"
+
+Copilot guides provider-by-provider configuration and verification on the target. You must configure provider secrets directly through the portal, an existing secret-bearing setting, or a Key Vault reference, and register the target callback URI. If authentication is deferred, Copilot stops before deploying code so the target doesn't expose previously protected endpoints without authentication.
+
+:::zone-end
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -1709,7 +1818,21 @@ For more information, see these provider-specific articles:
 After you configure your new Flex Consumption plan app based on the settings from the original app, deploy your code to the new app resources in Azure.
 
 >[!CAUTION]
->After a successful deployment, triggers in your new app immediately start processing data from connected services. To minimize duplicated data and prevent data loss while starting the new app and shutting down the original app, review the strategies that you defined in [mitigations by trigger type](#mitigations-by-trigger-type).
+> After a successful deployment, enabled triggers in your new app can immediately start processing data from connected services. To minimize duplicated data and prevent data loss while starting the new app and shutting down the original app, review the strategies that you defined in [mitigations by trigger type](#mitigations-by-trigger-type).
+
+:::zone pivot="platform-windows"
+
+Before deployment, Copilot classifies every trigger and offers to disable non-HTTP functions that could process production events or run schedules. If you approve disablement, it writes and verifies the disable settings before deployment, then verifies effective function state after deployment. HTTP functions remain enabled because clients must be redirected to the new hostname.
+
+Function names containing a hyphen (`-`) [can't be disabled on Linux](../disable-function.md#considerations) through per-function app settings. For these functions, Copilot requires a separate safety decision: isolate dependencies, rename and repackage, approve a source-first cutover, or explicitly accept active processing. It doesn't treat an ineffective disable flag as protection.
+
+**Plan function-key handling before HTTP cutover.** The new app has its own host and function keys. For callers that use these keys, either preserve compatible source host and HTTP-function keys or update callers to use the target app's keys before redirecting traffic. Copilot asks which strategy to use and, if you choose preservation, copies and verifies the selected keys after deployment. Validate authenticated requests against the target endpoint before cutover.
+
+Copilot doesn't copy the `_master` key or extension-managed system keys. Update webhook integrations that require target-generated system keys separately. Preserving client keys means those credentials authorize both apps while they coexist.
+
+When using Copilot, choose whether to update your CI/CD pipeline, publish a prepared local project, or deploy a compatible retrieved package. After validation, Copilot guides production cutover and asks for explicit approval before changing the source app.
+
+:::zone-end
 
 Functions provides several ways to deploy your code, either from the code project or as a ready-to-run deployment package.
 
@@ -1763,7 +1886,7 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
     #### [GitHub Copilot](#tab/github-copilot)
 
-    The Copilot migration skill for Linux automatically validates your new app after deployment, including verifying the app is reachable and running on the Flex Consumption plan. If you need to revalidate, use this prompt:
+    The Copilot migration skill validates your new app after deployment, including its hosting plan and function state. HTTP tests can remain deferred when intentional access restrictions prevent them. Review any deferred tests and validate non-HTTP processing before production cutover. If you need to revalidate, use this prompt:
 
     ```
     verify my flex consumption app <APP_NAME> is running correctly
@@ -2087,7 +2210,7 @@ When you're confident the new app is working correctly, you can clean up the ori
 
 #### [GitHub Copilot](#tab/github-copilot)
 
-The Copilot migration skill for Linux can remove the original app when you're ready. Copilot always asks for your explicit confirmation before deleting anything. Use this prompt:
+The Copilot migration skill can remove the original app after production cutover and target validation are complete. If readiness work remains deferred or the source still processes production workloads, retain the source app. Copilot always asks for your explicit confirmation before deleting anything. Use this prompt:
 
 ```
 delete my original consumption app <ORIGINAL_APP_NAME>

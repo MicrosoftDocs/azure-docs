@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/11/2026
+ms.date: 09/22/2026
 ms.custom:
   - build-2025
   - sfi-ropc-nochange
@@ -19,19 +19,27 @@ ms.custom:
 
 Sometimes you have to set up and manage your own infrastructure to meet specific needs for regulatory compliance, data privacy, or network restrictions. Azure Logic Apps offers a *hybrid deployment model* so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows.
 
+> [!IMPORTANT]
+>
+> Hybrid deployment separates local workflow execution from Azure-connected management. The local Azure Logic Apps runtime and workflows that use only locally available dependencies can continue running when Azure connectivity is interrupted. However, Azure Arc operations and other Azure-dependent capabilities might be unavailable. Hybrid deployment doesn't provide a fully autonomous, air-gapped management plane.
+
+If you're evaluating hybrid deployment as a target for BizTalk Server workloads, first review [Why migrate from BizTalk Server to Azure Logic Apps Standard?](biztalk-server-migration-overview.md)
+
 ## How hybrid deployment works
 
-Standard logic app workflows with the hybrid deployment option are powered by an Azure Logic Apps runtime that is hosted in an Azure Container Apps extension. In your workflow, any [built-in, runtime-native operations](../connectors/built-in.md) run locally with the runtime so that you get higher throughput for access to local data sources. If you need access to non-local data resources, for example, cloud-based services such as Microsoft Office 365, Microsoft Teams, Salesforce, GitHub, LinkedIn, or ServiceNow, you can choose operations from [1,400+ connectors hosted in Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) to include in your workflows. For more information, see [Managed (shared) connectors](../connectors/managed.md). Although you need to have internet connectivity to manage your logic app in the Azure portal, the semi-connected nature of this platform lets you absorb any temporary internet connectivity issues.
+Standard logic app workflows with the hybrid deployment option use an Azure Logic Apps runtime that runs in an Azure Container Apps extension. In your workflow, any [built-in, runtime-native operations](../connectors/built-in.md) run locally with the runtime, so you get higher throughput for access to local data sources. If you need access to non-local data resources, such as cloud-based services like Microsoft Office 365, Microsoft Teams, Salesforce, GitHub, LinkedIn, or ServiceNow, choose operations from [1,400+ connectors hosted in Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) to include in your workflows. For more information, see [Managed (shared) connectors](../connectors/managed.md).
+
+Azure hosts managed connector operations and requires connectivity to their Azure-hosted services. Although temporary connectivity interruptions don't necessarily stop local workflow processing, they can affect Azure management operations and cloud-dependent workflow operations.
 
 For example, if you have an on-premises scenario, the following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
 
-- Azure Arc-enabled Azure Kubernetes Service (AKS) clusters
-- An SQL database to locally store workflow run history, inputs, and outputs for processing
+- A supported Azure Arc-enabled Kubernetes cluster
+- A SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram that shows the hybrid deployment model where Standard logic apps run on Arc-enabled Kubernetes with SQL database and SMB file share." border="false":::
 
-For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Local](/azure/azure-local/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks-hybrid-edge/windows-server/kubernetes-walkthrough-powershell).
+The preceding diagram shows an AKS-based example. Supported clusters also include Azure Arc-enabled Kubernetes clusters on [Azure Local](/azure/azure-local/overview) or [Windows Server](/azure/aks-hybrid-edge/windows-server/kubernetes-walkthrough-powershell), Red Hat OpenShift clusters, and Rancher RKE2 clusters.
 
 The hybrid deployment model combines on-premises and cloud capabilities to provide flexible integration solutions for various needs. For example, your hybrid logic app resource can efficiently adjust resources based on changing workloads. This dynamic scaling helps you manage computing costs by increasing capacity during peak demand and reducing resources when usage drops.
 
@@ -52,7 +60,7 @@ The following section describes the limitations for the hybrid deployment option
 
 | Limitation | Description |
 |------------|-------------|
-| Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
+| Data logging with a disconnected runtime | The local runtime and workflows that use locally available dependencies can continue running while disconnected. The runtime can retain logging data for up to 24 hours, but you might lose logging data generated beyond this period. Azure-dependent management and workflow operations might also be unavailable while disconnected. |
 | Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Australia East <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US |
 | Supported Azure Arc-enabled Kubernetes clusters | - Azure Arc-enabled AKS clusters <br>- Azure Arc-enabled AKS clusters on Azure Local (formerly Azure Stack HCI) <br>- Azure Arc-enabled AKS clusters on Windows Server <br>- Azure Arc-enabled Red Hat OpenShift clusters <br>- Azure Arc-enabled Rancher RKE2 clusters |
 | Unsupported capabilities available in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Business process tracking <br><br>- Resource health under **Support + troubleshooting** in Azure portal <br><br>- Managed identity authentication for connector operations. For more information, see [Limitations for creating hybrid deployment workflows](create-standard-workflows-hybrid-deployment.md#limitations). |
@@ -67,9 +75,15 @@ The following section describes the limitations for the hybrid deployment option
 
 - [Technical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-overview#prerequisites), including access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 
+- Outbound connectivity for Azure Arc, Azure management operations, required container registries and package sources, and any managed connectors that your workflows use.
+
 ## Billing
 
 For information about how billing works, see [Standard (hybrid deployment)](logic-apps-pricing.md#standard-hybrid-pricing).
+
+> [!TIP]
+>
+> For an automated AKS-based test environment, see the [Azure Arc Jumpstart template for Hybrid Logic Apps deployment](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-arc-jumpstart-template-for-hybrid-logic-apps-deployment/4493996). Use this template for evaluation and validation, not as a production, disconnected, or compliance reference architecture.
 
 ## Create a Kubernetes cluster
 
@@ -228,15 +242,11 @@ Use this option when you already have a datacenter load balancer or your cluster
 
 > [!NOTE]
 >
-> You can find the steps in this section and onwards through to creating your connected 
-> environment in a script named **EnvironmentSetup.ps1**, which you can find in the 
-> [GitHub repo named **Azure/logicapps**](https://github.com/Azure/logicapps/tree/master/scripts/hybrid). 
-> You can modify and use this script to meet your requirements and scenarios. 
+> You can find the steps in this section and onwards through to creating your connected environment in a script named **EnvironmentSetup.ps1** in the [Azure/logicapps GitHub repo](https://github.com/Azure/logicapps/tree/master/scripts/hybrid). Modify and use this script to meet your requirements and scenarios. 
 >
-> The script is unsigned, so before you run the script, run the following Azure 
-> PowerShell command as an administrator to set the execution policy:
+> The script is unsigned. Before you run the script, review the content and confirm its source. To change the execution policy only for the current PowerShell process, run the following command:
 >
-> `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
+> `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 >
 > For more information, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
@@ -475,6 +485,8 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
 
 1. Get the base64-encoded ID and shared key for your Log Analytics workspace. You need these values for a later step.
 
+   The following commands use Bash syntax:
+
    ```azurecli
    LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show \
       --resource-group $GROUP_NAME \
@@ -482,7 +494,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
       --query customerId \
       --output tsv)
 
-   LOG_ANALYTICS_WORKSPACE_ID_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_WORKSPACE_ID))
+   LOG_ANALYTICS_WORKSPACE_ID_ENC=$(printf %s "$LOG_ANALYTICS_WORKSPACE_ID" | base64 | tr -d '\n')
 
    LOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys \
       --resource-group $GROUP_NAME \
@@ -490,7 +502,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
       --query primarySharedKey \
       --output tsv)
 
-   LOG_ANALYTICS_KEY_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_KEY))
+   LOG_ANALYTICS_KEY_ENC=$(printf %s "$LOG_ANALYTICS_KEY" | base64 | tr -d '\n')
    ```
 
    | Parameter | Required | Description |
@@ -498,7 +510,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
    | **LOG_ANALYTICS_WORKSPACE_ID** | Yes | The ID for your Log Analytics workspace. |
    | **LOG_ANALYTICS_WORKSPACE_ID_ENC** | Yes | The base64-encoded ID for your Log Analytics workspace. |
    | **LOG_ANALYTICS_KEY** | Yes | The shared key for your Log Analytics workspace. |
-   | **LOG_ANALYTICS_ENC** | Yes | The base64-encoded shared key for your Log Analytics workspace. |
+   | **LOG_ANALYTICS_KEY_ENC** | Yes | The base64-encoded shared key for your Log Analytics workspace. |
 
    For more information, see the following resources:
 
@@ -569,7 +581,7 @@ For more information, see the following resources:
       --configuration-settings "envoy.externalServiceAzureILB=false" \
       --configuration-settings "functionsProxyApiConfig.enabled=true" \
       --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" \
-      --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${GROUP_NAME}" \
+      --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" \
       --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
       --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" \
       --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LOG_ANALYTICS_KEY_ENC}"
@@ -592,6 +604,10 @@ For more information, see the following resources:
    | **CONNECTED_ENVIRONMENT_NAME** | Yes | <*connected-environment-name*> | A unique name to use for the Azure Container Apps connected environment. This name becomes part of the domain name for the Standard logic app that you create, deploy, and host in the Azure Container Apps connected environment. |
 
 1. Create and install the extension with Log Analytics enabled for your Azure Arc-enabled Kubernetes cluster. You can't later add Log Analytics to the extension.
+
+   > [!IMPORTANT]
+   >
+   > The following commands grant the `anyuid`, `privileged`, and `hostnetwork` security context constraints to service accounts in the extension namespace. Before you install the extension, review these elevated permissions through your organization's security and compliance process.
 
    ```azurecli
    oc create namespace logicapps-aca-ns
@@ -709,9 +725,17 @@ After you complete the steps on the tab that applies to your scenario, finish by
    ```azurecli
    az resource wait \
       --ids $EXTENSION_ID \
-      --custom "properties.provisioningState!='Pending'" \
+      --custom "properties.provisioningState=='Succeeded'" \
       --api-version "2020-07-01-preview" 
    ```
+
+1. Confirm that all extension pods are ready and stable:
+
+   ```azurecli
+   kubectl get pods --namespace $NAMESPACE
+   ```
+
+   If any pods aren't ready or are in `CrashLoopBackOff`, before you continue, review the pod events and logs. A successful extension provisioning state alone isn't enough to confirm that all runtime components are healthy.
 
    For more information, see the following resources:
 
@@ -1034,4 +1058,6 @@ To maximize the efficiency and performance for a Standard logic app in a hybrid 
 
 ## Next steps
 
-[Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md)
+- [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md)
+- [Why migrate from BizTalk Server to Azure Logic Apps Standard?](biztalk-server-migration-overview.md)
+- [Migrate BizTalk Server with Azure Logic Apps Migration Agent](biztalk-server-migration-approaches.md)

@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Escalate a job
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This guide shows you how to escalate a Job in a Queue by using an Exception Policy.
 
 ## Prerequisites

@@ -5,7 +5,7 @@ author: duau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/28/2026
+ms.date: 10/14/2026
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange
@@ -24,6 +24,9 @@ IP Groups make it easy to group and manage IP addresses for Azure Firewall rules
 An IP Group can include a single IP address, multiple IP addresses, one or more IP address ranges, or a combination of addresses and ranges.
 
 You can use IP Groups in Azure Firewall DNAT, network, and application rules for multiple firewalls across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
+
+> [!NOTE]
+> A single IP Group has a soft limit of 50 referencing firewalls. Exceeding this limit might affect performance and cause IP Group updates to fail. For more information, see [Azure Firewall limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## Sample format
 

@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Call client operations log schema
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 
 The **call client operations** log provides client-side information about the calling endpoints and participants involved in a call. These logs are currently in preview and show client events that occurred in a call and which actions a customer takes during a call.  
 

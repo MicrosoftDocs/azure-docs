@@ -1,11 +1,11 @@
 ---
 title: Migrate servers to Azure using Private Link through agent-based replications
 description: Use Azure Migrate to migrate servers over a private network using Azure Private Link for agent-based replications.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 12/14/2022
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator, I want to migrate servers over a private network using agent-based replication, so that I can ensure secure and efficient data transfer to Azure."
@@ -124,7 +124,6 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 |**Storage account type** | **Role permissions**|
 |--- | ---|
 |Standard type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|
-|Premium type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 1. Go to the replication/cache storage account selected for replication. In the left pane, select **Access control (IAM)**.
 1. Select **+ Add**, and select **Add role assignment**.

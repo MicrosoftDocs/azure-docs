@@ -2,7 +2,7 @@
 title: Update pool properties
 description: Learn how to update existing Batch pool properties.
 ms.topic: how-to
-ms.date: 01/05/2026
+ms.date: 10/05/2026
 ms.custom:
 # Customer intent: As a cloud administrator, I want to update properties of existing Batch pools, so that I can adapt to evolving workloads and maintain optimal performance without needing to recreate the pools unnecessarily.
 ---
@@ -65,6 +65,11 @@ documentation for each individual pool property.
 
 All other updateable pool properties require the pool to be of size zero nodes to be accepted
 as part of the request to update.
+
+For example, changes to `vmSize`, `deploymentConfiguration`, `diskEncryptionConfiguration`,
+or `securityProfile` require the pool to be in the **Steady** allocation state with zero
+dedicated and Spot or low-priority nodes. When you resize the pool after the update, Batch
+creates a new underlying compute deployment by using the updated configuration.
 
 You may also use [Pool - Create API](/rest/api/batchmanagement/pool/create) to update these
 select properties, but since the operation is a `PUT`,  the request fully replaces all
@@ -142,6 +147,18 @@ Request Body
     }
 }
 ```
+
+#### Example: Migrate from Azure Disk Encryption to encryption at host
+
+[Azure Disk Encryption for Batch pools](disk-encryption.md#azure-disk-encryption-retirement) retires on September 15, 2028.
+If a pool can use Azure Disk Encryption for temporary disk encryption, resize the pool to
+zero nodes and wait for its allocation state to become **Steady**. Then use API version
+`2024-07-01` or later to select a supported VM size, if necessary, and set
+`securityProfile.encryptionAtHost` to `true`.
+
+After the update, resize the pool to the required target node counts. Batch creates a new
+underlying compute deployment with encryption at host enabled. For the complete migration
+procedure and a request example, see [Migrate an existing pool to encryption at host](disk-encryption.md#migrate-an-existing-pool-to-encryption-at-host).
 
 ### Data Plane: Pool - Patch or Update Properties
 

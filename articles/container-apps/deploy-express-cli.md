@@ -5,7 +5,7 @@ ms.service: azure-container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: how-to
-ms.date: 05/05/2026
+ms.date: 09/21/2026
 # customer intent: As a developer, I want to deploy a container app to Azure Container Apps express using the Azure CLI so that I can get my web app running in the cloud as quickly as possible.
 ---
 
@@ -14,7 +14,7 @@ ms.date: 05/05/2026
 In this article, you use the Azure CLI to create an Azure Container Apps express environment and deploy your first express container app. Azure Container Apps express is a developer-first platform that gets your containerized web app running in the cloud with minimal configuration.
 
 > [!IMPORTANT]
-> Access is limited to Microsoft Entra ID accounts. Personal Microsoft accounts aren't supported.
+> Access requires a Microsoft Entra ID account. Personal Microsoft accounts aren't supported.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ az containerapp env create \
 ```
 
 > [!NOTE]
-> For supported regions, see [Region availability](express-overview.md#region-availability).
+> Express is available only in supported regions. For the current list, see [Region availability](express-overview.md#region-availability).
 
 ## Deploy a container app
 

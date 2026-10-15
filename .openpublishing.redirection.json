@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-web-pubsub/chat-reference-service-sdk-java.md",
+      "redirect_url": "/java/api/overview/azure/messaging-webpubsub-chat-readme",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-web-pubsub/chat-reference-service-sdk-javascript.md",
+      "redirect_url": "/javascript/api/overview/azure/web-pubsub-chat-readme",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-data-protection-use-rest-api-backup-postgresql.md",
       "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
       "redirect_document_id": false
@@ -578,6 +593,21 @@
     },
     {
       "source_path": "articles/playwright-testing/tutorial-run-end-to-end-tests.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/how-to-playwright-workspaces-remote-mcp.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/quickstart-automate-browser-tasks-remote-mcp.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/troubleshoot-remote-mcp-server.md",
       "redirect_url": "/azure/app-testing",
       "redirect_document_id": false
     },
@@ -8125,7 +8155,7 @@
     },
     {
       "source_path": "articles/iot-hub/how-to-revoke-certificate-delete-policy.md",
-      "redirect_url": "../iot/how-to-revoke-certificate-delete-policy",
+      "redirect_url": "../iot/concepts-certificate-policy-management",
       "redirect_document_id": false
     },
     {
@@ -8218,6 +8248,6 @@
       "source_path": "articles/dns/private-dns-resiliency.md",
       "redirect_url": "/azure/reliability/reliability-dns-private",
       "redirect_document_id": false
-    }
+    }    
   ]
 }

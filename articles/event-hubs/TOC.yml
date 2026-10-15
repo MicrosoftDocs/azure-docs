@@ -397,8 +397,8 @@
               href: /dotnet/api/azure.messaging.eventhubs
             - name: Microsoft.Azure.EventHubs (legacy)
               href: /dotnet/api/microsoft.azure.eventhubs
-            - name: Microsoft.ServiceBus.Messaging (legacy)
-              href: /dotnet/api/microsoft.servicebus.messaging
+            - name: Migrate from WindowsAzure.ServiceBus
+              href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide_WindowsAzureServiceBus.md
         - name: Management library
           href: /dotnet/api/microsoft.azure.management.eventhub
     - name: Java
