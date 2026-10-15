@@ -5,7 +5,7 @@ keywords: App Service certificate, buy SSL certificate, Azure security, domain e
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 09/15/2026
+ms.date: 10/15/2026
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -150,11 +150,11 @@ The following domain verification methods are supported:
 |--------|-------------|
 | App Service verification | The most convenient option when the domain is already mapped to an App Service app in the same subscription because the App Service app verified the domain ownership. Review the last step in [Confirm domain ownership](#confirm-domain-ownership). |
 | Domain verification | Confirm an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and finishes the process. |
-| Mail verification | Confirm the domain by sending an email to the domain administrator. Instructions are provided when you select the option. |
+| Mail verification | Confirm the domain by sending an email to the domain administrator. Instructions are provided when you select the option. Mail verification stops for App Service certificates in March 2027. Use a DNS TXT record or an HTML page (manual verification) instead. |
 | Manual verification | Confirm the domain by using either a Domain Name System (DNS) TXT record or an HTML page. (The latter applies only to Standard certificates. See the following note.) The steps are provided after you select the option. The HTML page option doesn't work for web apps with **HTTPS Only** enabled. For domain verification via DNS TXT record for either the root domain (for example, `contoso.com`) or the subdomain (for example, `www.contoso.com` or `test.api.contoso.com`) and regardless of the certificate SKU, you need to add a TXT record at the root domain level. Use `@` for the name and the domain verification token for the value in your DNS record. |
 
 > [!IMPORTANT]
-> With the Standard certificate, you get a certificate for the requested root domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. App Service verification and manual verification both use HTML page verification, which doesn't support the `www` subdomain when you issue, rekey, or renew a certificate. For the Standard certificate, use domain verification and mail verification to include the `www` subdomain with the requested top-level domain in the certificate.
+> With the Standard certificate, you get a certificate for the requested root domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. App Service verification and the HTML page option of manual verification use HTML page verification, which doesn't support the `www` subdomain when you issue, rekey, or renew a certificate. For the Standard certificate, use domain verification or a DNS TXT record (manual verification) to include the `www` subdomain with the requested top-level domain in the certificate. Mail verification also works until March 2027.
 
 After your certificate is domain verified, [you can import it into an App Service app](configure-ssl-certificate.md#import-an-app-service-certificate).
 
