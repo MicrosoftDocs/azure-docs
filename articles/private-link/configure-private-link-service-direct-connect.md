@@ -25,7 +25,7 @@ This article explains Private Link service Direct Connect and how to create it u
 > This feature is in public preview and is available in select regions. Review all considerations before enabling it for your subscription.
 
 > [!IMPORTANT]
-> Starting October 15, 2026, each Private Link service Direct Connect resource will be billed at $0.675 USD per hour. This pricing applies to both existing and newly created resources.
+> Starting October 15, 2026, each Private Link service Direct Connect resource costs $0.675 USD per hour. This pricing applies to both existing and newly created resources. For more information, see [Pricing - Azure Private Link](https://azure.microsoft.com/en-us/pricing/details/private-link/). There is a per hour charge for each Direct Connect resource. Your billing statement shows **Service Name** as **Virtual Network** and the **Meter** as **Basic Appliance Unit**.
 
 
 ## Prerequisites
