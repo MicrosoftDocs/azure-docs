@@ -26,6 +26,7 @@ The following table lists issues you might encounter while using Azure Container
 | Provisioning takes too long | After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly](#verify-health-probes-configuration) |
 | Revision is degraded | A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly](#verify-health-probes-configuration) |
 | Requests to endpoints fail | The container app endpoint doesn't respond to requests. | [Review ingress configuration](#review-ingress-configuration) |
+| TCP endpoints time out despite healthy replicas | Apps are successfully provisioned and have ready revisions and running replicas, but some external TCP ports are unreachable. | [Check environment TCP port capacity](#tcp-endpoints-time-out-despite-healthy-replicas) |
 | Requests return status 403 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct](#verify-networking-configuration) |
 | Responses not as expected | The container app endpoint responds to requests, but the responses aren't as expected. | [Verify traffic is routed to the correct revision](#verify-traffic-is-routed-to-the-correct-revision)<br><br>[Verify you're using unique tags when deploying images to the container registry](/azure/container-registry/container-registry-image-tag-version) |
 | Missing parameters error | You receive error messages about missing parameters when you run `az containerapp` commands in the Azure CLI, or run cmdlets from the `Az.App` module in Azure PowerShell. | [Verify latest version of Azure Container Apps extension is installed](#verify-latest-version-of-azure-container-apps-extension-is-installed) |
@@ -122,6 +123,10 @@ az containerapp ingress update \
 ```
 
 For more information, see [How ingress visibility interacts with the environment type](./ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
+
+### TCP endpoints time out despite healthy replicas
+
+TCP connections can time out despite healthy replicas when the environment's managed load balancer can't add the required TCP port rules. Plan for a theoretical maximum of 290 externally exposed custom TCP ports per environment, counting main and additional ports across all apps. Reduce exposed ports or distribute apps across environments. See [Additional TCP ports](./ingress-overview.md#additional-tcp-ports).
 
 ## Verify networking configuration
 

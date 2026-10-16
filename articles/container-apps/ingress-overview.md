@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.topic: concept-article
-ms.date: 05/02/2025
+ms.date: 10/09/2026
 ms.author: cshoe
 ---
 
@@ -142,6 +142,8 @@ The following apply to additional TCP ports:
 - More TCP ports can only be external if the app itself is set as external and the container app is using a virtual network.
 
 - Any externally exposed extra TCP ports must be unique across the entire Container Apps environment. This includes all external extra TCP ports, external main TCP ports, and 80/443 ports used by built-in HTTP ingress. If the extra ports are internal, you can share the same port across multiple apps.
+
+- For capacity planning, use a theoretical maximum of 290 externally exposed custom TCP ports per Container Apps environment. Count both main TCP ingress ports and extra external TCP ports across all apps. If each TCP app exposes one external port, this number corresponds to 290 TCP apps. This guidance also applies to external app ingress in an internal environment.
 
 - If an exposed port isn't provided, the exposed port defaults to match the target port.
 
