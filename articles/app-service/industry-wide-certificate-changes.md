@@ -71,7 +71,7 @@ To maintain one year of certificate coverage, Azure App Service automatically is
 ## Domain validation reuse (ASC only)
 
 ### What’s changing
-Starting March 2026, industry requirements defined by the CA/Browser Forum limit domain ownership validation reuse to **198 days** at most. The 198 days is a maximum, not a promise of reuse. A renewal or rekey of an App Service Certificate might require validation again within that period.
+Starting March 2026, industry requirements defined by the CA/Browser Forum limit domain ownership validation reuse to **198 days** at most. The 198-day limit is a maximum, not a promise of reuse. A renewal or rekey of an App Service Certificate might require validation again within that period.
 
 ### Impact on App Service Managed Certificates (ASMC)
 No change. Domain ownership validation for ASMC is automated and requires no customer action.
