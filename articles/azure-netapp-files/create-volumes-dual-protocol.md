@@ -160,6 +160,9 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
         This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
 
+    > [!Important]
+    > SMB opportunistic locking (oplocks) is currently in preview. You must [register the feature](azure-netapp-files-create-volumes-smb.md#register-the-feature) before configuring this setting.
+
     * To enable opportunistic locks (oplocks) on new or existing volumes, select **Enabled** from the dropdown menu. 
     
       Oplocks improve compatibility with legacy applications that require client caching behavior to be disabled. By default, oplocks is enabled and **System default** is selected. Cross-region replication destination volumes can be configured with an oplock setting that is independent of the source volume.
