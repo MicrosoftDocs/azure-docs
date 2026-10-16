@@ -250,7 +250,7 @@ Submit the configuration to connect the IoT Hub instance to the namespace.
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
-Connect the DPS instance before you connect an IoT Hub instance. The command fails if the namespace doesn't have a connected DPS instance. The IoT Hub instance must use a standard tier SKU, such as S1, and have a system-assigned managed identity.
+First, connect the DPS instance before you connect an IoT Hub instance. The command fails if the namespace doesn't have a connected DPS instance. The IoT Hub instance must use a standard tier SKU, such as S1, and have a system-assigned managed identity.
 
 1. Use an existing IoT Hub instance, or create a new one in the namespace's region:
 
@@ -269,7 +269,7 @@ To connect more IoT Hub instances, repeat these steps with a different IoT Hub i
 
 # [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
 
-Connect the DPS instance before you connect an IoT Hub instance. The command fails if the namespace doesn't have a connected DPS instance. The IoT Hub instance must use a standard tier SKU, such as S1, and have a system-assigned managed identity.
+First, connect the DPS instance before you connect an IoT Hub instance. The command fails if the namespace doesn't have a connected DPS instance. The IoT Hub instance must use a standard tier SKU, such as S1, and have a system-assigned managed identity.
 
 1. Use an existing IoT Hub instance, or create a new one in the namespace's region:
 
