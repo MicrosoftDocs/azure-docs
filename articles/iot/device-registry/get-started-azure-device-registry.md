@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 
 # Get started with Azure Device Registry (preview)
 
-This article describes how to set up an [Azure Device Registry](overview-device-registry.md) namespace and connect the IoT Hub and Device Provisioning Service (DPS) resources it depends on. You can create new resources, connect an existing DPS instance and its linked IoT hubs, or connect existing IoT hubs to a new DPS instance.
+This article describes how to set up an [Azure Device Registry](overview-device-registry.md) namespace and connect the IoT Hub instances and Device Provisioning Service (DPS) instances it depends on. You can create new resources, connect an existing DPS instance and its linked IoT Hub instances, or connect existing IoT Hub instances to a new DPS instance.
 
 > [!IMPORTANT]
 > Azure Device Registry integration with Azure IoT Hub is in public preview and isn't recommended for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -29,7 +29,7 @@ This article describes how to set up an [Azure Device Registry](overview-device-
 - A [supported region](../../iot-hub/iot-hub-what-is-new.md#supported-regions) for Azure Device Registry, IoT Hub, and DPS. All new resources are created in the same region as the namespace.
 
 > [!WARNING]
-> Connecting an existing IoT hub or DPS instance to an Azure Device Registry namespace is permanent and can't be reversed. You're asked to acknowledge this effect when you select an existing resource.
+> Connecting an existing IoT Hub instance or DPS instance to an Azure Device Registry namespace is permanent and can't be reversed. You're asked to acknowledge this effect when you select an existing resource.
 
 ### Azure CLI setup
 
@@ -49,7 +49,7 @@ You can set up Azure Device Registry in two ways:
 - [Use the guided setup](#use-the-guided-setup). A guided experience that walks you through creating or opening a namespace and connecting the services it depends on. Use this method to get to a working namespace without deep knowledge of the underlying services.
 - [Connect services individually](#connect-services-individually). A step-by-step path where you open a namespace and connect each service one at a time. Use this method when you want full control over each resource or need to add resources to an existing namespace.
 
-Both methods produce the same result: a namespace with connected IoT Hub and DPS resources that you can manage through the Azure control plane.
+Both methods produce the same result: a namespace with connected IoT Hub instances and a DPS instance that you can manage through the Azure control plane.
 
 The guided setup is available only in the Azure portal. When you connect services individually, you can use the Azure portal or the Azure CLI.
 
@@ -72,17 +72,17 @@ On the **ADR namespace** page:
 1. Select the Azure subscription.
 1. Create a resource group or select an existing one.
 1. Enter a **Namespace name** that contains lowercase letters, numbers, and hyphens. The guided setup uses this value to suggest names for the resources it creates.
-1. Select a region. If you plan to connect existing DPS or IoT Hub resources, select the region that contains those resources.
+1. Select a region. If you plan to connect existing DPS instances or IoT Hub instances, select the region that contains those instances.
 
 If you started from an existing namespace, the subscription, resource group, and region are already set and can't be changed.
 
 ### 2. Connectivity
 
-On the **Connectivity** page, choose how your devices connect. Based on your selection, Azure uses or creates a DPS instance and one or more IoT hubs.
+On the **Connectivity** page, choose how your devices connect. Based on your selection, Azure uses or creates a DPS instance and one or more IoT Hub instances.
 
 Select **Use existing resources** or **Create new resources**.
 
-If you select **Create new resources**, choose an IoT Hub preset:
+If you select **Create new resources**, choose a preset for your IoT Hub instances:
 
 | Preset | Devices | Connectivity | Telemetry | Resources created |
 | --- | --- | --- | --- | --- |
@@ -94,7 +94,7 @@ Presets determine how many IoT Hub instances are created and connect them to a p
 
 If you select **Use existing resources**, choose whether to connect an **Existing DPS linked to IoT Hub instances** or **Existing IoT Hub instances**. Under **Choose a linked setup**, select a setup from the list. The list is filtered to the namespace's region, and only IoT Hub instances with public network access enabled appear.
 
-Connecting an existing DPS instance or IoT hub to the namespace is permanent.
+Connecting an existing DPS instance or IoT Hub instance to the namespace is permanent.
 
 ### 3. Capabilities
 
@@ -118,7 +118,7 @@ Select **Submit**. After setup finishes, the guided setup opens the namespace, w
 
 ## Connect services individually
 
-If you want full control over each resource, connect services to a namespace one at a time instead of using the guided setup. Connect services in the following order: Device Provisioning Service, IoT Hub, and then software updates. This method produces the same connected result as the guided setup.
+If you want full control over each resource, connect services to a namespace one at a time instead of using the guided setup. Connect a DPS instance first, then one or more IoT Hub instances, and then an optional software update instance. This method produces the same connected result as the guided setup.
 
 ### 1. Create or open a namespace
 
@@ -194,7 +194,7 @@ az iot adr ns create --name $NS --resource-group $RG --location $LOCATION --outb
 
 Select **+ Connect** > **Device Provisioning Service (DPS)**, and then choose how to connect this service:
 
-- **Use existing**: Select an unconnected DPS instance and its linked IoT hubs in the namespace's region.
+- **Use existing**: Select an unconnected DPS instance and its linked IoT Hub instances in the namespace's region.
 - **Create new**: Select the subscription and resource group, and then enter a name for the new DPS instance. The region matches the namespace and can't be changed.
 
 Select **Save**.
@@ -235,56 +235,56 @@ You can connect only one DPS instance to a namespace. The DPS instance needs a s
 
 ---
 
-### 3. Connect an IoT hub
+### 3. Connect an IoT Hub instance
 
 # [Azure portal](#tab/azure-portal)
 
 Select **+ Connect** > **IoT Hub**, and then choose how to connect this service:
 
-- **Use existing**: Connect an existing IoT hub.
-- **Create new**: Select the subscription and resource group, and then enter a name, SKU, and daily message limit for the new IoT hub. The region matches the namespace and can't be changed.
+- **Use existing**: Connect an existing IoT Hub instance.
+- **Create new**: Select the subscription and resource group, and then enter a name, SKU, and daily message limit for the new IoT Hub instance. The region matches the namespace and can't be changed.
 
-When you connect an existing IoT hub, acknowledge that linking it to the namespace is permanent.
+When you connect an existing IoT Hub instance, acknowledge that linking it to the namespace is permanent.
 
-Submit the configuration to connect the IoT hub to the namespace.
+Submit the configuration to connect the IoT Hub instance to the namespace.
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
-Connect the DPS instance before you connect an IoT hub. The command fails if the namespace doesn't have a connected DPS instance. The IoT hub must be a standard tier hub, such as S1, with a system-assigned managed identity.
+Connect the DPS instance before you connect an IoT Hub instance. The command fails if the namespace doesn't have a connected DPS instance. The IoT Hub instance must use a standard tier SKU, such as S1, and have a system-assigned managed identity.
 
-1. Use an existing IoT hub, or create a new one in the namespace's region:
+1. Use an existing IoT Hub instance, or create a new one in the namespace's region:
 
    ```azurecli
    az iot hub create --name $HUB --resource-group $RG --location $LOCATION --sku S1 --system-assigned-mi
    ```
 
-1. Get the resource ID of the IoT hub and connect it to the namespace:
+1. Get the resource ID of the IoT Hub instance and connect it to the namespace:
 
    ```azurecli
    HUB_ID=$(az iot hub show --name $HUB --resource-group $RG --query id --output tsv)
    az iot adr ns link hub add --name primary-hub --ns $NS --resource-group $RG --hub-id $HUB_ID --system-assigned-mi true
    ```
 
-To connect more IoT hubs, repeat these steps with a different IoT hub and endpoint name.
+To connect more IoT Hub instances, repeat these steps with a different IoT Hub instance and a unique endpoint name.
 
 # [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
 
-Connect the DPS instance before you connect an IoT hub. The command fails if the namespace doesn't have a connected DPS instance. The IoT hub must be a standard tier hub, such as S1, with a system-assigned managed identity.
+Connect the DPS instance before you connect an IoT Hub instance. The command fails if the namespace doesn't have a connected DPS instance. The IoT Hub instance must use a standard tier SKU, such as S1, and have a system-assigned managed identity.
 
-1. Use an existing IoT hub, or create a new one in the namespace's region:
+1. Use an existing IoT Hub instance, or create a new one in the namespace's region:
 
    ```powershell
    az iot hub create --name $HUB --resource-group $RG --location $LOCATION --sku S1 --system-assigned-mi
    ```
 
-1. Get the resource ID of the IoT hub and connect it to the namespace:
+1. Get the resource ID of the IoT Hub instance and connect it to the namespace:
 
    ```powershell
    $HUB_ID = az iot hub show --name $HUB --resource-group $RG --query id --output tsv
    az iot adr ns link hub add --name primary-hub --ns $NS --resource-group $RG --hub-id $HUB_ID --system-assigned-mi true
    ```
 
-To connect more IoT hubs, repeat these steps with a different IoT hub and endpoint name.
+To connect more IoT Hub instances, repeat these steps with a different IoT Hub instance and a unique endpoint name.
 
 ---
 
@@ -391,13 +391,13 @@ For example, if the namespace name is `contoso-devices`, the guided setup sugges
 | Resource | Suggested name pattern | Example |
 | --- | --- | --- |
 | Azure Device Registry namespace | `<namespace-name>` | `contoso-devices` |
-| IoT Hub | `<namespace-name>-hub-<number>` | `contoso-devices-hub-1` |
+| IoT Hub instance | `<namespace-name>-hub-<number>` | `contoso-devices-hub-1` |
 | Device Provisioning Service | `<namespace-name>-provisioning` | `contoso-devices-provisioning` |
 | Software update instance | `<namespace-name>-su` | `contoso-devices-su` |
 
 ## Manage connected resources
 
-Connecting services to a namespace doesn't replace their individual management experiences. To change IoT Hub settings, open the IoT hub in the Azure portal. To change DPS settings, open the DPS instance in the Azure portal.
+Connecting services to a namespace doesn't replace their individual management experiences. To change settings for an IoT Hub instance, open the instance in the Azure portal. To change DPS settings, open the DPS instance in the Azure portal.
 
 ## Next steps
 
