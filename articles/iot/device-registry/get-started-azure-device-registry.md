@@ -25,13 +25,22 @@ This article describes how to set up an [Azure Device Registry](overview-device-
 ## Prerequisites
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- Permissions to create resource groups, user-assigned managed identities, role assignments, IoT Hub instances, and DPS instances in the target subscription. Creating role assignments requires a [privileged role](../../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
+- Permissions to create resource groups, Azure Device Registry namespaces, managed identities, role assignments, IoT Hub instances, and DPS instances in the target subscription. Creating role assignments requires a [privileged role](../../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
 - A [supported region](../../iot-hub/iot-hub-what-is-new.md#supported-regions) for Azure Device Registry, IoT Hub, and DPS. All new resources are created in the same region as the namespace.
-
-- To connect services by using the Azure CLI, the [Azure CLI](/cli/azure/install-azure-cli) installed and signed in by using `az login`, and the preview version of the `azure-iot` extension. Install or update the extension by running `az extension add --upgrade --name azure-iot --allow-preview true`.
 
 > [!WARNING]
 > Connecting an existing IoT hub or DPS instance to an Azure Device Registry namespace is permanent and can't be reversed. You're asked to acknowledge this effect when you select an existing resource.
+
+### Azure CLI setup
+
+To use the CLI steps in either Bash or PowerShell, install the [Azure CLI](/cli/azure/install-azure-cli). Then sign in and install or update the preview version of the `azure-iot` extension:
+
+```azurecli
+az login
+az extension add --upgrade --name azure-iot --allow-preview true
+```
+
+The CLI steps use system-assigned managed identities for the namespace and connected services.
 
 ## Ways to get started
 
@@ -117,24 +126,30 @@ If you want full control over each resource, connect services to a namespace one
 
 Create an Azure Device Registry namespace, or open an existing namespace to add services to it. The namespace is the organizational and security boundary for the devices and resources in your solution.
 
-:::image type="content" source="media/get-started-azure-device-registry/get-started-manual.png" alt-text="Screenshot that shows the Connected Services tab of an Azure Device Registry namespace in the Azure portal." lightbox="media/get-started-azure-device-registry/get-started-manual.png":::
-
 Open the namespace and select the **Connected Services** tab. Use the **+ Connect** menu to add services one at a time.
+
+:::image type="content" source="media/get-started-azure-device-registry/get-started-connect.png" alt-text="Screenshot of the Connected Services tab with the Connect menu open, showing IoT Hub, Device Provisioning Service, and software updates." lightbox="media/get-started-azure-device-registry/get-started-connect.png":::
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
 The CLI steps use Bash syntax. The `link` commands in the following steps create any missing role assignments between the namespace and the connected services. If your account can't create role assignments, a command stops before it changes the namespace and prints the commands that someone with the required permissions must run.
 
-Set the values that the commands reuse:
+Set the values that the commands reuse. Replace the angle-bracketed placeholders with your own values:
 
 ```azurecli
-az account set --subscription <subscription-id>
-RG=<resource-group>
-LOCATION=<region>
-NS=<namespace-name>
-DPS=<dps-name>
-HUB=<iot-hub-name>
-SU=<software-update-instance-name>
+az account set --subscription "<subscription-id>"
+RG="<resource-group>"
+LOCATION="<region>"
+NS="<namespace-name>"
+DPS="<dps-name>"
+HUB="<iot-hub-name>"
+SU="<software-update-instance-name>"
+```
+
+If you're creating resources in a new resource group, create it first. Skip this command if you're using an existing resource group.
+
+```azurecli
+az group create --name $RG --location $LOCATION
 ```
 
 Create a namespace that uses its system-assigned managed identity to call the services that you connect. Skip this command if you're using an existing namespace.
@@ -147,7 +162,7 @@ az iot adr ns create --name $NS --resource-group $RG --location $LOCATION --outb
 
 The CLI steps use PowerShell syntax. The `link` commands in the following steps create any missing role assignments between the namespace and the connected services. If your account can't create role assignments, a command stops before it changes the namespace and prints the commands that someone with the required permissions must run.
 
-Set the values that the commands reuse:
+Set the values that the commands reuse. Replace the angle-bracketed placeholders with your own values:
 
 ```powershell
 az account set --subscription "<subscription-id>"
@@ -157,6 +172,12 @@ $NS = "<namespace-name>"
 $DPS = "<dps-name>"
 $HUB = "<iot-hub-name>"
 $SU = "<software-update-instance-name>"
+```
+
+If you're creating resources in a new resource group, create it first. Skip this command if you're using an existing resource group.
+
+```powershell
+az group create --name $RG --location $LOCATION
 ```
 
 Create a namespace that uses its system-assigned managed identity to call the services that you connect. Skip this command if you're using an existing namespace.
@@ -225,7 +246,7 @@ Select **+ Connect** > **IoT Hub**, and then choose how to connect this service:
 
 When you connect an existing IoT hub, acknowledge that linking it to the namespace is permanent.
 
-:::image type="content" source="media/get-started-azure-device-registry/get-started-connect.png" alt-text="Screenshot that shows connecting a Device Provisioning Service instance to an Azure Device Registry namespace." lightbox="media/get-started-azure-device-registry/get-started-connect.png":::
+Submit the configuration to connect the IoT hub to the namespace.
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
@@ -272,6 +293,8 @@ To connect more IoT hubs, repeat these steps with a different IoT hub and endpoi
 # [Azure portal](#tab/azure-portal)
 
 Select **+ Connect** > **Software updates**, and then enter a name for the new software update instance. The subscription, resource group, and region match the namespace and can't be changed.
+
+Submit the configuration to create and connect the software update instance.
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
@@ -322,10 +345,19 @@ List the connected services and confirm that each one reports a `linkingState` o
 ```azurecli
 az iot adr ns link dps list --ns $NS --resource-group $RG
 az iot adr ns link hub list --ns $NS --resource-group $RG
+```
+
+If you connected a software update instance, verify that connection too:
+
+```azurecli
 az iot adr ns link su list --ns $NS --resource-group $RG
 ```
 
-If a `link add` command returns before the link finishes, run the matching `link <service> wait` command to track it.
+If a `link add` command returns before the link finishes, use [az iot adr ns link wait](/cli/azure/iot/adr/ns/link#az-iot-adr-ns-link-wait) to wait for all configured links to succeed:
+
+```azurecli
+az iot adr ns link wait --ns $NS --resource-group $RG
+```
 
 # [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
 
@@ -334,10 +366,19 @@ List the connected services and confirm that each one reports a `linkingState` o
 ```powershell
 az iot adr ns link dps list --ns $NS --resource-group $RG
 az iot adr ns link hub list --ns $NS --resource-group $RG
+```
+
+If you connected a software update instance, verify that connection too:
+
+```powershell
 az iot adr ns link su list --ns $NS --resource-group $RG
 ```
 
-If a `link add` command returns before the link finishes, run the matching `link <service> wait` command to track it.
+If a `link add` command returns before the link finishes, use [az iot adr ns link wait](/cli/azure/iot/adr/ns/link#az-iot-adr-ns-link-wait) to wait for all configured links to succeed:
+
+```powershell
+az iot adr ns link wait --ns $NS --resource-group $RG
+```
 
 ---
 
