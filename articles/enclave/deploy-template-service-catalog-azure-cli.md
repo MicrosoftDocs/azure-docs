@@ -6,7 +6,8 @@ author: aserfass-msft
 ms.author: aserfass
 ms.service: azure-enclave
 ms.topic: how-to
-ms.date: 9/30/2025
+ms.date: 09/23/2026
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Deploy a service catalog Template using the CLI
@@ -125,7 +126,7 @@ Download a specific template by using the name found in the inventory above (for
     - keyVaultResourceGroupName
     - ID of userAssignedIdentityObject
     ```
-    az rest --method get --uri "<enclave-resource-id>?api-version=2026-03-01-preview"
+    az rest --method get --uri "<enclave-resource-id>?api-version=2026-04-01"
     ```
     For more API operations and schemas, see the [Azure Enclave API reference](https://aka.ms/ae/api) and [Azure Enclave API source and specs](https://aka.ms/ae/apigithub).
     You'll still need to fetch values privateLinkSubnetName, keyName, userAssignedIdentityObject
@@ -162,7 +163,7 @@ Download a specific template by using the name found in the inventory above (for
 
     az storage blob download --account-name <storag-eaccount-name> --container-name servicecatalog --name <template-to-download-name> --file ./<template-downloaded-name>
 
-    az rest --method get --uri "<enclave-resource-id>?api-version=2026-03-01-preview"
+    az rest --method get --uri "<enclave-resource-id>?api-version=2026-04-01"
 
     az network vnet subnet list --resource-group <resource-group-name> --vnet-name <vnet-name> --query "[].name"
 
