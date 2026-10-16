@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/31/2026
+ms.date: 10/09/2026
 ms.author: cshoe
 ms.custom:
 ---
@@ -21,6 +21,7 @@ The following table lists issues you might encounter while using Azure Container
 | Scenario | Description | Actions |
 |--|--|--|
 | All scenarios | | [View logs](#view-logs)<br><br>[Use Diagnose and solve problems](#use-the-diagnose-and-solve-problems-tool) |
+| Environment creation fails with a capacity error | The selected region has limited capacity for a new environment. | [Troubleshoot environment capacity errors](troubleshoot-environment-capacity.md) |
 | Error deploying new revision | You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image](#verify-accessibility-of-container-image) |
 | Provisioning takes too long | After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly](#verify-health-probes-configuration) |
 | Revision is degraded | A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly](#verify-health-probes-configuration) |
