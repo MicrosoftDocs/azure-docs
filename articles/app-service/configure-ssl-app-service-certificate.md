@@ -165,7 +165,7 @@ After your certificate is domain verified, [you can import it into an App Servic
 
 By default, App Service certificates have a one-year validity period. Before the expiration date, you can automatically or manually renew App Service certificates in one-year increments. The renewal process effectively gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
 
-If you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renewal, autorenewal, or rekey process. The new certificate order remains in **Pending issuance** mode during the renewal, autorenewal, or rekey process until you finish the domain verification.
+A renewal, autorenewal, or rekey might require domain verification again, even if you verified the domain recently. If domain verification is required, the new certificate order remains in **Pending issuance** mode until you finish it.
 
 Unlike the free App Service managed certificate, purchased App Service certificates don't have automated domain reverification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 
@@ -197,7 +197,7 @@ Being able to request a renewal doesn't mean you get extra validity. If more tha
 
 If you think your certificate's private key is compromised, you can rekey your certificate. This action rotates the certificate with a new certificate issued from the certificate authority.
 
-If you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renewal, autorenewal, or rekey process. The new certificate order remains in **Pending issuance** mode during the renewal, autorenewal, or rekey process until you finish the domain verification.
+A renewal, autorenewal, or rekey might require domain verification again, even if you verified the domain recently. If domain verification is required, the new certificate order remains in **Pending issuance** mode until you finish it.
 
 Unlike the free App Service managed certificate, purchased App Service certificates don't have automated domain reverification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 
@@ -284,7 +284,7 @@ The downloaded *.pfx* file is a raw PKCS12 file that contains both the public an
 
 ## Use Azure Advisor for App Service certificates
 
-An App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. If you haven't verified the domain in the last 395 days, you must verify domain ownership for your certificate during the renewal, autorenewal, or rekey process. To make sure that you don't miss any certificate that requires verification or risk any certificate from expiring, use Advisor to view and set up alerts for the App Service certificate.
+An App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. A renewal, autorenewal, or rekey might require you to verify domain ownership again, even if you verified the domain recently. To ensure that you don't miss any certificate that requires verification or risk any certificate from expiring, use Advisor to view and set up alerts for the App Service certificate.
 
 ### View Advisor recommendations
 
