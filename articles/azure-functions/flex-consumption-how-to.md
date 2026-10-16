@@ -379,7 +379,6 @@ Choose an appropriately sized subnet for your Flex Consumption apps. The followi
 
 - The subnet can't already be used for private endpoints or service endpoints, and it can't be delegated to other hosting plans or services.
 - You can't share the same subnet between an Azure Container Apps environment and a Flex Consumption app.
-- Subnet names can't contain underscore (`_`) characters, which is a current limitation of the Flex Consumption plan.
 
 #### Subnet sharing
 
