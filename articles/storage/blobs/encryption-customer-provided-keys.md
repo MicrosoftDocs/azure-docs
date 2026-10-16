@@ -45,7 +45,7 @@ For REST calls, clients can use the following headers to securely pass encryptio
 
 Specifying encryption keys on the request is optional. However, if you specify one of the headers listed above for a write operation, then you must specify all of them.
 
-When signedVersion (sv) is set to 2026-04-06 or later, a user delegation SAS can use the srh and srq query parameters to require specific headers and query parameters on any request that uses the SAS, with Azure Storage validating their values against canonicalized strings included in the string-to-sign. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+If you're using a user delegation SAS and the `signedVersion` (`sv`) is set to 2026-04-06 or later, you can use the srh and srq query parameters to require specific headers and query parameters on any request that uses the SAS, with Azure Storage validating their values against canonicalized strings included in the string-to-sign. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 ## Blob storage operations supporting customer-provided keys
 
