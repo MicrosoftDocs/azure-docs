@@ -1,7 +1,6 @@
 ---
 title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
-author: JetterMcTedder
 ms.topic: reference
 ms.custom:
   - build-2023
@@ -10,7 +9,6 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.date: 12/06/2024
-ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
