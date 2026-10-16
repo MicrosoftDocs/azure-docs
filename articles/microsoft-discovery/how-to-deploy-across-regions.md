@@ -22,7 +22,9 @@ Before you begin, ensure that you have:
 - The prerequisites from [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/azure/microsoft-discovery/quickstart-infrastructure), including registered resource providers, required roles, and sufficient quota.
 
 > [!IMPORTANT]
-> Discovery supports all regions where Foundry Projects are available as target regions. Ensure that the target region is supported by Foundry and is listed in the table at [Feature availability across cloud regions - Microsoft Foundry | Microsoft Learn](https://learn.microsoft.com/azure/foundry/reference/region-support)
+> Select a single target region for the deployment. Deploy all target-region resources in that region, not across multiple target regions.
+>
+> All required resources and services, including Microsoft Foundry projects and required Foundry features, must be available in the selected target region. Discovery supports all regions where Foundry projects are available as target regions. Before deploying, confirm availability in [Feature availability across cloud regions - Microsoft Foundry](https://learn.microsoft.com/azure/foundry/reference/region-support).
 
 ## Understand resource placement
 
