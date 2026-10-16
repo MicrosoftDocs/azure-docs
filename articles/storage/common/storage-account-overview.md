@@ -130,7 +130,7 @@ There are two types of service endpoints available for a storage account:
 > [!IMPORTANT]
 > Azure DNS zone endpoints are currently in *preview* will enter retirement in March 2027. See the [FAQ](azurednszone-endpoints-retirement-faq.md) to learn more. Customers are encouraged to leverage Standard endpoints for all storage accounts they create. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Within a single subscription, you can create accounts with either standard or Azure DNS zone endpoints, for a maximum of 5,250 accounts per region per subscription. With a quota increase, you can create up to 5,500 storage accounts per region per subscription.
+Within a single subscription, you can create accounts with either standard or Azure DNS zone endpoints, for a maximum of 5,250 accounts per region per subscription. With a quota increase, you can create up to 6,000 storage accounts per region per subscription.
 
 You can configure your storage account to use a custom domain for the Blob Storage endpoint. For more information, see [Map a custom domain to an Azure Blob Storage endpoint](../blobs/storage-custom-domain-name.md).
 
@@ -266,6 +266,7 @@ The following account types are retired or scheduled for retirement. They aren't
 ## Scalability targets for standard storage accounts
 
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
+
 
 ## Related content
 
