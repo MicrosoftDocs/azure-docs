@@ -281,7 +281,7 @@ The downloaded *.pfx* file is a raw PKCS12 file that contains both the public an
 
 ## Use Azure Advisor for App Service certificates
 
-An App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. A renewal, autorenewal, or rekey might require you to verify domain ownership again, even if you verified the domain recently. To make sure that you don't miss any certificate that requires verification or risk any certificate from expiring, use Advisor to view and set up alerts for the App Service certificate.
+An App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. A renewal, autorenewal, or rekey might require you to verify domain ownership again, even if you verified the domain recently. To ensure that you don't miss any certificate that requires verification or risk any certificate from expiring, use Advisor to view and set up alerts for the App Service certificate.
 
 ### View Advisor recommendations
 
