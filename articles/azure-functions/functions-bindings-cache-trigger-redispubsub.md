@@ -1,10 +1,8 @@
 ---
 title: RedisPubSubTrigger for Azure Functions
 description: Learn how to use RedisPubSubTrigger Azure Function with Azure Cache for Redis.
-author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
-ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference

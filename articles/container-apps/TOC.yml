@@ -63,7 +63,7 @@ items:
               href: sandboxes-quickstart-bicep.md
             - name: Python SDK
               href: sandboxes-quickstart-python-sdk.md
-        - name: Lifecycle (preview)
+        - name: Lifecycle
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
           href: sandboxes-egress-policies.md
@@ -651,6 +651,8 @@ items:
       href: quotas.md
     - name: Make quota requests
       href: quota-requests.md
+    - name: Troubleshoot environment capacity
+      href: troubleshoot-environment-capacity.md
 - name: Product updates
   items:
     - name: What's new
