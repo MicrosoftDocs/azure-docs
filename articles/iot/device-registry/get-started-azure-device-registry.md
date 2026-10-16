@@ -121,7 +121,7 @@ Create an Azure Device Registry namespace, or open an existing namespace to add 
 
 Open the namespace and select the **Connected Services** tab. Use the **+ Connect** menu to add services one at a time.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI (Bash)](#tab/azure-cli)
 
 The CLI steps use Bash syntax. The `link` commands in the following steps create any missing role assignments between the namespace and the connected services. If your account can't create role assignments, a command stops before it changes the namespace and prints the commands that someone with the required permissions must run.
 
@@ -143,6 +143,28 @@ Create a namespace that uses its system-assigned managed identity to call the se
 az iot adr ns create --name $NS --resource-group $RG --location $LOCATION --outbound-system-assigned-mi true
 ```
 
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+The CLI steps use PowerShell syntax. The `link` commands in the following steps create any missing role assignments between the namespace and the connected services. If your account can't create role assignments, a command stops before it changes the namespace and prints the commands that someone with the required permissions must run.
+
+Set the values that the commands reuse:
+
+```powershell
+az account set --subscription "<subscription-id>"
+$RG = "<resource-group>"
+$LOCATION = "<region>"
+$NS = "<namespace-name>"
+$DPS = "<dps-name>"
+$HUB = "<iot-hub-name>"
+$SU = "<software-update-instance-name>"
+```
+
+Create a namespace that uses its system-assigned managed identity to call the services that you connect. Skip this command if you're using an existing namespace.
+
+```powershell
+az iot adr ns create --name $NS --resource-group $RG --location $LOCATION --outbound-system-assigned-mi true
+```
+
 ---
 
 ### 2. Connect a Device Provisioning Service instance
@@ -156,7 +178,7 @@ Select **+ Connect** > **Device Provisioning Service (DPS)**, and then choose ho
 
 Select **Save**.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI (Bash)](#tab/azure-cli)
 
 You can connect only one DPS instance to a namespace. The DPS instance needs a system-assigned managed identity.
 
@@ -170,6 +192,23 @@ You can connect only one DPS instance to a namespace. The DPS instance needs a s
 
    ```azurecli
    DPS_ID=$(az iot dps show --name $DPS --resource-group $RG --query id --output tsv)
+   az iot adr ns link dps add --name primary-dps --ns $NS --resource-group $RG --dps-id $DPS_ID --system-assigned-mi true
+   ```
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+You can connect only one DPS instance to a namespace. The DPS instance needs a system-assigned managed identity.
+
+1. Use an existing DPS instance, or create a new one in the namespace's region:
+
+   ```powershell
+   az iot dps create --name $DPS --resource-group $RG --location $LOCATION --system-assigned-mi
+   ```
+
+1. Get the resource ID of the DPS instance and connect it to the namespace:
+
+   ```powershell
+   $DPS_ID = az iot dps show --name $DPS --resource-group $RG --query id --output tsv
    az iot adr ns link dps add --name primary-dps --ns $NS --resource-group $RG --dps-id $DPS_ID --system-assigned-mi true
    ```
 
@@ -188,7 +227,7 @@ When you connect an existing IoT hub, acknowledge that linking it to the namespa
 
 :::image type="content" source="media/get-started-azure-device-registry/get-started-connect.png" alt-text="Screenshot that shows connecting a Device Provisioning Service instance to an Azure Device Registry namespace." lightbox="media/get-started-azure-device-registry/get-started-connect.png":::
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI (Bash)](#tab/azure-cli)
 
 Connect the DPS instance before you connect an IoT hub. The command fails if the namespace doesn't have a connected DPS instance. The IoT hub must be a standard tier hub, such as S1, with a system-assigned managed identity.
 
@@ -207,6 +246,25 @@ Connect the DPS instance before you connect an IoT hub. The command fails if the
 
 To connect more IoT hubs, repeat these steps with a different IoT hub and endpoint name.
 
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Connect the DPS instance before you connect an IoT hub. The command fails if the namespace doesn't have a connected DPS instance. The IoT hub must be a standard tier hub, such as S1, with a system-assigned managed identity.
+
+1. Use an existing IoT hub, or create a new one in the namespace's region:
+
+   ```powershell
+   az iot hub create --name $HUB --resource-group $RG --location $LOCATION --sku S1 --system-assigned-mi
+   ```
+
+1. Get the resource ID of the IoT hub and connect it to the namespace:
+
+   ```powershell
+   $HUB_ID = az iot hub show --name $HUB --resource-group $RG --query id --output tsv
+   az iot adr ns link hub add --name primary-hub --ns $NS --resource-group $RG --hub-id $HUB_ID --system-assigned-mi true
+   ```
+
+To connect more IoT hubs, repeat these steps with a different IoT hub and endpoint name.
+
 ---
 
 ### 4. Connect software updates (optional)
@@ -215,7 +273,7 @@ To connect more IoT hubs, repeat these steps with a different IoT hub and endpoi
 
 Select **+ Connect** > **Software updates**, and then enter a name for the new software update instance. The subscription, resource group, and region match the namespace and can't be changed.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI (Bash)](#tab/azure-cli)
 
 Only one software update instance can connect to a namespace.
 
@@ -232,6 +290,23 @@ Only one software update instance can connect to a namespace.
    az iot adr ns link su add --name primary-su --ns $NS --resource-group $RG --su-id $SU_ID --system-assigned-mi true
    ```
 
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Only one software update instance can connect to a namespace.
+
+1. Create a software update instance with a system-assigned managed identity:
+
+   ```powershell
+   az iot adr ns su instance create --name $SU --resource-group $RG --location $LOCATION --system-assigned-mi true
+   ```
+
+1. Get the resource ID of the instance and connect it to the namespace:
+
+   ```powershell
+   $SU_ID = az iot adr ns su instance show --name $SU --resource-group $RG --query id --output tsv
+   az iot adr ns link su add --name primary-su --ns $NS --resource-group $RG --su-id $SU_ID --system-assigned-mi true
+   ```
+
 ---
 
 ### 5. Verify the connected resources
@@ -240,11 +315,23 @@ Only one software update instance can connect to a namespace.
 
 On the namespace's **Connected Services** tab, confirm that the resources you connected show a **Health** status of **Available** and a **Configuration status** of **Succeeded**. Your namespace is ready when all the services you need appear as connected.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI (Bash)](#tab/azure-cli)
 
 List the connected services and confirm that each one reports a `linkingState` of `Succeeded`:
 
 ```azurecli
+az iot adr ns link dps list --ns $NS --resource-group $RG
+az iot adr ns link hub list --ns $NS --resource-group $RG
+az iot adr ns link su list --ns $NS --resource-group $RG
+```
+
+If a `link add` command returns before the link finishes, run the matching `link <service> wait` command to track it.
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+List the connected services and confirm that each one reports a `linkingState` of `Succeeded`:
+
+```powershell
 az iot adr ns link dps list --ns $NS --resource-group $RG
 az iot adr ns link hub list --ns $NS --resource-group $RG
 az iot adr ns link su list --ns $NS --resource-group $RG
