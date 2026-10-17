@@ -48,11 +48,12 @@ The common symptoms are:
 
 ## What happens if LDAP signing is required but I don't enable LDAP signing for the Azure NetApp Files Active Directory connection?
 
-If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. 
+If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. This fallback behavior requires PTR records for the applicable Active Directory domain controllers.
 
-For environments that use Windows Server 2025 domain controllers, enabling LDAP signing on the Active Directory connection remains the recommended configuration. Enabling LDAP signing avoids relying on the fallback behavior.
+For environments that use Windows Server 2025 domain controllers, enable LDAP signing on the Azure NetApp Files Active Directory connection.
 
-PTR records are required for the Active Directory domain controllers for the LDAP signing fallback mechanism to function.
+> [!IMPORTANT] 
+> If you use Windows Server 2025 domain controllers with Azure NetApp Files, don't install Windows updates KB5126655 or KB5126651 at this time. Installing either update prevents Azure NetApp Files from using the LDAP signing fallback mechanism and can cause new SMB volume creation to fail when LDAP signing isn't enabled on the Active Directory connection. If either update is already installed, contact Microsoft Support for assistance.
 
 ## How do I enable root squashing?
 
