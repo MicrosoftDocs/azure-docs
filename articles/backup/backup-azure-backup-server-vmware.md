@@ -2,7 +2,7 @@
 title: Back up VMware VMs using Azure Backup Server
 description: Learn how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 07/15/2025
+ms.date: 10/17/2026
 ms.update-cycle: 1825-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -44,6 +44,7 @@ MABS provides the following features when backing up VMware virtual machines:
 
 | MABS versions | Supported VMware VM versions for backup |
 | --- | --- |
+| MABS v4 UR2 and later | VMware vSphere 9.0, 8.0, 7.0, 6.7, or 6.5 (Licensed version) |
 | MABS v4     | VMware server 8.0, 7.0, 6.7, or 6.5 (Licensed version) |
 | MABS v3 UR2 | VMware server 7.0, 6.7, 6.5, or 6.0 (Licensed Version) |
 | MABS v3 UR1 | VMware server 6.7, 6.5, 6.0, or 5.5 (Licensed Version) |
@@ -67,6 +68,7 @@ Before you start backing up a VMware virtual machine, review the following list 
 Before you back up VMware VMs using Azure Backup Server, ensure that the following prerequisites are met:
 
 - Verify that you're running a version of vCenter/ESXi that's supported for backup. Refer to the support matrix [here](./backup-mabs-protection-matrix.md).
+- To protect VMware vSphere 9.0 VMs, including VMs on vCenter Server 9.0 and ESXi 9.0, install MABS V4 Update Rollup 2 or a later update rollup for V4. For installation instructions, see the [MABS V4 UR2 release article](https://aka.ms/mabsv4ur2). Existing VMware backup and recovery prerequisites and limitations continue to apply.
 - Make sure you've set up Azure Backup Server. If you haven't, [do that](backup-azure-microsoft-azure-backup.md) before you start. You should be running Azure Backup Server with the latest updates.
 - Ensure the following network ports are open:
   - TCP 443 between MABS and vCenter
