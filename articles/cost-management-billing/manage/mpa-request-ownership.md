@@ -239,7 +239,9 @@ As an alternative, you can always use Exports in Cost Management to save the con
 
 ### Azure support plan
 
-Azure support doesn't transfer with the subscriptions. If the user transfers all Azure subscriptions, ask them to cancel their support plan. After the transfer, CSP partner is responsible for the support. The customer should work with CSP partner for any support request.  
+You can't transfer support plans. If you have a support plan, then you should cancel it. Then you can buy a new one for the new agreement. If you cancel an Azure support plan, you get billed for the rest of the month. Cancelling a support plan doesn't result in a prorated refund. For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/).
+
+For information about how to cancel a support plan, see [Cancel your Azure subscription](cancel-azure-subscription.md).  
 
 ### Charges for transferred subscription
 
@@ -268,6 +270,10 @@ The Microsoft Entra directory (tenant) of the Azure subscriptions that are trans
 If the subscriptions that the customer wants to transfer are in two or more tenants, the transition must happen multiple times. Establish reseller relationships with all tenants and send a separate invitation for each tenant. After the transitions are complete, each tenant appears as a separate customer in Partner Center because CSP identifies each tenant as a customer.
 
 To avoid multiple transitions, the customer can first move all subscriptions that they want to transfer to CSP into one tenant. For more information, see [Associate or add an Azure subscription to your Microsoft Entra tenant](/entra/fundamentals/how-subscriptions-associated-directory).
+
+### Active Microsoft Azure Consumption Commitment (MACC)
+
+If your subscription contains an active Microsoft Azure Consumption Commitment (MACC) agreement, you can't cancel or transfer the subscription because of the contractual obligation to fulfill the terms of the MACC commitment. The parent subscription must remain active as long as it contains an active MACC. Once the MACC expires, the subscription is able to be canceled or transferred.
 
 ### EA subscription in the non-organization directory
 
