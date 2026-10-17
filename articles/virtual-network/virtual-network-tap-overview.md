@@ -68,6 +68,10 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - East US 2
 - East US 2 EUAP
 - West US 3
+- Switzerland North
+- France Central
+- West Central US
+- Australia East
 
 ## Virtual network TAP partner solutions
 
