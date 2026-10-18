@@ -421,14 +421,12 @@ The command requires either one input `.bicep` file or `--pattern`, but not both
 | `--pattern` | glob | Generates documentation for every matching Bicep file. Can't be combined with an input file or `--outfile`. |
 | `--outdir` | folder | Writes the generated files beneath this folder. With `--pattern`, the relative folder structure of the matched modules is preserved. Can't be combined with `--outfile`. |
 | `--outfile` | path | Writes the single generated document to this exact path. |
-| `--template-file` | path | Uses a custom Scriban template instead of the built-in template. |
-| `--template-root` | folder | Sets the root folder for template `include` statements. Defaults to the module folder. |
 | `--custom-template-value` | `key=value` | Supplies one custom string value to the template. Can be repeated. |
 | `--custom-template-value-file-path` | path | Loads custom string values from a JSON object file. Can be repeated. |
 | `--no-restore` | none | Skips restoring external modules before compilation. |
 | `--diagnostics-format` | `default` or `sarif` | Sets the format for compilation diagnostics. |
 
-The output file name, template, and example discovery settings can also be configured under the `documentation` property in [_bicepconfig.json_](./generate-module-documentation.md#configure-documentation-settings). Options on the command line take precedence over the configuration file.
+The template and example discovery settings are configured only under the `documentation` property in [_bicepconfig.json_](./generate-module-documentation.md#configure-documentation-settings). The output file name is also configured there, and `--outfile` or `--outdir` override it for a single run.
 
 Any failure returns exit code `1`. When you use `--pattern`, the command continues past modules that fail to compile so that valid modules are still documented.
 

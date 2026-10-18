@@ -291,7 +291,7 @@ Relative paths in these settings are anchored differently depending on the prope
 * `examples.sources[].path` resolves relative to each module's own folder.
 * `examples.reassignments[].to` resolves relative to the parent module's folder.
 
-Settings passed on the command line override the configuration file. The `--outfile` and `--outdir` options replace the configured output file name for that run. The `--template-file` and `--template-root` options replace the configured template and include root. Custom template values are available only on the command line and can't be configured in _bicepconfig.json_.
+The template and example settings are read only from _bicepconfig.json_ and have no command-line equivalents. The `--outfile` and `--outdir` options replace the configured output file name for that run. Custom template values work the other way around: they're available only on the command line and can't be configured in _bicepconfig.json_.
 
 ### Understand which configuration file applies
 
@@ -341,7 +341,7 @@ The following configuration moves examples whose path contains a scope-specific 
 
 ## Customize the output with a template
 
-The built-in template produces Markdown. To change the layout, wording, or format, write a [Scriban](https://github.com/scriban/scriban) template and point the command to it. The template receives a `module` object that describes the compiled module, and a `custom` object that holds values you pass on the command line.
+The built-in template produces Markdown. To change the layout, wording, or format, write a [Scriban](https://github.com/scriban/scriban) template and reference it in _bicepconfig.json_. The template receives a `module` object that describes the compiled module, and a `custom` object that holds values you pass on the command line.
 
 The following template, _templates/readme.scriban_, lists parameters and outputs as bullet points and adds an owner line:
 
@@ -362,10 +362,22 @@ Owner: {{ custom.owner }}
 {{ end }}
 ```
 
-Pass the template with `--template-file`, and supply the custom value with `--custom-template-value`:
+Create a _bicepconfig.json_ file in the folder that contains the _storage_ and _templates_ folders, and set `documentation.template.file` to the template. A relative path resolves from the folder that contains _bicepconfig.json_:
+
+```json
+{
+  "documentation": {
+    "template": {
+      "file": "templates/readme.scriban"
+    }
+  }
+}
+```
+
+Then run the command and supply the custom value with `--custom-template-value`:
 
 ```bicepcli
-bicep docs generate ./storage/main.bicep --stdout --template-file ./templates/readme.scriban --custom-template-value owner="Platform Team"
+bicep docs generate ./storage/main.bicep --stdout --custom-template-value owner="Platform Team"
 ```
 
 The output for the module from earlier in this article looks like the following text:
@@ -394,8 +406,6 @@ Owner: Platform Team
 - `storageAccountId` (string): The resource ID of the storage account.
 ```
 
-To use the same template for every run, set `documentation.template.file` in _bicepconfig.json_ instead of passing `--template-file`.
-
 Rendered output uses `\n` line endings and ends with exactly one trailing newline. Template loops are limited to 100,000 iterations.
 
 ### Reuse fragments with includes
@@ -406,10 +416,17 @@ A template can pull in other files with the Scriban `include` statement:
 {{ include "_footer.md" }}
 ```
 
-Included files resolve from the module's folder by default. To keep shared fragments next to the template instead, set the include root with `--template-root` on the command line or with `documentation.template.includeRoot` in _bicepconfig.json_:
+Included files resolve from the module's folder by default. To keep shared fragments next to the template instead, set `documentation.template.includeRoot` in _bicepconfig.json_:
 
-```bicepcli
-bicep docs generate ./storage/main.bicep --template-file ./templates/readme.scriban --template-root ./templates
+```json
+{
+  "documentation": {
+    "template": {
+      "file": "templates/readme.scriban",
+      "includeRoot": "templates"
+    }
+  }
+}
 ```
 
 If an include can't be found, the command reports a render failure and doesn't write the output file.
