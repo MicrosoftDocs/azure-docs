@@ -7,7 +7,7 @@ manager: pmwongera
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.topic: troubleshooting
-ms.date: 05/06/2026
+ms.date: 10/19/2026
 ms.author: rolyon
 ms.custom:
   - seohack1
@@ -147,9 +147,13 @@ For example, if you create a role assignment for a managed identity, then you de
 
 The role assignment `name` isn't unique, and it's viewed as an update.
 
-Role assignments are uniquely identified by their name, which is a globally unique identifier (GUID). You can't create two role assignments with the same name, even in different Azure subscriptions. You also can't change the properties of an existing role assignment.
+Role assignments are uniquely identified by their name, which is a globally unique identifier (GUID). You can't create two role assignments with the same name, even in different Azure subscriptions.
+
+The tenant ID, application ID, principal ID (`principalId`), role definition ID (`roleDefinitionId`), and scope of an existing role assignment can't be changed. Reusing the same role assignment name doesn't allow you to replace the assigned principal or role. This restriction doesn't prevent supported updates to the `condition`, `conditionVersion`, and `description` properties. For more information, see [Edit a condition](conditions-role-assignments-cli.md#edit-a-condition).
 
 **Solution**
+
+To change the principal, role, or scope, delete the existing role assignment and create a new role assignment with a new name (GUID) and the desired values. Both operations require the appropriate permissions and must satisfy any applicable role assignment conditions. Plan the sequence carefully to avoid unintended access gaps or overlapping permissions.
 
 Provide an idempotent unique value for the role assignment `name`. It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. It's a good idea to use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
 
