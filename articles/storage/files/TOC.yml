@@ -277,6 +277,9 @@
   items:
   - name: Virtual desktops
     href: virtual-desktop-workloads.md
+    items:
+    - name: AVD Hybrid
+      href: azure-virtual-desktop-hybrid.md
   - name: Azure Kubernetes Service
     href: azure-kubernetes-service-workloads.md    
   - name: SAP

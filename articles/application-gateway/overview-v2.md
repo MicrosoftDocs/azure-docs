@@ -98,6 +98,7 @@ The following table shows the features available with each SKU.
 | WAF policy associations                           |          | &#x2713; |
 | Transport Layer Security (TLS)/Secure Sockets Layer (SSL) termination | &#x2713; | &#x2713; |
 | End-to-end TLS encryption                         | &#x2713; | &#x2713; |
+| Keyless TLS                                       |          | &#x2713; |
 | Session affinity                                  | &#x2713; | &#x2713; |
 | Custom error pages                                | &#x2713; | &#x2713; |
 | WebSocket support                                 | &#x2713; | &#x2713; |
