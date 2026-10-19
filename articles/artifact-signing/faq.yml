@@ -42,7 +42,7 @@ sections:
           For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
       - question: What are my support options when I set up Artifact Signing?
         answer: | 
-          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
+          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**).  
   - name: Identity validation
     questions:
       - question: What if I need to create another identity validation for the same organization with a different primary email address?
