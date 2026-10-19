@@ -16,7 +16,7 @@ ms.author: allensu
 **Strictly Typed Profiles (STP)** is a Traffic Manager feature that enforces IP address type consistency for Traffic Manager profiles, so DNS record sets can be linked to a profile via [Traffic Manager Linked Records](../dns/dns-traffic-manager-linked-records.md). Profile types can be set upon creation of a profile or in the configuration settings of a profile. Once the type is set, it can't be changed—preventing the type of misconfigurations that were possible with the older alias-to-Traffic Manager approach.
 
 > [!IMPORTANT]
-> Strictly Typed Profiles applies only to Traffic Manager profiles linked through Traffic Manager Linked Records. Existing Traffic Manager profiles used with alias records aren't affected unless you migrate them to Traffic Manager Linked Records.
+> Strictly typed profiles applies only to Traffic Manager profiles linked through Traffic Manager Linked Records. Existing Traffic Manager profiles used with alias records aren't affected unless you migrate them to Traffic Manager Linked Records.
 
 ## Why Strictly Typed Profiles?
 
