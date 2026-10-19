@@ -246,7 +246,7 @@ echo "Traffic Manager profile ID: $TM_PROFILE_ID"
 Use `az network dns record-set a create` with the `--traffic-management-profile` parameter to create the Traffic Manager Linked Record. The following command creates an A record at the zone apex (`@`).
 
 > [!NOTE]
-> The `--traffic-management-profile` parameter is available in Azure CLI version 2.60 and later, and requires an API version that supports Traffic Manager Linked Records (`2024-06-01-preview` or later).
+> The `--traffic-management-profile` parameter is available in Azure CLI version 2.60 and later, and requires an API version that supports Traffic Manager linked records (`2024-06-01-preview` or later).
 
 ```azurecli-interactive
 az network dns record-set a create \
