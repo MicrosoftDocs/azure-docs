@@ -29,6 +29,8 @@
     href: container-networking.md
   - name: Load balancing and resiliency
     items:
+    - name: Reliability in Application Gateway for Containers
+      href: /azure/reliability/reliability-application-gateway-containers?toc=/azure/application-gateway/for-containers/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
     - name: Load balancing strategies
       href: load-balancing-strategies.md
     - name: Custom health probe
