@@ -327,9 +327,6 @@ macOS clients can connect using the native VPN client (IKEv2 tunnel type) or an 
 
 If your point-to-site (P2S) VPN gateway is configured to use IKEv2 and certificate authentication, you can connect to your virtual network using the native VPN client that's part of your macOS operating system.
 
-> [!NOTE]
-> Your VPN gateway must be using a SKU other than the **Basic SKU**.
-
 #### Workflow
 
 1. Generate client certificates if you haven't already done so.
