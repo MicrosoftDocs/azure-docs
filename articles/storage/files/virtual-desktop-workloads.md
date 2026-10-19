@@ -192,5 +192,6 @@ If you're hitting the limits on maximum concurrent handles per file/directory, u
 
 ## See also
 
+- [Use Azure File Sync with Azure Virtual Desktop Hybrid](azure-virtual-desktop-hybrid.md)
 - [Storage considerations for Azure Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/storage)
 - [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile)
