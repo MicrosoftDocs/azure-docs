@@ -143,7 +143,7 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Operational logs
 - Virtual network and IP filtering logs
 - Runtime Audit logs
-- [DataDR logs](#datadr-logs)
+- [Geo-Replication logs](#geo-replication-logs)
 
 Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](/azure/azure-monitor/essentials/resource-logs) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables.
 
@@ -225,13 +225,13 @@ The following management operations are captured in operational logs:
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
 
-### DataDR logs
+### Geo-Replication logs
 
-DataDR logs capture replication lag for [Geo-Replication](service-bus-geo-replication.md), which replicates both metadata and message data between regions. Geo-Replication is available in the Premium tier. These logs describe Geo-Replication, rather than metadata-only [Geo-Disaster Recovery](service-bus-geo-dr.md).
+Geo-Replication logs capture replication lag for [Geo-Replication](service-bus-geo-replication.md), which replicates both metadata and message data between regions. Geo-Replication is available in the Premium tier. These logs describe Geo-Replication, rather than metadata-only [Geo-Disaster Recovery](service-bus-geo-dr.md).
 
 To collect these logs, enable the `DataDRLogs` category in your namespace's [diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings). For Log Analytics, this category uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 
-The following table describes the replication fields in exported DataDR records. Field names are case-sensitive in JSON.
+The following table describes the replication fields in exported Geo-Replication records. Field names are case-sensitive in JSON.
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -263,7 +263,7 @@ When `Properties` contains `Primary` and `Secondary` objects, each object descri
 | `LastEnqueuedSequenceNumber` | Integer | Sequence number of the last enqueued replication record. |
 | `LastEnqueuedTimeUtc` | String | UTC timestamp of the last enqueued replication record. |
 
-Here's an example of a DataDR record exported to Azure Storage. Identifying values are replaced with placeholders, and additional service-generated fields are omitted:
+Here's an example of a Geo-Replication record exported to Azure Storage. Identifying values are replaced with placeholders, and additional service-generated fields are omitted:
 
 ```json
 {
