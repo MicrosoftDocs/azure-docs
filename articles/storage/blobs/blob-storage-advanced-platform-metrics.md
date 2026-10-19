@@ -13,10 +13,7 @@ ms.custom:
 # Customer intent: "As a storage administrator, I want to use advanced platform metrics to monitor container-level capacity in Azure Blob Storage, so that I can optimize performance, manage costs, and support operational planning."
 ---
 
-# Advanced platform metrics for Azure Blob Storage (preview)
-
-> [!IMPORTANT]
-> Advanced platform metrics for Azure Blob Storage is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Advanced platform metrics for Azure Blob Storage
 
 Advanced platform metrics provides container-level capacity insights for Azure Blob Storage. This feature extends Azure Monitor's platform metrics to include per-container storage size and object count, helping you optimize performance, manage costs, and support operational planning.
 
