@@ -161,18 +161,44 @@ You learn how to:
 
 Now that your app works locally, deploy it to Azure App Service and set up a service connection to Azure OpenAI using managed identity.
 
-1. First, deploy your app to Azure App Service using the Azure CLI command `az webapp up`. This command creates a new web app in the same resource group as your OpenAI resource and deploys your code to it. The command might take a few minutes to complete.
+1. Create a Linux App Service plan in the same resource group as your OpenAI resource, then create a Node.js web app:
 
    ```azurecli
-   az webapp up \
+   az appservice plan create \
      --resource-group $RESOURCE_GROUP \
      --location $LOCATION \
      --name $APPSERVICE_NAME \
+     --sku P0v3 \
+     --is-linux
+   az webapp create \
+     --resource-group $RESOURCE_GROUP \
+     --name $APPSERVICE_NAME \
      --plan $APPSERVICE_NAME \
-     --sku B1 \
-     --os-type Linux \
-     --track-status false
+     --runtime "NODE:24-lts"
+   az webapp config appsettings set \
+     --resource-group $RESOURCE_GROUP \
+     --name $APPSERVICE_NAME \
+     --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
    ```
+
+   Build automation installs the dependencies in *package.json* during deployment.
+
+1. Package the app files from the project root, excluding your local *node_modules*:
+
+   ```bash
+   zip -r app.zip app.js bin public routes views package.json package-lock.json
+   ```
+
+1. Deploy the ZIP package:
+
+   ```bash
+   az webapp deploy \
+     --resource-group $RESOURCE_GROUP \
+     --name $APPSERVICE_NAME \
+     --src-path app.zip
+   ```
+
+   Deployment might take a few minutes to complete.
 
 1. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity. The following command creates a connection between your web app and the Azure OpenAI resource by: 
 
@@ -190,10 +216,10 @@ Now that your app works locally, deploy it to Azure App Service and set up a ser
      --system-identity
    ```
 
-1. Find the URL of your deployed app in the terminal output from the `az webapp up` command, and navigate to the app in your web browser.
+1. Open the deployed app in your web browser:
 
    ```azurecli
-   az webapp browse
+   az webapp browse --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME
    ```
 
 1. In your web app, enter a message in the textbox and select **Send**. Give the app a few seconds to reply with the message from Azure OpenAI.

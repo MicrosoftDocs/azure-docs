@@ -75,7 +75,7 @@ In the [Azure Cloud Shell](https://shell.azure.com), run the following command t
 
 ## Create and deploy apps
 
-Create the resource group, web app plan, and the web app, then deploy in a single step.
+Create a resource group and App Service plan, and then create and deploy the front-end and back-end apps. Run the following commands in Azure Cloud Shell.
 
 ::: zone pivot="platform-windows"  
 
@@ -85,10 +85,25 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
    cd js-e2e-web-app-easy-auth-app-to-app/frontend
    ```
 
-1. Create and deploy the front-end web app with the [az webapp up](/cli/azure/webapp#az-webapp-up) command. The web app name has to be globally unique. Replace `<front-end-app-name>` with a unique name. 
+1. Create the Windows plan and the front-end web app. The web app name must be globally unique. Replace `<front-end-app-name>` with a unique name.
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --os-type Windows --location "West Europe" --runtime "NODE:24LTS"
+   az group create --name myAuthResourceGroup --location westeurope
+   az appservice plan create --resource-group myAuthResourceGroup --name myPlan --sku P0v3
+   az webapp create --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --runtime "NODE:24LTS"
+   az webapp config appsettings set --resource-group myAuthResourceGroup --name <front-end-app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+   ```
+
+1. Package the front-end app without the local dependencies and environment files:
+
+   ```azurecli-interactive
+   zip -r ../frontend.zip . -x '*/node_modules/*' '*/.git/*' '*/.env*'
+   ```
+
+1. Deploy the front-end package:
+
+   ```azurecli-interactive
+   az webapp deploy --resource-group myAuthResourceGroup --name <front-end-app-name> --src-path ../frontend.zip --type zip
    ```
 
 1. Change into the `backend` web app directory.
@@ -97,10 +112,23 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
    cd ../backend
    ```
 
-1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique string of letters and numbers.
+1. Provision the back-end web app in the same resource group and plan. Replace `<back-end-app-name>` with a globally unique name.
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --os-type Windows --location "West Europe" --runtime "NODE:24LTS"
+    az webapp create --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --runtime "NODE:24LTS"
+    az webapp config appsettings set --resource-group myAuthResourceGroup --name <back-end-app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+    ```
+
+1. Package the back-end app without the local dependencies and environment files:
+
+    ```azurecli-interactive
+    zip -r ../backend.zip . -x '*/node_modules/*' '*/.git/*' '*/.env*'
+    ```
+
+1. Deploy the back-end package:
+
+    ```azurecli-interactive
+    az webapp deploy --resource-group myAuthResourceGroup --name <back-end-app-name> --src-path ../backend.zip --type zip
     ```
 
 ::: zone-end
@@ -110,14 +138,29 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
 1. Change into the `frontend` web app directory.
 
    ```azurecli-interactive
-   cd frontend
+   cd js-e2e-web-app-easy-auth-app-to-app/frontend
    ```
 
-1. Create and deploy the front-end web app with the [az webapp up](/cli/azure/webapp#az-webapp-up) command. The web app name has to be globally unique. Replace `<front-end-app-name>` with a unique string of letters and numbers. 
+1. Create the Linux plan and the front-end web app. Replace `<front-end-app-name>` with a globally unique name.
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:24-lts"
-    ```
+   az group create --name myAuthResourceGroup --location westeurope
+   az appservice plan create --resource-group myAuthResourceGroup --name myPlan --sku P0v3 --is-linux
+   az webapp create --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --runtime "NODE:24-lts"
+   az webapp config appsettings set --resource-group myAuthResourceGroup --name <front-end-app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+   ```
+
+1. Package the front-end app without the local dependencies and environment files:
+
+   ```azurecli-interactive
+   zip -r ../frontend.zip . -x '*/node_modules/*' '*/.git/*' '*/.env*'
+   ```
+
+1. Deploy the front-end package:
+
+   ```azurecli-interactive
+   az webapp deploy --resource-group myAuthResourceGroup --name <front-end-app-name> --src-path ../frontend.zip --type zip
+   ```
 
 1. Change into the `backend` web app directory.
 
@@ -125,10 +168,23 @@ Create the resource group, web app plan, and the web app, then deploy in a singl
    cd ../backend
    ```
 
-1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique string of letters and numbers. 
+1. Provision the back-end web app in the same resource group and plan. Replace `<back-end-app-name>` with a globally unique name.
 
    ```azurecli-interactive
-   az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --sku FREE --location "West Europe" --runtime "NODE:24-lts"
+   az webapp create --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --runtime "NODE:24-lts"
+   az webapp config appsettings set --resource-group myAuthResourceGroup --name <back-end-app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+   ```
+
+1. Package the back-end app without the local dependencies and environment files:
+
+   ```azurecli-interactive
+   zip -r ../backend.zip . -x '*/node_modules/*' '*/.git/*' '*/.env*'
+   ```
+
+1. Deploy the back-end package:
+
+   ```azurecli-interactive
+   az webapp deploy --resource-group myAuthResourceGroup --name <back-end-app-name> --src-path ../backend.zip --type zip
    ```
 
 ::: zone-end
@@ -388,7 +444,7 @@ The front-end and back-end apps both have `/debug` routes to help debug the auth
     - /src/index.js 
 
 1. Verify the *package.json* `name` property is the same as the web name, either `frontend` or `backend`.
-1. If you changed the source code, and need to redeploy, use the [az webapp up](/cli/azure/webapp#az-webapp-up) command from the directory that has the *package.json* file for that app.
+1. If you changed the source code, re-create the ZIP archive from the directory with the app's *package.json* file. Then run `az webapp deploy --resource-group myAuthResourceGroup --name <app-name> --src-path <archive-path> --type zip` with the corresponding front-end or back-end app name and archive.
 
 ### Did the application start correctly?
 
