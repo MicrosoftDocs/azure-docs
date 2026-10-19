@@ -23,7 +23,7 @@ ms.custom:
 
 In this quickstart, you learn how to create and deploy your first Node.js ([Express](https://www.expressjs.com)) web app to [Azure App Service](overview.md). App Service supports various versions of Node.js on both Linux and Windows.
 
-This quickstart configures an App Service app in the Free tier and incurs no cost for your Azure subscription.
+The Azure CLI steps in this quickstart use the paid Premium v3 tier. The Visual Studio Code and Azure portal steps show how to use the Free tier.
 
 This video shows you how to deploy a Node.js web app in Azure.
 > [!VIDEO c66346dd-9fde-4cef-b135-47d3051d5db5]
@@ -180,58 +180,40 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 :::zone target="docs" pivot="development-environment-cli"
 
-In the terminal, ensure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the [az webapp up](/cli/azure/webapp#az-webapp-up) command:
+In the terminal, ensure you're in the *myExpressApp* directory. Replace `<app-name>` with a globally unique name, then create the resource group, App Service plan, and app. Set `SCM_DO_BUILD_DURING_DEPLOYMENT` so App Service installs the dependencies and builds the app when you deploy the source archive.
 
 # [Deploy to Linux](#tab/linux)
 
 ```azurecli
-az webapp up --sku F1 --name <app-name>
+az group create --name myResourceGroup --location eastus
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku P0v3 --is-linux
+az webapp create --name <app-name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "NODE:24-lts"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
 
 # [Deploy to Windows](#tab/windows)
 
 ```azurecli
-az webapp up --sku F1 --name <app-name> --os-type Windows
+az group create --name myResourceGroup --location eastus
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku P0v3
+az webapp create --name <app-name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "NODE:24LTS"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
 
 -----
 
 - If the `az` command isn't recognized, ensure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
-- Replace `<app_name>` with a name that's unique across all of Azure. (*Valid characters are `a-z`, `0-9`, and `-`*.) A good pattern is to use a combination of your company name and an app identifier.
-- The `--sku F1` argument creates the web app on the Free pricing tier, which incurs no cost.
-- You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
-- The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
-- If you see the error, "Could not auto-detect the runtime stack of your app," ensure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md).)
+- Replace `<app-name>` with a name that's unique across all of Azure (valid characters are `a-z`, `0-9`, and `-`).
+- The `--sku P0v3` argument selects the paid Premium v3 pricing tier. Replace `eastus` with your preferred region; list available regions with [`az account list-locations`](/cli/azure/account#az-account-list-locations).
+- `--is-linux` selects a Linux plan. Omit it for a Windows plan, as shown in the Windows tab.
 
-The command might take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing Zip deployment. It then returns a message that includes the app's URL, which is the app's URL on Azure.
+Create a ZIP archive of the files in *myExpressApp*, not the enclosing directory. On Linux or macOS, run `zip -r ../app.zip . -x '*/node_modules/*' '*/.git/*' '*/.env*'` from *myExpressApp*. On Windows, run `Compress-Archive -Path (Get-ChildItem -Force -Name | Where-Object { $_ -notin @('node_modules', '.git') -and $_ -notlike '.env*' }) -DestinationPath ..\app.zip` in PowerShell from *myExpressApp*. Then deploy the archive:
 
-```output
-The webapp '<app-name>' doesn't exist
-Creating Resource group '<group-name>' ...
-Resource group creation complete
-Creating AppServicePlan '<app-service-plan-name>' ...
-Creating webapp '<app-name>' ...
-Configuring default logging for the app, if not already enabled
-Creating zip with contents of dir /home/cephas/myExpressApp ...
-Getting scm site credentials for zip deployment
-Starting zip deployment. This operation can take a while to complete ...
-Deployment endpoint responded with status code 202
-You can launch the app at <URL>
-{
-  "URL": "<URL>",
-  "appserviceplan": "<app-service-plan-name>",
-  "location": "centralus",
-  "name": "<app-name>",
-  "os": "<os-type>",
-  "resourcegroup": "<group-name>",
-  "runtime_version": "node|24",
-  "runtime_version_detected": "0.0",
-  "sku": "FREE",
-  "src_path": "/home/cephas/myExpressApp"
-}
+```azurecli
+az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path ../app.zip --type zip
 ```
 
-[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
+Browse to `https://<app-name>.azurewebsites.net` to see the app.
 
 ::: zone-end
 
@@ -317,13 +299,13 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 :::zone target="docs" pivot="development-environment-cli"
 
-2. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments for Linux. Add `--os-type Windows` for Windows:
+2. Save your changes, re-create *../app.zip* from the app files as described in [Deploy to Azure](#deploy-to-azure), and redeploy:
 
     ```azurecli
-    az webapp up
+    az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path ../app.zip --type zip
     ```
 
-    This command uses values that are cached locally in the *.azure/config* file, such as the app name, resource group, and App Service plan.
+    Replace `<app-name>` with the name you used when you created the web app.
 
 1. Once deployment is complete, refresh the webpage. You should see that the `Welcome to Express` message was changed to `Welcome to Azure`.
 
@@ -368,13 +350,13 @@ You can access the console logs generated from inside the app and the container 
 
 To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail) command:
 
+- Enable logging first: on Linux, run `az webapp log config --resource-group myResourceGroup --name <app-name> --docker-container-logging filesystem`; on Windows, run `az webapp log config --resource-group myResourceGroup --name <app-name> --application-logging filesystem`.
+
 ```azurecli
-az webapp log tail
+az webapp log tail --resource-group myResourceGroup --name <app-name>
 ```
 
-The command uses the resource group name cached in the *.azure/config* file.
-
-You can also include the `--logs` parameter with the [az webapp up](/cli/azure/webapp#az-webapp-up) command to automatically open the log stream on deployment.
+Replace `<app-name>` with the name you used when you created the web app.
 
 Refresh the app in the browser to generate console logs, which include messages describing HTTP requests to the app. If no output appears immediately, try again in 30 seconds.
 
@@ -433,15 +415,13 @@ In the preceding steps, you created Azure resources in a resource group. The ste
 
 :::zone target="docs" pivot="development-environment-cli"
 
-In the preceding steps, you created Azure resources in a resource group. The resource group has a name like *appsvc_rg_Linux_CentralUS*, depending on your location.
+In the preceding CLI steps, you created Azure resources in *myResourceGroup*.
 
 If you don't expect to need these resources in the future, delete the resource group by running the following command:
 
 ```azurecli
-az group delete --no-wait
+az group delete --name myResourceGroup --no-wait
 ```
-
-The command uses the resource group name cached in the *.azure/config* file.
 
 The `--no-wait` argument allows the command to return before the operation is complete.
 

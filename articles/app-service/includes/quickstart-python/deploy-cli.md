@@ -5,6 +5,6 @@ ms.topic: include
 ms.date: 04/01/2022
 ms.service: azure-app-service
 ---
-Since the `az webapp up` command created the necessary resources and deployed your application in a single step, you can move on to the next step.
+The Azure CLI commands in the preceding step created the resources and deployed your application. You can move on to the next step.
 
 ---

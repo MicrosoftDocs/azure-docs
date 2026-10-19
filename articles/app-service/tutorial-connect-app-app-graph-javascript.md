@@ -54,7 +54,7 @@ This tutorial extends the architecture:
 1. Change the application code to convert the access token sent from the front-end app to an access token with the required permission for Microsoft Graph.
 1. Provide code to have back-end app **exchange token** for new token with scope of downstream Azure service such as Microsoft Graph.
 1. Provide code to have back-end app **use new token** to access downstream service as the current authenticated user.
-1. **Redeploy** back-end app with `az webapp up`.
+1. **Redeploy** the back-end app with `az webapp deploy`.
 1. At the end of this tutorial, a _real_ profile is returned to the front-end app because Graph is connected.
 
 This tutorial doesn't:
@@ -138,10 +138,17 @@ The source code to complete this step is provided for you. Use the following ste
     ```
 
 1. Save the changes: <kbd>Ctrl</kbd> + <kbd>s</kbd>.
-1. Redeploy the back-end app:
+1. Package the updated back-end app without local dependencies and environment files:
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> 
+    zip -r ../backend-graph.zip . -x '*/node_modules/*' '*/.git/*' '*/.env*'
+    ```
+
+1. Deploy the updated package:
+
+    ```azurecli-interactive
+    az webapp deploy --resource-group myAuthResourceGroup --name <back-end-app-name> --src-path ../backend-graph.zip --type zip
+    ```
 
 <a name="4-inspect-backend-code-to-exchange-backend-api-token-for-the-microsoft-graph-token"></a>
 
