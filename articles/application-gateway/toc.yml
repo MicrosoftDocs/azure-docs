@@ -103,6 +103,8 @@
     href: key-vault-certs.md
   - name: SSL certificate management
     href: ssl-certificate-management.md
+  - name: Keyless TLS and Managed HSM
+    href: keyless-tls-overview.md
   - name: FIPS 140 support on V2
     href: fips.md
   - name: Security baseline
@@ -143,6 +145,8 @@
     items:
     - name: SSL termination
       items:
+      - name: Keyless TLS and Managed HSM
+        href: keyless-tls.md
       - name: SSL termination - PowerShell
         href: tutorial-ssl-powershell.md
       - name: SSL termination - Azure CLI
