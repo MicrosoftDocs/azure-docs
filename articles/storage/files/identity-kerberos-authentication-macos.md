@@ -1,11 +1,11 @@
 ---
 title: Enable Microsoft Entra Kerberos Authentication for Azure Files on macOS with Platform SSO (preview)
 description: Learn how to configure Microsoft Entra Kerberos authentication for SMB Azure file shares on macOS devices using Platform Single Sign-On (SSO). Once configured, macOS users can access Azure file shares seamlessly without being prompted for credentials.
-author: khdownie
+author: shekharsorot
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/23/2026
-ms.author: kendownie
+ms.date: 10/16/2026
+ms.author: shsorot
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication for SMB Azure file shares on macOS devices using Platform SSO, so that macOS users can mount and access Azure file shares without being prompted for credentials.
 ---
 
@@ -13,7 +13,10 @@ ms.author: kendownie
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-This article explains how to configure Microsoft Entra Kerberos authentication for Azure Files on macOS devices by using [macOS Platform Single Sign-On (PSSO)](/entra/identity/devices/macos-psso) (preview). By using this configuration, Microsoft Entra joined macOS devices can access SMB Azure file shares seamlessly by using cloud-based Kerberos Ticket Granting Tickets (TGTs), without prompting users for credentials.
+This article explains how to configure Microsoft Entra Kerberos authentication for Azure Files on macOS devices by using [macOS Platform Single Sign-On (PSSO)](/entra/identity/devices/macos-psso). By using this configuration, Microsoft Entra joined macOS devices can access SMB Azure file shares seamlessly by using cloud-based Kerberos Ticket Granting Tickets (TGTs), without prompting users for credentials.
+
+> [!IMPORTANT]
+> Microsoft Entra Kerberos authentication for Azure Files on macOS is in public preview. For legal terms that apply to Azure features in preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 macOS Platform SSO integrates Mac devices with Microsoft Entra ID and enables users to sign in with their Microsoft Entra ID credentials by using a hardware-bound key, smart card, or Microsoft Entra ID password. In addition to the Platform SSO Primary Refresh Token (PRT), Microsoft Entra ID issues a cloud Kerberos TGT, which is shared with the native macOS Kerberos stack through TGT mapping in PSSO. On-premises Kerberos TGTs can also be obtained when the client is configured (for example, through Intune) to query on-premises domain controllers. This configuration enables seamless single sign-on to Azure Files without prompting users for interactive credentials.
 
