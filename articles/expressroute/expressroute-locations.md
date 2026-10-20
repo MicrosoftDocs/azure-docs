@@ -250,7 +250,7 @@ The following table shows locations by service provider. If you want to view ava
 | **`Vodafone Qatar`** | &check; | &check; | Doha |
 | **[`Vorboss Limited`](https://vorboss.com/)** | &check; | &check; | Amsterdam2<br/>London<br/>London2<br/>Newport(Wales) |
 | **`XL Axiata`** | &check; | &check; | Jakarta<br/>Jakarta2 |
-| **[`Zayo`](https://www.zayo.com/services/packet/cloudlink/)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Denver<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Minneapolis<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>San Antonio<br/>Sao Paulo<br/>Seattle<br/>Silicon Valley<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC2<br/>Zurich |
+| **[`Zayo`](https://www.zayo.com/services/network-connectivity/cloudlink/)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Denver<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Minneapolis<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>San Antonio<br/>Sao Paulo<br/>Seattle<br/>Silicon Valley<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC2<br/>Zurich |
 | **[`Zenlayer`](https://www.zenlayer.com/)** | &check; | &check; | Frankfurt<br/>Frankfurt2<br/>Hong Kong SAR<br/>Hong Kong2<br/>Jakarta<br/>Jakarta2<br/>Kuala Lumpur<br/>Kuala Lumpur2<br/>Mumbai<br/>Singapore<br/>Singapore2<br/>Washington DC |
 | **[`Ziply Fiber`](https://www.ziplyfiber.com/)** | &check; | &check; | Portland<br/>Quincy |
 

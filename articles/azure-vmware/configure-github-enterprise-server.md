@@ -96,7 +96,7 @@ At this point, you should have an instance of GitHub Enterprise Server running, 
 
 Create somewhere for GitHub Actions to run using Azure VMware Solution.
 
-1. Configure a new VM on the cluster and base it on [a recent release of Ubuntu Server](http://releases.ubuntu.com/20.04.1/).
+1. Configure a new VM on the cluster and base it on [a recent release of Ubuntu Server](https://releases.ubuntu.com/20.04/).
 
    :::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="Screenshot showing the virtual machine name and location to configure a new VM.":::
 
