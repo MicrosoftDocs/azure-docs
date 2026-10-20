@@ -67,8 +67,10 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
             Specifies that the data, log, and shared volumes are to be created close to the VMs. Have at least one **deployed and running** HANA VM in the availability set with the assigned PPG. 
     * **Network features**: 
 
-        Standard network features is the default, however you can still use Basic network features. 
+        Standard network features is the default. The use of Basic network features is no longer supported. 
         See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
+    * **Availability zone volume placement**: For the best latency and therefore the best performance experience for your application, ensure Azure NetApp Files volumes are deployed in the same           availability zone as the application VM's they will serve. See [guidelines for Azure NetApp Files network planning](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-network-topologies).
+
     * **Capacity pool**:  
         All volumes are placed in a single manual QoS capacity pool. 
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
