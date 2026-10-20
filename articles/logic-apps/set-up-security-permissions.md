@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rohithah, azla
 ms.topic: how-to
-ms.date: 09/18/2026
+ms.date: 10/19/2026
 ms.update-cycle: 1095-days
 ai-usage: ai-assisted
 ms.custom:
@@ -135,7 +135,7 @@ To specify the allowed IP ranges, follow these steps for your Consumption or Sta
 
 1. Under **Site access and rules**, on the **Main site** tab, add one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
 
-   For more information, see [Blocking inbound IP addresses in Azure Logic Apps (Standard)](https://www.serverlessnotes.com/docs/block-inbound-ip-addresses-in-azure-logic-apps-standard).
+   The access restriction feature is inherited from Azure App Service. For more information, see [Azure App Service access restrictions](../app-service/overview-access-restrictions.md).
 
 #### [Resource Manager Template](#tab/azure-resource-manager)
 
