@@ -229,7 +229,7 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.OperationalInsights/workspaces | [list](/rest/api/loganalytics/workspaces/list) |
 | Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy/remediations/listdeploymentsatresourcegroup) |
-| Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
+| Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/standard/open-shift-clusters/list-credentials) |
 | Microsoft.Relay/namespaces/authorizationRules | [listKeys](/rest/api/relay/controlplane-stable/namespaces/list-keys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listKeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listKeys](/rest/api/relay/controlplane-stable/hybrid-connections/list-keys) |

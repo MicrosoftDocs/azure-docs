@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 07/30/2026
+ms.date: 10/06/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -266,6 +266,25 @@ Starting in release 2605, the MQTT connector can't connect to external MQTT brok
 ## Data flows issues
 
 This section lists current known issues for data flows.
+
+### Upgrade fails with an ACR registry endpoint audience mismatch
+
+An Azure IoT Operations upgrade can fail and roll back if a data flow graph uses an Azure Container Registry (ACR) registry endpoint with an explicitly configured Azure Resource Manager (ARM) audience or scope. Earlier documentation examples used the ARM audience, so an existing configuration that worked before the upgrade can be affected.
+
+The Dataflows operator logs an audience mismatch error similar to:
+
+```output
+audience 'https://management.azure.com/' does not match the expected audience 'https://containerregistry.azure.net'
+```
+
+Workaround: Update the existing registry endpoint Azure resource through Azure Resource Manager before retrying the upgrade:
+
+- For system-assigned managed identity authentication, change `properties.authentication.systemAssignedManagedIdentitySettings.audience` from `https://management.azure.com/` to `https://containerregistry.azure.net`.
+- For user-assigned managed identity authentication, change `properties.authentication.userAssignedManagedIdentitySettings.scope` from `https://management.azure.com/.default` to `https://containerregistry.azure.net/.default`.
+
+Preserve the other registry endpoint properties and authentication settings. Update the existing resource rather than only changing a local deployment file or omitting an argument from an update command. After the Azure resource and its corresponding cluster configuration reflect the new value, retry the upgrade.
+
+For registry endpoint configuration examples, see [Configure registry endpoints](../develop-edge-apps/howto-configure-registry-endpoint.md).
 
 ### Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com
 

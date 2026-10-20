@@ -45,7 +45,9 @@ Only one public IP address and one private IP address are supported per IP proto
 
 A frontend IP address is associated to a *listener*, which checks for incoming requests on the frontend IP.
 
-You can create private and public listeners with the same port number. However, be aware of any network security group (NSG) associated with the Application Gateway subnet. Depending on your NSG's configuration, you might need an allow-inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs. When you use the same port, your application gateway changes the **Destination** of the inbound flow to the frontend IPs of your gateway.
+On Application Gateway v2, public and private IPv4 HTTP and HTTPS listeners can use the same frontend port. A public IPv6 listener and a private IPv6 listener must use different frontend ports.
+
+When public and private IPv4 listeners share a frontend port, be aware of any network security group (NSG) associated with the Application Gateway subnet. Depending on your NSG's configuration, you might need an allow-inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs. When you use the same port, your application gateway changes the **Destination** of the inbound flow to the frontend IPs of your gateway.
 
  **Inbound rule**:
 
