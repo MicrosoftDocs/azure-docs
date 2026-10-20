@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 06/09/2025
+ms.date: 10/12/2026
 ms.author: cshoe
 ---
 
@@ -14,12 +14,15 @@ ms.author: cshoe
 
 Learn to write to permanent storage in a container app using an Azure Files storage mount. For more information about storage mounts, see [Use storage mounts in Azure Container Apps](storage-mounts.md).
 
+This tutorial uses managed identity authentication (preview), which we recommend for new SMB file mounts. The managed identity belongs to the Container Apps environment. You don't need to retrieve, store, or rotate a storage account key to mount the share.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Container Apps environment
 > * Create an Azure Storage account
 > * Define a file share in the storage account
+> * Grant the environment's managed identity access to the file share
 > * Link the environment to the storage file share
 > * Mount the storage share in an individual container
 > * Verify the storage mount by viewing the website access log
@@ -30,6 +33,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli).
+- Use an Azure subscription with permissions to create resources and assign Azure role-based access control (Azure RBAC) roles. To assign roles, you need `Microsoft.Authorization/roleAssignments/write` permission at the storage account scope.
 
 ## Set up the environment
 
@@ -158,6 +162,7 @@ The following steps create a resource group and a Container Apps environment.
       --name $ENVIRONMENT_NAME \
       --resource-group $RESOURCE_GROUP \
       --location "$LOCATION" \
+      --mi-system-assigned \
       --query "properties.provisioningState"
     ```
 
@@ -168,12 +173,15 @@ The following steps create a resource group and a Container Apps environment.
       --name $ENVIRONMENT_NAME `
       --resource-group $RESOURCE_GROUP `
       --location "$LOCATION" `
+      --mi-system-assigned `
       --query "properties.provisioningState"
     ```
 
     ---
 
     Once created, the command returns a "Succeeded" message.
+
+    Use the `--mi-system-assigned` flag to enable the environment's system-assigned managed identity. In later steps, you grant this identity access to the file share.
 
     Storage mounts are associated with a Container Apps environment and configured within individual container apps.
 
@@ -211,6 +219,7 @@ Next, create a storage account and establish a file share to mount to the contai
       --kind StorageV2 \
       --sku Standard_LRS \
       --enable-large-file-share \
+      --enable-smb-oauth true \
       --query provisioningState
     ```
 
@@ -224,12 +233,17 @@ Next, create a storage account and establish a file share to mount to the contai
       --kind StorageV2 `
       --sku Standard_LRS `
       --enable-large-file-share `
+      --enable-smb-oauth true `
       --query provisioningState
     ```
 
     ---
 
     Once created, the command returns a "Succeeded" message.
+
+    The `--enable-smb-oauth true` flag enables **Managed Identity for SMB** (`SMBOAuth`) on the storage account. If you use an existing storage account, enable this setting before creating the mount. For instructions, see [Configure the managed identity's access property on your storage account](../storage/files/files-managed-identities.md?tabs=cli&pivots=linux#configure-the-managed-identitys-access-property-on-your-storage-account).
+
+    The storage account's SMB security settings must also allow Kerberos authentication. If you use a custom SMB security profile, see [SMB security settings](../storage/files/files-smb-protocol.md#smb-security-settings).
 
 1. Define a file share name.
 
@@ -275,24 +289,6 @@ Next, create a storage account and establish a file share to mount to the contai
 
     ---
 
-1. Get the storage account key.
-
-    # [Bash](#tab/bash)
-
-    ```bash
-    STORAGE_ACCOUNT_KEY=`az storage account keys list -n $STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv`
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    $STORAGE_ACCOUNT_KEY=$(az storage account keys list -n $STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
-    ```
-
-    ---
-
-    The storage account key is required to create the storage link in your Container Apps environment. Container Apps does not support identity-based access to Azure file shares.
-
 1. Define the storage mount name.
 
     # [Bash](#tab/bash)
@@ -311,6 +307,58 @@ Next, create a storage account and establish a file share to mount to the contai
 
     This value is the name used to define the storage mount link from your Container Apps environment to your Azure Storage account.
 
+## Grant the managed identity access
+
+Assign the [Storage File Data SMB MI Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-mi-admin) role to the environment's managed identity at the storage account scope. This role authorizes the identity to access files and directories in the SMB share.
+
+# [Bash](#tab/bash)
+
+```azurecli
+ENVIRONMENT_PRINCIPAL_ID=$(az containerapp env show \
+  --name $ENVIRONMENT_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --query identity.principalId \
+  --output tsv)
+
+STORAGE_ACCOUNT_ID=$(az storage account show \
+  --name $STORAGE_ACCOUNT_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --query id \
+  --output tsv)
+
+az role assignment create \
+  --assignee-object-id "$ENVIRONMENT_PRINCIPAL_ID" \
+  --assignee-principal-type ServicePrincipal \
+  --role "Storage File Data SMB MI Admin" \
+  --scope "$STORAGE_ACCOUNT_ID"
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$ENVIRONMENT_PRINCIPAL_ID=$(az containerapp env show `
+  --name $ENVIRONMENT_NAME `
+  --resource-group $RESOURCE_GROUP `
+  --query identity.principalId `
+  --output tsv)
+
+$STORAGE_ACCOUNT_ID=$(az storage account show `
+  --name $STORAGE_ACCOUNT_NAME `
+  --resource-group $RESOURCE_GROUP `
+  --query id `
+  --output tsv)
+
+az role assignment create `
+  --assignee-object-id "$ENVIRONMENT_PRINCIPAL_ID" `
+  --assignee-principal-type ServicePrincipal `
+  --role "Storage File Data SMB MI Admin" `
+  --scope "$STORAGE_ACCOUNT_ID"
+```
+
+---
+
+Allow time for the role assignment to propagate before creating the storage mount. To assign the role in the Azure portal instead, see [Assign a built-in RBAC role to the managed identity](../storage/files/files-managed-identities.md?tabs=portal&pivots=linux#assign-a-built-in-rbac-role-to-the-managed-identity).
+
 ## Create the storage mount
 
 Now you can update the container app configuration to support the storage mount.
@@ -322,8 +370,9 @@ Now you can update the container app configuration to support the storage mount.
     ```azurecli
     az containerapp env storage set \
       --access-mode ReadWrite \
+      --storage-type AzureFile \
       --azure-file-account-name $STORAGE_ACCOUNT_NAME \
-      --azure-file-account-key $STORAGE_ACCOUNT_KEY \
+      --azure-file-identity system \
       --azure-file-share-name $STORAGE_SHARE_NAME \
       --storage-name $STORAGE_MOUNT_NAME \
       --name $ENVIRONMENT_NAME \
@@ -336,8 +385,9 @@ Now you can update the container app configuration to support the storage mount.
     ```powershell
     az containerapp env storage set `
       --access-mode ReadWrite `
+      --storage-type AzureFile `
       --azure-file-account-name $STORAGE_ACCOUNT_NAME `
-      --azure-file-account-key $STORAGE_ACCOUNT_KEY `
+      --azure-file-identity system `
       --azure-file-share-name $STORAGE_SHARE_NAME `
       --storage-name $STORAGE_MOUNT_NAME `
       --name $ENVIRONMENT_NAME `
@@ -347,7 +397,9 @@ Now you can update the container app configuration to support the storage mount.
 
     ---
 
-    This command creates a link between container app environment and the file share created with the `az storage share-rm` command.
+    This command creates a link between the Container Apps environment and the file share created with the `az storage share-rm` command. The `--azure-file-identity system` option authenticates to Azure Files by using the environment's system-assigned managed identity.
+
+    For a user-assigned managed identity, assign the identity to the environment and use its full resource ID instead of `system`. Storage account key authentication remains supported as an alternative. Don't combine `--azure-file-identity` with `--azure-file-account-key` or `--azure-file-key-vault-secret-url`. For examples, see [Use storage mounts in Azure Container Apps](storage-mounts.md).
 
     Now that the storage account and environment are linked, you can create a container app that uses the storage mount.
 
@@ -473,11 +525,13 @@ Now you can update the container app configuration to support the storage mount.
 
     | Property | Description |
     |--|--|
-    | `name` | This value matches the volume created by calling the `az containerapp env storage set` command. |
-    | `storageName` | This value defines the name used by containers in the environment to access the storage volume. |
+    | `name` | This value identifies the app-level volume and is referenced by `volumeName` in the container's volume mount. |
+    | `storageName` | This value matches the storage definition name created by calling the `az containerapp env storage set` command. |
     | `storageType` | This value determines the type of storage volume defined for the environment. In this case, an Azure Files mount is declared. |
 
     The `volumes` section defines volumes at the app level that your application container or sidecar containers can reference via a `volumeMounts` section associated with a container.
+
+    Managed identity authentication doesn't change the app-level volume configuration. Continue to use `storageType: AzureFile` for SMB mounts.
 
 1. Add a `volumeMounts` section to the `nginx` container in the `containers` section.
 
@@ -597,7 +651,7 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
 1. Under **Data Storage** select **File shares**.
 
-1. Select **myshare** to view the *access.log* and *error.log* files.
+1. Select **myfileshare** to view the *access.log* and *error.log* files.
 
 ## Clean up resources
 
