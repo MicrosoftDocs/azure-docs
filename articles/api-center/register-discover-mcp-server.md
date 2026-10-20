@@ -171,4 +171,4 @@ To configure [custom metadata properties](metadata.md#custom-metadata) to appear
 * [About MCP servers in API Management](../api-management/mcp-server-overview.md)
 * [Import APIs to your API center from API Management](import-api-management-apis.md)
 * [Use the Visual Studio extension for API Center](build-register-apis-vscode-extension.md) to build and register APIs from Visual Studio Code.
-* For a live example of how Azure API Center can power your private, enterprise-ready MCP registry, visit [MCP Center](https://mcp.azure.com).
+* For a live example of how Azure API Center can power your private, enterprise-ready MCP registry, visit [MCP Center](https://registry.modelcontextprotocol.io/).

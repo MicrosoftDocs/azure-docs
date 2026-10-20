@@ -86,7 +86,7 @@ Your agent includes connectors for popular platforms. These connectors have pref
 For partner connectors, the authentication method is set and locked. You enter the credential values.
 
 > [!TIP]
-> Browse [Azure MCP Center](https://mcp.azure.com) for verified MCP servers for Azure services.
+> Browse [Azure MCP Center](https://registry.modelcontextprotocol.io/) for verified MCP servers for Azure services.
 
 ## How tools reach your agents
 

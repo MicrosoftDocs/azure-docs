@@ -37,7 +37,7 @@ Microsoft offers a framework to get you started with Azure. The [Cloud Adoption 
 
 Several aspects are important when considering migrations of file data to Azure. Before proceeding learn more
 
-- [Storage Migration Overview](https://www.atempo.com/solutions/miria-large-data-and-file-migration-and-copy-2/)
+- [Storage Migration Overview](https://www.atempo.com/solutions/data-mobility-migration/)
 - Latest supported features by Miria in the [Migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
 
 Remember, you need enough network capacity to support migrations without impacting production applications. This section outlines the tools and techniques that are available to assess your network needs.
