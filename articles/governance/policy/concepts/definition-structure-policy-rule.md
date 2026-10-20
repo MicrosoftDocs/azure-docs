@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
-ms.date: 03/19/2025
+ms.date: 10/20/2026
 ms.topic: concept-article
 ---
 
@@ -90,7 +90,7 @@ When using the `match` and `notMatch` conditions, provide a hashtag (`#`) to mat
 
 ## Fields
 
-Conditions that evaluate whether the values of properties in the resource request payload meet certain criteria can be formed using a `field` expression. The following fields are supported:
+Conditions that evaluate whether the values of properties in the resource request payload meet certain criteria can be formed using a `field` expression. The following fields are supported in both built-in and custom policy definitions:
 
 - `name`
 - `fullName`
@@ -107,6 +107,15 @@ Conditions that evaluate whether the values of properties in the resource reques
   - Returns the type of [managed identity](/entra/identity/managed-identities-azure-resources/overview) enabled on the resource.
   - Valid values from managed identity: `None`, `SystemAssigned`, `SystemAssigned, UserAssigned`, and `UserAssigned`.
   - `identity.type` can be used with any supported [conditions](#conditions) of a policy rule. For example, a policy with [deny effect](./effect-deny.md) could block requests based on the existence of an identity or based on the specific value of the identity type. An example policy rule that checks for existence of `identity.type` is the built-in Policy definition [Automation Account should have Managed Identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdea83a72-443c-4292-83d5-54a2f98749c0) with ID `dea83a72-443c-4292-83d5-54a2f98749c0`.
+- `identity.userAssignedIdentities`
+  - Returns the object containing the user-assigned managed identities associated with the resource. Each key is an identity resource ID in the format `/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+  - Use `containsKey` or `notContainsKey` to check whether a specific identity is associated with the resource. For an example, see [Modify the managed identity of a virtual machine](../tutorials/modify-virtual-machine-identity.md).
+- `extendedLocation`
+  - Returns the resource's extended location object, which contains the `name` and `type` properties.
+- `extendedLocation.name`
+  - Returns the `name` property of the resource's extended location.
+- `extendedLocation.type`
+  - Returns the `type` property of the resource's extended location, such as `EdgeZone`.
 - `tags`
   - `tags['<tagName>']`
     - This bracket syntax supports tag names that have punctuation such as a hyphen, period, or space.
