@@ -90,7 +90,7 @@ When using the `match` and `notMatch` conditions, provide a hashtag (`#`) to mat
 
 ## Fields
 
-Conditions that evaluate whether the values of properties in the resource request payload meet certain criteria can be formed using a `field` expression. The following fields are supported in both built-in and custom policy definitions:
+A `field` expression helps you create conditions that check if the values of properties in the resource request payload meet specific criteria. Both built-in and custom policy definitions support the following fields:
 
 - `name`
 - `fullName`
