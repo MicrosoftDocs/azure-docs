@@ -62,7 +62,7 @@ When you replicate a virtual machine by using Azure Site Recovery or perform oth
 |  | Microsoft.Storage/storageAccounts/read| Cache Storage Account | 
 | Failover, Test Failover | Microsoft.Network/virtualNetworks/read | Target Virtual Network | Site Recovery Operator, Reader |
 |  | Microsoft.Compute/capacityReservationGroups/read | Target Capacity reservation group |
-| Create and Update Recovery Plans | Microsoft.Automation/automationAccounts/read | Automation accounts selected in plan configuration | Site Recovery Contributor, Reader |
+| Create and Update Recovery Plans | Microsoft.Automation/automationAccounts/read | Automation accounts selected in plan configuration | Site Recovery Contributor, Reader | 
 
 Consider using the preceding recommended roles or other relevant least privilege [built-in roles](../role-based-access-control/built-in-roles.md) or create a custom role with the required permissions.
 
