@@ -363,7 +363,7 @@
             href: python-memory-profiler-reference.md
       - name: Python SDK API reference
         href: /python/api/azure-functions/azure.functions
-  - name: Go (Preview)
+  - name: Go
     displayName: golang
     href: functions-reference-go.md
 - name: How-to guides
