@@ -474,18 +474,18 @@ The following table shows the categorization of each transaction:
 |-|-|
 | SMB write transactions | <ul><li>`Create`</li><li>`SetInfo`</li><li>`Write`</li><li>`Flush`</li></ul> |
 | FileREST write transactions | <ul><li>`CopyFile`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`RenameFile`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`PutFilePermission`</li><li>`SetDirectoryProperties`</li></ul> |
-| FileREST management write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareAcl`</li><li>`SnapshotShare`</li><li>`RestoreShare`</li></ul> |
 | SMB list transactions | *No applicable transactions* |
 | FileREST list transactions | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
-| FileREST management list transactions | <ul><li>`ListShares`</li></ul> |
 | SMB read transactions | <ul><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li></ul> |
 | FileREST read transactions | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`GetFilePermission`</li></ul> |
-| FileREST management read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> |
 | SMB other/protocol transactions | <ul><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li></ul> |
 | FileREST other/protocol transactions | <ul><li>`AbortCopyFile`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li><li>`GetUserDelegationKey`</li></ul> |
-| FileREST management other/protocol transactions | <ul><li>`AcquireShareLease`</li><li>`BreakShareLease`</li><li>`ReleaseShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> |
 | SMB delete transactions | *No applicable transactions* |
 | FileREST delete transactions | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li><li>`DeleteFile`</li></ul> |
+| FileREST management write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareAcl`</li><li>`SnapshotShare`</li><li>`RestoreShare`</li></ul> |
+| FileREST management list transactions | <ul><li>`ListShares`</li></ul> |
+| FileREST management read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> |
+| FileREST management other/protocol transactions | <ul><li>`AcquireShareLease`</li><li>`BreakShareLease`</li><li>`ReleaseShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> |
 | FileREST management delete transactions | <ul><li>`DeleteShare`</li></ul> |  
 
 > [!NOTE]
