@@ -551,6 +551,10 @@
       "redirect_url": "/azure/cyclecloud/common-issues/updating-scalesets",
       "redirect_document_id": false
     },
-
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/8-10-0.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/8-10-1",
+      "redirect_document_id": true
+    }
   ]
 }
