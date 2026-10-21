@@ -38,5 +38,5 @@ Each entry below counts as one item, regardless of how many addresses or ports i
 | IP Range | 1 | `192.168.1.1-192.168.1.50` = 1 |
 | IP Group | 1 | IP Group with 100 IPs = 1 |
 | Service Tags | 1 each | `Storage`, `AzureActiveDirectory` = 1 each |
-| Domains/URLs | 1 | `*.microsoft.com` = 1 |
+| FQDN | 1 | `www.microsoft.com` = 1 |
 | Port Range | 1 | `5000-5556` = 1 |
