@@ -97,7 +97,75 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="Screenshot that shows how to start the link connection.":::
  
+## Configure Network Security Perimeter for Azure SQL Database
 
+Azure Synapse Link for Azure SQL Database is a user-initiated scenario that connects Azure SQL Database to an Azure Synapse workspace and dedicated SQL pool.
+
+With Network Security Perimeter (NSP), this interaction requires both inbound and outbound connectivity:
+
+- **Inbound access:**  Allow the subscription containing the Azure Synapse workspace to access the Azure SQL logical server. Azure Synapse uses this connectivity during initial setup, validation, and ongoing orchestration of the link connection.
+- **Outbound access:** Allow Azure SQL Database to connect to the destination FQDN used by Azure Synapse Link to send replicated data to the Azure Synapse Link destination. 
+
+In Enforced mode, both access paths must be configured for Synapse Link to work end to end. A missing inbound rule can prevent Synapse Link setup, while a missing outbound rule can prevent setup or cause replication to stop at runtime.
+
+
+### Supported configurations
+
+Azure SQL Database can be associated with an NSP in either Transition or Enforced mode.
+
+- In **Transition mode**, NSP access rules aren't enforced. Before switching the NSP to Enforced mode, configure the required inbound and outbound rules.
+- In **Enforced mode**, both the required inbound rule and outbound FQDN rule must be configured for Synapse Link to work successfully.
+
+Azure Synapse dedicated SQL pools don't support NSP. For the Synapse Link scenario, the NSP configuration described in this article applies to the Azure SQL Database side of the connection.
+
+### Configure NSP access rules
+
+To configure Synapse Link with NSP:
+
+1. Associate the Azure SQL logical server with an NSP.
+1. Add an inbound access rule that allows the subscription containing the Azure Synapse workspace.
+1. Add an outbound access rule for the destination FQDN used by Azure Synapse Link.
+
+The destination FQDN can vary by environment. If the appropriate outbound rule isn't configured, error 22651 identifies the FQDN that must be added to the NSP outbound rules.
+
+For example, an endpoint might use the following format:
+
+`{synapse-workspace-name}.dev.azuresynapse.net`
+
+Use the FQDN reported by error 22651 or the relevant diagnostic information rather than assuming a fixed endpoint.
+
+A full wildcard (`*`) can be used in an NSP outbound rule to allow all FQDNs, but this configuration is less restrictive and isn't recommended. Partial wildcard FQDNs aren't supported.
+
+Before switching the NSP from Transition mode to Enforced mode, verify that both the inbound subscription rule and the required outbound FQDN rule are configured.
+
+### Common errors
+
+The following errors can indicate an NSP configuration issue with Synapse Link:
+
+| Error | Description | Corrective action |
+| --- | --- | --- |
+| **42118** | Login fails because NSP denies inbound access. This occurs when NSP is in Enforced mode and no valid inbound rule allows the Synapse workspace to access Azure SQL Database. | Add an inbound rule that allows the subscription containing the Synapse workspace. |
+| **42121** | A runtime connection attempt is denied by the configured NSP. This can occur when an outbound destination that was previously accessible is no longer allowed. | Add the required destination FQDN to the NSP outbound rules. |
+| **22651** | Public network access for the logical server is configured as `SECURED_BY_PERIMETER`, but the destination FQDN isn't present in the allowed outbound rules. This error is typically encountered during Synapse Link setup. | Add the FQDN reported in the error message to the NSP outbound rules and retry the operation. |
+| **22652** | Public network access for the logical server is configured as `SECURED_BY_PERIMETER`, but the logical server isn't associated with an NSP. | Associate an NSP with the logical server or change the `PublicNetworkAccess` configuration as appropriate. |
+
+Error 22651 and error 42121 represent different stages of the Synapse Link connection. Error 22651 is a setup-time error. If the destination FQDN isn't allowed when the link is created, setup fails before replication begins. Error 42121 can occur at runtime if setup previously succeeded but the NSP configuration no longer permits the required connection.
+
+### Troubleshoot Synapse Link with NSP
+
+Review NSP diagnostic information for denied connections and verify that the appropriate inbound and outbound rules are configured.
+
+When a link connection is created or started and the required destination FQDN isn't allowed, setup fails immediately and the error is returned to the caller. In Synapse Studio, go to **Monitor > Link connections** to view the failure. A blocked outbound FQDN can appear as `EnableSourceFailure`.
+
+You can also retrieve detailed link connection status by using the link-connection monitoring REST API:
+
+`GET {workspace}.dev.azuresynapse.net/linkconnections/{name}/detailedStatus?api-version=2021-06-01-preview`
+
+When the outbound FQDN is blocked, the response can return `status: "Stopped"` with `error.errorCode = "EnableSourceFailure"` and the 22651 message in `error.message`.
+
+For an already configured link connection, failures that occur during snapshot or incremental replication can be recorded in `sys.dm_change_feed_errors`.
+
+If an error identifies a blocked destination FQDN, add the reported FQDN to the NSP outbound rules and retry the operation.
 
 ## Next steps
 
