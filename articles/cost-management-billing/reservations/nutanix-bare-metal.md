@@ -77,7 +77,7 @@ For more information about how reservation discounts appear in usage data:
 
 ## Exchange or refund a reservation
 
-Exchange is allowed between NC2 AN36 to the AN36P and AN64 sku. You can exchange or refund a reservation, with certain limitations. For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
+You can exchange between NC2 AN36 to the AN36P and AN64 SKUs. You can exchange or refund a reservation, with certain limitations. For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
 ## Reservation expiration
 
