@@ -45,6 +45,8 @@ Accelerated Networking has the following benefits:
 
 - The Azure platform doesn't update the Mellanox NIC or MANA drivers in the VM. For VMs running Linux and FreeBSD, you should stay current with the latest kernel updates offered by the distribution. For VMs running Windows, apply updated drivers from the NVIDIA support page if you encounter any issues with the driver delivered with the Marketplace image or applied to a custom image. The latest MANA drivers can be found at the documentation page for [MANA on Windows](./accelerated-networking-mana-windows.md)
 
+- Ghosted NICs can occur on Windows VMs with Accelerated Networking enabled after deallocation and reallocation. An accumulation of these adapters can lead to performance and connectivity issues. For more information, see [Troubleshoot ghost NICs on Azure Windows VMs](/troubleshoot/azure/virtual-machines/windows/windows-vm-ghostednic-troubleshooting).
+
 ### Supported regions
 
 Accelerated Networking is available in all global Azure regions and the Azure Government Cloud.
