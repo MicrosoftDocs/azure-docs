@@ -26,7 +26,7 @@ Devices can temporarily disconnect from IoT Hub for several reasons, including:
 - Other transient conditions associated with operating a cloud service can cause devices to be temporarily disconnected from IoT Hub.
 
 Transient device disconnects are normal and expected in cloud-connected applications. Device applications should be designed to detect a lost connection and reconnect by using an appropriate retry strategy.
-Transient disconnects that recover through the expected reconnection behavior may be consistent with normal cloud service operation. Further investigation may be appropriate when the observed behavior falls outside the expected transient pattern, such as unsuccessful reconnections, persistent connectivity issues, or other indications of service impact.
+Transient disconnects that recover through the expected reconnection behavior might be consistent with normal cloud service operation. Further investigation might be appropriate when the observed behavior falls outside the expected transient pattern, such as unsuccessful reconnections, persistent connectivity issues, or other indications of service impact.
 
 ## Why you need a reconnection strategy
 
