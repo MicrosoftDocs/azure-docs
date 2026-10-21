@@ -325,6 +325,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |921160|Critical - 5|1|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 |921190|Critical - 5|1|HTTP Splitting (CR/LF in request filename detected)|
 |921200|Critical - 5|1|LDAP Injection Attack|
+|921421|Critical - 5|1|Content-Type header: Dangerous content type outside the mime type declaration|
 |921422|Critical - 5|2|Detect content types in the Content-Type header outside of the actual content type declaration|
 
 
@@ -537,6 +538,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001015|Critical - 5|2|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Critical - 5|2|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 |99001017|Critical - 5|2|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+|99001018|Critical - 5|1|Attempted React2Shell remote code execution exploitation [CVE-2025-55182](https://www.cve.org/CVERecord?id=CVE-2025-55182)|
 |99001019|Critical - 5|2|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
 
 
@@ -815,6 +817,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001015|Critical - 5|2|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Critical - 5|2|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 |99001017|Critical - 5|2|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+|99001018|Critical - 5|1|Attempted React2Shell remote code execution exploitation [CVE-2025-55182](https://www.cve.org/CVERecord?id=CVE-2025-55182)|
 |99001019|Critical - 5|2|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
 
 > [!NOTE]
