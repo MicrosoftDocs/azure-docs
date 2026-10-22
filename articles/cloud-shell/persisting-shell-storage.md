@@ -35,9 +35,15 @@ Cloud Shell persists files through both of the following methods:
 
 ## Supported storage regions
 
-Cloud Shell uses primary regions to host the machines that run your sessions. When your storage
-account is in the same region as your Cloud Shell machine, your files are stored and processed in
-that region.
+Cloud Shell hosts the machines that run your sessions in several primary regions.
+
+Cloud Shell generally runs your session's machine in the primary region associated with your storage
+account, or in the nearest primary region if you use ephemeral sessions or have a storage account in
+a secondary region. Region selection depends on available capacity, so a specific region isn't
+guaranteed.
+
+When your storage account is in the same region as your Cloud Shell machine, your files are stored
+and processed in that region.
 
 A secondary storage region lets you store your files in a different region from the Cloud Shell
 machine that runs your session. Your files are stored at rest in the storage account's region, but
