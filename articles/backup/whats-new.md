@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 09/15/2026
+ms.date: 10/22/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -21,6 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - October 2026
+  - [Item-level recovery support for Premium SSD v2 and Ultra disks](#item-level-recovery-support-for-premium-ssd-v2-and-ultra-disks)
   - [Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)](#vaulted-backup-support-for-azure-postgresql-flexible-server-and-elastic-cluster-v2-preview)
 - September 2026
   - [Operational backup support for Azure Elastic SAN volume is now generally available](#operational-backup-support-for-azure-elastic-san-volume-is-now-generally-available)
@@ -83,6 +84,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Item-level recovery support for Premium SSD v2 and Ultra disks
+
+Azure Backup now supports item-level recovery (ILR) for Azure virtual machines using Premium SSD v2 and Ultra disks with 512-byte or 4-KB logical sector sizes. The functionality supports Azure VMs on Windows and Linux (Ubuntu, RHEL, Debian, Oracle Linux, SLES, and openSUSE) and also works with mixed-disk VMs. This functionality improves the recovery time objective (RTO) when single files or folders need to be restored from Premium SSD v2 or Ultra disks, as full VM or disk restores are no longer required.
+
+You can perform ILR for your Premium SSD v2 and Ultra disks through the Azure portal, CLI, or PowerShell by generating the file-recovery executable or script and running it on a compatible machine to access recovery points, browse the file system, and selectively access and copy individual files or folders. The generated script can be run only by an administrator in elevated mode and doesn't need any input from an external source except a password, with a 12-hour auto-disconnection and session timeout policy by default. This experience is in parity with the existing ILR workflow for Standard HDD, Standard SSD, and Premium SSD v1 disks, bringing parity across all Azure managed disk SKUs.
+
+Learn more about [recovering files and folders from Azure VM backup](backup-azure-restore-files-from-vm.md).
 
 ## Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)
 
