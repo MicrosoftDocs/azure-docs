@@ -56,10 +56,6 @@ LRS is the lowest-cost redundancy option and offers the least durability compare
 
 All replicas reflect the same current state: deletions and overwrites are applied to all copies simultaneously. Redundancy protects against hardware failure, not against data-modifying operations.
 
-The following diagram shows how your data is replicated within a single datacenter with LRS:
-
-:::image type="content" source="media/storage-redundancy/locally-redundant-storage.png" alt-text="Diagram showing how data is replicated in a single datacenter with locally redundant storage LRS.":::
-
 LRS is a good choice for the following scenarios:
 
 - If your application stores data that can be easily reconstructed if data loss occurs, consider choosing LRS.
@@ -77,10 +73,6 @@ A write request to a storage account that's using ZRS happens synchronously. The
 Microsoft recommends using ZRS in the primary region for scenarios that require high availability. ZRS is also recommended for restricting replication of data to a particular region to meet data governance requirements.
 
 Microsoft recommends using ZRS for Azure Files workloads. If a zone becomes unavailable, no remounting of Azure file shares from the connected clients is required.
-
-The following diagram shows how your data is replicated across availability zones in the primary region with ZRS:
-
-:::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="Diagram showing how data is replicated across availability zones with zone-redundant storage ZRS.":::
 
 ZRS provides excellent performance, low latency, and resiliency for your data if it becomes temporarily unavailable. However, ZRS by itself might not fully protect your data against a regional disaster where multiple zones are permanently affected. [Geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS) uses ZRS in the primary region and also geo-replicates your data to a secondary region. GZRS is available in many regions, and is recommended for protection against regional disasters.
 
@@ -116,19 +108,11 @@ Geo-redundant storage (GRS) copies your data synchronously to one or more availa
 
 A write operation is first committed to the primary location and replicated by using LRS. The update is then replicated asynchronously to the secondary region. When data is written to the secondary location, it also replicates within that location by using LRS.
 
-The following diagram shows how your data is replicated with GRS or RA-GRS:
-
-:::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated to a secondary region with geo-redundant storage GRS or RA-GRS.":::
-
 ### Geo-zone-redundant storage
 
 Geo-zone-redundant storage (GZRS) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS account is copied across three or more [Azure availability zones](/azure/reliability/availability-zones-overview) in the primary region. In addition, it also replicates to a secondary geographic region for protection from regional disasters. Microsoft recommends using GZRS for applications that require high consistency, durability, availability, and resilience for disaster recovery.
 
 With a GZRS account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data also remains durable during a complete regional outage or a disaster in which the primary region isn't recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9s) durability of objects over a given year.
-
-The following diagram shows how your data is replicated with GZRS or RA-GZRS:
-
-:::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with geo-zone-redundant storage GZRS or RA-GZRS.":::
 
 To determine if a region supports GZRS, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1). To support GZRS, a region must support availability zones and have a paired region.
 
