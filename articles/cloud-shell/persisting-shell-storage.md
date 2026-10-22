@@ -58,6 +58,15 @@ When you use a secondary storage region, your Azure storage account resides in a
 from the Cloud Shell machine that mounts your file share. Your files are stored at rest in the
 storage account's region, but they're processed in the Cloud Shell machine's primary region.
 
+The following secondary storage regions are available:
+
+| Area | Regions |
+| --- | --- |
+| Americas | Brazil South, Canada Central, Canada East, Central US, East US, Mexico Central, North Central US, West US, West US 3 |
+| Europe | Norway East, Spain Central, Switzerland North, UK South, UK West |
+| Asia Pacific | Australia Central, Japan East, Japan West, Jio India West, Korea Central, Korea South, West India |
+| Middle East and Africa | Qatar Central, South Africa North, UAE North |
+
 For example, if your storage account is in Canada East and your Cloud Shell machine runs in a US
 primary region, your data at rest is stored in Canada, but it's processed in the United States.
 Secondary storage regions aren't backup or failover regions for Cloud Shell machines.
