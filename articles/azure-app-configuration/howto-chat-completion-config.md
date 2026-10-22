@@ -12,6 +12,10 @@ ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
 
+> [!IMPORTANT]
+> The chat completion configuration experience will be retired on **October 20, 2027**. Existing configurations will continue to work. AI settings can continue to be managed through App Configuration key values.
+
+
 # Chat Completion configuration in Azure App Configuration
 
 Chat completion is an AI capability that enables models to generate conversational responses based on a series of messages. Unlike simple text completion, chat completion maintains context across multiple exchanges, simulating a natural conversation. With chat completion configuration, you can define and manage how AI models respond within your application. A typical configuration includes model selection, system and user prompts, and model-specific settings such as temperature or token limits.
