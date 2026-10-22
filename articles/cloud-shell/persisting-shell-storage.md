@@ -35,23 +35,17 @@ Cloud Shell persists files through both of the following methods:
 
 ## Supported storage regions
 
-Cloud Shell hosts the machines that run your sessions in several primary regions.
+Cloud Shell runs session machines in a set of primary regions. You can store persistent files in a
+storage account located in a primary region or a supported secondary region, as listed in the
+following table.
 
-Cloud Shell generally runs your session's machine in the primary region associated with your storage
-account, or in the nearest primary region if you use ephemeral sessions or have a storage account in
-a secondary region. Region selection depends on available capacity, so a specific region isn't
-guaranteed.
+Your session generally runs in the primary region associated with your storage account. If you use a
+secondary storage region or use ephemeral sessions, Cloud Shell selects the primary region nearest
+to you. Placement depends on available capacity, so a specific region isn't guaranteed.
 
-When your storage account is in the same region as your Cloud Shell machine, your files are stored
-and processed in that region.
-
-A secondary storage region lets you store your files in a different region from the Cloud Shell
-machine that runs your session. Your files are stored at rest in the storage account's region, but
-they're processed in the machine's primary region. Secondary storage regions aren't backup or
-failover regions for Cloud Shell machines.
-
-For example, if your storage account is in Canada East and your Cloud Shell machine runs in a US
-primary region, your data at rest is stored in Canada, but it's processed in the United States.
+Files remain at rest in your storage account's region but are processed in the primary region where
+your session runs. For example, files stored in Canada East remain at rest in Canada but are
+processed in the United States if your session runs in a US primary region.
 
 Choose a primary region for your storage account unless you need to store your data at rest in a
 different region. Using a secondary storage region can make file access and Cloud Shell startup
