@@ -35,12 +35,26 @@ Cloud Shell persists files through both of the following methods:
 
 ## Supported storage regions
 
-Cloud Shell uses primary regions to host the machines that run your sessions. A secondary storage
-region lets you store your files in a different region from the machine that runs your session.
+Cloud Shell uses primary regions to host the machines that run your sessions. When your storage
+account is in the same region as your Cloud Shell machine, your files are stored and processed in
+that region.
+
+A secondary storage region lets you store your files in a different region from the Cloud Shell
+machine that runs your session. Your files are stored at rest in the storage account's region, but
+they're processed in the machine's primary region. Secondary storage regions aren't backup or
+failover regions for Cloud Shell machines.
+
+For example, if your storage account is in Canada East and your Cloud Shell machine runs in a US
+primary region, your data at rest is stored in Canada, but it's processed in the United States.
+
+Choose a primary region for your storage account unless you need to store your data at rest in a
+different region. Using a secondary storage region can make file access and Cloud Shell startup
+slower.
+
+To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
+`$env:ACC_LOCATION` in PowerShell.
 
 ### Primary regions
-
-Cloud Shell machines run in the following primary regions:
 
 | Area | Regions |
 | --- | --- |
@@ -48,17 +62,7 @@ Cloud Shell machines run in the following primary regions:
 | Europe | France Central, Germany West Central, North Europe, Sweden Central, West Europe |
 | Asia Pacific | Australia East, Australia Southeast, Central India, East Asia, South India, Southeast Asia |
 
-Choose a primary region unless you need to store your data at rest in a different region. To find
-the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
-`$env:ACC_LOCATION` in PowerShell.
-
 ### Secondary storage regions
-
-When you use a secondary storage region, your Azure storage account resides in a different region
-from the Cloud Shell machine that mounts your file share. Your files are stored at rest in the
-storage account's region, but they're processed in the Cloud Shell machine's primary region.
-
-The following secondary storage regions are available:
 
 | Area | Regions |
 | --- | --- |
@@ -66,13 +70,6 @@ The following secondary storage regions are available:
 | Europe | Norway East, Spain Central, Switzerland North, UK South, UK West |
 | Asia Pacific | Australia Central, Japan East, Japan West, Jio India West, Korea Central, Korea South, West India |
 | Middle East and Africa | Qatar Central, South Africa North, UAE North |
-
-For example, if your storage account is in Canada East and your Cloud Shell machine runs in a US
-primary region, your data at rest is stored in Canada, but it's processed in the United States.
-Secondary storage regions aren't backup or failover regions for Cloud Shell machines.
-
-> [!NOTE]
-> Using a secondary storage region can make file access and Cloud Shell startup slower.
 
 ## Securing storage access
 
