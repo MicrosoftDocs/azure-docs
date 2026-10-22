@@ -1,7 +1,7 @@
 ---
 description: Walkthrough of how Azure Cloud Shell persists files.
-ms.contributor: jahelmic
-ms.date: 05/02/2024
+ms.contributor: mbifeld
+ms.date: 10/22/2026
 ms.topic: how-to
 tags: azure-resource-manager
 ms.custom:
@@ -32,6 +32,38 @@ Cloud Shell persists files through both of the following methods:
 > All files in your `$HOME` directory, such as SSH keys, are persisted in your user disk image,
 > which is stored in the mounted file share. Use best practices to secure the information in your
 > `$HOME` directory and mounted file share.
+
+## Supported storage regions
+
+Cloud Shell uses primary regions to host the machines that run your sessions. A secondary storage
+region lets you store your files in a different region from the machine that runs your session.
+
+### Primary regions
+
+Cloud Shell machines run in the following primary regions:
+
+| Area | Regions |
+| --- | --- |
+| US | East US 2, South Central US, West US 2, West Central US |
+| Europe | North Europe, West Europe, France Central, Germany West Central, Sweden Central |
+| Asia Pacific | Central India, South India, Southeast Asia, East Asia, Australia East, Australia Southeast |
+
+Choose a primary region unless you need to store your data at rest in a different region. To find
+the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
+`$env:ACC_LOCATION` in PowerShell.
+
+### Secondary storage regions
+
+When you use a secondary storage region, your Azure storage account resides in a different region
+from the Cloud Shell machine that mounts your file share. Your files are stored at rest in the
+storage account's region, but they're processed in the Cloud Shell machine's primary region.
+
+For example, if your storage account is in Canada East and your Cloud Shell machine runs in a US
+primary region, your data at rest is stored in Canada, but it's processed in the United States.
+Secondary storage regions aren't backup or failover regions for Cloud Shell machines.
+
+> [!NOTE]
+> Using a secondary storage region can make file access and Cloud Shell startup slower.
 
 ## Securing storage access
 
