@@ -44,9 +44,9 @@ Cloud Shell machines run in the following primary regions:
 
 | Area | Regions |
 | --- | --- |
-| US | East US 2, South Central US, West US 2, West Central US |
-| Europe | North Europe, West Europe, France Central, Germany West Central, Sweden Central |
-| Asia Pacific | Central India, South India, Southeast Asia, East Asia, Australia East, Australia Southeast |
+| US | East US 2, South Central US, West Central US, West US 2 |
+| Europe | France Central, Germany West Central, North Europe, Sweden Central, West Europe |
+| Asia Pacific | Australia East, Australia Southeast, Central India, East Asia, South India, Southeast Asia |
 
 Choose a primary region unless you need to store your data at rest in a different region. To find
 the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
