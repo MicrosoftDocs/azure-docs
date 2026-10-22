@@ -1,54 +1,12 @@
 ---
-layout: Conceptual
-title: Self-Hosted Gateway Overview | Microsoft Learn
-canonicalUrl: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
-breadcrumb_path: /azure/bread/toc.json
-feedback_help_link_url: https://learn.microsoft.com/answers/tags/29/azure-api-management/
-feedback_help_link_type: get-help-at-qna
-feedback_product_url: https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858
-feedback_system: Standard
-permissioned-type: public
-recommendations: true
-recommendation_types:
-- Training
-- Certification
-uhfHeaderId: azure
-ms.suite: office
-adobe-target: true
-author: PatAltimore
-learn_banner_products:
-- azure
-ms.author: patricka
+title: Self-Hosted Gateway Overview | Azure API Management
 description: Learn how the self-hosted gateway feature of Azure API Management can help you manage APIs in hybrid and multicloud environments.
 services: api-management
+
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 2026-10-22T00:00:00.0000000Z
-locale: en-us
-document_id: 20dccd8b-f67a-8728-3bb3-f46a0ffdfd40
-document_version_independent_id: 3e79e57d-a348-b0d3-cd89-86c76ca70104
-updated_at: 2026-06-26T05:22:00.0000000Z
-original_content_git_url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/api-management/self-hosted-gateway-overview.md
-gitcommit: https://github.com/MicrosoftDocs/azure-docs-pr/blob/02d4fa55ebfa305ab269535f60a59018c7327304/articles/api-management/self-hosted-gateway-overview.md
-git_commit_id: 02d4fa55ebfa305ab269535f60a59018c7327304
-site_name: Docs
-depot_name: Azure.azure-documents
-page_type: conceptual
-toc_rel: toc.json
-pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}
-word_count: 1771
-asset_id: api-management/self-hosted-gateway-overview
-moniker_range_name: 
-monikers: []
-item_type: Content
-source_path: articles/api-management/self-hosted-gateway-overview.md
-cmProducts:
-- https://authoring-docs-microsoft.poolparty.biz/devrel/bf4dbf7f-261c-4ae9-9fee-5989668a780a
-- https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d
-spProducts:
-- https://authoring-docs-microsoft.poolparty.biz/devrel/1c4b5d48-3f26-4bd8-9592-816d9c1a3420
-- https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d
-platformId: 96a7b617-10b1-bf41-e2d1-0e6e21ef89e0
+ms.date: 09/30/2025
+#customer intent: As an API admin, I want learn about how the self-hosted gateway feature can help me manage APIs.
 ---
 
 # Self-Hosted Gateway Overview | Microsoft Learn
