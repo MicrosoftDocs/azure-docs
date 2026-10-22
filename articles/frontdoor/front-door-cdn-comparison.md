@@ -70,6 +70,7 @@ The following table provides a comparison between the Azure Front Door and Azure
 | Customizable, rules-based content delivery engine | &check; | &check; | &check; | &check; (using standard rules engine) |
 | Mobile device rules | &check; | &check; | &check; | &check; (using standard rules engine) |
 | **Security** | | | | |
+| [Mutual TLS (mTLS) client authentication](mutual-tls.md) | | &check; | | |
 | Custom web application firewall (WAF) rules | &check; | &check; | &check; | |
 | Microsoft-managed rule set | | &check; | &check; (only default rule set 1.1 or earlier) | |
 | Bot protection | | &check; | &check; (only bot manager rule set 1.0) | |
