@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/21/2026
+ms.date: 10/12/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -131,13 +131,13 @@ For more information, see [Azure Functions Python developer guide](../articles/a
 The following table shows the Go versions supported by Azure Functions:
 
 | Supported version | Support level | Expected end-of-support date |
-| ---- | ---- |--- |
-| Go 1.24 or later | Preview | Pending<sup>1</sup> |
+| --- | --- | --- |
+| [Go 1.24 or later](https://go.dev/doc/devel/release#policy) | GA | See the [Go release policy](https://go.dev/doc/devel/release#policy)<sup>1</sup> |
 
-<sup>1</sup> The end-of-support date for Go support is determined when general availability (GA) is declared.
+<sup>1</sup> Each major Go release is supported until two newer major releases are available.
 
 > [!NOTE]
-> Go support is currently available only for function apps hosted in the Flex Consumption plan.
+> Go support is available only for function apps hosted in the Flex Consumption plan.
 
 For more information, see [Azure Functions Go developer reference](../articles/azure-functions/functions-reference-go.md).
 ::: zone-end
