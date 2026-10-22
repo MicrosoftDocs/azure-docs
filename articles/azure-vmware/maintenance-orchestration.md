@@ -63,10 +63,6 @@ Multi-activity maintenance provides a simpler and more transparent experience fo
 ## Errors and restrictions
 The following system error or warning messages appear while trying to reschedule maintenance tasks:
 - Each maintenance event has an internal deadline. You can schedule/reschedule maintenance only before the maintenance deadline. Dates beyond the deadline appear greyed out on the portal. To reschedule past this point, raise a support ticket. 
-
 - Critical maintenance or fixes for critical security vulnerabilities can cause the reschedule option to be disabled.
 - You can reschedule maintenance up to 24 hours before the start of the maintenance.
-
-- Weekend scheduling isn't currently supported through the portal. For urgent or specific weekend requirements, raise a support request.
-
 - This feature is enabled only for specific maintenance activities. As a result, not all Azure VMware Solution maintenance tasks appear in this section or provide the option to reschedule.

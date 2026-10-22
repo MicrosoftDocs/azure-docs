@@ -59,6 +59,21 @@ You can [find a full list of available tags here](https://mcr.microsoft.com/prod
 
 <sup>1</sup>Preview versions aren't officially supported and are for experimental purposes only. See the [self-hosted gateway support policies](self-hosted-gateway-support-policies.md#self-hosted-gateway-container-image-support-coverage). <br/> 
 
+### Supported processor architectures
+
+The self-hosted gateway container image supports the following Linux platforms:
+
+| Processor architecture | Container platform |
+| --- | --- |
+| x86-64 (AMD64) | `linux/amd64` |
+| ARM64<sup>1</sup> | `linux/arm64` |
+
+Multi-architecture image tags include both platforms. Use the same image repository and tag for x64 and ARM64 hosts. The container runtime selects the image that matches the host's architecture. For example, you can deploy the gateway to Kubernetes clusters with x64 or ARM64 Linux nodes.
+
+When you pin a version, check that the selected tag includes your target platform in the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
+
+<sup>1</sup> Requires version 2.13 or above
+
 ### Use of tags in official deployment options
 
 Deployment options in the Azure portal use the `v2` tag that allows you to use the most recent version of the self-hosted gateway v2 container image with all feature updates and patches.
