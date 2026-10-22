@@ -14,6 +14,10 @@ ms.update-cycle: 1095-days
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update Manager.
 
+## October 2026
+
+Public preview: Azure Update Manager now provides support for periodic assessment (preview) on **Azure Virtual Machine Scale Sets with Uniform** orchestration. You can enable automatic update compliance assessments for Uniform scale sets and view assessment results in Azure Update Manager to help identify missing updates and monitor compliance across scale set instances. 
+
 ## August 2025
 
 General availability: Update Manager now provides enhanced reports with separate views for overall compliance, recommendations, pending updates, update history, schedules, and operation history.
