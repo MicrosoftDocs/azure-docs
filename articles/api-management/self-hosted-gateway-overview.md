@@ -9,7 +9,7 @@ ms.date: 09/30/2025
 #customer intent: As an API admin, I want learn about how the self-hosted gateway feature can help me manage APIs.
 ---
 
-# Self-Hosted Gateway Overview | Microsoft Learn
+# Self-hosted gateway overview | Microsoft Learn
 
 **APPLIES TO: Developer | Premium**
 
@@ -41,7 +41,7 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 ## Packaging
 
-The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or, for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc).
+The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. You can deploy it to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on-premises, cloud infrastructure, or, for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc).
 
 ### Container images
 
@@ -68,9 +68,9 @@ The self-hosted gateway container image supports the following Linux platforms:
 | x86-64 (AMD64) | `linux/amd64` |
 | ARM64^1^ | `linux/arm64` |
 
-Multi-architecture image tags include both platforms. Use the same image repository and tag for x64 and ARM64 hosts; the container runtime selects the image that matches the host's architecture. For example, you can deploy the gateway to Kubernetes clusters with x64 or ARM64 Linux nodes.
+Multi-architecture image tags include both platforms. Use the same image repository and tag for x64 and ARM64 hosts. The container runtime selects the image that matches the host's architecture. For example, you can deploy the gateway to Kubernetes clusters with x64 or ARM64 Linux nodes.
 
-When pinning a version, check that the selected tag includes your target platform in the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
+When you pin a version, check that the selected tag includes your target platform in the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
 
 ^1^ Requires version 2.13 or above
 
@@ -78,9 +78,9 @@ When pinning a version, check that the selected tag includes your target platfor
 
 Deployment options in the Azure portal use the `v2` tag that allows you to use the most recent version of the self-hosted gateway v2 container image with all feature updates and patches.
 
-Note
+> [!NOTE]
 
-The command and YAML snippets are provided as a reference. You can use a more specific tag if you want to.
+> The command and YAML snippets are provided as a reference. You can use a more specific tag if you want to.
 
 When you install a gateway with a Helm chart, image tagging is optimized. The Helm chart's application version pins the gateway to a given version and doesn't rely on `latest`.
 
