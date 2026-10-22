@@ -1,23 +1,65 @@
 ---
-title: Self-Hosted Gateway Overview | Azure API Management
+layout: Conceptual
+title: Self-Hosted Gateway Overview | Microsoft Learn
+canonicalUrl: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
+breadcrumb_path: /azure/bread/toc.json
+feedback_help_link_url: https://learn.microsoft.com/answers/tags/29/azure-api-management/
+feedback_help_link_type: get-help-at-qna
+feedback_product_url: https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858
+feedback_system: Standard
+permissioned-type: public
+recommendations: true
+recommendation_types:
+- Training
+- Certification
+uhfHeaderId: azure
+ms.suite: office
+adobe-target: true
+author: PatAltimore
+learn_banner_products:
+- azure
+ms.author: patricka
 description: Learn how the self-hosted gateway feature of Azure API Management can help you manage APIs in hybrid and multicloud environments.
 services: api-management
-
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/30/2025
-#customer intent: As an API admin, I want learn about how the self-hosted gateway feature can help me manage APIs.
+ms.date: 2026-10-22T00:00:00.0000000Z
+locale: en-us
+document_id: 20dccd8b-f67a-8728-3bb3-f46a0ffdfd40
+document_version_independent_id: 3e79e57d-a348-b0d3-cd89-86c76ca70104
+updated_at: 2026-06-26T05:22:00.0000000Z
+original_content_git_url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/api-management/self-hosted-gateway-overview.md
+gitcommit: https://github.com/MicrosoftDocs/azure-docs-pr/blob/02d4fa55ebfa305ab269535f60a59018c7327304/articles/api-management/self-hosted-gateway-overview.md
+git_commit_id: 02d4fa55ebfa305ab269535f60a59018c7327304
+site_name: Docs
+depot_name: Azure.azure-documents
+page_type: conceptual
+toc_rel: toc.json
+pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}
+word_count: 1771
+asset_id: api-management/self-hosted-gateway-overview
+moniker_range_name: 
+monikers: []
+item_type: Content
+source_path: articles/api-management/self-hosted-gateway-overview.md
+cmProducts:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/bf4dbf7f-261c-4ae9-9fee-5989668a780a
+- https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d
+spProducts:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/1c4b5d48-3f26-4bd8-9592-816d9c1a3420
+- https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d
+platformId: 96a7b617-10b1-bf41-e2d1-0e6e21ef89e0
 ---
 
-# Self-hosted gateway overview
+# Self-Hosted Gateway Overview | Microsoft Learn
 
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+**APPLIES TO: Developer | Premium**
 
 Self-hosted gateway is an optional, containerized version of the default managed gateway that's included in every API Management instance. It's useful for scenarios like placing gateways in the same environments where you host your APIs. Use the self-hosted gateway to improve API traffic flow and address API security and compliance requirements.
 
-This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multicloud API management. It also  presents the feature's high-level architecture and describes its capabilities.
+This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multicloud API management. It also presents the feature's high-level architecture and describes its capabilities.
 
-For an overview of the differences between managed and self-hosted gateways, see [API gateway in API Management](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
+For an overview of the differences between managed and self-hosted gateways, see [API gateway in API Management](api-management-gateways-overview#feature-comparison-managed-versus-self-hosted-gateways).
 
 ## Hybrid and multicloud API management
 
@@ -27,48 +69,64 @@ With self-hosted gateway, you have the flexibility to deploy a containerized ver
 
 Each API Management instance is composed of the following key components:
 
--   A management plane, exposed as an API, used to configure the service via the Azure portal, PowerShell, and other supported technologies
--   A gateway (or data plane), that's responsible for proxying API requests, applying policies, and collecting telemetry
--   A developer portal that's used by developers to discover, learn, and onboard for using the APIs
+- A management plane, exposed as an API, used to configure the service via the Azure portal, PowerShell, and other supported technologies
+- A gateway (or data plane), that's responsible for proxying API requests, applying policies, and collecting telemetry
+- A developer portal that's used by developers to discover, learn, and onboard for using the APIs
 
 By default, all these components are deployed on Azure, causing all API traffic (shown as solid black arrows in the following image) to flow through Azure regardless of where backends implementing the APIs are hosted. The operational simplicity of this model comes at the cost of increased latency, compliance issues, and in some cases, extra data transfer fees.
 
-:::image type="content" source="media/self-hosted-gateway-overview/without-gateways.png" alt-text="API traffic flow without self-hosted gateways" lightbox="media/self-hosted-gateway-overview/without-gateways.png":::
+[![API traffic flow without self-hosted gateways](media/self-hosted-gateway-overview/without-gateways.png)](media/self-hosted-gateway-overview/without-gateways.png#lightbox)
 
 Deploying self-hosted gateways into the same environments where the backend API implementations are hosted allows API traffic to flow directly to the backend APIs, which reduces latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management, observability, and discovery for all APIs in the organization, regardless of where their implementations are hosted.
 
-:::image type="content" source="media/self-hosted-gateway-overview/with-gateways.png" alt-text="API traffic flow with self-hosted gateways" lightbox="media/self-hosted-gateway-overview/with-gateways.png":::
+[![API traffic flow with self-hosted gateways](media/self-hosted-gateway-overview/with-gateways.png)](media/self-hosted-gateway-overview/with-gateways.png#lightbox)
 
 ## Packaging
 
-The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or, for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
+The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or, for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc).
 
 ### Container images
 
 A variety of container images for self-hosted gateways are available:
 
-| Tag convention | Recommendation | Example  | Rolling tag  | Recommended for production |
-| ------------- | -------- | ------- | ------- | ------- |
-| `{major}.{minor}.{patch}` | Use this tag to always run the same version of the gateway. |`2.0.0` | ❌ |  ✔️ |
-| `v{major}` | Use this tag to always run a major version of the gateway with every new feature and patch. |`v2` | ✔️ |  ❌ |
-| `v{major}-preview` | Use this tag if you always want to run the latest preview container image. | `v2-preview` | ✔️ |  ❌ |
-| `latest` | Use this tag if you want to evaluate the self-hosted gateway. | `latest` | ✔️ |  ❌ |
-| `beta`<sup>1</sup> | Use this tag if you want to evaluate preview versions of the self-hosted gateway. | `beta` | ✔️ |  ❌ |
+| Tag convention | Recommendation | Example | Rolling tag | Recommended for production |
+| --- | --- | --- | --- | --- |
+| `{major}.{minor}.{patch}` | Use this tag to always run the same version of the gateway. | `2.0.0` | ❌ | ✔️ |
+| `v{major}` | Use this tag to always run a major version of the gateway with every new feature and patch. | `v2` | ✔️ | ❌ |
+| `v{major}-preview` | Use this tag if you always want to run the latest preview container image. | `v2-preview` | ✔️ | ❌ |
+| `latest` | Use this tag if you want to evaluate the self-hosted gateway. | `latest` | ✔️ | ❌ |
+| `beta`^1^ | Use this tag if you want to evaluate preview versions of the self-hosted gateway. | `beta` | ✔️ | ❌ |
 
 You can [find a full list of available tags here](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
 
-<sup>1</sup>Preview versions aren't officially supported and are for experimental purposes only. See the [self-hosted gateway support policies](self-hosted-gateway-support-policies.md#self-hosted-gateway-container-image-support-coverage). <br/> 
+^1^Preview versions aren't officially supported and are for experimental purposes only. See the [self-hosted gateway support policies](self-hosted-gateway-support-policies#self-hosted-gateway-container-image-support-coverage). 
+
+### Supported processor architectures
+
+The self-hosted gateway container image supports the following Linux platforms:
+
+| Processor architecture | Container platform |
+| --- | --- |
+| x86-64 (AMD64) | `linux/amd64` |
+| ARM64^1^ | `linux/arm64` |
+
+Multi-architecture image tags include both platforms. Use the same image repository and tag for x64 and ARM64 hosts; the container runtime selects the image that matches the host's architecture. For example, you can deploy the gateway to Kubernetes clusters with x64 or ARM64 Linux nodes.
+
+When pinning a version, check that the selected tag includes your target platform in the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
+
+^1^ Requires version 2.13 or above
 
 ### Use of tags in official deployment options
 
 Deployment options in the Azure portal use the `v2` tag that allows you to use the most recent version of the self-hosted gateway v2 container image with all feature updates and patches.
 
-> [!NOTE]
-> The command and YAML snippets are provided as a reference. You can use a more specific tag if you want to.
+Note
+
+The command and YAML snippets are provided as a reference. You can use a more specific tag if you want to.
 
 When you install a gateway with a Helm chart, image tagging is optimized. The Helm chart's application version pins the gateway to a given version and doesn't rely on `latest`.
 
-For more information, see [Install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
+For more information, see [Install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm).
 
 ### Risk of using rolling tags
 
@@ -78,59 +136,54 @@ When you use this type of tag, you can potentially run different versions in par
 
 Example: The `v2` tag is released with the `2.0.0` container image. When `2.1.0` is released, the `v2` tag will be linked to the `2.1.0` image.
 
-> [!IMPORTANT]
-> Consider using a specific version tag in production to avoid unintentional upgrades to a newer version.
+Important
+
+Consider using a specific version tag in production to avoid unintentional upgrades to a newer version.
 
 ## Connectivity to Azure
 
 Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. Each self-hosted gateway must be associated with a single API Management instance and is configured via its management plane. A self-hosted gateway uses connectivity to Azure for:
 
--   Reporting its status by sending heartbeat messages every minute.
--   Regularly (every 10 seconds) checking for and applying configuration updates whenever they're available.
--   Sending metrics to Azure Monitor, if configured to do so.
--   Sending events to Application Insights, if configured to do so.
+- Reporting its status by sending heartbeat messages every minute.
+- Regularly (every 10 seconds) checking for and applying configuration updates whenever they're available.
+- Sending metrics to Azure Monitor, if configured to do so.
+- Sending events to Application Insights, if configured to do so.
 
 ### FQDN dependencies
 
 To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
 
-
 | Endpoint | Required? | Notes |
-|:------------|:---------------------|:------|
-| Hostname of the configuration endpoint | `<api-management-service-name>.configuration.azure-api.net`<sup>1</sup> | Custom hostnames are also supported and can be used instead of the default hostname. |
+| --- | --- | --- |
+| Hostname of the configuration endpoint | `<api-management-service-name>.configuration.azure-api.net`^1^ | Custom hostnames are also supported and can be used instead of the default hostname. |
 | Public IP address of the API Management instance | ✔️ | The IP address of the primary location is sufficient. |
-| Public IP addresses of the Azure Storage [service tag](../virtual-network/service-tags-overview.md) | Optional<sup>2</sup> | IP addresses must correspond to the primary location of the API Management instance. |
-| Hostname of the Azure Blob Storage account | Optional<sup>2</sup> | The account associated with the instance (`<blob-storage-account-name>.blob.core.windows.net`). |
-| Hostname of the Azure Table Storage account | Optional<sup>2</sup> | The account associated with the instance (`<table-storage-account-name>.table.core.windows.net`). |
-| Endpoints for Azure Resource Manager | Optional<sup>3</sup> | The required endpoint is `management.azure.com`. |
-| Endpoints for Microsoft Entra integration | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
-| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Minimal required endpoints are `rt.services.visualstudio.com:443`, `dc.services.visualstudio.com:443`, and `{region}.livediagnostics.monitor.azure.com:443`. For more information, see the [Azure Monitor documentation](/azure/azure-monitor/ip-addresses#outgoing-ports). |
-| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | For more information, see the [Azure Event Hubs documentation](../event-hubs/network-security.md). |
-| Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | This requirement depends on the external cache that's being used. |
+| Public IP addresses of the Azure Storage [service tag](../virtual-network/service-tags-overview) | Optional^2^ | IP addresses must correspond to the primary location of the API Management instance. |
+| Hostname of the Azure Blob Storage account | Optional^2^ | The account associated with the instance (`<blob-storage-account-name>.blob.core.windows.net`). |
+| Hostname of the Azure Table Storage account | Optional^2^ | The account associated with the instance (`<table-storage-account-name>.table.core.windows.net`). |
+| Endpoints for Azure Resource Manager | Optional^3^ | The required endpoint is `management.azure.com`. |
+| Endpoints for Microsoft Entra integration | Optional^4^ | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
+| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights) | Optional^5^ | Minimal required endpoints are `rt.services.visualstudio.com:443`, `dc.services.visualstudio.com:443`, and `{region}.livediagnostics.monitor.azure.com:443`. For more information, see the [Azure Monitor documentation](/en-us/azure/azure-monitor/ip-addresses#outgoing-ports). |
+| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs) | Optional^5^ | For more information, see the [Azure Event Hubs documentation](../event-hubs/network-security). |
+| Endpoints for [external cache integration](api-management-howto-cache-external) | Optional^5^ | This requirement depends on the external cache that's being used. |
 
+^1^For information about an API Management instance in an internal virtual network, see Connectivity in an internal virtual network.^2^Only required in v2 when API inspector or quotas are used in policies.^3^Only required when using Microsoft Entra authentication to verify RBAC permissions.^4^Only required when you use Microsoft Entra authentication or policies related to Microsoft Entra.^5^Only required when the feature is used and requires public IP address, port, and hostname information.
 
-<sup>1</sup>For information about an API Management instance in an internal virtual network, see [Connectivity in an internal virtual network](#connectivity-in-an-internal-virtual-network).<br/>
-<sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
-<sup>3</sup>Only required when using Microsoft Entra authentication to verify RBAC permissions.<br/>
-<sup>4</sup>Only required when you use Microsoft Entra authentication or policies related to Microsoft Entra.<br/>
-<sup>5</sup>Only required when the feature is used and requires public IP address, port, and hostname information.<br/>
+Important
 
-> [!IMPORTANT]
-> * DNS hostnames must be resolvable to IP addresses, and the corresponding IP addresses must be reachable.
-> * The associated storage account names are listed on the service's **Network connectivity status** page in the Azure portal.
-> * Public IP addresses underlying the associated storage accounts are dynamic and can change without notice.
+- DNS hostnames must be resolvable to IP addresses, and the corresponding IP addresses must be reachable.
+- The associated storage account names are listed on the service's **Network connectivity status** page in the Azure portal.
+- Public IP addresses underlying the associated storage accounts are dynamic and can change without notice.
 
 ### Connectivity in an internal virtual network
 
- * **Private connectivity**. If the self-hosted gateway is deployed in a virtual network, enable private connectivity to the v2 configuration endpoint from the location of the self-hosted gateway, for example, using a private DNS in a peered network. 
-
-* **Internet connectivity**. If the self-hosted gateway needs to connect to the v2 configuration endpoint over the internet, configure a custom hostname for the configuration endpoint and expose the endpoint by using Azure Application Gateway.
+- **Private connectivity**. If the self-hosted gateway is deployed in a virtual network, enable private connectivity to the v2 configuration endpoint from the location of the self-hosted gateway, for example, using a private DNS in a peered network.
+- **Internet connectivity**. If the self-hosted gateway needs to connect to the v2 configuration endpoint over the internet, configure a custom hostname for the configuration endpoint and expose the endpoint by using Azure Application Gateway.
 
 ## Authentication options
 
 The self-hosted gateway needs to authenticate to its associated cloud-based API Management instance to maintain secure communication and access configuration updates.
 
-For details, see [Self-hosted gateway authentication options](self-hosted-gateway-authentication-options.md).
+For details, see [Self-hosted gateway authentication options](self-hosted-gateway-authentication-options).
 
 ### Connectivity failures
 
@@ -140,13 +193,13 @@ The self-hosted gateway is designed to "fail static" and can survive temporary l
 
 When configuration backup is turned off and connectivity to Azure is interrupted:
 
--   Running self-hosted gateways continue to function by using an in-memory copy of the configuration.
--   Stopped self-hosted gateways won't be able to start.
+- Running self-hosted gateways continue to function by using an in-memory copy of the configuration.
+- Stopped self-hosted gateways won't be able to start.
 
 When configuration backup is turned on and connectivity to Azure is interrupted:
 
--   Running self-hosted gateways continue to function by using an in-memory copy of the configuration.
--   Stopped self-hosted gateways can start by using a backup copy of the configuration.
+- Running self-hosted gateways continue to function by using an in-memory copy of the configuration.
+- Stopped self-hosted gateways can start by using a backup copy of the configuration.
 
 When connectivity is restored, each self-hosted gateway affected by the outage automatically reconnects with its associated API Management instance and downloads all configuration updates that occurred while the gateway was offline.
 
@@ -157,7 +210,7 @@ When connectivity is restored, each self-hosted gateway affected by the outage a
 The following functionality that's available in managed gateways *isn't* available in self-hosted gateways:
 
 - TLS session resumption.
-- Client certificate renegotiation. To use [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md), API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname (domain name).
+- Client certificate renegotiation. To use [client certificate authentication](api-management-howto-mutual-certificates-for-clients), API consumers must present their certificates as part of the initial TLS handshake. To ensure this behavior, enable the Negotiate Client Certificate setting when configuring a self-hosted gateway custom hostname (domain name).
 
 ### Transport Layer Security (TLS)
 
@@ -165,7 +218,7 @@ The following functionality that's available in managed gateways *isn't* availab
 
 Self-hosted gateways support TLS v1.2 by default.
 
-If you use custom domains, you can enable TLS v1.0 and/or v1.1 [in the control plane](/rest/api/apimanagement/current-ga/gateway-hostname-configuration/create-or-update).
+If you use custom domains, you can enable TLS v1.0 and/or v1.1 [in the control plane](/en-us/rest/api/apimanagement/current-ga/gateway-hostname-configuration/create-or-update).
 
 #### Available cipher suites
 
@@ -208,16 +261,3 @@ With v2.1.1 and later, you can manage the ciphers that are being used via config
 
 - `net.server.tls.ciphers.allowed-suites` enables you to define a comma-separated list of ciphers to use for the TLS connection between the API client and the self-hosted gateway.
 - `net.client.tls.ciphers.allowed-suites` enables you to define a comma-separated list of ciphers to use for the TLS connection between the self-hosted gateway and the backend.
-
-## Related content
-
--   [API gateway overview](api-management-gateways-overview.md)
--   [Support policy for self-hosted gateway](self-hosted-gateway-support-policies.md)
--   [Guidance for running self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
--   [Deploy a self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
--   [Deploy a self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
--   [Deploy a self-hosted gateway to an Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
--   [Deploy a self-hosted gateway to Azure Container Apps](how-to-deploy-self-hosted-gateway-container-apps.md)
--   [Self-hosted gateway configuration settings](self-hosted-gateway-settings-reference.md)
--   [Observability capabilities in API Management](observability.md) 
--   [Dapr integration with self-hosted gateway](https://github.com/dapr/samples/tree/master/dapr-apim-integration)
