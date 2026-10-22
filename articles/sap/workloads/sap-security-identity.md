@@ -99,7 +99,7 @@ You can find more information on SAP Cloud Identity Services in these resources:
 - [Introducing SAP Cloud Identity Services](https://learning.sap.com/learning-journeys/introducing-sap-cloud-identity-services) (SAP Learning)
 - [Getting Started with SAP Cloud Identity Service - Authentication (Admin User)](https://community.sap.com/t5/technology-blog-posts-by-sap/getting-started-with-sap-cloud-identity-service-authentication-admin-user/ba-p/13541902) (SAP Community blog post)
 - [What Is Identity Provisioning?](https://help.sap.com/docs/identity-provisioning/identity-provisioning/what-is-identity-provisioning) (SAP Help Portal)
-- [Explaining Identity and Access Management on SAP BTP](https://learning.sap.com/courses/operating-sap-business-technology-platform/explaining-identity-and-access-management-on-sap-btp) (SAP Learning)
+- [Explaining Identity and Access Management on SAP BTP](https://learning.sap.com/courses/operating-sap-business-technology-platform/explaining-identity-and-access-management-on-sap-btp_c3fd72a0-943c-45ad-b405-cc3da3fee7d2) (SAP Learning)
 - [Navigating SAP SSO: Choosing Between SAP Single Sign-On 3.0 and SAP Secure Login Service for SAP GUI](https://www.linkedin.com/pulse/navigating-sap-sso-choosing-between-single-sign-on-30-carsten-olt-jyrje/?trk=article-ssr-frontend-pulse_little-text-block) (LinkedIn article)
 - [Manage access to your SAP applications](/entra/id-governance/sap) (Microsoft Learn)
 

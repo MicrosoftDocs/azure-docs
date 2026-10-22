@@ -1,5 +1,5 @@
 ---
-title: Egress policies and network controls for Azure Container Apps Sandboxes (preview)
+title: Egress policies and network controls for Azure Container Apps Sandboxes
 description: Egress policies for Azure Container Apps Sandboxes let you control outbound traffic from untrusted code. Learn how to define, evaluate, and enforce rules.
 #customer intent: As a platform engineer running untrusted code in Azure Container Apps Sandboxes, I want to configure egress policies, so that I can control which outbound network requests are allowed.
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.topic: concept-article
 ms.service: azure-container-apps
 ---
 
-# Egress policies and network controls for Azure Container Apps Sandboxes (preview)
+# Egress policies and network controls for Azure Container Apps Sandboxes
 
 Azure Container Apps Sandboxes are built to run code you don't fully trust, like AI-generated scripts, agent tool calls, and arbitrary user input. The network is where that code can do the most damage, so every sandbox ships with a built-in egress policy engine that decides what outbound traffic is allowed, blocked, or transformed.
 

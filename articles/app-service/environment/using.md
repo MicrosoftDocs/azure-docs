@@ -3,7 +3,7 @@ title: Host a Web App in an App Service Environment
 description: Create a web app that uses an App Service Environment, and host the isolated app in a virtual network/subnet configuration. Follow procedures in the Azure portal to create the web app, enable encryption, diagnostic logging, and more.
 author: seligj95
 ms.topic: how-to
-ms.date: 08/03/2026
+ms.date: 10/06/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 # customer intent: As a developer, I want to use an App Service Environment for my App Service web app, so I can host isolated apps in my virtual network.
@@ -20,25 +20,27 @@ When you create the web app in your App Service Environment, you follow the stan
 
 This article describes how to create the App Service web app in an App Service Environment by following procedures in the Azure portal.
 
+In the Azure portal, creating an App Service Environment and creating a web app are separate operations. You can't create a new App Service Environment during web app creation. If you need a new environment, create it first and wait for its deployment to complete, then create the web app with a new or existing App Service plan in that environment. You can still deploy an App Service Environment, an App Service plan, and a web app together in a single deployment by using an [ARM template](../samples-resource-manager-templates.md) or a [Bicep file](../samples-bicep.md).
+
 ## Prerequisites
 
-- An App Service Environment. To create a new environment, follow the steps in [Quickstart: Create an App Service Environment](creation.md).
+- An App Service Environment whose deployment is complete. To create a new environment, follow the steps in [Quickstart: Create an App Service Environment](creation.md).
 
 - When you create your app, keep in mind that Windows and Linux apps can be in the same App Service Environment, but they can't be in the same App Service plan.
 
 ## Create the web app
 
-In the Azure portal, create a web app in an App Service Environment:
+In the Azure portal, create a web app in an existing App Service Environment:
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource**, locate **Web App** in the list of resources, and select **Create**.
 
-   The **Create Web App** pane opens to the **Basic** tab:
+   The **Create Web App** pane opens to the **Basics** tab:
 
    :::image type="content" source="./media/using/create-application.png" border="false" alt-text="Screenshot that shows how to create a web app in an App Service Environment in the Azure portal.":::
 
-1. In the **Basic** tab, select your **Subscription**.
+1. In the **Basics** tab, select your **Subscription**.
 
 1. Select an existing **Resource group** or select **Create new** for a new instance.
 
@@ -48,15 +50,9 @@ In the Azure portal, create a web app in an App Service Environment:
 
 1. Configure the **Publish**, **Runtime stack**, and **Operating System** settings according to your app requirements.
 
-1. For the **Region** setting, use the dropdown list to make your selection.
+1. For **Region**, select your existing environment under the **App Service Environments v3** section in the dropdown list, rather than a geographic region under **Regions**.
 
-   - To use an existing App Service Environment, select the environment under the **App Service Environments v3** section in the dropdown list.
-   
-   - To create a new App Service Environment, select a region under the **Regions** section in the dropdown list. After you select a region, the **Create Web App** pane adds a section with configuration options for the new App Service Environment. You complete the steps for the new environment later in this procedure.
-   
-   You can filter the **Region** list to show matching items in the list for both environments and regions. The example filters the list to match _Canada_.
-
-   :::image type="content" source="./media/using/select-region-environment.png" alt-text="Screenshot that shows how to select an App Service Environment as the app region with a filter for items matching 'Canada'.":::
+   You can filter the **Region** list to find your environment by name or region.
 
 1. For the **Pricing plans** options, specify the App Service plan name and the plan pricing tier.
 
@@ -64,7 +60,7 @@ In the Azure portal, create a web app in an App Service Environment:
 
    - For the **Pricing plan** tier, if you selected an existing plan, the value populates with the pricing tier for your current plan.
    
-      If you're creating a new App Service plan, use the dropdown list and select the tier size. The list shows **Popular plans**. The only SKU you can select for your app is an _Isolated v2_ pricing SKU.
+      If you're creating a new App Service plan, use the dropdown list and select an _Isolated v2_ pricing SKU. The list shows **Popular plans**.
       
       :::image type="content" source="./media/using/select-plan-tier.png" alt-text="Screenshot that shows how to select the pricing tier for the App Service plan in the Azure portal.":::
 
@@ -74,37 +70,13 @@ In the Azure portal, create a web app in an App Service Environment:
 
       Creating the new App Service plan takes about 20 minutes.
 
-1. If you're creating a new App Service Environment as part of creating your new App Service plan, configure the following **App Service Environment** settings:
-
-   - Enter an **App Service Environment Name**.
-
-   - Select the **Virtual IP Type** (Internal or External). For more information about this setting, see [Plan the access level for the app](#plan-the-access-level-for-the-app).
-
-   :::image type="content" source="./media/using/configure-new-environment.png" alt-text="Screenshot that shows how to configure a new App Service Environment in the Azure portal.":::
-
-1. Switch to the **Networking** tab in the **Create Web App** pane, and configure the settings.
-
-   - If you're creating a new App Service Environment:
-   
-      - Identify the **Virtual Network** and **Subnet** to use for the deployment. You can choose existing resources or create new instances.
-      
-      <a name="configure-dns-setting"></a>
-
-      - Configure the **DNS** setting. If you want the system to configure the DNS for you in the virtual network of your App Service Environment, select **Azure DNS Private zone**.
-      
-         If you prefer to configure DNS manually, select **Manual**. After the deployment completes, you can modify the configuration to [use your own DNS server](#use-your-own-dns-server) or specify [Azure DNS private zones](#configure-dns-in-azure-dns-private-zone).
-
-      - Configure the **Inbound IP address** setting. Choose **Automatic** (system-assigned IP address from the subnet) or **Manual** (enter your preferred IP address).
-
-   - If you're using an existing App Service Environment for the deployment, configure the **Virtual network integration** option as needed.
+   The web app uses the virtual network, subnet, and inbound IP address of the existing App Service Environment. You don't need to configure virtual network integration for the app. For more information, see [Plan the access level for the app](#plan-the-access-level-for-the-app).
 
 1. (Optional) Configure options on the remaining tabs in the **Create web app** pane according to your app requirements. Most settings are disabled by default.
 
    - **Deployment**: Configure continuous deployment, authentication, and GitHub settings.
    - **Monitor + Secure**: Use Azure Monitor Application Insights or Microsoft Defender for Cloud.
    - **Tags**: Define tags for the app.
-
-   If you're creating a new App Service Environment, also confirm the settings on the **Hosting** tab.
 
 1. Select **Review + create**. Confirm the web app configuration is correct, and select **Create**.
 
@@ -134,13 +106,15 @@ In an App Service Environment with an external VIP, the domain suffix used for a
 
 You use the `scm` URL to access the Kudu console, or publish your app by using web deploy. For more information, see [Kudu service for Azure App Service](../resources-kudu.md). The Kudu console gives you a web UI for debugging, uploading files, and editing files.
 
+<a name="configure-dns-setting"></a>
+
 ### Configure DNS
 
 If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, you might need to configure DNS manually.
 
-- When you created your app, if you selected [automatic configuration of Azure DNS private zones](#configure-dns-setting), the DNS is configured for you in the virtual network of your App Service Environment.
+- When you [create your App Service Environment](creation.md#create-an-app-service-environment-in-the-portal), if you select automatic configuration of Azure DNS private zones, Azure configures the DNS for you in the virtual network of your App Service Environment.
 
-- If you chose to [configure DNS manually](#configure-dns-setting), you need to use your own DNS server or configure Azure DNS private zones, as described in the following sections.
+- If you choose to configure DNS manually when you create the App Service Environment, you need to [use your own DNS server](#use-your-own-dns-server) or [configure Azure DNS private zones](#configure-dns-in-azure-dns-private-zone).
 
 You can find the IP addresses for the App Service Environment in the Azure portal:
 

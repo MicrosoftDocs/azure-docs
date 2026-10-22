@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 04/24/2025
+ms.date: 10/06/2026
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: sfi-image-nochange
@@ -18,11 +18,11 @@ Similar to a role assignment, a *deny assignment* attaches a set of deny actions
 This article describes how to list deny assignments.
 
 > [!IMPORTANT]
-> You can't directly create your own deny assignments. Deny assignments are created and managed by Azure.
+> Customer-managed deny assignments are currently in private preview. The availability of related APIs or commands in generated reference documentation doesn't indicate that the feature is in public preview or generally available. For generally available scenarios, Azure creates and manages deny assignments.
 
 ## How deny assignments are created
 
-Deny assignments are created and managed by Azure to protect resources. You can't directly create your own deny assignments. However, you can specify deny settings when creating a deployment stack, which creates a deny assignment that is owned by the deployment stack resources. For more information, see [Protect managed resources](../azure-resource-manager/bicep/deployment-stacks.md#protect-managed-resources) and [Azure RBAC limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
+For generally available scenarios, Azure creates and manages deny assignments to protect resources. You can specify deny settings when creating a deployment stack, which creates a deny assignment that the deployment stack resources own. For more information, see [Protect managed resources](../azure-resource-manager/bicep/deployment-stacks.md#protect-managed-resources) and [Azure RBAC limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
 ## Compare role assignments and deny assignments
 

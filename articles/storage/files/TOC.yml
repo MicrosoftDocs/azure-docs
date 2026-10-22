@@ -127,8 +127,6 @@
   items:
   - name: Secure your Azure Files
     href: secure-files.md
-  - name: Secure your Azure Storage account
-    href: ../common/secure-storage.md?toc=/azure/storage/files/toc.json
   - name: Networking
     items:
     - name: Networking considerations for direct access
@@ -279,6 +277,9 @@
   items:
   - name: Virtual desktops
     href: virtual-desktop-workloads.md
+    items:
+    - name: AVD Hybrid
+      href: azure-virtual-desktop-hybrid.md
   - name: Azure Kubernetes Service
     href: azure-kubernetes-service-workloads.md    
   - name: SAP
@@ -289,6 +290,8 @@
   items:
   - name: Overview
     href: storage-files-developer-overview.md
+  - name: Change feed for Azure Files
+    href: storage-files-change-feed.md
   - name: Configure connection strings
     href: ../common/storage-configure-connection-string.md?toc=/azure/storage/files/toc.json
   - name: .NET
@@ -403,6 +406,8 @@
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/files/toc.json
   - name: Use Azure independent clouds
     href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
+  - name: Routing preference (StorageV2 only)
+    href: ../common/configure-network-routing-preference.md?toc=/azure/storage/files/toc.json
   - name: Monitoring Files data reference
     href: storage-files-monitoring-reference.md
   - name: Resource Manager template

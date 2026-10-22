@@ -3,8 +3,8 @@ title: What's New in Azure Update Manager
 description: Learn about what's new and recent updates in the Azure Update Manager service.
 ms.service: azure-update-manager
 ms.topic: whats-new
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.date: 08/21/2025
 ms.update-cycle: 1095-days
 # Customer intent: "As a system administrator, I want to understand the latest features of Azure Update Manager, so that I can effectively manage and govern updates across my environments and ensure compliance with security policies."
@@ -13,6 +13,10 @@ ms.update-cycle: 1095-days
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update Manager.
+
+## October 2026
+
+Public preview: Azure Update Manager now provides support **Periodic assessment on Azure Virtual Machine Scale Sets Uniform (preview)**. You can enable automatic update compliance assessments for Uniform orchestration mode virtual machine scale sets and view assessment results in Azure Update Manager. This feature helps you identify missing updates and monitor update compliance across virtual machine scale set instances. [Learn more](enable-periodic-assessment-azure-virtual-machine-scale-sets-uniform.md).
 
 ## August 2025
 

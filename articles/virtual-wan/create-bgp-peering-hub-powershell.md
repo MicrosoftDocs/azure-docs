@@ -19,7 +19,7 @@ This article helps you configure an Azure Virtual WAN hub router to peer with a 
 
 Verify that you've met the following criteria before beginning your configuration:
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before you begin](../networking/includes/virtual-wan/before.md)]
 
 ### Azure PowerShell
 

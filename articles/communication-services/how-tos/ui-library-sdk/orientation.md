@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Set screen orientation in an application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The Azure Communication Services UI Library enables developers to set the orientation of screens in an application. You can specify screen orientation mode on the call setup screen and on the call screen of the UI Library.
 
 ## Prerequisites

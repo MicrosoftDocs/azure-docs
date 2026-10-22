@@ -117,7 +117,7 @@ In a shared QoS capacity pool, throughput is not allocated per volume. Instead a
 
 Azure NetApp Files allows you to create [large volumes](large-volumes.md) up to 1 PiB. In contrast, regular Azure NetApp Files volumes are offered between 50 GiB and 102,400 GiB. 
 
-Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB (or [2 PiB as special requests](large-volumes-requirements-considerations.md#requirements-and-considerations-for-breakthrough-mode-preview)). With cool access enabled, large volumes can grow to 7.2 PiB. 
+Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB (or [2 PiB as special requests](large-volumes-requirements-considerations.md#requirements-and-considerations-for-breakthrough-mode)).  When you enable cool access, large volumes can grow to 7.2 PiB.  
 
 For more information, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md).
 

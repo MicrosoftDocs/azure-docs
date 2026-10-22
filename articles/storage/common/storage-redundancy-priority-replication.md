@@ -38,8 +38,9 @@ While there are many benefits to using geo priority replication, it's especially
 
 While Geo Priority Replication introduces an SLA-backed capability for Azure Blob Storage, it comes with several important exclusions. Users benefit from prioritized replication along with the improved visibility into their Blob Geo Lag while Geo priority replication is enabled. However, there are workloads and time periods where users aren't eligible for the Service Level Agreement for Geo priority replication. These limitations include:
 
-- Other blob types, such as page blobs and append blobs.<br />The SLA applies exclusively to Block Blob data. If these unsupported blob types contribute to geo lag, the affected time window is excluded from SLA eligibility.
-- Storage accounts where Append or Page Blob API calls were made within the last 30 days.<br />This might impact users that have features enabled on their account that create append or page blobs. For example, Change Feed, Object Replication or resource logs in Azure Monitor
+- Storage accounts that don't have Geo Priority Replication enabled.
+
+- Storage accounts where Append or Page Blob API calls were made within the last 30 days. The SLA applies exclusively to Block Blob data. If these unsupported blob types contribute to geo lag, the affected time window is excluded from SLA eligibility.
 - Storage accounts with a Last Sync Time greater than 15 minutes lagged during the enablement of Geo priority replication.<br />Data replication prioritization begins immediately after enabling the feature, but the SLA might not apply during this initial sync period. If the account's Last Sync Time exceeds 15 minutes during this time, the SLA doesn't apply until the Last Sync Time is consistently at or below 15 minutes lagged. Customers can [monitor their LST](last-sync-time-get.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) and replication status through Azure's provided metrics and dashboards.
 - Time periods where:
     - Your storage account data transfer rate exceeds 1 gigabit per second (Gbps) and the resulting back log of writes are being replicated, or
@@ -52,9 +53,9 @@ These limitations are critical to understanding how and when the SLA applies, an
 
 ## Monitor compliance
 
-To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you have the ability to view the new **Geo Blob Lag metric (preview)** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric (preview)** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. This metric allows you to assess the performance trends and identify potential SLA breaches for your account.
+To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you can view the new **Geo Blob Lag metric** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. This metric allows you to assess the performance trends and identify potential SLA breaches for your account.
 
-After geo priority replication is enabled and you register for the Geo Blob Lag metric (preview) you have the ability to view the new metric.
+After geo priority replication is enabled and you register for the Geo Blob Lag metric you can view the new metric.
 
 :::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled-sml.png" alt-text="Screenshot showing the geo priority replication enabled status for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-enabled-lrg.png":::
 

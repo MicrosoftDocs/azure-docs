@@ -26,7 +26,7 @@ Follow the steps in this section to complete manual validation.
 - Compare the source and target within the migrated scope. Check the expected blob inventory, sizes, and application-relevant properties. Use content validation where your workload requires it.
 - Review any failures or skipped items in the job results and available logs. Investigate discrepancies before declaring the migration complete.
 - Test applications against the target container to confirm that the migrated data is usable.
-- If source data changed during migration, plan a final run and an application cutover window. A job definition doesn't create a continuously running synchronization schedule; explicitly start another run when required.
+- If source data changed during migration, plan a final run and an application cutover window. A job definition might not have created a continuously running synchronization schedule depending on your choice during creation; explicitly start another run when required.
 - Retain the source data until migration and application validation are complete and your retention requirements are met. Delete source data only through a separately approved cleanup operation.
 - After all required runs are complete, review migration-specific role assignments and endpoint access. Remove access and resources that are no longer needed according to your organization's policies.
 - Enable incremental sync if you need to keep Azure Blob containers in sync over time.

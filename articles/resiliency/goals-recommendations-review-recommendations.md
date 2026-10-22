@@ -4,7 +4,7 @@ description: Learn how to review and act on resiliency recommendations for your 
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 06/02/2026
+ms.date: 10/12/2026
 ms.topic: how-to
 ms.service: resiliency
 #customer intent: As a cloud administrator, I want to review resiliency recommendations so that I can understand what actions to take to improve my application's zone resiliency.
@@ -18,7 +18,9 @@ After you assign goals to a service group, Infrastructure Resiliency Manager sho
 
 - A service group with goals assigned. For more information, see [Create a service group](../governance/service-groups/create-service-group-portal.md).
 - Required Azure role-based access control (RBAC) permissions: **Service Group Reader** role to view service group–level recommendations, and **Reader** on resources for resource-level recommendations. For more information, see the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations).
-- A usage plan enrolled for the service group.
+
+> [!NOTE]
+> You don't need a usage plan to view resilience posture or recommendations.
 
 ## View recommendations
 
@@ -41,17 +43,17 @@ To view recommendation details, follow these steps:
 
 ## View resiliency at scale
 
-Infrastructure Resiliency Manager provides a centralized overview that lets you monitor resiliency across all your resources and service groups from a single pane of glass.
+Infrastructure Resiliency Manager provides a centralized overview that you can use to monitor resilience across all your resources and service groups from a single pane of glass.
 
 ### Resource-level view
 
-To view resiliency status at scale for your resources, follow these steps:
+To view resilience status at scale for your resources, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Resiliency** and go to the **Resiliency** dashboard. In the left menu, expand **Infrastructure Resiliency** to see the following menu items: **Overview**, **Resource Resiliency**, **Service Group Resiliency**, **Recommendations**, **Recovery Plans**, **Drills**, and **Usage Plans**.
 
-2. Under **Resource resiliency**, view the counts of resources across all service groups by resiliency status.
+2. Under **Resource resiliency**, view the counts of resources across all service groups by resilience status.
 
-3. Select the **Resource resiliency** tile to see individual resources and their zone-resiliency status.
+3. Select the **Resource resiliency** tile to see individual resources and their zone-resilience status.
 
 4. For nonresilient resources, select **View Recommendation** to see the relevant recommendation details.
 
@@ -69,12 +71,12 @@ To create a service group from the at-scale view, follow these steps:
 
 1. In the **Resiliency overview**, go to **Service group resiliency**.
 
-2. View the counts of service groups by their resiliency status.
+2. View the counts of service groups by their resilience status.
 
 3. Select a tile to view the detailed list of service groups and their posture.
 
 ## Related content
 
-- [Assign goals and view resiliency posture](goals-recommendations-assign-goals-view-posture.md)
+- [Assign goals and view resilience posture](goals-recommendations-assign-goals-view-posture.md)
 - [Use the Resiliency agent](goals-recommendations-use-agent.md)
 - [About goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-about.md)

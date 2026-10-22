@@ -15,6 +15,8 @@ ms.custom: sfi-ropc-nochange
 
 # How to customize how workers are ranked for the best worker distribution mode
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The `best-worker` distribution mode selects the workers that are best able to handle the job first. The logic to rank Workers can be customized, with an expression or Azure function to compare two workers. The following example shows how to customize this logic with your own Azure Function.
 
 ## Scenario: Custom scoring rule in best worker distribution mode

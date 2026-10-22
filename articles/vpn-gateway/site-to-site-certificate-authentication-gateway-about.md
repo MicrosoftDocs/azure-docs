@@ -80,8 +80,4 @@ The inbound flow is on-premises to Azure.
 
 ## Next steps
 
-To create a site-to-site VPN connection using certificate authentication, see the following articles:
-
-* [Configure a site-to-site VPN with certificate authentication - Azure portal](site-to-site-certificate-authentication-gateway-portal.md)
-* [Configure a site-to-site VPN with certificate authentication - Azure PowerShell](site-to-site-certificate-authentication-gateway-powershell.md)
-* [Configure a site-to-site VPN with certificate authentication - Azure CLI](site-to-site-certificate-authentication-gateway-cli.md)
+To create a site-to-site VPN connection that uses certificate authentication, see [Configure a certificate-authenticated site-to-site VPN connection](site-to-site-certificate-authentication-gateway.md).

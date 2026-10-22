@@ -13,10 +13,6 @@ ms.date: 09/02/2026
 
 Azure Enclave accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive workloads. Azure Enclave is designed for commercial and air-gapped environments.
 
-> [!IMPORTANT]
-> 
-> Azure Enclave is currently in preview and is provided without a service-level agreement. At this time, **Azure Enclave shouldn't be used for production workloads**. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the full [Azure Enclave Terms](./preview-terms.md) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Azure Enclave takes a multi-layered and hierarchical approach to virtual boundary protection. A **community** serves as a central hub for networking, governance, and monitoring for a collection of isolated networks known as **enclaves**. Azure Enclave manages hub and firewall routing, along with virtual network flow logging, for configured enclave networking paths. Enclaves are isolated, zero-trust software-defined networks (Azure Virtual Network) that host your Azure service workloads. Enclaves and your workloads are governed through policy configuration management (Azure Policy).
 
 [ ![Graphic that shows communities and enclaves example architecture.](./media/communities-azure-enclave.svg) ](./media/communities-azure-enclave.svg#lightbox)

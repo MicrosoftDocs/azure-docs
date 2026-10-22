@@ -2,24 +2,24 @@
 title: Enable Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to enable message sessions using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
-ms.date: 04/19/2021 
+ms.date: 10/06/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-python
 ms.devlang: azurecli
 ---
 
 # Enable message sessions for an Azure Service Bus queue or a subscription
-Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For more information, see [Message sessions](message-sessions.md). This article shows you different ways to enable sessions for a Service Bus queue or subscription. 
+Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. For more information, see [Message sessions](message-sessions.md). This article shows you different ways to enable sessions for a Service Bus queue or subscription.
 
 > [!IMPORTANT]
 > - The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 > - You can't enable or disable message sessions after the queue or subscription is created. You can only do so at the time of creating the queue or subscription. 
 
 ## Using Azure portal
-When creating a **queue** in the Azure portal, select **Enable sessions** as shown in the following image. 
+When creating a **queue** in the Azure portal, select **Enable sessions** as shown in the following image.
 
 :::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
 
-When creating a subscription for a topic in the Azure portal, select **Enable sessions** as shown in the following image. 
+When creating a subscription for a topic in the Azure portal, select **Enable sessions** as shown in the following image.
 
 :::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
 
@@ -46,7 +46,7 @@ az servicebus topic subscription create \
 ```
 
 ## Using Azure PowerShell
-To **create a queue with message sessions enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresSession` set to `$True`. 
+To **create a queue with message sessions enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-RequiresSession` set to `$True`.
 
 ```azurepowershell-interactive
 New-AzServiceBusQueue -ResourceGroup myresourcegroup `
@@ -55,7 +55,7 @@ New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -RequiresSession $True
 ```
 
-To **create a subscription for a topic with message sessions enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-RequiresSession` set to `true`. 
+To **create a subscription for a topic with message sessions enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-RequiresSession` set to `true`.
 
 ```azurepowershell-interactive
 New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
@@ -66,7 +66,7 @@ New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
 ```
 
 ## Using a template
-To **create a queue with message sessions enabled**, set `requiresSession` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
+To **create a queue with message sessions enabled**, set `requiresSession` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json).
 
 # [Bicep](#tab/bicep)
 
@@ -152,7 +152,7 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
 
 ---
 
-To **create a subscription for a topic with message sessions enabled**, set `requiresSession` to `true` in the subscription properties section. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). 
+To **create a subscription for a topic with message sessions enabled**, set `requiresSession` to `true` in the subscription properties section. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json).
 
 # [Bicep](#tab/bicep)
 
@@ -269,16 +269,10 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
 
 
 ## Next steps
-Try the samples in the language of your choice to explore Azure Service Bus features. 
+Try the samples in the language of your choice to explore Azure Service Bus features.
 
-- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-
-Find samples for the older .NET and Java client libraries below:
-- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

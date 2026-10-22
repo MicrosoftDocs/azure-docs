@@ -5,7 +5,7 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: tutorial
-ms.date: 05/29/2026
+ms.date: 10/01/2026
 
 #CustomerIntent: As a researcher or scientist, I want to walk through a complete shared session with the Discovery Engine so that I understand the full process before using it for real research.
 ---
@@ -37,7 +37,7 @@ Create an agent as part of this tutorial. You don't need prior agent setup.
 Before cognition can execute tasks, your project needs at least one agent. For this tutorial, create a prompt agent that can answer scientific questions.
 
 1. In Discovery Studio, navigate to your project.
-2. Select **Resources**, then in Agents, select **Add Agent**, then select **Create new agent**.
+2. In the **Discovery** tab, select **AI Capabilities**. In the **AI Capabilities** tab, select **Agents**, and then select **New agent** > **Create new agent**.
 3. Fill in the  values:
 
 | Field | Value |
@@ -48,9 +48,9 @@ Before cognition can execute tasks, your project needs at least one agent. For t
 | **Instructions** | You're a knowledgeable science assistant. Provide clear, accurate, and well-structured answers to scientific questions. Include specific data points, values, and explanations where relevant. When asked to compare or analyze, organize your response with clear sections. |
 
 4. Leave **Enable plan confirmation** unselected.
-5. Don't select any tools.
-6. Don't select any knowledge bases.
-7. Select **Create Agent**.
+5. Don't add any tools.
+6. Don't add any bookshelves.
+7. Select **Save**.
 
 Your agent is now available in the project. Cognition can assign it to tasks.
 
@@ -60,7 +60,7 @@ Your agent is now available in the project. Cognition can assign it to tasks.
 ## Step 2: Create a shared session
 
 1. Open Discovery Studio and navigate to your project.
-2. In **Shared Sessions**, select **New Shared Session**.
+2. In the **Discovery** tab, select **New session**.
 3. Type in a friendly name for the shared session: "Tutorial: Water molecule analysis".
 4. Confirm the **Discovery** agent is selected.
 5. Submit the request.

@@ -7,7 +7,8 @@ metadata:
   title: Azure Resource Manager documentation
   description: Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources
   ms.service: azure-resource-manager
-  ms.author: jgao
+  ms.author: kgremban
+  author: kgremban
   ms.subservice: management
   ms.topic: landing-page
   ms.date: 10/29/2025

@@ -6,8 +6,8 @@ ms.custom:
   - ignite-2024
 ms.topic: faq
 ms.date: 04/16/2025
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator who manages updates across various environments, I want to find answers to frequently asked questions about Azure Update Manager so that I can effectively use its features for patch management and ensure compliance across my systems.
 ---

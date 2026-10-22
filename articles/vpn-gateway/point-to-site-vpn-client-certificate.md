@@ -56,6 +56,11 @@ In many cases, you can install the client certificate directly on the client com
 * For information about working with certificates, see [Point-to-site: Generate certificates](vpn-gateway-certificates-point-to-site.md).
 * To view an installed client certificate, open **Manage User Certificates**. The client certificate is installed in **Current User\Personal\Certificates**.
 
+> [!NOTE] 
+> If the required root certificate isn't already installed on your client device, install the root certificate included in the VPN client configuration package before using the VPN client profile.
+For example, if you're updating your P2S VPN profile as part of the [gateway root certificate migration](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-about-gateway-certificate-migration)
+ and the G2 root certificate isn't already installed on your client device, install the G2 root certificate included in the updated VPN client package before using the updated P2S VPN profile.
+
 ##### Install the client certificate
 
 Each computer needs a client certificate to authenticate. If the client certificate isn't already installed on the local computer, you can install it by using the following steps:
@@ -145,7 +150,7 @@ If you experience connection issues and you're running version 4.0.0.0 or later 
 
 ##### <a name="secondary"></a>Configure a secondary profile
 
-[!INCLUDE [Secondary profile](../../includes/vpn-gateway-azure-vpn-client-secondary-profile.md)]
+[!INCLUDE [Secondary profile](../networking/includes/vpn-gateway/azure-vpn-client-secondary-profile.md)]
 
 #### Working with connections
 

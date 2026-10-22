@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 09/14/2026
+ms.date: 10/08/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ms.service: azure-app-service
@@ -263,7 +263,7 @@ All instances of a scaled-out app can access them. When the container starts, if
 
 The only exception is the `/home/LogFiles` directory. This directory stores the container and application logs. The folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md?#enable-application-logging-linuxcontainer) with the **File System** option, whether or not persistent storage is enabled. In other words, when you enable or disable persistent storage, it doesn't affect application logging behavior.
 
-We recommend that you write data to `/home` or a [mounted Azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data that you write outside these paths isn't persistent during restarts. The data is saved to platform-managed host disk space separate from the App Service plans file storage quota.
+We recommend that you write data to `/home` or a [mounted Azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data that you write outside these paths isn't persistent during restarts. The data is saved to platform-managed host disk space separate from the App Service plan's file storage quota.
 
 By default, persistent storage is *disabled* on Linux custom containers. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `true` by using [Cloud Shell](https://shell.azure.com). In Bash, use the following command:
 
@@ -424,98 +424,13 @@ Group managed service accounts aren't supported in Windows containers in App Ser
 
 ## Enable SSH
 
-You can use Secure Shell (SSH) to remotely run administrative commands from a command-line terminal. To enable the Azure portal SSH console feature with custom containers, follow these steps:
+For the newer browser terminal and the preview `az webapp exec` command, App Service uses Kudu as an authenticated proxy to connect to a running Linux container. These options don't require an SSH server, an embedded SSH password, an SSH port, or an SSH daemon startup command in your custom image. Legacy Kudu WebSSH and `az webapp ssh` access might still require an SSH server in the image.
 
-1. Create a standard `sshd_config` file with the following example contents and place it on the application project root directory:
+Keep the image's startup command focused on your application. The app must be running, and you must have authorization and network access to its SCM/Kudu endpoint. Interactive access requires a shell installed in the image: the browser terminal requires `/bin/bash`, while `az webapp exec` can use another installed shell with `--shell`, such as `/bin/sh`. Images without a shell, including distroless images, can't open an interactive shell session.
 
-   ```console
-   Port 			2222
-   ListenAddress 		0.0.0.0
-   LoginGraceTime 		180
-   X11Forwarding 		yes
-   Ciphers aes128-cbc,3des-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr
-   MACs hmac-sha1,hmac-sha1-96
-   StrictModes 		yes
-   SyslogFacility 		DAEMON
-   PasswordAuthentication 	yes
-   PermitEmptyPasswords 	no
-   PermitRootLogin 	yes
-   Subsystem sftp internal-sftp
-   ```
+For browser access or an interactive shell with the preview `az webapp exec` command, see [Open a container shell (SSH) and run commands](configure-linux-open-ssh-session.md?pivots=container-linux). For background tasks, see [Run commands without an interactive session](configure-linux-open-ssh-session.md?pivots=container-linux#run-commands-without-an-interactive-session).
 
-   > [!NOTE]
-   > This file configures OpenSSH and must include the following items to comply with the Azure portal SSH feature:
-   >
-   > - The `Port` value must be set to `2222`.
-   > - The `Ciphers` values must include at least one item in this list: `aes128-cbc`, `3des-cbc`, or `aes256-cbc`.
-   > - The `MACs` values must include at least one item in this list: `hmac-sha1` or `hmac-sha1-96`.
-
-1. Create an entrypoint script named `entrypoint.sh` or change any existing entrypoint file. Add the command to start the SSH service, along with the application startup command. The following example demonstrates starting a Python application. Replace the last command according to the project language or stack:
-
-   ### [Debian](#tab/debian)
-
-   ```Bash
-   #!/bin/sh
-   set -e
-   service ssh start
-   exec gunicorn -w 4 -b 0.0.0.0:8000 app:app
-   ```
-
-   ### [Alpine](#tab/alpine)
-
-   ```Bash
-   #!/bin/sh
-   set -e
-   /usr/sbin/sshd
-   exec gunicorn -w 4 -b 0.0.0.0:8000 app:app
-   ```
-   ---
-
-1. Add the following instructions to the Dockerfile according to the base image distribution. These instructions copy the new files, install the OpenSSH server, set proper permissions and configure the custom entrypoint, and expose the ports required by the application and SSH server, respectively:
-
-   ### [Debian](#tab/debian)
-
-   ```Dockerfile
-   COPY entrypoint.sh ./
-    
-   # Start and enable SSH
-   RUN apt-get update \
-       && apt-get install -y --no-install-recommends dialog \
-       && apt-get install -y --no-install-recommends openssh-server \
-       && echo "root:Docker!" | chpasswd \
-       && chmod u+x ./entrypoint.sh
-   COPY sshd_config /etc/ssh/
-    
-   EXPOSE 8000 2222
-    
-   ENTRYPOINT [ "./entrypoint.sh" ] 
-   ```
-
-   ### [Alpine](#tab/alpine)
-
-   ```Dockerfile
-   COPY sshd_config /etc/ssh/
-   COPY entrypoint.sh ./
-    
-   # Start and enable SSH
-   RUN apk add openssh \
-       && echo "root:Docker!" | chpasswd \
-       && chmod +x ./entrypoint.sh \
-       && cd /etc/ssh/ \
-       && ssh-keygen -A
-    
-   EXPOSE 8000 2222
-    
-   ENTRYPOINT [ "./entrypoint.sh" ]
-   ```
-   ---
-
-   > [!NOTE]
-   > The root password must be exactly `Docker!` because App Service uses it to grant you access to the SSH session with the container. This configuration doesn't allow external connections to the container. The container's port `2222` is accessible only within the bridge network of a private virtual network. An attacker on the internet can't access it.
-
-1. Rebuild and push the Docker image to the registry, and then test the **Web App SSH** feature in the Azure portal.
-
-For more troubleshooting information, see the Azure App Service [Troubleshooting blog](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting).
+To enable or disable SSH access for an app or deployment slot, use the `sshEnabled` configuration property. For commands and governance guidance, see [Control SSH access](configure-linux-open-ssh-session.md#control-ssh-access).
 
 ## Access diagnostic logs
 

@@ -39,7 +39,7 @@ The following tables describe the Network Virtual Appliances that are eligible t
 > New deployments of VMware SD-WAN in Azure Virtual WAN will be blocked at the end of June 2026. While existing deployments will continue to work, use Arista Velocloud SD-WAN for new NVA deployments.
 
  
-[!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
+[!INCLUDE [NVA partners](../networking/includes/virtual-wan/nva-hub-partners.md)]
 
 
 ## Basic use cases
@@ -208,7 +208,7 @@ NVA in the virtual hub is available in the following regions:
 
 ## NVA FAQ
 
-[!INCLUDE [NVA FAQ](../../includes/virtual-wan-nva-hub-faq.md)]
+[!INCLUDE [NVA FAQ](../networking/includes/virtual-wan/nva-hub-faq.md)]
 
 ## Next steps
 

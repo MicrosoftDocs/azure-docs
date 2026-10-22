@@ -215,7 +215,7 @@ jobs:
 In this configuration:
 
 - The `main` branch is monitored for commits.
-- A GitHub Actions workflow is [triggered](https://help.github.com/actions/reference/events-that-trigger-workflows) when a pull request on the `main` branch is: opened, synchronized, reopened, or closed.
+- A GitHub Actions workflow is [triggered](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows) when a pull request on the `main` branch is: opened, synchronized, reopened, or closed.
 - The `build_and_deploy_job` executes when you push commits or open a pull request against the branch listed in the `on` property.
 - The `app_location` points to the `src` folder that contains the source files for the web app. To set this value to the repository root, use `/`.
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. To set this value to the repository root, use `/`.

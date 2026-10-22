@@ -26,12 +26,12 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An active Azure SRE agent
-- An MCP server endpoint URL (browse available servers at [Azure MCP Center](https://mcp.azure.com))
+- An MCP server endpoint URL (browse available servers at [Azure MCP Center](https://registry.modelcontextprotocol.io/))
 - Network access between your agent and the MCP server
 - Authentication information for the MCP server (API key, OAuth sign-in for supported remote servers, OAuth token, or managed identity, depending on the server)
 
 > [!TIP]
-> For your first MCP connector, try one of the verified servers from [Azure MCP Center](https://mcp.azure.com). Many include setup instructions and require no additional configuration.
+> For your first MCP connector, try one of the verified servers from [Azure MCP Center](https://registry.modelcontextprotocol.io/). Many include setup instructions and require no additional configuration.
 
 ## Step 1: Add the MCP connector
 
@@ -109,7 +109,7 @@ You can discover MCP servers to connect from the following registries:
 
 | Registry | URL | Description |
 |----------|-----|-------------|
-| **Azure MCP Center** | [mcp.azure.com](https://mcp.azure.com) | Verified MCP servers for Azure services |
+| **Azure MCP Center** | [mcp.azure.com](https://registry.modelcontextprotocol.io/) | Verified MCP servers for Azure services |
 | **MCP GitHub directory** | [github.com/mcp](https://github.com/mcp) | Community and open-source MCP servers |
 
 ## Troubleshoot common issues

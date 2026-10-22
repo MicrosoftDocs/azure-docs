@@ -30,12 +30,16 @@ items:
       href: create-workspace-bicep.md
   - name: Explore insights
     items:
-    - name: Get Started on Storage Discovery reports
+    - name: Understand Storage Discovery reports
       href: get-started-reports.md
     - name: Understand egress insights
       href: egress-insights.md
-    - name: Access your insights through Azure Copilot
+    - name: Analyze Blob capacity details
+      href: analyze-blob-capacity-details.md
+    - name: Access insights with Azure Copilot
       href: /azure/copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
+  - name: Configure Blob prefixes for analysis
+    href: configure-blob-storage-prefixes.md
   - name: Manage
     items:
     - name: Move resources to other locations in Azure

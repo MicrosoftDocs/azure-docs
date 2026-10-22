@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1095-days
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy25
@@ -81,7 +81,8 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 10.x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 13, 12, 11, 10, 9, 8, 7 <br> - Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - Alma Linux 10.X, 8.x, 9.x <br> - Rocky Linux 10.x, 8.x, 9.x <br> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM. The `SELinux Permissive` setting is supported.
 **Boot requirements** | **Windows VMs:**<br/>OS Drive (C:\\) and System Reserved Partition (EFI System Partition for UEFI VMs) should reside on the same disk.<br/>If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks. <br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks. <br/><br/> **Linux VMs:**<br/> If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks.<br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks.
 **UEFI boot** | UEFI-based virtual machines are migrated to Azure's Generation 2 VMs. However, it's important to note that Azure Generation 2 VMs lack the Secure Boot feature. For VMs that utilized Secure Boot in their original configuration, a conversion to Trusted Launch VMs is recommended after migration. This step ensures that Secure Boot, along with other enhanced security functionalities, is re-enabled.
-**Disk size** | Up to 2TB OS disk for Gen1 VM and up to 4TB OS disk for Gen2 VM; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and won't impact ongoing replication cycle.
+**Migration from Generation 1 to Generation 2 VMs** | Supported for migration to Confidential Virtual Machines (CVMs) for [CVM eligible OS](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines). Also supported for VMs running NVMe-eligible operating systems when migrating to VM SKU families that require NVMe storage and Generation 2 VMs. For the list of NVMe eligible operating systems, see [Supported OS images](/azure/virtual-machines/enable-nvme-interface).
+**Disk size** | Up to 2TB OS disk for Gen1 VM and up to 4TB OS disk for Gen2 VM; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and won't impact ongoing replication cycle.ng
 **Dynamic disk** | - An OS disk as a dynamic disk isn't supported. <br/> - If a VM with OS disk as dynamic disk is replicating, convert the disk type from dynamic to basic and allow the new cycle to complete, before triggering test migration or migration. You'll need help from OS support for conversion of dynamic to basic disk type.
 **Ultra Disk** | Ultra Disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
@@ -96,7 +97,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **VMware Cloud Director's Fast Provisioning** | Not supported.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
-**NVMe disks** | Not supported.
+**NVMe disk controllers** | - Supported for agentless VMware migration to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Migrate attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration. <br/> - Migration to an NVMe-only target is not supported if the following are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core.
 **Target disk** | VMs can be migrated only to managed disks (Standard HDD, Standard SSD, Premium SSD v2 (preview) for data disks) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](how-to-scale-out-for-migration.md) is deployed.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 10.X, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 13, 12, 11, 10, 9, 8, 7<br/>- Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
@@ -175,6 +176,7 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **UEFI - Secure boot**         | Not supported for migration.
+**Migration from Generation 1 to Generation 2 VMs** | Supported for migration to Confidential Virtual Machines (CVMs) for [CVM eligible OS](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines). Also supported for VMs running NVMe-eligible operating systems when migrating to VM SKU families that require NVMe storage and Generation 2 VMs. For the list of NVMe eligible operating systems, see [Supported OS images](/azure/virtual-machines/enable-nvme-interface).
 **Target disk** | VMs can only be migrated to managed disks (Standard HDD, Standard SSD, Premium SSD) in Azure.
 **Disk size** | up to 2-TB OS disk for gen 1 VM; up to 4-TB OS disk for gen 2 VM; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
@@ -188,12 +190,10 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported
 **Teamed NICs** | Not supported.
+**NVMe disk controllers** | - Supported for agent-based migration of VMware VMs and physical servers to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). <br/> - For agent-based migration, the source OS kernel must also be supported by the ASR Mobility agent used for replication. If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Migrate attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration.  <br/> - Migration to an NVMe-only target isn't supported if the following conditions are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core.
 **IPv6** | Not supported.
 **Guest/server disk with 4K logical and 4k physical sector size** |	Not supported.
 **Guest/server disk with 4K logical and 512-bytes physical sector size** |	Not supported.
-
-
-
 
 
 ### Appliance requirements (agent-based)

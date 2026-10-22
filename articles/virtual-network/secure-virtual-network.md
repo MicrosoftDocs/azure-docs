@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-virtual-network
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/22/2026
+ms.date: 09/28/2026
 ai-usage: ai-assisted
 ---
 
@@ -118,7 +118,7 @@ Compliance and governance for virtual networks help ensure consistent network se
 
 - **Validate network segmentation**: Regularly test network segmentation controls to help ensure that resources in one segment can't access resources in other segments unless access is intended. Use Virtual Network Verifier in Azure Virtual Network Manager in preproduction environments to test connectivity between resources and ensure they're reachable and not blocked by policies. For more information, see [Virtual Network Verifier](../virtual-network-manager/concept-virtual-network-verifier.md).
 
-- **Use Azure Chaos Studio for resilience testing**: Use Azure Chaos Studio to simulate network connectivity disruptions and validate that security controls remain effective during failure scenarios. For more information, see [Azure Chaos Studio fault and action library](/azure/chaos-studio/chaos-studio-fault-library).
+- **Use Azure Chaos Studio for resilience testing**: Use Azure Chaos Studio to simulate network connectivity disruptions and validate that security controls remain effective during failure scenarios. For more information, see [Azure Chaos Studio Scenarios](/azure/chaos-studio/chaos-studio-scenarios), such as the [DNS Outage](/azure/chaos-studio/chaos-studio-scenarios#dns-outage) and [Microsoft Entra ID Outage](/azure/chaos-studio/chaos-studio-scenarios#microsoft-entra-id-outage) Scenarios.
 
 - **Integrate Microsoft Defender for Cloud alerts into incident response**: Use Microsoft Defender for Cloud alerts to prioritize network security incidents. Export alerts and recommendations by using continuous export, and stream alerts to Microsoft Sentinel for centralized incident management. For more information, see [Continuously export Defender for Cloud data](/azure/defender-for-cloud/continuous-export).
 

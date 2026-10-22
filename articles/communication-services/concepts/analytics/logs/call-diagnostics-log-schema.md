@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Call diagnostics log schema
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 
 Call diagnostics logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
 

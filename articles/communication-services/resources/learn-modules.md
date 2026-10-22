@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 ---
 # Learn modules
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 If you're looking for more guided experiences that teach you how to use Azure Communication Services then we have several Learn modules at your disposal. These modules provide a more structured experience of learning by providing a step by step guide to learning particular topics. Check them out, we'd love to know what you think.
 
 - [Introduction to Communication Services](/training/modules/intro-azure-communication-services/)

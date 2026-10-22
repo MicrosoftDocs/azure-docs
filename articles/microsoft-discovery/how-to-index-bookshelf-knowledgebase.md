@@ -1,20 +1,25 @@
 ---
-title: Create Bookshelf and index a Knowledgebase for Microsoft Discovery
-description: Learn how to create a Bookshelf resource, configure storage, create a knowledgebase, and index documents using the Microsoft Discovery Bookshelf service.
+title: Create Bookshelf and index a Knowledge base for Microsoft Discovery
+description: Learn how to create a Bookshelf resource, configure storage, create a knowledge base, and index documents using the Microsoft Discovery Bookshelf service.
 author: kaanan
 ms.author: kaanan
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/17/2026
+ms.date: 10/01/2026
 
-#CustomerIntent: As a Discovery platform user, I want to create a Bookshelf resource and index my documents into a knowledgebase so that I can use it with a Discovery agent for retrieval-augmented generation queries.
+#CustomerIntent: As a Discovery platform user, I want to create a Bookshelf resource and index my documents into a knowledge base so that I can use it with a Discovery agent for retrieval-augmented generation queries.
 ---
 
-# Create Bookshelf and index a Knowledgebase
+# Create Bookshelf and index a knowledge base
 
-This article walks you through creating a Bookshelf resource, uploading documents, and indexing a knowledgebase.
+This article walks you through creating a Bookshelf resource, uploading documents, and indexing a knowledge base.
 
-A Bookshelf knowledgebase enables customers to convert unstructured private dataset in Azure blob storage into rich, summary-based index, enabling a graph-enabled retrieval-augmented generation (RAG) with rich citations. The knowledgebase can answer global queries that address the entire dataset, such as "what are the main themes in the data?", or "what are the most important implications for X?" The key components of the Bookshelf service are the Bookshelf resource and a Knowledgebase within each Bookshelf. A Knowledgebase contains a vector database and knowledge graph of your indexed artifacts. Discovery agents use knowledgebases as grounding skills for various use cases including answering questions, summarization, and reasoning.
+A Bookshelf knowledge base enables you to convert an unstructured private dataset in Azure blob storage into a rich, summary-based index. This capability enables a graph-enabled retrieval-augmented generation (RAG) with rich citations. The knowledge base can answer global queries that address the entire dataset, such as "what are the main themes in the data?" or "what are the most important implications for X?" The key components of the Bookshelf service are the Bookshelf resource and a knowledge base within each Bookshelf. A knowledge base contains a vector database and knowledge graph of your indexed artifacts. Discovery agents use knowledge bases as grounding skills for various use cases including answering questions, summarization, and reasoning.
+
+You can complete this flow in two ways: create the Bookshelf resource in the Azure portal and then create and index its knowledge base in Discovery Studio, or create and index the Bookshelf entirely in Discovery Studio. Both approaches are described in [Create and index a bookshelf](#create-and-index-a-bookshelf).
+
+> [!NOTE]
+> Discovery Studio now presents a single, unified **Bookshelf** concept that manages both the Bookshelf resource and its knowledge base together. The **knowledge base** terminology is retained in this article and in surfaces that still use it.
 
 ## Prerequisites
 
@@ -24,9 +29,9 @@ A Bookshelf knowledgebase enables customers to convert unstructured private data
 
 ### Resource quota requirements
 
-A Bookshelf control plane resource is the top-level container that hosts a **single** knowledgebase data plane resource. Each Bookshelf gets a dedicated data plane endpoint for API operations on the knowledgebase. Before you create a Bookshelf resource, ensure that you have sufficient quota for the following Azure resources.
+A Bookshelf control plane resource is the top-level container that hosts a **single** knowledge base data plane resource. Each Bookshelf gets a dedicated data plane endpoint for API operations on the knowledge base. Before you create a Bookshelf resource, ensure that you have sufficient quota for the following Azure resources.
 
-#### Knowledgebase indexing
+#### Knowledge base indexing
 
 Indexing builds the knowledge graph from your documents. It requires memory optimized compute, embedding model, and storage resources.
 
@@ -40,9 +45,9 @@ Indexing builds the knowledge graph from your documents. It requires memory opti
 
 - **Azure OpenAI [text-embedding-3-small](/azure/ai-services/openai/concepts/models#embeddings)** deployment with a minimum quota of **200,000 TPM** during Bookshelf creation. Before you start an indexing operation, increase your quota to **2,000,000 TPM**. Higher embedding model quota speeds up the indexing operation. You can reduce the allocated quota after indexing completes.
 
-#### Knowledgebase search
+#### Knowledge base search
 
-After you index a knowledgebase, it requires the following resources to serve search queries:
+After you index a knowledge base, it requires the following resources to serve search queries:
 
 - **Azure AI Search** [Standard S1 tier](/azure/search/search-sku-tier) with **2 replicas** for [availability zone support](/azure/search/search-reliability#resilience-to-availability-zone-failures).
 
@@ -56,9 +61,23 @@ After you index a knowledgebase, it requires the following resources to serve se
   | Medium | ~500 MB | E8 | 8 | 64 GiB |
   | Large | ~1 GB | E16 | 16 | 128 GiB |
 
-- **Azure OpenAI [GPT-5.2](/azure/ai-services/openai/concepts/models)** deployment with a minimum quota of **200,000 TPM** during Bookshelf creation. For Knowledgebase search, a quota of **2,000,000 TPM** is recommended.
+- **Azure OpenAI [GPT-5.2](/azure/ai-services/openai/concepts/models)** deployment with a minimum quota of **200,000 TPM** during Bookshelf creation. For Knowledge base search, a quota of **2,000,000 TPM** is recommended.
 
-- **Azure OpenAI [GPT-5-mini](/azure/ai-services/openai/concepts/models)** deployment with a minimum quota of **200,000 TPM** during Bookshelf creation. For Knowledgebase search, a quota of **10,000,000 TPM** is recommended.
+- **Azure OpenAI [GPT-5-mini](/azure/ai-services/openai/concepts/models)** deployment with a minimum quota of **200,000 TPM** during Bookshelf creation. For Knowledge base search, a quota of **10,000,000 TPM** is recommended.
+
+## Create and index a bookshelf
+
+You can create and index a bookshelf and its knowledge base in two ways. Each tab covers the full end-to-end flow: create, index, and track. Select the tab for the approach you want:
+
+- **Azure portal + Studio** — Create the Bookshelf resource in the Azure portal, then create and index its knowledge base in Discovery Studio.
+- **Discovery Studio** — Create and index the bookshelf entirely in Discovery Studio, using the **New Bookshelf** wizard in your project.
+
+The source data preparation (uploading documents, creating a Discovery storage container and storage asset, and granting the managed identity access to storage) is the same for both approaches.
+
+> [!NOTE]
+> For new bookshelves, use the **Discovery Studio** approach. Microsoft is retiring the classic Studio **Resources** > **Knowledge** experience that the **Azure portal + Studio** approach uses to create and index the knowledge base. The in-project **AI Capabilities** > **Bookshelves** experience replaces it.
+
+# [Azure portal + Studio](#tab/portal)
 
 ## Step 1: Create a Bookshelf resource
 
@@ -94,6 +113,9 @@ The networking tab requires two subnet configurations:
 - **Private Endpoint Subnet** — Used for private connectivity to the Bookshelf data plane. Select a virtual network and subnet (for example, *discovery-uksouth-v2* / *default*).
 - **Search Subnet** — Used by the managed AI Search service created in the Bookshelf's managed resource group. The search subnet must be different from the private endpoint subnet (for example, *discovery-uksouth-v2* / *bookshelfsearch*).
 
+> [!NOTE]
+> Provision a separate search subnet for each Bookshelf. You can't share search subnets across Bookshelf resources.
+
 :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-networking.png" alt-text="Screenshot that shows how to configure network security for a Bookshelf resource in the Azure portal." lightbox="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-networking.png":::
 
 Select **Next** to continue to the **Encryption** tab.
@@ -110,7 +132,7 @@ Select **Next** to continue to the **Identity** tab.
 
 ### Configure identity
 
-The **Identity** tab configures the workload identity that the Bookshelf Knowledgebase uses to access blob storage containing the private dataset.
+Use the **Identity** tab to set up the workload identity that the Bookshelf Knowledge base uses to access blob storage with the private dataset.
 
 1. Under **User assigned managed identity**, select **+ Add**.
 
@@ -121,7 +143,7 @@ The **Identity** tab configures the workload identity that the Bookshelf Knowled
    :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-identity.png" alt-text="Screenshot that shows how to configure the workload identity for a Bookshelf resource in the Azure portal." lightbox="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-identity.png":::
 
    > [!IMPORTANT]
-   > This managed identity is used by Knowledgebase to access Azure Blob Storage. You must grant this identity the Storage Blob Data Contributor role on the storage account containing the private dataset. The managed identity should be created in the same region as the Bookshelf resource.
+   > Knowledge base uses this managed identity to access Azure Blob Storage. You must grant this identity the Storage Blob Data Contributor role on the storage account that holds the private dataset. Create the managed identity in the same region as the Bookshelf resource.
 
 Select **Next** to continue to the **Tags** tab.
 
@@ -131,7 +153,7 @@ The **Tags** tab lets you add optional name-value pairs to categorize your Books
 
 | Name | Value | Description |
 |------|-------|-------------|
-| `indexSize` | `small`, `medium`, or `large` | Controls the infrastructure provisioned in the managed resource group for the knowledgebase search. See the [resource quota requirements](#resource-quota-requirements) tables for the compute and memory allocated at each size. |
+| `indexSize` | `small`, `medium`, or `large` | Controls the infrastructure provisioned in the managed resource group for the knowledge base search. See the [resource quota requirements](#resource-quota-requirements) tables for the compute and memory allocated at each size. |
 
 :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-tags.png" alt-text="Screenshot that shows how to add tags to a Bookshelf resource in the Azure portal." lightbox="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-tags.png":::
 
@@ -243,7 +265,7 @@ The Bookshelf resource uses a managed identity to read documents from your stora
 
 ## Step 4: Create a storage container resource and storage asset
 
-An Azure Discovery storage container resource and storage asset provide the link between the Knowledgebase and the blob storage that holds your documents. The storage asset points to the specific blob container and uses the managed identity for authentication.
+An Azure Discovery storage container resource and storage asset provide the link between the Knowledge base and the blob storage that holds your documents. The storage asset points to the specific blob container and uses the managed identity for authentication.
 
 ### Create a discovery storage container resource
 
@@ -282,9 +304,12 @@ The **Storage asset** tab defines the specific data path within the storage acco
 
 1. Select **Review + create**, and then select **Create**.
 
-## Step 5: Create a knowledgebase
+## Step 5: Create a knowledge base
 
-A Knowledgebase is the searchable index built from your documents. You create it within a Bookshelf using the Discovery Studio portal and associate it with your storage asset.
+A knowledge base is the searchable index built from your documents. You create it within a Bookshelf using the Discovery Studio portal and associate it with your storage asset.
+
+> [!NOTE]
+> The **Resources** > **Knowledge** experience described in this step is retiring. For new bookshelves, use the in-project **AI Capabilities** > **Bookshelves** flow described in the **Discovery Studio** tab.
 
 1. Navigate to the [Discovery Studio portal](https://studio.discovery.microsoft.com).
 
@@ -298,11 +323,11 @@ A Knowledgebase is the searchable index built from your documents. You create it
 
    | Field | Description |
    |-------|-------------|
-   | **Name** | A unique name for your knowledgebase, such as *leukemiaresearchkb*. |
-   | **Version** | The version number for this knowledgebase (for example, `1`). |
-   | **Description** | A description of the knowledgebase content. The description is visible in the Discovery Studio. |
-   | **Copilot instruction** | Instructions that the discovery agent uses to understand the capabilities of this knowledgebase. Provide a description that helps the agent determine when to query this knowledgebase. |
-   | **Bookshelf** | The Bookshelf resource associated with this knowledgebase (for example, `bkshlfleukemiaresearch`). |
+   | **Name** | A unique name for your knowledge base, such as *leukemiaresearchkb*. |
+   | **Version** | The version number for this knowledge base (for example, `1`). |
+   | **Description** | A description of the knowledge base content. The description is visible in the Discovery Studio. |
+   | **Copilot instruction** | Instructions that the discovery agent uses to understand the capabilities of this knowledge base. Provide a description that helps the agent determine when to query this knowledge base. |
+   | **Bookshelf** | The Bookshelf resource associated with this knowledge base (for example, `bkshlfleukemiaresearch`). |
 
    :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/knowledgebase-create-form.png" alt-text="Screenshot that shows the Create knowledge base form with name, version, description, copilot instruction, and bookshelf fields." lightbox="media/how-to-index-bookshelf-knowledgebase/knowledgebase-create-form.png":::
 
@@ -314,21 +339,19 @@ A Knowledgebase is the searchable index built from your documents. You create it
    |-------|-------------|
    | **Select Storage Container** | The storage container resource you created in Step 4. |
    | **Select Storage Asset** | The storage asset within the container that points to your documents. |
-   | **User Assigned Identity** | The workload identity that the knowledgebase uses to access the storage account. Select the same managed identity you configured in Step 1. |
+   | **User Assigned Identity** | The workload identity that the knowledge base uses to access the storage account. Select the same managed identity you configured in Step 1. |
 
    :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/knowledgebase-select-storage-identity.png" alt-text="Screenshot that shows the storage container, storage asset, and user assigned identity selection page in the Create knowledge base wizard." lightbox="media/how-to-index-bookshelf-knowledgebase/knowledgebase-select-storage-identity.png":::
 
 1. Select **Create**.
 
-## Step 6: Index the knowledgebase
+## Step 6: Index the knowledge base
 
-Indexing processes your documents through an enrichment pipeline (text extraction, chunking, embedding) and builds the LazyGraphRAG search index. You can trigger indexing from Discovery Studio or by calling the REST API.
+Indexing processes your documents through an enrichment pipeline (text extraction, chunking, embedding) and builds the LazyGraphRAG search index.
 
-### Start indexing from Discovery Studio
+1. In Discovery Studio, open the knowledge base you created from **Resources** > **Knowledge**. The **Details** tab shows the knowledge base info, status, and linked assets. Verify that the **Status** shows **NotStarted** and **Provisioning State** shows **Succeeded**.
 
-1. In Discovery Studio, navigate to your knowledgebase. The **Details** tab shows the knowledgebase info, status, and linked assets. Verify that the **Status** shows **NotStarted** and **Provisioning State** shows **Succeeded**.
-
-   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/knowledgebase-details-index-button.png" alt-text="Screenshot that shows the knowledgebase details page in Discovery Studio with the Index button, Status, and Provisioning State highlighted." lightbox="media/how-to-index-bookshelf-knowledgebase/knowledgebase-details-index-button.png":::
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/knowledgebase-details-index-button.png" alt-text="Screenshot that shows the knowledge base details page in Discovery Studio with the Index button, Status, and Provisioning State highlighted." lightbox="media/how-to-index-bookshelf-knowledgebase/knowledgebase-details-index-button.png":::
 
 1. Select the **Index** button. In the **Index Knowledge Base** dialog, select the project and node pool for the indexing run.
 
@@ -341,32 +364,116 @@ Indexing processes your documents through an enrichment pipeline (text extractio
 
 1. Select **Start Indexing** to begin the indexing operation.
 
+   > [!NOTE]
+   > The **Resources** > **Knowledge** indexing experience is retiring. For new bookshelves, use the **Discovery Studio** tab to create and index your bookshelf from **AI Capabilities** > **Bookshelves**.
+
 ## Step 7: Track indexing progress
 
-After you start indexing, the knowledgebase **Status** changes to **Running**. You can monitor the progress in Discovery Studio.
+After you start indexing, the knowledge base **Status** changes to **Running**. You can monitor the progress in Discovery Studio.
 
-1. On the knowledgebase details page, select **Refresh** to check the current status.
+1. On the knowledge base details page, select **Refresh** to check the current status.
 
-   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/knowledgebase-indexing-running.png" alt-text="Screenshot that shows the knowledgebase details page with Status set to Running and the Refresh button highlighted." lightbox="media/how-to-index-bookshelf-knowledgebase/knowledgebase-indexing-running.png":::
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/knowledgebase-indexing-running.png" alt-text="Screenshot that shows the knowledge base details page with Status set to Running and the Refresh button highlighted." lightbox="media/how-to-index-bookshelf-knowledgebase/knowledgebase-indexing-running.png":::
 
-1. When indexing completes, the **Status** changes to **Succeeded**. Your knowledgebase is now indexed and ready to use with a Discovery agent.
+1. When indexing finishes, the **Status** changes to **Succeeded**. Your knowledge base is now indexed and ready to use with a Discovery agent.
 
-   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/knowledgebase-indexing-succeeded.png" alt-text="Screenshot that shows the knowledgebase details page with Status set to Succeeded and Provisioning State set to Succeeded." lightbox="media/how-to-index-bookshelf-knowledgebase/knowledgebase-indexing-succeeded.png":::
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/knowledgebase-indexing-succeeded.png" alt-text="Screenshot that shows the knowledge base details page with Status set to Succeeded and Provisioning State set to Succeeded." lightbox="media/how-to-index-bookshelf-knowledgebase/knowledgebase-indexing-succeeded.png":::
+
+# [Discovery Studio](#tab/studio)
+
+Create the bookshelf and its knowledge base together by using the **New Bookshelf** wizard in your project, and then index it—all without switching to the Azure portal.
+
+Prepare your source data and identity before you start the wizard. These prerequisites are the same storage prerequisites used by the Azure portal approach:
+
+- Upload your documents to an Azure Blob Storage container. For details, see **Step 2** in the **Azure portal + Studio** tab.
+- Create a Discovery storage container resource and a storage asset that points to your documents. For details, see **Step 4** in the **Azure portal + Studio** tab.
+- Create a user-assigned managed identity and grant it the **Storage Blob Data Contributor** role on the storage account. For details, see **Step 3** in the **Azure portal + Studio** tab.
+
+## Step 1: Create a bookshelf in Discovery Studio
+
+1. Sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) and open your project.
+
+1. In the **Discovery** tab, select **AI Capabilities**, and then select **Bookshelves**.
+
+1. Select **New Bookshelf**.
+
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/studio-bookshelves-list.png" alt-text="Screenshot that shows the Bookshelves section of the AI Capabilities tab in Discovery Studio with the New Bookshelf button.":::
+
+1. On the **1. Details** step, provide the following values, and then select **Next**:
+
+   | Field | Description |
+   |-------|-------------|
+   | **Name** | A name for the bookshelf, such as *bkshlfleukemiaresearch*. |
+   | **Bookshelf Azure resource** | Optional. If you already created a Bookshelf resource in Azure, select it here. Leave this field empty to have the wizard create a new Bookshelf resource and its knowledge base for you. Only bookshelves in your subscription and the project's region are listed. |
+   | **Description** | A description of the bookshelf content. |
+   | **Instructions for use** | Rules and guidelines that tell Discovery AI when to use this bookshelf (for example, *only reference this bookshelf when I ask about recent drug discoveries*). |
+
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/studio-create-bookshelf-details.png" alt-text="Screenshot that shows the Details step of the New Bookshelf wizard in Discovery Studio.":::
+
+1. On the **2. Connect data** step, select the storage container that holds your documents and the managed identity that has access to the storage account. Select **Next**.
+
+1. On the **3. Networking** step, configure how the bookshelf data plane endpoint is accessed. These options match the networking settings in the Azure portal:
+
+   - **Public network access** — Enable or disable access to the data plane endpoint over the public internet.
+   - **Private Endpoint Subnet** — The virtual network and subnet used for private connectivity to the bookshelf data plane.
+   - **Search Subnet** — A separate subnet used by the managed AI Search service. The search subnet must be different from the private endpoint subnet.
+
+   Select **Next**.
+
+   > [!NOTE]
+   > Provision a separate search subnet for each bookshelf. You can't share search subnets across bookshelves.
+
+1. On the **4. Tags** step, optionally add name-value pairs to categorize the resource. For example, add the `indexSize` tag (`small`, `medium`, or `large`) to control the search infrastructure provisioned for the knowledge base. See the [resource quota requirements](#resource-quota-requirements) tables for the compute and memory allocated at each size. Select **Next**.
+
+1. On the **5. Review + create** step, review your configuration, and then select **Create**.
+
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/studio-create-bookshelf-review.png" alt-text="Screenshot that shows the Review step of the New Bookshelf wizard in Discovery Studio.":::
+
+After the bookshelf is created, index it as described in the next step.
+
+## Step 2: Index the bookshelf
+
+Indexing processes your documents through an enrichment pipeline (text extraction, chunking, embedding) and builds the LazyGraphRAG search index.
+
+1. In Discovery Studio, open the knowledge base you want to index. In your project, select **AI Capabilities** > **Bookshelves**, and then open the bookshelf. The **Details** tab shows the knowledge base info, status, and linked assets. Verify that the **Status** shows **NotStarted** and **Provisioning State** shows **Succeeded**.
+
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/studio-bookshelf-index.png" alt-text="Screenshot that shows the bookshelf knowledge base details page in Discovery Studio with the Index button." lightbox="media/how-to-index-bookshelf-knowledgebase/studio-bookshelf-index.png":::
+
+1. Select **Index**. In the **Index** dialog, optionally select a node pool, and then select **Index** to start the indexing run.
+
+   | Field | Description |
+   |-------|-------------|
+   | **Node Pool** | Optional. The supercomputer node pool that provides compute for the indexing run. Choose a memory-optimized SKU based on your data size (see [resource quota requirements](#resource-quota-requirements)). |
+
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/studio-bookshelf-index-node-pool.png" alt-text="Screenshot that shows the Index dialog in Discovery Studio with the optional node pool selection." lightbox="media/how-to-index-bookshelf-knowledgebase/studio-bookshelf-index-node-pool.png":::
+
+## Step 3: Track indexing progress
+
+After you start indexing, the knowledge base **Status** changes to **Running**. You can monitor the progress in Discovery Studio.
+
+1. Open the Bookshelf that you just indexed.
+
+   :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/studio-bookshelf-index-track.png" alt-text="Screenshot that shows the bookshelf details page with Status set to Succeeded." lightbox="media/how-to-index-bookshelf-knowledgebase/studio-bookshelf-index-track.png":::
+
+1. When indexing finishes, the **Status** changes to **Succeeded**. Your knowledge base is now indexed and ready to use with a Discovery agent.
+1. You can also edit the description, instructions, or data source by selecting the **Edit** button.
+
+---
 
 ## Incremental enrichment and reindexing
 
-After the initial indexing, you can add new documents to the source storage container and reindex the knowledgebase. When you select the **Index** button again, the following behavior applies:
+After the initial indexing, you can add new documents to the source storage container and reindex the knowledge base. When you select the **Index** button again, the following behavior applies:
 
 - **Incremental enrichment.** The enrichment pipeline processes only the newly added documents (text extraction). Previously enriched documents aren't reprocessed.
 - **Full graph reindex.** The system rebuilds the GraphRAG search index from scratch using all text documents, including both the previously enriched and newly enriched content. Ensure that the selected node pool has sufficient memory for the complete dataset, not just the new documents.
 - **Node pool selection.** You can select a different supercomputer node pool for the reindex operation. Choose a node pool size based on the total dataset size, not just the incremental additions.
 
 > [!IMPORTANT]
-> Deleting files from the source storage container isn't supported. If you need to remove documents from a knowledgebase, create a new knowledgebase with a fresh storage container that contains only the desired documents, and run a full enrichment and index.
+> Deleting files from the source storage container isn't supported. If you need to remove documents from a knowledge base, create a new knowledge base with a fresh storage container that contains only the desired documents, and run a full enrichment and index.
 
 ## Related content
 
-- [Query bookshelf knowledgebase query logs](how-to-query-bookshelf-logs.md)
+- [Query bookshelf knowledge base query logs](how-to-query-bookshelf-logs.md)
 - [Query bookshelf indexing logs](how-to-query-bookshelf-indexing-logs.md)
 - [Access resource logs for Microsoft Discovery resources](how-to-access-resource-logs.md)
 - [Microsoft Discovery Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases.md)

@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/20/2026
+ms.date: 10/12/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -39,16 +39,6 @@ Support for .NET 6 reached the end of official support on [November 12, 2024][do
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md) and [Azure Functions legacy C# script (.csx) developer reference](../articles/azure-functions/functions-reference-csharp.md).
 
-### [v1.x](#tab/v1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
-
-| Supported version | Support level | Expected end-of-support date |
-| ---- | ---- |--- |
-| .NET Framework 4.8.1 | GA | See [.NET Framework Support Policy][dotnet-framework-policy]. |
- 
-For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md) and [Azure Functions legacy C# script (.csx) developer reference](../articles/azure-functions/functions-reference-csharp.md).
-
 ### [v4.x](#tab/v4/isolated-process)
 
 | Supported version    | Support level | Expected end-of-support date                                  |
@@ -71,10 +61,6 @@ For more information, see [Develop C# class library functions using Azure Functi
 .NET 7 reached the end of official support on [May 14, 2024][dotnet-policy].
 
 For more information, see [Guide for running C# Azure Functions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md).
-
-### [v1.x](#tab/v1/isolated-process)
-
-Version 1.x of the Functions runtime doesn't support running C# function apps in an isolated worker process. Go to the **In-process** tab or the **v4.x** tab.
 
 ---
 
@@ -115,11 +101,12 @@ The following table shows the language versions supported for PowerShell functio
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | Preview | TBD |
+| [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 14, 2028 |
 | [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
-> [!NOTE]
-> PowerShell 7.4 is the last PowerShell version supported for Linux Consumption plan apps. Newer PowerShell versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
+PowerShell 7.6 is supported on all Azure Functions hosting plans except Linux Consumption, including Premium and Dedicated on Windows and Linux, Windows Consumption, and Flex Consumption.
+
+[!INCLUDE [PowerShell 7.6 Linux Consumption migration](./functions-powershell-76-linux-consumption-migration.md)]
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
@@ -144,13 +131,13 @@ For more information, see [Azure Functions Python developer guide](../articles/a
 The following table shows the Go versions supported by Azure Functions:
 
 | Supported version | Support level | Expected end-of-support date |
-| ---- | ---- |--- |
-| Go 1.24 or later | Preview | Pending<sup>1</sup> |
+| --- | --- | --- |
+| [Go 1.24 or later](https://go.dev/doc/devel/release#policy) | GA | See the [Go release policy](https://go.dev/doc/devel/release#policy)<sup>1</sup> |
 
-<sup>1</sup> The end-of-support date for Go support is determined when general availability (GA) is declared.
+<sup>1</sup> Each major Go release is supported until two newer major releases are available.
 
 > [!NOTE]
-> Go support is currently available only for function apps hosted in the Flex Consumption plan.
+> Go support is available only for function apps hosted in the Flex Consumption plan.
 
 For more information, see [Azure Functions Go developer reference](../articles/azure-functions/functions-reference-go.md).
 ::: zone-end

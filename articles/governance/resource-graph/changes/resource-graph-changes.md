@@ -1,8 +1,6 @@
 ---
 title: Analyze changes to your Azure resources with Change Analysis
 description: Learn to use the Azure Resource Graph Change Analysis tool to explore and analyze changes in your resources.
-author: iancarter-msft
-ms.author: daphnema
 ms.date: 10/23/2025
 ms.topic: concept-article
 

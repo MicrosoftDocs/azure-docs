@@ -2,11 +2,11 @@
 title: Tutorial to assess web apps for migration
 description: Learn how to create assessment for web apps in Azure Migrate
 author: ankitsurkar06
-ms.author: ankitsurkar
+ms.author: nikitabajaj
 ms.topic: tutorial
 ms.date: 10/22/2025
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.custom: engagement-fy24
 ms.update-cycle: 1095-days
 # Customer intent: As a cloud architect, I want to create a comprehensive assessment for web applications, so that I can determine the best modernization path and resource allocation for deploying them on Azure efficiently.

@@ -2,7 +2,7 @@
 title: Dapr Publish output binding for Azure Functions
 description: Learn how to provide Dapr Publish output binding data using Azure Functions.
 ms.topic: reference
-ms.date: 05/10/2024
+ms.date: 10/13/2026
 ms.author: nigreenf
 ms.reviewer: hannahhunter
 ms.subservice: dapr
@@ -13,6 +13,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Dapr Publish output binding for Azure Functions
+
+[!INCLUDE [dapr-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr publish output binding allows you to publish a message to a Dapr topic during a function execution.
 

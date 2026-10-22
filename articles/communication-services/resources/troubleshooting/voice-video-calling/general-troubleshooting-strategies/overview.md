@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Overview of general troubleshooting strategies
 
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Ensuring a satisfying experience during a call requires many elements to work together:
 
 * stable network and hardware environment

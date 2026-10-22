@@ -16,12 +16,16 @@ ms.custom: [amqp, mqtt, devx-track-csharp]
 This article provides high-level guidance to help you design resilient applications by adding a device reconnection strategy. It explains why devices disconnect and need to reconnect. And it describes specific strategies that developers can use to reconnect devices that have been disconnected.  
 
 ## What causes disconnections
-The following are the most common reasons that devices disconnect from IoT Hub: 
+Devices can temporarily disconnect from IoT Hub for several reasons, including: 
 
 - Expired SAS token or X.509 certificate. The device's SAS token or X.509 authentication certificate expired. 
 - Network interruption. The device's connection to the network is interrupted.
 - Service disruption. The Azure IoT Hub service experiences errors or is temporarily unavailable. 
-- Service reconfiguration. After you reconfigure IoT Hub service settings, it can cause devices to require reprovisioning or reconnection. 
+- Service reconfiguration. After you reconfigure IoT Hub service settings, it can cause devices to require reprovisioning or reconnection.
+- Service maintenance and updates.
+- Other transient conditions associated with operating a cloud service can cause devices to be temporarily disconnected from IoT Hub.
+
+Transient device disconnects are normal and expected in cloud-connected applications. Device applications should be designed to detect a lost connection and reconnect by using an appropriate retry strategy.
 
 ## Why you need a reconnection strategy
 

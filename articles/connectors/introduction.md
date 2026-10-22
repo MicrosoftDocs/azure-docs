@@ -1,16 +1,16 @@
 ---
-title: What are Connectors
-description: Learn how connectors in Azure Logic Apps help you access data, events, and resources in other apps, services, and systems from workflows.
-services: logic-apps
+title: What are Connectors in Workflows?
+description: Learn how connectors help you access data, events, and resources in other apps, services, and systems from workflows in Azure Logic Apps.
+services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: concept-article
 ms.update-cycle: 1095-days
-ms.date: 03/09/2026
-#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn how connectors provide access to data, events, and resources in other services, systems, apps, and ecosystems from my logic app workflows.
+ms.date: 09/17/2026
+#Customer intent: As an automation and integration developer who works with Azure Logic Apps, I want to learn how connectors provide access to data, events, and resources in other services, systems, apps, and ecosystems from my logic app workflows.
 ---
 
-# What are connectors in Azure Logic Apps
+# What are connectors in workflows for Azure Logic Apps?
 
 When you build a workflow using Azure Logic Apps, you can use a *connector* to work with data, events, and resources in other apps, services, systems, and platforms - without writing code. A connector provides one or more prebuilt operations, which you use as steps in your workflow.
 
@@ -72,7 +72,7 @@ An action specifies a task to perform and always appears as a subsequent step in
 
 ## Connection permissions
 
-In a Consumption logic app workflow, before you can create or manage logic app resources, workflows, and their connections, you need specific permissions. For more information about these permissions, see [Secure operations - Secure access and data in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-operations).
+In a Consumption logic app workflow, you need specific permissions before you can create or manage logic app resources, workflows, and their connections. For more information about these permissions, see [Secure operations - Secure access and data in Azure Logic Apps](../logic-apps/set-up-security-permissions.md#secure-operations).
 
 ## Connection creation, configuration, and authentication
 
@@ -80,7 +80,7 @@ Before you can use a connector's operations in your workflow, many connectors re
 
 For example, before your workflow can access and work with your Office 365 Outlook email account, you must authorize a connection to that account. For some built-in connectors and managed connectors, you can [set up and use a managed identity for authentication](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity), rather than provide your credentials.
 
-Although you create connections within a workflow, these connections are actually separate Azure resources with their own resource definitions. To review these connection resource definitions, follow these steps based on whether you have a Consumption or Standard workflow:
+For managed connectors, connections are separate Azure resources with their own resource definitions. For built-in connectors in Standard workflows, connection configuration is stored with the logic app configuration, including the **connections.json** file and referenced app settings. To review connection information, follow these steps based on whether you have a Consumption or Standard workflow:
 
 * Consumption
 
@@ -100,23 +100,29 @@ Although you create connections within a workflow, these connections are actuall
 
 ### Connection security and encryption
 
-Connection configuration details, such as server address, username, and password, credentials, and secrets are [encrypted and stored in the secured Azure environment](../security/fundamentals/encryption-overview.md). This information can be used only in logic app resources and by clients who have permissions for the connection resource, which is enforced using linked access checks. Connections that use Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth), such as Office 365, Salesforce, and GitHub, require that you sign in, but Azure Logic Apps stores only access and refresh tokens as secrets, not sign-in credentials.
+Azure services that store connection configuration details and secrets [encrypt them at rest](../security/fundamentals/encryption-overview.md). Storage and access controls vary between managed API connections and built-in connections in Standard workflows. Connections that use Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth), such as Office 365, Salesforce, and GitHub, require that you sign in, but Azure Logic Apps stores access and refresh tokens rather than user sign-in passwords.
 
-Established connections can access the target service or system for as long as that service or system allows. For services that use Microsoft Entra ID OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Logic Apps can use a token without refreshing. Some actions, such as changing your password, invalidate all access tokens.
+Azure Logic Apps can refresh OAuth access tokens while the refresh token remains valid and the target service permits access. Refresh tokens can expire or be revoked, which might require reauthorization. Credential changes can also invalidate tokens, depending on the identity provider, client type, and authentication flow.
 
 > [!NOTE]
 > 
 > If your organization doesn't permit you to access specific resources through connectors in Azure Logic Apps, you can [block the capability to create such connections](../logic-apps/block-connections-connectors.md) using [Azure Policy](../governance/policy/overview.md).
 
-For more information about securing logic app workflows and connections, see [Secure access and data in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md).
+For more information about securing logic app workflows and connections, see [Secure access and data in Azure Logic Apps](../logic-apps/set-up-security-permissions.md).
 
 <a name="firewall-access"></a>
 
 ### Firewall access for connections
 
-If you use a firewall that limits traffic, and your logic app workflows need to communicate through that firewall, you have to set up your firewall to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by the Azure Logic Apps platform or runtime in the Azure region where your logic app workflows exist.
+If your environment uses a firewall, allow only the traffic required by your workflows and connector operations:
 
-If your workflows also use managed connectors, such as the Office 365 Outlook connector or SQL connector, or use custom connectors, your firewall also needs to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in your logic app resource's Azure region. For more information, see [Firewall configuration](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
+- For Consumption workflows that use built-in operations, allow [inbound Azure Logic Apps traffic](../logic-apps/logic-apps-limits-and-config.md#inbound) when workflows receive external calls and [outbound traffic](../logic-apps/logic-apps-limits-and-config.md#outbound) when workflows call external endpoints. Use the **LogicAppsManagement** and **LogicApps** service tags where supported.
+
+- For managed or custom connector operations, use the **AzureConnectors** service tag where supported. Otherwise, allow the required [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) for the applicable Azure regions.
+
+- For Standard workflows, follow Azure App Service networking requirements and allow the fully qualified domain names required by connector connections. For more information, see [Firewall permissions for Standard workflows](../logic-apps/create-single-tenant-workflows-azure-portal.md#firewall-setup).
+
+For more information, see [Firewall configuration](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
 
 ## Custom connectors and APIs
 
@@ -135,14 +141,6 @@ In Standard workflows for single-tenant Azure Logic Apps, you can create nativel
 * [Service provider-based custom built-in connectors for Standard workflows](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 
 * [Create service provider-based custom built-in connectors for Standard workflows](../logic-apps/create-custom-built-in-connector-standard.md)
-
-## Known issues
-
-The following table includes known issues for connectors in Azure Logic Apps:
-
-| Error message| Description | Resolution |
-|--------------|-------------|------------|
-| `Error: BadGateway. Client request id: '{GUID}'` | This error results from updating the tags on a logic app resource where one or more connections don't support Microsoft Entra ID OAuth authentication, such as SFTP ad SQL, breaking those connections. | To prevent this behavior, avoid updating those tags. |
 
 ## Next steps
 

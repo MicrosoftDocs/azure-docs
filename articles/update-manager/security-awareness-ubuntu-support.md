@@ -1,8 +1,8 @@
 ---
 title: Security awareness and Ubuntu Pro support in Azure Update Manager
 description: Guidance on security awareness and Ubuntu Pro support in Azure Update Manager.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 08/07/2025

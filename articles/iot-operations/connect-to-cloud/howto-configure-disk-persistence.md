@@ -111,7 +111,7 @@ Add the `requestDiskPersistence` property to your data flow configuration file:
 Add the `requestDiskPersistence` property to your data flow resource. The API version is `2025-10-01` or later:
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-07-01' = {
   parent: defaultDataflowProfile
   name: dataflowName
   extendedLocation: {
@@ -165,7 +165,7 @@ The API doesn't currently support disk persistence configuration for data flow g
 Add the `requestDiskPersistence` property to your data flow graph resource:
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-07-01' = {
   parent: dataflowProfile
   name: 'my-graph'
   extendedLocation: {

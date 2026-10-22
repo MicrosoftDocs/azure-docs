@@ -19,7 +19,7 @@ This article shows you how to use Virtual WAN to connect to your resources in Az
 
 ## Prerequisites
 
-[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before beginning](../networking/includes/virtual-wan/before.md)]
 
 ### Azure PowerShell
 
@@ -111,7 +111,7 @@ Get-AzVirtualWanVpnServerConfigurationVpnProfile -Name myVirtualWAN -ResourceGro
 Use the downloaded profile package to configure the remote access VPN clients. The procedure for each operating system is different. Follow the instructions that apply to your system.
 Once you have finished configuring your client, you can connect.
 
-[!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
+[!INCLUDE [Configure clients](../networking/includes/virtual-wan/p2s-configure-clients.md)]
 
 ## <a name="connect-vnet"></a>Connect VNet to hub
 

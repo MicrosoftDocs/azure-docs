@@ -304,7 +304,7 @@ items:
       href: tutorial-troubleshoot-monitor.md
     - name: Enable diagnostic logs
       href: troubleshoot-diagnostic-logs.md
-    - name: Open SSH session to a web app in a container
+    - name: Open a container shell (SSH) and run commands
       href: configure-linux-open-ssh-session.md
     - name: Monitor instance health
       href: monitor-instances-health-check.md
@@ -362,6 +362,9 @@ items:
   items:
     - name: Connectivity scenarios overview
       href: tutorial-connect-overview.md           
+    - name: Managed connectors
+      href: overview-managed-connectors.md
+      displayName: connector namespace, triggers, SDK actions, Office 365, Teams, SharePoint, SaaS
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings

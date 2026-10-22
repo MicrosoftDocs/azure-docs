@@ -1,7 +1,7 @@
 ---
-title: Migrate to Azure Functions v2 on Azure Container Apps
+title: Migrate from Functions on Azure Container Apps V1 to Functions on Azure Container Apps V2
 ms.reviewer: cshoe
-description: Learn how to migrate Azure Functions from the legacy v1 model to the recommended v2 model on Azure Container Apps.
+description: Learn how to migrate from the legacy Functions on Azure Container Apps V1 hosting model to the recommended Functions on Azure Container Apps V2 hosting model.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -10,24 +10,24 @@ ms.date: 12/01/2025
 ms.author: cshoe
 ---
 
-# Migrate to Azure Functions v2 on Azure Container Apps
+# Migrate from Functions on Azure Container Apps V1 to Functions on Azure Container Apps V2
 
-Use this guide to move Azure Functions running on the legacy Functions v1 model to the recommended Functions v2 model on Azure Container Apps. You learn why to migrate, what changes, and how to execute the transition with minimal risk.
+Use this guide to move from the legacy Functions on Azure Container Apps V1 hosting model to the recommended Functions on Azure Container Apps V2 hosting model. You learn why to migrate, what changes, and how to execute the transition with minimal risk.
 
 > [!NOTE]
 > Use the [Azure Functions on Azure Container Apps v1 migration assistant](https://github.com/Azure-Samples/functions-on-container-apps-v1-migration-assistant) to help migrate your function apps from the v1 model to the v2 model.
 
 You can host Azure Functions in Azure Container Apps by using two deployment models:
 
-- **Functions v1**: Legacy proxy model that uses a Function App (`Microsoft.Web` resource provider) plus a behind-the-scenes container app.
+- **Functions on Azure Container Apps V1**: Legacy proxy model that uses a Function App (`Microsoft.Web` resource provider) plus a behind-the-scenes container app.
 
-- **Functions v2**: Native model that creates a single Azure Container App resource (`Microsoft.App`) with `kind=functionapp`.
+- **Functions on Azure Container Apps V2**: Native model that creates a single Azure Container App resource (`Microsoft.App`) with `kind=functionapp`.
 
-When you move to v2 you simplify management, unlock native features, and align with future roadmap of Azure Functions.
+When you move to Functions on Azure Container Apps V2, you simplify management, unlock native features, and align with the future roadmap of Azure Functions.
 
 ## Model comparison
 
-| Area | v1 (legacy) | v2 (recommended) |
+| Area | Functions on Azure Container Apps V1 (legacy) | Functions on Azure Container Apps V2 (recommended) |
 |------|-------------|------------------|
 | Resource model | Proxy Functions app paired with a  hidden container app | Single native container app (`kind=functionapp`) |
 | Native features<br><br>(revisions, secrets, health probes, custom domains, sidecars) | Not supported | Supported |
@@ -41,13 +41,13 @@ When you move to v2 you simplify management, unlock native features, and align w
 | Operational complexity | Dual-resource management | Single resource |
 | Recommended for new deployments | No | Yes |
 
-## Limitations of Functions v1
+## Limitations of Functions on Azure Container Apps V1
 
-Functions v1 on Azure Container Apps has several limitations that affect scalability, management, and feature availability. Understanding these constraints helps clarify the benefits of migrating to the v2 model.
+Functions on Azure Container Apps V1 has several limitations that affect scalability, management, and feature availability. Understanding these constraints helps clarify the benefits of migrating to Functions on Azure Container Apps V2.
 
 ### Feature gaps
 
-The following features aren't available for Functions v1 apps:
+The following features aren't available for Functions on Azure Container Apps V1 apps:
 
 - Easy Auth
 - Health probes
@@ -60,15 +60,15 @@ The following features aren't available for Functions v1 apps:
 
 ### Troubleshooting constraints
 
-With Functions v1 apps, you don't have direct container access or real-time console output. Instead, you need to use Log Analytics for infrastructure diagnostics and Application Insights for application logs.
+With Functions on Azure Container Apps V1 apps, you don't have direct container access or real-time console output. Instead, use Log Analytics for infrastructure diagnostics and Application Insights for application logs.
 
 ### Dapr integration issues
 
 Dapr and .NET isolated Functions can conflict during build or runtime because of dependency and initialization ordering constraints.
 
-## Benefits of Functions v2
+## Benefits of Functions on Azure Container Apps V2
 
-Functions v2 creates a native container app resource directly. This approach removes proxy indirection and enables full Azure Container Apps capabilities.
+Functions on Azure Container Apps V2 creates a native container app resource directly. This approach removes proxy indirection and enables full Azure Container Apps capabilities.
 
 Key benefits:
 
@@ -89,9 +89,9 @@ Key benefits:
 Some deployments use a standard container app without `kind=functionapp` and manually run a Functions image.
 
 > [!IMPORTANT]
-> This approach isn't supported. It lacks automatic scale rules and doesn't receive upcoming v2 platform features like function listing, keys, and invocation counts.
+> This approach isn't supported. It lacks automatic scale rules and doesn't receive upcoming Functions on Azure Container Apps V2 platform features like function listing, keys, and invocation counts.
 
-**Recommendation:** Migrate to Functions v2 on Azure Container Apps.
+**Recommendation:** Migrate to Functions on Azure Container Apps V2.
 
 ## Prerequisites
 
@@ -100,22 +100,22 @@ Before migrating:
 - Azure subscription and permission to create resources.
 - [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest (latest) installed.
 - Required extensions: `az extension add --name containerapp`, `az extension add --name functionapp` (if applicable).
-- Access to the container image used by your v1 deployment.
+- Access to the container image used by your Functions on Azure Container Apps V1 deployment.
 - Inventory of environment variables, secrets, storage bindings, and networking settings.
 
 ## Migration procedure
 
 ### 1. Prepare
 
-1. Identify that your current deployment is a Functions v1 app.
+1. Identify that your current deployment is a Functions on Azure Container Apps V1 app.
 1. Export all configuration data including environment variables, secrets, connection strings, and custom bindings.
 1. Review environment quotas (CPU, memory, max instances) and adjust if needed.
 1. Confirm image availability in your registry.
 
-### 2. Create v2 app
+### 2. Create a Functions on Azure Container Apps V2 app
 
 1. Create or reuse an Azure Container Apps environment.
-1. Deploy a new v2 container app with the same image.
+1. Deploy a new Functions on Azure Container Apps V2 app with the same image.
 
     ```azurecli
     az containerapp create \
@@ -149,7 +149,7 @@ Before migrating:
 
 ### 4. Update DNS or custom domains (optional)
 
-1. If using a custom domain, map it to the new v2 hostname (CNAME or A record).
+1. If you're using a custom domain, map it to the new Functions on Azure Container Apps V2 hostname (CNAME or A record).
 
 1. Rebind SSL/TLS certificates (managed or uploaded).
 
@@ -169,10 +169,10 @@ Before migrating:
 
 ### 6. Clean up
 
-1. Decommission the old v1 Functions app and related resources.
+1. Decommission the old Functions on Azure Container Apps V1 app and related resources.
 
     > [!CAUTION]
-    > Verify no production traffic still targets the v1 endpoint before deletion.
+    > Verify no production traffic still targets the Functions on Azure Container Apps V1 endpoint before deletion.
 
 1. Remove unused secrets or storage references.
 

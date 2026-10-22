@@ -4,15 +4,17 @@ titleSuffix: Azure Enclave
 description: Deploy a Key Vault from the service catalog into a workload
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 9/30/2025
+ms.date: 09/22/2026
 ---
 
 # Deploy a Key Vault from the service catalog into a workload
 
-In this article, you:
+In this article, you learn how to:
 
-- Deploy a service catalog template for a Key Vault into an existing workload from the Portal.
+- Deploy a service catalog template for a Key Vault into an existing workload from the Azure portal.
 
 > [!NOTE]
 > 
@@ -23,35 +25,34 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
+- You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group), with permissions to create resources in the workload resource group.
 
-- Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
+- Configure [maintenance mode](./maintenance-mode.md) for your enclave and include the deploying principal in the maintenance mode configuration. The required mode and justification depend on your deployment configuration.
 
 ## Prerequisites
-There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
+Before you deploy, identify an existing subnet for the private endpoint and make sure the required private DNS zone exists in the appropriate DNS-zone resource group. You also need permissions to use the existing virtual network, subnet, and private DNS zone.
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](/azure/virtual-network/subnet-delegation-overview) for the private endpoints to work properly.
-1. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
-    - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
+1. Create or identify a subnet for the private endpoint. You can use a subnet created during enclave creation or [create a new subnet](./create-new-enclave-subnet.md). The private endpoint subnet must not have [subnet delegation](/azure/virtual-network/subnet-delegation-overview).
+1. Create or identify the `privatelink.vaultcore.azure.net` private DNS zone in the specified DNS-zone resource group. The Key Vault template creates a private DNS zone group that links the private endpoint to this existing zone; it doesn't create the zone. For more information, see the [Private DNS Zones service catalog template](./deploy-private-dns-zones-service-catalog.md).
 
 ## Deploy the template
-1. Navigate to the workload for the intended deployment.
-1. Select `+Add an Azure Service` button.
-1. Select the `Key Vault` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+1. Go to the workload where you want to deploy the Key Vault.
+1. Select the `+Add an Azure Service` button.
+1. Select the `Key Vault` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown list, confirm the version you need, and select `Next`.
 
-  ![Screenshot showing the Storage Account template selected from the service catalog list.](./media/service-catalog-list-key-vault.png)
+    ![Screenshot showing the Key Vault template selected from the service catalog list.](./media/service-catalog-list-key-vault.png)
 
-1. Enter the required parameters on each tab.
-1. Adjust any of the prepopulated parameters as needed.
-1. Select `Review + Create` then `Create`.
+1. Enter all required parameters on each tab.
+1. Adjust the prepopulated parameters as needed.
+1. Select `Review + Create`, and then select `Create`.
 
-It can take up to 15+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
+Deployment time depends on the resources and configuration. Wait for the deployment to complete successfully before using the deployed resources.
 
 ## Validate the deployment
-Go to the specified resource group to confirm the intended resources were created. Including: key vault and private endpoint.
+Go to the specified resource group and confirm that the deployment created a Key Vault, or Managed HSM when `enableHsm` is enabled, and a private endpoint.
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
+If you don't plan on keeping these resources, delete the Key Vault or Managed HSM and private endpoint to avoid Azure charges. Before deleting a resource group, confirm that it doesn't contain resources used by other deployments, including shared subnets, private DNS zones, managed identities, or keys.
 
 ## Recommendations
 - [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:

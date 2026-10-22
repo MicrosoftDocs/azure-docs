@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # noMicrophoneDevicesEnumerated UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `noMicrophoneDevicesEnumerated` UFD event with a `true` value occurs when the browser API `navigator.mediaDevices.enumerateDevices` doesn't include any audio input devices.
 This means that there are no microphones available on the user's machine. This issue is caused by the user unplugging or disabling the microphone.
 

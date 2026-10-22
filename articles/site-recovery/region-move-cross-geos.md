@@ -4,7 +4,7 @@ description: Use Azure Site Recovery to move Azure virtual machines between Azur
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 02/13/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom: MVC, engagement-fy23
@@ -48,7 +48,7 @@ This tutorial shows you how to move Azure virtual machines between Azure Governm
 
 Make sure your Azure account has permissions for replication of virtual machines to Azure.
 
-- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
+- Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-perform-replication-and-failover-actions-on-virtual-machines) you need to replicate machines to Azure.
 - Verify and modify [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal) permissions. 
 
 ### Set up an Azure network

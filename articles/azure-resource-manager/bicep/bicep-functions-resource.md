@@ -309,7 +309,7 @@ resource dScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   ...
   properties: {
-    azCliVersion: '2.0.80'
+    azCliVersion: '2.89.1'
     storageAccountSettings: {
       storageAccountName: storageAccount.name
       storageAccountKey: storageAccount.listKeys().keys[0].value
@@ -427,7 +427,7 @@ The following table shows possible uses of `list*` functions.
 | Microsoft.OperationalInsights/workspaces | [list](/rest/api/loganalytics/workspaces/list) |
 | Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy/remediations/listdeploymentsatresourcegroup) |
-| Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
+| Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/standard/open-shift-clusters/list-credentials) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |

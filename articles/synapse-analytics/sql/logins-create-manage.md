@@ -88,7 +88,7 @@ Familiarize yourself with the following features that you can use to limit or el
 
 - [Impersonation](/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) and [module-signing](/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) can be used to securely elevate permissions temporarily.
 - [Row-Level Security](/sql/relational-databases/security/row-level-security?view=azure-sqldw-latest&preserve-view=true) can be used to limit which rows a user can access.
-- [Dynamic data masking](/azure/azure-sql/database/dynamic-data-masking-overview) can be used to limit exposure of sensitive data.
+- [Dynamic data masking](dynamic-data-masking-overview.md) can be used to limit exposure of sensitive data.
 - [Stored procedures](/sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=azure-sqldw-latest&preserve-view=true) can be used to limit the actions that can be taken on the database.
  
 ## Related content

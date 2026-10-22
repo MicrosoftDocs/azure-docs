@@ -3,14 +3,14 @@ title: Enable dead lettering for Azure Service Bus queues and subscriptions
 description: This article explains how to enable dead lettering for queues and subscriptions by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-python
-ms.date: 11/09/2022 
+ms.date: 10/06/2026
 ---
 
 # Enable dead lettering on message expiration for Azure Service Bus queues and subscriptions
-Azure Service Bus queues and subscriptions for topics provide a secondary subqueue, called a dead-letter queue (DLQ). The dead-letter queue doesn't need to be explicitly created and can't be deleted or managed independent of the main entity. The purpose of the dead-letter queue is to hold messages that can't be delivered to any receiver, or messages that couldn't be processed. For more information, See [Overview of Service Bus dead-letter queues](service-bus-dead-letter-queues.md). This article shows you different ways to enable dead lettering for Service Bus queues and subscriptions. 
+Azure Service Bus queues and subscriptions for topics provide a secondary subqueue, called a dead-letter queue (DLQ). The dead-letter queue doesn't need to be explicitly created and can't be deleted or managed independent of the main entity. The purpose of the dead-letter queue is to hold messages that can't be delivered to any receiver, or messages that couldn't be processed. For more information, See [Overview of Service Bus dead-letter queues](service-bus-dead-letter-queues.md). This article shows you different ways to enable dead lettering for Service Bus queues and subscriptions.
 
 ## Using Azure portal
-When creating a **queue** or a **subscription** for a topic in the Azure portal, select **Enable dead lettering on message expiration** as shown in the following examples. 
+When creating a **queue** or a **subscription** for a topic in the Azure portal, select **Enable dead lettering on message expiration** as shown in the following examples.
 
 ### Create a queue with dead lettering enabled
 :::image type="content" source="./media/enable-dead-letter/create-queue.png" alt-text="Enable dead lettering at the time of the queue creation":::
@@ -19,17 +19,17 @@ When creating a **queue** or a **subscription** for a topic in the Azure portal,
 :::image type="content" source="./media/enable-dead-letter/create-subscription.png" alt-text="Enable dead lettering at the time of the subscription creation":::
 
 ### Update the dead lettering on message expiration setting for an existing queue
-On the **Overview** page for your Service Bus queue, select the current value for the **Dead lettering** on message expiration setting. In the following example, the current value is **Disabled**. You can enable or disable dead lettering on message expiration in the popup window. 
+On the **Overview** page for your Service Bus queue, select the current value for the **Dead lettering** on message expiration setting. In the following example, the current value is **Disabled**. You can enable or disable dead lettering on message expiration in the popup window.
 
 :::image type="content" source="./media/enable-dead-letter/queue-configuration.png" alt-text="Enable dead-lettering on message expiration for an existing queue":::
 
 ### Update the dead lettering on message expiration setting for an existing subscription
-On the **Overview** page for your Service Bus subscription, select the current value for the **Dead lettering** on message expiration setting. In the following example, the current value is **Disabled**. You can enable or disable dead lettering on message expiration in the popup window. 
+On the **Overview** page for your Service Bus subscription, select the current value for the **Dead lettering** on message expiration setting. In the following example, the current value is **Disabled**. You can enable or disable dead lettering on message expiration in the popup window.
 
 :::image type="content" source="./media/enable-dead-letter/subscription-configuration.png" alt-text="Enable dead-lettering on message expiration for an existing subscription":::
 
 ## Using Azure CLI
-To **create a queue with dead lettering on message expiration enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az-servicebus-queue-create) command with `--enable-dead-lettering-on-message-expiration` set to `true`. 
+To **create a queue with dead lettering on message expiration enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az-servicebus-queue-create) command with `--enable-dead-lettering-on-message-expiration` set to `true`.
 
 ```azurecli-interactive
 az servicebus queue create \
@@ -39,7 +39,7 @@ az servicebus queue create \
     --enable-dead-lettering-on-message-expiration true
 ```
 
-To **enable the dead lettering on message expiration setting for an existing queue**, use the [`az servicebus queue update`](/cli/azure/servicebus/queue#az-servicebus-queue-update) command with `--enable-dead-lettering-on-message-expiration` set to `true`. 
+To **enable the dead lettering on message expiration setting for an existing queue**, use the [`az servicebus queue update`](/cli/azure/servicebus/queue#az-servicebus-queue-update) command with `--enable-dead-lettering-on-message-expiration` set to `true`.
 
 ```azurecli-interactive
 az servicebus queue update \
@@ -76,7 +76,7 @@ az servicebus topic subscription update \
 > If you specify a queue or topic by using the `--forward-dead-lettered-messages-to` parameter, Service Bus automatically forwards dead-lettered messages to that queue or topic. Here's an example: `az servicebus queue create --resource-group mysbusrg --namespace-name mysbusns --name myqueue --enable-dead-lettering-on-message-expiration true --forward-dead-lettered-messages-to myqueue2`.
 
 ## Using Azure PowerShell
-To **create a queue with dead lettering on message expiration enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-DeadLetteringOnMessageExpiration` set to `$True`. 
+To **create a queue with dead lettering on message expiration enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-DeadLetteringOnMessageExpiration` set to `$True`.
 
 ```azurepowershell-interactive
 New-AzServiceBusQueue -ResourceGroup myresourcegroup `
@@ -100,7 +100,7 @@ Set-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -QueueObj $queue
 ``` 
 
-To **create a subscription for a topic with dead lettering on message expiration enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-DeadLetteringOnMessageExpiration` set to `$True`. 
+To **create a subscription for a topic with dead lettering on message expiration enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-DeadLetteringOnMessageExpiration` set to `$True`.
 
 ```azurepowershell-interactive
 New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
@@ -131,7 +131,7 @@ Set-AzServiceBusSubscription -ResourceGroup myresourcegroup `
 > If you specify a queue or topic by using the `-ForwardDeadLetteredMessagesTo` parameter, Event Grid automatically forwards dead-lettered messages to that queue or topic. 
 
 ## Using a template
-To **create a queue with dead lettering on message expiration enabled**, set `deadLetteringOnMessageExpiration` in the queue properties section to `true`. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
+To **create a queue with dead lettering on message expiration enabled**, set `deadLetteringOnMessageExpiration` in the queue properties section to `true`. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json).
 
 # [Bicep](#tab/bicep)
 
@@ -217,7 +217,7 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
 
 ---
 
-To **create a subscription for a topic with dead lettering on message expiration enabled**, set `deadLetteringOnMessageExpiration` in the subscription properties section to `true`. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). 
+To **create a subscription for a topic with dead lettering on message expiration enabled**, set `deadLetteringOnMessageExpiration` in the subscription properties section to `true`. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json).
 
 # [Bicep](#tab/bicep)
 
@@ -336,16 +336,10 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
 > If you specify a queue or topic for the `forwardDeadLetteredMessagesTo` property, Event Grid automatically forwards dead-lettered messages to that queue or topic. 
 
 ## Next steps
-Try the samples in the language of your choice to explore Azure Service Bus features. 
+Try the samples in the language of your choice to explore Azure Service Bus features.
 
-- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-
-Find samples for the older .NET and Java client libraries:
-- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

@@ -32,6 +32,7 @@ In this tutorial, you learn how to:
 
 - An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
+- The .NET 10 SDK in your Codespace
 
 ## 1. Create an Azure OpenAI resource
 
@@ -44,7 +45,7 @@ In this section, you'll create a new Blazor web application using the .NET CLI.
 1. In your Codespace terminal, create a new Blazor app and try running it for the first time.
 
     ```bash
-    dotnet new blazor -o .
+    dotnet new blazor --framework net10.0 -o .
     dotnet run
     ```
   
@@ -142,20 +143,39 @@ The application uses [DefaultAzureCredential](/dotnet/api/azure.identity.default
 
 Now that your app works locally, let's deploy it to Azure App Service and set up a service connection to Azure OpenAI using managed identity.
 
-1. First, deploy your app to Azure App Service using the Azure CLI command `az webapp up`. This command creates a new web app and deploys your code to it:
+1. Create a Linux App Service plan in the same resource group as your OpenAI resource. Then, create a web app with the .NET 10 runtime:
 
     ```bash
-    az webapp up \
+    az appservice plan create \
       --resource-group $RESOURCE_GROUP \
       --location $LOCATION \
       --name $APPSERVICE_NAME \
+      --sku P0v3 \
+      --is-linux
+    az webapp create \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
       --plan $APPSERVICE_NAME \
-      --sku B1 \
-      --os-type Linux \
-      --track-status false
+      --runtime "DOTNETCORE:10.0"
     ```
 
-   This command might take a few minutes to complete. It creates a new web app in the same resource group as your OpenAI resource.
+1. Build and package the app. ZIP the contents of the publish directory, not the directory itself:
+
+    ```bash
+    dotnet publish --configuration Release --output publish
+    (cd publish && zip -r ../app.zip .)
+    ```
+
+1. Deploy the ZIP package:
+
+    ```bash
+    az webapp deploy \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --src-path app.zip
+    ```
+
+   Deployment might take a few minutes to complete.
 
 1. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
 
@@ -164,7 +184,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
       --resource-group $RESOURCE_GROUP \
       --name $APPSERVICE_NAME \
       --target-resource-group $RESOURCE_GROUP \
-      --account $OPENAI_SERVICE_NAME
+      --account $OPENAI_SERVICE_NAME \
       --connection azure-openai \
       --system-identity
     ```
@@ -177,10 +197,10 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
 
     Your app is now deployed and connected to Azure OpenAI with managed identity. It reads the `AZURE_OPENAI_ENDPOINT` app setting through the [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) injection.
 
-1. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
+1. Open the deployed web app in the browser:
 
     ```azurecli
-    az webapp browse
+    az webapp browse --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME
     ```    
 
 1. Type a message in the textbox and select **Send**, and give the app a few seconds to reply with the message from Azure OpenAI.

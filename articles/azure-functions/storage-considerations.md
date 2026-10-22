@@ -2,7 +2,7 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data, including important considerations for your function app instances.
 ms.topic: concept-article
-ms.date: 08/28/2026
+ms.date: 09/15/2026
 ms.custom:
   - ignite-2024
   - sfi-ropc-nochange
@@ -38,7 +38,7 @@ When you host your function app on the Consumption plan (Windows) or Premium pla
 
 ::: zone-end
 
-- The storage account persists important data, such as function code, [access keys](function-keys-how-to.md), and other important service-related data. You must carefully manage access to the storage accounts used by function apps in the following ways: 
+- The storage account persists important data, such as function code, [access keys](function-keys-how-to.md), and other important service-related data. You must carefully manage access to the storage accounts used by function apps in the following ways:
 
   - Audit and limit the access of apps and users to the storage account based on a least-privilege model. Permissions to the storage account can come from [data actions in the assigned role](../role-based-access-control/role-definitions.md#control-and-data-actions) or through permission to perform the [listKeys operation].
 
@@ -197,7 +197,7 @@ Use the following strategies to avoid host ID collisions:
 - Set an explicit host ID for one or more of the colliding apps. To learn more, see [Override the host ID](#override-the-host-id).
 
 > [!IMPORTANT]
-> Changing the storage account associated with an existing function app or changing the app's host ID can affect the behavior of existing functions. For example, a Blob storage trigger tracks whether it processes individual blobs by writing receipts under a specific host ID path in storage. When the host ID changes or you point to a new storage account, previously processed blobs could be reprocessed. 
+> Changing the storage account associated with an existing function app or changing the app's host ID can affect the behavior of existing functions. For example, a Blob storage trigger tracks whether it processes individual blobs by writing receipts under a specific host ID path in storage. When the host ID changes or you point to a new storage account, previously processed blobs could be reprocessed.
 
 ### Override the host ID
 
@@ -233,14 +233,13 @@ To run your app without the Azure Files share, you must meet the following requi
 
 You should also note the following considerations:
 
-- The app can't use version 1.x of the Functions runtime.
 - Your app can't rely on a shared writable file system.
 - Portal editing isn't supported.
 - Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
 If the preceding requirements suit your scenario, you can proceed to create a function app without Azure Files. Create an app without the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings in one of these ways: 
 
-- Bicep/ARM templates: remove the two app settings from the ARM template or Bicep file and then deploy the app by using the modified template. 
+- Bicep/ARM templates: remove the two app settings from the ARM template or Bicep file and then deploy the app by using the modified template.
 - The Azure portal: clear **Add an Azure Files connection** in the **Storage** tab when you create the app in the Azure portal.
 
 Azure Files is used to enable dynamic scale-out for Functions. Scaling could be limited when you run your app without Azure Files in the Elastic Premium plan and Consumption plans running on Windows. 
@@ -272,7 +271,7 @@ You can mount Azure Files shares to your Linux function apps, which you can use 
 
 Flex Consumption supports only Server Message Block (SMB) Azure Files mounts.
 
-Use the following command to mount an existing share to your Linux function app. 
+Use the following command to mount an existing share to your Linux function app.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -306,11 +305,9 @@ Storage mounts aren't supported on the Consumption plan.
 
 ::: zone-end
 
-## Related article
+## Related articles
 
-Learn more about Azure Functions hosting options.
-
-> [!div class="nextstepaction"]
-> [Azure Functions scale and hosting](functions-scale.md)
+- [Azure Functions scale and hosting](functions-scale.md)
+- [How to troubleshoot storage-related issues](functions-recover-storage-account.md)
 
 [listKeys operation]: /rest/api/storagerp/storage-accounts/list-keys

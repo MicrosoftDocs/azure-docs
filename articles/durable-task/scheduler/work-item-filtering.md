@@ -6,7 +6,7 @@ title: Work item filtering in the Durable Task Scheduler
 titleSuffix: Durable Task
 description: "Learn how work item filtering connects distributed application components running across different Azure compute environments in a single workflow."
 ms.topic: concept-article
-ms.date: 09/01/2026
+ms.date: 10/12/2026
 ---
 
 # Work item filtering in the Durable Task Scheduler
@@ -91,6 +91,7 @@ This strictness ensures the scheduler never hands a work item to a worker that c
 | .NET             | Available           |
 | Java             | Available           |
 | Python           | Available           |
+| Go (beta)        | Available           |
 | JavaScript       | Not yet available   |
 | PowerShell       | Not yet available   |
 
@@ -163,6 +164,28 @@ worker.use_work_item_filters(WorkItemFilters(
     ],
 ))
 ```
+
+# [Go](#tab/go)
+
+Pass `client.WithAutoWorkItemFilters()` when constructing the worker. The SDK derives filters from the supplied registry:
+
+```go
+package main
+
+import (
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/client"
+	"github.com/microsoft/durabletask-go/durabletaskscheduler"
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func newFilteredWorker(options *durabletaskscheduler.Options, registry *task.TaskRegistry) (*client.TaskHubGrpcWorker, error) {
+	return durabletaskscheduler.NewWorker(
+		options, registry, api.DefaultLogger(), client.WithAutoWorkItemFilters())
+}
+```
+
+Start and drain the returned worker as shown in the [Go quickstart](../sdks/quickstart-portable-durable-task-sdks.md?pivots=go). Register only the tasks that this worker should execute.
 
 ---
 

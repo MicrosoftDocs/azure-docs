@@ -136,7 +136,7 @@ Depending on the kind of back-end system and the available skills, you can conne
 
 OData is the main protocol for transactional SAP applications. Applications like SAP Fiori, SAP ECC, SAP S/4HANA, SAP SuccessFactors, SAP Ariba, SAP Concur, and more support OData. The [SAP Business Accelerator Hub](https://api.sap.com/) lists thousands of out-of-the-box OData services. The [SAP Fiori Reference App Library](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/) shows other OData services that are available and that SAP supports out of the box.
 
-If no out-of-the-box OData service is available, you can create custom [Core Data Services views](https://learning.sap.com/courses/basic-abap-programming/working-with-cds-view_c289f74d-675e-4084-9d90-5635958ec604) (via [RAP](https://pages.community.sap.com/topics/abap/rap) or [CAP](https://developers.sap.com/tutorials/introduction..html)) to expose other OData services.
+If no out-of-the-box OData service is available, you can create custom [Core Data Services views](https://learning.sap.com/courses/basic-abap-programming/working-with-cds-view_c289f74d-675e-4084-9d90-5635958ec604) (via [RAP](https://pages.community.sap.com/topics/abap/rap)) to expose other OData services.
 
 These OData services can't only be consumed in a Copilot scenario. But due to the standardization, thousands of clients (including Microsoft Excel and Power BI) provide out-of-the-box support to consume OData services.
 
@@ -169,7 +169,7 @@ You can use Power Automate Desktop to build end-to-end automation that ranges fr
 
 MCP, the [Model Context Protocol](https://github.com/modelcontextprotocol), is an open protocol that enables seamless integration between LLM applications (like Copilot) and external data sources and tools. In contrast to the simple API-based integration mentioned earlier, an MCP-based integration enables the Copilot to identify and create the required payload to retrieve data from the SAP system in a dynamic and efficient way.
 
-Hundreds of open-source MCP servers are already available. The [Azure MCP registry](https://mcp.azure.com/) provides a list of curated MCP servers and offers customers the possibility of creating their own in-house MCP servers. You can use tools like [Azure API Management](/azure/api-management/export-rest-mcp-server) to create new MCP servers from existing APIs.
+Hundreds of open-source MCP servers are already available. The [Azure MCP registry](https://registry.modelcontextprotocol.io/) provides a list of curated MCP servers and offers customers the possibility of creating their own in-house MCP servers. You can use tools like [Azure API Management](/azure/api-management/export-rest-mcp-server) to create new MCP servers from existing APIs.
 
 On the SAP side, the **SAP MCP Gateway** on the SAP Integration Suite provides an SAP-managed, governed MCP endpoint that turns existing SAP APIs, integration flows, and OpenAPI specifications into MCP tools -- with authentication, rate limiting, and observability handled by SAP. See [Use the SAP MCP Gateway on SAP Integration Suite](architecture-mcp-gateway-integration-suite.md).
 

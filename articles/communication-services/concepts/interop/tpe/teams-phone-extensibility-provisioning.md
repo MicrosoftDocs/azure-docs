@@ -14,6 +14,8 @@ services: azure-communication-services
 
 # Provisioning and authorization
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 ## Provisioning
 
 A Teams resource account (RA) must include an association to the Contact Center as a Service (CCaaS) Azure Communication Services Resource. The RA provisioning process to a CCaaS app follows a similar process used today to assign an RA to MS Teams Call Queues and Auto Attendants. For more information, see [Manage Resource Accounts](/microsoftteams/manage-resource-accounts).

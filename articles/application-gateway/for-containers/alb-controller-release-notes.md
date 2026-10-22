@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: release-notes
-ms.date: 9/8/2026
+ms.date: 10/1/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to access the release notes for the ALB Controller, so that I can understand the latest updates and changes to optimize my configuration and deployments of Application Gateway for Containers.
 ---
@@ -25,19 +25,33 @@ Instructions for new or existing deployments of ALB Controller deployed with Hel
 
 If using the AKS add-on, updates are automatically applied to the cluster.
 
-## Latest Release (Recommended)
+## Latest Helm release
 
 | ALB Controller Version | Gateway API Version | Gateway API Inference Extension Version | Minimum Kubernetes Version | Release notes |
 | ---------------------- | ------------------- | --------------------------------------- | ------------------ | ------------- |
-| 1.12.1 | v1.5.1 | v1.3.1 | v1.32 | Security patches, bug fixes [helm chart pre-delete tolerations](https://github.com/Azure/AKS/issues/5729) [session affinity cookie fix](https://github.com/Azure/AKS/issues/5805), request mirror |
-| 1.11.5 | v1.5.1 | v1.3.1 | v1.27 | Security patches, bug fix for AKS automatic |
+| 1.12.2 | v1.5.1 | v1.3.1 | v1.32 | Security patches |
+
+## AKS add-on releases
+
+The Application Gateway for Containers add-on uses a pinned version of ALB Controller based on the AKS cluster version. The AKS version determines the supported Gateway API bundle, which in turn determines the compatible ALB Controller version. The AKS managed Gateway API documentation lists the Gateway API bundle supported by each Kubernetes version.
+
+| AKS cluster version | ALB Controller version |
+| ------------------- | ---------------------- |
+| v1.26.x – v1.35.x   | v1.10.x                |
+| v1.36.x and later   | v1.11.x                |
+
+Reference: [AKS Managed Gateway API installation](/azure/aks/managed-gateway-api#supported-kubernetes-versions-for-gateway-api-bundle-versions)
 
 ## Release history
 
 | ALB Controller Version | Gateway API Version | Gateway API Inference Extension Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | --------------------------------------- | ------------------ | ------------- |
+| 1.12.1 | v1.5.1 | v1.3.1 | v1.32 | Security patches, bug fixes [helm chart pre-delete tolerations](https://github.com/Azure/AKS/issues/5729) [session affinity cookie fix](https://github.com/Azure/AKS/issues/5805), request mirror |
+| 1.11.6 | v1.5.1 | v1.3.1 | v1.27 | Security patches |
+| 1.11.5 | v1.5.1 | v1.3.1 | v1.27 | Security patches, bug fix for AKS automatic |
 | 1.11.3 | v1.5.1 | v1.3.1 | v1.27 | Security patches, WAF fixes, Istio service mesh integration - cert-rotation fix |
 | 1.11.1 | v1.5.1 | v1.3.1 | v1.27 | Implement Gateway API v1.5.1,  Gateway API Inference Extension support, ALB Controller on Arm64 node support, support for CORS, Gateway API HTTPRoute timeouts (succeed RoutePolicy timeouts), HTTP redirect 307/308 support, helm subcharts fix [GitHub Issue: #5475](https://github.com/Azure/AKS/issues/5475), Helm logging enum fix [GitHub Issue: #5480](https://github.com/Azure/AKS/issues/5480) |
+| 1.10.39 | v1.2.1 | - | v1.27 | Security patches |
 | 1.10.37 | v1.2.1 | - | v1.27 | Security patches + bug fixes |
 | 1.10.32 | v1.2.1 | - | v1.27 | Security patches, Istio service mesh integration - cert-rotation fix  |
 | 1.10.28 | v1.2.1 | - | v1.27 | Security updates |

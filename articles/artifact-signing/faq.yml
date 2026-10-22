@@ -42,7 +42,7 @@ sections:
           For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
       - question: What are my support options when I set up Artifact Signing?
         answer: | 
-          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
+          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**).  
   - name: Identity validation
     questions:
       - question: What if I need to create another identity validation for the same organization with a different primary email address?
@@ -90,9 +90,6 @@ sections:
         answer: | 
           - For questions about identity validation in Artifact Signing, contact us via Azure Support or by using Microsoft Q&A (use the tag **artifact-signing**).
           - Note: creating more identity validation requests for the same entity that is in progress doesn't help. Identity validation requests can't be expedited.
-      - question: What if I need assistance with AU10TIX?
-        answer: | 
-          - For issues related to the AU10TIX identity-verification experience, contact [AU10TIX Support]((mailto:au10tix.support@au10tix.com) directly. This includes problems uploading identity documents, completing facial verification, or using the AU10TIX verification flow.
       - question: What if the email validation link has expired?
         answer: | 
           If you missed clicking on the email verification within seven days, you need to start a new identity validation request. A new link can't be resent on the same request.

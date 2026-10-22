@@ -3,7 +3,7 @@ title: Create an App Service Environment
 description: Learn how to create an App Service Environment, which integrates with an Azure virtual network and supports internal or external virtual IP types.
 author: seligj95
 ms.topic: quickstart
-ms.date: 08/24/2026
+ms.date: 10/06/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 ms.custom:
@@ -17,6 +17,8 @@ ms.custom:
 # Quickstart: Create an App Service Environment
 
 In this quickstart, you create an App Service Environment. [App Service Environment](overview.md) is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
+
+In the Azure portal, you must create the App Service Environment separately from the web app and App Service plan. Wait for the environment deployment to complete before you create a web app in it. This portal requirement doesn't apply to ARM or Bicep templates, which can deploy the environment, App Service plan, and web app together in a single deployment.
 
 If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
@@ -116,8 +118,9 @@ To create an App Service Environment in the Azure portal, do the following steps
 
 1. In the **Review + create** tab, check the accuracy of your configuration, and then select **Create**. Your App Service Environment can take more than one hour to create. 
 
-After you successfully create your App Service Environment, you can select it as a location when you create your apps.
+After the App Service Environment deployment finishes, follow [Host a web app in an App Service Environment](using.md) to create a web app with a new or existing App Service plan. Select your environment in the **Region** list during web app creation.
 
 ## Related content
 
 - [Create an App Service Environment - Azure Resource Manager template](how-to-create-from-template.md)
+- [Host a web app in an App Service Environment](using.md)

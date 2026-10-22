@@ -1,14 +1,14 @@
 ---
-title: Access control in Synapse workspace how to 
+title: Access Control in Synapse Workspace How To
 description: Learn how to control access to Azure Synapse workspaces using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 author: talk2rick
 ms.author: xurick
-
-ms.topic: how-to
+ms.date: 10/05/2026
 ms.service: azure-synapse-analytics
-ms.subservice: security 
-ms.date: 09/26/2024
-ms.custom: kr2b-contr-experiment
+ms.subservice: security
+ms.topic: how-to
+ms.custom:
+  - kr2b-contr-experiment
 ---
 
 # How to set up access control for your Azure Synapse workspace
@@ -19,7 +19,7 @@ In this guide, you'll set up a workspace and configure a basic access control sy
 
 Synapse access control can be simplified by aligning roles and personas in your organization with security groups. This enables you to manage access to security groups simply by adding and removing users.
 
-Before you begin this walkthrough, read the [Azure Synapse access control overview](./synapse-workspace-access-control-overview.md) to familiarize yourself with access control mechanisms used by Synapse Analytics.
+Before you begin this walkthrough, read the [Azure Synapse workspace access control overview](synapse-workspace-access-control-overview.md) to familiarize yourself with access control mechanisms used by Synapse Analytics.
 
 ## Access control mechanisms
 
@@ -38,7 +38,7 @@ To secure a Synapse workspace, you'll configure the following items:
 
 This document uses standard names to simplify instructions. Replace them with names of your choice.
 
-|Setting | Standard name | Description |
+|Setting | Standard name | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse workspace** | `workspace1` |  The name that the Azure Synapse workspace will have. |
 | **ADLSGEN2 account** | `storage1` | The ADLS account to use with your workspace. |
@@ -49,19 +49,19 @@ This document uses standard names to simplify instructions. Replace them with na
 ## Step 1: Set up security groups
 
 >[!TIP]
->You're encourage to use granular options to control access to your workspace, granting developers access to individual resources, rather than an entire workspace. [Learn more](./synapse-workspace-synapse-rbac.md) about Synapse RBAC.
+>Use granular options to control access to your workspace. Grant developers access to individual resources, rather than an entire workspace. For more information about Synapse RBAC, see [What is Synapse role-based access control (RBAC)?](synapse-workspace-synapse-rbac.md)
 
 Create the following security groups for your workspace:
 
-- **`workspace1_SynapseAdministrators`**, for users who need complete control over a workspace. Add yourself to this security group, at least initially.
-- **`workspace1_SynapseContributors`**, for developers who need to develop, debug, and publish code to a service.
-- **`workspace1_SynapseComputeOperators`**, for users who need to manage and monitor Apache Spark pools and Integration runtimes.
-- **`workspace1_SynapseCredentialUsers`**, for users who need to debug and run orchestration pipelines using workspace MSI (managed service identity) credentials and cancel pipeline runs.
+- `workspace1_SynapseAdministrators`, for users who need complete control over a workspace. Add yourself to this security group, at least initially.
+- `workspace1_SynapseContributors`, for developers who need to develop, debug, and publish code to a service.
+- `workspace1_SynapseComputeOperators`, for users who need to manage and monitor Apache Spark pools and Integration runtimes.
+- `workspace1_SynapseCredentialUsers`, for users who need to debug and run orchestration pipelines using workspace MSI (managed service identity) credentials and cancel pipeline runs.
 
 You'll assign Synapse roles to these groups at the workspace scope shortly. 
 
 Also create this security group:
-- **`workspace1_SQLAdmins`**, group for users who need SQL Active Directory Admin authority, within SQL pools in the workspace.
+- `workspace1_SQLAdmins`, group for users who need SQL Active Directory Admin authority, within SQL pools in the workspace.
 
 The `workspace1_SQLAdmins` group to configure SQL permissions when you create SQL pools.
 
@@ -124,7 +124,7 @@ In Azure portal, create a Synapse workspace:
 
 ## Step 4: Grant the workspace MSI access to the default storage container
 
-To run pipelines and perform system tasks, Azure Synapse requires managed service identity (MSI) to have access to `container1` in the default ADLS Gen2 account, for the workspace. For more information, see [Azure Synapse workspace managed identity](../synapse-service-identity.md).
+To run pipelines and perform system tasks, Azure Synapse requires managed service identity (MSI) to have access to `container1` in the default ADLS Gen2 account, for the workspace. For more information, see [Managed identities for Azure Synapse Analytics](../synapse-service-identity.md).
 
 - Open Azure portal
 - Locate the storage account, `storage1`, and then `container1`.
@@ -163,14 +163,16 @@ To create SQL pools, Apache Spark pools, and Integration runtimes, users need an
 
     ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png) 
 
-## Step 6: Assign an SQL Active Directory Admin role
+<a id="step-6-assign-an-sql-active-directory-admin-role"></a>
+
+## Step 6: Assign a SQL Microsoft Entra ID Admin role
 
 The *workspace creator* is automatically assigned as *SQL Active Directory Admin* for the workspace. Only a single user or a group can be granted this role. In this step, you assign the SQL Active Directory Admin for the workspace to the `workspace1_SQLAdmins` security group. This gives the group highly privileged admin access to all SQL pools and databases in the workspace.
 
 - Open Azure portal
 - Navigate to `workspace1`
 - Under **Settings**, select **Microsoft Entra ID**
-- Select **Set admin** and choose **`workspace1_SQLAdmins`**
+- Select **Set admin** and choose `workspace1_SQLAdmins`
 
 >[!Note]
 >Step 6 is optional. You might choose to grant the `workspace1_SQLAdmins` group a less privileged role. To assign `db_owner` or other SQL roles, you must run scripts on each SQL database.
@@ -208,14 +210,14 @@ You can grant users access to a **single** serverless SQL database with the step
     CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
     ```
 
-2. Create user in your database. Change context to your database.
+1. Create user in your database. Change context to your database.
 
     ```sql
     -- In your database
     CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
 
-3. Add user as a member of the specified role in your database (in this case, the **db_owner** role).
+1. Add user as a member of the specified role in your database (in this case, the **db_owner** role).
 
     ```sql
     ALTER ROLE db_owner ADD member alias; -- Type USER name from step 2
@@ -227,14 +229,14 @@ You can grant full access to **all** serverless SQL pools in the workspace. Run 
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
 ```
 
 ### Step 7b: configure Dedicated SQL pools
 
 You can grant access to a **single**, dedicated, SQL pool database. Use these steps in the Azure Synapse SQL script editor:
 
-1. Create a user in the database by running the following commands. Select the target database in the *Connect to* dropdown:
+1. Create a user in the database by running the following commands. Select the target database in the *Connect to* dropdown list:
 
     ```sql
     --Create user in the database
@@ -243,7 +245,7 @@ You can grant access to a **single**, dedicated, SQL pool database. Use these st
     ```
     
 
-2. Grant the user a role to access the database:
+1. Grant the user a role to access the database:
 
     ```sql
     --Grant role to the user in the database
@@ -252,7 +254,7 @@ You can grant access to a **single**, dedicated, SQL pool database. Use these st
 
 > [!IMPORTANT]
 > **db_datareader** and **db_datawriter** database roles can provide read/write permission when you do not want to give **db_owner** permissions.
-> However, **db_owner** permission is necessary for Spark users to read and write directly from Spark into or from an SQL pool.
+> However, **db_owner** permission is necessary for Spark users to read and write directly from Spark into or from a SQL pool.
 
 You can run queries to confirm that serverless SQL pools can query storage accounts, after you have created your users.
 
@@ -264,11 +266,11 @@ You can now add and remove users to the security groups you've set up, to manage
 
 ## Step 9: Network security
 
-As a final step to secure your workspace, you should secure network access, using the [workspace firewall](./synapse-workspace-ip-firewall.md).
+As a final step to secure your workspace, secure network access by using the [workspace firewall](synapse-workspace-ip-firewall.md).
 
-- With and without a [managed virtual network](./synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](connectivity-settings.md).
-- Access from public networks can be controlled by enabling the [public network access feature](connectivity-settings.md#public-network-access) or the [workspace firewall](./synapse-workspace-ip-firewall.md).
-- Alternatively, you can connect to your workspace using a [managed private endpoint](synapse-workspace-managed-private-endpoints.md) and [private Link](/azure/azure-sql/database/private-endpoint-overview). Azure Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md) don't have the ability to connect via managed private endpoints.
+- With and without a [managed virtual network](synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Azure Synapse Analytics connectivity settings](connectivity-settings.md).
+- Control access from public networks by enabling the [public network access feature](connectivity-settings.md#public-network-access) or the [workspace firewall](synapse-workspace-ip-firewall.md).
+- Alternatively, connect to your workspace by using a [managed private endpoint](synapse-workspace-managed-private-endpoints.md) and [Azure Private Link for Azure Synapse Analytics](../sql/private-endpoint-overview.md). Azure Synapse workspaces that don't use the [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md) can't connect through managed private endpoints.
 
 ## Step 10: Completion
 
@@ -288,5 +290,5 @@ This guide has focused on setting up a basic access control system. You can supp
 
 ## Related content
 
- - [Manage Azure Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
- - [Create a Synapse Workspace](../quickstart-create-workspace.md)
+- [How to manage Synapse RBAC role assignments in Synapse Studio](how-to-manage-synapse-rbac-role-assignments.md)
+- [Quickstart: Create an Azure Synapse Analytics workspace](../quickstart-create-workspace.md)

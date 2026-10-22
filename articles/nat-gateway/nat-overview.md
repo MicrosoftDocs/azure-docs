@@ -18,7 +18,7 @@ ms.customs: references_regions
 
 Azure NAT Gateway is a fully managed and highly resilient network address translation (NAT) service. Use Azure NAT Gateway to let all instances in a subnet connect outbound to the internet while remaining fully private. A NAT gateway doesn't permit unsolicited inbound connections from the internet. Only packets that arrive as response packets to an outbound connection can pass through a NAT gateway.
 
-Azure NAT Gateway dynamically allocates secure NAT (SNAT) ports to automatically scale outbound connectivity and minimize the risk of SNAT port exhaustion.
+Azure NAT Gateway dynamically allocates source NAT (SNAT) ports to automatically scale outbound connectivity and minimize the risk of SNAT port exhaustion.
 
 Azure NAT Gateway is available in two SKUs:
 

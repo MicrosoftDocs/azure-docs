@@ -33,8 +33,10 @@ When Object Replication Priority Replication is enabled, users benefit from prio
 - Objects that are modified more than 10 times per second.
 - Object Replication Policies where the Source Storage Account and Destination Storage Account aren't within the same continent.
 - Storage accounts that are:
-    - Larger than 5 petabytes (PB), or 
-    - Have more than 10 billion blobs, and 
+  - Larger than 100 petabytes (PB), or 
+    
+  - Have more than 200 billion blobs, and 
+    
 - During time periods where:
     - Your storage account or Replication Policy data transfer rate exceeds 1 gigabit per second (Gbps) and the resulting back log of writes are being replicated.
     - Your storage account or Replication Policy exceeds 1,000 PUT or DELETE operations per second and the resulting back log of writes are being replicated, and 

@@ -2,9 +2,9 @@
 title: Quickstart to create an Azure Migrate project using Portal
 description: In this quickstart, you'll learn how to create an Azure Migrate project.
 author: ankitsurkar06
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.topic: how-to
 ms.date: 05/18/2026
 ms.update-cycle: 1825-days

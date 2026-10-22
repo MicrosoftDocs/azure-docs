@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Retirement and breaking changes guide
+    href: acs-retirement-and-breaking-changes-guide.md
   - name: Services
     href: concepts/services.md
   - name: Pricing
@@ -82,6 +84,8 @@ items:
     href: concepts/chat/concepts.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/communication-services/
+  - name: Migrate Chat to Microsoft Graph chat
+    href: acs-chat-to-graph-chat-migration-guide.md
   - name: Chat architecture
     href: concepts/chat/concepts.md#chat-architecture
   - name: Build intelligent, AI-powered chat experiences
@@ -908,6 +912,10 @@ items:
   items:
   - name: Overview
     href: concepts/telephony/telephony-concept.md
+  - name: Migration to Teams Phone numbers
+    href: concepts/telephony/migrate-to-teams-phone.md
+  - name: Migration to Teams Phone Direct Routing
+    href: concepts/telephony/migrate-to-teams-direct-routing.md
   - name: Pricing
     href: concepts/pstn-pricing.md
   - name: Phone number types
@@ -1214,6 +1222,8 @@ items:
     href: concepts/interop/tpe/teams-phone-extensibility-capabilities.md
   - name: Teams Phone extensibility FAQ
     href: concepts/interop/tpe/teams-phone-extensibility-faq.md
+  - name: Lowest Latency Best Practices
+    href: concepts/interop/tpe/teams-phone-extensibility-optimize-latency.md
   - name: Troubleshooting
     href: concepts/interop/tpe/teams-phone-extensibility-troubleshooting.md
   - name: Samples and tutorials

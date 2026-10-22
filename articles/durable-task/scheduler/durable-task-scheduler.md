@@ -7,7 +7,7 @@ description: "Discover how the Durable Task Scheduler provides durable execution
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 05/04/2026
+ms.date: 10/13/2026
 ---
 
 # Durable Task Scheduler
@@ -18,7 +18,7 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 - Data processing
 - Infrastructure management
 
-Durable Task Scheduler is the recommended storage provider for [Durable Functions](../durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). 
+Durable Task Scheduler is the recommended storage provider for [Durable Functions](../durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). By using the Durable Task SDKs, you can bring durable execution to apps running on any Azure compute platform, including Azure Container Apps (ACA), Azure Kubernetes Service (AKS), Azure App Service, and Azure virtual machines.
 
 ## Supported SKUs
 
@@ -147,14 +147,16 @@ Stale orchestration data should be purged periodically to ensure efficient stora
      - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) schedulers are limited to **25** per region per subscription. 
      - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) schedulers are limited to **10** per region per subscription. 
 
+    For more scheduler quota, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
 - **Task hub quota:**
 
     You're limited in how many task hubs you can use depending on your billing SKU. 
 
      - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) task hubs are limited to **25** per region per subscription. 
-     - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) task hubs are limited to **five** per region per subscription. 
+     - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) task hubs are limited to **five** per scheduler. 
 
-    For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+    You can't increase these task hub quotas.
 
 - **Max payload size:** 
 
@@ -169,6 +171,12 @@ Stale orchestration data should be purged periodically to ensure efficient stora
     | Entity state | 1 MB |
 
     If your data exceeds these limits, see [Large payload support](./durable-task-scheduler-large-payloads.md) for available workarounds.
+
+- **Max work item completion size:**
+
+    Each work item completion request sent to a Durable Task Scheduler must be at most **3.9 MB**. This limit applies to the entire completion request, not to each individual payload.
+
+    If you expect work item completions to exceed this limit, enable [Large payload support](./durable-task-scheduler-large-payloads.md) to offload supported payloads to Azure Blob Storage and reduce the completion request size.
 
 - **Orchestration instance ID length:**
   

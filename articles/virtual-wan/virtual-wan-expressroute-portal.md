@@ -58,7 +58,7 @@ Create a new virtual hub. Once a hub is created, you'll be charged for the hub, 
 
 #### ExpressRoute page
 
-[!INCLUDE [Create ExpressRoute gateway](../../includes/virtual-wan-hub-expressroute-gateway.md)]
+[!INCLUDE [Create ExpressRoute gateway](../networking/includes/virtual-wan/hub-expressroute-gateway.md)]
 
 ### <a name="existinghub"></a>To create a gateway in an existing hub
 
@@ -140,7 +140,7 @@ Navigate to the **Connections** page for your ExpressRoute circuit to see each E
 By default, VNet to Virtual WAN traffic is disabled over ExpressRoute. You can enable this connectivity by using the following steps.
 
 1. In the "Edit virtual hub" blade, enable **Allow traffic from non Virtual WAN networks**.
-1. In the "Virtual network gateway" blade, enable **Allow traffic from remote Virtual WAN networks.** See instructions [here.](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute)
+1. In the **Virtual network gateway** blade, enable **Allow traffic from remote Virtual WAN networks**. See [Enable VNet-to-VNet or VNet-to-Virtual WAN traffic](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 We recommend that you keep these toggles disabled and instead create a Virtual Network connection between the standalone virtual network and Virtual WAN hub. This offers better performance and lower latency, as conveyed in our [FAQ.](virtual-wan-faq.md#when-theres-an-expressroute-circuit-connected-as-a-bow-tie-to-a-virtual-wan-hub-and-a-standalone-vnet-what-is-the-path-for-the-standalone-vnet-to-reach-the-virtual-wan-hub)
 
@@ -168,7 +168,7 @@ You can deprovision and delete your ExpressRoute Circuit by following the steps 
 
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
+[!INCLUDE [Delete resources](../networking/includes/virtual-wan/resource-cleanup.md)]
 
 ## Next steps
 

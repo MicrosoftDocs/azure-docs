@@ -3,7 +3,7 @@ title: Deploy Azure Firewall in dual stack mode (preview)
 description: Learn how to deploy, upgrade, and manage Azure Firewall with IPv6 and dual stack support, including configuration steps, limitations, and policy rules.
 author: ZarrVenkat
 ms.topic: how-to
-ms.date: 07/16/2026
+ms.date: 10/09/2026
 ms.author: derastogi
 ms.service: azure-firewall
 service: firewall
@@ -161,6 +161,8 @@ Use the following tabs to add IPv6 support to a firewall that's already deployed
 ***
 
 ## Create a dual stack Azure Firewall
+
+For new deployments, don't specify firewall zones in PowerShell or Azure CLI commands. Azure manages backend zone allocation in [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions).
 
 ### [Portal](#tab/portal)
 

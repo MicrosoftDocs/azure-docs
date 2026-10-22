@@ -5,7 +5,7 @@ keywords: App Service certificate, buy SSL certificate, Azure security, domain e
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 02/15/2025
+ms.date: 10/15/2026
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -153,8 +153,11 @@ The following domain verification methods are supported:
 | Mail verification | Confirm the domain by sending an email to the domain administrator. Instructions are provided when you select the option. |
 | Manual verification | Confirm the domain by using either a Domain Name System (DNS) TXT record or an HTML page. (The latter applies only to Standard certificates. See the following note.) The steps are provided after you select the option. The HTML page option doesn't work for web apps with **HTTPS Only** enabled. For domain verification via DNS TXT record for either the root domain (for example, `contoso.com`) or the subdomain (for example, `www.contoso.com` or `test.api.contoso.com`) and regardless of the certificate SKU, you need to add a TXT record at the root domain level. Use `@` for the name and the domain verification token for the value in your DNS record. |
 
+> [!NOTE]
+> Mail verification stops for App Service certificates in March 2027. After that, use a DNS TXT record (manual verification), App Service verification, or domain verification.
+
 > [!IMPORTANT]
-> With the Standard certificate, you get a certificate for the requested root domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. App Service verification and manual verification both use HTML page verification, which doesn't support the `www` subdomain when you issue, rekey, or renew a certificate. For the Standard certificate, use domain verification and mail verification to include the `www` subdomain with the requested top-level domain in the certificate.
+> With the Standard certificate, you get a certificate for the requested root domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. App Service verification and the HTML page option of manual verification use HTML page verification, which doesn't support the `www` subdomain when you issue, rekey, or renew a certificate. For the Standard certificate, use domain verification or a DNS TXT record (manual verification) to include the `www` subdomain with the requested top-level domain in the certificate.
 
 After your certificate is domain verified, [you can import it into an App Service app](configure-ssl-certificate.md#import-an-app-service-certificate).
 
@@ -162,7 +165,7 @@ After your certificate is domain verified, [you can import it into an App Servic
 
 By default, App Service certificates have a one-year validity period. Before the expiration date, you can automatically or manually renew App Service certificates in one-year increments. The renewal process effectively gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
 
-If you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renewal, autorenewal, or rekey process. The new certificate order remains in **Pending issuance** mode during the renewal, autorenewal, or rekey process until you finish the domain verification.
+A renewal, autorenewal, or rekey might require domain verification again, even if you verified the domain recently. If domain verification is required, the new certificate order remains in **Pending issuance** mode until you finish it.
 
 Unlike the free App Service managed certificate, purchased App Service certificates don't have automated domain reverification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 
@@ -178,7 +181,7 @@ The renewal process requires that the service principal for App Service has the 
 
    :::image type="content" source="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" alt-text="Screenshot that shows the specified certificate's autorenewal settings." lightbox="./media/configure-ssl-certificate/auto-renew-app-service-cert.png":::
 
-1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration, but [certificates can't be issued for longer than 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
+1. To renew manually instead, select **Manual Renew**. Manual renewal is available during the last 90 days before the certificate expires. An App Service certificate can't be issued for longer than 198 days.
 
 1. After the renewal operation finishes, select **Sync**.
 
@@ -186,11 +189,15 @@ The renewal process requires that the service principal for App Service has the 
 
    If you don't select **Sync**, App Service automatically syncs your certificate within 24 hours.
 
+### What renewing does before the paid term ends
+
+Being able to request a renewal doesn't mean you get extra validity. If more than 32 days are left on the term you already paid for, a renewal rekeys the certificate for free, and the new certificate keeps the same expiration date as the term you already paid for. You are not charged, and repeating the renewal doesn't add any more days. When you renew within the last 32 days of the paid term, the renewal buys the next year, your subscription is charged for the full year, and the expiration date extends by one year.
+
 ## Rekey an App Service certificate
 
 If you think your certificate's private key is compromised, you can rekey your certificate. This action rotates the certificate with a new certificate issued from the certificate authority.
 
-If you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renewal, autorenewal, or rekey process. The new certificate order remains in **Pending issuance** mode during the renewal, autorenewal, or rekey process until you finish the domain verification.
+A renewal, autorenewal, or rekey might require domain verification again, even if you verified the domain recently. If domain verification is required, the new certificate order remains in **Pending issuance** mode until you finish it.
 
 Unlike the free App Service managed certificate, purchased App Service certificates don't have automated domain reverification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 
@@ -209,6 +216,17 @@ The rekey process requires that the service principal for App Service has the re
    The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 
    If you don't select **Sync**, App Service automatically syncs your certificate within 24 hours.
+
+### Why a rekey returns a shorter certificate than a renewal
+
+A rekey replaces the private key on your certificate and keeps the existing expiration date. The new certificate is valid only for the days that were left on the previous one. For example, if you rekey 60 days before expiration, the new certificate is valid for about 60 days.
+
+A renewal is different. It issues a fresh certificate. On a subscription based order, the new certificate is valid for 198 days.
+
+> [!NOTE]
+> Rekey keeps your current expiration date. Renew resets it.
+
+Neither a rekey nor a renewal can issue a certificate that outlives the paid term of the order. If fewer than 30 days remain on a subscription based order, a rekey is refused. Renew instead, which also rotates the key.
 
 ## Export an App Service certificate
 
@@ -266,7 +284,7 @@ The downloaded *.pfx* file is a raw PKCS12 file that contains both the public an
 
 ## Use Azure Advisor for App Service certificates
 
-An App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. If you haven't verified the domain in the last 395 days, you must verify domain ownership for your certificate during the renewal, autorenewal, or rekey process. To make sure that you don't miss any certificate that requires verification or risk any certificate from expiring, use Advisor to view and set up alerts for the App Service certificate.
+An App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. A renewal, autorenewal, or rekey might require you to verify domain ownership again, even if you verified the domain recently. To ensure that you don't miss any certificate that requires verification or risk any certificate from expiring, use Advisor to view and set up alerts for the App Service certificate.
 
 ### View Advisor recommendations
 

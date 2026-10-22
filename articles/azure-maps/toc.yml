@@ -369,8 +369,8 @@ items:
       href: /javascript/api/azure-maps-control/
     - name: Drawing tools
       href: /javascript/api/azure-maps-drawing-tools/
-    - name: Service module
-      href: /javascript/api/azure-maps-rest/
+    - name: REST SDK
+      href: how-to-dev-guide-js-sdk.md
     - name: Spatial IO module
       href: /javascript/api/azure-maps-spatial-io/
     - name: Release notes

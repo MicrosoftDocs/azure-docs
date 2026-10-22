@@ -1,8 +1,6 @@
 ---
 title: Azure Blueprints retirement
 description: Learn when Azure Blueprints is retired, the phased retirement timeline, what changes in each phase, and how to migrate to Azure Deployment Stacks and template specs.
-author: mumian
-ms.author: jgao
 ms.service: azure-blueprints
 ms.topic: concept-article
 ms.date: 06/26/2026

@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # Subscribing to a video that is unavailable
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The application tries to subscribe to a video when [isAvailable](/javascript/api/azure-communication-services/@azure/communication-calling/remotevideostream#@azure-communication-calling-remotevideostream-isavailable) is false.
 
 Subscribing a video in this case results in failure.

@@ -1,0 +1,166 @@
+### YamlMime:FAQ
+metadata:
+  title: Business Process Solutions FAQ
+  titleSuffix: SAP on Azure
+  description: Find answers to common questions about Business Process Solutions, including deployment, setup, and configuration.
+  ms.topic: faq
+  ms.service: sap-on-azure
+  ms.subservice: center-sap-solutions
+  ms.date: 07/01/2026
+  ms.author: momakhij
+  author: mohitmakhija1
+
+title: Common questions about Business Process Solutions
+summary: |
+  This article answers commonly asked questions about Business Process Solutions.
+
+sections:
+  - name: Deployment and setup
+    questions:
+      - question: Which Fabric capacity SKU should I use with Business Process Solutions?
+        answer: |
+                Capacity requirements depend on factors such as data volume and the number of users. We recommend starting with at least an F16 capacity. For production workloads, we recommend F32 or higher.
+
+      - question: If I delete a Business Process Solutions item, does it also delete the resources in the workspace?
+        answer: |
+                Yes. When you click the Delete button within Business Process Solutions workload, the associated workspace resources are also deleted, including notebooks, pipelines, environments, and lakehouses.
+
+      - question: What are the prerequisites for Business Process Solutions deployment?
+        answer: |
+                The prerequisites for deployment include:
+
+                - A Microsoft Fabric capacity with F16 or higher
+                - A Microsoft Fabric administrator who can enable the Business Process Solutions workload
+                - A Fabric workspace configured before starting the Business Process Solutions deployment
+                - A user with contributor access to the workspace to perform the deployment
+
+      - question: What systems can Business Process Solutions integrate with?
+        answer: |
+                Business Process Solutions supports integration with multiple enterprise systems, including:
+
+                - SAP S/4HANA
+                - SAP ECC 6.0
+                - Salesforce
+
+      - question: What are the supported data extraction options?
+        answer: |
+                The available data extraction options depend on the source system. Business Process Solutions supports built-in Microsoft Fabric connectors for systems such as SAP and Salesforce, as well as third-party extraction solutions through Open Mirroring. To learn more about the available extraction options, see [Data extraction](/azure/sap/business-process-solutions/about-business-process-solutions#data-extraction).
+
+      - question: Does Business Process Solutions support customization?
+        answer: |
+                Yes. Business Process Solution provides an open architecture and we expect customers to make changes following the business needs:
+                - Extend functional areas by adding new tables and creating relationships. Learn more: [Modify dataset tables and relationships](/azure/sap/business-process-solutions//manage-datasets#modify-dataset-tables-and-relationships)
+                - Modify existing data models by adding or removing tables and relationships. Learn more: [Modify dataset tables and relationships](/azure/sap/business-process-solutions//manage-datasets#modify-dataset-tables-and-relationships)
+                - Customize pipelines and notebooks by modifying the provided code or creating additional pipelines and notebooks.
+                - Customize analytics and business logic so that reports, calculations, and insights align with your organisation's processes.
+
+      - question: How can I add a new functional area, and can I onboard new SAP CDS views into the Business Process Solutions framework?
+        answer: |
+                You can add new functional areas in Business Process Solutions by creating datasets that use existing SAP CDS views or your own custom CDS views. For details on creating datasets and adding CDS views, see [Configure datasets in Business Process Solutions](/azure/sap/business-process-solutions/manage-datasets#modify-dataset-tables-and-relationships).
+
+      - question: How can I safely customize a pre-delivered resource, such as a pipeline, notebook, or semantic model?
+        answer: |
+                Business Process Solutions allows you to customize the delivered resources. Before making changes, create a copy of the original resource and apply your customizations to the copied version. Avoid modifying the original resource directly, as those changes may be overwritten when the solution is updated.
+
+      - question: I have accidentally removed one of the resources. How can I bring it back?
+        answer: |
+                You can restore removed resources by updating your source system connection or applying the latest Business Process Solutions update.
+
+      - question: Will you automatically update the deployed resources during an update?
+        answer: |
+                No. When a new version of the Business Process Solutions resources becomes available, you will be notified and can decide when to apply the update. No Fabric resources are updated without your approval. Learn more about solution updates: [Update artifacts in Business Process Solutions](/azure/sap/business-process-solutions/update-artifacts)
+
+      - question: Can I connect multiple systems in a single workload?
+        answer: |
+                Yes. You can connect multiple source systems to a single Business Process Solutions workload. When connecting multiple systems of the same type but with different versions, schema differences may need to be resolved to ensure the data is aligned.
+
+      - question: Can I use multiple extraction methods at the same time?
+        answer: |
+                Each source system can use only one extraction method, but multiple systems within the same workload can use different extraction methods.
+
+      - question: Can I change the source system details after deployment? How do I update connection credentials for my source system?
+        answer: |
+                You can update source system details, such as the hostname or connection credentials, after deployment. However, you cannot change the data extraction technology associated with an existing source system. To use a different extraction technology, you need to create a new source system and extract the data again.
+
+      - question: How can I get early access to new Business Process Solutions features?
+        answer: |
+                We welcome customers who are interested in exploring new capabilities and working closely with us. Several Business Process Solutions are available in Preview. If you're interested in participating, learn more about the program and how to join [Get onboarded to preview features](/azure/sap/business-process-solutions/support-private-preview#get-onboarded-to-preview-features).
+      - question: What should I do if I experience an issue with Business Process Solutions?
+        answer: |
+                If you experience an issue while using Business Process Solutions, you can find information about available support options and how to get help here: [Raise a support request](/azure/sap/business-process-solutions/support-private-preview#raise-a-support-request).
+      - question: How can I provide feedback or request a new feature?
+        answer: |
+                We welcome your feedback and suggestions for improving Business Process Solutions. If you have feedback or would like to request a new feature, you can share it with us here: [Raise a support request](/azure/sap/business-process-solutions/support-private-preview#raise-a-support-request).
+
+  - name: Data and security
+    questions:
+      - question: Where does the data copied from source systems reside?
+        answer: |
+                All business data you copy from your source systems stays within the selected Microsoft Fabric region of your Microsoft Fabric capacity.
+
+      - question: How is data handled securely?
+        answer: |
+                The workload does not access to the content of the underlying tables and stores only metadata.
+
+      - question: Do you support delta extraction and processing?
+        answer: |
+                Yes. Business Process Solutions supports incremental data extraction and processing. Delta extraction capabilities depend on the source object and extraction technology being used. The built-in metadata directory identifies which objects support delta extraction ensuring most efficient processing. Downstream transformations from Bronze to Silver and Silver to Gold also use incremental processing.
+
+      - question: Does Business Process Solutions support hierarchies from SAP?
+        answer: |
+                Yes. Business Process Solutions supports hierarchies from SAP ECC and SAP S/4HANA. The provided transformations flatten the hierarchy for use with Microsoft reporting tools. Out-of-the-box content is available for Financial Statement, Cost Center, and Profit Center hierarchies, and the solution can be easily extended to support additional hierarchies.
+
+      - question: Does Business Process Solutions support currency conversion?
+        answer: |
+                Yes. The currency conversion approach in Business Process Solutions depends on the functional area. For Record-to-Report (Finance Insights and AR/AP Insights), Business Process Solutions uses currency conversions available from the source system. Where SAP does not provide amounts in other currencies, Business Process Solutions reports use average exchange rates for conversion. Learn more: [Currency conversion](/azure/sap/business-process-solutions/currency-conversion). To better align with organisational processes and reporting needs, Business Process Solutions includes two report versions: with and without currency conversion logic.
+
+      - question: Can I influence the currency conversion logic?
+        answer: |
+                Yes. For functional areas where currency conversion is handled by Business Process Solutions, you can customize how average exchange rates are calculated and applied in the reports.
+
+      - question: What exactly happens during the bronze to silver transformation?
+        answer: |
+                The Bronze-to-Silver transformation prepares the extracted data for further processing by aligning data types and ensuring a consistent data schema. For SAP ECC, this layer also performs the initial processing of hierarchies and calculates fiscal periods.
+
+      - question: What exactly happens during the silver to gold transformation?
+        answer: |
+                The Silver-to-Gold transformation focuses on building the analytical data model. During this stage, we create surrogate keys for dimensions and text elements and reference them in fact tables, preparing the data for performant and reliable semantic models. This stage also includes use-case-specific transformations, such as calculating average exchange rates, creating aggregates, and applying other advanced transformations required by the analytical scenario.
+
+      - question: How often is the data extracted from the source system?
+        answer: |
+                The extraction frequency depends on the source system and the extraction method. When using the ABAP Copy Job, Business Process Solutions automatically schedules the extraction to run once a day. You can adjust the frequency per your requirements. When using third-party extraction solutions, such as mirroring, the extraction schedule is configured and managed within that solution.
+
+      - question: How often is the data processed between bronze to silver and silver to gold?
+        answer: |
+                Business Process Solution automatically schedules the processing to run once a day. You can adjust the frequency per your requirements.
+
+      - question: How often does the semantic model refresh?
+        answer: |
+                Business Process Solution does not automatically schedules semantic model refresh. You must create and schedule a semantic model refresh pipeline based on your requirements.
+
+      - question: Can I manually refresh the semantic model?
+        answer: |
+                Yes. You can manually refresh the semantic model from its settings by selecting the refresh option.
+
+      - question: Does data extraction start automatically after creating source systems?
+        answer: |
+                No. Data extraction and replication don't start automatically. The extraction, replication, and processing pipelines run on a defined schedule to trigger Spark jobs and process the data. You can also start processing manually by triggering the pipelines as described in [Run extraction and data processing](/azure/sap/business-process-solutions/run-extraction-data-processing).
+
+      - question: How can I monitor data extraction and processing?
+        answer: |
+                To view the current extraction status and previous Business Process Solutions pipeline runs, see [Monitor Fabric data extraction and processing](/azure/sap/business-process-solutions/monitor-fabric-data-extraction-processing).
+
+      - question: What are "Insights" in Business Process Solutions?
+        answer: |
+                Insights are the analytical components in Business Process Solutions that enable you to analyse, visualise, and consume data. An Insight can include, for example, a Power BI report, semantic model, or Fabric data agent.
+
+      - question: Can I customize insights?
+        answer: |
+                Yes. You can extend and modify delivered Power BI reports and semantic models to ensure they meet your business requirements.
+      - question: Where can I find additional documentation about Power BI dashboards?
+        answer: |
+                Each Power BI dashboard includes a landing page with additional guidance and documentation. It explains the key concepts and measures used in the dashboard, as well as how to use and customize it.
+
+      - question: If I add a new table to a dataset will the associated Semantic Model update automatically?
+        answer: |
+                No, when you customize the dataset the associated Semantic Model and / or Power BI dashboard have to be updated manually.
