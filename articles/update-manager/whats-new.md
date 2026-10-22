@@ -16,7 +16,7 @@ ms.update-cycle: 1095-days
 
 ## October 2026
 
-Public preview: Azure Update Manager now provides support for periodic assessment (preview) on **Azure Virtual Machine Scale Sets with Uniform** orchestration. You can enable automatic update compliance assessments for Uniform scale sets and view assessment results in Azure Update Manager to help identify missing updates and monitor compliance across scale set instances. 
+Public preview: Azure Update Manager now provides support **Periodic assessment on Azure Virtual Machine Scale Sets Uniform (preview)**. You can enable automatic update compliance assessments for Uniform orchestration mode virtual machine scale sets and view assessment results in Azure Update Manager. This feature helps you identify missing updates and monitor update compliance across virtual machine scale set instances.
 
 ## August 2025
 
