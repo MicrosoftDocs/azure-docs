@@ -91,8 +91,12 @@ items:
     items:
     - name: Check update compliance
       href: view-updates.md
-    - name: Automate assessment at scale using Policy
-      href: periodic-assessment-at-scale.md
+    - name: Automate assessment
+      items:
+      - name: Automate assessment at scale using Policy
+        href: periodic-assessment-at-scale.md
+      - name: Enable Periodic Assessment for Azure Virtual Machine Scale Sets Uniform
+        href: enable-periodic-assessment-azure-virtual-machine-scale-sets-uniform.md
     - name: Deploy updates and track results
       href: deploy-updates.md
     - name: Manage update settings
