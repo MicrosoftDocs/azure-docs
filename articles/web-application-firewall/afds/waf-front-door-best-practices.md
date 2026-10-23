@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 06/30/2026
+ms.date: 10/22/2026
 
 # Customer intent: As a cloud security administrator, I want to implement best practices for the web application firewall within Azure Front Door, so that I can effectively protect my internet-facing applications from cyber threats while minimizing false positives and maintaining legitimate traffic flow.
 ---
@@ -70,12 +70,12 @@ This section discusses best practices for rate limiting.
 
 ### Add rate limiting
 
-The Azure Front Door WAF enables you to control the number of requests allowed from each client's IP address over a period of time. Add rate limiting to reduce the effect of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [retry storm](/azure/architecture/antipatterns/retry-storm/).
+The Azure Front Door WAF enables you to control the number of requests allowed from each client's IP address over a period of time. On Azure Front Door Premium, you can also count requests by country/region, autonomous system number (ASN), or JA4 client fingerprint (preview). Add rate limiting to reduce the effect of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [retry storm](/azure/architecture/antipatterns/retry-storm/).
 
 For more information, see the following resources:
 
 - [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
-- [Configure an Azure Web Application Firewall rate limit rule by using Azure PowerShell](waf-front-door-rate-limit-configure.md).
+- [Configure a rate limit rule for Azure Front Door](waf-front-door-rate-limit-configure.md).
 - [Why do additional requests above the threshold configured for my rate limit rule get passed to my back-end server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-back-end-server-)
 
 ### Use a high threshold for rate limits
@@ -83,6 +83,10 @@ For more information, see the following resources:
 Set your rate limit threshold to be high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
 
 High rate-limit thresholds avoid blocking legitimate traffic. These thresholds still provide protection against very high numbers of requests that might overwhelm your infrastructure.
+
+### Add grouped rate limits for distributed attacks
+
+A rate limit that counts each client IP address separately is less effective when an attack spreads its requests across many IP addresses. On Azure Front Door Premium, add rate limit rules that group requests by JA4 fingerprint, ASN, or country/region (preview), alongside your per-IP rule rather than instead of it. Many legitimate users can share a group, so base each threshold on the group's peak in normal traffic over at least a week, and start with the Log action or a [JavaScript challenge](../waf-javascript-challenge.md) before you block. For more information, see [Group rate limit traffic (preview)](waf-front-door-rate-limit.md#group-rate-limit-traffic-preview).
 
 ## Geo-filtering best practices
 

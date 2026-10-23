@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/09/2025
+ms.date: 10/23/2026
 ms.author: kesheth
 ---
 
@@ -229,6 +229,8 @@ The `import` operation succeeds and returns `200 OK`. However, `error.url` is pr
     ]
 }
 ```
+
+For diagnostics that include a `line` and `stream start offset`, the offset is the byte position in the source input file where the FHIR service began processing a data unit. The line number is relative to that data unit, not the original file. To locate the resource, use the original source blob, seek to the reported byte position, skip the rest of a partial line if necessary, and count complete NDJSON lines to the reported line. The offset can point to the middle of a line. Use the resource ID in the diagnostic to confirm the record.
 
 Cause: NDJSON files contain resources with conditional references that `import` doesn't support.
 
