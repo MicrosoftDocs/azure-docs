@@ -27,7 +27,7 @@ For more information about Microsoft Entra Kerberos authentication for Azure Fil
 Before configuring Azure Files access on macOS by using Platform SSO, complete the following prerequisites.
 
 > [!IMPORTANT]
-> This article uses Microsoft Intune for device configuration. Other MDM solutions can also be used to deploy the required configuration, but they aren't covered here. For support with non-Microsoft MDM solutions, contact the respective vendor's support channel.
+> This article uses Microsoft Intune for device configuration. You can also use other MDM solutions to deploy the required configuration, but this article doesn't cover them. For support with non-Microsoft MDM solutions, contact the respective vendor's support channel.
 
 ### macOS device requirements
 
