@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/09/2025
+ms.date: 10/23/2026
 ms.author: kesheth
 ---
 
@@ -297,5 +297,7 @@ Solution: Reduce the size of your data or consider Azure API for FHIR, which has
 [Configure export settings and set up a storage account](configure-export-data.md)
 
 [Copy data to Azure Synapse Analytics](copy-to-synapse.md)
+
+[$import FAQ](import-faq.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

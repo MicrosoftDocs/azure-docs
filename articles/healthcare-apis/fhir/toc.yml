@@ -120,6 +120,8 @@ items:
         href: configure-import-data.md
       - name: Import FHIR data 
         href: import-data.md 
+      - name: $import FAQ
+        href: import-faq.md
     - name: $member-match
       href: tutorial-member-match.md
     - name: Patient/$everything
