@@ -25,7 +25,11 @@ This article describes how to set up an [Azure Device Registry](overview-device-
 ## Prerequisites
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- Permissions to create resource groups, Azure Device Registry namespaces, managed identities, role assignments, IoT Hub instances, and DPS instances in the target subscription. Creating role assignments requires a [privileged role](../../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
+- The `Microsoft.DeviceRegistry` and `Microsoft.Devices` resource providers registered in your subscription. If you plan to use software updates, also register `Microsoft.DeviceUpdate`. For instructions, see [Register a resource provider.](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
+
+- Permissions to create resource groups, Azure Device Registry namespaces, managed identities, IoT Hub instances, and DPS instances in the target subscription. 
+
+- Permission to create role assignments. This requires a [privileged role](../../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
 - A [supported region](../../iot-hub/iot-hub-what-is-new.md#supported-regions) for Azure Device Registry, IoT Hub, and DPS. All new resources are created in the same region as the namespace.
 
 > [!WARNING]
