@@ -52,6 +52,8 @@ We recommend that you run the latest stable version of our container image. Give
 
 ### Unsupported versions 
 
+- Using container images with the `latest` tag for production. Roll out a new version by following [Safe Deployment Practices (SDP)](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
+
 - Container images with the `beta` tag.
 
 - Any version with the `preview` suffix. 
