@@ -165,7 +165,7 @@ You can configure the synthetic partition key value by specifying a template in 
 > [!CAUTION]
 > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
-### Microsoft Fabric Eventstreams as a routing endpoint
+### Microsoft Fabric event streams as a routing endpoint
 
 You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabric/real-time-intelligence/event-streams/overview) by creating a new Fabric evenstream endpoint for your IoT Hub. This integration brings IoT Hub telemetry directly into Fabric Real-Time Intelligence for downstream processing and analytics.
 
