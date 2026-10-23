@@ -165,16 +165,18 @@ You can configure the synthetic partition key value by specifying a template in 
 > [!CAUTION]
 > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
-### Microsoft Fabric Eventstreams as a routing endpoint (preview)
+### Microsoft Fabric Eventstreams as a routing endpoint
 
-You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabric/real-time-intelligence/event-streams/overview) by adding a Fabric Eventstream custom endpoint to your IoT hub. This integration brings IoT Hub telemetry directly into Fabric Real-Time Intelligence for downstream processing and analytics.
+You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabric/real-time-intelligence/event-streams/overview) by creating a new Fabric evenstream endpoint for your IoT Hub. This integration brings IoT Hub telemetry directly into Fabric Real-Time Intelligence for downstream processing and analytics.
 
-> [!NOTE]
-> Routing to Microsoft Fabric Eventstreams is in public preview. This capability applies to both IoT Hub and IoT Hub Gen 2 instances.
+To route messages to a Fabric eventstream, create a route in IoT Hub and add a Fabric eventstream endpoint. Select the Fabric workspace and eventstream that you want to route data to.
 
-To route messages to a Fabric eventstream, create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source.
+When you create a Fabric eventstream endpoint, a [new custom endpoint source tile](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/add-source-custom-app?pivots=basic-features) is created in the selected eventstream for IoT Hub to route messages to.
 
-In your Microsoft Fabric workspace, select the custom endpoint source tile you want to connect to on your published Eventstream. If a custom endpoint source tile doesn't exist on your Eventstream, [create a new custom endpoint source tile](/fabric/real-time-intelligence/event-streams/add-source-custom-app?pivots=basic-features). Once the source tile is selected, go to the **Details** pane. Select **Event Hub** as the **Protocol**. Select **Entra ID Authentication** and access the connection details. To ensure Entra ID Authentication is set up correctly for your Fabric workspace, see [Connect to Eventstream using Microsoft Entra ID authentication](/fabric/real-time-intelligence/event-streams/custom-endpoint-entra-id-auth).
+> [!NOTE] 
+> A Fabric eventstream supports up to 11 combined qualifying sources and destinations. This limit includes custom endpoint sources. If creating the endpoint would exceed this limit, endpoint creation is blocked until you select a different Fabric eventstream.
+
+To ensure that your IoT hub can send messages to your Fabric eventstream, verify that Microsoft Entra ID authentication is configured correctly for your Fabric workspace. For more information, see [Connect to Eventstream using Microsoft Entra ID authentication](/fabric/real-time-intelligence/event-streams/custom-endpoint-entra-id-auth).
 
 #### Authentication
 
