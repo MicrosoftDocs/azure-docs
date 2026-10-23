@@ -59,7 +59,7 @@ To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION
 | Area | Regions |
 | --- | --- |
 | US | East US 2, South Central US, West Central US, West US 2 |
-| Europe | France Central, Germany West Central, North Europe, Sweden Central, West Europe |
+| Europe | France Central, Germany West Central, Sweden Central, West Europe |
 | Asia Pacific | Australia East, Australia Southeast, Central India, East Asia, South India, Southeast Asia |
 
 ### Secondary storage regions
@@ -67,7 +67,7 @@ To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION
 | Area | Regions |
 | --- | --- |
 | Americas | Brazil South, Canada Central, Canada East, Central US, East US, Mexico Central, North Central US, West US, West US 3 |
-| Europe | Norway East, Spain Central, Switzerland North, UK South, UK West |
+| Europe | North Europe, Norway East, Spain Central, Switzerland North, UK South, UK West |
 | Asia Pacific | Australia Central, Japan East, Japan West, Jio India West, Korea Central, Korea South, West India |
 | Middle East and Africa | Qatar Central, South Africa North, UAE North |
 
