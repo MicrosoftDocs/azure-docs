@@ -230,6 +230,8 @@ The `import` operation succeeds and returns `200 OK`. However, `error.url` is pr
 }
 ```
 
+For diagnostics that include a `line` and `stream start offset`, the offset is the byte position in the source input file where the FHIR service began processing a data unit. The line number is relative to that data unit, not the original file. To locate the resource, use the original source blob, seek to the reported byte position, skip the rest of a partial line if necessary, and count complete NDJSON lines to the reported line. The offset can point to the middle of a line. Use the resource ID in the diagnostic to confirm the record, but also compare version metadata when the source contains multiple versions of the same resource.
+
 Cause: NDJSON files contain resources with conditional references that `import` doesn't support.
 
 Solution: Replace the conditional references to normal references in the NDJSON files.
@@ -297,7 +299,5 @@ Solution: Reduce the size of your data or consider Azure API for FHIR, which has
 [Configure export settings and set up a storage account](configure-export-data.md)
 
 [Copy data to Azure Synapse Analytics](copy-to-synapse.md)
-
-[$import FAQ](import-faq.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
