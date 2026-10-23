@@ -36,6 +36,9 @@ Before you configure vaulted backup for an Azure Cosmos DB account, ensure that 
   ```
 
 * Identify or create a **Backup vault** in the same region as the primary write region of the Azure Cosmos DB account.
+* Ensure the identity running the cmdlets has read permission on the source account (`Microsoft.DocumentDB/databaseAccounts/read`). The **Reader** role on the account grants this permission, separately from the vault's managed identity permissions.
+
+  For cross-subscription backup, check the identity's access in the source account's subscription. To resolve permission errors, see [Troubleshoot backup configuration requests](backup-azure-backup-vault-troubleshoot.md#backup-configuration-request-errors).
 
 ### Create a Backup vault
 

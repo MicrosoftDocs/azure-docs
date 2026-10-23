@@ -48,6 +48,8 @@ You can fetch your own keys to encrypt the backup data by using the **Customer M
 
 Backup vaults provide a robust Role-Based Access Control (RBAC) mechanism that not only governs who can access a Backup vault and what operations they can perform, but also enables fine-grained control over which individual workloads the vault can access and to what extent. This includes access to Azure resources such as Azure Disks or PostgreSQL servers to be backed up and Key Vaults used for encryption key management.
 
+The identity that creates or updates a backup instance needs read permission on the source resources referenced by that instance. The **Reader** role on a source resource is one way to grant this permission. This permission is separate from the permissions assigned to the Backup vault's managed identity.
+
 RBAC is enforced through Managed Identities associated with the Backup vault. Specific roles can be assigned to these identities to grant the required access. Backup vaults support two types of managed identities:
 
 - **System Assigned Managed Identity:** This identity is automatically created when the Backup vault is provisioned and is tied to the lifecycle of the vault. You have the option to disable this identity if needed.
