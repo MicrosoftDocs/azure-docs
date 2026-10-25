@@ -12,11 +12,12 @@ The recommended installation method for Core Tools depends on the operating syst
 
 ### [Windows](#tab/windows)
 
-Two primary ways to install the latest Core Tools version on Windows are:
+The primary ways to install the latest Core Tools version on Windows are:
 
 | Install method | Best for... | Install location/command |
 | ---- | ---- | ---- |
 | Windows installer (MSI) | Visual Studio or command-line development without Node.js | • [64-bit](https://go.microsoft.com/fwlink/?linkid=2174087)(recommended)<br/>• [32-bit](https://go.microsoft.com/fwlink/?linkid=2174159) |
+| Windows Package Manager (`winget`) | Scripted or command-line installation of the MSI without Node.js | • **winget**: `winget install Microsoft.Azure.FunctionsCoreTools` |
 | `npm` package | Visual Studio Code development (used by the Azure Functions extension for updates) | • **npm**: `npm i -g azure-functions-core-tools@4 --unsafe-perm true`<br/>• **chocolatey**: `choco install azure-functions-core-tools` |
 
 Considerations for installation:
