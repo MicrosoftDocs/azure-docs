@@ -29,6 +29,8 @@ Azure Communication Services supports two types of Teams interoperability depend
 - **[External user](#external-user).** You control user authentication, and users of your custom applications don't need to have Microsoft Entra identities or Teams licenses. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
 - **[Teams user](#teams-user).** Microsoft Entra ID controls user authentication, and users of your custom application must have Teams licenses. This model allows you to build custom applications for Teams users to enable specialized workflows or experiences that are impossible with the existing Teams clients.
 
+  When the Microsoft 365 identity authenticated through the Teams identity model is a resource account or other identity used by a shared meeting device, Microsoft Teams Rooms licensing requirements apply in addition to Azure Communication Services consumption charges. See [Microsoft Teams Rooms licenses](/microsoftteams/rooms/rooms-licensing).
+
 Applications can implement both authentication models and leave the choice of authentication up to the user. The following table compares two models:
 
 |Feature|External user| Teams user|
