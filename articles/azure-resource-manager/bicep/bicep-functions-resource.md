@@ -190,6 +190,15 @@ The function normalizes its inputs before generating the GUID:
 - Normalizes the principal ID GUID to lowercase.
 - Extracts the final segment of the role definition resource ID and normalizes that GUID to lowercase.
 
+For a scope without trailing slashes and GUIDs in their standard hyphenated format, the result is equivalent to the following expression:
+
+```bicep
+guid(
+  toLower(scope),
+  toLower(principalId),
+  toLower(split(roleDefinitionId, '/')[^1]))
+```
+
 Consequently, differences in input casing don't change the generated name. Subscription-, management-group-, and tenant-scoped role definition resource IDs with the same role definition GUID also produce the same name for the same scope and principal.
 
 Use the same scope, principal ID, and role definition ID in the role assignment resource as you pass to this function. The function generates a name; it doesn't create a role assignment or look up an existing assignment.
