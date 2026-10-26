@@ -133,9 +133,7 @@ To save time, proceed with this phase while you wait for your Data Box to arrive
 * [Identity-based authentication for SMB overview](storage-files-active-directory-overview.md)
 * [Networking overview for Azure file shares](storage-files-networking-overview.md)
 * [How to configure public and private endpoints](storage-files-networking-endpoints.md)
-* [How to configure a S2S VPN](storage-files-configure-s2s-vpn.md)
-* [How to configure a Windows P2S VPN](storage-files-configure-p2s-vpn-windows.md)
-* [How to configure a Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
+* [How to connect from on-premises](storage-files-networking-overview.md#connect-from-on-premises)
 * [How to configure DNS forwarding](storage-files-networking-dns.md)
 * [Configure DFS-N](files-manage-namespaces.md)
    :::column-end:::

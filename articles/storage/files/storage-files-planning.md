@@ -104,7 +104,7 @@ Consider the following network configurations:
 
 For more information, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
-In addition to directly connecting to the file share using the public endpoint or using a VPN/ExpressRoute connection with a private endpoint, SMB provides an additional client access strategy: SMB over QUIC. SMB over QUIC offers zero-config "SMB VPN" for SMB access over the QUIC transport protocol. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
+In addition to directly connecting to the file share using the public endpoint or using a VPN/ExpressRoute connection with a private endpoint, SMB provides an additional client access strategy: SMB over QUIC. SMB over QUIC offers zero-config "SMB VPN" for SMB access over the QUIC transport protocol. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#connect-from-on-premises).
 
 ## Encryption for Azure Files
 
@@ -121,7 +121,7 @@ You can disable encryption in transit for an Azure storage account. When you dis
 
 Ensure encryption of data in transit is enabled.
 
-For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json) and [Encryption in transit for NFS Azure file shares](encryption-in-transit-for-nfs-shares.md).
+For more information about encryption in transit, see [Configure encryption in transit for Azure Files](files-encryption-in-transit.md).
 
 ### Encryption at rest
 

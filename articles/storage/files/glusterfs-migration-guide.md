@@ -152,7 +152,7 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
    - Choose the right media tier (HDD or SSD) based on your needs. SSD is required for NFS file shares.
 
 1. Configure networking. See [Azure Files networking considerations](storage-files-networking-overview.md).
-   - SMB: Configure firewall and private endpoints as needed. See [Configure Azure Storage firewalls](../common/storage-network-security.md) and [Configure network endpoints for accessing Azure file shares](storage-files-networking-endpoints.md).
+   - SMB: Configure firewall and private endpoints as needed. See [Restrict access to the public endpoint to specific networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks) and [Configure network endpoints for accessing Azure file shares](storage-files-networking-endpoints.md).
    - NFS: Configure network security and private endpoints. See [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
 
 1. Create Azure file shares with appropriate protocols.

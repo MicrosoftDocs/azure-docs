@@ -319,7 +319,7 @@ With the key vault, key, and managed identity in place, you can enable customer-
 Follow these steps to configure the storage account to use your key for encryption. The Azure portal always uses automatic key version updating. To use manual key version management instead, use Azure PowerShell or Azure CLI and specify a key version.
 
 > [!IMPORTANT]
-> For storage accounts that are associated with a [network security perimeter](files-network-security-perimeter.md), the key vault should ideally be in the same network security perimeter. If it isn't, then you must configure the network security perimeter profile of the key vault to allow the storage account to communicate with it.
+> For storage accounts that are associated with a [network security perimeter](storage-files-networking-overview.md#network-security-perimeter), the key vault should ideally be in the same network security perimeter. If it isn't, then you must configure the network security perimeter profile of the key vault to allow the storage account to communicate with it.
 
 ### Configure customer-managed keys for an existing storage account
 
