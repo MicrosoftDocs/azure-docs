@@ -57,14 +57,10 @@
       href: file-sync-networking-endpoints.md
     - name: Configure File Sync proxy and firewall settings
       href: file-sync-firewall-and-proxy.md
-    - name: Configure firewalls and virtual networks
-      href: ../common/storage-network-security.md?toc=/azure/storage/file-sync/toc.json
-    - name: Require secure transfer
-      href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/file-sync/toc.json
-    - name: Configure Site-to-Site VPN 
-      href: ../files/storage-files-configure-s2s-vpn.md?toc=/azure/storage/file-sync/toc.json
-    - name: Configure Point-to-Site VPN on Windows
-      href: ../files/storage-files-configure-p2s-vpn-windows.md?toc=/azure/storage/file-sync/toc.json    
+    - name: Configure site-to-site VPN
+      href: ../../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/storage/file-sync/toc.json
+    - name: Configure point-to-site VPN
+      href: ../../vpn-gateway/point-to-site-certificate-gateway.md?toc=/azure/storage/file-sync/toc.json
     - name: Use DFS-N with Azure Files
       href: ../files/files-manage-namespaces.md?toc=/azure/storage/file-sync/toc.json
     - name: Enable threat protection with Microsoft Defender for Storage
@@ -89,12 +85,8 @@
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/file-sync/toc.json
     - name: Enable infrastructure encryption for the account
       href: ../common/infrastructure-encryption-enable.md?toc=/azure/storage/file-sync/toc.json
-    - name: Manage Transport Layer Security (TLS)
-      items:
-      - name: Enforce minimum TLS version for incoming requests
-        href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/file-sync/toc.json 
-      - name: Configure TLS version for a client application
-        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/file-sync/toc.json
+    - name: Encryption in transit
+      href: ../files/files-encryption-in-transit.md?toc=/azure/storage/file-sync/toc.json
 - name: Data transfer and migration
   items:
   - name: Migrate to SMB Azure file shares

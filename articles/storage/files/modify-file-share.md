@@ -123,14 +123,14 @@ Follow these steps to update the provisioning for your file share.
 
    ![A screenshot of the Change size and performance button in the file share overview.](./media/storage-how-to-create-file-share/change-provisioned-v2-0.png)
 
-1. The **Size and performance** dialog has a single option, **Provisioned storage (GiB)**. If you need more IOPS or throughput than the given amount of provisioned storage provides, you can increase your provisioned storage capacity to get extra IOPS and throughput.
+1. The **Size and performance** dialog has a single option, **Provisioned storage (GiB)**. If you need more IOPS or throughput than the given amount of provisioned storage provides, increase your provisioned storage capacity to get extra IOPS and throughput.
 
    ![A screenshot of the "Size and performance" dialog for provisioned v1 file shares.](./media/storage-how-to-create-file-share/change-provisioned-v1-0.png)
 
 1. Select **Save** to apply the provisioning changes.
 
 > [!NOTE]
-> You can use PowerShell and CLI to enable or disable paid bursting. Paid bursting is an advanced feature of the provisioned v1 billing model. See [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
+> Use PowerShell and CLI to enable or disable paid bursting. Paid bursting is an advanced feature of the provisioned v1 billing model. See [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -227,7 +227,7 @@ To update the access tier of your file share by using the Azure portal, follow t
 
 1. In the file share overview, select **Change tier**.
 
-1. Select the desired **Access tier** from the provided drop-down list.
+1. Select the desired **Access tier** from the drop-down list.
 
 1. Select **Apply** to save the access tier change.
 
@@ -239,9 +239,9 @@ To update the quota of your file share by using the Azure portal, follow these s
 
 1. In the file share overview, select **Edit quota**.
 
-1. In the **Edit quota** pop-out, enter the desired maximum size of the share or select **Set to maximum**. There's no cost implication of setting the share to the maximum size.
+1. In the **Edit quota** pane, enter the desired maximum size of the share or select **Set to maximum**. There's no cost implication of setting the share to the maximum size.
 
-1. Select **OK** to save quota changes. The new quota is effective within a few minutes.
+1. Select **OK** to save quota changes. The new quota takes effect within a few minutes.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -329,12 +329,9 @@ Follow these steps to change the size and performance of a file share (Microsoft
 
 # [PowerShell](#tab/azure-powershell)
 
-To change the size and performance of a file share (Microsoft.FileShares) by using Azure PowerShell, use the following commands. Replace the variables with your intended values.
+To change the size and performance of a file share (Microsoft.FileShares) by using Azure PowerShell, use the following commands. Replace the variables with your intended values. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
 
@@ -354,12 +351,9 @@ Get-AzFileShare -ResourceGroupName $resourceGroup -ResourceName $shareName
 
 # [Azure CLI](#tab/azure-cli)
 
-To change the size and performance of a file share (Microsoft.FileShares) by using Azure CLI, use the following commands.
+To change the size and performance of a file share (Microsoft.FileShares) by using Azure CLI, use the following commands. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<your-file-share-name>"
 resourceGroup="<your-resource-group-name>"
@@ -437,7 +431,7 @@ az storage share-rm delete \
 
 ## Delete a file share (Microsoft.FileShares)
 
-Before deleting a file share that you created with the Microsoft.FileShares resource provider, make sure you delete or disconnect its associated private endpoint. File share deletion fails if the private endpoint is still present.
+Before deleting a file share that you created with the Microsoft.FileShares resource provider, ensure you delete or disconnect its associated private endpoint. File share deletion fails if the private endpoint is still present.
 
 # [Portal](#tab/azure-portal)
 
@@ -455,12 +449,9 @@ To delete a file share (Microsoft.FileShares) by using the Azure portal, follow 
 
 # [PowerShell](#tab/azure-powershell)
 
-To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Replace the variables with your values.
+To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Replace the variables with your values. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
 
@@ -469,12 +460,9 @@ Remove-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-To delete a file share (Microsoft.FileShares) by using Azure CLI, run the following command.
+To delete a file share (Microsoft.FileShares) by using Azure CLI, run the following command. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Delete the file share
 az fileshare delete --name <file-share-name> --resource-group <your-resource-group-name> -y
 ```

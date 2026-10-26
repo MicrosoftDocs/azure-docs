@@ -133,9 +133,7 @@ You also need to decide how your servers and users in Azure and outside of Azure
 * [Identity-based authentication overview](storage-files-active-directory-overview.md)
 * [Networking overview for Azure file shares](storage-files-networking-overview.md)
 * [How to configure public and private endpoints](storage-files-networking-endpoints.md)
-* [How to configure a site-to-site VPN](storage-files-configure-s2s-vpn.md)
-* [How to configure a Windows point-to-site VPN](storage-files-configure-p2s-vpn-windows.md)
-* [How to configure a Linux point-to-site VPN](storage-files-configure-p2s-vpn-linux.md)
+* [How to connect from on-premises](storage-files-networking-overview.md#connect-from-on-premises)
 * [How to configure DNS forwarding](storage-files-networking-dns.md)
 * [Configure DFS-N](files-manage-namespaces.md)
    :::column-end:::
