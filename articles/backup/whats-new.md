@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 10/22/2026
+ms.date: 10/26/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -21,6 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - October 2026
+  - [Granular billing for Azure Backup is now generally available](#granular-billing-for-azure-backup-is-now-generally-available)
   - [Item-level recovery support for Premium SSD v2 and Ultra disks](#item-level-recovery-support-for-premium-ssd-v2-and-ultra-disks)
   - [Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)](#vaulted-backup-support-for-azure-postgresql-flexible-server-and-elastic-cluster-v2-preview)
 - September 2026
@@ -85,9 +86,17 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+## Granular billing for Azure Backup is now generally available
+
+Granular billing now supports both [Recovery Services vaults](backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md). You can view backup costs at a custom granularity level to simplify chargeback and cost reporting across teams, applications, and cost centers.
+
+You can configure granular billing by using the Azure portal, Azure PowerShell, or Azure CLI.
+
+For more information, see [Configure granular billing in Azure Backup](backup-azure-granular-billing.md).
+
 ## Item-level recovery support for Premium SSD v2 and Ultra disks
 
-Azure Backup now supports item-level recovery (ILR) for Azure virtual machines using Premium SSD v2 and Ultra disks with 512-byte or 4-KB logical sector sizes. You can recover individual files and folders without restoring an entire disk or virtual machine. ILR supports Azure VMs on Windows and Linux running Ubuntu, RHEL, Debian, Oracle Linux, SLES, or openSUSE, including VMs with mixed disk types. 
+Azure Backup now supports item-level recovery (ILR) for Azure virtual machines using Premium SSD v2 and Ultra disks with 512-byte or 4-KB logical sector sizes. You can recover individual files and folders without restoring an entire disk or virtual machine. ILR supports Azure VMs on Windows and Linux running Ubuntu, RHEL, Debian, Oracle Linux, SLES, or openSUSE, including VMs with mixed disk types.
 
 You can generate a file-recovery executable or script through the Azure portal, CLI, or PowerShell, then run it on a compatible machine to access the recovery point, selectively browse, and copy individual files or folders. The generated script can be run only by an administrator in elevated mode and doesn't need any input from an external source except a password, with a 12-hour auto-disconnection and session timeout policy by default. This experience is in parity with the existing ILR workflow for Standard HDD, Standard SSD, and Premium SSD v1 disks, bringing parity across all Azure managed disk SKUs. This functionality improves the recovery time when only specific files or folders need to be restored from Premium SSD v2 or Ultra disks.
 
