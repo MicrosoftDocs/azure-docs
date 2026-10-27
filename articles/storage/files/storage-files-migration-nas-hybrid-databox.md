@@ -62,7 +62,7 @@ In this phase, you need to map the results of the migration plan from the previo
 
 To determine how many devices you need and their types, consider these important limits:
 
-* Any Azure Data Box appliance can move data into up to 10 storage accounts. 
+* A Data Box order can copy into multiple storage accounts in the same region; we recommend no more than three. A Data Box Disk order copies into a single storage account.
 * Each Data Box option comes with its own usable capacity. See [Data Box options](#data-box-options).
 
 Consult your migration plan to find the number of storage accounts you've decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining this information will allow you to optimize and decide which appliance should be sending data to which storage accounts. Two Data Box devices can move files into the same storage account, but don't split content of a single file share across two Data Boxes.
@@ -73,9 +73,8 @@ For a standard migration, choose one or a combination of these Data Box options:
 
 | Option | Description | Usable capacity | More information |
 |---|---|---|---|
-| **Data Box Disk** | Microsoft sends you between one and five SSD disks that have a capacity of 8 TiB each, for a maximum total of 40 TiB. | About 20% less than raw capacity due to encryption and file-system overhead. | [Data Box Disk documentation](../../databox/data-box-disk-overview.md) |
-| **Data Box** | The most common option. Microsoft sends you a ruggedized appliance that works similarly to a NAS. | 80, 120, or 525 TiB depending on SKU. | [Data Box documentation](../../databox/data-box-overview.md?pivots=dbx-ng) |
-| **Data Box Heavy** | A ruggedized appliance on wheels that works similarly to a NAS. | 1 PiB (about 20% less usable due to encryption and file-system overhead). | [Data Box Heavy documentation](../../databox/data-box-heavy-overview.md) |
+| **Data Box Disk** | One to five 8-TB SSDs per order. Copies into a single storage account. | About 35 TB per order. | [Data Box Disk documentation](../../databox/data-box-disk-overview.md) |
+| **Data Box** | The most common option: a ruggedized appliance that works like a NAS. | 120 TB or 525 TB (next generation). The 80-TB device is being retired region by region. | [Data Box documentation](../../databox/data-box-overview.md?pivots=dbx-ng) |
 
 ## Phase 4: Provision a suitable Windows Server instance on-premises
 
@@ -97,7 +96,6 @@ When your Data Box arrives, you need to set it up with unimpeded network connect
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md).
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
-* [Set up Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md).
 
 Depending on the type of Data Box, Data Box copy tools might be available. Don't use these generic copy tools for migrations to Azure file shares because they don't preserve full file and folder fidelity. Use Robocopy or the [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md) instead.
 
@@ -112,6 +110,8 @@ Under the `<storage-account-name>_AzFile` device share, each first-level folder 
 
 - The first-level folder name becomes the Azure file share name during ingestion. If a share with that name doesn't already exist in the target storage account, Data Box creates it. If it does exist, Data Box copies the data into that existing share.
 - Don't copy files directly to the root of the `_AzFile` share. All data must go inside a first-level folder.
+- Each Data Box device supports up to 512 shares or containers, so plan no more than 512 first-level folders per device.
+- First-level folder names must follow [Azure Files naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata), and each file must be 4 TiB or smaller. Data Box doesn't upload files or folders that don't meet these rules.
 - For a one-to-one mapping with your source SMB shares, create one first-level folder for each source share (using the desired Azure file share name) and copy each source share into its corresponding folder. For example:
 
   ```
