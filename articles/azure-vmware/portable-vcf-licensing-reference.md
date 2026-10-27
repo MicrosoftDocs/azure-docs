@@ -3,7 +3,7 @@ title: Portable VMware Cloud Foundation licensing reference for Azure VMware Sol
 description: Review licensing rules, important dates, core requirements, and security details for portable VMware Cloud Foundation on Azure VMware Solution.
 ms.topic: reference
 ms.service: azure-vmware
-ms.date: 08/14/2026
+ms.date: 10/27/2026
 # Customer intent: As a cloud administrator, I want to understand portable VMware Cloud Foundation licensing requirements for Azure VMware Solution, so that I can maintain compliant licensing across my private clouds.
 ---
 
@@ -94,7 +94,7 @@ Provide a Broadcom vDefend Firewall add-on license when either of the following 
 
 Enabling firewall features without purchasing and registering the required Broadcom subscription makes the private cloud noncompliant. Microsoft may suspend a noncompliant private cloud until the issue is resolved.
 
-Not all Broadcom vDefend Firewall features are supported on Azure VMware Solution. Contact your Microsoft account team or Microsoft support to confirm support for a specific feature.
+Not all Broadcom vDefend Firewall features are supported on Azure VMware Solution. [Here](https://learn.microsoft.com/en-us/azure/azure-vmware/faq#does-azure-vmware-solution-all-advanced-vdefend-features-with-supported-vdefend-byol-license) is high level info on what vDefend features are supported on Azure VMware Solution. If you need more info, please contact your Microsoft account team or Microsoft support to confirm support for a specific feature.
 
 ## Security and data handling
 
