@@ -197,7 +197,7 @@ ProtectedItemLevel
 
 ### Change the granularity on an existing vault
 
-Use `Update-AzRecoveryServicesVault` for day-2 changes. This cmdlet mirrors the portal flow **Recovery Services vault** > **Properties** > **Cost Management Granularity** > **Update**, and it supports the `-WhatIf` and `-Confirm` switches.
+Use `Update-AzRecoveryServicesVault` for day-2 changes. This cmdlet mirrors the portal flow **Recovery Services vault** > **Properties** > **Cost Management Granularity** > **Update**.
 
 #### Switch a vault to protected item level
 
@@ -216,24 +216,6 @@ Example output:
 
 ```output
 ProtectedItemLevel
-```
-
-#### Preview the change before applying the vault settings
-
-Use -WhatIf to confirm which vault is affected without changing the setting by running the following cmdlet:
-
-```azurepowershell-interactive
-Update-AzRecoveryServicesVault `
-    -ResourceGroupName "backup-rg" `
-    -Name "afs-vault" `
-    -CostManagementGranularity ProtectedItemLevel `
-    -WhatIf
-```
-
-Example output:
-
-```output
-What if: Performing the operation "set" on target "Azure Recovery Services Vault".
 ```
 
 ### View the current granularity setting
