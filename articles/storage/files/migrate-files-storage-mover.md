@@ -3,7 +3,7 @@ title: Migrate to Azure Files using Azure Storage Mover
 description: Learn how to migrate on-premises SMB or NFS file shares to Azure file shares with full fidelity using Azure Storage Mover, a fully managed migration service.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/21/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 author: khdownie
 # Customer intent: "As an IT administrator, I want to migrate on-premises file shares to Azure file shares using a managed service, so that I can ensure full fidelity transfer and streamline my data management in the cloud."
@@ -13,9 +13,7 @@ author: khdownie
 
 **Applies to:** :heavy_check_mark: Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-This migration guide describes how to migrate on-premises files to Azure file shares with full fidelity using [Azure Storage Mover](../../storage-mover/service-overview.md), a fully managed migration service. You can use Storage Mover to migrate from SMB or NFS source shares, including Windows Server, Linux, or NAS. Storage Mover also supports agentless cloud-to-cloud migration from AWS FSx for Windows File Server (SMB). For that scenario, see [Migrate from AWS FSx to Azure Files](../../storage-mover/amazon-files-azure-files-migration.md).
-
-Storage Mover isn't currently available in Azure Government clouds.
+This migration guide describes how to migrate on-premises files to Azure file shares with full fidelity using [Azure Storage Mover](../../storage-mover/service-overview.md), a fully managed migration service. You can use Storage Mover to migrate from SMB or NFS source shares, including Windows Server, Linux, or NAS. Storage Mover also supports agentless migration from on-premises SMB shares (preview) and from AWS FSx for Windows File Server (preview). See [Migrate on-premises SMB file shares with agentless migration](../../storage-mover/agentless-on-premises-files-migration.md) and [Migrate from AWS FSx to Azure Files](../../storage-mover/amazon-files-azure-files-migration.md).
 
 > [!NOTE]
 > If you're using or plan to use Azure File Sync for cloud tiering and on-premises caching, you can use Azure File Sync to migrate [on-premises NAS](storage-files-migration-nas-hybrid.md) or [Windows Server](../file-sync/file-sync-extend-servers.md) file shares instead of using Storage Mover. If you don't plan to use Azure File Sync long term, use Storage Mover for your migration.
@@ -27,7 +25,7 @@ There are several reasons to use Storage Mover to migrate your on-premises file 
 - It's faster than other methods such as Robocopy because it uses the FileREST API (the native Azure Files REST API) to move data directly to the cloud, rather than depending on SMB.
 - [Supported file metadata](storage-files-migration-overview.md#supported-metadata) is copied with full fidelity. Unlike object storage in Azure Blobs, an Azure file share can natively store file metadata, and it's important to make sure metadata gets copied from source to target during a migration. When migrating from an SMB source, folder structure and metadata values such as file and folder timestamps, ACLs, and file attributes are maintained.
 - Storage Mover supports both SMB and NFS source shares, giving you flexibility when migrating from different storage systems.
-- It scales well, having been tested with 100 million namespace items (files and folders) from an SMB mount to Azure file shares.
+- It scales to large namespaces. Storage Mover is tested with 500 million namespace items (files and folders). For test results and baselines, see [Storage Mover performance targets](../../storage-mover/performance-targets.md).
 
 ## Storage Mover migration prerequisites
 
@@ -42,6 +40,9 @@ To use Storage Mover to migrate your file shares, the following are required:
 ## Migrate files and metadata using Storage Mover
 
 To migrate your data, follow these steps.
+
+> [!NOTE]
+> These steps use agent-based migration. For agentless migration from on-premises SMB shares (preview), which needs private connectivity and source credentials in Azure Key Vault, see [Migrate on-premises SMB file shares with agentless migration](../../storage-mover/agentless-on-premises-files-migration.md).
 
 1. First, [create a Storage Mover resource](../../storage-mover/storage-mover-create.md).
 
@@ -74,3 +75,5 @@ Make sure you've [enabled backup](../../backup/azure-file-share-backup-overview.
 - [Migrate from AWS FSx for Windows File Server to Azure Files (preview)](../../storage-mover/amazon-files-azure-files-migration.md)
 - [Migrate to Azure file shares using Robocopy](storage-files-migration-robocopy.md)
 - [Migrate files from one Azure file share to another when using Azure File Sync](../file-sync/file-sync-share-to-share-migration.md)
+- [Copy data between Azure file shares with Storage Mover (preview)](../../storage-mover/azure-files-to-azure-files-copy.md)
+- [Copy files between Azure file shares](migrate-files-between-shares.md)
