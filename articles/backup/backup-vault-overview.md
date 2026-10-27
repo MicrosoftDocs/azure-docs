@@ -2,7 +2,7 @@
 title: Overview of the Backup vaults
 description: An overview of Backup vaults.
 ms.topic: overview
-ms.date: 01/29/2026
+ms.date: 10/09/2026
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -67,6 +67,10 @@ Learn [how to perform Cross Region Restore](manage-backup-vault.md#perform-cross
 >[!Note]
 >- Cross Region Restore is now available for PostgreSQL backups protected in Backup vaults. 
 >- Backup vaults enabled with Cross Region Restore are automatically charged at [RA-GRS rates](https://azure.microsoft.com/pricing/details/backup/) for the PostgreSQL backups stored in the vault.
+
+## Cross-tenant restore (preview)
+
+Cross-tenant restore lets you restore vaulted backup data from a source tenant to a different target tenant by mapping the source Backup vault to a target vault. You can use it for Azure Database for PostgreSQL - Flexible Server, Azure Blobs (vaulted backup), Azure Cosmos DB, Azure Data Lake Storage, and AKS backups in supported regions. [Learn more about cross-tenant restore](cross-tenant-restore-overview.md).
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: reference
-ms.date: 01/06/2026
+ms.date: 10/09/2026
 ms.custom:
   - references_regions
   - ignite-2023
@@ -53,6 +53,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 - Backup Vault and the AKS cluster should be located in the same region. However, they can reside in different subscriptions as long as they are within the same tenant. 
 
 - Azure Backup for AKS supports restoring backups to the same or a different AKS cluster using both Operational and Vault Tier backups. The target AKS cluster can be in the same subscription or a different subscription, known as *Cross-Subscription Restore*.
+
+- Cross-tenant restore (preview) is supported in select regions. For more information, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md#region-availability).
 
 - When restoring from the Operational Tier, the target AKS cluster must be in the same region as the backups. However, if the backups are stored in the Vault Tier with *Geo-redundant storage setting* and *Cross-Region Restore* enabled on the Backup Vault, you can restore to a different region within an Azure Paired Region. 
 
