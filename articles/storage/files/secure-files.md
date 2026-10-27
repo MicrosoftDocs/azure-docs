@@ -1,5 +1,5 @@
 ---
-title: Secure your Azure Files
+title: Secure your Azure file shares
 description: Learn how to secure classic and Microsoft.FileShares file shares with network controls, authentication, encryption, recovery, monitoring, and governance.
 author: msmbaldwin
 ms.author: mbaldwin
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 # Customer intent: As an administrator using Azure Files, I want to implement file-share-specific security best practices.
 ---
 
-# Secure your Azure Files
+# Secure your Azure file shares
 
 This article provides security guidance for Azure Files, including classic file shares created with Microsoft.Storage and file shares created with Microsoft.FileShares. It covers the resources that hold your shares, client access, data protection, and operational controls.
 
@@ -100,7 +100,7 @@ FileREST data access is available for classic shares. Microsoft.FileShares doesn
 
 - **Use customer-managed keys when required**: Classic shares support customer-managed keys in Azure Key Vault or Managed HSM. Microsoft.FileShares doesn't currently support customer-managed keys. Protect the key store, plan key rotation, and understand that loss of key access can make the data unavailable. For more information, see [Customer-managed keys for Azure Files](customer-managed-keys.md).
 
-- **Evaluate infrastructure encryption for applicable classic deployments**: Classic storage accounts can have an additional encryption layer when required by your compliance policy. This option is selected at account creation and can't be changed afterward. For supported account types, see [Infrastructure encryption](../common/infrastructure-encryption-enable.md?toc=/azure/storage/files/toc.json).
+- **Evaluate infrastructure encryption for applicable classic deployments**: Classic storage accounts can have an additional encryption layer when required by your compliance policy. This option is selected at account creation and can't be changed afterward. For more information, see [Infrastructure encryption](files-encryption-at-rest.md#infrastructure-encryption).
 
 - **Use resource locks to protect management operations**: A **CanNotDelete** lock on the appropriate Azure resource or parent scope can prevent deletion through Azure Resource Manager. Locks don't prevent clients from modifying or deleting file data. For classic shares, they also don't prevent deletion through FileREST data-plane APIs. For lock behavior and operational effects, see [Lock Azure resources](../../azure-resource-manager/management/lock-resources.md).
 

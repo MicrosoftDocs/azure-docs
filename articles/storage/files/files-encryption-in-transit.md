@@ -207,4 +207,4 @@ az storage account update \
 
 ## Related content
 - [Azure Files networking considerations](storage-files-networking-overview.md)
-- [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
+- [Encryption at rest for Azure Files](files-encryption-at-rest.md)

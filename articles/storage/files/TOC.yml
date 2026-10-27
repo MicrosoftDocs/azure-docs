@@ -125,7 +125,7 @@
     href: glusterfs-migration-guide.md
 - name: Security and networking
   items:
-  - name: Secure your Azure Files
+  - name: Secure your Azure file shares
     href: secure-files.md
   - name: Networking
     items:
@@ -148,33 +148,11 @@
   - name: Encryption
     items:
     - name: Encryption at rest
-      href: ../common/storage-service-encryption.md?toc=/azure/storage/files/toc.json
-    - name: Encryption at rest with customer-managed keys
+      href: files-encryption-at-rest.md
+    - name: Configure encryption at rest with customer-managed keys
       href: customer-managed-keys.md
     - name: Encryption in transit
       href: files-encryption-in-transit.md
-    - name: Manage encryption keys for the storage account
-      items:
-      - name: Check the encryption key model for the account
-        href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/files/toc.json
-      - name: Configure customer-managed keys in Azure Key Vault
-        items:
-        - name: Configure customer-managed keys in the same tenant
-          items:
-          - name: Configure customer-managed keys for a new account
-            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/files/toc.json
-          - name: Configure customer-managed keys for an existing account
-            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/files/toc.json
-        - name: Configure customer-managed keys in a different tenant
-          items:
-          - name: Configure customer-managed keys for a new account
-            href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/files/toc.json
-          - name: Configure customer-managed keys for an existing account
-            href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/files/toc.json
-      - name: Configure customer-managed keys in a managed HSM
-        href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/files/toc.json
-    - name: Enable infrastructure encryption
-      href: ../common/infrastructure-encryption-enable.md?toc=/azure/storage/files/toc.json
   - name: Enable threat protection
     href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/files/toc.json
   - name: Configure root squash (NFS shares)

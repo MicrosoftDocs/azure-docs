@@ -121,6 +121,10 @@
       href: multi-user-authorization-tutorial.md
     - name: Configure Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
+  - name: Cross-tenant restore overview (preview)
+    href: cross-tenant-restore-overview.md
+  - name: Tutorial - Configure cross-tenant restore and restore data (preview)
+    href: tutorial-cross-tenant-restore.md
   - name: Immutability
     items:
     - name: Overview
