@@ -32,7 +32,7 @@ Both Azure Table Storage and the Azure Cosmos DB for Table API expose a similar 
 
 - **Scope role assignments to specific tables**: Table-level scope is supported for the built-in table data roles. When a service needs access to only one table, assign the role at the table resource rather than at the account.
 
-- **Scope SAS tokens to specific partition and row key ranges**: Table SAS supports partition-key and row-key range restrictions. Use them to limit a token to a single tenant's rows in a multi-tenant table, or to a specific data slice. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
+- **Scope SAS tokens to specific partition and row key ranges**: Table SAS supports partition-key and row-key range restrictions. Use them to limit a token to a single tenant's rows in a multitenant table, or to a specific data slice. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
 - **Grant only the specific table operations required**: Table SAS supports `query`, `add`, `update`, and `delete` permissions separately. A reader-style caller should hold `query` only, never `update` or `delete`.
 
@@ -56,7 +56,7 @@ Table Storage stores entities as flat property bags without per-entity ACLs. Con
 
 - [Secure your Azure Storage account](../common/secure-storage.md) - Cross-cutting Azure Storage security guidance.
 - [Secure your Azure Blob Storage](../blobs/secure-blobs.md) - Blob-specific security.
-- [Secure your Azure Files](../files/secure-files.md) - File share security.
+- [Secure your Azure file shares](../files/secure-files.md) - File share security.
 - [Secure your Azure Queue Storage](../queues/secure-queues.md) - Queue-specific security.
 
 ## Next steps
