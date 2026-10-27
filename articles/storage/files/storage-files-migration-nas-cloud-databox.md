@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/31/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 recommendations: false
 # Customer intent: "As an IT administrator managing on-premises NAS solutions, I want to migrate our file storage to Azure file shares using Data Box, so that I can ensure data integrity, maintain accessibility during the transition, and eliminate reliance on local storage infrastructure."
@@ -70,7 +70,7 @@ If you make a list of your shares, map each share to the storage account where y
 
 The names of your resources are also important. For example, if you group multiple shares for the HR department into an Azure storage account, name the storage account appropriately. Similarly, when you name your Azure file shares, use names similar to the ones used for their on-premises counterparts.
 
-Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create an SMB file share](storage-how-to-create-file-share.md). In most cases, make sure the region of each of your storage accounts is the same.
+Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create a classic file share](create-classic-file-share.md). In most cases, make sure the region of each of your storage accounts is the same.
 
 ## Phase 3: Determine how many Azure Data Box appliances you need
 

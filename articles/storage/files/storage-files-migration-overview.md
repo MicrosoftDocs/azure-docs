@@ -4,7 +4,7 @@ description: Learn how to migrate to SMB Azure file shares and choose from a tab
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/13/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to understand the migration process to SMB Azure file shares, so that I can efficiently move our data with full fidelity and select the appropriate tools for a seamless transition to cloud storage."
 ---
@@ -111,7 +111,7 @@ If you've made a list of your shares, you should map each share to the storage a
 
 The names of your resources are also important. For example, if you group multiple shares for the HR department into an Azure storage account, you should name the storage account appropriately. Similarly, when you name your Azure file shares, you should use names similar to the ones used for their on-premises counterparts.
 
-Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create an SMB file share](storage-how-to-create-file-share.md). In most cases, you'll want to make sure the region of each of your storage accounts is the same.
+Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create a classic file share](create-classic-file-share.md). In most cases, you'll want to make sure the region of each of your storage accounts is the same.
 
 ### Prepare to use Azure file shares
 

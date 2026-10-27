@@ -4,7 +4,7 @@ description: Azure Files and Azure File Sync can be useful when replacing your o
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/15/2025
+ms.date: 10/27/2026
 ms.author: kendownie
 # Customer intent: As an IT manager planning to modernize file storage, I want to replace or extend on-premises Windows file servers with Azure Files and Azure File Sync, so that I can enhance flexibility, reduce total cost of ownership, and simplify data protection.
 ---
@@ -66,7 +66,7 @@ Azure File Sync can synchronize and cache your Azure file share anywhere you can
 
 ## Simplified data protection and access control
 
-With Azure Files you benefit from multi-layered security provided by Microsoft across physical data centers, infrastructure, and operations in Azure. We provide several data redundancy options including local, regional, or global. Differential snapshots and snapshot management from Azure Backup simplify data protection, while Azure File Sync offers a variety of [disaster recovery options](../file-sync/file-sync-disaster-recovery-best-practices.md). You can even protect users from accidentally deleting a file or share via [soft delete](storage-files-enable-soft-delete.md).
+With Azure Files you benefit from multi-layered security provided by Microsoft across physical data centers, infrastructure, and operations in Azure. We provide several data redundancy options including local, regional, or global. Differential snapshots and snapshot management from Azure Backup simplify data protection, while Azure File Sync offers a variety of [disaster recovery options](../file-sync/file-sync-disaster-recovery-best-practices.md). You can even protect users from accidentally deleting a file or share via [soft delete](storage-files-prevent-file-share-deletion.md).
 
 Access control works just like your Windows file servers. You can [use identity-based authentication](storage-files-active-directory-overview.md) and integrate SMB Azure file shares with your on-premises Active Directory environment or Microsoft Entra ID, and control share-level and directory/file-level access as well as administrator privileges.
 
