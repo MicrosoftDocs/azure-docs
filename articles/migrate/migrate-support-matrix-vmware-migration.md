@@ -45,7 +45,7 @@ This section summarizes requirements for agentless VMware vSphere VM migration t
 ### VMware vSphere requirements (agentless)
 
 [!INCLUDE [vmware-supported-versions-note](includes/vmware-supported-versions-note.md)]
-
+[!INCLUDE [vmware-vddk-download](includes/vmware-vddk-download.md)]
 The VMware vSphere hypervisor requirements are:
 - **VMware vCenter Server** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
 - **VMware vSphere ESXi host** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
