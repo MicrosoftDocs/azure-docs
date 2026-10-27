@@ -77,7 +77,7 @@ In a mixed-licensing private cloud, register only the cores for BYOL hosts. For 
 VMware vDefend Firewall can be enabled for NSX Distributed Firewall and NSX Gateway Firewall. Calculate add-on cores as follows:
 
 * **NSX Distributed Firewall**: Count all host cores in the private cloud. For example, 10 AV36P hosts require 360 firewall add-on cores: 10 hosts * 36 cores per host = 360 cores.
-* **NSX Gateway Firewall**: Multiply the number of NSX edges by the vCPUs per edge, and then multiply by four. For example, two large NSX edges with eight vCPUs each require 64 Gateway Firewall cores: 2 edges * 8 vCPUs * 4 = 64 cores.
+* **NSX Gateway Firewall**: Multiply the number of NSX edges by the vCPUs per edge, and then multiply by three. For example, two large NSX edges with eight vCPUs each require 64 Gateway Firewall cores: 2 edges * 8 vCPUs * 3 = 48 cores.
 
 If an NSX edge is scaled up to extra large (16 vCPUs) or scaled out, recalculate the Gateway Firewall cores. Azure VMware Solution Generation 2 includes three large NSX edges by default, or four edges when cluster 1 has four or more nodes.
 
