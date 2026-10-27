@@ -26,11 +26,19 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Token introspection returns the correct client ID**: The token introspection endpoint now returns the Entra v1 `appid` or v2 `azp` claim as the RFC 7662 `client_id`, improving compatibility with SMART on FHIR clients.
 
+**Improved reliability for conditional bundle operations**: Bundle requests containing conditional operations now use internal throttling to help manage SQL connection pool utilization and improve reliability under high-concurrency workloads.
+
 #### Bug fixes:
 
 **Fix for forged metadata in internal Bundle context**: Fixed a security issue where internal Bundle context could potentially allow forged metadata to change authorization behavior. Bundle context is now passed securely through internal request properties.
 
 **Fix for sorted SQL searches with `$includes`**: Fixed an issue where sorted SQL searches with `$includes` could return missing or incorrect included resources. Pagination now works correctly for sorted searches with includes.
+
+**Fix for `editProfileDefinitions` authorization on profile resources**: Bulk update, bulk delete, and conditional delete operations now correctly enforce the `editProfileDefinitions` permission when modifying or deleting `CodeSystem`, `ValueSet`, and `StructureDefinition` resources, ensuring consistent authorization for protected profile definition resources.
+
+**Fix for parallel bundle cancellation responses**: Fixed an issue where parallel bundle processing could return HTTP 500 when a transaction sibling failed and triggered cancellation. Canceled sibling entries now return HTTP 424 Failed Dependency.
+
+**Fix for `$includes` with `_summary=count`**: Fixed invalid SQL generation that caused `$includes` with `_summary=count` to return HTTP 500. The query now returns the count of distinct included resources.
 
 ## September 2026
 ### FHIR service
