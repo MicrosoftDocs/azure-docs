@@ -69,7 +69,7 @@ There are many use cases that require preserving metadata values such as file an
 |-----------------------|------------------------------------------------------------------------------------------|
 |Directory structure    |The original directory structure of the source is preserved on the target share.          |
 |Access permissions     |Permissions on the source file or directory are preserved on the target share.            |
-|Symbolic links         |Symbolic links on the source are preserved and mapped on the target share.                |
+|Symbolic links         |A target file is migrated if its symbolic link can be resolved.               |
 |Create timestamp       |The original create timestamp of the source file is preserved on the target share.        |
 |Change timestamp       |The original change timestamp of the source file is preserved on the target share.        |
 |Modified timestamp     |The original modified timestamp of the source file is preserved on the target share.      |
