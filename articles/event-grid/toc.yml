@@ -236,6 +236,8 @@ items:
             items:
               - name: Create, view, and manage namespaces
                 href: create-view-manage-namespaces.md
+              - name: Configure IPv6 dual-stack support (preview)
+                href: namespace-ipv6-dual-stack.md
               - name: Enable Autoscale
                 href: namespace-enable-autoscale.md
               - name: Enable manual scale
