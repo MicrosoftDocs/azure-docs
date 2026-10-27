@@ -44,9 +44,9 @@ This section summarizes requirements for agentless VMware vSphere VM migration t
 
 ### VMware vSphere requirements (agentless)
 
+- [!INCLUDE [vmware-vddk-download](includes/vmware-vddk-download.md)]
+- The VMware vSphere hypervisor requirements are:
 [!INCLUDE [vmware-supported-versions-note](includes/vmware-supported-versions-note.md)]
-[!INCLUDE [vmware-vddk-download](includes/vmware-vddk-download.md)]
-The VMware vSphere hypervisor requirements are:
 - **VMware vCenter Server** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
 - **VMware vSphere ESXi host** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
 - **Multiple vCenter Servers** - A single appliance can connect to up to 10 vCenter Servers. Once a vCenter is added to Azure Migrate appliance using IP or FQDN, it cannot be edited/deleted.
