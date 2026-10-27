@@ -7,9 +7,6 @@ title: What is Azure Machine Configuration?
 
 # What is Azure Machine Configuration?
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 Azure Policy's machine configuration feature provides native capability to audit or configure
 operating system settings as code for machines running in Azure and hybrid
 [Arc-enabled machines][01]. You can use the feature directly per-machine, or orchestrate it at
@@ -63,28 +60,35 @@ respective publishers are excluded from the support matrix.
 The following table shows a list of supported operating systems on Azure images. The `.x` text is
 symbolic to represent new minor versions of Linux distributions. To view supported server editions on Azure Arc, refer to [this list of supported server editions on Azure Arc][49].
 
-| Publisher | Name                         | Versions         |
-| --------- | ---------------------------- | ---------------- |
-| Alma      | AlmaLinux                    | 9                |
-| Amazon    | Linux                        | 2                |
-| Canonical | Ubuntu Server                | 16.04 - 26.x    |
-| Credativ  | Debian                       | 10.x - 13.x     |
-| Microsoft | CBL-Mariner                  | 1 - 2            |
-| Microsoft | Azure Linux                  | 3                |
-| Microsoft | Windows Client               | Windows 10, 11   |
-| Microsoft | Windows Server               | 2012 - 2025     |
-| Oracle    | Oracle-Linux                 | 7.x - 9.x       |
-| OpenLogic | CentOS                       | 7.3 - 8.x       |
-| Red Hat   | Red Hat Enterprise Linux\*   | 7.4 - 10.x      |
-| Rocky     | Rocky Linux                  | 8 - 9            |
-| SUSE      | SUSE Linux Enterprise Server | 12 SP5, 15.x    |
+| Operating system | Version | Notes |
+| --- | --- | --- |
+| AlmaLinux | 8 - 9 | |
+| Amazon Linux | 2 | [PowerShell support changes November 2026](#linux-powershell-compatibility) |
+| Azure Linux (CBL-Mariner) | 3 - 4 | |
+| CBL-Mariner | 1 - 2 | |
+| Debian | 10.x - 13.x | |
+| Oracle Linux | 7.x | [PowerShell support changes November 2026](#linux-powershell-compatibility) |
+| Oracle Linux | 8.x - 9.x | |
+| Red Hat Enterprise Linux (RHEL) | 7.4 - 7.x | [PowerShell support changes November 2026](#linux-powershell-compatibility) |
+| Red Hat Enterprise Linux (RHEL) | 8.x - 10.x | |
+| Rocky Linux | 8 - 9 | |
+| SUSE Linux Enterprise Server (SLES) | 12 SP5 | [PowerShell support changes November 2026](#linux-powershell-compatibility) |
+| SUSE Linux Enterprise Server (SLES) | 15 GA - SP2 | [PowerShell support changes November 2026](#linux-powershell-compatibility) |
+| SUSE Linux Enterprise Server (SLES) | 15 SP3 and later | |
+| Ubuntu | 16.04 | [PowerShell support changes November 2026](#linux-powershell-compatibility) |
+| Ubuntu | 18.04 - 26.04 | |
+| Windows Client | 10 - 11 | |
+| Windows Server | 2012 - 2025 | |
 
-\* Red Hat CoreOS isn't supported.
-\* \* Arm64 architecture isn't supported on Azure VMs.
+\* ARM64 architecture isn't supported on Azure VMs.
 
 Machine configuration policy definitions support custom virtual machine images as long as they're
 one of the operating systems in the previous table. Machine Configuration doesn't support VMSS 
 uniform but does support [VMSS Flex][46].
+
+### Linux PowerShell compatibility
+
+Starting in November 2026, machines running the older operating system versions marked in the table will need to upgrade to a compatible, supported operating system version to use configurations that rely on PowerShell with new agent versions.
 
 ## Machine configuration samples
 
