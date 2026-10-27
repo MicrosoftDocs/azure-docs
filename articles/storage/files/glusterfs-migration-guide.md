@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/06/2025
+ms.date: 10/27/2026
 ms.author: kendownie
 # Customer intent: As an IT administrator managing legacy storage, I want to migrate GlusterFS volumes to a supported cloud file service, so that my organization can ensure ongoing support, security updates, and optimized performance.
 ---
@@ -46,13 +46,7 @@ For a complete list of requirements and setup instructions, see [Use an Azure fi
 
 ### NFS requirements
 
-Azure Files supports NFSv4.1, but Windows doesn't include a compatible NFSv4.1 client. To use NFS shares on Windows:
-
-1. Install Windows Subsystem for Linux (WSL):
-    - For Windows client: Follow the [WSL installation guide](/windows/wsl/install)
-    - For Windows Server: Follow the [WSL on Windows Server installation guide](/windows/wsl/install-on-server)
-
-1. Mount the NFS share from within a Linux distribution running on WSL.
+NFS Azure file shares support NFS version 4.1 and aren't supported on Windows clients. Mount NFS shares from a Linux client. Windows clients should use SMB file shares.
 
 # [Linux](#tab/linux)
 
@@ -97,16 +91,10 @@ Robocopy is a built-in Windows command-line tool designed for copying SMB file s
 #### Basic Robocopy syntax for migration
 
 ```powershell
-robocopy <GlusterFS_Source> <AzureFiles_Destination> /MIR /Z /MT:8 /W:1 /R:3 /LOG:migration_log.txt
+robocopy <GlusterFS_Source> <AzureFiles_Destination> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName>
 ```
 
-**Parameters:**
-- `/MIR`: Mirrors directory structure (includes subdirectories)
-- `/Z`: Enables restart mode for interrupted copies
-- `/MT:8`: Uses 8 threads for multi-threaded copying
-- `/W:1`: Wait time between retries (1 second)
-- `/R:3`: Number of retries on failed copies
-- `/LOG`: Creates a detailed log file
+For an explanation of each switch, see [Use RoboCopy to migrate to Azure file shares](storage-files-migration-robocopy.md#use-robocopy-to-copy-files-to-azure-file-share).
 
 # [Linux](#tab/linux)
 
@@ -186,7 +174,7 @@ After you've mounted the Azure file share, you can perform the data migration.
 Open a command prompt or PowerShell window with administrator privileges, and run the following command:
 
 ```powershell
-robocopy X:\GlusterFSData Z:\AzureFilesData /MIR /Z /MT:8 /W:1 /R:3 /LOG:C:\migration_log.txt
+robocopy X:\GlusterFSData Z:\AzureFilesData /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:C:\migration_log.txt
 ```
 
 # [Linux](#tab/linux)

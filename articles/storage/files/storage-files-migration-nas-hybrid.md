@@ -4,7 +4,7 @@ description: Learn how to migrate SMB file shares from on-premises Network Attac
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/25/2024
+ms.date: 10/27/2026
 ms.author: kendownie
 # Customer intent: As a systems administrator, I want to migrate SMB file shares from on-premises NAS to a Windows Server using Azure File Sync, so that I can enable a hybrid cloud deployment while ensuring data integrity and minimizing downtime during the process.
 ---
@@ -32,7 +32,7 @@ The goal is to move the SMB file shares on your NAS appliance to a Windows Serve
 
 ## Migration overview
 
-As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. You can either use Azure Storage Mover or RoboCopy to move your files.
+As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. This guide uses RoboCopy to copy files from the NAS to a Windows Server instance that runs Azure File Sync. Alternatively, you can seed the Azure file shares directly from the NAS with [Azure Storage Mover](migrate-files-storage-mover.md), and then connect Azure File Sync so the server downloads the namespace.
 
 - Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
 - Phase 2: [Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)
@@ -40,7 +40,7 @@ As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overv
 - Phase 4: [Deploy Azure storage resources](#phase-4-deploy-azure-storage-resources)
 - Phase 5: [Deploy the Azure File Sync agent](#phase-5-deploy-the-azure-file-sync-agent)
 - Phase 6: [Configure Azure File Sync on the Windows Server](#phase-6-configure-azure-file-sync-on-the-windows-server)
-- Phase 7: [Copy data using Azure Storage Mover or RoboCopy](#phase-7-copy-data-using-azure-storage-mover-or-robocopy)
+- Phase 7: [Copy data with RoboCopy](#phase-7-copy-data-with-robocopy)
 - Phase 8: [User cut-over](#phase-8-user-cut-over)
 
 ## Phase 1: Identify how many Azure file shares you need
@@ -57,7 +57,7 @@ As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overv
 
     1. Move a set of files that fits onto the disk
     2. Let file sync and cloud tiering engage
-    3. When more free space is created on the volume, proceed with the next batch of files. Alternatively, review the RoboCopy command in the [RoboCopy section](#phase-7-copy-data-using-azure-storage-mover-or-robocopy) of this article for use of the new `/LFSM` switch. Using `/LFSM` can significantly simplify your RoboCopy jobs, but it isn't compatible with some other RoboCopy switches you might depend on. Only use the `/LFSM` switch when the migration destination is local storage. It's not supported when the destination is a remote SMB share.
+    3. When more free space is created on the volume, proceed with the next batch of files. Alternatively, review the RoboCopy command in the [RoboCopy section](#phase-7-copy-data-with-robocopy) of this article for use of the new `/LFSM` switch. Using `/LFSM` can significantly simplify your RoboCopy jobs, but it isn't compatible with some other RoboCopy switches you might depend on. Only use the `/LFSM` switch when the migration destination is local storage. It's not supported when the destination is a remote SMB share.
     
     You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the NAS appliance. Consider deduplication on NAS / Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before you adjust the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 
@@ -100,9 +100,9 @@ After the creation of all server endpoints, sync is working. You can create a te
 
 Both locations, the server folders and the Azure file shares, are otherwise empty and awaiting data in either location. In the next step, you begin to copy files into the Windows Server for Azure File Sync to move them up to the cloud. If you enable cloud tiering, the server then begins to tier files if you run out of capacity on the local volumes.
 
-## Phase 7: Copy data using Azure Storage Mover or RoboCopy
+## Phase 7: Copy data with RoboCopy
 
-Now you can use Azure Storage Mover or RoboCopy to copy data from your NAS appliance to your Windows Server, and use Azure File Sync to move the data to Azure file shares. This guide uses RoboCopy for the initial copy. To use Azure Storage Mover instead, see [Migrate to Azure file shares using Azure Storage Mover](migrate-files-storage-mover.md).
+Now use RoboCopy to copy data from your NAS appliance to your Windows Server instance. Azure File Sync uploads the data to your Azure file shares. If you'd rather seed the Azure file shares directly from the NAS, use [Azure Storage Mover](migrate-files-storage-mover.md). Then create the server endpoint so that Azure File Sync downloads the namespace to the server.
 
 Run the first local copy to your Windows Server target folder:
 

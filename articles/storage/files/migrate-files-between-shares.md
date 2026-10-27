@@ -3,7 +3,7 @@ title: Copy Files Between Azure File Shares
 description: Learn how to copy files from one Azure file share to another using common copy tools such as AzCopy and Robocopy.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/03/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 author: khdownie
 # Customer intent: As a cloud administrator, I want to copy files between Azure file shares so that I can efficiently transition data with minimal downtime and optimize storage performance.
@@ -21,9 +21,12 @@ The file copy tool you should choose depends on whether you want to copy files b
 
 | **Copy tool** | **SMB** | **NFS** | **Description** |
 |-|:-:|:-:|-|
-| **[AzCopy](/azure/storage/common/storage-use-azcopy-files)** | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | AzCopy is generally recommended because it uses server-to-server APIs, meaning data is copied directly between storage servers without passing through a local machine. This provides better performance. You can run AzCopy from Windows, Linux, or macOS. |
+| **[AzCopy](/azure/storage/common/storage-use-azcopy-files)** | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) (classic file shares only) | AzCopy is generally recommended because it uses server-to-server APIs, meaning data is copied directly between storage servers without passing through a local machine. This provides better performance. You can run AzCopy from Windows, Linux, or macOS. |
 | **[Robocopy](/windows-server/administration/windows-commands/robocopy)** | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | Robocopy is a Windows command-line utility that uses the SMB protocol for file copy operations. It requires mounting both file shares to a Windows virtual machine (VM). While this adds overhead and cost, you might choose Robocopy if you need advanced options such as mirroring, granular retry control, or real-time logging. |
 | **[fpsync/rsync](storage-files-migration-nfs.md#using-fpsync-vs-rsync)** | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) | rsync is a versatile, single-threaded, open-source file copy tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. fpsync is multithreaded and therefore offers some advantages, including the ability to run rsync jobs in parallel. Both tools require mounting the shares on a VM. |
+
+> [!NOTE]
+> AzCopy and the file data plane REST API support NFS file shares created with the Microsoft.Storage resource provider (classic file shares) only. To copy data to or from NFS file shares created with the Microsoft.FileShares resource provider, mount the shares on a Linux VM and use fpsync or rsync.
 
 ## Copy files using AzCopy
 
