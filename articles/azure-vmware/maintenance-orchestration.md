@@ -56,7 +56,7 @@ Once rescheduled, the system updates the schedule with the new date, visible in 
 > Users cannot reschedule maintenance after the upgrade deadline, on freeze days, or for tasks addressing critical security vulnerabilities.
 
 ## Multi-activity maintenance
-Multi-activity maintenance provides a simpler and more transparent experience for planned maintenance in Azure VMware Solution by allowing you to group multiple related maintenance activities under a single maintenance schedule. You can see the activities included in the maintenance event without tracking each activity as a separate schedule. This approach provides a consolidated view of the planned work and makes it easier to understand and plan for maintenance that affects your environment.
+Multi-activity maintenance provides a simpler and more transparent experience for planned maintenance in Azure VMware Solution by grouping multiple related maintenance activities under a single maintenance schedule. You can see the activities included in the maintenance event without tracking each activity as a separate schedule. This approach provides a consolidated view of the planned work and makes it easier to understand and plan for maintenance that affects your environment.
 :::image type="content" source="media/self-service-orchestration/multiple-activity-maintenance.png" alt-text="Screenshot showing multiple activities consolidated together for a simpler and transparent experience." lightbox="media/self-service-orchestration/multiple-activity-maintenance.png":::
 
 
