@@ -4,7 +4,7 @@ description: Learn how to migrate SMB file shares from on-premises Network Attac
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/25/2024
+ms.date: 10/27/2026
 ms.author: kendownie
 # Customer intent: As a systems administrator, I want to migrate SMB file shares from on-premises NAS to a Windows Server using Azure File Sync, so that I can enable a hybrid cloud deployment while ensuring data integrity and minimizing downtime during the process.
 ---
@@ -49,7 +49,7 @@ As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overv
 
 ## Phase 2: Provision a suitable Windows Server on-premises
 
-* Create a Windows Server virtual machine, or deploy a physical server. A Windows Server failover cluster is also supported.
+* Create a virtual machine or deploy a physical server that runs Windows Server 2016 or later. You can also use a Windows Server failover cluster. For supported versions, see [Azure File Sync operating system requirements](../file-sync/file-sync-planning.md#operating-system-requirements).
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which isn't supported).
 
     The amount of storage you provision can be smaller than what you're currently using on your NAS appliance. This configuration choice requires that you also make use of Azure File Sync's [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) feature.
