@@ -262,7 +262,7 @@ When you consider the downtime acceptable, then you need to remove user access t
 Run one last RoboCopy round. It picks up any changes that might have been missed.
 How long this final step takes depends on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
 
-Point users to the Azure file share: update your DFS Namespaces targets, mapped drives, or UNC paths, and set the same share-level permissions on the Azure file share that you had on your NAS SMB share. If you had an enterprise-class, domain-joined NAS, user SIDs already match because the users exist in Active Directory, and RoboCopy copies files and metadata at full fidelity. If you used local users on your NAS, their SIDs won't resolve in Azure Files, so re-permission those files and folders for domain identities before cutover. When users are working from the Azure file share, decommission the temporary Windows Server you used for RoboCopy.
+Point users to the Azure file share: update your DFS Namespaces targets, mapped drives, or UNC paths, and set the same share-level permissions on the Azure file share that you had on your NAS SMB share. If you had an enterprise-class, domain-joined NAS, user SIDs already match because the users exist in Active Directory, and RoboCopy copies files and metadata at full fidelity. If you used local users on your NAS, their SIDs don't resolve in Azure Files, so re-permission those files and folders for domain identities before cutover. When users are working from the Azure file share, decommission the temporary Windows Server you used for RoboCopy.
 
 You've finished migrating a share or group of shares into a common root or volume.
 
