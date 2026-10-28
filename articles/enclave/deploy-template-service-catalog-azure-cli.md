@@ -140,7 +140,7 @@ Download a specific template by using the name you find in the inventory (for ex
     az rest --method get --uri "<enclave-resource-id>?api-version=<api-version>"
     ```
 
-    Use a currently supported `Microsoft.Mission` API version (for example, `2026-10-01-preview` or `2026-04-01`).
+    Use a currently supported `Microsoft.Mission` API version from the [Azure Enclave API reference](https://aka.ms/ae/api) (for example, `2026-04-01`).
 
     Use the response and the Azure resource properties to populate the values in `params.json`. For more API operations and schemas, see the [Azure Enclave API reference](https://aka.ms/ae/api) and [Azure Enclave API source and specs](https://aka.ms/ae/apigithub). You must also identify `privateLinkSubnetName` and `keyName`.
 

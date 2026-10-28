@@ -61,7 +61,7 @@ Azure Enclave supports flexible logging configurations that allow resource owner
 You can configure diagnostic settings through the Azure portal, CLI, or Bicep/ARM templates during or after deployment.
 
 > [!IMPORTANT]
-> Flow-log destinations are configurable. The provider supports enclave and community Log Analytics workspaces in all supported API versions, and custom Log Analytics workspaces starting in API version `2026-01-01-preview` (including newer versions such as `2026-10-01-preview`). Review your enclave configuration to validate where flow logs are sent.
+> Flow-log destinations are configurable. The provider supports enclave and community Log Analytics workspaces in all supported API versions, and custom Log Analytics workspaces starting in API version `2026-01-01-preview`. Review your enclave configuration to validate where flow logs are sent.
 
 ## Common observability scenarios
 
