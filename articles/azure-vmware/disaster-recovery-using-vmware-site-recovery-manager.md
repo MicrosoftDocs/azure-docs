@@ -137,6 +137,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
 ## Migrate vSphere legacy replications to enhanced replication
 > **WARNING** - Don't run **Reprotect** during migration. After you enable the embedded replication server (embedded VRS), reprotection fails for any remaining legacy replications. Don't run **Reprotect** until you migrate **all legacy replications across all your site pairings** to enhanced replication and verify them in Step 5. This restriction also applies if your embedded VRS was already enabled before you started this procedure. Enabling the embedded VRS alone doesn't migrate your existing replications.
+
 **Audience:** Azure VMware Solution customers performing the migration. This migration is a prerequisite to performing upgrades to Protection and Recovery as recommended by Broadcom. [Prerequisites and Best Practices for Protection and Recovery Upgrade](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/protection-and-recovery/9-1/protection-and-recovery-installation/setting-up-vmware-live-site-recovery-overview/convergence-and-upgrade/upgrading-srm/prerequisites-and-best-practices-for-site-recovery-manager-upgrade.html)
 Perform the same procedure on each Azure VMware Solution private cloud where you have configured legacy replications.
 Use this step to migrate your existing legacy replications to enhanced replication.
@@ -147,7 +148,6 @@ Before you migrate any replications, check the replication server list in Site R
 - Go to **Site Pair** > **Configure** > **vSphere Replication** > **Replication Servers**.
 - Check whether an **Embedded Replication Server** entry is present with status **Connected**.
 - Follow the applicable path:
-
 | Observation | Next action |
 |---|---|
 | Embedded Replication Server is present. | Proceed to Step 4: Reconfigure legacy replications to enhanced replication. |
@@ -200,7 +200,7 @@ Wait for reconfiguration to complete before checking the migrated replications.
 - Repeat the procedure for **all your site pairings**, checking feature enablement for each pairing and migrating and verifying its legacy replications.
 **Completion criterion:** You completed the procedure for **all your site pairings**, and **all previously legacy replications** across those pairings show **Enhanced replication** in the **Replication Server** column. No legacy replications remain.
 **You can resume Reprotect only after you meet this completion criterion.** Also verify replication health and resolve any outstanding protection or replication errors before you run Reprotect.
-  > **Replication mode isn't replication health.** The example screenshot shows **Enhanced replication** but also shows **Not A****Perform the same procedure on each Azure VMware Solution private cloud where Live Site Recovery has been installed.**
+  > **Replication mode isn't replication health.** The example screenshot shows **Enhanced replication** but also shows **Not Active** in the Status column. This verifies the mode change only, not successful data replication. Investigate any inactive or error status before declaring the replications healthy.
   
   
 ## VMware SRM protection, reprotection, and failback
