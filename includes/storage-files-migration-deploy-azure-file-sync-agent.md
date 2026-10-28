@@ -5,12 +5,12 @@ services: storage
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
-ms.date: 2/20/2020
+ms.date: 10/27/2026
 ms.author: kendownie
 ms.custom: include file
 ---
 
-In this section, you install the Azure File Sync agent on your Windows Server instance.
+In this section, you install the Azure File Sync agent on your Windows Server instance. Azure File Sync supports Windows Server 2016, 2019, 2022, and 2025 (see [operating system requirements](../articles/storage/file-sync/file-sync-planning.md#operating-system-requirements)). Install the latest agent version listed in the [Azure File Sync release notes](../articles/storage/file-sync/file-sync-release-notes.md).
 
 The [deployment guide](../articles/storage/file-sync/file-sync-deployment-guide.md) explains that you need to turn off **Internet Explorer Enhanced Security Configuration**. This security measure isn't applicable with Azure File Sync. Turning it off allows you to authenticate to Azure without any problems.
 

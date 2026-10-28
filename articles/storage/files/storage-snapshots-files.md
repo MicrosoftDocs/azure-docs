@@ -18,7 +18,7 @@ ms.author: kendownie
 Azure Files provides the capability to take snapshots of SMB and NFS file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can use them to recover previous versions of files.
 
 > [!IMPORTANT]
-> Share snapshots provide only file-level protection. They don't prevent accidental deletions on a file share or storage account. To help protect a storage account from accidental deletion, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
+> Share snapshots provide only file-level protection. They don't prevent accidental deletions on a file share or storage account. To help protect a storage account from accidental deletion, [enable soft delete](storage-files-prevent-file-share-deletion.md) or lock the storage account or the resource group.
 
 ## When to use share snapshots
 
@@ -167,7 +167,7 @@ az storage share list --account-name <storage-account-name> --include-snapshots
 
 ### Restore from an SMB file share snapshot
 
-To restore files from a snapshot, sign in to the Azure portal and follow these steps.
+To restore files from a snapshot, sign in to the Azure portal and follow these steps:
 
 1. In the portal, go to your file share.
 
@@ -242,7 +242,7 @@ Just like with on-premises Volume Shadow Copy (VSS) snapshots, you can view the 
 
    :::image type="content" source="media/storage-snapshots-files/snapshot-windows-mount.png" alt-text="Screenshot of a mounted share in File Explorer.":::
 
-1. Browse to the item or parent item that you need to restore. Right-click and select **Properties** from the menu.
+1. Browse to the item or parent item that you need to restore. Right-click the item and select **Properties** from the menu.
 
    :::image type="content" source="media/storage-snapshots-files/snapshot-windows-previous-versions.png" alt-text="Screenshot of the right click menu for a selected directory.":::
 
@@ -261,14 +261,14 @@ Just like with on-premises Volume Shadow Copy (VSS) snapshots, you can view the 
 
 ### Mount an SMB file share snapshot on Linux
 
-To mount a specific snapshot of an SMB Azure file share on Linux, include the `snapshot` option in the `mount` command. The `snapshot` option is the time that the particular snapshot was created in a format such as `@GMT-2023.01.05-00.08.20`. The Linux kernel supports the `snapshot` option starting with version 4.19.
+To mount a specific snapshot of an SMB Azure file share on Linux, include the `snapshot` option in the `mount` command. The `snapshot` option specifies the time when the snapshot was created, in a format such as `@GMT-2023.01.05-00.08.20`. The Linux kernel supports the `snapshot` option starting with version 4.19.
 
 After you create the file share snapshot, follow these instructions to mount it.
 
 1. In the Azure portal, go to the storage account that contains the file share you want to mount a snapshot of.
 1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Select the file share.
-1. Select **Operations > Snapshots** and take note of the name of the snapshot you want to mount. The snapshot name is a GMT timestamp, such as in the screenshot.
+1. Select **Operations** > **Snapshots** and take note of the name of the snapshot you want to mount. The snapshot name is a GMT timestamp, such as in the following screenshot.
 
    :::image type="content" source="media/storage-snapshots-files/mount-smb-snapshot-on-linux.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
 
@@ -368,7 +368,7 @@ az storage share list --account-name <storage-account-name> --include-snapshots
 
 ### Restore from an NFS classic file share snapshot
 
-To mount an NFS classic file share snapshot to a Linux VM (NFS client) and restore files, follow these steps.
+To mount an NFS classic file share snapshot to a Linux VM (NFS client) and restore files, follow these steps:
 
 1. Run the following command in a console. See [NFS mount options](storage-files-how-to-mount-nfs-shares.md#nfs-mount-options-for-azure-file-shares) for other recommended mount options. To improve copy performance, mount the snapshot by using [nconnect](nfs-performance.md#nfs-nconnect) to use multiple TCP channels. Replace the placeholder values, including brackets, with your own values. Replace `/media/nfs` with your local mount path, if different.
    
@@ -480,12 +480,9 @@ To create a snapshot of an existing file share, sign in to the Azure portal and 
 
 # [Azure PowerShell](#tab/powershell)
 
-To create a snapshot of an existing file share, run the following PowerShell command. Replace the variables with your own values.
+To create a snapshot of an existing file share, run the following PowerShell command. Replace the variables with your own values. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<resource-group-name>"
 $shareName = "<file-share-name>" 
 $snapshotName = "<snapshot-name>"
@@ -495,12 +492,9 @@ New-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shareNa
 ```
 
 # [Azure CLI](#tab/cli)
-To create a snapshot of an existing file share, run the following Azure CLI commands. Replace the variables with your own values.
+To create a snapshot of an existing file share, run the following Azure CLI commands. Replace the variables with your own values. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<file-share-name>"
 snapshotName="<snapshot-name>"
@@ -532,12 +526,9 @@ You can update an existing NFS file share snapshot (for example, to modify its m
 
 # [Azure PowerShell](#tab/powershell)
 
-To update a file share snapshot, run the following PowerShell commands. Replace the variables with your own values.
+To update a file share snapshot, run the following PowerShell commands. Replace the variables with your own values. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<resource-group-name>"
 $shareName = "<file-share-name>"
 $snapshotName = "<snapshot-name>"
@@ -547,12 +538,9 @@ Update-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shar
 
 # [Azure CLI](#tab/cli)
 
-To update a file share snapshot, run the following Azure CLI commands. Replace the variables with your own values.
+To update a file share snapshot, run the following Azure CLI commands. Replace the variables with your own values. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<file-share-name>"
 snapshotName="<snapshot-name>"
@@ -580,12 +568,9 @@ To list all the snapshots for an existing file share, sign in to the Azure porta
 
 # [Azure PowerShell](#tab/powershell)
 
-To list all file share snapshots, run the following PowerShell command. Replace the variables with your own values.
+To list all file share snapshots, run the following PowerShell command. Replace the variables with your own values. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<resource-group-name>"
 $shareName = "<file-share-name>"
 $snapshotName = "<snapshot-name>"
@@ -595,12 +580,9 @@ Get-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shareNa
 
 # [Azure CLI](#tab/cli)
 
-To list all file share snapshots, run the following Azure CLI commands. Replace the variables with your own values.
+To list all file share snapshots, run the following Azure CLI commands. Replace the variables with your own values. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<file-share-name>"
 resourceGroup="<resource-group-name>"
@@ -679,10 +661,9 @@ To delete a snapshot of an existing file share, sign in to the Azure portal and 
 
 # [Azure PowerShell](#tab/powershell)
 
-``` powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
+You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
+``` powershell
 $resourceGroup = "<resource-group-name>"
 $shareName = "<file-share-name>"
 $snapshotName = "<snapshot-name>"
@@ -692,12 +673,9 @@ Remove-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shar
 
 # [Azure CLI](#tab/cli)
 
-To delete a file share snapshot, run the following Azure CLI commands. Replace the variables with your own values.
+To delete a file share snapshot, run the following Azure CLI commands. Replace the variables with your own values. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<file-share-name>"
 snapshotName="<snapshot-name>"

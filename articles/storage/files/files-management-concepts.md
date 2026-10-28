@@ -4,7 +4,7 @@ description: Understand the two resource providers for Azure Files — classic f
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/03/2026
+ms.date: 10/22/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to understand the Azure Files resource providers and management models so that I can choose the right approach for deploying file shares.
@@ -127,6 +127,8 @@ Use the following table to compare feature support for your workload. Classic fi
 | Network rules configured on each file share | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Network rules shared by file shares in a storage account | ![Yes](../media/icons/yes-icon.png) | Not applicable |
 | [Service endpoint policies](storage-files-networking-overview.md#restrict-outbound-access-with-service-endpoint-policies) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Standard service endpoints](storage-files-networking-overview.md#standard-service-endpoints) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Network security perimeter](storage-files-networking-overview.md#network-security-perimeter) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | AKS CSI driver | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Data plane REST APIs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Soft delete support | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |

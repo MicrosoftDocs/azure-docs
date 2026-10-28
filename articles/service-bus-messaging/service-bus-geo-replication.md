@@ -245,6 +245,26 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2025-05-01-preview
 
 ---
 
+## Validate Geo-Replication configuration
+
+To identify Service Bus namespaces with a configured secondary region, open [Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal) in the Azure portal, select the subscriptions used by your workload, and run the following query:
+
+```kusto
+Resources
+| where type =~ 'microsoft.servicebus/namespaces'
+| where sku.name =~ 'Premium'
+| mv-expand replica = properties.geoDataReplication.locations
+| where replica.roleType =~ 'Secondary'
+| project id, name, resourceGroup, subscriptionId,
+    secondaryRegion = tostring(replica.locationName)
+```
+
+The query returns only Premium namespaces that have a `Secondary` entry in `properties.geoDataReplication.locations`. A namespace with only a primary entry doesn't qualify. Each result identifies the namespace by its resource ID, name, resource group, and subscription, and shows its configured secondary region in `secondaryRegion`.
+
+If a namespace doesn't appear in the results, no matching secondary configuration is visible to you in the selected subscription scope. This absence isn't proof that the configuration doesn't exist. Azure Resource Graph indexes resource changes asynchronously, so verify the current configuration on the namespace's **Geo-Replication** page in the Azure portal.
+
+This query assesses configuration, not replication health or readiness for promotion. Use [Monitoring data replication](#monitoring-data-replication) to check replication lag, and check the [secondary region state](#management) on the namespace's **Geo-Replication** page before initiating a promotion.
+
 ## Management
 
 After you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication** blade.

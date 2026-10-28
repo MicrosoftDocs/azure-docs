@@ -57,6 +57,8 @@ For successful backup operations, the vault MSI needs the following permissions:
     1. *PostgreSQL Flexible Server Long Term Retention Backup Role* on the server.
     1. *Reader* role on the resource group of the server.
 
+The identity configuring protection also needs read permission on the source PostgreSQL flexible server, for example, through the **Reader** role on that server. This permission is separate from the permissions assigned to the vault's managed identity.
+
 ## Understand pricing
 
 You incur charges for:

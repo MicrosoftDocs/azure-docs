@@ -20,18 +20,37 @@ ms.service: azure-app-service
 
 ## Configure a .NET app
 
-Clone the sample repository locally and deploy the sample application to App Service. Replace *\<app-name>* with a unique name.
+Install the .NET 8 SDK before you begin. The sample project targets .NET 5; the publish command overrides its target framework to use the supported .NET 8 runtime without changing the sample repository.
 
-```azurecli-interactive
-# Save the app name as a variable for convenience
-appName=<app-name>
+1. Clone the sample repository and replace `<app-name>` with a globally unique name:
 
-# Clone the sample application
-git clone https://github.com/Azure-Samples/app-service-language-detector.git
-cd app-service-language-detector/dotnet
+    ```azurecli-interactive
+    appName=<app-name>
+    git clone https://github.com/Azure-Samples/app-service-language-detector.git
+    cd app-service-language-detector/dotnet
+    ```
 
-az webapp up --sku F1 --resource-group $groupName --name $appName --plan $appName --location $region
-```
+1. Provision the Linux App Service plan and web app in the resource group created earlier:
+
+    ```azurecli-interactive
+    az appservice plan create --sku P0v3 --resource-group $groupName --name $appName --location $region --is-linux
+    az webapp create --resource-group $groupName --name $appName --plan $appName --runtime "DOTNETCORE:8.0"
+    ```
+
+1. Build the application and package the contents of the publish directory:
+
+    ```azurecli-interactive
+    dotnet publish --configuration Release -p:TargetFramework=net8.0 --output publish
+    cd publish
+    zip -r ../app.zip .
+    cd ..
+    ```
+
+1. Deploy the package.
+
+    ```azurecli-interactive
+    az webapp deploy --resource-group $groupName --name $appName --src-path app.zip --type zip
+    ```
 
 ## Configure secrets as app settings
 

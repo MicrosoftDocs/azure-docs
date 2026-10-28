@@ -363,7 +363,7 @@
             href: python-memory-profiler-reference.md
       - name: Python SDK API reference
         href: /python/api/azure-functions/azure.functions
-  - name: Go (Preview)
+  - name: Go
     displayName: golang
     href: functions-reference-go.md
 - name: How-to guides
@@ -978,6 +978,14 @@
       - name: Output
         displayName: Kafka
         href: functions-bindings-kafka-output.md
+    - name: Managed connectors
+      items:
+      - name: Overview
+        displayName: Connector Extension, Connector Namespace, Managed Connectors
+        href: functions-bindings-connector.md
+      - name: Trigger (Preview)
+        displayName: Connector Trigger, Connector Namespace, Office 365, SharePoint Online
+        href: functions-bindings-connector-trigger.md
     - name: MCP
       items:
       - name: Overview

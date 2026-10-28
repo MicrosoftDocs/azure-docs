@@ -17,7 +17,7 @@ Azure Files provides fully managed, scalable SMB file shares that are an excelle
 
 Virtual desktop infrastructure (VDI) centralizes desktop environments on servers, enabling secure remote access and simplified management across devices. [Azure Virtual Desktop](/azure/virtual-desktop/overview) is Microsoft’s cloud-based VDI solution, offering scalable, multi-session Windows 10 and 11 desktops with seamless integration into Microsoft 365 and Microsoft Entra ID, ideal for remote work and secure resource access. Other VDI offerings include Citrix/VMware Horizon on Azure infrastructure.
 
-Azure Files is ideal for VDI because it provides cloud file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) to store disk images for dynamic application delivery. When deployed correctly, Azure Files can reduce infrastructure overhead, provide high availability, support enterprise-grade security, and deliver consistent performance for a smooth user experience across virtual desktop sessions.
+Azure Files is ideal for VDI because it provides cloud file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) to store disk images for dynamic application delivery. When deployed correctly, Azure Files can reduce infrastructure overhead, provide high availability, support enterprise-grade security, and deliver consistent performance for a smooth user experience across virtual desktop sessions.
 
 :::image type="content" source="media/virtual-desktop-workloads/files-virtual-desktop-architecture.png" alt-text="Architecture diagram showing how to use Azure Files for VDI workloads." border="false":::
 
@@ -117,6 +117,8 @@ A typical workday includes two periods of concentrated storage activity as users
 
 The important distinction is between steady-state demand and short peak demand. The following example shows how to size an Azure Files SMB share that requires approximately 20,000 IOPS during normal operation and temporarily reaches 75,000 IOPS during sign-in or sign-out activity.
 
+:::image type="content" source="media/virtual-desktop-workloads/sign-in-sign-out-storm.svg" alt-text="Line chart of a typical workday showing short 75,000-IOPS peaks during morning sign-in and evening sign-out, with steady demand of about 20,000 IOPS between the peaks." border="false":::
+
 #### Example: Size Azure Files for 2,000 Azure Virtual Desktop users
 
 This example illustrates a sizing approach. The workload values are sample assumptions, not universal sizing requirements. Test your workload to determine its actual steady-state and peak requirements.
@@ -190,5 +192,6 @@ If you're hitting the limits on maximum concurrent handles per file/directory, u
 
 ## See also
 
+- [Use Azure File Sync with Azure Virtual Desktop Hybrid](azure-virtual-desktop-hybrid.md)
 - [Storage considerations for Azure Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/storage)
 - [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile)

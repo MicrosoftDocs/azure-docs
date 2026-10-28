@@ -90,6 +90,8 @@ Filtering by access rule version helps you track which version of the access rul
 
 Use Azure Monitor metric alerts to notify administrators by email or mobile SMS for different kinds of signals ranging from all administrative actions to CRUD actions on the network security perimeter. This notification helps the administrators or the necessary points of contact to be aware of the activity in the network and take necessary action when needed.
 
+:::image type="content" source="media/network-security-perimeter-metrics/email-alert-denied-traffic.png" alt-text="Screenshot of email alert from Azure Monitor regarding denied traffic." lightbox="media/network-security-perimeter-metrics/email-alert-denied-traffic.png":::
+
 ## Metrics versus diagnostic logs
 
 While metrics and diagnostic logs are complementary monitoring tools, metrics provide a high-level operational view and support alerting, while diagnostic logs provide detailed event data for troubleshooting and investigation. The following table gives a high-level differentiation view of one over the other.

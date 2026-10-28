@@ -63,7 +63,7 @@ The following table shows connectivity locations and the service providers for e
 | **Auckland** | [Vocus Group NZ Albany](https://www.2degrees.nz/business/business-services/data-centres) | 2 | New Zealand North | &check; | `Devoli`<br/>`Kordia`<br/>`Megaport`<br/>`REANNZ`<br/>`Spark NZ`<br/>`Vocus Group NZ` |
 | **Auckland2** | [Spark MDR](https://www.spark.co.nz/online/large-business-govt/products/manage/data-centre-services) | 2 | New Zealand North | &check; |  |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | &cross; | &check; | `AIS`<br/>`National Telecom`<br/>`UIH` |
-| **Berlin** | [NTT GDC](https://services.global.ntt/en-us/newsroom/ntt-ltd-announces-access-to-microsoft-azure-expressroute-at-ntts-berlin-1-data-center) | 1 | Germany North | &check; | `Colt`<br/>`Equinix`<br/>`NTT Global DataCenters EMEA` |
+| **Berlin** | [NTT GDC](https://www.nttdata.com/en-us/services/global-data-centers/global-locations/emea/berlin-data-centers) | 1 | Germany North | &check; | `Colt`<br/>`Equinix`<br/>`NTT Global DataCenters EMEA` |
 | **Brussels** | [Digital Realty BRU4](https://www.digitalrealty.com/data-centers/emea/brussels/bru4) | 1 | &cross; | &check; | `BICS`<br/>`Digital Realty`<br/>`Eurofiber` |
 | **Brussels2** | [LCL Brussels-North](https://www.lcl.be/) | 1 | &cross; | &check; | `BICS`<br/>`Eurofiber` |
 | **Busan** | [LG CNS](https://www.lgcns.com/business/cloud/datacenter/) | 2 | Korea South | &cross; | `LG CNS` |

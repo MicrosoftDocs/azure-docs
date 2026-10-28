@@ -2,7 +2,7 @@
 title: "Quickstart: Build and test a hosted skill with the Azure Functions hosted skills canvas"
 description: "Use the Azure Functions hosted skills canvas in GitHub Copilot to create a local hosted skill, run it, inspect the result, and continue development."
 ms.topic: quickstart
-ms.date: 10/01/2026
+ms.date: 10/15/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.collection:
@@ -26,7 +26,6 @@ The canvas provides visible controls and results while GitHub Copilot helps you 
    >This app is separate from the GitHub Copilot extension for Visual Studio Code. For Copilot Business or Copilot Enterprise, your administrator must enable the GitHub Copilot app policy.
 + [Azure Functions Core Tools version 4](functions-run-local.md).
 + Node.js 22 or later. The canvas and Azure Functions Core Tools use Node.js.
-+ [GitHub CLI](https://cli.github.com/).
 + Azurite.
 + Python 3.13 or later for the generated app, provided by either:
    + `uv` (recommended), which lets the canvas provision Python.
@@ -51,23 +50,23 @@ Install the full Azure Functions Hosted Skills plugin. The plugin includes the c
 
 ## Open the canvas
 
-For local testing, the canvas uses the GitHub CLI authentication for your currently signed-in account. You can run the sign-in command in any terminal on the same computer; the terminal isn't part of the GitHub Copilot app.
+In the signed-in GitHub Copilot app, start a new chat and enter this prompt:
 
-1. Open any local terminal, and then sign in to GitHub CLI:
+```text
+Open Azure Functions Hosted Skills canvas
+```
 
-   ```console
-   gh auth login
-   ```
+The hosted skills canvas opens beside the chat.
 
-1. In GitHub Copilot, start a new chat and enter this prompt:
-
-   ```text
-   Open Azure Functions Hosted Skills canvas
-   ```
+:::image type="content" source="media/hosted-skills-canvas/canvas-overview.png" alt-text="Screenshot of the Azure Functions Hosted Skills canvas open beside a GitHub Copilot chat, with a local function app selected." lightbox="media/hosted-skills-canvas/canvas-overview.png":::
 
 ## Create and start the hosted skill
 
 1. Select **Local Function App**.
+
+   Review the Timer trigger schedule and the generated skill instructions.
+
+   :::image type="content" source="media/hosted-skills-canvas/timer-and-instructions.png" alt-text="Screenshot of the Timer trigger schedule and generated skill instructions in the hosted skills canvas." lightbox="media/hosted-skills-canvas/timer-and-instructions.png":::
 
 1. Select **Start local function**.
 
@@ -79,7 +78,11 @@ For local testing, the canvas uses the GitHub CLI authentication for your curren
 
 1. Select **Invoke Trigger**.
 
+   :::image type="content" source="media/hosted-skills-canvas/invoke-trigger.png" alt-text="Screenshot of the Invoke Trigger button in the hosted skills canvas." lightbox="media/hosted-skills-canvas/invoke-trigger.png":::
+
 1. In **Agent digest**, confirm that the hosted skill returned a repository activity summary.
+
+   :::image type="content" source="media/hosted-skills-canvas/agent-digest.png" alt-text="Screenshot of an Agent digest result showing a repository activity summary with work items, issues, and pull requests." lightbox="media/hosted-skills-canvas/agent-digest.png":::
 
 1. Review **Trigger activity**, **Commands**, and **Local function host log** for the invocation status and execution details.
 
@@ -93,15 +96,21 @@ From the canvas, choose the next step that matches what you want to do.
 
 Select **Open in VS Code** to continue developing the generated app locally. You can edit the project files, add tools, or review the app configuration in Visual Studio Code.
 
+:::image type="content" source="media/hosted-skills-canvas/open-in-vs-code.png" alt-text="Screenshot of the Open in VS Code button in the hosted skills canvas.":::
+
 ### [Deploy to Azure](#tab/deploy-to-azure)
 
 Select **Deploy to Azure** to deploy the hosted skill from an isolated copy by using the Azure Developer CLI (`azd`). This workflow also requires [Azure CLI](/cli/azure/install-azure-cli) authentication, an Azure subscription, a supported Azure-hosted model, and permission to create resources and assign roles. Azure resources can incur charges.
+
+:::image type="content" source="media/hosted-skills-canvas/deploy-to-azure.png" alt-text="Screenshot of the Deploy to Azure button in the hosted skills canvas.":::
 
 For the complete deployment workflow, see [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md).
 
 ### [Doctor](#tab/doctor)
 
 If you encounter a setup or startup issue, select **Doctor**, and then select **Run Doctor** to run the canvas's built-in readiness check. Follow the provided guidance to resolve any reported requirements. The check is read-only; it doesn't install software, sign you in, or change Azure resources.
+
+:::image type="content" source="media/hosted-skills-canvas/doctor-readiness.png" alt-text="Screenshot of the Doctor readiness check showing local development requirements with a Ready status." lightbox="media/hosted-skills-canvas/doctor-readiness.png":::
 
 ---
 

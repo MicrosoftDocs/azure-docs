@@ -5,12 +5,14 @@ author: jadean-msft
 ms.author: jadean
 ms.topic: concept-article
 ms.service: azure-enclave
-ms.date: 08/24/2026
+ms.date: 10/23/2026
 ---
 
 # Maintenance mode
 
-Azure Enclave protects community and enclave-managed resources with deny assignments. You can perform routine operations that Azure Enclave supports by using the appropriate role-based access control (RBAC) permissions without enabling maintenance mode.
+Maintenance mode controls when you can make changes to resources that Azure Enclave manages for a community or enclave.
+
+In this article, resources managed by Azure Enclave means the underlying community or enclave [managed resource group](./azure-enclave-resource-groups.md) and its resources. Use `General` mode for most planned operational tasks. Reserve `Advanced` mode for break-glass, recovery, or emergency scenarios where broader privileged access is required.
 
 ## Best practices
 
@@ -19,11 +21,9 @@ Azure Enclave protects community and enclave-managed resources with deny assignm
 
 ## Maintenance mode options
 
-- `Off` - Deny assignments created by Azure Enclave are in-place to protect underlying [managed resource groups](./azure-enclave-resource-groups.md) for an enclave or community.
-- `General` - The `Allow Dataplane Actions` deny assignment remains in place, while selected principals are excluded from the blanket deny assignment. This mode allows those principals to perform supported operations on protected resources, subject to their assigned RBAC roles.
-- `Advanced` - The deny assignment that Azure created is temporarily removed to allow privileged users to make elevated changes on the underlying managed resources. This option is the break-glass option for edge cases that aren't covered by the normal RBAC permissions.
-
-Remember to return maintenance mode to `Off` when the change is complete.
+- `Off` - Deny assignments created by Azure Enclave are in-place to protect underlying [managed resource groups](./azure-enclave-resource-groups.md) for a community or enclave.
+- `General` - The maintenance mode option for most routine operations that you perform on community or enclave managed resources. Azure Enclave keeps the `Allow Dataplane Actions` deny assignment in place and excludes selected maintenance mode principals from the `Deny All` deny assignment. RBAC still controls what those principals can do. By default, communities and enclaves are deployed in `Off` mode, but you can choose `General` mode during creation and provide the appropriate Microsoft Entra ID identities.
+- `Advanced` - Reserved for break-glass, recovery, or emergency scenarios where unrestricted privileged access to managed resources is needed. Azure Enclave temporarily removes its deny assignment so approved principals can perform elevated changes.
 
 ## Justification options
 

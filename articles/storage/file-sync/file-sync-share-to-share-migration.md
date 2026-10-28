@@ -3,7 +3,7 @@ title: Migrate files between file shares when using Azure File Sync
 description: Learn how to migrate files from one SMB Azure file share to another when using Azure File Sync, even if the file shares are in different storage accounts.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/06/2024
+ms.date: 10/27/2026
 ms.author: kendownie
 author: khdownie
 # Customer intent: As a cloud administrator, I want to migrate files between Azure file shares using Azure File Sync, so that I can efficiently manage storage and ensure data accessibility during the transition.
@@ -80,7 +80,7 @@ Follow these instructions if cloud tiering is on and you're migrating within the
   
 1. In your IaaS VM, use different disks for source and target file shares. Use one small disk for your source data connected to the existing sync group and one larger disk that can hold your entire data set.
 
-1. Install the Azure File Sync agent on the IaaS VM and register the server.
+1. Install the latest Azure File Sync agent on the IaaS VM (Windows Server 2016 or later) and register the server.
 
 1. In the Azure portal, go to your original sync group (source share) and create a server endpoint on the IaaS VM (use the small disk). Enable cloud tiering on this server endpoint.
 

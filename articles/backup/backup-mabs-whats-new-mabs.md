@@ -3,7 +3,7 @@ title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.service: azure-backup
 ms.topic: release-notes
-ms.date: 08/18/2026
+ms.date: 10/17/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to understand the latest features and fixes in Microsoft Azure Backup Server, so that I can ensure robust backup solutions and improve data protection for VMs, files, and critical workloads."
@@ -21,6 +21,7 @@ The following table lists the new features added in MABS V4 UR2:
 
 | Feature | Supportability |
 | --- | --- |
+| VMware vSphere 9.0 support | MABS V4 UR2 adds support for protecting VMware vSphere 9.0 VMs, including VMs on vCenter Server 9.0 and ESXi 9.0. Existing VMware backup and recovery prerequisites and limitations continue to apply. Learn more about [backing up VMware VMs](backup-azure-backup-server-vmware.md). |
 | OAuth 2.0 Authentication support | Allows MABS to send email alerts through Microsoft 365 Exchange Online (**`smtp.office365.com:587`**) by using OAuth 2.0 authentication, replacing the deprecated Basic Authentication method. Learn how to [configure OAuth in MABS](backup-server-monitor.md#use-oauth-in-mabs). |
 | WDAC enforced mode support in Azure Local VMs | Meets evolving security requirements by allowing MABS to push installation of  protection agents on Azure Local VMs with WDAC in enforced mode. Earlier, MABS supported agent installation only with WDAC in audit mode. Learn how to [back up Azure Local Virtual Machines with MABS](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). |
 

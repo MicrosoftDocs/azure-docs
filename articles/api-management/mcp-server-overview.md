@@ -142,4 +142,4 @@ You can get early access to new MCP server and AI gateway features and capabilit
 
 * [Secure access to MCP servers](secure-mcp-servers.md)
 
-* Visit [https://mcp.azure.com](https://mcp.azure.com) for a live example of an MCP server registry created using Azure API Center.
+* Visit [https://registry.modelcontextprotocol.io/](https://registry.modelcontextprotocol.io/) for a live example of an MCP server registry created using Azure API Center.

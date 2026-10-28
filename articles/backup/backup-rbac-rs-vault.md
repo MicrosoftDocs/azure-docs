@@ -3,7 +3,7 @@ title: Manage Backups with Azure role-based access control
 description: Use Azure role-based access control to manage access to backup management operations in Recovery Services vault.
 ms.reviewer: dapatil
 ms.topic: how-to
-ms.date: 04/30/2026
+ms.date: 10/09/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -17,7 +17,7 @@ Azure role-based access control (Azure RBAC) enables fine-grained access managem
 > [!IMPORTANT]
 > Roles provided by Azure Backup are limited to actions that can be performed in Azure portal or via REST API or Recovery Services vault PowerShell or CLI cmdlets. Actions performed in the Azure Backup agent client UI or System center Data Protection Manager UI or Azure Backup Server UI are out of control of these roles.
 
-Azure Backup provides three built-in roles to control backup management operations. Learn more on [Azure built-in roles](../role-based-access-control/built-in-roles.md)
+Azure Backup provides three built-in roles to control backup management operations. For cross-tenant restore, Azure Backup also provides the **CTR Creator** and **CTR Contributor** built-in roles. These roles apply to both Recovery Services vaults and Backup vaults. For more information, see [Role requirements for cross-tenant restore](#role-requirements-for-cross-tenant-restore-preview). To learn more, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
 * [Backup Contributor](../role-based-access-control/built-in-roles.md#backup-contributor) - This role has all permissions to create and manage backup except deleting Recovery Services vault and giving access to others. Imagine this role as admin of backup management who can do every backup management operation.
 * [Backup Operator](../role-based-access-control/built-in-roles.md#backup-operator) - This role has permissions to everything a contributor does except removing backup and managing backup policies. This role is equivalent to contributor except it can't perform destructive operations such as stop backup with delete data or remove registration of on-premises resources.
@@ -170,7 +170,21 @@ The following table captures the Backup management actions and corresponding Azu
 | --- | --- | --- | --- |
 | Restore database or restore as files | Virtual Machine Contributor | Source VM that got backed up | Instead of a built-in role, you can consider a custom role which has the following permissions: <br><br> - Microsoft.Compute/virtualMachines/write <br> - Microsoft.Compute/virtualMachines/read |
 |       | Virtual Machine Contributor | Target VM in which the database will be restored or files are created. | Instead of a built-in role, you can consider a custom role that has the following permissions: <br><br> - Microsoft.Compute/virtualMachines/write <br> - Microsoft.Compute/virtualMachines/read |
-|      | Backup Operator | Target Recovery Services vault |    |
+|      | Backup Operator | Target vault |    |
+
+### Role requirements for cross-tenant restore (preview)
+
+Cross-tenant restore uses the **CTR Creator** and **CTR Contributor** built-in roles. Assign them together with the Backup Contributor role and the Backup MUA Operator role on the Resource Guard that's associated with the target vault.
+
+| Management operation | Role required | Scope required |
+| --- | --- | --- |
+| Create a cross-tenant vault mapping | Backup Contributor | Source vault |
+|   | CTR Creator | Target vault |
+|   | Backup MUA Operator or higher | Resource Guard associated with the target vault |
+| View or delete mappings, browse protected items, and restore across tenants | CTR Contributor, Backup Contributor | Target vault |
+|   | Backup MUA Operator or higher | Resource Guard associated with the target vault |
+
+To configure cross-tenant restore, see [Tutorial: Configure cross-tenant restore and restore data across tenants](tutorial-cross-tenant-restore.md). For the permissions that each role includes, see [Permissions in the CTR roles](tutorial-cross-tenant-restore.md#permissions-in-the-ctr-roles).
 
 ## Next steps
 

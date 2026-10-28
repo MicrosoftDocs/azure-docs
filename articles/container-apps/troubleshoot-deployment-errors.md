@@ -5,7 +5,7 @@ description: Troubleshoot common deployment failures in Azure Container Apps, fr
 author: jefmarti
 ms.service: azure-container-apps
 ms.topic: troubleshooting
-ms.date: 07/21/2026
+ms.date: 10/09/2026
 ms.author: jefmarti
 ms.reviewer: cshoe
 zone_pivot_groups: container-apps-portal-or-cli
@@ -24,6 +24,7 @@ Use the following table to choose a troubleshooting path.
 
 | Symptom | Likely cause | Go to |
 |---|---|---|
+| Environment creation fails with a capacity error | Limited regional capacity | [Troubleshoot environment capacity errors](troubleshoot-environment-capacity.md) |
 | Deployment fails and no revision is created | Image or registry authentication issue | [Deployment fails before revision creation](#deployment-fails-before-revision-creation) |
 | `ImagePullBackOff` or `UNAUTHORIZED` error | Image tag or registry credentials | [Deployment fails before revision creation](#deployment-fails-before-revision-creation) |
 | `CrashLoopBackOff` or container exits immediately | Startup crash | [Container crash and startup failures](#container-crash-and-startup-failures) |
