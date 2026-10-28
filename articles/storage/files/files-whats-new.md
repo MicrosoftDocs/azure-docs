@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/03/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -16,6 +16,14 @@ ms.custom:
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2026
+
+### 2026 quarter 4 (October, November, December)
+
+#### File shares using Microsoft.FileShares are now available in 12 additional regions
+
+You can now create file shares using the Microsoft.FileShares resource provider in Central US, West Central US, East US 2, West US 2, Denmark East, Belgium Central, Austria East, New Zealand North, Malaysia West, Chile Central, Indonesia Central, and West US 3. This expansion brings regional availability to 51 regions.
+
+For details, see [Regional availability](./files-management-concepts.md#regional-availability).
 
 ### 2026 quarter 2 (April, May, June)
 

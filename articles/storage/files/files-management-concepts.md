@@ -4,7 +4,7 @@ description: Understand the two resource providers for Azure Files — classic f
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/22/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to understand the Azure Files resource providers and management models so that I can choose the right approach for deploying file shares.
@@ -58,47 +58,22 @@ The `Microsoft.FileShares` resource provider offers file shares as a new top-lev
 
 ### Regional availability
 
-Currently, you can create a file share with Microsoft.FileShares in the following regions. Private endpoint support for file share with Microsoft.FileShares is available in all Azure public cloud regions.
+You can create a file share with Microsoft.FileShares in all regions in the **All** tab of the [Azure regions list](/azure/reliability/regions-list?tabs=all), except the following regions:
 
-- Australia Central
-- Australia East
-- Australia Southeast
-- Brazil South
-- Brazil Southeast
-- Canada Central
-- Canada East
-- Central India
-- East Asia
-- East US
-- France Central
-- France South
-- Germany North
-- Germany West Central
-- Israel Central
-- Italy North
-- Japan East
-- Japan West
-- JIO India Central
-- JIO India West
-- Korea Central
-- Korea South
-- North Central US
-- North Europe
-- Norway East
-- Norway West
-- Poland Central
-- South Africa North
-- South Africa West
-- South Central US
-- South India
-- Southeast Asia
-- Sweden Central
-- UAE Central
-- UAE North
-- UK South
-- UK West
-- West Europe
-- West US
+- Australia Central 2
+- India South Central
+- Mexico Central
+- Qatar Central
+- Southeast Asia 3
+- Spain Central
+- Switzerland North
+- Switzerland West
+- Taiwan North
+- West India
+
+You can also use the Microsoft.FileShares resource provider to create a file share in **JIO India Central** and **JIO India West**.
+
+Private endpoint support for file shares with Microsoft.FileShares is available in all Azure public cloud regions.
 
 ## Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
