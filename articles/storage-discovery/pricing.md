@@ -100,7 +100,7 @@ For example: Azure Blob Storage consists of storage accounts and each storage ac
 
 ### Other cost considerations
 
-Storing, retrieving, or generating Discovery insights causes no extra charges. Every workspace is billed individually. Including a storage resource in a paid Discovery workspace increases the bill of that workspace, even if the same storage resource is already included in a different workspace.
+Storing, retrieving, or generating Discovery insights causes no extra charges. Every workspace is billed individually. Including a storage resource in a paid Discovery workspace increases the bill of that workspace, even if the same storage resource is already included in another workspace.
 
 ## Next steps
 
