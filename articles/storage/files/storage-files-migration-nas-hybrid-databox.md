@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/27/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to migrate files from on-premises NAS to Azure using Data Box and File Sync, so that I can establish a hybrid cloud deployment while minimizing downtime and ensuring data integrity during the transition."
 ---
@@ -111,7 +111,8 @@ Under the `<storage-account-name>_AzFile` device share, each first-level folder 
 - The first-level folder name becomes the Azure file share name during ingestion. If a share with that name doesn't already exist in the target storage account, Data Box creates it. If it does exist, Data Box copies the data into that existing share.
 - Don't copy files directly to the root of the `_AzFile` share. All data must go inside a first-level folder.
 - Each Data Box device supports up to 512 shares or containers, so plan no more than 512 first-level folders per device.
-- First-level folder names must follow [Azure Files naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata), and each file must be 4 TiB or smaller. Data Box doesn't upload files or folders that don't meet these rules.
+- First-level folder names must follow [Azure Files naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata), and each file must be 4 TiB or smaller. Data Box reports share names that break these rules and files larger than 4 TiB as critical errors, which you must fix before you can run **Prepare to ship**.
+- If you use Data Box Disk, create a subfolder for each Azure file share under the *AzureFile* folder and copy your files into it. Files copied directly to the *AzureFile* folder are uploaded as block blobs. Data Box Disk can store a maximum of 100,000 files.
 - For a one-to-one mapping with your source SMB shares, create one first-level folder for each source share (using the desired Azure file share name) and copy each source share into its corresponding folder. For example:
 
   ```
