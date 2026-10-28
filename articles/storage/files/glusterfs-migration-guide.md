@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/27/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 # Customer intent: As an IT administrator managing legacy storage, I want to migrate GlusterFS volumes to a supported cloud file service, so that my organization can ensure ongoing support, security updates, and optimized performance.
 ---
@@ -53,7 +53,7 @@ To use NFS Azure file shares from Windows, mount them in a Linux distribution th
 1. Install WSL and a Linux distribution, and make sure the distribution runs as WSL 2. NFS mounts need the Linux kernel that WSL 2 provides; WSL 1 doesn't run a Linux kernel.
     - Windows client: Follow the [WSL installation guide](/windows/wsl/install).
     - Windows Server 2022 or Windows Server 2025: Follow the [WSL on Windows Server installation guide](/windows/wsl/install-on-server).
-1. Make sure the Windows machine has network access to the file share's private endpoint or service endpoint on port 2049.
+1. Make sure the Windows machine can reach the file share on TCP port 2049. From on-premises, use a private endpoint over a VPN or ExpressRoute connection. From an Azure VM, use a private endpoint, or a service endpoint on the VM's subnet.
 1. In the Linux distribution, mount the share as described in [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
 
 > [!NOTE]

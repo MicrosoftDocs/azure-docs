@@ -4,7 +4,7 @@ description: Learn how to migrate SMB file shares from on-premises Network Attac
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/27/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 # Customer intent: As a systems administrator, I want to migrate SMB file shares from on-premises NAS to a Windows Server using Azure File Sync, so that I can enable a hybrid cloud deployment while ensuring data integrity and minimizing downtime during the process.
 ---
@@ -32,7 +32,7 @@ The goal is to move the SMB file shares on your NAS appliance to a Windows Serve
 
 ## Migration overview
 
-As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overview.md), it's important to use the correct copy tool and approach. Your NAS appliance exposes SMB shares directly on your local network. This guide uses RoboCopy to copy files from the NAS to a Windows Server instance that runs Azure File Sync. Alternatively, you can seed the Azure file shares directly from the NAS with [Azure Storage Mover](migrate-files-storage-mover.md), and then connect Azure File Sync so the server downloads the namespace.
+As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overview.md), it's important to use the correct copy tool and approach. Your NAS appliance exposes SMB shares directly on your local network. This guide uses RoboCopy to copy files from the NAS to a Windows Server instance that runs Azure File Sync. Alternatively, you can seed the Azure file shares directly from the NAS with [Azure Storage Mover](migrate-files-storage-mover.md) before you create the server endpoints, so that Azure File Sync downloads the namespace to the server.
 
 - Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
 - Phase 2: [Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)
@@ -98,11 +98,11 @@ Repeat the steps of sync group creation and addition of the matching server fold
 
 After the creation of all server endpoints, sync is working. You can create a test file and see it sync up from your server location to the connected Azure file share (as described by the cloud endpoint in the sync group).
 
-Both locations, the server folders and the Azure file shares, are otherwise empty and awaiting data in either location. In the next step, you begin to copy files into the Windows Server for Azure File Sync to move them up to the cloud. If you enable cloud tiering, the server then begins to tier files if you run out of capacity on the local volumes.
+Both locations, the server folders and the Azure file shares, are otherwise empty (unless you seeded the shares with Storage Mover) and awaiting data in either location. In the next step, you begin to copy files into the Windows Server for Azure File Sync to move them up to the cloud. If you enable cloud tiering, the server then begins to tier files if you run out of capacity on the local volumes.
 
 ## Phase 7: Copy data with RoboCopy
 
-Now use RoboCopy to copy data from your NAS appliance to your Windows Server instance. Azure File Sync uploads the data to your Azure file shares. If you'd rather seed the Azure file shares directly from the NAS, use [Azure Storage Mover](migrate-files-storage-mover.md). Then create the server endpoint so that Azure File Sync downloads the namespace to the server.
+Now use RoboCopy to copy data from your NAS appliance to your Windows Server instance. Azure File Sync uploads the data to your Azure file shares. If you'd rather seed the Azure file shares directly from the NAS, use [Azure Storage Mover](migrate-files-storage-mover.md) before you create the server endpoints in Phase 6. When you create each server endpoint, keep the default **Merge** initial sync option so that Azure File Sync downloads the namespace to the server. Changes that you copy to the Azure file shares after that reach the server only after a cloud change detection job runs, which happens once every 24 hours.
 
 Run the first local copy to your Windows Server target folder:
 
