@@ -104,7 +104,7 @@ To manually configure availability zone support on an existing location of an AP
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit. 
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. Select **Apply**, then select **Save**.
 
@@ -126,7 +126,7 @@ To manually configure availability zone support on an existing location of an AP
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. Under **Public IP Address**, select a public IP address in the location.
 
@@ -150,7 +150,7 @@ To add a new location to your API Management instance and to configure availabil
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. If your API Management instance is deployed in a virtual network, under **Network**, select the virtual network, subnet, and public IP address that are available in the location.
 
