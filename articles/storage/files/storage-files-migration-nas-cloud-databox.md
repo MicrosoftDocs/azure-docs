@@ -70,7 +70,7 @@ If you make a list of your shares, map each share to the storage account where y
 
 The names of your resources are also important. For example, if you group multiple shares for the HR department into an Azure storage account, name the storage account appropriately. Similarly, when you name your Azure file shares, use names similar to the ones used for their on-premises counterparts.
 
-Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create an SMB file share](storage-how-to-create-file-share.md). In most cases, make sure the region of each of your storage accounts is the same.
+Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create a classic file share](create-classic-file-share.md). In most cases, ensure the region of each of your storage accounts is the same.
 
 ## Phase 3: Determine how many Azure Data Box appliances you need
 
