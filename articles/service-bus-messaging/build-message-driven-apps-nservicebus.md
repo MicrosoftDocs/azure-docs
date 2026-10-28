@@ -391,6 +391,7 @@ Then declare the endpoint as a partial method decorated with the `[NServiceBusFu
 ```csharp
 using Azure.Messaging.ServiceBus;
 using Microsoft.Azure.Functions.Worker;
+using NServiceBus;
 
 public partial class ReceiverEndpoint
 {
