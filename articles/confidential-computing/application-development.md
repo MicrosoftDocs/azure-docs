@@ -1,21 +1,24 @@
 ---
 title: Azure confidential computing development tools
-description: Use tools and libraries to develop applications for confidential computing on Intel SGX
+description: Specialized tools and libraries for enclave-aware application development on Intel SGX.
 services: virtual-machines
 author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 11/01/2021
+ms.date: 06/30/2026
 ms.author: wwilliams
 # Customer intent: "As a developer working on confidential computing applications, I want to utilize appropriate SDKs and frameworks for creating enclaves, so that I can ensure the security of sensitive data and computations within my software."
 ---
 
 # Application enclaves
 
+> [!IMPORTANT]
+> For most new confidential computing workloads, start with [Azure confidential VM options](virtual-machine-options.md) and [confidential containers](confidential-containers.md). This article focuses on specialized enclave-aware development.
+
 Application enclaves, such as Intel SGX, are isolated environments that protect specific code and data. When creating enclaves, you must determine what part of the application runs within the enclave. When you create or manage enclaves, be sure to use compatible SDKs and frameworks for the chosen deployment stack. 
 
 > [!NOTE]
-> If you haven't already read the [introduction to Intel SGX VMs and enclaves](confidential-computing-enclaves.md), do so before continuing.
+> If you didn't already read the [introduction to Intel SGX VMs and enclaves](confidential-computing-enclaves.md), read it before continuing.
 
 ## Microsoft Mechanics
 
@@ -23,7 +26,7 @@ Application enclaves, such as Intel SGX, are isolated environments that protect 
 
 ### Developing applications
 
-There are two partitions in an application built with enclaves. 
+An application built with enclaves has two partitions.
 
 The **host** is the "untrusted" component. Your enclave application runs on top of the host. The host is an untrusted environment. When you deploy enclave code on the host, the host can't access that code.
 
@@ -38,7 +41,7 @@ To use the power of enclaves and isolated environments, choose tools that suppor
 - [The EGo Software Development Kit](enclave-development-oss.md#ego)
 - [The Confidential Consortium Framework (CCF)](enclave-development-oss.md#ccf)
 
-As you design an application, identify and determine what part of needs to run in enclaves. Code in the trusted component is isolated from the rest of your application. After the enclave initializes and the code loads to memory, untrusted components can't read or change that code.
+As you design an application, identify and determine what part needs to run in enclaves. Code in the trusted component is isolated from the rest of your application. After the enclave initializes and the code loads to memory, untrusted components can't read or change that code.
 
 ## Next steps 
 
