@@ -32,7 +32,7 @@ The goal is to move the SMB file shares on your NAS appliance to a Windows Serve
 
 ## Migration overview
 
-As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. This guide uses RoboCopy to copy files from the NAS to a Windows Server instance that runs Azure File Sync. Alternatively, you can seed the Azure file shares directly from the NAS with [Azure Storage Mover](migrate-files-storage-mover.md), and then connect Azure File Sync so the server downloads the namespace.
+As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overview.md), it's important to use the correct copy tool and approach. Your NAS appliance exposes SMB shares directly on your local network. This guide uses RoboCopy to copy files from the NAS to a Windows Server instance that runs Azure File Sync. Alternatively, you can seed the Azure file shares directly from the NAS with [Azure Storage Mover](migrate-files-storage-mover.md), and then connect Azure File Sync so the server downloads the namespace.
 
 - Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
 - Phase 2: [Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)
