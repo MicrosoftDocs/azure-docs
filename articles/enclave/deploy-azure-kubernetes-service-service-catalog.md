@@ -136,7 +136,7 @@ Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be br
     "resources": [
         {
             "type": "Microsoft.Mission/virtualEnclaves/workloads",
-            "apiVersion": "2026-04-01",
+            "apiVersion": "<api-version>",
             "name": "<virtual-enclave-name>/<workload-name>",
             "location": "<some-location>",
             "tags": {
@@ -153,6 +153,8 @@ Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be br
     ]
 }
 ```
+
+Use a currently supported `Microsoft.Mission` API version for the workload resource (for example, `2026-10-01-preview` or `2026-04-01`).
 
 ## Validate the deployment
 Go to the specified resource group to confirm the intended resources were created.

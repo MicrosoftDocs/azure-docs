@@ -389,8 +389,10 @@ az resource delete \
   --resource-group myResourceGroup \
   --resource-type Microsoft.Mission/communities \
   --name fabrikam \
-  --api-version 2026-04-01
+  --api-version <api-version>
 ```
+
+Use a currently supported `Microsoft.Mission` API version (for example, `2026-10-01-preview` or `2026-04-01`).
 
 **What gets deleted:**
 - Community resource
