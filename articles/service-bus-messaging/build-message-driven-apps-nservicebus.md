@@ -16,7 +16,7 @@ ms.custom:
 NServiceBus is a commercial messaging framework from Particular Software. It supports Azure Service Bus as a message transport and helps developers focus on business logic by abstracting infrastructure concerns. In this guide, you build a solution that exchanges messages between two services. You also see how NServiceBus automatically retries failing messages and review options for hosting these services in Azure.
 
 > [!NOTE]
-> The code for this tutorial is available on the [Particular Software Docs web site](https://docs.particular.net/samples/azure-service-bus-netstandard/send-receive-with-nservicebus/). This article describes the version of the sample that uses NServiceBus 10 and the Azure Service Bus transport (`NServiceBus.Transport.AzureServiceBus`) version 6.
+> The code for this tutorial is available on the [Particular Software Docs web site](https://docs.particular.net/samples/azure-service-bus-netstandard/send-receive-with-nservicebus/?version=asbs_6). This article describes the version of the sample that uses NServiceBus 10 and the Azure Service Bus transport (`NServiceBus.Transport.AzureServiceBus`) version 6.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ NServiceBus is a commercial messaging framework from Particular Software. It sup
 
 ## Download and prepare the solution
 
-1. Download the code from the [Particular Software Docs web site](https://docs.particular.net/samples/azure-service-bus-netstandard/send-receive-with-nservicebus/) and select the latest Azure Service Bus transport version. The solution `SendReceiveWithNservicebus.sln` consists of three projects:
+1. Download the code from the [Particular Software Docs web site](https://docs.particular.net/samples/azure-service-bus-netstandard/send-receive-with-nservicebus/?version=asbs_6). Make sure the version selector shows **NServiceBus.Transport.AzureServiceBus 6.x**, and then select **Download sample**. The solution `SendReceiveWithNservicebus.sln` consists of three projects:
 
     - **Sender**: a console application that sends messages
     - **Receiver**: a console application that receives messages from the sender and replies back
