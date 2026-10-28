@@ -90,7 +90,7 @@ A. y
 
 Q. What is the Hana storage + DataVolume #1 + Azure NetApp Files entry #1 + ResourceId?
   (e.g. /subscriptions/.../resourceGroups/.../providers/Microsoft.NetApp/netAppAccounts/.../capacityPools/Premium/volumes/...)?
-A. /subscriptions/99999999-9zz9-9z99-z9z9-z999z999zzz9/resourceGroups/saphanasystems/providers/Microsoft.NetApp/netAppAccounts/saphanaanf/capacityPools/Premium/volumes/HANADATA01
+A. /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/saphanasystems/providers/Microsoft.NetApp/netAppAccounts/saphanaanf/capacityPools/Premium/volumes/HANADATA01
 
 Q. What is the Hana storage + DataVolume #1 + Azure NetApp Files entry #1 + Service Principal AuthenticationFile
    (e.g. auth-file.json or <blank> if using Azure Managed ID)?
@@ -195,7 +195,7 @@ A. svm01.p12
 
 Q. What is the Hana storage + DataVolume #1 + Azure Large Instance entry #1 + Storage ResourceId
    (e.g. <hostname>/api/storage/volumes/<UUID>)?
-A. svm01/api/storage/volumes/0892dcdc-f760-11ee-a301-000c2989d71e
+A. svm01/api/storage/volumes/aaaabbbb-0000-cccc-1111-dddd2222eeee
 
 Q. What is the Hana storage + DataVolume #1 + Azure Large Instance entry #1 + Storage Resource Name
    (e.g. volume01)?
@@ -363,9 +363,9 @@ cat azacsnap.json
               {
                 "anfStorageVolumes": [
                   {
-                    "resourceId": "/subscriptions/99999999-9zz9-9z99-z9z9-z999z999zzz9/resourceGroups/saphanasystems/providers/Microsoft.NetApp/netAppAccounts/saphanaanf/capacityPools/Premium/volumes/HANADATA01",
+                    "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/saphanasystems/providers/Microsoft.NetApp/netAppAccounts/saphanaanf/capacityPools/Premium/volumes/HANADATA01",
                     "authFile": "",
-                    "subscription": "99999999-9zz9-9z99-z9z9-z999z999zzz9",
+                    "subscription": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
                     "resourceGroupName": "saphanasystems",
                     "accountName": "saphanaanf",
                     "poolName": "Premium",
