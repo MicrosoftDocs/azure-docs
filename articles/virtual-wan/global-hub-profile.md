@@ -95,7 +95,7 @@ As a best practice, we recommend that you update your VPN client profile configu
      </serverlist>
      <servervalidation>
        <cert>
-         <hash>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436</hash>
+         <hash>AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00</hash>
          <issuer
            i:nil="true" />
        </cert>
