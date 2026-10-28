@@ -256,6 +256,8 @@
       "author": {
         "articles/api-center/**/*.md": "PatAltimore",
         "articles/api-management/**/*.md": "PatAltimore",
+        "articles/ai-gateway/**/*.md": "patricka",
+        "articles/ai-gateway/**/*.yml": "patricka",
         "articles/app-service/environment/*.md": "seligj95",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/automanage/*md": "mmccrory",
@@ -630,6 +632,8 @@
       "ms.author": {
         "articles/api-center/**/*.md": "patricka",
         "articles/api-management/**/*.md": "patricka",
+        "articles/ai-gateway/**/*.md": "patricka",
+        "articles/ai-gateway/**/*.yml": "patricka",
         "articles/app-service/environment/*.md": "jordanselig",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/automanage/*.md": "memccror",

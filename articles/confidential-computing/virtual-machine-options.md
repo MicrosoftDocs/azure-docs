@@ -1,25 +1,25 @@
 ---
 title: Azure Confidential VM options
-description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD and Intel processors.
+description: Compare Azure confidential VM options across AMD and Intel trusted execution technologies.
 author: iamwilliew
 ms.author: wwilliams
 ms.reviewer: mattmcinnes
 ms.service: azure-confidential-computing
 ms.custom: devx-track-azurecli
 ms.topic: concept-article
-ms.date: 11/15/2023
+ms.date: 06/30/2026
 # Customer intent: "As a cloud administrator, I want to evaluate confidential VM options on AMD and Intel processors, so that I can select the most suitable environment for my workloads with optimal security and performance."
 ---
 
 # Azure Confidential VM options
 
-Azure offers a choice of Trusted Execution Environment (TEE) options from both AMD and Intel. These TEEs allow you to create Confidential VM environments with excellent price-to-performance ratios, all without requiring any code changes.
+Azure offers Trusted Execution Environment (TEE) options from both AMD and Intel. These TEEs let you deploy confidential VMs for many workloads without code changes.
 
-For AMD-based Confidential VMs, the technology used is [AMD SEV-SNP](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf), which was introduced with 3rd Gen AMD EPYC™ processors. On the other hand, Intel-based Confidential VMs utilize [Intel TDX](https://cdrdv2-public.intel.com/690419/TDX-Whitepaper-February2022.pdf), a technology introduced with 5th Gen Intel® Xeon® processors. Both technologies have different implementations, however both provide similar protections from the cloud infrastructure stack.
+AMD-based confidential VMs use [AMD SEV-SNP](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf), introduced with 3rd Gen AMD EPYC processors. Intel-based confidential VMs use [Intel TDX](https://cdrdv2-public.intel.com/690419/TDX-Whitepaper-February2022.pdf), introduced with 5th Gen Intel Xeon processors. The implementations differ, but both provide strong protection from the cloud infrastructure stack.
 
 ## Sizes
 
-We offer the following VM sizes:
+The following VM sizes are available:
 
 | Size Family          | TEE | Description                                                                         |
 | ------------------ | ------------ | ----------------------------------------------------------------------------------- |
@@ -39,6 +39,22 @@ We offer the following VM sizes:
 
 > [!NOTE]
 > Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.
+
+## CVM naming differences by technology
+
+Azure CVM names follow a consistent pattern, but the family letters differ between AMD SEV-SNP and Intel TDX offerings.
+
+- **AMD SEV-SNP families** use `a` in the family name, such as `DCasv5` and `ECadsv6`.
+- **Intel TDX families** use `e` in the family name, such as `DCesv6` and `ECedsv6`.
+- A `d` in the family name (for example, `DCadsv6` or `DCedsv6`) indicates local temporary disk variants.
+- `D` families are general-purpose and `E` families are memory-optimized.
+
+The following examples show the naming pattern in this article:
+
+| Pattern | Example | Technology |
+| --- | --- | --- |
+| `DCa*` / `ECa*` | `DCasv6`, `ECadsv5` | AMD SEV-SNP |
+| `DCe*` / `ECe*` | `DCesv6`, `ECedsv6` | Intel TDX |
 
 ## Azure CLI commands
 
@@ -90,7 +106,7 @@ For availability information, see which [VM products are available by Azure regi
 
 Confidential VMs run on specialized hardware, so you can only [resize confidential VM instances](confidential-vm-faq.yml#can-i-convert-a-dcasv5-ecasv5-cvm-into-a-dcesv5-ecesv5-cvm-or-a-dcesv5-ecesv5-cvm-into-a-dcasv5-ecasv5-cvm-) to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv6-series instance. 
 
-It's not possible to resize a non-confidential VM to a confidential VM.
+You can't resize a non-confidential VM to a confidential VM.
 
 ### High availability and disaster recovery
 
@@ -114,5 +130,7 @@ Make sure to specify the following properties for your VM in the parameters sect
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)
+
+Start with [Azure confidential computing code samples on GitHub](https://aka.ms/accsamples).
 
 For more information see our [Confidential VM FAQ](confidential-vm-faq.yml).

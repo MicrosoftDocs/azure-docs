@@ -1,0 +1,24 @@
+- name: AI Gateway documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is AI Gateway?
+    href: overview.md
+  - name: Concepts
+    href: concepts.md
+  - name: AI Gateway and Azure API Management service
+    href: compare-api-management-service.md
+- name: Quickstart
+  items:
+  - name: Create an AI Gateway
+    href: quickstart-create-ai-gateway.md
+  - name: Start with the Azure CLI extension
+    href: get-started-cli.md
+  - name: Migrate from the AI Gateway tier
+    href: ai-gateway-resource.md
+- name: Move AI workloads to AI Gateway
+  href: migrate-api-management.md
+- name: Tool governance with Agent 365
+  href: ../api-management/agent-365.md
+- name: In-product documentation
+  href: https://ai.gateway.azure.com/docs

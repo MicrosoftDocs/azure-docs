@@ -1,16 +1,14 @@
 ---
-title: Migrate from the AI Gateway SKU to AI Gateway resource type (preview)
+title: Migrate from the AI Gateway tier to AI Gateway resource type (preview)
 titleSuffix: Azure API Management
-description: Learn how you can migrate from the AI Gateway SKU in Azure API Management service to the new AI Gateway resource type (preview).
-author: santiagxf
-ms.author: fasantia
+description: Learn how you can migrate from the AI Gateway tier in Azure API Management service to the new AI Gateway resource type (preview).
 ms.reviewer: fasantia
 ms.date: 10/06/2026
 ms.topic: how-to
-ms.service: azure-api-management
+ms.service: azure
 ---
 
-# Migrate to AI Gateway resource type (preview)
+# Migrate from the AI Gateway tier in API Management (preview)
 
 Azure API Management is changing the resource type used for AI Gateway (preview) from `Microsoft.ApiManagement/service` to `Microsoft.ApiManagement/aigateways`, which offers elastic scaling, faster provisioning time, and the latest capabilities for AI traffic management.
 
@@ -282,8 +280,6 @@ No, there are no changes in other SKUs of Azure API Management and they remain f
 
 ## Related content
 
-- [AI Gateway tier overview](ai-gateway-overview.md)
-- [Manage models and tools](ai-gateway-manage-models-tools.md)
-- [Govern, secure, and operate AI Gateway](ai-gateway-govern-secure-assets.md)
+- [AI Gateway tier overview](./overview.md)
 - [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider)
 - [Azure role-based access control documentation](/azure/role-based-access-control/overview)

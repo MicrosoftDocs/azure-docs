@@ -1,0 +1,14 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: AI Gateway
+      tocHref: /azure/ai-gateway/
+      topicHref: /azure/ai-gateway/index
+    - name: AI Gateway CLI Extension
+      tocHref: /azure/ai-gateway/get-started-cli
+      topicHref: /azure/ai-gateway/index
+    - name: AI Gateway In-product documentation
+      href: https://ai.gateway.azure.com/docs
+      topicHref: /azure/ai-gateway/index

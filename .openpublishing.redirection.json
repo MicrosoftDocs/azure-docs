@@ -1,6 +1,56 @@
 {
   "redirections": [
     {
+      "source_path": "articles/ai-gateway/get-started.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-policy-tool-threat.md",
+      "redirect_url": "/azure/ai-gateway/policy-tool-threat",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/ai-gateway/ai-gateway-policy-tool-threat.md",
+      "redirect_url": "/azure/ai-gateway/policy-tool-threat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-resource.md",
+      "redirect_url": "/azure/ai-gateway/ai-gateway-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-overview.md",
+      "redirect_url": "/azure/ai-gateway/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/quickstart-ai-gateway-create.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-setup.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-manage-models-tools.md",
+      "redirect_url": "/azure/ai-gateway/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-govern-secure-assets.md",
+      "redirect_url": "/azure/ai-gateway/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-configure-private-networking.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
       "redirect_document_id": false

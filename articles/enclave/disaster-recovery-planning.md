@@ -1,77 +1,62 @@
 ---
-title: Disaster Recovery Planning
+title: Disaster recovery planning
 titlesuffix: Azure Enclave
-description: Disaster Recovery Planning within Azure Enclave.
+description: Learn how to plan disaster recovery for workloads deployed in Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
 ms.topic: how-to
-ms.date: 9/30/2025
+ai-usage: ai-assisted
+ms.date: 10/13/2026
 ---
 
-# Disaster Recovery Planning within Azure Enclave
+# Disaster recovery planning within Azure Enclave
 
-Disaster recovery is an essential aspect of managing Azure Enclave. It ensures that cloud services remain available even if one of the cloud regions fails. This document provides a comprehensive guide on creating a client-side disaster recovery plan using Azure's built-in products and multi-region support to enhance resilience and availability.
+This article describes considerations for planning disaster recovery for workloads deployed in Azure Enclave. A multi-region design can reduce disruption, but recovery depends on workload architecture, data protection, traffic routing, and the capabilities of the Azure services in your design.
 
-## Client-Side Disaster Recovery Plan
-You should create a disaster recovery plan for your critical workloads.
+## Create a disaster recovery plan
 
-### Creating multiple replicas of the services (workloads)
+For each critical workload, define recovery time and recovery point objectives (RTO and RPO), identify dependencies and recovery owners, and document failover and failback procedures. Test the plan regularly and update it when the workload or its dependencies change.
 
-You should create multiple Azure Enclave instances with identical configurations and workloads in at least two Azure regions: one designated as the primary region and the other as the secondary region. Depending on the services and workloads hosted inside the Azure Enclave, an appropriate load balancer can then distribute and/or redirect network traffic. Depending on your deployment scenario, review the recommended load balancing options available on the Azure Architecture Center page. For more information, please visit: [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview). The following example explains the use of Azure Front Door as a load
-balancer for Azure App Services. [Tutorial: Create a multi-region app - Azure App Service](/azure/app-service/tutorial-multi-region-app).
+### Plan workload deployments across regions
 
-- Primary Region: The region where the main resource resides and operates under normal conditions. (for example, East US)
+If your workload requires regional redundancy, plan how to deploy and maintain its resources in a primary region and a secondary region. Confirm that each service and configuration in your design supports the required regions and recovery objectives. Depending on your deployment scenario, a load-balancing service might distribute or redirect traffic. Review [load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview) and the [tutorial for creating a multi-region app in Azure App Service](/azure/app-service/tutorial-multi-region-app) when those services fit your workload.
 
-- Secondary Region: The backup region, which mirrors the data and configurations of the primary region. (for example, West US)
+- **Primary region**: The region where the workload normally operates, such as East US.
 
-### Synchronization of Data
+- **Secondary region**: The region used to recover the workload, such as West US. Determine how its data and configuration are kept ready for recovery.
 
-Similar to any other resource deployment in Azure, geo-replicated services in Azure Enclave can also be deployed via ARM/Bicep templates or via Azure portal. Ensure that the data between the primary and secondary regions remains synchronized.
+### Protect and synchronize data
 
-Geo-replicated services can be achieved through automated replication processes provided by Azure including:
-- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) to keep apps and workloads online
-- [Azure Storage](/azure/storage/common/storage-redundancy) redundancy, which stores multiple copies of your data.
+Choose a data-protection approach that meets your workload's RTO and RPO. Replication, backup, and redundancy options differ by service; verify the behavior and recovery steps for each service you use. Evaluate whether [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is appropriate for your workload, and review [Azure Storage redundancy options](/azure/storage/common/storage-redundancy).
 
-### Failover Mechanism
+### Define and test failover
 
-If a failure in the primary region occurs, the failover mechanism through Azure Front Door should activate to divert operations to the secondary region. Here are the steps to implement a failover:
+Document how your design detects a regional outage, who initiates or approves recovery, how traffic is directed to the recovery environment, and how you return to normal operations. Test these procedures regularly, including the steps needed to verify the workload and fail back.
 
-- Monitor: Continuously monitor the health and performance of services in the primary region.
+## Evaluate traffic-routing options
 
-- Trigger Failover: Configure alerts to trigger automatic failovers to the secondary region when a failure is detected.
+The traffic-routing service and failover behavior depend on your workload's architecture and endpoint type. Review current service guidance before choosing a design. [Application Gateway](/azure/application-gateway/overview) and [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) are examples to evaluate; they aren't a combined failover configuration.
 
-- Testing: Regularly test the failover process to ensure seamless transition between regions.
-
-## Disaster Recovery in the Event of Regional Failures
-
-A load balancer is crucial for ensuring the high availability and reliability of web applications, particularly in scenarios where downtime isn't an option and user access must remain uninterrupted. A load balancer distributes incoming traffic across multiple servers or regions, and prevents any single resource from becoming overwhelmed while avoiding performance bottlenecks and failures. Additionally, advanced load balancing solutions integrate health probes and failover mechanisms to detect issues in real time and redirect traffic to healthy regions or servers. This active-active approach minimizes disruptions, enhances user experience, and guarantees operational continuity even during unexpected outages or peak demand periods. Alternatively, you could choose not to use a load balancer but would then need to implement active-passive configurations that include some automation but also manual effort to ensure disaster recovery and maintain resilience in your infrastructure.
-
-For a deeper understanding of Azure\'s load balancing capabilities, be sure to review the load balancing options page mentioned above. It offers valuable insights into selecting the right solutions for how to efficiently monitor outages and trigger failover mechanisms.
-
-In the following example, we explore how to use Application Gateway and Traffic Manager as a load balancing solutions. These tools not only enhance the security of web applications but also bolster disaster recovery strategies, ensuring resilience and seamless user experiences during unexpected outages.
-
-### Using Application Gateway and Traffic Manager
+### Example services to evaluate
 
 [Application Gateway](/azure/application-gateway/overview) is a load balancer that makes routing decisions based on the attributes of an HTTP request. It integrates with Web Application Firewall (WAF) to provide protection at the application level, ensuring that incoming traffic is inspected and filtered based on predefined security rules.
 
-[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer that helps distribute traffic to your public-facing applications across global Azure regions. It enhances the availability and performance of your applications by directing user requests to the most appropriate service endpoint based on various traffic-routing methods, such as performance, geographic, or priority routing. For more information on applying Traffic Manager to an Application Gateway, visit: [Use Azure App Gateway with Azure Traffic Manager](/azure/traffic-manager/traffic-manager-use-with-application-gateway)
+[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer for distributing traffic to public-facing application endpoints. For more information about using Traffic Manager with Application Gateway, see [Use Azure Application Gateway with Azure Traffic Manager](/azure/traffic-manager/traffic-manager-use-with-application-gateway).
 
 [ ![Diagram showing multiple regions deployed and configured for disaster recovery.](./media/disaster-recovery-planning-multi-region.png) ](./media/disaster-recovery-planning-multi-region.png#lightbox)
 
 To utilize an app service within Azure Enclave while maintaining secure and efficient communication, you can use the Application Gateway to act as a bridge between the web application and a demilitarized zone (DMZ) enclave. All incoming traffic is routed through the Web Application Firewall (WAF) by deploying an Application Gateway that inspects and filters requests based on predefined security policies. This helps ensure that only legitimate traffic reaches the application and effectively mitigates potential threats and enhances the security posture of the infrastructure.
 
-Furthermore, the integration of Azure Traffic Manager with the Application Gateway adds a robust layer to disaster recovery planning. The Traffic Manager operates as a DNS-based load balancer, directing traffic to the Public IP address associated with the Application
-Gateway. If a regional failure occurs, the Traffic Manager can seamlessly fail over to a secondary region, ensuring that users
-experience minimal disruption. This failover mechanism uses health probes to continuously monitor the availability of endpoints,
-automatically rerouting traffic to the most responsive or geographically optimal endpoint.
+Configure traffic-routing and health-check behavior according to the chosen services and workload topology. Test the expected routing and recovery behavior before relying on it during a regional outage.
 
-This combination of Application Gateway, WAF, and Traffic Manager not only fortifies security but also guarantees high availability and operational continuity for app services deployed in Azure Enclave. To complement these failover and load balancing strategies, you should also consider using data persistence services like SQL databases and Azure Storage Accounts. These services come with inherent capabilities to replicate data across regions, ensuring durability and high availability of critical information. By utilizing these features, businesses can maintain consistent access to their data, even if a regional failure occurs. However, it's imperative for you to evaluate your specific requirements and configure these services appropriately to achieve the desired level of data resiliency and accessibility.
+The combination of traffic-routing, gateway, firewall, and data-protection services requires workload-specific configuration. Verify their supported endpoints, routing behavior, and regional data-recovery capabilities against current service documentation before relying on them for disaster recovery.
 
 ## Conclusion
 
-Implementing a comprehensive disaster recovery plan for Azure Enclave involves creating multiple resources with synchronized configurations across primary and secondary regions. Utilizing a load balancer for traffic management and failover routing further enhances the resilience and availability of services deployed within Azure Enclave. Regular testing and monitoring are essential to ensure the effectiveness of the disaster recovery plan and provide uninterrupted service to users.
+An effective disaster recovery plan documents workload dependencies, data recovery, traffic routing, and the responsibilities and procedures for failover and failback. Regular testing helps identify gaps in the plan; it doesn't guarantee uninterrupted service during a regional failure.
 
-By following these guidelines, you can achieve robust disaster recovery and ensure high availability for your services hosted in Azure Enclave, even in the face of regional failures.
+Review the recovery objectives and service capabilities for your specific workload, and update the plan as the design changes.
 
 ## Resources
 

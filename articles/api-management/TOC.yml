@@ -116,22 +116,8 @@
       items:
       - name: Import agent-to-agent (A2A) API
         href: agent-to-agent-api.md
-  - name: AI Gateway tier (preview)
-    items:
-    - name: Overview
-      href: ai-gateway-overview.md
-    - name: Create an instance
-      href: quickstart-ai-gateway-create.md
-    - name: Set up your gateway
-      href: ai-gateway-setup.md
-    - name: Manage models and tools
-      href: ai-gateway-manage-models-tools.md
-    - name: Tool threat protection
-      href: ai-gateway-policy-tool-threat.md
-    - name: Govern, secure, and operate
-      href: ai-gateway-govern-secure-assets.md
-    - name: Migrate to AI Gateway resource type
-      href: ai-gateway-resource.md
+  - name: AI Gateway (preview)
+    href: ../ai-gateway/overview.md
   - name: Govern tools with Agent 365
     href: agent-365.md
 - name: Create and import APIs
@@ -298,8 +284,6 @@
         href: inject-vnet-v2.md
       - name: Virtual network integration (v2 tiers)
         href: integrate-vnet-outbound.md
-    - name: Private networking - AI Gateway tier (preview)
-      href: ai-gateway-configure-private-networking.md
     - name: Virtual network for workspace gateways
       href: virtual-network-workspaces-resources.md
     - name: Connect privately using private endpoint

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1030" height="180" viewBox="0 0 1030 180" role="img" aria-labelledby="title desc">
+  <title id="title">Noise reduction</title>
+  <desc id="desc">A filter drops readings whose assetId is not line-1. Ten readings of one signal enter a built-in tumbling window, which emits one output with assetId line-1, meanValue 10, and readingCount 10. A timeout can close a partial batch. This is not a per-reading moving average.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1030" height="180" fill="#fff"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 250 90 H 290"/>
+    <path d="M 470 90 H 510"/>
+    <path d="M 740 90 H 780"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="30" width="230" height="120" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="290" y="30" width="180" height="120" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="510" y="30" width="230" height="120" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="780" y="30" width="230" height="120" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="135" y="65"><tspan x="135" font-weight="bold">10 readings</tspan><tspan x="135" dy="26">9, 11, 10, 10, 9,</tspan><tspan x="135" dy="24">11, 10, 10, 9, 11</tspan></text>
+    <text x="380" y="65"><tspan x="380" font-weight="bold">BUILT-IN filter</tspan><tspan x="380" dy="26">Keep only</tspan><tspan x="380" dy="24">assetId: line-1</tspan></text>
+    <text x="625" y="65"><tspan x="625" font-weight="bold">BUILT-IN window</tspan><tspan x="625" dy="26">Mean of one batch</tspan><tspan x="625" dy="24">Nonoverlapping</tspan></text>
+    <text x="895" y="55"><tspan x="895" font-weight="bold">One output message</tspan><tspan x="895" dy="24">assetId: line-1</tspan><tspan x="895" dy="24">meanValue: 10</tspan><tspan x="895" dy="24">readingCount: 10</tspan></text>
+  </g>
+</svg>

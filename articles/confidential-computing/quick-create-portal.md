@@ -1,10 +1,10 @@
 ---
-title: Quickstart - Create Intel SGX VM in the Azure Portal
-description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure portal
+title: Quickstart - Create Intel SGX VM in the Azure Portal (specialized)
+description: Specialized quickstart for creating an Intel SGX VM in the Azure portal.
 author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: quickstart
-ms.date: 11/1/2021
+ms.date: 06/30/2026
 ms.author: wwilliams
 ms.custom: mode-ui, linux-related-content
 # Customer intent: "As a cloud engineer, I want to create an Intel SGX virtual machine in the Azure portal, so that I can leverage confidential computing capabilities for secure application deployment."
@@ -13,14 +13,17 @@ ms.custom: mode-ui, linux-related-content
 
 # Quickstart: Create Intel SGX VM in the Azure portal
 
-This tutorial guides you through the process of deploying Intel SGX VMs using Azure portal. Otherwise, we recommend following [Azure Marketplace](quick-create-marketplace.md) templates.
+> [!IMPORTANT]
+> For most new deployments, use [Azure confidential VM quickstarts](quick-create-confidential-vm-portal.md) based on AMD SEV-SNP or Intel TDX where available. This SGX quickstart is for specialized enclave-based workloads.
+
+This tutorial guides you through the process of deploying Intel SGX VMs by using the Azure portal. Otherwise, consider following [Azure Marketplace](quick-create-marketplace.md) templates.
 
 ## Prerequisites
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!NOTE]
-> Free trial accounts do not have access to the VMs in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
+> Free trial accounts don't have access to the VMs in this tutorial. Upgrade to a pay-as-you-go subscription.
 
 
 ## Sign in to Azure
@@ -29,13 +32,13 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. At the top, select **Create a resource**.
 
-1. On the left hand side pane, select, select **Compute**.
+1. On the left-hand side pane, select **Compute**.
 
 1. Select **Create Virtual Machine**.
 
     ![Deploy a VM](media/quick-create-portal/compute-virtual-machine.png)
 
-## Configure an Intel SGX Virtual Machine
+## Configure an Intel SGX virtual machine
 
 1. In the **Basics** tab, select your **Subscription** and **Resource Group**.
 
@@ -48,21 +51,21 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
         > [!NOTE]
         > Intel SGX VMs run on specialized hardware in specific regions. For the latest regional availability, look for DCsv2-series or DCsv3/DCdsv3-series in [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
-1. Configure the operating system image that you would like to use for your virtual machine.
+1. Configure the operating system image that you want to use for your virtual machine.
 
-    * **Choose Image**: For this tutorial, select Ubuntu 20.04 LTS - Gen2. You may also select Ubuntu 18.04 LTS - Gen2, or Windows Server 2019.
+    * **Choose Image**: For this tutorial, select Ubuntu 20.04 LTS - Gen2. You can also select Ubuntu 18.04 LTS - Gen2, or Windows Server 2019.
     
-    * **Update to Generation 2**: Underneath Image, select **Configure VM generation**, in the fly out, then select **Generation 2**.
+    * **Update to Generation 2**: Underneath Image, select **Configure VM generation**. In the flyout, select **Generation 2**.
     
         ![image](https://user-images.githubusercontent.com/63871188/137009767-421ee49a-ded8-4cfd-ac53-a3d6750880b9.png)
 
 
-1. Choose a virtual machine with Intel SGX capabilities by clicking on **+ Add filter** to create a filter, select **Type** for Filter type, and check only **Confidential compute** from the list in the next dropdown.
+1. Choose a virtual machine with Intel SGX capabilities by clicking **+ Add filter** to create a filter. Select **Type** for Filter type, and check only **Confidential compute** from the list in the next dropdown.
 
     ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > You should see sizes **DC(number)s_v2**, **DC(number)s_v3** and **DC(number)ds_v3**. [Learn more](virtual-machine-solutions-sgx.md).
+    > You see sizes **DC(number)s_v2**, **DC(number)s_v3**, and **DC(number)ds_v3**. [Learn more](virtual-machine-solutions-sgx.md).
 
 1. Fill in the following information:
 
@@ -71,7 +74,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
         > [!NOTE]
         > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-    * **Username**: Enter the Administrator name for the VM.
+    * **Username**: Enter the administrator name for the VM.
 
     * **SSH public key**: If applicable, enter your RSA public key.
     
@@ -80,7 +83,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
     * **Public inbound ports**: Choose **Allow selected ports** and select **SSH (22)** and **HTTP (80)** in the **Select public inbound ports** list. If you're deploying a Windows VM, select **HTTP (80)** and **RDP (3389)**.  
 
     >[!Note]
-    > Allowing RDP/SSH ports is not recommended for production deployments.  
+    > Allowing RDP/SSH ports isn't recommended for production deployments.
 
      ![Inbound ports](media/quick-create-portal/inbound-port-virtual-machine.png)
 
@@ -88,7 +91,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 1. Make changes in the **Disks** tab.
 
    * **DCsv2-series** supports **Standard SSD**, **Premium SSD** is supported across DC1, DC2 and DC4. 
-   * **DCsv3 and DCdsv3-series** supports **Standard SSD**, **Premium SSD** and **Ultra Disk**
+   * **DCsv3 and DCdsv3-series** support **Standard SSD**, **Premium SSD**, and **Ultra Disk**.
 
 1. Make any changes you want to the settings in the following tabs or keep the default settings.
 
