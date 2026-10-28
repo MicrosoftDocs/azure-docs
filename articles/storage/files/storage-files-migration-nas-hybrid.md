@@ -49,7 +49,7 @@ As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overv
 
 ## Phase 2: Provision a suitable Windows Server on-premises
 
-* Create a virtual machine or deploy a physical server that runs Windows Server 2016 or later. You can also use a Windows Server failover cluster. For supported versions, see [Azure File Sync operating system requirements](../file-sync/file-sync-planning.md#operating-system-requirements).
+* Create a virtual machine or deploy a physical server that runs Windows Server 2016 or later. You can also use a Windows Server failover cluster that uses the **File Server for general use** role on clustered disks; Scale-Out File Server and Cluster Shared Volumes aren't supported. Install the Azure File Sync agent on every node. For supported versions, see [Azure File Sync operating system requirements](../file-sync/file-sync-planning.md#operating-system-requirements).
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which isn't supported).
 
     The amount of storage you provision can be smaller than what you're currently using on your NAS appliance. This configuration choice requires that you also make use of Azure File Sync's [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) feature.
