@@ -52,13 +52,17 @@ If you want to inject a Premium v2 API Management instance into a virtual networ
 > * Inbound NSG rules do not apply when a v2 tier instance is integrated in a virtual network for private outbound access. To enforce inbound NSG rules, use virtual network injection instead of integration.
 > * This differs from networking in the classic Premium tier, where inbound NSG rules are enforced in both external and internal virtual network injection modes. [Learn more](virtual-network-injection-resources.md)
 
-### Subnet delegation
+### Subnet delegation in Standard v2 
 
 The subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
 
 [!INCLUDE [api-management-virtual-network-v2-delegation-requirement](../../includes/api-management-virtual-network-v2-delegation-requirement.md)]
+
+### Subnet delegation in Premium v2 
+
+The subnet needs to be delegated to the **Microsoft.ApiManagement/service** service.
 
 ### Permissions
 
