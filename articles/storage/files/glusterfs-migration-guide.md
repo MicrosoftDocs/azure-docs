@@ -46,7 +46,18 @@ For a complete list of requirements and setup instructions, see [Use an Azure fi
 
 ### NFS requirements
 
-NFS Azure file shares support NFS version 4.1 and aren't supported on Windows clients. Mount NFS shares from a Linux client. Windows clients should use SMB file shares.
+NFS Azure file shares require NFS version 4.1. The built-in Windows NFS client (Client for NFS) supports only NFS versions 2 and 3, so Windows can't mount NFS Azure file shares directly. For details, see [Network File System overview](/windows-server/storage/nfs/nfs-overview).
+
+To use NFS Azure file shares from Windows, mount them in a Linux distribution that runs in Windows Subsystem for Linux (WSL) 2. This approach lets you run Linux copy tools such as rsync and fpsync from an existing Windows or Windows Server machine, without deploying a separate Linux VM.
+
+1. Install WSL and a Linux distribution, and make sure the distribution runs as WSL 2. NFS mounts need the Linux kernel that WSL 2 provides; WSL 1 doesn't run a Linux kernel.
+    - Windows client: Follow the [WSL installation guide](/windows/wsl/install).
+    - Windows Server 2022 or Windows Server 2025: Follow the [WSL on Windows Server installation guide](/windows/wsl/install-on-server).
+1. Make sure the Windows machine has network access to the file share's private endpoint or service endpoint on port 2049.
+1. In the Linux distribution, mount the share as described in [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
+
+> [!NOTE]
+> Only the WSL Linux distribution mounts the share; Windows doesn't. Run your copy tools inside the distribution. If Windows applications need to work with the data, use SMB Azure file shares.
 
 # [Linux](#tab/linux)
 
