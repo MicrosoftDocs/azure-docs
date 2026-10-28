@@ -94,7 +94,8 @@ Provide a Broadcom vDefend Firewall add-on license when either of the following 
 
 Enabling firewall features without purchasing and registering the required Broadcom subscription makes the private cloud noncompliant. Microsoft may suspend a noncompliant private cloud until the issue is resolved.
 
-Not all Broadcom vDefend Firewall features are supported on Azure VMware Solution. [Here](https://learn.microsoft.com/en-us/azure/azure-vmware/faq#does-azure-vmware-solution-all-advanced-vdefend-features-with-supported-vdefend-byol-license) is high level info on what vDefend features are supported on Azure VMware Solution. If you need more info, please contact your Microsoft account team or Microsoft support to confirm support for a specific feature.
+Not all Broadcom vDefend Firewall features are supported on Azure VMware Solution. [Here](faq.yml#does-azure-vmware-solution-all-advanced-vdefend-features-with-supported-vdefend-byol-license)
+ is high level info on what vDefend features are supported on Azure VMware Solution. If you need more info, please contact your Microsoft account team or Microsoft support to confirm support for a specific feature.
 
 ## Security and data handling
 
