@@ -80,7 +80,7 @@ In this phase, map the results of the migration plan from the previous phase to 
 
 To determine how many devices of which type you need, consider these important limits:
 
-* A Data Box order can copy into multiple storage accounts in the same region; we recommend no more than three. A Data Box Disk order copies into a single storage account.
+* A Data Box order can copy into up to 10 storage accounts in the same Azure region. A Data Box Disk order copies into a single storage account.
 * Each Data Box option has its own usable capacity. See [Data Box options](#data-box-options).
 
 Consult your migration plan for the number of storage accounts you decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining this information lets you decide which appliance should send data to which storage accounts. You can have two Data Box devices move files into the same storage account, but don't split content of a single file share across two Data Box appliances.

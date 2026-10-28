@@ -74,7 +74,7 @@ In this phase, map the results of the migration plan from the previous phase to 
 
 To determine how many devices you need and their types, consider these important limits:
 
-* A Data Box order can copy into multiple storage accounts in the same region; we recommend no more than three. A Data Box Disk order copies into a single storage account.
+* A Data Box order can copy into up to 10 storage accounts in the same Azure region. A Data Box Disk order copies into a single storage account.
 * Each Data Box option comes with its own usable capacity. See [Data Box options](#data-box-options).
 
 Consult your migration plan to find the number of storage accounts you decide to create and the shares in each one. Then look at the size of each of the shares on your server. Combining this information allows you to optimize and decide which appliance should send data to which storage accounts. Two Data Box devices can move files into the same storage account, but don't split content of a single file share across two Data Boxes.
