@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use deployment scripts in Azure Resource Manager templates
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom:
@@ -578,7 +578,7 @@ Name                : runPowerShellInlineWithOutput
 Id                  : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
 ResourceGroupName   : myds0618rg
 Location            : centralus
-SubscriptionId      : aaaabbbb-0000-cccc-1111-dddd2222eeee
+SubscriptionId      : ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
 ProvisioningState   : Succeeded
 Identity            : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
@@ -627,7 +627,7 @@ The list command output is similar to:
       "userAssignedIdentities": {
         "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourcegroups/myidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
           "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-          "principalId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
+          "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
         }
       }
     },
@@ -704,7 +704,7 @@ The output is similar to:
     "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "userAssignedIdentities": {
       "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
-        "principalId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
         "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444"
       }
     }
@@ -1054,4 +1054,3 @@ In this article, you learned how to use deployment scripts. To walk through a de
 
 > [!div class="nextstepaction"]
 > [Learn module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)
-

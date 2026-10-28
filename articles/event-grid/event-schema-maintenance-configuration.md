@@ -35,7 +35,7 @@ Following is an example for a schema of a pre-maintenance event:
   "subject": "contosomaintenanceconfiguration", 
 "data": 
 { 
-   "CorrelationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
+   "CorrelationId": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
    "MaintenanceConfigurationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
    "StartDateTime": "2023-05-09T15:00:00Z",  
    "EndDateTime": "2023-05-09T18:55:00Z",  
@@ -58,7 +58,7 @@ Following is an example of a schema for the Pre-Maintenance event:
   "subject": "contosomaintenanceconfiguration", 
 "data": 
 { 
-   "CorrelationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
+   "CorrelationId": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
    "MaintenanceConfigurationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
    "StartDateTime": "2023-05-09T15:00:00Z",  
    "EndDateTime": "2023-05-09T18:55:00Z",  
@@ -86,7 +86,7 @@ Following is an example for a post maintenance event:
   "subject": "contosomaintenanceconfiguration", 
 "data": 
 { 
-   "CorrelationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
+   "CorrelationId": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
    "MaintenanceConfigurationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
    "Status": "Succeeded", 
    "StartDateTime": "2023-05-09T15:00:00Z",  
@@ -109,7 +109,7 @@ Following is an example of a schema for a post-maintenance event:
   "subject": "contosomaintenanceconfiguration", 
 "data": 
 { 
-   "CorrelationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
+   "CorrelationId": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
    "MaintenanceConfigurationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
    "Status": "Succeeded", 
    "StartDateTime": "2023-05-09T15:00:00Z",  

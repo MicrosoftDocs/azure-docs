@@ -29,6 +29,7 @@ You can do the following tasks in the new experience:
 - Add and edit tags at scale for the discovered workloads from the inventory views.
 - Export the inventory of your entire datacenter to review the details offline.
 - Review the discovered inventory specifically for your infrastructure (servers), databases, and web applications by switching to the inventory views.
+- Review the network-attached storage (NAS) clusters and the file shares they host, including protocols and capacity, alongside your other workloads.
 
 How you open the new experience depends on whether you're an existing or new user.
 
@@ -374,6 +375,103 @@ Attribute name | Details
 **Discovery source** | Source of discovery (appliance or import).
 **Support ends in (Days)** | Number of days before support ends.
 **Appliance name** | Name of the appliance used to discover the workload.
+
+## Review the NAS inventory
+
+After the Azure Migrate appliance discovers your network-attached storage (NAS) systems, the clusters and the shares they host appear as inventory objects in your project. Each cluster is listed with its shares grouped beneath it, so you can see how storage is distributed across platforms, protocols, and administrative boundaries in a single place.
+
+NAS systems and their shares appear in multiple views. Use the view that matches what you want to do:
+
+View | Path | Use it to
+--- | --- | ---
+**All inventory** | **Explore inventory** > **All inventory** | See NAS clusters, file shares, servers, databases, and web apps together, and filter across all of them.
+**Infrastructure** | **Explore inventory** > **Infrastructure** | See counts for servers, file shares, and networks, and browse a flat list of every discovered file share.
+**NAS cluster details** | Select a cluster from either view | Review cluster hardware, capacity, discovery details, and the shares it hosts.
+**File share details** | Select a share from any view | Review the share's host, volume, protocol versions, size, and discovery details.
+
+### Find NAS systems and shares in All inventory
+
+The **All inventory** view lists every workload in the project. To focus on storage, filter the view by type:
+
+1. In the Azure Migrate project, select **Explore inventory** > **All inventory**.
+1. Select **Add filter**.
+1. Set **Filter** to **Type** and **Operator** to **Equals**.
+1. In **Value**, select **NAS** and **File share**, and then select **Apply**.
+
+The list shows your NAS systems (such as NetApp ONTAP and Dell Isilon OneFS) alongside the Windows and Linux file servers that host SMB and NFS shares. The view includes the following key columns:
+
+Column | Description
+--- | ---
+**Workload** | Name of the NAS cluster, file share, or server. Select it to open the details page.
+**Category** | **Storage** for NAS clusters and file shares. Servers appear as **Server**.
+**Type** | **NAS** for a discovered cluster, **File share** for an individual share.
+**Operating system** | The platform operating system, for example NetApp ONTAP or Dell Isilon OneFS.
+**Application** | Any application the workload is associated with.
+
+> [!NOTE]
+> Use the **Show associated workloads** toggle to switch between a flat list and a grouped list. When the toggle is on, you can expand each NAS cluster and server to show the shares it hosts, so you can see how many shares sit behind each system.
+
+### Browse file shares from the Infrastructure view
+
+The **Infrastructure** view provides a count-first entry point and a flat list of every discovered file share, whether it's hosted on a NAS cluster or on a Windows or Linux server.
+
+1. Select **Explore inventory** > **Infrastructure**.
+1. Review the **Servers**, **File share**, and **Network** tiles at the top of the page for a quick count of what's discovered.
+1. Select the **File share** tile to list every discovered share.
+
+The file share list includes the following columns:
+
+Column | Description
+--- | ---
+**Fileshare** | The share or bucket name. Select it to open the share details page.
+**Host** | The NAS cluster or server that hosts the share. Select it to open the host.
+**Volume** | The underlying volume on the source system.
+**Operating system** | The host platform, for example NetApp ONTAP or Dell Isilon OneFS.
+**Estimated used size** | Used capacity, in GB. A dash indicates that a size wasn't reported for the share.
+**Protocol** | SMB, NFS, S3, or MultiProtocol.
+**Tags** | Any tags applied to the share.
+
+### Review a NAS cluster
+
+Select a NAS cluster from any inventory view to open its details page. The details page has an **Overview** tab, a **File share** tab, and a **Tags** tab.
+
+The **Overview** tab includes the following sections:
+
+Section | Details
+--- | ---
+**Basics** | Cluster name, NAS product, operating system, model, and the number of nodes in the cluster.
+**Size / Storage (GiB)** | Total capacity, used capacity, and the number of NFS, SMB, and S3 shares.
+**Discovery details** | Discovery source, the name of the appliance that discovered the cluster, the last update time, and the first discovered time.
+**Associated inventory** | The number of file shares hosted on the cluster. Select the count to list them.
+**Tags** | Tags applied to the cluster.
+
+The **File share** tab lists every share and bucket on the cluster, with its volume, estimated used size, protocol, and tags. The tab label includes the share count, so you can confirm that it matches what you expect from the source system.
+
+> [!NOTE]
+> Shares that are exposed through more than one protocol - for example, SMB and S3, or NFS and S3 - are listed with a protocol of **MultiProtocol**. Confirm which protocol a multiprotocol share is served from before you plan its migration, because the protocol affects which Azure targets are appropriate.
+
+### Review a file share
+
+Select a share from any view to open its details page, which includes the following sections:
+
+Section | Details
+--- | ---
+**Basics** | Share name, the host that serves it, the underlying volume, and the supported protocol versions - for example, SMB 2.0, 3.0, or NFS 3.0, 4.0, 4.1.
+**Size** | Estimated used size, in GB.
+**Discovery details** | Discovery source, appliance name, last update time, and first discovered time.
+**Tags** | Tags applied to the share.
+
+Select the host name in **Basics** to go back to the NAS cluster that serves the share.
+
+### Things to know about NAS inventory
+
+- Discovery is iterative. As new metadata is discovered for an existing item, the item is updated. A share can appear with partial detail in one cycle and be completed in a later one.
+- Sizes are estimates. Capacity values are reported as estimated used size. A dash means that no size was reported for that share.
+- File contents aren't inspected. Discovery collects system and share metadata only. There's no file-level crawling, access control list analysis, or content or sensitivity scanning.
+- Last access time and client lists aren't collected in this release, so you can't use the inventory to identify dormant shares or the clients connected to them.
+
+> [!NOTE]
+> If a NAS cluster or its shares don't appear after a full discovery cycle, check the credential and connectivity state in the appliance. Without valid read-only cluster credentials, no inventory is generated for that source.
 
 ## Review the web app inventory
 

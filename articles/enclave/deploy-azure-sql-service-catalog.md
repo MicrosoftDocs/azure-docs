@@ -42,7 +42,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 1. The Administrators tab requires sign in info. Here's an example of some input: 
    - Microsoft Entra User sign in: `core-enclave-admins`
    - Microsoft Entra User SID: `c0a11793-2fa9-4d7f-894f-0f7f72615a97`
-   - Microsoft Entra User Tenant ID: `af783a57-4134-41d8-bea4-fdaaecef6bcc`
+   - Microsoft Entra User Tenant ID: `aaaabbbb-0000-cccc-1111-dddd2222eeee`
    - Microsoft Entra User Principal Type: `Group`
 
 ## Deploy the template

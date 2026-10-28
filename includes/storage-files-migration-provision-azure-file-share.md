@@ -5,7 +5,7 @@ services: storage
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
-ms.date: 2/20/2020
+ms.date: 10/27/2026
 ms.author: kendownie
 ms.custom: include file
 ---
@@ -26,10 +26,7 @@ In the previous phase, you determined the appropriate number of shares. In this 
 
 Make sure the region of each of your storage accounts is the same and matches the region of the Storage Sync Service resource you've already deployed.
 
-> [!CAUTION]
-> If you create an Azure file share that has a 100 TiB limit, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
-
-Azure file shares are still created with a 5 TiB limit by default. Follow the steps in [Create an Azure file share](../articles/storage/files/storage-how-to-create-file-share.md) to create a large file share.
+Classic file shares can be up to 256 TiB with the provisioned v2 billing model, or 100 TiB with provisioned v1 and pay-as-you-go. For limits by billing model, see [Azure Files scalability and performance targets](../articles/storage/files/storage-files-scale-targets.md).
 
 Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../articles/storage/common/storage-redundancy.md).
 

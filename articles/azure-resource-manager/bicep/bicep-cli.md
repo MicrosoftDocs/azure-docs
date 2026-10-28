@@ -753,7 +753,7 @@ To simulate a real deployment environment, you can pass the following flags:
 
 | Argument | Purpose | Example Value |
 | :--- | :--- | :--- |
-| `--subscription-id` | Replaces the value returned by `subscription().subscriptionId` | `00000000-1111-2222-3333-444444444444` |
+| `--subscription-id` | Replaces the value returned by `subscription().subscriptionId` | `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` |
 | `--resource-group` | Replaces the value returned by `resourceGroup().name` | `my-production-rg` |
 | `--location` | Sets the default location for `deployment().location` | `westeurope` |
 | `--tenant-id` | Replaces the value returned by `tenant().tenantId` | `72f988bf-86f1-41af-91ab-2d7cd011db47` |

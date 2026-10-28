@@ -16,7 +16,7 @@ All logs are stored in JSON format. Each entry has the following common string f
 Name | Description
 ------- | -------
 time | Timestamp (in UTC) of the log.
-resourceId | ID of the resource that the operation took place on, in upper case. It includes the subscription ID, the resource group, and the job name. For example, **/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+resourceId | ID of the resource that the operation took place on, in upper case. It includes the subscription ID, the resource group, and the job name. For example, **/SUBSCRIPTIONS/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | Log category, either **Execution** or **Authoring**.
 operationName | Name of the operation that is logged. For example, **Send Events: SQL Output write failure to mysqloutput**.
 status | Status of the operation. For example, **Failed** or **Succeeded**.
