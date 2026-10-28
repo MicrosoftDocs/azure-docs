@@ -4,10 +4,13 @@ ms.author: jobingeorge
 description: Learn about Azure VMware Solution license-included service retirement, using portable VCF and other options.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 08/25/2026
+ms.date: 10/09/2026
 ---
 
 # Azure VMware Solution license-included service retirement, using portable VCF and other options
+
+>[!NOTE]
+>AVS is not ending, only the SKU that includes the license is changing.
 
 In November 2025, Broadcom changed its VMware licensing policies across all hyperscaler platforms to require customers to bring your own portable license for VMware Cloud Foundation (VCF). Azure VMware Solution continues to provide customers with a proven, fully managed service for running VMware workloads in Azure leveraging portable VCF licenses from Broadcom.
 
@@ -25,14 +28,14 @@ Using Azure VMware Solution VCF BYOL is the least disruptive path as customers w
 
 ## Switch private clouds
 
-For organizations looking for alternative Private Cloud offerings, Microsoft offers [Nutanix Cloud Clusters on Azure](/azure/nutanix), a Nutanix platform running on Azure bare-metal infrastructure.
+[Nutanix Cloud Clusters on Azure](../nutanix/about-nc2-on-azure.md) offers a hybrid cloud platform for VMs, containers & data with a unified operating model across on-prem and cloud. Nutanix Cloud Cluster enables organizations to migrate and modernize in Azure without refactoring. The solution offers modern compute (AHV hypervisor, NKP), storage, and networking services along with enterprise-grade management, built-in disaster recovery, scalable support for unstructured data with Nutanix Files, and automated database lifecycle management with Nutanix Database Service (NDB). Workload migration is handled seamlessly by Nutanix Move, a no-cost tool that can import the deployment from a variety of sources.
 
 ## Modernize with other Azure services
 For organizations looking to accelerate application modernization, Azure offers a variety of destinations including Azure native infrastructure, Azure Red Hat OpenShift, Azure App Services, and many other Azure services. Explore the variety of [VMware destinations in Azure](https://azure.microsoft.com/solutions/migrate-and-modernize-vmware-in-azure).
 
 ## Take action today
 
-To avoid service disruptions on 31 August 2027, allow plenty of time to purchase VCF licenses from Broadcom and complete the transition to Azure VMware Solution VCF BYOL. For customers evaluating modernization opportunities, start assessing current Azure VMware Solution environments immediately, and develop a transition roadmap to ensure you have ample time to exit Azure VMware Solution and avoid service disruption on 31 August 2027. Reach out to your Microsoft account team so we can help you start this transition.
+Allow plenty of time to purchase VCF licenses from Broadcom and complete the transition to AVS VCF BYOL. For customers evaluating modernization opportunities, start assessing current AVS environments immediately, and develop a transition roadmap to ensure you have time to evaluate all options and avoid service disruption on August 31, 2027. Reach out to your Microsoft account team so we can help you start this transition.
 
 ## Key dates and transition details
 

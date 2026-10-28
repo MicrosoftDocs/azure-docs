@@ -6,7 +6,7 @@ ms.author: aserfass
 ms.topic: concept-article
 ms.service: azure-enclave
 ai-usage: ai-assisted
-ms.date: 06/08/2026
+ms.date: 09/07/2026
 ---
 
 # Azure Enclave pricing
@@ -43,6 +43,7 @@ Enclave managed resources can include:
 - Subnets
 - [Network security groups](/azure/virtual-network/network-security-groups-overview)
 - Managed identity
+- [Storage account](/azure/storage/common/storage-account-overview)
 - [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview)
 - Optional resources such as [Azure Bastion](/azure/bastion/bastion-overview)
 
@@ -50,10 +51,15 @@ For more information about managed resources, see [What is a community?](./what-
 
 ## Azure Enclave resource types
 
-Azure Enclave resource types help create and connect secure boundaries, including communities, enclaves, community endpoints, enclave endpoints, enclave connections, and transit hubs. Azure infrastructure resources deployed or used by those Azure Enclave resource types can incur separate Azure resource charges.
+Azure Enclave resource types help you create and connect secure boundaries, including communities, enclaves, community endpoints, enclave endpoints, enclave connections, and transit hubs. Azure infrastructure resources deployed or used by those Azure Enclave resource types can incur separate Azure resource charges.
 
 ## Workload resource charges
 
 Resources that you deploy into workload resource groups are billed according to the pricing model for each Azure service. For example, virtual machines, Azure Kubernetes Service, App Service, databases, storage, and monitoring resources each have their own pricing.
 
 For more information about workload resource groups, see [Understand resource groups](./azure-enclave-resource-groups.md).
+
+## Next steps
+
+- [Understand resource groups](./azure-enclave-resource-groups.md)
+- [Azure Enclave FAQs](./azure-enclave-faq.md)

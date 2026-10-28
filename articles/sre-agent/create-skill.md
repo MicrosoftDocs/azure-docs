@@ -3,7 +3,7 @@ title: "Tutorial: Create a skill in Azure SRE Agent"
 description: Build a custom skill with instructions, tools, and supporting files that your agent uses automatically when relevant.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 09/21/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -17,7 +17,7 @@ In this tutorial, you create a custom skill that adds domain knowledge and task 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create a skill in the subagent builder
+> - Create a skill in Agent Canvas
 > - Write skill instructions in SKILL.md
 > - Add supporting files and tools
 > - Test the skill in a chat or the playground
@@ -35,32 +35,26 @@ Before you begin, make sure you have the following prerequisites:
 - An agent created in the [Azure SRE Agent portal](https://sre.azure.com).
 - A clear understanding of the procedure or domain knowledge you want to encode.
 
-## Navigate to the subagent builder
+## Navigate to Agent Canvas
 
-Open the subagent builder where you create and manage skills.
+Open Agent Canvas, where you create and manage skills.
 
 1. Open the [SRE Agent portal](https://sre.azure.com).
 1. Select your agent.
 1. Select **Builder** in the left navigation.
-1. Select **Subagent builder**.
-
-## Start skill creation
-
-Start the skill creation process from the toolbar.
-
-1. Select the **Create** dropdown in the toolbar.
-1. Select **Skill**.
+1. Select **Agent Canvas**.
+1. Select **+ Create skill**.
 
 The skill creation dialog opens with a two-column layout. Form fields on one side and a code editor on the other showing `SKILL.md`.
 
 ## Enter name and description
 
-Provide a name and description that help the agent decide when to use this skill.
+Enter the required skill name. Add a description to help the agent decide when to use the skill.
 
 | Field | Example value |
-|---|---|
-| **Name** | `high-cpu-troubleshooting` |
-| **Description** | "Troubleshooting procedure for high CPU alerts on container apps. Checks upstream dependencies, connection pool, and recent deployments." |
+| --- | --- |
+| **Name** (required) | `high-cpu-troubleshooting` |
+| **Description** (optional) | "Troubleshooting procedure for high CPU alerts on container apps. Checks upstream dependencies, connection pool, and recent deployments." |
 
 The name must be unique across your skills. The description appears in the skills list and helps the agent decide when to use this skill.
 
@@ -134,7 +128,7 @@ To create custom tools, see [Create a Kusto tool](create-kusto-tool.md) or [Crea
 
 Select **Create** to save your skill.
 
-Your skill appears in the **Skills** tab on the subagent builder. The agent can now use the skill automatically when it encounters a relevant situation.
+Your skill appears on Agent Canvas. The agent can now use the skill automatically when it encounters a relevant situation.
 
 ## Test the skill
 
@@ -153,7 +147,7 @@ Use a new chat thread to verify that the agent activates your skill.
 Use the playground to test the skill through a subagent.
 
 1. [Create a subagent](sub-agents.md) and assign this skill to it.
-1. On the subagent builder toolbar, select the **Test playground** view toggle.
+1. On the Agent Canvas toolbar, select the **Test playground** view toggle.
 1. Select the subagent, type a test prompt, and verify it uses the skill correctly.
 
 For more information, see [Agent playground](agent-playground.md).
@@ -162,12 +156,12 @@ For more information, see [Agent playground](agent-playground.md).
 
 You can modify an existing skill to update its instructions, tools, or supporting files.
 
-1. In the **Skills** tab, select the skill name or select it and choose **Edit**.
+1. On Agent Canvas, select the skill, and then select **Edit**.
 
 1. The edit dialog opens with all current values prepopulated. Change the fields you need:
 
     | What to change | Where to update |
-    |---|---|
+    | --- | --- |
     | When the agent uses it | **Description** and SKILL.md instructions |
     | What procedures to follow | SKILL.md content in the editor |
     | Which tools are available | **Tools** > Choose tools |

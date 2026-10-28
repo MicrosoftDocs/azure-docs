@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 08/04/2026
+ms.date: 09/15/2026
 ms.custom:
   - references_regions
   - build-2024
@@ -24,7 +24,7 @@ The Flex Consumption plan builds on the strengths of the serverless Consumption 
 
 + **Reduced cold start times**: Enable [always-ready instances](#always-ready-instances) to achieve faster cold start times compared to the Consumption plan. 
 + **Virtual network support**: [Virtual network integration](#virtual-network-integration) enables your serverless app to run in a virtual network.
-+ **End-to-end TLS encryption (preview)**: Encrypt traffic between the platform front ends and the workers that run your functions. For more information, see [Configure end-to-end TLS encryption](flex-consumption-how-to.md#configure-end-to-end-tls-encryption).
++ **TLS/SSL certificates and end-to-end TLS encryption**: Use [site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates) for custom domains and certificate-based application scenarios, and encrypt traffic between the platform front ends and the workers that run your functions. For more information, see [Configure end-to-end TLS encryption](flex-consumption-how-to.md#configure-end-to-end-tls-encryption).
 + **Per-function scaling**: Each function in your app [scales independently based on its workload](#per-function-scaling), potentially resulting in more efficient resource allocation.
 + **Improved concurrency handling**: Better handling of concurrent executions with configurable concurrency settings per function.
 + **Flexible memory configuration**: Flex Consumption offers multiple [instance sizes](#instance-sizes) size options, so you can optimize for your specific workload requirements.
@@ -195,7 +195,7 @@ This table shows the language stack versions that are currently supported for Fl
 | C# (isolated worker model)<sup>1</sup> | .NET 8, .NET 9, .NET 10 |
 | Java | Java 8, Java 11, Java 17, Java 21, Java 25 |
 | Node.js | Node.js 22, Node.js 24   |
-| PowerShell | PowerShell 7.4   |
+| PowerShell | PowerShell 7.6, PowerShell 7.4 |
 | Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13, Python 3.14  | 
 | Custom handlers | 1.0 |
 
@@ -207,7 +207,7 @@ All Flex Consumption apps in a subscription and region share a compute quota, li
 
 ### Default quota
 
-Each region in a subscription has a default quota of **250 cores** (equivalent to **512,000 MB**) for all Flex Consumption app instances combined. You can use any combination of instance sizes and counts, as long as the total cores stay under the quota.
+The default regional quota for all Flex Consumption app instances combined is **250 cores** (equivalent to **512,000 MB**). Azure Free Trial and Azure for Students subscriptions have a default regional quota of **15 cores** (equivalent to **30,720 MB**). You can use any combination of instance sizes and counts, as long as the total cores stay under the applicable quota.
 
 To calculate the cores used, multiply the cores per instance by the number of instances:
 
@@ -219,7 +219,7 @@ To calculate the cores used, multiply the cores per instance by the number of in
 
 ### Quota examples
 
-Each of these scenarios reaches the 250 core quota limit. When the quota is reached, apps in the region stop scaling:
+Each of these scenarios reaches the standard 250-core quota. Because Azure Free Trial and Azure for Students subscriptions have a 15-core default quota, these examples don't apply to them. When the quota is reached, apps in the region stop scaling:
 
 | Scenario                                                                | Calculation           | Total cores |
 | ----------------------------------------------------------------------- | --------------------- | ----------- |
@@ -256,9 +256,8 @@ Keep these considerations in mind when using the Flex Consumption plan:
 + **Azure Storage as a local share**: Network File System (NFS) file shares aren't available for Flex Consumption. Only Server Message Block (SMB) and Azure Blobs (read-only) are supported. For more information, see [Mount file shares](#mount-file-shares).
 + **Scale**: The lowest maximum scale is currently `1`. The highest currently supported value is `1000`.
 + **PowerShell managed dependencies**: Flex Consumption doesn't support [managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature). You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
-+ **Certificates (preview)**: Flex Consumption introduces site-scoped certificates, a new model where certificates are scoped to your individual app rather than shared across a webspace. Managed certificates and App Service certificates are supported in preview. For more information, see [Configure site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates).
++ **Certificates**: Flex Consumption uses site-scoped certificates, a model where certificates are scoped to your individual app rather than shared across a webspace. Managed certificates and App Service certificates are supported. For more information, see [Configure site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates).
 + **Time zones**: `WEBSITE_TIME_ZONE` and `TZ` app settings aren't currently supported when running on Flex Consumption plan.
-+ **Azure Functions runtime version and proxies**: Flex Consumption only supports version 4.x and later of the Azure Functions runtime. Azure Functions proxies was a feature of versions 1.x through 3.x of the Azure Functions runtime and isn't available in Flex Consumption.
 + **Plan migration**: In-place migration of an existing function app from another hosting plan to the Flex Consumption plan isn't supported. You also can't migrate your app from Flex Consumption to another plan. To move to Flex Consumption, you must create a new function app in a Flex Consumption plan and redeploy your code.
 
 ## Related articles

@@ -5,7 +5,7 @@ author: ffrachon
 ms.author: fabricfr
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/21/2026
+ms.date: 09/17/2026
 
 #CustomerIntent: As a researcher or deployer, I want to understand Microsoft Discovery and its intended purpose, capabilities, and limitations so that I can make informed decisions about adoption and use.
 ---
@@ -16,31 +16,34 @@ This platform card describes Microsoft Discovery intended uses, capabilities, li
 
 ## What is an application or platform card?
 
-Application and platform cards help you understand how Microsoft AI technology works, the choices that influence application performance, and why it's important to consider the whole system, technology, people, and environment together. Application cards are created for AI applications. Platform cards are created for AI platform services. These resources can support the development or deployment of your own applications and be shared with users or stakeholders affected by them.
+Microsoft's Application and Platform cards help you understand how our AI technology works. They explain the choices application owners make that influence application performance and behavior. They also highlight the importance of considering the whole application, including the technology, the people, and the environment. Application cards are created for AI applications, and platform cards are created for AI platform services. These resources can support the development or deployment of your own applications. You can share them with users or stakeholders impacted by the applications.
 
-As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications.
-
-Application and platform cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, explore the Microsoft Responsible AI Transparency Report and the Code of Conduct, which outline how enterprise customers and individuals can engage with AI responsibly.
+As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. The Responsible AI Standard embeds these principles. The standard guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, explore Microsoft's Responsible AI Transparency Report and Code of Conduct. They outline how enterprise customers and individuals can engage with AI responsibly. 
 
 ## Overview
 
-Discovery is in public preview and is currently available to select customers. Use of Discovery is subject to customer eligibility requirements and acceptance of the Microsoft Product Terms and User Code of Conduct. Discovery requires a license and is offered in a limited number of countries. The goal is to ensure that the system remains safe, reliable, and beneficial for all users as we continue to evolve its capabilities.
+Microsoft Discovery is currently available to select customers. Use of Microsoft Discovery is subject to customer eligibility requirements and acceptance of our Product Terms and User Code of Conduct. It requires a license and is only offered in a limited number of regions. Our goal is to ensure the system remains safe, reliable, and beneficial for all users as we continue to evolve its capabilities.  
+
+### Deployment modes 
+
+Microsoft Discovery is available in two deployment modes: 
+
+* Cloud deployment: A fully managed Azure-hosted platform that uses Azure OpenAI Service through Azure AI Foundry for model access, with Azure infrastructure for compute, networking, and security. 
+* Local application: A desktop application that runs on your machine and uses the GitHub Copilot SDK for model access. This mode is designed for individual researchers and developers who want to use Discovery's agentic AI capabilities in a lightweight, local environment without requiring Azure infrastructure. 
+
+Both deployment modes share the same core Discovery Engine, multi-agent architecture, and knowledge reasoning capabilities. The sections that follow note where behavior, capabilities, or responsibilities differ between the two modes. 
+
+The preview Microsoft Discovery app (Microsoft Discovery & the Microsoft Discovery app | Microsoft Learn) release hasn't been evaluated.
 
 ### Introduction
 
-Discovery is an enterprise *agentic AI* platform designed to support scientific research and development (R&D). It brings together domain knowledge, data, models, and computation in a single environment.
+Microsoft Discovery is an enterprise agentic AI platform designed to support scientific research and development. It helps organizations bring together domain knowledge, data, models, and computation to reason through complex problems, generate and refine hypotheses, design experiments, and analyze results. By supporting the scientific method end-to-end in a single environment, Microsoft Discovery addresses the fragmentation and cognitive overhead that often slow modern R&D efforts. 
 
-Organizations can use Discovery to reason through complex problems, generate and refine hypotheses, design experiments, and analyze results. By supporting the scientific method end‑to‑end, Discovery addresses the fragmentation and cognitive overhead that often slow modern R&D efforts.
-
-The platform uses an agentic AI architecture that uses a graph‑based knowledge engine to drive R&D outcomes with enhanced speed, scale, and accuracy. Through a natural-language interface, users can describe objectives or questions. The system can then translate them into structured plans that draw on available tools, models, and workflows.
-
-Discovery operationalizes the Discovery Engine, which incorporates outcomes and feedback into subsequent reasoning. This approach enables adaptive, explainable, and repeatable research execution while keeping the user in control.
+The platform uses an agentic AI architecture leveraging a graph-based knowledge engine to drive R&D outcomes with enhanced speed, scale, and accuracy. Through a natural-language interface, users can describe objectives or questions, and the system can translate them into structured plans that draw on available tools, models, and workflows. Microsoft Discovery operationalizes the Discovery Engine which incorporates outcomes and feedback into subsequent reasoning, enabling adaptive, explainable, and repeatable research execution while keeping the user in control. 
 
 ### Intended users
 
-Discovery is designed for R&D organizations with scientists, engineers, and developers in industries that span life sciences, materials, semiconductors, energy, manufacturing, and advanced engineering.
-
-The Azure platform is extensible and secure. It allows organizations to integrate their own data, models, and tools into a unified AI‑driven environment. Rather than replacing human expertise, Discovery augments it. Discovery helps teams manage complexity and scale insight across the research process.
+Microsoft Discovery is intended for R&D organizations including scientists, engineers, and developers in industries spanning life sciences, materials, semiconductors, energy, manufacturing, and advanced engineering. In its cloud deployment, the platform is built on Azure and designed to be extensible and secure, allowing organizations to integrate their own data, models, and tools into a unified AI‑driven environment. The local application provides an alternative for individual researchers who want to use Discovery's capabilities on their own machine using the GitHub Copilot SDK. Rather than replacing human expertise, Microsoft Discovery augments it, helping teams manage complexity and scale insight across the research process. 
 
 ## Key terms
 
@@ -50,6 +53,7 @@ The following table provides a glossary of key terms related to Discovery.
 |---|---|
 | Classifiers | Machine learning models that sort data into labeled classes or categories of information. |
 | Discovery Engine | A feature within Discovery that acts and behaves like a colleague that you can converse with, delegate to, cooperatively plan with, and hand off tasks to when you work on ambitious long-duration work. The purpose of the work that you want to accomplish organizes and drives the Discovery Engine. It uses the rest of Discovery as resources to accomplish the work. |
+| GitHub Copilot SDK | A software development kit that provides access to large language models through GitHub Copilot. In the local application deployment mode, Discovery uses the GitHub Copilot SDK as its model provider instead of Azure OpenAI Service. |
 | Grounding | Responses are anchored in relevant, reliable sources, such as customer‑provided data, internal knowledge bases, and external content where applicable. Sources provide citations or traceability when available. |
 | Large language models (LLMs) | AI models trained on large amounts of text data to predict words in sequences. They can perform tasks such as text generation, summarization, translation, and classification. |
 | Mitigation | Methods designed to reduce potential risks that might arise from using AI features. |
@@ -63,9 +67,7 @@ The key features and capabilities outlined here describe what Discovery is desig
 
 ### Natural-language interface
 
-Customers interact with Discovery through a conversational assistant that understands requests in natural language and translates them into a structured plan by using available tools and workflows. This capability helps scientists and engineers move from a research question to an actionable workflow without manually stitching together multiple systems.
-
-When needed, this assistant can invoke integrated compute and tools (for example, simulations, database queries, or model runs). It supports iterative refinement through dialogue. This interaction model lowers the barrier to using advanced R&D tools by letting customers adjust and explore workflows step by step in the same interface.
+Users interact with Microsoft Discovery through a conversational assistant that understands requests in natural language and translates them into a structured plan using available tools and workflows. This approach helps scientists and engineers move from a research question to an actionable workflow without manually stitching together multiple systems. When needed, this Copilot invokes integrated compute and tools, such as simulations, database queries, or model runs, and supports iterative refinement through dialogue. This approach lowers the barrier to using advanced R&D tools by letting users adjust and explore workflows step￼by￼step in the same interface. 
 
 ### Multi-agent architecture
 
@@ -91,9 +93,7 @@ By carrying forward what was already explored or decided, the Discovery Engine s
 
 ### Extensibility
 
-Discovery is designed to be extensible. You can bring your own models, integrate proprietary or non-Microsoft data through platforms such as Microsoft Foundry or Azure Machine Learning, and build custom agents tailored to domain needs. Plug in your in-house models, your existing lab data, domain-specific databases, or even custom-developed AI agents.
-
-Discovery incorporates those assets into the knowledge graph and workflows. It also supports partner and open-source tools. Because Discovery is built on Azure, it inherits Azure security, compliance, and governance capabilities.
+Discovery is designed to be extensible, enabling customers to bring their own models (BYOM), integrate proprietary or third‑party data via platforms such as AI Foundry or Azure Machine Learning (AML), and build custom agents tailored to domain needs. Plug in your in-house models, your existing lab data, domain-specific databases, or even custom-developed AI agents. Discovery incorporates those assets into the knowledge graph and workflows. Moreover, Discovery supports partner and open-source tools. In its cloud deployment, Discovery is built on Azure and inherits Azure's security, compliance, and governance capabilities. In its local application deployment, Discovery uses the GitHub Copilot SDK for model access and runs within the user's local environment.
 
 ### HPC integration
 
@@ -101,7 +101,7 @@ Because Discovery is built on Azure's cutting-edge infrastructure, it natively i
 
 ### Knowledge reasoning
 
-Discovery delivers advanced knowledge reasoning by combining curated domain grounding with graph‑enhanced, AI‑driven retrieval and synthesis.
+Microsoft Discovery delivers advanced knowledge reasoning by combining curated domain grounding with graph‑enhanced, AI‑driven retrieval and synthesis.
 
 At the foundation, Discovery offers a bookshelf service that researchers use to organize and ground their work in curated collections of scientific literature, papers, and reference materials tailored to their domain. This foundation ensures that reasoning and analysis are anchored in trusted, relevant sources from the start.
 
@@ -113,7 +113,7 @@ This approach avoids costly upfront summarization while scaling efficiently with
 
 #### Grounded citations
 
-When responses are grounded in web or customer data, Discovery might provide hyperlinked citations. Customers can then access the referenced websites or internal documents or databases that were used for grounding. They can also use the links to learn more about the subject.
+When responses are grounded in web or customer data, Microsoft Discovery might provide hyperlinked citations so users can access the referenced websites or internal documents and databases used for grounding to learn more about the topic.
 
 ## Intended uses
 
@@ -128,9 +128,11 @@ You can use Discovery in multiple scenarios across various industries. The follo
 
 ## Models and training data
 
-Discovery uses various AI models to power the experience that customers see. These models include LLMs accessed via the Azure OpenAI Service through Foundry. The specific models used include, but aren't limited to, OpenAI gpt-5, OpenAI gpt-5.2, and OpenAI Text Embedding 3 (small).
+Microsoft Discovery uses a variety of AI models to power the experience that users see. 
 
-For information about the training data, evaluation, and responsible AI considerations for Azure OpenAI models, see the [Transparency note for Azure OpenAI](/azure/foundry/responsible-ai/openai/transparency-note).
+**Cloud deployment:** In the cloud deployment, users access models via the Azure OpenAI Service through Azure AI Foundry. Specific models used include, but aren't limited to, OpenAI gpt-5, OpenAI gpt-5.2, OpenAI gpt-5.4, OpenAI gpt-5.4-mini, OpenAI gpt-5.5, and OpenAI Text Embedding 3 (small). For information about the training data, evaluation, and responsible AI considerations for Azure OpenAI models, see the Transparency Note for Azure OpenAI - Azure AI platforms. 
+
+**Local application:** In the local application deployment, users access models through the GitHub Copilot SDK. The specific models available depend on the user's GitHub Copilot subscription and the models enabled in their plan. For information about the training data, evaluation, and responsible AI considerations for models available through GitHub Copilot, see the GitHub Copilot documentation. 
 
 ## Performance
 
@@ -141,7 +143,7 @@ This section describes the conditions and environment under which Discovery is e
 | Intended inputs | Description | Expected outputs |
 |---|---|---|
 | Natural language | Text-based conversational prompts, research intents, and agent instructions submitted through the Discovery Copilot interface. | Research summaries, reasoning traces, literature syntheses, and conversational responses. |
-| Knowledge base documents | Unstructured and structured files for knowledge indexing. Examples include PDF, CSV, TXT, Word (.docx), PowerPoint (.pptx), and Excel (.xlsx). | Domain-specific computational results, simulation reports, logs, and transformed datasets stored in designated Azure Storage containers. |
+| Knowledge base documents | Unstructured files for knowledge indexing. Examples include PDF, CSV, TXT, Word (.docx), PowerPoint (.pptx), and Excel (.xlsx). | Domain-specific reasoning, simulation reports, and transformed datasets. In the cloud deployment, outputs are stored in designated Azure Storage containers. In the local application, outputs are stored on the user's local file system. |
 | Computational data | Domain-specific data assets, configuration files, and scripts used as inputs for containerized scientific tools (for example, molecular structures or circuit designs). | Generated scripts, code snippets, and structured data files. |
 
 To ensure consistent and reliable execution, strictly UTF-8 encode all agent instructions and prompts. Use of noncompliant formatting, such as rich-text artifacts or characters that produce encoding errors (for example, Mojibake), might result in execution failures or unexpected behavior.
@@ -158,7 +160,9 @@ Discovery is optimized for complex, multifaceted, and long-duration research cha
 
 ### Environment
 
-Discovery operates within a secure, Azure-hosted cloud environment by using virtual network (VNet) isolation, managed identities, and role-based access control (RBAC). It relies on scalable HPC node pools (with both CPU and GPU options) to run compute-intensive workloads.
+*Cloud deployment:* Discovery operates within a secure, Azure-hosted cloud environment using Virtual Network (VNet) isolation, Managed Identities, and Role-Based Access Control (RBAC). It relies on scalable High-Performance Computing (HPC) node pools (with both CPU and GPU options) to execute compute-intensive workloads. 
+
+**Local application:** The local application runs on the user's desktop machine and accesses models through the GitHub Copilot SDK using the user's GitHub account for authentication. Data is processed and stored locally on the user's machine. The local application doesn't use Azure networking infrastructure or managed identities. Users are responsible for securing their local environment, including operating system updates, disk encryption, and network configuration.
 
 ## Limitations
 
@@ -224,9 +228,7 @@ To ensure that the dataset represented real Discovery usage (not synthetic-only 
 
 ### Validation
 
-The team applied multiple quality and validity controls to ensure the reliability and integrity of the evaluation dataset. Prompts were deduplicated and normalized to remove ambiguity and unintended bias. Risk category labels were manually reviewed to confirm alignment with policy definitions.
-
-A subset of prompts were replayed against Foundry-provided baseline models to confirm expected behavioral separation between safe and unsafe responses. Regression prompts from the previous release were also retained to support longitudinal comparison across releases.
+Multiple quality and validity controls were applied to ensure the reliability and integrity of the evaluation dataset. The team deduplicated and normalized prompts to remove ambiguity and unintended bias. They manually reviewed risk category labels to confirm alignment with policy definitions. The team replayed a subset of prompts against Foundry-provided baseline models to confirm expected behavioral separation between safe and unsafe responses. They also retained regression prompts from the previous release to support longitudinal comparison across releases. The team conducted evaluations against the cloud deployment using Azure OpenAI Service endpoints. The local application deployment using the GitHub Copilot SDK is expected to exhibit comparable behavior for the same underlying models, though differences in content filtering and safety controls between the two model providers might result in minor variations.
 
 ### Metrics
 
@@ -245,9 +247,7 @@ For safety, the custom evaluation suite measured the system's ability to detect 
 
 ### Benchmarking
 
-The team interpreted the results through comparative benchmarking to detect regressions and validate stability over time. Each release was assessed against two reference points: Foundry-provided baseline model behavior on a shared subset of prompts and historical results from the prior release, enabled by the retained regression prompt set.
-
-Together, these comparisons provided a longitudinal view of whether the safety and reliability posture for Discovery improved, was stable, or regressed across releases.
+Results were interpreted through comparative benchmarking to detect regressions and validate stability over time. Each release was assessed against two reference points: Foundry-provided baseline model behavior on a shared subset of prompts, and historical results from the prior release, enabled by the retained regression prompt set. Together, these comparisons provided a longitudinal view of whether Discovery's safety and reliability posture was improving, stable, or regressing across releases. 
 
 ### Limitations of evaluation methodology
 
@@ -270,22 +270,17 @@ Discovery incorporates multiple layers of safety and security controls that help
 This section describes the active safety components, mitigation measures, and cybersecurity practices that customers, integrators, and platform operators should be aware of when they use the platform.
 
 ### Active safety components
+Discovery uses a combination of input classifiers, filters, and system‑level safeguards to prevent misuse and reduce the risk of harmful outputs. These components are designed to align with Microsoft's Responsible AI principles and are continuously updated as Discovery evolves. 
 
-Discovery uses a combination of input classifiers, filters, and system‑level safeguards to prevent misuse and reduce the risk of harmful outputs. Foundry guardrails provide these safety controls, which are a Microsoft content safety and filtering capability.
+**Cloud deployment:** Safety controls are provided through Foundry Guardrails, Microsoft's content safety and filtering capability, and are applied by default to all models created within the platform scanning content at defined intervention points to detect and block unsafe or inappropriate content before it reaches the model. Customers can create custom Guardrails and manage severity levels, including configuring Guardrails to be less restrictive, defining risks to detect, assigning Guardrails to evaluate and monitor agent behavior, configuring safety thresholds, and assessing model performance across different use cases. These capabilities support proactive risk management and safety. For more information on configuring content filters, see Configure content filters (classic) - Microsoft Foundry (classic) portal | Microsoft Learn. 
 
-The safety controls are applied by default to all models created within the platform. Content is scanned at defined intervention points to detect and block unsafe or inappropriate content before it reaches the model. The components are designed to align with the Microsoft Responsible AI principles and are continuously updated as Discovery evolves.
+To register for approval to use models directly sold by Microsoft with Modified Guardrails, you can submit the Limited Access Review: Modified Guardrails form. To the extent that you are approved for and comply with all requirements to use the model with modified Guardrails, you will have full control, including turning Guardrails off entirely or using annotations only. Note, the option to disable Guardrails is only available to managed customers. 
 
-Customers can create custom guardrails and manage severity levels. They can configure guardrails to be less restrictive and define risks to detect. They can also assign guardrails to evaluate and monitor agent behavior, configure safety thresholds, and assess model performance across different use cases.
-
-These capabilities support proactive risk management and safety. For more information on how to configure content filters, see [Configure content filters (classic)](/azure/foundry-classic/openai/how-to/content-filters).
-
-To register for approval to use models directly sold by Microsoft with modified guardrails, you can submit the Limited Access Review: Modified Guardrails form.
-
-To the extent that you're approved for and comply with all requirements to use the model with modified guardrails, you have full control. You can turn off guardrails entirely or use annotations only. The option to disable guardrails is available only to managed customers.
+**Local application:** In the local application deployment, safety controls are provided through the GitHub Copilot SDK's built-in content policies and responsible AI safeguards. These include content filtering, prompt safety checks, and usage policies enforced by the GitHub Copilot platform. The local application also applies Discovery's own system-level safeguards, including system messages and input validation, to align behavior with Microsoft's Responsible AI principles. Customers using the local application should review GitHub Copilot's acceptable use policies for details on the safety controls applied at the model layer. 
 
 ### Mitigation measures
 
-Ongoing evaluation and risk review informs the Discovery safety and performance posture. To address risks such as AI-generated responses being inaccurate, automation bias, and loop drift, Discovery emphasizes human-in-the-loop oversight as a core mitigation strategy. Customers are encouraged to validate AI-generated outputs at key decision points, especially in high-stakes research scenarios.
+Discovery's safety and performance posture comes from ongoing evaluation and risk review. To address risks such as AI-generated responses being inaccurate, automation bias, and loop drift, Discovery emphasizes human-in-the-loop oversight as a core mitigation strategy. Validate AI-generated outputs at key decision points, especially in high-stakes research scenarios.
 
 The platform supports transparency by surfacing citations and grounding sources where applicable, which helps customers trace the origin of generated content and assess its reliability. For grounded workflows, customers are encouraged to ensure that their knowledge base documents are current, well-structured, and relevant to the intended research scope. Output reliability is directly tied to the quality of available grounding sources.
 
@@ -293,33 +288,50 @@ Discovery allows customers to integrate their own models, datasets, and agents. 
 
 ### Cybersecurity measures
 
-Discovery cybersecurity architecture is designed around a defense-in-depth model. The controls span identity, network, data, compute, and operational security. The following items describe the active measures in place for this release:
+Discovery's cybersecurity architecture is designed around a defense-in-depth model. The specific controls vary by deployment mode. 
+
+#### Cloud deployment 
+
+The following section describes the active measures in place for the cloud deployment in this release. 
 
 - **Identity and access management:** Discovery enforces least-privilege access by using Microsoft Entra ID and RBAC. All control-plane and data-plane access is authenticated through Microsoft Entra ID. User-assigned managed identities (UAMIs) are used for platform components to access Azure resources without embedded secrets. Platform-specific RBAC roles support separation of duties between operators, developers, and security administrators.
 - **Network security:** Discovery uses a private-by-default network architecture. All Discovery resources are created with Azure Private Link enabled by default, which eliminates public IP exposure. Data-plane APIs have public network access disabled at the resource level. Traffic is restricted to customer VNets by using private endpoints, private DNS zones, and network security groups. This architecture supports zero-trust networking principles and reduces the platform's overall attack surface.
 - **Data protection:** Customer data is protected through encryption and tenant isolation. Encryption at rest is provided by Azure-managed encryption for storage and platform services. Encryption in transit is enforced by using HTTPS and Transport Layer Security (TLS) for all service-to-service and client-to-service communication. Customer data, knowledge graphs, and models are tenant-isolated and aren't shared across customers. Customers retain full ownership and control of their data and can export or remove assets at any time.
 - **Platform hardening:** Discovery compute infrastructure is hardened by using Azure security baselines. Supercomputer clusters and node pools are deployed on Azure-managed infrastructure following Azure security configuration standards. Platform reviews track compliance with Microsoft cloud security benchmark requirements, including TLS configuration, diagnostic logging, and private endpoint usage. Continuous security reviews identify configuration gaps and drive remediation through infrastructure updates and policy enforcement.
 - **Logging, monitoring, and detection:** Discovery integrates with Azure monitoring and security tooling to support detection and response. You can enable diagnostic logs on platform resources and route to customer-managed logging solutions. Connectivity and availability are monitored by using proactive health checks and platform telemetry. Security findings and configuration drift are reviewed as part of ongoing platform security assessments.
-- **Secure development and compliance:** Discovery follows the Microsoft Secure Development Lifecycle (SDL) and a continuous compliance model. Security bugs, vulnerabilities, and SDL requirements are tracked centrally and reviewed on an ongoing basis.
 
-  Discovery participates in Azure's continuous SDL and vulnerability management programs, which support external compliance audits including SOC, ISO, and other Azure certifications. This approach ensures that security is continuously evaluated rather than assessed only at release time.
+#### Local application 
+
+The following section describes the security measures in place for the local application deployment. 
+
+**Identity and Authentication:** The local application authenticates users through their GitHub account by using the GitHub Copilot SDK. Access to model capabilities is governed by the user's GitHub Copilot subscription and associated permissions. The local application doesn't require any Azure credentials or managed identities. 
+
+**Data Protection:** The local application stores all data on the user's local file system. The operating system's native encryption capabilities (for example, BitLocker on Windows or FileVault on macOS) protect data at rest. The local application encrypts communication with the GitHub Copilot service in transit by using HTTPS and TLS. Customer data stays on the user's machine and isn't shared with other users or tenants. 
+
+**Application Security:** The local application follows Microsoft's Secure Development Lifecycle (SDL). Updates are distributed through standard application update mechanisms, and the application is code-signed to ensure integrity. 
+
+#### Both deployment modes
+
+Secure Development and Compliance:  Discovery follows Microsoft's Secure Development Lifecycle (SDL) and a continuous compliance model. The platform centrally tracks and reviews security bugs, vulnerabilities, and SDL requirements on an ongoing basis. Discovery participates in Azure's continuous SDL and vulnerability management programs, which support external compliance audits including SOC, ISO, and other Azure certifications. This approach ensures security is continuously evaluated rather than assessed only at release time.
 
 ### Shared responsibility
 
-Security in Discovery follows the Azure shared responsibility model. Discovery secures the underlying platform, managed services, and control plane. Customers are responsible for securing their subscriptions, VNets, role assignments, and data access policies. Understanding this division of responsibility is important for customers who want to design secure deployments aligned with their organizational and compliance requirements.
+**Cloud deployment:** Security in the cloud deployment follows the Azure shared responsibility model. Discovery secures the underlying platform, managed services, and control plane. Customers are responsible for securing their subscriptions, VNets, role assignments, and data access policies. Understanding this division of responsibility is important for customers designing secure deployments aligned with their organizational and compliance requirements. 
+
+**Local application:** In the local application deployment, the user assumes greater responsibility for the security of their environment. Microsoft is responsible for the security of the application itself, its update mechanisms, and the integrity of the GitHub Copilot SDK integration. Users are responsible for securing their local machine, including operating system updates, disk encryption, network security, and access controls. Users should also ensure their GitHub account is protected with strong authentication, including multifactor authentication. 
 
 ## Best practices for integrating and deploying Discovery
 
 Responsible AI is a shared commitment between Microsoft and its customers. Microsoft builds AI applications with safety, fairness, and transparency at the core, but customers play a critical role in deploying and using these technologies responsibly within their own contexts. To support this partnership, we offer the following best practices for deployers and users to help customers implement responsible AI effectively.
 
-### Best practices for deployers and users
+### Deployers and end-users should
 
 - **Exercise caution and monitor outcomes when you use Discovery for consequential decisions or in sensitive domains:** Consequential decisions might have a legal or significant effect on a person's access to education, employment, financial platforms, government benefits, healthcare, housing, insurance, or legal platforms. They could also result in physical, psychological, or financial harm.
 
   Sensitive domains require particular care because of the potential for disproportionate impact on different groups of people. When you use AI for decisions in these areas, make sure that affected stakeholders can understand how decisions are made, appeal decisions, and update any relevant input data.
 - **Evaluate legal and regulatory considerations:** You need to evaluate potential specific legal and regulatory obligations when you use any AI platforms and solutions, which might not be appropriate for use in every industry or scenario. AI platforms or solutions aren't designed for and can't be used in ways that are prohibited in applicable terms of service and relevant codes of conduct.
 
-### Best practices for users
+### End-users should
 
 **Use clear, specific prompts:** Ensure that prompts are explicit about your goal, the scope of the task, and what evidence to use. A clear and effective prompt typically includes:
 
@@ -349,29 +361,30 @@ Using your indexed knowledge-base documents on \<TOPIC>, propose three testable 
   You should also take other precautions when you create autonomous agentic AI as described further in either the Microsoft Enterprise AI Services Code of Conduct (for organizations) or the Code of Conduct section in the Microsoft Services Agreement (for individuals).
 - **Provide feedback to help improve Microsoft Discovery:** If you encounter issues or want to share feedback, in Discovery Studio, select **Give Feedback** in the lower-right corner. You can describe what happened and include relevant details on the feedback form. Submit the form to send feedback to the Discovery team.
 
-### Best practices for deployers
+### Deployers should
 
-- **Use the reference sample agent as a baseline for grounded agent design:** Discovery provides a reference sample agent in the GitHub repository. The agent demonstrates recommended patterns for querying customer knowledge bases, enforcing grounding constraints, and handling cases where evidence is missing or weak.
+**Use the reference sample agent as a baseline for grounded agent design:** Discovery provides a reference sample agent in the GitHub repository. The agent demonstrates recommended patterns for querying customer knowledge bases, enforcing grounding constraints, and handling cases where evidence is missing or weak.
 
   The sample illustrates how to scope retrieval to relevant sources and require explicit citations or traceability. It also shows how to reduce the risk of ungrounded or speculative outputs when you work with customer‑provided data.
 - **Adapt and extend the sample based on domain, data, and risk context:** Treat the reference sample agent as a starting point rather than a production‑ready solution. When you build custom agents and workflows, you're encouraged to tailor retrieval logic, grounding requirements, validation steps, and human‑in‑the‑loop review. Base your agents and workflows on your specific domain, data structure, and risk profile. This approach is important for high‑impact or long‑running agentic workflows.
-- **Implement strong identity and access controls (least privilege):** Discovery uses Microsoft Entra ID authentication and RBAC. You should mirror that model by granting only the minimum roles that are needed for each user or workload. Avoid broad owner or subscription-wide permissions, except when necessary. Prefer scoped roles at the resource group or resource level. Use UAMIs for service-to-service access so that you don't rely on embedded secrets. Periodically review role assignments.
-- **Harden network posture and keep resources private-by-default:** Discovery is designed with Private Link enabled by default. Public network access is disabled for data-plane APIs. You should maintain this posture. Restrict access to trusted VNets and use private endpoints, private Domain Name System zones, and network security groups.
 
-  Where your organization requires extra ring-fencing, you can deploy a network security perimeter after the platform infrastructure is deployed. The perimeter further protects dependent platform-as-a-service (PaaS) services (for example, Azure Cosmos DB, Azure SQL, Azure Key Vault, and Storage accounts). Reducing public exposure lowers the attack surface and helps protect against stolen credentials being used from untrusted network locations.
-- **Keep safety controls enabled and validate any safety-threshold changes:** Discovery applies Foundry guardrails/content filtering by default for models created within the platform, and attempts to bypass or disable built-in safety mechanisms are prohibited. You can create and manage guardrails in the Foundry portal, including configuring safety thresholds and monitoring agent behavior.
+**Implement strong identity and access controls (least privilege):**  For cloud deployments, Discovery uses Microsoft Entra ID authentication and role-based access control (RBAC), and deployers should mirror that model by granting only the minimum roles needed for each user or workload. Avoid broad "Owner" or subscription-wide permissions except when absolutely necessary and prefer scoped roles at the resource group or resource level. Use user-assigned managed identities (UAMI) for service-to-service access so you don't rely on embedded secrets, and periodically review role assignments. For local application deployments, ensure users authenticate with GitHub accounts that have appropriate Copilot subscription permissions and enforce multifactor authentication on those accounts. 
 
-  If you change thresholds or customize filters, test those changes with representative prompts before they roll out broadly. For example, for this release, the content filter configuration includes input/output filtering thresholds (for example, violence/hate/sexual at Medium and self-harm at High) and enables models like jailbreak and protected-material detection. Changing these settings might affect both user experience and safety outcomes. For more information, see the [Azure AI Content Safety documentation](/azure/ai-services/content-safety).
-- **Test for safety, grounding, and toolchain reliability before scaling access:** Discovery is evaluated by using a structured prompt suite across risk categories (copyright/IP, harmful content, jailbreak attempts, and groundedness). Benchmarking is used to detect regressions over time. You should adopt a similar practice for your most important workflows.
+**Harden network posture and keep resources private-by-default:**  For cloud deployments, Discovery is designed with Azure Private Link enabled by default and public network access disabled for data-plane APIs; maintain this posture by restricting access to trusted virtual networks (VNets) and using private endpoints, private DNS zones, and network security groups (NSGs). Where your organization requires additional "ring-fencing," you can deploy a Network Security Perimeter (NSP) after the platform infrastructure is deployed to further protect dependent PaaS services (for example, Cosmos DB, Azure SQL Server, Key Vault, Storage Accounts). Reducing public exposure lowers the attack surface and helps protect against stolen credentials being used from untrusted network locations. For local application deployments, ensure the user's machine is on a secured network and that outbound connections to the GitHub Copilot service are permitted through organizational firewalls. 
+
+**Keep safety controls enabled and validate any safety-threshold changes:**  For cloud deployments, Discovery applies Foundry Guardrails / content filtering by default for models created within the platform and attempts to bypass or disable built-in safety mechanisms are prohibited. Deployers can create and manage guardrails in the Foundry portal, including configuring safety thresholds and monitoring agent behavior; if you change thresholds or customize filters, test those changes with representative prompts before rolling out broadly. For example, for this release the content filter configuration includes input/output filtering thresholds (for example, Violence/Hate/Sexual at "Medium," Self-harm at "High") and enables models like Jailbreak and Protected Material detection. Changing these settings might affect both user experience and safety outcomes. For more information, visit Azure AI Content Safety documentation - Quickstarts, Tutorials, API Reference - Foundry Tools | Microsoft Learn. For local application deployments, safety controls are provided by the GitHub Copilot SDK's built-in content policies. These controls shouldn't be circumvented, and deployers should verify that organizational Copilot policies are configured appropriately. 
+ 
+**Test for safety, grounding, and toolchain reliability before scaling access:** Discovery is evaluated by using a structured prompt suite across risk categories (copyright/IP, harmful content, jailbreak attempts, and groundedness). Benchmarking is used to detect regressions over time. You should adopt a similar practice for your most important workflows.
 
   Create a small set of *golden* end-to-end scenarios that reflect your intended use cases. Include your own tools, models, and knowledge base content. Rerun the scenarios whenever you change models, tools, agents, or datasets. Because mismatches in tool assumptions (formats, parameter ranges, and versioning) can cause failures or misleading results, validate orchestration workflows carefully.
 
   This practice is especially important when you onboard custom or non-Microsoft components. For higher-impact scenarios, require human review and an independent method of validation. For example, use domain expert review or controlled test runs.
-- **Enable logging and continuously monitor for drift:** Discovery supports logging/monitoring by allowing diagnostic logs to be enabled and routed to customer-managed logging solutions. Discovery uses proactive health checks and telemetry to track connectivity and availability. You should enable these logs, set up alerts for repeated failures or abnormal error patterns, and periodically review security findings and configuration drift as part of ongoing platform security assessments.
+
+**Enable logging and continuously monitor for drift:** Discovery supports logging and monitoring by allowing diagnostic logs to be enabled and routed to customer-managed logging solutions. Discovery uses proactive health checks and telemetry to track connectivity and availability. Enable these logs, set up alerts for repeated failures or abnormal error patterns, and periodically review security findings and configuration drift as part of ongoing platform security assessments.
 
   For performance and output-quality drift, treat changes to the knowledge base, tools, workflows, or agents as version changes. Rerun a small benchmark set to compare consistency, completeness, and grounding. Warning signs include fewer or weaker citations, increased uncertainty, contradictory conclusions, or missing key constraints. Use these signals to trigger deeper review and remediation.
 
-## Learn more about Discovery
+## Learn more about Microsoft Discovery
 
 For more guidance on the responsible use of Discovery, we recommend that you review the Responsible Use Guide, which outlines key principles for deploying AI-powered features. You can learn more here:
 

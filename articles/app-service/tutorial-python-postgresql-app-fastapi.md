@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python FastAPI Web App with PostgreSQL'
 description: Create a FastAPI web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the FastAPI framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/20/2025
+ms.date: 10/08/2026
 ms.author: msangapu
 author: msangapu-msft
 zone_pivot_groups: app-service-portal-azd
@@ -271,6 +271,8 @@ In a previous section, you added *src/entrypoint.sh* as the startup command for 
 
 In this section, you run this command manually for demonstration purposes. With the PostgreSQL database protected by the virtual network, the easiest way to run the command is in an SSH session with the App Service container.
 
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
+
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the App Service page, under **Development Tools** in the sidebar menu:
@@ -483,6 +485,8 @@ To learn more about app configuration and startup in App Service, see [Configure
 You might have noticed in the previous section that *entrypoint.sh* contains the following line: `python3 src/fastapi_app/seed_data.py`. This command migrates your database. In the sample app, it only ensures that the correct tables are created in your database. It doesn't populate these tables with any data.
 
 In this section, you'll run this command manually for demonstration purposes. With the PostgreSQL database protected by the virtual network, the easiest way to run the command is in an SSH session with the App Service container.
+
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
 
 1. Use the value of the **App Service** that you noted previously in the azd output to construct the URL for the SSH session and navigate to it in the browser:
 

@@ -30,11 +30,11 @@ items:
   items:
   - name: Access and sharing
     items:
-    - name: Configure Grafana resource authentication and permissions
+    - name: Configure Grafana authentication
       href: how-to-authentication-permissions.md
-    - name: Modify access permissions to Azure Monitor
+    - name: Grant access to Azure Monitor data
       href: how-to-permissions.md
-    - name: Manage access and permissions for users and identities
+    - name: Grant access to Grafana
       href: how-to-manage-access-permissions-users-identities.md
     - name: Use Grafana Team Sync
       href: how-to-sync-teams-with-entra-groups.md
@@ -109,10 +109,6 @@ items:
     expanded: false
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
-  - name: Configure Grafana settings
-    href: grafana-settings.md
-  - name: Upgrade to Grafana 12
-    href: how-to-upgrade-grafana-12.md
   - name: Migrate from Essential service tier
     href: how-to-migrate-essential-service-tier.md
   - name: Troubleshoot issues

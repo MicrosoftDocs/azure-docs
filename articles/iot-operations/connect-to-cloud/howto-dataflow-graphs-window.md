@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/24/2026
+ms.date: 10/19/2026
 ai-usage: ai-assisted
 
 #customer intent: As an operator, I want to aggregate high-frequency device data over configurable windows so that I can reduce message volume and send consolidated statistics downstream.
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 
 A window transform groups incoming messages and produces a single output message with aggregated values when the window closes. Instead of forwarding every reading individually, you can compute statistics such as averages, minimums, or counts and send one consolidated result downstream.
 
-Currently, a window can close based on duration, count, memory, or trigger conditions.
+A window closes based on duration, count, memory, or trigger conditions. Windows are nonoverlapping tumbling windows; sliding windows aren't available.
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
@@ -555,6 +555,10 @@ These rules go in the `value` field as an escaped string:
 
 Unlike map rules, `expression` is **required** for every accumulation rule. Using `$1` alone isn't valid because it references a collection of values, not a single scalar. You must wrap it in an aggregation function like `average($1)`.
 
+## Example: reduce noise with a ten-message batch
+
+For the complete single-asset graph, synthetic inputs and outputs, and partial-batch guidance, see [Noise reduction](dataflow-patterns/howto-reduce-noise.md).
+
 ## Aggregation functions
 
 | Function | Returns | Empty window behavior |
@@ -829,7 +833,7 @@ az iot ops dataflowgraph apply \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-07-01' = {
   name: 'temperature-window'
   parent: dataflowProfile
   properties: {

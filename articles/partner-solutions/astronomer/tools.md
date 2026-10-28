@@ -4,13 +4,16 @@ description: Learn about resources and developer tools available with Apache Air
 author: praveenrajap
 ms.author: praveenrajap
 ms.topic: overview
-ms.date: 09/15/2025
+ms.date: 10/12/2026
 
 # CustomerIntent: As a developer implementing Astro and Airflow, I want to know about other resources and tools available so that create applications that use Astro and Airflow for data orchestration.
 
 ---
 
 # What are some resources and tools you can use with Apache Airflow on Astro?
+
+> [!IMPORTANT]
+> The Azure Native ISV Service for Apache Airflow on Astro is now retired. You can still get Astro directly from Astronomer. For more information, see the [Astro documentation](https://www.astronomer.io/docs/astro/overview).
 
 In this article, you learn about resources and tools for use with Apache Airflow on Astro - An Azure Native ISV Service.
 

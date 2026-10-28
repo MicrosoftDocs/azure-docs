@@ -23,7 +23,7 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - A virtual machine (VM) or virtual machine scale set with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
 
-- Network Watcher Agent VM extension installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
+- Network Watcher Agent VM extension installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Network Watcher Agent VM extension](network-watcher-agent-manage.md#update-network-watcher-agent-vm-extension).
 
 - An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
     - The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
@@ -105,7 +105,7 @@ To start a capture session, use the following steps:
     | Storage accounts | Select your **Standard** storage account<sup>1</sup>. <br> This option is available if you select **in storage account** or **Both** as the capture location. <br> The storage account must be in the same region as the target instance. |
     | Local file path | Enter a valid local file path where you want the capture to be saved in the target virtual machine. <br>If you're using a Linux machine, the path can start with `/var/captures`. <br>If you're using a Windows machine, the path can start with `C:\Captures`. <br> This option is available if you select **in local file storage** or **Both** as the capture location. |
     | **Packet capture configuration** |  |
-    | Enable continuous capture<sup>3</sup> | Check this checkbox if you want to enable continuous packet capture. For more information, see [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture-preview). |
+    | Enable continuous capture<sup>3</sup> | Select this checkbox to enable continuous packet capture. For more information, see [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture). |
     | Maximum bytes per packet | Enter the maximum number of bytes to be captured per each packet. All bytes are captured if left blank or 0 entered. |
     | New files created<sup>3</sup> | Enter the maximum number of files created. The default value is 100 MB and the maximum value is 4 GB. <br> This option is available if you enable **continuous capture**. |
     | Bytes per file<sup>3</sup> | Enter the number of bytes per file. Once the value is reached, a new file is created. |
@@ -123,7 +123,7 @@ To start a capture session, use the following steps:
     
     <sup>2</sup> Port and IP address values can be a single value, a range such as 80-1024, or multiple values such as 80, 443.
     
-    <sup>3</sup> Continuous capture is currently in preview. For more information, see [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture-preview).
+    <sup>3</sup> See [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture).
 
 1. Select **Start packet capture**.
 

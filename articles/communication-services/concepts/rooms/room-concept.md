@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 ---
 # Rooms API for structured meetings
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Virtual Rooms empower developers with essential security and control capabilities to build well-structured communication experiences such as virtual appointments and group communications. Developers can use virtual rooms to conduct voice, video, and PSTN calls. Security and controls in rooms can be classified as follows.
 
 - User access security and controls are applied to call participants, controlling who can join a call and which actions they can take during the call. For example, during a patient's virtual appointment with a doctor, only the authorized hospital staff and patients can join the call. Limiting participants preserves the patient privacy and the participants don't exceed their assigned roles and privileges to disrupt the ongoing call.

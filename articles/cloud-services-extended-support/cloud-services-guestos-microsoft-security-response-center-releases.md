@@ -3,13 +3,13 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: srtiruma
+author: kumarjai
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 08/13/2026
+ms.date: 10/14/2026
 ms.update-cycle: 3650-days
-ms.author: srtiruma
+ms.author: kumarjai
 ms.custom: compute-evergreen
 ---
 
@@ -20,6 +20,70 @@ ms.custom: compute-evergreen
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## September 2026 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-09 | [5123099] | Latest Cumulative Update(LCU) | [5.122] | 08-Sep-26 |
+| Rel 26-09 | [5122876] | Latest Cumulative Update(LCU) | [6.98] | 08-Sep-26 |
+| Rel 26-09 | [5122882] | Latest Cumulative Update(LCU) | [7.68] | 08-Sep-26 |
+| Rel 26-09 | [5126047] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.122] | 08-Sep-26 |
+| Rel 26-09 | [5126043] | .NET Framework DotNet  | [6.98] | 08-Sep-26 |
+| Rel 26-09 | [5126050] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.68] | 08-Sep-26 |
+| Rel 26-09 | [4494175] | January '20 Microcode | [5.122] | 08-Sep-26 |
+| Rel 26-09 | [4494175] | January '20 Microcode | [6.98] | 08-Sep-26 |
+| Rel 26-09 | [5122874] | SSU LKG | [5.122] | 08-Sep-26 |
+| Rel 26-09 | [5122875] | SSU LKG | [6.98] | 08-Sep-26 |
+| Rel 26-09 | [5122881] | Servicing Stack Update | [7.68] | 08-Sep-26 |
+
+
+[5123099]: https://support.microsoft.com/kb/5123099
+[5122876]: https://support.microsoft.com/kb/5122876
+[5122882]: https://support.microsoft.com/kb/5122882
+[5126047]: https://support.microsoft.com/kb/5126047
+[5126043]: https://support.microsoft.com/kb/5126043
+[5126050]: https://support.microsoft.com/kb/5126050
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5122874]: https://support.microsoft.com/kb/5122874
+[5122875]: https://support.microsoft.com/kb/5122876
+[5122881]: https://support.microsoft.com/kb/5122882
+
+[5.122]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.98]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.68]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+## August 2026 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | GuestOS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-08 | [5120418] | Latest Cumulative Update(LCU) | [5.121] | 11-Aug-26 |
+| Rel 26-08 | [5120238] | Latest Cumulative Update(LCU) | [6.97] | 11-Aug-26 |
+| Rel 26-08 | [5120242] | Latest Cumulative Update(LCU) | [7.67] | 11-Aug-26 |
+| Rel 26-08 | [5120702] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.121] | 11-Aug-26 |
+| Rel 26-08 | [5120698] | .NET Framework DotNet  | [6.97] | 11-Aug-26 |
+| Rel 26-08 | [5120705] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.67] | 11-Aug-26 |
+| Rel 26-08 | [4494175] | January '20 Microcode | [5.121] | 11-Aug-26 |
+| Rel 26-08 | [4494175] | January '20 Microcode | [6.97] | 11-Aug-26 |
+| Rel 26-08 | [5120236] | SSU LKG | [5.121] | 11-Aug-26 |
+| Rel 26-08 | [5104020] | SSU LKG | [6.97] | 11-Aug-26 |
+| Rel 26-08 | [5120241] | Servicing Stack Update | [7.67] | 11-Aug-26 |
+
+
+[5120418]: https://support.microsoft.com/kb/5120418
+[5120238]: https://support.microsoft.com/kb/5120238
+[5120242]: https://support.microsoft.com/kb/5120242
+[5120702]: https://support.microsoft.com/kb/5120702
+[5120698]: https://support.microsoft.com/kb/5120698
+[5120705]: https://support.microsoft.com/kb/5120705
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5120236]: https://support.microsoft.com/kb/5120236
+[5104020]: https://support.microsoft.com/kb/5099538
+[5120241]: https://support.microsoft.com/kb/5120242
+
+[5.121]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.97]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.67]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 ## July 2026 Guest OS
 
 | Product Category | Parent KB Article | Vulnerability Description | GuestOS | Date First Introduced |
@@ -4773,11 +4837,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4019264] |May nonsecurity rollup |2.63 |June 13, 2017 |
 | N/A | [4014545] |May .NET nonsecurity rollup |2.63 |April 11, 2017 |
 | N/A | [4014508] |May .NET nonsecurity rollup |2.63 |May 9, 2017 |
-| N/A | [4014511] |May .NET nonsecurity rollup |2.63 |May 9, 2017 |
-| N/A | [4014514] |May .NET nonsecurity rollup |2.63 |May 9, 2017 |
+| N/A | 4014511 |May .NET nonsecurity rollup |2.63 |May 9, 2017 |
+| N/A | 4014514 |May .NET nonsecurity rollup |2.63 |May 9, 2017 |
 | N/A | [4019216] |May nonsecurity rollup |3.50 |May 9, 2017 |
 | N/A | 4014503 |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
-| N/A | [4014506] |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
+| N/A | 4014506 |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
 | N/A | [4014509] |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
 | N/A | [4014513] |May .NET nonsecurity rollup |3.50 |May 9, 2017 |
 | N/A | [4019215] |May nonsecurity rollup |4.43 |May 9, 2017 |
@@ -4800,7 +4864,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-05 | [4021279] |.NET /ASP.NET Core Advisory |2.62, 3.49, 4.42, 5.7 | May 9, 2017 |
 | N/A | [4012864] |Timezone Update |2.62, 3.49, 4.42 | May 9, 2017 |
 | N/A | [4014565] |April .NET nonsecurity rollup |2.62 | April 11, 2017 |
-| N/A | [4014559] |April .NET nonsecurity rollup |2.62 | April 11, 2017 |
+| N/A | 4014559 |April .NET nonsecurity rollup |2.62 | April 11, 2017 |
 | N/A | [4015549] |April non-Security Rollup |2.62 | April 11, 2017 |
 | N/A | [4019990] |D3DCompiler update - requirement for .NET 4.7 |3.49 | May 9, 2017 |
 | N/A | [4014563] |April .NET nonsecurity rollup |3.49 | April 11, 2017 |
@@ -4824,7 +4888,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-04 |  [4014661]  |Internet explorer |2.61, 3.48, 4.41 | April 11, 2017 |
 | Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |.NET Security |4.41 | April 11, 2017 |
 | Rel 17-04 |  [4014564]; [4014572]; [4014549] |.NET Security |3.48 | April 11, 2017 |
-| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |.NET Security |2.61 | April 11, 2017 |
+| Rel 17-04 |  4014566; [4014552]; [4014573]; 4014558  |.NET Security |2.61 | April 11, 2017 |
 | Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | April 11, 2017 |
 | Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | April 11, 2017 |
 | Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | April 11, 2017 |
@@ -4865,7 +4929,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-151 |[3205651]	|Security Update for Kernel-Mode Drivers|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
 | MS16-152 |[3199709]	|Security Update for Windows Kernel |5.4 |Dec 13, 2016 |
 | MS16-153 |[3207328] |Security Update for Common Log File System Driver|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
-| MS16-155 |[3205640]	|Security Update for .NET Framework |5.4 |Dec 13, 2016 |
+| MS16-155 |3205640	|Security Update for .NET Framework |5.4 |Dec 13, 2016 |
 | N/A |[3197868] |November 2016 Security Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.58 |Dec 13, 2016 |
 | N/A |[3197877] |November 2016 Security Monthly Quality Rollup for Windows Server 2012 |3.46 |Dec 13, 2016 |
 | N/A |[3197874] |November 2016 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.39 |Dec 13, 2016 |
@@ -4947,7 +5011,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-084 |[3169991] |Cumulative Security Update for Internet Explorer |4.34, 3.41, 2.53 |July 12, 2016 |
 | MS16-087 |[3170005] |Security Update for Microsoft Print Spooler |4.34, 3.41, 2.53 |July 12, 2016 |
 | MS16-090 |[3171481] |Security Update for Kernel Mode Drivers |4.34, 3.41, 2.53 |July 12, 2016 |
-| MS16-091 |[3170048] |Security Update for .NET Framework |4.34, 3.41, 2.53 |July 12, 2016 |
+| MS16-091 |3170048 |Security Update for .NET Framework |4.34, 3.41, 2.53 |July 12, 2016 |
 | MS16-092 |[3171910] |Security Update for Windows Kernel |4.34, 3.41 |July 12, 2016 |
 | MS16-094 |[3177404] |Security Update for Secure Boot |4.34, 3.41 |July 12, 2016 |
 | N/A |[3162835] |June 2016 DST and time zone update for Windows |4.34, 3.41, 2.53 |July 12, 2016 |
@@ -4960,7 +5024,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 ## June 2016 Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-| MS16-035 |[3141780] |Security Update for .NET Framework to Address Security Feature Bypass |4.33, 3.40, 2.52 |June 14, 2016 |
+| MS16-035 |3141780 |Security Update for .NET Framework to Address Security Feature Bypass |4.33, 3.40, 2.52 |June 14, 2016 |
 | Advisory |[3155527] |Update to Cipher Suites for FalseStart |4.33, 3.40 |June 14, 2016 |
 | MS16-063 |[3163649] |Cumulative Security Update for Internet Explorer |4.33, 3.40, 2.52 |June 14, 2016 |
 | MS16-069 |[3163640] |Cumulative Security Update for JScript and VBScript |2.52 |June 14, 2016 |
@@ -4994,7 +5058,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-060 |[3154846] |Security Update for Windows Kernel |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-061 |[3155520] |Security Update to RPC |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-062 |[3158222] |Security Update for Kernel Mode Drivers |4.32, 3.39, 2.51 |May 10, 2016 |
-| MS16-065 |[3156757] |Security Update for .NET Framework |4.32, 3.39, 2.51 |May 10, 2016 |
+| MS16-065 |3156757 |Security Update for .NET Framework |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-067 |[3155784] |Security Update for Volume Manager Driver |4.32, 3.39 |May 10, 2016 |
 | N/A |[3148851] |Time zone changes for Russia in Windows  |4.32, 3.39, 2.51 |May 10, 2016 |
 | N/A |[3133977] |BitLocker can't encrypt drives because of service crashes in svchost.exe process in Windows 7 or Windows Server 2008 R2  |2.51 |May 10, 2016 |
@@ -5034,11 +5098,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-014 |[3134228] |Security update to Microsoft Windows to Address Remote Code Execution |4.29, 3.36, 2.48 |February 9, 2016 |
 | MS16-016 |[3136041] |Security Update to WebDAV to Address Elevation of Privilege |4.29, 3.36, 2.48 |February 9, 2016 |
 | MS16-018 |[3136082] |Security Update for Windows Kernel-Mode Driver to Address Elevation of Privilege |4.29, 3.36, 2.48 |February 9, 2016 |
-| MS16-019 |[3137893] |Security Update for .NET Framework to Address Remote Code Execution |4.29, 3.36, 2.48 |February 9, 2016 |
+| MS16-019 |3137893 |Security Update for .NET Framework to Address Remote Code Execution |4.29, 3.36, 2.48 |February 9, 2016 |
 | MS16-021 |[3133043] |Security Update for NPS RADIUS Server to Address Denial of Service |4.29, 3.36, 2.48 |February 9, 2016 |
 | Microsoft Security Advisory |[3109853] |Update to Improve TLS Interoperability |4.29, 3.36 |February 9, 2016 |
-| Re-Release - MS15-101 |[3089662] |Vulnerabilities in .NET Framework Could Allow Elevation of Privilege |4.29, 3.36, 2.48 |February 9, 2016 |
-| Re-Release - MS15-118 |[3104507] |Security Updates for .NET Framework to Address Elevation of Privilege |4.29, 3.36, 2.48 |February 9, 2016 |
+| Re-Release - MS15-101 |3089662 |Vulnerabilities in .NET Framework Could Allow Elevation of Privilege |4.29, 3.36, 2.48 |February 9, 2016 |
+| Re-Release - MS15-118 |3104507 |Security Updates for .NET Framework to Address Elevation of Privilege |4.29, 3.36, 2.48 |February 9, 2016 |
 | Re-Release - MS15-128 |[3104503] |Security Updates for Microsoft Graphics Component to Address Remote Code Execution |4.29, 3.36, 2.48 |February 9, 2016 |
 
 ## January 2016 Guest OS
@@ -5073,7 +5137,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-114 |[3100213] |Security Update for Windows Journal to Address Remote Code Execution |2.45 |November 10, 2015 |
 | MS15-115 |[3105864] |Security Update for Microsoft Windows to Address Remote Code Execution |4.26, 3.33, 2.45 |November 10, 2015 |
 | MS15-117 |[3101722] |Security Update for NDIS to Address Elevation of Privilege |2.45 |November 10, 2015 |
-| MS15-118 |[3104507] |Security Updates for .NET Framework to Address Elevation of Privilege |4.26, 3.33, 2.45 |November 10, 2015 |
+| MS15-118 |3104507 |Security Updates for .NET Framework to Address Elevation of Privilege |4.26, 3.33, 2.45 |November 10, 2015 |
 | MS15-119 |[3104521] |Security Update for Winsock to Address Elevation of Privilege |4.26, 3.33, 2.45 |November 10, 2015 |
 | MS15-120 |[3102939] |Security Update for IPsec to Address Denial of Service |4.26, 3.33 |November 10, 2015 |
 | MS15-121 |[3081320] |Security Update to Schannel to Address Spoofing |4.26, 3.33, 2.45 |November 10, 2015 |
@@ -5097,7 +5161,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-096 |[3072595] |Vulnerability in Active Directory Service Could Allow Denial of Service |4.24, 3.31, 2.43 |September 8, 2015 |
 | MS15-097 |[3089656] |Vulnerabilities in Microsoft Graphics Component Could Allow Elevation of Privilege |4.24, 3.31, 2.43 |September 8, 2015 |
 | MS15-098 |[3089669] |Vulnerabilities in Windows Journal Could Allow Remote Code Execution |4.24, 3.31, 2.43 |September 8, 2015 |
-| MS15-101 |[3089662] |Vulnerabilities in .NET Framework Could Allow Elevation of Privilege |4.24, 3.31, 2.43 |September 8, 2015 |
+| MS15-101 |3089662 |Vulnerabilities in .NET Framework Could Allow Elevation of Privilege |4.24, 3.31, 2.43 |September 8, 2015 |
 | MS15-102 |[3089657] |Vulnerabilities in Windows Task Management Could Allow Elevation of Privilege |4.24, 3.31, 2.43 |September 8, 2015 |
 | MS15-105 |[3091287] |Vulnerability in Windows Hyper-V Could Allow Security Feature Bypass |4.24 |September 8, 2015 |
 
@@ -5146,7 +5210,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-043 |[3049563] |Cumulative Security Update for Internet Explorer |4.20, 3.27, 2.39 |May 12, 2015 |
 | MS15-044 |[3057110] |Vulnerabilities in Microsoft Font Drivers Could Allow Remote Code Execution |4.20, 3.27, 2.39 |May 12, 2015 |
 | MS15-045 |[3046002] |Vulnerability in Windows Journal Could Allow Remote Code Execution |4.20, 3.27, 2.39 |May 12, 2015 |
-| MS15-048 |[3057134] |Vulnerabilities in .NET Framework Could Allow Elevation of Privilege |4.20, 3.27, 2.39 |May 12, 2015 |
+| MS15-048 |3057134 |Vulnerabilities in .NET Framework Could Allow Elevation of Privilege |4.20, 3.27, 2.39 |May 12, 2015 |
 | MS15-050 |[3055642] |Vulnerability in Service Control Manager Could Allow Elevation of Privilege |4.20, 3.27, 2.39 |May 12, 2015 |
 | MS15-051 |[3057191] |Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege |4.20, 3.27, 2.39 |May 12, 2015 |
 | MS15-052 |[3050514] |Vulnerability in Windows Kernel Could Allow Security Feature Bypass |4.20, 3.27, 2.39 |May 12, 2015 |
@@ -5159,7 +5223,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-038 |[3049576] |Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege Important |4.20, 3.27, 2.39 |Apr 17, 2015 |
 | MS15-039 |[3046482] |Vulnerability in XML Core Services Could Allow Security Feature Bypass |4.20, 3.27, 2.39 |Apr 17, 2015 |
 | MS15-040 |[3045711] |Vulnerability in ADFS Could Allow Information Disclosure |4.20, 3.27, 2.39 |Apr 17, 2015 |
-| MS15-041 |[3048010] |Vulnerability in .NET Framework Could Allow Information Disclosure |4.20, 3.27, 2.39 |Apr 17, 2015 |
+| MS15-041 |3048010 |Vulnerability in .NET Framework Could Allow Information Disclosure |4.20, 3.27, 2.39 |Apr 17, 2015 |
 | MS15-042 |[3047234] |Vulnerability in Windows Hyper-V Could Allow Denial of Service |4.20, 3.27, 2.39 |Apr 17, 2015 |
 | NA |[3045755] |Update to Improve PKU2U Authentication |4.20, 3.27, 2.39 |Apr 17, 2015 |
 
@@ -5522,10 +5586,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4019264]: https://support.microsoft.com/kb/4019264
 [4014545]: https://support.microsoft.com/kb/4014545
 [4014508]: https://support.microsoft.com/kb/4014508
-[4014511]: https://support.microsoft.com/kb/4014511
-[4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
 [4019215]: https://support.microsoft.com/kb/4019215
@@ -5542,7 +5603,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4010323]: https://support.microsoft.com/kb/4010323
 [4012864]: https://support.microsoft.com/kb/4012864
 [4014565]: https://support.microsoft.com/kb/4014565
-[4014559]: https://support.microsoft.com/kb/4014559
 [4015549]: https://support.microsoft.com/kb/4015549
 [4019990]: https://support.microsoft.com/kb/4019990
 [4014563]: https://support.microsoft.com/kb/4014563
@@ -5576,7 +5636,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4014566]: https://support.microsoft.com/kb/4014566
 [4014552]: https://support.microsoft.com/kb/4014552
 [4014573]: https://support.microsoft.com/kb/4014573
-[4014558]: https://support.microsoft.com/kb/4014558
 [4015217]: https://support.microsoft.com/kb/4015217
 [4015193]: https://support.microsoft.com/kb/4015193
 [4012215]: https://support.microsoft.com/kb/4012215
@@ -5607,7 +5666,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3205651]: https://support.microsoft.com/kb/3205651
 [3199709]: https://support.microsoft.com/kb/3199709
 [3207328]: https://support.microsoft.com/kb/3207328
-[3205640]: https://support.microsoft.com/kb/3205640
 [3197868]: https://support.microsoft.com/kb/3197868
 [3197877]: https://support.microsoft.com/kb/3197877
 [3197874]: https://support.microsoft.com/kb/3197874
@@ -5675,7 +5733,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3170005]: https://support.microsoft.com/kb/3170005
 [3170050]: https://support.microsoft.com/kb/3170050
 [3171481]: https://support.microsoft.com/kb/3171481
-[3170048]: https://support.microsoft.com/kb/3170048
 [3171910]: https://support.microsoft.com/kb/3171910
 [3177404]: https://support.microsoft.com/kb/3177404
 [3162835]: https://support.microsoft.com/kb/3162835
@@ -5719,7 +5776,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3154846]: https://support.microsoft.com/kb/3154846
 [3155520]: https://support.microsoft.com/kb/3155520
 [3158222]: https://support.microsoft.com/kb/3158222
-[3156757]: https://support.microsoft.com/kb/3156757
 [3155784]: https://support.microsoft.com/kb/3155784
 [3148851]: https://support.microsoft.com/kb/3148851
 [3133977]: https://support.microsoft.com/kb/3133977
@@ -5753,11 +5809,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3134228]: https://support.microsoft.com/kb/3134228
 [3136041]: https://support.microsoft.com/kb/3136041
 [3136082]: https://support.microsoft.com/kb/3136082
-[3137893]: https://support.microsoft.com/kb/3137893
 [3133043]: https://support.microsoft.com/kb/3133043
 [3109853]: https://support.microsoft.com/kb/3109853
-[3089662]: https://support.microsoft.com/kb/3089662
-[3104507]: https://support.microsoft.com/kb/3104507
 [3104503]: https://support.microsoft.com/kb/3104503
 
 [3124903]: https://support.microsoft.com/kb/3124903
@@ -5878,7 +5931,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3049563]:https://support.microsoft.com/kb/3049563
 [3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
-[3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
 [3057191]:https://support.microsoft.com/kb/3057191
 [3050514]:https://support.microsoft.com/kb/3050514
@@ -5893,7 +5945,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3049576]:https://support.microsoft.com/kb/3049576
 [3046482]:https://support.microsoft.com/kb/3046482
 [3045711]:https://support.microsoft.com/kb/3045711
-[3048010]:https://support.microsoft.com/kb/3048010
 [3047234]:https://support.microsoft.com/kb/3047234
 [3045755]:https://support.microsoft.com/kb/3045755
 [3030377]:https://support.microsoft.com/kb/3030377

@@ -6,7 +6,8 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: durable-task
 ms.topic: quickstart
-ms.date: 07/21/2026
+ms.date: 09/01/2026
+ai-usage: ai-assisted
 zone_pivot_groups: df-languages
 ---
 
@@ -14,12 +15,12 @@ zone_pivot_groups: df-languages
 
 In this quickstart, you learn how to run a Durable Task SDK sample that uses work item filtering to route orchestrations and activities to dedicated workers.
 
-Work item filtering is currently available in the .NET and Java Durable Task SDKs. Select your language by using the tabs at the top of the page. To learn how work item filtering works and how it enables flat networking across heterogeneous compute, see [Work item filtering in the Durable Task Scheduler](./work-item-filtering.md).
+Work item filtering is currently available in the .NET, Java, and Python Durable Task SDKs. Select your language by using the tabs at the top of the page. To learn how work item filtering works and how it enables flat networking across heterogeneous compute, see [Work item filtering in the Durable Task Scheduler](./work-item-filtering.md).
 
-::: zone pivot="javascript,python,powershell"
+::: zone pivot="javascript,powershell"
 
 > [!NOTE]
-> Work item filtering isn't available yet for the JavaScript, Python, and PowerShell Durable Task SDKs. To try this feature today, select the **C#** or **Java** tab at the top of the page.
+> Work item filtering isn't available yet for the JavaScript and PowerShell Durable Task SDKs. To try this feature today, select the **C#**, **Java**, or **Python** tab at the top of the page.
 
 ::: zone-end
 
@@ -172,7 +173,7 @@ The `azd up` command provisions Azure resources and deploys four containerized s
 > [!NOTE]
 > Each Container App is configured with a KEDA scale rule (`azure-durabletask-scheduler`) that automatically scales workers from 0 to 10 replicas based on the pending work item backlog. When the client finishes its loop and no work items remain, workers scale back to zero. For more information, see [Durable Task Scheduler autoscale on Azure Container Apps](../sdks/durable-task-scheduler-auto-scaling.md).
 
-## Understand the work item filtering code
+## Understand the work item filtering code in C#
 
 The orchestration calls two activities in sequence. The scheduler routes each activity work item to the worker that registered it.
 
@@ -375,7 +376,7 @@ The `azd up` command provisions Azure resources and deploys four containerized s
 > [!NOTE]
 > Each Container App is configured with a KEDA scale rule (`azure-durabletask-scheduler`) that automatically scales workers from 0 to 10 replicas based on the pending work item backlog. When the client finishes its loop and no work items remain, workers scale back to zero. For more information, see [Durable Task Scheduler autoscale on Azure Container Apps](../sdks/durable-task-scheduler-auto-scaling.md).
 
-## Understand the work item filtering code
+## Understand the work item filtering code in Java
 
 The orchestration calls two activities in sequence. The scheduler routes each activity work item to the worker that registered it.
 
@@ -438,6 +439,142 @@ builder.useWorkItemFilters(filter);
 1. Open the resource group from the search results.
 
 1. Select **Delete resource group**, enter the resource group name to confirm, and then select **Delete**.
+
+## Next steps
+
+- Learn more about [Durable Task Scheduler autoscale on Azure Container Apps](../sdks/durable-task-scheduler-auto-scaling.md).
+- Review [troubleshooting guidance](./troubleshoot-durable-task-scheduler.md).
+
+::: zone-end
+
+::: zone pivot="python"
+
+> [!div class="checklist"]
+>
+> - Set up and run the Durable Task Scheduler emulator for local development.
+> - Run Worker A, Worker B, and the client.
+> - Verify that work items are routed only to matching workers.
+
+## Prerequisites
+
+Before you begin:
+
+- [Python 3.10](https://www.python.org/downloads/) or later.
+- [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- [Azure CLI](/cli/azure/install-azure-cli) if you use a deployed Durable Task Scheduler.
+- Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler).
+
+## Prepare the project
+
+From the `Azure-Samples/Durable-Task-Scheduler` root directory, go to the sample directory:
+
+```bash
+cd samples/durable-task-sdks/python/work-item-filtering
+```
+
+## Run locally with the emulator
+
+1. Pull the emulator image.
+
+   ```bash
+   docker pull mcr.microsoft.com/dts/dts-emulator:latest
+   ```
+
+1. Run the emulator.
+
+   ```bash
+   docker run -d --name dts-emulator -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
+   ```
+
+   The sample uses the default emulator settings (endpoint `http://localhost:8080` and task hub `default`), so you don't need to set any environment variables.
+
+1. (Optional) Create and activate a Python virtual environment.
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+   ```
+
+1. Install the required packages.
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+1. Run each worker in a separate terminal:
+
+   **Terminal 1 - Worker A (greeting)**
+
+   ```bash
+   python worker_a.py
+   ```
+
+   **Terminal 2 - Worker B (math)**
+
+   ```bash
+   python worker_b.py
+   ```
+
+1. In a third terminal, run the client.
+
+   ```bash
+   python client.py
+   ```
+
+1. Open the emulator dashboard at `http://localhost:8082` to monitor orchestration activity.
+
+### Expected output from work item filtering
+
+The client schedules a greeting orchestration and a math orchestration, and then waits for both to complete. Across the terminals, you see:
+
+- Worker A processes only the greeting orchestration and its `say_hello` activity.
+- Worker B processes only the math orchestration and its `add_numbers` activity.
+- The client prints the result from each orchestration.
+
+This behavior confirms that work item filtering routes items only to workers that registered matching task types.
+
+## Understand the work item filtering code in Python
+
+Each worker registers only its local tasks and calls `use_work_item_filters()` to opt in to filtering. The SDK generates the work item filters from the registered tasks.
+
+```python
+worker.add_orchestrator(greeting_orchestrator)
+worker.add_activity(say_hello)
+worker.use_work_item_filters()  # Auto-generate from the registry
+```
+
+> [!NOTE]
+> Each worker must explicitly call `use_work_item_filters()` to enable filtering. Workers that don't call it receive all work item types.
+
+For example:
+
+- Worker A registers `greeting_orchestrator` and `say_hello`.
+- Worker B registers `math_orchestrator` and `add_numbers`.
+
+When a worker connects to Durable Task Scheduler, the SDK sends its filter list. The scheduler creates per-filter queues and routes each work item to the matching queue. Workers never receive work item types they didn't register.
+
+To supply explicit filters instead of auto-generating them from the registry, pass `WorkItemFilters`:
+
+```python
+from durabletask.worker import WorkItemFilters, OrchestrationWorkItemFilter, ActivityWorkItemFilter
+
+worker.use_work_item_filters(WorkItemFilters(
+    orchestrations=[
+        OrchestrationWorkItemFilter(name="greeting_orchestrator"),
+    ],
+    activities=[
+        ActivityWorkItemFilter(name="say_hello"),
+    ],
+))
+```
+
+## Clean up resources
+
+Stop the local emulator container.
+
+```bash
+docker rm -f dts-emulator
+```
 
 ## Next steps
 

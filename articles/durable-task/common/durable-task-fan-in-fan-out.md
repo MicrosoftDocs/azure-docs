@@ -3,7 +3,8 @@ title: "Fan-Out/Fan-In Pattern Scenarios in Durable Functions"
 description: Learn how to implement the fan-out/fan-in pattern in Durable Functions and Durable Task SDKs to run multiple tasks in parallel and aggregate results. Try it now.
 ms.topic: tutorial
 ms.custom: devx-track-js, devx-track-python
-ms.date: 04/22/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: durable-task
@@ -18,7 +19,7 @@ zone_pivot_groups: azure-durable-approach
 
 Use the *fan-out/fan-in* pattern to run multiple functions in parallel and then aggregate the results. This pattern is a common approach for parallel processing in Azure serverless workflows. In this tutorial, you implement the fan-out/fan-in pattern with [Durable Functions](what-is-durable-task.md) to back up an app's site content to Azure Storage.
 
-[!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
+[!INCLUDE [durable-functions-sample-prerequisites](../includes/durable-functions-sample-prerequisites.md)]
 
 ::: zone-end
 
@@ -28,7 +29,7 @@ Use the *fan-out/fan-in* pattern for parallel processing in workflow orchestrati
 - Fan out work across multiple activities running concurrently.
 - Fan in by aggregating the results. 
 
-In this tutorial, you implement the fan-out/fan-in pattern with the Durable Task SDKs for .NET, JavaScript, Python, and Java.
+In this tutorial, you implement the fan-out/fan-in pattern with the Durable Task SDKs for .NET, JavaScript, Python, Java, and Go (beta).
 
 ::: zone-end
 
@@ -74,7 +75,7 @@ This article describes the functions in the sample app:
 
 This article describes the components in the example code:
 
-* `ParallelProcessingOrchestration`, `fanOutFanInOrchestrator`, `fan_out_fan_in_orchestrator`, or `FanOutFanIn_WordCount`: An orchestrator that fans out work to multiple activities in parallel, waits for all activities to complete, and then fans in by aggregating the results.
+* `ParallelProcessingOrchestration`, `fanOutFanInOrchestrator`, `fan_out_fan_in_orchestrator`, `FanOutFanIn_WordCount`, or `fanOutFanIn`: An orchestrator that fans out work to multiple activities in parallel, waits for all activities to complete, and then fans in by aggregating the results.
 * `ProcessWorkItemActivity`, `processWorkItem`, `process_work_item`, or `CountWords`: An activity that processes a single work item.
 * `AggregateResultsActivity`, `aggregateResults`, or `aggregate_results`: An activity that aggregates results from all parallel operations.
 
@@ -265,6 +266,10 @@ public long backupSiteContent(
 
 The individual calls to `E2_CopyFileToBlob` aren't awaited individually, so they run in parallel. When the orchestrator passes the task list to `ctx.allOf(parallelTasks)`, it returns a task that doesn't complete until all copy operations complete. After all tasks complete, the orchestrator sums the results to get the total bytes uploaded.
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -370,7 +375,7 @@ Use `task.when_all()` to wait for all parallel tasks to complete. The Durable Ta
 
 # [PowerShell](#tab/powershell)
 
-This sample is available for .NET, JavaScript, Java, and Python.
+This sample is available for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -408,6 +413,50 @@ DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorker
 ```
 
 Use `ctx.allOf(tasks).await()` to wait for all parallel tasks to complete. The Durable Task SDK ensures the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
+
+# [Go](#tab/go)
+
+Register this orchestrator as `FanOutFanIn`. The [Activities](#activities) section defines the `maxItems` limit, the `workResult` and `summary` types, and the `processWorkItem` and `aggregateResults` activities. Register the activities as `ProcessWorkItem` and `AggregateResults`.
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func fanOutFanIn(ctx *task.OrchestrationContext) (any, error) {
+	var items []int64
+	if err := ctx.GetInput(&items); err != nil {
+		return nil, err
+	}
+	if len(items) > maxItems {
+		return nil, fmt.Errorf("batch contains more than %d items", maxItems)
+	}
+	pending := make([]task.Task, len(items))
+	for i, item := range items {
+		pending[i] = ctx.CallActivity("ProcessWorkItem", task.WithActivityInput(item))
+	}
+	if err := ctx.WhenAll(pending...); err != nil {
+		return nil, fmt.Errorf("process batch: %w", err)
+	}
+	results := make([]workResult, len(pending))
+	for i, work := range pending {
+		if err := work.Await(&results[i]); err != nil {
+			return nil, err
+		}
+	}
+	var result summary
+	if err := ctx.CallActivity("AggregateResults", task.WithActivityInput(results)).Await(&result); err != nil {
+		return nil, err
+	}
+	return result, nil
+}
+```
+
+Schedule every activity before waiting. `WhenAll` waits for all tasks, including siblings when one fails; `Await` decodes each result. Don't implement this pattern with native goroutines inside the orchestrator.
 
 ---
 
@@ -540,6 +589,10 @@ private void collectFiles(File directory, List<String> files) {
     }
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -700,6 +753,10 @@ public long copyFileToBlob(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name in the `backups` container. The function returns the number of bytes copied to storage. The orchestrator uses that value to compute the aggregate sum.
@@ -778,7 +835,7 @@ def process_work_item(ctx: task.ActivityContext, item: int) -> dict:
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -799,6 +856,51 @@ import java.util.StringTokenizer;
         };
     }
 })
+```
+
+# [Go](#tab/go)
+
+Save the following activity and types in a separate file in the same package:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+const (
+	maxItems     = 100
+	maxMagnitude = 1_000_000
+)
+
+type workResult struct {
+	Item   int64 `json:"item"`
+	Result int64 `json:"result"`
+}
+
+type summary struct {
+	TotalItems int     `json:"total_items"`
+	Sum        int64   `json:"sum"`
+	Average    float64 `json:"average"`
+}
+
+func square(item int64) (workResult, error) {
+	if item < -maxMagnitude || item > maxMagnitude {
+		return workResult{}, fmt.Errorf("item %d exceeds the sample's safe arithmetic range", item)
+	}
+	return workResult{Item: item, Result: item * item}, nil
+}
+
+func processWorkItem(ctx task.ActivityContext) (any, error) {
+	var item int64
+	if err := ctx.GetInput(&item); err != nil {
+		return nil, err
+	}
+	return square(item)
+}
 ```
 
 ---
@@ -881,11 +983,52 @@ def aggregate_results(ctx: task.ActivityContext, results: list) -> dict:
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
 In the Java sample, the orchestrator aggregates results after `ctx.allOf(tasks).await()` returns.
+
+# [Go](#tab/go)
+
+Save this activity in another file in the same package. It validates the results before aggregating them, and handles an empty batch without dividing by zero.
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func aggregateResults(ctx task.ActivityContext) (any, error) {
+	var results []workResult
+	if err := ctx.GetInput(&results); err != nil {
+		return nil, err
+	}
+	if len(results) > maxItems {
+		return nil, fmt.Errorf("batch contains more than %d items", maxItems)
+	}
+	result := summary{TotalItems: len(results)}
+	for _, item := range results {
+		expected, err := square(item.Item)
+		if err != nil {
+			return nil, err
+		}
+		if item != expected {
+			return nil, fmt.Errorf("incorrect square for item %d: %d", item.Item, item.Result)
+		}
+		result.Sum += item.Result
+	}
+	if result.TotalItems != 0 {
+		result.Average = float64(result.Sum) / float64(result.TotalItems)
+	}
+	return result, nil
+}
+```
+
+For a complete app with connection setup, see the [Go quickstart](../sdks/quickstart-portable-durable-task-sdks.md?pivots=go).
 
 ---
 
@@ -1022,7 +1165,7 @@ print(f"Result: {result.serialized_output}")
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -1045,6 +1188,10 @@ String instanceId = client.scheduleNewOrchestrationInstance(
 OrchestrationMetadata result = client.waitForInstanceCompletion(instanceId, Duration.ofSeconds(30), true);
 System.out.println("Total word count: " + result.readOutputAs(int.class));
 ```
+
+# [Go](#tab/go)
+
+For a complete program that starts a worker, schedules a fan-out/fan-in orchestration, and reads its result, see the [Go quickstart](../sdks/quickstart-portable-durable-task-sdks.md?pivots=go). For more parallel patterns, see the [Go SDK parallel sample](https://github.com/microsoft/durabletask-go/tree/main/samples/parallel).
 
 ---
 

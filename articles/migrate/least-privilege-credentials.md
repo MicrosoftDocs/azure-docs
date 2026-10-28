@@ -6,7 +6,7 @@ ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 02/06/2025
 ms.update-cycle: 1095-days
 ms.custom:

@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/13/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to migrate files from on-premises NAS to Azure using Data Box and File Sync, so that I can establish a hybrid cloud deployment while minimizing downtime and ensuring data integrity during the transition."
 ---
@@ -254,5 +254,5 @@ The following articles will help you understand advanced options and best practi
 
 * [Migration overview](storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
-* [Create a file share](storage-how-to-create-file-share.md)
+* [Create a classic file share](create-classic-file-share.md)
 * [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

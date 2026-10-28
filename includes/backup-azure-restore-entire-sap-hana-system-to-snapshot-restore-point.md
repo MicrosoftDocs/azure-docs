@@ -5,8 +5,8 @@ services: backup
 ms.service: azure-backup
 ms.topic: include
 ms.date: 02/17/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: sfi-image-nochange
 ---
 

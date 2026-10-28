@@ -42,7 +42,7 @@ The following services support server-side encryption with customer-managed keys
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|
-| [Azure Data Explorer](/azure/data-explorer/) | Yes | | [Configure customer-managed keys (CMK) in Azure Data Explorer](/azure/data-explorer/customer-managed-keys) |
+| [Azure Data Explorer](/azure/data-explorer/) | Yes | Yes | [Configure customer-managed keys (CMK) in Azure Data Explorer](/azure/data-explorer/customer-managed-keys) |
 | [Azure Data Factory](../../data-factory/index.yml) | Yes | Yes | [Encryption with customer-managed keys for Azure Data Factory](../../data-factory/enable-customer-managed-key.md) |
 | [Azure Data Manager for Energy](../../energy-data-services/index.yml) | Yes | Yes | [Manage data security and encryption](../../energy-data-services/how-to-manage-data-security-and-encryption.md) |
 | [Azure Databricks](/azure/databricks/) | Yes | Yes | [Customer-managed keys for managed services](/azure/databricks/security/keys/cmk-managed-services-azure/customer-managed-key-managed-services-azure) |
@@ -121,7 +121,7 @@ The following services support server-side encryption with customer-managed keys
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|
-| [App Configuration](../../azure-app-configuration/index.yml) | Yes | | [Use customer-managed keys to encrypt data](../../azure-app-configuration/concept-customer-managed-keys.md) |
+| [App Configuration](../../azure-app-configuration/index.yml) | Yes | Yes | [Use customer-managed keys to encrypt data](../../azure-app-configuration/concept-customer-managed-keys.md) |
 | [Automation](../../automation/index.yml) | Yes | | [Encryption of automation assets](../../automation/automation-secure-asset-encryption.md) |
 | [Azure Chaos Studio](/azure/chaos-studio/) | Yes | | [Configure customer-managed keys for Azure Chaos Studio](/azure/chaos-studio/chaos-studio-configure-customer-managed-keys) |
 | [Azure Migrate](../../migrate/index.yml) | Yes | | [Tutorial: Migrate VMware VMs to Azure](../../migrate/tutorial-migrate-vmware.md) |

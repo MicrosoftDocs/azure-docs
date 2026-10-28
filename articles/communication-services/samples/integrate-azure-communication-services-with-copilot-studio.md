@@ -15,6 +15,8 @@ zone_pivot_groups: acs-csharp
 
 # Integrate Azure Communication Services with Microsoft Copilot Studio agents
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article provides step-by-step instructions on how to create and integrate a Microsoft Copilot Studio agent with Azure Communication Services. This article shows you how to create voice-enabled agents that your users can call into.
 
 ## Download the sample

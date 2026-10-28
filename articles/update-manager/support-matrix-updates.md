@@ -2,8 +2,8 @@
 title: Azure Update Manager support matrix for updates
 description: This article provides a summary of support for updates, one time updates, periodic assessments and scheduled patching.
 ms.service: azure-update-manager
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.date: 03/18/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
@@ -62,6 +62,10 @@ An asterisk (*) in the Offer or Plan columns represents a wildcard character. It
 | center-for-internet-security-inc | cis-windows-server-2022-l2 | * |  |
 | center-for-internet-security-inc |  | cis-windows-server2019-l* |  |
 | center-for-internet-security-inc |  | cis-windows-server2022-l* |  |
+| center-for-internet-security-inc | cis-windows-server | cis-windows-server2025-l1-gen1 | |  
+| center-for-internet-security-inc | cis-windows-server | cis-windows-server2025-l1-gen2 | | 
+| center-for-internet-security-inc | cis-windows-server | cis-windows-server2025-l2-gen1 | | 
+| center-for-internet-security-inc | cis-windows-server | cis-windows-server2025-l2-gen2 | | 
 | center-for-internet-security-inc |  |  | cis-windows-server-l*-azure-observability |
 | center-for-internet-security-inc |  | cis-windows-server2019-stig-gen1 |
 | cloud-infrastructure-services | ad-dc-2016 | ad-dc-2016 |  |
@@ -320,7 +324,7 @@ Custom images (including images uploaded to [Azure Compute gallery](/azure/virtu
 | Oracle Linux 7.x, 8x, 9x |
 | Red Hat Enterprise 7, 8, 9 |
 | SUSE Linux Enterprise Server 12.x, 15.0-15.4 |
-| Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS |
+| Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS, 26.04 LTS |
 | Common Base Linux Mariner 1, 2|
 | Rocky Linux 9|
 | Debian 10,11|

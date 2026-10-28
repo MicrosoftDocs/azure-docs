@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 06/16/2026
 ms.update-cycle: 365-days
 ms.custom: vmware-scenario-422, mvc, engagement-fy23
@@ -83,10 +83,10 @@ Enable replication as follows:
 5. In **Workloads**,
    - Select the **Target VM security type**.
         - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
-        - You can also migrate eligible machines to Confidential virtual machines (Preview) [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out.
+        - You can also migrate eligible machines to Confidential virtual machines [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out. Refer [CVM support matrix](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines).
    - Then, select the machines you want to replicate and migrate and click **Next**.
 
-7. In **Target settings**, select the subscription, target region, and Storage account.
+6. In **Target settings**, select the subscription, target region, and Storage account.
      
     - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
@@ -118,7 +118,10 @@ Enable replication as follows:
                - Confidential encryption with platform-managed key (available, if you selected **Confidential compute encryption**)
                - Confidential encryption with customer-managed key (available, if you selected **Confidential compute encryption**)
                   > [!NOTE]
-                  > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, remove these VMs from the selection.
+                  > - Secure Boot is enabled by default on target VMs when Confidential OS disk encryption is selected.
+                  > - Only customer-managed key (CMK) are supported for confidential OS disk encryption for disks larger than 127 GB. For disks smaller than 127 GB, both platform-managed key (PMK) and customer-managed key (CMK) are supported.
+                  > - Confidential OS disk encryption can lengthen the standard initial VM creation time during migration due to the encryption process.
+                  > - Data disks currently don't support confidential encryption. However, you can secure them by using host-based encryption with customer-managed keys (CMK) or platform-managed keys (PMK).
 	   
          - **Disk encryption type**, select:
               - Encryption-at-rest with platform-managed key
@@ -186,10 +189,10 @@ Enable replication as follows:
          - Servers for which test migrations are completed or skipped move to this stage. You can perform final migrations (Cutover) for these servers.
          - After migration is completed, perform **Complete migration** to clean up the migration resources by using the drop-downs available in the server drill-down blade.
 
-## Monitor and expedite migrations
+## Monitor and expedite migrations to remediate slow or stuck replications
        
-1. Use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
-1. Open the **Azure portal**, and then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
+1. You can use PowerShell to view **Time Remaining** across all stages of server migration in Azure Migrate. This helps you monitor replication progress and remediate slow or stuck replications and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
+2. Open the **Azure portal**, and then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
 3. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
 
     ```powershell
@@ -203,7 +206,7 @@ Enable replication as follows:
     :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
 
 6. The output shows the server replication status, disk progress, time left, upload speed, and datastore details.
-7. Run the command with the `Expedite` flag. This retrieves appliance operating parameters and a prioritized list of recommended actions to help reduce the remaining migration time for the specified server.
+7. **Remediate slow or stuck replications using "Expedite" command**: To retrieve appliance operating parameters and a prioritized list of recommended actions to help reduce the remaining migration time for the specified server and to remediate slow or stuck replications. Run the command with the Expedite flag.
 
     ```powershell
 

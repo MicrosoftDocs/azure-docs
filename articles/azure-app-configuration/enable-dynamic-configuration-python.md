@@ -1,16 +1,16 @@
 ---
 title: Use dynamic configuration in Python
 titleSuffix: Azure App Configuration
-description: Learn how to dynamically update configuration data for Python
-services: azure-app-configuration
+description: Learn how to dynamically update configuration data for Python applications.
 author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/03/2024
+ms.date: 9/1/2026
 ms.custom: devx-track-python, devx-track-extended-python
 ms.author: mametcal
-#Customer intent: As a Python developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
+ai-usage: ai-assisted
+# Customer intent: As a Python developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
 ---
 # Tutorial: Use dynamic configuration in Python
 
@@ -20,7 +20,7 @@ The Azure App Configuration Python provider includes built-in caching and refres
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.8 or later. For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/).
 
 ## Add key-values
 
@@ -112,7 +112,7 @@ Add the following key-value to your Azure App Configuration store. For more info
     python app.py
     ```
 
-1. Verify Output:
+1. Verify the output.
 
     ```console
     Update the `message` in your Azure App Configuration store using Azure portal or CLI.
@@ -127,7 +127,7 @@ Add the following key-value to your Azure App Configuration store. For more info
     | *message*      | *Hello World Refreshed!*  | Leave empty | Leave empty        |
     | *sentinel*     | *2*                       | Leave empty | Leave empty        |
 
-1. Once the values have been updated the updated value will print out when the refresh interval has passed.
+1. After the values are updated and the refresh interval passes, the updated value appears.
 
     ```console
     Hello World Refreshed!
@@ -261,7 +261,8 @@ Whenever these endpoints are triggered, a refresh check can be performed to ensu
 
 When a refresh is complete all values are updated at once, so the configuration is always consistent within the object.
 
-NOTE: If the refresh interval hasn't passed, then the refresh won't be attempted and returned right away.
+> [!NOTE]
+> If the refresh interval hasn't passed, a refresh isn't attempted and the check returns immediately.
 
 ## Next steps
 

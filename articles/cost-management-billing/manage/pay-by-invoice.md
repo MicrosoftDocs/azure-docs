@@ -6,7 +6,7 @@ ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 08/26/2026
 ms.author: souchak
 ---
 
@@ -30,7 +30,7 @@ When you switch to payment by wire transfer:
 
 ## Prerequisites
 
-Users who have a Microsoft Customer Agreement can request approval to pay by wire transfer in the Azure portal. Any user who has access to the Microsoft Online Subscription Program (pay-as-you-go) billing profile can [submit an Azure support request](#submit-a-request-to-set-up-payment-by-wire-transfer) to pay by wire transfer.
+Users who have a Microsoft Customer Agreement can request approval to pay by wire transfer in the Azure portal. Any user who has access to the Microsoft Online Subscription Program (pay-as-you-go) billing profile can submit an Azure support request to pay by wire transfer.
 
 To qualify for wire transfer payments, you must:
 
@@ -42,7 +42,7 @@ To qualify for wire transfer payments, you must:
 > - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card as your recurring form of payment. However, you can make manual, one-time (non-recurring) payments with a credit or debit card.
 > - As of September 30, 2023, Microsoft no longer accepts checks as a payment method.
 
-## Request to set up payment by wire transfer for Microsoft Customer agreement billing profile
+### Request to set up payment by wire transfer for Microsoft Customer Agreement billing profile
 
 Users who have a Microsoft Customer Agreement can request approval to pay by wire transfer in the Azure portal.
 
@@ -56,7 +56,11 @@ Users who have a Microsoft Customer Agreement can request approval to pay by wir
 
 1. A panel opens on the right with the results of the eligibility check.
 
-## Submit a request to set up payment by wire transfer
+If your request is approved, you can switch your billing profile to use wire transfer as its default payment method. For steps, see **Switch your billing profile to wire transfer** section in this article.
+
+If wire transfer isn't currently available for your account based on the eligibility review, you see the message **"Wire transfer isn't available for your account."** You can continue making payments with your existing payment method or add a new one. If you later meet the eligibility requirements, you can request to check eligibility again.
+
+### Submit a request to set up payment by wire transfer for Microsoft Online Services Program (MOSP) billing profile
 
 Users in all regions can manually submit an Azure support request to pay by wire transfer. If your request is approved, you can switch to payment by wire transfer in the Azure portal by using the following steps:
 

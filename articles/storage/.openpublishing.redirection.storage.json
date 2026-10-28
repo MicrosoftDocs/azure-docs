@@ -2942,7 +2942,32 @@
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-solution-periodic-data-transfer.md",
-            "redirect_url": "/azure/storage/common/storage-solution-periodic-data-transfer",
+            "redirect_url": "/azure/storage/common/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/encryption-in-transit-for-nfs-shares.md",
+            "redirect_url": "/azure/storage/files/files-encryption-in-transit",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-network-security-perimeter.md",
+            "redirect_url": "/azure/storage/files/storage-files-networking-overview#network-security-perimeter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-configure-p2s-vpn-windows.md",
+            "redirect_url": "/azure/storage/files/storage-files-networking-overview#connect-from-on-premises",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-configure-p2s-vpn-linux.md",
+            "redirect_url": "/azure/storage/files/storage-files-networking-overview#connect-from-on-premises",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-configure-s2s-vpn.md",
+            "redirect_url": "/azure/storage/files/storage-files-networking-overview#connect-from-on-premises",
             "redirect_document_id": false
         }
     ]

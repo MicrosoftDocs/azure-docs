@@ -3,7 +3,7 @@ title: Troubleshoot Mobility Service push installation with Azure Site Recovery
 description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery with Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 02/27/2026
+ms.date: 10/15/2026
 author: Jeronika-MS
 ms.author: v-gajeronika 
 ms.custom: sfi-image-nochange
@@ -181,7 +181,7 @@ If connection is unsuccessful, please check whether all pre-requisites are met.
 
 After a connectivity check, verify if the File and Printer sharing service is enabled on your virtual machine. These settings are required to copy the Mobility agent to the source machine.
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 For **Windows 2008 R2 and prior versions**:
 

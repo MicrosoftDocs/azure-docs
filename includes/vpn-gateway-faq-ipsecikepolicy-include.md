@@ -2,7 +2,7 @@
  title: Include file
  author: duongau
  ms.service: azure-vpn-gateway
- ms.date: 10/18/2023
+ ms.date: 08/19/2026
  ms.author: duau
 ---
 ### Is a custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
@@ -24,6 +24,10 @@ The following table lists the supported cryptographic algorithms and key strengt
 [!INCLUDE [Algorithm and keys table](vpn-gateway-ipsec-ike-algorithm-include.md)]
 
 [!INCLUDE [Important requirements table](vpn-gateway-ipsec-ike-requirements-include.md)]
+
+### How do I troubleshoot a PFS group mismatch?
+
+The PFS group in a custom IPsec/IKE policy is the Diffie-Hellman group used for Quick Mode (Phase 2). Your on-premises VPN device configuration must match or contain the PFS group configured in the Azure IPsec/IKE policy. If it doesn't, the connection can't establish. For inspection and remediation steps, see [Step 7 in Troubleshoot Azure Site-to-Site VPN disconnects intermittently](/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently#step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled), [Configure custom IPsec/IKE policies in the Azure portal](/azure/vpn-gateway/ipsec-ike-policy-howto#step-3-configure-a-custom-ipsecike-policy-on-the-s2s-vpn-connection), and [Configure custom IPsec/IKE policies with Azure PowerShell](/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell#managepolicy).
 
 For more information, see [Connect a VPN gateway to multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 

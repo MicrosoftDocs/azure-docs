@@ -1,17 +1,20 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 07/28/2026
+ms.date: 10/19/2026
 ms.custom: horz-monitor
 ms.topic: reference
-author: spelluru
-ms.author: spelluru 
+author: EldertGrootenboer
+ms.author: egrootenboer
+ms.service: azure-service-bus
 ---
 # Azure Service Bus monitoring data reference
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Service Bus](monitor-service-bus.md) for details on the data you can collect for Service Bus and how to use it.
+
+To correlate quota and capacity concerns with metric display names and REST API names, see [Monitor quota usage and throttling](service-bus-quotas.md#monitor-quota-usage-and-throttling). The mapping distinguishes usage metrics from diagnostic signals and identifies limits without a dedicated usage metric.
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
@@ -140,8 +143,9 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Operational logs
 - Virtual network and IP filtering logs
 - Runtime Audit logs
+- [Geo-Replication logs](#geo-replication-logs)
 
-Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](/azure/azure-monitor/essentials/resource-logs) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
+Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](/azure/azure-monitor/essentials/resource-logs) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables.
 
 :::image type="content" source="media/monitor-service-bus-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-service-bus-reference/destination-table-toggle.png":::
 
@@ -221,6 +225,68 @@ The following management operations are captured in operational logs:
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
 
+### Geo-Replication logs
+
+Geo-Replication logs capture replication lag for [Geo-Replication](service-bus-geo-replication.md), which replicates both metadata and message data between regions. Geo-Replication is available in the Premium tier. These logs describe Geo-Replication, rather than metadata-only [Geo-Disaster Recovery](service-bus-geo-dr.md).
+
+To collect these logs, enable the `DataDRLogs` category in your namespace's [diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings). For Log Analytics, this category uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
+
+The following table describes the replication fields in exported Geo-Replication records. Field names are case-sensitive in JSON.
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `SubscriptionId` | String | Azure subscription ID associated with the namespace. |
+| `NamespaceName` | String | Service Bus namespace name. |
+| `EntityType` | String | Entity type, such as `Queue`, for an entity-scoped measurement. Namespace-level records can omit this field. |
+| `EntityName` | String | Entity name for an entity-scoped measurement. Namespace-level records can omit this field. |
+| `ResourceId` | String | Azure Resource Manager resource ID of the namespace. |
+| `ActivityId` | String | Identifier for the diagnostic activity. |
+| `Region` | String | Azure region reported for the measurement. Use the `Primary` and `Secondary` objects in `Properties` to identify the replicas. |
+| `ActivityName` | String | Lag measurement: `ReplicationLagCount` or `ReplicationLagDuration`. |
+| `MetricValue` | Integer | Value of the lag measurement. The unit depends on `ActivityName`, as described in the following table. |
+| `MetricType` | String | Type of replicated data, such as `Metadata` for namespace and entity metadata or `MessagingJournal` for message data. This field identifies the data type, rather than the measurement unit. |
+| `EventTimestamp` | String | Time the measurement was recorded, including the UTC offset. This event time is distinct from Log Analytics ingestion time. |
+| `Properties` | String | JSON-encoded replication details. When populated, contains `Primary` and `Secondary` objects with the fields described below. |
+| `category` | String | Diagnostic category: `DataDRLogs`. |
+
+| Activity name | Measurement |
+| --- | --- |
+| `ReplicationLagCount` | Number of replication records by which the secondary trails the primary. Replication records include metadata and message-data changes, so this value isn't a count of application messages. |
+| `ReplicationLagDuration` | Replication lag duration, in seconds. |
+
+When `Properties` contains `Primary` and `Secondary` objects, each object describes its replica's replication position:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Name` | String | Replica name, including its region. |
+| `LastEnqueuedEpoch` | Integer | Epoch associated with the last enqueued replication record. |
+| `LastEnqueuedSequenceNumber` | Integer | Sequence number of the last enqueued replication record. |
+| `LastEnqueuedTimeUtc` | String | UTC timestamp of the last enqueued replication record. |
+
+Here's an example of a Geo-Replication record exported to Azure Storage. Identifying values are replaced with placeholders, and additional service-generated fields are omitted:
+
+```json
+{
+  "SubscriptionId": "<subscription-id>",
+  "NamespaceName": "<namespace-name>",
+  "EntityType": "Queue",
+  "EntityName": "<queue-name>",
+  "ResourceId": "/SUBSCRIPTIONS/<subscription-id>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<namespace-name>",
+  "ActivityId": "<activity-id>",
+  "Region": "East US",
+  "ActivityName": "ReplicationLagCount",
+  "MetricValue": 0,
+  "MetricType": "MessagingJournal",
+  "EventTimestamp": "10/19/2026 10:39:05.280 PM +00:00",
+  "Properties": "{\"Primary\":{\"Name\":\"<namespace-name>(eastus)\",\"LastEnqueuedEpoch\":5,\"LastEnqueuedSequenceNumber\":100,\"LastEnqueuedTimeUtc\":\"2026-10-19T22:38:00Z\"},\"Secondary\":{\"Name\":\"<namespace-name>(westus)\",\"LastEnqueuedEpoch\":5,\"LastEnqueuedSequenceNumber\":100,\"LastEnqueuedTimeUtc\":\"2026-10-19T22:38:00Z\"}}",
+  "category": "DataDRLogs"
+}
+```
+
+In this example, the primary and secondary have the same replication position, so `MetricValue` is `0`.
+
+In Log Analytics, custom fields can have type suffixes, and fields can also appear in the `AdditionalFields` property. Inspect your workspace's schema when mapping the exported JSON fields to query columns. For details, see [AzureDiagnostics columns](/azure/azure-monitor/reference/tables/azurediagnostics#columns).
+
 ### Virtual network and IP filtering logs
 
 Service Bus virtual network connection event JSON includes elements listed in the following table:
@@ -278,7 +344,7 @@ Resource specific table entry:
 
 ## Runtime audit logs
 
-Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
+Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.
 
 > [!NOTE]
 > Runtime audit logs are currently available only in the **premium** tier.  
@@ -305,6 +371,9 @@ Runtime audit logs include the elements listed in the following table:
 | `Type`  | Type of Logs emitted | No | Yes|
 
 Here's an example of a runtime audit log entry:
+
+> [!NOTE]
+> These historical examples include the `SBMP` protocol value. SBMP was retired on September 30, 2026. The value remains relevant when interpreting logs from applications that used that protocol.
 
 AzureDiagnostics:
 
@@ -406,9 +475,7 @@ Resource specific table entry:
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
-
-Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. 
+Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics.
 
 ### Service Bus Microsoft.ServiceBus/namespaces
 

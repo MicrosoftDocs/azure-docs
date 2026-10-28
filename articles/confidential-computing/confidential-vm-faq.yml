@@ -228,4 +228,9 @@ sections:
           ``` Ubuntu Linux
           systemctl restart chronyd.service
           ```
+
+      - question: |
+          Can I use memory-based Autoscale rules for confidential VM scale sets?
+        answer: |
+          No. The Azure platform metrics **Available Memory Percentage** and **Available Memory Bytes** report zero for confidential VM instances. This behavior is an expected platform limitation, so these metrics can't be used as Autoscale signals for confidential VM node types. Use CPU-based Autoscale rules instead.
           

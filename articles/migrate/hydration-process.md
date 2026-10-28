@@ -1,11 +1,11 @@
 ---
 title: Hydration process
 description: Learn about the hydration process in Azure Migrate.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 05/15/2025
 ms.update-cycle: 365-days
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
@@ -32,6 +32,35 @@ After the virtual machine is created, Azure Migrate will invoke the [Custom Scri
 
 >[!NOTE]
 >Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
+
+## Temporary hydration Azure VM SKU selection logic
+
+ The temporary hydration VM size is selected as follows:
+ 
+1. **Determine disk requirements**:
+    - Windows: Only the OS disk is attached.
+    - Linux: All protected disks are attached.
+    - Consider up to 64 disks.
+2. **Try the configured target VM size first**: Use the target VM size if it meets the following requirements:
+    - Supports the required number of disks.
+    - Not be included in the hydration VM SKU exclusion list.
+    - Is not a Basic or ARM64 SKU.
+    - Supports Generation 1.
+    - Meets zone and disk requirements, including Premium or Ultra Disk when applicable.
+3. **Find an alternative VM size**: If the target VM size isn't eligible, candidate SKUs must:
+    - Have at least 2 vCPUs and 2 GB RAM.
+    - Support the required number of disks.
+    - Match the VM size regex configured for the subscription.
+    - Not be included in the hydration VM SKU exclusion list.
+    - Meet the required zone and disk capabilities.
+4. **Select the hydration VM size**: Prefers SKUs from the target VM family. Rank eligible SKUs as follows:
+    1. Maximum supported data disks.
+    2. Number of vCPUs.
+    3. Azure API order when the above values are equal.
+   The highest-ranked SKU is the expected hydration VM size.
+5. **Verify availability and quota**: Before failover, verify that the identified SKU is available in the target subscription and that sufficient:
+    - VM-family vCPU quota is available.
+    - Regional vCPU quota is available.
 
 ## Changes performed during the hydration process
 

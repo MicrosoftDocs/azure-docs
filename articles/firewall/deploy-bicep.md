@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.date: 03/28/2026
+ms.date: 10/09/2026
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 # Customer intent: "As a cloud administrator, I want to deploy an Azure Firewall using Bicep in a virtual network with multiple subnets, so that I can manage network security effectively and ensure high availability across Availability Zones."
 ---
@@ -13,6 +13,9 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 # Quickstart: Deploy Azure Firewall with Availability Zones - Bicep
 
 In this quickstart, use Bicep to deploy an Azure Firewall in three Availability Zones.
+
+> [!NOTE]
+> For new deployments, we recommend omitting the firewall's `zones` property and letting Azure manage backend zone allocation in [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). To use platform-managed allocation, omit `zones` from the `Microsoft.Network/azureFirewalls` resource in your Bicep file. Don't remove zone settings from an existing deployment solely to obtain redundancy; eligible existing firewalls are migrated automatically.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 

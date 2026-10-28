@@ -51,7 +51,7 @@ The virtual WAN type (Basic or Standard) determines the types of resources that 
 
 The following table shows the configurations available for each virtual WAN type:
 
-[!INCLUDE [Basic and Standard](../../includes/virtual-wan-standard-basic-include.md)]
+[!INCLUDE [Basic and Standard](../networking/includes/virtual-wan/standard-basic.md)]
 
 ## Next steps
 

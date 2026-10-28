@@ -129,7 +129,7 @@ This procedure guides you through creating a virtual network and configuring coe
    > [!NOTE]
    > For coexisting gateways, you must use the default ASN of 65515. For more information, see [limits and limitations](#limits-and-limitations).
 
-   You can find the BGP peering IP and the AS number that Azure uses for the VPN gateway by running `$azureVpn.BgpSettings.BgpPeeringAddress` and `$azureVpn.BgpSettings.Asn`. For more information, see [Configure BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) for Azure VPN gateway.
+   You can find the BGP peering IP and the AS number that Azure uses for the VPN gateway by running `$azureVpn.BgpSettings.BgpPeeringAddress` and `$azureVpn.BgpSettings.Asn`. For more information, see [Configure BGP](../vpn-gateway/configure-bgp.md) for Azure VPN gateway.
 
 5. Create a local site VPN gateway entity. This command doesn’t configure your on-premises VPN gateway. Instead, it allows you to provide the local gateway settings, such as the public IP and the on-premises address space, so that the Azure VPN gateway can connect to it.
 

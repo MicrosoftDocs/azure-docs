@@ -5,7 +5,7 @@ description: "Azure Backup best practices: Enhance your data protection with acc
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 06/24/2026
+ms.date: 10/09/2026
 ms.topic: best-practice
 ms.service: azure-backup
 ---
@@ -131,7 +131,7 @@ Backup data recoverability is critical for maintaining business continuity and m
 - [Soft delete for permanent deletion protection of backup data](#soft-delete-for-permanent-deletion-protection-of-backup-data): Retains deleted backup data for a configurable period, allowing recovery from accidental or malicious deletions.
 - [Data redundancy for backup data protection](#data-redundancy-for-backup-data-protection): Supports multiple data‑redundancy options to protect backup data against hardware failures and regional outages.
 - [Cross Subscription Restore for backup data recovery](#cross-subscription-restore-for-backup-data-recovery): Enables recovery of backup data to an isolated subscription when the primary subscription is compromised or untrusted.
-
+- [Cross-tenant restore for backup data recovery (preview)](#cross-tenant-restore-for-backup-data-recovery-preview): Enables recovery of vaulted backup data into a different tenant when access to the source tenant is lost or compromised.
 ### Immutability for backup data
 
 Immutable vaults ensure that once backup data is stored, deletion remains blocked until the defined retention period expires. This protection preserves data integrity and safeguards backups from both insider and external threats. Immutable vaults also block destructive operations such as reducing retention, stopping backups, or deleting backup data.
@@ -189,6 +189,12 @@ If a subscription becomes compromised or you lose trust in the primary subscript
 Because restore operations can expose sensitive data, classify restore and cross-subscription restore actions as critical operations under Multi-user authorization (MUA). This control ensures that security admins can access and restore backup data.
 
 Learn how to enable cross-subscription restore for Azure Backup in [Recovery Services vault](backup-create-recovery-services-vault.md#set-cross-subscription-restore) and [Backup vault](manage-backup-vault.md#cross-subscription-restore-using-azure-portal).
+
+### Cross-tenant restore for backup data recovery (preview)
+
+If you lose access to the tenant that contains your vaults, for example due to a tenant lockout or ransomware attack, use cross-tenant restore to recover vaulted backup data into a different tenant that you control. You map the source vault to a target vault, and then restore from the target tenant. A Resource Guard in the target tenant protects the mapping operation through multi-user authorization (MUA).
+
+Learn more about [cross-tenant restore](cross-tenant-restore-overview.md) and how to [configure it](tutorial-cross-tenant-restore.md).
 
 
 ## Pillar 4 – Backup governance

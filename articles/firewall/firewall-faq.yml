@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: faq
-  ms.date: 07/01/2025
+  ms.date: 10/14/2026
   ms.author: duau
 title: Azure Firewall FAQ
 summary: |
@@ -176,6 +176,21 @@ sections:
           Set-AzFirewall -AzureFirewall $azfw
           ```
 
+          **For a firewall with a Management NIC and no public IP associated with the Dataplane NIC:**
+          ```azurepowershell
+          # Stop the firewall
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $azfw.Deallocate()
+          Set-AzFirewall -AzureFirewall $azfw
+
+          # Start the firewall
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+          $mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+          $azfw.Allocate($vnet, $null, $mgmtPip)
+          Set-AzFirewall -AzureFirewall $azfw
+          ```
+
           **For a firewall in a secured virtual hub:**
           ```azurepowershell
           # Stop the firewall
@@ -193,34 +208,24 @@ sections:
           > [!NOTE]
           > When stopping and starting the firewall, billing stops and starts accordingly. However, the private IP address might change, which can affect connectivity if route tables are configured.
 
-      - question: How can I configure availability zones after deployment?
+      - question: Do I need to specify availability zones when deploying Azure Firewall?
         answer: |
-          It's recommended to configure availability zones during initial deployment. However, you can reconfigure them after deployment if:
-          - The firewall is deployed in a virtual network (not supported in secured virtual hubs).
-          - The region supports availability zones.
-          - All attached public IP addresses are configured with the same zones.
+          No. For new deployments, don't specify firewall availability zones. Azure manages backend allocation across multiple availability zones in [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). Omit `-Zone` from `New-AzFirewall`, `--zones` from `az network firewall create`, and the firewall's `zones` property from deployment templates. Public IP zone configuration is separate.
 
-          To reconfigure availability zones:
-          1. Deallocate the firewall:
-             ```azurepowershell
-             $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-             $azfw.Deallocate()
-             Set-AzFirewall -AzureFirewall $azfw
-             ```
-          2. Update the zone configuration and allocate the firewall:
-             ```azurepowershell
-             $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-             $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-             $pip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
-             $mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
-             $azfw.Allocate($vnet, $pip, $mgmtPip)
-             $azfw.Zones = 1, 2, 3
-             Set-AzFirewall -AzureFirewall $azfw
-             ```
+          In regions without availability zones, the firewall remains a regional resource.
+
+      - question: Do existing firewalls need to be redeployed to become zone redundant?
+        answer: |
+          No. Azure automatically migrates existing non-zone-redundant firewalls in regions that support multiple availability zones. Migration is complete in the [listed regions](deploy-availability-zone-powershell.md#zr-compatible-regions).
+
+          You don't need to deallocate, redeploy, or change zone settings to receive the migration.
+
+      - question: Why don't the firewall's zone properties show its backend zone redundancy?
+        answer: |
+          Platform-managed migration doesn't necessarily update the configured `zones` property. It can remain empty or continue to show the originally configured single zone even when the backend is zone redundant. Don't use the portal, ARM, CLI, PowerShell, or Azure Resource Graph zone property alone as proof of backend redundancy. For more information, see [Understanding zone properties after migration](deploy-availability-zone-powershell.md#understanding-zone-properties-after-migration).
 
       - question: Are there any Azure firewall resource group restrictions?
         answer: |
-          Yes:
           - The Azure Firewall and virtual network must be in the same resource group.
           - The public IP address can be in a different resource group.
           - All resources (Azure firewall, virtual network, public IP) must be in the same subscription.
@@ -248,6 +253,10 @@ sections:
       - question: How can I increase my firewall throughput?
         answer: |
           Azure Firewall scales automatically based on CPU usage, throughput, and connection count. Throughput capacity ranges from 2.5–3 Gbps initially to 30 Gbps (Standard SKU) or 100 Gbps (Premium SKU).
+
+      - question: How many firewalls can reference a single IP Group?
+        answer: |
+          A single IP Group has a soft limit of 50 referencing firewalls. Exceeding this limit might affect performance and cause IP Group updates to fail. For more information, see [Azure Firewall limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) and [IP Groups in Azure Firewall](ip-groups.md).
 
       - question: Are there limits for the number of IP addresses supported by IP Groups?
         answer: |

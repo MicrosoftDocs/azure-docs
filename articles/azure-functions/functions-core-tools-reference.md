@@ -2,7 +2,7 @@
 title: Azure Functions local runtime and tools reference
 description: Reference documentation for the Azure Functions CLI and its predecessor, Azure Functions Core Tools.
 ms.topic: reference
-ms.date: 05/29/2026
+ms.date: 08/24/2026
 ms.custom:
   - build-2026
   - ignite-2023
@@ -358,6 +358,7 @@ The `func start` command supports these options:
 | **`--timeout`**, **`-t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds. |
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 | **`--user-log-level`** | Sets the minimum log level for user logs. Valid values are: `Trace`, `Debug`, `Information`, `Warning`, `Error`, `Critical`, and `None`. This setting doesn't affect system logs. For .NET isolated projects, also set the minimum level in `Program.cs` by using `builder.Logging.SetMinimumLevel(LogLevel.Debug)` for this option to take effect. |
+| **`--address`** | Local IP address to bind to. Default: ... |
 
 With the project running, [verify individual function endpoints](functions-run-local.md#run-a-local-function).
 

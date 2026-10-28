@@ -15,7 +15,7 @@
   expanded: true
   items:
     - name: Get started (ADR integration)
-      href: iot-hub-device-registry-setup.md
+      href: ../iot/device-registry/get-started-azure-device-registry.md
     - name: Create an IoT hub (no ADR integration)
       href: create-hub.md
       displayName: create IoT Hub, delete IoT hub, portal, CLI
@@ -39,7 +39,7 @@
       href: iot-hub-understand-ip-address.md
       displayName: service tags, firewall rules, IP filter
     - name: Best practices for Azure Device Registry namespaces
-      href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/device-registry/best-practices-namespaces.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Protocol support
       items:
         - name: MQTT support
@@ -172,8 +172,6 @@
   items: 
   - name: Azure Device Registry integration (preview)
     href: iot-hub-device-registry-overview.md
-  - name: Enable or disable device in ADR (preview)
-    href: how-to-disable-enable-device.md
   - name: IoT Hub device management
     items:
     - name: Overview of device management
@@ -246,9 +244,6 @@
           href: iot-hub-public-network-access.md
         - name: Restrict outbound network access
           href: iot-hub-restrict-outbound-network-access.md
-    - name: Security baseline for IoT Hub
-      href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
-      displayName: security benchmark
     - name: Regulatory compliance controls by Azure Policy
       href: ./security-controls-policy.md
       displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA

@@ -1,3 +1,4 @@
+items:
 - name: Durable Task Documentation
   href: index.yml
 - name: Overview
@@ -104,6 +105,8 @@
     items:
     - name: Develop
       items:
+      - name: Go SDK (beta)
+        href: ../sdks/durable-task-go.md
       - name: Unit testing
         href: ../durable-functions/durable-functions-unit-testing.md
       - name: Schedules
@@ -199,7 +202,7 @@
       - name: Zip deployment
         href: ../../azure-functions/deployment-zip-push.md
       - name: Run from package
-        href: ../../azure-functions/run-functions-from-deployment-package.md
+        href: ../../azure-functions/deployment-zip-push.md#run-functions-from-the-deployment-package
       - name: Zero downtime deployment
         href: ../durable-functions/durable-functions-zero-downtime-deployment.md
     - name: Monitor
@@ -248,6 +251,10 @@
         href: ../scheduler/durable-task-scheduler-customer-managed-keys.md
       - name: Private endpoints
         href: ../scheduler/durable-task-scheduler-private-endpoints.md
+    - name: Disaster recovery overview
+      href: ../scheduler/disaster-recovery.md
+    - name: Configure disaster recovery
+      href: ../scheduler/disaster-recovery-configure.md
     - name: Monitor
       items:
       - name: Monitoring dashboard
@@ -284,6 +291,8 @@
       href: /python/api/overview/azure/durable-task
     - name: Java API
       href: /java/api/com.microsoft.durabletask
+    - name: Go API (beta)
+      href: https://pkg.go.dev/github.com/microsoft/durabletask-go@v1.0.0-beta3
   - name: Durable Functions
     items:
     - name: Host.json settings

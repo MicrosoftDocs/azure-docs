@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/03/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -16,6 +16,14 @@ ms.custom:
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2026
+
+### 2026 quarter 4 (October, November, December)
+
+#### File shares using Microsoft.FileShares are now available in 12 additional regions
+
+You can now create file shares using the Microsoft.FileShares resource provider in Central US, West Central US, East US 2, West US 2, Denmark East, Belgium Central, Austria East, New Zealand North, Malaysia West, Chile Central, Indonesia Central, and West US 3. This expansion brings regional availability to 51 regions.
+
+For details, see [Regional availability](./files-management-concepts.md#regional-availability).
 
 ### 2026 quarter 2 (April, May, June)
 
@@ -95,7 +103,7 @@ Windows servers connected through Azure Arc can now install the Azure File Sync 
 
 #### Encryption in Transit (EiT) for NFS file shares is now generally available
 
-With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](encryption-in-transit-for-nfs-shares.md).
+With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](files-encryption-in-transit.md).
 
 #### Metadata caching for SSD SMB file shares is now generally available
 
@@ -137,7 +145,7 @@ When managed identities are configured for an Azure File Sync deployment, system
 -	Registered server authentication to Azure file share 
 -	Registered server authentication to Storage Sync Service
 
-Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](../file-sync/file-sync-managed-identities.md).
+Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](../file-sync/file-sync-managed-identities.md).
 
 #### Azure File Sync v19 release
 
@@ -228,7 +236,7 @@ This preview enables share-level read and write access to SMB file shares for us
 
 #### AD Kerberos authentication for Linux clients (SMB) is generally available
 
-Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB using either on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS). For more information, see [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
+Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB by using either on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services. For configuration steps, see [Configure Linux clients for Azure Files with on-premises AD DS](storage-files-identity-auth-linux-kerberos-enable.md) and [Configure Linux clients for Azure Files with Microsoft Entra Domain Services](storage-files-identity-auth-linux-kerberos-entra-domain-services.md).
 
 ### 2023 quarter 1 (January, February, March)
 #### NFS nconnect for Azure file shares is generally available

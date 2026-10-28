@@ -274,7 +274,7 @@ For a more detailed testing scenario that uses Visual Studio, see [Test function
 
 ## Publish to Azure
 
-When you publish your Functions project to Azure, Visual Studio uses [zip deployment](functions-deployment-technologies.md#zip-deploy) to deploy the project files. When possible, you should also select **Run from package file** so that the project runs in the deployment (.zip) package. For more information, see [Run your functions from a package file in Azure](run-functions-from-deployment-package.md).
+When you publish your Functions project to Azure, Visual Studio uses [ZIP deployment](functions-deployment-technologies.md#zip-deployment) to deploy the project files. Select **Run from package file** so the project runs in the deployment (.zip) package. For more information, see [Run functions from the deployment package](deployment-zip-push.md#run-functions-from-the-deployment-package).
 
 Don't deploy to Functions by using Web Deploy (`msdeploy`). 
 

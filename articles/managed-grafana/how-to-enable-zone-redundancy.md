@@ -51,8 +51,6 @@ Create a workspace and enable zone redundancy with the Azure portal or the CLI.
 
 1. In the upper-left corner of the home page, select **Create a resource**. In the **Search resources, services, and docs (G+/)** box, enter *Azure Managed Grafana* and select **Azure Managed Grafana**.
 
-    :::image type="content" source="media/quickstart-portal/find-azure-portal-grafana.png" alt-text="Screenshot of the Azure platform. Find Azure Managed Grafana in the marketplace." :::
-
 1. Select **Create**.
 
 1. In the **Basics** pane, enter the following settings.

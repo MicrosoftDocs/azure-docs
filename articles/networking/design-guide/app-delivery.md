@@ -5,7 +5,7 @@ description: Choose the right Azure load balancing service. Compare Azure Load B
 #customer intent: As a network architect, I want to compare Azure load balancing services so that I can choose the right one for my workload's traffic type and geographic scope.
 author: duongau
 ms.author: duau
-ms.date: 08/18/2026
+ms.date: 08/28/2026
 ms.topic: concept-article
 ms.service: azure-virtual-network
 zone_pivot_groups: networking-scenario
@@ -58,7 +58,7 @@ The following table summarizes the three primary Azure load balancing services.
 |---|---|---|---|
 | **Azure Standard Load Balancer** | Layer 4 (TCP/UDP) load balancing within a region. Health probes, zone redundancy, outbound SNAT rules, and HA ports for network virtual appliances. | Virtual Machine Scale Sets, AKS internal traffic, non-HTTP/HTTPS regional workloads, and NVA high availability. | No SSL/TLS termination; no WAF; no URL-based routing; regional scope only. |
 | **Azure Application Gateway** | Layer 7 (HTTP/HTTPS) regional load balancing. SSL/TLS termination, URL path-based routing, multisite hosting, cookie-based session affinity, and optional WAF integration. | Regional web applications that need SSL offload, URL routing, WebSocket support, or WAF protection. | Regional only; requires a dedicated subnet; not suited for global routing or CDN scenarios. |
-| **Azure Front Door** | Global anycast load balancing and CDN. TLS termination at the edge, integrated WAF, origin health probes, traffic splitting, and caching across more than 190 global points of presence (PoPs). | Global web applications, multiregion active-active deployments, CDN and caching, and global WAF enforcement. | HTTP/HTTPS only; origins must be publicly accessible or reachable through Private Link (Premium tier). |
+| **Azure Front Door** | Global unicast load balancing and CDN. TLS termination at the edge, integrated WAF, origin health probes, traffic splitting, and caching across more than 190 global points of presence (PoPs). | Global web applications, multiregion active-active deployments, CDN and caching, and global WAF enforcement. | HTTP/HTTPS only; origins must be publicly accessible or reachable through Private Link (Premium tier). |
 
 ### Zone redundancy
 
@@ -66,7 +66,7 @@ Zone redundancy protects your application delivery tier from datacenter failures
 
 - **Standard Load Balancer** (public) is zone-redundant by default because Standard public IP addresses default to zone-redundant configuration. Traffic continues to flow even if one availability zone fails. Standard Load Balancer (internal) requires explicit zone-redundant frontend configuration: you must select multiple zones when you create the frontend IP.
 - **Application Gateway v2** supports zone redundancy when you deploy instances across multiple availability zones. Specify the zones during deployment. A zone-redundant Application Gateway spreads instances across the zones you select, maintaining availability if a single zone goes offline.
-- **Azure Front Door** is inherently zone-redundant as a global anycast service. Its more than 190 edge PoPs span multiple regions worldwide, so no single zone or region failure impacts global traffic routing.
+- **Azure Front Door** is inherently zone-redundant as a global unicast service. Its more than 190 edge PoPs span multiple regions worldwide, so no single zone or region failure impacts global traffic routing.
 
 ### Autoscaling
 
@@ -100,7 +100,7 @@ Use the following decision tables to select the right load balancing service for
 |---|---|
 | Load balance TCP/UDP traffic within a single region | **Azure Standard Load Balancer:** Layer 4 distribution with health probes, zone redundancy, and HA ports. |
 | Terminate SSL/TLS, route by URL path or hostname, and add WAF for a regional web app | **Azure Application Gateway:** Layer 7 regional load balancing with integrated WAF (v2 SKU). |
-| Route HTTP/HTTPS traffic globally, reduce latency with edge caching, or fail over across regions | **Azure Front Door:** Global anycast with CDN, WAF, and multiregion origin health probes. |
+| Route HTTP/HTTPS traffic globally, reduce latency with edge caching, or fail over across regions | **Azure Front Door:** Global unicast with CDN, WAF, and multiregion origin health probes. |
 
 ### Key constraints comparison
 
@@ -177,7 +177,7 @@ Before you implement application delivery services:
 
 - **Deployed virtual network:** You need at least one virtual network with subnets. See [Virtual network and subnet design](vnets-subnets.md) for subnet planning guidance.
 - **Workload traffic type identified:** Know whether your workload uses HTTP/HTTPS (Layer 7) or TCP/UDP (Layer 4). This traffic type determines your primary load balancer choice.
-- **Geographic scope defined:** Determine whether your users are in a single region or distributed globally. Global user bases benefit from Front Door's anycast acceleration.
+- **Geographic scope defined:** Determine whether your users are in a single region or distributed globally. Global user bases benefit from Front Door's unicast acceleration.
 - **Subnet capacity for Application Gateway:** Application Gateway requires a dedicated subnet with no other resources. A /24 subnet supports up to 125 instances plus five Azure-reserved addresses.
 
 ## Security considerations

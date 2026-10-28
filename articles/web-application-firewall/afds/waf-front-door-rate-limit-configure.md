@@ -1,11 +1,11 @@
 ---
-title: Configure a WAF rate-limit rule for Azure Front Door
-description: Learn how to configure a rate-limit rule for an existing Azure Front Door endpoint.
+title: Configure a WAF Rate-Limit Rule for Azure Front Door
+description: Learn how to create and associate an Azure Front Door WAF rate-limit rule by using the Azure portal, Azure PowerShell, Azure CLI, or Bicep.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 05/19/2023
+ms.date: 10/22/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
 # Customer intent: "As a web application administrator, I want to configure a rate-limit rule for my Azure Front Door endpoint, so that I can manage incoming traffic and protect my back-end services from performance issues during high-traffic promotions."
@@ -15,15 +15,23 @@ zone_pivot_groups: web-application-firewall-configuration
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
-The Azure Web Application Firewall rate-limit rule for Azure Front Door controls the number of requests allowed from a particular source IP address to the application during a rate-limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
+The Azure Web Application Firewall rate-limit rule for Azure Front Door controls the number of requests allowed from a particular source IP address to the application during a rate-limit duration. On Azure Front Door Premium, you can instead group the count by country/region, autonomous system number (ASN), or JA4 client fingerprint, or count all matching requests together (preview). For more information about rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
 
 This article shows how to configure a web application firewall (WAF) rate-limit rule on Azure Front Door Standard and Premium tiers.
+
+Before you configure rate limiting, decide the policy association scope:
+
+- Profile scope for shared baseline controls.
+- Domain scope for domain-specific behavior.
+- Route scope for the most targeted control.
+
+If multiple scopes apply, route-level policy takes precedence over domain-level policy, and domain-level policy takes precedence over profile-level policy.
 
 ::: zone pivot="portal,powershell,cli"
 
 ## Scenario
 
-Suppose you're responsible for a public website. You've just added a page with information about a promotion your organization is running. You're concerned that if clients visit that page too often, some of your back-end services might not scale quickly and the application might have performance issues.
+Suppose you're responsible for a public website. You just added a page with information about a promotion your organization is running. You're concerned that if clients visit that page too often, some of your back-end services might not scale quickly and the application might have performance issues.
 
 You decide to create a rate-limit rule that restricts each source IP address to a maximum of 1,000 requests per minute. You only apply this rule to requests that contain `*/promo*` in the request URL.
 
@@ -60,7 +68,7 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 
 1. Select **Review + create** > **Create**.
 
-1. After the deployment is finished, select **Go to resource**.
+1. After the deployment finishes, select **Go to resource**.
 
 ## Create a rate-limit rule
 
@@ -76,6 +84,9 @@ You decide to create a rate-limit rule that restricts each source IP address to 
    - **Rate limit duration**: Select **1 minute**.
    - **Rate limit threshold (requests)**: Enter **1000**.
 
+   > [!NOTE]
+   > On Front Door Premium, the rule also has a **Group rate limit traffic by** setting (preview). For this scenario, leave the default, which counts requests from each client IP address. To count requests by country/region, AS number, or JA4 fingerprint instead, or to count all matching requests together, see [Group rate limit traffic (preview)](waf-front-door-rate-limit.md#group-rate-limit-traffic-preview).
+
 1. In **Conditions**, enter the information required to specify a match condition to identify requests where the URL contains the string `*/promo*`:
 
    - **Match type**: Select **String**.
@@ -86,7 +97,7 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 
 1. For **Action**, select **Log** or **Block**.
 
-   Rate-limit rules only support `Log` and `Block` actions. `Allow` isn't supported.
+   Rate-limit rules don't support the `Allow` action. On Front Door Premium, you can also select [JavaScript challenge](../waf-javascript-challenge.md) or [CAPTCHA](captcha-challenge.md), so that clients over the threshold are challenged instead of blocked.
 
    :::image type="content" source="../media/waf-front-door-rate-limit-configure/custom-rule.png" alt-text="Screenshot that shows the custom rule configuration." :::
 
@@ -226,6 +237,26 @@ $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
 
 When any source IP address sends more than 1,000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
 
+### Group the rate limit by another variable (preview)
+
+By default, the rule counts requests from each source IP address. By using a Front Door Premium WAF policy, you can group the count by `GeoLocation`, `Asn`, `Ja4`, or `None` instead. Use the `New-AzFrontDoorWafCustomRuleGroupByVariableObject` cmdlet to define the grouping, and pass it to the rule by using the `-GroupByCustomRule` parameter.
+
+```azurepowershell
+$groupByJa4 = New-AzFrontDoorWafCustomRuleGroupByVariableObject `
+  -VariableName Ja4
+
+$promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
+  -Name 'rateLimitRule' `
+  -RuleType RateLimitRule `
+  -MatchCondition $promoMatchCondition `
+  -RateLimitThreshold 1000 `
+  -GroupByCustomRule $groupByJa4 `
+  -Action Block `
+  -Priority 1
+```
+
+With this rule, each JA4 fingerprint, rather than each source IP address, can send up to 1,000 matching requests per minute. If you group the rule, create the WAF policy in the next step with `-Sku Premium_AzureFrontDoor`, and associate it with a Premium profile. Grouping is in preview. For more information, see [Group rate limit traffic (preview)](waf-front-door-rate-limit.md#group-rate-limit-traffic-preview).
+
 ## Create a WAF policy
 
 Use the [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) cmdlet to create a WAF policy, which includes the custom rule you created.
@@ -240,7 +271,7 @@ $wafPolicy = New-AzFrontDoorWafPolicy `
 
 ## Configure a security policy to associate your Azure Front Door profile with your WAF policy
 
-Use the [New-AzFrontDoorCdnSecurityPolicy](/powershell/module/az.cdn/new-azfrontdoorcdnsecuritypolicy) cmdlet to create a security policy for your Azure Front Door profile. A security policy associates your WAF policy with domains that you want to be protected by the WAF rule.
+Use the [New-AzFrontDoorCdnSecurityPolicy](/powershell/module/az.cdn/new-azfrontdoorcdnsecuritypolicy) cmdlet to create a security policy for your Azure Front Door profile. A security policy associates your WAF policy with the selected profile, domain, or route scope that you want protected by the WAF rule.
 
 In this example, you associate the endpoint's default hostname with your WAF policy:
 
@@ -388,7 +419,7 @@ When you submit this command, the Azure CLI creates the rate-limit rule and matc
 
 ## Configure a security policy to associate your Azure Front Door profile with your WAF policy
 
-Use the [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) command to create a security policy for your Azure Front Door profile. A security policy associates your WAF policy with domains that you want to be protected by the WAF rule.
+Use the [az afd security-policy create](/en-us/cli/azure/afd/security-policy#az-afd-security-policy-create) command to create a security policy for your Azure Front Door profile. A security policy associates your WAF policy with the selected profile, domain, or route scope that you want protected by the WAF rule.
 
 In this example, you associate the endpoint's default hostname with your WAF policy:
 
@@ -413,7 +444,15 @@ The preceding code looks up the Azure resource identifiers for the WAF policy an
 ::: zone pivot="powershell,cli"
 
 > [!NOTE]
-> Whenever you make changes to your WAF policy, you don't need to re-create the Azure Front Door security policy. WAF policy updates are automatically applied to the Azure Front Door domains.
+> Whenever you make changes to your WAF policy, you don't need to re-create the Azure Front Door security policy. WAF policy updates are automatically applied to the associated Azure Front Door.
+
+If your deployment uses multiple policy association scopes, updates are applied according to policy precedence for each request:
+
+1. Route-level policy
+2. Domain-level policy
+3. Profile-level policy
+
+Review effective scope behavior in your validation tests before moving to prevention mode.
 
 ::: zone-end
 
@@ -422,6 +461,8 @@ The preceding code looks up the Azure resource identifiers for the WAF policy an
 ## Quickstart
 
 To create an Azure Front Door profile with a rate-limit rule by using Bicep, see the [Azure Front Door Standard or Premium with rate limit](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-rate-limit/) Bicep quickstart.
+
+To group a rate limit rule by country/region, AS number, or JA4 fingerprint (preview), set the `groupBy` property of the custom rule, for example `groupBy: [ { variableName: 'Ja4' } ]`. Grouping requires a Premium WAF policy.
 
 ::: zone-end
 

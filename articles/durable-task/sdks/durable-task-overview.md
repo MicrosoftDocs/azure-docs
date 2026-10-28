@@ -1,10 +1,11 @@
 ---
 title: "Durable Task SDKs Overview: Portable Orchestration Libraries"
-description: "Learn about the portable Durable Task SDKs for .NET, Python, Java, and JavaScript/TypeScript. Build durable orchestrations on any compute platform and get started today."
+description: "Learn about the portable Durable Task SDKs for .NET, Python, Java, JavaScript/TypeScript, and Go. Build durable orchestrations on any compute platform."
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf
-ms.date: 05/05/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.topic: get-started
 ms.service: durable-task
 ms.subservice: durable-task-sdks
@@ -34,14 +35,11 @@ The following table summarizes the available Durable Task SDKs, their packages, 
 | **Python** | `durabletask-azuremanaged` | GA | [durabletask-python](https://github.com/microsoft/durabletask-python) | [Python samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/python) |
 | **Java** | `durabletask-client`<br/>`durabletask-azure-managed` | GA | [durabletask-java](https://github.com/microsoft/durabletask-java) | [Java samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/java) |
 | **JavaScript / TypeScript** | `@microsoft/durabletask-js`<br/>`@microsoft/durabletask-js-azuremanaged` | Preview | [durabletask-js](https://github.com/microsoft/durabletask-js) | [JS samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/javascript) |
+| **Go** | `github.com/microsoft/durabletask-go` | Beta | [durabletask-go](https://github.com/microsoft/durabletask-go) | [Go samples](https://github.com/microsoft/durabletask-go/tree/main/samples) |
 
 ## Installation
 
-Each SDK ships two packages: 
-- A **worker** package for defining orchestrations and activities
-- A **client** package for scheduling and managing orchestration instances. 
-
-Install *both* packages to get started.
+Each SDK provides a **worker** for running orchestrations, activities, and entities, and a **client** for scheduling and managing instances. Depending on the language, these components ship in separate packages or in one package or module. Install the packages shown for your language.
 
 # [C#](#tab/csharp)
 
@@ -88,13 +86,26 @@ The JavaScript or TypeScript SDK requires Node.js 22 or higher. It supports gene
 > [!NOTE]
 > The JavaScript or TypeScript SDK is currently in preview. It isn't compatible with the Azure Durable Functions JavaScript SDK ([durable-functions](https://github.com/Azure/azure-functions-durable-js)).
 
+# [Go](#tab/go)
+
+From a Go module, install the SDK:
+
+```bash
+go get github.com/microsoft/durabletask-go@v1.0.0-beta3
+```
+
+The Go SDK requires Go 1.25 or later. One module contains the `task`, `api`, `client`, and `durabletaskscheduler` packages. It supports function-based orchestrators, activities, and entities in self-hosted Go applications.
+
+> [!NOTE]
+> The Go SDK is in beta. It connects to Durable Task Scheduler or the local emulator, not the embedded SQLite or PostgreSQL backends in earlier Go SDK versions. Go isn't a Durable Functions language. See [Develop with the Durable Task SDK for Go](durable-task-go.md) for programming guidance and compatibility considerations.
+
 ---
 
 ## Get started
 
 All SDKs follow the same pattern:
 
-1. **Install** the worker and client packages for your language. See [Installation](#installation).
+1. **Install** the SDK packages or module for your language. See [Installation](#installation).
 1. **Start the emulator** for local development using Docker:
 
    ```bash
@@ -111,17 +122,17 @@ For a walkthrough with working code, see [Quickstart: Create an app with Durable
 
 The following table shows the features each SDK supports.
 
-| Feature | .NET | Python | Java | JavaScript |
-| ------- | :--: | :----: | :--: | :--------: |
-| **Orchestrations** | ✅ | ✅ | ✅ | ✅ |
-| **Activities** | ✅ | ✅ | ✅ | ✅ |
-| **Sub-orchestrations** | ✅ | ✅ | ✅ | ✅ |
-| **Durable timers** | ✅ | ✅ | ✅ | ✅ |
-| **External events** | ✅ | ✅ | ✅ | ✅ |
-| **Durable entities** | ✅ | ✅ | ✅ | ✅ |
-| **Retry policies** | ✅ | ✅ | ✅ | ✅ |
-| **Continue-as-new** | ✅ | ✅ | ✅ | ✅ |
-| **Suspend/Resume** | ✅ | ✅ | ✅ | ✅ |
+| Feature | .NET | Python | Java | JavaScript | Go (beta) |
+| ------- | :--: | :----: | :--: | :--------: | :-------: |
+| **Orchestrations** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Activities** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Sub-orchestrations** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Durable timers** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **External events** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Durable entities** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Retry policies** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Continue-as-new** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Suspend/Resume** | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ## Next steps
 
@@ -129,5 +140,6 @@ The following table shows the features each SDK supports.
 > [Quickstart: Create an app with Durable Task SDKs](quickstart-portable-durable-task-sdks.md)
 
 - [Durable Task Scheduler overview](../scheduler/durable-task-scheduler.md)
+- [Develop with the Durable Task SDK for Go](durable-task-go.md)
 - [Choose your orchestration framework](../common/choose-orchestration-framework.md)
 - [What is Durable Task?](../common/what-is-durable-task.md)

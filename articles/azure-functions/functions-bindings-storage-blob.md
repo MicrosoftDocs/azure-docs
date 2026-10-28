@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - build-2025
-ms.date: 04/20/2025
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -65,19 +65,11 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Blobs --version 5.
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Earlier extension versions](#tab/functionsv2/in-process)
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x._
 
 Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [Microsoft.Azure.WebJobs.Extensions.Storage NuGet package, version 4.x]. The package is used for .NET class libraries while the extension bundle is used for all other application types.
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
@@ -85,7 +77,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 This version allows you to bind to types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about how these new types are different from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](./aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs NuGet package], version 5.x or later.
 
@@ -106,13 +98,9 @@ hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (
 ) |> ignore
 ```
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Earlier extension versions](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [Microsoft.Azure.Functions.Worker.Extensions.Storage NuGet package, version 4.x].
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process.
 
 ---
 
@@ -162,7 +150,7 @@ The Azure Blobs extension supports parameter types according to the table below.
 
 For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples). Learn more about types from the Azure SDK, how they are different from earlier versions, and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Earlier extension versions](#tab/functionsv2/in-process)
 
 Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Storage.Blob] namespace. Newer types from [Azure.Storage.Blobs] are exclusive to **extension 5.x and higher**.
 
@@ -177,10 +165,6 @@ This version of the Azure Blobs extension supports parameter types according to 
 <sup>1</sup> These types require the `Access` property of the attribute to be set to `FileAccess.ReadWrite`.
 
 <sup>2</sup> `IEnumerable<T>` provides an enumeration of blobs in the container. Here, `T` can be any of the other supported types.
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-Functions 1.x exposed types from the deprecated [Microsoft.WindowsAzure.Storage] namespace. Newer types from [Azure.Storage.Blobs] are exclusive to **Extension 5.x and higher**. To use these, you will need to [upgrade your application to Functions 4.x].
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
@@ -198,13 +182,9 @@ The isolated worker process supports parameter types according to the tables bel
 
 [!INCLUDE [functions-bindings-storage-blob-output-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-output-dotnet-isolated-types.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Earlier extension versions](#tab/functionsv2/isolated-process)
 
 Earlier versions of extensions in the isolated worker process only support binding to string parameters. Additional options are available to **extension 5.x and higher**.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 
@@ -225,7 +205,6 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 [CloudPageBlob]: /dotnet/api/microsoft.azure.storage.blob.cloudpageblob
 [CloudAppendBlob]: /dotnet/api/microsoft.azure.storage.blob.cloudappendblob
 
-[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
 
 :::zone-end
 
@@ -282,7 +261,6 @@ This section describes the function app configuration settings available for fun
 - [Write blob storage data from a function](./functions-bindings-storage-blob-output.md)
 
 [core tools]: ./functions-run-local.md
-[extension bundle]: ./extension-bundles.md
 [Microsoft.Azure.WebJobs.Extensions.Storage.Blobs NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
 [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 [Microsoft.Azure.WebJobs.Extensions.Storage NuGet package, version 4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
@@ -290,6 +268,5 @@ This section describes the function app configuration settings available for fun
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
-[Microsoft.WindowsAzure.Storage]: /dotnet/api/microsoft.windowsazure.storage
 
 [C# scripting]: ./functions-reference-csharp.md

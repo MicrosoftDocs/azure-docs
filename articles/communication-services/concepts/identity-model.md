@@ -15,6 +15,8 @@ ms.subservice: identity
 
 # Identity model
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services is an identity-agnostic service, which offers multiple benefits:
 - Adopt a bring your own identity (BYOI) model, allowing you to reuse existing identities from your identity management system and map them with Azure Communication Services identities.
 - Works well with any existing identity system and has no dependency on a specific identity provider.

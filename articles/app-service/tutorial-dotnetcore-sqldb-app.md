@@ -3,7 +3,7 @@
 title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
-ms.date: 08/20/2026
+ms.date: 10/08/2026
 ms.update-cycle: 180-days
 author: cephalin
 ms.author: cephalin
@@ -420,6 +420,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the Linux container in App Service.
 
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
+
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the App Service page, in the left menu,
@@ -642,6 +644,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 ## 5. Generate database schema
 
 With the SQL Database protected by the virtual network, the easiest way to run database migrations is in an SSH session with the App Service container. However, the App Service Linux containers don't have the .NET SDK, so the easiest way to run database migrations is to upload a self-contained migrations bundle.
+
+After uploading the bundle, a detached CLI alternative is available in [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
 
 1. Restore the Linux runtime assets and generate a migrations bundle for your project with the following commands:
 

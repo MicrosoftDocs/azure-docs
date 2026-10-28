@@ -4,7 +4,7 @@ description: You can provide authorization credentials for AzCopy operations by 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 10/21/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -88,30 +88,6 @@ $Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
 
 Next, set environment variables for either the client ID, object ID, or resource ID of the user-assigned managed identity. 
 
-#### Use a client ID
-
-To authorize by using a client ID, type the following command, and then press ENTER.
-
-##### [Linux](#tab/linux)
-
-```bash
-export AZCOPY_MSI_CLIENT_ID=<client-id>
-```
-
-##### [Windows](#tab/windows)
-
-```powershell
-$Env:AZCOPY_MSI_CLIENT_ID="<client-id>"
-```
----
-
-Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
-
-You can find the client ID in the Azure portal by viewing the properties of the managed identity. The following screenshot shows the location of the client ID property.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the location of the client ID.](./media/storage-use-azcopy-authorize-managed-identity/client-id.png)
-
 #### Use an object ID
 
 To authorize by using an object ID, type the following command, and then press ENTER.
@@ -181,21 +157,6 @@ azcopy login --identity
 ### Authorize with a user-assigned managed identity
 
 First, make sure that you enable a user-assigned managed identity on your VM. For more information, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Then, sign in by using either the client ID, object ID, or resource ID of the user-assigned managed identity. 
-
-#### Sign in by using a client ID
-
-Type the following command, and then press ENTER.
-
-```azcopy
-azcopy login --identity --identity-client-id "<client-id>"
-```
-
-Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
-
-You can find the client ID in the Azure portal by viewing the properties of the managed identity. The following screenshot shows the location of the client ID property.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the location of the client ID](./media/storage-use-azcopy-authorize-managed-identity/client-id.png)
 
 #### Sign in by using an object ID
 

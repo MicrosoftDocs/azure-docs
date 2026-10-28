@@ -109,23 +109,9 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript,programming-language-python"  
 
-Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
-
-Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
-
-:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/host.json":::
-
-::: zone-end  
-
-::: zone pivot="programming-language-python"  
-
-Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
-
-Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
-
-:::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
+[!INCLUDE [functions-extension-bundles-json-v4-element](../../includes/functions-extension-bundles-json-v4-element.md)]
 
 ::: zone-end  
 Now, you can add the Azure Cosmos DB output binding to your project.

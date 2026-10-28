@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: overview
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 05/18/2026
 ms.custom: mvc, engagement-fy25
 ms.update-cycle: 180-days
@@ -149,7 +149,7 @@ The following features from software development companies (SDCs) are integrated
 | [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure. |
 | [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers. |
 | [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295) | Assess servers. |
-| [CloudRecon](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases. |
+| [CloudRecon](https://www.cloudatlasinc.com/cloudrecon-assessment-tool/) | Assess servers and databases. |
 | [Zerto](https://go.microsoft.com/fwlink/?linkid=2152102) | Migrate servers. |
 ::: moniker-end
 

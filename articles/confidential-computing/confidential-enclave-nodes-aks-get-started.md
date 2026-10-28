@@ -1,16 +1,19 @@
 ---
-title: 'Quickstart: Deploy an AKS cluster with Enclave Confidential Container Intel SGX nodes by using the Azure CLI'
-description: Learn how to create an Azure Kubernetes Service (AKS) cluster with enclave confidential containers a Hello World app by using the Azure CLI.
+title: 'Quickstart: Deploy an AKS cluster with enclave confidential container Intel SGX nodes by using the Azure CLI (specialized)'
+description: Specialized quickstart for Intel SGX enclave node pools on Azure Kubernetes Service (AKS).
 author: angarg05
 ms.service: azure-confidential-computing
 ms.topic: quickstart
-ms.date: 11/06/2023
-ms.author: ananyagarg
+ms.date: 06/30/2026
+ms.author: akhandavilli
 ms.custom: devx-track-azurecli, mode-api, innovation-engine
 # Customer intent: As a developer, I want to deploy an AKS cluster with enclave-aware confidential computing nodes using the command line, so that I can run secure applications in isolated environments.
 ---
 
 # Quickstart: Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI
+
+> [!IMPORTANT]
+> For most AKS deployments, use [confidential VM node pools on AKS](/azure/aks/use-cvm) based on AMD SEV-SNP. This SGX quickstart is for specialized enclave-based workloads.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2303213)
 
@@ -280,7 +283,7 @@ az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster
 
 ## Next steps
 
-- Run Python, Node, or other applications through confidential containers using ISV/OSS SGX wrapper software. Review [confidential container samples in GitHub](https://github.com/Azure-Samples/confidential-container-samples).
+- Run Python, Node.js, or other applications through confidential containers by using ISV or open-source SGX wrapper software. Review the [confidential container samples in GitHub](https://github.com/Azure-Samples/confidential-container-samples). For the new consolidated repository, see [Azure confidential computing code samples](https://aka.ms/accsamples).
 
 - Run enclave-aware applications by using the [enclave-aware Azure container samples in GitHub](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
 

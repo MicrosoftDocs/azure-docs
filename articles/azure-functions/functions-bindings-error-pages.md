@@ -3,7 +3,7 @@ title: Azure Functions Error Handling and Retry Guidance
 description: Learn how to handle errors and retry events in Azure Functions, with links to specific binding errors, including information on retry policies.
 ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 05/06/2025
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -73,10 +73,6 @@ With Azure Functions, you can define retry policies for specific trigger types. 
 Retry support is the same for both v1 and v2 Python programming models.
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript"
-Retry policies aren't supported in version 1.x of the Azure Functions runtime.
-::: zone-end
-
 The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.
 
 A retry policy is evaluated when a function that a supported trigger type executes raises an uncaught exception. As a best practice, you should catch all exceptions in your code and raise new exceptions for any errors that you want to result in a retry.
@@ -122,7 +118,7 @@ Examples are provided for both fixed delay and exponential backoff strategies. T
 
 Function-level retries are supported with the following NuGet packages:
 
-- [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) version 1.9.0 and later
+- [Azure.Functions.Sdk](https://www.nuget.org/packages/Azure.Functions.Sdk) version 1.0.0 and later
 - [Microsoft.Azure.Functions.Worker.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs) version 5.2.0 and later
 - [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) version 3.8.0 and later
 - [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) version 4.2.0 and later
@@ -156,7 +152,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 Function-level retries are supported with the following NuGet packages:
 
-- [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) version 1.9.0 or later
+- [Azure.Functions.Sdk](https://www.nuget.org/packages/Azure.Functions.Sdk) version 1.0.0 or later
 - [Microsoft.Azure.Functions.Worker.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs) version 5.2.0 or later
 - [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) version 3.8.0 or later
 - [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) version 4.2.0 or later

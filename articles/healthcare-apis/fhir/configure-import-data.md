@@ -21,7 +21,10 @@ This article describes how to configure import settings for the FHIR service and
 
 - A FHIR service. To create one, see [Deploy the FHIR service](deploy-azure-portal.md).
 - An [Azure Blob or Azure Data Lake Storage Gen2 (ADLS Gen2)](../../storage/common/storage-account-create.md) account. 
-- You need to have the **FHIR Data importer role** application role. To learn more about application roles, see [Authentication and Authorization for FHIR service](../../healthcare-apis/authentication-authorization.md).
+- The **FHIR Data Importer** application role assigned to the user or client application that calls the `$import` operation on the FHIR service. To learn more about application roles, see [Authentication and authorization for Azure Health Data Services](../authentication-authorization.md#application-roles).
+
+  > [!NOTE]
+  > The **FHIR Data Importer** role authorizes bulk ingestion through the `$import` operation across FHIR resource types. These import permissions are distinct from the permissions required to create or update resources through individual FHIR API calls. The `$import` operation doesn't support the `SearchParameter` resource type.
 
 ## Step 1: Enable a managed identity on the FHIR service for import
 

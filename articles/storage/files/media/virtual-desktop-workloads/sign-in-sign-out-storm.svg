@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title description">
+  <title id="title">Typical sign-in and sign-out storm</title>
+  <desc id="description">A line chart showing brief 75,000 IOPS peaks during morning sign-in and evening sign-out, with steady demand of about 20,000 IOPS between the peaks.</desc>
+  <rect width="1200" height="620" fill="#ffffff"/>
+
+  <text x="600" y="52" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="600" fill="#17253d">Typical profile-container IOPS over a workday</text>
+
+  <rect x="126" y="100" width="954" height="404" fill="#f7f9fc" stroke="#d5dce5"/>
+  <rect x="236" y="100" width="150" height="404" fill="#e6f2fb"/>
+  <rect x="844" y="100" width="150" height="404" fill="#e6f2fb"/>
+
+  <g stroke="#d5dce5" stroke-width="1">
+    <line x1="126" y1="168" x2="1080" y2="168"/>
+    <line x1="126" y1="269" x2="1080" y2="269"/>
+    <line x1="126" y1="370" x2="1080" y2="370"/>
+    <line x1="126" y1="471" x2="1080" y2="471"/>
+  </g>
+
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#3b4a5e">
+    <text x="105" y="477" text-anchor="end">0</text>
+    <text x="105" y="376" text-anchor="end">20,000</text>
+    <text x="105" y="275" text-anchor="end">40,000</text>
+    <text x="105" y="174" text-anchor="end">60,000</text>
+    <text x="105" y="123" text-anchor="end">75,000</text>
+    <text x="126" y="538" text-anchor="middle">6 AM</text>
+    <text x="364" y="538" text-anchor="middle">9 AM</text>
+    <text x="603" y="538" text-anchor="middle">12 PM</text>
+    <text x="841" y="538" text-anchor="middle">3 PM</text>
+    <text x="1080" y="538" text-anchor="middle">6 PM</text>
+  </g>
+
+  <text x="34" y="302" transform="rotate(-90 34 302)" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" fill="#17253d">IOPS</text>
+  <text x="603" y="584" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" fill="#17253d">Time of day</text>
+
+  <path d="M126 445 C175 439 205 422 235 382 C253 355 269 190 298 117 C322 190 338 337 365 364 C405 381 466 370 523 374 C587 368 647 376 708 371 C767 375 815 370 844 353 C867 329 879 184 908 117 C935 186 950 340 978 380 C1007 420 1042 439 1080 445 L1080 471 L126 471 Z" fill="#9cdcf5" opacity="0.65"/>
+  <path d="M126 445 C175 439 205 422 235 382 C253 355 269 190 298 117 C322 190 338 337 365 364 C405 381 466 370 523 374 C587 368 647 376 708 371 C767 375 815 370 844 353 C867 329 879 184 908 117 C935 186 950 340 978 380 C1007 420 1042 439 1080 445" fill="none" stroke="#0078d4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <line x1="126" y1="370" x2="1080" y2="370" stroke="#107c10" stroke-width="3" stroke-dasharray="10 8"/>
+  <rect x="500" y="385" width="206" height="38" rx="3" fill="#ffffff" stroke="#107c10"/>
+  <text x="603" y="411" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="600" fill="#107c10">Steady state: ~20,000</text>
+
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <text x="298" y="86" font-size="19" font-weight="600" fill="#005a9e">Sign-in storm</text>
+    <text x="298" y="145" font-size="17" font-weight="600" fill="#17253d">75,000 IOPS</text>
+    <text x="908" y="86" font-size="19" font-weight="600" fill="#005a9e">Sign-out storm</text>
+    <text x="908" y="145" font-size="17" font-weight="600" fill="#17253d">75,000 IOPS</text>
+    <text x="311" y="493" font-size="16" fill="#3b4a5e">Profiles open</text>
+    <text x="919" y="493" font-size="16" fill="#3b4a5e">Profiles close</text>
+  </g>
+</svg>

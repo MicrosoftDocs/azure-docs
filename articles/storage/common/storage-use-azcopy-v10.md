@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 10/23/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -14,7 +14,10 @@ ai-usage: ai-assisted
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and transfer data.<br><br>
+> [!NOTE]
+> If you plan to migrate data into Azure Storage, use Azure Storage Mover. [Azure Storage Mover](https://learn.microsoft.com/azure/storage-mover/) is a managed service that's designed for high-scale transfers (more than 1 TB). It simplifies planning, execution, and monitoring at scale. For more information about migration tools for your scenario, see [aka.ms/migratemydata](https://aka.ms/migratemydata).
+
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and transfer data.
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
@@ -166,6 +169,16 @@ See any of the following resources:
 - [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
 
 <a id="previous-version"></a>
+
+## Opt out of AzCopy telemetry
+
+Starting with AzCopy v10.34.0, AzCopy collects usage telemetry. You can opt out of sending telemetry by using the `--disable-telemetry` option.
+
+To disable telemetry, add the option to your AzCopy command:
+
+`--disable-telemetry=true`
+
+When this option is enabled, AzCopy doesn't send usage telemetry, including Azure Storage account names and pseudonymous installation and job identifiers.
 
 ## Next steps
 

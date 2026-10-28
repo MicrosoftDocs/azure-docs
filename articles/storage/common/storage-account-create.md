@@ -163,9 +163,7 @@ When you create a storage account by using PowerShell, the Azure CLI, Bicep, Azu
 
 To create an Azure storage account by using the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If you don't see the portal menu, select the menu button to toggle it on.
-
-   :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Screenshot of the Azure portal homepage with the Menu button near the upper-left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
+1. In the search box at the top of the Azure portal, search for and select **Storage accounts**.
 
 1. On the **Storage accounts** page, select **Create**.
 

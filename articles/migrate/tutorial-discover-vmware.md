@@ -4,8 +4,9 @@ description: Learn how to discover on-premises servers, applications, and depend
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.topic: tutorial
+ms.update-cycle: 365-days
 ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
@@ -104,8 +105,11 @@ To set up a new project:
 1. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](supported-geographies.md#public-cloud) and [supported geographies for government clouds](supported-geographies.md#azure-government).
 
-    > [!Note]
-    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
+> [!NOTE]
+> Network assessments are supported only in the geographies listed in [supported geographies](supported-geographies.md#network-assessment). Ensure that your Azure Migrate project is created in one of the supported metadata locations before creating a network assessment.
+ 
+> [!NOTE]
+> Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
 
 1. Select **Create**.
 1. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.

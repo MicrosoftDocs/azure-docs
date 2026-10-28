@@ -3,7 +3,7 @@ title: Enable Availability Zones for Azure API Management Instances
 description: Learn how to enable and configure availability zone support on your Premium tier Azure API Management instances to help ensure reliability.
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/26/2026
+ms.date: 09/16/2026
 ms.custom: references_regions, subject-reliability
 #Customer intent: As an engineer responsible for business continuity, I want to learn how to enable zone redundancy for my Azure API Management instances. 
 ---
@@ -19,9 +19,9 @@ For more detailed information about reliability features of API Management, such
 
 ## Availability zone support
 
-While instances in both the Premium and Premium v2 tiers benefit from availability zone support, the implementation differs between the two tiers.
+While instances for Premium, Standard v2, and Premium v2 tiers benefit from availability zone support, the implementation differs between the tiers.
 
-| Premium | Premium v2 |
+| Premium | Standard v2 or Premium v2 |
 |---------|------------|
 | - Automatically enable zone redundancy when you create a new instance or add a new location to an existing instance in a supported region.<br/><br/>- Zonal or zone-redundant settings can also be manually configured in a new or existing instance. | - Optionally enable zone redundancy when creating an instance in a supported region.<br/><br/>- Configuring zone redundancy in an existing instance isn't supported. |
 
@@ -41,10 +41,7 @@ When you create a new API Management instance in the **Premium** tier in a regio
 We recommend automatic availability zone configuration in the Premium tier, but you can manually configure or update availability zones for an existing location of your API Management instance. The following sections provide steps for manually configuring zone redundancy on an existing location of your API Management instance, depending on whether the instance is injected in a virtual network.
 
 > [!NOTE]
-> You can optionally enable a *zonal* configuration, where the API Management instance or location is deployed in a single availability zone. Because it doesn't provide resiliency to an outage in that zone, this configuration generally isn't recommended except for specific scenarios. For more information, see [Reliability in API Management](/azure/reliability/reliability-api-management).
-
-> [!CAUTION]
-> If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. If you use the automatic availability zone support, you don't need to adjust your autoscale settings. 
+> You can optionally enable a *zonal* configuration, where the API Management instance or location is deployed in a single availability zone. Because it doesn't provide resilience to an outage in that zone, this configuration generally isn't recommended except for specific scenarios. For more information, see [Reliability in API Management](/azure/reliability/reliability-api-management).
 
 ### IP address changes when changing availability zone configuration
 
@@ -56,12 +53,12 @@ This behavior applies when you:
 
 - Switch between manual and automatic availability zone configuration.
  
-**Plan for IP address changes before starting the operation.** After the operation completes, update any dependencies that reference the previous IP addresses. Examples include DNS records, private DNS zones, firewall rules, allowlists, routing rules, Application Gateway backend settings, and any client configurations
+**Plan for IP address changes before starting the operation.** After the operation completes, update any dependencies that reference the previous IP addresses. Examples include DNS records, private DNS zones, firewall rules, allow lists, routing rules, Application Gateway backend settings, and any client configurations
  
 
-#### [Premium v2](#tab/premv2)
+#### [Premium v2 or Standard v2](#tab/v2)
 
-In the **Premium v2** tier, you can enable availability zone support only when you create a new API Management instance in a supported region. Enabling zone redundancy is optional. In this service tier, you don't have the option to view or modify availability zone settings on an existing instance.
+In the **Premium v2** or **Standard v2** tier, you can enable availability zone support only when you create a new API Management instance in a supported region. Enabling zone redundancy is optional. In this service tier, you don't have the option to view or modify availability zone settings on an existing instance.
 
 ---
 
@@ -75,9 +72,9 @@ In the **Premium v2** tier, you can enable availability zone support only when y
 
 * If you have an existing API Management instance, make sure that it's in the **Premium** (classic) tier. If it isn't, [upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
-#### [Premium v2](#tab/premv2)
+#### [Premium v2 or Standard v2](#tab/v2)
 
-* Choose an Azure region that supports both [Premium v2 instances](api-management-region-availability.md) and [availability zones](/azure/reliability/regions-list).
+* Choose an Azure region that supports both [Premium v2 or Standard v2 instances](api-management-region-availability.md) and [availability zones](/azure/reliability/regions-list).
 
 ---
 
@@ -91,7 +88,7 @@ Follow these steps to enable availability zone support on your API Management in
 
 In the **Premium** tier, availability zone support is automatically enabled when you create a new API Management instance in a supported region. You can optionally specify which availability zones to use.
 
-:::image type="content" source="media/enable-availability-zone-support/enable-zone-redundancy-premium.png" alt-text="Screenshot of enabling zone redundancy for a Premium v2 instance in the portal.":::
+:::image type="content" source="media/enable-availability-zone-support/enable-zone-redundancy-premium.png" alt-text="Screenshot of enabling zone redundancy for a Premium v2 or Standard v2 instance in the portal.":::
 
 ### Existing instance not injected in a virtual network
 
@@ -107,7 +104,7 @@ To manually configure availability zone support on an existing location of an AP
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit. 
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. Select **Apply**, then select **Save**.
 
@@ -129,7 +126,7 @@ To manually configure availability zone support on an existing location of an AP
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. Under **Public IP Address**, select a public IP address in the location.
 
@@ -153,7 +150,7 @@ To add a new location to your API Management instance and to configure availabil
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. If your API Management instance is deployed in a virtual network, under **Network**, select the virtual network, subnet, and public IP address that are available in the location.
 
@@ -161,13 +158,13 @@ To add a new location to your API Management instance and to configure availabil
 
 :::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/enable-availability-zone-support/option-four-add-new-location.png" lightbox="media/enable-availability-zone-support/option-four-add-new-location.png":::
 
-#### [Premium v2](#tab/premv2)
+#### [Premium v2 or Standard v2](#tab/v2)
 
-You can enable zone redundancy when you create a new API Management instance in the **Premium v2** tier. 
+You can enable zone redundancy when you create a new API Management instance in the **Premium v2** or **Standard v2** tier.
 
 * In the Azure portal, use the **Create API Management service** wizard. On the **Basics** tab, under **Zone redundancy**, select **Enable zone redundancy**.
 
-    :::image type="content" source="media/enable-availability-zone-support/enable-zone-redundancy-premium-v2.png" alt-text="Screenshot of enabling zone redundancy for a Premium v2 instance in the portal.":::
+    :::image type="content" source="media/enable-availability-zone-support/enable-zone-redundancy-premium-v2.png" alt-text="Screenshot of enabling zone redundancy for a Premium v2 or Standard v2 instance in the portal.":::
 
 * After you create the instance, the status of availability zone support appears on the **Overview** page of the instance in the portal.
 

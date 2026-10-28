@@ -2,11 +2,13 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/08/2026
+ms.date: 10/12/2026
 ms.author: glenga
 ---
 
 ## Connections
+
+This connection guidance applies to existing apps that use the Azure OpenAI extension, which retires on April 20, 2027. When migrating to direct SDK calls, follow the authentication and connection guidance for the SDK you choose instead of using the extension's binding settings.
 
 To use the Azure OpenAI binding extension, you need to specify a connection to an OpenAI model definition. Set the OpenAI model connection in your bindings by using one of these approaches: 
 
@@ -60,7 +62,7 @@ At runtime, the host interprets these settings as a single `myAzureOpenAI` setti
 {
     "endpoint": "https://contoso.openai.azure.com/",
     "credential": "managedidentity",
-    "clientId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
+    "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444"
 }
 ```
 

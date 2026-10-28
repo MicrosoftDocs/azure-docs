@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 07/29/2026
+ms.date: 10/06/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator managing NFS Azure file shares, I want to optimize performance using features like read-ahead and nconnect, so that I can enhance throughput and reduce costs while efficiently handling large-scale workloads."
 ---
@@ -124,9 +124,12 @@ To achieve and measure the results outlined in this article, use the following r
 |-----------------|-----------|------------|------------------------|--------------------|--------------|--------------------------------|
 | Standard_D16_v4 | 16        | 64 GiB     | Remote storage only    | 32                 | 8            | 12,500 Mbps                    |
 
+> [!NOTE]
+> A new file share that uses a provisioned billing model starts with a full bucket of credits for credit-based bursting. If you run your own tests, a short test on a new share can measure burst IOPS instead of provisioned IOPS. A full bucket of credits lasts approximately one hour at the burst IOPS limit. For more information, see [Bursting](understand-performance.md#bursting).
+
 ### Benchmarking tools and tests
 
-These tests use Flexible I/O Tester (FIO), a free, open-source disk I/O tool that's used for both benchmarking and stress or hardware verification. To install FIO, see the Binary Packages section in the [FIO README file](https://github.com/axboe/fio#readme) and follow the instructions for the platform you choose.
+These tests use Flexible I/O Tester (FIO), a free, open-source disk I/O tool that's used for both benchmarking and stress or hardware verification. To install FIO, see the Binary Packages section in the [FIO README file](https://github.com/axboe/fio#readme) and follow the instructions for the platform you choose.
 
 While these tests focus on random I/O access patterns, you get similar results when using sequential I/O.
 

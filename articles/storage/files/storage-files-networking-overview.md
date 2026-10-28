@@ -1,210 +1,243 @@
 ---
-title: Networking Considerations for Azure Files
-description: An overview of networking considerations and options for Azure Files, including secure transfer, public and private endpoints, VPN, ExpressRoute, DNS, and firewall settings.
+title: Networking considerations for Azure Files
+description: An overview of networking considerations and options for Azure Files, including encryption in transit, public and private endpoints, network security perimeters, VPN, ExpressRoute, DNS, and firewall settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 04/16/2026
+ms.date: 10/22/2026
 ms.author: kendownie
-# Customer intent: As a network administrator, I want to configure secure access to Azure Files, so that I can manage file share access in accordance with my organization’s networking and security policies.
 ---
 
 # Azure Files networking considerations
-
 :heavy_check_mark: **Applies to:** All Azure file shares
 
-You can access your Azure file shares over the public internet accessible endpoint, over one or more private endpoints on your network(s), or by caching your Azure file share on-premises with Azure File Sync (SMB file shares only). This article focuses on how to configure Azure Files for direct access over public and/or private endpoints. To learn how to cache your Azure file share on-premises with Azure File Sync, see [Introduction to Azure File Sync](../file-sync/file-sync-introduction.md).
+This article describes the networking decisions to make before you deploy Azure Files: how to protect data in transit, how clients connect to a file share, and how to control inbound and outbound access. For configuration steps, see [Configure network endpoints for Azure file shares](storage-files-networking-endpoints.md). For other deployment decisions, see [Plan an Azure Files deployment](storage-files-planning.md).
 
-Read [Planning for an Azure Files deployment](storage-files-planning.md) before reading this guide.
+The available options depend on the resource provider that you use to create the file share, and on the protocol that clients use. Classic file shares (Microsoft.Storage) support SMB, NFS, and FileREST. File shares created with Microsoft.FileShares support NFS only. For other differences between the resource providers, see [Azure Files management concepts](files-management-concepts.md).
 
-Directly accessing an Azure file share often requires additional thought with respect to networking:
+The following table shows how clients can reach a file share, by client location and protocol:
 
-- SMB file shares communicate over port 445, which many organizations and internet service providers (ISPs) block for outbound (internet) traffic. This practice originates from legacy security guidance about deprecated and non-internet safe versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, organizational or ISP policies may not be possible to change. Therefore, mounting an SMB file share often requires additional networking configuration to use outside of Azure.
+| Client location | SMB | NFS | FileREST |
+|---|---|---|---|
+| Azure virtual network | Public endpoint or private endpoint | Public endpoint through a service endpoint, or private endpoint | Public endpoint or private endpoint |
+| On-premises, with VPN or ExpressRoute private peering | Private endpoint | Private endpoint | Private endpoint |
+| On-premises or internet, without VPN or ExpressRoute private peering | Public endpoint | Not supported | Public endpoint |
 
-- NFS file shares rely on network-level authentication and are therefore only accessible via restricted networks. Using an NFS file share always requires some level of networking configuration.
-
-You configure public and private endpoints for Azure Files on the top-level management object for Azure Files: the Azure storage account. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple Azure file shares, as well as the storage resources for other Azure storage services, such as blob containers or queues.
+- SMB communicates over TCP port 445. Some organizations and internet service providers block outbound traffic on this port. Clients that can't use port 445 can connect through a VPN or ExpressRoute, or use [SMB over QUIC](#connect-from-on-premises) through Azure File Sync.
+- NFS uses network-based authentication, so it doesn't support access from internet clients.
 
 :::row:::
     :::column:::
         > [!VIDEO https://www.youtube-nocookie.com/embed/jd49W33DxkQ]
     :::column-end:::
     :::column:::
-        This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps. The sections below provide links and additional context to the documentation referenced in the video. Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
-   :::column-end:::
+        This video shows networking for classic file shares. This article also describes Microsoft.FileShares where applicable.
+    :::column-end:::
 :::row-end:::
 
-## Secure transfer
+## Encryption in transit
+Encryption in transit protects data between clients and Azure Files from interception and modification, including by a man-in-the-middle attacker. It applies to traffic through both public and private endpoints.
 
-By default, Azure storage accounts require secure transfer, regardless of whether data is accessed over the public or private endpoint. For Azure Files, encryption in transit is controlled at the protocol level:
+- **SMB**: SMB 3.x protects data through SMB channel encryption. Azure Files supports AES-128-CCM with SMB 3.0, and AES-128-GCM and AES-256-GCM with SMB 3.1.1. The client and the service negotiate the algorithm from the algorithms that both allow. SMB 2.1 doesn't support channel encryption. If you restrict the allowed algorithms, some clients can't connect. For example, older Windows clients don't support AES-256-GCM.
+- **NFS**: NFS file shares with either resource provider support encryption in transit through a TLS tunnel. The [AzNFS mount helper](https://github.com/Azure/AZNFS-mount) uses stunnel to carry NFS traffic through a TLS 1.2 or TLS 1.3 connection, and validates the server's certificate. Applications use the NFS protocol without changes. TLS doesn't add user-based authentication to NFS.
+- **FileREST**: FileREST protects data in transit through HTTPS, with TLS 1.2 or TLS 1.3. New storage accounts require HTTPS by default and reject unencrypted HTTP requests. Keep this requirement enabled. You can also set a minimum TLS version.
 
-| Protocol | Setting name | Default (Azure portal) | Default (PowerShell / CLI / API) |
-|---|---|---|---|
-| SMB | **Require Encryption in Transit for SMB** | Enabled | Not selected |
-| NFS | **Require Encryption in Transit for NFS** | Enabled | Not selected |
-| FileREST | **Secure transfer required** | Enabled | Enabled |
+Encryption requirements and defaults depend on the resource provider. To view and change them, see:
 
-### Encryption in Transit for SMB
+- **Classic file shares**: [Configure encryption in transit for Azure Files](files-encryption-in-transit.md). To restrict SMB encryption algorithms, see [SMB security settings](files-smb-protocol.md#smb-security-settings). To mount an NFS file share with encryption, see [Mount a classic NFS share by using the AzNFS mount helper](storage-files-how-to-mount-nfs-shares.md#mount-a-classic-nfs-share-by-using-the-aznfs-mount-helper).
+- **Microsoft.FileShares**: [Encryption requirements when creating a file share](create-file-share.md#advanced) and [Update file share properties with PowerShell or Azure CLI](modify-file-share.md#change-the-cost-and-performance-characteristics-of-a-file-share-microsoftfileshares).
 
-The **Require Encryption in Transit for SMB** setting controls whether encryption is required for SMB access. For new storage accounts created by using the Azure portal, this setting is enabled by default. Storage accounts created by using Azure PowerShell, Azure CLI, or the FileREST API set this value as **Not selected** to ensure backward compatibility. For existing storage accounts, the **Secure transfer required** setting continues to govern SMB encryption behavior until you explicitly configure the per-protocol SMB setting. When SMB encryption in transit is required, all SMB file shares in that storage account require the SMB 3.x protocol with AES-128-CCM, AES-128-GCM, or AES-256-GCM encryption algorithms. You can toggle which algorithms are allowed via the [SMB security settings](files-smb-protocol.md#smb-security-settings). Disabling this setting enables SMB 2.1 and SMB 3.x mounts without encryption.
+## Connection paths
+A client reaches a file share through the public endpoint or through a private endpoint. Both endpoints use the same host name. [DNS resolution](#dns-resolution) determines which endpoint a client uses.
 
-### Encryption in Transit for NFS
+### Public endpoint
+A public endpoint has a public IP address. A public address doesn't imply unrestricted access: protocol requirements, [inbound access controls](#inbound-access-control), and authorization determine whether a request is allowed.
 
-The **Require Encryption in Transit for NFS** setting controls whether encryption is required for NFS access. NFS Azure file shares use the AZNFS utility package to simplify encrypted mounts by installing and setting up Stunnel (an open-source TLS wrapper) on the client. See [Encryption in transit for NFS Azure file shares](encryption-in-transit-for-nfs-shares.md). For new storage accounts created by using the Azure portal, this setting is enabled by default. Storage accounts created by using Azure PowerShell, Azure CLI, or the FileREST API set this value as **Not selected** to ensure backward compatibility. For existing storage accounts, the **Secure transfer required** setting continues to govern NFS encryption behavior until you explicitly configure the per-protocol NFS setting.
+Each protocol has its own limits on public endpoint access, separate from the network rules that you configure:
 
-### Encryption in Transit for FileREST
+- **SMB**: Encrypted SMB 3.x connections can come from clients inside or outside Azure. Azure Files limits them only through authentication and authorization. Unencrypted SMB connections are limited to clients in the same Azure region and require a configuration that permits unencrypted access. Clients in that region outside your virtual networks can also connect. If you permit unencrypted SMB, restrict the public endpoint by using [network rules](#network-rules).
+- **NFS**: Clients can only access the public endpoint through a [service endpoint](#service-endpoints). The file share's network rules must allow the client subnet. NFS doesn't support direct access from internet clients.
+- **FileREST**: Requests can come from clients inside or outside Azure. Azure Files limits them only through authentication and authorization. By default, Azure Files also rejects unencrypted HTTP requests.
 
-The **Secure transfer required** setting applies to REST/HTTPS traffic. When enabled, the FileREST protocol may only be used with HTTPS.
+#### Service endpoints
+A service endpoint lets clients in a virtual network subnet use the public endpoint when network rules restrict it to selected subnets. Traffic from the subnet goes to Azure Files over the Azure backbone, but it still uses the public endpoint's IP address. The networking layer identifies the source subnet of this traffic, so Azure Files can check the subnet against the network rules. To allow a subnet, add a [virtual network rule](#virtual-network-rules) for it.
 
-> [!NOTE]
-> Communication between a client and an Azure storage account is encrypted using Transport Layer Security (TLS). Azure Files relies on a Windows implementation of SSL that isn't based on OpenSSL and therefore isn't exposed to OpenSSL related vulnerabilities. Users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account should explicitly disable the **Require Encryption in Transit for SMB** or **Require Encryption in Transit for NFS** per-protocol setting, as appropriate.
+#### Public endpoint network routing
+Routing preference is available only for classic HDD file shares that use the pay-as-you-go billing model in `StorageV2` storage accounts. It isn't supported for provisioned file shares in `FileStorage` storage accounts or for Microsoft.FileShares.
 
-## Public endpoint
+For these pay-as-you-go accounts, [routing preference](../../virtual-network/ip-services/routing-preference-overview.md) determines how internet traffic reaches the public endpoint:
 
-The public endpoint for the Azure file shares within a storage account is an internet exposed endpoint. The public endpoint is the default endpoint for a storage account, however, it can be disabled if desired.
+- **Microsoft routing** (default): Traffic between the client and the storage account travels over the Microsoft global network backbone for as long as possible before it goes to the internet. This option supports Active Directory (AD) domain join scenarios and Azure File Sync.
+- **Internet routing**: Traffic goes over the public internet as early as possible. This option doesn't support AD domain join scenarios or Azure File Sync.
 
-The SMB, NFS, and FileREST protocols can all use the public endpoint. However, each has slightly different rules for access:
+> [!IMPORTANT]
+> Don't use internet routing for Azure Files. Keep the default, Microsoft routing. Routing preference is a storage account setting. It's available because `StorageV2` storage accounts also hold blobs, queues, and tables, which share the setting.
 
-- SMB file shares are accessible from anywhere in the world via the storage account's public endpoint with SMB 3.x with encryption. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of the Azure region. If SMB 2.1 or SMB 3.x without encryption is desired, two conditions must be met:
-    1. The **Require Encryption in Transit for SMB** setting must be disabled (or, for existing accounts where this setting hasn't been explicitly configured, the **Secure transfer required** setting must be disabled).
-    2. The request must originate from inside of the Azure region. As previously mentioned, encrypted SMB requests are allowed from anywhere, inside or outside of the Azure region.
+To check or change the routing preference, see [Configure routing preference](storage-files-networking-endpoints.md#configure-routing-preference).
 
-- NFS file shares are accessible from the storage account's public endpoint if and only if the storage account's public endpoint is restricted to specific virtual networks using *service endpoints*. See [public endpoint firewall settings](#public-endpoint-firewall-settings) for additional information on *service endpoints*.
+### Private endpoints
+A private endpoint gives the resource (a storage account or a Microsoft.FileShares file share) a private IP address in a subnet of your virtual network. Clients can reach that address from the same virtual network, from peered virtual networks, and from on-premises networks that connect to the virtual network through a VPN or ExpressRoute. To give access from more virtual networks, you can create more than one private endpoint for the same resource.
 
-- FileREST is accessible via the public endpoint. If secure transfer is required, only HTTPS requests are accepted. If secure transfer is disabled, HTTP requests are accepted by the public endpoint regardless of origin.
+The public endpoint stays available after you create a private endpoint. To allow access only through private endpoints, disable [public network access](#public-network-access). A private endpoint also doesn't limit where clients can send traffic. For those controls, see [Outbound access control](#outbound-access-control).
 
-### Public endpoint firewall settings
+To create a private endpoint, see [Create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint).
 
-The storage account firewall restricts access to the public endpoint for a storage account. You can restrict access to certain IP addresses or IP address ranges, to specific virtual networks, or disable the public endpoint entirely.
+### Connect from on-premises
+On-premises clients can reach a private endpoint through a VPN or ExpressRoute private peering connection. This approach applies to both SMB and NFS. SMB and FileREST clients can also reach the public endpoint over the internet or ExpressRoute Microsoft peering. If network rules restrict the public endpoint, add an [IP address rule](#ip-address-rules) for the clients' public IP addresses.
 
-When you [restrict the public endpoint to one or more networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks), you're using a capability of the virtual network called *service endpoints*. Requests directed to the service endpoint of Azure Files still go to the storage account public IP address. However, the networking layer performs extra verification of the request to validate that it's coming from an authorized virtual network. The SMB, NFS, and FileREST protocols all support service endpoints. Unlike SMB and FileREST, however, NFS file shares can only be accessed by using the public endpoint through use of a *service endpoint*.
+For SMB, a connection to the public endpoint often doesn't work from on-premises networks. This limitation exists because SMB uses TCP port 445, and many organizations and internet service providers block outbound traffic on this port. A VPN or ExpressRoute connection carries SMB traffic to the private endpoint inside the connection, so the block doesn't apply. For on-premises SMB clients, plan for a private endpoint with a VPN or ExpressRoute connection, unless you confirm that your network allows outbound TCP port 445 to Azure.
 
-#### Azure portal access and the storage account firewall
+The following options connect on-premises clients to Azure:
 
-When you access Azure file shares through the Azure portal, two separate requests occur:
+- **Point-to-site VPN**: Connects an individual client to an Azure virtual network. It supports remote users and devices that aren't connected through an organization's site network. For setup steps, see [Configure server settings for P2S VPN Gateway certificate authentication](../../vpn-gateway/point-to-site-certificate-gateway.md?toc=/azure/storage/files/toc.json).
+- **Site-to-site VPN**: Connects an organization's network to an Azure virtual network through a VPN gateway. Clients on the connected network share that connection. For setup steps, see [Tutorial: Create a site-to-site VPN connection in the Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/storage/files/toc.json).
+- **ExpressRoute**: Private peering connects an on-premises network to Azure virtual networks without going over the public internet. ExpressRoute doesn't encrypt traffic by default. Use [encryption in transit](#encryption-in-transit) to protect file data on the connection. For connectivity options, see [What is Azure ExpressRoute?](../../expressroute/expressroute-introduction.md?toc=/azure/storage/files/toc.json).
+- **SMB over QUIC**: Carries SMB traffic over UDP port 443, so it works when TCP port 445 is blocked. Azure Files doesn't support SMB over QUIC directly. Clients connect to a Windows Server cache of a classic SMB file share, and Azure File Sync keeps the cache in sync with the file share. The cache can be on-premises or in Azure. The cache server provides the QUIC endpoint, and clients need SMB over QUIC support. For more information, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic) in the Windows Server documentation and [SMB over QUIC](../file-sync/file-sync-networking-overview.md#smb-over-quic) for Azure File Sync.
 
-1. A request from your browser to the Azure portal UI (`https://portal.azure.com`).
-2. A request from your browser directly to the Azure Files data-plane endpoint (for example, `https://<storage-account-name>.file.core.windows.net`), typically using a SAS token issued for the portal experience.
+  The following diagram shows SMB over QUIC with an Azure File Sync cache:
 
-The storage account firewall evaluates only the direct request to the Azure Files data-plane endpoint, not the request to `portal.azure.com`. Therefore, even if you can access the Azure portal without issues, you might receive a **403 (Forbidden)** error when browsing file share data if the public egress IP address on the browser-to-storage request isn't allowed by the firewall. This restriction applies only to FileREST/HTTPS traffic, not SMB or NFS. For more information, see [Authorize access to file data in the Azure portal](authorize-data-operations-portal.md).
+  :::image type="content" source="media/storage-files-networking-overview/smb-over-quic.png" alt-text="Diagram for creating a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync." border="false":::
 
-> [!NOTE]
-> Due to factors such as proxies, VPNs, NAT, or differences in network routing, the IP address shown in an error message might not match the actual source IP address as seen by the storage account. To verify the source IP address that's actually reaching the storage account, enable **Azure Monitor diagnostic settings** for the storage account and collect **storage resource logs**. Then review the relevant file service request entries and check the **CallerIpAddress** field to confirm which IP address reached the storage account.
+To set up access for on-premises clients through a private endpoint, follow these steps:
 
-### Public endpoint network routing
+1. Create a private endpoint for the file share. See [Create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint).
+2. Connect the on-premises network or client to the private endpoint's virtual network with one of the options in the previous list.
+3. Configure DNS so that on-premises clients resolve the file share's host name to the private endpoint's IP address. See [Configure DNS forwarding for Azure Files](storage-files-networking-dns.md). Point-to-site clients might not use your on-premises DNS servers. For those clients, add the DNS forwarder or resolver as a custom DNS server in the VPN client. See [Azure VPN Client optional settings](../../vpn-gateway/azure-vpn-client-optional-configurations.md).
+4. Check that the host name resolves to the private endpoint's IP address. See [Verify DNS forwarding is working](storage-files-networking-dns.md#verify-dns-forwarding-is-working).
+5. Mount the file share. See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md), [Mount an Azure file share on macOS](storage-how-to-use-files-mac.md), [Mount SMB Azure file shares on Linux clients](storage-how-to-use-files-linux.md), or [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
 
-Azure Files supports two network routing options:
+### DNS resolution
+Clients use the same host name for the public endpoint and for a private endpoint. DNS determines which IP address the host name resolves to.
 
-- **Microsoft routing** (default): Traffic between the client and the storage account travels over the Microsoft global network backbone for as long as possible before egressing to the internet. This option works with all Azure Files configurations, including Active Directory (AD) domain join scenarios and Azure File Sync.
-- **Internet routing**: Traffic is routed over the public internet as early as possible. This option doesn't support Active Directory (AD) domain join scenarios or Azure File Sync.
+- **Classic file shares**: The host name is `<storage-account-name>.file.core.windows.net`.
+- **Microsoft.FileShares**: Each file share has its own generated host name, in the file share's `hostName` property. The host name is separate from the file share's resource name and from its mount name.
 
-## Private endpoints
+When you create a private endpoint, the public DNS record for the host name becomes an alias (CNAME) for a name in the `privatelink.file.core.windows.net` zone. Clients in a virtual network that's linked to a private DNS zone with that name resolve the alias to the private endpoint's IP address. Other clients resolve the alias to the public endpoint's IP address. To create the private DNS zone with the private endpoint, see [Create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint). To check the result, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
-In addition to the default public endpoint for a storage account, Azure Files provides the option to have one or more private endpoints. A private endpoint is an endpoint that is only accessible within an Azure virtual network. When you create a private endpoint for your storage account, your storage account gets a private IP address from within the address space of your virtual network, much like how an on-premises file server or NAS device receives an IP address within the dedicated address space of your on-premises network.
+On-premises clients don't use Azure DNS by default, so a VPN or ExpressRoute connection alone doesn't give them private resolution. Forward their DNS queries for the file share's domain to Azure through Azure DNS Private Resolver or a DNS forwarder virtual machine. For steps, see [Configure DNS forwarding for Azure Files](storage-files-networking-dns.md). For other on-premises DNS designs, see [Azure private endpoint DNS integration](../../private-link/private-endpoint-dns-integration.md).
 
-An individual private endpoint is associated with a specific Azure virtual network subnet. A storage account may have private endpoints in more than one virtual network.
+The host names and zone names in this section are for the Azure public cloud. Other Azure clouds use a different domain, such as `core.usgovcloudapi.net` in Azure Government. For the private DNS zone names in each cloud, see [Azure Private Endpoint private DNS zone values](../../private-link/private-endpoint-dns.md).
 
-Using private endpoints with Azure Files enables you to:
+## Inbound access control
+Inbound access controls decide which clients can reach a file share:
 
-- Securely connect to your Azure file shares from on-premises networks using a VPN or ExpressRoute connection with private-peering.
-- Secure your Azure file shares by configuring the storage account firewall to block all connections on the public endpoint. By default, creating a private endpoint doesn't block connections to the public endpoint.
-- Increase security for the virtual network by enabling you to block exfiltration of data from the virtual network (and peering boundaries).
+- **Private endpoint traffic** isn't subject to the public network access setting, network rules, or a network security perimeter.
+- **Public endpoint traffic** must pass the [public network access](#public-network-access) setting. If the storage account is associated with a [network security perimeter](#network-security-perimeter), the perimeter's access rules take precedence over the [network rules](#network-rules). Otherwise, the network rules decide access.
+- **Authorization** applies to every request that reaches the file share, through either endpoint.
 
-To create a private endpoint, see [Configuring private endpoints for Azure Files](storage-files-networking-endpoints.md#create-a-private-endpoint).
+### Public network access
+You can disable public network access, or keep it enabled and restrict it with network rules. Disabling public network access also prevents client access through service endpoints. Private endpoint access is independent of this setting. For classic file shares, existing [trusted service and resource instance exceptions](#exceptions-for-azure-services) remain in effect after you disable public network access.
 
-### Tunneling traffic over a virtual private network or ExpressRoute
+For configuration steps for both resource providers, see [Restrict public endpoint access](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
-To use private endpoints to access SMB or NFS file shares from on-premises, you must establish a network tunnel between your on-premises network and Azure. A [virtual network](../../virtual-network/virtual-networks-overview.md) is similar to a traditional on-premises network. Like an Azure storage account or an Azure VM, a virtual network is an Azure resource that you deploy in a resource group. 
+### Network rules
+Network rules control which clients can reach the public endpoint. There are two kinds:
 
-Azure Files supports the following mechanisms to tunnel traffic between your on-premises workstations and servers and Azure SMB/NFS file shares:
+- **[Virtual network rules](#virtual-network-rules)** allow clients in a subnet that has a [service endpoint](#service-endpoints). Both resource providers support virtual network rules. NFS clients need a service endpoint, so virtual network rules are how you allow them.
+- **[IP address rules](#ip-address-rules)** allow clients by public IP address. Only classic file shares support IP address rules, for SMB and FileREST.
 
-#### Point-to-site VPN
+Network rules apply to data access through SMB, NFS, and FileREST. They don't apply to management operations through Azure Resource Manager, such as creating a file share or changing its properties. When you browse file data in the Azure portal, your browser sends FileREST requests to the file service endpoint, so the network rules must allow your computer. For the permissions that portal browsing needs, see [Authorize access to file data in the Azure portal](authorize-data-operations-portal.md).
 
-[Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) supports [point-to-site VPN](../../vpn-gateway/point-to-site-about.md) connections, which are VPN connections between Azure and an individual client. This solution is primarily useful for devices that aren't part of your organization's on-premises network. A common use case is for telecommuters who want to be able to mount their Azure file share from home, a coffee shop, or hotel while on the road. To use a point-to-site VPN connection with Azure Files, you need to configure a Point-to-Site VPN connection for each client that wants to connect. See [Configure a Point-to-Site VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md) and [Configure a Point-to-Site VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md).
+#### Virtual network rules
+A virtual network rule allows traffic from a subnet that has a `Microsoft.Storage` or `Microsoft.Storage.Global` service endpoint. Both the Microsoft.Storage (storage accounts) and Microsoft.FileShares resource providers use these service endpoint names. Keep these points in mind:
 
-#### Site-to-site VPN
+- The subnet can be in a different region from the resource. For access from other regions, use the `Microsoft.Storage.Global` service endpoint. A subnet can have only one of these two service endpoints.
+- The subnet can be in a different subscription or Microsoft Entra tenant. To add a subnet from another tenant, use Azure PowerShell or Azure CLI. The Azure portal doesn't show subnets in other tenants.
+- Each resource supports up to 400 virtual network rules. To add a rule, you need the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` permission on the subnet.
+- Deleting a subnet removes it from the storage account's network rules. A new subnet with the same name doesn't get access until you add it to the network rules. (Classic file shares only.)
+- If you plan to fail over a geo-redundant storage account, create the virtual networks in the secondary region before you need them. Add virtual network rules for their subnets so clients in those virtual networks can connect after a failover. (Classic file shares only.)
 
-[Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) also supports [site-to-site VPN](../../vpn-gateway/design.md#s2smulti) connections, which are VPN connections between Azure and your organization's network. A site-to-site VPN connection enables you to configure a VPN connection once for a VPN server or device hosted on your organization's network, rather than configuring a connection for every client device that needs to access your Azure file share. See [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
+#### IP address rules
+Classic file shares support IP address rules for SMB and FileREST access from the internet. Microsoft.FileShares doesn't support IP address rules. Keep these points in mind:
 
-#### ExpressRoute
+- IP address rules accept only public IPv4 addresses. You can't add private address ranges, such as addresses that start with 10, 172.16 to 172.31, or 192.168.
+- Specify address ranges in CIDR notation, such as `203.0.113.0/24`. Ranges with a `/31` or `/32` prefix aren't supported. Add these addresses as individual IP address rules.
+- IP address rules have no effect on requests from clients in the same Azure region as the storage account, or from clients in a subnet that has a service endpoint. Use virtual network rules for these clients. The exception is a rule for the IP address of a [standard service endpoint](#standard-service-endpoints).
+- A storage account supports up to 400 IP address rules.
+- To allow clients in an on-premises network, add the public IP addresses that the network uses for internet traffic. If you use Azure ExpressRoute with Microsoft peering, add the network address translation (NAT) IP addresses that Microsoft peering uses.
 
-[ExpressRoute](../../expressroute/expressroute-introduction.md) enables you to create a defined route between Azure and your on-premises network that doesn't traverse the internet. Because ExpressRoute provides a dedicated path between your on-premises datacenter and Azure, ExpressRoute can be useful when network performance is a consideration. ExpressRoute is also a good option when your organization's policy or regulatory requirements require a deterministic path to your resources in the cloud.
+#### Exceptions for Azure services
+For classic file shares, you can allow Azure services that can't use virtual network or IP address rules:
 
-> [!NOTE]
-> Although Microsoft recommends using private endpoints to assist in extending your on-premises network into Azure, it's technically possible to route to the public endpoint over the VPN connection. However, this method requires hard-coding the IP address for the public endpoint for the Azure storage cluster that serves your storage account. Because storage accounts might be moved between storage clusters at any time and new clusters are frequently added and removed, this method requires regularly hard-coding all the possible Azure storage IP addresses into your routing rules.
+- **Trusted services**: The **Allow trusted Microsoft services to access this resource** exception allows services such as Azure File Sync. Enable it only when an integration needs it. For the list of services, see [Trusted Azure services](../common/storage-network-security-trusted-azure-services.md?toc=/azure/storage/files/toc.json).
+- **Resource instances**: A resource instance rule allows a specific Azure resource in your Microsoft Entra tenant to reach the public endpoint. The resource still needs authorization to access file data.
 
-### DNS configuration
+A [network security perimeter](#network-security-perimeter) is the newer way to allow Azure services. It controls access for many resources in one place. We recommend a perimeter when the services that you use are onboarded to it. You might still need these exceptions for services that aren't onboarded, such as Azure Backup, or if you don't use a perimeter.
 
-When you create a private endpoint, Azure also creates or updates a private DNS zone corresponding to the `privatelink` subdomain. Strictly speaking, creating a private DNS zone isn't required to use a private endpoint for your storage account. However, it's highly recommended, and it's explicitly required when mounting your Azure file share with an Active Directory user principal or accessing it from the FileREST API.
+Microsoft.FileShares doesn't support these exceptions.
 
-> [!NOTE]
-> This article uses the storage account DNS suffix for the Azure Public regions, `core.windows.net`. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Microsoft Azure operated by 21Vianet cloud - just substitute the appropriate suffixes for your environment.
+### Network security perimeter
+A [network security perimeter](../../private-link/network-security-perimeter-concepts.md) puts PaaS resources inside a logical boundary and controls public network access to them. Only classic file shares support network security perimeters.
 
-In your private DNS zone, Azure creates an A record for `storageaccount.privatelink.file.core.windows.net` and a CNAME record for the regular name of the storage account, which follows the pattern `storageaccount.file.core.windows.net`. Because your Azure private DNS zone is connected to the virtual network containing the private endpoint, you can observe the DNS configuration by calling the [`Resolve-DnsName`](/powershell/module/dnsclient/resolve-dnsname) cmdlet from PowerShell in an Azure VM (alternately `nslookup` in Windows and Linux):
+When you associate a storage account with a perimeter, the access rules in the perimeter profile override the storage account's network rules. The perimeter has two access modes:
 
-```powershell
-Resolve-DnsName -Name "storageaccount.file.core.windows.net"
-```
+- **Transition**: The default mode. If no perimeter rule allows a connection, the storage account's own network rules and [exceptions for Azure services](#exceptions-for-azure-services) apply. By using [diagnostic logs](../../private-link/network-security-perimeter-diagnostic-logs.md), you can find traffic that the perimeter rules don't allow. Use Transition mode only as a temporary step.
+- **Enforced**: Only perimeter rules apply. The storage account's virtual network rules, IP address rules, and exceptions for Azure services don't apply. To allow an Azure service that isn't [onboarded to network security perimeter](../../private-link/network-security-perimeter-concepts.md#onboarded-private-link-resources), add an inbound subscription-based access rule.
 
-In this example, the storage account `storageaccount.file.core.windows.net` resolves to the private IP address of the private endpoint, which happens to be `192.168.0.4`.
+A perimeter decides which clients can reach the storage account through the public endpoint. It allows clients in two ways:
 
-```Output
-Name                              Type   TTL   Section    NameHost
-----                              ----   ---   -------    --------
-storageaccount.file.core.windows. CNAME  29    Answer     storageaccount.privatelink.file.core.windows.net
-net
+- **Resource to resource**: Other PaaS resources in the perimeter, and Azure resources in subscriptions that an inbound subscription-based rule allows. The perimeter identifies these clients by their Microsoft Entra identity, which only OAuth requests carry. For Azure Files, this access applies only to FileREST with OAuth.
+- **Clients by IP address**: Inbound IP-based rules allow clients by public IP address.
+  - Clients in Azure virtual networks connect through a [standard service endpoint](#standard-service-endpoints). An IP-based rule for the service endpoint's IP address allows SMB, NFS, and FileREST. In Enforced mode, the perimeter denies traffic through service endpoints that don't have an assigned IP address.
+  - Clients outside Azure connect from their public IP address. An IP-based rule for that address allows SMB and FileREST. NFS doesn't support clients outside Azure.
 
-Name       : storageaccount.privatelink.file.core.windows.net
-QueryType  : A
-TTL        : 1769
-Section    : Answer
-IP4Address : 192.168.0.4
+Private endpoint traffic isn't subject to perimeter rules.
 
+The following table shows which inbound rules apply to each protocol and authentication method:
 
-Name                   : privatelink.file.core.windows.net
-QueryType              : SOA
-TTL                    : 269
-Section                : Authority
-NameAdministrator      : azureprivatedns-host.microsoft.com
-SerialNumber           : 1
-TimeToZoneRefresh      : 3600
-TimeToZoneFailureRetry : 300
-TimeToExpiration       : 2419200
-DefaultTTL             : 300
-```
+| Access | Inbound perimeter rules that apply |
+|---|---|
+| FileREST with OAuth | All rules: IP-based, subscription-based, and access from other resources in the perimeter |
+| FileREST with Shared Key or SAS | IP-based rules only |
+| SMB with NTLM or Kerberos | IP-based rules only |
+| NFS | IP-based rules for the IP address of a [standard service endpoint](#standard-service-endpoints) only |
 
-If you run the same command from on-premises, you'll see that the same storage account name resolves to the public IP address of the storage account instead. For example, `storageaccount.file.core.windows.net` is a CNAME record for `storageaccount.privatelink.file.core.windows.net`, which in turn is a CNAME record for the Azure storage cluster hosting the storage account:
+Check these integrations before you associate a storage account with a perimeter:
 
-```Output
-Name                              Type   TTL   Section    NameHost
-----                              ----   ---   -------    --------
-storageaccount.file.core.windows. CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
-net
-storageaccount.privatelink.file.c CNAME  60    Answer     file.par20prdstr01a.store.core.windows.net
-ore.windows.net
+- **Customer-managed keys**: If the key vault that holds the [customer-managed key](customer-managed-keys.md) is in a perimeter, put the storage account in the same perimeter. Otherwise, configure the key vault's perimeter profile to allow the storage account.
+- **Azure Backup**: Azure Backup isn't onboarded to network security perimeter. Don't use a perimeter for storage accounts that use Azure Backup.
+- **Azure File Sync**: You can't associate a Storage Sync Service with a perimeter. [Configure the Storage Sync Service to use managed identities](../file-sync/file-sync-managed-identities.md). Then add an inbound subscription-based access rule that allows the subscription of the Storage Sync Service.
 
-Name       : file.par20prdstr01a.store.core.windows.net
-QueryType  : A
-TTL        : 60
-Section    : Answer
-IP4Address : 52.239.194.40
-```
+To associate a perimeter with a storage account, see [Transition to a network security perimeter in Azure](../../private-link/network-security-perimeter-transition.md).
 
-This configuration reflects that the storage account can expose both the public endpoint and one or more private endpoints. To ensure that the storage account name resolves to the private endpoint's private IP address, you must change the configuration on your on-premises DNS servers. You can do this in several ways:
+#### Standard service endpoints
+A [standard service endpoint](../../private-link/service-endpoint-standard-overview.md) is a service endpoint that has a public IP address assigned to it. You create the public IP address and assign it to the subnet's `Microsoft.Storage` service endpoint. Azure Storage then uses that address to identify traffic from the subnet. The address only labels the traffic. Traffic isn't routed through it, and clients don't use it, so a client's own public IP address doesn't work in its place. The Azure networking documentation calls this address a *network identifier*, and calls a service endpoint without one a *basic service endpoint*.
 
-- Modifying the *hosts* file on your clients to make `storageaccount.file.core.windows.net` resolve to the desired private endpoint's private IP address. This is strongly discouraged for production environments, because you'll need to make these changes to every client that wants to mount your Azure file shares, and changes to the storage account or private endpoint won't be automatically handled.
-- Creating an A record for `storageaccount.file.core.windows.net` in your on-premises DNS servers. This has the advantage that clients in your on-premises environment will be able to automatically resolve the storage account without needing to configure each client. However, this solution is similarly brittle to modifying the *hosts* file because changes aren't reflected. Although this solution is brittle, it might be the best choice for some environments.
-- Forward the `core.windows.net` zone from your on-premises DNS servers to your Azure private DNS zone. The Azure private DNS host can be reached through a special IP address (`168.63.129.16`) that is only accessible inside virtual networks that are linked to the Azure private DNS zone. To work around this limitation, you can run additional DNS servers within your virtual network that forward `core.windows.net` on to the Azure private DNS zone. To simplify this setup, Microsoft provides PowerShell cmdlets that auto-deploy DNS servers in your Azure virtual network and configure them as desired. To learn how to set up DNS forwarding, see [Configuring DNS with Azure Files](storage-files-networking-dns.md).
+Standard service endpoints let clients in virtual networks reach a storage account in a network security perimeter without a private endpoint. To allow them, add an inbound IP-based access rule for the service endpoint's IP address to the perimeter profile. The rule allows SMB, NFS, and FileREST traffic from every subnet that uses the IP address. One IP address can represent many subnets and virtual networks in the same region, including virtual networks in other subscriptions in the same Microsoft Entra tenant. When you add or remove subnets that use the IP address, you don't need to change the perimeter's rules.
 
-## SMB over QUIC
+A storage account's IP address rules can also allow the service endpoint's IP address, without a perimeter. Without a perimeter, a basic service endpoint with [virtual network rules](#virtual-network-rules) gives the same access at no extra charge.
 
-Windows Server 2022 Azure Edition supports a transport protocol called QUIC for the SMB server provided by the File Server role. QUIC is a replacement for TCP that's built on top of UDP, providing numerous advantages over TCP while still providing a reliable transport mechanism. One key advantage for the SMB protocol is that instead of using port 445, all transport is done over port 443, which is widely open outbound to support HTTPS. This configuration effectively means that SMB over QUIC offers an "SMB VPN" for file sharing over the public internet. Windows 11 ships with an SMB over QUIC capable client.
+Keep these points in mind:
 
-Currently, Azure Files doesn't support SMB over QUIC. However, you can get access to Azure file shares via Azure File Sync running on Windows Server as in the diagram following. This configuration also gives you the option to have Azure File Sync caches both on-premises or in different Azure datacenters to provide local caches for a distributed workforce. To learn more about this option, see [the Windows Server documentation](/windows-server/storage/file-server/smb-over-quic). For Azure File Sync-specific networking details, see [SMB over QUIC](../file-sync/file-sync-networking-overview.md#smb-over-quic).
+- A standard service endpoint still identifies the source subnet. Virtual network rules that allow the subnet continue to apply after you assign an IP address, until the perimeter is in Enforced mode.
+- Assigning or changing the IP address resets active connections from the subnet. Plan the change for a maintenance window.
+- Standard service endpoints don't support traffic from on-premises networks. Use a [private endpoint](#private-endpoints) for on-premises access.
+- Standard service endpoints are a paid feature, charged for each virtual network. For more information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-:::image type="content" source="media/storage-files-networking-overview/smb-over-quic.png" alt-text="Diagram for creating a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync." border="false":::
+Clients in a subnet that has a standard service endpoint can still access a Microsoft.FileShares file share if the subnet is in the file share's allowed subnets.
 
-## See also
+To configure a standard service endpoint, see [Allow access from a standard service endpoint](storage-files-networking-endpoints.md#allow-access-from-a-standard-service-endpoint).
 
+## Outbound access control
+Network rules for a file share control inbound access. They don't restrict clients' outbound destinations. For example, a client that can read a file share could copy data to another resource it has permission to write to.
+
+### Restrict outbound access with service endpoint policies
+For classic file shares, you can use a [service endpoint policy](../../virtual-network/virtual-network-service-endpoint-policies-overview.md) to limit which storage accounts clients in a subnet can access through service endpoints. The policy applies to all clients in that subnet. The destination's network rules and authorization requirements still apply.
+
+Service endpoint policies work alongside other network controls:
+
+- Service endpoint routes override user-defined routes (UDRs) for the matching service address prefixes. Traffic routed through a service endpoint doesn't go through Azure Firewall or a network virtual appliance (NVA), so these devices can't inspect or log it. For more information, see [Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
+- Network security group (NSG) rules can use service tags such as `Storage.WestUS` to restrict outbound traffic to a region. Service tags can't restrict traffic to a specific storage account.
+
+The policy's allow list can contain individual storage accounts, resource groups, or subscriptions. The policy blocks clients in the associated subnet from accessing other storage accounts through service endpoints. It doesn't restrict other outbound paths from the subnet.
+
+> [!IMPORTANT]
+> Service endpoint policies don't support Microsoft.FileShares file shares. You can't add these file shares to a policy. A policy on the client subnet blocks access to them through service endpoints, even if it allows their subscription or resource group. Clients in that subnet must use a [private endpoint](#private-endpoints) to access Microsoft.FileShares file shares.
+
+Service endpoint policies don't apply to private endpoint traffic.
+
+To configure a service endpoint policy, see [Restrict outbound access to specific storage accounts](storage-files-networking-endpoints.md#restrict-outbound-access-to-specific-storage-accounts).
+
+## Related content
 - [Azure Files overview](storage-files-introduction.md)
-- [Plan for an Azure Files deployment](storage-files-planning.md)
+- [Plan an Azure Files deployment](storage-files-planning.md)

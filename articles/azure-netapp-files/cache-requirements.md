@@ -22,7 +22,7 @@ Before you configure [cache volumes](configure-cache-volumes.md), make sure that
 * You should enable encryption on the origin volume.
 * The source cluster must be running ONTAP 9.15.1 or later version.
 * You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
-* You can't move a cache volume to another capacity pool.
+* You can move a cache volume between capacity pools within the same NetApp account. However, moving a cache volume to a capacity pool in a different NetApp account isn't supported.
 * The `globalFileLocking` parameter value must be the same on all cache volumes that share the same origin volume. Global file locking can be enabled when creating the first cache volume by setting `globalFileLocking` to true. The subsequent cache volumes from the same origin volume must have this setting set to true. To change the global file locking setting on existing cache volumes, you must update the origin volume first. After updating the origin volume, the change propagates to all the cache volumes associated with that origin volume. The `volume flexcache origin config modify -is-global-file-locking-enabled` command should be executed on the source cluster to change the setting on the origin volume.
 * The volume security style for a cache volume is inherited from the external ONTAP origin volume only at creation time and is not a configurable parameter on a cache volume. If the security style is changed on the external origin volume, the cache volume must be deleted and recreated with the correct protocol choice to align to the security styles.
 
@@ -46,20 +46,25 @@ Before you configure [cache volumes](configure-cache-volumes.md), make sure that
 * When creating a cache volume, subnets need to be specified for the cache volume (cacheSubnetResourceId) and for cluster peering (peeringSubnetResourceId). 
     * The same subnet can be specified for both cache volume and cluster peering (but the subnet must have the Microsoft.Netapp/volumes delegation).
     * When different subnets are used, each subnet needs to be on a different VNET and each subnet must have the Microsoft.Netapp/volumes delegation.
+ 
+#### Cache disconnected behavior
+When connectivity between a cache volume and its origin volume is interrupted, the cache volume enters a disconnected state. During this period, some commands and metadata operations might return information from the local cache volume rather than the origin volume.
+
+For example, the `df -h` command typically reports the origin volume properties. However, when the cache volume can't communicate with the origin volume, `df -h` returns the local cache volume properties until connectivity is restored.
+
+To determine whether this behavior is caused by connectivity issues, monitor the cache volume connection metric and verify periodically whether the cache volume connection status becomes 0. See [Metrics for Azure NetApp](azure-netapp-files-metrics.md#cache-volume-metrics) for cache connection metrics.
+
 
 ### Write-back considerations 
 
-If you're enabling write-back on the external origin volume:
-
-* You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
-* Each external origin system node has at least 128 GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
-* Testing is executed for files smaller than 100 GB and WAN roundtrip times between the cache and origin not exceeding 100 milliseconds. Any workloads outside of these limits might result in unexpected performance characteristics.
-* The external origin must remain less than 80% full. Cache volumes aren't granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
 * If you enable write-back on the external origin volume, the system must run one of the following ONTAP versions:
-  * ONTAP 9.16.1P14 or later
   * ONTAP 9.17.1P8 or later
   * ONTAP 9.18.1P3 or later
   * ONTAP 9.19.1 or later
+* Each external origin system node has at least 128 GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This configuration is equivalent to an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
+* Testing is executed for files smaller than 100 GB and WAN roundtrip times between the cache and origin that don't exceed 100 milliseconds. Any workloads outside of these limits might result in unexpected performance characteristics.
+* The external origin must remain less than 80% full. Cache volumes aren't granted exclusive lock delegations if the origin volume doesn't have at least 20% space remaining. In this situation, calls to a write-back-enabled cache are forwarded to the origin. This condition helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
+
 
 ### Interoperability considerations 
 

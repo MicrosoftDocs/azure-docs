@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 02/10/2026
+ms.date: 08/28/2026
 ms.author: anfdocs
 # Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
@@ -23,11 +23,11 @@ There are requirements and considerations you need to be aware of before using [
 The following requirements and considerations apply to large volumes. For performance considerations of *regular volumes*, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
 * A regular volume can’t be converted to a large volume.
-* You must create a large volume with a minimum size of 50 TiB. Large volumes support sizes up to 1,024 TiB by default. Larger volume sizes are available by request, subject to regional capacity availability. When cool access is enabled, large volumes can be created at a minimum size of 2,400 GiB and can support significantly larger capacities.
+* You must create a large volume with a minimum size of 50 TiB. Large volumes support sizes up to 1,024 TiB by default. Larger volume sizes are available by request, subject to regional capacity availability. 
 * You can't resize a large volume to less than 50 TiB.
     * When reducing the size of a large volume, the size depends on the size of files written to the volume and the snapshots currently active on the volumes. 
 * You can't create a large volume with application volume groups.
-* Currently, large volumes aren't suited for database (HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
+* Currently, large volumes aren't suited for database (SAP HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
 *	The throughput ceiling for the Standard, Premium, and Ultra service levels with large volumes is 12,800 MiB/s. You can grow a large volume to 1 PiB with the throughput ceiling per the following table:  
     
     <table><thead>
@@ -79,15 +79,16 @@ The following requirements and considerations apply to large volumes. For perfor
 
 * Cool access is supported with large volumes. 
 
-### Requirements and considerations for breakthrough mode (preview)
+### Requirements and considerations for breakthrough mode
 
-Large volumes breakthrough mode is currently in preview. You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. 
+You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. 
 
 * Breakthrough mode large volumes are supported at sizes between 2,400 GiB up to 2,400 TiB (2 PiB). 
-* With breakthrough mode, you can achieve up 50 GiB/s throughput depending on your workload's characteristics and system placement.
+* By using breakthrough mode, you can achieve up to 80 GiB/s throughput depending on your workload's characteristics and system placement.
 * The [migration assistant](migrate-volumes.md) isn't supported for large volumes with breakthrough mode. 
 * Breakthrough mode is supported on the Flexible, Standard, Premium, and Ultra service levels. 
 * Cool access can only be enabled on large volumes in breakthrough mode _after_ the volume has been created.
+* You can't restore a snapshot from a breakthrough mode large volume to a new volume.
 
 ### Requirements and considerations for large volumes up to 7.2 PiB (preview)
 
@@ -103,7 +104,7 @@ Large volumes with cool access up to 7.2 PiB have the following characteristic
   Volumes up to 7.2 PiB are supported only on Azure NetApp Files dedicated capacity and only in regions that support large volumes.
 
 * Cool data workload profile  
-  These volumes are intended for workloads where at least 80% of the data resides in the cool tier.3
+  These volumes are intended for workloads where at least 80% of the data resides in the cool tier.
 
 * Supported volume size range  
   Cool access is supported on large volumes sized between 2,400 GiB and 7.2 PiB, extending cool access beyond the previous 2 PiB limit.
@@ -188,54 +189,39 @@ Once your [regional capacity quota](regional-capacity-quota.md) has increased, y
 
 To create volumes up to 7.2 PiB, you must select **Extra-large volume 7.2 PiB** as the volume type when you create the volume. Cool access must be enabled on the volume. 
 
+> [!NOTE]
+> Submit the applicable request form for each subscription that requires one of the features described in this article. You can't manually register these features. The Azure NetApp Files team reviews submitted requests and completes feature registration after approval. While a request is being reviewed and processed, the feature might appear in a **Pending** or **Registering** state. This status is expected and doesn't require any customer action. After the request is approved and processing is complete, the feature status changes to **Registered**. 
+
 ### Register the feature 
 
 If this is your first time using large volumes, register the feature with the [large volumes sign-up form](https://aka.ms/anflargevolumessignup).
 
 # [Azure CLI](#tab/azurecli)
 
-1.  Register the feature by running the following commands:
-
+1. Check the status of the feature registration: 
+ 
     ```azurecli
     az account set --subscription <subscriptionId>
-    az feature register --namespace Microsoft.NetApp --name ANFLargeVolumes
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurecli
     az feature show --namespace Microsoft.NetApp --name ANFLargeVolumes
     ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-1.  Register the feature by running the following commands:
+1. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** is in the `Registering` state. Wait until the status is `Registered` before continuing.
 
     ```azurepowershell
     Set-AzContext -SubscriptionId <subscriptionId>
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
     ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 ---
   
     
 ### Register for breakthrough mode
 
-Large volumes breakthrough mode is currently in preview. You must submit a [waitlist request](https://forms.cloud.microsoft/r/P11Zn9zHMY) to access the feature. 
+To access the feature, submit a [waitlist request](https://forms.cloud.microsoft/r/k0pvx1M1BJ). 
 
 After submitting the request, check the status of feature registration with the command: 
 
@@ -243,7 +229,7 @@ After submitting the request, check the status of feature registration with the 
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
 ```
 
-You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
+You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to display the registration status. 
 
 ### Register for large volumes up to 7.2 PiB
 

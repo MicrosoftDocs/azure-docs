@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/03/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 
 #customer intent: As a solution developer, I want to filter, branch, and merge messages in a data flow graph so that only the relevant data reaches my destination.
@@ -537,6 +537,8 @@ configuration: [
 
 A branch transform evaluates a condition on each incoming message and routes it to one of two output paths: `true` or `false`. Unlike a filter (which drops messages), a branch preserves every message and directs it down the appropriate path.
 
+For example, a condition of `$1 > 5` on `severity` sends a message with `severity: 8` down the `true` path. A severity of `5` or less selects the `false` path.
+
 ### How branching works
 
 Every message goes to exactly one of the two paths. Nothing is dropped.
@@ -627,6 +629,8 @@ To enable schema validation, set `validateSchema` to `true` in the branch config
 
 - Messages that pass schema validation continue to branch evaluation.
 - Messages that fail schema validation go to the `false` path.
+
+For a complete field-rule rejection route with MQTT metadata and a durable consumer, see [Route invalid messages to a dead-letter queue](dataflow-patterns/howto-route-invalid-messages.md).
 
 # [Operations experience](#tab/portal)
 
@@ -807,9 +811,15 @@ nodeConnections:
 
 ---
 
+### Route three or more message kinds
+
+For a complete graph, diagram, and input/output examples, see [Route more than two message kinds](dataflow-patterns/howto-route-message-kinds.md).
+
 ## Merge paths with concatenate
 
 All branch paths must converge before reaching a destination. A concatenate transform merges them. It has no configuration and no rules. Messages from all connected inputs pass through unmodified.
+
+Concatenate doesn't join fields across messages or guarantee ordering between paths.
 
 # [Operations experience](#tab/portal)
 
@@ -857,406 +867,12 @@ The CLI applies the whole graph from one config file, so add this to the corresp
 
 ---
 
-## Example: filter, branch, and merge
+<a id="example-filter-branch-and-merge"></a>
 
-This end-to-end example filters out bad readings, branches by severity, applies different map transforms to each path, and merges the results.
+## Example: Route by severity
 
-# [Operations experience](#tab/portal)
-
-:::image type="content" source="media/howto-dataflow-graphs-filter-route/filter-branch-pipeline.png" alt-text="Screenshot of the operations experience canvas showing a filter, branch, map, concat, and destination pipeline." lightbox="media/howto-dataflow-graphs-filter-route/filter-branch-pipeline.png":::
-
-To build this pipeline in the operations experience:
-
-1. Create a data flow graph and add a **source** that reads from `telemetry/sensors`.
-1. Add a **filter** transform. Configure a rule that drops messages where `temperature > 1000`.
-1. Add a **branch** transform. Configure the condition `severity > 5` to route high-severity messages to the true path.
-1. Add a **map** transform on the true path. Configure rules to rename `deviceId` to `id`, `temperature` to `temp`, and add a field `alert` set to `true`.
-1. Add a **map** transform on the false path. Configure rules to rename `deviceId` to `id` and `temperature` to `temp`.
-1. Add a **concatenate** transform to merge both paths.
-1. Add a **destination** that sends to `telemetry/processed`.
-1. Connect the elements: source → filter → branch → (true path: alert map, false path: normal map) → concatenate → destination.
-
-# [Azure CLI](#tab/cli)
-
-The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
-
-```json
-{
-  "mode": "Enabled",
-  "nodes": [
-    {
-      "nodeType": "Source",
-      "name": "sensors",
-      "sourceSettings": {
-        "endpointRef": "default",
-        "dataSources": [
-          "telemetry/sensors"
-        ]
-      }
-    },
-    {
-      "nodeType": "Graph",
-      "name": "remove-bad-data",
-      "graphSettings": {
-        "registryEndpointRef": "default",
-        "artifact": "azureiotoperations/graph-dataflow-filter:1.0.0",
-        "configuration": [
-          {
-            "key": "rules",
-            "value": "{\"filter\":[{\"inputs\":[\"temperature\"],\"expression\":\"$1 > 1000\",\"description\":\"Drop impossible temperature readings\"}]}"
-          }
-        ]
-      }
-    },
-    {
-      "nodeType": "Graph",
-      "name": "severity-check",
-      "graphSettings": {
-        "registryEndpointRef": "default",
-        "artifact": "azureiotoperations/graph-dataflow-branch:1.1.0",
-        "configuration": [
-          {
-            "key": "rules",
-            "value": "{\"branch\":{\"inputs\":[\"severity\"],\"expression\":\"$1 > 5\",\"description\":\"Route high-severity messages\"}}"
-          }
-        ]
-      }
-    },
-    {
-      "nodeType": "Graph",
-      "name": "alert-transform",
-      "graphSettings": {
-        "registryEndpointRef": "default",
-        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
-        "configuration": [
-          {
-            "key": "rules",
-            "value": "{\"map\":[{\"inputs\":[\"deviceId\"],\"output\":\"id\"},{\"inputs\":[\"temperature\"],\"output\":\"temp\"},{\"inputs\":[],\"output\":\"alert\",\"expression\":\"true\"}]}"
-          }
-        ]
-      }
-    },
-    {
-      "nodeType": "Graph",
-      "name": "normal-transform",
-      "graphSettings": {
-        "registryEndpointRef": "default",
-        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
-        "configuration": [
-          {
-            "key": "rules",
-            "value": "{\"map\":[{\"inputs\":[\"deviceId\"],\"output\":\"id\"},{\"inputs\":[\"temperature\"],\"output\":\"temp\"}]}"
-          }
-        ]
-      }
-    },
-    {
-      "nodeType": "Graph",
-      "name": "merge",
-      "graphSettings": {
-        "registryEndpointRef": "default",
-        "artifact": "azureiotoperations/graph-dataflow-concatenate:1.0.0"
-      }
-    },
-    {
-      "nodeType": "Destination",
-      "name": "output",
-      "destinationSettings": {
-        "endpointRef": "default",
-        "dataDestination": "telemetry/processed"
-      }
-    }
-  ],
-  "nodeConnections": [
-    {
-      "from": {
-        "name": "sensors"
-      },
-      "to": {
-        "name": "remove-bad-data"
-      }
-    },
-    {
-      "from": {
-        "name": "remove-bad-data"
-      },
-      "to": {
-        "name": "severity-check"
-      }
-    },
-    {
-      "from": {
-        "name": "severity-check.output.true"
-      },
-      "to": {
-        "name": "alert-transform"
-      }
-    },
-    {
-      "from": {
-        "name": "severity-check.output.false"
-      },
-      "to": {
-        "name": "normal-transform"
-      }
-    },
-    {
-      "from": {
-        "name": "alert-transform"
-      },
-      "to": {
-        "name": "merge"
-      }
-    },
-    {
-      "from": {
-        "name": "normal-transform"
-      },
-      "to": {
-        "name": "merge"
-      }
-    },
-    {
-      "from": {
-        "name": "merge"
-      },
-      "to": {
-        "name": "output"
-      }
-    }
-  ]
-}
-```
-
-Apply the config file.
-
-```azurecli
-az iot ops dataflowgraph apply \
-  --name alert-routing \
-  --instance $AIO_INSTANCE_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --config-file graph.json
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
-  name: 'alert-routing'
-  parent: dataflowProfile
-  properties: {
-    profileRef: dataflowProfileName
-    mode: 'Enabled'
-    nodes: [
-      {
-        nodeType: 'Source'
-        name: 'sensors'
-        sourceSettings: {
-          endpointRef: 'default'
-          dataSources: [ 'telemetry/sensors' ]
-        }
-      }
-      {
-        nodeType: 'Graph'
-        name: 'remove-bad-data'
-        graphSettings: {
-          registryEndpointRef: 'default'
-          artifact: 'azureiotoperations/graph-dataflow-filter:1.0.0'
-          configuration: [
-            {
-              key: 'rules'
-              value: '{"filter":[{"inputs":["temperature"],"expression":"$1 > 1000","description":"Drop impossible temperature readings"}]}'
-            }
-          ]
-        }
-      }
-      {
-        nodeType: 'Graph'
-        name: 'severity-check'
-        graphSettings: {
-          registryEndpointRef: 'default'
-          artifact: 'azureiotoperations/graph-dataflow-branch:1.1.0'
-          configuration: [
-            {
-              key: 'rules'
-              value: '{"branch":{"inputs":["severity"],"expression":"$1 > 5","description":"Route high-severity messages"}}'
-            }
-          ]
-        }
-      }
-      {
-        nodeType: 'Graph'
-        name: 'alert-transform'
-        graphSettings: {
-          registryEndpointRef: 'default'
-          artifact: 'azureiotoperations/graph-dataflow-map:1.0.0'
-          configuration: [
-            {
-              key: 'rules'
-              value: '{"map":[{"inputs":["deviceId"],"output":"id"},{"inputs":["temperature"],"output":"temp"},{"inputs":[],"output":"alert","expression":"true"}]}'
-            }
-          ]
-        }
-      }
-      {
-        nodeType: 'Graph'
-        name: 'normal-transform'
-        graphSettings: {
-          registryEndpointRef: 'default'
-          artifact: 'azureiotoperations/graph-dataflow-map:1.0.0'
-          configuration: [
-            {
-              key: 'rules'
-              value: '{"map":[{"inputs":["deviceId"],"output":"id"},{"inputs":["temperature"],"output":"temp"}]}'
-            }
-          ]
-        }
-      }
-      {
-        nodeType: 'Graph'
-        name: 'merge'
-        graphSettings: {
-          registryEndpointRef: 'default'
-          artifact: 'azureiotoperations/graph-dataflow-concatenate:1.0.0'
-        }
-      }
-      {
-        nodeType: 'Destination'
-        name: 'output'
-        destinationSettings: {
-          endpointRef: 'default'
-          dataDestination: 'telemetry/processed'
-        }
-      }
-    ]
-    nodeConnections: [
-      { from: { name: 'sensors' }, to: { name: 'remove-bad-data' } }
-      { from: { name: 'remove-bad-data' }, to: { name: 'severity-check' } }
-      { from: { name: 'severity-check.output.true' }, to: { name: 'alert-transform' } }
-      { from: { name: 'severity-check.output.false' }, to: { name: 'normal-transform' } }
-      { from: { name: 'alert-transform' }, to: { name: 'merge' } }
-      { from: { name: 'normal-transform' }, to: { name: 'merge' } }
-      { from: { name: 'merge' }, to: { name: 'output' } }
-    ]
-  }
-}
-```
-
-# [Kubernetes (debug only)](#tab/kubernetes)
-
-[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1
-kind: DataflowGraph
-metadata:
-  name: alert-routing
-  namespace: azure-iot-operations
-spec:
-  profileRef: default
-  nodes:
-    - nodeType: Source
-      name: sensors
-      sourceSettings:
-        endpointRef: default
-        dataSources:
-          - telemetry/sensors
-
-    - nodeType: Graph
-      name: remove-bad-data
-      graphSettings:
-        registryEndpointRef: default
-        artifact: azureiotoperations/graph-dataflow-filter:1.0.0
-        configuration:
-          - key: rules
-            value: |
-              {
-                "filter": [
-                  {
-                    "inputs": ["temperature"],
-                    "expression": "$1 > 1000",
-                    "description": "Drop impossible temperature readings"
-                  }
-                ]
-              }
-
-    - nodeType: Graph
-      name: severity-check
-      graphSettings:
-        registryEndpointRef: default
-        artifact: azureiotoperations/graph-dataflow-branch:1.1.0
-        configuration:
-          - key: rules
-            value: |
-              {
-                "branch": {
-                  "inputs": ["severity"],
-                  "expression": "$1 > 5",
-                  "description": "Route high-severity messages"
-                }
-              }
-
-    - nodeType: Graph
-      name: alert-transform
-      graphSettings:
-        registryEndpointRef: default
-        artifact: azureiotoperations/graph-dataflow-map:1.0.0
-        configuration:
-          - key: rules
-            value: |
-              {
-                "map": [
-                  { "inputs": ["deviceId"], "output": "id" },
-                  { "inputs": ["temperature"], "output": "temp" },
-                  { "inputs": [], "output": "alert", "expression": "true" }
-                ]
-              }
-
-    - nodeType: Graph
-      name: normal-transform
-      graphSettings:
-        registryEndpointRef: default
-        artifact: azureiotoperations/graph-dataflow-map:1.0.0
-        configuration:
-          - key: rules
-            value: |
-              {
-                "map": [
-                  { "inputs": ["deviceId"], "output": "id" },
-                  { "inputs": ["temperature"], "output": "temp" }
-                ]
-              }
-
-    - nodeType: Graph
-      name: merge
-      graphSettings:
-        registryEndpointRef: default
-        artifact: azureiotoperations/graph-dataflow-concatenate:1.0.0
-
-    - nodeType: Destination
-      name: output
-      destinationSettings:
-        endpointRef: default
-        dataDestination: telemetry/processed
-
-  nodeConnections:
-    - from: { name: sensors }
-      to: { name: remove-bad-data }
-    - from: { name: remove-bad-data }
-      to: { name: severity-check }
-    - from: { name: severity-check.output.true }
-      to: { name: alert-transform }
-    - from: { name: severity-check.output.false }
-      to: { name: normal-transform }
-    - from: { name: alert-transform }
-      to: { name: merge }
-    - from: { name: normal-transform }
-      to: { name: merge }
-    - from: { name: merge }
-      to: { name: output }
-```
-
----
+Filter bad readings, branch by severity, map each path, and merge the results.
+For the complete four-tab walkthrough, see [Route readings by severity](dataflow-patterns/howto-route-by-severity.md).
 
 ## Related content
 

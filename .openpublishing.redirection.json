@@ -1,6 +1,206 @@
 {
   "redirections": [
     {
+      "source_path": "articles/ai-gateway/get-started.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-policy-tool-threat.md",
+      "redirect_url": "/azure/ai-gateway/policy-tool-threat",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/ai-gateway/ai-gateway-policy-tool-threat.md",
+      "redirect_url": "/azure/ai-gateway/policy-tool-threat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-resource.md",
+      "redirect_url": "/azure/ai-gateway/ai-gateway-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-overview.md",
+      "redirect_url": "/azure/ai-gateway/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/quickstart-ai-gateway-create.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-setup.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-manage-models-tools.md",
+      "redirect_url": "/azure/ai-gateway/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-govern-secure-assets.md",
+      "redirect_url": "/azure/ai-gateway/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-configure-private-networking.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-web-pubsub/chat-reference-service-sdk-java.md",
+      "redirect_url": "/java/api/overview/azure/messaging-webpubsub-chat-readme",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-web-pubsub/chat-reference-service-sdk-javascript.md",
+      "redirect_url": "/javascript/api/overview/azure/web-pubsub-chat-readme",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-azure-data-protection-use-rest-api-backup-postgresql.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-azure-database-postgresql.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-postgresql-cli.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-postgresql-ps.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/quick-backup-postgresql-database-portal.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/tutorial-postgresql-backup.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/physical-azure-disaster-recovery.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/physical-azure-set-up-source.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/physical-manage-configuration-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/physical-to-azure-failover-failback.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/site-recovery-plan-capacity-vmware.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-deploy-configuration-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-failback.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-install-linux-master-target.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-manage-configuration-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-manage-process-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-manage-vcenter.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-reprotect.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-set-up-process-server-azure.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-set-up-process-server-scale.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-set-up-target.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-physical-large-deployment.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-physical-manage-mobility-service.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-prepare-failback.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/site-recovery-whats-new-archive.md",
+      "redirect_url": "/azure/site-recovery/site-recovery-whats-new",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-linux-hrw-install.md",
       "redirect_url": "/azure/automation/extension-based-hybrid-runbook-worker-install",
       "redirect_document_id": false
@@ -443,6 +643,21 @@
     },
     {
       "source_path": "articles/playwright-testing/tutorial-run-end-to-end-tests.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/how-to-playwright-workspaces-remote-mcp.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/quickstart-automate-browser-tasks-remote-mcp.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/troubleshoot-remote-mcp-server.md",
       "redirect_url": "/azure/app-testing",
       "redirect_document_id": false
     },
@@ -6909,6 +7124,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/site-to-site-ipv6-azure-powershell.md",
+      "redirect_url": "/azure/vpn-gateway/site-to-site-ipv6-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/site-to-site-ipv6-azure-cli.md",
+      "redirect_url": "/azure/vpn-gateway/site-to-site-ipv6-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/bgp-howto.md",
+      "redirect_url": "/azure/vpn-gateway/configure-bgp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md",
+      "redirect_url": "/azure/vpn-gateway/configure-bgp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/bgp-how-to-cli.md",
+      "redirect_url": "/azure/vpn-gateway/configure-bgp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/ipv6-configuration.md",
+      "redirect_url": "/azure/vpn-gateway/site-to-site-ipv6-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-certificate-gateway",
       "redirect_document_id": false
@@ -7960,7 +8205,7 @@
     },
     {
       "source_path": "articles/iot-hub/how-to-revoke-certificate-delete-policy.md",
-      "redirect_url": "../iot/how-to-revoke-certificate-delete-policy",
+      "redirect_url": "../iot/concepts-certificate-policy-management",
       "redirect_document_id": false
     },
     {
@@ -7976,6 +8221,11 @@
     {
       "source_path": "articles/enclave/1-8-migrate-workload-resources.md",
       "redirect_url": "/azure/enclave/migrate-azure-resources-azure-enclave",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/enclave/preview-terms.md",
+      "redirect_url": "/azure/enclave/azure-enclave-faq#is-azure-enclave-generally-available",
       "redirect_document_id": false
     },
     {
@@ -8043,6 +8293,11 @@
       "source_path": "articles/container-apps/deployment-errors.md",
       "redirect_url": "/azure/container-apps/troubleshoot-deployment-errors",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/dns/private-dns-resiliency.md",
+      "redirect_url": "/azure/reliability/reliability-dns-private",
+      "redirect_document_id": false
+    }    
   ]
 }

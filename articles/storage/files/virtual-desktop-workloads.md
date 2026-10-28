@@ -4,7 +4,7 @@ description: Learn how to use SMB Azure file shares for virtual desktop workload
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/03/2026
+ms.date: 10/14/2026
 ms.author: kendownie
 # Customer intent: "As an IT administrator managing virtual desktop environments, I want to use Azure Files to store user profiles and disk images, so that I can ensure high availability, performance, and scalability for our users across multiple sessions."
 ---
@@ -17,7 +17,7 @@ Azure Files provides fully managed, scalable SMB file shares that are an excelle
 
 Virtual desktop infrastructure (VDI) centralizes desktop environments on servers, enabling secure remote access and simplified management across devices. [Azure Virtual Desktop](/azure/virtual-desktop/overview) is Microsoft’s cloud-based VDI solution, offering scalable, multi-session Windows 10 and 11 desktops with seamless integration into Microsoft 365 and Microsoft Entra ID, ideal for remote work and secure resource access. Other VDI offerings include Citrix/VMware Horizon on Azure infrastructure.
 
-Azure Files is ideal for VDI because it provides cloud file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) to store disk images for dynamic application delivery. When deployed correctly, Azure Files can reduce infrastructure overhead, provide high availability, support enterprise-grade security, and deliver consistent performance for a smooth user experience across virtual desktop sessions.
+Azure Files is ideal for VDI because it provides cloud file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) to store disk images for dynamic application delivery. When deployed correctly, Azure Files can reduce infrastructure overhead, provide high availability, support enterprise-grade security, and deliver consistent performance for a smooth user experience across virtual desktop sessions.
 
 :::image type="content" source="media/virtual-desktop-workloads/files-virtual-desktop-architecture.png" alt-text="Architecture diagram showing how to use Azure Files for VDI workloads." border="false":::
 
@@ -79,11 +79,11 @@ The following table lists general recommendations for **FSLogix profile containe
 - Handles: ~2–3 per user (root directory, profile, and possibly ODFC container)
 
 | **Number of concurrent FSLogix users** | **Recommended file storage** | **Notes** |
-|------------------------------------------------|------------------------------|--------------|
-| Less than 2,000 users                | HDD pay-as-you-go or provisioned v2 file shares              | Acceptable for light workloads or low concurrency |
-| 2,000-5,000 users                       | 1-2 SSD file shares with [metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) | SSD improves login performance; handles remain well below 10,000/share |
-| 5,000-10,000 users                 | 2-4 SSD file shares, distributed evenly | Shares must be partitioned correctly |
-| More than 10,000 users             | Multiple SSD file shares with [metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview) | Register for increased handle limits and enable metadata caching for large-scale environments |
+| - | - | - |
+| Less than 2,000 users | HDD pay-as-you-go or provisioned v2 file shares | Acceptable for light workloads or low concurrency |
+| 2,000-5,000 users | 1-2 SSD file shares with [metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) | SSD improves sign-in performance; handles remain well below 10,000 per share |
+| 5,000-10,000 users | 2-4 SSD file shares, distributed evenly | Shares must be partitioned correctly |
+| More than 10,000 users | Multiple SSD file shares with [metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview) | Register for increased handle limits and enable metadata caching for large-scale environments |
 
 ### Non-FSLogix profile storage
 
@@ -101,11 +101,72 @@ The following table lists general recommendations for **non-FSLogix** profile st
 - Peak IOPS: 50 IOPS/user during login, 20 IOPS/user during steady-state
 
 | **Number of concurrent users** | **Recommended file storage** | **Notes** |
-|------------------------------------------------|------------------------------|--------------|
-| Less than 400 users                | HDD pay-as-you-go file shares              | Suitable for low-concurrency workloads with minimal IOPS demands |
-| 400-1,000 users                       | HDD provisioned v2 file shares or multiple HDD pay-as-you-go file shares  | Might require tuning for peak login bursts |
-| 1,000-2,000 users                 | SSD or multiple HDD file shares | SSDs recommended due to better metadata latency |
-| More than 2,000 users             | Multiple SSD file shares with [metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview) | Critical to avoid handle limits and achieve consistent login performance |
+| - | - | - |
+| Less than 400 users | HDD pay-as-you-go file shares | Suitable for low-concurrency workloads with minimal IOPS demands. |
+| 400-1,000 users | HDD provisioned v2 file shares or multiple HDD pay-as-you-go file shares | Might require tuning for peak sign-in bursts. HDD provisioned v2 file shares can use [credit-based bursting](understand-performance.md#bursting) for short IOPS peaks. |
+| 1,000-2,000 users | SSD or multiple HDD file shares | SSDs recommended due to better metadata latency. |
+| More than 2,000 users | Multiple SSD file shares with [metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview) | Critical to avoid handle limits and achieve consistent sign-in performance. |
+
+### Understand user profile sign-in and sign-out behavior
+
+Azure Virtual Desktop environments that use profile containers can have highly variable storage demand throughout the day. Normal user activity generates relatively steady I/O, while concentrated sign-in and sign-out periods create short IOPS spikes.
+
+With the Azure Files provisioned v2 billing model, you can provision storage capacity, IOPS, and throughput independently. Azure Files also provides credit-based IOPS bursting, which allows a share with available burst credits to temporarily exceed its provisioned IOPS.
+
+A typical workday includes two periods of concentrated storage activity as users start and end their sessions. These *sign-in and sign-out storms* cause temporary IOPS spikes as FSLogix profile containers open or close. Between these events, the share generally handles steadier session activity.
+
+The important distinction is between steady-state demand and short peak demand. The following example shows how to size an Azure Files SMB share that requires approximately 20,000 IOPS during normal operation and temporarily reaches 75,000 IOPS during sign-in or sign-out activity.
+
+:::image type="content" source="media/virtual-desktop-workloads/sign-in-sign-out-storm.svg" alt-text="Line chart of a typical workday showing short 75,000-IOPS peaks during morning sign-in and evening sign-out, with steady demand of about 20,000 IOPS between the peaks." border="false":::
+
+#### Example: Size Azure Files for 2,000 Azure Virtual Desktop users
+
+This example illustrates a sizing approach. The workload values are sample assumptions, not universal sizing requirements. Test your workload to determine its actual steady-state and peak requirements.
+
+| Parameter | Example value |
+| - | - |
+| Concurrent users | 2,000 |
+| Average profile size | 30 GiB per user |
+| Storage | 60-TiB provisioned v2 SSD share |
+| Steady-state IOPS | 10 per user, or approximately 20,000 IOPS |
+| Peak sign-in or sign-out demand | 75,000 IOPS |
+
+Because provisioned v2 separates capacity, IOPS, and throughput, the share doesn't need extra provisioned capacity solely to obtain more IOPS.
+
+##### Step 1: Separate steady-state and peak IOPS
+
+In this example, the steady-state requirement is approximately **20,000 IOPS**, and the peak requirement is **75,000 IOPS**.
+
+##### Step 2: Calculate the provisioned v2 burst limit
+
+For provisioned v2 SSD file shares, the [burst IOPS limit](understanding-billing.md#provisioned-v2-bursting) is calculated as follows:
+
+`MIN(MAX(3 * ProvisionedIOPS, 10000), 102400)`
+
+To provide a burst limit of 75,000 IOPS, work backward from the peak requirement: `75,000 / 3 = 25,000` provisioned IOPS.
+
+##### Step 3: Compare peak provisioning with burst-aware sizing
+
+| Provisioning approach | Provisioned IOPS | How the peak is served |
+| - | - | - |
+| Provision for the peak | 75,000 | The full peak is provisioned and billed continuously. |
+| Use credit-based bursting | 25,000 | Provisioned IOPS serve normal demand, and available burst credits serve the temporary peak. |
+
+> [!NOTE]
+> The provisioned IOPS in the burst-aware approach are one-third of the 75,000-IOPS peak. This ratio applies only to the IOPS component of the bill. Total cost also includes capacity, throughput, redundancy, region, and other applicable charges.
+
+##### Step 4: Understand how burst credits cover the peak
+
+The provisioned v2 SSD burst-credit formula is `(BurstLimit - ProvisionedIOPS) * 3600`.
+
+In this example, `(75,000 - 25,000) * 3,600 = 180,000,000` burst IOPS credits. Each I/O above the provisioned level consumes one credit. Credits accrue while actual IOPS are below the provisioned level and decline while actual IOPS exceed it. A new file share starts with a full burst-credit bucket.
+
+##### Step 5: Estimate the Azure Files cost
+
+Use the [Azure Files provisioned v2 pricing page](https://azure.microsoft.com/pricing/details/storage/files/) to estimate your Azure Files SSD cost. The total price is based on independently provisioned storage capacity, IOPS, and throughput. In the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/), select the target region, redundancy option, media tier, provisioned capacity, IOPS, and throughput.
+
+> [!IMPORTANT]
+> Credit-based bursting operates on a best-effort basis and depends on available credits. Validate that the burst duration and the time between recurring peaks allow enough credits to accumulate. Provision for the peak when the workload requires guaranteed performance or regularly sustains IOPS above the provisioned value.
 
 ### App attach
 
@@ -131,5 +192,6 @@ If you're hitting the limits on maximum concurrent handles per file/directory, u
 
 ## See also
 
+- [Use Azure File Sync with Azure Virtual Desktop Hybrid](azure-virtual-desktop-hybrid.md)
 - [Storage considerations for Azure Virtual Desktop workloads](/azure/well-architected/azure-virtual-desktop/storage)
 - [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile)

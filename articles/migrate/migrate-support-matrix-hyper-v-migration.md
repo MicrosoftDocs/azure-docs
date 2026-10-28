@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 04/02/2025
 ms.update-cycle: 1825-days
 ms.custom: engagement-fy24
@@ -48,6 +48,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
 | **UEFI boot**                  | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.  |
 | **UEFI - Secure boot**         | Not supported for migration.|
+| **Migration from Generation 1 to Generation 2 VMs**         | Supported for migration to Confidential Virtual Machines (CVMs) for [CVM eligible OS](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines). Also supported for VMs running NVMe-eligible operating systems when migrating to VM SKU families that require NVMe storage and Generation 2 VMs. For the list of NVMe eligible operating systems, see [Supported OS images](/azure/virtual-machines/enable-nvme-interface).|
 | **Disk size**                  | Up to 2 TB OS disk for gen 1 VM; up to 4 TB OS disk for gen 2 VM; 32 TB for data disks. </br></br> For existing Azure Migrate projects, you might need to upgrade the replication provider on the Hyper-V host to the latest version to replicate large disks up to 32 TB.|
 | **Disk number** | A maximum of 16 disks per VM.|
 | **Encrypted disks/volumes**    | Not supported for migration.|
@@ -58,6 +59,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **ReiserFS**                   | Not supported.
 | **ISCSI**                      | VMs with iSCSI targets aren't supported for migration.
 | **Target disk**                | You can migrate to Azure VMs with managed disks only. |
+| **NVMe disk controllers**                | - Supported for migration of Hyper-V VMs to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Migrate attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration.  <br/> - Migration to an NVMe-only target isn't supported if the following conditions are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core. |
 | **IPv6** | Not supported.|
 | **NIC teaming** | Not supported.|
 | **Azure Site Recovery and/or Hyper-V** | You can't replicate using Migration and modernization if the VM is enabled for replication with Azure Site Recovery or with Hyper-V replica.|

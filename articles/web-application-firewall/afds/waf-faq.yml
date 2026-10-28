@@ -1,12 +1,12 @@
 ### YamlMime:FAQ
 metadata:
   title: Azure Web Application Firewall on Azure Front Door - Frequently Asked Questions
-  description: This article provides answers to frequently asked questions about Azure Web Application Firewall on Azure Front Door.
+  description: Find answers to common questions about Azure Front Door WAF policies, attachment scopes, managed rules, rate limiting, and supported features.
   author: halkazwini
   ms.author: halkazwini
   ms.service: azure-web-application-firewall
   ms.topic: faq
-  ms.date: 10/01/2025
+  ms.date: 10/22/2026
 title: Frequently asked questions for Azure Web Application Firewall on Azure Front Door
 summary: This article answers common questions about features and functionality for Azure Web Application Firewall on Azure Front Door. 
 
@@ -18,8 +18,32 @@ sections:
           What is Azure Web Application Firewall?
         answer: |
           Azure Web Application Firewall is a web application firewall (WAF) that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy that consists of a combination of custom and managed rules to control access to your web applications.
-          
+
           You can apply a WAF policy to web applications hosted on Azure Application Gateway or Azure Front Door.
+
+      - question: What policy attachment scopes are supported for Azure Front Door WAF?
+        answer: |
+          Azure Front Door WAF supports policy association at the following scopes:
+
+          - Profile level
+          - Domain level
+          - Route level
+
+          Use profile-level policies for shared baseline protection, and use domain-level or route-level policies when specific applications need different settings.
+
+      - question: What happens if multiple WAF policies apply to the same request?
+        answer: |
+          When multiple scopes apply, the most specific scope is used:
+
+          1. Route-level policy
+          2. Domain-level policy
+          3. Profile-level policy
+
+          For example, if a request matches both a profile-level and a route-level policy association, the route-level policy is applied.
+
+      - question: Should I start with route-level policies everywhere?
+        answer: |
+          Usually no. Start with a profile-level baseline policy to keep management simple. Add domain-level and route-level policies only where you need different controls for specific applications or paths.
           
       - question: |
           What is Azure Web Application Firewall on Azure Front Door? 
@@ -79,7 +103,7 @@ sections:
       - question: |
           Do you support the same WAF features in all integrated platforms?
         answer: |
-          Currently, Core Rule Set (CRS) 3.0, CRS 3.1, and CRS 3.2 rules are supported only with Azure Web Application Firewall on Application Gateway. Rate limiting and Azure-managed DRS rules are supported only with Azure Web Application Firewall on Azure Front Door.
+          Currently, Core Rule Set (CRS) 3.0, CRS 3.1, and CRS 3.2 rules are supported only with Azure Web Application Firewall on Application Gateway. Rate limiting and the Default Rule Set (DRS) are supported on both platforms, although the available options differ. For example, grouping rate limits by JA4 client fingerprint or autonomous system number (ASN) is available only on Azure Front Door Premium (preview).
 
       - question: |
           Is DDoS protection integrated with Azure Front Door? 
@@ -92,6 +116,11 @@ sections:
           Why do additional requests above the threshold configured for my rate-limit rule get passed to my back-end server?
         answer: |
           You might not see requests immediately blocked by the rate limit when different Azure Front Door servers process requests. For more information, see [Rate limits and Azure Front Door servers](waf-front-door-rate-limit.md#rate-limits-and-azure-front-door-servers).
+
+      - question: |
+          Can I rate limit by something other than the client IP address?
+        answer: |
+          Yes. By default, a rate limit rule counts requests separately for each socket IP address. On Azure Front Door Premium, you can instead group a rate limit rule by country/region, autonomous system number (ASN), or JA4 client fingerprint, or count all matching requests together. These groupings are in preview. For more information, see [Group rate limit traffic (preview)](waf-front-door-rate-limit.md#group-rate-limit-traffic-preview).
 
       - question: |
           What content types does the WAF support?
@@ -119,7 +148,7 @@ sections:
             * `application/x-www-form-urlencoded`
           
           > [!NOTE]
-          > Azure Front Door WAF doesn't support content-encoding. This means that compressed bodies won't be decompressed before being sent to the WAF engine.  
+          > Azure Front Door WAF doesn't support content-encoding. This limitation means that compressed bodies aren't decompressed before being sent to the WAF engine.
 
       - question: |
           Can I apply an Azure Front Door WAF policy to front-end hosts in Azure Front Door Premium profiles that belong to different subscriptions?

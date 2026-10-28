@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Manage calls
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to manage calls using the Azure Communication Services Calling SDK. Topics include how to place calls, manage participants, and manage properties.
 
 ## Prerequisites

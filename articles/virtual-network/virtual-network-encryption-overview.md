@@ -72,6 +72,7 @@ Encrypted - traffic is encrypted on the datapath.
 | [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) | **Yes** | **Yes** <br> - on traffic between virtual machines across regional peering. |
 | Global virtual network peering | **Yes** | **Yes** <br> - on traffic between virtual machines across global peering. |
 | [Azure ExpressRoute Gateways](/azure/expressroute/expressroute-introduction) | **Yes** | **No**. <br> - Traffic to and from Azure ExpressRoute Gateways isn't encrypted. |
+| [Azure  VPN Gateways](/azure/vpn-gateway/vpn-gateway-about-vpngateways) | **No** | **No** <br> - Virtual Network encryption isn’t supported for traffic to or from Azure VPN Gateway. Partially encrypted traffic paths,  including NVA active/passive designs where return traffic traverses an Azure Load Balancer, can cause packet loss and connectivity failures
 | [Azure Private Link service](/azure/private-link/private-link-overview) <br> [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) | **Yes** | **No**. <br> - Traffic to and from Private Link Service/Private Endpoint isn't encrypted. |
 | [Azure Application Gateway](/azure/application-gateway/overview) | **Yes** | **No** |
 | [Azure Firewall Premium](/azure/firewall/overview) | **Yes** | **Yes** |

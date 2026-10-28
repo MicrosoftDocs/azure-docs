@@ -375,12 +375,44 @@ The Azure CLI applies a data flow graph from a single JSON configuration file. C
 }
 ```
 
+Apply the configuration to the existing instance's `default` profile:
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name sensors-throttle \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --config-file graph.json
+```
+
 # [Bicep](#tab/bicep)
 
+Save the following template as `main.bicep`.
+
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
+param aioInstanceName string
+param customLocationName string
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-07-01' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-07-01' = {
   name: 'sensors-throttle'
   parent: dataflowProfile
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
   properties: {
     mode: 'Enabled'
     nodes: [
@@ -416,11 +448,26 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
       }
     ]
     nodeConnections: [
-      { from: { name: 'sensors' }, to: { name: 'throttle' } }
-      { from: { name: 'throttle' }, to: { name: 'output' } }
+      {
+        from: { name: 'sensors' }
+        to: { name: 'throttle' }
+      }
+      {
+        from: { name: 'throttle' }
+        to: { name: 'output' }
+      }
     ]
   }
 }
+```
+
+Set `CUSTOM_LOCATION_NAME` to the existing instance's custom location name, then deploy to the resource group containing the instance and custom location:
+
+```azurecli
+az deployment group create \
+  --resource-group $RESOURCE_GROUP \
+  --template-file main.bicep \
+  --parameters aioInstanceName=$AIO_INSTANCE_NAME customLocationName=$CUSTOM_LOCATION_NAME
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -470,6 +517,260 @@ spec:
 
 ---
 
+## Example: forward at most two messages per second
+
+This example reduces a stream of 10 messages per second to at most 2. Forwarded messages keep their original content; excess messages are dropped. Use it when you can discard intermediate readings.
+
+Complete the [shared example prerequisites](dataflow-patterns/overview-dataflow-patterns.md#prerequisites), including the `default` profile and `factory-mqtt` MQTT endpoint in the `azure-iot-operations` namespace. Keep the profile on one instance for the stated rate; each instance maintains its own throttle state.
+
+:::image type="content" source="media/concept-dataflow-graphs/rate-limit-telemetry.svg" alt-text="Diagram of ten messages per second entering a throttle, which forwards unchanged messages at least 500 milliseconds apart to the destination and drops the eight excess messages in the example second." border="false":::
+
+<!--
+```mermaid
+graph LR
+    S("Source: factory/readings<br/>10 messages/s<br/>0, 100, ..., 900 ms") --&gt; T("BUILT-IN Throttle<br/>Maximum 2 messages/s<br/>Minimum interval 500 ms")
+    T --&gt; D("Destination: factory/rate-limited<br/>Forwarded unchanged<br/>reading-001 at 0 ms<br/>reading-006 at 500 ms")
+    T --&gt; X("Dropped messages<br/>reading-002 to reading-005<br/>reading-007 to reading-010")
+```
+-->
+
+# [Operations experience](#tab/portal)
+
+In the Operations experience, create a data flow graph named `rate-limit-telemetry` on the `default` profile:
+
+1. Add a source named `source` with endpoint `factory-mqtt` and topic `factory/readings`.
+1. Add the built-in **throttle** transform named `throttle`. Add one per-topic rule with topic `factory/readings` and **Max messages per second** set to `2`.
+1. Add a destination named `destination` with endpoint `factory-mqtt` and topic `factory/rate-limited`.
+1. Connect `source` to `throttle`, then `throttle` to `destination`. Save and enable the graph.
+
+The throttle forwards messages unchanged at least 500 milliseconds apart and drops excess messages. It doesn't buffer messages or select the latest value.
+
+# [Azure CLI](#tab/cli)
+
+Save these complete graph properties as `graph.json`:
+
+```json
+{
+  "mode": "Enabled",
+  "nodes": [
+    {
+      "name": "source",
+      "nodeType": "Source",
+      "sourceSettings": {
+        "endpointRef": "factory-mqtt",
+        "dataSources": ["factory/readings"]
+      }
+    },
+    {
+      "name": "throttle",
+      "nodeType": "Graph",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-throttle:1.0.0",
+        "configuration": [
+          {
+            "key": "throttle",
+            "value": "{\"perTopicThrottles\":[{\"topic\":\"factory/readings\",\"maxMessagesPerSecond\":2}]}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "destination",
+      "nodeType": "Destination",
+      "destinationSettings": {
+        "endpointRef": "factory-mqtt",
+        "dataDestination": "factory/rate-limited"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": { "name": "source" },
+      "to": { "name": "throttle" }
+    },
+    {
+      "from": { "name": "throttle" },
+      "to": { "name": "destination" }
+    }
+  ]
+}
+```
+
+Apply the configuration to the existing instance's `default` profile:
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name rate-limit-telemetry \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --config-file graph.json
+```
+
+# [Bicep](#tab/bicep)
+
+Save the following template as `main.bicep`:
+
+```bicep
+param aioInstanceName string
+param customLocationName string
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-07-01' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-07-01' = {
+  name: 'rate-limit-telemetry'
+  parent: dataflowProfile
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    nodes: [
+      {
+        name: 'source'
+        nodeType: 'Source'
+        sourceSettings: {
+          endpointRef: 'factory-mqtt'
+          dataSources: [ 'factory/readings' ]
+        }
+      }
+      {
+        name: 'throttle'
+        nodeType: 'Graph'
+        graphSettings: {
+          registryEndpointRef: 'default'
+          artifact: 'azureiotoperations/graph-dataflow-throttle:1.0.0'
+          configuration: [
+            {
+              key: 'throttle'
+              value: '{"perTopicThrottles":[{"topic":"factory/readings","maxMessagesPerSecond":2}]}'
+            }
+          ]
+        }
+      }
+      {
+        name: 'destination'
+        nodeType: 'Destination'
+        destinationSettings: {
+          endpointRef: 'factory-mqtt'
+          dataDestination: 'factory/rate-limited'
+        }
+      }
+    ]
+    nodeConnections: [
+      {
+        from: { name: 'source' }
+        to: { name: 'throttle' }
+      }
+      {
+        from: { name: 'throttle' }
+        to: { name: 'destination' }
+      }
+    ]
+  }
+}
+```
+
+Set `CUSTOM_LOCATION_NAME` to the existing instance's custom location name, then deploy to the resource group containing the instance and custom location:
+
+```azurecli
+az deployment group create \
+  --resource-group $RESOURCE_GROUP \
+  --template-file main.bicep \
+  --parameters aioInstanceName=$AIO_INSTANCE_NAME customLocationName=$CUSTOM_LOCATION_NAME
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+Save this complete **Graph YAML** as `rate-limit-telemetry.yaml` and apply it for debugging with `kubectl apply -f rate-limit-telemetry.yaml`.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1
+kind: DataflowGraph
+metadata:
+  name: rate-limit-telemetry
+  namespace: azure-iot-operations
+spec:
+  profileRef: default
+  mode: Enabled
+  nodes:
+    - name: source
+      nodeType: Source
+      sourceSettings:
+        endpointRef: factory-mqtt
+        dataSources: [factory/readings]
+    - name: throttle
+      nodeType: Graph
+      graphSettings:
+        registryEndpointRef: default
+        artifact: azureiotoperations/graph-dataflow-throttle:1.0.0
+        configuration:
+          - key: throttle
+            value: |
+              {
+                "perTopicThrottles": [
+                  {"topic":"factory/readings","maxMessagesPerSecond":2}
+                ]
+              }
+    - name: destination
+      nodeType: Destination
+      destinationSettings:
+        endpointRef: factory-mqtt
+        dataDestination: factory/rate-limited
+  nodeConnections:
+    - from: { name: source }
+      to: { name: throttle }
+    - from: { name: throttle }
+      to: { name: destination }
+```
+
+---
+
+### Check the output
+
+For a fresh transform instance, process these ten messages on `factory/readings` at 100-millisecond intervals. Times are relative to processing the first message. The transform uses its monotonic processing clock; publisher timestamps and delivery times are separate.
+
+| Input on `factory/readings` | Processing time | Output on `factory/rate-limited` |
+| --- | --- | --- |
+| `{"messageId":"reading-001","temperature":20}` | 0 ms | Same payload |
+| `{"messageId":"reading-002","temperature":21}` | 100 ms | Dropped |
+| `{"messageId":"reading-003","temperature":22}` | 200 ms | Dropped |
+| `{"messageId":"reading-004","temperature":23}` | 300 ms | Dropped |
+| `{"messageId":"reading-005","temperature":24}` | 400 ms | Dropped |
+| `{"messageId":"reading-006","temperature":25}` | 500 ms | Same payload |
+| `{"messageId":"reading-007","temperature":26}` | 600 ms | Dropped |
+| `{"messageId":"reading-008","temperature":27}` | 700 ms | Dropped |
+| `{"messageId":"reading-009","temperature":28}` | 800 ms | Dropped |
+| `{"messageId":"reading-010","temperature":29}` | 900 ms | Dropped |
+
+The expected two output messages are:
+
+```json
+{"messageId":"reading-001","temperature":20}
+```
+
+```json
+{"messageId":"reading-006","temperature":25}
+```
+
+The throttle drops excess readings immediately. Buffering, queueing, latest-value selection, and smoothing require separate processing. Use durable buffering and application-controlled backpressure for alarms, commands, or audit events that require every event to be retained.
+
+For state and scaling constraints, see [Limitations](#limitations).
+
 ## Limitations
 
 - **Doesn't modify messages.** The throttle transform only forwards or drops messages; it doesn't change message content.
@@ -483,6 +784,8 @@ spec:
 
 ## Related content
 
+- [Choose another pattern](dataflow-patterns/overview-dataflow-patterns.md)
+- [Noise reduction](dataflow-patterns/howto-reduce-noise.md)
 - [Transform data with map](howto-dataflow-graphs-map.md)
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)

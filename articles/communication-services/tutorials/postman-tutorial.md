@@ -15,6 +15,8 @@ ms.custom: sfi-image-blocked
 
 # Tutorial: Sign and make requests with Postman
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 In this tutorial, you set up and use Postman to make a request against Azure Communication Services by using HTTP. By the end of this tutorial, you successfully send a Short Message Service (SMS) message by using Communication Services and Postman. You can then use Postman to explore other APIs in Communication Services.
 
 In this tutorial, you learn how to:

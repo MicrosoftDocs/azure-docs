@@ -165,7 +165,16 @@ For more information about the relationship between NetApp accounts and subscrip
         Azure NetApp Files supports LDAP Channel Binding if both LDAP Signing and LDAP over TLS settings options are enabled in the Active Directory Connection. For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
 
         >[!NOTE]
-        >DNS PTR records for the AD DS computer account(s) must be created in the AD DS **Organizational Unit** specified in the Azure NetApp Files AD connection for LDAP Signing to work.
+        >If LDAP Signing is enabled, forward and reverse DNS resolution must be configured for every Active Directory domain controller or LDAP server that Azure NetApp Files can discover or use.
+        >If you enable LDAP signing, configure forward and reverse DNS resolution for every Active Directory domain controller or LDAP server that Azure NetApp Files can discover or use.
+        >Before enabling LDAP Signing:
+        >Before you enable LDAP signing:
+        >* Ensure that an A record and matching PTR record exist for each applicable domain controller or LDAP server.
+        >* Include all domain controllers in the Active Directory site specified by the Azure NetApp Files Active Directory connection.
+        >* Include all servers configured as preferred LDAP servers.
+        >* Verify that the DNS servers configured in the Azure NetApp Files Active Directory connection can resolve both forward and reverse DNS records.
+        >
+        >Azure NetApp Files computer accounts are created in the Organizational Unit (OU) specified in the Active Directory connection. The OU location and DNS PTR record requirements are separate configuration requirements.
 
         ![Screenshot of the LDAP signing checkbox.](./media/create-active-directory-connections/active-directory-ldap-signing.png) 
 
@@ -321,11 +330,15 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ### Steps
 
 1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**.
-:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-overview.png" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="./media/create-active-directory-connections/active-directory-reset-overview.png":::
-Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the three dots (`...`) at the end of the row. Select **Reset Active Directory Account**.
-:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="./media/create-active-directory-connections/active-directory-reset-list.png":::
-2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
-:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="./media/create-active-directory-connections/active-directory-reset-confirm.png":::
+  :::image type="content" source="./media/create-active-directory-connections/active-directory-reset-overview.png" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="./media/create-active-directory-connections/active-directory-reset-overview.png":::
+
+  Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the three dots (`...`) at the end of the row. Select **Reset Active Directory Account**.
+  
+  :::image type="content" source="./media/create-active-directory-connections/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="./media/create-active-directory-connections/active-directory-reset-list.png":::
+  
+3. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
+
+  :::image type="content" source="./media/create-active-directory-connections/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="./media/create-active-directory-connections/active-directory-reset-confirm.png":::
 
 ## Next steps  
 

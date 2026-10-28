@@ -56,6 +56,11 @@ In many cases, you can install the client certificate directly on the client com
 * For information about working with certificates, see [Point-to-site: Generate certificates](vpn-gateway-certificates-point-to-site.md).
 * To view an installed client certificate, open **Manage User Certificates**. The client certificate is installed in **Current User\Personal\Certificates**.
 
+> [!NOTE] 
+> If the required root certificate isn't already installed on your client device, install the root certificate included in the VPN client configuration package before using the VPN client profile.
+For example, if you're updating your P2S VPN profile as part of the [gateway root certificate migration](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-about-gateway-certificate-migration)
+ and the G2 root certificate isn't already installed on your client device, install the G2 root certificate included in the updated VPN client package before using the updated P2S VPN profile.
+
 ##### Install the client certificate
 
 Each computer needs a client certificate to authenticate. If the client certificate isn't already installed on the local computer, you can install it by using the following steps:
@@ -145,7 +150,7 @@ If you experience connection issues and you're running version 4.0.0.0 or later 
 
 ##### <a name="secondary"></a>Configure a secondary profile
 
-[!INCLUDE [Secondary profile](../../includes/vpn-gateway-azure-vpn-client-secondary-profile.md)]
+[!INCLUDE [Secondary profile](../networking/includes/vpn-gateway/azure-vpn-client-secondary-profile.md)]
 
 #### Working with connections
 
@@ -231,7 +236,7 @@ The VPN client profile configuration package contains specific folders. The file
 Locate and unzip the VPN client profile configuration package you generated. For certificate authentication and OpenVPN, you should see the **OpenVPN** folder. If you don't see the folder, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Microsoft Entra authentication, you might not have an OpenVPN folder. See the [Microsoft Entra ID](point-to-site-entra-vpn-client-windows.md) configuration article instead.
+* If you're using Microsoft Entra authentication, you might not have an OpenVPN folder. See the [Microsoft Entra ID](point-to-site-entra-vpn-client.md) configuration article instead.
 
 #### Configure the client
 
@@ -285,7 +290,7 @@ The VPN client profile configuration package contains specific folders. The file
 Locate and unzip the VPN client profile configuration package you generated. For Certificate authentication and OpenVPN, you should see the **OpenVPN** folder. If you don't see the folder, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Microsoft Entra ID authentication, you might not have an OpenVPN folder. See the [Microsoft Entra ID](point-to-site-entra-vpn-client-windows.md) configuration article instead.
+* If you're using Microsoft Entra ID authentication, you might not have an OpenVPN folder. See the [Microsoft Entra ID](point-to-site-entra-vpn-client.md) configuration article instead.
 
 #### Configure the client
 
@@ -349,7 +354,7 @@ This section helps you connect to your Azure virtual network (VNet) using VPN Ga
 
 To connect to Azure using the OpenVPN client using certificate authentication, each connecting client requires the following items:
 
-* The Open VPN Client software must be installed and configured on each client.
+* The OpenVPN Client software must be installed and configured on each client.
 * The client must have a client certificate that's installed locally.
 
 #### Workflow
@@ -403,7 +408,7 @@ This section helps you connect to your Azure virtual network (VNet) using VPN Ga
 
 To connect to Azure using the OpenVPN client using certificate authentication, each connecting client requires the following items:
 
-* The Open VPN Client software must be installed and configured on each client.
+* The OpenVPN Client software must be installed and configured on each client.
 * The client must have the correct certificates installed locally.
 
 #### Workflow
@@ -437,7 +442,7 @@ This section helps you connect to your Azure virtual network (VNet) using VPN Ga
 
 To connect to Azure using the OpenVPN client using certificate authentication, each connecting client requires the following items:
 
-* The Open VPN Client software must be installed and configured on each client.
+* The OpenVPN Client software must be installed and configured on each client.
 * The client must have a client certificate that's installed locally.
 
 ### Workflow

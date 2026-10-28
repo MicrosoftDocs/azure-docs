@@ -6,7 +6,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 09/29/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -82,8 +82,6 @@ Create a device identity in your IoT hub.
 
 1. Select **Add Device** to add a device in your IoT hub.
 
-   :::image type="content" source="./media/create-connect-device/add-device.png" alt-text="Screenshot that shows adding a new device in the Azure portal." lightbox="./media/create-connect-device/add-device.png":::
-
 1. In **Create a device**, provide the information for your new device identity:
 
    | Parameter | Dependent parameter | Value |
@@ -95,7 +93,14 @@ Create a device identity in your IoT hub.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-1. Select **Save**.
+1. Select **Save**. After the device is created, its details page opens.
+
+   For symmetric-key devices, you can copy the connection information from this page for immediate use in samples and test scenarios. Store keys and connection strings securely.
+
+   > [!NOTE]
+   > The default **Devices** list displays up to 15 devices, not the complete device inventory. To find another device, search by device ID, apply a filter, or use **Queries** under **Device management**. Search, filter, and query results are eventually consistent, so a newly created device might not appear immediately. A missing result doesn't necessarily mean that registration failed.
+   >
+   > To check the registration of a known device ID, use [Get Identity](/rest/api/iothub/service/devices/get-identity). Newly created identities can also take a few seconds to become available through a direct read. For more information, see [Identity registry operations](./iot-hub-devguide-identity-registry.md#identity-registry-operations) and [Twin query limitations](./iot-hub-devguide-query-language.md#twin-query-limitations).
 
 ### [Azure CLI](#tab/cli)
 
@@ -131,11 +136,11 @@ The Azure portal provides device connection strings only for devices that use sy
 
 1. Select **Device management** > **Devices**.
 
-1. Select your device from the list in the **Devices** pane.
+1. Find your device in the **Devices** pane and select its device ID. If it isn't displayed, enter its device ID in the search box.
+
+   The default list isn't the complete inventory, and search results can lag recent changes. For more information about finding devices and viewing their twins, see [View and update device twins](./manage-device-twins.md#view-and-update-device-twins).
 
 1. Copy the value of **Primary connection string**.
-
-   :::image type="content" source="./media/create-connect-device/copy-connection-string.png" alt-text="Screenshot that shows copying the value of the primary connection string from the Azure portal.":::
 
    By default, the keys and connection strings are masked because they're sensitive information. If you select the eye icon, they're revealed. It's not necessary to reveal them to copy them with the copy button.
 
@@ -167,17 +172,15 @@ If you want to keep a device in your IoT hub's identity registry, but want to pr
 
 1. Select **Device management** > **Devices**.
 
-1. Select your device from the list in the **Devices** pane.
+1. Find your device in the **Devices** pane and select its device ID. If it isn't displayed, enter its device ID in the search box.
+
+   The default list isn't the complete inventory, and search results can lag recent changes. For more information about finding devices and viewing their twins, see [View and update device twins](./manage-device-twins.md#view-and-update-device-twins).
 
 1. On the device details page, you can disable or delete the device registration.
 
    * To prevent a device from connecting, set the **Enable connection to IoT Hub** parameter to **Disable**.
 
-     :::image type="content" source="./media/create-connect-device/disable-device.png" alt-text="Screenshot that shows disabling a device in the Azure portal.":::
-
    * To completely remove a device from your IoT hub's identity registry, select **Delete**.
-
-     :::image type="content" source="./media/create-connect-device/delete-device.png" alt-text="Screenshot that shows deleting a device in the Azure portal.":::
 
 ### [Azure CLI](#tab/cli)
 

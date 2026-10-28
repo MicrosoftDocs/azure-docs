@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 08/12/2026
+ms.date: 09/05/2026
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -26,7 +26,9 @@ You can upgrade your gateway to a higher-capacity SKU within the same SKU family
 - Upgrade from one non-availability zone SKU to another non-availability zone SKU
 - Upgrade from one availability zone-enabled SKU to another availability zone-enabled SKU
 
-For all other scenarios, including downgrades or switching between availability zone types, you must delete and recreate the gateway. This process incurs downtime.
+To move an eligible Standard, HighPerformance, or UltraPerformance gateway to an availability zone-enabled SKU, use the [ExpressRoute gateway migration experience](gateway-migration.md). Azure creates a second gateway and transfers its configuration to minimize disruption.
+
+If neither a same-family upgrade nor the gateway migration experience supports your requested SKU change, you must delete and recreate the gateway. This process incurs downtime.
 
 ## Gateway subnet
 

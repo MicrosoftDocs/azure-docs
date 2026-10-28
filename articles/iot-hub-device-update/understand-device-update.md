@@ -3,13 +3,20 @@ title: Introduction to Device Update for Azure IoT Hub
 description: Learn how the Azure Device Update service for IoT Hub enables you to deploy over-the-air updates for your IoT devices.
 author: sethmanheim
 ms.author: sethm
-ms.date: 11/20/2024
+ms.date: 10/05/2026
 ms.topic: overview
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
 # What is Device Update for IoT Hub?
+
+> [!NOTE]
+> **New: Azure Device Registry software updates (preview)**
+>
+> Software updates is now available in preview as a capability of Azure Device Registry. Use Azure Device Registry groups and jobs to deploy updates at scale, and the [unified Azure IoT SDKs (preview)](../iot/device-registry/concept-unified-iot-sdks.md) to add update support to your devices. The current preview is scoped to IoT Hub-connected devices. To learn more, see [Software updates concepts (preview)](../iot/device-registry/concept-software-updates.md).
+>
+> Device Update for IoT Hub remains generally available and supported for production workloads.
 
 As Internet of Things (IoT) solutions become increasingly widespread, it's essential that the devices forming these solutions are easy to connect and manage at scale. Azure Device Update for IoT Hub is a service that enables you to deploy over-the-air updates for your IoT devices in a cloud-based IoT solution.
 

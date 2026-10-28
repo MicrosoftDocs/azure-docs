@@ -15,6 +15,8 @@ ms.custom: devx-track-js
 
 # Build an authentication service using Azure Functions
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to use Azure Functions to build a trusted user access service.
 
 > [!IMPORTANT]

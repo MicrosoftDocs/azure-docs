@@ -74,6 +74,8 @@
       href: understand-admin-vm.md
     - name: Understand Domain Name Service
       href: understand-domain-name-service.md
+    - name: Connect Azure Enclave to an existing Azure landing zone
+      href: connect-enclave-existing-landing-zone-transit-hub.md
 - name: Tutorial - Deploy Azure Enclave
   items:
   - name: Learn Azure Enclave
@@ -220,6 +222,8 @@
   items:
     - name: Azure Enclave templates
       href: azure-enclave-templates.md
+    - name: Azure Enclave and Azure Local integration
+      href: azure-local-integration.md
     - name: Troubleshoot guide
       href: troubleshoot.md
     - name: Migrate Azure resources into Azure Enclave

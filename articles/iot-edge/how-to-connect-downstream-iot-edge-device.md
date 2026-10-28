@@ -116,7 +116,7 @@ For example, these commands create a root CA certificate, a parent device certif
     ```bash
     # !!! For test only - do not use in production !!!
     
-    # Create the the root CA test certificate
+    # Create the root CA test certificate
     ./certGen.sh create_root_and_intermediate
     
     # Create the parent (gateway) device test certificate 

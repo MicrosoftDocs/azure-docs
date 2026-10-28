@@ -26,7 +26,6 @@ The following table summarizes the features that the connector for MQTT supports
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
 | X.509 user certificates (mTLS) | Yes | Certificates for client authentication and authorization |
-| Anonymous access | Yes | For testing purposes |
 | Southbound certificate trust list | Yes | MQTTS for secure communications with the inbound endpoint |
 | OpenTelemetry integration | Yes | |
 | WASM data transformation | Yes | Optionally transform incoming data using WebAssembly modules |
@@ -93,9 +92,9 @@ The connector also discovers assets from MQTT topics based on a topic filter and
 1. On the **Basic** page, add the endpoint details:
 
     - **External MQTT broker**: Add an endpoint name, server URL, and any authentication credentials.
-    - **Built-in MQTT broker**: Add a name for the endpoint, `mqtt://aio-broker:18883` as the server URL, and **Anonymous** for the authentication credentials.
+    - **Built-in MQTT broker**: Add a name for the endpoint, `mqtt://aio-broker:18883` as the server URL, and **Anonymous** for the authentication option.
 
-        > [!TIP]
+        > [!IMPORTANT]
         > The built-in MQTT broker configuration doesn't require authentication values and has a known URL. The values you enter are ignored.
 
 1. On the **Advanced** page, configure the topic discovery and broker connection settings:
@@ -216,6 +215,9 @@ This configuration deploys a new `device` resource called `mqtt-connector` to th
 ### Configure a device to use a username and password
 
 The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
+
+> [!IMPORTANT]
+> Anonymous authentication is only supported for connections to the built-in MQTT broker. It's not a supported option for external broker connections. The connector throws a config error if you choose it.
 
 To use the `Username password` authentication mode, complete the following steps:
 

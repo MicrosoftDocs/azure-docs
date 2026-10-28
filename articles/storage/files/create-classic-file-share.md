@@ -1,607 +1,531 @@
 ---
 title: Create a classic file share
 titleSuffix: Azure Files
-description: How to create an Azure storage account and Azure classic file share by using the Azure portal, Azure PowerShell, or Azure CLI.
+description: Learn how to create a storage account and an Azure classic file share by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/08/2026
+ms.date: 10/26/2026
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-# Customer intent: "As a cloud administrator, I want to create and manage Azure classic file shares using the Azure portal, PowerShell, or CLI, so that I can efficiently store and access data with configurable performance and redundancy options."
 ---
 
 # Create an Azure classic file share
-
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
 :heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
-Before you create an Azure classic file share, consider the following requirements:
+> [!TIP]
+> **Creating an NFS file share? Use Microsoft.FileShares.** Classic file shares support NFS, but use the Microsoft.FileShares resource provider for new NFS deployments. To create an NFS file share with Microsoft.FileShares, see [Create an Azure file share with Microsoft.FileShares](create-file-share.md). For the differences between the resource providers, see [Azure Files management concepts](files-management-concepts.md).
 
-- **Performance:** Azure classic file shares offer two media tiers: SSD (premium), with single-digit millisecond latency, and HDD (standard), for cost-effective general purpose storage.
+This article describes how to create a storage account and a classic file share in it. Before you create a classic file share, decide on these properties:
 
-- **Redundancy:**  
-   Azure Files offers locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) options for HDD SMB file shares. SSD file shares are only available for the LRS and ZRS redundancy types. See [Azure Files redundancy](./files-redundancy.md) for more information.
+- **Media tier**: SSD file shares provide consistent high performance and low latency. HDD file shares provide cost-effective storage for general-purpose use.
+- **Protocol**: SMB file shares are available on both media tiers. NFS file shares require the SSD media tier.
+- **Redundancy**: HDD file shares support locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS). SSD file shares support LRS and ZRS. For more information, see [Azure Files data redundancy](files-redundancy.md).
 
-For more information, see [Plan for an Azure Files deployment](storage-files-planning.md).
+For more information, see [Plan an Azure Files deployment](storage-files-planning.md).
 
 ## Prerequisites
-
-- This article assumes that you have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
-- If you intend to use Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- To use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
+- To use Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Create a storage account for classic file shares
+You deploy classic file shares into a *storage account*. A storage account is a top-level resource that represents a shared pool of storage, IOPS, and throughput. You can deploy multiple file shares in one storage account. If you already have a storage account that you want to use, go to [Create a classic file share](#create-a-classic-file-share).
 
-Azure classic file shares are deployed into _storage accounts_, which are top-level objects that represent a shared pool of storage. You can use this pool of storage to deploy multiple file shares. If you already have an Azure storage account that you want to use, you can skip this section and proceed to [Create a classic file share](#create-a-classic-file-share).
+Two storage account properties, *kind* and *SKU*, determine the billing model, media tier, and redundancy of the file shares in the storage account. Azure Files supports these combinations:
 
-Storage accounts have two properties, **kind** and **SKU**, which dictate the billing model, media tier, and redundancy of the file shares that you can deploy in the storage account. For Azure Files, consider three main combinations of kind and SKU:
-
-| Media tier  | Billing model | Storage account kind | Storage account SKUs |
+| Media tier | Billing model | Storage account kind | Storage account SKUs |
 |-|-|-|-|
 | SSD and HDD | [Provisioned v2](./understanding-billing.md#provisioned-v2-model) | FileStorage | <ul><li>PremiumV2_LRS</li><li>PremiumV2_ZRS</li><li>StandardV2_LRS</li><li>StandardV2_ZRS</li><li>StandardV2_GRS</li><li>StandardV2_GZRS</li></ul> |
 | SSD | [Provisioned v1](./understanding-billing.md#provisioned-v1-model) | FileStorage | <ul><li>Premium_LRS</li><li>Premium_ZRS</li></ul> |
 | HDD | [Pay-as-you-go](./understanding-billing.md#pay-as-you-go-model) | StorageV2 | <ul><li>Standard_LRS</li><li>Standard_ZRS</li><li>Standard_GRS</li><li>Standard_GZRS</li></ul> |
 
-We recommend using the provisioned v2 billing model for all new file share deployments. The provisioned v1 and pay-as-you-go billing models remain fully supported for new and existing deployments. Provisioned v2 file shares are currently available in most regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
+Use the provisioned v2 billing model for all new file share deployments. The provisioned v1 and pay-as-you-go billing models remain fully supported for new and existing deployments. Provisioned v2 file shares are available in most regions. For more information, see [Provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability).
 
 # [Portal](#tab/azure-portal)
+To create a storage account in the Azure portal, search for **storage accounts** in the search box at the top of the portal. Under **Services**, select **Storage accounts**.
 
-To create a storage account by using the Azure portal, use the search box at the top of the Azure portal to search for **storage accounts** and select the matching result.
+:::image type="content" source="media/storage-how-to-create-file-share/search-storage-accounts.png" alt-text="Screenshot of the Azure portal search results for storage accounts, with Storage accounts under Services highlighted.":::
 
-![A screenshot of the Azure portal search box with results for "storage accounts".](./media/storage-how-to-create-file-share/create-storage-account-0.png)
+Select **+ Create** to open the **Create a storage account** page.
 
-This shows a list of all existing storage accounts available in your visible subscriptions. Select **+ Create** to create a new storage account.
+:::image type="content" source="media/storage-how-to-create-file-share/storage-accounts-create.png" alt-text="Screenshot of the storage accounts list toolbar, with the Create button highlighted.":::
+
+The **Create a storage account** page has a tab for each group of settings. The following sections describe the settings that apply to Azure Files.
 
 ### Basics
+The **Basics** tab contains the required settings for the storage account.
 
-The first tab to complete when creating a storage account is labeled **Basics**. It contains the required fields to create a storage account.
+:::image type="content" source="media/storage-how-to-create-file-share/basics-instance-details.png" alt-text="Screenshot of the instance details section of the Basics tab, with Azure Files, SSD, and provisioned v2 selected.":::
 
-![A screenshot of the instance details section of the basics tab.](./media/storage-how-to-create-file-share/create-storage-account-1.png)
-
-| Field name | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Subscription | Drop-down list | _Available Azure subscriptions_ | Yes | The subscription for the storage account. See [storage account scale targets](./storage-files-scale-targets.md#storage-account-data-plane-limits) for subscription limits. |
-| Resource group | Drop-down list | _Available resource groups in selected subscription_ | Yes | The resource group for the storage account. |
-| Storage account name | Text box | -- | Yes | A globally unique name for the storage account, used as the server name when mounting via SMB. Must be 3-24 characters, containing only numbers and lowercase letters. |
-| Region | Drop-down list | _Available Azure regions_ | Yes | The region for the storage account. Can be the region associated with the resource group or any other available region. |
-| Primary service | Drop-down list | <ul><li>Azure Blob Storage or Azure Data Lake Storage Gen2</li><li>**Azure Files**</li><li>Other (tables and queues)</li></ul> | Only unpopulated and **Azure Files** | Select **Azure Files**. This field is optional, but you can't select provisioned v2 billing without it. |
-| Performance | Radio button group | <ul><li>Standard</li><li>Premium</li></ul> | Yes | Select **Standard** for HDD or **Premium** for SSD. |
-| File share billing | Radio button group | <ul><li>Standard<ul><li>Pay-as-you-go</li><li>Provisioned v2</li></ul></li><li>Premium<ul><li>Provisioned v1</li><li>Provisioned v2</li></ul></li></ul> | Yes | We recommend provisioned v2 for all new deployments. Provisioned v1 and pay-as-you-go are still supported. |
-| Redundancy | Drop-down list | <ul><li>Locally redundant storage (LRS)</li><li>Geo-redundant storage (GRS)</li><li>Zone-redundant storage (ZRS)</li><li>Geo-zone-redundant storage (GZRS)</li></ul> | Yes | See [Azure Files redundancy](./files-redundancy.md) for more information. |
-| Make read access to data available in the event of region unavailability | Checkbox | Checked/unchecked | No | Only appears with pay-as-you-go GRS or GZRS. Azure Files doesn't support read access to the secondary region without a failover. |
+| Field | Values | Description |
+|-|-|-|
+| Subscription | *Available Azure subscriptions* | The subscription for the storage account. |
+| Resource group | *Resource groups in the subscription* | The resource group for the storage account. |
+| Storage account name | Text | A globally unique name for the storage account. The name must be 3 to 24 characters long and contain only numbers and lowercase letters. |
+| Region | *Available Azure regions* | The region for the storage account. |
+| Primary service | <ul><li>Azure Blob Storage or Azure Data Lake Storage</li><li>Azure Files</li><li>Other (tables and queues)</li></ul> | Select **Azure Files**. The provisioned v2 billing model is available only when you select Azure Files. |
+| Media tier | <ul><li>HDD (standard)</li><li>SSD (premium)</li></ul> | The media tier for the file shares in the storage account. |
+| File share billing | <ul><li>HDD: **Pay-as-you-go file shares** or **Provisioned v2**</li><li>SSD: **Provisioned v1** or **Provisioned v2**</li></ul> | We recommend **Provisioned v2** for all new deployments. |
+| Redundancy | <ul><li>HDD: LRS, GRS, ZRS, or GZRS</li><li>SSD: LRS or ZRS</li></ul> | For more information, see [Azure Files data redundancy](files-redundancy.md). |
+| Make read access to data available in the event of regional unavailability | Checkbox | Appears only for HDD pay-as-you-go storage accounts with GRS or GZRS. This setting doesn't apply to Azure Files. Azure Files doesn't support read access to the secondary region without a failover. |
+| Zone options | <ul><li>None</li><li>Self-selected zone</li><li>Azure-selected zone</li></ul> | Appears for SSD storage accounts with LRS. To place the storage account in a specific availability zone, see [Use zonal placement for Azure file shares](zonal-placement.md). |
 
 ### Advanced
+The **Advanced** tab has a section for Azure Blob Storage and a section for Azure Files. Settings in the **Azure Blob Storage** section don't apply to Azure Files.
 
-The **Advanced** tab is optional, but it provides more granular settings for the storage account. 
+:::image type="content" source="media/storage-how-to-create-file-share/advanced-azure-files.png" alt-text="Screenshot of the Azure Files section of the Advanced tab.":::
 
-> [!div class="mx-imgBorder"]
-> ![A screenshot of the security section of the advanced tab.](./media/storage-how-to-create-file-share/create-account-advanced-tab.png)
+For SSD storage accounts, the portal enables SMB Multichannel by default. You can disable it after you create the storage account. For more information, see [Improve performance for SMB Azure file shares](smb-performance.md).
 
-The **Hierarchical Namespace** section applies only to Azure Blob storage, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 billing models which can only contain Azure file shares. Azure file shares support a hierarchical namespace regardless of the value of these settings.
+| Field | Default | Description |
+|-|-|-|
+| Enable Managed Identity for SMB | Not selected | Lets applications and virtual machines access SMB file shares with a managed identity. For more information, see [Access SMB Azure file shares by using managed identities with Microsoft Entra ID](files-managed-identities.md). |
+| Require Encryption in Transit for SMB | Selected | Requires encryption for SMB access to the file shares in the storage account. |
+| Require Encryption in Transit for NFS | Selected | Requires encryption for NFS access to the file shares in the storage account. Appears only for SSD storage accounts. |
 
-| Field name  | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Enable hierarchical namespace | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is disabled for FileStorage storage accounts, but is active for storage accounts using the pay-as-you-go model, even if Azure Files is selected as the primary service. |
-
-The **Access protocols** section applies only to Azure Blob storage, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 billing models which can only contain Azure file shares.
-
-| Field name | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Enable SFTP | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is disabled for FileStorage storage accounts, but is active for storage accounts using the pay-as-you-go model, even if Azure Files is selected as the primary service. |
-| Enable network file system v3 | Checkbox | Checked/unchecked | No | This setting applies only to Azure Blob storage. The setting is disabled for FileStorage storage accounts, but is active for storage accounts that use the pay-as-you-go model. FileStorage storage accounts can create NFSv4.1 file shares even though this setting is unchecked. In Azure Files, you select the file share's protocol on the file share, not the storage account. |
-
-The **Blob storage** section applies only to Azure Blob storage use, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 models which can only contain Azure file shares.
-
-| Field name | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Allow cross-tenant replication | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage. Checking this checkbox has no impact on Azure Files. |
-| Access tier | Radio button group | _Blob storage access tiers_ | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage. Selecting an option has no impact on Azure Files. |
-
-The **Azure Files** section allows you to choose whether to require encryption in transit for SMB and NFS file shares in the storage account, respectively. This per-protocol setting gives more granular control than the storage account-level **Secure transfer required** setting. When **Require Encryption in Transit** is enabled on a storage account, the **Secure transfer required** setting applies only to REST/HTTPS traffic.
-
-:::image type="content" source="media/storage-how-to-create-file-share/require-encryption-in-transit.png" alt-text="A screenshot showing how to enable or disable the Require Encryption in Transit settings for SMB and NFS.":::
-
-| Field name | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Require Encryption in Transit for SMB | Checkbox | Checked/unchecked | Yes | This setting lets you independently control whether encryption is required for SMB access to Azure file shares. |
-| Require Encryption in Transit for NFS | Checkbox | Checked/unchecked | Yes | This setting lets you independently control whether encryption is required for NFS access to Azure file shares. The NFS setting only appears if you selected **Premium** performance on the **Basics** tab. |
+The portal saves each **Require Encryption in Transit** setting as enabled or disabled, so these settings control SMB and NFS encryption whether or not you select them. The **Require secure transfer for REST API operations** setting on the **Security** tab applies only to FileREST (HTTPS) traffic. For more information, see [Configure encryption in transit for Azure Files](files-encryption-in-transit.md).
 
 ### Networking
+The networking settings are optional when you create the storage account. You can configure them later.
 
-The networking section enables you to configure networking options. These settings are optional for creating the storage account, and you can configure them later if needed. For more information about these options, see [Azure Files networking considerations](storage-files-networking-overview.md).
+| Field | Default | Description |
+|-|-|-|
+| Public network access | Enable | **Enable**, **Disable**, or **Secure by perimeter**. Controls access to the storage account's public endpoint. |
+| Public network access scope | Enable from all networks | To allow access only from specific networks, select **Enable from selected virtual networks and IP addresses**. |
+| Virtual networks | None | Appears when you select **Enable from selected virtual networks and IP addresses**. Allows access from the selected subnets through the `Microsoft.Storage` service endpoint. |
+| IPv4 Addresses | None | Appears when you select **Enable from selected virtual networks and IP addresses**. Allows access from public IPv4 addresses or ranges. IP address rules don't grant NFS access. |
+
+For more information, see [Azure Files networking considerations](storage-files-networking-overview.md) and [Restrict access to the public endpoint to specific networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks).
 
 ### Data protection
+The **Data protection** tab has a section for Azure Blob Storage and a section for Azure Files. Settings in the **Azure Blob Storage** section don't apply to Azure Files.
 
-The **Data protection** tab allows you to enable or disable soft-delete. The soft-delete option for Azure Files is under the **Recovery** section.
+:::image type="content" source="media/storage-how-to-create-file-share/data-protection-azure-files.png" alt-text="Screenshot of the Azure Files section of the Data protection tab, with soft delete enabled for 7 days.":::
 
-![A screenshot of the recovery section in the data protection tab.](./media/storage-how-to-create-file-share/create-storage-account-3.png)
-
-| Field name | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Enable point-in-time restore for containers | Checkbox | Checked/unchecked | No | This setting applies only to Azure Blob storage. It's always available, even for FileStorage storage accounts that can't contain Azure Blob storage. However, selecting this option for FileStorage storage accounts results in a validation error message. For pay-as-you-go storage accounts, this setting doesn't apply to Azure Files. |
-| Maximum restore point (days ago) | Textbox | _Days (number)_   | No | When you select _Enable point-in-time restore for containers_, this textbox becomes available. The value chosen doesn't apply to Azure Files. |
-| Enable soft delete for blobs | Checkbox   | Checked/unchecked | No | This setting applies only to Azure Blob storage. It's always available, even for FileStorage storage accounts that can't contain Azure Blob storage. However, selecting this option for FileStorage storage accounts results in a validation error message. For pay-as-you-go storage accounts, this setting doesn't apply to Azure Files. |
-| Days to retain deleted blobs | Textbox | _Days (number)_ | No | When you select _Enable soft delete for blobs_, this textbox becomes available. The value chosen doesn't apply to Azure Files. |
-| Enable soft delete for containers | Checkbox | Checked/unchecked | No | This setting applies only to Azure Blob storage. It's always available, even for FileStorage storage account results in a validation error message. For pay-as-you-go storage accounts, this setting doesn't apply to Azure Files. |
-| Days to retain deleted containers | Textbox | _Days (number)_ | No | When you select _Enable soft delete for containers_, this textbox becomes available. The value chosen doesn't apply to Azure Files. |
-| Enable soft delete for file shares | Checkbox | Checked/unchecked | Yes | Enable the [soft delete](./storage-files-enable-soft-delete.md) feature to protect against the accidental deletion of file shares. Soft delete is enabled by default, but you can choose to disable this setting if shares are frequently created and deleted as part of a business workflow. Soft-deleted file shares are billed for their used capacity, even in provisioned models. |
-| Days to retain deleted file shares | Textbox | _Days (number)_ | Yes | When you select _Enable soft delete for file shares_, this textbox becomes available. By default, file shares are retained for 7 days before being purged, but you can choose to increase or decrease this number depending on your requirements. Soft-deleted file shares are billed for their used capacity, even in provisioned file shares, so retaining for a longer period of time can result in greater expenses due to soft-delete. |
-
-The **Tracking** section applies only to Azure Blob storage use, even in FileStorage storage accounts that use the provisioned v1 or provisioned v2 billing models and can only contain Azure file shares.
-
-| Field name | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Enable versioning for blobs | Checkbox | Checked/unchecked | No | This setting applies only to Azure Blob storage. It's always available, even for FileStorage storage accounts that can't contain Azure Blob storage. However, selecting this option for FileStorage storage accounts results in a validation error message. For pay-as-you-go storage accounts, this setting doesn't apply to Azure Files. |
-| Enable blob change feed | Checkbox | Checked/unchecked | No | This setting applies only to Azure Blob storage. It's always available, even for FileStorage storage accounts that can't contain Azure Blob storage. However, selecting this option for FileStorage storage accounts results in a validation error message. For pay-as-you-go storage accounts, this setting doesn't apply to Azure Files. |
-
-The **Access control** section applies only to Azure Blob storage use, even in FileStorage storage accounts that use the provisioned v1 or provisioned v2 billing models and can only contain Azure file shares.
-
-| Field name | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Enable version-level immutability support | Checkbox | Checked/unchecked | No | This setting applies only to Azure Blob storage. It's always available, even for FileStorage storage accounts that can't contain Azure Blob storage. However, selecting this option for FileStorage storage accounts results in a validation error message. For pay-as-you-go storage accounts, this setting doesn't apply to Azure Files. |
+| Field | Default | Description |
+|-|-|-|
+| Enable soft delete for classic file shares | Selected | Protects file shares against accidental deletion. For more information, see [Azure file share soft delete](storage-files-prevent-file-share-deletion.md). |
+| Days to retain deleted classic file shares | 7 | The number of days that Azure Files keeps a deleted file share before it purges the file share. You're billed for the used capacity of soft-deleted file shares, including provisioned file shares. A longer retention period can increase your costs. |
 
 ### Security
+The **Security** tab combines settings for all storage services. The following table shows which settings apply to Azure Files.
 
-The **Security** tab controls settings related to security.
+:::image type="content" source="media/storage-how-to-create-file-share/security-tab.png" alt-text="Screenshot of the settings on the Security tab.":::
 
-![A screenshot of the settings in the security tab.](./media/storage-how-to-create-file-share/create-account-security-tab.png)
-
-| Field name  | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Require secure transfer for REST API operations | Checkbox | Checked/unchecked | Yes | If neither **Require Encryption in Transit for SMB** nor **Require Encryption in Transit for NFS** are selected in the **Azure Files** section of the **Advanced** tab, the **Secure transfer required** setting applies to SMB and NFS for Azure Files as well as REST/HTTPS traffic. If you have clients that need access to unencrypted SMB (such as SMB 2.1), uncheck this checkbox. |
-| Allow enabling anonymous access on individual containers | Checkbox | Checked/unchecked | No | This setting controls whether Azure Blob storage containers are allowed to be accessed with anonymous access. This setting doesn't apply to Azure Files. This setting is available for FileStorage storage accounts containing provisioned v1 or provisioned v2 file shares even though it isn't possible to create Azure Blob storage containers in FileStorage storage accounts. |
-| Enable storage account key access | Checkbox | Checked/unchecked | Yes | This setting controls whether the storage account keys (also referred to as shared keys) are enabled. When enabled, storage account keys can be used to mount the file share using SMB or to access the share using the FileREST API. |
-| Default to Microsoft Entra authorization in the Azure portal | Checkbox | Checked/unchecked | Yes | This setting controls whether the user's Microsoft Entra (formerly Azure Active Directory) identity is used when browsing the file share in the Azure portal. |
-| Minimum TLS version | Drop-down list | _Supported TLS versions_ | Yes | This setting controls the minimum allowed TLS version that's used for protocols which use TLS. For Azure Files, only the FileREST protocol uses TLS (as part of HTTPS). |
-| Permitted scope for copy operations | Drop-down list | _Scopes for copy operations_ | Yes | This setting controls the scope of storage account to storage account copy operations using the FileREST API, usually facilitated through tools like AzCopy. |
-| Microsoft Defender for Storage | Checkbox | Checked/unchecked | Yes | When enabled, your account activates an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts.<br /><br /> For more information, see [What is Microsoft Defender for Cloud?](/azure/defender-for-cloud/defender-for-cloud-introduction) |
+| Field | Applies to Azure Files | Description |
+|-|-|-|
+| Require secure transfer for REST API operations | Yes | Requires HTTPS for FileREST requests. The **Require Encryption in Transit** settings on the **Advanced** tab control SMB and NFS encryption. |
+| Allow enabling anonymous access on individual containers | No | Applies only to Blob Storage. |
+| Enable storage account key access | Yes | Controls whether clients can use the storage account keys to mount SMB file shares or to authorize FileREST requests. |
+| Default to Microsoft Entra authorization in the Azure portal | Yes | Controls whether the Azure portal uses your Microsoft Entra identity, instead of the storage account key, when you browse file shares. |
+| Minimum TLS version | Yes | The minimum TLS version for FileREST requests. SMB doesn't use TLS. For NFS, the AzNFS mount helper uses TLS 1.2 or TLS 1.3. For more information, see [FileREST](files-encryption-in-transit.md#filerest). |
+| Permitted scope for copy operations (Preview) | Yes | Limits which storage accounts can be the source of FileREST copy operations into this storage account. Tools such as AzCopy use these operations. |
 
 ### Encryption
+The **Encryption** tab controls encryption at rest. For more information, see [Encryption at rest for Azure Files](files-encryption-at-rest.md).
 
-The **Encryption** tab controls settings related to encryption at rest.
+:::image type="content" source="media/storage-how-to-create-file-share/encryption-tab.png" alt-text="Screenshot of the Encryption tab with Microsoft-managed keys selected.":::
 
-![A screenshot of the encryption tab.](./media/storage-how-to-create-file-share/create-storage-account-4.png)
-
-| Field name | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Encryption type | Radio button group | <ul><li>Microsoft-managed keys</li><li>Customer-managed keys</li></ul> | Yes | This setting controls who holds the encryption key for the data placed in this storage account. See [Encryption for data at rest](../common/storage-service-encryption.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json) for more information. |
-| Enable support for customer-managed keys | Radio button group | <ul><li>Blobs and files only</li><li>All service types (blobs, files, tables, and queues)</li></ul> | No | All kind/SKU combinations for Azure classic file shares support customer-managed keys regardless of this setting. |
-| Enable infrastructure encryption | Checkbox | Checked/unchecked | Yes | Storage accounts can optionally use a secondary layer of encryption for data stored in the system to guard against one of the keys being compromised. See [Enable infrastructure encryption](../common/infrastructure-encryption-enable.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json). |
+| Field | Applies to Azure Files | Description |
+|-|-|-|
+| Encryption type | Yes | **Microsoft-managed keys (MMK)** or **Customer-managed keys (CMK)**. For the steps to use customer-managed keys, see [Configure encryption at rest with customer-managed keys for Azure Files](customer-managed-keys.md). |
+| Enable support for customer-managed keys | No | All classic file shares support customer-managed keys, regardless of this setting. |
+| Enable infrastructure encryption | Yes | Adds a second layer of encryption. You can enable infrastructure encryption only when you create the storage account. For more information, see [Infrastructure encryption](files-encryption-at-rest.md#infrastructure-encryption). |
 
 ### Tags
-
-Tags are name/value pairs that you use to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. They're optional and you can apply them after storage account creation.
+Tags are name/value pairs that you use to categorize resources and to view consolidated billing. Tags are optional, and you can add them after you create the storage account.
 
 ### Review + create
-
-The final step to create the storage account is to select the **Create** button on the **Review + create** tab. This button isn't available until you complete all the required fields for a storage account.
+1. Select **Review and create**.
+2. Check the settings on the **Review + create** tab, and then select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
+### Create the storage account (PowerShell)
+To create a storage account, use the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet. The following `New-AzStorageAccount` parameters set the storage account settings that apply to Azure Files. If you omit a parameter, the storage account uses the default.
 
-### Create a provisioned v2 storage account (PowerShell)
+| Portal setting | Parameter | Values |
+|-|-|-|
+| Resource group | `ResourceGroupName` | Required. The name of an existing resource group. |
+| Storage account name | `Name` | Required. A globally unique name, 3 to 24 characters long, with only numbers and lowercase letters. |
+| Region | `Location` | Required. For example, `westus2`. |
+| Media tier, File share billing, Redundancy | `Kind`, `SkuName` | See the table at the start of this section. |
+| Zone options | `Zone` or `ZonePlacementPolicy` | SSD storage accounts with LRS only. See [Use zonal placement for Azure file shares](zonal-placement.md). |
+| Enable Managed Identity for SMB | `EnableSmbOAuth` | `$true` or `$false`. The default is `$false`. |
+| Public network access | `PublicNetworkAccess` | `Enabled` (default), `Disabled`, or `SecuredByPerimeter`. |
+| Public network access scope | `NetworkRuleSet`, `defaultAction` key | `Allow` (default) or `Deny`. To allow access only from the virtual networks and IP addresses in the network rules, use `Deny`. |
+| Virtual networks | `NetworkRuleSet`, `virtualNetworkRules` key | Subnet resource IDs. Each subnet must have the `Microsoft.Storage` service endpoint. |
+| IPv4 Addresses | `NetworkRuleSet`, `ipRules` key | Public IPv4 addresses or CIDR ranges. IP address rules don't grant NFS access. |
+| Exceptions (not in the create wizard) | `NetworkRuleSet`, `bypass` key | `AzureServices` (default) or `None`. `AzureServices` allows trusted Azure services to access the storage account. The create wizard always uses `AzureServices`. |
+| Require secure transfer for REST API operations | `EnableHttpsTrafficOnly` | `$true` (default) or `$false`. |
+| Enable storage account key access | `AllowSharedKeyAccess` | `$true` (default) or `$false`. |
+| Default to Microsoft Entra authorization in the Azure portal | None | Azure PowerShell doesn't have a parameter for this setting. Use the Azure portal or Azure CLI. |
+| Minimum TLS version | `MinimumTlsVersion` | `TLS1_2`, which is the default and the lowest TLS version that Azure Files accepts. |
+| Permitted scope for copy operations | `AllowedCopyScope` | `AAD` (same Microsoft Entra tenant) or `PrivateLink` (private endpoint to the same virtual network). If you omit it, copies from any storage account are allowed. |
+| Encryption type | Several | See [Configure encryption at rest with customer-managed keys for Azure Files](customer-managed-keys.md). |
+| Enable infrastructure encryption | `RequireInfrastructureEncryption` | Include the switch to enable it. You can enable infrastructure encryption only when you create the storage account. |
+| Tags | `Tag` | A hashtable, for example `@{ environment = "test" }`. |
 
-To create a provisioned v2 storage account by using PowerShell, use the `New-AzStorageAccount` cmdlet in the Az.Storage PowerShell module. This cmdlet has many options, but only the required options are shown. To learn more about advanced options, see the [`New-AzStorageAccount` cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
+The following example creates an SSD provisioned v2 storage account. For a different media tier, billing model, or redundancy, change `Kind` and `SkuName` to a combination from the table at the start of this section. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your own values.
 
-To create a storage account for provisioned v2 file shares, use the following command. Replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$region`, and `$storageAccountSku` with the desired values for your storage account deployment.
+```azurepowershell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account-name>"
 
-```PowerShell
-$resourceGroupName = "<my-resource-group>"
-$storageAccountName = "<my-storage-account-name>"
-$region = "<my-region>"
-$storageAccountKind = "FileStorage"
-# Valid SKUs for provisioned v2 file shares are 'PremiumV2_LRS' (SSD Local),
-# 'PremiumV2_ZRS' (SSD Zone), 'StandardV2_LRS' (HDD Local),
-# 'StandardV2_GRS' (HDD Geo), 'StandardV2_ZRS' (HDD Zone),
-# 'StandardV2_GZRS' (HDD GeoZone).
-$storageAccountSku = "StandardV2_LRS"
-
-New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -SkuName $storageAccountSku -Kind $storageAccountKind -Location $region
+$params = @{
+    ResourceGroupName = $resourceGroupName
+    Name = $storageAccountName
+    Location = "<region>"
+    Kind = "FileStorage"
+    SkuName = "PremiumV2_LRS"
+    EnableHttpsTrafficOnly = $true
+    MinimumTlsVersion = "TLS1_2"
+    AllowSharedKeyAccess = $true
+}
+New-AzStorageAccount @params
 ```
 
-To view the settings and service usage for the provisioned v2 storage account, use the following command.
+To allow access only from specific networks, add a `NetworkRuleSet` entry to `$params` in the previous example. Replace `<subnet-resource-id>` and `<public-ip-address-or-range>` with your own values. For more information, see [Restrict access to the public endpoint to specific networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks).
 
-```powershell
-Get-AzStorageFileServiceUsage -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+```azurepowershell
+NetworkRuleSet = @{
+    defaultAction = "Deny"
+    bypass = "AzureServices"
+    virtualNetworkRules = @(@{ VirtualNetworkResourceId = "<subnet-resource-id>" })
+    ipRules = @(@{ IPAddressOrRange = "<public-ip-address-or-range>" })
+}
 ```
 
-### Create a provisioned v1 or pay-as-you-go storage account (PowerShell)
+### Configure file service settings (PowerShell)
+The encryption in transit, SMB Multichannel, and soft delete settings belong to the storage account's file service. To configure them, use the [Update-AzStorageFileServiceProperty](/powershell/module/az.storage/update-azstoragefileserviceproperty) cmdlet after you create the storage account.
 
-To create a provisioned v1 or pay-as-you-go storage account by using PowerShell, use the `New-AzStorageAccount` cmdlet in the Az.Storage PowerShell module. This cmdlet has many options, but only the required options are shown. To learn more about advanced options, see the [cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
+A storage account that you create with PowerShell starts with soft delete enabled for 7 days. On SSD storage accounts, SMB Multichannel is enabled. Both **Require Encryption in Transit** settings start as not configured, so **Require secure transfer for REST API operations** controls SMB and NFS encryption until you configure them. For more information, see [Encryption in transit settings](files-encryption-in-transit.md#encryption-in-transit-settings).
 
-To create a storage account for provisioned v1 or pay-as-you-go file shares, use the following command. Replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$region`, `$storageAccountKind`, and `$storageAccountSku` with the desired values for your storage account deployment. To create a provisioned v1 storage account (SSD), set `storageAccountKind` to FileStorage. To create a pay-as-you-go storage account (HDD), set `storageAccountKind` to StorageV2. 
+The following `Update-AzStorageFileServiceProperty` parameters set the file service settings:
 
-```powershell
-$resourceGroupName = "<my-resource-group>"
-$storageAccountName = "<my-storage-account-name>"
-$region = "<my-region>"
+| Portal setting | Parameter | Values |
+|-|-|-|
+| Require Encryption in Transit for SMB | `SmbEncryptionInTransitRequired` | `$true` or `$false`. |
+| Require Encryption in Transit for NFS | `NfsEncryptionInTransitRequired` | `$true` or `$false`. Applies to NFS file shares, which require SSD. |
+| SMB Multichannel | `EnableSmbMultichannel` | `$true` or `$false`. SSD storage accounts only. |
+| Enable soft delete for classic file shares | `EnableShareDeleteRetentionPolicy` | `$true` (default) or `$false`. |
+| Days to retain deleted classic file shares | `ShareRetentionDays` | 1 to 365. The default is 7. |
 
-# Valid storage account kinds are FileStorage (SSD provisioned v1) and StorageV2
-# (HDD pay-as-you-go).
-$storageAccountKind = "FileStorage"
+The following example configures the same settings that the Azure portal uses by default:
 
-# Valid SKUs for FileStorage are Premium_LRS (SSD Local provisioned v1) and
-# Premium_ZRS (SSD Zone provisioned v1).
-#
-# Valid SKUs for StorageV2 are Standard_LRS (HDD Local pay-as-you-go),
-# Standard_ZRS (HDD Zone pay-as-you-go), Standard_GRS (HDD Geo pay-as-you-go),
-# and Standard_GZRS (HDD GeoZone pay-as-you-go).
-$storageAccountSku = "Premium_LRS"
+```azurepowershell
+$params = @{
+    ResourceGroupName = $resourceGroupName
+    StorageAccountName = $storageAccountName
+    SmbEncryptionInTransitRequired = $true
+    NfsEncryptionInTransitRequired = $true
+    EnableShareDeleteRetentionPolicy = $true
+    ShareRetentionDays = 7
+}
+Update-AzStorageFileServiceProperty @params
+```
 
-$storageAccount = New-AzStorageAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $storageAccountName `
-        -Location $region `
-        -Kind $storageAccountKind `
-        -SkuName $storageAccountSku
+The same cmdlet also configures the SMB protocol versions, authentication methods, and encryption algorithms. For more information, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
+For a provisioned v2 storage account, you can view the provisioning limits and usage with the [Get-AzStorageFileServiceUsage](/powershell/module/az.storage/get-azstoragefileserviceusage) cmdlet:
+
+```azurepowershell
+$params = @{
+    ResourceGroupName = $resourceGroupName
+    StorageAccountName = $storageAccountName
+}
+Get-AzStorageFileServiceUsage @params
 ```
 
 # [Azure CLI](#tab/azure-cli)
+### Create the storage account (Azure CLI)
+To create a storage account, use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. The following `az storage account create` parameters set the storage account settings that apply to Azure Files. If you omit a parameter, the storage account uses the default.
 
-### Create a provisioned v2 storage account (Azure CLI)
+| Portal setting | Parameter | Values |
+|-|-|-|
+| Resource group | `--resource-group` | Required. The name of an existing resource group. |
+| Storage account name | `--name` | Required. A globally unique name, 3 to 24 characters long, with only numbers and lowercase letters. |
+| Region | `--location` | For example, `westus2`. If you omit it, the storage account uses the region of the resource group. |
+| Media tier, File share billing, Redundancy | `--kind`, `--sku` | See the table at the start of this section. |
+| Zone options | `--zones` or `--zone-placement-policy` | SSD storage accounts with LRS only. See [Use zonal placement for Azure file shares](zonal-placement.md). |
+| Enable Managed Identity for SMB | `--enable-smb-oauth` | `true` or `false`. The default is `false`. |
+| Public network access | `--public-network-access` | `Enabled` (default), `Disabled`, or `SecuredByPerimeter`. |
+| Public network access scope | `--default-action` | `Allow` (default) or `Deny`. To allow access only from the virtual networks and IP addresses in the network rules, use `Deny`. |
+| Virtual networks | `--vnet-name` and `--subnet` | One subnet. The subnet must have the `Microsoft.Storage` service endpoint. To add more subnets after you create the storage account, use `az storage account network-rule add`. |
+| IPv4 Addresses | None | `az storage account create` doesn't have a parameter for IP address rules. After you create the storage account, use `az storage account network-rule add` with `--ip-address`. IP address rules don't grant NFS access. |
+| Exceptions (not in the create wizard) | `--bypass` | `AzureServices` (default) or `None`. `AzureServices` allows trusted Azure services to access the storage account. The create wizard always uses `AzureServices`. |
+| Require secure transfer for REST API operations | `--https-only` | `true` (default) or `false`. |
+| Enable storage account key access | `--allow-shared-key-access` | `true` (default) or `false`. |
+| Default to Microsoft Entra authorization in the Azure portal | None | `az storage account create` doesn't have a parameter for this setting. After you create the storage account, run `az storage account update` with `--set defaultToOAuthAuthentication=true`. |
+| Minimum TLS version | `--min-tls-version` | `TLS1_2`, which is the default and the lowest TLS version that Azure Files accepts. |
+| Permitted scope for copy operations | `--allowed-copy-scope` | `AAD` (same Microsoft Entra tenant) or `PrivateLink` (private endpoint to the same virtual network). If you omit it, copies from any storage account are allowed. |
+| Encryption type | Several | See [Configure encryption at rest with customer-managed keys for Azure Files](customer-managed-keys.md). |
+| Enable infrastructure encryption | `--require-infrastructure-encryption` | Include the parameter to enable it. You can enable infrastructure encryption only when you create the storage account. |
+| Tags | `--tags` | Space-separated `key=value` pairs, for example `environment=test`. |
 
-To create a provisioned v2 storage account by using Azure CLI, use the `az storage account create` command. This command has many options, but only the required options are shown. To learn more about the advanced options, see the [`az storage account create` command documentation](/cli/azure/storage/account).
+The following example creates an SSD provisioned v2 storage account. For a different media tier, billing model, or redundancy, change `--kind` and `--sku` to a combination from the table at the start of this section. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your own values.
 
-To create a storage account for provisioned v2 file shares, use the following command. Replace the values for the variables `resourceGroupName`, `storageAccountName`, `region`, and `storageAccountSku` with the desired values for your storage account deployment. 
-
-```bash
-resourceGroupName="<my-resource-group>"
-storageAccountName="<my-storage-account-name>"
-region="<my-region>"
-storageAccountKind="FileStorage"
-
-# Valid SKUs for provisioned v2 file shares are 'PremiumV2_LRS' (SSD Local),
-# 'PremiumV2_ZRS' (SSD Zone), 'StandardV2_LRS' (HDD Local),
-# 'StandardV2_GRS' (HDD Geo), 'StandardV2_ZRS' (HDD Zone),
-# 'StandardV2_GZRS' (HDD GeoZone).
-storageAccountSku="StandardV2_LRS"
-
-az storage account create --resource-group $resourceGroupName --name $storageAccountName --location $region --kind $storageAccountKind --sku $storageAccountSku --output none
-```
-
-To view the settings and service usage for the provisioned v2 storage account, use the following command.
-
-```bash
-az storage account file-service-usage --account-name $storageAccountName -g $resourceGroupName
-```
-
-### Create a provisioned v1 or pay-as-you-go storage account (Azure CLI)
-
-To create a provisioned v1 or pay-as-you-go storage account by using Azure CLI, use the `az storage account create` command. This command has many options, but only the required options are shown. To learn more about the advanced options, see the [command documentation](/cli/azure/storage/account).
-
-To create a storage account for provisioned v1 or pay-as-you-go file shares, use the following command. Replace the values for the variables `resourceGroupName`, `storageAccountName`, `region`, `storageAccountKind`, and `storageAccountSku` with the desired values for your storage account deployment. If you want to create a provisioned v1 storage account (SSD), set `storageAccountKind` to FileStorage. If you want to create a pay-as-you-go storage account (HDD), set `storageAccountKind` to StorageV2. 
-
-```bash
-resourceGroupName="<my-resource-group>"
-storageAccountName="<my-storage-account-name>"
-region="<my-region>"
-
-# Valid storage account kinds are FileStorage (SSD provisioned v1) and StorageV2
-# (HDD pay-as-you-go).
-storageAccountKind="FileStorage"
-
-# Valid SKUs for FileStorage are Premium_LRS (SSD Local provisioned v1) and
-# Premium_ZRS (SSD Zone provisioned v1).
-#
-# Valid SKUs for StorageV2 are Standard_LRS (HDD Local pay-as-you-go),
-# Standard_ZRS (HDD Zone pay-as-you-go), Standard_GRS (HDD Geo pay-as-you-go),
-# and Standard_GZRS (HDD GeoZone pay-as-you-go).
-storageAccountSku="Premium_LRS"
+```azurecli
+resourceGroupName="<resource-group>"
+storageAccountName="<storage-account-name>"
 
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --location $region \
-    --kind $storageAccountKind \
-    --sku $storageAccountSku \
+    --location "<region>" \
+    --kind FileStorage \
+    --sku PremiumV2_LRS \
+    --https-only true \
+    --min-tls-version TLS1_2 \
+    --allow-shared-key-access true \
     --output none
+```
+
+To allow access only from specific networks, add `--default-action Deny`, `--bypass AzureServices`, `--vnet-name`, and `--subnet` to the previous command. To add an IP address rule, run [az storage account network-rule add](/cli/azure/storage/account/network-rule#az-storage-account-network-rule-add) after you create the storage account. Replace `<public-ip-address-or-range>` with your own value. For more information, see [Restrict access to the public endpoint to specific networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks).
+
+```azurecli
+az storage account network-rule add \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --ip-address "<public-ip-address-or-range>" \
+    --output none
+```
+
+### Configure file service settings (Azure CLI)
+The encryption in transit, SMB Multichannel, and soft delete settings belong to the storage account's file service. To configure them, use the [az storage account file-service-properties update](/cli/azure/storage/account/file-service-properties#az-storage-account-file-service-properties-update) command after you create the storage account.
+
+A storage account that you create with Azure CLI starts with soft delete enabled for 7 days. On SSD storage accounts, SMB Multichannel is enabled. Both **Require Encryption in Transit** settings start as not configured, so **Require secure transfer for REST API operations** controls SMB and NFS encryption until you configure them. For more information, see [Encryption in transit settings](files-encryption-in-transit.md#encryption-in-transit-settings).
+
+The following `az storage account file-service-properties update` parameters set the file service settings:
+
+| Portal setting | Parameter | Values |
+|-|-|-|
+| Require Encryption in Transit for SMB | `--require-smb-encryption-in-transit` | `true` or `false`. |
+| Require Encryption in Transit for NFS | `--require-nfs-encryption-in-transit` | `true` or `false`. Applies to NFS file shares, which require SSD. |
+| SMB Multichannel | `--enable-smb-multichannel` | `true` or `false`. SSD storage accounts only. |
+| Enable soft delete for classic file shares | `--enable-delete-retention` | `true` (default) or `false`. |
+| Days to retain deleted classic file shares | `--delete-retention-days` | 1 to 365. The default is 7. |
+
+The following example configures the same settings that the Azure portal uses by default:
+
+```azurecli
+az storage account file-service-properties update \
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName \
+    --require-smb-encryption-in-transit true \
+    --require-nfs-encryption-in-transit true \
+    --enable-delete-retention true \
+    --delete-retention-days 7 \
+    --output none
+```
+
+The same command also configures the SMB protocol versions, authentication methods, and encryption algorithms. For more information, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
+For a provisioned v2 storage account, you can view the provisioning limits and usage with the [az storage account file-service-usage](/cli/azure/storage/account#az-storage-account-file-service-usage) command:
+
+```azurecli
+az storage account file-service-usage \
+    --account-name $storageAccountName \
+    --resource-group $resourceGroupName
 ```
 
 ---
 
 ## Create a classic file share
+The steps to create a classic file share depend on the billing model of the storage account. Provisioned file shares require a `FileStorage` storage account. Pay-as-you-go file shares require a `StorageV2` storage account.
 
-After you create a storage account, you can create a classic file share. This process is different depending on whether you created a provisioned v2, provisioned v1, or pay-as-you-go storage account. Provisioned file shares require a *FileStorage* storage account kind, and pay-as-you-go file shares (HDD only) require a *StorageV2 (general purpose v2)* storage account kind.
+To check the billing model of a storage account, go to the storage account's **Overview** page. Under **Essentials**, check **Account kind** and **File share billing**.
+
+A file share name can contain only lowercase letters, numbers, and single hyphens. It must start and end with a lowercase letter or number, and it can't contain two consecutive hyphens. For more information, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ### Create a provisioned v2 classic file share
-
-When you create a classic file share by using the provisioned v2 billing model, you specify how much storage, IOPS, and throughput your file share needs. The amount of each quantity that you provision determines your total bill. The service provides a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your requirements, you might find that you require more or less IOPS or throughput than the recommendations. You can optionally override these recommendations with your own values. To learn more, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model).
-
-> [!IMPORTANT]
-> Before you create a provisioned v2 classic file share, make sure the storage account you intend to use is of the *FileStorage* storage account kind. To check the account kind, go to the storage account and look under **Essentials**. If you created your storage account by using the Azure portal, you must select *Provisioned v2* for **File share billing**.
+For a provisioned v2 file share, you provision storage, IOPS, and throughput. Your bill depends on the amount of each that you provision. Azure Files recommends IOPS and throughput based on the provisioned storage. You can use the recommendation, or specify your own values. For more information, see [Provisioned v2 model](./understanding-billing.md#provisioned-v2-model).
 
 # [Portal](#tab/azure-portal)
-
-Follow these steps to create a provisioned v2 classic file share by using the Azure portal.
-
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
+2. Select **+ Classic file share**.
+3. On the **Basics** tab of the **New classic file share** page, complete these fields:
 
-2. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
+   - **Name**: The name of the file share.
+   - **Provisioned storage (GiB)**: The amount of storage to provision. You're billed for the provisioned storage, regardless of how much you use.
+   - **Provisioned IOPS and throughput**: Select **Recommended provisioning** to use the recommended IOPS and throughput, or select **Manually specify IOPS and throughput**. If you don't know your IOPS and throughput requirements, use the recommendation and adjust it later.
+   - **IOPS** and **Throughput (MiB/sec)**: If you selected **Manually specify IOPS and throughput**, enter the values to provision. The range for each value appears under the field.
+   - **Protocol**: Select **SMB** or **NFS**. **NFS** is available only in SSD storage accounts. For an NFS file share, you can also set **Root Squash**. For more information, see [Configure root squash for Azure Files](nfs-root-squash.md).
 
-3. Complete the fields in the **Basics** tab of the new file share blade:
+   :::image type="content" source="media/storage-how-to-create-file-share/new-share-provisioned-v2.png" alt-text="Screenshot of the Basics tab of the New classic file share page for a provisioned v2 storage account.":::
 
-   ![A screenshot of the basics tab in the new file share blade (provisioned v2)](./media/storage-how-to-create-file-share/create-file-share-provisioned-v2-1.png)
-
-   - **Name**: The name of the file share to create. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-   - **Provisioned storage (GiB)**: The amount of storage to provision on the share. The actual provisioned storage capacity is the amount that you're billed for regardless of actual usage.
-
-   - **Provisioned IOPS and throughput**: A set of radio buttons that you use to select between _Recommended provisioning_ and _Manually specify IOPS and throughput_. The IOPS and throughput recommendations are based on typical customer usage for that amount of provisioned storage for that media tier. If you don't know specifically what your IOPS and throughput requirements are, use the recommendations and adjust later as needed.
-
-     - **IOPS**: If you select _Manually specify IOPS and throughput_, enter the amount of IOPS you want to provision on this file share.
-
-     - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, enter the amount of throughput you want to provision on this file share.
-   
-     - **Protocol:** The file sharing protocol to use on the share. By default, new shares use the SMB protocol. Select the NFS protocol to create an NFSv4.1 share.
-
-4. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create a classic file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
-
-5. Select **Review + create** and then **Create** to create the file share.
+4. Select the **Backup** tab. For an SMB file share, [Azure Backup](../../backup/backup-azure-files.md) is enabled by default. To disable it, clear **Enable backup**. To keep it, use the default vault and policy, or create a new Recovery Services vault or backup policy. Azure Backup isn't available for NFS file shares.
+5. Select **Review + create**, and then select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
+To create a provisioned v2 classic file share, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet. The commands use the `$resourceGroupName` and `$storageAccountName` variables from [Create the storage account](#create-the-storage-account-powershell). Replace `<file-share-name>` with your own value.
 
-Use the `New-AzRmStorageShare` cmdlet to create a provisioned v2 classic file share. The following PowerShell command assumes you set the variables `$resourceGroupName` and `$storageAccountName` as defined in the [Create a storage account](#create-a-provisioned-v2-storage-account-powershell) section.
-
-To create a provisioned v2 classic file share, use the following command. Replace the values for the variables `$shareName` and `$provisionedStorageGib` with the desired selections for your file share deployment. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-```powershell
-$shareName = "<name-of-the-file-share>"
-
-# The provisioned storage size of the share in GiB. Valid range is 32 to 262,144.
-$provisionedStorageGib = 1024
-
-# If you don't specify ProvisionedBandwidthMibps and ProvisionedIops, the deployment uses the recommended provisioning.
-$provisionedIops = 3000
-$provisionedThroughputMibPerSec = 130
-
-# The protocol chosen for the file share. Valid settings are "SMB" and "NFS".
-$protocol = "SMB"
-
-New-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName -QuotaGiB $provisionedStorageGib -EnabledProtocol $protocol;
-# -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec -ProvisionedIops $provisionedIops
-$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName;
-$f | fl
+```azurepowershell
+# QuotaGiB is the provisioned storage in GiB. The valid range is 32 to 262,144.
+# EnabledProtocol is "SMB" or "NFS". NFS requires an SSD storage account.
+$params = @{
+    ResourceGroupName = $resourceGroupName
+    StorageAccountName = $storageAccountName
+    Name = "<file-share-name>"
+    QuotaGiB = 1024
+    EnabledProtocol = "SMB"
+}
+New-AzRmStorageShare @params
 ```
+
+The command provisions the recommended IOPS and throughput. To provision your own values, add `ProvisionedIops` and `ProvisionedBandwidthMibps` to the parameters, for example `ProvisionedIops = 3000` and `ProvisionedBandwidthMibps = 130`.
 
 # [Azure CLI](#tab/azure-cli)
+To create a provisioned v2 classic file share, use the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The commands use the `resourceGroupName` and `storageAccountName` variables from [Create the storage account](#create-the-storage-account-azure-cli). Replace `<file-share-name>` with your own value.
 
-Use the [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command to create a provisioned v2 classic file share. The following command assumes you set the variables `resourceGroupName` and `storageAccountName` as defined in the [Create a storage account](#create-a-provisioned-v2-storage-account-azure-cli) section.
-
-To create a provisioned v2 classic file share, use the following command. Replace the values for the variables `shareName` and `provisionedStorageGib` with the desired selections for your file share deployment. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-```bash
-shareName="<file-share>"
-
-# The provisioned storage size of the share in GiB. Valid range is 32 to
-# 262,144.
-provisionedStorageGib=1024
-
-# If you don't specify --provisioned-bandwidth-mibps and --provisioned-iops, the deployment uses the recommended provisioning.
-provisionedIops=3000
-provisionedThroughputMibPerSec=130
-
-# The protocol chosen for the file share. Valid settings are "SMB" and "NFS".
-protocol="SMB"
-
-az storage share-rm create --resource-group $resourceGroupName --name $shareName --storage-account $storageAccountName --quota $provisionedStorageGib --enabled-protocols $protocol
-# --provisioned-iops $provisionedIops --provisioned-bandwidth-mibps $provisionedThroughputMibPerSec
+```azurecli
+# --quota is the provisioned storage in GiB. The valid range is 32 to 262,144.
+# --enabled-protocols is SMB or NFS. NFS requires an SSD storage account.
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name "<file-share-name>" \
+    --quota 1024 \
+    --enabled-protocols SMB \
+    --output none
 ```
+
+The command provisions the recommended IOPS and throughput. To provision your own values, add the `--provisioned-iops` and `--provisioned-bandwidth-mibps` parameters, for example `--provisioned-iops 3000 --provisioned-bandwidth-mibps 130`.
 
 ---
 
 ### Create an SSD provisioned v1 classic file share
-
-When you create a classic file share by using the provisioned v1 billing model, which only supports SSD file shares, you specify how much storage your share needs. IOPS and throughput capacity are then computed for you based on how much storage you provisioned. Depending on your individual file share requirements, you might find that you require more IOPS or throughput than the recommendations. In this case, you need to provision more storage to get the required IOPS or throughput. To learn more, see [Understanding the provisioned v1 billing model](./understanding-billing.md#provisioned-v1-model).
-
-> [!IMPORTANT]
-> Before you create a provisioned v1 classic file share, make sure the storage account you intend to use is of the *FileStorage* storage account kind. To check the account kind, go to the storage account and look under **Essentials**. If you created your storage account by using the Azure portal, you must select *Provisioned v1* for **File share billing**.
+For a provisioned v1 file share, you provision storage. Azure Files sets the IOPS and throughput based on the provisioned storage. To get more IOPS or throughput, provision more storage. For more information, see [Provisioned v1 model](./understanding-billing.md#provisioned-v1-model).
 
 # [Portal](#tab/azure-portal)
-
-Follow these steps to create an SSD provisioned v1 classic file share by using the Azure portal.
-
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
+2. Select **+ Classic file share**.
+3. On the **Basics** tab of the **New classic file share** page, complete these fields:
 
-2. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
+   - **Name**: The name of the file share.
+   - **Provisioned storage (GiB)**: The amount of storage to provision. The minimum is 100 GiB. You're billed for the provisioned storage, regardless of how much you use. Under **Performance**, the page shows the IOPS, burst IOPS, and throughput for the provisioned storage.
+   - **Protocol**: Select **SMB** or **NFS**. For an NFS file share, you can also set **Root Squash**. For more information, see [Configure root squash for Azure Files](nfs-root-squash.md).
 
-3. Complete the fields in the **Basics** tab of new file share blade:
+   :::image type="content" source="media/storage-how-to-create-file-share/new-share-provisioned-v1.png" alt-text="Screenshot of the Basics tab of the New classic file share page for a provisioned v1 storage account.":::
 
-   ![A screenshot of the basics tab in the new file share blade (provisioned v1).](./media/storage-how-to-create-file-share/create-file-share-provisioned-v1-0.png)
-
-   - **Name**: The name of the file share to create. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-   - **Provisioned storage (GiB)**: The amount of storage to provision on the share. The provisioned storage capacity is the amount that you're billed for regardless of actual usage.
-
-   - **Protocol**: The file sharing protocol to use on the share. By default, new shares use the SMB protocol. Select the NFS protocol to create an NFSv4.1 share.
-
-4. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**. NFS shares don't support Azure Backup.
-
-5. Select **Review + create** and then **Create** to create the Azure file share.
+4. Select the **Backup** tab. For an SMB file share, [Azure Backup](../../backup/backup-azure-files.md) is enabled by default. To disable it, clear **Enable backup**. To keep it, use the default vault and policy, or create a new Recovery Services vault or backup policy. Azure Backup isn't available for NFS file shares.
+5. Select **Review + create**, and then select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
+To create a provisioned v1 classic file share, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet. The commands use the `$resourceGroupName` and `$storageAccountName` variables from [Create the storage account](#create-the-storage-account-powershell). Replace `<file-share-name>` with your own value.
 
-You can create an SSD provisioned v1 classic file share by using the [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. The following PowerShell command assumes you set the variables `$resourceGroupName` and `$storageAccountName` as defined in the [Create a storage account](#create-a-provisioned-v1-or-pay-as-you-go-storage-account-powershell) section.
-
-To create a provisioned v1 classic file share, use the following command. Replace the values for the variables `$shareName`, `$provisionedStorageGib`, and `$protocol` with the desired selections for your file share deployment. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-```powershell
-$shareName = "<file-share>"
-
-# The provisioned storage size of the share in GiB. Valid range is 100 to
-# 102,400.
-$provisionedStorageGib = 1024
-
-# The protocol chosen for the file share. Valid settings are "SMB" and "NFS".
-$protocol = "SMB"
-
-New-AzRmStorageShare `
-        -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $storageAccountName `
-        -Name $shareName `
-        -QuotaGiB $provisionedStorageGib `
-        -EnabledProtocol $protocol | `
-    Out-Null
+```azurepowershell
+# QuotaGiB is the provisioned storage in GiB. The valid range is 100 to 102,400.
+# EnabledProtocol is "SMB" or "NFS".
+$params = @{
+    ResourceGroupName = $resourceGroupName
+    StorageAccountName = $storageAccountName
+    Name = "<file-share-name>"
+    QuotaGiB = 1024
+    EnabledProtocol = "SMB"
+}
+New-AzRmStorageShare @params
 ```
 
 # [Azure CLI](#tab/azure-cli)
+To create a provisioned v1 classic file share, use the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The commands use the `resourceGroupName` and `storageAccountName` variables from [Create the storage account](#create-the-storage-account-azure-cli). Replace `<file-share-name>` with your own value.
 
-You can create an SSD provisioned v1 classic file share by using the [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The following command assumes you set the variables `resourceGroupName` and `storageAccountName` as defined in the [Create a storage account](#create-a-provisioned-v1-or-pay-as-you-go-storage-account-azure-cli) section.
-
-To create a provisioned v1 classic file share, use the following command. Replace the values for the variables `shareName`, `provisionedStorageGib`, and `protocol` with the desired selections for your file share deployment. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-```bash
-shareName="<file-share>"
-
-# The provisioned storage size of the share in GiB. Valid range is 100 to
-# 102,400.
-provisionedStorageGib=1024
-
-# The protocol chosen for the file share. Valid settings are "SMB" and "NFS".
-protocol="SMB"
-
+```azurecli
+# --quota is the provisioned storage in GiB. The valid range is 100 to 102,400.
+# --enabled-protocols is SMB or NFS.
 az storage share-rm create \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \
-    --name $shareName \
-    --quota $provisionedStorageGib \
-    --enabled-protocols $protocol \
+    --name "<file-share-name>" \
+    --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 ```
 
 ---
 
 ### Create an HDD pay-as-you-go classic file share
-
-Pay-as-you-go file shares (SMB only) have a property called **access tier**. All three access tiers are stored on the exact same HDD storage hardware. The main difference for these three access tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. To learn more about the differences between tiers, see [differences in access tiers](./understanding-billing.md#differences-in-access-tiers).
-
-> [!IMPORTANT]
-> Before you create a pay-as-you-go classic file share, make sure the storage account you intend to use is of the *StorageV2 (general purpose v2)* storage account kind. To check the account kind, go to the storage account and look under **Essentials**. If you created your storage account by using the Azure portal, you must select *Pay-as-you-go file shares* for **File share billing**.
+Pay-as-you-go file shares support only SMB. Each pay-as-you-go file share has an *access tier*: transaction optimized, hot, or cool. All three access tiers use the same HDD hardware. Cooler tiers have lower storage prices and higher transaction prices. For more information, see [Differences in access tiers](./understanding-billing.md#differences-in-access-tiers).
 
 # [Portal](#tab/azure-portal)
-
-Follow these steps to create a new HDD pay-as-you-go classic file share by using the Azure portal.
-
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
+2. Select **+ Classic file share**.
+3. On the **Basics** tab of the **New classic file share** page, complete these fields:
 
-1. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
+   - **Name**: The name of the file share.
+   - **Access tier**: The access tier of the file share. The default is **Transaction optimized**. During a migration, use the transaction optimized tier to minimize transaction costs. After the migration, you can change to a cooler tier.
 
-1. Complete the fields in the **Basics** tab of new file share blade:
+   :::image type="content" source="media/storage-how-to-create-file-share/new-share-pay-as-you-go.png" alt-text="Screenshot of the Basics tab of the New classic file share page for a pay-as-you-go storage account.":::
 
-   ![A screenshot of the basics tab of the new file share blade for a pay-as-you-go storage account.](./media/storage-how-to-create-file-share/create-file-share-paygo-1.png)
-
-   - **Name**: The name of the file share to create. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-   - **Access tier**: The selected access tier for a pay-as-you-go file share. Pick the _transaction optimized_ access tier during a migration to minimize transaction expenses, and then switch to a lower tier if needed after the migration is complete.
-
-1. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
-
-1. Select **Review + create** and then **Create** to create the Azure file share.
+4. Select the **Backup** tab. [Azure Backup](../../backup/backup-azure-files.md) is enabled by default. To disable it, clear **Enable backup**. To keep it, use the default vault and policy, or create a new Recovery Services vault or backup policy.
+5. Select **Review + create**, and then select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
+To create a pay-as-you-go classic file share, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet. The commands use the `$resourceGroupName` and `$storageAccountName` variables from [Create the storage account](#create-the-storage-account-powershell). Replace `<file-share-name>` with your own value.
 
-You can create a pay-as-you-go classic file share by using the [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. The following PowerShell command assumes you set the variables `$resourceGroupName` and `$storageAccountName` as defined in the [Create a storage account](#create-a-provisioned-v1-or-pay-as-you-go-storage-account-powershell) section.
-
-To create a pay-as-you-go classic file share, use the following command. Replace the values for the variables `$shareName` and `$accessTier` with the desired selections for your file share deployment. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-```powershell
-$shareName = "<file-share>"
-
-# The access tier of the file share. Valid set contains "TransactionOptimized",
-# "Hot", "Cool"
-$accessTier = "Hot"
-
-New-AzRmStorageShare `
-        -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $storageAccountName `
-        -Name $shareName `
-        -AccessTier $accessTier | `
-    Out-Null
+```azurepowershell
+# Valid values for AccessTier are "TransactionOptimized", "Hot", and "Cool".
+$params = @{
+    ResourceGroupName = $resourceGroupName
+    StorageAccountName = $storageAccountName
+    Name = "<file-share-name>"
+    AccessTier = "TransactionOptimized"
+}
+New-AzRmStorageShare @params
 ```
 
 # [Azure CLI](#tab/azure-cli)
+To create a pay-as-you-go classic file share, use the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The commands use the `resourceGroupName` and `storageAccountName` variables from [Create the storage account](#create-the-storage-account-azure-cli). Replace `<file-share-name>` with your own value.
 
-You can create an Azure classic file share by using the [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The following command assumes you set the variables `$resourceGroupName` and `$storageAccountName` as defined in the [Create a storage account](#create-a-provisioned-v1-or-pay-as-you-go-storage-account-azure-cli) section.
-
-To create a pay-as-you-go file share, use the following command. Replace the values for the variables `shareName` and `accessTier` with the desired selections for your file share deployment. The name of your file share must be all lowercase letters, numbers, and single hyphens, and must begin and end with a lowercase letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
-
-```bash
-shareName="<file-share>"
-
-# The access tier of the file share. Valid set contains "TransactionOptimized",
-# "Hot", and "Cool".
-accessTier="Hot"
-
+```azurecli
+# Valid values for --access-tier are TransactionOptimized, Hot, and Cool.
 az storage share-rm create \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \
-    --name $shareName \
-    --access-tier $accessTier \
+    --name "<file-share-name>" \
+    --access-tier TransactionOptimized \
     --output none
 ```
 
 ---
 
 ## Set up networking for classic file shares
+SMB file shares don't require network configuration. NFS file shares require it, because NFS uses network-based access control. Clients can access an NFS file share only from a virtual network, through a private endpoint or a service endpoint.
 
-If you're using an SMB file share, networking configuration isn't required. However, we still recommend you take it into consideration. If you're using an NFS file share, networking configuration is required.
+- A **private endpoint** gives the storage account a private IP address in your virtual network. Clients in peered virtual networks and on-premises networks can use it. [Data processing charges](https://azure.microsoft.com/pricing/details/private-link/) apply.
+- A **service endpoint** lets clients in specific subnets use the public endpoint. The subnets can be in a different subscription or Microsoft Entra tenant. Service endpoints don't have extra charges.
+
+For more information, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
 > [!IMPORTANT]
-> The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you grant access to specific virtual networks, make sure that any network security groups associated with those virtual networks don't contain security rules that block incoming communication through port 2049.
+> NFS uses TCP port 2049. Ensure that your clients can send traffic on port 2049, and that the network security groups of the virtual network don't block inbound traffic on port 2049.
 
 ### Set up a private endpoint or service endpoint
+The following steps create a private endpoint for an NFS file share in the Azure portal. To configure a service endpoint, or to use PowerShell or Azure CLI, see [Configure network endpoints for Azure file shares](storage-files-networking-endpoints.md).
 
-NFS file shares require network-level security configurations. Currently, two options exist for establishing network-level security configurations: private endpoint and service endpoint. A private endpoint gives your file share a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your file share stays within peered virtual networks, including those in other regions and on-premises. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) for private endpoints apply. See [What is a private endpoint](../../private-link/private-endpoint-overview.md) to learn more. 
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**, and then select your NFS file share.
+2. On the **Connect from Linux** tab, under **Network configuration**, select **Review options**. The **Configure network security** tab opens.
 
-If you don't require a static IP address, you can enable a service endpoint for Azure Files within the virtual network. A service endpoint configures the file share to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. See [Azure virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) to learn more.
+   :::image type="content" source="media/storage-how-to-create-file-share/network-security-options.png" alt-text="Screenshot of the network security options for an NFS classic file share, with the private endpoint and service endpoint options.":::
 
-Steps 1 to 3 show an NFS file share scenario. You can also modify the networking settings at the storage account level for SMB file shares. Go to the storage account, choose **Security + networking**, and configure the required endpoints.
+3. Select **Setup a private endpoint**. The **Private endpoint connections** tab of the storage account's networking page opens.
+4. Select **+ Private endpoint**.
+5. On the **Basics** tab, enter a **Name** for the private endpoint. The portal fills in **Network Interface Name**. Set **Region** to the region of your virtual network, and then select **Next : Resource**.
+6. On the **Resource** tab, make sure that **Target sub-resource** is **file**, and then select **Next : Virtual Network**.
+7. On the **Virtual Network** tab, select your **Virtual network** and **Subnet**. The portal might select a different virtual network by default. Leave **Dynamically allocate IP address** selected, and then select **Next : DNS**.
 
-1. Select the NFS file share you created. You see a dialog that says _Connect to this NFS share from Linux_. Under **Network configuration**, select **Review options**.
+   :::image type="content" source="media/storage-how-to-create-file-share/private-endpoint-virtual-network.png" alt-text="Screenshot of the Virtual Network tab of the Create a private endpoint page.":::
 
-   :::image type="content" source="media/storage-files-quick-create-use-linux/connect-from-linux.png" alt-text="Screenshot showing how to configure network settings to connect to the N F S share from Linux." lightbox="media/storage-files-quick-create-use-linux/connect-from-linux.png" border="true":::
+8. On the **DNS** tab, leave **Integrate with private DNS zone** set to **Yes**. Make sure that the subscription and resource group are correct, and then select **Next : Tags**.
+9. Optionally, add tags, and then select **Next : Review + create**.
+10. After validation passes, select **Create**.
 
-1. Next, select **Setup a private endpoint**.
+### Enable hybrid access through VPN or ExpressRoute (optional)
+To access an NFS file share from an on-premises network, connect the network to your virtual network with a VPN or Azure ExpressRoute, and configure DNS for the private endpoint. For the steps, see [Connect from on-premises](storage-files-networking-overview.md#connect-from-on-premises).
 
-   :::image type="content" source="media/storage-files-quick-create-use-linux/configure-network-security.png" alt-text="Screenshot showing network-level security configurations." lightbox="media/storage-files-quick-create-use-linux/configure-network-security.png" border="true":::
-
-1. Select **+ Private endpoint**.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
-
-1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
-
-1. Confirm that the **Subscription**, **Resource type**, and **Resource** are correct. Select **File** from the **Target sub-resource** drop-down. Then select **Next: Virtual Network**.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
-
-1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Under **Private IP configuration**, leave **Dynamically allocate IP address** selected. Select **Next: DNS**.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private IP configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
-
-1. Select **Yes** for **Integrate with private DNS zone**. Make sure the correct subscription and resource group are selected, and then select **Next: Tags**.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" alt-text="Screenshot showing how to integrate your private endpoint with a private DNS zone." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" border="true":::
-
-1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if needed, and then select **Next: Review + create**.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" alt-text="Screenshot showing how to add tags to resources in order to categorize them." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" border="true":::
-
-1. Azure attempts to validate the private endpoint. When validation is complete, select **Create**. You see a notification that deployment is in progress. After a few minutes, you see a notification that deployment is complete.
-
-### Enable hybrid access through VPN or Azure ExpressRoute (optional)
-
-To enable hybrid access to an NFS Azure file share, use one of the following networking solutions:
-
-- [Configure a Point-to-Site VPN](storage-files-configure-p2s-vpn-linux.md).
-- [Configure a Site-to-Site VPN](storage-files-configure-s2s-vpn.md).
-- Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
-
-## Next steps
-
-- Learn how to create a [Windows](/azure/virtual-machines/windows/quick-create-portal) virtual machine, or [Linux](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) virtual machine
-- Mount an SMB file share on [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), or [Linux](storage-how-to-use-files-linux.md)
-- Mount an NFS file share on [Linux](storage-files-how-to-mount-nfs-shares.md)
-- Learn how to [change size, performance and delete on a file share](modify-file-share.md)
+## Related content
+- [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md)
+- [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md)
+- [Modify an Azure file share](modify-file-share.md)

@@ -7,7 +7,8 @@ metadata:
   title: Deployment troubleshooting documentation
   description: "Learn how to troubleshoot deployments for Bicep files and Azure Resource Manager templates."
   ms.service: azure-resource-manager
-  ms.author: jgao
+  ms.author: kgremban
+  author: kgremban
   ms.subservice: troubleshooting
   ms.topic: landing-page
   ms.date: 12/22/2025

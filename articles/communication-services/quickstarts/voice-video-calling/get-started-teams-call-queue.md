@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your calling app to a Teams call queue
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Auto Attendant with JavaScript](./includes/teams-call-queue/teams-call-queue-javascript.md)]
 ::: zone-end

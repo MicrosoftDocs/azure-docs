@@ -1,12 +1,12 @@
 ---
-title: Secure your Azure Data Factory
-description: Learn how to secure Azure Data Factory, with best practices for network security, identity management, data protection, and recovery.
-author: kromerm
-ms.author: makromer
+title: Secure your Azure Data Factory deployment
+description: Learn how to secure Azure Data Factory, with best practices for network security, identity and access management, data protection, logging, governance, and recovery.
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: azure-data-factory
-ms.topic: concept-article 
+ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 06/17/2025
+ms.date: 08/13/2026
 ai-usage: ai-assisted
 ---
 
@@ -16,48 +16,56 @@ Azure Data Factory is a cloud-based data integration service that allows you to 
 
 This article provides guidance on how to best secure your Azure Data Factory deployment.
 
+[!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
+
 ## Network security
 
-Network security is essential for protecting your Azure Data Factory from unauthorized access and potential threats, and protecting your data in movement. Implementing robust network security measures helps to isolate and secure your data integration processes.
+Network security is essential for protecting your Azure Data Factory from unauthorized access and potential threats, and for protecting your data in movement. Implementing robust network security measures helps to isolate and secure your data integration processes.
 
-* **Isolate and segment workloads using Virtual Networks (VNets)**: Use VNets to create isolated network environments for your data factory and data sources, enabling segmentation of workloads based on risk. VNets help control traffic within the cloud infrastructure. Depending on your source locations, see:
-    - [Join Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md)
-    - [Join your Azure integration runtime to a managed virtual network](tutorial-managed-virtual-network-migrate.md)
+- **Isolate integration runtimes with virtual networks**: Use virtual networks to create isolated network environments for your integration runtimes and data sources, enabling segmentation of workloads based on risk. For more information, see [Join Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md) and [Join your Azure integration runtime to a managed virtual network](tutorial-managed-virtual-network-migrate.md).
+- **Control traffic flow with network security groups (NSGs)**: For SSIS and self-hosted integration runtimes joined to your virtual network, apply NSGs to control inbound and outbound traffic by using a "deny by default, permit by exception" approach. On an Azure-SSIS integration runtime, port 3389 (RDP) is open by default at the NIC-level NSG for optional Microsoft support troubleshooting. Use a subnet-level NSG to restrict or close it. NSGs don't apply to managed virtual networks. For more information, see [Network security groups](../virtual-network/network-security-groups-overview.md).
+- **Secure self-hosted integration runtime communication with TLS/SSL**: When you deploy multiple self-hosted integration runtime nodes for load balancing and high availability, enable remote access from intranet with TLS/SSL certificates to secure communication between nodes. For more information, see [Enable remote access from intranet with TLS/SSL certificate](tutorial-enable-remote-access-intranet-tls-ssl-certificate.md).
+- **Connect privately with Azure Private Link**: Use a private endpoint to connect to Azure Data Factory from your self-hosted integration runtime and Azure resources, preventing exposure to the public internet and reducing attack vectors. For more information, see [Azure Private Link for Data Factory](data-factory-private-link.md).
+- **Restrict outbound access with a managed virtual network**: Provision your Azure integration runtime inside a managed virtual network so that data movement uses managed private endpoints to reach data stores, keeping traffic off the public internet. For more information, see [Managed virtual network and managed private endpoints](managed-virtual-network-private-endpoint.md).
 
-**Control traffic flow with Network Security Groups (NSGs)**: Currently this only applies to SSIS integration runtimes and self-hosted integration runtimes with your virtual network, and isn't available for managed virtual networks. Apply NSGs to control inbound and outbound traffic for virtual machines and subnets within VNets. Use a "deny by default, permit by exception" approach to restrict traffic flow and protect sensitive resources. If you've joined Azure Data Factory to a virtual network, on the NSG that is automatically created by Azure Data Factory, Port 3389 is open to all traffic by default. Lock the port down to make sure that only your administrators have access. To manage your NSGs, see [Network security groups](../virtual-network/network-security-groups-overview.md).
+## Identity and access management
 
-* [Secure your self-hosted integration runtime nodes by enabling remote access from intranet with TLS/SSL certificates](tutorial-enable-remote-access-intranet-tls-ssl-certificate.md) - Multiple self-hosted integration runtime nodes can be deployed to balance load and provide high availability, and enabling remote access from intranet with TLS/SSL certificates ensures secure communication between integration runtime nodes.
+Identity and access management ensures that only authorized users and services can access your Azure Data Factory. Implementing strong identity practices helps to prevent unauthorized access and protect sensitive data.
 
-* **Secure service access using Private Links**: Securely connect to Azure Data Factory from your self-hosted integration runtime and your Azure platform resources, preventing exposure to the public internet. This enhances data privacy and reduces attack vectors. By using Azure Private Link, you can connect to various platforms as a service (PaaS) deployments in Azure via a private endpoint. See [Azure Private Link for Data Factory](data-factory-private-link.md).
-
-## Identity management
-
-Identity management ensures that only authorized users and services can access your Azure Data Factory. Implementing strong identity management practices helps to prevent unauthorized access and protect sensitive data.
-
-* **Apply least privilege principles**: Use Azure Data Factory's role-based access control (RBAC) to assign the minimum necessary permissions to users and services, ensuring that they only have access to what is needed to perform their duties. Regularly review and adjust roles to align with the principle of least privilege. See [Roles and permissions in Azure Data Factory](concepts-roles-permissions.md).
-
-* **Use managed identities for secure access without credentials**: Use managed identities in Azure to securely authenticate Azure Data Factory with Azure services, without the need to manage credentials. This provides a secure and simplified way to access resources like Azure Key Vault or Azure SQL Database. See [Managed Identities for Azure Data Factory](data-factory-service-identity.md).
+- **Apply least-privilege access with Azure RBAC**: Use built-in roles such as Data Factory Contributor to assign the minimum permissions users and services need, and regularly review role assignments. For more information, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
+- **Use managed identities instead of stored credentials**: Authenticate Data Factory to Azure services such as Azure Key Vault and Azure SQL Database by using the factory's system-assigned or a user-assigned managed identity, eliminating the need to manage credentials. For more information, see [Managed identity for Data Factory](data-factory-service-identity.md).
+- **Store secrets in Azure Key Vault**: Reference connection strings, secrets, and certificates from Azure Key Vault in your linked services so that you don't hard-code sensitive values in pipelines or datasets. For more information, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md).
 
 ## Data protection
 
-Implementing robust data protection measures helps to safeguard sensitive information and comply with regulatory requirements. Azure Data Factory doesn't store data itself, so implementing [network security](#network-security) and [identity management](#identity-management) is essential to protect the data in transit. However, there are some tools and practices you can use to further protect your data in process.
+Implement robust data protection measures to safeguard sensitive information and comply with regulatory requirements. Azure Data Factory doesn't store the source or sink data it moves—only pipeline definitions, run metadata, and cached data—so you need to implement [network security](#network-security) and [identity and access management](#identity-and-access-management) to protect data in transit. However, you can use the following tools and practices to further protect your data:
 
-* **Use Microsoft Purview to identify and track sensitive data**: Integrate Azure Data Factory with Microsoft Purview to discover, classify, and manage sensitive data through its lifecycle. This helps to ensure that sensitive information is handled appropriately and complies with data protection regulations. See [Microsoft Purview integration with Data Factory](connect-data-factory-to-azure-purview.md).
+- **Encrypt factory metadata with customer-managed keys**: By default, Data Factory encrypts data at rest, including entity definitions and cached data, with a Microsoft-managed key. For more control, enable customer-managed keys (CMK) with a key in Azure Key Vault. Enabling CMK requires a managed identity and a key vault with soft delete and purge protection enabled. For more information, see [Encrypt Azure Data Factory with customer-managed keys](enable-customer-managed-key.md).
+- **Discover and classify sensitive data with Microsoft Purview**: Connect Data Factory to Microsoft Purview to discover and classify data your pipelines move, browse the data catalog, and track data lineage across your integration workflows. For more information, see [Connect Data Factory to Microsoft Purview](connect-data-factory-to-azure-purview.md).
 
-* **Encrypt data at rest and in transit**: Azure Data Factory encrypts data at rest, including entity definitions and any data cached while runs are in progress. By default, data is encrypted with a randomly generated Microsoft-managed key that is uniquely assigned to your data factory. For extra security guarantees, you can now enable Bring Your Own Key (BYOK) with customer-managed keys feature in Azure Data Factory. See [Encrypt Azure Data Factory with customer-managed keys](enable-customer-managed-key.md)
+## Logging and monitoring
 
-* **Restrict the exposure of credentials and secrets**: Use Azure Key Vault to securely store and manage sensitive information such as connection strings, secrets, and certificates. Integrate Azure Data Factory with Azure Key Vault to retrieve secrets at runtime, ensuring that sensitive data isn't hard-coded in pipelines or datasets. See [Azure Key Vault integration with Data Factory](store-credentials-in-key-vault.md).
+Comprehensive logging and monitoring help you detect anomalous activity, investigate incidents, and demonstrate compliance for your data integration workloads.
 
-* **Use Azure Policy to enforce data protection standards**: Apply Azure Policy to enforce data protection standards across your Azure Data Factory deployment. This helps to ensure compliance with organizational and regulatory requirements. See [Azure Policy built-in definitions for Data Factory](policy-reference.md).
+- **Send diagnostic logs to a Log Analytics workspace**: Configure diagnostic settings to route pipeline, activity, and trigger run logs to a Log Analytics workspace for retention and analysis. Choose Resource-specific mode so that logs flow into the `ADFPipelineRun`, `ADFActivityRun`, and `ADFTriggerRun` tables rather than the shared `AzureDiagnostics` table. For more information, see [Configure diagnostic settings and a workspace](monitor-configure-diagnostics.md).
+- **Capture SSIS integration runtime operational logs**: For Azure-SSIS integration runtimes, enable the `SSISIntegrationRuntimeLogs` and SSIS package execution log categories to record package events and execution statistics for auditing. For more information, see [Monitor SSIS operations with Azure Monitor](monitor-ssis.md).
+- **Alert on failures and anomalies**: Create Azure Monitor alerts on Data Factory metrics and log queries—such as failed pipeline or activity runs—so operators are notified of conditions that can indicate misconfiguration or malicious activity. For more information, see [Monitor Azure Data Factory](monitor-data-factory.md).
+
+## Compliance and governance
+
+Governance controls help you enforce organizational standards consistently across your Data Factory deployments and keep your estate auditable.
+
+- **Enforce standards with Azure Policy**: Assign built-in Azure Policy definitions for Data Factory to audit and enforce controls such as requiring customer-managed key encryption, using Key Vault to store linked-service secrets, and disabling public network access in favor of private links, so that noncompliant factories are flagged or blocked. For more information, see [Azure Policy built-in definitions for Data Factory](policy-reference.md).
+- **Protect factories from accidental deletion with resource locks**: Apply a CanNotDelete or ReadOnly lock to production data factories and their resource groups so that pipelines, linked services, and integration runtimes can't be removed or altered inadvertently. For more information, see [Lock your resources to protect your infrastructure](../azure-resource-manager/management/lock-resources.md).
+- **Organize and track factories with tags**: Apply resource tags to your data factories to support cost management, ownership, and governance reporting across environments. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
 ## Backup and recovery
 
 Backup and recovery are critical for ensuring that data and configurations in Azure Data Factory are protected and recoverable in case of failures or disasters.
 
-* **Implement source control for Azure Data Factory**: Use Azure Repos or GitHub to manage your Azure Data Factory configurations and pipelines. This allows you to version control your data factory resources, track changes, and collaboration. See [Source control for Azure Data Factory](source-control.md).
-
-* **Implement continuous integration and continuous delivery (CI/CD)**: Azure Data Factory utilizes Azure Resource Manager templates to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). This protects your production deployments from accidental changes, and can provide a deployable backup of your environment. See [CI/CD for Azure Data Factory](continuous-integration-delivery.md).
+- **Version control your factory with Git integration**: Connect your development data factory to Azure Repos or GitHub to version control pipelines, datasets, and linked services, track changes, and enable collaboration. Configure Git integration on development factories only; promote to test and production with CI/CD rather than Git. For more information, see [Source control in Azure Data Factory](source-control.md).
+- **Protect deployments with CI/CD**: Use Azure Resource Manager templates that capture your factory's configuration to promote changes across environments, guard production from accidental changes, and provide a deployable backup. For more information, see [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md).
 
 ## Related content
 
-* For scenario-based security considerations, see [Security considerations for Azure Data Factory](data-movement-security-considerations.md).
+- For scenario-based security considerations, see [Security considerations for data movement in Azure Data Factory](data-movement-security-considerations.md).

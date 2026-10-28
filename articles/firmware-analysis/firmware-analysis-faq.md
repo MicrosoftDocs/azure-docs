@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 07/29/2026
+ms.date: 09/04/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -58,41 +58,52 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 
 **Component** | **Component** | **Component** | **Component**
  ---|---|---|---
- acpid             | gtk               | mcproxy           | readline
- apache            | harfbuzz          | miniupnpd         | redis
- avahi_daemon      | hdparm            | mit_kerberos      | rngd
- axios             | heimdal           | mosquitto         | rngtest
- backbonejs        | hostapd           | msmtp             | rp_pppoe
- bash              | i2c-tools         | mstpd             | samba
- bftpd             | inetutils_telnetd | mtd-utils         | setserial
- bluetoothd        | iperf3            | nano              | sqlite
- bridge-utils      | iproute2          | ncurses           | ssmtp
- busybox           | ipset             | neon              | strace
- bzip2             | iptables          | netatalk          | strongswan
- cairo             | jansson           | netkit_telnetd    | stunnel
- chrony            | jquery            | netsnmp           | sudo
- codesys           | json-c            | nettools          | tcpdump
- conntrack-tools   | libarchive        | nginx             | uclibc
- coreutils         | libcap            | nss               | underscorejs
- dhcpd             | libcurl           | openldap          | usbutils
- dnsmasq           | libevent          | openssh           | util_linux
- dropbear          | libexpat          | openssl           | vim
- e2fsprogs         | libgcrypt         | openvpn           | vsftpd
- ebtables          | libidn            | openvswitch       | vuejs
- eeprog            | libmicrohttpd     | p7zip             | wget
- element           | libpcap           | pango             | wolfssl
- ethtool           | libpng            | pcre              | wpa_supplicant
- exfat             | libsoup           | pcre2             | xinetd
- extJS             | libvorbis         | perl              | xl2tpd
- ffmpeg            | libxml2           | php               | zebra
- fribidi           | lighttpd          | polarssl          | zeptojs
- gdbserver         | lodash            | pppd              | zip
- gdkpixbuf         | logrotate         | procps            | zipcloak
- glibc             | lspci             | proftpd           | zipnote
- gmp               | lua               | protobuf-c        | zlib
- gnutls            | matrixssl         | python            |
- gpg               | mbedtls           | radvd             |
-
+apache            | harfbuzz          | miniupnpd         | redis
+apparmor          | hdparm            | mit_kerberos      | rngd
+asterisk          | heimdal           | mosquitto         | rngtest
+atftp             | hostapd           | msmtp             | rp_pppoe
+avahi_daemon      | i2c-tools         | mstpd             | samba
+avahi-autoipd     | iperf3            | mtd-utils         | setserial
+axios             | iproute2          | nano              | sqlite
+backbonejs        | ipset             | ncurses           | ssmtp
+bash              | iptables          | neon              | strace
+bftpd             | jansson           | netatalk          | strongswan
+binutils          | jquery            | netkit_telnetd    | stunnel
+bird              | json-c            | netsnmp           | sudo
+bluetoothd        | libarchive        | nettools          | tcpdump
+boa               | libcap            | nginx             | uclibc
+bridge-utils      | libcurl           | nss               | underscorejs
+busybox           | dhcpd             | openldap          | usbutils
+bzip2             | dhcpcd            | openssh           | util_linux
+cairo             | dmidecode         | openssl           | vim
+cifs-utils        | dnsmasq           | openvpn           | vsftpd
+chrony            | dpkg              | openvswitch        | vuejs
+codesys           | dropbear          | p7zip             | wget
+conntrack-tools   | e2fsprogs         | pango             | wireless-tools
+coreutils         | ebtables          | pcre              | wolfssl
+cryptsetup        | eeprog            | pcre2             | wpa_supplicant
+cups              | element           | perl              | xinetd
+davfs2            | ethtool           | php               | xl2tpd
+exfat             | extJS             | polarssl          | xz-utils
+ffmpeg            | file              | portmap           | zebra
+fribidi           | gdbserver         | pppd              | zeptojs
+gdkpixbuf         | glibc             | procps            | zip
+glibc             | gmp               | procps-ng         | zipcloak
+gnutls            | gpg               | protobuf-c        | zipnote
+gtk               | libevent          | python            | zlib
+libarchive        | libexpat          | radvd             |
+libcap            | libgcrypt         | readline          |
+libcurl           | libidn            | redis             |
+libevent          | libjpeg-turbo     | rngd              |
+libexpat          | liblzma           | rngtest           |
+libgcrypt         | libmicrohttpd     | samba             |
+libidn            | libpcap           | setserial         |
+libjpeg-turbo     | libpng            | sqlite            |
+liblzma           | libsoup           | ssmtp             |
+libmicrohttpd     | libvorbis         | strace            |
+libpcap           | libxml2           | strongswan        |
+libpng            | lighttpd          | stunnel           |
+libsoup           | lodash            | sudo              |
 
 
 
@@ -124,6 +135,15 @@ Preview results should be interpreted as **security signals**, not guarantees of
 
 For detailed explanations of UEFI firmware analysis capabilities, limitations, and how to interpret results, see [Understanding UEFI firmware analysis capabilities and limitations](unified-extensible-firmware-interface-firmware-analysis.md).
 
+## Why don't I see any results for unsafe function calls?
 
+An empty result doesn't mean the firmware has no unsafe function calls. You might not see results when:
 
+- The firmware image doesn't contain supported ELF user-space executables.
+- The extracted executables use an unsupported processor architecture.
+- A static or stripped binary doesn't retain enough information to identify function references.
+- The extracted file is a Linux kernel module (`.ko`), which isn't included in this analysis.
+- The firmware image was analyzed before unsafe function calls analysis became available.
+- Extraction or analysis didn't complete successfully.
 
+Upload an older firmware image again to receive current analysis. For supported architectures, binary requirements, and guidance on interpreting results, see [Understand unsafe function call data](understand-unsafe-function-calls.md).

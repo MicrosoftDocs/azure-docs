@@ -3,7 +3,8 @@ title: "Handle Errors and Retries in Durable Functions"
 description: Learn how to handle errors, configure automatic retries, and set timeouts in Durable Functions and Durable Task SDKs. Explore retry policies, custom retry handlers, and compensation patterns to build resilient orchestrations.
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 04/22/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: hannahhunter
 author: hhunter-ms
 ms.devlang: csharp
@@ -282,6 +283,10 @@ public void transferFunds(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 If the first **CreditAccount** function call fails, the orchestrator function compensates by crediting the funds back to the source account.
@@ -437,6 +442,10 @@ public TaskOrchestration createTransferOrchestration() {
 }
 ```
 
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
+
 ---
 
 If the **CreditAccount** activity fails, the orchestrator catches the exception and compensates by crediting the funds back to the source account.
@@ -539,6 +548,10 @@ In PowerShell, use `Wait-DurableTask` with multiple tasks. If any task fails, th
 
 In Java, when you use `ctx.allOf` to run multiple activity calls in parallel, the first failure causes the task to complete with an error. Use a try/catch block to handle the error.
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ## Handle errors in entity functions
@@ -576,6 +589,8 @@ public static async Task<List<string>> MyOrchestrator(
 <summary><b>In-process model</b></summary>
 
 In Durable Functions with C# in-process, entity functions return their original exception types to the orchestrator.
+
+For information about how unhandled exceptions affect entity state, including changes made in a `finally` block, see [Operation rollback](../durable-functions/durable-functions-dotnet-entities.md?pivots=in-proc#operation-rollback).
 
 ```csharp
 [FunctionName("Function1")]
@@ -646,6 +661,10 @@ PowerShell doesn't support entity functions.
 # [Java](#tab/java)
 
 Java doesn't support entity functions.
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -787,6 +806,10 @@ public void timerOrchestratorWithRetry(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 The activity function call in the previous example uses a parameter to configure an automatic retry policy. Customize the policy with these options:
@@ -893,7 +916,7 @@ def orchestrator_with_retry(ctx: task.OrchestrationContext, input_data: str) -> 
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -924,6 +947,45 @@ public TaskOrchestration createOrchestratorWithRetry() {
     };
 }
 ```
+
+# [Go](#tab/go)
+
+Register `orchestratorWithRetry` as an orchestrator and your activity as `UnreliableActivity`. The short retry intervals make this example suitable for local testing.
+
+```go
+package main
+
+import (
+	"time"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func orchestratorWithRetry(ctx *task.OrchestrationContext) (any, error) {
+	var input string
+	if err := ctx.GetInput(&input); err != nil {
+		return nil, err
+	}
+	policy := &task.RetryPolicy{
+		MaxAttempts:          3,
+		InitialRetryInterval: 100 * time.Millisecond,
+		BackoffCoefficient:   2,
+		MaxRetryInterval:     time.Second,
+		RetryTimeout:         5 * time.Second,
+	}
+	var result string
+	if err := ctx.CallActivity(
+		"UnreliableActivity",
+		task.WithActivityInput(input),
+		task.WithActivityRetryPolicy(policy),
+	).Await(&result); err != nil {
+		return nil, err
+	}
+	return result, nil
+}
+```
+
+`MaxAttempts` includes the initial execution, so this policy permits at most three attempts. Activities must be idempotent. A failure after the final attempt propagates to the orchestrator. For retry handlers and non-retriable failures, see the [Go SDK retries sample](https://github.com/microsoft/durabletask-go/tree/main/samples/retries).
 
 ---
 
@@ -1031,6 +1093,10 @@ try {
     // Case when the retry handler returns false...
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -1181,6 +1247,10 @@ public TaskOrchestration createOrchestratorWithCustomRetry() {
     };
 }
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -1383,6 +1453,10 @@ public boolean timerOrchestrator(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 > [!NOTE]
@@ -1524,6 +1598,10 @@ public TaskOrchestration createOrchestratorWithTimeout() {
     };
 }
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -1760,6 +1838,10 @@ Custom exception properties for `FailureDetails` aren't supported in PowerShell 
 # [Java](#tab/java)
 
 Java doesn't support custom exception properties for `FailureDetails` yet.
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 

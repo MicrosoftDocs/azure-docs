@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/08/2026
+ms.date: 10/06/2026
 ms.author: kendownie
 ms.custom: monitoring
 # Customer intent: As a cloud administrator, I want to create monitoring alerts for Azure Files metrics and logs, so that I can proactively identify and resolve issues before they impact users.
@@ -140,7 +140,7 @@ Follow these steps to create an alert that fires when the file share bandwidth u
    - Confirm the share has had recent traffic, or generate some I/O against it, then wait a few minutes and reopen the drop-down.
    - Widen the metric time range (for example, the last hour instead of the last few minutes) so that it includes a period when the share was active.
 
-1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because bandwidth usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert.
+1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because bandwidth usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert. [Credit-based bursting](understand-performance.md#bursting) applies to IOPS only. It doesn't increase throughput above the provisioned throughput.
 
 1. Select the **Details** tab and provide a name for the alert rule as well as a severity level and optional description.
 
@@ -171,7 +171,7 @@ Follow these steps to create an alert that fires when the file share IOPS utiliz
    - Confirm the share has had recent traffic, or generate some I/O against it, then wait a few minutes and reopen the drop-down.
    - Widen the metric time range (for example, the last hour instead of the last few minutes) so that it includes a period when the share was active.
 
-1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because IOPS usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert.
+1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because IOPS usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert. Provisioned file shares can use [credit-based bursting](understand-performance.md#bursting) to absorb short IOPS spikes above the provisioned IOPS.
 
 1. Select the **Details** tab and provide a name for the alert rule as well as a severity level and optional description.
 
@@ -218,18 +218,18 @@ Follow these steps to create an alert for high server latency (average).
 
 1. In the **Select a resource** pane, expand the storage account, check the **file** resource, and select **Apply**.
 
-1. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Success Server Latency** metric.
+1. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Success Server Latency** metric.
 
-1. Select the **Dimension values** drop-down and select the file shares that you want to alert on.
+1. Select the **Dimension values** drop-down and select the file shares that you want to alert on.
 
    > [!NOTE]
-   > To alert on the overall latency experience, leave **Dimension values** unchecked. To alert on the latency of specific transactions, select the API Name in the drop-down list. For example, selecting the Read and Write API names with the equal operator only displays latency for data transactions. Selecting the Read and Write API name with the not equal operator only displays latency for metadata transactions.
+   > To alert on the overall latency experience, leave **Dimension values** unchecked. To alert on the latency of specific transactions, select the API Name in the drop-down list. For example, selecting the Read and Write API names with the equal operator only displays latency for data transactions. Selecting the Read and Write API name with the not equal operator only displays latency for metadata transactions.
 
-1. Define the **Alert logic** by selecting either Static or Dynamic. For Static, select **Average** Aggregation, **Greater than** Operator, and Threshold value. For Dynamic, select **Average** Aggregation, **Greater than** Operator, and **Threshold Sensitivity**. If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart displays the calculated thresholds based on recent data. Use the Dynamic logic with Medium threshold sensitivity and adjust as needed. To learn more, see [Understanding dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds#understand-dynamic-thresholds-charts).
+1. Define the **Alert logic** by selecting either Static or Dynamic. For Static, select **Average** Aggregation, **Greater than** Operator, and Threshold value. For Dynamic, select **Average** Aggregation, **Greater than** Operator, and **Threshold Sensitivity**. If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart displays the calculated thresholds based on recent data. Use the Dynamic logic with Medium threshold sensitivity and adjust as needed. To learn more, see [Understanding dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds#understand-dynamic-thresholds-charts).
 
 1. Define the lookback period and frequency of evaluation.
 
-1. Select the **Actions** tab to add an action group (email, SMS, and so on) to the alert. Select an existing action group or create a new action group.
+1. Select the **Actions** tab to add an action group (email, SMS, and so on) to the alert. Select an existing action group or create a new action group.
 
 1. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity.
 

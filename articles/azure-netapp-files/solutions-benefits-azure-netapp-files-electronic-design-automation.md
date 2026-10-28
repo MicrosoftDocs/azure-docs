@@ -62,14 +62,14 @@ This architecture parallelizes I/O operations across endpoints, enabling substan
 The key characteristics of large volume breakthrough mode
 
 * Support for volumes up to 2 PiB of capacity
-* Up to 50 GiB/s throughput from a single volume
+* Up to 80 GiB/s throughput from a single volume
 * Up to ~2 million operations per second, ideal for metadata heavy EDA front end workloads
 * Consistently sub millisecond latency maintained under load
 * Near linear performance scaling when additional large volumes are added, provided sufficient compute and network resources are available
 
-## When to use Breakthrough mode
+## When to use large volume breakthrough mode
 
-Use large volume Breakthrough mode for:
+Use large volume breakthrough mode for:
 
 * Large-scale regression testing with thousands of concurrent simulation jobs
 * Workloads with very high file counts and metadata churn
@@ -104,6 +104,21 @@ The results demonstrate that Azure NetApp Files delivers horizontal scalability 
 | - | - | - | - |  - | - | - | 
 | Throughput (MB/s)	| 12,780 | 76,487 | 5.98 | 20,910 | 125,474 | 6.00 |
 | Operations/second | 792,046 | 4,745,453 | 5.99 |  1,296,040 | 7,776,697 | 6.00 |
+
+## Enhanced performance – Single large volume breakthrough mode 
+
+Recent validation of Azure NetApp Files large volume breakthrough mode demonstrates substantial performance improvements compared to earlier benchmark results. A single volume achieved the following General Availability performance levels:
+
+| Metric	| Public Preview | General Availability | 
+| - | - | - | 
+| Throughput (MB/s)	| 20,910| 38,776 | 
+| Operations/second | 1,296,040 | 2,399,517 | 
+
+These results demonstrate the continued evolution of Azure NetApp Files large volume breakthrough mode and the platform's ability to deliver significantly higher throughput and operations per second from a single volume while maintaining low latency characteristics.
+
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/enhanced-performance-single-large-volume.png" alt-text="Graph displaying enhanced performance for single large volume." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/enhanced-performance-single-large-volume.png":::
+
+As Azure infrastructure and storage technologies continue to advance, customers can expect ongoing performance improvements across both single-volume deployments and scaled multi-volume configurations. Combined with the near-linear scalability demonstrated by Azure NetApp Files large volumes, this performance provides a strong foundation for supporting the growing performance demands of next-generation EDA workloads.
 
 ## Testing tool
 

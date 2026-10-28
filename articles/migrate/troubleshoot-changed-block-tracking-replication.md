@@ -6,7 +6,8 @@ ms.author: dhananjayanr
 ms.manager: dhananjayanr
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
+ms.update:cycle: 1095-days
 ms.date: 07/14/2026
 ms.custom: vmware-scenario-422, engagement-fy24
 # Customer intent: As a VMware administrator, I want to troubleshoot replication cycle failures during agentless VM migration, so that I can ensure seamless and reliable data transfer to the cloud.
@@ -62,7 +63,7 @@ The agentless replication method uses VMware Changed Block Tracking (CBT). These
 |--|--|--|
 | **FetchChangedBlocksFailed**:Encountered an error while trying to fetch change blocks | The agentless replication method uses VMware CBT to replicate only blocks changed since the last cycle. This error occurs if CBT for a replicating VM is reset or if the CBT file is corrupt. One known problem: CBT resets after a Storage vMotion in vSphere 5.x. For more information, see [VMware KB 1020128](https://kb.vmware.com/s/article/1020128). | 1. If you opted for **Automatically repair replication**, right-click the VM and select **Repair Replication**.<br/>2. Otherwise, stop replication, reset CBT on the VM, and reconfigure replication.<br/>3. On vSphere 5.5, apply the updates in [VMware KB 1020128](https://kb.vmware.com/s/article/1020128).<br/>4. You can also reset CBT via VMware PowerCLI. |
 | **1018**:ChangeBlockTrackingReset | The change block tracking on the VM is reset. | Repair replication for the VM. If **Automatically Repair Replication** is enabled, right-click the VM and select **Repair Replication**. Otherwise, stop replication, reset CBT on the source VM per [VMware KB 1020128](https://kb.vmware.com/s/article/1020128), and reconfigure replication. |
-| **ProtectionReadinessError**:CBT cannot be enabled — snapshots present | Change tracking can't be enabled for the VM because snapshots are already present on the VM. | Delete the existing snapshots on the VM, or enable Changed Block Tracking on the VM, and retry. |
+| **ProtectionReadinessError**:CBT can't be enabled because snapshots are present (Error 31453) | VMware requires the source virtual machine to have no snapshots when Changed Block Tracking (CBT) is enabled. Snapshots might have been created manually or by a backup product, or they might remain because disk consolidation is pending. | 1. Ensure that no backup or other VMware operation is creating or using snapshots. If a scheduled backup overlaps with Azure Migrate replication, either temporarily suspend the backup schedule or configure an [Azure Migrate blackout window](concepts-vmware-agentless-migration.md#blackout-window) that covers the backup window and allows enough time for snapshot deletion and disk consolidation.<br/>2. In the vSphere Client, open the virtual machine's **Snapshot Manager** and select **Delete All**.<br/>3. If vSphere reports that disk consolidation is required, select **Snapshots** > **Consolidate** and wait for the task to complete.<br/>4. Confirm that no snapshots remain and that vSphere no longer reports that consolidation is required.<br/>5. Retry the Azure Migrate operation. If you suspended the backup schedule, resume it after the operation succeeds.<br/><br/>For more information, see [Changed Block Tracking requirements](https://knowledge.broadcom.com/external/article/320557) and [deleting and consolidating VMware snapshots](https://knowledge.broadcom.com/external/article/371714/faq-delete-all-snapshots-and-consolidate.html). |
 
 ## VMware environment and internal errors
 

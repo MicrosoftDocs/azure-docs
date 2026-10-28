@@ -3,7 +3,7 @@ title: Azure Service Bus bindings for Azure Functions
 description: Learn to send Azure Service Bus triggers and bindings in Azure Functions.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 12/12/2022
+ms.date: 10/06/2026
 ms.custom:
   - fasttrack-edit
   - devx-track-extended-java
@@ -27,7 +27,7 @@ Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/
 
 ## Install extension
 
-The extension NuGet package you install depends on the C# mode you're using in your function app: 
+The extension NuGet package you install depends on the C# mode you're using in your function app:
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -39,7 +39,7 @@ Add the extension to your project installing this [NuGet package](https://www.nu
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._ 
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
@@ -57,15 +57,9 @@ This version allows you to bind to types from [Azure.Messaging.ServiceBus](/dotn
 
 This extension version is available by installing the [NuGet package], version 5.x or later.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
+# [Extension 4.x and earlier](#tab/functionsv2/in-process)
 
-Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, versions < 5.x. 
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, versions < 5.x.
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
@@ -73,21 +67,17 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 This version allows you to bind to types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](./aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 5.x.
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Extension 4.x](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 4.x.
 
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support the isolated worker process.
-
 ---
 
-::: zone-end 
+::: zone-end
 ::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
@@ -102,11 +92,11 @@ Register Service Bus queue triggers with `app.ServiceBusQueue()` and topic trigg
 
 ## Binding types
 
-The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following:
    
 # [Isolated worker model](#tab/isolated-process)
 
-An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
 # [In-process class library](#tab/in-process)
 
@@ -132,9 +122,9 @@ The Service Bus extension supports parameter types according to the table below.
 
 <sup>2</sup> Advanced scenarios include message settlement, sessions, and transactions. These types are available as separate parameters in addition to the normal trigger parameter.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
+# [Extension 4.x and earlier](#tab/functionsv2/in-process)
 
-Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.ServiceBus] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**.
+Earlier versions of the extension expose types from the retired [Microsoft.Azure.ServiceBus] library. Use **Extension 5.x+** for types from the supported [Azure.Messaging.ServiceBus] library. To update an existing function app, see [Migrate from Service Bus extension version 4.x to version 5.x](migrate-service-bus-version-4-version-5.md).
 
 [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
@@ -154,12 +144,6 @@ The Service Bus extension supports parameter types according to the table below.
 
 <sup>2</sup> Advanced scenarios include message settlement, sessions, and transactions. These types are available as separate parameters in addition to the normal trigger parameter.
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**. To use these, you will need to [upgrade your application to Functions 4.x].
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
-
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
 The isolated worker process supports parameter types according to the tables below.
@@ -172,13 +156,9 @@ The isolated worker process supports parameter types according to the tables bel
 
 [!INCLUDE [functions-bindings-service-bus-output-dotnet-isolated-types](../../includes/functions-bindings-service-bus-output-dotnet-isolated-types.md)]
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Extension 4.x](#tab/functionsv2/isolated-process)
 
 Earlier versions of extensions in the isolated worker process only support binding to `string`, `byte[]`, and JSON serializable types. Additional options are available to **Extension 5.x+**.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 
@@ -199,9 +179,6 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 [IMessageSession]: /dotnet/api/microsoft.azure.servicebus.imessagesession
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
 
-[Microsoft.ServiceBus.Messaging]: /dotnet/api/microsoft.servicebus.messaging
-
-[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
 
 :::zone-end
 
@@ -209,7 +186,7 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 ## SDK Binding Types
 
-SDK Types for Azure Service Bus are in Preview. Follow the [Python SDK Bindings for Service Bus Sample](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/README.md) to get started with SDK Types for Service Bus in Python. 
+SDK Types for Azure Service Bus are in Preview. Follow the [Python SDK Bindings for Service Bus Sample](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/README.md) to get started with SDK Types for Service Bus in Python.
 > [!IMPORTANT]  
 > Using SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings).
 
@@ -224,7 +201,7 @@ SDK Types for Azure Service Bus are in Preview. Follow the [Python SDK Bindings 
 
 :::zone-end
 
-<a name="host-json"></a>  
+<a name="host-json"></a>
 
 ## host.json settings
 
@@ -286,7 +263,7 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
 
 <sup>1</sup> Using `minMessageBatchSize` and `maxBatchWaitTime` requires [v5.10.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.10.0) of the `Microsoft.Azure.WebJobs.Extensions.ServiceBus` package, or a later version.
 
-# [Functions 2.x+](#tab/functionsv2)
+# [Extension 4.x and earlier](#tab/functionsv2)
 
 ```json
 {
@@ -326,10 +303,6 @@ When you set the `isSessionsEnabled` property or attribute on [the trigger](func
 |**maxMessageCount**|`1000`| The maximum number of messages sent to the function when triggered. |
 |**operationTimeout**|`00:01:00`| A time span value expressed in `hh:mm:ss`. |
 
-# [Functions 1.x](#tab/functionsv1)
-
-For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
-
 ---
 
 ## Next steps
@@ -337,7 +310,6 @@ For a reference of host.json in Functions 1.x, see [host.json reference for Azur
 - [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
 - [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
 
-[extension bundle]: ./extension-bundles.md
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [Update your extensions]: ./functions-bindings-register.md
 

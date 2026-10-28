@@ -178,6 +178,8 @@
               href: create-peering-different-subscriptions-service-principal.md
         - name: Manage a virtual network peering
           href: virtual-network-manage-peering.md
+        - name: Disable peering route propagation
+          href: configure-disable-peering-route-propagation.md
         - name: Update the address space for a peered virtual network
           href: update-virtual-network-peering-address-space.yml
         - name: Configure subnet peering

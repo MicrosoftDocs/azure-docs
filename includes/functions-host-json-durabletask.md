@@ -4,7 +4,7 @@ description: include file
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/29/2025
+ms.date: 09/08/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -48,11 +48,11 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     },
     "tracing": {
       "traceInputsAndOutputs": false,
-      "traceReplayEvents": false,
+      "traceReplayEvents": false
     },
     "httpSettings":{
       "defaultAsyncRequestSleepTimeMilliseconds": 30000,
-      "useForwardedHost": false,
+      "useForwardedHost": false
     },
     "notifications": {
       "eventGrid": {
@@ -76,6 +76,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "useAppLease": true,
     "useGracefulShutdown": false,
     "maxEntityOperationBatchSize": 50,
+    "rollbackEntityOperationsOnExceptions": true,
     "maxOrchestrationActions": 100000,
     "storeInputsInOrchestrationHistory": false
   }
@@ -123,7 +124,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 |versionFailureStrategy|Reject|A value that specifies what happens when an orchestration version doesn't match the current `defaultVersion` value. Valid values are `Reject` and `Fail`. For detailed explanations, see [Orchestration versioning](../articles/durable-task/common/durable-orchestration-versioning.md).|
 |controlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
 |controlQueueBufferThreshold|**Consumption plan for Python**: 32 <br> **Consumption plan for other languages**: 128 <br>**Dedicated or Premium plan**: 256|The number of control queue messages that can be buffered in memory at a time. When the specified number is reached, the dispatcher waits before dequeuing any other messages. In some situations, reducing this value can significantly reduce memory consumption.|
-|partitionCount |4|The partition count for the control queue. This value must be a positive integer between 1 and 16. Changing this value requires configuring a new task hub.|
+|partitionCount |4|The partition count for the control queue. This value must be a positive integer between 1 and 16. Changing this value requires configuring a new task hub. For more information, see [Changing the partition count for the Azure Storage provider](../articles/durable-task/durable-functions/durable-functions-azure-storage-provider.md#changing-the-partition-count).|
 |controlQueueVisibilityTimeout |00:05:00|The visibility timeout of dequeued control queue messages in *hh:mm:ss* format.|
 |workItemQueueVisibilityTimeout |00:05:00|The visibility timeout of dequeued work item queue messages in *hh:mm:ss* format.|
 |FetchLargeMessagesAutomatically|true|A value that specifies whether to retrieve large messages in orchestration status queries. When this setting is `true`, large messages that exceed the queue size limit are retrieved. When this setting is `false`, a blob URL that points to each large message is retrieved.|
@@ -150,6 +151,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 |useTablePartitionManagement|In v3.x: true<br>In v2.x: false|A value that specifies the type of partition management algorithm to use. When this setting is `true`, an algorithm is used that's designed to reduce costs for Azure Storage v2 accounts. This setting is available starting in WebJobs.Extensions.DurableTask v2.10.0. Using this setting with a managed identity requires WebJobs.Extensions.DurableTask v3.x or later, or Worker.Extensions.DurableTask v1.2.x or later.|
 |useGracefulShutdown|false|(Preview) A value that indicates whether to shut down gracefully to reduce the chance of host shutdowns causing in-process function executions to fail.|
 |maxEntityOperationBatchSize|**Consumption plan**: 50 <br> **Dedicated or Premium plan**: 5,000|The maximum number of entity operations that are processed as a [batch](../articles/azure-functions/durable-functions/durable-functions-perf-and-scale.md#entity-operation-batching). If this value is 1, batching is disabled, and a separate function invocation processes each operation message. This setting is available starting in v2.6.1.|
+|rollbackEntityOperationsOnExceptions|true|For .NET in-process entity operations, specifies whether an unhandled exception rolls back state changes and outgoing signals. When `false`, failed operations can retain partial effects. External side effects, such as I/O, aren't rolled back. For details, see [Operation rollback](../articles/durable-task/durable-functions/durable-functions-dotnet-entities.md?pivots=in-proc#operation-rollback).|
 |storeInputsInOrchestrationHistory|false|A value that specifies how to store inputs. When this setting is `true`, the Durable Task Framework saves activity inputs in the History table, and activity function inputs appear in orchestration history query results.|
 |maxGrpcMessageSizeInBytes|4,194,304|An integer value that sets the maximum size, in bytes, of messages that the generic Remote Procedure Call (gRPC) client can receive. The implementation of `DurableTaskClient` uses the gRPC client to manage orchestration instances. This setting applies to Durable Functions .NET isolated worker and Java apps.|
 |grpcHttpClientTimeout|00:01:40|The timeout in *hh:mm:ss* format for the HTTP client used by the gRPC client in Durable Functions. The client is currently supported for .NET isolated worker apps (.NET 8 and later versions) and for Java apps. |

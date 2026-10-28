@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create your first Azure Container Apps sandbox using the portal (preview)'
+title: 'Quickstart: Create your first Azure Container Apps sandbox using the portal'
 description: Create a sandbox group and run your first Azure Container Apps sandbox from the Sandboxes portal.
 author: craigshoemaker
 ms.author: cshoe
@@ -10,12 +10,9 @@ ms.date: 08/21/2026
 # customer intent: As a developer, I want to create an Azure Container Apps sandbox in the portal so that I can start using an isolated environment without writing code.
 ---
 
-# Quickstart: Create your first Azure Container Apps sandbox using the portal (preview)
+# Quickstart: Create your first Azure Container Apps sandbox using the portal
 
 In this quickstart, you create a sandbox group, start your first Azure Container Apps sandbox, and open an interactive shell in the Sandboxes portal.
-
-> [!IMPORTANT]
-> Azure Container Apps Sandboxes are currently in preview. Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
 
 ## Prerequisites
 

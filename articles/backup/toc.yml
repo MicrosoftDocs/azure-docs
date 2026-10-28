@@ -99,95 +99,101 @@
         href: backup-center-govern-environment.md
       - name: Perform actions
         href: backup-center-actions.md
-- name: Security and Ransomware protection
+- name: Azure Backup Cyber Recovery
   items:
   - name: Overview
     href: security-overview.md
-  - name: FAQ-Protection against Ransomware
+  - name: Ransomware protection FAQ
     href: protect-backups-from-ransomware-faq.yml
-  - name: Best practices for backup data protection
-    href: azure-backup-data-protection-best-practices.md
-  - name: Azure role-based access control
-    href: backup-rbac-rs-vault.md
-  - name: Multi-user authorization
+  - name: Govern backup security
     items:
-    - name: Overview
-      href: multi-user-authorization-concept.md
-    - name: Quickstart - Enable Multi-user authorization (MUA)
-      href: enable-multi-user-authorization-quickstart.md
-    - name: Tutorial - configure Multi-user authorization (MUA)
-      href: multi-user-authorization-tutorial.md
-    - name: Configure Multi-user authorization using Resource Guard
-      href: multi-user-authorization.md
-  - name: Immutability
-    items:
-    - name: Overview
-      href: backup-azure-immutable-vault-concept.md
-    - name: Manage
-      href: backup-azure-immutable-vault-how-to-manage.md
-  - name: Secure by default with soft delete
-    items:
-    - name: Overview of soft delete
-      href: secure-by-default.md
-    - name: FAQ-Soft Delete
-      href: soft-delete-azure-backup-faq.yml
-    - name: Manage soft deleted data
-      items:
-      - name: Manage soft deleted items
-        href: backup-azure-enhanced-soft-delete-configure-manage.md
-      - name: Soft delete backups for virtual machines
-        href: soft-delete-virtual-machines.md
-      - name: Soft delete backups for SQL Server and SAP HANA in Azure VMs
-        href: soft-delete-sql-saphana-in-azure-vm.md
-  - name: Delete protection for Azure files
-    href: soft-delete-azure-file-share.md
-  - name: Ransomware protection
-    items:
-    - name: Overview
+    - name: Backup security best practices
+      href: azure-backup-data-protection-best-practices.md
+    - name: Plan backup protection against ransomware
       href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
-    - name: FAQ-Protection against Ransomware
-      href: protect-backups-from-ransomware-faq.yml
-    - name: Integrate with Microsoft Defender's ransomware alerts
-      href: backup-azure-integrate-microsoft-defender-using-logic-apps.md
-  - name: Security for hybrid backups
-    href: backup-azure-security-feature.md
-  - name: Save and manage MARS agent passphrase in Azure Key Vault
-    href: save-backup-passphrase-securely-in-azure-key-vault.md
-  - name: Private Endpoints
+    - name: Azure role-based access control
+      href: backup-rbac-rs-vault.md
+    - name: Enforce security controls with Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+  - name: Protect backups
     items:
-    - name: V1 experience
+    - name: Secure your Azure Backup deployment
+      href: secure-backup.md
+    - name: Multi-user authorization
       items:
       - name: Overview
-        href: private-endpoints-overview.md
-      - name: Create and manage
-        href: private-endpoints.md
-    - name: V2 experience
+        href: multi-user-authorization-concept.md
+      - name: Quickstart - Enable multi-user authorization
+        href: enable-multi-user-authorization-quickstart.md
+      - name: Tutorial - Configure multi-user authorization
+        href: multi-user-authorization-tutorial.md
+      - name: Configure multi-user authorization using Resource Guard
+        href: multi-user-authorization.md
+    - name: Immutability
       items:
       - name: Overview
-        href: backup-azure-private-endpoints-concept.md
-      - name: Create and manage
-        href: backup-azure-private-endpoints-configure-manage.md
-  - name: Threat Detection with Microsoft Defender for Cloud integration
+        href: backup-azure-immutable-vault-concept.md
+      - name: Manage
+        href: backup-azure-immutable-vault-how-to-manage.md
+    - name: Soft delete
+      items:
+      - name: Secure by default with soft delete
+        href: secure-by-default.md
+      - name: Soft delete FAQ
+        href: soft-delete-azure-backup-faq.yml
+      - name: Manage and recover soft-deleted backup items
+        href: backup-azure-enhanced-soft-delete-configure-manage.md
+      - name: Soft delete and recovery for Azure VMs
+        href: soft-delete-virtual-machines.md
+      - name: Soft delete and recovery for SQL Server and SAP HANA
+        href: soft-delete-sql-saphana-in-azure-vm.md
+      - name: Delete protection for Azure Files
+        href: soft-delete-azure-file-share.md
+    - name: Security for hybrid backups
+      href: backup-azure-security-feature.md
+    - name: Save and manage the MARS agent passphrase in Azure Key Vault
+      href: save-backup-passphrase-securely-in-azure-key-vault.md
+    - name: Private endpoints
+      items:
+      - name: V1 experience
+        items:
+        - name: Overview
+          href: private-endpoints-overview.md
+        - name: Create and manage
+          href: private-endpoints.md
+      - name: V2 experience
+        items:
+        - name: Overview
+          href: backup-azure-private-endpoints-concept.md
+        - name: Create and manage
+          href: backup-azure-private-endpoints-configure-manage.md
+    - name: Encryption in Azure Backup
+      href: backup-encryption.md
+    - name: Encryption using customer-managed keys
+      items:
+      - name: Recovery Services vault
+        href: encryption-at-rest-with-cmk.md
+      - name: Backup vault
+        href: encryption-at-rest-with-cmk-for-backup-vault.md
+    - name: Transport Layer Security
+      href: transport-layer-security.md
+  - name: Detect and respond to threats
     items:
-    - name: Overview
+    - name: Threat detection with Microsoft Defender for Cloud (preview)
       href: threat-detection-overview.md
-    - name: Configure Threat Detection and manage health of Azure VM Backups
+    - name: Configure threat detection and monitor backup health (preview)
       href: threat-detection-configure-monitor-tutorial.md
-  - name: Encryption in Azure Backup
-    href: backup-encryption.md
-  - name: Encryption using customer-managed keys
+    - name: Preserve recovery points in response to ransomware alerts
+      href: backup-azure-integrate-microsoft-defender-using-logic-apps.md
+  - name: Recover backups during security incidents
     items:
-    - name: Recovery Services vault
-      href: encryption-at-rest-with-cmk.md
-    - name: Backup vault
-      href: encryption-at-rest-with-cmk-for-backup-vault.md
-  - name: Transport Layer Security
-    href: transport-layer-security.md
-  - name: Security controls by Azure Policy
-    displayName: regulatory, compliance, standards, domains
-    href: ./security-controls-policy.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+    - name: Cross-tenant restore (preview)
+      items:
+      - name: Overview
+        href: cross-tenant-restore-overview.md
+      - name: Tutorial - Configure cross-tenant restore and restore data
+        href: tutorial-cross-tenant-restore.md
 - name: Azure VM backup
   items:
   - name: Overview
@@ -511,19 +517,23 @@
         href: azure-kubernetes-service-cluster-backup-using-cli.md
       - name: Restore
         href: azure-kubernetes-service-cluster-restore-using-cli.md
-- name: Azure Elastic SAN backup
+- name: Azure Elastic  SAN volume operational backup
   items:
   - name: Overview
     href: azure-elastic-san-backup-overview.md
   - name: Support matrix
     href: azure-elastic-san-backup-support-matrix.md
+  - name: Quickstart
+    href: azure-elastic-san-backup-quickstart.md
+  - name: Tutorial
+    href: azure-elastic-san-backup-tutorial.md
   - name: Backup scenarios
     items:
-    - name: Configure backup
+    - name: Configure operational backup
       href: azure-elastic-san-backup-configure.md
     - name: Restore
       href: azure-elastic-san-backup-restore.md
-    - name: manage
+    - name: Manage
       href: azure-elastic-san-backup-manage.md
 - name: Azure Database for PostgreSQL -Flexible server backup
   items:
@@ -613,6 +623,20 @@
         href: backup-azure-cosmos-db-using-powershell.md
       - name: Restore
         href: backup-azure-cosmos-db-restore-powershell.md
+- name: Azure PostgreSQL flexible server and elastic cluster vaulted backup v2
+  items:
+  - name: Overview
+    href: backup-azure-postgresql-flex-server-elastic-cluster-v2-overview.md
+  - name: Support matrix
+    href: backup-azure-postgresql-flex-server-elastic-cluster-v2-support-matrix.md
+  - name: Tutorial
+    href: backup-azure-postgresql-flex-server-elastic-cluster-v2-tutorial.md
+  - name: Backup scenarios
+    items:
+    - name: Restore
+      href: backup-azure-postgresql-flex-server-elastic-cluster-v2-restore.md
+    - name: Migrate from v1 to v2
+      href: backup-azure-postgresql-flex-server-elastic-cluster-v2-migrate.md
 - name: Azure Database for MySQL - Flexible Server backup (preview)
   items:
   - name: Overview
@@ -635,8 +659,6 @@
     href: backup-azure-database-postgresql-server-faq.yml
   - name: Quickstarts for Azure PostgreSQL Database backup
     items:
-    - name: Back up the database - Azure portal
-      href: quick-backup-postgresql-database-portal.md
     - name: Restore the PostgreSQL database across regions
       items:
       - name: Using the Azure portal
@@ -645,38 +667,26 @@
         href: quick-secondary-region-restore-postgresql-powershell.md
   - name: Tutorials for PostgreSQL databases backup
     items:
-    - name: Back up the database
-      href: tutorial-postgresql-backup.md
     - name: Configure and run Cross Region Restore
       href: tutorial-cross-region-restore.md
   - name: Backup scenarios
     items:
     - name: From the Azure portal
       items:
-      - name: Backup
-        href: backup-azure-database-postgresql.md
       - name: Restore
         href: restore-azure-database-postgresql.md
       - name: Manage
         href: manage-azure-database-postgresql.md
     - name: With PowerShell
       items:
-      - name: Backup
-        href: backup-postgresql-ps.md
       - name: Restore
         href: restore-postgresql-database-ps.md
     - name: With CLI
       items:
-      - name: Backup
-        href: backup-postgresql-cli.md
       - name: Restore
         href: restore-postgresql-database-cli.md
     - name: With REST API
       items:
-      - name: Policy
-        href: backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md
-      - name: Backup
-        href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
       - name: Restore
         href: restore-postgresql-database-use-rest-api.md
 - name: SQL Server database on Azure VM backup
@@ -704,7 +714,7 @@
         - name: Back up SQL Server from the SQL Server VM blade
           href: backup-sql-server-database-from-azure-vm-blade.md
         - name: Back up SQL Server instance snapshot
-          href: back-up-sql-server-instance-snapshot.md  
+          href: back-up-sql-server-instance-snapshot.md
       - name: Restore
         items:
         - name: Restore SQL Server database from the vault
@@ -871,7 +881,7 @@
       href: manage-telemetry.md
     - name: Unattended installation
       href: backup-mabs-unattended-install.md
-    - name: Create Application Control supplemental policy for MABS with PowerShell  
+    - name: Create Application Control supplemental policy for MABS with PowerShell
       href: backup-server-application-control-supplemental-policy-create.md
   - name: Configure and manage private endpoint in Recovery Services vault for backup
     items:
@@ -906,9 +916,9 @@
   - name: Back up the MABS server
     href: backup-the-mabs-server.md
   - name: Stop protection in Azure Backup Server
-    href: backup-server-stop-protection.md  
+    href: backup-server-stop-protection.md
   - name: Monitor MABS
-    href: backup-server-monitor.md 
+    href: backup-server-monitor.md
 - name: Azure Backup Server on Azure Stack
   items:
   - name: Install Azure Backup Server
@@ -999,8 +1009,8 @@
     href: backup-azure-granular-billing.md
   - name: Optimize storage cost
     href: backup-azure-reserved-pricing-optimize-cost.md
-  - name: Reservation discount for storage
-    href: backup-azure-reserved-pricing-overview.md 
+  - name: Reserved capacity discounts for storage
+    href: backup-azure-reserved-pricing-overview.md
   - name: Pricing calculator
     href: azure-backup-pricing.md
 - name: Automation

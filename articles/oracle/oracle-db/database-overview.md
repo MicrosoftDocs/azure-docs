@@ -34,14 +34,35 @@ To purchase Oracle AI Database@Azure, contact [Oracle's sales team](https://go.o
 
 Billing and payment for the service is done through Azure. Payment for Oracle AI Database@Azure counts toward your Microsoft Azure Consumption Commitment (MACC). Existing Oracle AI Database software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). On your regular Microsoft Azure invoices, you can see charges for Oracle AI Database@Azure alongside charges for your other Azure Marketplace services.
 
-## Integration with Azure Monitor 
+## Integration with Azure Monitor
 
-Metrics monitoring for Oracle AI Databases running on dedicated Exadata Infrastructure, Exascale Infrastructure, and Autonomous database service is now available through Azure Monitor. This powerful capability enables comprehensive monitoring and insights to ensure optimal performance and reliability.
+You can now monitor **metrics** and **logs** for Oracle AI Databases running on dedicated Exadata Infrastructure, Exascale Infrastructure, Autonomous AI Database Service, Oracle Base Database Service, and Oracle GoldenGate Deployments through Azure Monitor. This powerful capability provides comprehensive monitoring and insights to ensure optimal performance and reliability.
 
-For detailed information on the list of supported metrics, please refer to the following:
-- [Oracle Exadata Database Service running on dedicated ExaData Infrastructure](/azure/azure-monitor/reference/supported-metrics/oracle-database-cloudvmclusters-metrics).
-- [Oracle Autonomous AI Database Service](/azure/azure-monitor/reference/supported-metrics/oracle-database-autonomousdatabases-metrics).
-- [Oracle Exadata Database Service running on Exascale Infrastructure](/azure/azure-monitor/reference/supported-metrics/oracle-database-exadbvmclusters-metrics).
+- For detailed information about the list of supported **metrics**, see:
+
+  - [Oracle Exadata Database Service running on dedicated Exadata Infrastructure](/azure/azure-monitor/reference/supported-metrics/oracle-database-cloudvmclusters-metrics).
+  
+  - [Oracle Autonomous AI Database Service](/azure/azure-monitor/reference/supported-metrics/oracle-database-autonomousdatabases-metrics).
+  
+  - [Oracle Exadata Database Service running on Exascale Infrastructure](/azure/azure-monitor/reference/supported-metrics/oracle-database-exadbvmclusters-metrics).
+  
+  - [Oracle Base Database Service](/azure/azure-monitor/reference/supported-metrics/oracle-database-dbsystems-metrics).
+  
+  - [Oracle GoldenGate](/azure/azure-monitor/reference/supported-metrics/oracle-database-goldengatedeployments-metrics).
+  
+    
+
+- For detailed information about the list of supported **logs**, see:
+
+  - [Oracle Exadata Database Service running on dedicated Exadata Infrastructure](/azure/azure-monitor/reference/supported-logs/oracle-database-cloudvmclusters-logs).
+  
+  - [Oracle Autonomous AI Database Service](/azure/azure-monitor/reference/supported-logs/oracle-database-autonomousdatabases-logs).
+  
+  - [Oracle Exadata Database Service running on Exascale Infrastructure](/azure/azure-monitor/reference/supported-logs/oracle-database-exadbvmclusters-logs).
+  
+  - [Oracle Base Database Service](/azure/azure-monitor/reference/supported-logs/oracle-database-dbsystems-logs).
+  
+  - [Oracle GoldenGate](/azure/azure-monitor/reference/supported-logs/oracle-database-goldengatedeployments-logs).
   
 ## Compliance
 

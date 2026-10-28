@@ -15,6 +15,8 @@ ms.custom: mode-other
 
 # View calling events
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 You can use Azure Event Grid to handle Communication Services voice and video calling events.

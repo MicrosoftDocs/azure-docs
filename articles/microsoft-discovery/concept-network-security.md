@@ -3,7 +3,7 @@ title: Network security for Microsoft Discovery
 description: Understand how Microsoft Discovery uses Network Security Perimeters and private endpoints to protect managed resources and data-plane traffic.
 ms.service: azure
 ms.topic: concept-article
-ms.date: 03/30/2026
+ms.date: 09/10/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -22,7 +22,7 @@ Network hardening is enabled by default for all workspaces and bookshelves manag
 
 ## Why network security matters
 
-When you create a Microsoft Discovery workspace or bookshelf, the service provisions managed resources (databases, storage accounts, AI services) on your behalf. During early Preview, these resources had public endpoints and data-plane API traffic traversed the public internet.
+When you create a Microsoft Discovery workspace or bookshelf, the service provisions managed resources (databases, storage accounts, AI services) on your behalf. Previously, these resources had public endpoints and data-plane API traffic traversed the public internet.
 
 With network hardening enabled by default, all managed resources are now protected automatically. Enabling private endpoints for data-plane access provides extra security:
 
@@ -33,15 +33,15 @@ With network hardening enabled by default, all managed resources are now protect
 
 ## Before and after comparison
 
-### Before: Public Preview (without network hardening)
+### Before: Without network hardening
 
 :::image type="content" source="media/concept-network-security/before-network-isolation.jpg" alt-text="Diagram showing deployment without network hardening where traffic flows over public internet." lightbox="media/concept-network-security/before-network-isolation.jpg":::
 
-### After: Public Preview (with network hardening)
+### After: With network hardening
 
 :::image type="content" source="media/concept-network-security/after-network-isolation.jpg" alt-text="Diagram showing network-hardened deployment with private endpoints where traffic stays on Azure backbone." lightbox="media/concept-network-security/after-network-isolation.jpg":::
 
-| Aspect | Without network hardening (Early Preview) | With network hardening (default) |
+| Aspect | Without network hardening | With network hardening (default) |
 |--------|----------------------------------------------|----------------------------------|
 | Managed resources | Public endpoints | Locked behind NSP + private endpoints |
 | Data-plane traffic | Public internet | Azure backbone through Private Link |

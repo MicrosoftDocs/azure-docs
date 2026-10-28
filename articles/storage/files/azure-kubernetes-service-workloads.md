@@ -268,6 +268,64 @@ This YAML example demonstrates a DaemonSet (pod on every node) for log collectio
 
 ```yaml
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-config
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush        5
+        Daemon       Off
+        Log_Level    info
+
+    @INCLUDE input.conf
+    @INCLUDE output.conf
+
+  input.conf: |
+    # =========================================================================
+    # Sample configuration only.
+    #
+    # This example demonstrates how Fluent Bit can collect container logs from
+    # AKS nodes. Users should review and customize input configuration,
+    # filtering rules, parsing logic, buffer limits, multiline settings, and
+    # retention requirements according to their own workload and operational
+    # requirements.
+    #
+    # Container log locations and formats may vary depending on the runtime,
+    # Kubernetes version, and application logging implementation.
+    # =========================================================================
+
+    [INPUT]
+        Name              tail
+        Path              /var/log/containers/*.log
+        Tag               kube.*
+        Refresh_Interval  5
+        Rotate_Wait       30
+        Mem_Buf_Limit     100MB
+        Skip_Long_Lines   On
+
+  output.conf: |
+    # =========================================================================
+    # Sample output configuration only.
+    #
+    # Users should customize the output plugin, file naming convention,
+    # directory structure, rotation strategy, and retention policy to meet
+    # their business and compliance requirements.
+    #
+    # For larger environments, additional design considerations such as
+    # throughput limits, storage capacity planning, log aggregation strategy,
+    # and log lifecycle management should be evaluated.
+    # =========================================================================
+
+    [OUTPUT]
+        Name              file
+        Match             *
+        Path              /logs
+        File              ${NODE_NAME}.log
+        Format            plain
+
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: logs-storage
@@ -295,13 +353,23 @@ spec:
       containers:
       - name: log-collector
         image: fluent/fluent-bit:latest
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
         volumeMounts:
+        - name: config
+          mountPath: /fluent-bit/etc
         - name: logs-volume
           mountPath: /logs
         - name: varlog
           mountPath: /var/log
           readOnly: true
       volumes:
+      - name: config
+        configMap:
+          name: fluent-bit-config
       - name: logs-volume
         persistentVolumeClaim:
           claimName: logs-storage
@@ -325,6 +393,9 @@ kubectl get pods -l app=log-collector -o wide
 kubectl exec ds/log-collector -- ls -la /logs
 # Expected: directory listing with log files
 ```
+
+> [!NOTE]
+> While Microsoft can assist with AKS infrastructure and Azure Files integration issues, troubleshooting requests related to the internal behavior, implementation, bugs, or limitations of open-source Fluent Bit components may require engagement with the upstream Fluent Bit community or project maintainers. This sample should be treated as a reference implementation and validated against the customer's operational requirements before production use.
 
 ## Static provisioning: use existing Azure file shares
 

@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Media access overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 Azure Communication Services provides support for developers to get real-time access to media streams. You can use real-time access to capture, analyze, and process audio or video content during active calls. 

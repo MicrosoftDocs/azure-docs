@@ -2,7 +2,7 @@
 title: 'Tutorial: Build and Run a Custom Image in Azure App Service'
 description: Learn how to migrate custom software to App Service in a custom container. Build a custom image and deploy it to App Service.
 ms.topic: tutorial
-ms.date: 08/27/2025
+ms.date: 10/08/2026
 ms.author: msangapu
 author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container
@@ -284,9 +284,11 @@ Unpack the ZIP file into a folder named *docker-django-webapp-linux*.
 
 Then open a terminal window in the *docker-django-webapp-linux* folder.
 
-## (Optional) Examine the Docker file
+<a id="optional-examine-the-docker-file"></a>
 
-Following is the file in the sample that's named *Dockerfile*. It describes the Docker image and contains configuration instructions.
+## Prepare the sample container
+
+The newer browser terminal and `az webapp exec` provide authenticated access to running Linux containers without requiring an SSH server or an embedded SSH password in the image. Legacy Kudu WebSSH and `az webapp ssh` access might still require an SSH server. The sample repository contains legacy SSH setup. Before building, replace the contents of its *Dockerfile* with the following app-only configuration:
 
 ```Dockerfile
 FROM tiangolo/uwsgi-nginx-flask:python3.6
@@ -297,27 +299,26 @@ ADD requirements.txt /code/
 RUN pip install -r requirements.txt --no-cache-dir
 ADD . /code/
 
-# ssh
-ENV SSH_PASSWD "root:Docker!"
-RUN apt-get update \
-        && apt-get install -y --no-install-recommends dialog \
-        && apt-get update \
- && apt-get install -y --no-install-recommends openssh-server \
- && echo "$SSH_PASSWD" | chpasswd 
-
-COPY sshd_config /etc/ssh/
 COPY init.sh /usr/local/bin/
  
 RUN chmod u+x /usr/local/bin/init.sh
-EXPOSE 8000 2222
+EXPOSE 8000
 
-#CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```
 
-- The first group of commands installs the app's requirements in the environment.
-- The second group of commands creates an [SSH](https://www.ssh.com/ssh/protocol/) server to provide improved-security communication between the container and the host.
-- The last line, `ENTRYPOINT ["init.sh"]`, invokes `init.sh` to start the SSH service and Python server.
+Replace the contents of *init.sh* with the following script, keeping Linux line endings:
+
+```bash
+#!/bin/bash
+set -e
+
+exec python /code/manage.py runserver 0.0.0.0:8000
+```
+
+Remove the legacy *sshd_config* file from your local sample folder so `ADD . /code/` doesn't copy it into the image.
+
+The Dockerfile installs the app's dependencies, copies the app and startup script, and exposes the application's port. The entrypoint starts only the Python application. These changes remove the sample's SSH installation and credentials. The image includes `/bin/bash` for the newer browser terminal and the default `az webapp exec` shell.
 
 ## Build and test the image locally
 
@@ -818,53 +819,23 @@ In this section, you make a change to the web app code, rebuild the image, and t
 
 ## Connect to the container by using SSH
 
-SSH enables improved-security communication between a container and a client. To enable an SSH connection to your container, you must configure your custom image for it. When the container is running, you can open an SSH connection.
+When the container is running, you can access it through App Service's authenticated Kudu proxy by using the newer browser terminal or `az webapp exec`. You don't need to install or start an SSH server in the image for these options.
 
-### Configure the container for SSH
+<a id="configure-the-container-for-ssh"></a>
 
-The sample app used in this tutorial already has the necessary configuration in *Dockerfile*, which installs the SSH server and also sets the sign-in credentials. This section is informational only. To connect to the container, skip to the next section.
-
-```Dockerfile
-ENV SSH_PASSWD "root:Docker!"
-RUN apt-get update \
-        && apt-get install -y --no-install-recommends dialog \
-        && apt-get update \
-  && apt-get install -y --no-install-recommends openssh-server \
-  && echo "$SSH_PASSWD" | chpasswd 
-```
-
-> [!NOTE]
-> This configuration doesn't allow external connections to the container. SSH is available only through the Kudu/SCM site. The Kudu/SCM site is authenticated with your Azure account.
-> `root:Docker!` shouldn't be altered when you use SSH. SCM/KUDU uses your Azure portal credentials. Changing this value will result in an error when you use SSH.
-
-*Dockerfile* also copies the *sshd_config* file to the */etc/ssh/* folder and exposes port 2222 on the container:
-
-```Dockerfile
-COPY sshd_config /etc/ssh/
-
-# ...
-
-EXPOSE 8000 2222
-```
-
-Port 2222 is an internal port accessible only by containers within the bridge network of a private virtual network.
-
-Finally, the entry script, *init.sh*, starts the SSH server.
-
-```bash
-#!/bin/bash
-service ssh start
-```
+For access prerequisites and app or slot controls, see [Open a container shell (SSH) and run commands](configure-linux-open-ssh-session.md?pivots=container-linux).
 
 ### Open the SSH connection to the container
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Go to `https://<app-name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account. Replace `<app-name>` with the name of your web app.
+1. Use Azure CLI 2.90.0 or later and sign in to your Azure account. Open an interactive shell in your local terminal with the preview `az webapp exec` command:
 
-1. When you sign in, you're redirected to an informational page for the web app. Select **SSH** at the top of the page to open the shell and use commands.
+   ```azurecli
+   az webapp exec --resource-group msdocs-custom-container-tutorial --name <app-name>
+   ```
 
-    For example, you can examine the processes running within the app by using the `top` command.
+1. Examine the processes running within the app by using `top`, if it's available in the image.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -881,6 +852,8 @@ service ssh start
      
 
 -----
+
+For detached command execution instead of an interactive session, see [Run commands without an interactive session](configure-linux-open-ssh-session.md?pivots=container-linux#run-commands-without-an-interactive-session). Request acceptance doesn't confirm that a command completed successfully.
 
 ## Clean up resources
 

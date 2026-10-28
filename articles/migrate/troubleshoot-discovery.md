@@ -6,7 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.update:cycle: 365-days
+ms.reviewer: v-gajeronika
 ms.date: 08/21/2024
 ms.custom:
   - engagement-fy25

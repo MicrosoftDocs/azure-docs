@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for SSD (pre
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/13/2026
+ms.date: 10/06/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -25,8 +25,9 @@ The following tips might help you optimize performance:
 - Make sure your storage account and your client are in the same Azure region to reduce network latency.
 - Use multi-threaded applications and spread the load across multiple files.
 - Run multiple performance tests and repeat. Don't draw conclusions based on one initial test.
+- A new file share that uses a provisioned billing model starts with a full bucket of credits for credit-based bursting. A short test on a new share can measure burst IOPS instead of provisioned IOPS. A full bucket of credits lasts approximately one hour at the burst IOPS limit. For more information, see [Bursting](understand-performance.md#bursting).
 - Performance benefits of SMB Multichannel increase with the number of files distributing the load.
-- SSD share performance is bound by provisioned share size, including IOPS and throughput, and single file limits. For details, see [understanding the provisioning v1 model](understanding-billing.md#provisioned-v1-model).
+- Provisioned file share performance is bound by the provisioned IOPS and throughput, and by single file limits. Credit-based bursting lets a provisioned file share use more IOPS than it has provisioned for a limited time. For details, see the [provisioned v2 model](understanding-billing.md#provisioned-v2-model), the [provisioned v1 model](understanding-billing.md#provisioned-v1-model), and [Bursting](understand-performance.md#bursting).
 - Maximum performance of a single virtual machine (VM) client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) supports a maximum bandwidth of approximately 1.86 GiB/sec. Ingress (writes to storage) is metered, but egress (reads from storage) isn't. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading the load over multiple clients.
 - Use [zonal placement](zonal-placement.md) to select the specific availability zone in which your storage account resides. This allows you to place your VMs in the same availability zone as your storage, which can reduce latency by up to 30 percent. 
@@ -398,5 +399,6 @@ Register-AzProviderFeature -FeatureName HigherHandlesCountOnSmb -ProviderNamespa
 
 ## Next steps
 
+- [Understand Azure Files performance](understand-performance.md)
 - [Check SMB Multichannel status](files-smb-protocol.md#smb-multichannel)
 - See the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel) for SMB Multichannel

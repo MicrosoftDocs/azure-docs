@@ -25,7 +25,7 @@ Download security is a self-service setting that applies per deployment. You sel
 - Device Update REST APIs
 - Device Update data plane SDKs
 
-New deployments use the selected download security protocol and the corresponding [Device Update data plane API version](/rest/api/deviceupdate/dataplane/device-management/create-or-update-deployment?view=rest-deviceupdate-dataplane-2026-06-01&preserve-view=true). Existing deployments are unaffected and continue to use their original configuration.
+New deployments use the selected download security protocol and the corresponding [Device Update data plane API version](/rest/api/deviceupdate/dataplane/duiothub/device-management/create-or-update-deployment?view=rest-deviceupdate-dataplane-duiothub-2026-06-01&preserve-view=true). Existing deployments are unaffected and continue to use their original configuration.
 
 To select download security when you create a deployment, see [Deploy an update by using Device Update for IoT Hub](deploy-update.md).
 

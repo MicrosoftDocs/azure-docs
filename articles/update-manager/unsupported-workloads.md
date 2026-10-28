@@ -2,8 +2,8 @@
 title: Unsupported Workloads for Azure Update Manager
 description: Learn about the workloads that are not supported by Azure Update Manager.
 ms.service: azure-update-manager
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.date: 02/26/2025
 ms.topic: overview
 ms.update-cycle: 1095-days

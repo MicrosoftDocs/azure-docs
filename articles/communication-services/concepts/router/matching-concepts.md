@@ -16,6 +16,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # How jobs are matched to workers
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This document describes the registration of workers, the submission of jobs and how they're matched to each other.
 
 ## Worker Registration

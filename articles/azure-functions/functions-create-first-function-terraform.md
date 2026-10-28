@@ -73,7 +73,7 @@ terraform plan -out main.tfplan -var="runtime_name=dotnet-isolated" -var="runtim
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 ```console
-terraform plan -out main.tfplan -var="runtime_name=powershell" -var="runtime_version=7.4"
+terraform plan -out main.tfplan -var="runtime_name=powershell" -var="runtime_version=7.6"
 ```
 ::: zone-end 
 ::: zone pivot="programming-language-python" 

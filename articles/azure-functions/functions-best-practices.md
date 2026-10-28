@@ -3,7 +3,7 @@ title: Azure Functions best practices
 description: Learn best practices for designing, deploying, and maintaining efficient function code running in Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: concept-article
-ms.date: 01/20/2026
+ms.date: 09/15/2026
 ms.devlang: csharp
 ms.custom:
   - build-2024
@@ -13,7 +13,7 @@ ms.custom:
 ---
 # Best practices for reliable Azure Functions
 
-Azure Functions is an event-driven, compute-on-demand service that extends the existing Azure App Service application platform. It adds capabilities to implement code triggered by events occurring in Azure, in a partner service, and in on-premises systems. By using Functions, you can build solutions that connect to data sources or messaging solutions, which makes it easier to process and react to events. Functions runs in Azure data centers, which are complex with many integrated components. In a hosted cloud environment, it's expected that VMs can occasionally restart or move, and systems upgrades occur. Your functions apps also likely depend on external APIs, Azure Services, and other databases, which are also prone to periodic unreliability.
+Azure Functions is an event-driven, compute-on-demand service that extends the existing Azure App Service application platform. It adds capabilities to implement code triggered by events occurring in Azure, in a partner service, and in on-premises systems. By using Functions, you can build solutions that connect to data sources or messaging solutions, which makes it easier to process and react to events. Functions runs in Azure data centers, which are complex with many integrated components. In a hosted cloud environment, it's expected that VMs can occasionally restart or move, and systems upgrades occur. Your function apps also likely depend on external APIs, Azure Services, and other databases, which are also prone to periodic unreliability.
 
 This article details some best practices for designing and deploying efficient function apps that remain healthy and perform well in a cloud-based environment.
 
@@ -100,7 +100,7 @@ When you deploy a function app, remember that the unit of deployment for functio
 
 Consider these options for a successful deployment:
 
-- Have your functions run from the deployment package. This [run from package approach](run-functions-from-deployment-package.md) provides the following benefits:
+- Have your functions run from the deployment package. This [run from package approach](deployment-zip-push.md#run-functions-from-the-deployment-package) provides the following benefits:
 
   - Reduces the risk of file copy locking problems.
   - Can be deployed directly to a production app and doesn't trigger a restart.
@@ -200,11 +200,7 @@ Both Flex Consumption and Premium plans are recommended for reducing cold starts
 
 Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. For more information, see [Monitor executions in Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. For more information, see [Monitor Azure Functions](monitor-functions.md).
 
-Be aware of the following considerations when using Application Insights integration to monitor your functions:
-
-- Remove the [AzureWebJobsDashboard](functions-app-settings.md#azurewebjobsdashboard) application setting. This setting was supported in older versions of Functions. Removing `AzureWebJobsDashboard` improves the performance of your functions.
-
-- Review the [Application Insights logs](analyze-telemetry-data.md). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. Use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. For more information, see [Configure sampling](configure-monitoring.md?tabs=v2#configure-sampling).
+When using Application Insights integration to monitor your functions, review the [Application Insights logs](analyze-telemetry-data.md). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. Use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. For more information, see [Configure sampling](configure-monitoring.md#configure-sampling).
 
 Azure Functions also allows you to [send system-generated and user-generated logs to Azure Monitor Logs](functions-monitor-log-analytics.md). Integration with Azure Monitor Logs is currently in preview.
 

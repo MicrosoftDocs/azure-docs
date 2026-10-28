@@ -48,9 +48,9 @@ items:
             href: deploy-iot-ops/overview-deploy.md
             displayName: Kubernetes, k3s, Ubuntu, AKS, Azure Local, secure, permissions, sites
           - name: Best practices for namespaces
-            href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
+            href: ../iot/device-registry/best-practices-namespaces.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Best practices for schema registries
-            href: ../iot/iot-device-registry-schema-registry-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
+            href: ../iot/device-registry/best-practices-schema-registries.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Prepare a cluster
             href: deploy-iot-ops/howto-prepare-cluster.md
             displayName: Kubernetes, Arc-enable
@@ -91,6 +91,9 @@ items:
               - name: Validate images
                 href: secure-iot-ops/howto-validate-images.md
                 displayName: docker, helm, integrity, container, certificate
+              - name: Mirror deployment images
+                href: secure-iot-ops/howto-mirror-images-private-registry.md
+                displayName: DIL, Deployment Image List, air-gap, air-gapped, disconnected, offline, private registry, ACR, MCR, image inventory, image scan, container registry, image mirroring
               - name: Secure your solution
                 href: ../iot/iot-overview-security.md
                 displayName: security, best practice, guidelines, defender
@@ -167,6 +170,9 @@ items:
               - name: Understand the connector for OPC UA
                 href: discover-manage-assets/overview-opc-ua-connector.md
                 displayName: OPC UA server, OPC UA client, payload, southbound
+              - name: Monitor OPC UA server availability
+                href: discover-manage-assets/concept-opc-ua-server-heartbeat-monitoring.md
+                displayName: heartbeat, server heartbeat, liveness, CurrentTime, endpoint health, southbound
               - name: OPC UA asset discovery modes
                 href: discover-manage-assets/concept-opc-ua-asset-discovery.md
                 displayName: OPC UA, discovery, DI-based, type-based, segmented, start-node, periodic, Akri, southbound
@@ -298,6 +304,29 @@ items:
               - name: Use WASM transforms
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WebAssembly, graph, transform, custom, developer, deploy
+              - name: Common use cases and patterns
+                href: connect-to-cloud/dataflow-patterns/overview-dataflow-patterns.md
+                items:
+                  - name: Add context to readings
+                    href: connect-to-cloud/dataflow-patterns/howto-add-context.md
+                  - name: Align and correlate records
+                    href: connect-to-cloud/dataflow-patterns/howto-align-correlate.md
+                  - name: Noise reduction
+                    href: connect-to-cloud/dataflow-patterns/howto-reduce-noise.md
+                  - name: Route readings by severity
+                    href: connect-to-cloud/dataflow-patterns/howto-route-by-severity.md
+                  - name: Route more than two message kinds
+                    href: connect-to-cloud/dataflow-patterns/howto-route-message-kinds.md
+                  - name: Route invalid messages to a dead-letter queue
+                    href: connect-to-cloud/dataflow-patterns/howto-route-invalid-messages.md
+                  - name: Model prediction and updates
+                    items:
+                      - name: Calculate a prediction with known coefficients
+                        href: connect-to-cloud/dataflow-patterns/howto-predict-known-coefficients.md
+                      - name: Fit and activate an approved model
+                        href: connect-to-cloud/dataflow-patterns/howto-adapt-models.md
+                      - name: Deliver approved model updates through MQTT
+                        href: connect-to-cloud/dataflow-patterns/howto-deliver-model-updates.md
           - name: Destination
             href: connect-to-cloud/howto-configure-dataflow-destination.md
             displayName: data flow, MQTT, Kafka, topic, container, table, dynamic

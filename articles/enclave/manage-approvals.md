@@ -4,13 +4,14 @@ description: Learn how to review, approve, and reject approval requests in Azure
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 1/26/2026
 ai-usage: ai-assisted
+ms.service: azure-enclave
+ms.date: 8/26/2026
 ---
 
 # Manage approval requests in Azure Enclave
 
-This article explains how to review, approve, and reject approval requests in Azure Enclave. Users with the Enclave Approver Role can manage approval requests to ensure proper oversight of critical infrastructure changes.
+This article explains how to review, approve, and reject approval requests in Azure Enclave. Users with the **Enclave Approver Role** can manage approval requests to ensure proper oversight of critical infrastructure changes.
 
 > [!IMPORTANT]
 > 
@@ -36,7 +37,7 @@ To manage approval requests, you need:
 
 1. Use the filters to view specific types of requests:
    - `Approval status`: `Pending`, `Approved`, `Rejected`
-   - `Requestor`: Filter by who submitted the request
+   - **Requester**: Filter by who submitted the request
    - `Requested on`: Filter by submission date/time range
    - `Parent Resource`: Filter to the enclave or community of interest
    - `Action Type` (if shown in your portal experience): Filter by the requested operation
@@ -45,16 +46,17 @@ To manage approval requests, you need:
 
 Before approving or rejecting a request, carefully review the details:
 
-1. In the `Approvals` list, select the request you want to review.
+1. In the `Approvals` list, select the checkbox for the request you want to review, and select `Review`.
 
 1. The approval details page displays:
-   - `Request type`: The type of resource or operation (for example, `Enclave Connection`)
-   - `Requested by`: The user who submitted the request
+   - `Resource`: The requested resource
+   - `Enclave` or `Community`: Links to the parent resources associated with the request
+   - `Requester`: The user who submitted the request
    - `Request date`: When the request was submitted
-   - `Resource details`: Information about the resource being created or modified
-   - `Justification`: The reason provided by the requester (if available)
-   - `Impact assessment`: Potential effect of approving the request
-   - `Security considerations`: Security implications of the change
+   - `Ticket Id`: An optional field for you to link to your change tracking system
+   - `Approvals`: Allows you to approve or reject this request
+   - `Approval status`: The status of meeting the approval requirements.
+   - `Approver details`: The list of who approved or rejected the request.
 
 1. Review all information carefully before making a decision.
 
@@ -64,24 +66,17 @@ After reviewing a request, approve it to allow the change to proceed:
 
 1. On the approval details page, select `Approve`.
 
-1. In the approval dialog:
-   - `Add comments` (optional): Provide context or conditions for the approval
-
-1. Select `Confirm` to approve the request.
+1. Select `Submit` to approve the request.
 
 1. The request status is now `Approved` and the resource change is automatically implemented.
 
 ## Reject a request
 
-If a request doesn't meet approval criteria, reject it with a clear explanation:
+If a request doesn't meet approval criteria, reject it:
 
 1. On the approval details page, select `Reject`.
 
-1. In the rejection dialog:
-   - `Reason for rejection` (required): Explain why the request is being rejected
-   - `Suggestions` (optional): Provide guidance on how to resubmit the request
-
-1. Select `Confirm` to reject the request.
+1. Select `Submit` to reject the request.
 
 1. The request status changes to `Rejected` and the resource change won't be implemented.
 
@@ -155,41 +150,23 @@ When reviewing a community endpoint request:
 
 ## Bulk approval operations
 
-For multiple related requests, you can perform bulk operations:
-
-### [Portal](#tab/portal)
-
-1. In the `Approvals` list, select the checkbox next to multiple pending requests.
-
-1. Select `Bulk Actions` > `Approve selected` or `Reject selected`.
-
-1. Provide comments or rejection reasons that apply to all selected requests.
-
-1. Select `Confirm` to process all requests.
-
----
+The **Approvals** page currently supports acting on one request at a time. Select a single request and use `Approve` or `Reject` on its approval details page. There's no multi-select bulk approve or reject option in this experience.
 
 ## View approval history
 
-To maintain compliance and audit trails, you can review the history of all approval decisions:
-
-### [Portal](#tab/portal)
+Approved and rejected requests remain visible in the same `Approvals` list alongside pending requests:
 
 1. Navigate to your enclave or community resource.
 
 1. Select `Approvals` in the left navigation menu.
 
-1. Select the `History` tab to view all past approvals and rejections.
+1. Filter the list by:
+   - `Approval status`: View only approved or rejected requests.
+   - `Requested on`: View approvals within a specific timeframe.
+   - `Requester`: See requests submitted by specific users.
+   - `Action Type`: Filter by resource type or operation.
 
-1. Filter by:
-   - `Date range`: View approvals within a specific timeframe
-   - `Approver`: See decisions made by specific approvers
-   - `Status`: View only approved or rejected requests
-   - `Request type`: Filter by resource type
-
-1. Select any historical request to view full details including comments and timestamps.
-
----
+1. Select any historical request to view its full details.
 
 ## Notification behavior
 

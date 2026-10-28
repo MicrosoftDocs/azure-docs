@@ -23,7 +23,7 @@ Point-to-site VPN can use the OpenVPN&reg; protocol, Secure Socket Tunneling Pro
 SSTP supports up to 128 concurrent connections, regardless of the gateway SKU.
 
 > [!NOTE]
-> Currently, Basic SKU supports SSTP protocol only and all new Basic SKU gateways are created with SSTP protocol. Effective November 2025, Basic SKU will also support IKEv2, and all new Basic SKU VPN gateways will be created with IKEv2 by default.
+> Since November 2025, the Basic SKU supports IKEv2, and new Basic SKU VPN gateways use IKEv2 by default. Existing Basic SKU gateways that use SSTP only can enable IKEv2 by following the migration steps in this article.
 
 ## <a name="migrate"></a>SSTP retirement: Migrating from SSTP to IKEv2 or OpenVPN
 
@@ -48,7 +48,7 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 
 1. Under **Settings**, select **Point-to-site configuration**.
 
-1. **Update Tunnel type:** On the Point-to-site configuration page, update the  **tunnel type** from **SSTP (SSL)** to **IKEv2 and SSTP (SSL)**. This option will be enabled for Basic SKU gateways starting November 2025.
+1. **Update Tunnel type:** On the Point-to-site configuration page, update the  **tunnel type** from **SSTP (SSL)** to **IKEv2 and SSTP (SSL)**. This option is available for Basic SKU gateways.
 
     :::image type="content" source="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png" alt-text="Screenshot that shows the point-to-site configuration in the Azure portal." lightbox="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png":::
 
@@ -62,7 +62,7 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 
 # [**PowerShell**](#tab/powershell)
 
-1. **Update Tunnel type:** Update the tunnel type in your VPN gateway’s Point-to-site configuration. This option will be enabled for Basic SKU gateways starting November 2025.
+1. **Update Tunnel type:** Update the tunnel type in your VPN gateway’s Point-to-site configuration. This option is available for Basic SKU gateways.
 
     ```powershell
     $PublicCertData = <PublicCertData>
@@ -124,7 +124,7 @@ Any existing SSTP connections after March 31, 2027 will be suspended and will st
 
 ### When will Basic gateway SKU start supporting IKEv2?
 
-Effective November 2025, Basic SKU will start supporting IKEv2 protocol
+The Basic SKU supports IKEv2 as of November 2025.
 
 ### Why am I not able to see Azure diagnostics on my VPN gateway?
 
@@ -140,7 +140,7 @@ Yes, the new config must be distributed to the new clients to prevent any impact
 
 ### Will I be able to enable SSTP protocol up to the retirement date?
 
-No, you won't be able to enable SSTP protocol after March 31, 2026.
+No, you can't enable the SSTP protocol after August 31, 2026.
 
 ### Can I go to “IKEv2” protocol directly instead of IKEv2 and SSTP protocol?
 

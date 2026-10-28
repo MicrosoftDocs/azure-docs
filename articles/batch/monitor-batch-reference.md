@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Batch
 description: This article contains important reference material you need when you monitor Azure Batch.
-ms.date: 08/05/2026
+ms.date: 09/30/2026
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: azure-batch
@@ -19,8 +19,25 @@ See [Monitor Azure Batch](monitor-batch.md) for details on the data you can coll
 
 ### Supported metrics for Microsoft.Batch/batchaccounts
 The following table lists the metrics available for the Microsoft.Batch/batchaccounts resource type.
+
+> [!NOTE]
+> This table lists Batch account platform metrics. To collect guest operating system performance metrics from pool compute nodes, see [Monitor Azure Batch pool compute nodes with Azure Monitor Agent](monitor-batch-pool-nodes.md).
+
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Batch/batchaccounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-batch-batchaccounts-metrics-include.md)]  
+
+### Node and core count metrics
+
+The node and core count metrics in the **Resource Allocation** category are gauge metrics. Each sample represents a point-in-time total for the Batch account, rather than a count of events during the time interval.
+
+The `PT1M` time grain indicates that these metrics support one-minute granularity. It doesn't guarantee that every one-minute interval contains exactly one sample. A missing sample means that no metric value was reported for that interval; it doesn't mean that the node or core count was zero. Processing and delivery timing can also cause more than one sample to appear in the same interval.
+
+When you analyze node and core counts:
+
+- Don't use the **Total** aggregation to determine the number of nodes or cores. **Total** adds all samples in the selected interval and can overstate the count if the interval contains multiple samples.
+- Use **Maximum** to view the highest observed count in an interval.
+- Use **Average** to view the average of the reported samples in an interval.
+- Don't use these metrics as an authoritative record of the exact node count at every minute or as an audit record for pool autoscale evaluations.
 
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]

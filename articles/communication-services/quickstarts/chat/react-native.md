@@ -12,6 +12,8 @@ ms.custom: mode-other
 
 # Use Chat SDK with React Native
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to set up the packages in the Azure Communication Services Chat JavaScript SDK to support chat in your React Native app. The following steps work for Azure Communication Services JavaScript Chat SDK 1.1.1 and later.
 
 ## Set up the chat packages to work with React Native

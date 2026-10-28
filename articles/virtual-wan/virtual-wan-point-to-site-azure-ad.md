@@ -113,13 +113,13 @@ This section shows you how to add a gateway to an already existing virtual hub. 
 
 In this section, you create a connection between your virtual hub and your virtual network.
 
-[!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="download-profile"></a>Download User VPN profile
 
 All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. You can download global (WAN-level) profiles, or a profile for a specific hub. For information and additional instructions, see [Download global and hub profiles](global-hub-profile.md). The following steps walk you through downloading a global WAN-level profile.
 
-[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
+[!INCLUDE [Download profile](../networking/includes/virtual-wan/p2s-download-profile.md)]
 
 ##  <a name="configure-client"></a>Configure User VPN clients
 
@@ -137,7 +137,7 @@ Each computer that connects must have a client installed. You configure each cli
 
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
+[!INCLUDE [Delete resources](../networking/includes/virtual-wan/resource-cleanup.md)]
 
 ## Next steps
 

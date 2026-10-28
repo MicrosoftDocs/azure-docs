@@ -1,7 +1,7 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 02/27/2026
+ms.date: 10/15/2026
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.author: v-gajeronika
@@ -37,7 +37,7 @@ No. Azure Site Recovery supports On-demand Capacity Reservation only for Azure-t
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:
 
@@ -72,7 +72,7 @@ You need an Azure subscription, a Recovery Services vault, a storage account, an
 You need an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. Premium storage is supported.
 
 ### Does my Azure account need permissions to create VMs?
-If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-perform-replication-and-failover-actions-on-virtual-machines).
 
 ### Is replication data sent to Site Recovery?
 No, Site Recovery doesn't intercept replicated data, and doesn't have any information about what's running on your VMs. Replication data is exchanged between Hyper-V hosts and Azure storage. Site Recovery has no ability to intercept that data. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  

@@ -14,6 +14,8 @@ ms.subservice: sms
 
 # Opt-Out management overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 The Opt-Out Management API enables you to manage opt-out requests for SMS messages. It provides a self-service platform for businesses to handle opt-out requests, ensuring compliance with regulations and protecting customer privacy.

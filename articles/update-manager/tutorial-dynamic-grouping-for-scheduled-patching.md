@@ -4,8 +4,8 @@ description: In this tutorial, you learn how to group machines and dynamically a
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: tutorial 
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator, I want to dynamically group machines and schedule update deployments so that I can manage patches efficiently across environments.
 ---

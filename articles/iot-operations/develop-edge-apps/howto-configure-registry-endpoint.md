@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/22/2026
+ms.date: 10/06/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull custom connectors, WASM modules, and graph definitions from container registries for use in data flow graphs and connectors.
@@ -76,7 +76,7 @@ az iot ops registry create \
   --resource-group $RESOURCE_GROUP \
   --host $ACR_NAME.azurecr.io \
   --auth-type SystemAssignedManagedIdentity \
-  --audience https://management.azure.com/
+  --audience https://containerregistry.azure.net
 ```
 
 For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
@@ -91,7 +91,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 param acrName string = '<YOUR_ACR_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -99,7 +99,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
+resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-07-01' = {
   parent: aioInstance
   name: registryEndpointName
   extendedLocation: {
@@ -111,7 +111,7 @@ resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2
     authentication: {
       method: 'SystemAssignedManagedIdentity'
       systemAssignedManagedIdentitySettings: {
-        audience: 'https://management.azure.com/'
+        audience: 'https://containerregistry.azure.net'
       }
     }
   }
@@ -192,7 +192,7 @@ az iot ops registry create \
   --resource-group $RESOURCE_GROUP \
   --host $ACR_NAME.azurecr.io \
   --auth-type SystemAssignedManagedIdentity \
-  --audience https://management.azure.com/
+  --audience https://containerregistry.azure.net
 ```
 
 # [Bicep](#tab/bicep)
@@ -201,7 +201,7 @@ az iot ops registry create \
 authentication: {
   method: 'SystemAssignedManagedIdentity'
   systemAssignedManagedIdentitySettings: {
-    audience: 'https://management.azure.com/'
+    audience: 'https://containerregistry.azure.net'
   }
 }
 ```
@@ -214,7 +214,10 @@ authentication: {
 | `extensionName` | Specific extension name to use. | No |
 | `tenantId` | Tenant ID for authentication. | No |
 
-The operator attempts to infer the audience from the endpoint if you don't provide it. For ACR, the audience is typically `https://management.azure.com/`.
+For ACR, use `https://containerregistry.azure.net` as the audience. The `audience` property is optional; if you omit it, the operator infers the audience from the registry hostname. Specify the ACR audience explicitly in your deployment configuration to avoid relying on defaults.
+
+> [!NOTE]
+> If an existing ACR registry endpoint uses `https://management.azure.com/`, see [Upgrade fails with an ACR registry endpoint audience mismatch](../troubleshoot/known-issues.md#upgrade-fails-with-an-acr-registry-endpoint-audience-mismatch).
 
 #### User-assigned managed identity
 
@@ -262,7 +265,9 @@ authentication: {
 | `tenantId` | Tenant ID where the managed identity is located. | Yes |
 | `scope` | Scope of the resource with `.default` suffix. | No |
 
-The operator attempts to infer the scope from the endpoint if you don't provide it.
+For ACR, use `https://containerregistry.azure.net/.default` as the scope. The `scope` property is optional; if you omit it, the operator infers the scope from the registry hostname. Specify the ACR scope explicitly in your deployment configuration to avoid relying on defaults.
+
+If an existing ACR registry endpoint uses `https://management.azure.com/.default`, see [Upgrade fails with an ACR registry endpoint audience mismatch](../troubleshoot/known-issues.md#upgrade-fails-with-an-acr-registry-endpoint-audience-mismatch).
 
 #### Artifact pull secret
 
@@ -398,7 +403,7 @@ az iot ops registry create \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
+resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-07-01' = {
   parent: aioInstance
   name: 'public-ghcr'
   extendedLocation: {
@@ -458,7 +463,7 @@ az iot ops registry list \
 The default endpoint is equivalent to the following configuration:
 
 ```bicep
-resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
+resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-07-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {

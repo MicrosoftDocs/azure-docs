@@ -204,7 +204,7 @@ var statusCode = result.StatusCode.ToString();
 > This demo code is written for simplicity. In practice, you don't instantiate an `HttpClient` object for each request. Follow the guidance at [Use IHttpClientFactory to implement resilient HTTP requests](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 > [!TIP]
-> If you're using the sample app from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), you could use this code to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65) after you add a `Todo` item.
+> If you're using the sample app from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), you could use this code to send an email confirmation in the *Create action* after you add a `Todo` item.
 
 ### [ASP.NET](#tab/dotnet)
 

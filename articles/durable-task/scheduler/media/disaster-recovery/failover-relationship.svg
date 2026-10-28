@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title description">
+  <title id="title">Durable Task Scheduler failover relationship</title>
+  <desc id="description">Clients and workers send active traffic to the primary scheduler. Orchestration and entity state replicates from the primary scheduler to the secondary scheduler in another region. The secondary rejects business requests and doesn't process task hubs until it's promoted to primary. Enabling disaster recovery copies the primary's existing task hub records to the secondary. Each scheduler has a separate endpoint. After failover, the resource owner redirects traffic to the promoted secondary scheduler.</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0078D4"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5D5A58"/>
+    </marker>
+    <style>
+      .text { font-family: "Segoe UI", Arial, sans-serif; fill: #17253D; }
+      .heading { font-size: 28px; font-weight: 600; }
+      .label { font-size: 20px; font-weight: 600; }
+      .body { font-size: 17px; }
+      .small { font-size: 15px; }
+      .region { fill: #F7F9FC; stroke: #A7B5C8; stroke-width: 2; }
+      .resource { fill: #FFFFFF; stroke: #0078D4; stroke-width: 3; }
+      .endpoint { fill: #E8F3FC; stroke: #0078D4; stroke-width: 2; }
+      .standby { fill: #F3F2F1; stroke: #69797E; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="520" fill="#FFFFFF"/>
+
+  <rect x="50" y="145" width="250" height="150" rx="6" fill="#FFF4CE" stroke="#C19C00" stroke-width="2"/>
+  <text x="175" y="200" text-anchor="middle" class="text label">Clients and workers</text>
+  <text x="175" y="238" text-anchor="middle" class="text body">Business requests</text>
+
+  <rect x="350" y="45" width="335" height="400" rx="8" class="region"/>
+  <text x="518" y="82" text-anchor="middle" class="text label">Azure region A</text>
+  <rect x="385" y="115" width="265" height="190" rx="6" class="resource"/>
+  <text x="518" y="165" text-anchor="middle" class="text label">Primary scheduler</text>
+  <text x="518" y="208" text-anchor="middle" class="text body">Serves active traffic</text>
+  <text x="518" y="244" text-anchor="middle" class="text body">Processes task hubs</text>
+  <rect x="405" y="335" width="225" height="65" rx="5" class="endpoint"/>
+  <text x="518" y="361" text-anchor="middle" class="text small">Separate endpoint</text>
+  <text x="518" y="385" text-anchor="middle" class="text body">scheduler-a endpoint</text>
+
+  <rect x="785" y="45" width="335" height="400" rx="8" class="region"/>
+  <text x="953" y="82" text-anchor="middle" class="text label">Azure region B</text>
+  <rect x="820" y="115" width="265" height="190" rx="6" class="resource standby"/>
+  <text x="953" y="165" text-anchor="middle" class="text label">Secondary scheduler</text>
+  <text x="953" y="225" text-anchor="middle" class="text body">Standby until promoted</text>
+  <rect x="840" y="335" width="225" height="65" rx="5" class="endpoint standby"/>
+  <text x="953" y="361" text-anchor="middle" class="text small">Separate endpoint</text>
+  <text x="953" y="385" text-anchor="middle" class="text body">scheduler-b endpoint</text>
+
+  <path d="M300 220 H385" fill="none" stroke="#0078D4" stroke-width="4" marker-end="url(#arrow-blue)"/>
+  <text x="342" y="200" text-anchor="middle" class="text small">Active traffic</text>
+
+  <path d="M650 270 H820" fill="none" stroke="#0078D4" stroke-width="4" marker-end="url(#arrow-blue)"/>
+  <rect x="687" y="231" width="96" height="26" fill="#FFFFFF"/>
+  <text x="735" y="251" text-anchor="middle" class="text small">State only</text>
+
+  <path d="M175 295 V480 H953 V410" fill="none" stroke="#5D5A58" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrow-gray)"/>
+  <rect x="420" y="460" width="350" height="40" rx="4" fill="#FFFFFF" stroke="#5D5A58" stroke-width="1"/>
+  <text x="595" y="486" text-anchor="middle" class="text body">After failover, redirect traffic manually</text>
+</svg>

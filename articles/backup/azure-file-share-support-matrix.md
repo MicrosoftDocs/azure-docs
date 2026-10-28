@@ -2,7 +2,7 @@
 title: Support Matrix for Azure Files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure Files.
 ms.topic: reference
-ms.date: 02/17/2026
+ms.date: 10/09/2026
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -39,6 +39,8 @@ Migration of file shares protected with snapshot backup to vaulted backup is sup
 
 >[!Note]
 >Cross Subscription Backup and Restore are supported for vaulted backup.
+>
+>[Cross-tenant restore (preview)](cross-tenant-restore-overview.md) is supported for vaulted recovery points through alternate location restore.
 
 ---
 
@@ -115,7 +117,7 @@ Migration of file shares protected with snapshot backup to vaulted backup is sup
 
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maximum  number of scheduled backups per day | 6    |
+| Maximum  number of scheduled snapshots per day | 24    |
 
 # [Vault-standard tier](#tab/vault-tier)
 

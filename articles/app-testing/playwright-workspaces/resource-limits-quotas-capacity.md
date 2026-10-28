@@ -26,7 +26,7 @@ The following limits apply on a per-subscription basis.
 
 | Resource  | Limit |
 |---------|---------|
-| Workspaces per region per subscription | 2 |
+| Workspaces per region per subscription | 5 |
 | Parallel workers per workspace | 100 |
 | Access tokens per user per workspace | 10 |
 
@@ -59,6 +59,9 @@ This section lists the outbound IP address ranges that Playwright Workspaces req
 | West US3     | 20.172.9.112/28, 4.149.23.64/27 |
 | East Asia    | 20.24.220.64/28, 72.145.176.32/27 |
 | West Europe  | 98.71.172.224/28, 4.252.148.64/27 |
+| Australia East  | 4.237.175.160/27  |
+| Japan East  | 48.210.1.160/27  |
+| Switzerland North  | 51.107.243.192/27, 172.161.231.216/29 |
 
 ## Related content
 

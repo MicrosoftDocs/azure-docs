@@ -1,13 +1,13 @@
 ---
 title: Save costs with Microsoft Fabric Capacity reservations
 description: Learn about how to save costs with Microsoft Fabric Capacity reservations.
-author: dekadays
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: concept-article
-ms.date: 06/9/2026
-ms.author: liuyizhu
+ms.date: 09/30/2026
+ms.author: primittal
 ms.custom: ignite-2023
 ---
 

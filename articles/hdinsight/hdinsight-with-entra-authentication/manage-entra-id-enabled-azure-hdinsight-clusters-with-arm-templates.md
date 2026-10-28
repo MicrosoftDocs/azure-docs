@@ -250,7 +250,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 					  "value": "sshuser"
 					},
 					"clusterRestAuthEntraUsers": {
-					  "value": "[{\"displayName\":\"<Name>\",\"objectId\":\"00000000-0000-0000-0000-1ed7871c38e0\",\"upn\":\"user2@contoso.com\"},{\"displayName\":\"<Name>\",\"objectId\":\"00000000-0000-0000-000-b44d6570aa30\",\"upn\":\"user1@contoso.com\"}]"
+					  "value": "[{\"displayName\":\"<Name>\",\"objectId\":\"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb\",\"upn\":\"user2@contoso.com\"},{\"displayName\":\"<Name>\",\"objectId\":\"00000000-0000-0000-000-b44d6570aa30\",\"upn\":\"user1@contoso.com\"}]"
 					},
 					"sshPassword": {
 					  "value": null
@@ -580,5 +580,3 @@ After (deployment succeeds):
 By managing Microsoft Entra ID-enabled Azure HDInsight clusters with ARM templates, you gain a consistent, repeatable, and automated way to deploy and configure secure big data environments. ARM templates allow you to define all cluster settings including identity, networking, storage, and security as code, ensuring that deployments are predictable and compliant with organizational standards.
 
 This approach not only streamlines cluster provisioning and management but also integrates seamlessly with CI/CD pipelines, enabling you to scale and govern your HDInsight workloads with confidence.
-
-

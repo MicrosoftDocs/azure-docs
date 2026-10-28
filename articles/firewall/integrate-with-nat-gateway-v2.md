@@ -4,7 +4,7 @@ description: Integrate Azure Firewall with a StandardV2 NAT Gateway for zone-red
 author: gopikann
 ms.service: azure-firewall
 ms.topic: tutorial
-ms.date: 03/16/2026
+ms.date: 10/09/2026
 ms.author: gopikann
 ms.custom: devx-track-azurecli
 # Customer intent: As a network architect, I want to integrate Azure NAT Gateway V2 with Azure Firewall, so that I can scale SNAT ports with zone-redundant outbound connectivity.
@@ -150,8 +150,7 @@ az network firewall create \
   --name azfw-natgwv2-test \
   --location eastus2 \
   --sku AZFW_VNet \
-  --tier Standard \
-  --zones 1 2 3
+  --tier Standard
 
 az network firewall ip-config create \
   --resource-group rg-azfw-natgwv2-test \
