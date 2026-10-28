@@ -14,7 +14,7 @@ ms.custom:
 ---
 # Deploy the first SAP HANA host using application volume group for SAP HANA
 
-All deployments start with the volumes for a single SAP HANA host. This is the case even for large, multiple-host installations. The shared, log-backup, and data-backup volumes are created only for the first host. All other hosts in a multiple-host environment share these volumes, and they add only data and log volumes for each additional host.
+All deployments start with the volumes for a single SAP HANA host. This is the case even for large, multiple-host installations. The data, log, shared, log-backup, and data-backup volumes are created with the first host. All other hosts in a multiple-host environment share these volumes, and they add only data and log volumes for each additional host.
 
 This article describes how to deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA.
 
@@ -47,7 +47,7 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
         When you use snapshots for data protection, you need to plan for extra capacity. This field adds an additional size (%) for the data volume. 
         You can estimate this value by using `"change rate per day" X "number of days retention"`.
     * **Single-host**:  
-        Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes are created with the first host.
+        Select this option for an SAP HANA single-host system or the first host for a multiple-host system. The data, log, shared, log-backup, and data-backup volumes are created with the first host.
     * **Multiple-host**:
         Select this option for adding additional hosts to a multiple-hosts HANA system.
 
