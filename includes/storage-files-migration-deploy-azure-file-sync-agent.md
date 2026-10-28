@@ -12,7 +12,7 @@ ms.custom: include file
 
 In this section, you install the Azure File Sync agent on your Windows Server instance. Azure File Sync supports Windows Server 2016, 2019, 2022, and 2025 (see [operating system requirements](../articles/storage/file-sync/file-sync-planning.md#operating-system-requirements)). Install the latest agent version listed in the [Azure File Sync release notes](../articles/storage/file-sync/file-sync-release-notes.md).
 
-The [deployment guide](../articles/storage/file-sync/file-sync-deployment-guide.md) explains that you need to turn off **Internet Explorer Enhanced Security Configuration** for the initial server registration. You can turn it back on after the server is registered, and you can skip this step on Windows Server Core.
+The [deployment guide](../articles/storage/file-sync/file-sync-deployment-guide.md) explains that you need to turn off **Internet Explorer Enhanced Security Configuration** on each server, including each node in a failover cluster, for the initial server registration. You can turn it back on after the server is registered, and you can skip this step on Windows Server Core.
 
 Open PowerShell. Install the required PowerShell modules by using the following commands. Be sure to install the full module and the NuGet provider when you're prompted to do so.
 
