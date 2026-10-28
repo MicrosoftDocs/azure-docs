@@ -103,7 +103,7 @@ For information about available Azure VPN Client versions, release dates, and wh
 See [About Gateway SKUs](about-gateway-skus.md) for the list of SKUs that support P2S VPN, and the number of tunnels and connections supported on each SKU.
 
 > [!NOTE]
-> The Basic SKU has limitations and does not support IKEv2, IPv6, or RADIUS authentication. For more information, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+> The Basic SKU supports IKEv2 for P2S connections but doesn't support IPv6 or RADIUS authentication. For existing Basic SKU gateways that use SSTP only, see [SSTP protocol retirement and connections migration](ikev2-openvpn-from-sstp.md). For other SKU limitations, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ### <a name="certificate-migration"></a>What is P2S gateway root certificate migration?
 
