@@ -425,7 +425,7 @@ Check the **Microsoft-SMA** event log for a corresponding event with the descrip
 A runbook running on a Hybrid Runbook Worker fails with the following error message:
 
 ```
-Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+Connect-AzAccount : No certificate was found in the certificate store with thumbprint AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00
 At line:3 char:1
 + Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
