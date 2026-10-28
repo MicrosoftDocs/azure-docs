@@ -1,7 +1,7 @@
 ---
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
-ms.contributor: jahelmic
-ms.date: 02/09/2026
+ms.contributor: mbifeld
+ms.date: 10/28/2026
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
@@ -56,6 +56,7 @@ You need to collect several pieces of information before you can deploy Cloud Sh
 You can use the default Cloud Shell instance to gather the required information and create the
 necessary resources. You should create dedicated resources for the Cloud Shell virtual network
 deployment. All resources must be in the same Azure region and in the same resource group.
+Choose a region from the [supported regions for Cloud Shell in a virtual network](overview.md#supported-regions).
 
 Fill in the following values:
 
