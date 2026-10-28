@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/31/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 recommendations: false
 # Customer intent: "As an IT administrator managing on-premises NAS solutions, I want to migrate our file storage to Azure file shares using Data Box, so that I can ensure data integrity, maintain accessibility during the transition, and eliminate reliance on local storage infrastructure."
@@ -262,7 +262,7 @@ When you consider the downtime acceptable, then you need to remove user access t
 Run one last RoboCopy round. It picks up any changes that might have been missed.
 How long this final step takes depends on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
 
-Create a share on the Windows Server folder and possibly adjust your DFS-N deployment to point to it. Be sure to set the same share-level permissions as on your NAS SMB share. If you had an enterprise-class domain-joined NAS, then the user SIDs will automatically match as the users exist in Active Directory and RoboCopy copies files and metadata at full fidelity. If you have used local users on your NAS, you need to re-create these users as Windows Server local users and map the existing SIDs RoboCopy moved over to your Windows Server to the SIDs of your new, Windows Server local users.
+Point users to the Azure file share: update your DFS Namespaces targets, mapped drives, or UNC paths, and set the same share-level permissions on the Azure file share that you had on your NAS SMB share. If you had an enterprise-class, domain-joined NAS, user SIDs already match because the users exist in Active Directory, and RoboCopy copies files and metadata at full fidelity. If you used local users on your NAS, their SIDs don't resolve in Azure Files, so re-permission those files and folders for domain identities before cutover. When users are working from the Azure file share, decommission the temporary Windows Server you used for RoboCopy.
 
 You've finished migrating a share or group of shares into a common root or volume.
 
