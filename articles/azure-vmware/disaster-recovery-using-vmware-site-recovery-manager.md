@@ -139,7 +139,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 > **WARNING** - Don't run **Reprotect** during migration. After you enable the embedded replication server (embedded VRS), reprotection fails for any remaining legacy replications. Don't run **Reprotect** until you migrate **all legacy replications across all your site pairings** to enhanced replication and verify them in Step 5. This restriction also applies if your embedded VRS was already enabled before you started this procedure. Enabling the embedded VRS alone doesn't migrate your existing replications.
 
 **Audience:** Azure VMware Solution customers performing the migration. This migration is a prerequisite to performing upgrades to Protection and Recovery as recommended by Broadcom. [Prerequisites and Best Practices for Protection and Recovery Upgrade](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/protection-and-recovery/9-1/protection-and-recovery-installation/setting-up-vmware-live-site-recovery-overview/convergence-and-upgrade/upgrading-srm/prerequisites-and-best-practices-for-site-recovery-manager-upgrade.html)
-Perform the same procedure on each Azure VMware Solution private cloud where you have configured legacy replications.
+Perform the same procedure on each Azure VMware Solution private cloud where you configured legacy replications.
 Use this step to migrate your existing legacy replications to enhanced replication.
 
 ### 1. Check whether the embedded replication server is enabled
