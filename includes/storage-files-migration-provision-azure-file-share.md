@@ -5,7 +5,7 @@ services: storage
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
-ms.date: 10/27/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 ms.custom: include file
 ---
@@ -22,7 +22,7 @@ These considerations apply more to direct cloud access (through an Azure VM) tha
 
 If you've made a list of your shares, you should map each share to the storage account it will be in.
 
-In the previous phase, you determined the appropriate number of shares. In this step, you have a mapping of storage accounts to file shares. Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them.
+In the previous phase, you determined the appropriate number of shares. In this step, you have a mapping of storage accounts to file shares. Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them. For the steps, see [Create a classic file share](../articles/storage/files/create-classic-file-share.md).
 
 Make sure the region of each of your storage accounts is the same and matches the region of the Storage Sync Service resource you've already deployed.
 
