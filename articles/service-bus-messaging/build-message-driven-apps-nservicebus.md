@@ -280,18 +280,21 @@ If you're using Visual Studio, configure the solution to launch both projects:
 1. Select **Configure Startup Projects...**.
 1. Select **Multiple startup projects**.
 1. For both the Sender and the Receiver, select **Start** in the **Action** list.
+1. Select **OK**, and then press **F5** to start both projects.
 
-If you're using another editor or the command line, open two terminals in the solution folder and run each project:
+If you're using another editor or the command line, open two terminals in the solution folder. In the first terminal, start the Receiver:
 
 ```dotnetcli
 dotnet run --project Receiver
 ```
 
+In the second terminal, start the Sender:
+
 ```dotnetcli
 dotnet run --project Sender
 ```
 
-Launch the solution. Two console applications appear, one for the Sender and one for the Receiver.
+Each endpoint writes its output to its own console window or terminal.
 
 # [Sender](#tab/Sender)
 
