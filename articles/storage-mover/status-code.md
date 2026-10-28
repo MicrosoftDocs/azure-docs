@@ -97,9 +97,9 @@ ii. On the right pane, select Managed Identity type as Machine – Azure Arc.<br
 iii. Select the machine arc from the list. It is of the same name as the agent.<br />
 iv. Complete the assignment.<br />
 
-## Troubleshooting Storage Mover too many requests errors
+## Troubleshooting Storage Mover too many requests error
 
-The `StorageMoverTooManyRequests` error occurs when you send too many concurrent requests to a Storage Mover resource.
+The `StorageMoverTooManyRequests`error occurs when you send too many concurrent requests to a Storage Mover resource. Lock contention can contribute to this error when multiple jobs are scheduled to start at the same time or manually started concurrently.
 
 :::image type="content" source="media/troubleshooting/too-many-requests-error.png" alt-text="Screenshot of the Error details pane showing the StorageMoverTooManyRequests error code and a message to wait a few minutes or space out job starts." lightbox="media/troubleshooting/too-many-requests-error.png":::
 
@@ -109,8 +109,7 @@ To resolve this issue, try the following steps:
 2. **Retry failed jobs**: Wait a few minutes before retrying a failed job.
 3. **Reduce concurrency**: Limit the number of jobs running at the same time against the same Storage Mover resource.
 4. **Use a different Storage Mover resource**: If the issue persists, distribute jobs across multiple Storage Mover resources to reduce the load on the affected resource.
-5. **Adjust job scheduling**: If the error continues, increase the delay between job starts or further reduce the number of concurrent jobs.
-
+5. **Adjust job scheduling**: For scheduled jobs, avoid configuring multiple jobs to start at the same time, as this condition can cause lock contention when jobs compete for shared resources. Stagger scheduled start times by introducing delays between jobs, or further reduce the number of concurrent jobs if the error persists.
 
 
 
