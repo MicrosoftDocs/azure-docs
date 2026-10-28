@@ -32,7 +32,7 @@ The goal is to move the SMB file shares on your NAS appliance to a Windows Serve
 
 ## Migration overview
 
-As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overview.md), it's important to use the correct copy tool and approach. Your NAS appliance exposes SMB shares directly on your local network. This guide uses RoboCopy to copy files from the NAS to a Windows Server instance that runs Azure File Sync. Alternatively, you can seed the Azure file shares directly from the NAS with [Azure Storage Mover](migrate-files-storage-mover.md) before you create the server endpoints, so that Azure File Sync downloads the namespace to the server.
+As mentioned in [Migrate to SMB Azure file shares](storage-files-migration-overview.md), it's important to use the correct copy tool and approach. Your NAS appliance exposes SMB shares directly on your local network. This guide uses RoboCopy to copy files from the NAS to a Windows Server instance that runs Azure File Sync. Alternatively, you can seed the Azure file shares directly from the NAS with [Azure Storage Mover](migrate-files-storage-mover.md) before you configure sync in Phase 6. Azure File Sync then downloads the namespace to the server, and RoboCopy copies only the changes made on the NAS after seeding.
 
 - Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
 - Phase 2: [Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)
@@ -86,6 +86,8 @@ In this phase, consult the mapping table from Phase 1 and use it to provision th
 
 Your registered on-premises Windows Server must be ready and connected to the internet for this process.
 
+If you're seeding the Azure file shares with [Azure Storage Mover](migrate-files-storage-mover.md), finish the Storage Mover migration jobs before you start this phase. When you create each server endpoint, keep the default **Merge** initial sync option. If you enable cloud tiering, the default initial download option downloads only the namespace.
+
 [!INCLUDE [storage-files-migration-configure-sync](../../../includes/storage-files-migration-configure-sync.md)]
 
 > [!IMPORTANT]
@@ -98,11 +100,13 @@ Repeat the steps of sync group creation and addition of the matching server fold
 
 After the creation of all server endpoints, sync is working. You can create a test file and see it sync up from your server location to the connected Azure file share (as described by the cloud endpoint in the sync group).
 
-Both locations, the server folders and the Azure file shares, are otherwise empty (unless you seeded the shares with Storage Mover) and awaiting data in either location. In the next step, you begin to copy files into the Windows Server for Azure File Sync to move them up to the cloud. If you enable cloud tiering, the server then begins to tier files if you run out of capacity on the local volumes.
+Unless you seeded the Azure file shares with Storage Mover, both locations, the server folders and the Azure file shares, are otherwise empty and awaiting data in either location. In the next step, you begin to copy files into the Windows Server for Azure File Sync to move them up to the cloud. If you enable cloud tiering, the server then begins to tier files if you run out of capacity on the local volumes.
 
 ## Phase 7: Copy data with RoboCopy
 
-Now use RoboCopy to copy data from your NAS appliance to your Windows Server instance. Azure File Sync uploads the data to your Azure file shares. If you'd rather seed the Azure file shares directly from the NAS, use [Azure Storage Mover](migrate-files-storage-mover.md) before you create the server endpoints in Phase 6. When you create each server endpoint, keep the default **Merge** initial sync option so that Azure File Sync downloads the namespace to the server. Changes that you copy to the Azure file shares after that reach the server only after a cloud change detection job runs, which happens once every 24 hours.
+Now use RoboCopy to copy data from your NAS appliance to your Windows Server instance. Azure File Sync uploads the data to your Azure file shares.
+
+If you seeded the Azure file shares with Storage Mover, first wait until each server has downloaded the full namespace, as described in [Wait for the namespace to fully appear on the server](storage-files-migration-nas-hybrid-databox.md#phase-9-wait-for-the-namespace-to-fully-appear-on-the-server). Then use the following steps to copy the changes made on the NAS since seeding. Copy these changes to the server rather than to the Azure file shares: Azure File Sync detects changes in an Azure file share only when its change detection job runs, which starts every 24 hours and can take longer for large namespaces.
 
 Run the first local copy to your Windows Server target folder:
 

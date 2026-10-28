@@ -3,7 +3,7 @@ title: Copy Files Between Azure File Shares
 description: Learn how to copy files from one Azure file share to another using common copy tools such as AzCopy and Robocopy.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/27/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 author: khdownie
 # Customer intent: As a cloud administrator, I want to copy files between Azure file shares so that I can efficiently transition data with minimal downtime and optimize storage performance.
@@ -26,7 +26,7 @@ The file copy tool you should choose depends on whether you want to copy files b
 | **[fpsync/rsync](storage-files-migration-nfs.md#using-fpsync-vs-rsync)** | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) | rsync is a versatile, single-threaded, open-source file copy tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. fpsync is multithreaded and therefore offers some advantages, including the ability to run rsync jobs in parallel. Both tools require mounting the shares on a VM. |
 
 > [!NOTE]
-> AzCopy and the file data plane REST API support NFS file shares created with the Microsoft.Storage resource provider (classic file shares) only. To copy data to or from NFS file shares created with the Microsoft.FileShares resource provider, mount the shares on a Linux VM and use fpsync or rsync.
+> AzCopy and the file data plane REST API support NFS file shares created with the Microsoft.Storage resource provider (classic file shares) only. To copy data to or from NFS file shares created with the Microsoft.FileShares resource provider, mount the shares on a Linux VM as described in [Mount an NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md), and then use fpsync or rsync.
 
 ## Copy files using AzCopy
 

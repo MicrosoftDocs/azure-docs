@@ -53,7 +53,7 @@ To use NFS Azure file shares from Windows, mount them in a Linux distribution th
 1. Install WSL and a Linux distribution, and make sure the distribution runs as WSL 2. NFS mounts need the Linux kernel that WSL 2 provides; WSL 1 doesn't run a Linux kernel.
     - Windows client: Follow the [WSL installation guide](/windows/wsl/install).
     - Windows Server 2022 or Windows Server 2025: Follow the [WSL on Windows Server installation guide](/windows/wsl/install-on-server).
-1. Make sure the Windows machine can reach the file share on TCP port 2049. From on-premises, use a private endpoint over a VPN or ExpressRoute connection. From an Azure VM, use a private endpoint, or a service endpoint on the VM's subnet.
+1. Make sure the Windows machine can reach the file share on TCP port 2049. From on-premises, use a private endpoint over a VPN or ExpressRoute private peering connection, and make sure that the file share's host name [resolves to the private endpoint](storage-files-networking-overview.md#dns-resolution). From an Azure VM, use a private endpoint, or enable a service endpoint on the VM's subnet and allow that subnet in the file share's [network rules](storage-files-networking-overview.md#virtual-network-rules).
 1. In the Linux distribution, mount the share as described in [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
 
 > [!NOTE]
