@@ -283,11 +283,11 @@ If you're using Visual Studio, configure the solution to launch both projects:
 
 If you're using another editor or the command line, open two terminals in the solution folder and run each project:
 
-```bash
+```dotnetcli
 dotnet run --project Receiver
 ```
 
-```bash
+```dotnetcli
 dotnet run --project Sender
 ```
 
