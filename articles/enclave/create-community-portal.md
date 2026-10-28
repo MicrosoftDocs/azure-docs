@@ -41,6 +41,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
    > [!NOTE]
    > `192.168.0.0/16` is reserved as the Azure Enclave managed enclave range. Don't create communities with any address space that overlaps or includes this range, such as `192.0.0.0/8` or `192.128.0.0/9`, because it creates conflicts with Azure Enclave managed enclave management IP ranges.
 
+   > [!TIP]
+   > Also verify your community address space doesn't overlap with your on-premises network address space. See [Community network design considerations](./best-practices.md#community-network-design-considerations) for guidance on resolving a conflict if overlap is unavoidable.
+
    :::image type="content" source="./media/create-community-tab-1-basics.png" alt-text="Screenshot showing the community basics settings page during community creation in the portal." border="True" lightbox="./media/create-community-tab-1-basics.png":::
 
 1. Select `Next`. On the `Azure firewall` tab, decide if you want to use a different firewall type for your community Virtual WAN secure hubs.

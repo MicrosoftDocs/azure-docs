@@ -47,7 +47,7 @@ Locate and unzip the VPN client profile configuration package you generated and 
 If you don't see the Generic folder, check the following items, then generate the zip file again.
 
 * Check the tunnel type for your configuration. It's likely that IKEv2 wasn’t selected as a tunnel type.
-* On the VPN gateway, verify that the SKU isn’t Basic. The VPN Gateway Basic SKU doesn’t support IKEv2. Then, select IKEv2 and generate the zip file again to retrieve the Generic folder.
+* If your VPN gateway uses the Basic SKU with SSTP only, enable IKEv2, then generate the zip file again to retrieve the Generic folder. For steps, see [SSTP protocol retirement and connections migration](../articles/vpn-gateway/ikev2-openvpn-from-sstp.md).
 
 The Generic folder contains the following files:
 

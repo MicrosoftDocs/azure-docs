@@ -10,7 +10,7 @@ The following SKUs can be used to deploy new VPN gateways. They have zone-redund
 
 | **VPN<br>Gateway<br>Generation** | **SKU** | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> SSTP Connections** | **P2S<br> IKEv2/OpenVPN Connections** | **Aggregate<br>Throughput Benchmark** | **BGP** | **Zone-redundant** | **Supported Number of VMs in the Virtual Network** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|**Generation1**|**Basic**   | Max. 10    | Max. 128  | Not Supported  | 100 Mbps  | Not Supported| No | 200 |
+|**Generation1**|**Basic**   | Max. 10    | Max. 128  | IKEv2 supported; OpenVPN not supported | 100 Mbps  | Not Supported| No | 200 |
 |**Generation1**|**VpnGw1AZ**| Max. 30    | Max. 128  | Max. 250       | 650 Mbps  | Supported | Yes | 1000 |
 |**Generation1**|**VpnGw2AZ**| Max. 30    | Max. 128  | Max. 500       | 1 Gbps    | Supported | Yes | 2000 |
 |**Generation1**|**VpnGw3AZ**| Max. 30    | Max. 128  | Max. 1000      | 1.25 Gbps | Supported | Yes | 5000 |

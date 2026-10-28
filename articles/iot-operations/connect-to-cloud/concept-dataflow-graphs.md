@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/06/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 
 #customer intent: As a solution developer, I want to understand what data flow graphs are and how they process data so that I can decide when to use them instead of standard data flows.
@@ -154,6 +154,10 @@ Each transform in the pipeline adds processing overhead. Keep these guidelines i
 - **Prefer fewer transforms with more rules.** If you have many transformation rules that operate on the same structure, put them in a single map transform rather than creating separate transforms for each rule.
 - **Use multiple transforms when the logic is distinct.** Separate transforms make sense when different processing steps are fundamentally different (filtering vs. mapping vs. aggregating).
 - **Keep related rules together.** A single map transform can handle field renaming, restructuring, computed fields, and metadata transformations all at once.
+
+## Common use cases and patterns
+
+For a pattern chooser and complete examples covering enrichment, correlation, noise reduction, routing, prediction, and model updates, see [Common use cases and patterns](dataflow-patterns/overview-dataflow-patterns.md).
 
 ## Related content
 
