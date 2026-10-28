@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/27/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to migrate files from on-premises NAS to Azure using Data Box and File Sync, so that I can establish a hybrid cloud deployment while minimizing downtime and ensuring data integrity during the transition."
 ---
@@ -181,7 +181,7 @@ In this step, you'll run Robocopy jobs to sync your cloud shares with the latest
 This Robocopy run might finish quickly or take a while, depending on the amount of churn that happened on your NAS shares.
 
 > [!WARNING]
-> Earlier builds of Windows Server 2019 had a Robocopy regression where the `/MIR` switch was incompatible with tiered target directories. This issue was fixed in [KB5005103](https://support.microsoft.com/help/5005103) (August 2021). If your Windows Server 2019 instance is fully patched, this isn't a concern. If it isn't patched, use Robocopy on an intermediate Windows Server 2016 or Windows Server 2022 instance for this phase of the migration.
+> Because of a Robocopy regression in Windows Server 2019, the Robocopy `/MIR` switch isn't compatible with tiered target directories. Don't use Windows Server 2019 or a Windows 10 client for this phase of the migration. Use Robocopy on an intermediate Windows Server 2016 or Windows Server 2022 instance.
 
 Here's the basic migration approach:
  - Run Robocopy from your NAS appliance to sync your Windows Server instance. 
