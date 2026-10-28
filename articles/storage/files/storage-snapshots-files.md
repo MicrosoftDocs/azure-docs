@@ -4,7 +4,7 @@ description: A share snapshot is a read-only, point-in-time copy of an Azure fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/16/2026
+ms.date: 10/26/2026
 ms.author: kendownie
 # Customer intent: "As a data administrator, I want to use file share snapshots for Azure Files, so that I can efficiently recover previous versions of files and protect against accidental deletions or data corruption."
 ---
@@ -18,7 +18,7 @@ ms.author: kendownie
 Azure Files provides the capability to take snapshots of SMB and NFS file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can use them to recover previous versions of files.
 
 > [!IMPORTANT]
-> Share snapshots provide only file-level protection. They don't prevent accidental deletions on a file share or storage account. To help protect a storage account from accidental deletion, [enable soft delete](storage-files-prevent-file-share-deletion.md) or lock the storage account or the resource group.
+> Share snapshots don't prevent accidental deletion of a file share or storage account. To help protect a storage account from accidental deletion, [enable soft delete](storage-files-prevent-file-share-deletion.md) or lock the storage account or the resource group.
 
 ## When to use share snapshots
 
@@ -36,7 +36,7 @@ After you create a file share, you can periodically create a share snapshot of t
 
 ## Share snapshot capabilities
 
-A share snapshot is a point-in-time, read-only copy of your data. Share snapshot capability is provided at the file share level. Retrieval is provided at the individual file level, to allow for restoring individual files. Share snapshots have the same redundancy as the Azure file share for which they were taken. If you select geo-redundant storage for your account, your share snapshot is also stored redundantly in the paired region.
+A share snapshot is a point-in-time, read-only copy of your data. Share snapshot capability is provided at the file share level. You can use snapshots to restore individual files. For SMB shares that are approved for the limited preview, you can also revert an entire share to a snapshot by using the FileREST API. Share snapshots have the same redundancy as the Azure file share for which they were taken. If you select geo-redundant storage for your account, your share snapshot is also stored redundantly in the paired region.
 
 You can restore a complete file share by using SMB, NFS, REST API, the Azure portal, the client library, or PowerShell/CLI. You can view snapshots of a share by using the REST API, SMB, or NFS. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive (only available on Windows - see [Share snapshot limits](#share-snapshot-limits)).
 
@@ -99,6 +99,29 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 ## SMB file share snapshots
 
 Users of SMB Azure file shares can create, list, delete, and restore from share snapshots.
+
+### Revert an SMB file share to a snapshot (preview)
+
+The SMB share revert feature restores an entire live file share to the data and properties captured in a snapshot of that same share. Revert is available in a limited preview to approved subscriptions through the FileREST API.
+
+> [!NOTE]
+> Access to the preview is enabled per subscription. Complete the preview sign-up form: [Sign up for Preview: Azure Files Share Revert](https://forms.cloud.microsoft/r/qnwDneN9gs).
+>
+> The team enables the preview for approved subscriptions and contacts you when the feature is available.
+
+> [!IMPORTANT]
+> This feature is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Share revert has the following behavior and limitations:
+
+- Revert applies to the entire SMB file share. You can't revert an individual directory or file. To recover individual items, use the restore options described in [Restore from an SMB file share snapshot](#restore-from-an-smb-file-share-snapshot).
+- The source must be a snapshot of the same file share. Reverting from a snapshot in another share or storage account isn't supported.
+- The restored data and properties match the source snapshot, including file and directory attributes, access control lists (ACLs), and timestamps.
+- Existing share snapshots are retained. During asynchronous processing, Azure Files blocks I/O and then creates another snapshot that captures the current live share state before applying the source snapshot.
+- You can start up to eight share revert operations per day for a file share.
+
+> [!WARNING]
+> The live share is blocked from read and write I/O while a revert is in progress. Azure Files blocks new SMB and FileREST I/O and forcibly closes existing SMB handles and REST leases. Disconnect clients and close handles before starting a revert to minimize disruption.
 
 ### Create an SMB file share snapshot
 
