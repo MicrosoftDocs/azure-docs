@@ -98,9 +98,6 @@ using Shared;
 
 var builder = Host.CreateApplicationBuilder(args);
 
-builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
-builder.Logging.AddConsole();
-
 var endpointConfiguration = new EndpointConfiguration("Sender");
 
 var connectionString = builder.Configuration.GetConnectionString("AzureServiceBusConnectionString") ?? string.Empty;
@@ -121,7 +118,7 @@ await host.StartAsync();
 
 var messageSession = host.Services.GetRequiredService<IMessageSession>();
 
-Console.WriteLine("Publishing messages... Press [Ctrl] + [C] to cancel");
+Console.WriteLine("Sending messages... Press [Ctrl] + [C] to cancel");
 
 using (var cts = new CancellationTokenSource())
 {
@@ -134,13 +131,15 @@ using (var cts = new CancellationTokenSource())
 
     try
     {
-        var number = 0;
+        var number = 1;
 
         while (true)
         {
-            await messageSession.Send(new Ping { Round = number++ });
+            await messageSession.Send(new Ping { Round = number });
 
             Console.WriteLine($"Sent message #{number}");
+
+            number++;
 
             await Task.Delay(1_000, cts.Token);
         }
@@ -161,7 +160,7 @@ There's a lot to unpack here, so let's review it step by step.
 
 ### Configure a host for the endpoint
 
-Hosting and logging are configured using the standard [.NET Generic Host](/dotnet/core/extensions/generic-host). `Host.CreateApplicationBuilder` creates a host builder, and the logging configuration is read from the `Logging` section of `appsettings.json`. The endpoint runs as a console application, but you can host it in other environments, such as Azure Functions, as discussed later in this article.
+Hosting and logging are configured using the standard [.NET Generic Host](/dotnet/core/extensions/generic-host). `Host.CreateApplicationBuilder` creates a host builder with the default logging setup, which writes to the console and applies the `Logging` section of `appsettings.json`. The endpoint runs as a console application, but you can host it in other environments, such as Azure Functions, as discussed later in this article.
 
 ### Configure the NServiceBus endpoint
 
@@ -196,13 +195,10 @@ Like the sender, the receiver is a console application that uses the .NET Generi
 ```csharp
 var builder = Host.CreateApplicationBuilder(args);
 
-builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
-builder.Logging.AddConsole();
-
 var endpointConfiguration = new EndpointConfiguration("Receiver");
 
 var connectionString = builder.Configuration.GetConnectionString("AzureServiceBusConnectionString") ?? string.Empty;
-var transport = endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString, TopicTopology.Default));
+endpointConfiguration.UseTransport(new AzureServiceBusTransport(connectionString, TopicTopology.Default));
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
 endpointConfiguration.AuditProcessedMessagesTo("audit");
@@ -217,7 +213,7 @@ var host = builder.Build();
 await host.RunAsync();
 ```
 
-It uses the same logging and transport configuration, but with a different endpoint name, `Receiver`, to distinguish it from the sender. The endpoint name is also the name of the queue that the endpoint receives messages from.
+It uses the same host and transport configuration, but with a different endpoint name, `Receiver`, to distinguish it from the sender. The endpoint name is also the name of the queue that the endpoint receives messages from.
 
 Since this endpoint only replies to the originator of a message and doesn't start new conversations, no routing configuration is required. It also doesn't need a send loop like the Sender does, because it only acts when it receives a message. `host.RunAsync()` runs the endpoint until the application shuts down.
 
