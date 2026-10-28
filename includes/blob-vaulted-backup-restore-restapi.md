@@ -27,7 +27,7 @@ Following is the request body to restore container bash 2 from a vaulted backup.
     "recoveryOption": "FailIfExists",
     "dataSourceInfo": {
       "objectType": "Datasource",
-      "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Blob-Backup/providers/Microsoft.Storage/storageAccounts/azclitestrestore2",
+      "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/Blob-Backup/providers/Microsoft.Storage/storageAccounts/azclitestrestore2",
       "resourceName": "azclitestrestore2",
       "resourceType": "Microsoft.Storage/storageAccounts",
       "resourceLocation": "not specified",
