@@ -106,7 +106,7 @@ Unless you seeded the Azure file shares with Storage Mover, both locations, the 
 
 Now use RoboCopy to copy data from your NAS appliance to your Windows Server instance. Azure File Sync uploads the data to your Azure file shares.
 
-If you seeded the Azure file shares with Storage Mover, first wait until each server has downloaded the full namespace, as described in [Wait for the namespace to fully appear on the server](storage-files-migration-nas-hybrid-databox.md#phase-9-wait-for-the-namespace-to-fully-appear-on-the-server). Then use the following steps to copy the changes made on the NAS since seeding. Copy these changes to the server rather than to the Azure file shares: Azure File Sync detects changes in an Azure file share only when its change detection job runs, which starts every 24 hours and can take longer for large namespaces.
+If you seeded the Azure file shares with Storage Mover, first wait until each server downloads the full namespace, as described in [Wait for the namespace to fully appear on the server](storage-files-migration-nas-hybrid-databox.md#phase-9-wait-for-the-namespace-to-fully-appear-on-the-server). Then use the following steps to copy the changes made on the NAS since seeding. Copy these changes to the server rather than to the Azure file shares: Azure File Sync detects changes in an Azure file share only when its change detection job runs, which starts every 24 hours and can take longer for large namespaces.
 
 Run the first local copy to your Windows Server target folder:
 
