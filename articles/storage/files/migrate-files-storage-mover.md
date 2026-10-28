@@ -3,7 +3,7 @@ title: Migrate to Azure Files using Azure Storage Mover
 description: Learn how to migrate on-premises SMB or NFS file shares to Azure file shares with full fidelity using Azure Storage Mover, a fully managed migration service.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/27/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 author: khdownie
 # Customer intent: "As an IT administrator, I want to migrate on-premises file shares to Azure file shares using a managed service, so that I can ensure full fidelity transfer and streamline my data management in the cloud."
@@ -25,7 +25,7 @@ There are several reasons to use Storage Mover to migrate your on-premises file 
 - It's faster than other methods such as Robocopy because it uses the FileREST API (the native Azure Files REST API) to move data directly to the cloud, rather than depending on SMB.
 - [Supported file metadata](storage-files-migration-overview.md#supported-metadata) is copied with full fidelity. Unlike object storage in Azure Blobs, an Azure file share can natively store file metadata, and it's important to make sure metadata gets copied from source to target during a migration. When migrating from an SMB source, folder structure and metadata values such as file and folder timestamps, ACLs, and file attributes are maintained.
 - Storage Mover supports both SMB and NFS source shares, giving you flexibility when migrating from different storage systems.
-- It scales to large namespaces. Storage Mover is tested with 500 million namespace items (files and folders). For test results and baselines, see [Storage Mover performance targets](../../storage-mover/performance-targets.md).
+- It scales to large namespaces. Storage Mover is tested with 500 million namespace items (files and folders) migrated from a supported source to a supported target in Azure. For SMB-to-Azure Files test results, see [Storage Mover performance targets](../../storage-mover/performance-targets.md#performance-baselines).
 
 ## Storage Mover migration prerequisites
 
@@ -48,15 +48,15 @@ To migrate your data, follow these steps.
 
 1. Next, [deploy one or more Storage Mover agents](../../storage-mover/agent-deploy.md) close to your on-premises migration sources. These are virtual machines (VMs) that can run on Hyper-V or VMware hypervisors.
 
-1. To use your agent for a migration and manage it from the cloud, [register the agent VMs with your Storage Mover resource](../../storage-mover/agent-register.md). You need to connect locally over SSH to the agent for registration. You can manage all subsequent steps from the Azure portal, Azure PowerShell, or Azure CLI.
+1. To use your agent for a migration and manage it from the cloud, [register the agent VMs with your Storage Mover resource](../../storage-mover/agent-register.md). To register an agent, connect to its administrative shell, preferably over SSH. You can manage all subsequent steps from the Azure portal, Azure PowerShell, or Azure CLI.
+
+1. **For SMB source shares only:** [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) and place two secrets in it: one for the username and one for the password the agent can use to access the source SMB share. You select the Key Vault and these secrets when you create the SMB source endpoint. NFS source shares don't require Key Vault credentials.
 
 1. Now you must [define your source and target endpoints](../../storage-mover/endpoint-manage.md) in preparation for migrating your data. When creating the source endpoint, select either **SMB share** or **NFS share** depending on your source protocol. When creating the target endpoint, select **File share** for **Target type**.
 
 1. [Create a project](../../storage-mover/project-manage.md) to collate the shares that need to be migrated together.
 
-1. **For SMB source shares only:** [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) and place two secrets in it: one for the username and one for the password the agent can use to access the source SMB share. NFS source shares don't require Key Vault credentials.
-
-1. [Define your first migration job](../../storage-mover/job-definition-create.md) in your Storage Mover project, using the source and target pair you created. For the first migration job, use the Azure portal. You create multiple resources within your Storage Mover resource, including a source endpoint, a target endpoint, and migration settings to review carefully. For SMB sources, reference the Azure Key Vault secrets when creating your migration job.
+1. [Define your first migration job](../../storage-mover/job-definition-create.md) in your Storage Mover project, using the source and target pair you created. For the first migration job, use the Azure portal. You create multiple resources within your Storage Mover resource, including a source endpoint, a target endpoint, and migration settings to review carefully. For SMB sources, select the Key Vault and secrets when you create the source endpoint.
 
 1. When your migration job and its settings are as you want them, start the job. Telemetry and copy logs help you monitor the progress and success of your migration job. If you want to estimate the time required to perform your migration job, see [Storage Mover scale and performance targets](../../storage-mover/performance-targets.md#performance-baselines).
 
