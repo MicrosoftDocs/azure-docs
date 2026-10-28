@@ -74,7 +74,7 @@ To correctly interpret the results, review the file status in the command output
 In both cases, RoboCopy might report byte counts as though data was transferred. This behavior can lead to confusion when validating copy operations.
 
 > [!IMPORTANT]
-> We recommend using a Windows Server 2022 or newer. When using a Windows Server 2019, ensure at the latest patch level or at least [OS update KB5005102](https://support.microsoft.com/help/5005102) is installed. It contains important fixes for certain Robocopy scenarios.
+> If possible, use Windows Server 2022 or later. If you use Windows Server 2019, install the latest cumulative update or at least [OS update KB5005102](https://support.microsoft.com/help/5005102), which contains important fixes for certain Robocopy scenarios.
 
 > [!TIP]
 > [Check out the Troubleshooting section](#troubleshoot-and-optimize) if RoboCopy is impacting your production environment, reports lots of errors, or isn't progressing as fast as expected.

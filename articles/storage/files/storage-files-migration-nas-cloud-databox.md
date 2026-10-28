@@ -242,7 +242,7 @@ robocopy <SourcePath> <Dest.Path> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOP
 | `/ZB`                 | **Use cautiously** </br>Uses restart mode. If access is denied, this option uses backup mode. This option significantly reduces copy performance because of checkpointing. |
 
 > [!IMPORTANT]
-> If possible, use Windows Server 2022 or later. When using Windows Server 2019, ensure that the latest patch level or at least [OS update KB5005102](https://support.microsoft.com/help/5005102) is installed. It contains important fixes for certain Robocopy scenarios.
+> If possible, use Windows Server 2022 or later. If you use Windows Server 2019, install the latest cumulative update or at least [OS update KB5005102](https://support.microsoft.com/help/5005102), which contains important fixes for certain Robocopy scenarios.
 
 > [!TIP]
 > [Check out the Troubleshooting section](#troubleshoot) if RoboCopy is impacting your production environment, reports lots of errors or is not progressing as fast as expected.

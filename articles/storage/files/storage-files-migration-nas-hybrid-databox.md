@@ -181,7 +181,7 @@ In this step, you'll run Robocopy jobs to sync your cloud shares with the latest
 This Robocopy run might finish quickly or take a while, depending on the amount of churn that happened on your NAS shares.
 
 > [!WARNING]
-> Because of a Robocopy regression in Windows Server 2019, the Robocopy `/MIR` switch isn't compatible with tiered target directories. Don't use Windows Server 2019 or a Windows 10 client for this phase of the migration. Use Robocopy on an intermediate Windows Server 2016 or Windows Server 2022 instance.
+> Because of a Robocopy regression in Windows Server 2019, the Robocopy `/MIR` switch isn't compatible with tiered target directories. Don't use Windows Server 2019 or a Windows 10 client for this phase of the migration. Use Robocopy on an intermediate Windows Server 2016 or Windows Server 2022 instance. This warning takes precedence over the Windows Server 2019 note in the Robocopy section that follows.
 
 Here's the basic migration approach:
  - Run Robocopy from your NAS appliance to sync your Windows Server instance. 
