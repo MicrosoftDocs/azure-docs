@@ -48,21 +48,21 @@ To migrate your data, follow these steps.
 
 1. Next, [deploy one or more Storage Mover agents](../../storage-mover/agent-deploy.md) close to your on-premises migration sources. These are virtual machines (VMs) that can run on Hyper-V or VMware hypervisors.
 
-1. To use your agent for a migration and manage it from the cloud, [register the agent VMs with your Storage Mover resource](../../storage-mover/agent-register.md). To register an agent, connect to its administrative shell, preferably over SSH. You can manage all subsequent steps from the Azure portal, Azure PowerShell, or Azure CLI.
+1. [Register the agent VMs with your Storage Mover resource](../../storage-mover/agent-register.md) to use your agent for a migration and manage it from the cloud. To register an agent, connect to its administrative shell, preferably over SSH. You can manage all subsequent steps from the Azure portal, Azure PowerShell, or Azure CLI.
 
-1. **For SMB source shares only:** [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) and place two secrets in it: one for the username and one for the password the agent can use to access the source SMB share. You select the Key Vault and these secrets when you create the SMB source endpoint. NFS source shares don't require Key Vault credentials.
+1. **For SMB source shares only:** [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) and place two secrets in it: one for the username and one for the password the agent can use to access the source SMB share. In the Azure portal, you select the Key Vault and both secrets when you create the SMB source endpoint, and the required role assignments are applied automatically. If you create endpoints with Azure PowerShell or Azure CLI, [assign the agent's managed identity the Key Vault Secrets User role](../../storage-mover/endpoint-manage.md#smb-endpoints) on the Key Vault yourself. If the Key Vault firewall is enabled, allow traffic from the agent. NFS source shares don't require Key Vault credentials.
 
 1. Now you must [define your source and target endpoints](../../storage-mover/endpoint-manage.md) in preparation for migrating your data. When creating the source endpoint, select either **SMB share** or **NFS share** depending on your source protocol. When creating the target endpoint, select **File share** for **Target type**.
 
 1. [Create a project](../../storage-mover/project-manage.md) to collate the shares that need to be migrated together.
 
-1. [Define your first migration job](../../storage-mover/job-definition-create.md) in your Storage Mover project, using the source and target pair you created. For the first migration job, use the Azure portal. You create multiple resources within your Storage Mover resource, including a source endpoint, a target endpoint, and migration settings to review carefully. For SMB sources, select the Key Vault and secrets when you create the source endpoint.
+1. [Define your first migration job](../../storage-mover/job-definition-create.md) in your Storage Mover project. For the first migration job, use the Azure portal. On the **Source** and **Target** tabs, select the endpoints you created earlier instead of creating new ones. On the **Settings** tab, review the copy mode and migration outcomes carefully.
 
 1. When your migration job and its settings are as you want them, start the job. Telemetry and copy logs help you monitor the progress and success of your migration job. If you want to estimate the time required to perform your migration job, see [Storage Mover scale and performance targets](../../storage-mover/performance-targets.md#performance-baselines).
 
 ## Verify that the migration succeeded
 
-When the migration job is complete, you should find all the files and folders in your Azure file share, with full fidelity. Review the copy logs to make sure nothing was left behind. In the Azure portal, go to your Storage Mover resource, select **Job definitions**, and confirm that the job status shows **Completed** with **0 failed items**.
+When the migration job is complete, you should find all the files and folders in your Azure file share, with full fidelity. Review the copy logs to make sure nothing was left behind. In the Azure portal, go to your Storage Mover resource, select **Projects**, select your project, and then select the job. On the **Run history** tab, confirm that the latest run succeeded. On the **Monitoring** tab, confirm that no items are listed as **Failed**.
 
 ## Next steps
 
