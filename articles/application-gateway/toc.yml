@@ -107,6 +107,8 @@
     href: keyless-tls-overview.md
   - name: FIPS 140 support on V2
     href: fips.md
+  - name: Confidential Compute
+    href: confidential-compute-overview.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: TLS 1.0 and 1.1 retirement
