@@ -3,7 +3,7 @@ title: Pricing and billing for Azure SRE Agent
 description: How Azure SRE Agent billing works, AAU rates, token-based metering, cost examples, and tips to manage your spending.
 ms.topic: reference
 ms.service: azure-sre-agent
-ms.date: 05/12/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -88,7 +88,7 @@ Here's how token use translates to AAUs for common scenarios:
 | **Total** |  |  | **3.775 AAUs** |
 
 > [!TIP]
-> To keep active flow costs predictable, set a monthly AAU allocation limit in **Settings** > **Agent consumption**.
+> To keep active flow costs predictable, set a monthly AAU allocation limit in **Build + setup** > **Monitor** > **Agent consumption**.
 
 ## Monitor your costs
 
@@ -96,7 +96,7 @@ Use the SRE Agent portal to track your AAU consumption and set a monthly active 
 
 ### In the SRE Agent portal
 
-Go to **Settings** > **Agent consumption** to view your usage:
+Go to **Build + setup** > **Monitor** > **Agent consumption** to view your usage:
 
 - **Monthly AAU limit**: your combined always-on and active flow allocation with a button to adjust it
 - **Total active flow consumption**: donut chart breaking down usage by thread type (Chats, Incidents, Scheduled tasks, Triggers)
@@ -121,7 +121,7 @@ The following table compares how each action affects active flow and always-on b
 | Action | Active flow | Always-on | To resume next month |
 |--|--|--|--|
 | **Set budget limit** (hit limit) | Stops | Still billed | Resets automatically at start of month |
-| **Stop agent** | Stops | Still billed | Manually select **Start** in **Settings** > **Basics** |
+| **Stop agent** | Stops | Still billed | Manually select **Start** in **Settings** > **General** |
 | **Delete agent** | Stops | Stops | Create a new agent |
 
 ### In Azure Cost Management
@@ -136,14 +136,14 @@ For detailed billing breakdowns across multiple agents and resources, use [Azure
 | **Filter incidents with response plans** | Less unnecessary work | Use response plans to filter Azure Monitor alerts by severity, service, or keyword - the agent only investigates incidents that match. |
 | **Batch work with scheduled tasks** | Fewer runs | Schedule tasks to run daily or weekly instead of polling continuously. See Scheduled tasks. |
 | **Test in chat before automating** | Avoids wasted runs | Try your prompt in chat or the Playground first. A misconfigured automation runs repeatedly and wastes AAUs. |
-| **Stop idle agents** | Eliminates active flow | Go to **Settings** > **Basics** and select **Stop**. The agent keeps its configuration but stops all active flow. Always-on cost continues until deleted. |
-| **Delete unused agents** | Eliminates all costs | In sre.azure.com, open the agent and go to **Settings** > **Basics** > **Delete agent**. All billing stops immediately. |
+| **Stop idle agents** | Eliminates active flow | Go to **Settings** > **General** and select **Stop**. The agent keeps its configuration but stops all active flow. Always-on cost continues until deleted. |
+| **Delete unused agents** | Eliminates all costs | In sre.azure.com, open the agent and go to **Settings** > **General** > **Delete agent**. All billing stops immediately. |
 
 ## Frequently asked questions
 
 ### How does the agent compute AAUs from tokens?
 
-Every time your agent performs work, it tracks the LLM tokens consumed across all four token types and meters them at the AAU rates for your configured model. You can see your AAU consumption in **Settings** > **Agent consumption**.
+Every time your agent performs work, it tracks the LLM tokens consumed across all four token types and meters them at the AAU rates for your configured model. You can see your AAU consumption in **Build + setup** > **Monitor** > **Agent consumption**.
 
 ### Does the provider I choose affect my costs?
 
@@ -151,7 +151,7 @@ Set the model provider (Anthropic, OpenAI, and others) at the agent level. It de
 
 ### Which model should I choose?
 
-Claude Opus 4.6 has higher AAU rates but typically produces more thorough investigations with fewer reasoning steps. For complex incident investigations and root cause analysis, Opus often reaches a conclusion in fewer tool calls, which can offset the higher per-token rate. GPT models are a good choice for simpler, high-volume tasks like scheduled compliance checks where cost efficiency matters more than depth. You can change your model provider at any time in **Settings** > **Basics** and compare results.
+Claude Opus 4.6 has higher AAU rates but typically produces more thorough investigations with fewer reasoning steps. For complex incident investigations and root cause analysis, Opus often reaches a conclusion in fewer tool calls, which can offset the higher per-token rate. GPT models are a good choice for simpler, high-volume tasks like scheduled compliance checks where cost efficiency matters more than depth. You can change your model provider at any time in **Settings** > **General** and compare results.
 
 ### Do I get charged when the agent is waiting for me to respond?
 
@@ -169,7 +169,7 @@ In all cases, the agent meters tokens consumed as AAUs.
 
 ### What happens if I stop my agent?
 
-A stopped agent can't monitor your resources or respond to prompts, but it still incurs the fixed always-on cost. Active flow AAUs aren't consumed while stopped. To stop your agent, go to **Settings** > **Basics** and select **Stop**. To resume, select **Start** from the same page. To stop all billing entirely, delete the agent.
+A stopped agent can't monitor your resources or respond to prompts, but it still incurs the fixed always-on cost. Active flow AAUs aren't consumed while stopped. To stop your agent, go to **Settings** > **General** and select **Stop**. To resume, select **Start** from the same page. To stop all billing entirely, delete the agent.
 
 ### Can one agent handle multiple workloads?
 
