@@ -36,16 +36,6 @@ The built-in roles for the DICOM service include:
 * **DICOM Data Owner**:  Full access to DICOM data.
 * **DICOM Data Reader**: Can read and search DICOM data.
 
-### Permissions for bulk operations
-
-Bulk operations require the `EditProfileDefinitions` permission to modify or delete `StructureDefinition`, `ValueSet`, and `CodeSystem` resources.
-
-The [FHIR Data Bulk Operator](../role-based-access-control/built-in-roles/integration.md#fhir-data-bulk-operator) role includes the required data actions. **FHIR Data Writer** alone doesn't grant these permissions.
-
-Custom roles for Azure Health Data Services FHIR service must include `Microsoft.HealthcareApis/workspaces/fhirservices/resources/editProfileDefinitions/action` in `DataActions`, in addition to the permissions required for the bulk operation.
-
-For authorization behavior and status responses, see [Bulk update](fhir/fhir-bulk-update.md) and [Bulk delete](fhir/fhir-bulk-delete.md).
-
 ## Assign roles for the FHIR and DICOM services
 
 Assign roles to users, service principals, or groups to grant them access to the FHIR and DICOM services. 

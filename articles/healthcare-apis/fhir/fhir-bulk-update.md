@@ -38,8 +38,6 @@ To execute a bulk update, assign the application or user one of the following ro
 
 Bulk operations can modify `StructureDefinition`, `ValueSet`, and `CodeSystem` resources only if the submitting caller has `EditProfileDefinitions` permission. Without it, the operation leaves these resources unchanged, includes them in `ResourceIgnoredCount` by resource type, and returns informational messages explaining why it skipped them. The operation continues to update other eligible resources.
 
-For custom-role requirements, see [Permissions for bulk operations](../configure-azure-rbac.md#permissions-for-bulk-operations).
-
 ### Required headers
 
 | Header | Value |
