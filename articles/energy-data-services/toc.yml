@@ -117,6 +117,8 @@ items:
           href: how-to-integrate-osdu-service-logs-with-azure-monitor.md
     - name: Security
       items:
+        - name: Analytics consumption zone entitlements export (preview)
+          href: concepts-analytics-consumption-zone-entitlements.md
         - name: Set up Private Links
           href: how-to-set-up-private-links.md
         - name: Set up Customer managed encryption keys (CMEK)

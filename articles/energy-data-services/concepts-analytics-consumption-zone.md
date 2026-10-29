@@ -194,6 +194,12 @@ The Delta table has the following fields:
 > [!NOTE]
 > Wellbore DDMS entities also have `fileDownloadTime`, `fileDownloadState`, and `fileDownloadFolder` fields for file tracking.
 
+## Entitlements export (preview)
+
+ACZ can optionally export OSDU entitlement membership data to an `entitlements` Delta Lake table alongside the catalog data. You can use this data to implement entitlement-aware filtering in downstream analytics platforms. ACZ doesn't configure or enforce downstream row-level security.
+
+Entitlements export is disabled by default. Contact your Microsoft representative to enable it. For details, see [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md).
+
 ## Limits and access
 
 ### Preview limits
@@ -216,6 +222,7 @@ ACZ requires:
 
 ## Related content
 
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
 - [Connect ACZ data to Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
