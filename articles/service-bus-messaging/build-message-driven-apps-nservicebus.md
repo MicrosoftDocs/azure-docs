@@ -276,10 +276,10 @@ To launch the solution, you need to run both the Sender and the Receiver.
 
 If you're using Visual Studio, configure the solution to launch both projects:
 
-1. Right-click the solution in Solution Explorer.
+1. Right-click the solution in Solution Explorer or click the Startup project or profile in the toolbar.
 1. Select **Configure Startup Projects...**.
 1. Select **Multiple startup projects**.
-1. For both the Sender and the Receiver, select **Start** in the **Action** list.
+1. For both the Sender and the Receiver, select **Start** in the **Action** list.  For Shared, select **None**.
 1. Select **OK**, and then press **F5** to start both projects.
 
 If you're using another editor or the command line, open two terminals in the solution folder. In the first terminal, start the Receiver:
