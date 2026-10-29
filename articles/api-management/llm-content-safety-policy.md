@@ -15,7 +15,7 @@ ms.update-cycle: 180-days
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-The `llm-content-safety` policy enforces content safety checks on text extracted from supported large language model (LLM) requests (prompts) or responses (completions) by sending that text to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service. The policy doesn't inspect the entire request or response body. The policy can also enforce content safety checks on requests or responses for MCP tools or A2A Agent APIs managed in API Management.
+The `llm-content-safety` policy enforces content safety checks on text extracted from supported large language model (LLM) requests (prompts) or responses (completions) by sending that text to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service. The policy can also enforce content safety checks on requests or responses for MCP tools or A2A Agent APIs managed in API Management.
 
 When you enable the policy and Azure AI Content Safety detects malicious content, API Management blocks the request or response and returns a `403` error code. 
 
@@ -105,7 +105,7 @@ Use the policy in scenarios such as the following:
 
 ### LLM content inspected
 
-The policy extracts text according to the supported LLM API format. It doesn't send the complete JSON payload to Azure AI Content Safety. For OpenAI-compatible requests and responses, the inspected content includes:
+The policy inspects the supported content fields for the LLM API format, rather than the complete JSON payload. Extracting text for Azure AI Content Safety doesn't remove other fields from the request forwarded to the model backend. Other API Management policies can still modify or block the request. For OpenAI-compatible requests and responses, the inspected content includes:
 
 | API format | Inspected content |
 | --- | --- |
