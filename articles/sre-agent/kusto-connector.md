@@ -3,7 +3,7 @@ title: "Tutorial: Connect to Azure Data Explorer (ADX) through Azure MCP in Azur
 description: Connect your SRE agent to Azure Data Explorer (Kusto) through the Azure MCP Kusto path, configure cluster groups, and test connectivity before saving.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 07/17/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -61,7 +61,7 @@ Replace `<DATABASE_NAME>` with your database name and `<AGENT_MANAGED_IDENTITY_I
 
 Configure Azure Data Explorer in the SRE Agent portal.
 
-1. Go to **Builder** > **Connectors**.
+1. Go to **Build + setup** > **Extensions** > **Connectors**.
 1. Select **Add connector**.
 1. Select the **Telemetry** tab.
 1. Select the **Azure Data Explorer** card. This card uses the Azure MCP Kusto path.

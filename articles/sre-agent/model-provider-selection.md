@@ -3,7 +3,7 @@ title: Model Provider Selection in Azure SRE Agent
 description: Learn how to choose your Azure SRE Agent AI model provider and model to match your operational workloads and data residency requirements.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 07/10/2026
+ms.date: 10/28/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -13,13 +13,13 @@ ms.custom: model provider, Anthropic, Azure OpenAI, data residency, EUDB
 
 # Model provider selection in Azure SRE Agent
 
-Choose between Azure OpenAI (GPT-5 family) and Anthropic (Claude family) as your agent's AI provider. You can change providers anytime in **Settings** > **Basics**. There's no downtime, and the change takes effect on the next conversation.
+Choose between Azure OpenAI (GPT-5 family) and Anthropic (Claude family) as your agent's AI provider. You can change providers anytime in **Settings** > **General**. There's no downtime, and the change takes effect on the next conversation.
 
 > [!TIP]
 > - Choose between Azure OpenAI (GPT-5 family) and Anthropic (Claude family) as your agent's AI provider.
 > - Your agent automatically selects the best model within your chosen provider. No manual model configuration is needed.
 > - Your default provider depends on the region. Use Anthropic in East US 2 and Australia East, and use Azure OpenAI in Sweden Central and UK South for European Union (EU) data residency.
-> - You can change providers anytime in **Settings** > **Basics**. There's no downtime, and the change takes effect on the next conversation.
+> - You can change providers anytime in **Settings** > **General**. There's no downtime, and the change takes effect on the next conversation.
 
 ## Available providers
 
@@ -32,7 +32,7 @@ Available models within each provider might change as new versions are released.
 
 ## Change your model provider
 
-1. Go to **Settings** > **Basics** in the agent portal.
+1. Go to **Settings** > **General** in the agent portal.
 1. Scroll to the **Model provider** section.
 1. Select a provider from the **Provider** dropdown list.
 1. Select **Save**.

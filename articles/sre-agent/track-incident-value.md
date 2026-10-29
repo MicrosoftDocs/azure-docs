@@ -3,7 +3,7 @@ title: "Track Incident Value in Azure SRE Agent"
 description: "Track incident value in Azure SRE Agent with interactive analytics. Drill into incidents, filter by response plan, and measure quality with star ratings."
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -29,7 +29,7 @@ The incident metrics dashboard gives you that consolidated view. Use it to measu
 
 Your agent records an activity snapshot every time it processes an incident. These snapshots capture the outcome, whether the agent mitigated the incident autonomously, assisted the investigation, or escalated to a human. The **incident metrics** dashboard aggregates these snapshots into real-time KPI cards, a trend chart, and a per-response-plan breakdown.
 
-Go to **Monitor** > **Incident metrics** to see the dashboard.
+Go to **Operations hub** > **Incident Analytics** to see the dashboard.
 
 The **Incident summary** chart plots key metrics over time so you can spot trends.
 
@@ -162,7 +162,7 @@ Each row links to the agent's investigation thread, so you can review exactly wh
 
 ## Daily reports
 
-Your agent generates automated daily reports accessible at **Daily reports** in the left sidebar.
+To find generated daily-report conversations, open **Filter chats** in the sidebar and select **Type** > **Reports**. Adjust **Created by** to include agent-generated chats if needed.
 
 :::image type="content" source="media/track-incident-value/daily-reports.png" alt-text="Screenshot of daily report showing security findings, incident summary, resource health metrics, and recommended actions.":::
 
