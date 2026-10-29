@@ -44,7 +44,7 @@ Before you add the rule, choose the destination type that matches the endpoint y
 - `IPAddress`: Allow traffic from an enclave to one or more destination IP addresses or CIDR ranges.
 - `FQDN`: Allow traffic from an enclave to a trusted fully qualified domain name (FQDN). FQDN rules support `HTTP`, `HTTPS`, `TCP`, or `UDP`; use only one protocol and one port per rule. Basic firewall SKU doesn't support FQDN rules.
 - `FQDNTag`: Allow traffic from enclaves to known Microsoft Azure services through FQDN tags. Use `HTTPS`, except that the `windowsupdate` tag supports `HTTP` or `HTTPS`, and specify one port. Basic firewall SKU doesn't support FQDN tag rules.
-- `ServiceTag`: Allow traffic from enclaves to Azure services by using Azure service tags. This destination type is available in the `2025-11-01-preview` API version and later. Supported protocols include `TCP`, `UDP`, `ICMP`, and `ANY`. Use `ANY` by itself; don't combine it with another protocol.
+- `ServiceTag`: Allow traffic from enclaves to Azure services by using Azure service tags. This destination type was introduced in `2025-11-01-preview` and is available in newer supported API versions listed in the [Azure Enclave API reference](https://aka.ms/ae/api). Supported protocols include `TCP`, `UDP`, `ICMP`, and `ANY`. Use `ANY` by itself; don't combine it with another protocol.
 - `PrivateNetwork`: Allow traffic from enclaves to an external private network. Specify destination CIDR ranges and a succeeded [transit hub](./create-transit-hub-portal.md) in the same community.
 
 Enter the `Rule name`, `Destination type`, `Destination`, `Port`, and `Protocol`, and then select `Add`.
