@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/27/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 recommendations: false
 # Customer intent: "As an IT administrator managing on-premises NAS solutions, I want to migrate our file storage to Azure file shares using Data Box, so that I can ensure data integrity, maintain accessibility during the transition, and eliminate reliance on local storage infrastructure."
@@ -198,7 +198,7 @@ In cases where you need a share to be read-write during the migration and can on
 In this step, run RoboCopy jobs to catch up your cloud shares with the latest changes on your NAS since the time you forked your shares onto the Data Box.
 This catch-up RoboCopy might finish quickly or take a while, depending on the amount of churn that happened on your NAS shares.
 
-Run the first local copy to your Windows Server target folder:
+Run the first catch-up copy to the Azure file share:
 
 1. Identify the first location on your NAS appliance.
 1. Identify the matching Azure file share.
@@ -242,7 +242,7 @@ robocopy <SourcePath> <Dest.Path> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOP
 | `/ZB`                 | **Use cautiously** </br>Uses restart mode. If access is denied, this option uses backup mode. This option significantly reduces copy performance because of checkpointing. |
 
 > [!IMPORTANT]
-> If possible, use Windows Server 2022 or later. When using Windows Server 2019, ensure that the latest patch level or at least [OS update KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f) is installed. It contains important fixes for certain Robocopy scenarios.
+> If possible, use Windows Server 2022 or later. If you use Windows Server 2019, install the latest cumulative update or at least [OS update KB5005102](https://support.microsoft.com/help/5005102), which contains important fixes for certain Robocopy scenarios.
 
 > [!TIP]
 > [Check out the Troubleshooting section](#troubleshoot) if RoboCopy is impacting your production environment, reports lots of errors or is not progressing as fast as expected.
@@ -262,9 +262,9 @@ When you consider the downtime acceptable, then you need to remove user access t
 Run one last RoboCopy round. It picks up any changes that might have been missed.
 How long this final step takes depends on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
 
-Point users to the Azure file share: update your DFS Namespaces targets, mapped drives, or UNC paths, and set the same share-level permissions on the Azure file share that you had on your NAS SMB share. If you had an enterprise-class, domain-joined NAS, user SIDs already match because the users exist in Active Directory, and RoboCopy copies files and metadata at full fidelity. If you used local users on your NAS, their SIDs don't resolve in Azure Files, so re-permission those files and folders for domain identities before cutover. When users are working from the Azure file share, decommission the temporary Windows Server you used for RoboCopy.
+Point users to the Azure file share: update your DFS Namespaces targets, mapped drives, or UNC paths. Before you cut over, [assign share-level permissions](storage-files-identity-assign-share-level-permissions.md) that match your NAS SMB share permissions, because changes usually take effect within 30 minutes but can take longer. Assign Azure RBAC roles to the users or groups that need access (on-premises AD DS identities must be synced to Microsoft Entra ID), or use a default share-level permission, which gives all authenticated identities the same access to every file share in the storage account. If you had an enterprise-class, domain-joined NAS, user SIDs already match because the users exist in Active Directory, and RoboCopy copies files and metadata at full fidelity. If you used local users on your NAS, their SIDs don't resolve in Azure Files, so re-permission those files and folders for domain identities before cutover. When users are working from the Azure file share, decommission the temporary Windows Server you used for RoboCopy.
 
-You've finished migrating a share or group of shares into a common root or volume.
+You finished migrating a share or group of shares to Azure file shares.
 
 You can try to run a few of these copies in parallel. Process the scope of one Azure file share at a time.
 
