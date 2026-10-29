@@ -530,6 +530,7 @@ Make a note of the `aczId` value (format: `acz-<identifier>`). You need this ACZ
 
 ## Related content
 
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
 - [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)

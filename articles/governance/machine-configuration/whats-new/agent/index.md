@@ -32,6 +32,8 @@ includes a direct link to the relevant release for more information.
 
 | Platform |   Version    |  Release date  |                   Link                   |
 |:--------:|:------------:|:--------------:|:----------------------------------------:|
+| Windows  | `1.29.122.0` |  October 2026  | [Release notes](./windows.md#1.29.122.0) |
+|  Linux   | `1.26.121`   |  October 2026  |   [Release notes](./linux.md#1.26.121)   |
 | Windows  | `1.29.119.0` | September 2026 | [Release notes](./windows.md#1.29.119.0) |
 |  Linux   | `1.26.119`   | September 2026 |   [Release notes](./linux.md#1.26.119)   |
 | Windows  | `1.29.118.0` | September 2026 | [Release notes](./windows.md#1.29.118.0) |

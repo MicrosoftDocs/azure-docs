@@ -21,6 +21,7 @@ This article describes Azure NetApp Files feature availability in Azure Governme
 
 For Azure Government regions supported by Azure NetApp Files, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
+<!-- 
 All [Azure NetApp Files features](whats-new.md) available on Azure public cloud are also available on supported Azure Government regions, *except for the features listed in the following table*:
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
@@ -28,6 +29,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Elastic zone-redundant storage service level | Preview | No |
 | Microsoft Entra Kerberos authentication for SMB volumes with Azure NetApp Files | Preview | No |
 
+-->
 
 ## Portal access
 

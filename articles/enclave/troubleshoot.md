@@ -5,33 +5,33 @@ author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.service: azure-enclave
-ms.date: 9/30/2025
+ai-usage: ai-assisted
+ms.date: 10/14/2026
 ---
 
 # Troubleshoot Azure Enclave
 
-The following are examples of errors that might be encountered and their solution.
+Use the following guidance to troubleshoot common Azure Enclave issues.
 
 ## General troubleshooting
-The general troubleshooting steps that aren't specific to an Azure Enclave resource.
 
-### Portal Links don't work in the Air Gapped Azure environments
+### Portal links don't work in the air-gapped Azure clouds
 Azure Enclave portal links (for example, **Learn More**) don't work in some Azure clouds.
 
 Solution: Those documentation links work on Azure and Azure for US Government. You can find documentation with the same article name in the Learn portal for each cloud.
 
-## Community Troubleshooting
-The community troubleshooting steps that are specific to the Azure Enclave community resource.
+## Community troubleshooting
 
-### API error when creating first community
+### API error when creating a community
 
-Scenario: Create a community for the first time in a new subscription, the following error message blocks the deployment
+If a community deployment returns this error message:
 
-`"The resource type could not be found in the namespace 'Microsoft.Mission' for api version '<api-version>'."`
+`The resource type could not be found in the namespace 'Microsoft.Mission' for api version '<api-version>'.`
 
-Solution: Ensure `Microsoft.Mission` is registered in your subscription. Follow [Get started with Azure Enclave](./onboard.md) to verify resource provider registration and required permissions, and then retry the deployment.
+Check that the deployment uses an API version supported by the runtime.
 
-## Workloads
+## Workload troubleshooting
 
-### User has permissions to write but not permissions to do something else
-If the permission that was denied is one of the permissions included in the actions protected by [maintenance mode](./maintenance-mode.md) like `Microsoft.Network/virtualNetwork/subnets/join/action` this is a good indicator that maintenance mode should be enabled and then you can try again.
+### Authorization error when an operation is denied
+
+If an operation fails with an authorization error, identify the denied action in the error. To perform `Microsoft.Network/virtualNetworks/subnets/join/action`, the caller must have the required RBAC permission and be listed as an excluded principal in a General or Advanced maintenance mode configuration. This requirement applies across currently served Azure Enclave API versions, including `2026-05-01-preview` and later. For more information, see [maintenance mode](./maintenance-mode.md).

@@ -5,7 +5,7 @@ services: storage
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
-ms.date: 9/12/2021
+ms.date: 10/28/2026
 ms.author: kendownie
 ms.custom: include file
 ---
@@ -35,7 +35,7 @@ robocopy <SourcePath> <Dest.Path> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOP
 | `/ZB`                 | **Use cautiously** </br>Uses restart mode. If access is denied, this option uses backup mode. This option significantly reduces copy performance because of checkpointing. |
 
 > [!IMPORTANT]
-> We recommend using a Windows Server 2022. When using a Windows Server 2019, ensure at the latest patch level or at least [OS update KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f) is installed. It contains important fixes for certain Robocopy scenarios.
+> If possible, use Windows Server 2022 or later. If you use Windows Server 2019, install the latest cumulative update or at least [OS update KB5005102](https://support.microsoft.com/help/5005102), which contains important fixes for certain Robocopy scenarios.
 
 RoboCopy might report that files were copied even when no data transfer was necessary. This behavior occurs because robocopy evaluates both file data and metadata changes when producing its output. To correctly interpret the results, review the file status in the command output:
 - Newer: File data is copied to the destination.
