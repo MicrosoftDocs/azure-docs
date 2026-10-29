@@ -3,7 +3,7 @@ title: "Tutorial: Use Code Interpreter in Azure SRE Agent"
 description: Enable Code Interpreter for your Azure SRE Agent and use it to analyze data, generate charts, and create reports from chat.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -40,7 +40,7 @@ Turn on Code Interpreter through the Early access settings.
 
 1. Open the [SRE Agent portal](https://sre.azure.com) and select your agent.
 1. Select **Settings** in the left navigation.
-1. Select **Basics**.
+1. Select the **General** tab.
 1. Find **Early access to features** and set the toggle to **On**.
 
 > [!TIP]
@@ -50,7 +50,7 @@ Turn on Code Interpreter through the Early access settings.
 
 Submit a data analysis query to trigger Code Interpreter.
 
-1. Select **New chat thread** in the top left.
+1. Select **New chat** in the top left.
 1. In the chat input, type a question that requires data analysis:
 
     ```text
