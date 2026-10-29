@@ -148,7 +148,7 @@ The role assignment `name` isn't unique, and it's viewed as an update.
 
 Role assignments are uniquely identified by their name, which is a globally unique identifier (GUID). You can't create two role assignments with the same name, even in different Azure subscriptions.
 
-You can't change the tenant ID, application ID, principal ID (`principalId`), role definition ID (`roleDefinitionId`), and scope of an existing role assignment. Reusing the same role assignment name doesn't allow you to replace the assigned principal or role. This restriction doesn't prevent supported updates to the `condition`, `conditionVersion`, and `description` properties. For more information, see [Edit a condition](conditions-role-assignments-cli.md#edit-a-condition).
+You can't change the properties and scope of an existing role assignment. Reusing the same role assignment name doesn't allow you to replace the assigned principal or role. 
 
 **Solution**
 
