@@ -3,7 +3,7 @@ title: Analytics Consumption Zone Concepts in Azure Data Manager for Energy
 description: Learn about Analytics Consumption Zone in Azure Data Manager for Energy. ACZ mirrors Azure Data Manager for Energy data to Azure Data Lake Storage Gen2.
 ms.service: azure-data-manager-energy
 ms.topic: concept-article
-ms.date: 05/17/2026
+ms.date: 10/29/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -19,19 +19,21 @@ Analytics Consumption Zone (ACZ) exports selected entity data from Azure Data Ma
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-During the preview, ACZ is available only on Developer tier instances and requires the use of allow lists. Follow the guidance in [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md), and contact your Microsoft representative.
+To enable ACZ, see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
 
 ## What is ACZ?
 
 ACZ is a managed sync layer. It exports entity data from your Azure Data Manager for Energy instance to an Azure Data Lake Storage Gen2 storage account that you own. You can then connect that data to analytics, reporting, and machine learning tools.
 
+Setting up ACZ has two parts. You *enable ACZ* once on an Azure Data Manager for Energy resource in the Azure portal. Then you create one or more *ACZ instances* by using the ACZ APIs. Each ACZ instance is an export configuration in a data partition that defines which kinds ACZ exports and where it writes them. ACZ exports data only for the ACZ instances that you create.
+
 Key characteristics of ACZ:
 
-- **Customer-owned storage**: You create and manage a Data Lake Storage Gen2 storage account where your data goes. You're responsible for selecting an in-geo destination storage account if you have data residency requirements.
+- **Customer-owned storage**: You create and manage a Data Lake Storage Gen2 storage account where your data goes. We recommend a storage account in the same region as your Azure Data Manager for Energy instance. If you have data residency requirements, you're responsible for selecting a storage account in the appropriate region.
 - **Open format**: Your data exports in Delta Parquet format. Analytics engines widely support this format.
 - **Selective sync**: You choose which entity types to sync. Options include catalog kinds and Wellbore Domain Data Management Service (DDMS) kinds.
 - **Historical and incremental sync**: You get an initial snapshot of existing data from ACZ. Then ACZ synchronizes changes as they occur.
-- **API-driven**: You configure and manage ACZ entirely through REST APIs.
+- **Portal and API management**: You enable ACZ in the Azure portal, and you create and manage ACZ instances by using REST APIs.
 
 ### Architecture
 
@@ -136,9 +138,12 @@ After the snapshot finishes, ACZ switches to incremental mode. It captures new a
 ACZ propagates created, updated, and deleted records from Azure Data Manager for Energy to the Delta tables.
 
 - **Creations and updates**: When you create a record or change its data block, Azure Data Manager for Energy creates a new version. ACZ detects the change and writes a new row to the Delta table.
-- **Metadata-only updates**: When a `PATCH` operation changes the access control list, legal, or tags without creating a new version, ACZ detects this change and runs a merge upsert on the existing row.
-- **Soft deletes**: When you soft-delete a record in Azure Data Manager for Energy, ACZ sets the `isActive` field to `False` on the row instead of removing it. Soft deletes preserve history for auditing and time-travel queries.
+- **Metadata-only updates**: When a PATCH operation changes the access control list, legal, or tags without creating a new version, ACZ updates the row for the existing version.
+- **Soft deletes**: When you soft-delete a record in Azure Data Manager for Energy, ACZ sets the `isActive` field to `False` instead of removing the row. For ACZ instances that use `ALL_VERSIONS`, all stored versions of the record are marked inactive. Soft deletes preserve history for auditing and time-travel queries.
 - **Purges**: When you purge a record in Azure Data Manager for Energy, ACZ permanently removes the record from the Delta table. The row is deleted and can't be recovered from the ACZ data.
+
+> [!NOTE]
+> ACZ writes a raw (bronze) layer, and a table can contain more than one row for the same record ID and version. ACZ doesn't remove these duplicates. When you build downstream tables, select the latest active row for each `id`.
 
 > [!WARNING]
 > ACZ is a *one-way, read-only sync* from Azure Data Manager for Energy to Data Lake Storage Gen2:
@@ -150,27 +155,54 @@ ACZ propagates created, updated, and deleted records from Azure Data Manager for
 >
 > For analytics and reporting, treat the exported data as read-only. All data modifications must occur in Azure Data Manager for Energy.
 
+### Identify new, updated, and deleted records
+
+ACZ doesn't enable Delta Lake change data feed on its tables. To process changes incrementally, use `ingestTime` as a watermark. ACZ refreshes `ingestTime` whenever it writes a change to a row, including:
+
+- New records and new record versions.
+- Metadata-only updates, such as changes to tags, that don't create a new record version.
+- Soft deletes. ACZ sets `isActive` to `False`.
+
+Purged records are removed from the Delta table. To remove purged records from downstream tables, periodically reconcile them against the current ACZ table or rebuild them.
+
+> [!NOTE]
+> Use `ingestTime` rather than `modifyTime` to detect changes. `modifyTime` reflects updates to the record in Azure Data Manager for Energy and doesn't change when a record is soft-deleted.
+
+For a reference implementation, see the [ADME Analytics Accelerator](https://github.com/microsoft/adme-acz-silverlayer).
+
 ## Data output format
 
 ACZ writes data in [Delta Lake](https://delta.io/) format with Parquet-encoded files (`DELTA_PARQUET`). Delta Lake supports atomicity, consistency, isolation, and durability transactions. It also supports time travel and efficient incremental reads.
 
 ### Data Lake Storage Gen2 folder structure
 
-ACZ organizes data in your Data Lake Storage Gen2 storage account by folder. Each ACZ instance gets its own folder under the container or under the base path if you specified one. ACZ partitions catalog Delta Lake tables by kind. One folder per DDMS entity type and record ID.
+ACZ writes data to the storage account that you specify when you create an ACZ instance. The first segment of the optional `basePath` property is the container, and any additional segments are folders in that container. If you don't specify a base path, ACZ uses a container named `<aczId>`. ACZ creates the container if it doesn't exist and writes its data to a folder named `<aczId>`. For examples, see [Create an ACZ instance](how-to-enable-analytics-consumption-zone.md#create-an-acz-instance).
 
-#### Folder layout
+```text
+<storage-account>/
+└── <container>/                      ← first segment of basePath, or <aczId>
+    └── [<more basePath folders>/]
+        └── <aczId>/
+            ├── osducatalog/          ← Delta table, partitioned by kind
+            │   └── _delta_log/
+            ├── wellboreDDMS/         ← Wellbore DDMS bulk files (Parquet and JSON)
+            │   ├── work-product-component--WellLog/
+            │   └── work-product-component--WellboreTrajectory/
+            └── entitlements/         ← Delta table (preview), only when entitlements export is enabled
+```
 
-:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-folder-structure.png" alt-text="Diagram that shows folder structure for Azure Data Lake Storage.":::
+> [!NOTE]
+> Starting with the October 2026 release, new ACZ instances store Wellbore DDMS entity folders under a `wellboreDDMS` folder. ACZ instances created before the October 2026 release keep the earlier layout, with Wellbore DDMS entity folders directly under `<aczId>/`. To check when an ACZ instance was created, see the `createdTs` value in the Get ACZ API response.
 
 #### Key details
 
 | Element | Description |
 |---|---|
-| Top-level folder | Named `<acz-id>` under the container, or under `<base-path>` if specified. One folder per ACZ instance. |
+| Top-level folder | A folder named `<aczId>`, one per ACZ instance, in the container and folders defined by `basePath`. |
 | `osducatalog/` | One Delta table for all catalog kinds. Partitioned by kind (for example, `kind=osdu:wks:master-data--Well:1.0.0`). |
 | `_delta_log/` | The Delta Lake transaction log. Tracks all table changes for ACID transactions and time travel. |
-| DDMS entity folders | One folder per DDMS entity type (for example, `work-product-component--WellLog`). Holds DDMS-specific Parquet files by entity type and record ID. |
-| Parquet files | Snappy-compressed data files. Updates create new files. ACZ runs `VACUUM` and `OPTIMIZE` to compact small files and remove old ones. |
+| DDMS entity folders | One folder per Wellbore DDMS entity type (for example, `work-product-component--WellLog`). Starting with the October 2026 release, these folders are under `wellboreDDMS/`. Holds Parquet and JSON files by entity type and record ID. These folders aren't Delta tables; to find a record's files, use the `fileDownloadFolder` column in `osducatalog`. |
+| Parquet files | Snappy-compressed data files. Updates create new files. ACZ runs `VACUUM` and `OPTIMIZE` to compact small files and remove old ones. The `maintenance` property in the ACZ API response shows the status and last successful run of these maintenance activities. |
 
 ### Delta table schema
 
@@ -188,11 +220,24 @@ The Delta table has the following fields:
 | `tags` | String | User-defined tags. |
 | `createUser` | String | User who created the record. |
 | `createTime` | Timestamp | When the record was created. |
+| `modifyUser` | String | User who last modified the record. Schema version 2 only. |
+| `modifyTime` | Timestamp | When the record was last modified. Schema version 2 only. |
 | `ingestTime` | Timestamp | When ACZ ingested the record. |
 | `isActive` | Boolean | `True` if active. `False` if soft-deleted. |
 
 > [!NOTE]
-> Wellbore DDMS entities also have `fileDownloadTime`, `fileDownloadState`, and `fileDownloadFolder` fields for file tracking.
+> Rows for Wellbore DDMS kinds also include `fileDownloadTime`, `fileDownloadState`, and `fileDownloadFolder`, which track the record's bulk files in the Wellbore DDMS entity folders.
+
+#### Schema versions
+
+The `catalogSchemaVersion` property in the ACZ API response shows which schema an ACZ instance uses:
+
+| Version | Description |
+| --- | --- |
+| 1 | Earlier schema. `modifyUser` and `modifyTime` aren't separate columns. They're available only within the JSON in the `data` column. |
+| 2 | Current schema for new ACZ instances. Adds top-level `modifyUser` and `modifyTime` columns. |
+
+Existing ACZ instances keep their schema version. To use the current schema, create a new ACZ instance. There's no migration from version 1 to version 2.
 
 ## Entitlements export (preview)
 
@@ -210,15 +255,33 @@ Entitlements export is disabled by default. Contact your Microsoft representativ
 | ACZ name uniqueness | Must be unique within a data partition |
 | Target format | Delta Parquet only |
 | Storage type | Data Lake Storage Gen2 only |
-| Instance tier support | Developer tier only during preview |
+| Tier support | Developer and Standard tiers |
+| Historical snapshots in progress | One at a time per data partition. Wait for an ACZ instance's historical snapshot to complete before you create another. |
+| ACZ definition changes | Not supported. To change kinds or other settings, create a new ACZ instance. Each ACZ instance has its own identifier and output path. |
+| Destination storage network access | ACZ currently requires the destination storage account to allow public network access. Storage accounts that restrict access by using firewall IP rules, disabled public network access, or private endpoints aren't supported. Azure Data Manager for Energy instances that use [private endpoints](how-to-set-up-private-links.md) are supported. |
 
 ### Authentication and authorization
 
 ACZ requires:
 
 - **API access**: To call ACZ APIs, you must belong to the `users@{data-partition-id}.dataservices.energy` and `users.datalake.ops@{data-partition-id}.dataservices.energy` groups.
-- **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the Data Lake Storage Gen2 container. During preview, share the identity details with Microsoft to add the identity to the allow list.
-- **Azure Data Manager for Energy access**: The managed identity needs to be assigned to the Azure Data Manager for Energy resource.
+- **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the Data Lake Storage Gen2 container.
+- **Azure Data Manager for Energy access**: The managed identity is assigned to the Azure Data Manager for Energy resource when you enable ACZ in the Azure portal. For steps, see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
+
+### Backup and restore
+
+ACZ isn't included in Azure Data Manager for Energy backup and restore. If you restore an Azure Data Manager for Energy resource or data partition from a backup, ACZ data in your storage account no longer matches the restored data. Create new ACZ instances after the restore finishes, which take a new historical snapshot.
+
+### Business continuity and disaster recovery
+
+ACZ isn't included in Azure Data Manager for Energy cross-region disaster recovery. After a regional failover, ACZ might not resume synchronization or might be missing changes from the failover window. A historical snapshot that's in progress during a failover might not complete. To restore ACZ, create new ACZ instances, which take a new historical snapshot.
+
+To prepare:
+
+- Configure redundancy for your destination Data Lake Storage Gen2 account. ACZ writes to the storage account that you specify and doesn't replicate it. For options, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
+- Keep the ACZ configurations, such as kinds, `basePath`, and storage account, that you need to recreate your ACZ instances.
+
+For more information, see [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md).
 
 ## Related content
 
