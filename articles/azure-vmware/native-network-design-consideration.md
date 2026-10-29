@@ -27,7 +27,6 @@ The following functionality is limited during this time. These limitations will 
 - You can't ***move*** your private cloud from one Resource Group to another after the private cloud is created.  
 - You can't ***move*** your private cloud from one tenant to another after the private cloud is created.  
 - If you require **ExpressRoute FastPath** or **Global Virtual Network Peering** for your AVS Private Cloud, create a Support Case through the Azure portal. 
-- **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.
 - **Private Endpoints when globally peered** across regions connected to Azure VMware Solution isn't supported.
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.  
 - **vSAN Stretched Clusters** isn't supported.
