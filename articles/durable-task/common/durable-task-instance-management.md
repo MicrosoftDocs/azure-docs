@@ -2131,8 +2131,34 @@ public static Task Run(
 
 # [JavaScript](#tab/javascript)
 
+In a starter function with a durable client binding, restart an orchestration with a generated new instance ID. This example applies to JavaScript and TypeScript:
+
+```javascript
+const client = df.getClient(context);
+await client.restart(instanceId, true);
+```
+
+You can also specify a target instance ID and version, and access the source instance ID inside the cloned orchestrator, using the JavaScript and TypeScript APIs shown below.
+
 > [!NOTE]
-> JavaScript doesn't currently support this feature.
+> Restarting with an explicit target instance ID and version and accessing `context.df.sourceInstanceId` require version `3.6.0` or later of the `durable-functions` npm package and version `3.16.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. Until v3.16.0 is available in extension bundles, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version).
+>
+> [See when version releases are available for the extension bundle.](https://github.com/Azure/azure-functions-extension-bundles/releases)
+
+```javascript
+await client.restart(sourceId, {
+    newInstanceId: "cloned-instance",
+    version: "2.0.0",
+});
+```
+
+This creates a fresh execution of the source orchestrator with its original input and leaves the source instance unchanged. It doesn't copy execution progress or completed activity results; activities run again.
+
+Inside the cloned orchestrator, read the source instance ID from the orchestration context:
+
+```javascript
+const sourceInstanceId = context.df.sourceInstanceId;
+```
 
 # [Python](#tab/python)
 
