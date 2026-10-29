@@ -1,11 +1,11 @@
 ---
 title: Azure Confidential Computing Overview
-description: This article presents an overview of Azure confidential computing.
+description: Learn what confidential computing is, how Azure TEEs reduce risk, and where to start.
 services: virtual-machines
 author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: overview
-ms.date: 06/09/2023
+ms.date: 06/30/2026
 ms.author: wwilliams #ananyagarg #sgallagher #michamcr
 ms.custom: inspire-july-2022
 # Customer intent: "As a data security manager, I want to implement confidential computing in my cloud infrastructure, so that I can ensure the protection of sensitive data in use and minimize the risk of unauthorized access."
@@ -17,9 +17,9 @@ Confidential computing is an industry term established by the [Confidential Comp
 
 "Confidential Computing protects data in use by performing computation in a hardware-based, attested Trusted Execution Environment.
 
-"These secure and isolated environments prevent unauthorized access or modification of applications and data while they are in use, thereby increasing the security level of organizations that manage sensitive and regulated data."
+"These secure and isolated environments prevent unauthorized access or modification of applications and data while they're in use, thereby increasing the security level of organizations that manage sensitive and regulated data."
 
-Microsoft is one of the founding members of the CCC and provides Trusted Execution Environments (TEEs) in Azure based on this CCC definition.
+Microsoft is a founding member of the CCC and provides Trusted Execution Environments (TEEs) in Azure aligned to this definition.
 
 ## Reducing the attack surface
 
@@ -27,9 +27,9 @@ Microsoft is one of the founding members of the CCC and provides Trusted Executi
 
 Azure already encrypts data at rest and in transit. Confidential computing helps to protect data in use, including protection for cryptographic keys. Azure confidential computing helps customers prevent unauthorized access to data in use, including from the cloud operator, by processing data in a hardware-based and attested TEE. When Azure confidential computing is enabled and properly configured, Microsoft can't access unencrypted customer data.
 
-The threat model aims to reduce trust or remove the ability for a cloud provider operator or other actors in the tenant's domain from accessing code and data while it's being executed. Azure uses a hardware root of trust that isn't controlled by the cloud provider, which is designed to prevent unauthorized access or modification of the environment.
+The threat model is designed to reduce required trust in operators and other privileged actors while code and data are executing. Azure uses a hardware root of trust that isn't controlled by the cloud provider to help prevent unauthorized access or modification.
 
-When confidential computing is used with data encryption at rest and in transit, it extends data protections further to protect data while confidential computing is in use. This capability is beneficial for organizations that seek further protection for sensitive data and applications hosted in cloud environments.
+When combined with encryption at rest and in transit, confidential computing completes protection across all three data states.
 
 ## Industry partnership
 
@@ -37,6 +37,6 @@ The [CCC](https://confidentialcomputing.io/) brings together hardware vendors, c
 
 ## Related content
 
-- To support your journey to confidentiality, explore [offerings](https://aka.ms/azurecc) that span infrastructure as a service (IaaS), platform as a service (PaaS), and developer tools.
-
-- To learn more about confidential computing, see [Overview of Azure confidential computing](overview-azure-products.md).
+- Start with [Azure confidential computing code samples on GitHub](https://aka.ms/accsamples).
+- Explore [Azure confidential computing offerings](https://aka.ms/azurecc) across infrastructure as a service (IaaS), platform as a service (PaaS), and developer tooling.
+- See [Azure confidential computing products](overview-azure-products.md) for product-level guidance.

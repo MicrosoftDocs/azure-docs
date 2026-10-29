@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="260" viewBox="0 0 1150 260" role="img" aria-labelledby="title desc">
+  <title id="title">Match context by timestamp</title>
+  <desc id="desc">One MQTT source subscribes to factory/speed and factory/temperature. A custom timestamp matcher holds speed 12 at 10:00:02 until a later arrival releases it, selecting temperature 20 at 10:00:01 rather than future context. Trusted periodic ticks on factory/speed release pending readings during idle periods. The result goes to factory/aligned. No built-in window is used.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1150" height="260" fill="#fff"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 245 65 H 265 V 110 H 285"/>
+    <path d="M 245 190 H 265 V 150 H 285"/>
+    <path d="M 460 130 H 500"/>
+    <path d="M 780 130 H 820"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="25" width="225" height="80" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="20" y="135" width="225" height="110" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="285" y="80" width="175" height="100" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="500" y="75" width="280" height="110" rx="10" fill="#f1eafa" stroke="#69518c"/>
+    <rect x="820" y="85" width="310" height="90" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="132" y="59"><tspan x="132" font-weight="bold">Speed: 12</tspan><tspan x="132" dy="24">10:00:02</tspan></text>
+    <text x="132" y="165"><tspan x="132" font-weight="bold">Temperatures</tspan><tspan x="132" dy="25">10:00:01 = 20</tspan><tspan x="132" dy="25">10:00:03 = 22</tspan></text>
+    <text x="372" y="112"><tspan x="372" font-weight="bold">MQTT source</tspan><tspan x="372" dy="24" font-size="13">factory/speed</tspan><tspan x="372" dy="24" font-size="13">factory/temperature</tspan></text>
+    <text x="640" y="107"><tspan x="640" font-weight="bold">CUSTOM timestamp matcher</tspan><tspan x="640" dy="26">Hold speed until ready</tspan><tspan x="640" dy="24">Select earlier temperature</tspan></text>
+    <text x="975" y="124"><tspan x="975" font-weight="bold">factory/aligned</tspan><tspan x="975" dy="25">Speed: 12; temperature: 20</tspan></text>
+    <text x="710" y="225">Trusted ticks release pending readings</text>
+  </g>
+</svg>

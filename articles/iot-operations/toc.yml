@@ -304,6 +304,29 @@ items:
               - name: Use WASM transforms
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WebAssembly, graph, transform, custom, developer, deploy
+              - name: Common use cases and patterns
+                href: connect-to-cloud/dataflow-patterns/overview-dataflow-patterns.md
+                items:
+                  - name: Add context to readings
+                    href: connect-to-cloud/dataflow-patterns/howto-add-context.md
+                  - name: Align and correlate records
+                    href: connect-to-cloud/dataflow-patterns/howto-align-correlate.md
+                  - name: Noise reduction
+                    href: connect-to-cloud/dataflow-patterns/howto-reduce-noise.md
+                  - name: Route readings by severity
+                    href: connect-to-cloud/dataflow-patterns/howto-route-by-severity.md
+                  - name: Route more than two message kinds
+                    href: connect-to-cloud/dataflow-patterns/howto-route-message-kinds.md
+                  - name: Route invalid messages to a dead-letter queue
+                    href: connect-to-cloud/dataflow-patterns/howto-route-invalid-messages.md
+                  - name: Model prediction and updates
+                    items:
+                      - name: Calculate a prediction with known coefficients
+                        href: connect-to-cloud/dataflow-patterns/howto-predict-known-coefficients.md
+                      - name: Fit and activate an approved model
+                        href: connect-to-cloud/dataflow-patterns/howto-adapt-models.md
+                      - name: Deliver approved model updates through MQTT
+                        href: connect-to-cloud/dataflow-patterns/howto-deliver-model-updates.md
           - name: Destination
             href: connect-to-cloud/howto-configure-dataflow-destination.md
             displayName: data flow, MQTT, Kafka, topic, container, table, dynamic

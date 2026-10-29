@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340" role="img" aria-labelledby="title desc">
+  <title id="title">Rate-limit telemetry with a throttle</title>
+  <desc id="desc">Source factory/readings supplies ten messages per second at processing times 0 through 900 milliseconds. A built-in throttle forwards reading-001 at 0 milliseconds and reading-006 at 500 milliseconds unchanged to factory/rate-limited. The other eight messages are dropped.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="900" height="340" fill="#fff"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 275 100 H 315"/>
+    <path d="M 585 100 H 625"/>
+    <path d="M 450 180 V 225"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="10" y="20" width="265" height="160" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="315" y="20" width="270" height="160" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="625" y="20" width="265" height="160" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="280" y="225" width="340" height="100" rx="10" fill="#fff4e5" stroke="#82551b"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="142" y="48"><tspan x="142" font-weight="bold">Source</tspan><tspan x="142" dy="26">factory/readings</tspan><tspan x="142" dy="26">10 messages/s</tspan><tspan x="142" dy="26">0, 100, ..., 900 ms</tspan><tspan x="142" dy="26">Processing time</tspan></text>
+    <text x="450" y="55"><tspan x="450" font-weight="bold">BUILT-IN Throttle</tspan><tspan x="450" dy="30">Maximum 2 messages/s</tspan><tspan x="450" dy="30">Minimum interval: 500 ms</tspan><tspan x="450" dy="30">Forward or drop</tspan></text>
+    <text x="757" y="48"><tspan x="757" font-weight="bold">Destination</tspan><tspan x="757" dy="26">factory/rate-limited</tspan><tspan x="757" dy="26">Forwarded unchanged</tspan><tspan x="757" dy="26">reading-001: 0 ms</tspan><tspan x="757" dy="26">reading-006: 500 ms</tspan></text>
+    <text x="450" y="251"><tspan x="450" font-weight="bold">8 dropped messages</tspan><tspan x="450" dy="26">reading-002 to reading-005</tspan><tspan x="450" dy="26">reading-007 to reading-010</tspan></text>
+  </g>
+</svg>

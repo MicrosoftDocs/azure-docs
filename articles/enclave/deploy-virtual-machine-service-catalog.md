@@ -5,6 +5,7 @@ description: Deploy Virtual Machine from the service catalog into a workload wit
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
+ms.service: azure-enclave
 ms.date: 6/16/2025
 ---
 
@@ -44,7 +45,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 1. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#add-workload-resource-groups).
     - After creating the User Managed Identity, ensure it has access to the CMK key
-        - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. Assigning a managed identity in this way is a least privilege best practice.
+        - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-a-role-to-the-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. Assigning a managed identity in this way is a least privilege best practice.
 1. (optional) An existing domain to join if the `Admin VM` is domain joined.
 
 ## Deploy the template

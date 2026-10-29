@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/06/2025
+ms.date: 10/27/2026
 ms.author: kendownie
 # Customer intent: As an IT administrator managing legacy storage, I want to migrate GlusterFS volumes to a supported cloud file service, so that my organization can ensure ongoing support, security updates, and optimized performance.
 ---
@@ -46,13 +46,18 @@ For a complete list of requirements and setup instructions, see [Use an Azure fi
 
 ### NFS requirements
 
-Azure Files supports NFSv4.1, but Windows doesn't include a compatible NFSv4.1 client. To use NFS shares on Windows:
+NFS Azure file shares require NFS version 4.1. The built-in Windows NFS client (Client for NFS) supports only NFS versions 2 and 3, so Windows can't mount NFS Azure file shares directly. For details, see [Network File System overview](/windows-server/storage/nfs/nfs-overview).
 
-1. Install Windows Subsystem for Linux (WSL):
-    - For Windows client: Follow the [WSL installation guide](/windows/wsl/install)
-    - For Windows Server: Follow the [WSL on Windows Server installation guide](/windows/wsl/install-on-server)
+To use NFS Azure file shares from Windows, mount them in a Linux distribution that runs in Windows Subsystem for Linux (WSL) 2. This approach lets you run Linux copy tools such as rsync and fpsync from an existing Windows or Windows Server machine, without deploying a separate Linux VM.
 
-1. Mount the NFS share from within a Linux distribution running on WSL.
+1. Install WSL and a Linux distribution, and make sure the distribution runs as WSL 2. NFS mounts need the Linux kernel that WSL 2 provides; WSL 1 doesn't run a Linux kernel.
+    - Windows client: Follow the [WSL installation guide](/windows/wsl/install).
+    - Windows Server 2022 or Windows Server 2025: Follow the [WSL on Windows Server installation guide](/windows/wsl/install-on-server).
+1. Make sure the Windows machine has network access to the file share's private endpoint or service endpoint on port 2049.
+1. In the Linux distribution, mount the share as described in [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
+
+> [!NOTE]
+> Only the WSL Linux distribution mounts the share; Windows doesn't. Run your copy tools inside the distribution. If Windows applications need to work with the data, use SMB Azure file shares.
 
 # [Linux](#tab/linux)
 
@@ -97,16 +102,10 @@ Robocopy is a built-in Windows command-line tool designed for copying SMB file s
 #### Basic Robocopy syntax for migration
 
 ```powershell
-robocopy <GlusterFS_Source> <AzureFiles_Destination> /MIR /Z /MT:8 /W:1 /R:3 /LOG:migration_log.txt
+robocopy <GlusterFS_Source> <AzureFiles_Destination> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName>
 ```
 
-**Parameters:**
-- `/MIR`: Mirrors directory structure (includes subdirectories)
-- `/Z`: Enables restart mode for interrupted copies
-- `/MT:8`: Uses 8 threads for multi-threaded copying
-- `/W:1`: Wait time between retries (1 second)
-- `/R:3`: Number of retries on failed copies
-- `/LOG`: Creates a detailed log file
+For an explanation of each switch, see [Use RoboCopy to migrate to Azure file shares](storage-files-migration-robocopy.md#use-robocopy-to-copy-files-to-azure-file-share).
 
 # [Linux](#tab/linux)
 
@@ -152,7 +151,7 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
    - Choose the right media tier (HDD or SSD) based on your needs. SSD is required for NFS file shares.
 
 1. Configure networking. See [Azure Files networking considerations](storage-files-networking-overview.md).
-   - SMB: Configure firewall and private endpoints as needed. See [Configure Azure Storage firewalls](../common/storage-network-security.md) and [Configure network endpoints for accessing Azure file shares](storage-files-networking-endpoints.md).
+   - SMB: Configure firewall and private endpoints as needed. See [Restrict access to the public endpoint to specific networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks) and [Configure network endpoints for accessing Azure file shares](storage-files-networking-endpoints.md).
    - NFS: Configure network security and private endpoints. See [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
 
 1. Create Azure file shares with appropriate protocols.
@@ -186,7 +185,7 @@ After you've mounted the Azure file share, you can perform the data migration.
 Open a command prompt or PowerShell window with administrator privileges, and run the following command:
 
 ```powershell
-robocopy X:\GlusterFSData Z:\AzureFilesData /MIR /Z /MT:8 /W:1 /R:3 /LOG:C:\migration_log.txt
+robocopy X:\GlusterFSData Z:\AzureFilesData /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:C:\migration_log.txt
 ```
 
 # [Linux](#tab/linux)

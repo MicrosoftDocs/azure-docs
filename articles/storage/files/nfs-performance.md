@@ -129,7 +129,7 @@ To achieve and measure the results outlined in this article, use the following r
 
 ### Benchmarking tools and tests
 
-These tests use Flexible I/O Tester (FIO), a free, open-source disk I/O tool that's used for both benchmarking and stress or hardware verification. To install FIO, see the Binary Packages section in the [FIO README file](https://github.com/axboe/fio#readme) and follow the instructions for the platform you choose.
+These tests use Flexible I/O Tester (FIO), a free, open-source disk I/O tool that's used for both benchmarking and stress or hardware verification. To install FIO, see the Binary Packages section in the [FIO README file](https://github.com/axboe/fio#readme) and follow the instructions for the platform you choose.
 
 While these tests focus on random I/O access patterns, you get similar results when using sequential I/O.
 

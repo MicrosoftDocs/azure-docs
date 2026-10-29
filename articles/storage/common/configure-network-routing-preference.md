@@ -6,7 +6,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 10/23/2026
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
@@ -16,18 +16,21 @@ ms.custom:
 # Customer intent: As a cloud administrator, I want to configure the network routing preferences for my storage account, so that I can optimize traffic routing based on my organization's requirements and ensure compatibility with dependent services.
 ---
 
-# Configure network routing preference for Azure Storage
+# Configure network routing preference for Azure Blob Storage and Azure Data Lake Storage
+
+:heavy_check_mark: **Applies to:** Azure Blob Storage, Azure Data Lake Storage
+
+:heavy_multiplication_x: **Doesn't apply to:** Azure Files (`Microsoft.Storage` or `Microsoft.FileShares`)
 
 This article describes how you can configure the network routing preference and route-specific endpoints for your storage account.
 
 The network routing preference specifies how network traffic is routed to your account from clients over the internet. Route-specific endpoints are new endpoints that Azure Storage creates for your storage account. These endpoints route traffic over a desired path without changing your default routing preference. To learn more, see [Network routing preference for Azure Storage](network-routing-preference.md).
 
+For Azure Files, see [Configure routing preference](../files/storage-files-networking-endpoints.md#configure-routing-preference). Storage accounts that contain Azure file shares use the same setting, but the Azure Files article describes considerations for Azure Files. If your storage account contains or will contain Azure file shares, don't change the routing preference to Internet routing. The default option, Microsoft routing, works with all Azure Files configurations.
+
 ## Configure the routing preference for the default public endpoint
 
 By default, the routing preference for the public endpoint of the storage account is set to Microsoft global network. You can choose between the Microsoft global network and Internet routing as the default routing preference for the public endpoint of your storage account. To learn more about the difference between these two types of routing, see [Network routing preference for Azure Storage](network-routing-preference.md).
-
-> [!WARNING]
-> If your storage account contains or will contain Azure file shares, don't change your routing preference to Internet routing. The default option, Microsoft routing, works with all Azure Files configurations. The Internet routing option doesn't support AD domain join scenarios or Azure File Sync.
 
 ### [Portal](#tab/azure-portal)
 
@@ -35,13 +38,13 @@ To change your routing preference to Internet routing:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Navigate to your storage account in the portal.
+2. Go to your storage account in the portal.
 
-3. Under **Security + networking**, choose **Networking**.
+3. Under **Security + networking**, select **Networking**.
 
-4. In the **Network routing** tab, under **Routing preference** setting to **Internet routing**.
+4. In the **Network routing** tab, set the **Routing preference** to **Internet routing**.
 
-5. Click **Save**.
+5. Select **Save**.
 
     > [!div class="mx-imgBorder"]
     > ![internet routing option](./media/configure-network-routing-preference/internet-routing-option.png)
@@ -54,7 +57,7 @@ To change your routing preference to Internet routing:
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. If your identity is associated with more than one subscription, set your active subscription to the subscription of the storage account that hosts your static website.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -73,7 +76,7 @@ To change your routing preference to Internet routing:
 
    Replace the `<resource-group-name>` placeholder value with the name of the resource group that contains the storage account.
 
-   Replace the `<storage-account-name>` placeholder value with the name of the storage account.
+   Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -81,13 +84,13 @@ To change your routing preference to Internet routing:
 
    - To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-   - To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+   - To sign in to your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
 
      ```azurecli
      az login
      ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. If your identity is associated with more than one subscription, set your active subscription to the subscription of the storage account that hosts your static website.
 
    ```azurecli
    az account set --subscription <subscription-id>
@@ -113,11 +116,11 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
 ### [Portal](#tab/azure-portal)
 
-1. Navigate to your storage account in the portal.
+1. Go to your storage account in the portal.
 
-2. Under **Security + networking**, choose **Networking**.
+2. Under **Security + networking**, select **Networking**.
 
-3. In the **Network routing** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**.
+3. In the **Network routing** tab, under **Publish route-specific endpoints**, choose the routing preference for your route-specific endpoint, and then select **Save**.
 
     The following image shows the **Microsoft network routing** option selected.
 
@@ -142,7 +145,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
    Replace the `<resource-group-name>` placeholder value with the name of the resource group that contains the storage account.
 
-   Replace the `<storage-account-name>` placeholder value with the name of the storage account.
+   Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -158,19 +161,19 @@ This preference affects only the route-specific endpoint. This preference doesn'
    az storage account update --name <storage-account-name> --publish-microsoft-endpoints true
    ```
 
-   Replace the `<storage-account-name>` placeholder value with the name of the storage account.
+   Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ---
 
 ## Find the endpoint name for a route-specific endpoint
 
-If you configured a route-specific endpoint, you can find the endpoint in the properties of you storage account.
+If you configured a route-specific endpoint, you can find the endpoint in the properties of your storage account.
 
 ### [Portal](#tab/azure-portal)
 
-1. Under **Settings**, choose **Endpoints**.
+1. Under **Settings**, select **Endpoints**.
 
-2. The **Microsoft network routing** endpoint is shown for each service that supports routing preferences. This image shows the endpoint for the blob and file services.
+2. The **Microsoft network routing** endpoint is shown for each service that supports routing preferences. The following image shows an example.
 
     > [!div class="mx-imgBorder"]
     > ![Microsoft network routing option for route-specific endpoints](./media/configure-network-routing-preference/routing-url.png)
@@ -186,11 +189,11 @@ If you configured a route-specific endpoint, you can find the endpoint in the pr
 
    Replace the `<resource-group-name>` placeholder value with the name of the resource group that contains the storage account.
 
-   Replace the `<storage-account-name>` placeholder value with the name of the storage account.
+   Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To print the endpoints to the console, use the [az storage account show](/cli/azure/storage/account#az-storage-account-show) property of the storage account object.
+1. To print the endpoints to the console, use the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command.
 
    ```azurecli
    az storage account show -g <resource-group-name> -n <storage-account-name>
@@ -198,7 +201,7 @@ If you configured a route-specific endpoint, you can find the endpoint in the pr
 
    Replace the `<resource-group-name>` placeholder value with the name of the resource group that contains the storage account.
 
-   Replace the `<storage-account-name>` placeholder value with the name of the storage account.
+   Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ---
 

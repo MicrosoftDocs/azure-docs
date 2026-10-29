@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/05/2026
+ms.date: 10/27/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to create an NFS volume in Azure NetApp Files, so that I can support my application’s data management requirements and ensure optimized performance through proper version selection and configuration.
 ---
@@ -26,6 +26,8 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
+* You must configure data protection for your volume.  
+   See [snapshots](snapshots-introduction.md) for very fast and space-efficient primary data protection and [backup](backup-introduction.md) to enable recovery from accidental deletion or corruption.
 * Plan your lightweight directory access protocol (LDAP) server.
     If you're using FreeIPA, OpenLDAP, or Red Hat Directory Server, you must create the server before creating the NFS volumes. For other considerations, see [Configure LDAP directory servers](configure-directory-server.md).
 

@@ -50,7 +50,7 @@ Sample output (values differ based on your deployment):
 ```json
 {
   "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
-  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "tenantId":"aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "userPrincipalName":"john.doe@contoso.com"
 }
 ```

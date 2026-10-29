@@ -1,7 +1,7 @@
 ---
 description: Walkthrough of how Azure Cloud Shell persists files.
-ms.contributor: jahelmic
-ms.date: 05/02/2024
+ms.contributor: mbifeld
+ms.date: 10/22/2026
 ms.topic: how-to
 tags: azure-resource-manager
 ms.custom:
@@ -32,6 +32,44 @@ Cloud Shell persists files through both of the following methods:
 > All files in your `$HOME` directory, such as SSH keys, are persisted in your user disk image,
 > which is stored in the mounted file share. Use best practices to secure the information in your
 > `$HOME` directory and mounted file share.
+
+## Supported storage regions
+
+Cloud Shell runs session machines in a set of primary regions. You can store persistent files in a
+storage account located in a primary region or a supported secondary region, as listed in the
+following table.
+
+Your session generally runs in the primary region associated with your storage account. If you use a
+secondary storage region or use ephemeral sessions, Cloud Shell selects the primary region nearest
+to you. Placement depends on available capacity, so a specific region isn't guaranteed.
+
+Files remain at rest in your storage account's region but are processed in the primary region where
+your session runs. For example, files stored in Canada East remain at rest in Canada but are
+processed in the United States if your session runs in a US primary region.
+
+Choose a primary region for your storage account unless you need to store your data at rest in a
+different region. Using a secondary storage region can make file access and Cloud Shell startup
+slower.
+
+To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
+`$env:ACC_LOCATION` in PowerShell.
+
+### Primary regions
+
+| Area | Regions |
+| --- | --- |
+| US | East US 2, South Central US, West Central US, West US 2 |
+| Europe | France Central, Germany West Central, Sweden Central, West Europe |
+| Asia Pacific | Australia East, Australia Southeast, Central India, East Asia, South India, Southeast Asia |
+
+### Secondary storage regions
+
+| Area | Regions |
+| --- | --- |
+| Americas | Brazil South, Canada Central, Canada East, Central US, East US, Mexico Central, North Central US, West US, West US 3 |
+| Europe | North Europe, Norway East, Spain Central, Switzerland North, UK South, UK West |
+| Asia Pacific | Australia Central, Japan East, Japan West, Jio India West, Korea Central, Korea South, West India |
+| Middle East and Africa | Qatar Central, South Africa North, UAE North |
 
 ## Securing storage access
 

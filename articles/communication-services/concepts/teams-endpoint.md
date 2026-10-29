@@ -101,7 +101,7 @@ The following table show supported use cases for Teams users with Azure Communic
 
 ## Pricing
 Teams users can join the Teams meeting experience, manage calls, and manage chats via existing Teams desktop, mobile, and web clients or Graph API without additional charge. Teams users using Azure Communication Services SDKs will pay
-[standard Azure Communication Services consumption](https://azure.microsoft.com/pricing/details/communication-services/) for audio and video. There's no additional fee for the interoperability capability itself. You can find more details on [Teams interoperability pricing here](./pricing/teams-interop-pricing.md).
+[standard Azure Communication Services consumption](https://azure.microsoft.com/pricing/details/communication-services/) for audio and video. There's no additional fee for the interoperability capability itself. If the Microsoft 365 identity authenticated through the Teams identity model is a resource account or other identity used by a shared meeting device, Microsoft Teams Rooms licensing requirements apply in addition to Azure Communication Services consumption charges. See [Microsoft Teams Rooms licenses](/microsoftteams/rooms/rooms-licensing). You can find more details on [Teams interoperability pricing here](./pricing/teams-interop-pricing.md).
 
 ## Next steps
 

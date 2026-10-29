@@ -115,11 +115,6 @@ Test your implementation by placing calls to your Azure Communication Services a
 
 This article described how to implement Azure Communication Services Calling with Azure Event Grid for push notifications. By integrating Calling with Event Grid and handling events in your native platform apps, you can notify users about incoming calls in real-time. The Azure Event Grid can enhance the user experience and improve communication within your application.
 
-## Sample
-
-The following sample works for any Native platforms (iOS, Android, Windows).
-You can find the code sample on GitHub at [Use Event Grid to deliver VOIP push to devices](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/communication/Azure.Communication.Calling.EventGrid/samples).
-
 ## Next steps
 
 - [Event handling in Azure Communication Services](../../event-grid/event-schema-communication-services.md).

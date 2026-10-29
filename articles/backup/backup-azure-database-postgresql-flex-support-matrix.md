@@ -2,7 +2,7 @@
 title: Azure Database for PostgreSQL- Flexible server vaulted backup support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
 ms.topic: reference
-ms.date: 09/25/2026
+ms.date: 10/09/2026
 ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -37,6 +37,7 @@ Consider the following support scenarios when you back up Azure Database for Pos
 - PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
 - Backups for PostgreSQL Flexible servers exclude databases owned by `azuresu` or `azure_pg_admin`, including the native PostgreSQL database. So, databases with these owners can't be backed up or restored.
 - Recommended frequency for restore operations is once a day. Multiple restore operations triggered in a day can fail.
+- Cross-tenant restore (preview) is supported in select regions. For more information, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md#region-availability).
 
 ## Limitation
 

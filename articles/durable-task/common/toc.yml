@@ -251,6 +251,10 @@ items:
         href: ../scheduler/durable-task-scheduler-customer-managed-keys.md
       - name: Private endpoints
         href: ../scheduler/durable-task-scheduler-private-endpoints.md
+    - name: Disaster recovery overview
+      href: ../scheduler/disaster-recovery.md
+    - name: Configure disaster recovery
+      href: ../scheduler/disaster-recovery-configure.md
     - name: Monitor
       items:
       - name: Monitoring dashboard
