@@ -3,7 +3,7 @@ title: "Tutorial: Create a Python Tool in Azure SRE Agent"
 description: Build an SLA calculator tool for your Azure SRE Agent using AI-generated Python code.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 Before you begin, make sure you have the following resources and permissions:
 
 - An Azure SRE Agent. For more information, see [Create an agent](create-agent.md).
-- Builder permissions on the agent.
+- **SRE Agent Author** or **Administrator** permissions on the agent.
 - Access to the [SRE Agent portal](https://sre.azure.com).
 
 ## Open the Python tool dialog
@@ -37,8 +37,7 @@ Before you begin, make sure you have the following resources and permissions:
 Go to the Agent Canvas and start creating a Python tool.
 
 1. Open the [SRE Agent portal](https://sre.azure.com) and select your agent.
-1. Select **Builder** in the left navigation.
-1. Expand **Builder** and select **Agent Canvas**.
+1. Select **Build + setup** > **Workflows** > **Agent Canvas** in the left navigation.
 1. Select **Create** > **Tool** > **Python tool**.
 
 :::image type="content" source="media/create-python-tool/python-tool-create-menu.png" alt-text="Screenshot of Create menu showing Tool and Python tool options.":::

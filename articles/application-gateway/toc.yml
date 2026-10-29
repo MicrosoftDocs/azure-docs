@@ -51,6 +51,8 @@
       href: configuration-http-settings.md
   - name: Routing
     items:
+    - name: Advanced Routing Rules
+      href: advanced-rules.md
     - name: Multi-site hosting
       href: multiple-site-overview.md
     - name: URL routing
@@ -107,6 +109,8 @@
     href: keyless-tls-overview.md
   - name: FIPS 140 support on V2
     href: fips.md
+  - name: Confidential Compute
+    href: confidential-compute-overview.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: TLS 1.0 and 1.1 retirement
@@ -115,6 +119,8 @@
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Deploy
   items:
+  - name: Advanced Routing Rules
+    href: configure-advanced-routing-rule.md
   - name: Host multiple sites
     href: create-multiple-sites-portal.md
   - name: Route by URL

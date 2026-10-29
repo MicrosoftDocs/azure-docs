@@ -3,7 +3,7 @@ title: "Tutorial: Set Up an Azure DevOps Connector in Azure SRE Agent"
 description: Connect your agent to Azure DevOps for repository access, work item management, and wiki documentation using OAuth or PAT authentication.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -37,7 +37,7 @@ In this tutorial, you:
 Open the connectors page where you can add and manage your agent's external connections.
 
 1. Open your agent in the [Azure SRE Agent portal](https://sre.azure.com).
-1. In the left sidebar, expand **Builder**.
+1. In the left sidebar, select **Build + setup**, and then expand **Extensions**.
 1. Select **Connectors**.
 
 The connectors list shows any existing connectors for your agent.

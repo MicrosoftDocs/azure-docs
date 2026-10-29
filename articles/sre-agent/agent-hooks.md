@@ -3,7 +3,7 @@ title: Agent Hooks in Azure SRE Agent
 description: Learn how to use agent hooks in Azure SRE Agent to enforce quality gates, audit tool usage, and block dangerous operations with custom scripts or LLM-based validation.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -53,7 +53,7 @@ Hooks operate at two levels:
 
 | Level | Where to configure | Scope |
 |-------|--------------------|-------|
-| **Agent level** | **Builder → Hooks** in the portal | Applies to the entire agent including all threads and all custom agents |
+| **Agent level** | **Build + setup > Extensions > Hooks** in the portal | Applies to the entire agent including all threads and all custom agents |
 | **Custom agent level** | **Agent Canvas → Custom agent → Manage Hooks**, or via the REST API v2 | Applies only when that specific custom agent runs |
 
 Both levels can coexist. If an agent-level hook and a custom-agent-level hook both match the same event, **both run**. The agent-level hooks fire first.
@@ -97,7 +97,7 @@ Hooks don't replace run mode safety controls. Instead, they complement them. Run
 
 Create hooks through the portal UI:
 
-1. **Agent-level hooks:** Go to **Builder** → **Hooks** → select **Create hook**.
+1. **Agent-level hooks:** Go to **Build + setup** > **Extensions** > **Hooks** → select **Create hook**.
 1. **Custom-agent-level hooks:** Go to **Agent Canvas** → select a custom agent → **Manage Hooks**.
 
 For step-by-step instructions, see [Create and manage hooks in the portal](create-manage-hooks-ui.md).
@@ -105,7 +105,7 @@ For step-by-step instructions, see [Create and manage hooks in the portal](creat
 > [!TIP]
 > You can also configure hooks through **REST API v2** by using `PUT /api/v2/extendedAgent/agents/{agentName}`. The YAML format in the following section shows the full configuration schema. To learn more, see the [API tutorial](tutorial-agent-hooks.md).
 >
-> The **Agent Canvas YAML** tab displays v1 format and doesn't show hooks. Use the **Hooks** page under **Builder** to view and manage hooks.
+> The **Agent Canvas YAML** tab displays v1 format and doesn't show hooks. Use **Build + setup** > **Extensions** > **Hooks** to view and manage agent-level hooks.
 
 The following example shows a complete hook configuration:
 

@@ -3,7 +3,7 @@ title: MCP connectors and tools in Azure SRE Agent
 description: Extend your agent to external systems, including observability platforms, source code, ticketing systems, and custom APIs that use the Model Context Protocol.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 07/30/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -111,7 +111,7 @@ When you create or edit an MCP connector, a tool selection step lets you choose 
 
 For focused specialists, assign MCP tools to specific [custom agents](sub-agents.md) through the portal or YAML.
 
-**Portal:** In **Builder > Agent Canvas**, edit an agent → **Advanced settings > Tools** → **Choose tools**.
+**Portal:** In **Build + setup** > **Workflows** > **Agent Canvas**, edit an agent and select **Tools** > **Choose tools**.
 
 **YAML wildcards:**
 

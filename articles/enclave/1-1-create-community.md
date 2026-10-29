@@ -48,7 +48,7 @@ Calculate the total IP space needed for all planned enclaves:
 
 - **Estimate enclave count**: Plan for current needs plus 20-30% growth
 - **Calculate required space**: Each enclave typically needs /16 to /24 CIDR
-- **Avoid overlaps**: Ensure no overlap with on-premises networks or other Azure environments. For guidance on resolving a conflict if overlap is unavoidable, see [Community network design considerations](./best-practices.md#community-network-design-considerations).
+- **Avoid overlaps**: Ensure no overlap with on-premises networks or other Azure environments
 - **Plan carefully**: Determine your required IP address space for your community and enclaves
 
 **Example calculation:**
@@ -389,8 +389,10 @@ az resource delete \
   --resource-group myResourceGroup \
   --resource-type Microsoft.Mission/communities \
   --name fabrikam \
-  --api-version 2026-04-01
+  --api-version <api-version>
 ```
+
+Use a currently supported `Microsoft.Mission` API version from the [Azure Enclave API reference](https://aka.ms/ae/api) (for example, `2026-04-01`).
 
 **What gets deleted:**
 - Community resource

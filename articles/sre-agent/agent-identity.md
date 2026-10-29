@@ -3,7 +3,7 @@ title: Agent identity in Azure SRE Agent
 description: Learn how Azure SRE Agent uses managed identities to authenticate to Azure resources and external connectors.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -79,8 +79,8 @@ You can locate your agent's user-assigned managed identity from the agent portal
 
 **From the agent portal:**
 
-1. Go to **Settings** > **Azure settings**.
-1. The identity name appears in the **Managed Identity** field.
+1. Go to **Settings** > **General** and find the **Azure settings** section.
+1. The identity name appears in the **Managed identity** field.
 1. Select **Go to Identity** to open it in the Azure portal.
 
 **From the Azure portal:**

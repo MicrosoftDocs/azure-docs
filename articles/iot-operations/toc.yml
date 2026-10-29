@@ -283,6 +283,18 @@ items:
               - name: Create a data flow graph
                 href: connect-to-cloud/howto-create-dataflow-graph.md
                 displayName: deploy, pipeline, source, destination
+              - name: Stateful processing patterns
+                items:
+                  - name: Report meaningful value changes
+                    href: connect-to-cloud/dataflow-patterns/howto-report-value-changes.md
+                  - name: Alarm hysteresis
+                    href: connect-to-cloud/dataflow-patterns/howto-stabilize-alarms.md
+                  - name: Detect offline sensors
+                    href: connect-to-cloud/dataflow-patterns/howto-detect-offline-sensors.md
+                  - name: Keep running totals
+                    href: connect-to-cloud/dataflow-patterns/howto-keep-running-totals.md
+                  - name: Reduce noise with an exponential moving average
+                    href: connect-to-cloud/dataflow-patterns/howto-smooth-each-reading.md
               - name: Transform data with map
                 href: connect-to-cloud/howto-dataflow-graphs-map.md
                 displayName: data flow, graph, rename, restructure, wildcard, copy, compute

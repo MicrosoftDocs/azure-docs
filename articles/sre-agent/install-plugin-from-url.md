@@ -3,7 +3,7 @@ title: Install a plugin from a URL in Azure SRE Agent
 description: Install a standalone plugin directly from a GitHub repo URL without registering a marketplace.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -18,18 +18,19 @@ In this article, you install a standalone plugin directly from a GitHub reposito
 
 - An Azure SRE Agent in **Running** state
 - **SRE Agent Author** or **Administrator** role on the agent (see [User roles](user-roles.md))
-- The **Plugins** page visible under **Builder** in the sidebar
+- Access to **Build + setup** > **Extensions** > **Plugins**
 - A GitHub repository containing a plugin (with `plugin.json` and a `skills/` folder)
 
-## Open the Install from URL dialog
+## Open the Install GitHub plugin dialog
 
-In the SRE Agent portal, navigate to **Builder > Plugins** and select **Install from URL** in the toolbar.
+In the SRE Agent portal, navigate to **Build + setup** > **Extensions** > **Plugins** and select **Install GitHub plugin** in the toolbar.
 
 ## Enter the repository URL
 
 1. In the **GitHub repository URL** field, enter the repo in `owner/repo` format or as a full URL (for example, `dm-chelupati/sre-agent-test-plugin`).
 1. If the plugin is in a subfolder, specify the path in the **Path in repo** field.
 1. The auth section shows your GitHub connection status. For private repos, expand **Advanced** to enter a personal access token.
+1. Review **Enable automatic updates**. Turn it off if updates must be applied explicitly.
 
 ## Install
 
@@ -40,7 +41,7 @@ Select **Install**. The agent clones the repository, reads the plugin definition
 
 ## Verify in Skill builder
 
-Close the dialog and navigate to **Builder > Skill builder**. The imported skill appears in the list, ready for use.
+Close the dialog and navigate to **Build + setup > Extensions > Skill builder**. The imported skill appears in the list, ready for use.
 
 The plugin also appears in the Plugins grid with a **Standalone** badge, indicating it was installed directly rather than from a marketplace.
 

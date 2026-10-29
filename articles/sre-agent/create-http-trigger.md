@@ -4,7 +4,7 @@ description: Set up an HTTP trigger in Azure SRE Agent that runs a compliance ch
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
-ms.date: 03/30/2026
+ms.date: 10/28/2026
 ms.topic: tutorial
 ms.service: azure-sre-agent
 ms.ai-usage: ai-assisted
@@ -38,13 +38,13 @@ Your team deploys container app revisions multiple times a day. Each deployment 
 
 ## Open HTTP triggers
 
-To open HTTP triggers, go to **Builder** > **HTTP triggers** on the service menu.
+Select **Automation** in the sidebar. To show only HTTP triggers, select the **HTTP triggers** type filter.
 
-**Checkpoint:** The page loads with summary cards (**Active triggers**: 0, **Total triggers**: 0, **Total runs**: 0) and an empty trigger list.
+**Checkpoint:** The **Automation** page shows a combined list of automations, with search, status, and type filters. If you haven't created any HTTP triggers, the filtered list is empty.
 
 ## Step 1: Create the trigger
 
-1. Select **Create trigger** on the toolbar. The **Create HTTP trigger** dialog opens.
+1. Select **Create** > **HTTP trigger** on the toolbar. The **Create HTTP trigger** form opens.
 
 1. Fill in the following fields on the form.
 
@@ -57,9 +57,9 @@ To open HTTP triggers, go to **Builder** > **HTTP triggers** on the service menu
 
 1. Leave **Response subagent** at its default unless you want a specific subagent to handle the check.
 
-1. Select **Create Trigger**.
+1. Select **Create trigger**.
 
-**Checkpoint:** The trigger appears in the list with status **On** (green badge). The summary cards update to show one active trigger.
+**Checkpoint:** The trigger appears in **Automation** with status **On** and type **HTTP trigger**.
 
 ## Step 2: Copy the trigger URL
 
@@ -82,7 +82,7 @@ To open HTTP triggers, go to **Builder** > **HTTP triggers** on the service menu
 
 1. Wait a few seconds, and then select **Update list** to refresh the execution history.
 
-**Checkpoint:** The execution history shows a new row with a timestamp, a linked thread, and success status. Select the thread link to see the agent's response.
+**Checkpoint:** The execution history shows a new row with a timestamp, a linked thread, and run status. Select the thread link to review the agent's result.
 
 The agent creates a thread titled **HTTP Trigger: Container App Compliance Check**. Inside, you see the execution card with the compliance check plan, followed by the agent's full investigation and a verdict table with compliance results.
 
@@ -152,7 +152,7 @@ Store your trigger URL as a GitHub secret (`SRE_TRIGGER_URL`). Never hardcode it
 
 If you don't need the trigger anymore, delete it:
 
-1. Go to **Builder** > **HTTP triggers**.
+1. Go to **Automation**.
 1. Select the trigger checkbox.
 1. Select **Delete**.
 

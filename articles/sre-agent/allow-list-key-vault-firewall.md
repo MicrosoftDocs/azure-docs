@@ -3,7 +3,7 @@ title: Allow List Outbound IPs for Key Vault in Azure SRE Agent
 description: Learn how to allow list your agent's outbound IP addresses in your Azure Key Vault firewall so certificate-based connectors can retrieve certificates successfully.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -22,7 +22,7 @@ In this article, you add your agent's outbound IP addresses to a Key Vault firew
 
 ## Find your agent's outbound IPs
 
-1. In the agent portal, go to **Settings > Basics**.
+1. In the agent portal, go to **Settings > General**.
 1. Find the **Outbound IP addresses** row.
 1. Select the **copy icon** next to each IP address to copy it to your clipboard.
 

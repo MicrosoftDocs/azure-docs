@@ -3,7 +3,7 @@ title: "Tutorial: Set Up Cross-Account Azure DevOps Access in Azure SRE Agent"
 description: Connect your agent to Azure DevOps repositories in a different tenant using cross-account OAuth.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 04/03/2026
+ms.date: 10/28/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -23,11 +23,11 @@ Connect your agent to an Azure DevOps organization in a different Microsoft Entr
 - **SRE Agent Administrator** or **Standard User** role on the agent
 - A browser that allows popups from `sre.azure.com`
 
-## Step 1: Open Knowledge Base settings
+## Step 1: Open Code access
 
 1. Open your agent in the [Azure SRE Agent portal](https://sre.azure.com).
-1. In the left sidebar, expand **Builder**.
-1. Select **Knowledge sources**.
+1. In the left sidebar, select **Build + setup**, and then expand **Context**.
+1. Select **Code access**, and then select the **Azure DevOps** tab.
 
 **Checkpoint:** The page displays an **Add repository** button.
 
@@ -37,19 +37,19 @@ Select **Add repository**.
 
 **Checkpoint:** You see platform cards for **GitHub** and **Azure DevOps**.
 
-## Step 3: Select Azure DevOps and choose Auth
+## Step 3: Select Azure DevOps and choose Your account
 
 1. Select the **Azure DevOps** platform card.
-1. Three authentication options appear: **Auth**, **Managed Identity**, and **PAT**.
-1. Select **Auth**.
+1. Enter the target **Organization** name on the **Connection** step.
+1. Under **Sign In Methods**, select **Your account**.
 
 | Authentication method | When to use |
 |----------------------|-------------|
-| **Auth** (OAuth) | Sign in with your Microsoft account. Best for cross-tenant access |
+| **Your account** (OAuth) | Sign in with your Microsoft account. Best for cross-tenant access |
 | **Managed Identity** | Use the agent's managed identity. Best for same-tenant, service-level access |
 | **PAT** | Provide a Personal Access Token. Use as a fallback for restricted environments |
 
-**Checkpoint:** The **Auth** radio button is selected and an **Organization** text field appears.
+**Checkpoint:** **Your account** is selected and the **Sign in to Azure DevOps** action appears.
 
 ## Step 4: Enter the organization name
 
@@ -77,11 +77,11 @@ Select **Add repository**.
 1. Choose the repositories you want to connect.
 1. Select **Save**.
 
-**Checkpoint:** The Knowledge Base settings page lists the newly connected repositories.
+**Checkpoint:** The **Code access** page lists the newly connected repositories.
 
 ## Step 7: Verify the connection
 
-1. Return to the **Knowledge sources** settings page.
+1. Return to the **Code access** page.
 1. Verify that the connected repositories appear in the list.
 1. Open your agent's chat and ask a question referencing content from the cross-tenant repositories.
 

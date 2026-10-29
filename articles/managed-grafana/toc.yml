@@ -23,7 +23,7 @@ items:
   items:
   - name: Grafana settings
     href: grafana-settings.md
-  - name: Remote MCP server
+  - name: Azure Managed Grafana Remote MCP
     href: grafana-mcp-server.md
   expanded: true
 - name: How-to guides

@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
@@ -39,8 +39,8 @@ Cost analysis shows monthly purchases in the default view. Apply the **purchase*
 
 ## Need help? Contact us.
 
-If you have savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide savings plan for compute expert support requests in English.
+If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Currently, Microsoft provides expert support for savings plans only in English.
 
 ## Next steps
 
-- To learn how to manage a reservation, see [Manage savings plans](manage-savings-plan.md).
+- To learn how to manage a savings plan, see [Manage savings plans](manage-savings-plan.md).
