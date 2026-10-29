@@ -3,7 +3,7 @@ title: Pricing and billing for Azure SRE Agent
 description: How Azure SRE Agent billing works, AAU rates, token-based metering, cost examples, and tips to manage your spending.
 ms.topic: reference
 ms.service: azure-sre-agent
-ms.date: 05/12/2026
+ms.date: 10/11/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -50,7 +50,9 @@ Number of AAUs consumed per 1 million tokens:
 
 | Model | Input | Output | Cache read | Cache write |
 |-------|-------|--------|------------|-------------|
-| Claude Opus 4.6 | 100 AAUs | 500 AAUs | 10 AAUs | 125 AAUs |
+| Claude Opus 5.5 | 80 AAUs | 400 AAUs | 4 AAUs | 100 AAUs |
+| Claude Opus 4.6 and 5 | 100 AAUs | 500 AAUs | 10 AAUs | 125 AAUs |
+| GPT-6 Sol and GPT-5.6 Terra | 40 AAUs | 200 AAUs | 4 AAUs | 50 AAUs |
 | GPT 5.3 Codex | 35 AAUs | 280 AAUs | 3.5 AAUs | 0 AAUs |
 | GPT 5.2 | 35 AAUs | 280 AAUs | 3.5 AAUs | 0 AAUs |
 
