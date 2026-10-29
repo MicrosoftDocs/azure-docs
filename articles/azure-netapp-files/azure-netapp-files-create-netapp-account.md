@@ -17,7 +17,7 @@ Creating a NetApp account enables you to set up a capacity pool so that you can 
 ## Before you begin
 
 * You must register your subscription for using the NetApp Resource Provider. For more information, see [Register the NetApp Resource Provider](azure-netapp-files-register.md).
-* There are two types of NetApp accounts. If you plan to use Elastic zone-redundant storage, you must use a [NetApp Elastic account](elastic-zone-redundant-concept.md).
+<!-- * There are two types of NetApp accounts. If you plan to use Elastic zone-redundant storage, you must use a [NetApp Elastic account](elastic-zone-redundant-concept.md). -->
 
 ## Steps
 

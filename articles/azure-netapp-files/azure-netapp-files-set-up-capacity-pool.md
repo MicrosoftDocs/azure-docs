@@ -15,12 +15,14 @@ ms.custom:
 
 Creating a capacity pool enables you to create volumes within it. 
 
+<!--
 >[!IMPORTANT]
 >For a NetApp Elastic account, see [Create an Elastic zone-redundant capacity pool](elastic-capacity-pool-task.md).
+-->
 
 ## Before you begin 
 
-* You need a [NetApp account](azure-netapp-files-create-netapp-account.md). Ensure the NetApp account is aligned to the correct [service tier](elastic-zone-redundant-concept.md).   
+* You need a [NetApp account](azure-netapp-files-create-netapp-account.md). <!--Ensure the NetApp account is aligned to the correct [service tier](elastic-zone-redundant-concept.md). -->
 * If you're using Azure CLI, ensure that you're using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 * To enable cool access, ensure you are registered to use [cool access](manage-cool-access.md).
 * If you're using PowerShell, ensure that you're using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module).

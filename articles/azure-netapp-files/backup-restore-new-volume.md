@@ -59,6 +59,8 @@ Ensure you choose the workflow for the correct service level.
 
 4. The Volumes page displays the new volume. In the Volumes page, the **Originated from** field identifies the name of the backup used to create the volume.
 
+<!-- 
+
 # [Elastic](#tab/elastic)
 
 1. In Azure NetApp Files, locate the volume that contains the backup you want to restore from. Select **Backups**. 
@@ -86,6 +88,8 @@ Ensure you choose the workflow for the correct service level.
 1. The Volumes page displays the new volume. In the Volumes page, the **Originated from** field identifies the name of the backup used to create the volume.
 
 --- 
+
+-->
 
 ## Next steps  
 
