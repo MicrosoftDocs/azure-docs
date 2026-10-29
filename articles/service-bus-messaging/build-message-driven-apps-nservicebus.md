@@ -373,7 +373,7 @@ Next, it's time to figure out where to deploy the solution in Azure.
 
 In this sample, the Sender and Receiver endpoints are configured to run as console applications. They can also be hosted in various Azure services, including Azure Functions, Azure App Service, Azure Container Apps, Azure Container Instances, Azure Kubernetes Service, and Azure Virtual Machines.
 
-For example, you can host the Receiver endpoint in an Azure Functions app (isolated worker model) by using the `NServiceBus.AzureFunctions.AzureServiceBus` NuGet package. In `Program.cs`, enable the integration by calling `AddNServiceBusFunctions`:
+For example, you can host the Receiver endpoint in an Azure Functions app (isolated worker model) by using the `NServiceBus.AzureFunctions.AzureServiceBus` NuGet package. In the Receiver `Program.cs`, enable the integration by calling `AddNServiceBusFunctions`:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker.Builder;
@@ -413,7 +413,9 @@ public partial class ReceiverEndpoint
 }
 ```
 
-In this hosting model, the endpoint uses `AzureServiceBusServerlessTransport`, and handlers are registered explicitly with `AddHandler` instead of being discovered through assembly scanning. The trigger sets `AutoCompleteMessages = false` because NServiceBus completes or abandons each message based on the outcome of its handlers.
+In this hosting model, the endpoint uses `AzureServiceBusServerlessTransport`, and handlers are registered explicitly with `AddHandler` instead of being discovered through assembly scanning.
+
+The trigger must set `AutoCompleteMessages = false` because NServiceBus completes or abandons each message based on the outcome of its handlers.
 
 For more information about using NServiceBus with Functions, see [Azure Functions hosting](https://docs.particular.net/nservicebus/hosting/azure/functions/) in the NServiceBus documentation.
 
