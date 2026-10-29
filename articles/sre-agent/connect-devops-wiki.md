@@ -3,7 +3,7 @@ title: "Tutorial: Connect an Azure DevOps Wiki to Azure SRE Agent"
 description: Connect an Azure DevOps wiki to your Azure SRE Agent so the agent can reference team runbooks and procedures during investigations.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -62,7 +62,7 @@ Go to the connectors configuration in the Azure SRE Agent portal.
 
 1. Go to [sre.azure.com](https://sre.azure.com).
 1. Select your agent.
-1. In the left sidebar, expand **Builder**.
+1. In the left sidebar, select **Build + setup**, and then expand **Extensions**.
 1. Select **Connectors**.
 
 A list of your existing connectors appears, showing their names, service types, and connection status.
@@ -120,7 +120,7 @@ Your new connector appears in the connectors list with status **Connected** (gre
 
 Test the new wiki connection by asking the agent a question that your wiki content can answer.
 
-1. Select **New chat thread** in the sidebar.
+1. Select **New chat** in the sidebar.
 1. Ask a question that your wiki content can answer.
 
 For example:

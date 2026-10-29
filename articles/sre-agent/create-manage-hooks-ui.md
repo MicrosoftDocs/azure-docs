@@ -3,7 +3,7 @@ title: "Tutorial: Create and manage hooks in Azure SRE Agent"
 description: Create governance hooks in the Azure SRE Agent portal to validate agent responses and audit tool usage with Stop and PostToolUse hooks.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -39,8 +39,8 @@ Hooks operate at two levels. Understanding this distinction is a key architectur
 
 | Level | Location in portal | Scope | Use when |
 |---|---|---|---|
-| **Agent level** | **Builder** > **Hooks** | Applies to the entire agent, all threads, and all subagents | You want agent-wide policies like "audit every tool call" or "block dangerous commands everywhere" |
-| **Subagent level** | **Subagent builder** > select subagent > **Manage Hooks** | Applies only when that specific subagent runs | You want hooks tailored to one subagent, like "validate this subagent's output format" |
+| **Agent level** | **Build + setup** > **Extensions** > **Hooks** | Applies to the entire agent, all threads, and all subagents | You want agent-wide policies like "audit every tool call" or "block dangerous commands everywhere" |
+| **Subagent level** | **Build + setup** > **Workflows** > **Agent Canvas** > select subagent > **Manage Hooks** | Applies only when that specific subagent runs | You want hooks tailored to one subagent, like "validate this subagent's output format" |
 
 > [!TIP]
 > Both levels can coexist. If an agent-level hook and a subagent-level hook both match the same event, **both run**. Agent-level hooks run first, then subagent-level hooks.
@@ -54,7 +54,7 @@ Agent-level hooks apply to the entire agent, including every thread and every su
 Follow these steps to navigate to the Hooks page.
 
 1. Go to [sre.azure.com](https://sre.azure.com) and select your agent.
-1. In the sidebar, expand **Builder**.
+1. In the sidebar, select **Build + setup**, and then expand **Extensions**.
 1. Select **Hooks**.
 
 You see the **Hooks** heading with a description, a **Create hook** button, and an empty data grid (or a list of existing hooks).
@@ -100,7 +100,7 @@ The dialog closes with a success notification. The hook appears in the data grid
 
 Follow these steps to verify the Stop hook works correctly.
 
-1. In the sidebar, select **Chat**.
+1. Return to the main navigation with **Back**, and then select **New chat**.
 1. Type **Compare the pros and cons of Python vs Go for building microservices** and select **Send**.
 1. Watch the agent's response:
     - The agent initially responds with a plain text comparison.
@@ -118,7 +118,7 @@ The final response presents the comparison as a formatted table similar to the f
 
 A PostToolUse hook fires after a tool finishes execution. Use it to audit tool usage, block dangerous commands, or add extra context.
 
-1. Go back to **Builder** > **Hooks**.
+1. Go back to **Build + setup** > **Extensions** > **Hooks**.
 1. Select **Create hook**.
 1. Fill in the form:
 
@@ -162,7 +162,7 @@ Both hooks now appear in the **Hooks** data grid.
 
 Follow these steps to verify the PostToolUse hook works correctly.
 
-1. In the sidebar, select **Chat**.
+1. Return to the main navigation with **Back**, and then select **New chat**.
 1. Ask the agent to run a safe command: **"Run echo hello"**. The hook allows this command.
 1. Ask the agent to run a dangerous command: **"Run rm -rf /tmp/test"**. The hook blocks this command.
 
@@ -185,7 +185,7 @@ You configure subagent-level hooks directly in a subagent's definition. They app
 
 Follow these steps to access hook configuration for a specific subagent.
 
-1. In the sidebar, expand **Builder** and select **Subagent builder**.
+1. In the sidebar, select **Build + setup**, expand **Workflows**, and select **Agent Canvas**.
 1. Select an existing subagent to edit it, or select **Create** to start a new one.
 1. In the subagent form, scroll down to the **Hooks** section.
 1. Select **Manage Hooks**.
@@ -214,7 +214,7 @@ The following steps add a Stop hook that ensures this subagent always responds w
 The hook appears in the **Manage Hooks** panel under the **Stop** section. The subagent form shows **Manage Hooks (1)** on the button.
 
 > [!TIP]
-> To test a subagent-level hook, go to **Subagent builder**, select the **Test playground** view, choose your subagent from the dropdown, and type a question. The hook only runs when this specific subagent is invoked.
+> To test a subagent-level hook, go to **Build + setup** > **Workflows** > **Agent Canvas**, select the **Test playground** view, choose your subagent from the dropdown, and type a question. The hook only runs when this specific subagent is invoked.
 
 ## Manage hooks per thread
 
@@ -239,7 +239,7 @@ The following table lists common problems and solutions when you create and mana
 
 | Problem | Solution |
 |---|---|
-| Hooks page not visible in sidebar | The Hooks page appears under **Builder**. Verify your agent is in **Running** state. If the option still doesn't appear, contact support. |
+| Hooks page not visible in sidebar | Open **Build + setup** > **Extensions** > **Hooks**. Verify your agent is in **Running** state. If the option still doesn't appear, contact support. |
 | "Hook name is required" | Enter a name using only letters, numbers, hyphens, and underscores. |
 | "Name must contain only letters, numbers, hyphens, and underscores" | Remove special characters from the hook name. |
 | "Hook name can't start with system__" | The `system__` prefix is reserved for system hooks. Choose a different name. |
