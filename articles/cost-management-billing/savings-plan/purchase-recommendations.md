@@ -8,7 +8,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: concept-article
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ---
 
 # Savings plan recommendations
@@ -59,7 +59,7 @@ Currently, all savings plan recommendations in the Azure portal are based on a 3
 
 Recommendations are term-specific. To view one-year or three-year recommendations at each scope level, select the corresponding term option.
 
-The highlighted recommendation is projected to result in the greatest savings. The other recommendations show how increasing or decreasing your commitment could affect your savings. They also show how much of your total eligible usage cost savings plans or reservation commitments would cover. If you increase the commitment amount, your savings might decline because you use a smaller percentage of your commitment each hour. If you lower the commitment, your savings could also decrease. In this case, although you use a greater percentage of your commitment, there are more hours in which your savings plan doesn't fully cover your usage. Usage beyond your hourly commitment is charged at the higher pay-as-you-go rates.
+The highlighted recommendation is projected to result in the greatest savings. The other recommendations show how increasing or decreasing your commitment could affect your savings. They also show the portion of your total eligible usage costs that savings plans or reservation commitments would cover. If you increase the commitment amount, your savings might decline because you use a smaller percentage of your commitment each hour. If you lower the commitment, your savings could also decrease. In this case, although you use a greater percentage of your commitment, there are more hours in which your savings plan doesn't fully cover your usage. Usage beyond your hourly commitment is charged at the higher pay-as-you-go rates.
 
 
 ## Recommendations API
