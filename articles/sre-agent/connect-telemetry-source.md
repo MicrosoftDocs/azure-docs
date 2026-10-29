@@ -3,7 +3,7 @@ title: Connect a Telemetry Source in Azure SRE Agent
 description: Learn how to connect Azure Data Explorer, Log Analytics Workspace, Application Insights, Datadog, Elasticsearch, Dynatrace, New Relic, Splunk, and Hawkeye telemetry sources to Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
-ms.date: 07/17/2026
+ms.date: 10/28/2026
 ms.topic: tutorial
 ms.service: azure-sre-agent
 ai-usage: ai-assisted
@@ -50,7 +50,7 @@ You can also add another telemetry source through a user-provided connector. Use
 
 1. Go to [sre.azure.com](https://sre.azure.com) and select your agent.
 
-1. In the left sidebar, expand **Builder**, and then select **Connectors**.
+1. In the left sidebar, select **Build + setup** > **Extensions** > **Connectors**.
 
 1. Select **Add connector**.
 

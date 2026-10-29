@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
@@ -16,7 +16,7 @@ ms.author: onwokolo
 You can view savings plan utilization percentage in the Azure portal.
 
 > [!NOTE]
-> It can take up to 48 hours for initial savings plan purchase utilization data to appear in utilization reports and to get shown in cost analysis. Afterward, you can expect usage data to appear within 2 to 24 hours.
+> It can take up to 48 hours after a savings plan purchase for initial utilization data to appear in utilization reports and cost analysis. Afterward, you can expect usage data to appear within 2 to 24 hours.
 
 ## View utilization in the Azure portal with Azure RBAC access
 
@@ -24,7 +24,7 @@ To view savings plan utilization, you must have Azure RBAC access to the savings
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Savings plans** and then select it.
-3. The list shows all the savings plans where you have the Owner or Reader role. Each savings plan shows the last known utilization percentage for both the last day and the last seven days in the list view.
+3. The list shows all savings plans for which you have the Owner or Reader role. Each savings plan shows the last known utilization percentages for the last day and the last seven days.
 4. Select the utilization percentage to see the utilization history.
 
 ## View utilization as billing administrator
@@ -37,7 +37,7 @@ An Enterprise Agreement (EA) administrator or a Microsoft Customer Agreement (MC
 
 ## Get Savings plan utilization with the API
 
-You can get the [Savings plan utilization](https://go.microsoft.com/fwlink/?linkid=2209373) using the Benefit Utilization Summary API.
+You can get [savings plan utilization data](https://go.microsoft.com/fwlink/?linkid=2209373) by using the Benefit Utilization Summary API.
 
 ## Next steps
 

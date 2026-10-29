@@ -3,7 +3,7 @@ title: Connect a Notification Service in Azure SRE Agent
 description: Learn how to connect Office 365 Outlook, Microsoft Teams, Google Gmail, and Yammer/Viva Engage to Azure SRE Agent so your agent can send incident updates with approval.
 author: craigshoemaker
 ms.author: cshoe
-ms.date: 07/17/2026
+ms.date: 10/28/2026
 ms.topic: tutorial
 ms.service: azure-sre-agent
 ai-usage: ai-assisted
@@ -43,7 +43,7 @@ These notification connectors use a single sign-in. Messages come from the accou
 
 1. Go to [sre.azure.com](https://sre.azure.com) and select your agent.
 
-1. In the left sidebar, expand **Builder**, and then select **Connectors**.
+1. In the left sidebar, select **Build + setup** > **Extensions** > **Connectors**.
 
 1. Select **Add connector**.
 

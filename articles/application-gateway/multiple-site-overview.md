@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
-ms.date: 08/18/2026
+ms.date: 09/02/2026
 ms.author: mbender
 ms.topic: concept-article
 # Customer intent: "As a cloud architect, I want to configure multi-site hosting on an application gateway, so that I can efficiently manage traffic for multiple web applications using a single gateway and optimize resource allocation."
@@ -12,18 +12,18 @@ ms.topic: concept-article
 
 # Application Gateway multi-site hosting
 
-Multi-site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
+By using multi-site hosting, you can configure more than one web application on the same port of application gateways by using public-facing listeners. You can add more than 100 websites to one application gateway. You can direct each website to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You create three multi-site listeners and configure each listener for the respective port and protocol setting.
 
-You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener).
+You can also define wildcard host names in a multi-site listener and up to five host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener).
 
-:::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Multi-site Application Gateway":::
-
-> [!IMPORTANT]
-> Rules are processed in the order they are listed in the portal for the v1 SKU. For v2 SKU use [rule priority](#request-routing-rules-evaluation-order) to specify the processing order. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This ensures that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
+:::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Screenshot of multi-site Application Gateway routing for Contoso and Fabrikam backend server pools.":::
 
 Requests for `http://contoso.com` are routed to ContosoServerPool, and `http://fabrikam.com` are routed to FabrikamServerPool.
 
-Similarly, you can host multiple subdomains of the same parent domain on the same application gateway deployment. For example, you can  host `http://blog.contoso.com` and `http://app.contoso.com` on a single application gateway deployment.
+Similarly, you can host multiple subdomains of the same parent domain on the same application gateway deployment. For example, you can host `http://blog.contoso.com` and `http://app.contoso.com` on a single application gateway deployment.
+
+> [!NOTE]
+> Advanced routing rules aren't supported for multi-site listeners.
 
 ## Request Routing rules evaluation order
 
@@ -38,7 +38,8 @@ The priority field only impacts the order of evaluation of a request routing rul
 > To use rule priority, you must specify rule priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created must have a rule priority field value as part of its configuration. 
 
 > [!IMPORTANT]
->  Starting with API version 2021-08-01, the rule priority field is a mandatory field in the request routing rules. Rule priority field values for existing request routing rules, based on current ordering of evaluation as part of the first PUT call, are automatically populated if any configuration updates are applied using API version 2021-08-01 and above, portal, Azure PowerShell and Azure CLI. Future updates to request routing rules must have the rule priority field provided as part of the configuration.
+> * Starting with API version 2021-08-01, the rule priority field is a mandatory field in the request routing rules. Rule priority field values for existing request routing rules, based on current ordering of evaluation as part of the first PUT call, are automatically populated if any configuration updates are applied using API version 2021-08-01 and above, portal, Azure PowerShell and Azure CLI. Future updates to request routing rules must have the rule priority field provided as part of the configuration.
+> * Rules are processed in the order they are listed in the portal for the v1 SKU. For v2 SKU use rule priority to specify the processing order. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This ensures that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
 
 ## Wildcard host names in listener
 
@@ -46,9 +47,9 @@ Application Gateway allows host-based routing using multi-site HTTP(S) listener.
 
 Using a wildcard character in the host name, you can match multiple host names in a single listener. For example, `*.contoso.com` can match with `ecom.contoso.com`, `b2b.contoso.com` and `customer1.b2b.contoso.com` and so on. Using an array of host names, you can configure more than one host name for a listener, to route requests to a backend pool. For example, a listener can contain `contoso.com, fabrikam.com` which accepts requests for both the host names.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Wildcard Listener":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Screenshot of a wildcard listener routing multiple host names to a backend pool.":::
 
->[!NOTE]
+> [!NOTE]
 > This feature is available only for Standard_v2 and WAF_v2 SKU of Application Gateway.
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com","*.fabrikam.com"`.
@@ -57,7 +58,7 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 
 In the Azure portal, under the multi-site listener, you must choose the **Multiple/Wildcard** host type to mention up to five host names with allowed wildcard characters.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Wildcard Listener UI":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Screenshot of the wildcard listener configuration interface in the Azure portal.":::
 
 ### Allowed characters in the host names field
 
@@ -103,9 +104,9 @@ The multi-site feature is also available for Layer4 proxy, but only for its TLS 
 
 There are three common mechanisms for enabling multi-site hosting on the same infrastructure.
 
-1. Host multiple web applications each on a unique IP address.
-2. Use host name to host multiple web applications on the same IP address.
-3. Use different ports to host multiple web applications on the same IP address.
+* Host multiple web applications each on a unique IP address.
+* Use host name to host multiple web applications on the same IP address.
+* Use different ports to host multiple web applications on the same IP address.
 
 Currently Application Gateway supports a single public IP address where it listens for traffic. So multiple applications, each with its own IP address is currently not supported.
 

@@ -3,7 +3,7 @@ title: Azure VMware Solution Generation 2 private cloud design considerations
 description: Learn about Azure VMware Solution Generation 2 private cloud design considerations.
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 05/11/2026
+ms.date: 10/29/2026
 ms.custom:
   - build-2025
 # Customer intent: As a cloud administrator, I want to understand the design considerations for Azure VMware Solution Generation 2 private clouds so that I can effectively plan and implement my private cloud deployment while ensuring compliance with current limitations and requirements.
@@ -27,7 +27,6 @@ The following functionality is limited during this time. These limitations will 
 - You can't ***move*** your private cloud from one Resource Group to another after the private cloud is created.  
 - You can't ***move*** your private cloud from one tenant to another after the private cloud is created.  
 - If you require **ExpressRoute FastPath** or **Global Virtual Network Peering** for your AVS Private Cloud, create a Support Case through the Azure portal. 
-- **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.
 - **Private Endpoints when globally peered** across regions connected to Azure VMware Solution isn't supported.
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.  
 - **vSAN Stretched Clusters** isn't supported.
