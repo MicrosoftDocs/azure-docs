@@ -5,27 +5,32 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 04/25/2023
+ms.date: 08/20/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure request routing rules for an application gateway, so that I can effectively manage and direct client traffic to appropriate backend pools based on URL patterns and optimize application performance.
 ---
 
 # Application Gateway request routing rules
 
-When you create an application gateway using the Azure portal, you create a default rule (*rule1*). This rule binds the default listener (*appGatewayHttpListener*) with the default backend pool (*appGatewayBackendPool*) and the default backend HTTP settings (*appGatewayBackendHttpSettings*). After you create the  gateway, you can edit the settings of the default rule or create new rules.
+Azure Application Gateway routing rules define how incoming traffic is matched and sent to the right backend. For HTTP/HTTPS protocols, they can route all requests to one backend or use URL paths to direct traffic to different backend pools. A rule binds the frontend Listener, a Backend Setting and a Backend Pool.
 
 ## Rule type
 
-When you create a rule, you choose between [*basic* and *path-based*](./application-gateway-components.md#request-routing-rules).
+When you create a rule, you choose between Basic, Advanced and Path-based.
 
-- Choose basic if you want to forward all requests on the associated listener (for example, *blog<i></i>.contoso.com/\*)* to a single backend pool.
-- Choose path-based if you want to route requests from specific URL paths to specific backend pools. The path pattern is applied only to the path of the URL, not to its query parameters.
+- Choose Basic if you want to forward all requests on the associated listener (for example, *blog<i></i>.contoso.com/\*)* to a single backend pool.
+- Choose Advanced if you want routing decisions based on the HTTP request attributes.
+- Choose Path-based if you want to route requests from specific URL paths to specific backend pools. The path pattern is applied only to the path of the URL, not to its query parameters.
+
+:::image type="complex" source="./media/advanced-rules/rules-workflow.png" lightbox="./media/advanced-rules/rules-workflow.png" alt-text="Diagram of Application Gateway listeners, routing rules, backend pools, backend settings, and traffic manipulation features.":::
+The diagram shows how Application Gateway listeners connect to routing rules, which evaluate incoming requests and direct them to backend pools. Rules also use backend settings and can interact with optional traffic or content manipulation features. Basic, path-based, and advanced rules provide increasingly flexible ways to route requests. The colors distinguish new, existing, and existing optional functionality.
+:::image-end:::
+
+[!INCLUDE [preview-advanced-routing-rules](../networking/includes/azure-application-gateway/preview-advanced-routing-rules.md)]
 
 ### Order of processing rules
 
-For the v1 and v2 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
-
-If you have multiple listeners, it's even more important that rules are processed in the correct order so that client traffic is received by the correct listener. For more information about rules evaluation order, see [Request Routing rules evaluation order](multiple-site-overview.md#request-routing-rules-evaluation-order).
+The ordering of rules can be established by providing a Priority value to the request routing rules. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. If incoming client traffic matches with multiple listeners, the request routing rule with highest priority is used to serve the request. Each request routing rule must have a unique priority value. For more information about rules evaluation order, see [Request Routing rules evaluation order](multiple-site-overview.md#request-routing-rules-evaluation-order).
 
 ## Associated listener
 
@@ -65,7 +70,7 @@ Choose another listener or an external site as the redirection target.
 
 Choose listener as the redirection target to redirect traffic from one listener to another on the gateway. This setting is required when you want to enable HTTP-to-HTTPS redirection. It redirects traffic from the source listener that checks for incoming HTTP requests to the destination listener that checks for incoming HTTPS requests. You can also choose to include the query string and path from the original request in the request that's forwarded to the redirection target.
 
-![Application Gateway components dialog box](./media/configuration-overview/configure-redirection.png)
+:::image type="content" source="./media/configuration-overview/configure-redirection.png" alt-text="Screenshot of the Application Gateway redirection configuration settings.":::
 
 For more information about HTTP-to-HTTPS redirection, see:
 - [HTTP-to-HTTPS redirection by using the Azure portal](redirect-http-to-https-portal.md)
