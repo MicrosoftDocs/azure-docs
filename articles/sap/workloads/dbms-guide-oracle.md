@@ -321,7 +321,7 @@ Run an Oracle Automatic Workload Repository (AWR) report as the first step when 
 
 You can monitor disk performance from inside Oracle Enterprise Manager and via external tools. For more information, see:
 
-- [Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/dynamic-performance-views.html)
+- [Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/26/ostmg/views-asm-info.html)
 - [ASMCMD Disk Group Management Commands (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
 
 OS-level monitoring tools can't monitor ASM disks because there's no recognizable file system. You must monitor free space from within Oracle.
