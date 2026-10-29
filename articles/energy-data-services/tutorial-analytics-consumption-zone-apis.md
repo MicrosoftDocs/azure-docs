@@ -3,7 +3,7 @@ title: 'Tutorial: Use Analytics Consumption Zone APIs in Azure Data Manager for 
 description: Learn how to use the Analytics Consumption Zone APIs to create, list, get details of, and delete Analytics Consumption Zone instances in Azure Data Manager for Energy.
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
-ms.date: 05/17/2026
+ms.date: 10/29/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -147,7 +147,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 | `{acz-name}` | Display name for the ACZ instance (1-100 characters, for example, `my-acz-wells-and-logs`). |
 | `{acz-type}` | Optional: `LATEST_VERSION` (default) exports only the latest version, and `ALL_VERSIONS` exports all versions. |
 | `{storage-resource-id}` | Azure resource ID of the destination Data Lake Storage Gen2 storage account (for example, `/subscriptions/xxx.../storageAccounts/mystorageacct`). |
-| `{base-path}` | Optional: Base path within the storage account for ACZ data output (for example, `acz-output`). |
+| `{base-path}` | Optional: Storage location for ACZ output (for example, `acz-output` or `acz-output/workbench`). The first segment is the container name; ACZ creates the container if it doesn't exist. Any remaining segments are folders. ACZ writes data to `<basePath>/<aczId>/`. If you omit `basePath`, ACZ creates a container named after the `aczId` and writes data to `<aczId>/<aczId>/`. If you use the Swagger UI, replace the placeholder value `string`; otherwise, ACZ creates a container named `string`. |
 | `allCatalogSync` | Optional (default: `false`). When set to `true`, exports all catalog kinds from the partition. Specified *outside* the `configuration` section. When `true`, `catalogKinds` and `wellboreDDMSKinds` in configuration are ignored for catalog data. |
 | `{catalog-kinds}` | Optional: OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). Ignored if `allCatalogSync` is `true`. |
 | `{wellbore-ddms-kinds}` | Optional: Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). File downloads occur only for kinds listed here. |
@@ -186,9 +186,11 @@ You must provide at least one of the following options:
     ]
   },
   "historicalSnapshotStatus": "PROCESSING",
+  "maintenance": [],
   "createdTs": "2026-03-31T10:00:00Z",
   "updatedTs": "2026-03-31T10:00:00Z",
-  "createdBy": "user@contoso.com"
+  "createdBy": "user@contoso.com",
+  "catalogSchemaVersion": 2
 }
 ```
 
@@ -271,9 +273,11 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Get -Headers
         ]
       },
       "historicalSnapshotStatus": "PROCESSING",
+      "maintenance": [],
       "createdTs": "2026-03-31T10:00:00Z",
       "updatedTs": "2026-03-31T10:00:00Z",
-      "createdBy": "user@contoso.com"
+      "createdBy": "user@contoso.com",
+      "catalogSchemaVersion": 2
     },
     {
       "aczId": "acz-xyz789ghi012",
@@ -293,9 +297,24 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Get -Headers
         ]
       },
       "historicalSnapshotStatus": "COMPLETED",
+      "maintenance": [
+        {
+          "activity": "OPTIMIZE_Z_ORDER",
+          "status": "SUCCEEDED",
+          "lastAttemptTs": "2026-04-01T03:00:00Z",
+          "lastSuccessfulTs": "2026-04-01T03:00:12Z"
+        },
+        {
+          "activity": "VACUUM",
+          "status": "SUCCEEDED",
+          "lastAttemptTs": "2026-04-01T03:00:12Z",
+          "lastSuccessfulTs": "2026-04-01T03:00:13Z"
+        }
+      ],
       "createdTs": "2026-03-31T09:00:00Z",
       "updatedTs": "2026-03-31T09:45:00Z",
-      "createdBy": "user@contoso.com"
+      "createdBy": "user@contoso.com",
+      "catalogSchemaVersion": 2
     }
   ],
   "count": 2
@@ -384,13 +403,33 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs/{acz-id}" -Method Get
     ]
   },
   "historicalSnapshotStatus": "COMPLETED",
+  "maintenance": [
+    {
+      "activity": "OPTIMIZE_Z_ORDER",
+      "status": "SUCCEEDED",
+      "lastAttemptTs": "2026-04-01T03:00:00Z",
+      "lastSuccessfulTs": "2026-04-01T03:00:12Z"
+    },
+    {
+      "activity": "VACUUM",
+      "status": "SUCCEEDED",
+      "lastAttemptTs": "2026-04-01T03:00:12Z",
+      "lastSuccessfulTs": "2026-04-01T03:00:13Z"
+    }
+  ],
   "createdTs": "2026-03-31T10:00:00Z",
   "updatedTs": "2026-03-31T10:30:00Z",
-  "createdBy": "user@contoso.com"
+  "createdBy": "user@contoso.com",
+  "catalogSchemaVersion": 2
 }
 ```
 
 To track ACZ provisioning, check the `status` and `historicalSnapshotStatus` fields.
+
+The response also includes:
+
+- `catalogSchemaVersion`: The schema version of the `osducatalog` table. New ACZ instances use version 2, which adds the `modifyUser` and `modifyTime` columns. For details, see [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md).
+- `maintenance`: The status of the Delta table maintenance activities that ACZ runs (`OPTIMIZE_Z_ORDER` and `VACUUM`), including the last attempt time and the last successful run time. The array is empty until the first maintenance run.
 
 ## Delete an ACZ instance
 

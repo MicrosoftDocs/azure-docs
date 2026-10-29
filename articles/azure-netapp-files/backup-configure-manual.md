@@ -15,7 +15,7 @@ Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manua
 
 This article shows you how to configure manual backups. For policy-based backup configuration, see [Configure policy-based backups](backup-configure-policy-based.md).  
 
-[!INCLUDE [Elastic backup preview](includes/elastic-backup-preview.md)]
+<!-- [!INCLUDE [Elastic backup preview](includes/elastic-backup-preview.md)] -->
 
 ## About manual backups  
 

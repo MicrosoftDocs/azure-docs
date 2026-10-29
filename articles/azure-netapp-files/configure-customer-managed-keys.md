@@ -34,8 +34,10 @@ The cross-tenant customer-managed keys feature is available in all Azure NetApp 
 
 ## Considerations
 
+<!--
+
 >[!IMPORTANT]  
-> To configure customer-managed keys for Elastic zone-redundant storage, see [Configure customer managed keys for Elastic zone-redundant storage](elastic-customer-managed-keys.md).
+> To configure customer-managed keys for Elastic zone-redundant storage, see [Configure customer managed keys for Elastic zone-redundant storage](elastic-customer-managed-keys.md). -->
 
 [!INCLUDE [Customer-managed keys considerations](includes/customer-managed-keys-considerations.md)]
 

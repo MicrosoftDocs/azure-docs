@@ -114,8 +114,10 @@ The Hide snapshot path option controls whether the snapshot path of a volume is 
 > [!NOTE]
 > For a [destination volume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) in cross-region replication, the Hide snapshot path option is disabled by default. The setting isn't modifiable. 
 
+<!-- 
 >[!NOTE]
 >For Elastic service level volumes, you need to remount the volume after modifying this setting. 
+-->
 
 ### Settings
 
