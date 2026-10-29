@@ -1,23 +1,26 @@
 ---
-title: Extended Security Updates for SQL Server and Windows Server
+title: Extended Security Updates for SQL Server and Windows Server 2012/2012 R2
 description: Learn how to configure VMs that run older versions of SQL Server and Windows Server for free Extended Security Updates (ESUs) in Azure VMware Solution.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-vmware
 ms.topic: how-to  
-ms.date: 03/11/2026
+ms.date: 10/30/2026
 # Customer intent: As an IT admin managing legacy applications in Azure VMware Solution, I want to configure my SQL Server and Windows Server VMs for no-cost Extended Security Updates, so that I can ensure they remain secure and compliant despite their end-of-support status.
 ---
 
-# ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
+# ESUs for SQL Server and Windows Server 2012/2012 R2 in Azure VMware Solution VMs
+
+> [!NOTE]
+> This article applies only to Windows Server 2012/2012 R2. 
 
 This article describes how to enable Extended Security Updates (ESUs) and continue to run software that reached its end-of-support lifecycle in Azure VMware Solution. ESUs allow older versions of software to run in a supported manner by continuing to receive security updates and critical patches. In Azure, which includes Azure VMware Solution, ESUs are free of charge for extra years after their end of support. For more information on timelines, see [Extended Security Updates for SQL Server and Windows Server](https://www.microsoft.com/windows-server/extended-security-updates).
 
-The following sections describe how to configure SQL Server and Windows Server virtual machines (VMs) for no-cost ESUs in Azure VMware Solution. The process is distinct to the Azure VMware Solution private cloud architecture.
+The following sections describe how to configure SQL Server and Windows Server 2012/2012 R2 virtual machines (VMs) for no-cost ESUs in Azure VMware Solution. The process is distinct to the Azure VMware Solution private cloud architecture.
 
-## Configure SQL Server and Windows Server for ESUs in Azure VMware Solution
+## Configure SQL Server and Windows Server 2012/2012 R2 for ESUs in Azure VMware Solution
 
-In this section, you learn how to configure the VMs that run SQL Server and Windows Server for ESUs at no cost in Azure VMware Solution.
+In this section, you learn how to configure the VMs that run SQL Server and Windows Server 2012/2012 R2 for ESUs at no cost in Azure VMware Solution.
 
 ### SQL Server
 
@@ -25,9 +28,9 @@ For SQL Server environments that run in a VM in Azure VMware Solution, you can u
 
 First, you need to Azure Arc-enable VMware vSphere for Azure VMware Solution. The Azure Extension for SQL Server must be installed on the VM.
 
-1. Azure Arc-enable the VMware vSphere in Azure VMware Solution. Follow the steps in [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution private cloud](deploy-arc-for-azure-vmware-solution.md?tabs=windows).
+1. Azure Arc-enable the VMware vSphere in Azure VMware Solution. Follow the steps in [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution private cloud](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution).
 
-1. Enable guest management for the individual VMs that run SQL Server. Make sure the Azure Extension for SQL Server is installed. To confirm that the extension is installed, see the section [View ESU subscription status](#view-esu-subscription-status).
+1. Enable guest management for the individual VMs that run SQL Server. Ensure the Azure Extension for SQL Server is installed. To confirm that the extension is installed, see the section [View ESU subscription status](#view-esu-subscription-status).
 
 > [!WARNING]
 > If you register SQL Server instances in a different manner from the preceding steps, the VM isn't registered as part of Azure VMware Solution. In that case, you're billed for ESUs.
@@ -55,9 +58,9 @@ For machines that run SQL Server where guest management is enabled, the Azure Ex
 
   - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](/sql/sql-server/azure-arc/manage-configuration?tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
     
-### Windows Server
+### Windows Server 2012/2012 R2
 
-To enable ESUs for Windows Server environments that run in VMs in Azure VMware Solution, follow these steps
+To enable ESUs for Windows Server 2012/2012 R2 environments that run in VMs in Azure VMware Solution, follow these steps:
 
 1. Contact [Microsoft Support](https://portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) in the Azure portal for configuration assistance. 
 
@@ -66,7 +69,7 @@ To enable ESUs for Windows Server environments that run in VMs in Azure VMware S
    - Select **Issue type** as **Technical**.
    - Select your subscription name.
    - Select **Service type** as **Azure VMware Solution** service.
-   - Provide a brief summary of the request, such as "ESU request"
+   - Provide a brief summary of the request, such as "ESU request".
    - Select **Problem type** as **Security**.
    - Select **Problem subtype** as **Extended Security Update for Windows**.
    - Select **Next**.
@@ -80,7 +83,7 @@ To enable ESUs for Windows Server environments that run in VMs in Azure VMware S
    - ESU year of coverage (for example, Year 1, Year 2, or Year 3). See [ESU Availability and End Dates](/lifecycle/faq/extended-security-updates?msclkid=65927660d02011ecb3792e8849989799#esu-availability-and-end-dates) for ESU End Date and Year. The support ticket provides you with ESU keys for one year. You need to create a new support request for upcoming years. The recommendation is to create a new request before your current ESU End Date Year date approaches.
 
 > [!WARNING]
-> If you create ESU licenses for Windows through Azure Arc, you're charged for the ESUs.
+> If you create ESU licenses for Windows through Azure Arc, you pay for the ESUs.
 
 ## Related content
 
