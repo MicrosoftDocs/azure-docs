@@ -4,7 +4,7 @@ description: "Learn about the portable Durable Task SDKs for .NET, Python, Java,
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf
-ms.date: 10/12/2026
+ms.date: 10/28/2026
 ai-usage: ai-assisted
 ms.topic: get-started
 ms.service: durable-task
@@ -64,16 +64,18 @@ The Python SDK works with any Python 3.9+ hosting. It supports generator-based o
 <dependency>
     <groupId>com.microsoft</groupId>
     <artifactId>durabletask-client</artifactId>
-    <version>1.9.0</version>
+    <version>1.10.0</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft</groupId>
     <artifactId>durabletask-azure-managed</artifactId>
-    <version>1.9.0</version>
+    <version>1.10.0</version>
 </dependency>
 ```
 
 The Java SDK works with any Java 8+ hosting, including Spring Boot applications.
+
+Starting with version 1.10.0, the standalone Java SDK also supports [large payloads](../scheduler/durable-task-scheduler-large-payloads.md) through `durabletask-azure-blob-payloads` and [orchestration history export (preview)](../scheduler/durable-task-scheduler-export-history.md#use-export-history-with-java) through `durabletask-exporthistory`. The export history package released with this SDK version is `1.10.0-preview.1`.
 
 # [JavaScript](#tab/javascript)
 
