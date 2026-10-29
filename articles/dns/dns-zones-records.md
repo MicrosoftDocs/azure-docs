@@ -58,6 +58,8 @@ CAA records allow domain owners to specify which Certificate Authorities (CAs) a
 
 ### CNAME records
 
+CNAME records are used to make one DNS name an alias of another DNS name. The alias points to a target hostname, and DNS resolution follows that hostname to determine the final IP address.
+
 CNAME record sets can't coexist with other record sets with the same name. For example, you can't create a CNAME record set with the relative name `www` and an A record with the relative name `www` at the same time.
 
 Since the zone apex (name = '\@') contains the NS and SOA record sets during the creation of the zone, you can't create a CNAME record set at the zone apex.
