@@ -237,19 +237,9 @@ For an end-to-end Python example, see the [Durable Task SDK large payload Python
 
 # [Java](#tab/java)
 
-Starting with Java SDK version 1.10.0, add the Azure Blob payload extension alongside the client and Azure Managed packages:
+For Java SDK version 1.10.0 or later, add the Azure Blob payload extension alongside the client and Azure Managed packages:
 
 ```xml
-<dependency>
-    <groupId>com.microsoft</groupId>
-    <artifactId>durabletask-client</artifactId>
-    <version>1.10.0</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft</groupId>
-    <artifactId>durabletask-azure-managed</artifactId>
-    <version>1.10.0</version>
-</dependency>
 <dependency>
     <groupId>com.microsoft</groupId>
     <artifactId>durabletask-azure-blob-payloads</artifactId>
@@ -257,20 +247,9 @@ Starting with Java SDK version 1.10.0, add the Azure Blob payload extension alon
 </dependency>
 ```
 
-Create a `BlobPayloadStore`, choose a threshold, and enable externalized payloads on both the client and worker builders:
+Create a `BlobPayloadStore` and enable externalized payloads on your client and worker builders:
 
 ```java
-import com.microsoft.durabletask.DurableTaskGrpcClientBuilder;
-import com.microsoft.durabletask.DurableTaskGrpcWorkerBuilder;
-import com.microsoft.durabletask.azureblobpayloads.BlobPayloadStore;
-import com.microsoft.durabletask.azureblobpayloads.LargePayloadClientExtensions;
-import com.microsoft.durabletask.azureblobpayloads.LargePayloadStorageOptions;
-import com.microsoft.durabletask.azureblobpayloads.LargePayloadWorkerExtensions;
-import com.microsoft.durabletask.azureblobpayloads.PayloadStore;
-import com.microsoft.durabletask.azuremanaged.DurableTaskSchedulerClientExtensions;
-import com.microsoft.durabletask.azuremanaged.DurableTaskSchedulerWorkerExtensions;
-
-String schedulerConnectionString = System.getenv("DURABLE_TASK_SCHEDULER_CONNECTION_STRING");
 LargePayloadStorageOptions payloadOptions = new LargePayloadStorageOptions()
     .setConnectionString(System.getenv("PAYLOAD_STORAGE_CONNECTION_STRING"))
     .setContainerName("durabletask-payloads")
@@ -278,25 +257,17 @@ LargePayloadStorageOptions payloadOptions = new LargePayloadStorageOptions()
 
 PayloadStore payloadStore = new BlobPayloadStore(payloadOptions);
 
-DurableTaskGrpcClientBuilder clientBuilder = new DurableTaskGrpcClientBuilder();
-DurableTaskSchedulerClientExtensions.useDurableTaskScheduler(clientBuilder, schedulerConnectionString);
 LargePayloadClientExtensions.useExternalizedPayloads(clientBuilder, payloadStore, payloadOptions);
-
-DurableTaskGrpcWorkerBuilder workerBuilder = new DurableTaskGrpcWorkerBuilder();
-DurableTaskSchedulerWorkerExtensions.useDurableTaskScheduler(workerBuilder, schedulerConnectionString);
 LargePayloadWorkerExtensions.useExternalizedPayloads(workerBuilder, payloadStore, payloadOptions);
 ```
 
-Configure the same payload storage location on every client and worker that exchanges externalized payloads. Register your orchestrations and activities, then build the client and worker and start the worker as usual. Your orchestration and activity code receives resolved values, not blob references.
+These types are in `com.microsoft.durabletask.azureblobpayloads`. Configure the same storage location on all clients and workers that exchange externalized payloads.
 
-The default threshold is `262,144` bytes (256 KiB), and the maximum configurable threshold is `1,048,576` bytes (1 MiB). The default maximum externalized payload size is 10 MiB. Payloads are gzip-compressed by default, and the storage container is created automatically on the first upload.
+The default threshold is `262,144` bytes (256 KiB), with a maximum of `1,048,576` bytes (1 MiB). The default maximum externalized payload size is 10 MiB.
 
-For Microsoft Entra ID authentication, add `com.azure:azure-identity` and use `setAccountUri(URI.create("https://<account>.blob.core.windows.net"))` and `setCredential(new DefaultAzureCredentialBuilder().build())` instead of `setConnectionString`. Import `java.net.URI` and `com.azure.identity.DefaultAzureCredentialBuilder`.
+For Microsoft Entra ID authentication, add `com.azure:azure-identity` and use `setAccountUri` and `setCredential` instead of `setConnectionString`.
 
 For an end-to-end example using the Durable Task Scheduler emulator and Azurite, see the [Java SDK large payload sample](https://github.com/microsoft/durabletask-java/blob/v1.10.0/samples/src/main/java/io/durabletask/samples/LargePayloadSample.java).
-
-> [!NOTE]
-> This feature applies to the standalone Java Durable Task SDK, not Durable Functions Java apps.
 
 ---
 
@@ -387,8 +358,6 @@ The Python sample sets `threshold_bytes` in code with `BlobPayloadStoreOptions`.
 | `PAYLOAD_STORAGE_CONNECTION_STRING` | Blob storage connection string for externalized payloads | `UseDevelopmentStorage=true` |
 | `PAYLOAD_SIZE_BYTES` | Payload size used for the round trip | `1572864` |
 | `EXTERNALIZE_THRESHOLD_BYTES` | Blob offload threshold used by the sample | `900000` |
-
-The Java sample overrides the SDK's default threshold of `262,144` bytes with `900,000` bytes.
 
 ---
 

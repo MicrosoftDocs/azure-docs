@@ -75,7 +75,7 @@ The Python SDK works with any Python 3.9+ hosting. It supports generator-based o
 
 The Java SDK works with any Java 8+ hosting, including Spring Boot applications.
 
-Starting with version 1.10.0, the standalone Java SDK also supports [large payloads](../scheduler/durable-task-scheduler-large-payloads.md) through `durabletask-azure-blob-payloads` and [orchestration history export (preview)](../scheduler/durable-task-scheduler-export-history.md#use-export-history-with-java) through `durabletask-exporthistory`. The export history package released with this SDK version is `1.10.0-preview.1`.
+Version 1.10.0 adds support for [large payloads](../scheduler/durable-task-scheduler-large-payloads.md) and [orchestration history export (preview)](../scheduler/durable-task-scheduler-export-history.md).
 
 # [JavaScript](#tab/javascript)
 
