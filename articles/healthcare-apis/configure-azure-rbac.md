@@ -4,7 +4,7 @@ description: Learn how to configure Azure RBAC for FHIR and DICOM services in Az
 author: chachachachami
 ms.service: azure-health-data-services
 ms.topic: how-to
-ms.date: 03/27/2026
+ms.date: 10/29/2026
 ms.author: chrupa
 ms.reviewer: v-catheribun
 ms.custom: sfi-image-nochange
@@ -27,6 +27,7 @@ The built-in roles for the FHIR service include:
 * **FHIR Data Writer**: Can read, write, and soft delete FHIR data.
 * **FHIR Data Exporter**: Can read and export data by using the $export operator.
 * **FHIR Data Contributor**: Can perform all data plane operations.
+* **FHIR Data Bulk Operator**: Can perform bulk operations.
 * **FHIR Data Converter**: Can use the converter to perform data conversion.
 * **FHIR SMART User**: Can read and write FHIR data according to the SMART IG V1.0.0 specifications.
 
@@ -34,6 +35,16 @@ The built-in roles for the FHIR service include:
 The built-in roles for the DICOM service include:
 * **DICOM Data Owner**:  Full access to DICOM data.
 * **DICOM Data Reader**: Can read and search DICOM data.
+
+### Permissions for bulk operations
+
+Bulk operations require the `EditProfileDefinitions` permission to modify or delete `StructureDefinition`, `ValueSet`, and `CodeSystem` resources.
+
+The [FHIR Data Bulk Operator](../role-based-access-control/built-in-roles/integration.md#fhir-data-bulk-operator) role includes the required data actions. **FHIR Data Writer** alone doesn't grant these permissions.
+
+Custom roles for Azure Health Data Services FHIR service must include `Microsoft.HealthcareApis/workspaces/fhirservices/resources/editProfileDefinitions/action` in `DataActions`, in addition to the permissions required for the bulk operation.
+
+For authorization behavior and status responses, see [Bulk update](fhir/fhir-bulk-update.md) and [Bulk delete](fhir/fhir-bulk-delete.md).
 
 ## Assign roles for the FHIR and DICOM services
 

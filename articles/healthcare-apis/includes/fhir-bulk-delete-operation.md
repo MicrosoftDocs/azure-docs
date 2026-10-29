@@ -2,7 +2,7 @@
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: include
-ms.date: 05/05/2026
+ms.date: 10/29/2026
 ms.author: kesheth
 author: expekesheth
 ---
@@ -23,6 +23,13 @@ Bulk delete capability header parameters are:
 
 - Assign the `FHIR Data Writer` role to a user or application to perform the bulk delete capability.
 - Assign the `FHIR Data Contributor` role to a user or application to perform bulk delete capability with a hard delete query parameter and bulk delete on soft deleted resources.
+- The `FHIR Data Bulk Operator` role also supports bulk delete, hard delete, and deletion of soft-deleted resources.
+
+### Bulk operation permissions
+
+Bulk operations can delete `StructureDefinition`, `ValueSet`, and `CodeSystem` resources only if the submitting caller has `EditProfileDefinitions` permission. Without it, the operation leaves these resources unchanged, includes them in `ResourceIgnoredCount` by resource type, and returns informational messages explaining why it skipped them. The operation continues to delete other eligible resources.
+
+For custom-role requirements, see [Permissions for bulk operations](../configure-azure-rbac.md#permissions-for-bulk-operations).
   
 ## Bulk delete operation details
 
@@ -134,6 +141,8 @@ A request to the polling endpoint returns one of four outcomes depending on the 
 1. **Canceled**: This outcome states the user canceled the job and provides information on the number of resources deleted at the individual resource level. Status code 200.
 
 1. **Failed**: This outcome states the job failed. Status code depends on the failure type.
+
+If the caller lacks `EditProfileDefinitions`, the status response reports skipped resources in `ResourceIgnoredCount` by resource type and includes informational `OperationOutcome` messages explaining why it skipped them. These messages don't indicate a job failure. Successfully deleted resources appear in `ResourceDeletedCount`.
 
 Sample request and response for determining the status request: 
 
