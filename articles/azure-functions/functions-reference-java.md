@@ -150,7 +150,7 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
-| 4.x | 21 <br/>17 <br/>11 <br/>8 | 21 <br/>17 <br/>11 <br/>8 |
+| 4.x | 25 <br/>21 <br/>17 <br/>11 <br/>8 | 25<br/>21 <br/>17 <br/>11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
@@ -165,8 +165,8 @@ The Maven archetype generates a pom.xml that targets the specified Java version.
 
 | Element |  Java 8 value | Java 11 value | Java 17 value | Java 21 value | Description |
 | ---- | ---- | ---- | ---- | ---- | --- |
-| **`Java.version`** | 1.8 | 11 | 17 | 21 | Version of Java used by the maven-compiler-plugin. |
-| **`JavaVersion`** | 8 | 11 | 17 | 21 | Java version hosted by the function app in Azure. |
+| **`Java.version`** | 1.8 | 11 | 17 | 21 | 25 |  Version of Java used by the maven-compiler-plugin. |
+| **`JavaVersion`** | 8 | 11 | 17 | 21 | 25 | Java version hosted by the function app in Azure. |
 
 The following examples show the settings for Java 8 in the relevant sections of the pom.xml file:
 
