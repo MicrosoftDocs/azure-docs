@@ -145,7 +145,7 @@ sections:
 
         - question: Are Azure Data Manager for Energy entitlements carried over to the Data Lake Storage Gen2 storage account?
           answer: >
-            No. ACZ doesn't carry over Azure Data Manager for Energy entitlements to Data Lake Storage Gen2. ACZ exports all records that match your entity filters. Per-record entitlements don't apply. Use Azure role-based access control and Data Lake Storage Gen2 permissions to secure the exported data.
+            ACZ exports all records that match your entity filters, but it doesn't enforce per-record entitlements in Data Lake Storage Gen2 or downstream analytics platforms. Optional [entitlements export (preview)](concepts-analytics-consumption-zone-entitlements.md) provides OSDU group membership data that you can use with catalog record access control lists to implement downstream filtering. Entitlements export is disabled by default. Contact your Microsoft representative to enable it for your Azure Data Manager for Energy instance. Use Azure role-based access control and Data Lake Storage Gen2 permissions to secure the exported data.
 
         - question: What telemetry and monitoring capabilities are available during the ACZ preview?
           answer: >
@@ -176,4 +176,3 @@ sections:
         - question: When is ACZ generally available on Azure Data Manager for Energy?
           answer: >
             ACZ is in preview. Microsoft uses customer feedback to validate functionality, performance, and scale before general availability.
-
