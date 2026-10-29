@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Report meaningful value changes</title>
+  <desc id="desc">For one sensor, readings of 30, 30.5, and 31 produce reports of 30 and 31 with a change threshold of 1. Compare against the last reported value, not the last received reading. Clock events can also trigger periodic reports. This is a behavior summary, not a graph node map.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1200" height="300" fill="#fff"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 320 155 H 365"/>
+    <path d="M 825 155 H 870"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="70" width="300" height="155" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="375" y="70" width="450" height="155" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="880" y="70" width="300" height="155" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="20" fill="#172b3a">
+    <text x="20" y="38" font-size="26" font-weight="bold">Report meaningful value changes</text>
+    <text x="40" y="105" font-weight="bold">Sensor readings</text>
+    <text x="40" y="150" font-size="28">30, 30.5, 31</text>
+    <text x="40" y="195">In order, for sensor-1</text>
+    <text x="395" y="105" font-weight="bold">Report changes of at least 1</text>
+    <text x="395" y="150">Compare with the last reported value.</text>
+    <text x="395" y="195">30.5 is only 0.5 above 30: don't report.</text>
+    <text x="900" y="105" font-weight="bold">Reported values</text>
+    <text x="900" y="150" font-size="28">30, 31</text>
+    <text x="900" y="195">First reading, then change</text>
+    <text x="20" y="270">Clock events also report the latest observation after 1 second without a report; this isn't a new measurement.</text>
+  </g>
+</svg>
