@@ -3,7 +3,7 @@ title: "Set Up a Managed Connector in Azure SRE Agent"
 description: "Learn how to set up a managed connector in Azure SRE Agent to connect to Office 365 Outlook, Microsoft Teams, Google Gmail, Yammer/Viva Engage, Box, Confluence, OneDrive, SharePoint, and other services with per-tool governance and approval controls."
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 07/17/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -29,14 +29,14 @@ The service you connect to still sees the identity that authorized the connectio
 ## Step 1: Open the managed connector wizard
 
 1. Open your agent in the [Azure SRE Agent portal](https://sre.azure.com).
-1. In the left sidebar, expand **Builder**.
+1. In the left sidebar, select **Build + setup**, and then expand **Extensions**.
 1. Select **Connectors**.
 1. Select **Add connector**.
 
 The connector picker opens, showing available connectors organized by tab: **Telemetry**, **Notification**, **MCP**, **Incidents**, **Deployment**, and **Other**.
 
 > [!NOTE]
-> Source code services (GitHub, Azure DevOps, GitLab) are connected on the **Builder** > **Code Access** page, not through this wizard. See [Connect a source code service](connect-code-service.md).
+> Source code services (GitHub, Azure DevOps, GitLab) are connected on the **Build + setup** > **Context** > **Code access** page, not through this wizard. See [Connect a source code service](connect-code-service.md).
 
 Preview connector cards show a **Preview** badge. Use the search box to find a connector by name across all tabs.
 

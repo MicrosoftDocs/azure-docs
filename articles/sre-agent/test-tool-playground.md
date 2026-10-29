@@ -3,7 +3,7 @@ title: "Tutorial: Test a Tool in the Playground in Azure SRE Agent"
 description: Debug and verify your tools in the Azure SRE Agent playground before deploying them to production.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -36,7 +36,7 @@ Before you begin, make sure you have the following items:
 Go to the test playground in the Agent Canvas.
 
 1. Open the [SRE Agent portal](https://sre.azure.com) and select your agent.
-1. Select **Builder** > **Agent Canvas**.
+1. Select **Build + setup** > **Workflows** > **Agent Canvas**.
 1. Select **Test playground** in the view toggle (next to **Canvas view** and **Table view**).
 
 :::image type="content" source="media/test-tool-in-playground/playground-empty-state.png" alt-text="Screenshot of test playground view with empty state and Custom agent/Tool selector at the top." lightbox="media/test-tool-in-playground/playground-empty-state.png":::
@@ -108,13 +108,13 @@ You need at least one tool created. In the Agent Canvas toolbar, select **Create
 
 ### Kusto tool shows "No connectors configured"
 
-The Kusto tool test needs a data connector. Go to **Builder** > **Connectors** and add an Azure Data Explorer connector by using the cluster URL and database. Then return to the playground and select your Kusto tool again.
+The Kusto tool test needs a data connector. Go to **Build + setup** > **Extensions** > **Connectors** and add an Azure Data Explorer connector by using the cluster URL and database. Then return to the playground and select your Kusto tool again.
 
 ### Kusto test shows authorization error
 
 Your agent needs access to the Kusto cluster. Check the following items:
 
-- You configured a data connector for the cluster under **Builder** > **Connectors**.
+- You configured a data connector for the cluster under **Build + setup** > **Extensions** > **Connectors**.
 - The connector credentials have query permissions on the target database.
 
 ### System tool returns an error

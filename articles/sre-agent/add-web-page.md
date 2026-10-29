@@ -3,7 +3,7 @@ title: "Tutorial: Add a Web Page Knowledge Source in Azure SRE Agent"
 description: Add a web page URL as a knowledge source so your agent can reference external documentation.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 04/03/2026
+ms.date: 10/28/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -25,14 +25,14 @@ Add a public URL as a knowledge source that your agent references during investi
 ## Step 1: Open Knowledge Sources
 
 1. Go to [sre.azure.com](https://sre.azure.com) and select your agent.
-1. In the left sidebar, select **Builder**.
-1. Select **Knowledge Sources**.
+1. In the left sidebar, select **Build + setup**, and then expand **Context**.
+1. Select **Knowledge sources**.
 
-You see the Knowledge Sources page with three action cards: **Add file**, **Add web page**, and **Add repository**.
+The **Knowledge sources** page has **Add file** and **Add web page** actions in the toolbar. Repository connections are managed separately in **Build + setup** > **Context** > **Code access**.
 
 ## Step 2: Open the Add Web Page dialog
 
-Select the **Add web page** card (the one with the globe icon).
+Select **Add web page** in the toolbar.
 
 A dialog opens with three fields:
 
@@ -75,8 +75,8 @@ After adding the web page, it appears in the Knowledge Sources list. Verify the 
 
 ## Step 6: Test with your agent
 
-1. Go to **Chats** in the left sidebar.
-1. Start a new conversation.
+1. Select **Back** to return from **Build + setup** to the main navigation.
+1. Select **New chat**.
 1. Ask a question related to the web page content.
 
 Your agent should reference information from the web page in its response.
@@ -85,7 +85,7 @@ Your agent should reference information from the web page in its response.
 
 Web page knowledge sources are point-in-time snapshots. To refresh the content:
 
-1. Go to **Builder > Knowledge Sources**.
+1. Go to **Build + setup > Context > Knowledge sources**.
 1. Select the web page entry.
 1. Delete it.
 1. Re-add the URL by using the same steps.

@@ -3,7 +3,7 @@ title: "Tutorial: Set Up the MCP Connector in Azure SRE Agent"
 description: Connect your SRE agent to external tools using the Model Context Protocol (MCP), then select tools for your agent to use directly in chat.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 07/30/2026
+ms.date: 10/28/2026
 ms.custom: mcp, model context protocol, connector, tools, extension, wildcard, add all tools
 author: craigshoemaker
 ms.author: cshoe
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 Register the MCP server as a connector in the SRE Agent portal.
 
 1. Go to [sre.azure.com](https://sre.azure.com) and select your agent.
-1. Navigate to **Builder** > **Connectors**.
+1. Navigate to **Build + setup** > **Extensions** > **Connectors**.
 1. Select **+ Add connector**.
 1. Select **MCP Server** as the connector type.
 1. Enter the MCP server URL and the required authentication. The authentication method varies by server (API key, OAuth sign-in for supported remote servers, OAuth token, or managed identity). For details, see [Authentication](mcp-connectors.md#authentication).
@@ -69,7 +69,7 @@ You can now access the selected tools directly in your main chat.
 
 Verify that your agent can use the MCP tools by testing them in chat.
 
-1. Open a **New chat thread**.
+1. Open a **New chat**.
 1. Ask a question that uses the connected tools. For example: "Search for files related to authentication in my repositories."
 1. Press Enter.
 
@@ -83,7 +83,7 @@ This example shows how to connect your agent to the Microsoft Learn MCP server. 
 
 Add the Microsoft Learn MCP server as a connector.
 
-1. Go to **Settings** > **Connectors** > **Add connector** > **Add MCP server**.
+1. Go to **Build + setup** > **Extensions** > **Connectors** > **Add connector** > **Add MCP server**.
 1. Enter the connection details:
 
    | Field | Value |
@@ -119,7 +119,7 @@ If you encounter problems, review the following table for common issues and solu
 | Issue | Solution |
 |-------|----------|
 | Status shows **Failed** | Check URL, credentials, and network access. |
-| MCP tools don't appear in the tool picker | Verify the connector shows **Connected** status in **Builder** > **Connectors**. |
+| MCP tools don't appear in the tool picker | Verify the connector shows **Connected** status in **Build + setup** > **Extensions** > **Connectors**. |
 | Tool calls fail in chat | Verify tools are selected for the main agent. Edit the connector and check the **MCP Tools** section. |
 | Hit the 80-tool limit | Remove unused tools from other connectors to free capacity. |
 

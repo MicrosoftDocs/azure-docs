@@ -3,7 +3,7 @@ title: Install a Plugin From a Public Marketplace
 description: Learn how to add a public plugin marketplace to your Azure SRE Agent, browse available plugins, and install one with its skills.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -18,15 +18,15 @@ In this article, you register a public marketplace, browse available plugins, an
 
 - An Azure SRE Agent in **Running** state
 - **SRE Agent Author** or **Administrator** role on the agent (see [User roles](user-roles.md))
-- The **Plugins** page visible under **Builder** in the sidebar
+- Access to **Build + setup** > **Extensions** > **Plugins**
 
 ## Open the Plugins page
 
-In the SRE Agent portal, expand **Builder** in the sidebar and select **Plugins**.
+In the SRE Agent portal, select **Build + setup** > **Extensions** > **Plugins**.
 
 ## Add a marketplace
 
-1. Select **Add marketplace** in the toolbar.
+1. Select **Connect marketplace** in the toolbar.
 1. In the **Marketplace URL or owner/repo** field, enter `Azure/sre-agent-plugins`.
 1. Confirm the auth section shows your GitHub connection status.
 1. Select **Add**.
@@ -45,14 +45,14 @@ Plugins that include MCP servers require connector setup before installation. Th
 
 ## Install the plugin
 
-Select **Install**. The plugin's skills are imported into your agent and pinned to the current git commit.
+Select **Install**. The plugin's skills are imported into your agent at the current git commit. Review the automatic-update setting if you need to keep that version until an explicit update.
 
 > [!TIP]
-> After installation, the plugin card shows an **Installed** badge. The imported skills appear in **Builder > Skill builder**.
+> After installation, the plugin card shows an **Installed** badge. The imported skills appear in **Build + setup > Extensions > Skill builder**.
 
 ## Verify the installed plugin in Skill builder
 
-Go to **Builder > Skill builder** to confirm the imported skill is listed and available.
+Go to **Build + setup > Extensions > Skill builder** to confirm the imported skill is listed and available.
 
 ## Use the REST API to install plugins
 

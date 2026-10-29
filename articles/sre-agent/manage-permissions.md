@@ -2,7 +2,7 @@
 title: Manage Permissions for Azure SRE Agent
 description: Add or remove managed resource groups, change permission levels, and grant subscription-level access for your Azure SRE Agent.
 ms.topic: how-to
-ms.date: 03/16/2026
+ms.date: 10/28/2026
 ms.service: azure-sre-agent
 author: craigshoemaker
 ms.author: cshoe
@@ -29,7 +29,7 @@ Before you begin, make sure you have the following requirements in place:
 
 Managed resource groups determine which Azure resources your agent can see during investigations. The agent gets read access to resources in these groups, including logs, metrics, and configurations.
 
-1. Go to **Settings** > **Managed resources** in the left sidebar.
+1. Go to **Build + setup** > **Context** > **Managed resources** in the left sidebar.
 1. Select **Add resource group**.
 1. Use the search filter to find resource groups across your subscriptions.
 1. Select the groups you want the agent to access.
@@ -51,7 +51,7 @@ Permission levels control what your agent can do with managed resources. The fol
 
 To change the permission level:
 
-1. Go to **Settings** > **Managed resources**.
+1. Go to **Build + setup** > **Context** > **Managed resources**.
 1. Select the resource group.
 1. Change the permission level.
 1. Select **Save**.
@@ -65,7 +65,7 @@ The portal shows which Azure RBAC roles are assigned, such as Log Analytics Read
 
 For broader access than individual resource groups provide, grant the agent **Reader** on your entire subscription.
 
-1. Go to **Settings** > **Basics** in your agent.
+1. Go to **Settings** > **General** in your agent.
 1. Select the **Managed identity** link to open it in the Azure portal.
 1. Navigate to your subscription's **Access control (IAM)**.
 1. Select **Add role assignment**.

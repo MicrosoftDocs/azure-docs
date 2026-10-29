@@ -3,7 +3,7 @@ title: "Tutorial: Create a Kusto Tool in Azure SRE Agent"
 description: Build a reusable Kusto query tool for your Azure SRE Agent using the portal UI to run deterministic KQL queries.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -30,7 +30,7 @@ Before you begin, make sure you have the following prerequisites:
 
 - An Azure Data Explorer cluster with the **AllDatabasesViewer** role granted to the agent's managed identity. For more information, see [Kusto tools prerequisites](kusto-tools.md#azure-data-explorer-permissions).
 - A Kusto connector configured. For more information, see [Set up a Kusto connector](kusto-connector.md).
-- Access to Builder in the Azure SRE Agent portal.
+- Access to **Build + setup** in the Azure SRE Agent portal.
 
 ## Navigate to the Agent Canvas
 
@@ -38,7 +38,7 @@ Open the Agent Canvas where you create and manage tools.
 
 1. Open the [SRE Agent portal](https://sre.azure.com).
 1. Select your agent.
-1. Select **Builder** in the left navigation.
+1. Select **Build + setup**, and then expand **Workflows** in the left navigation.
 1. Select **Agent Canvas**.
 
 :::image type="content" source="media/create-kusto-tool/step-02-sub-agent-builder-view.png" alt-text="Screenshot of Agent Canvas showing canvas view with custom agent cards." lightbox="media/create-kusto-tool/step-02-sub-agent-builder-view.png" :::
@@ -127,7 +127,7 @@ The tool count on your custom agent card increases after adding.
 
 Test that the agent invokes your Kusto tool correctly.
 
-1. Select **Test Playground** in the left navigation.
+1. Go to **Build + setup** > **Workflows** > **Agent Canvas** and select **Test playground** in the view toggle.
 1. Select your custom agent from the dropdown list.
 1. Ask: "Show me errors from the last seven days"
 1. The agent invokes your tool with `timeRange = 7d`.
