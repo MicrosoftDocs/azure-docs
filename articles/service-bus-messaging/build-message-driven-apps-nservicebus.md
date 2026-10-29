@@ -188,7 +188,7 @@ The Sender application also contains a `PongHandler`. You'll get back to it afte
 
 ## Set up the receiver
 
-The Receiver is an endpoint that listens for `Ping` messages, logs each message it receives, and replies back to the sender. In this section, you quickly review the endpoint configuration, which is similar to the Sender's, and then turn your attention to the message handler.
+The Receiver is an endpoint that listens for `Ping` messages, logs each message it receives, and replies back to the sender. In this section, we'll quickly review the endpoint configuration, which is similar to the Sender, and then turn our attention to the message handler.
 
 Like the sender, the receiver is a console application that uses the .NET Generic Host. Here's the Receiver's `Program.cs`:
 
