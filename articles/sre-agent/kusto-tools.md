@@ -3,7 +3,7 @@ title: Kusto Tools in Azure SRE Agent
 description: Create deterministic query tools that run exact KQL queries against Azure Data Explorer, turning tribal knowledge into reusable agent capabilities.
 ms.topic: feature-guide
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -71,7 +71,7 @@ When you add an Azure Data Explorer connector, choose between deterministic or f
 
 ### Create a Kusto tool
 
-Create tools in **Builder** > **Agent Canvas** > **Create** > **Tool** > **Kusto tool**. Each tool needs a name, description, connector, database, and KQL query with optional `##paramName##` parameter placeholders.
+Create tools in **Build + setup** > **Workflows** > **Agent Canvas** > **Create** > **Tool** > **Kusto tool**. Each tool needs a name, description, connector, database, and KQL query with optional `##paramName##` parameter placeholders.
 
 For the full walkthrough with screenshots, see [Tutorial: Create a Kusto tool](create-kusto-tool.md).
 

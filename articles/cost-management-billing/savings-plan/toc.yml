@@ -27,13 +27,13 @@
     href: buy-savings-plan.md
   - name: Trade a reservation for a savings plan
     href: reservation-trade-in.md
-  - name: Manage savings plan
+  - name: Manage savings plans
     href: manage-savings-plan.md
   - name: Renew a savings plan
     href: renew-savings-plan.md
   - name: Download price sheet
     href: download-savings-plan-price-sheet.md
-  - name: Permissions, view, and manage
+  - name: Permissions to view and manage
     items:
     - name: Permissions to view and manage
       href: permission-view-manage.md

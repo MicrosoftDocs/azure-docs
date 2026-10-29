@@ -3,7 +3,7 @@ title: "Tutorial: Create an incident response plan in Azure SRE Agent"
 description: Create a response plan that routes incidents to a custom agent and use the toggle to control when it's active.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 06/08/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -24,7 +24,7 @@ Response plans route incoming incidents to the right custom agent based on filte
 
 ## Step 1: Open the agent canvas
 
-In the SRE Agent portal, select your agent. In the left sidebar, go to **Builder** → **Agent Canvas**.
+In the SRE Agent portal, select your agent. In the left sidebar, go to **Build + setup** > **Workflows** > **Agent Canvas**.
 
 [!INCLUDE [quickstart-response-plan-warning](includes/quickstart-response-plan-warning.md)]
 
@@ -56,7 +56,7 @@ For **PagerDuty / ServiceNow**:
 
 Choose the response configuration:
 
-- **Response custom agent**: Select the custom agent that handles matched incidents.
+- **Response subagent**: Select the custom agent that handles matched incidents.
 
 - **Agent autonomy level**: Choose how your agent responds:
   - **Autonomous (Default)**: Your agent independently investigates and performs mitigation.

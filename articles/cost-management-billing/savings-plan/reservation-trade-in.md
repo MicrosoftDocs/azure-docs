@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 09/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
@@ -18,7 +18,7 @@ When you trade in compute reservations for a compute savings plan, you make a ne
 
 In addition, if your [database reservations](https://azure.microsoft.com/products/category/databases) aren't sufficiently flexible, you can trade them in for a database savings plan. When you trade in database reservations for a database savings plan, you make a new commitment of either one year or three years.
 
-Although you can trade in compute and database reservations for compute and database savings plans, respectively, you can't exchange a savings plan for a reservation or for another savings plan. You may only trade in up to 100 reservations at a time as part of a savings plan purchase.
+Although you can trade in compute and database reservations for compute and database savings plans, respectively, you can't exchange a savings plan for a reservation or for another savings plan. You can trade in up to 100 reservations at a time as part of a savings plan purchase.
 
 Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, and [database reservations](https://azure.microsoft.com/products/category/databases), no other reservations or prepurchase plans are eligible for trade-in.
 
@@ -35,15 +35,15 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 >
 > [Instance size flexibility](../reservations/instance-size-flexibility.md) for virtual machines isn't affected by the change in exchange policy. The reservation cancellation policy isn't changing. The total canceled commitment can't exceed $50,000 in a 12-month rolling window for a billing profile or single enrollment. You can [trade in](reservation-trade-in.md) existing reservations that cover dynamic or evolving workloads for a savings plan. There's no change to trade-in policy.
 >
-> For more information, see [Azure savings plan for compute and how it works with reservations](../savings-plan/decide-between-savings-plan-reservation.md).
+> For more information, see [Decide between a savings plan and a reservation](../savings-plan/decide-between-savings-plan-reservation.md).
 
 To trade in a reservation for a savings plan, you must meet the following criteria:
 
-- You must be an owner of the Reservation Order containing the reservation you wish to trade in. To learn more, see [Grant access to individual reservations](../reservations/view-reservations.md#grant-access-to-individual-reservations).
-- You must have the Savings plan purchaser role, or be an owner of the subscription you plan to use to purchase the savings plan.
-    - EA Admin write permission or Billing profile contributor and higher, which are Cost Management + Billing permissions, are supported only for direct Savings plan purchases. They can't be used for savings plans purchases as a part of a reservation trade-in.
+- You must be an owner of the reservation order containing the reservation you want to trade in. To learn more, see [Grant access to individual reservations](../reservations/view-reservations.md#grant-access-to-individual-reservations).
+- You must have the Savings plan purchaser role or be an owner of the subscription you plan to use to purchase the savings plan.
+    - EA administrator write permissions and billing profile contributor permissions or higher are supported only for direct savings plan purchases. These Cost Management + Billing permissions can't be used to purchase savings plans as part of a reservation trade-in.
 
-The new savings plan's total commitment must equal or be greater than the returned reservation's remaining commitment. For example, a three-year reservation that costs $100 per month and is exchanged after the 18th payment, the new savings plan's lifetime commitment must be $1,800 or more.
+The new savings plan's total commitment must be greater than or equal to the returned reservation's remaining commitment. For example, if you trade in a three-year reservation that costs $100 per month after the 18th payment, the new savings plan's lifetime commitment must be $1,800 or more.
 
 Microsoft isn't currently charging early termination fees for reservation trade-ins. We might charge the fees in the future. We currently don't have a date for enabling the fee.
 
@@ -59,7 +59,7 @@ You can trade in your reservation from the [Azure portal](https://portal.azure.c
 
 ## Determine savings plan commitment needed to replace your reservation
 
-During a reservation trade-in, the default hourly commitment for the savings plan is calculated using the remaining monetary value of the reservations that are being traded in. The resulting hourly commitment might not be a large enough benefit commitment to cover the virtual machines that were previously covered by the returned reservations. You can use the following steps to calculate the necessary savings plan hourly commitment to cover the reservations. As a savings plan is a flexible benefit, there isn't a guarantee that the savings plan benefit always gets applied to usage from the resources that were previously covered by the reservations. These steps assume 100% utilization of the reservations that are being traded in.
+During a reservation trade-in, the default hourly commitment for the savings plan is calculated using the remaining monetary value of the reservations being traded in. The resulting hourly commitment might not be large enough to cover the virtual machines previously covered by the returned reservations. Use the following steps to calculate the necessary hourly commitment. Because a savings plan is a flexible benefit, there's no guarantee that its benefits will always apply to usage from the resources previously covered by the reservations. These steps assume 100% utilization of the reservations being traded in.
 
 1. Follow the first six steps in [Estimate costs with the Azure pricing calculator](../manage/ea-pricing.md#estimate-costs-with-the-azure-pricing-calculator).
 2. Search for the product that you want to return.
@@ -74,7 +74,7 @@ During a reservation trade-in, the default hourly commitment for the savings pla
 1. Enter the total of the above steps as the hourly commitment, then **Add** to your cart.
 1. Review and complete the transaction.
 
-The preceding image's price is an example.
+The price in the preceding image is an example.
 
 ## Determine savings difference from reservations to a savings plan
 
@@ -93,7 +93,7 @@ To determine the cost savings difference when switching from reservations to a s
     :::image type="content" source="./media/reservation-trade-in/pricing-calculator-monthly-example.png" alt-text="Example screenshot showing the Azure pricing calculator monthly charge value example." lightbox="./media/reservation-trade-in/pricing-calculator-monthly-example.png" :::
 1. Multiply the monthly cost by the number of product instances that are currently covered by the reservations to return.
 
-The preceding image's price is an example.
+The price in the preceding image is an example.
 
 The result is the total monthly savings plan cost. The difference between the total monthly savings plan cost and the total monthly reservation cost is the extra cost incurred by moving resources covered by reservations to a savings plan.
 
@@ -107,7 +107,7 @@ The new savings plan is purchased and then the traded-in reservations are cancel
 
 Money is added to the Azure Prepayment (previously called monetary commitment) for refunds if the original purchase was made using one. If the Azure Prepayment used to purchase the reservation is no longer active, then credit is added to your current enterprise agreement Azure Prepayment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
 
-If the original reservation purchase was made from an overage, return the refund to you as a partial credit note. The refund doesn't affect the original or later invoices.
+If you made the original reservation purchase from an overage, Microsoft returns the refund to you as a partial credit note. The refund doesn't affect the original or later invoices.
 
 ### Microsoft Customer Agreement customers (credit card)
 
@@ -115,7 +115,7 @@ The original invoice is canceled, and a new invoice is created. The money is ref
 
 ## Need help? Contact us.
 
-If you have savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides savings plan expert support requests in English.
+If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Currently, Microsoft provides expert support for savings plans only in English.
 
 ## Next steps
 

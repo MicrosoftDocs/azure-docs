@@ -7,13 +7,13 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
 # Charge back savings plan costs
 
-Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for savings plans. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly savings plan cost. The cost is the total cost of savings plan usage by the resource on that day.
+Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for savings plans. They can use the data to charge back costs associated with a subscription, resource group, resource, or tag to their partners. In amortized data, the effective price is the prorated hourly savings plan cost. The cost is the total cost of savings plan usage by the resource on that day.
 
 Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a savings plan discount, the _AdditionalInfo_ section in the usage file contains the savings plan details. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
 
@@ -36,7 +36,7 @@ Users with an individual subscription can get the amortized cost data from their
 4. Select **Add**.
 5. Select **Amortized cost** as the metric and set up your export.
 
-The _EffectivePrice_ for the usage that gets savings plan discount is the prorated cost of the savings plan, instead of being zero. This helps you know the monetary value of savings plan consumption by a subscription, resource group or a resource. It can help you charge back for the savings plan utilization internally. The dataset also has unused savings plan benefits.
+The _EffectivePrice_ for usage that receives a savings plan discount is the prorated cost of the savings plan instead of zero. This value shows the monetary value of savings plan consumption by a subscription, resource group, or resource. You can use it to charge back savings plan costs internally. The dataset also includes unused savings plan benefits.
 
 ## Get Azure consumption and savings plan usage data using API
 
@@ -53,7 +53,7 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 
 For more information about `{enrollmentId}` and `{billingPeriodId}`, see the [Usage Details – List](/rest/api/consumption/usagedetails/list) API article.
 
-Information in the following table about metric and filter can help solve common savings plan problems.
+The following table describes metrics and filters that can help solve common savings plan problems.
 
 | Type of API data | API call action |
 | --- | --- |
@@ -67,7 +67,7 @@ Information in the following table about metric and filter can help solve common
 
 ## Download the usage CSV file with new data
 
-If you're an EA admin, you can download the CSV file that contains new usage data from Azure portal.
+If you're an EA admin, you can download the CSV file that contains new usage data from the Azure portal.
 
 In the Azure portal, navigate to [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -82,7 +82,7 @@ The CSV files that you download contain actual costs and amortized costs.
 
 ## Need help? Contact us.
 
-If you have savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide savings plan expert support requests in English.
+If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Currently, Microsoft provides expert support for savings plans only in English.
 
 ## Next steps
 

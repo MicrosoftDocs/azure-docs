@@ -3,7 +3,7 @@ title: Python Tools in Azure SRE Agent
 description: Extend your agent to reach internal systems, multicloud platforms, and custom business logic by creating Python tools.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -84,7 +84,7 @@ Python tools turn your agent from an Azure-native assistant into an extensible p
 
 ## Prerequisites
 
-- Builder access to an Azure SRE Agent.
+- **SRE Agent Author** or **Administrator** access to an Azure SRE Agent.
 - For HTTP endpoints: URL and authentication credentials for your target systems.
 
 ## Create a Python tool

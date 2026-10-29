@@ -3,7 +3,7 @@ title: "Tutorial: Share files and screenshots in Azure SRE Agent"
 description: Learn how to share screenshots, logs, and runbooks with your Azure SRE Agent using the file picker, drag and drop, and clipboard paste.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -39,7 +39,7 @@ Before you begin, make sure you have the following resources:
 Use the file picker to select a file from your local machine and attach it to a chat message.
 
 1. Go to [sre.azure.com](https://sre.azure.com) and select your agent.
-1. Select **New chat thread** in the left sidebar.
+1. Select **New chat** in the left sidebar.
 1. Select the **+** (plus) button next to the message input.
 1. Select **Attach file** from the menu.
 1. In the file dialog, choose a text file, such as a runbook, config file, or log file.

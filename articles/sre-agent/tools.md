@@ -3,7 +3,7 @@ title: Tools in Azure SRE Agent
 description: Learn how your agent's tools are organized, including built-in Azure tools, MCP extensibility, code execution, knowledge, and communication.
 ms.topic: reference
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -22,7 +22,7 @@ Tools are the atomic capabilities your agent uses to take action. They enable qu
 | [**Knowledge**](#knowledge) | Document search, agent memory, application topology | None (built-in; some features require connectors) |
 | [**Communication**](#communication) | Email and Teams notifications | Add Outlook or Teams connector |
 | [**Incident management and DevOps**](#incident-management-and-devops) | Incident platforms and source code repositories | Add platform connector |
-| [**Custom tools**](#custom-tools) | Your own Kusto, Python, Link, and HTTP tools | Create in Builder UI |
+| [**Custom tools**](#custom-tools) | Your own Kusto, Python, Link, and HTTP tools | Create through **Build + setup** > **Workflows** > **Agent Canvas** |
 
 By combining tools with [skills](skills.md) and [custom agents](sub-agents.md), you can create powerful automation. Skills attach tools to procedural instructions. Custom agents get dedicated tool sets for their domain.
 
@@ -95,7 +95,7 @@ Create your own tools for operations specific to your environment. Four types ar
 | **Link** | Generate URLs from templates with dynamic parameters. |
 | **HTTP client** | Call REST APIs with authentication. |
 
-Create custom tools through the Builder UI. Attach them to [skills](skills.md) or assign them to [custom agents](sub-agents.md). For more information, see [Kusto tools](kusto-tools.md) and [Python code execution](python-code-execution.md).
+Create custom tools through **Build + setup** > **Workflows** > **Agent Canvas**. Attach them to [skills](skills.md) or assign them to [custom agents](sub-agents.md). For more information, see [Kusto tools](kusto-tools.md) and [Python code execution](python-code-execution.md).
 
 ## Next step
 

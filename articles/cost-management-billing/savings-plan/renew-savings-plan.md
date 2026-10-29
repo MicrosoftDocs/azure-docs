@@ -7,21 +7,21 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
 # Automatically renew your savings plan
 
-You can automatically purchase a replacement savings plan when an existing savings plan expires. Automatic renewal provides an effortless way to continue getting savings plan discounts without having to closely monitor a savings plan's expiration. The renewal setting is turned off by default. Enable or disable the renewal setting anytime, up to the expiration of the existing savings plan, by selecting your savings plan at Azure portal > Savings Plan, then go to renewal settings. Renewing a savings plan creates a new savings plan when the existing one expires. It doesn't extend the term of the existing savings plan.
+You can automatically purchase a replacement savings plan when an existing savings plan expires. Automatic renewal lets you continue receiving savings plan discounts without closely monitoring the expiration date. The renewal setting is turned off by default. To enable or disable renewal before the existing plan expires, select your savings plan under **Savings plans** in the Azure portal, and then go to the renewal settings. Renewing a savings plan creates a new savings plan when the existing one expires. It doesn't extend the term of the existing savings plan.
 
 ## Required renewal permissions
 
-The following conditions are required to renew a savings plan:
+The following permissions are required to renew a savings plan:
 
 Billing admin for Enterprise Agreements (EA) and Microsoft Customer Agreements (MCA):
-- You must be either a Billing profile owner or Billing profile contributor of an MCA account.
-- You must be an EA administrator with write access of an EA account.
+- You must be either a billing profile owner or billing profile contributor for an MCA account.
+- You must be an EA administrator with write access to an EA account.
 - You must be a Savings plan purchaser.
 
 
@@ -43,10 +43,10 @@ Your services continue to run normally. You're charged pay-as-you-go rates for y
 
 ## Default renewal settings
 
-By default, the renewal inherits all properties except automatic renewal setting from the expiring savings plan. A savings plan renewal purchase has the same billing subscription, term, billing frequency, and savings plan commitment. The new savings plan inherits the scope setting from the expiring savings plan during renewal. However, you can explicitly set the hourly commitment, billing frequency, and commitment term to optimize your savings. You can view the current rates and discounts by selecting your savings plan at Azure portal > Savings Plan.
+By default, the renewal inherits all properties except the automatic renewal setting from the expiring savings plan. A savings plan renewal purchase has the same billing subscription, term, billing frequency, and savings plan commitment. The new savings plan also inherits the scope setting. However, you can explicitly set the hourly commitment, billing frequency, and commitment term to optimize your savings. To view current rates and discounts, select your savings plan under **Savings plans** in the Azure portal.
 
 ## When the new savings plan is purchased
-A new savings plan is purchased when the existing savings plan expires. We try to prevent any delay between the two savings plan. Continuity ensures that your costs are predictable, and you continue to get discounts.
+A new savings plan is purchased when the existing savings plan expires. Azure attempts to prevent any gap between the two savings plans. This continuity helps keep your costs predictable and your discounts uninterrupted.
 
 ## Change parent savings plan after setting renewal
 
@@ -81,7 +81,7 @@ Emails are sent to different people depending on your purchase method:
 
 ## Need help? Contact us.
 
-If you have savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide savings plan expert support requests in English.
+If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Currently, Microsoft provides expert support for savings plans only in English.
 
 ## Next steps
 
