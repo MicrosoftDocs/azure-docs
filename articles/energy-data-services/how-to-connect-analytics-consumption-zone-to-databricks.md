@@ -5,7 +5,7 @@ author: nsannala
 ms.author: nsannala
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 05/17/2026
+ms.date: 10/29/2026
 ms.custom: template-how-to-pattern
 ---
 
@@ -123,12 +123,13 @@ External locations define storage paths that Azure Databricks can access by usin
    - **Location name**: Enter a name (for example, `acz_location`)
    - **URL**: Enter the ACZ root path:
      ```text
-     abfss://{container-name}@{storage-account}.dfs.core.windows.net/acz-{instance-id}/
+     abfss://{container-name}@{storage-account}.dfs.core.windows.net/{folder-path}{acz-id}/
      ```
      Replace:
-     - `{container-name}`: Your ACZ container name (for example, `aczcontainer`)
+     - `{container-name}`: The first segment of the `basePath` that you specified when you created the ACZ instance (for example, `aczcontainer`). If you didn't specify a `basePath`, the container name is your ACZ ID.
      - `{storage-account}`: Your storage account name (for example, `aczstorage`)
-     - `{instance-id}`: Your ACZ instance ID (for example, `bea199c0690b`)
+     - `{folder-path}`: Any remaining `basePath` segments, each followed by a slash (for example, `workbench/`). Leave it empty if your `basePath` has only one segment or if you didn't specify a `basePath`.
+     - `{acz-id}`: Your ACZ ID, the `aczId` value from the Create or List ACZ API response (for example, `acz-bea199c0690b`).
    - **Storage credential**: Select the credential created in Step 3 (for example, `acz_cred`)
 1. Select **Create**.
 1. After creation, select the external location from the list, and then select **Test connection** to validate that all permissions are correctly configured.
@@ -154,7 +155,7 @@ WITH (STORAGE CREDENTIAL acz_cred);
 ```
 
 > [!NOTE]
-> To find your ACZ instance ID, go to your ACZ storage container in the Azure portal. The ACZ folder follows the pattern `acz-{instance-id}`.
+> Your ACZ ID is the `aczId` value returned when you created the ACZ instance. You can also get it by using the List ACZs API. To learn how `basePath` maps to the container and folders, see [Create an ACZ instance](how-to-enable-analytics-consumption-zone.md#create-an-acz-instance).
 
 ## Step 5: Create a schema and external table
 
@@ -174,10 +175,13 @@ Create a schema to organize your tables, and then register the ACZ Delta Lake da
    ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS `{catalog-name}`.osdudata.catalogdata
    USING DELTA
-   LOCATION 'abfss://{container-name}@{storage-account}.dfs.core.windows.net/acz-{instance-id}/osducatalog';
+   LOCATION 'abfss://{container-name}@{storage-account}.dfs.core.windows.net/{folder-path}{acz-id}/osducatalog';
    ```
 
-   This example creates a table for the `osducatalog` dataset. To create tables for other ACZ datasets, change `osducatalog` to the dataset name (for example, `wellboreDDMS`).
+   This example creates a table for the `osducatalog` dataset. If entitlements export (preview) is enabled, you can create a table for entitlements by changing `osducatalog` to `entitlements`.
+
+   > [!IMPORTANT]
+   > Wellbore DDMS folders contain Parquet and JSON files, not Delta tables. Don't create a Delta external table on a Wellbore DDMS folder. To work with Wellbore DDMS data, read the Parquet files directly from the external location.
 
    Example for a catalog named `acz-catalog`:
 
@@ -246,13 +250,13 @@ LIMIT 10;
 
 | Component | Path | Purpose |
 |-----------|------|---------|
-| External location | `abfss://container@storage.dfs.core.windows.net/acz-{id}/` | Defines the access boundary, which is the root folder where Azure Databricks can read data. |
-| External table | `abfss://container@storage.dfs.core.windows.net/acz-{id}/osducatalog` | Points to a specific Delta Lake dataset within the external location. |
+| External location | `abfss://container@storage.dfs.core.windows.net/{folder-path}{acz-id}/` | Defines the access boundary, which is the root folder where Azure Databricks can read data. |
+| External table | `abfss://container@storage.dfs.core.windows.net/{folder-path}{acz-id}/osducatalog` | Points to a specific Delta Lake dataset within the external location. |
 
 Why location matters:
 
 - The external location grants broad access to the ACZ root folder.
-- By using the same location, you can create multiple tables (for example, `osducatalog` and `wellboreDDMS`).
+- By using the same location, you can create multiple tables (for example, `osducatalog` and `entitlements`) and read Wellbore DDMS Parquet files.
 - This configuration follows Unity Catalog best practices for organizing multi-dataset access.
 
 ## Troubleshooting
@@ -266,7 +270,7 @@ If you see "403 Forbidden" or "Access denied" errors:
    - **On the resource group**: EventGrid EventSubscription Contributor and EventGrid Data Contributor
 1. Wait two to three minutes after role assignment for permissions to propagate.
 1. Verify that the storage credential resource ID is correct.
-1. Check that the ACZ instance ID in the path exactly matches the folder name in storage (including any suffix like `b`).
+1. Check that the ACZ ID in the path exactly matches the folder name in storage.
 
 ### External location test connection failures
 
@@ -282,7 +286,7 @@ If **Test connection** in the external location setup shows failures:
 If you see "Path does not exist" errors:
 
 1. In the Azure portal, go to your ACZ storage account.
-1. Browse to **Containers** > `{container-name}`.
+1. Browse to **Containers** > `{container-name}`. Open any folders from your `basePath`.
 1. Verify that the ACZ folder name exactly matches your SQL path (for example, `acz-bea199c0690b` and not `acz-bea199c0690`).
 1. Verify that the dataset folder exists (for example, `osducatalog`).
 
@@ -301,7 +305,7 @@ Verify Delta folder structure by using the Azure CLI:
 az storage fs directory list \
   --account-name <storage-account> \
   --file-system <container-name> \
-  --path "acz-<instance-id>" \
+  --path "<folder-path><acz-id>" \
   --auth-mode login \
   --query "[].name" -o table
 
@@ -309,7 +313,7 @@ az storage fs directory list \
 az storage fs directory list \
   --account-name <storage-account> \
   --file-system <container-name> \
-  --path "acz-<instance-id>/<dataset-folder>" \
+  --path "<folder-path><acz-id>/<dataset-folder>" \
   --auth-mode login \
   --query "[?name=='_delta_log'].name" -o table
 ```
