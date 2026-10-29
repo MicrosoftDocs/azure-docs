@@ -2152,6 +2152,8 @@ await client.restart(sourceId, {
 });
 ```
 
+When passing a `RestartOptions` object, `newInstanceId` is required and `version` is optional. If `version` is omitted, the new execution uses the `defaultVersion` configured in `host.json`, not the source instance's version. Specifying only `version` isn't supported.
+
 This creates a fresh execution of the source orchestrator with its original input and leaves the source instance unchanged. It doesn't copy execution progress or completed activity results; activities run again.
 
 Inside the cloned orchestrator, read the source instance ID from the orchestration context:
