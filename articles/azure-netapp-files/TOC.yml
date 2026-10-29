@@ -84,11 +84,7 @@
     - name: Storage hierarchy of Azure NetApp Files
       href: azure-netapp-files-understand-storage-hierarchy.md
     - name: Service levels for Azure NetApp Files
-      items: 
-        - name: Understand service levels 
-          href: azure-netapp-files-service-levels.md
-        - name: Understand Elastic zone-redundant storage 
-          href: elastic-zone-redundant-concept.md
+      href: azure-netapp-files-service-levels.md
     - name: Guidelines for Azure NetApp Files network planning 
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
@@ -109,8 +105,6 @@
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
       href: azure-netapp-files-metrics.md
-    - name: Metrics for Elastic zone-redundant Storage
-      href: elastic-metrics.md
     - name: Azure Policy definitions for Azure NetApp Files
       href: azure-policy-definitions.md
     - name: Storage service add-ons
@@ -329,30 +323,6 @@
         href: azure-netapp-files-delegate-subnet.md
       - name: Request region access
         href: request-region-access.md
-  - name: Manage Elastic service level
-    items:
-      - name: Create a NetApp Elastic account
-        href: elastic-account.md 
-      - name: Manage Active Directory 
-        items:         
-        - name: Create an Active Directory connection 
-          href: elastic-active-directory.md
-      - name: Manage capacity pools 
-        items:
-          - name: Create an Elastic capacity pool
-            href: elastic-capacity-pool-task.md
-          - name: Change zones for Elastic capacity pools 
-            href: elastic-change-zones.md
-      - name: Manage volumes
-        items: 
-          - name: Create an NFS volume 
-            href: elastic-volume.md
-          - name: Create an SMB volume 
-            href: elastic-volume-server-message-block.md
-          - name: Manage volume encryption 
-            items:
-              - name: Configure customer-managed keys
-                href: elastic-customer-managed-keys.md
   - name: Manage Flexible, Standard, Premium, and Ultra service levels
     items: 
     - name: Manage Active Directory 

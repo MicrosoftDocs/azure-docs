@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: ggailey777
   ms.author: glenga
-  ms.date: 09/04/2026
+  ms.date: 10/12/2026
   ms.custom: build-2025
 landingContent:
   - title: About Azure Functions
@@ -63,7 +63,9 @@ landingContent:
             url: functions-reference-python.md
           - text: TypeScript
             url: functions-reference-node.md?tabs=typescript
-          - text: Other languages (Rust/Go)
+          - text: Go
+            url: functions-reference-go.md
+          - text: Other languages
             url: create-first-function-vs-code-other.md
   - title: AI integration 
     linkLists:

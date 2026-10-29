@@ -99,95 +99,101 @@
         href: backup-center-govern-environment.md
       - name: Perform actions
         href: backup-center-actions.md
-- name: Security and Ransomware protection
+- name: Azure Backup Cyber Recovery
   items:
   - name: Overview
     href: security-overview.md
-  - name: Secure your Azure Backup deployment
-    href: secure-backup.md
-  - name: FAQ-Protection against Ransomware
+  - name: Ransomware protection FAQ
     href: protect-backups-from-ransomware-faq.yml
-  - name: Best practices for backup data protection
-    href: azure-backup-data-protection-best-practices.md
-  - name: Azure role-based access control
-    href: backup-rbac-rs-vault.md
-  - name: Multi-user authorization
+  - name: Govern backup security
     items:
-    - name: Overview
-      href: multi-user-authorization-concept.md
-    - name: Quickstart - Enable Multi-user authorization (MUA)
-      href: enable-multi-user-authorization-quickstart.md
-    - name: Tutorial - configure Multi-user authorization (MUA)
-      href: multi-user-authorization-tutorial.md
-    - name: Configure Multi-user authorization using Resource Guard
-      href: multi-user-authorization.md
-  - name: Immutability
-    items:
-    - name: Overview
-      href: backup-azure-immutable-vault-concept.md
-    - name: Manage
-      href: backup-azure-immutable-vault-how-to-manage.md
-  - name: Secure by default with soft delete
-    items:
-    - name: Overview of soft delete
-      href: secure-by-default.md
-    - name: FAQ-Soft Delete
-      href: soft-delete-azure-backup-faq.yml
-    - name: Manage soft deleted data
-      items:
-      - name: Manage soft deleted items
-        href: backup-azure-enhanced-soft-delete-configure-manage.md
-      - name: Soft delete backups for virtual machines
-        href: soft-delete-virtual-machines.md
-      - name: Soft delete backups for SQL Server and SAP HANA in Azure VMs
-        href: soft-delete-sql-saphana-in-azure-vm.md
-  - name: Delete protection for Azure files
-    href: soft-delete-azure-file-share.md
-  - name: Ransomware protection
-    items:
-    - name: Overview
+    - name: Backup security best practices
+      href: azure-backup-data-protection-best-practices.md
+    - name: Plan backup protection against ransomware
       href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
-    - name: FAQ-Protection against Ransomware
-      href: protect-backups-from-ransomware-faq.yml
-    - name: Integrate with Microsoft Defender's ransomware alerts
-      href: backup-azure-integrate-microsoft-defender-using-logic-apps.md
-  - name: Security for hybrid backups
-    href: backup-azure-security-feature.md
-  - name: Save and manage MARS agent passphrase in Azure Key Vault
-    href: save-backup-passphrase-securely-in-azure-key-vault.md
-  - name: Private Endpoints
+    - name: Azure role-based access control
+      href: backup-rbac-rs-vault.md
+    - name: Enforce security controls with Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+  - name: Protect backups
     items:
-    - name: V1 experience
+    - name: Secure your Azure Backup deployment
+      href: secure-backup.md
+    - name: Multi-user authorization
       items:
       - name: Overview
-        href: private-endpoints-overview.md
-      - name: Create and manage
-        href: private-endpoints.md
-    - name: V2 experience
+        href: multi-user-authorization-concept.md
+      - name: Quickstart - Enable multi-user authorization
+        href: enable-multi-user-authorization-quickstart.md
+      - name: Tutorial - Configure multi-user authorization
+        href: multi-user-authorization-tutorial.md
+      - name: Configure multi-user authorization using Resource Guard
+        href: multi-user-authorization.md
+    - name: Immutability
       items:
       - name: Overview
-        href: backup-azure-private-endpoints-concept.md
-      - name: Create and manage
-        href: backup-azure-private-endpoints-configure-manage.md
-  - name: Threat Detection with Microsoft Defender for Cloud integration
+        href: backup-azure-immutable-vault-concept.md
+      - name: Manage
+        href: backup-azure-immutable-vault-how-to-manage.md
+    - name: Soft delete
+      items:
+      - name: Secure by default with soft delete
+        href: secure-by-default.md
+      - name: Soft delete FAQ
+        href: soft-delete-azure-backup-faq.yml
+      - name: Manage and recover soft-deleted backup items
+        href: backup-azure-enhanced-soft-delete-configure-manage.md
+      - name: Soft delete and recovery for Azure VMs
+        href: soft-delete-virtual-machines.md
+      - name: Soft delete and recovery for SQL Server and SAP HANA
+        href: soft-delete-sql-saphana-in-azure-vm.md
+      - name: Delete protection for Azure Files
+        href: soft-delete-azure-file-share.md
+    - name: Security for hybrid backups
+      href: backup-azure-security-feature.md
+    - name: Save and manage the MARS agent passphrase in Azure Key Vault
+      href: save-backup-passphrase-securely-in-azure-key-vault.md
+    - name: Private endpoints
+      items:
+      - name: V1 experience
+        items:
+        - name: Overview
+          href: private-endpoints-overview.md
+        - name: Create and manage
+          href: private-endpoints.md
+      - name: V2 experience
+        items:
+        - name: Overview
+          href: backup-azure-private-endpoints-concept.md
+        - name: Create and manage
+          href: backup-azure-private-endpoints-configure-manage.md
+    - name: Encryption in Azure Backup
+      href: backup-encryption.md
+    - name: Encryption using customer-managed keys
+      items:
+      - name: Recovery Services vault
+        href: encryption-at-rest-with-cmk.md
+      - name: Backup vault
+        href: encryption-at-rest-with-cmk-for-backup-vault.md
+    - name: Transport Layer Security
+      href: transport-layer-security.md
+  - name: Detect and respond to threats
     items:
-    - name: Overview
+    - name: Threat detection with Microsoft Defender for Cloud (preview)
       href: threat-detection-overview.md
-    - name: Configure Threat Detection and manage health of Azure VM Backups
+    - name: Configure threat detection and monitor backup health (preview)
       href: threat-detection-configure-monitor-tutorial.md
-  - name: Encryption in Azure Backup
-    href: backup-encryption.md
-  - name: Encryption using customer-managed keys
+    - name: Preserve recovery points in response to ransomware alerts
+      href: backup-azure-integrate-microsoft-defender-using-logic-apps.md
+  - name: Recover backups during security incidents
     items:
-    - name: Recovery Services vault
-      href: encryption-at-rest-with-cmk.md
-    - name: Backup vault
-      href: encryption-at-rest-with-cmk-for-backup-vault.md
-  - name: Transport Layer Security
-    href: transport-layer-security.md
-  - name: Security controls by Azure Policy
-    displayName: regulatory, compliance, standards, domains
-    href: ./security-controls-policy.md
+    - name: Cross-tenant restore (preview)
+      items:
+      - name: Overview
+        href: cross-tenant-restore-overview.md
+      - name: Tutorial - Configure cross-tenant restore and restore data
+        href: tutorial-cross-tenant-restore.md
 - name: Azure VM backup
   items:
   - name: Overview

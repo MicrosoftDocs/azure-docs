@@ -65,7 +65,7 @@ For *hybrid identities*, if you have a user in Active Directory named user1@onpr
 > [!IMPORTANT]
 > Assign permissions by explicitly declaring actions and data actions instead of using a wildcard (\*) character.
 >
-> If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This access includes any new data action added to the platform. The additional access and permissions granted through new actions or data actions might be unwanted behavior for customers who use wildcards.
+> If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This access includes any new data action added to the platform. The additional access and permissions granted through new actions or data actions might be unwanted behavior for customers who use wildcards.
 
 For share-level permissions to work for hybrid identities, you must take the following actions:
 

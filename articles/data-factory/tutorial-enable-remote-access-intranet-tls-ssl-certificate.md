@@ -84,13 +84,13 @@ In this tutorial, you will learn how to set up a self-hosted integration runtime
             ```Powershell
             New-SelfSignedCertificate -DnsName contoso.com, node1.domain.contoso.com, node2.domain.contoso.com -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" -CertStoreLocation cert:\LocalMachine\My
             ```
-        1. To export the generated certificate with a private key to a password protected PFX file, you will need its thumbprint. It can be copied from the results of `New-SelfSignedCertificate` command. For example, it is `CEB5B4372AA7BF877E56BCE27542F9F0A1AD197F`.
+        1. To export the generated certificate with a private key to a password protected PFX file, you will need its thumbprint. It can be copied from the results of `New-SelfSignedCertificate` command. For example, it is `AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00`.
         1. Export the generated certificate with the private key via PowerShell (with elevated privileges):
         
             ```Powershell
             $CertPassword = ConvertTo-SecureString -String “Password” -Force -AsPlainText
             Export-PfxCertificate -Cert
-            cert:\LocalMachine\My\CEB5B4372AA7BF877E56BCE27542F9F0A1AD197F -FilePath C:\self-signedcertificate.pfx -Password $CertPassword            
+            cert:\LocalMachine\My\AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00 -FilePath C:\self-signedcertificate.pfx -Password $CertPassword            
             ```
         1. You have exported the certificate with the private key to *C:\self-signedcertificate.pfx*.
 
@@ -121,4 +121,3 @@ In this tutorial, you will learn how to set up a self-hosted integration runtime
         1. If no, grant the permission, **Apply** and save.
         
             :::image type="content" source="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/ensure-read-permission-to-certificate-private-keys.png" alt-text="Screenshot that shows the Service account for the self-hosted integration runtime has read permission to the private keys of certificate.":::
-

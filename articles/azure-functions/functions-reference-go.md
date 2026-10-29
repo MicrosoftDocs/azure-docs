@@ -2,7 +2,7 @@
 title: Go developer reference for Azure Functions
 description: Understand how to develop Go function apps for Azure Functions using the Go worker SDK.
 ms.topic: article
-ms.date: 05/22/2026
+ms.date: 10/12/2026
 ms.devlang: golang
 ms.custom:
   - devx-track-go
@@ -11,8 +11,6 @@ ms.custom:
 ---
 
 # Azure Functions Go developer reference
-
-[!INCLUDE [functions-go-preview-note](../../includes/functions-go-preview-note.md)]
 
 Azure Functions is a serverless compute service that you can use to run event-driven code without provisioning or managing infrastructure. The Go worker enables you to write Azure Functions natively in Go, with deep integration into the Azure Functions trigger ecosystem.
 
@@ -98,10 +96,22 @@ app.CosmosDB("myCosmosFunc", handler,
     sdk.WithConnection("CosmosDBConnection"),
 )
 
+// Azure Queue Storage trigger
+app.Queue("myQueueFunc", handler,
+    sdk.WithQueueName("myqueue"),
+    sdk.WithConnection("AzureWebJobsStorage"),
+)
+
 // Azure Service Bus trigger
 app.ServiceBusQueue("myServiceBusFunc", handler,
     sdk.WithQueueName("myqueue"),
     sdk.WithConnection("ServiceBusConnection"),
+)
+
+// Azure SQL trigger
+app.SQL("mySqlFunc", handler,
+    sdk.WithTable("dbo.Products"),
+    sdk.WithConnection("SqlConnectionString"),
 )
 
 // Event Hubs trigger
@@ -143,44 +153,48 @@ The `local.settings.json` file stores app settings and connection strings used d
 
 ## Triggers
 
-The Go worker organizes triggers into two tiers based on their dependency requirements:
+The Go worker provides dedicated registration methods for supported triggers.
 
-### Core triggers
+### Typed trigger payloads
 
-Core triggers receive their payload inline via gRPC. The Azure Functions host serializes the trigger data into the gRPC message, and the worker deserializes it into typed Go structs. These triggers have:
+Most supported triggers receive their payload inline through gRPC. The Azure Functions host serializes the trigger data into the gRPC message, and the worker deserializes it into typed Go values. These triggers have:
 
 - **Typed handler signatures** with compile-time safety
 - **No external Azure SDK dependencies**: only `encoding/json` is needed
 - **Bounded payloads**: change-feed documents, messages, and events are discrete, size-limited objects
 
-Supported core triggers:
+Supported triggers:
 
 | Trigger | Handler signature | Registration method |
-|---|---|---|
+| --- | --- | --- |
 | HTTP | `func(http.ResponseWriter, *http.Request)` | `app.HTTP()` |
 | Timer | `TimerHandler` | `app.Timer()` |
+| Azure Queue Storage | `QueueHandler` | `app.Queue()` |
 | Azure Cosmos DB | `func(context.Context, []bindings.CosmosDocument) error` | `app.CosmosDB()` |
 | Azure Service Bus (Queue) | `ServiceBusHandler` | `app.ServiceBusQueue()` |
 | Azure Service Bus (Topic) | `ServiceBusHandler` | `app.ServiceBusTopic()` |
 | Event Hubs | `EventHubHandler` | `app.EventHub()` |
 | Event Grid | `EventGridHandler` | `app.EventGrid()` |
+| Azure SQL | `func(context.Context, []bindings.SQLChange) error` | `app.SQL()` |
 
-### Extension triggers
+Event Hubs and Service Bus also support strongly typed batch handlers through `app.EventHubBatch()`, `app.ServiceBusQueueBatch()`, and `app.ServiceBusTopicBatch()`.
 
-Extension triggers provide an authenticated Azure SDK client instead of raw data. The host sends only metadata (such as container name and blob path), and the worker constructs a client scoped to the specific resource. These triggers have:
+### SDK type bindings
+
+SDK type bindings provide an authenticated Azure SDK client instead of serialized trigger data. For Go, Blob Storage triggers support SDK type bindings. The host sends metadata, such as the container name and blob path, and the worker constructs a client scoped to the specific resource. SDK type bindings provide:
 
 - **SDK client injection**: the handler receives a ready-to-use client
 - **Isolated dependencies**: Azure SDK packages live in `triggers/<name>/`
 - **Streaming support**: enables reading large payloads without buffering through gRPC
 
-To use an extension trigger, add a blank import for the extension package:
+To use the Blob Storage SDK type binding, add a blank import for the Blob trigger package:
 
 ```go
 import _ "github.com/azure/azure-functions-golang-worker/triggers/blob"
 ```
 
 | Trigger | Handler receives | Registration method |
-|---|---|---|
+| --- | --- | --- |
 | Blob Storage | `*blob.Client` | `app.Blob()` |
 
 #### Blob trigger example
@@ -220,6 +234,25 @@ func processBlob(ctx context.Context, client *blob.Client) error {
     return nil
 }
 ```
+
+### Generic host triggers
+
+Use `app.GenericTrigger()` when a compatible host extension provides a trigger that doesn't have a dedicated Go registration method. Generic triggers support raw text, byte slices, and JSON-compatible Go types:
+
+```go
+app.GenericTrigger("echoTool", echoTool, &bindings.GenericTrigger{
+    Type:     "mcpToolTrigger",
+    Name:     "call",
+    DataType: "string",
+    Properties: map[string]any{
+        "toolName":       "echo",
+        "description":    "Echo text using a generic Go trigger",
+        "toolProperties": `[{"propertyName":"text","propertyType":"string","description":"Text to echo","isRequired":true}]`,
+    },
+})
+```
+
+The compatible host extension must be installed. Generic trigger registration doesn't provide HTTP handling, SDK client injection, Durable Functions replay, or service-specific message settlement. For complete examples, see the [generic triggers sample](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/genericTriggers).
 
 ## HTTP triggers
 
@@ -279,6 +312,19 @@ func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
     return nil
 }
 ```
+
+## Durable Functions
+
+Go supports [Durable Functions](../durable-task/common/what-is-durable-task.md) orchestrations and activities through the `middleware/durabletask` package. Register your orchestrators and activities with the Durable middleware before adding the middleware to the function app:
+
+```go
+durable := durabletask.Middleware()
+durable.Orchestrator("HelloCities", helloCities)
+durable.Activity("SayHello", sayHello)
+app.Use(durable)
+```
+
+Durable Functions for Go requires the Durable Task extension version 3.15.0 or later. Entities aren't currently supported. For a complete application, see the [Durable Functions sample](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/durableFunctions).
 
 ## Dependency management
 
@@ -393,14 +439,12 @@ The command generates a `Dockerfile` along with the standard project files.
 
 The Azure Functions Go worker supports structured logging and OpenTelemetry-based observability. Use context-aware methods from the standard `log/slog` package, such as `slog.InfoContext`, to correlate logs with the current function invocation. To enable OpenTelemetry, configure the Functions host and register the Go worker OpenTelemetry middleware in your app. For setup instructions, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md?pivots=programming-language-go).
 
-## Known limitations (preview)
-
-During the public preview, the following limitations apply:
+## Known limitations
 
 - `func new` isn't supported. Add functions by editing `main.go` directly.
-- Durable Functions isn't supported for Go during the public preview.
-- Go function apps run on Linux only in Azure.
-- Only the triggers listed in [Triggers](#triggers) are supported during the preview.
+- Go function apps run on Linux in the Flex Consumption plan only.
+- Only the dedicated triggers listed in [Triggers](#triggers) and compatible [generic host triggers](#generic-host-triggers) are supported.
+- Additional input bindings and non-HTTP output bindings aren't currently supported.
 - Go packaging in Core Tools currently targets Linux x64 apps.
 
 ## Next steps

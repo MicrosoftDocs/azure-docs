@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 09/15/2026
+ms.date: 10/27/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -21,6 +21,10 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - October 2026
+  - [Selective disk restore for Azure VMs (preview)](#selective-disk-restore-for-azure-vms-preview)
+  - [Cross-tenant restore for Azure Backup (preview)](#cross-tenant-restore-for-azure-backup-preview)
+  - [Granular billing for Azure Backup is now generally available](#granular-billing-for-azure-backup-is-now-generally-available)
+  - [Item-level recovery support for Premium SSD v2 and Ultra disks](#item-level-recovery-support-for-premium-ssd-v2-and-ultra-disks)
   - [Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)](#vaulted-backup-support-for-azure-postgresql-flexible-server-and-elastic-cluster-v2-preview)
 - September 2026
   - [Operational backup support for Azure Elastic SAN volume is now generally available](#operational-backup-support-for-azure-elastic-san-volume-is-now-generally-available)
@@ -83,6 +87,37 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Selective disk restore for Azure VMs (preview)
+
+Azure Backup now supports selective disk restore for Azure virtual machines (preview). You can choose which disks to restore from a recovery point without enabling selective disk backup. This capability lets you recover only the disks you need instead of restoring all the backed-up disks.
+
+Selective disk restore supports creating a new VM (alternate-location restore), replacing selected disks on an existing VM (original-location restore), and restoring selected disks without creating a VM. The OS disk is required when you create a new VM, but you can exclude it when replacing existing disks or restoring as disks. Use **Restore VM (Preview)** in the Azure portal to select disks and track the restore through **Backup jobs**.
+
+For more information, see [Selective disk restore](selective-disk-backup-restore.md#selective-disk-restore).
+
+## Cross-tenant restore for Azure Backup (preview)
+
+Azure Backup now supports cross-tenant restore, which you can use to restore vaulted backup data from a source tenant to a target tenant after you map the source and target vaults. Use it to recover from scenarios such as tenant lockout, ransomware attacks, tenant consolidation, and cross-tenant disaster recovery. A Resource Guard in the target tenant protects the mapping operation.
+
+Cross-tenant restore supports Recovery Services vault workloads (Azure VMs, Azure Files, SQL Server in Azure VM, SAP HANA in Azure VM, and SAP ASE in Azure VM) in all Azure public regions. It also supports Backup vault workloads (Azure Database for PostgreSQL - Flexible Server, Azure Blobs, Azure Cosmos DB, Azure Data Lake Storage, and AKS) in select regions. Cross-tenant restore supports alternate location restore only.
+
+For more information, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md).
+## Granular billing for Azure Backup is now generally available
+
+Granular billing now supports both [Recovery Services vaults](backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md). You can view backup costs at a custom granularity level to simplify chargeback and cost reporting across teams, applications, and cost centers.
+
+You can configure granular billing by using the Azure portal, Azure PowerShell, or Azure CLI.
+
+For more information, see [Configure granular billing in Azure Backup](backup-azure-granular-billing.md).
+
+## Item-level recovery support for Premium SSD v2 and Ultra disks
+
+Azure Backup now supports item-level recovery (ILR) for Azure virtual machines using Premium SSD v2 and Ultra disks with 512-byte or 4-KB logical sector sizes. You can recover individual files and folders without restoring an entire disk or virtual machine. ILR supports Azure VMs on Windows and Linux running Ubuntu, RHEL, Debian, Oracle Linux, SLES, or openSUSE, including VMs with mixed disk types.
+
+You can generate a file-recovery executable or script through the Azure portal, CLI, or PowerShell, then run it on a compatible machine to access the recovery point, selectively browse, and copy individual files or folders. The generated script can be run only by an administrator in elevated mode and doesn't need any input from an external source except a password, with a 12-hour auto-disconnection and session timeout policy by default. This experience is in parity with the existing ILR workflow for Standard HDD, Standard SSD, and Premium SSD v1 disks, bringing parity across all Azure managed disk SKUs. This functionality improves the recovery time when only specific files or folders need to be restored from Premium SSD v2 or Ultra disks.
+
+Learn more about [recovering files and folders from Azure VM backup](backup-azure-restore-files-from-vm.md).
 
 ## Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)
 

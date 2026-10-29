@@ -2,7 +2,7 @@
 title: Overview of security features
 description: Learn about security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 ms.topic: overview
-ms.date: 01/30/2026
+ms.date: 10/09/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a security manager, I want to understand the security features of Azure Backup, so that I can ensure our backup data is protected against unauthorized access and comply with industry regulations.
@@ -69,6 +69,10 @@ Immutable vault can help you protect your backup data by blocking any operations
 ## Multi-user authorization
 
 Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization. [Learn more about multi-user authorization for Azure Backup](multi-user-authorization-concept.md).
+
+## Cross-tenant restore (preview)
+
+Cross-tenant restore lets you restore vaulted backup data from a source tenant to a different target tenant after you map the source and target vaults. Use it to recover from scenarios such as tenant lockout, ransomware attacks, and tenant consolidation. Resource Guard protects the mapping operation. [Learn more about cross-tenant restore](cross-tenant-restore-overview.md).
 
 ## Enhanced soft delete
 

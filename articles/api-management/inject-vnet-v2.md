@@ -3,7 +3,7 @@ title: Inject API Management in virtual network - Premium v2
 description: Learn how to deploy (inject) an Azure API Management instance in the Premium v2 tier in a virtual network to isolate inbound and outbound traffic.
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 10/08/2025
+ms.date: 10/28/2026
 ms.custom:
   - build-2025
 ---
@@ -82,9 +82,9 @@ The following table shows subnet sizing examples for API Management virtual netw
 
 ### Subnet delegation
 
-The subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
+ Delegate the subnet to the **Microsoft.ApiManagement/service** service. 
 
-:::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-internal.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/hostingEnvironments in the portal.":::
+:::image type="content" source="media/inject-vnet-v2/subnet-delegated-apim-service.png" alt-text="Screenshot of subnet delegation.":::
 
 [!INCLUDE [api-management-virtual-network-v2-delegation-requirement](../../includes/api-management-virtual-network-v2-delegation-requirement.md)]
 

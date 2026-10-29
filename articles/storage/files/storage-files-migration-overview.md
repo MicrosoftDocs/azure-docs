@@ -4,7 +4,7 @@ description: Learn how to migrate to SMB Azure file shares and choose from a tab
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/13/2026
+ms.date: 10/28/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to understand the migration process to SMB Azure file shares, so that I can efficiently move our data with full fidelity and select the appropriate tools for a seamless transition to cloud storage."
 ---
@@ -111,7 +111,7 @@ If you've made a list of your shares, you should map each share to the storage a
 
 The names of your resources are also important. For example, if you group multiple shares for the HR department into an Azure storage account, you should name the storage account appropriately. Similarly, when you name your Azure file shares, you should use names similar to the ones used for their on-premises counterparts.
 
-Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create an SMB file share](storage-how-to-create-file-share.md). In most cases, you'll want to make sure the region of each of your storage accounts is the same.
+Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create a classic file share](create-classic-file-share.md). In most cases, ensure the region of each of your storage accounts is the same.
 
 ### Prepare to use Azure file shares
 
@@ -133,9 +133,7 @@ You also need to decide how your servers and users in Azure and outside of Azure
 * [Identity-based authentication overview](storage-files-active-directory-overview.md)
 * [Networking overview for Azure file shares](storage-files-networking-overview.md)
 * [How to configure public and private endpoints](storage-files-networking-endpoints.md)
-* [How to configure a site-to-site VPN](storage-files-configure-s2s-vpn.md)
-* [How to configure a Windows point-to-site VPN](storage-files-configure-p2s-vpn-windows.md)
-* [How to configure a Linux point-to-site VPN](storage-files-configure-p2s-vpn-linux.md)
+* [How to connect from on-premises](storage-files-networking-overview.md#connect-from-on-premises)
 * [How to configure DNS forwarding](storage-files-networking-dns.md)
 * [Configure DFS-N](files-manage-namespaces.md)
    :::column-end:::
@@ -143,11 +141,7 @@ You also need to decide how your servers and users in Azure and outside of Azure
 
 ## Migration guides
 
-Selecting the right tools for your migration scenario is crucial. The following diagram shows what migration tool or tool combination you should use based on your SMB data source and whether or not you want to use Azure File Sync.
-
-:::image type="content" source="media/storage-files-migration-overview/smb-migration-flowchart.png" alt-text="Decision flowchart showing which migration tool you should choose based on your SMB data source." lightbox="media/storage-files-migration-overview/smb-migration-flowchart.png" border="false":::
-
-The following table lists the suggested migration tool combinations and includes links to tool-specific migration guides.
+Selecting the right tools for your migration scenario is crucial. Use the following table to choose a migration tool or tool combination based on your SMB data source and whether you want to use Azure File Sync. Each cell links to a tool-specific migration guide.
 
 How to use the table:
 
@@ -162,15 +156,13 @@ How to use the table:
 
 1. Within the intersection of source and target, a table cell lists available migration scenarios. Select one to view the migration guide.
 
-A scenario without a link doesn't yet have a published migration guide. Check this table occasionally for updates.
-
 | Source | Target: </br>Hybrid deployment </br>(Azure Files + Azure File Sync) | Target: </br>Cloud-only deployment </br>(Azure Files)|
 |:---|:--|:--|
 | | Recommended tool combination:| Recommended tool combination: |
-| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Azure File Sync and Azure DataBox](storage-files-migration-server-hybrid-databox.md)</li></ul> | <ul><li>Via Azure File Sync: Follow same steps as [Azure File Sync hybrid deployment](../file-sync/file-sync-deployment-guide.md) and [decommission server endpoint](../file-sync/file-sync-server-endpoint-delete.md) at the end.</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li></ul> |
-| Windows Server 2012 and earlier | <ul><li>Via [DataBox](../../databox/data-box-overview.md)</li><li>Via [Storage Migration Service](/windows-server/storage/storage-migration-service/overview) to recent server with [Azure File Sync](../file-sync/file-sync-deployment-guide.md), then upload</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li><li>Via [Storage Migration Service](/windows-server/storage/storage-migration-service/overview) to recent server with [Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
-| Linux (SMB) | <ul><li>NA</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li></ul> |
-| Network-attached storage (NAS) | <ul><li>Via [Storage Mover upload](migrate-files-storage-mover.md) + [Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li><li>[Via DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
+| Windows Server 2016 and later | <ul><li>[Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Azure File Sync and Azure Data Box](storage-files-migration-server-hybrid-databox.md)</li></ul> | <ul><li>Via Azure File Sync: Follow same steps as [Azure File Sync hybrid deployment](../file-sync/file-sync-deployment-guide.md) and [decommission server endpoint](../file-sync/file-sync-server-endpoint-delete.md) at the end.</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li></ul> |
+| Windows Server 2012 R2 and earlier | <ul><li>[Via a new Windows Server 2016 or later server with Azure File Sync](storage-files-migration-nas-hybrid.md), copying with RoboCopy (treat the old server like a NAS)</li><li>[Via Data Box and Azure File Sync](storage-files-migration-nas-hybrid-databox.md) (treat the old server like a NAS)</li><li>Via [Storage Migration Service](/windows-server/storage/storage-migration-service/migrate-data) to Windows Server 2019 or later, then [deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md) (SMB 2 or later sources, so not Windows Server 2003 or 2003 R2)</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
+| Linux (SMB) | <ul><li>[Via Windows Server 2016 or later with Azure File Sync](storage-files-migration-linux-hybrid.md), copying with RoboCopy</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li></ul> |
+| Network-attached storage (NAS) | <ul><li>Via [Storage Mover upload](migrate-files-storage-mover.md) + [Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via Data Box + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li><li>[Via Data Box](storage-files-migration-nas-cloud-databox.md)</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
 
 ### File-copy tools
 
@@ -199,12 +191,11 @@ The following table classifies Microsoft tools and their current suitability for
 | Recommended | Tool | Support for Azure file shares | Preservation of file fidelity |
 | :-: | :-- | :---- | :---- |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure Storage Mover](../../storage-mover/service-overview.md) | Supported. | Full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure Data Box](../../databox/data-box-overview.md?pivots=dbx-ng) | Supported. | Full fidelity.* |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure Data Box](../../databox/data-box-overview.md?pivots=dbx-ng) | Supported for SMB file shares. Data Box can't import into NFS file shares. | Full fidelity.* Data Box and Data Box Disk preserve ACLs, timestamps, and attributes. See [Preserving file ACLs, attributes, and timestamps with Azure Data Box](../../databox/data-box-file-acls-preservation.md). |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supported. Azure file shares can be mounted as network drives. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure File Sync](../file-sync/file-sync-introduction.md) | Natively integrated into Azure file shares. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure Storage Migration Program](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md) | Supported. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on Storage Migration Service target servers. | Full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box (including the [data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md) to load files onto the device)| Supported. </br>(Data Box Disks doesn't support large file shares) | Data Box and Data Box Heavy fully support metadata. </br>Data Box Disks doesn't preserve file metadata. |
 |![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| AzCopy </br>latest version | Supported but not fully recommended. | AzCopy sync supports up to 10 million files per AzCopy job and some file fidelity might be lost as AzCopy uses the Azure Files REST APIs for copying content to your Azure Files share. </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |
 |![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer </br>latest version | Supported but not recommended. | Loses most file fidelity, like ACLs. Supports timestamps. |
 |![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Doesn't copy metadata. |

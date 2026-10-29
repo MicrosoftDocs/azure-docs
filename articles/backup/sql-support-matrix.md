@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure Virtual Machines (VMs) 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 04/06/2026
+ms.date: 10/09/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -28,6 +28,7 @@ The following table summarizes the support for different scenarios for SQL Serve
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md). <br><br>  Note that the SQL databases that are part of a AlwaysOn AG and are synced from SQL Managed Instance aren't supported.
 **Cross Region Restore** | Supported for databases protected as a standalone instance and/or as part of a SQL availability group. [Learn more](restore-sql-database-azure-vm.md#cross-region-restore).
 **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](restore-sql-database-azure-vm.md#cross-subscription-restore).
+**Cross Tenant Restore (preview)** | Supported for vaulted recovery points through alternate location restore. SQL instance restore and archive-tier recovery points aren't supported. [Learn more](cross-tenant-restore-overview.md).
 
 
 [!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]

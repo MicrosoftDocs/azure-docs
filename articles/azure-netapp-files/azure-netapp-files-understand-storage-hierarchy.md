@@ -27,7 +27,7 @@ The following example shows the relationships of the Azure subscription, NetApp 
 - A NetApp account isn't the same as your general Azure storage account. 
 - A NetApp account is regional in scope.   
 - You can have multiple NetApp accounts in a region, but each NetApp account is tied to only a single region.
-- NetApp accounts must be dedicated to a service level. [Confirm you understand the difference between Elastic zone-redundant storage and other service levels before creating your NetApp account.](azure-netapp-files-service-levels.md)
+- NetApp accounts must be dedicated to a service level. <!--[Confirm you understand the difference between Elastic zone-redundant storage and other service levels before creating your NetApp account.](azure-netapp-files-service-levels.md) -->
 
 ## <a name="capacity_pools"></a>Capacity pools
 
@@ -45,6 +45,7 @@ Understanding how capacity pools work helps you select the right capacity pool t
 - You can't delete a capacity pool until you delete all volumes within the capacity pool. 
 - [Azure NetApp Files storage with cool access](cool-access-introduction.md) is supported in Flexible, Standard, Premium, and Ultra service-level capacity pools. For more information about service levels, including the Flexible service level, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md).
 
+<!--
 ### General rules of Elastic capacity pools 
 
 - You must have a NetApp account designated for use with Elastic zone-redundant storage.
@@ -60,6 +61,7 @@ Understanding how capacity pools work helps you select the right capacity pool t
 ```
 GET  https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/elasticRegionInfo?api-version=2025-09-01-preview.
 ```
+-->
 
 ### <a name="qos_types"></a>Quality of Service (QoS) types for capacity pools
 
@@ -89,12 +91,12 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 
 #### *Shared* QoS type
 
-When you create a capacity pool in the Elastic zone-redundant storage service level, the default QoS type is shared.
+<!--When you create a capacity pool in the Elastic zone-redundant storage service level, the default QoS type is shared.-->
 
 In a shared QoS capacity pool, throughput is not allocated per volume. Instead all volumes share the pool's total throughput. The pool's performance budget is determined by its size and service level (for example, roughly 32 MiB/s of throughput per 1 TiB of capacity in the zone-redundant storage service level). Unlike auto QoS (which ties throughput to volume size) or manual QoS (which requires setting each volume’s throughput), a shared QoS pool has no fixed per-volume limits. The system dynamically distributes I/O so that each volume can reach its needed throughput as long as the pool hasn't exceeded its limit. 
 
 >[!NOTE]
->The total throughput in shared QoS is still finite (capped by pool size × service-level throughput), so plan capacity accordingly. For exact throughput limits, see [Resource limits Elastic zone-redundant storage](azure-netapp-files-resource-limits.md).
+>The total throughput in shared QoS is still finite (capped by pool size × service-level throughput), so plan capacity accordingly. <!--For exact throughput limits, see [Resource limits Elastic zone-redundant storage](azure-netapp-files-resource-limits.md).-->
 
 ## <a name="volumes"></a>Volumes
 
@@ -105,6 +107,8 @@ In a shared QoS capacity pool, throughput is not allocated per volume. Instead a
 - Volumes contain a capacity of between 50 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 GiB and 1 PiB.
 - By default, all existing and new regular Azure NetApp Files volumes support a maximum file size of 64 TiB.
 
+<!--
+
 ## Elastic volumes 
 
 - A volume is measured by logical capacity consumption and is scalable.
@@ -112,6 +116,8 @@ In a shared QoS capacity pool, throughput is not allocated per volume. Instead a
 - A volume's throughput consumption contributes to the overall pool’s throughput usage, which is dynamically distributed across all volumes based on demand and availability.
 - Each volume belongs to only one pool, but a pool can contain multiple volumes.
 - Volumes capacity is between 1 GiB and 16 TiB. You cannot create a large volume currently.
+
+-->
 
 ## Large volumes
 

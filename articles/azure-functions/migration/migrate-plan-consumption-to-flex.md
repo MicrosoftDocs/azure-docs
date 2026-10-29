@@ -392,7 +392,7 @@ Flex Consumption plans don't support all [Functions language stacks](../supporte
 | `java`  | [Java](../functions-reference-java.md)  | ✅ Yes |
 | `python` | Python   | ✅ Yes                        |
 | `powershell`  | [PowerShell](../functions-reference-powershell.md)  | ✅ Yes |
-| `go`  | [Go (Preview)](../functions-reference-go.md) | ✅ Yes |
+| `go`  | [Go](../functions-reference-go.md) | ✅ Yes |
 | `dotnet`  | [.NET (in-process model)](../functions-dotnet-class-library.md) | ❌ No  |
 | `custom`  | [Custom handlers](../functions-custom-handlers.md) | ✅ Yes   |
 
@@ -450,7 +450,7 @@ In this example, replace `<REGION>` with your current region and `<LANGUAGE_STAC
 | [PowerShell](../functions-reference-powershell.md) | `powershell` |
 | [Python](../functions-reference-python.md)     | `python` |
 | [TypeScript](../functions-reference-node.md) | `node` |
-| [Go (Preview)](../functions-reference-go.md) | `go` |
+| [Go](../functions-reference-go.md) | `go` |
 
  This command displays all versions of the specified language stack  supported by the Flex Consumption plan in your region.
 

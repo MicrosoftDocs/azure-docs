@@ -40,7 +40,7 @@ For the backup configuration, review the following key entities involved:
 
 - **Storage account containing the blobs to be protected**: Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This serves as the identifier of the storage account.
 
-  For example, we'll use a storage account named *msblobbackup*, under the resource group *RG-BlobBackup*, in a different subscription and in *west US*.
+  For example, use a storage account named *msblobbackup*, under the resource group *RG-BlobBackup*, in a different subscription and in *West US*.
 
   ```http
   "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-BlobBackup/providers/Microsoft.Storage/storageAccounts/msblobbackup"
@@ -52,13 +52,19 @@ For the backup configuration, review the following key entities involved:
 
 ### Assign permissions
 
-Assign a few permissions via Azure role-based access control (Azure RBAC) to the created vault (represented by vault Managed Service Identity) and the relevant storage account. You can assign the permissions via Azure portal, PowerShell, or REST API. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+Assign the required roles to the Backup vault's managed identity on the source storage account by using Azure role-based access control (Azure RBAC). Assign the permissions through the Azure portal, PowerShell, or REST API. To learn more, see [permissions for the Backup vault](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+
+The identity that creates or updates the backup instance needs read permission on the source storage account (`Microsoft.Storage/storageAccounts/read`), such as through the **Reader** role on that account. This permission is separate from the permissions assigned to the Backup vault's managed identity.
 
 ### Prepare the request to configure blob backup
 
 Once the relevant permissions to the vault and storage account are set, and the vault and policy configuration are done, prepare the request to configure backup.
 
-The following is the request body to configure backup for all blobs within a storage account. The Azure Resource Manager ID (ARM ID) of the storage account and its details are mentioned in the `datasourceinfo` section and the policy information is present in the `policyinfo` section.
+The following request body configures backup for all blobs in a storage account. Set `dataSourceInfo.resourceID` and, if populated, `dataSourceSetInfo.resourceID` to the source storage account's full Azure Resource Manager (ARM) ID, not just its name. The `policyInfo` section contains the policy information.
+
+For validation, these fields are under `backupInstance`, as shown in the following section. When you create or update a backup instance, use `properties.dataSourceInfo.resourceID` and `properties.dataSourceSetInfo.resourceID`, when populated.
+
+If configuration fails with `LinkedAuthorizationFailed` or `LinkedInvalidPropertyId`, see [Troubleshoot backup configuration requests](backup-azure-backup-vault-troubleshoot.md#backup-configuration-request-errors).
 
 ```json
 {

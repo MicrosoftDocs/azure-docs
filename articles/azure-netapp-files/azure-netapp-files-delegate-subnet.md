@@ -35,10 +35,11 @@ You must delegate a subnet to Azure NetApp Files. When you create a volume, you 
 * For Azure NetApp Files support of [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDRs) and Network security groups (NSGs), see [Constraints in Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints).   
    To establish routing or access control ***to*** the Azure NetApp Files delegated subnet, you can apply UDRs and NSGs to other subnets, even within the same VNet as the subnet delegated to Azure NetApp Files.  
 
+<!-- 
 ### Considerations for Elastic zone-redundant storage 
-<!-- ZRS --> 
 * The subnet size should be large enough to accommodate placement of all your resources; in most cases, /24 works, however you should assess based on your specific needs. You can't update the subnet after creating the capacity pool.  
 * The subnet must be delegated to the `Microsoft.NetApp/elasticVolumes` service.
+-->
 
 ## Steps
 

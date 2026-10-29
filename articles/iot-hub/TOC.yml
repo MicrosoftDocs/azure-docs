@@ -15,7 +15,7 @@
   expanded: true
   items:
     - name: Get started (ADR integration)
-      href: iot-hub-device-registry-setup.md
+      href: ../iot/device-registry/get-started-azure-device-registry.md
     - name: Create an IoT hub (no ADR integration)
       href: create-hub.md
       displayName: create IoT Hub, delete IoT hub, portal, CLI

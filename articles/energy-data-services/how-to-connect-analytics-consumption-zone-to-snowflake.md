@@ -191,6 +191,7 @@ ALTER ICEBERG TABLE acz_data.osdu.osdu_catalog REFRESH;
 
 ## Related content
 
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Connect Analytics Consumption Zone to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Connect Analytics Consumption Zone data to Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)

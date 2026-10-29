@@ -21,6 +21,9 @@ Before you configure backup for Azure Cosmos DB, review the following prerequisi
 
 - Check the [supported scenarios and known limitations](backup-azure-cosmos-db-support-matrix.md) of Azure Cosmos DB backup.
 - Identify or [create a Backup Vault](create-manage-backup-vault.md) in the same region where you want to back up the Azure Cosmos DB account.
+- Ensure you have read permission on the source account (`Microsoft.DocumentDB/databaseAccounts/read`). The **Reader** role on the account grants this permission, separately from the vault's managed identity permissions.
+
+  For cross-subscription backup, check your access in the source account's subscription. To resolve permission errors, see [Troubleshoot backup configuration requests](backup-azure-backup-vault-troubleshoot.md#backup-configuration-request-errors).
 
 ## Create vaulted backup policy for Azure Cosmos DB
 

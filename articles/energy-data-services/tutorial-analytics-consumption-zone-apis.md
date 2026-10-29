@@ -469,6 +469,7 @@ The ACZ APIs return the following error codes.
 
 ## Related content
 
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)

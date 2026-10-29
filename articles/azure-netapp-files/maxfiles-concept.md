@@ -49,7 +49,7 @@ To see the `maxfiles` allocation for a specific volume size, check the **Maximum
 >[!NOTE]
 >The maximum number of files metric is reported against the `maxfiles` account quota limit. The metric in Azure Monitor might reflect fewer files than metrics provided by the operating system mounting the volume. This behavior is expected. 
 
-
+<!-- 
 ## `maxfiles` limits for Elastic zone-redundant storage 
 
 

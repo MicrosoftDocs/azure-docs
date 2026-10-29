@@ -185,6 +185,7 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 
 ## Related content
 
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Create an Azure Data Lake Storage Gen2 shortcut](/fabric/onelake/create-adls-shortcut)

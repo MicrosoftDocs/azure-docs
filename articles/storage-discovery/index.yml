@@ -79,10 +79,14 @@ additionalContent:
           links:
           - url: get-started-reports.md
             text: Discovery reports in the Azure portal
+          - url: analyze-blob-capacity-details.md
+            text: Analyze Blob capacity details
           - url: /azure/copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
             text: Use Azure Copilot to retrieve insights
         # Card
         - title: Manage
           links:
+          - url: configure-blob-storage-prefixes.md
+            text: Configure Blob prefixes for analysis
           - url: resource-move.md
             text: Move resources to other locations in Azure

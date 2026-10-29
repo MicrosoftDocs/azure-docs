@@ -21,7 +21,7 @@ ms.custom:
 
 The SMB protocol requires TCP port 445 to be open. Connections fail if port 445 is blocked. To check if your firewall or ISP is blocking port 445, use the `Test-NetConnection` PowerShell cmdlet. For more information, see [Port 445 is blocked](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json#cause-1-port-445-is-blocked).
 
-If you want to mount your Azure file share over SMB from outside of Azure without opening port 445, you can [use a point-to-site VPN](storage-files-configure-p2s-vpn-windows.md).
+If you want to mount your Azure file share over SMB from outside of Azure without opening port 445, you can [use a VPN or ExpressRoute connection](storage-files-networking-overview.md#connect-from-on-premises).
 
 To use an Azure file share via the public endpoint outside of the Azure region it's hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 can't mount Azure file shares via the public endpoint.
 

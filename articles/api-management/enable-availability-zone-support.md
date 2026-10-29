@@ -43,9 +43,6 @@ We recommend automatic availability zone configuration in the Premium tier, but 
 > [!NOTE]
 > You can optionally enable a *zonal* configuration, where the API Management instance or location is deployed in a single availability zone. Because it doesn't provide resilience to an outage in that zone, this configuration generally isn't recommended except for specific scenarios. For more information, see [Reliability in API Management](/azure/reliability/reliability-api-management).
 
-> [!CAUTION]
-> If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. If you use the automatic availability zone support, you don't need to adjust your autoscale settings. 
-
 ### IP address changes when changing availability zone configuration
 
 Changing the availability zone configuration of an existing API Management Premium instance changes the public virtual IP (VIP) address and, if the instance is deployed in internal virtual network mode, the private VIP address.
@@ -107,7 +104,7 @@ To manually configure availability zone support on an existing location of an AP
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit. 
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. Select **Apply**, then select **Save**.
 
@@ -129,7 +126,7 @@ To manually configure availability zone support on an existing location of an AP
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. Under **Public IP Address**, select a public IP address in the location.
 
@@ -153,7 +150,7 @@ To add a new location to your API Management instance and to configure availabil
 
 1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones.
 
 1. If your API Management instance is deployed in a virtual network, under **Network**, select the virtual network, subnet, and public IP address that are available in the location.
 

@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-ddos-protection
 ms.topic: how-to
-ms.date: 06/25/2026
+ms.date: 10/08/2026
 # Customer intent: As a network administrator, I want to create a DDoS Protection custom policy with protocol-specific detection thresholds, so that I can tune mitigation behavior to my application's traffic patterns.
 ---
 
@@ -32,7 +32,11 @@ In this article, you learn how to create a custom policy, configure protocol det
 During public preview, Azure DDoS Protection custom policy supports:
 
 - Standard Load Balancer frontend IP configurations.
-- Inbound detection thresholds for TCP, UDP, and TCP SYN traffic, set in packets per second (50,000 to 2,000,000).
+- Inbound detection thresholds set in packets per second, with the following protocol-specific ranges:
+
+  - TCP: 50,000 to 2,000,000.
+  - UDP: 20,000 to 200,000.
+  - TCP SYN: 1,000 to 100,000.
 - Management through the Azure portal, Azure Resource Manager (ARM) templates, and the REST API.
 
 Current limitations:
@@ -52,12 +56,12 @@ As with all preview features, functionality and supported scenarios might change
 
 1. On the **Basics** tab, enter or select the following values.
 
-    | Setting        | Value                                                   |
-    | -------------- | ------------------------------------------------------- |
-    | Subscription   | Select your subscription.                               |
+    | Setting        | Value                                                       |
+    | -------------- | ----------------------------------------------------------- |
+    | Subscription   | Select your subscription.                                   |
     | Resource group | Select an existing resource group or select **Create new**. |
-    | Name           | Enter a name for the custom policy.                     |
-    | Region         | Select a supported region.                              |
+    | Name           | Enter a name for the custom policy.                         |
+    | Region         | Select a supported region.                                  |
 
 1. Under **Load balancer frontend IP address**, optionally select **Select frontend IP addresses**, and then choose the Standard Load Balancer frontend IP addresses that you want to apply the custom policy to. You can also associate frontend IP addresses later from the policy's **Policy settings** page.
 1. Select **Next: Custom rules** to add detection threshold rules.
@@ -76,9 +80,17 @@ Detection threshold rules let you override Azure DDoS Protection's default detec
     | Setting                          | Value                                                                 |
     | -------------------------------- | --------------------------------------------------------------------- |
     | Name                             | Enter a name for the rule.                                            |
-    | Protocol                         | Select **TCP**, **UDP**, or **TCPSYN**.                              |
-    | Threshold (packets per second)   | Enter a value from **50,000** to **2,000,000** based on your application's anticipated traffic baseline. |
-    | Direction                        | **Inbound** (the only supported direction during preview).           |
+    | Protocol                         | Select **TCP**, **UDP**, or **TCPSYN**.                               |
+    | Threshold (packets per second)   | Enter a value in the valid range for the selected protocol.           |
+    | Direction                        | **Inbound** (the only supported direction during preview).            |
+
+    Use the following protocol-specific ranges:
+
+    - **TCP:** 50,000 to 2,000,000.
+    - **UDP:** 20,000 to 200,000.
+    - **TCP SYN:** 1,000 to 100,000.
+
+    Base the value on your application's anticipated traffic baseline.
 
     :::image type="content" source="./media/manage-custom-policy-portal/add-detection-threshold-rule.png" alt-text="Screenshot of the Add a detection threshold rule pane with protocol, threshold, and direction values." lightbox="./media/manage-custom-policy-portal/add-detection-threshold-rule.png":::
 

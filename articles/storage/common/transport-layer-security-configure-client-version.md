@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/29/2022
+ms.date: 10/23/2026
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
@@ -18,13 +18,19 @@ ms.custom: devx-track-csharp, devx-track-azurepowershell, engagement-fy23
 
 # Configure Transport Layer Security (TLS) for a client application
 
-For security purposes, an Azure Storage account may require that clients use a minimum version of Transport Layer Security (TLS) to send requests. Calls to Azure Storage will fail if the client is using a version of TLS that is lower than the minimum required version. For example, if a storage account requires TLS 1.2, then a request sent by a client who is using TLS 1.1 will fail.
+:heavy_check_mark: **Applies to:** Azure Blob Storage, Azure Data Lake Storage, Azure Queue Storage, Azure Table Storage
+
+:heavy_multiplication_x: **Doesn't apply to:** Azure Files (`Microsoft.Storage` or `Microsoft.FileShares`)
+
+For security purposes, an Azure Storage account can require that clients use a minimum version of Transport Layer Security (TLS) to send requests. Calls to Azure Storage fail if the client uses a version of TLS that's lower than the minimum required version. For example, if a storage account requires TLS 1.2, a request sent by a client that uses TLS 1.1 fails.
 
 This article describes how to configure a client application to use a particular version of TLS. For information about how to configure a minimum required version of TLS for an Azure Storage account, see [Configure minimum required version of Transport Layer Security (TLS) for a storage account](transport-layer-security-configure-minimum-version.md).
 
+For Azure Files, see [FileREST encryption in transit](../files/files-encryption-in-transit.md#filerest). Storage accounts that contain Azure file shares use the same TLS requirements, but the Azure Files article describes considerations for Azure Files.
+
 ## Configure the client TLS version
 
-In order for a client to send a request with a particular version of TLS, the operating system must support that version.
+To send a request with a particular version of TLS, the operating system must support that version.
 
 The following examples show how to set the client's TLS version to 1.2 from PowerShell or .NET. The .NET Framework used by the client must support TLS 1.2. For more information, see [Support for TLS 1.2](/dotnet/framework/network-programming/tls#support-for-tls-12).
 
@@ -44,7 +50,7 @@ New-AzStorageContainer -Name "sample-container" -Context $ctx
 
 # [.NET](#tab/dotnet)
 
-The following sample shows how to enable TLS 1.2 in a .NET client using version 12 of the Azure Storage client library:
+The following sample shows how to enable TLS 1.2 in a .NET client by using version 12 of the Azure Storage client library:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Networking.cs" id="Snippet_ConfigureTls12":::
 
@@ -52,7 +58,7 @@ The following sample shows how to enable TLS 1.2 in a .NET client using version 
 
 ## Verify the TLS version used by a client
 
-To verify that the specified version of TLS was used by the client to send a request, you can use [Fiddler](https://www.telerik.com/fiddler) or a similar tool. Open Fiddler to start capturing client network traffic, then execute one of the examples in the previous section. Look at the Fiddler trace to confirm that the correct version of TLS was used to send the request, as shown in the following image.
+To verify that the client used the specified version of TLS to send a request, use [Fiddler](https://www.telerik.com/fiddler) or a similar tool. Open Fiddler to start capturing client network traffic, and then execute one of the examples in the previous section. Look at the Fiddler trace to confirm that the correct version of TLS was used to send the request, as shown in the following image.
 
 :::image type="content" source="media/transport-layer-security-configure-client-version/fiddler-trace-tls-version.png" alt-text="Screenshot showing Fiddler trace that indicates TLS version used on request":::
 

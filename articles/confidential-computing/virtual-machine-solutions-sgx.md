@@ -1,10 +1,10 @@
 ---
-title: Deploy Intel SGX virtual machines
-description: Learn about using Intel SGX virtual machines (VMs) in Azure confidential computing.
+title: Deploy Intel SGX virtual machines (specialized)
+description: Specialized guidance for Intel SGX virtual machine deployments in Azure confidential computing.
 author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 9/12/2023
+ms.date: 06/30/2026
 ms.author: wwilliams
 ms.custom: devx-track-arm-template
 # Customer intent: As a cloud architect, I want to deploy Intel SGX virtual machines in Azure, so that I can meet compliance and security requirements for sensitive workloads with enhanced isolation and control over my computing environment.
@@ -12,9 +12,12 @@ ms.custom: devx-track-arm-template
 
 # Solutions on Azure for Intel SGX
 
-You can deploy Intel Software Guard Extension (Intel SGX) virtual machines (VM) for use in Azure confidential computing. 
+> [!IMPORTANT]
+> For most new deployments, use [AMD SEV-SNP and Intel TDX confidential VM options](virtual-machine-options.md). This SGX page is for specialized or existing enclave-based workloads.
 
-### Current available sizes and regions
+You can deploy Intel Software Guard Extensions (Intel SGX) virtual machines (VMs) for use in Azure confidential computing.
+
+### Currently available sizes and regions
 
 To get a list of Intel SGX VM sizes, use the [Azure Command-Line Interface (Azure CLI)](/cli/azure/what-is-azure-cli). [Install the Azure CLI](/cli/azure/install-azure-cli) if you haven't already done so. Then, run the following command to list the Intel SGX sizes with region and availability zone information.
 
@@ -27,7 +30,7 @@ az vm list-skus `
 
 ### Dedicated host requirements
 
-Deploying a **Standard_DC8_v2**, **Standard_DC48s_v3**, or **Standard_DC48ds_v3** series VM occupies the full host. Other tenants or subscriptions don't share the host. This family of VM SKUs provides the isolation you might need to meet compliance and security regulatory requirements. Normally, you might need a dedicated host service to meet these requirements. 
+Deploying a **Standard_DC8_v2**, **Standard_DC48s_v3**, or **Standard_DC48ds_v3** series VM occupies the full host. Other tenants or subscriptions don't share the host. This family of VM SKUs can help you meet compliance and security regulatory requirements. Normally, you need a dedicated host service to meet these requirements.
 
 For these VM sizes, the physical host server allocates all available hardware resources, including EPC memory, to your virtual machine only. This deployment isn't the same as the [Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) service in other VM families.
 

@@ -94,6 +94,51 @@
             "source_path_from_root": "/articles/azure-netapp-files/manage-file-access-logs-cache-volumes.md",
             "redirect_url": "/azure/azure-netapp-files/manage-file-access-logs", 
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-account.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-active-directory.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-capacity-pool-task.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-change-zones.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-customer-managed-keys.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-metrics.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-volume-server-message-block.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-zone-redundant-concept.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-volume.md",
+            "redirect_url": "/azure/azure-netapp-files", 
+            "redirect_document_id": false
         }
     ]
 }
