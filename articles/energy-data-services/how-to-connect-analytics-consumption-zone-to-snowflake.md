@@ -5,7 +5,7 @@ author: nsannala
 ms.author: nsannala
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 09/25/2026
+ms.date: 10/29/2026
 ms.custom: template-how-to-pattern
 ---
 
@@ -54,7 +54,7 @@ CREATE OR REPLACE EXTERNAL VOLUME acz_delta_volume
       (
         NAME = 'acz-storage-location'
         STORAGE_PROVIDER = 'AZURE'
-        STORAGE_BASE_URL = 'azure://<storage-account>.dfs.core.windows.net/<container>/<acz-id>/'
+        STORAGE_BASE_URL = 'azure://<storage-account>.dfs.core.windows.net/<container>/<folder-path><acz-id>/'
         AZURE_TENANT_ID = '<tenant-id>'
       )
     )
@@ -64,8 +64,9 @@ CREATE OR REPLACE EXTERNAL VOLUME acz_delta_volume
 Replace the placeholders:
 
 - `<storage-account>`: Name of the Data Lake Storage Gen2 account that contains the ACZ data.
-- `<container>`: Container that you selected when you created the ACZ instance.
-- `<acz-id>`: ACZ output folder, such as `acz-8a0aa7433085`.
+- `<container>`: The first segment of the `basePath` that you specified when you created the ACZ instance. If you didn't specify a `basePath`, the container name is your ACZ ID.
+- `<folder-path>`: Any remaining `basePath` segments, each followed by a slash (for example, `workbench/`). Leave it empty if your `basePath` has only one segment or if you didn't specify a `basePath`.
+- `<acz-id>`: Your ACZ ID, the `aczId` value from the Create or List ACZ API response (for example, `acz-8a0aa7433085`).
 - `<tenant-id>`: Microsoft Entra tenant ID for the storage account.
 
 Use the `azure://` prefix in `STORAGE_BASE_URL`. The `ALLOW_WRITES = FALSE` setting keeps the connection read-only and must match the Azure role that you assign in the next step.
@@ -136,9 +137,9 @@ CREATE OR REPLACE ICEBERG TABLE osdu_catalog
   AUTO_REFRESH = TRUE;
 ```
 
-`BASE_LOCATION` is relative to the `STORAGE_BASE_URL` in the external volume. It must point to a single Delta table directory that contains a `_delta_log` subfolder. For example, if the external volume points to the `<acz-id>/` folder, use `osducatalog/` for the ACZ catalog table.
+`BASE_LOCATION` is relative to the `STORAGE_BASE_URL` in the external volume. It must point to a single Delta table folder that contains a `_delta_log` subfolder. For example, if the external volume points to the `<acz-id>/` folder, use `osducatalog/` for the ACZ catalog table.
 
-To expose another ACZ dataset, create another Iceberg table and set `BASE_LOCATION` to that dataset's Delta table directory.
+To expose another ACZ dataset, create another Iceberg table and set `BASE_LOCATION` to that dataset's Delta table folder. Wellbore DDMS folders contain Parquet and JSON files, not Delta tables, so you can't expose them through a Delta catalog integration.
 
 ## Step 5: Query the ACZ data
 
@@ -180,8 +181,8 @@ ALTER ICEBERG TABLE acz_data.osdu.osdu_catalog REFRESH;
 ### Delta log isn't found
 
 - Confirm that `BASE_LOCATION` is relative to the external volume's `STORAGE_BASE_URL`.
-- Confirm that the target directory contains `_delta_log` and Parquet data files.
-- Point each Iceberg table to one Delta table directory, not to a parent directory that contains multiple Delta tables.
+- Confirm that the target folder contains `_delta_log` and Parquet data files.
+- Point each Iceberg table to one Delta table folder, not to a parent folder that contains multiple Delta tables.
 
 ### New ACZ data isn't visible
 
