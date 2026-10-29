@@ -62,7 +62,7 @@ There are guardrail policies on the enclaves to ensure enclave resources are usi
 1. A Key Vault, Customer Managed Key (CMK), Managed Identity, and Disk Encryption Set are required for this template. Create a Key Vault, CMK, Managed Identity, and Disk Encryption Set in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#add-workload-resource-groups).
     - After creating the User Managed Identity, ensure it has access to the CMK key
-        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-a-role-to-the-managed-identity). This assignment allows you to then assign the managed identity to another resource, like a Virtual Machine. That Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault (a least privilege best practice).
+        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This assignment allows you to then assign the managed identity to another resource, like a Virtual Machine. That Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault (a least privilege best practice).
         - Assign `Virtual Machine Contributor` access on the enclave managed resource group containing the Virtual Network 
         - Assign `Key Vault Contributor` access to the resource group containing the ssh-key.
         - (Optional) Azure Container Registry: Typical configuration requires granting the `Acr Pull` role to the AKS managed identity for the container registry resource. In addition if the container registry is configured to use a public storage account, that URL must be added as a community endpoint to create the firewall policy.
@@ -136,7 +136,7 @@ Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be br
     "resources": [
         {
             "type": "Microsoft.Mission/virtualEnclaves/workloads",
-            "apiVersion": "2026-04-01",
+            "apiVersion": "<api-version>",
             "name": "<virtual-enclave-name>/<workload-name>",
             "location": "<some-location>",
             "tags": {
@@ -153,6 +153,8 @@ Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be br
     ]
 }
 ```
+
+Use a currently supported `Microsoft.Mission` API version for the workload resource from the [Azure Enclave API reference](https://aka.ms/ae/api) (for example, `2026-04-01`).
 
 ## Validate the deployment
 Go to the specified resource group to confirm the intended resources were created.
