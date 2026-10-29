@@ -20,7 +20,7 @@ This feature is available for:
 - [Durable Functions](../durable-functions/durable-functions-overview.md) with the .NET isolated worker
 - [.NET Durable Task SDK](../sdks/durable-task-overview.md)
 - [Python Durable Task SDK](../sdks/durable-task-overview.md)
-- [Java Durable Task SDK](../sdks/durable-task-overview.md) version 1.10.0 or later
+- [Java Durable Task SDK](../sdks/durable-task-overview.md)
 - [Go Durable Task SDK (beta)](../sdks/durable-task-go.md)
 
 If your workflow stores data in Blob Storage and passes only a URI or identifier, keep using that pattern. Use large payload support when your orchestration logic must pass the payload between durable operations. For general guidance, see [Data persistence and serialization in Durable Functions](../durable-functions/durable-functions-serialization-and-persistence.md#keep-durable-functions-inputs-and-outputs-small).
@@ -32,7 +32,7 @@ This table shows large payload support by framework.
 | Framework | Support status | What you need |
 | --- | --- | --- |
 | Durable Functions | Supported in .NET isolated C# | Use Durable Task Scheduler as the storage provider and use `AzureWebJobsStorage` for payload blobs |
-| Durable Task SDKs | Supported in .NET, Python, Java (1.10.0 or later), and Go (beta) | Use the language-specific Azure Blob payload support with Azure Blob Storage |
+| Durable Task SDKs | Supported in .NET, Python, Java, and Go (beta) | Use the language-specific Azure Blob payload support with Azure Blob Storage |
 | JavaScript and PowerShell | Not available | Use external storage and pass references between durable operations |
 
 ## How it works
@@ -125,7 +125,7 @@ Large payload support with Durable Task Scheduler is available only for .NET iso
 
 ::: zone pivot="durable-task-sdks"
 
-Durable Task SDKs support large payloads for .NET, Python, Java (1.10.0 or later), and Go (beta) apps.
+Durable Task SDKs support large payloads for .NET, Python, Java, and Go (beta) apps.
 
 To enable large payload support in a Go app, configure it in your code:
 
@@ -237,7 +237,7 @@ For an end-to-end Python example, see the [Durable Task SDK large payload Python
 
 # [Java](#tab/java)
 
-For Java SDK version 1.10.0 or later, add the Azure Blob payload extension alongside the client and Azure Managed packages:
+Add the Azure Blob payload extension alongside the client and Azure Managed packages:
 
 ```xml
 <dependency>
