@@ -43,7 +43,7 @@ regions. Your Cloud Shell session runs in the same region as the virtual network
 | Europe | France Central, Germany West Central, North Europe, Norway East, Spain Central, Sweden Central, Switzerland North, UK South, UK West, West Europe |
 | Asia Pacific | Australia Central, Australia East, Australia Southeast, Central India, East Asia, Japan East, Japan West, Jio India West, Korea Central, Korea South, South India, Southeast Asia, West India |
 | Middle East and Africa | Qatar Central, South Africa North, UAE North |
-| Azure Government | US Gov Arizona, US Gov Virginia |
+| Azure Government | US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia |
 
 ## Architecture
 
