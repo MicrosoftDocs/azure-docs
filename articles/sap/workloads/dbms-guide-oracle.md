@@ -19,7 +19,7 @@ This article covers several different areas to consider when you deploy Oracle D
 
 You can find information about Oracle versions and corresponding operating system (OS) versions that are supported for running SAP on Oracle on Azure in SAP Note [2039619](https://launchpad.support.sap.com/#/notes/2039619).
 
-For general information about running SAP Business Suite on Oracle, see [SAP on Oracle](https://www.sap.com/community/topic/oracle.html). Oracle supports running Oracle databases on Azure. For more information about general support for Windows Hyper-V and Azure, see the [Oracle and Azure FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html).
+For general information about running SAP Business Suite on Oracle, see [SAP on Oracle](https://www.sap.com/community/topic/oracle.html). Oracle supports running Oracle databases on Azure. For more information about general support for Windows Hyper-V and Azure, see the [Oracle and Azure FAQ](https://www.oracle.com/cloud/azure/oracle-database-for-azure/faq/).
 
 ## Relevant SAP Notes for an Oracle installation
 
@@ -40,7 +40,7 @@ For general information about running SAP Business Suite on Oracle, see [SAP on
 
 ### Specifics for Oracle Database on Oracle Linux
 
-Oracle supports running its database instances on Azure with Oracle Linux as the guest OS. For more information about general support for Windows Hyper-V and Azure, see the [Oracle and Azure FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html).
+Oracle supports running its database instances on Azure with Oracle Linux as the guest OS. For more information about general support for Windows Hyper-V and Azure, see the [Oracle and Azure FAQ](https://www.oracle.com/cloud/azure/oracle-database-for-azure/faq/).
 
 The specific scenario of SAP applications using Oracle databases is also supported. Details are discussed in the next part of this article.
 
@@ -321,7 +321,7 @@ Run an Oracle Automatic Workload Repository (AWR) report as the first step when 
 
 You can monitor disk performance from inside Oracle Enterprise Manager and via external tools. For more information, see:
 
-- [Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/views-asm-info.html#GUID-23E1F0D8-ECF5-4A5A-8C9C-11230D2B4AD4)
+- [Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/dynamic-performance-views.html)
 - [ASMCMD Disk Group Management Commands (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
 
 OS-level monitoring tools can't monitor ASM disks because there's no recognizable file system. You must monitor free space from within Oracle.
@@ -432,10 +432,10 @@ For Oracle DBAs who aren't familiar with Oracle ASM, see these training material
 
 - [SAP on Oracle with ASM on Microsoft Azure - Part 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-oracle-with-asm-on-microsoft-azure-part1/ba-p/1865024)
 - [Oracle19c DB ASM installation on [Oracle Linux 8.3 \| Grid \| ASM \| UDEV \| OEL 8.3 \| VMware]](https://www.youtube.com/watch?v=pRJgiuT-S2M)
-- [ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/automatic-storage-management-administrators-guide.pdf)
+- [ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/cd/E18830_01/doc/server.112/e16102.pdf)
 - [Oracle for SAP Development Update (May 2022)](https://www.oracle.com/a/ocom/docs/sap-on-oracle-dev-update.pdf)
 - [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
-- [Migrating to Oracle ASM with Oracle Enterprise Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/admin-asm-em.html#GUID-002546C0-7D5F-46E9-B3AD-CDCFF25AFEA0)
+- [Migrating to Oracle ASM with Oracle Enterprise Manager](https://docs.oracle.com/cd/E14795_01/doc/server.112/e10500/asm_em.htm#insertedID11)
 - [Using Recovery Manager (RMAN) to migrate to ASM](https://theoraclementor.wordpress.com/2013/07/07/using-rman-to-migrate-to-asm/)
 - [What is Oracle ASM to Azure IaaS?](https://www.red-gate.com/simple-talk/databases/oracle-databases/what-is-oracle-asm-to-azure-iaas/)
 - [ASM Command-Line Utility (ASMCMD)](https://docs.oracle.com/cd/B19306_01/server.102/b14215/asm_util.htm)

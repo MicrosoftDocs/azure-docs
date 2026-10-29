@@ -232,7 +232,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
   * [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)
-  * [Equinix Cloud Exchange](https://www.equinix.com/resources/videos/cloud-exchange-overview)
+  * [Equinix Cloud Exchange](https://www.equinix.com/resources/videos/private-vs-public-connectivity)
   * [Digital Realty(Interxion)](https://www.digitalrealty.com/)
   * [NextDC](https://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
