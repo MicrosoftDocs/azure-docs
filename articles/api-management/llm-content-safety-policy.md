@@ -7,7 +7,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
-ms.date: 08/18/2026
+ms.date: 10/29/2026
 ms.update-cycle: 180-days
 ---
 
@@ -15,7 +15,7 @@ ms.update-cycle: 180-days
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-The `llm-content-safety` policy enforces content safety checks on large language model (LLM) requests (prompts) or responses (completions) by sending them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service. The policy can also enforce content safety checks on requests or responses for MCP tools or A2A Agent APIs managed in API Management.
+The `llm-content-safety` policy enforces content safety checks on text extracted from supported large language model (LLM) requests (prompts) or responses (completions) by sending that text to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service. The policy doesn't inspect the entire request or response body. The policy can also enforce content safety checks on requests or responses for MCP tools or A2A Agent APIs managed in API Management.
 
 When you enable the policy and Azure AI Content Safety detects malicious content, API Management blocks the request or response and returns a `403` error code. 
 
@@ -102,6 +102,29 @@ Use the policy in scenarios such as the following:
 * For streaming responses, the stream handler buffers events in a sliding window and, if a content safety violation is detected, stops forwarding further events to the client. A `403` error isn't returned in this case. 
 * If the request or response exceeds the character limit of Azure AI Content Safety, the policy returns a `403` error.
 * You can use this policy multiple times per policy definition.
+
+### LLM content inspected
+
+The policy extracts text according to the supported LLM API format. It doesn't send the complete JSON payload to Azure AI Content Safety. For OpenAI-compatible requests and responses, the inspected content includes:
+
+| API format | Inspected content |
+| --- | --- |
+| Chat Completions request | Text in `messages[].content`, including string content and text parts in content arrays. This includes text in system, user, assistant, and tool messages. |
+| Chat Completions nonstreaming response | The first completion's `choices[0].message.content`. |
+| Responses API request | `instructions`, a string `input`, and text content in message items in the `input` array. |
+
+For streamed Chat Completions responses, the policy analyzes text content deltas, not tool-call deltas.
+
+Other fields aren't included in these checks:
+
+* Tool and function definitions, including names, descriptions, and parameter schemas.
+* Tool-call arguments, including `messages[].tool_calls[].function.arguments` and legacy `function_call.arguments` in Chat Completions requests.
+* Message names and response-format schema descriptions.
+* Non-message items in Responses API request `input`, such as function calls and function-call outputs.
+
+A tool result supplied as text in Chat Completions `messages[].content` is inspected. This doesn't mean that all tool-related fields are inspected.
+
+Setting `shield-prompt="true"` applies Prompt Shields to the extracted request text. It doesn't expand the set of fields inspected. Validate tool definitions and arguments separately if your application requires checks on those fields.
 
 ## Example
 
