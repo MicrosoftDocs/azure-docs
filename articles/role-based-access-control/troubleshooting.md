@@ -7,7 +7,7 @@ ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.topic: troubleshooting
 ms.date: 10/19/2026
-ms.author: ergreenberg
+ms.author: egreenberg
 ms.custom:
   - seohack1
   - devx-track-azurecli
