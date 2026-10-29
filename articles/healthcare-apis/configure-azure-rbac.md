@@ -1,11 +1,11 @@
 ---
 title: Configure Azure RBAC role for Azure Health Data Services
 description: Learn how to configure Azure RBAC for FHIR and DICOM services in Azure Health Data Services. Assign roles and manage access to your data plane.
-author: chachachachami
+author: expekesheth
 ms.service: azure-health-data-services
 ms.topic: how-to
 ms.date: 10/29/2026
-ms.author: chrupa
+ms.author: kesheth
 ms.reviewer: v-catheribun
 ms.custom: sfi-image-nochange
 --- 
