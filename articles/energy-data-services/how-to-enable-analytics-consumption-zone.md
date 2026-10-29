@@ -14,10 +14,9 @@ ms.reviewer:
 
 # Enable Analytics Consumption Zone
 
-This article explains how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy resource. Enablement is a one-time setup process that configures your Azure Data Manager for Energy resource, user-assigned managed identity, and storage account. After enablement, you can create multiple ACZ instances to sync different Azure Data Manager for Energy datasets to your Azure Data Lake Storage Gen2 account.
+Native analytics capabilities in Azure Data Manager for Energy, delivered through an analytics consumption zone (ACZ), make energy data readily accessible for analytics and AI. ADME synchronizes selected OSDU® data into customer-owned storage in open Delta Parquet format, enabling use with Microsoft Fabric, Azure Databricks, Snowflake, and other compatible analytics platforms without the need to build and maintain custom data pipelines.
 
-> [!IMPORTANT]
-> Analytics Consumption Zone is currently in preview. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article explains how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy resource. Enablement is a one-time setup process that configures your Azure Data Manager for Energy resource, user-assigned managed identity, and storage account. After enablement, you can create multiple ACZ instances to sync different Azure Data Manager for Energy datasets to your Azure Data Lake Storage Gen2 account.
 
 To enable ACZ on your Azure Data Manager for Energy resource, follow the steps in this article.
 
@@ -40,7 +39,7 @@ Finish the following one-time setup tasks to enable ACZ on your Azure Data Manag
 > - **All catalog data**: Set `allCatalogSync: true` (outside the configuration section) to export all catalog entity types from your partition.
 > - **Specific entity types**: Use the `catalogKinds` array in the configuration section to export only selected kinds (for example, Wells, Wellbores, or Fields).
 >
-> When `allCatalogSync` is `true`, the `catalogKinds` and `wellboreDDMSKinds` arrays are ignored for catalog data. Wellbore Domain Data Management Service (DDMS) bulk file downloads occur only for kinds listed in `wellboreDDMSKinds`.
+> When `allCatalogSync` is `true`, the `catalogKinds` and `wellboreDDMSKinds` (preview) arrays are ignored for catalog data. Wellbore Domain Data Management Service (DDMS) bulk file downloads occur only for kinds listed in `wellboreDDMSKinds`.
 >
 > For configuration examples, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
@@ -51,6 +50,9 @@ Finish the following one-time setup tasks to enable ACZ on your Azure Data Manag
 | 3 | Enable ACZ and assign the user-assigned managed identity in the Azure portal. |
 | 4 | Verify that the user has entitlement group access. |
 | 5 | Grant user-assigned managed identity storage permissions. |
+
+> [!TIP]
+> To export OSDU entitlement membership data for row-level filtering in your analytics platform, see [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md).
 
 ## Prerequisites
 
@@ -341,8 +343,8 @@ After you create an ACZ instance, ACZ takes a historical snapshot of the data th
 
 ## Related content
 
-- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
 - [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)

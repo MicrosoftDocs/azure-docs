@@ -14,10 +14,9 @@ ms.reviewer:
 
 # Analytics Consumption Zone concepts
 
-Analytics Consumption Zone (ACZ) exports selected entity data from Azure Data Manager for Energy to your Azure Data Lake Storage Gen2 account. ACZ writes Azure Data Manager for Energy data in open Delta Parquet format. Services like Microsoft Fabric and Azure Databricks can read this format directly.
+Native analytics capabilities in Azure Data Manager for Energy, delivered through an analytics consumption zone (ACZ), make energy data readily accessible for analytics and AI. ADME synchronizes selected OSDU® data into customer-owned storage in open Delta Parquet format, enabling use with Microsoft Fabric, Azure Databricks, Snowflake, and other compatible analytics platforms without the need to build and maintain custom data pipelines.
 
-> [!IMPORTANT]
-> Analytics Consumption Zone is currently in preview. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Analytics Consumption Zone (ACZ) exports selected entity data from Azure Data Manager for Energy to your Azure Data Lake Storage Gen2 account. ACZ writes Azure Data Manager for Energy data in open Delta Parquet format. Services like Microsoft Fabric and Azure Databricks can read this format directly.
 
 To enable ACZ, see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
 
@@ -31,7 +30,7 @@ Key characteristics of ACZ:
 
 - **Customer-owned storage**: You create and manage a Data Lake Storage Gen2 storage account where your data goes. We recommend a storage account in the same region as your Azure Data Manager for Energy instance. If you have data residency requirements, you're responsible for selecting a storage account in the appropriate region.
 - **Open format**: Your data exports in Delta Parquet format. Analytics engines widely support this format.
-- **Selective sync**: You choose which entity types to sync. Options include catalog kinds and Wellbore Domain Data Management Service (DDMS) kinds.
+- **Selective sync**: You choose which entity types to sync. Options include catalog kinds and Wellbore Domain Data Management Service (DDMS) kinds (preview).
 - **Historical and incremental sync**: You get an initial snapshot of existing data from ACZ. Then ACZ synchronizes changes as they occur.
 - **Portal and API management**: You enable ACZ in the Azure portal, and you create and manage ACZ instances by using REST APIs.
 
@@ -45,12 +44,17 @@ The following diagram shows the ACZ data flow.
 
 ### Supported entity types
 
+> [!NOTE]
+> Wellbore DDMS export is currently in preview. Catalog export is generally available. For legal terms that apply to Azure features that are in preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ACZ synchronizes two categories of Azure Data Manager for Energy entity types.
 
 | Category | Description | Example kinds |
 |---|---|---|
 | Catalog kinds | Primary data and reference data from the storage service | `osdu:wks:master-data--Well:*`, `osdu:wks:reference-data--UnitOfMeasure:*` |
-| Wellbore DDMS kinds | Entities from Wellbore DDMS | `osdu:wks:work-product-component--WellLog:*` |
+| Wellbore DDMS kinds (preview) | Entities from Wellbore DDMS | `osdu:wks:work-product-component--WellLog:*` |
+
+ACZ can also export OSDU entitlement membership data through [entitlements export (preview)](concepts-analytics-consumption-zone-entitlements.md).
 
 When you create an ACZ instance, you specify which entity types to synchronize by providing:
 
@@ -194,6 +198,8 @@ ACZ writes data to the storage account that you specify when you create an ACZ i
 > [!NOTE]
 > Starting with the October 2026 release, new ACZ instances store Wellbore DDMS entity folders under a `wellboreDDMS` folder. ACZ instances created before the October 2026 release keep the earlier layout, with Wellbore DDMS entity folders directly under `<aczId>/`. To check when an ACZ instance was created, see the `createdTs` value in the Get ACZ API response.
 
+For more information about the entitlements table, see [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md).
+
 #### Key details
 
 | Element | Description |
@@ -247,7 +253,7 @@ Entitlements export is disabled by default. Contact your Microsoft representativ
 
 ## Limits and access
 
-### Preview limits
+### Limits
 
 | Constraint | Limit |
 |---|---|
@@ -285,8 +291,8 @@ For more information, see [Reliability in Azure Data Manager for Energy](reliabi
 
 ## Related content
 
-- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
 - [Connect ACZ data to Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
