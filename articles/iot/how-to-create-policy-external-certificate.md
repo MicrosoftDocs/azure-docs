@@ -19,7 +19,7 @@ This article explains how to create an intermediate certificate authority within
 > [!TIP]
 > If you do not possess an external root CA but would like to test this flow, see the additional instructions below to get started with a self-signed root CA and private key using OpenSSL.
 > 
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
+
 ## Prerequisites
 
 Before you begin, make sure you have the required setup and permissions so you can create, activate, and edit an external CA policy without deployment delays.
@@ -139,4 +139,4 @@ If you don't have an external root CA, use this sample to create one: [Create a 
 - [Set up a Microsoft-managed root and intermediate CA](how-to-create-policy.md)
 - [Certificate revocation and policy management](concepts-certificate-policy-management.md)
 
-- [Key concepts for certificate management (preview)](iot-certificate-management-concepts.md)
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)

@@ -31,7 +31,7 @@ items:
     items:
     - name: Unified Azure IoT SDKs for IoT Hub and Azure Device Registry
       href: device-registry/concept-unified-iot-sdks.md
-  - name: Manage certificate lifecycle (preview)
+  - name: Manage certificate lifecycle
     items:
       - name: Certificate management overview 
         href: iot-certificate-management-overview.md

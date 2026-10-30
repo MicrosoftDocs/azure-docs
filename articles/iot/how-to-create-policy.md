@@ -1,5 +1,5 @@
 ---
-title: Set up a managed root and intermediate CA (preview)
+title: Set up a managed root and intermediate CA
 titleSuffix: Azure Device Registry
 description: Learn how to provision a Microsoft-managed root certificate authority and create an intermediate CA policy in Azure Device Registry.
 author: sethmanheim
@@ -12,11 +12,9 @@ ms.date: 09/16/2026
 # Customer intent: As an IoT administrator, I want to set up a root and intermediate certificate authority so that Azure Device Registry can issue device certificates.
 ---
 
-# Set up a managed root and intermediate CA (preview)
+# Set up a managed root and intermediate CA
 
 This article explains how to create root and intermediate certificate authorities within your [Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md) namespace. Use this workflow if you want Azure Device Registry to provision certificate authorities in Microsoft cloud PKI on your behalf.
-
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 For information about how the root and intermediate CAs establish trust, see [CA hierarchy in Azure Device Registry](concept-managed-ca-hierarchy.md).
 

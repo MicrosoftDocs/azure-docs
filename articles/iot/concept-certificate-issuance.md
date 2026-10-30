@@ -1,5 +1,5 @@
 ---
-title: Certificate Issuance in Azure IoT Hub Certificate Management (Preview)
+title: Certificate Issuance in Azure IoT Hub Certificate Management
 titleSuffix: Azure IoT Hub
 description: Learn how Azure Device Registry issues X.509 certificates to IoT devices during provisioning, including the certificate hierarchy, issuance flow, and how IoT Hub trusts issued certificates.
 author: sethmanheim
@@ -70,4 +70,4 @@ IoT devices can request device certificates from ADR by using standard device wo
 - [Certificate renewal in Azure IoT Hub certificate management](concept-certificate-renewal.md)
 - [Key concepts for certificate management](iot-certificate-management-concepts.md)
 
-- [What is certificate management (preview)?](iot-certificate-management-overview.md)
+- [What is certificate management?](iot-certificate-management-overview.md)

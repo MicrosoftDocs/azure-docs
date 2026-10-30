@@ -1,5 +1,5 @@
 ---
-title: Key Concepts for Certificate Management (preview)
+title: Key Concepts for Certificate Management
 titleSuffix: Azure Device Registry
 description: This article discusses the basic concepts of certificate management in Azure IoT Hub.
 author: sethmanheim
@@ -11,11 +11,9 @@ ms.date: 09/17/2026
 #Customer intent: As a developer new to IoT, I want to understand the fundamental concepts of certificate management in Azure Device Registry, so that I can effectively implement secure device authentication in my IoT solutions.
 ---
 
-# Key concepts for certificate management (preview)
+# Key concepts for certificate management
 
-Certificate management in Azure Device Registry simplifies the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication. For more information, see [What is certificate management (preview)?](iot-certificate-management-overview.md)
-
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
+Certificate management in Azure Device Registry simplifies the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication. For more information, see [What is certificate management?](iot-certificate-management-overview.md)
 
 ## Cloud public key infrastructure (PKI)
 

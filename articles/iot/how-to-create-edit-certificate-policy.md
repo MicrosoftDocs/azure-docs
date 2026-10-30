@@ -18,8 +18,6 @@ The **certificate policy** defines the issuance characteristics of an intermedia
 
 Enrollments in Device Provisioning Service (DPS) reference certificate policies to determine which intermediate CA should issue the certificate and how the certificate is issued.
 
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
-
 ## Prerequisites
 
 Before you begin, ensure you have the required setup and permissions so you can create an intermediate CA and sign it with an external CA.

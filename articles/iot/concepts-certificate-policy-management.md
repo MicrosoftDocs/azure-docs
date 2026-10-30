@@ -1,5 +1,5 @@
 ---
-title: Certificate revocation (preview)
+title: Certificate revocation
 titleSuffix: Azure Device Registry
 description: Learn about certificate revocation and policy management, and how to revoke certificates and delete policies and credentials in Azure Device Registry for IoT Hub.
 author: sethmanheim
@@ -12,11 +12,9 @@ ms.date: 08/31/2026
 #Customer intent: As an IoT Hub administrator or security team member, I want to understand and perform certificate revocation and policy management operations, so that I can protect production devices and manage certificate lifecycles safely.
 ---
 
-# Certificate revocation (preview)
+# Certificate revocation
 
 Certificate management in Azure Device Registry enables you to issue, manage, and revoke X.509 certificates throughout their lifecycle. This article explains the key concepts related to revoking intermediate certificate authorities (CAs) and device certificates. These operations are part of a coordinated lifecycle management strategy that helps you maintain your security posture when certificates expire, devices are decommissioned, or business requirements change.
-
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## Prerequisites
 
@@ -177,7 +175,7 @@ az iot adr ns ca revoke \
 ## Related content
 
 - [Key concepts for certificate management](iot-certificate-management-concepts.md)
-- [What is certificate management (preview)?](iot-certificate-management-overview.md)
+- [What is certificate management?](iot-certificate-management-overview.md)
 
 - [Authenticate devices with X.509 CA certificates](../iot-hub/authenticate-authorize-x509.md)
 - [Azure role-based access control (RBAC) for IoT Hub](../iot-hub/authenticate-authorize-azure-ad.md)

@@ -1,5 +1,5 @@
 ---
-title: Certificate Renewal in Azure IoT Hub Certificate Management (Preview)
+title: Certificate Renewal in Azure IoT Hub Certificate Management
 titleSuffix: Azure IoT Hub
 description: Learn how certificate renewal works in Azure IoT Hub certificate management, including when to renew, how the renewal flow works, and how devices can track certificate expiration.
 author: sethmanheim
@@ -91,4 +91,3 @@ To remove access for a device that uses an X.509 operational certificate without
 - [Certificate management overview](iot-certificate-management-overview.md)
 
 - [Device twins in Azure IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
-
