@@ -15,8 +15,11 @@ This article describes how to create a recovery orchestration plan (preview) wit
 
 ## Prerequisites
 
-- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
+- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing for advanced capabilities. Usage plans don't have tiers.
 - Assign either the **Azure Resilience Management Recovery Contributor** or **Azure Resilience Management Recovery Administrator** role.
+
+> [!NOTE]
+> Starting December 1, 2026, Azure Infrastructure Resiliency Manager will charge for service groups that are onboarded and associated with a usage plan. Goals and recommendations are available for free without associating the service group with a usage plan. Advanced capabilities, such as drills and recovery plans, require a usage plan. For more information, see [Infrastructure Resiliency Manager pricing](https://azure.microsoft.com/products/infrastructure-resiliency-manager#pricing).
 
 ## Create a recovery orchestration plan
 
