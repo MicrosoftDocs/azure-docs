@@ -26,7 +26,7 @@ Before you begin, make sure you have:
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure Device Registry namespace. For setup instructions, see [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md).
-- Permission to manage certificate authorities and policies in the namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.
+- The [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) role assigned on the Azure Device Registry namespace to create and manage certificate authorities.
 ## Set up the certificate authorities
 
 Use the Azure portal or Azure CLI to create root and intermediate certificate authorities.

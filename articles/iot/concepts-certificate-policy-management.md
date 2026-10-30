@@ -25,7 +25,10 @@ Before you begin, make sure you have:
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A configured intermediate certificate authority Azure Device Registry namespace. For setup steps, see [Set up a root and intermediate CA](how-to-create-policy.md).
 - Device Provisioning Service (DPS) configured for devices that use operational certificate issuance and rotation.
-- The [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role assigned on the Azure Device Registry namespace. This role grants full access to manage certificates. If you don't have this role assigned, contact your Azure administrator.
+- For intermediate CA revocation, the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) role assigned on the Azure Device Registry namespace.
+- For device certificate revocation, either the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) or [Azure Device Registry Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role assigned on the Azure Device Registry namespace.
+
+If you don't have the required role assigned, contact your Azure administrator.
 
 ## Revoking device certificates
 
