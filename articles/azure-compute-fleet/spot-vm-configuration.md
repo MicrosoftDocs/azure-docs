@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 07/19/2026
+ms.date: 09/09/2026
 ms.reviewer: wwilliams
 # Customer intent: As a cloud architect, I want to configure Spot VMs in my Compute Fleet, so that I can optimize resource management and cost control while maintaining my target capacity effectively.
 ---
@@ -25,7 +25,7 @@ Capacity type configuration requires a minimum API version of `2025-05-01`.
 The capacity preference configuration for Compute Fleet offers a **Maintain capacity** option, which is unique to Compute Fleet.
 
 > [!NOTE]
-> *Maintain capacity* is a Spot **capacity preference** (`spotPriorityProfile.maintain`). It's distinct from the fleet **mode**. The *Maintain capacity* preference applies only to [Managed mode](managed-mode.md) and isn't available in [Launch mode (Preview)](launch-mode.md), where the fleet hands off VM lifecycle after provisioning.
+> *Maintain capacity* is a Spot **capacity preference** (`spotPriorityProfile.maintain`). It's distinct from the fleet **mode**. The *Maintain capacity* preference applies only to [Managed mode](managed-mode.md) and isn't available in [Launch mode](launch-mode.md), where the fleet hands off VM lifecycle after provisioning.
 
 Capacity preferences are only available when creating your Compute Fleet using Spot VMs and can't be adjusted after the fleet is running. If you are [creating a Compute Fleet in the Azure portal](quickstart-create-portal.md), during the creation process, set the **Capacity preference** to *Maintain capacity* in the **Basics** tab to allow for updates after creation.
 
