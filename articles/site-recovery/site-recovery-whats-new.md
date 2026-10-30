@@ -4,7 +4,7 @@ description: Provides a summary of the latest updates in the Azure Site Recovery
 ms.topic: overview
 ms.author: vipenmet
 ms.service: azure-site-recovery
-author: VIshnu-MS
+author: Vishnu-MS
 ms.date: 10/30/2026
 ms.custom:
   - engagement-fy23
