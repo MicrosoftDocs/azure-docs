@@ -1,19 +1,19 @@
 ---
 title: Language Support for Azure Health Data Services De-identification Service
-description: Use the de-identification service in English, French, German, and Spanish. See examples of inputs and outputs.
+description: See which languages the de-identification service supports, including English, French, German, and Spanish, with input and output examples for redaction.
 author: leakassab
 ms.author: leakassab
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: concept-article
-ms.date: 10/23/2025
+ms.date: 10/28/2026
 
 #customer intent: As a user of this service, I want to know what languages I can use for de-identification of patient data, so that I can improve privacy.
 ---
 
 # Language support for the Azure Health Data Services de-identification service
 
-The Azure Health Data Services de-identification service currently works on four languages, and includes six language-locale pairings. To tag, redact, or replace unstructured textual data for purposes of de-identification, you can use the languages listed in the following table.
+The Azure Health Data Services de-identification service supports four languages and six language-locale pairings, so you can protect patient privacy in multilingual clinical text. To tag, redact, or replace unstructured textual data for de-identification, use the languages listed in the following table.
 
 |Language|Locale        |Language-locale pair|Availability         |
 |:-------|:-------------|:-------------------|:--------------------|

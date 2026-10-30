@@ -5,7 +5,7 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 03/17/2026
+ms.date: 07/10/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to view DDoS protection diagnostic logs in a Log Analytics workspace, so that I can monitor attack notifications, mitigation reports, and flow logs to ensure effective security and response during DDoS attacks.
@@ -106,6 +106,9 @@ The following table lists the field names and descriptions:
 
 Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic, and other interesting data-points during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Microsoft Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
 
+> [!IMPORTANT]
+> Upcoming schema changes: As part of the Standard Load Balancer (SLB) regional migration, `DDoSMitigationFlowLogs` is scheduled to gain new fields and change two existing field types starting **on or around mid-August 2026**. These changes aren't live yet. This section documents what to expect so you can update your queries, dashboards, and Sentinel/SIEM parsers ahead of time. If you integrated these flow logs with Microsoft Sentinel or a third-party SIEM, review your analytics rules and parsers for the field changes described in this section before the migration starts.
+
 ```kusto
 AzureDiagnostics
 | where Category == "DDoSMitigationFlowLogs"
@@ -124,20 +127,38 @@ The following table lists the field names and descriptions:
 | **ResourceType** | This will always be `PUBLICIPADDRESS`. |
 | **OperationName** | For flow logs, this is `DDoSMitigationFlowLogs`. |
 | **Message** | Details of the attack. |
-| **SourcePublicIpAddress** | The public IP address of the client generating traffic to your public IP address. |
-| **SourcePort** | Port number ranging from 0 to 65535. |
-| **DestPublicIpAddress** | Your public IP address. |
-| **DestPort** | Port number ranging from 0 to 65535. |
-| **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`.|
+| **SourcePublicIpAddress** | The public IP address of the client generating traffic to your public IP address. Renaming: after the migration, this field is renamed `sourcePublicIpAddress_s`. The value and meaning don't change; only the column name changes. |
+| **SourcePort** | Port number ranging from 0 to 65535. Changing: after the migration, this field is renamed `sourcePort_d` and changes from a string to a numeric (double) type. Update any KQL that treats this field as a string (for example, `toint(sourcePort_s)`) to work with it as a number directly. |
+| **DestPublicIpAddress** | Your public IP address. Renaming: after the migration, this field is renamed `destPublicIpAddress_s`. The value and meaning don't change; only the column name changes. |
+| **DestPort** | Port number ranging from 0 to 65535. Changing: after the migration, this field is renamed `destPort_d` and changes from a string to a numeric (double) type, the same as `SourcePort` described earlier. |
+| **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`. Renaming: after the migration, this field is renamed `protocol_s`. The value and meaning don't change; only the column name changes. |
+
+> [!NOTE]
+> Even fields whose *meaning* doesn't change (`SourcePublicIpAddress`, `DestPublicIpAddress`, `Protocol`) get renamed to the new lowercase naming convention as part of this migration. Update any KQL referencing the current PascalCase column names, not just queries touching the port fields or the new attribution fields described in the following section.
+
+#### New fields (effective on or around mid-August 2026)
+
+The migration also adds the following fields to `DDoSMitigationFlowLogs`, enriching it with attack attribution and geo-location data that previously required `DDoSMitigationReports` (see [DDoS Mitigation Reports](#ddos-mitigation-reports) section):
+
+| Field name | Type | Description |
+| --- | --- | --- |
+| **attackId_g** | GUID | A unique identifier for each attack and mitigation event. Use this value to correlate flow log activity across regions for the same attack. |
+| **sourceCountry_s** | String | The two-letter country code of the source IP address. |
+| **sourceContinent_s** | String | The continent of the source IP address. |
+| **sourceAsn_d** | Double | The autonomous system number (ASN) of the source IP address. |
+| **tcpFlags_d** | Double | The TCP flag values observed in the traffic. |
 
 ### DDoS Mitigation Reports
+
+> [!IMPORTANT]
+> The `DDoSMitigationReports` log category is retiring. As part of the Standard Load Balancer (SLB) regional migration, the service stops emitting this log category **on or around mid-August 2026**. The old pipeline is fully deprecated **by September 2026**. If you have dashboards, workbooks, or alerts that query `DDoSMitigationReports`, they stop receiving data once the migration completes. Use the guidance in the following section to rebuild equivalent views from [`DDoSMitigationFlowLogs`](#ddos-mitigation-flowlogs) before then. These dates are approximate; check back closer to the migration for confirmation.
 
 ```kusto
 AzureDiagnostics
 | where Category == "DDoSMitigationReports"
 ```
 
-The following table lists the field names and descriptions:
+The following table lists the field names and descriptions for this now-retiring log category:
 
 | Field name | Description |
 | --- | --- |
@@ -163,6 +184,63 @@ The following table lists the field names and descriptions:
 | **SourceContinents** | Analysis of the source continent for inbound traffic. |
 | **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
 
+#### Migrate from DDoSMitigationReports to DDoSMitigationFlowLogs
+
+Use the following mapping to rebuild the equivalent of each retiring report field from flow log data:
+
+| Retiring report field | Rebuild from flow logs |
+| --- | --- |
+| **MitigationPeriodStart** | `min(TimeGenerated)`, grouped by `attackId_g` |
+| **MitigationPeriodEnd** | `max(TimeGenerated)`, grouped by `attackId_g` |
+| **IPAddress** | `destPublicIpAddress_s` |
+| **AttackVectors** | Derive from the `Message` field. See the mapping table in the next section. You can only partially reconstruct this field, since the new schema doesn't provide a curated JSON classification like the old report did. |
+| **TrafficOverview** | Aggregate counts by using `count()`, filtered by `Message` and protocol. See the example query in the next section. |
+| **Protocols** | Percentage breakdown by using counts grouped by `protocol_s`. |
+| **DropReasons** | Raw reasons remain available in the `Message` field, but you can only partially reconstruct this field. The old structured JSON breakdown is gone. |
+| **TopSourceCountries** / **TopSourceCountriesForDroppedPackets** | `sourceCountry_s`, optionally filtered to dropped traffic |
+| **TopSourceASNs** | `sourceAsn_d` |
+| **SourceContinents** | `sourceContinent_s` |
+
+The following example rebuilds a report-style **traffic overview** from `DDoSMitigationFlowLogs`:
+
+```kusto
+AzureDiagnostics
+| where Category == "DDoSMitigationFlowLogs"
+| summarize
+    Total_packets           = count(),
+    Total_packets_dropped   = countif(Message != "Packet was forwarded to service"),
+    Total_TCP_packets       = countif(protocol_s == "tcp"),
+    Total_TCP_dropped       = countif(Message != "Packet was forwarded to service" and protocol_s == "tcp"),
+    Total_UDP_packets       = countif(protocol_s == "udp"),
+    Total_UDP_dropped       = countif(Message != "Packet was forwarded to service" and protocol_s == "udp"),
+    Total_Other_packets     = countif(protocol_s == "other"),
+    Total_Other_dropped     = countif(Message != "Packet was forwarded to service" and protocol_s == "other")
+    by destPublicIpAddress_s, attackId_g
+```
+
+To approximate the old **AttackVectors** classification, map the flow log `Message` field to an attack vector by using the following table:
+
+| Message value | Derived attack vector |
+| --- | --- |
+| `Protocol violation invalid TCP syn` | TCP SYN flood |
+| `TCP source IP traffic based rate limit` | TCP flood |
+| `TCP destination IP and connection based rate limit` | TCP flood |
+| `Protocol violation invalid TCP` | TCP flood |
+| `UDP source IP traffic based rate limit` | UDP flood |
+| `UDP destination IP traffic based rate limit` | UDP flood |
+| `Protocol violation invalid UDP` | UDP flood |
+| `UDP reflection` | UDP reflection |
+| `Other packet flood` | Other packet flood |
+| `Packet was forwarded to service` | Allowed traffic (not dropped) |
+
+> [!NOTE]
+> You can't fully recreate some data from `DDoSMitigationReports` by using `DDoSMitigationFlowLogs`:
+>
+> - **ReportType** (`Incremental`/`PostMitigation`) — this distinction no longer exists.
+> - **AttackVectors** — the curated JSON classification is gone; the preceding mapping table only approximates it from raw message text.
+> - **DropReasons** — the structured, packet-counted JSON breakdown is gone; only raw `Message` values remain, which you must aggregate yourself.
+>
+> The migration doesn't affect `DDoSProtectionNotifications` (see [DDoS Protection Notifications](#ddos-protection-notifications) earlier in this article) and requires no changes.
 
 ## Next steps
 

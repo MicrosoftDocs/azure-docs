@@ -5,7 +5,7 @@ author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: article
-ms.date: 09/16/2026
+ms.date: 10/29/2026
 ms.custom: template-concept
 ---
 
@@ -21,6 +21,28 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 <hr width = 100%>
+
+## November 2026
+
+### Analytics Consumption Zone (ACZ) - Generally Available
+
+Analytics Consumption Zone (ACZ) is now generally available on Developer and Standard tier instances of Azure Data Manager for Energy. ACZ synchronizes selected OSDU® data into your Azure Data Lake Storage Gen2 account in open Delta Parquet format, so you can use the data with [Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md), [Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md), [Snowflake](how-to-connect-analytics-consumption-zone-to-snowflake.md), and other compatible analytics platforms without building and maintaining custom data pipelines.
+
+With this release:
+
+- You can [enable ACZ](how-to-enable-analytics-consumption-zone.md) on your Azure Data Manager for Energy resource in the Azure portal. You no longer need an allow list.
+- ACZ is supported on Standard tier instances.
+- New ACZ instances use [catalog schema version 2](concepts-analytics-consumption-zone.md#schema-versions), which adds top-level `modifyUser` and `modifyTime` columns. Existing ACZ instances keep schema version 1. To use the new columns, create a new ACZ instance.
+- Starting with the October 2026 release, new ACZ instances store Wellbore DDMS entity folders under a `wellboreDDMS` folder. Existing ACZ instances keep the earlier [folder layout](concepts-analytics-consumption-zone.md#data-lake-storage-gen2-folder-structure).
+- Wellbore DDMS export remains in preview.
+
+Starting November 1, 2026, Azure Data Manager for Energy bills ACZ as an add-on. Charges apply to Azure Data Manager for Energy resources that have ACZ enabled, including resources where ACZ was enabled during the preview. Pricing details will be available on the [Azure Data Manager for Energy pricing page](https://azure.microsoft.com/pricing/details/energy-data-services/).
+
+For more information, see [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md) and [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
+
+### Entitlements export in Analytics Consumption Zone - Preview
+
+ACZ can now export OSDU® entitlement membership data to a Delta table alongside your catalog data. You can use the exported group memberships with the access control lists on catalog records to implement entitlement-aware filtering in your analytics platform. Entitlements export is disabled by default. To enable it, contact your Microsoft representative. For more information, see [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md).
 
 ## September 2026
 ### Apache Airflow 3 upgrade
@@ -362,4 +384,3 @@ Azure Data Manager for Energy supports diagnostic settings for [Airflow logs](ho
 Currently, Azure Data Manager for Energy is available in the following regions - South Central US, East US, West Europe, and North Europe.
 
 ---
-

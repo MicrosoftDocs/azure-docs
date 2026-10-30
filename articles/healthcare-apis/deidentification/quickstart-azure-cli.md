@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Deploy the Azure Health Data Services de-identification service with Azure CLI"
-description: "Quickstart: Deploy the Azure Health Data Services de-identification service with Azure CLI."
+title: "Quickstart: Deploy the de-identification service with Azure CLI"
+description: Learn how to deploy the Azure Health Data Services de-identification service with Azure CLI. Create the resource and get started today.
 author: jovinson-ms
 ms.author: jovinson
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 06/19/2025
+ms.date: 10/01/2026
 ---
 
 # Quickstart: Deploy the Azure Health Data Services de-identification service with Azure CLI
 
-In this quickstart, you use the Azure CLI to deploy a de-identification service.
+In this quickstart, you use the Azure CLI to deploy the Azure Health Data Services de-identification service, so you can start removing sensitive health information from your data.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
@@ -27,6 +27,7 @@ az extension add --name deidservice
 ```
 
 ## Deploy a de-identification service
+
 > [!NOTE]
 > This command requires Azure CLI version 2.6 or later. You can check the currently installed version by running `az --version`.
 

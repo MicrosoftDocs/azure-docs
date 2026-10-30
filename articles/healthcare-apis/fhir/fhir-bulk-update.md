@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/24/2026
+ms.date: 10/29/2026
 ms.author: kesheth
 ---
 
@@ -33,6 +33,10 @@ The `$bulk-update` operation uses the supported patch types listed in the follow
 To execute a bulk update, assign the application or user one of the following roles:
  - FHIR Data Bulk Operator: Provides access to bulk operations in the FHIR service.
  - FHIR Data Contributor: Provides administrative access to the FHIR service.
+
+### Bulk operation permissions
+
+Bulk operations can modify `StructureDefinition`, `ValueSet`, and `CodeSystem` resources only if the submitting caller has `EditProfileDefinitions` permission. Without it, the operation leaves these resources unchanged, includes them in `ResourceIgnoredCount` by resource type, and returns informational messages explaining why it skipped them. The operation continues to update other eligible resources.
 
 ### Required headers
 
@@ -119,7 +123,7 @@ Example request body:
 ### Key points
  - Each patch path must begin with the `ResourceType` root (for example, the `Patient.meta.tag`) to clearly distinguish between meta-level and element updates. You can patch common properties by using the Resource root. You can perform bulk update at the system level, for a single resource type, or for multiple resource types. If you need to update different fields for different resource types, specify field-value mappings in separate operations.
  - If your search returns multiple resource types, the patch is only applied to resources whose type matches the `ResourceType` prefix in the patch path. The operation ignores other types.
- - `SearchParameter` and `StructureDefinition` are considered out of scope for bulk updates. Running a bulk-update job by resource type on `SearchParameter` or `StructureDefinition` also results in a 400 Bad Request error. If a bulk update query at the system or resource-type level returns resources of type `SearchParameter` or `StructureDefinition`, the operation ignores these resources. Only other resource types are updated.
+ - `SearchParameter` is unsupported for bulk update, regardless of permissions. Running a bulk-update job directly on the `SearchParameter` resource type results in a 400 Bad Request error. If a bulk update query returns `SearchParameter` resources, the operation ignores them and updates other eligible resources.
 
 ## Response
 When you submit a bulk update operation, the server returns a response in the following format. The response includes a `Content-Location` header that points to the polling endpoint.
@@ -137,11 +141,11 @@ Requests to the polling endpoint result in one of four outcomes, depending on th
 
 The response to a bulk update operation includes four key components:
 1. **ResourceUpdatedCount**: Shows the number of resources successfully updated, grouped by resource type.
-1. **ResourceIgnoredCount**: Indicates the number of resources ignored during the bulk update, by resource type. The operation ignores resources if there's no corresponding patch request for their type, or if they're excluded types such as `SearchParameter` or `StructureDefinition`.
+1. **ResourceIgnoredCount**: Counts ignored resources by type: resources without a matching patch, `SearchParameter` resources, and [resources](#bulk-operation-permissions) the caller lacks permission to edit.
 1. **ResourcepatchFailedCount**: Displays the number of resources where the patch operation failed, by resource type. For example, if you attempt to replace a value that doesn't exist, the patch operation fails and is counted here. The job is considered a "soft fail" if some resources fail but others succeed. The `Issues` section provides a general message that recommends using the FHIR PATCH operation on individual resources to get detailed error information.
-1. **Issues**: Provides details about any job failures or reasons for unsuccessful updates.
+1. **Issues**: Describes failures and skipped resources. Missing `EditProfileDefinitions` permission produces informational messages, not job failures.
 
-Example response body:
+Response body (example):
 
 ```json
 { 
@@ -222,4 +226,3 @@ Check the audit log or submit a `PATCH` request individually for error details.
 
 >[!div class="nextstepaction"]
 > Learn more about [FHIR Path patch](https://hl7.org/fhir/fhirpatch.html).
-
