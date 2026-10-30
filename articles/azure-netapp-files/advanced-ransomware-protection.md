@@ -15,56 +15,9 @@ ms.custom: references_regions
 
 Advanced ransomware protection (ARP) in Azure NetApp Files is a built-in capability that helps safeguard your cloud file data against ransomware attacks. It uses intelligent, AI-driven monitoring to detect unusual file activity in real time and automatically creates a secure snapshot of your data when a potential ransomware threat is detected. This approach provides an extra line of defense at the storage layer – preserving clean recovery points and minimizing data loss if ransomware encrypts your files, without requiring any external appliances or software. 
 
-## Supported regions 
+## Supported regions
 
-- Australia Central 
-- Australia Central 2 
-- Australia East 
-- Australia Southeast 
-- Brazil South 
-- Brazil Southeast 
-- Canada Central 
-- Canada East 
-- Central India 
-- Central US 
-- East Asia 
-- East US 
-- East US 2 
-- France Central 
-- Germany North 
-- Germany West Central 
-- Israel Central 
-- Italy North 
-- Japan East
-- Japan West 
-- Korea Central 
-- Korea South
-- Malaysia West 
-- New Zealand North 
-- North Central US 
-- North Europe 
-- Norway East
-- Norway West 
-- Qatar Central 
-- South Africa North 
-- South Central US
-- South India
-- Southeast Asia 
-- Spain Central 
-- Sweden Central 
-- Switzerland North 
-- Switzerland West 
-- UAE Central 
-- UAE North 
-- UK South 
-- UK West
-- US Gov Arizona
-- US Gov Texas
-- US Gov Virginia  
-- West Europe 
-- West US 
-- West US 2 
-- West US 3 
+This feature is supported in all Azure NetApp Files regions.
 
 ## Why do we need advanced protection?
 

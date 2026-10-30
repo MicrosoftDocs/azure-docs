@@ -4,7 +4,7 @@ description: Discover MCP tools for Azure Managed Grafana. Query Application Ins
 #customer intent: As a developer, I want to configure my application to interact with the Azure Managed Grafana MCP endpoint so that I can programmatically manage my Azure Managed Grafana instance.
 author: weng5e
 ms.author: wuweng
-ms.reviewer: malev
+ms.reviewer: wuweng
 ms.date: 10/29/2026
 ms.topic: concept-article
 ms.service: azure-managed-grafana
@@ -243,4 +243,5 @@ If you encounter any problems, open an issue in the [Azure Managed Grafana GitHu
 
 - [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md)
 - [Configure MCP for AI Foundry agents](./how-to-configure-mcp-for-ai-foundry.md)
+- [Connect to the Azure Monitor dashboards with Grafana remote MCP server](./azure-monitor-dashboards-mcp-server.md)
 - [Enable zone redundancy](./how-to-enable-zone-redundancy.md)
