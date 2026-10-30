@@ -36,7 +36,7 @@ With this release:
 - **Self-service enablement**: [Enable ACZ](how-to-enable-analytics-consumption-zone.md) on your Azure Data Manager for Energy resource in the Azure portal. You no longer need an allow list. Then create and manage ACZ instances by using the [ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 - **In preview**: [Wellbore DDMS synchronization](concepts-analytics-consumption-zone.md), which uses a new `wellboreDDMS` folder layout, and [entitlements export](concepts-analytics-consumption-zone-entitlements.md) to a Delta table for entitlement-aware filtering in your analytics platform. To enable entitlements export, [create a support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Starting November 1, 2026, Azure Data Manager for Energy bills ACZ as an add-on. Charges apply to Azure Data Manager for Energy resources that have ACZ enabled, including resources where ACZ was enabled during the preview. Pricing details will be available on the [Azure Data Manager for Energy pricing page](https://azure.microsoft.com/pricing/details/energy-data-services/).
+Starting in early November 2026, Azure Data Manager for Energy bills ACZ as an add-on. Charges apply to Azure Data Manager for Energy resources that have ACZ enabled, including resources where ACZ was enabled during the preview. Pricing details will be available on the [Azure Data Manager for Energy pricing page](https://azure.microsoft.com/pricing/details/energy-data-services/).
 
 For more information, see [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md).
 
