@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/04/2026
+ms.date: 10/28/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -53,68 +53,64 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 ## What SBOM components does firmware analysis detect?
 
 > [!NOTE]
-> If firmware analysis detects a component but is unable to determine the version of that component, it may report the version as `0.0.0`. No CVEs will be reported for that particular component.
+> If firmware analysis detects a component but can't determine the version of that component, it might report the version as `0.0.0`. The analysis doesn't report any CVEs for that component.
 
 
 **Component** | **Component** | **Component** | **Component**
  ---|---|---|---
-apache            | harfbuzz          | miniupnpd         | redis
-apparmor          | hdparm            | mit_kerberos      | rngd
-asterisk          | heimdal           | mosquitto         | rngtest
-atftp             | hostapd           | msmtp             | rp_pppoe
-avahi_daemon      | i2c-tools         | mstpd             | samba
-avahi-autoipd     | iperf3            | mtd-utils         | setserial
-axios             | iproute2          | nano              | sqlite
-backbonejs        | ipset             | ncurses           | ssmtp
-bash              | iptables          | neon              | strace
-bftpd             | jansson           | netatalk          | strongswan
-binutils          | jquery            | netkit_telnetd    | stunnel
-bird              | json-c            | netsnmp           | sudo
-bluetoothd        | libarchive        | nettools          | tcpdump
-boa               | libcap            | nginx             | uclibc
-bridge-utils      | libcurl           | nss               | underscorejs
-busybox           | dhcpd             | openldap          | usbutils
-bzip2             | dhcpcd            | openssh           | util_linux
-cairo             | dmidecode         | openssl           | vim
-cifs-utils        | dnsmasq           | openvpn           | vsftpd
-chrony            | dpkg              | openvswitch        | vuejs
-codesys           | dropbear          | p7zip             | wget
-conntrack-tools   | e2fsprogs         | pango             | wireless-tools
-coreutils         | ebtables          | pcre              | wolfssl
-cryptsetup        | eeprog            | pcre2             | wpa_supplicant
-cups              | element           | perl              | xinetd
-davfs2            | ethtool           | php               | xl2tpd
-exfat             | extJS             | polarssl          | xz-utils
-ffmpeg            | file              | portmap           | zebra
-fribidi           | gdbserver         | pppd              | zeptojs
-gdkpixbuf         | glibc             | procps            | zip
-glibc             | gmp               | procps-ng         | zipcloak
-gnutls            | gpg               | protobuf-c        | zipnote
-gtk               | libevent          | python            | zlib
-libarchive        | libexpat          | radvd             |
-libcap            | libgcrypt         | readline          |
-libcurl           | libidn            | redis             |
-libevent          | libjpeg-turbo     | rngd              |
-libexpat          | liblzma           | rngtest           |
-libgcrypt         | libmicrohttpd     | samba             |
-libidn            | libpcap           | setserial         |
-libjpeg-turbo     | libpng            | sqlite            |
-liblzma           | libsoup           | ssmtp             |
-libmicrohttpd     | libvorbis         | strace            |
-libpcap           | libxml2           | strongswan        |
-libpng            | lighttpd          | stunnel           |
-libsoup           | lodash            | sudo              |
+apache              | fribidi             | libfuse             | portmap
+apparmor            | gdb                 | libgcrypt           | pppd
+asterisk            | gdbserver           | libidn              | procps
+atftp               | gdkpixbuf           | libidn2             | procps-ng
+avahi-autoipd       | glibc               | libjpeg-turbo       | protobuf-c
+avahi_daemon        | gmp                 | liblzma             | python
+axios               | gnu cpio            | libmicrohttpd       | radvd
+backbonejs          | gnu gettext runtime | libpcap             | readline
+bash                | gnu inetutils       | libpng              | redis
+bftpd               | gnutls              | libsoup             | rngd
+binutils            | gpg                 | libvorbis           | rngtest
+bird                | grep                | libxml2             | rp_pppoe
+bluetoothd          | grub                | lighttpd            | samba
+boa                 | grub2               | lodash              | setserial
+bridge-utils        | gtk                 | miniupnpd           | sqlite
+busybox             | gzip                | mit_kerberos        | ssmtp
+bzip2               | harfbuzz            | mosquitto           | strace
+cairo               | haserl              | msmtp               | strongswan
+chrony              | hdparm              | mstpd               | stunnel
+cifs-utils          | heimdal             | mtd-utils           | sudo
+codesys             | hostapd             | nano                | tcpdump
+conntrack-tools     | i2c-tools           | ncurses             | uclibc
+coreutils           | igmpproxy           | neon                | underscorejs
+cryptsetup          | iperf3              | netatalk            | usbutils
+cups                | iproute2            | netkit_telnetd      | util_linux
+davfs2              | ipset               | netsnmp             | vim
+dhcpcd              | iptables            | nettools            | vsftpd
+dhcpd               | iputils             | nginx               | vuejs
+dmidecode           | isc dhclient        | nss                 | wget
+dnsmasq             | jansson             | openldap            | wireless-tools
+dpkg                | jq                  | openssh             | wolfssl
+dropbear            | jquery              | openssl             | wpa_supplicant
+e2fsprogs           | json-c              | openvpn             | xinetd
+ebtables            | kbd                 | openvswitch         | xl2tpd
+eeprog              | keepalived          | p7zip               | xz-utils
+element             | libarchive          | pango               | zebra
+ethtool             | libcap              | pcre                | zeptojs
+exfat               | libcurl             | pcre2               | zip
+extJS               | libdbus             | perl                | zipcloak
+ffmpeg              | libevent            | php                 | zipnote
+file                | libexpat            | polarssl            | zlib
+freeradius          |                     |                     |
 
 
 
-## Where are the firmware analysis Azure CLI/PowerShell docs?
-You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
+## Where are the firmware analysis Azure CLI and PowerShell docs?
+Find the documentation for the Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for the Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
  
-You can also find the Quickstart for our Azure CLI [here](./quickstart-upload-firmware-using-azure-command-line-interface.md) and the Quickstart for our Azure PowerShell [here](./quickstart-upload-firmware-using-powershell.md). To run a Python script using the SDK to upload and analyze firmware images, visit [Quickstart: Upload firmware using Python](./quickstart-upload-firmware-using-python.md).
+You can also find the quickstart for Azure CLI [here](./quickstart-upload-firmware-using-azure-command-line-interface.md) and the quickstart for Azure PowerShell [here](./quickstart-upload-firmware-using-powershell.md). To run a Python script that uses the SDK to upload and analyze firmware images, see [Quickstart: Upload firmware using Python](./quickstart-upload-firmware-using-python.md).
 
 
 ## Is UEFI (Unified Extensible Firmware Interface) firmware analysis supported?
-Yes. UEFI firmware analysis is supported with a mix of **Generally Available (GA)** and **Preview** capabilities.
+Yes. The service supports UEFI firmware analysis with a mix of **Generally Available (GA)** and **Preview** capabilities.
 
 ### What is generally available for UEFI firmware analysis?
 
@@ -122,16 +118,16 @@ Firmware analysis provides **GA support** for detecting and analyzing cryptograp
 - Cryptographic certificates
 - Cryptographic keys
 
-These capabilities are considered stable and fully supported for UEFI firmware.
+These capabilities are stable and fully supported for UEFI firmware.
 
 ### What UEFI analysis capabilities are in preview?
 
-The following UEFI analysis capabilities are currently provided in **Preview** and might have limited coverage:
+The following UEFI analysis capabilities are currently in **Preview** and might have limited coverage:
 - SBOM and weakness signals (limited OpenSSL detection and CVE association)
-- Binary hardening attributes (detection of NX / DEP are supported)
+- Binary hardening attributes (detection of NX / DEP is supported)
 - Extractor path enhancements
 
-Preview results should be interpreted as **security signals**, not guarantees of vulnerability or protection.
+Interpret preview results as **security signals**, not guarantees of vulnerability or protection.
 
 For detailed explanations of UEFI firmware analysis capabilities, limitations, and how to interpret results, see [Understanding UEFI firmware analysis capabilities and limitations](unified-extensible-firmware-interface-firmware-analysis.md).
 
