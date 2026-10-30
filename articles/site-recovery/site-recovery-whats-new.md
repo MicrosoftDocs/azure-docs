@@ -2,10 +2,10 @@
 title: What's new in Azure Site Recovery
 description: Provides a summary of the latest updates in the Azure Site Recovery service.
 ms.topic: overview
-ms.author: v-gajeronika
+ms.author: vipenmet
 ms.service: azure-site-recovery
-author: Jeronika-MS
-ms.date: 02/24/2026
+author: VIshnu-MS
+ms.date: 10/30/2026
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -25,6 +25,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup / Configuration server** | **Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 84](https://support.microsoft.com/en-us/topic/update-rollup-84-for-azure-site-recovery-8a16e0af-74f3-41cb-a432-c4823d7ad018) | NA | NA | 9.68.7951.1 (Windows), 9.68.7950.1 (Linux) | NA | NA
 [Rollup 83](https://support.microsoft.com/en-us/topic/update-rollup-83-for-azure-site-recovery-a855fd73-e9f5-4339-adf7-d45b2dc9f4e3) | NA | NA | 9.66.7691.1 | NA | NA
 [Rollup 82](https://support.microsoft.com/en-us/topic/update-rollup-82-for-azure-site-recovery-df7f6773-43a1-4818-a5b1-20c62f60f195) | NA | NA | 9.66.7643.1 | NA | NA
 [Rollup 81](https://support.microsoft.com/en-us/topic/update-rollup-81-for-azure-site-recovery-fafaa6b3-2a55-4025-ab73-f14de258fdf2) | NA | NA | 9.66.7640.1 | NA | NA
@@ -41,6 +42,18 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (October 2026)
+
+### Update Rollup 84
+
+Update rollup 84 provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Mobility Agent** | Updates to Site Recovery Mobility Agent as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | New Linux distributions and kernel support as detailed in the rollup KB article.
 
 ## Updates (February 2026)
 
