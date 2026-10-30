@@ -1,0 +1,73 @@
+# Read-only preflight check called by the main Knowledge Partnership workflow.
+# The caller supplies every label name from its top-level settings.
+# Create the labels manually; this workflow never creates or applies labels.
+name: KP - Validate labels exist
+
+on:
+  workflow_call:
+    inputs:
+      event-label:
+        description: Label selecting PRs participating in the rollout
+        type: string
+        required: true
+      author-action-label:
+        description: Label indicating that the author owns the next action
+        type: string
+        required: true
+      # reviewer-action-label:
+      #   description: Label indicating that a reviewer owns the next action
+      #   type: string
+      #   required: true
+      author-reminder-label:
+        description: Label recording an author inactivity reminder
+        type: string
+        required: true
+      # reviewer-reminder-label:
+      #   description: Label recording a reviewer inactivity reminder
+      #   type: string
+      #   required: true
+      reminder-due-label:
+        type: string
+        required: true
+      exempt-label:
+        description: Label excluding a PR from routine reminders
+        type: string
+        required: true
+
+permissions:
+  issues: read
+
+jobs:
+  validate-labels:
+    name: Validate Knowledge Partnership labels
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      EVENT_LABEL: ${{ inputs.event-label }}
+      AUTHOR_ACTION_LABEL: ${{ inputs.author-action-label }}
+      # REVIEWER_ACTION_LABEL: ${{ inputs.reviewer-action-label }}
+      AUTHOR_REMINDER_LABEL: ${{ inputs.author-reminder-label }}
+      # REVIEWER_REMINDER_LABEL: ${{ inputs.reviewer-reminder-label }}
+      REMINDER_DUE_LABEL: ${{ inputs.reminder-due-label }}
+      EXEMPT_LABEL: ${{ inputs.exempt-label }}
+
+    steps:
+      - name: Verify required Knowledge Partnership labels exist
+        shell: bash
+        run: |
+          # Read every page and report all missing labels before failing.
+          label_names=$(gh api --paginate "repos/$GH_REPO/labels?per_page=100" --jq '.[].name')
+          missing=0
+          # Reviewer labels aren't required while reviewer automation is paused.
+          for required_label in "$EVENT_LABEL" "$AUTHOR_ACTION_LABEL" \
+                                "$AUTHOR_REMINDER_LABEL" \
+                                "$REMINDER_DUE_LABEL" "$EXEMPT_LABEL"; do
+            if ! grep -Fxq -- "$required_label" <<< "$label_names"; then
+              echo "::error::Required label '$required_label' is missing. Create it in the repository before running this workflow."
+              missing=1
+            fi
+          done
+          exit "$missing"

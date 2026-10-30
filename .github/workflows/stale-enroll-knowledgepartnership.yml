@@ -1,0 +1,49 @@
+# PR events enroll matching rollout PRs; this workflow never processes reminders.
+# Never check out or execute contributor code in this privileged workflow.
+name: stale-enroll-knowledgepartnership
+run-name: "KP enrollment (no reminders) - PR #${{ github.event.pull_request.number }}"
+
+on:
+  pull_request_target:
+    types: [opened, reopened, ready_for_review, edited, synchronize]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: write
+
+concurrency:
+  group: knowledge-partnership-label-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  configuration:
+    name: Share workflow settings
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    permissions: {}
+    uses: ./.github/workflows/reusable-kp-configuration.yml
+
+  validate-labels:
+    name: Validate Knowledge Partnership labels
+    needs: configuration
+    if: >-
+      github.repository == 'MicrosoftDocs/azure-docs-pr' &&
+      startsWith(github.event.pull_request.base.ref, needs.configuration.outputs.rollout-branch-prefix)
+    uses: ./.github/workflows/reusable-kp-validate-labels.yml
+    with:
+      reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
+      event-label: ${{ needs.configuration.outputs.event-label }}
+      author-action-label: ${{ needs.configuration.outputs.author-action-label }}
+      author-reminder-label: ${{ needs.configuration.outputs.author-reminder-label }}
+      exempt-label: ${{ needs.configuration.outputs.exempt-label }}
+
+  label-event-prs:
+    name: Enroll rollout PR (no reminders)
+    needs: [configuration, validate-labels]
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    uses: ./.github/workflows/reusable-kp-label-event.yml
+    with:
+      reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
+      author-reminder-label: ${{ needs.configuration.outputs.author-reminder-label }}
+      event-label: ${{ needs.configuration.outputs.event-label }}
+      rollout-branch-prefix: ${{ needs.configuration.outputs.rollout-branch-prefix }}
