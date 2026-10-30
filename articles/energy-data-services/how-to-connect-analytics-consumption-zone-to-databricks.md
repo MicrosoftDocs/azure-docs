@@ -13,12 +13,9 @@ ms.custom: template-how-to-pattern
 
 This article shows you how to connect Analytics Consumption Zone (ACZ) to Azure Databricks for querying Azure Data Manager for Energy data. After you finish these steps, you can query OSDU® data by using Azure Databricks, SQL, and notebooks.
 
-> [!NOTE]
-> During the preview, ACZ is available only on Developer tier instances and requires the use of allow lists. Follow the guidance in [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md), and contact your Microsoft representative.
-
 ## Prerequisites
 
-- An Azure subscription with an Azure Data Manager for Energy (Developer tier) instance that has ACZ enabled.
+- An Azure subscription with an Azure Data Manager for Energy (Developer or Standard tier) instance that has ACZ enabled.
 - ACZ provisioned with at least one data kind.
 - An Azure Databricks workspace in the same Azure region as your ACZ storage account.
 - Contributor or Owner permissions on the ACZ storage account.
@@ -320,10 +317,10 @@ az storage fs directory list \
 
 ## Related content
 
-- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
 - [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Azure Databricks Unity Catalog](/azure/databricks/data-governance/unity-catalog/)
 - [Use Azure managed identities in Unity Catalog](/azure/databricks/connect/unity-catalog/cloud-storage/azure-managed-identities)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)

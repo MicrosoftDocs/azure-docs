@@ -1,7 +1,7 @@
 ---
 title: How to Estimate the Cost of Azure Files
 description: Learn how to estimate the cost of Azure Files usage across different billing models.
-ms.date: 08/14/2025
+ms.date: 10/23/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: khdownie

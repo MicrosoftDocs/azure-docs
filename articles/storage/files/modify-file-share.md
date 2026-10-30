@@ -5,7 +5,7 @@ description: Learn how to adjust the size, cost, and performance characteristics
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/16/2026
+ms.date: 10/26/2026
 ms.author: kendownie
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to adjust the size, cost, or performance characteristics my Azure file share, or delete the file share."
@@ -36,8 +36,6 @@ Follow these steps to update the provisioning for your file share.
 1. In the file share listing, select the file share for which you want to change the provisioning.
 
 1. In the file share overview, select **Change size and performance**.
-
-   ![A screenshot of the Change size and performance button in the file share overview.](./media/storage-how-to-create-file-share/change-provisioned-v2-0.png)
 
 1. The **Size and performance** pop-out dialog has the following options:
 
@@ -121,9 +119,7 @@ Follow these steps to update the provisioning for your file share.
 
 1. In the file share overview, select **Change size and performance**.
 
-   ![A screenshot of the Change size and performance button in the file share overview.](./media/storage-how-to-create-file-share/change-provisioned-v2-0.png)
-
-1. The **Size and performance** dialog has a single option, **Provisioned storage (GiB)**. If you need more IOPS or throughput than the given amount of provisioned storage provides, increase your provisioned storage capacity to get extra IOPS and throughput.
+1. The **Size and performance** dialog has a single option, **Provisioned storage (GiB)**. If you need more IOPS or throughput than the given amount of provisioned storage provides, you can increase your provisioned storage capacity to get extra IOPS and throughput.
 
    ![A screenshot of the "Size and performance" dialog for provisioned v1 file shares.](./media/storage-how-to-create-file-share/change-provisioned-v1-0.png)
 
@@ -298,6 +294,93 @@ $command
 ```
 
 ---
+
+## Change the billing model of a storage account
+
+You can convert an existing SSD storage account of kind `FileStorage` from the provisioned v1 billing model to provisioned v2. This feature is available in **limited public preview** and requires completing a [survey](https://forms.cloud.microsoft/r/tkjpMwPPvU) before use.
+
+The conversion applies to all classic file shares in the storage account. Each share's existing provisioned storage, IOPS, and throughput carry over unchanged and are billed under the provisioned v2 model. After conversion, you can adjust these quantities independently. For more information about the billing models, see [Provisioned v1](understanding-billing.md#provisioned-v1-model) and [Provisioned v2](understanding-billing.md#provisioned-v2-model).
+
+> [!IMPORTANT]
+> Conversion is one-way. You can't convert the storage account back to provisioned v1. You also can't change redundancy options during the conversion.<br>
+> Currently, this feature is available in the following regions:
+ > - West Central US
+ > - East Asia
+ > - Southeast Asia
+
+### Prerequisites
+- Complete the [survey](https://forms.cloud.microsoft/r/tkjpMwPPvU) required to use the limited public preview.
+- Use an existing SSD `FileStorage` storage account with a provisioned v1 SKU of `Premium_LRS` or `Premium_ZRS`. This conversion doesn't apply to HDD storage accounts or file shares created with the `Microsoft.FileShares` resource provider.
+- Choose the provisioned v2 SKU that matches your account's existing redundancy configuration, as shown in the following table.
+
+| Current provisioned v1 SKU | Target provisioned v2 SKU | Redundancy |
+|---|---|---|
+| `Premium_LRS` | `PremiumV2_LRS` | Locally redundant storage (LRS) |
+| `Premium_ZRS` | `PremiumV2_ZRS` | Zone-redundant storage (ZRS) |
+
+- To proceed, all of the following requirements must be met on your Provisioned v1 storage account:
+  - Provisioned storage is 256 TiB or less
+  - Provisioned IOPS is 102,400 or less
+  - Provisioned throughput is 10,340 MiB/s or less
+  - The storage account contains fewer than 35 file shares
+  - Paid bursting feature is disabled
+
+If one or more of these requirements are not met, the upgrade will fail. Update your Provisioned v1 storage account to satisfy all eligibility requirements, then retry the upgrade.
+
+# [Portal](#tab/azure-portal)
+
+Portal experience coming soon, to use the feature, use PowerShell or Azure CLI.
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the [`Set-AzStorageAccount`](/powershell/module/az.storage/set-azstorageaccount) cmdlet to change the storage account SKU. Replace the resource group and storage account placeholders with the names of your existing resources. Set `$skuName` to `PremiumV2_LRS` for an account currently using `Premium_LRS`, or `PremiumV2_ZRS` for an account currently using `Premium_ZRS`.
+
+```powershell
+$resourceGroupName = "<resource-group-name>"
+$storageAccountName = "<storage-account-name>"
+$skuName = "PremiumV2_LRS"
+
+Set-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -SkuName $skuName
+```
+
+After the request completes, check the storage account SKU:
+
+```powershell
+Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName |
+    Select-Object StorageAccountName, @{Name='SkuName';Expression={$_.Sku.Name}}, ProvisioningState
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the [`az storage account update`](/cli/azure/storage/account#az-storage-account-update) command to change the storage account SKU. The following example uses Bash syntax, such as in an Azure Cloud Shell Bash session. Replace the resource group and storage account placeholders with the names of your existing resources. Set `skuName` to `PremiumV2_LRS` for an account currently using `Premium_LRS`, or `PremiumV2_ZRS` for an account currently using `Premium_ZRS`.
+
+```bash
+resourceGroupName="<resource-group-name>"
+storageAccountName="<storage-account-name>"
+skuName="PremiumV2_LRS"
+
+az storage account update \
+    --resource-group "$resourceGroupName" \
+    --name "$storageAccountName" \
+    --sku "$skuName"
+```
+
+After the request finishes, check the storage account SKU:
+
+```bash
+az storage account show \
+    --resource-group "$resourceGroupName" \
+    --name "$storageAccountName" \
+    --query sku.name \
+    --output tsv
+```
+
+---
+
+The returned SKU should match the target provisioned v2 SKU you selected. To adjust individual shares after conversion, see [change the cost and performance characteristics of a classic file share](#change-the-cost-and-performance-characteristics-of-a-classic-file-share).
 
 ## Change the cost and performance characteristics of a file share (Microsoft.FileShares)
 
