@@ -3,7 +3,7 @@ title: "Connect GitHub Enterprise Cloud Repositories to Azure SRE Agent"
 description: "Learn how to connect GitHub Enterprise Cloud repositories to your Azure SRE Agent by configuring a BYO GitHub App with Key Vault-backed private keys."
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: dchelupati
@@ -36,7 +36,7 @@ Use BYO App when:
 | GitHub App | A GitHub App created on your target host (`github.com` or `<TENANT>.ghe.com`) |
 | GitHub admin access | Org or repository admin access to create, install, or verify GitHub App scope |
 | Azure Key Vault | A vault where you can store the GitHub App's private key |
-| Managed identity | Ability to assign **Key Vault Secrets User** role to the agent's managed identity |
+| Managed identity | Ability to assign **Key Vault Crypto User** on the imported key to the identity used by the agent |
 
 ## Create a GitHub app
 
@@ -75,14 +75,12 @@ If you already have a GitHub App with the right permissions, skip to [Store the 
 
 ## Store the private key in Azure Key Vault
 
-1. Open the [Azure portal](https://portal.azure.com) and go to your Key Vault.
-1. Go to **Secrets** > **Generate/Import**.
-1. Set **Name** (for example, `sre-agent-github-app-key`) and paste the full PEM content as the **Value** (including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----` headers).
-1. Select **Create**.
-1. Open the secret, select the current version, and copy the **Secret Identifier** URI:
+Import the GitHub App private key as an RSA **key**, not a secret, with the **Sign** operation enabled. Convert GitHub's downloaded PEM to PKCS#8 before import, then permanently delete the local PEM files after a successful import. For the commands, see [Store private key in Key Vault](setup-github-byo-app.md#step-3-store-private-key-in-key-vault).
+
+Copy the imported key's **Key Identifier** URI:
 
 ```text
-https://myvault.vault.azure.net/secrets/my-github-app-key/<VERSION>
+https://myvault.vault.azure.net/keys/my-github-app-key/<VERSION>
 ```
 
 > [!TIP]
@@ -91,34 +89,32 @@ https://myvault.vault.azure.net/secrets/my-github-app-key/<VERSION>
 ## Grant Key Vault access to agent identity
 
 1. In the Azure portal, open **Key Vault** > **Access control (IAM)**.
-1. Assign **Key Vault Secrets User** to the agent managed identity.
+1. Assign **Key Vault Crypto User** to the identity selected for Key Vault access. Scope the assignment to the imported key, or to the vault only if it is dedicated to this app.
 1. Wait for role assignment to take effect.
 
 ## Configure BYO app in code access
 
 1. Open your agent in the portal.
-1. Go to **Builder** > **Code Access**.
-1. Select **Add repositories**.
-1. Choose **GitHub** and enter the host:
-   - `github.com` for public GitHub
-   - `<TENANT>.ghe.com` for Enterprise Cloud
-1. Continue to **Authenticate**.
-1. Select **Bring your own GitHub App**.
+1. Go to **Build + setup** > **Context** > **Code access**.
+1. Select **Add repository**.
+1. On the **Connection** step, choose **GitHub** and enter a full **Repository URL**, such as `https://<TENANT>.ghe.com/owner/repo`.
+1. If a matching credential exists, choose **New connection** under **Add repository with** to configure another credential.
+1. Under **Connection method**, select **Use your GitHub App**.
 1. Enter:
    - **Client ID**
-   - **Private key secret URI (Key Vault)**
+   - **Private key URI (Key Vault)**: a `/keys/` URI, not a `/secrets/` URI
    - Optional **Key Vault identity** (or keep system-assigned)
 1. Select **Connect**.
 
 The wizard validates your credentials. When successful, you see **Connected as GitHub App** with a green checkmark.
 
 > [!NOTE]
-> When you enter a `*.ghe.com` domain as the host, the wizard automatically selects **Bring your own GitHub App**. OAuth and PAT aren't available for GHE hosts.
+> When the repository URL uses a `*.ghe.com` host, the wizard selects **Use your GitHub App**. OAuth and PAT aren't available for GHE hosts.
 
 ## Add repositories and verify the connection
 
-1. Select repositories and save.
-1. Confirm the Code Access card shows the connected host and auth type `GitHubApp`.
+1. Select **Next** to open **Add repositories**, review the repository entries and display names, and select **Save**.
+1. Confirm the repository appears in the **Code access** list with its connection in the **Connection** column.
 1. Test in chat:
 
 ```text
@@ -127,7 +123,7 @@ Get me recent issues from owner/repo.
 
 ## Per-app managed identity for multiple GitHub apps
 
-By default, the agent uses its **system-assigned managed identity** to read the private key from Key Vault. If you manage multiple GitHub Apps (for example, one per GHE instance), you can assign a different **user-assigned managed identity** to each app. This approach provides security isolation because each identity only has access to its own Key Vault secret.
+By default, the agent uses its **system-assigned managed identity** for Key Vault signing operations. If you manage multiple GitHub Apps (for example, one per GHE instance), you can assign a different **user-assigned managed identity** to each app. Each identity needs access only to its own Key Vault key.
 
 Select the identity in the **Key Vault identity** dropdown during the configure step.
 
@@ -146,7 +142,7 @@ Disconnecting one host doesn't affect others.
 | Symptom | Likely cause | Fix |
 |---|---|---|
 | Auth validation fails | Wrong Client ID or wrong host | Verify app was created on the same host entered in Code Access. |
-| Secret read fails | Missing Key Vault RBAC or access policy | Grant **Key Vault Secrets User** to agent identity. |
+| Key Vault signing fails | Wrong key URI or missing key permissions | Use an RSA `/keys/` URI with Sign enabled and grant **Key Vault Crypto User** to the selected identity. |
 | Repo shows **Failed** in Code Access | Missing app permissions or install scope | Verify **Metadata: Read** + **Contents: Read** and installation scope. |
 | Chat issues work but Code Access fails | Endpoint/path checks differ | Re-run connection test and verify metadata permission. |
 

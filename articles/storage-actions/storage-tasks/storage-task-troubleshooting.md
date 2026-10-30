@@ -7,26 +7,30 @@ author: normesta
 
 ms.service: azure-storage-actions
 ms.topic: troubleshooting-general
-ms.date: 05/05/2025
+ms.date: 10/30/2026
 ms.author: normesta
 
 ---
 
 # Storage task troubleshooting
 
-This article describes issues that you might encounter when you use storage tasks.
+This article describes common issues you might encounter when using Storage Actions.
 
-## Permission-related errors
+## Silent failures due to missing role assignments and trusted access
 
-Permission-related errors occur when the necessary permissions aren't granted to create the task or task assignment resource, or for the task assignment's managed identity to perform the defined operations. It's essential to review and update the permissions to ensure that the tasks have the required permissions to execute successfully. See [Azure roles for storage task](storage-task-authorization-roles.md) and [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md).
+Two common causes of silent failures where a task assignment doesn't appear to run are that the managed identity of the Storage Actions task definition is missing or has insufficient role assignments, or trusted access on the storage account is disabled.
 
-## Scale limits exceeded errors
+To address these issues:
+- Confirm that the Storage Actions task managed identity has one of the following roles assigned to it on the storage account: _Storage Blob Data Operator_, _Storage Blob Data Owner_, or a custom role with similar permissions. See [Permissions for a task to perform operations](storage-task-authorization-roles-assign.md#permissions-for-a-task-to-perform-operations).
+- Ensure that trusted Microsoft services have network access to the storage account. See [Grant access to trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
-Scale limits exceeded errors arise when the task assignments and task execution operations exceed the predefined scale limits. It's important to monitor and adjust the scope of the task assignment accordingly to prevent such errors. See [Scale limits](storage-task-known-issues.md#scale-limits).
+## Permission-related errors when managing storage tasks or task assignments
 
-## Internal errors
+Operations such as creating and editing storage tasks, adding or removing task assignments, and stopping task assignment runs require the _Storage Actions Contributor_ role on the subscription or resource group. If the task assignment is on a storage account that's in a different subscription than the Storage Actions resource, you might need this role assigned for both resources. See [Azure roles for storage task](storage-task-authorization-roles.md) and [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md).
 
-These are unforeseen errors that occur within the system. Diagnosing internal errors often requires a deeper dive into the system logs and might necessitate contacting support for resolution.
+## Resource limit errors
+
+These errors arise when resource limits are exceeded during configuration or task assignment execution. Monitor and adjust the scope of the task assignment accordingly to prevent these errors. See [Resource limits](storage-task-known-issues.md#resource-limits).
 
 ## See also
 

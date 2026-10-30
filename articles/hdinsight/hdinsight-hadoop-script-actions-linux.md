@@ -110,7 +110,7 @@ You can find the full script that contains these snippets at https://hdiconfigac
 
 For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
 
-To understand the differences between `Systemd` and Upstart, see [`Systemd` for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+To understand the differences between `Systemd` and Upstart, see [`Systemd` for Upstart users](https://discourse.ubuntu.com/t/systemd-overview/33353).
 
 ### <a name="bPS2"></a>Provide stable links to script resources
 

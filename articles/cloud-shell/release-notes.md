@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 09/18/2026
+ms.date: 10/30/2026
 ms.topic: release-notes
 ---
 
@@ -24,6 +24,28 @@ criteria, see [Cloud Shell Package inclusion guide][12].
 
 You can install any tool you need in your Cloud Shell session as long as it doesn't require root
 access. For installation instructions, consult the documentation for the package you require.
+
+## October 2026
+
+Tool updates
+
+- Azure CLI upgraded to v2.91.0
+- Azure Developer CLI upgraded to v1.37.1
+- Azure Functions Core Tools CLI upgraded to v4.16.0
+- Azure PowerShell upgraded to v16.4.0
+- azcopy upgraded to v10.34.1
+- Bicep CLI upgraded to v0.47.16
+- containerd upgraded to v2.3.7
+- GitHub CLI upgraded to v2.102.0
+- Go upgraded to v1.27.3
+- Inspektor Gadget (ig) upgraded to v0.57.0
+- Microsoft.Graph PowerShell modules upgraded to v2.41.2
+- MicrosoftTeams PowerShell module upgraded to v8.0.0
+- Node.js upgraded to v24.22.1
+- npm upgraded to v11.19.1
+- rootlesskit upgraded to v3.3.0
+- runc upgraded to v1.4.3
+- Terraform upgraded to v1.17.0
 
 ## September 2026
 
