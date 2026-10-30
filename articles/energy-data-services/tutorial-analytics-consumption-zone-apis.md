@@ -3,7 +3,7 @@ title: 'Tutorial: Use Analytics Consumption Zone APIs in Azure Data Manager for 
 description: Learn how to use the Analytics Consumption Zone APIs to create, list, get details of, and delete Analytics Consumption Zone instances in Azure Data Manager for Energy.
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
-ms.date: 10/29/2026
+ms.date: 10/30/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -142,7 +142,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 | `{acz-name}` | Display name for the ACZ instance (1-100 characters, for example, `my-acz-wells-and-logs`). |
 | `{acz-type}` | Optional: `LATEST_VERSION` (default) exports only the latest version, and `ALL_VERSIONS` exports all versions. |
 | `{storage-resource-id}` | Azure resource ID of the destination Data Lake Storage Gen2 storage account (for example, `/subscriptions/xxx.../storageAccounts/mystorageacct`). |
-| `{base-path}` | Optional: Storage location for ACZ output (for example, `acz-output` or `acz-output/workbench`). The first segment is the container name; ACZ creates the container if it doesn't exist. Any remaining segments are folders. ACZ writes data to `<basePath>/<aczId>/`. If you omit `basePath`, ACZ creates a container named after the `aczId` and writes data to `<aczId>/<aczId>/`. If you use the Swagger UI, replace the placeholder value `string`; otherwise, ACZ creates a container named `string`. |
+| `{base-path}` | Optional: Storage location for ACZ output (for example, `acz-output` or `acz-output/workbench`). The first segment is the container name; ACZ creates the container if it doesn't exist. The first segment must be a valid container name. For naming rules, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Any remaining segments are folders. ACZ writes data to `<basePath>/<aczId>/`. If you omit `basePath`, ACZ creates a container named after the `aczId` and writes data to `<aczId>/<aczId>/`. If you use the Swagger UI, replace the placeholder value `string`; otherwise, ACZ creates a container named `string`. |
 | `allCatalogSync` | Optional (default: `false`). When set to `true`, exports all catalog kinds from the partition. Specified *outside* the `configuration` section. When `true`, `catalogKinds` and `wellboreDDMSKinds` in configuration are ignored for catalog data. |
 | `{catalog-kinds}` | Optional: OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). Ignored if `allCatalogSync` is `true`. |
 | `{wellbore-ddms-kinds}` | Optional (preview): Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). File downloads occur only for kinds listed here. |

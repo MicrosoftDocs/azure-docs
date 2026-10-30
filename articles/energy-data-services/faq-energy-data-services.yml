@@ -4,7 +4,7 @@ metadata:
   description: Get answers to common questions about Azure Data Manager for Energy.
   ms.service: azure-data-manager-energy
   ms.topic: faq
-  ms.date: 10/29/2026
+  ms.date: 10/30/2026
   ms.author: bselvaraj
   author: bharathim
   manager: priyabratp
@@ -131,6 +131,12 @@ sections:
           answer: |
             Enable ACZ on your Azure Data Manager for Energy resource in the Azure portal, and then create ACZ instances by using the ACZ REST APIs. ACZ is available on Developer and Standard tier instances. For step-by-step guidance, see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
 
+        - question: I used ACZ during the preview. What changes at general availability?
+          answer: |
+            - **Billing**: Starting November 1, 2026, Azure Data Manager for Energy bills ACZ as an add-on. Charges apply to Azure Data Manager for Energy resources that have ACZ enabled, including resources where ACZ was enabled during the preview. Pricing details will be available on the [Azure Data Manager for Energy pricing page](https://azure.microsoft.com/pricing/details/energy-data-services/). If you don't want to keep using ACZ, [create a support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade) to disable it.
+            - **Azure portal status**: If ACZ was enabled on your Azure Data Manager for Energy resource during the preview, the **Analytics Consumption Zone** page in the Azure portal might show ACZ as not enabled. To sync the portal with your ACZ configuration, add or edit any tag on your Azure Data Manager for Energy resource in the Azure portal, for example on the resource's **Overview** page. This change doesn't affect your ACZ configuration, identity, or ACZ instances. For steps, see [Use tags to organize your Azure resources](/azure/azure-resource-manager/management/tag-resources-portal).
+            - **Existing ACZ instances**: Your existing ACZ instances keep running with no action required. They keep catalog schema version 1 and their current folder layout. To use catalog schema version 2 or the `wellboreDDMS` folder layout, create a new ACZ instance.
+
         - question: How do I create ACZ instances, and how many can I create?
           answer: |
             After you enable ACZ in the Azure portal, create and manage ACZ instances by using the ACZ REST APIs. You can create up to three ACZ instances per data partition. For more information, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
@@ -178,7 +184,6 @@ sections:
         - question: What are the current ACZ limitations?
           answer: |
             - Only one ACZ instance in a data partition can run a historical snapshot at a time. You can't create another ACZ instance in that data partition until the snapshot in the PROCESSING state finishes.
-            - Deleting an ACZ instance while its historical snapshot is in the PROCESSING state might lead to inconsistent data in ACZ storage.
             - ACZ supports a maximum of 100 kinds.
             - For the full list, see [Limits](concepts-analytics-consumption-zone.md#limits).
 
