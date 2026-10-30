@@ -2,7 +2,7 @@
 title: Configure vaulted backup for Azure Cosmos DB using Azure PowerShell
 description: Learn how to configure vaulted backup for Azure Cosmos DB using Azure PowerShell.
 ms.topic: how-to
-ms.date: 08/27/2026
+ms.date: 10/29/2026
 ms.custom: devx-track-azurepowershell, ignite-2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -10,16 +10,15 @@ ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to back up Azure Cosmos DB using PowerShell, so that I can ensure data protection and recovery in case of data loss or corruption.
 ---
 
-# Configure vaulted backup for Azure Cosmos DB by using Azure PowerShell (preview)
+# Configure vaulted backup for Azure Cosmos DB by using Azure PowerShell
 
-This article describes how to configure vaulted backup for an Azure Cosmos DB account by using [Azure Backup](backup-overview.md) via the Azure PowerShell (preview).
+This article describes how to configure vaulted backup for an Azure Cosmos DB account by using [Azure Backup](backup-overview.md) via the Azure PowerShell.
 
-Learn more about the [supported scenarios, regions, and limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup (preview).
+Learn more about the [supported scenarios, regions, and limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create a backup policy.
 > * Configure backup for an Azure Cosmos DB account.
 > * Track a backup job.
 > * View a protected item.
@@ -40,58 +39,9 @@ Before you configure vaulted backup for an Azure Cosmos DB account, ensure that 
 
   For cross-subscription backup, check the identity's access in the source account's subscription. To resolve permission errors, see [Troubleshoot backup configuration requests](backup-azure-backup-vault-troubleshoot.md#backup-configuration-request-errors).
 
-### Create a Backup vault
+* Identify or [create a new backup policy for Azure Cosmos DB](backup-azure-cosmos-db-quickstart.md?pivots=client-powershelltier).
 
-In this article, let's create a Backup vault *TestBkpVault* in the region *westus*, under the resource group *testBkpVaultRG*. Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) cmdlet to create a Backup vault. The vault is created with a system-assigned managed identity, which Azure Backup uses to access the Cosmos DB account.
-
-```azurepowershell-interactive
-$storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type GeoRedundant -DataStoreType VaultStore
-
-New-AzDataProtectionBackupVault -ResourceGroupName testBkpVaultRG -VaultName TestBkpVault -Location westus -StorageSetting $storageSetting -IdentityType SystemAssigned
-
-$TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName testBkpVaultRG
-```
-
-## Create a backup policy for an Azure Cosmos DB account
-
-A backup policy defines the backup schedule and the retention rules that govern the lifecycle of recovery points. Azure Cosmos DB vaulted backup takes a **weekly full backup** and **daily incremental backups** — the weekly full captures the entire account, and each daily incremental captures only the changes since the previous backup, which reduces backup time and storage. Create the policy before you configure protection to associate it with the Azure Cosmos DB account by using the following cmdlets:
-
-1. Fetch the default policy template for the Azure Cosmos DB datasource type using the [Get-AzDataProtectionPolicyTemplate](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) cmdlet. The default template already defines a **weekly full backup with daily incremental backups**, along with default retention that you can customize.
-
-   ```azurepowershell-interactive
-   $policyDefn = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureCosmosDB
-   ```
-
-   > [!NOTE]
-   > Azure Cosmos DB vaulted backup uses a **weekly full** backup plus **daily incremental** backups. Retention rules are applied in priority order: yearly, monthly, weekly, then daily. When a recovery point matches multiple rules, the highest-priority rule applies. The default rule applies when no other rule matches.
-
-2. (Optional) Adjust the day and time of the **weekly full** backup by using [New-AzDataProtectionPolicyTriggerScheduleClientObject](/powershell/module/az.dataprotection/new-azdataprotectionpolicytriggerscheduleclientobject) and [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject). The daily incremental cadence comes from the default template.
-
-   ```azurepowershell-interactive
-   $fullSchedule = New-AzDataProtectionPolicyTriggerScheduleClientObject -ScheduleDays "2026-08-03T09:30:00" -IntervalType Weekly -IntervalCount 1
-
-   Edit-AzDataProtectionPolicyTriggerClientObject -Schedule $fullSchedule -Policy $policyDefn
-   ```
-
-3. (Optional) Customize retention. Daily incremental recovery points and weekly full recovery points can have different retention durations. The following example retains daily recovery points for 30 days and weekly full recovery points for 12 weeks, using [New-AzDataProtectionRetentionLifeCycleClientObject](/powershell/module/az.dataprotection/new-azdataprotectionretentionlifecycleclientobject) and [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject).
-
-   ```azurepowershell-interactive
-   # Daily incremental recovery points: retain for 30 days
-   $dailyRetention = New-AzDataProtectionRetentionLifeCycleClientObject -SourceDataStore VaultStore -SourceRetentionDurationType Days -SourceRetentionDurationCount 30
-   Edit-AzDataProtectionPolicyRetentionRuleClientObject -RuleName Default -IsDefault $true -LifeCycles $dailyRetention -Policy $policyDefn
-
-   # Weekly full recovery points: retain for 12 weeks
-   $weeklyRetention = New-AzDataProtectionRetentionLifeCycleClientObject -SourceDataStore VaultStore -SourceRetentionDurationType Weeks -SourceRetentionDurationCount 12
-   Edit-AzDataProtectionPolicyRetentionRuleClientObject -RuleName Weekly -IsDefault $false -LifeCycles $weeklyRetention -Policy $policyDefn
-   ```
-
-4. Create the backup policy in the vault by using the [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy) cmdlet.
-
-   ```azurepowershell-interactive
-   New-AzDataProtectionBackupPolicy -ResourceGroupName testBkpVaultRG -VaultName $TestBkpVault.Name -Name CosmosDBBackupPolicy -Policy $policyDefn
-   ```
-
-## Configure vaulted backup for an Azure Cosmos DB account
+## Configure vaulted backup for an Azure Cosmos DB account by using Azure PowerShell
 
 After the vault and policy are ready, protect the Azure Cosmos DB account by completing the following steps:
 
@@ -170,5 +120,5 @@ You can change the backup policy that's associated with an Azure Cosmos DB prote
 
 ## Next steps
 
-* [About Azure Cosmos DB backup (preview)](backup-azure-cosmos-db-overview.md)
-* [Configure backup for Azure Cosmos DB using Azure portal (preview)](backup-azure-cosmos-db.md)
+* [About Azure Cosmos DB backup](backup-azure-cosmos-db-overview.md)
+* [Configure backup for Azure Cosmos DB by using Azure portal](backup-azure-cosmos-db.md)

@@ -54,12 +54,12 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Cosmos DB vaulted backup
+            url: backup-azure-cosmos-db-overview.md
           - text: Azure PostgreSQL flexible server and elastic cluster v2 vaulted backup (preview)
             url: backup-azure-postgresql-flex-server-elastic-cluster-v2-overview.md          
           - text: Snapshot backup for SQL Instances in Azure VM (preview)
             url: backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview
-          - text: Azure Cosmos DB vaulted backup (preview)
-            url: backup-azure-cosmos-db-overview.md
           - text: Confidential VM backup (preview)
             url: confidential-vm-backup.md
           - text: Threat Detection with Microsoft Defender for Cloud integration (preview)
@@ -98,10 +98,10 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Azure Cosmos DB vaulted backup
+            url: backup-azure-cosmos-db-overview.md
           - text: Azure PostgreSQL flexible server and elastic cluster v2 vaulted backup (preview)
             url: backup-azure-postgresql-flex-server-elastic-cluster-v2-overview.md
-          - text: Azure Cosmos DB vaulted backup (preview)
-            url: backup-azure-cosmos-db-overview.md
           - text: Azure Database for PostgreSQL Flexible Server backup
             url: backup-azure-database-postgresql-flex-overview.md
           - text: SQL Server database on Azure Virtual Machines backup
