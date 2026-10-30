@@ -88,7 +88,7 @@ uniform but does support [VMSS Flex][46].
 
 ### Linux PowerShell compatibility
 
-Starting in November 2026, machines running the older operating system versions marked in the table will need to upgrade to a compatible, supported operating system version to use configurations that rely on PowerShell with new agent versions.
+Starting in November 2026, machines running the older operating system versions marked in the table must upgrade to a compatible, supported operating system version to use configurations that rely on PowerShell with new agent versions.
 
 ## Machine configuration samples
 
