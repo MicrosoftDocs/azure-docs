@@ -3,7 +3,7 @@ title: Analytics Consumption Zone Concepts in Azure Data Manager for Energy
 description: Learn about Analytics Consumption Zone in Azure Data Manager for Energy. ACZ mirrors Azure Data Manager for Energy data to Azure Data Lake Storage Gen2.
 ms.service: azure-data-manager-energy
 ms.topic: concept-article
-ms.date: 10/29/2026
+ms.date: 10/30/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -180,7 +180,7 @@ ACZ writes data in [Delta Lake](https://delta.io/) format with Parquet-encoded f
 
 ### Data Lake Storage Gen2 folder structure
 
-ACZ writes data to the storage account that you specify when you create an ACZ instance. The first segment of the optional `basePath` property is the container, and any additional segments are folders in that container. If you don't specify a base path, ACZ uses a container named `<aczId>`. ACZ creates the container if it doesn't exist and writes its data to a folder named `<aczId>`. For examples, see [Create an ACZ instance](how-to-enable-analytics-consumption-zone.md#create-an-acz-instance).
+ACZ writes data to the storage account that you specify when you create an ACZ instance. The first segment of the optional `basePath` property is the container, and any additional segments are folders in that container. The first segment must be a valid container name. For naming rules, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). If you don't specify a base path, ACZ uses a container named `<aczId>`. ACZ creates the container if it doesn't exist and writes its data to a folder named `<aczId>`. For examples, see [Create an ACZ instance](how-to-enable-analytics-consumption-zone.md#create-an-acz-instance).
 
 ```text
 <storage-account>/
@@ -270,7 +270,7 @@ Entitlements export is disabled by default. Contact your Microsoft representativ
 
 ACZ requires:
 
-- **API access**: To call ACZ APIs, you must belong to the `users@{data-partition-id}.dataservices.energy` and `users.datalake.ops@{data-partition-id}.dataservices.energy` groups.
+- **API access**: To call ACZ APIs, you must belong to the `users@{data-partition-id}.dataservices.energy`, `users.datalake.ops@{data-partition-id}.dataservices.energy`, and `service.entitlements.user@{data-partition-id}.dataservices.energy` groups.
 - **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the Data Lake Storage Gen2 container.
 - **Azure Data Manager for Energy access**: The managed identity is assigned to the Azure Data Manager for Energy resource when you enable ACZ in the Azure portal. For steps, see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
 
