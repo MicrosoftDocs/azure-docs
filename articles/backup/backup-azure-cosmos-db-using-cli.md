@@ -2,7 +2,7 @@
 title: Configure vaulted backup for Azure Cosmos DB by using Azure CLI
 description: Learn how to configure vaulted backup for Azure Cosmos DB using Azure CLI.
 ms.topic: how-to
-ms.date: 08/27/2026
+ms.date: 10/29/2026
 ms.custom: devx-track-azurecli, ignite-2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -10,16 +10,15 @@ ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to back up Azure Cosmos DB using Azure CLI, so that I can ensure data protection and recovery options for my database workloads."
 ---
 
-# Configure vaulted backup for Azure Cosmos DB by using Azure CLI (preview)
+# Configure vaulted backup for Azure Cosmos DB by using Azure CLI
 
-This article describes how to configure vaulted backup for an Azure Cosmos DB account by using [Azure Backup](backup-overview.md) via the Azure CLI (preview).
+This article describes how to configure vaulted backup for an Azure Cosmos DB account by using [Azure Backup](backup-overview.md) via the Azure CLI.
 
-Learn more about the [supported scenarios, regions, and limitations](backup-azure-cosmos-db-overview.md) for Azure Cosmos DB backup (preview).
+Learn more about the [supported scenarios, regions, and limitations](backup-azure-cosmos-db-overview.md) for Azure Cosmos DB backup.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create a backup policy.
 > * Configure backup for an Azure Cosmos DB account.
 > * Track a backup job.
 > * View a protected item.
@@ -40,69 +39,9 @@ Before you configure vaulted backup for an Azure Cosmos DB account, ensure that 
 
   For cross-subscription backup, check the identity's access in the source account's subscription. To resolve permission errors, see [Troubleshoot backup configuration requests](backup-azure-backup-vault-troubleshoot.md#backup-configuration-request-errors).
 
-### Create a Backup vault
+* Identify or [create a new backup policy for Azure Cosmos DB](backup-azure-cosmos-db-quickstart.md?pivots=client-clitier).
 
-In this article, you create a Backup vault named *TestBkpVault* in the *westus* region, under the resource group *testBkpVaultRG*, by using the [az dataprotection backup-vault create](/cli/azure/dataprotection/backup-vault#az-dataprotection-backup-vault-create) command.
-
-```azurecli-interactive
-az dataprotection backup-vault create \
-  --resource-group testBkpVaultRG \
-  --vault-name TestBkpVault \
-  --location westus \
-  --type SystemAssigned \
-  --storage-settings datastore-type="VaultStore" type="GeoRedundant"
-```
-
-## Create a backup policy for Azure Cosmos DB account
-
-A backup policy defines the backup schedule and the retention rules that govern the lifecycle of recovery points. Azure Cosmos DB vaulted backup takes a **weekly full backup** and **daily incremental backups** — the weekly full captures the entire account, and each daily incremental captures only the changes since the previous backup, which reduces backup time and storage. 
-
-Create the policy before you configure protection to associate it with the Azure Cosmos DB account by running the following commands:
-
-1. Generate the default policy template for the Azure Cosmos DB datasource type by using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-get-default-policy-template) command, and save it to a JSON file. The default template defines a **weekly full backup with daily incremental backups**.
-
-   ```azurecli-interactive
-   az dataprotection backup-policy get-default-policy-template \
-     --datasource-type AzureCosmosDB > cosmosdbpolicy.json
-   ```
-
-   > [!NOTE]
-   > Azure Cosmos DB vaulted backup uses a **weekly full** backup plus **daily incremental** backups. Retention rules are applied in priority order: yearly, monthly, weekly, then daily. When a recovery point matches multiple rules, the highest-priority rule applies. The default rule applies when no other rule matches.
-
-2. (Optional) Customize the schedule and retention in `cosmosdbpolicy.json`. The default template already defines the weekly full backup and daily incremental backups. Use the following helper commands to adjust the schedule or retention:
-
-   * [az dataprotection backup-policy trigger create-schedule](/cli/azure/dataprotection/backup-policy/trigger#az-dataprotection-backup-policy-trigger-create-schedule) – create a schedule (for example, the weekly full-backup schedule).
-   * [az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger#az-dataprotection-backup-policy-trigger-set) – apply the schedule to the policy.
-   * [az dataprotection backup-policy retention-rule create-lifecycle](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-create-lifecycle) and [az dataprotection backup-policy retention-rule set](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-set) – define and apply retention rules for the daily and weekly recovery points.
-
-   ```azurecli-interactive
-   # Example: adjust the weekly full-backup schedule
-   schedule=$(az dataprotection backup-policy trigger create-schedule \
-     --interval-type Weekly --interval-count 1 \
-     --schedule-days "2026-08-03T09:30:00")
-
-   az dataprotection backup-policy trigger set \
-     --policy cosmosdbpolicy.json --schedule $schedule > cosmosdbpolicy.json
-
-   # Example: retain daily incremental recovery points for 30 days
-   dailyLifecycle=$(az dataprotection backup-policy retention-rule create-lifecycle \
-     --source-datastore VaultStore --retention-duration-count 30 --retention-duration-type Days)
-
-   az dataprotection backup-policy retention-rule set \
-     --policy cosmosdbpolicy.json --name Default --lifecycles $dailyLifecycle > cosmosdbpolicy.json
-   ```
-
-3. Create the backup policy in the vault by using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-create) command.
-
-   ```azurecli-interactive
-   az dataprotection backup-policy create \
-     --resource-group testBkpVaultRG \
-     --vault-name TestBkpVault \
-     --name CosmosDBBackupPolicy \
-     --policy cosmosdbpolicy.json
-   ```
-
-## Configure vaulted backup for Azure Cosmos DB account
+## Configure vaulted backup for Azure Cosmos DB account by using Azure CLI
 
 After the vault and policy are ready, protect the Azure Cosmos DB account by completing the following steps.
 
@@ -210,5 +149,5 @@ az dataprotection backup-instance update-policy \
 
 ## Next steps
 
-* [About Azure Cosmos DB backup (preview)](backup-azure-cosmos-db-overview.md)
-* [Restore Azure Cosmos DB using Azure CLI (preview)](backup-azure-cosmos-db-restore-cli.md)
+* [About Azure Cosmos DB backup](backup-azure-cosmos-db-overview.md)
+* [Restore Azure Cosmos DB by using Azure CLI](backup-azure-cosmos-db-restore-cli.md)

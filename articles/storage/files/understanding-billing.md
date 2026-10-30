@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/21/2026
+ms.date: 10/26/2026
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -280,6 +280,10 @@ The system emits consumption units against the provisioned v2 billing meters hou
 
 ### Provisioned v2 migrations
 
+Conversion of existing SSD `FileStorage` storage accounts from provisioned v1 to provisioned v2 is available in limited public preview. You must complete a [survey](https://forms.cloud.microsoft/r/tkjpMwPPvU) to use the preview. The conversion applies to all classic file shares in the storage account and preserves each share's existing provisioned storage, IOPS, and throughput. After conversion, these quantities are billed under the provisioned v2 model.
+
+Conversion is one-way: you can't convert the storage account back to provisioned v1. You must retain the account's existing redundancy configuration during conversion. For prerequisites, preview survey details, and instructions, see [Change the billing model of a storage account](modify-file-share.md#change-the-billing-model-of-a-storage-account).
+
 The process for migrating your SMB Azure file shares from a pay-as-you-go model to the provisioned v2 billing model differs depending on whether you're using Azure File Sync.
 
 - If you're using Azure Files without Azure File Sync, see [Migrate files from one SMB Azure file share to another](migrate-files-between-shares.md).
@@ -418,6 +422,12 @@ Consumption against the provisioned v1 billing meters is emitted hourly in terms
     - 30 day month: 34.1333 units against the **Premium Provisioned** meter.
     - 31 day month: 33.0323 units against the **Premium Provisioned** meter.
 - 1,024 units against the **Premium Provisioned** meter if aggregated for a month.
+
+### Convert from provisioned v1 to provisioned v2 (limited public preview)
+
+You can convert an existing SSD `FileStorage` storage account from provisioned v1 to provisioned v2 through a limited public preview that requires completing a survey. The conversion applies to all classic file shares in the storage account. Each share retains its existing provisioned storage, IOPS, and throughput, which are then billed under the provisioned v2 model. After conversion, you can provision these quantities independently instead of increasing storage to obtain more IOPS or throughput.
+
+Conversion is one-way, and you can't change redundancy options during the conversion. Accounts using `Premium_LRS` convert to `PremiumV2_LRS`, and accounts using `Premium_ZRS` convert to `PremiumV2_ZRS`. For prerequisites, preview survey details, and instructions, see [Change the billing model of a storage account](modify-file-share.md#change-the-billing-model-of-a-storage-account).
 
 ## Pay-as-you-go model
 

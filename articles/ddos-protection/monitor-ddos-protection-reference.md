@@ -16,6 +16,9 @@ ms.service: azure-ddos-protection
 
 See [Monitor Azure DDoS Protection](monitor-ddos-protection.md) for details on the data you can collect for Azure DDoS Protection and how to use it.
 
+> [!NOTE]
+> The `DDoSMitigationReports` log category is being retired and `DDoSMitigationFlowLogs` is gaining new fields, starting ~mid-August 2026. See [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports) for the full schema and migration guidance.
+
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 ### Supported metrics for Microsoft.Network/publicIPAddresses

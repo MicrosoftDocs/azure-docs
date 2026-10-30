@@ -4,7 +4,7 @@ description: Learn how to interpret and prioritize unsafe function call data in 
 author: karengu0
 ms.author: karenguo
 ms.topic: article
-ms.date: 08/26/2026
+ms.date: 10/28/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -61,6 +61,7 @@ The preview supports the following processor architectures:
 - AMD64 or x86-64
 - ARM64 or AArch64
 - ARM32
+- MIPS32 (big- and little-endian)
 
 ### Binary requirements
 
@@ -96,9 +97,9 @@ Rather than relying on one field, evaluate these signals together to understand 
 
 ### Interpreting zero and empty results
 
-Results can show a zero count for an executable or omit an executable entirely. A zero count means that the executable was analyzed, but no tracked calls were identified for that field.
+Results can show a zero count for an executable or omit an executable entirely. A zero count means that the executable was analyzed, but the analysis didn't identify any tracked calls for that field.
 
-If an executable doesn't appear in the results, don't assume that it contains no unsafe function calls. Firmware analysis might not have been able to analyze it because the executable uses an unsupported architecture or doesn't contain the information required to identify function references.
+If an executable doesn't appear in the results, don't assume that it contains no unsafe function calls. Firmware analysis might not have been able to analyze the executable because it uses an unsupported architecture or doesn't contain the information required to identify function references.
 
 An empty results list means that no Unsafe Function Calls results are available for the firmware image. It doesn't mean that the firmware contains no unsafe function calls.
 

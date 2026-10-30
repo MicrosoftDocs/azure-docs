@@ -601,6 +601,10 @@
     href: backup-azure-cosmos-db-overview.md
   - name: Support matrix
     href: backup-azure-cosmos-db-support-matrix.md
+  - name: Quickstart
+    href: backup-azure-cosmos-db-quickstart.md
+  - name: Tutorial
+    href: backup-azure-cosmos-db-tutorial.md
   - name: Backup scenarios
     items:
     - name: From the Azure portal

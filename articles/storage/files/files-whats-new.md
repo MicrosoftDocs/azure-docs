@@ -17,7 +17,11 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2026
 
-### 2026 quarter 4 (October, November, December)
+### 2026 Quarter 4 (October, November, December)
+
+#### In place provisioned v1 to provisioned v2 storage account upgrade is now in limited public preview 
+
+Organizations can now upgrade their existing provisioned v1 storage accounts to provisioned v2 storage accounts without downtime, enabling access to the latest pricing and feature benefits. To learn more, read the instructions in the [documentation](./modify-file-share.md#change-the-billing-model-of-a-storage-account).
 
 #### File shares using Microsoft.FileShares are now available in 12 additional regions
 

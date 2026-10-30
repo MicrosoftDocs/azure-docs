@@ -6,21 +6,21 @@ ms.author: jovinson
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: how-to
-ms.date: 06/16/2025
+ms.date: 10/28/2026
 ---
 
 # Use managed identities with the de-identification service
 
-Managed identities provide Azure services with a secure, automatically managed identity in Microsoft Entra ID. Using managed identities eliminates the need for developers to manage credentials by providing an identity. There are two types of managed identities: system-assigned and user-assigned. The de-identification service supports both.
+Use managed identities with the de-identification service in Azure Health Data Services to securely access your storage account without managing credentials. Managed identities provide Azure services with a secure, automatically managed identity in Microsoft Entra ID. There are two types of managed identities: system-assigned and user-assigned. The de-identification service supports both types.
 
-Managed identities can be used to grant the de-identification service access to your storage account for batch processing. In this article, you learn how to assign a managed identity to your de-identification service.
+Use managed identities to grant the de-identification service access to your storage account for batch processing. In this article, you learn how to assign a managed identity to your de-identification service.
 
 ## Prerequisites
 
 - Understand the differences between **system-assigned** and **user-assigned** managed identities, described in [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - A de-identification service in your Azure subscription. If you don't have a de-identification service, follow the steps in [Quickstart: Deploy the de-identification service](quickstart.md).
 
-## Create an instance of the de-identification service in Azure Health Data Services with a system-assigned managed identity
+## Assign a system-assigned managed identity to the de-identification service
 
 # [Azure portal](#tab/portal)
 
@@ -30,7 +30,7 @@ Managed identities can be used to grant the de-identification service access to 
 
 # [ARM template](#tab/azure-resource-manager)
 
-Any resource of type ``Microsoft.HealthDataAIServices/deidServices`` can be created with a system-assigned identity by including the following block in 
+Create any resource of type ``Microsoft.HealthDataAIServices/deidServices`` with a system-assigned identity by including the following block in 
 the resource definition:
 
 ```json
@@ -53,8 +53,8 @@ the resource definition:
 
 # [ARM template](#tab/azure-resource-manager)
 
-Any resource of type ``Microsoft.HealthDataAIServices/deidServices`` can be created with a user-assigned identity by including the following block in
-the resource definition, replacing **resource-id** with the Azure Resource Manager (ARM) resource ID of the desired identity:
+You can create any resource of type ``Microsoft.HealthDataAIServices/deidServices`` with a user-assigned identity by including the following block in
+the resource definition. Replace **resource-id** with the Azure Resource Manager (ARM) resource ID of the desired identity:
 
 ```json
 "identity": {
@@ -69,9 +69,9 @@ the resource definition, replacing **resource-id** with the Azure Resource Manag
 
 ## Supported scenarios using managed identities
 
-Managed identities assigned to the de-identification service can be used to allow access to Azure Blob Storage for batch de-identification jobs. The service acquires a token as the managed identity to access Blob Storage, and de-identify blobs that match a specified pattern. For more information, including how to grant access to your managed identity, see [Quickstart: Azure Health De-identification client library for .NET](quickstart-sdk-net.md).
+You can use managed identities assigned to the de-identification service to access Azure Blob Storage for batch de-identification jobs. The service acquires a token as the managed identity to access Blob Storage, and de-identify blobs that match a specified pattern. For more information, including how to grant access to your managed identity, see [Quickstart: Azure Health De-identification client library for .NET](quickstart-sdk-net.md).
 
-## Clean-up steps
+## Remove managed identities from the de-identification service
 
 When you remove a system-assigned identity, you delete it from Microsoft Entra ID. System-assigned identities are also automatically removed from Microsoft Entra ID
 when you delete the de-identification service, described as follows.

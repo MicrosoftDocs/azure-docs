@@ -16,14 +16,9 @@ ms.reviewer:
 
 This article shows you how to connect your Analytics Consumption Zone (ACZ) data to Microsoft Fabric by using Microsoft OneLake shortcuts. ACZ stores data in Azure Data Lake Storage Gen2. After you create shortcuts, you can query, transform, and visualize your Azure Data Manager for Energy data in Fabric lakehouses, notebooks, and Power BI.
 
-> [!IMPORTANT]
-> Analytics Consumption Zone is currently in preview. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-During the preview, ACZ is available only on Developer tier instances and requires the use of allow lists. Follow the guidance in [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md), and contact your Microsoft representative.
-
 ## Prerequisites
 
-- An Azure subscription with an Azure Data Manager for Energy (Developer tier) instance. See [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+- An Azure subscription with an Azure Data Manager for Energy (Developer or Standard tier) instance. See [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - ACZ enabled with at least one ACZ instance in `ACTIVE` status and `historicalSnapshotStatus` set to `COMPLETED`. For more information, see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
 - A [Fabric capacity](/fabric/enterprise/licenses) (F2 or higher) or a Fabric trial.
 - A [Fabric workspace](/fabric/get-started/create-workspaces).
@@ -185,7 +180,7 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 
 ## Related content
 
-- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Create an Azure Data Lake Storage Gen2 shortcut](/fabric/onelake/create-adls-shortcut)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)

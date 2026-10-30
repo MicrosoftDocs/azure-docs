@@ -13,12 +13,9 @@ ms.custom: template-how-to-pattern
 
 This article shows you how to connect Analytics Consumption Zone (ACZ) data to Snowflake. ACZ writes Azure Data Manager for Energy data to Azure Data Lake Storage Gen2 in Delta Lake format. Snowflake Delta Direct exposes the Delta data as a read-only Apache Iceberg table without copying the source data into Snowflake.
 
-> [!NOTE]
-> During the preview, ACZ is available only on Developer tier instances and requires the use of allow lists. Follow the guidance in [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md), and contact your Microsoft representative.
-
 ## Prerequisites
 
-- An Azure subscription with an Azure Data Manager for Energy (Developer tier) instance that has ACZ enabled.
+- An Azure subscription with an Azure Data Manager for Energy (Developer or Standard tier) instance that has ACZ enabled.
 - An ACZ instance in `ACTIVE` status with `historicalSnapshotStatus` set to `COMPLETED`.
 - An Azure Data Lake Storage Gen2 account that contains the ACZ Delta Lake data.
 - Permission to grant an Azure role at the storage account scope.
@@ -192,8 +189,8 @@ ALTER ICEBERG TABLE acz_data.osdu.osdu_catalog REFRESH;
 
 ## Related content
 
-- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Connect Analytics Consumption Zone to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Connect Analytics Consumption Zone data to Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Snowflake: Create an Iceberg table from Delta files](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-delta)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
