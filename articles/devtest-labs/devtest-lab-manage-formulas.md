@@ -146,7 +146,7 @@ To modify any formula in your lab, follow these steps:
 1. On the **Update formula** page, modify the configuration settings for the formula. The settings are similar to the options on the **Create formula** page. If a credential is already configured, choose one of these options:
 
    - **Keep**: Preserve the existing password or SSH public key without retrieving or resubmitting it.
-   - **Replace**: Enter a new password or SSH public key. A configured credential can't be replaced with a blank value.
+   - **Replace**: Enter a new password or SSH public key. You can't replace a configured credential with a blank value.
 
    Follow the instructions in [Create formula from base image](#create-formula-from-base-image) and update the formula configuration as needed.
 
