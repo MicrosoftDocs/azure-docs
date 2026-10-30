@@ -8,7 +8,7 @@ ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
 ms.reviewer: cynthn, diyellap, wwilliams
-ms.date: 07/20/2026
+ms.date: 09/09/2026
 # Customer intent: As a cloud administrator, I want to deploy and manage multiple virtual machines efficiently using an automated compute resource management tool, so that I can optimize resource allocation based on cost and capacity while ensuring high availability for my workloads.
 ---
 
@@ -42,9 +42,9 @@ Using Azure Compute Fleet, you can:
 Azure Compute Fleet supports two modes that determine how the fleet manages the virtual machines it provisions. You choose the mode when you create the fleet, and you can't change it afterward.
 
 - **[Managed mode](managed-mode.md)** (`mode: Managed`, the default) keeps the fleet in place to manage VM capacity over time, including replacing evicted Spot VMs when configured to maintain capacity. Use Managed mode when you want Compute Fleet to maintain your Spot target capacity or to modify a running fleet.
-- **[Launch mode (Preview)](launch-mode.md)** (`mode: Launch`) provisions VMs in a single request and then hands off control. The fleet object self-deletes after provisioning, while the VMs persist and are managed by you or your orchestrator. Use Launch mode when an external orchestrator (such as Karpenter, Slurm, or a custom scheduler) manages VM lifecycle.
+- **[Launch mode](launch-mode.md)** (`mode: Launch`) provisions VMs in a single request and then hands off control. The fleet object self-deletes after provisioning, while the VMs persist and are managed by you or your orchestrator. Use Launch mode when an external orchestrator (such as Karpenter, Slurm, or a custom scheduler) manages VM lifecycle.
 
-| Capability | Managed mode | Launch mode (Preview) |
+| Capability | Managed mode | Launch mode |
 |------------|--------------|------------------------|
 | API value | `mode: Managed` (default) | `mode: Launch` |
 | Lifecycle ownership | Azure maintains capacity | Customer or orchestrator after hand-off |
@@ -69,7 +69,7 @@ We recommend you consider the following configuration options when creating your
 | [Spot VM](spot-vm-configuration.md) | Compute Fleet will submit a one-time request for a desired capacity or a fleet that maintains target capacity over time. |
 | [Compute Fleet allocation strategies](allocation-strategies.md) | Choose an allocation strategy for Spot and Standard VMs to optimize your Compute Fleet for the lowest price, capacity, or a combination of both. |
 | [Attribute based VM selection](attribute-based-vm-selection.md) | Specify your VM sizes and types for your fleet or let Azure Compute Fleet decide based on your application requirements. |
-| [Fleet mode](launch-mode.md) | Choose [Managed mode](managed-mode.md) to maintain capacity over time, or [Launch mode (Preview)](launch-mode.md) to provision VMs in bulk and manage their lifecycle yourself. |
+| [Fleet mode](launch-mode.md) | Choose [Managed mode](managed-mode.md) to maintain capacity over time, or [Launch mode](launch-mode.md) to provision VMs in bulk and manage their lifecycle yourself. |
 
 ## Compute Fleet quota 
 
@@ -116,7 +116,7 @@ To access documentation on how to use Compute Fleet SDKS, follow these steps:
 Azure Virtual Machine Scale Sets and Azure Compute Fleet solve different problems. The following guidance helps you choose the right one for your workload.
 
 - **Virtual Machine Scale Sets is a VM lifecycle orchestrator.** It maintains desired state, autoscales, monitors health, repairs instances, and orchestrates rolling updates. Use it for most workloads that benefit from platform-managed scale and availability.
-- **Compute Fleet is a capacity provisioning construct.** It launches VMs across multiple VM sizes, zones, and pricing models in a single API call. By using [Launch mode (Preview)](launch-mode.md), you retain full lifecycle control after provisioning.
+- **Compute Fleet is a capacity provisioning construct.** It launches VMs across multiple VM sizes, zones, and pricing models in a single API call. By using [Launch mode](launch-mode.md), you retain full lifecycle control after provisioning.
 
 | | Virtual Machine Scale Sets | Compute Fleet |
 |---|---|---|

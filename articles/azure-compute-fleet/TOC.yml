@@ -2,7 +2,7 @@
   href: overview.md
 - name: Managed mode
   href: managed-mode.md
-- name: Launch mode (Preview)
+- name: Launch mode
   href: launch-mode.md
 - name: Quickstarts
   items:

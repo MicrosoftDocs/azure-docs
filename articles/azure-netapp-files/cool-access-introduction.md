@@ -81,58 +81,6 @@ With either throughput calculation, increasing the volume quota increases the th
 
 The cool access throughput for Premium and Ultra service levels feature is supported in all Azure NetApp Files-enabled regions.
 
-### Supported regions for cool access throughput for premium and ultra service levels feature
-
-* Australia Central
-* Australia Central 2
-* Australia East
-* Australia Southeast
-* Brazil South
-* Brazil Southeast
-* Canada Central
-* Canada East
-* Central India
-* Central US
-* East Asia
-* East US
-* East US 2
-* France Central
-* Germany North 
-* Germany West Central
-* Israel Central
-* Italy North
-* Japan East
-* Japan West
-* Korea Central
-* Korea South
-* Malaysia West
-* New Zealand North 
-* North Central US
-* North Europe
-* Norway East
-* Norway West
-* Qatar Central
-* South Africa North
-* South India
-* South Central US
-* Southeast Asia
-* Spain Central
-* Sweden Central
-* Switzerland North
-* Switzerland West
-* UAE Central
-* UAE North
-* UK South
-* UK West
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia 
-* West Europe
-* West US
-* West US 2
-* West US 3
-
-
 ## Billing 
 
 You can enable cool access for each volume in a [cool-access enabled capacity pool](manage-cool-access.md). How you're billed is based on:

@@ -5,7 +5,7 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: concept-article
 ms.service: azure-compute-fleet
-ms.date: 07/19/2026
+ms.date: 09/09/2026
 ms.reviewer: cynthn
 # Customer intent: As a cloud operations manager, I want the fleet to maintain my Spot capacity and let me modify a running fleet, so that I can keep my desired capacity over time and manage costs effectively.
 ---
@@ -15,7 +15,7 @@ ms.reviewer: cynthn
 Azure Compute Fleet supports two modes that determine how the fleet manages the virtual machines (VMs) it provisions:
 
 - **Managed mode** (`mode: Managed`, the default) keeps the fleet in place to manage VM capacity over time. When you configure the fleet to maintain Spot capacity, the fleet replaces evicted Spot VMs to keep your target capacity. You can also modify a running fleet's target capacity and VM sizes.
-- **Launch mode** (`mode: Launch`) provisions VMs in a single request and then hands off control. For more information, see [Launch mode for Azure Compute Fleet (Preview)](launch-mode.md).
+- **Launch mode** (`mode: Launch`) provisions VMs in a single request and then hands off control. For more information, see [Launch mode for Azure Compute Fleet](launch-mode.md).
 
 If you don't specify a mode, the fleet uses Managed mode.
 

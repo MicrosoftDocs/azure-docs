@@ -25,6 +25,8 @@ items:
     href: grafana-settings.md
   - name: Azure Managed Grafana Remote MCP
     href: grafana-mcp-server.md
+  - name: Azure Monitor dashboards remote MCP server
+    href: azure-monitor-dashboards-mcp-server.md
   expanded: true
 - name: How-to guides
   items:
