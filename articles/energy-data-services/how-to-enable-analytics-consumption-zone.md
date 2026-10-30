@@ -3,7 +3,7 @@ title: Enable Analytics Consumption Zone in Azure Data Manager for Energy
 description: Learn how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy instance. Configure user-assigned managed identity, storage, and permissions for ACZ instances.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 10/29/2026
+ms.date: 10/30/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -128,12 +128,13 @@ To call ACZ APIs, you (the user) must be a member of the following entitlement g
 
 - `users@{data-partition-id}.dataservices.energy`
 - `users.datalake.ops@{data-partition-id}.dataservices.energy`
+- `service.entitlements.user@{data-partition-id}.dataservices.energy`
 
 This step verifies that *you* (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 2 is used only by ACZ to write data to storage. It doesn't need entitlement group membership.
 
 If you're not already a member of these entitlement groups, have an Azure Data Manager for Energy administrator add your user account. For detailed instructions, see [Manage users in Azure Data Manager for Energy](how-to-manage-users.md).
 
-To verify that you have access, use the Entitlements Service API to check your membership in both groups.
+To verify that you have access, use the Entitlements Service API to check your membership in all three groups.
 
 ### [Bash](#tab/bash)
 
@@ -149,6 +150,12 @@ curl --http1.1 --request GET \
   --url https://{base_url}/api/entitlements/v2/groups/users.datalake.ops@{data-partition-id}.dataservices.energy/members \
   --header 'Authorization: Bearer {access_token}' \
   --header 'data-partition-id: {data-partition-id}'
+
+# Check service.entitlements.user group membership
+curl --http1.1 --request GET \
+  --url https://{base_url}/api/entitlements/v2/groups/service.entitlements.user@{data-partition-id}.dataservices.energy/members \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'data-partition-id: {data-partition-id}'
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -162,6 +169,12 @@ Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users@{dat
 
 # Check users.datalake.ops group membership
 Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users.datalake.ops@{data-partition-id}.dataservices.energy/members" -Method Get -Headers @{
+    "Authorization" = "Bearer {access_token}"
+    "data-partition-id" = "{data-partition-id}"
+}
+
+# Check service.entitlements.user group membership
+Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/service.entitlements.user@{data-partition-id}.dataservices.energy/members" -Method Get -Headers @{
     "Authorization" = "Bearer {access_token}"
     "data-partition-id" = "{data-partition-id}"
 }
@@ -198,7 +211,7 @@ Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users.data
 }
 ```
 
-Both responses should include your user account in the `members` array. If you're not listed in either group, contact your Azure Data Manager for Energy administrator to add you to both required groups.
+All three responses should include your user account in the `members` array. If you're not listed in any of the groups, contact your Azure Data Manager for Energy administrator to add you to all three required groups.
 
 ## Step 5: Grant the user-assigned managed identity permissions on the Data Lake Storage Gen2 container
 
@@ -334,7 +347,7 @@ The optional `basePath` property determines where ACZ writes data in your storag
 | `analytics` | `analytics/<aczId>/` |
 | `analytics/workbench` | `analytics/workbench/<aczId>/` |
 
-The first segment of the data location is the container. ACZ uses the first segment of `basePath` as the container name, or the `aczId` if you don't specify a base path, and creates the container if it doesn't exist. Any additional `basePath` segments are created as folders in that container. The first segment must follow [container naming rules](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names): 3 to 63 characters, using lowercase letters, numbers, and hyphens.
+The first segment of the data location is the container. ACZ uses the first segment of `basePath` as the container name, or the `aczId` if you don't specify a base path, and creates the container if it doesn't exist. The first segment must be a valid container name. For naming rules, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Any additional `basePath` segments are created as folders in that container. The first segment must follow [container naming rules](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names): 3 to 63 characters, using lowercase letters, numbers, and hyphens.
 
 > [!TIP]
 > If you create an ACZ from the Swagger UI or a sample request, replace the placeholder `basePath` value. For example, the Swagger default value `string` creates a container named `string`.
