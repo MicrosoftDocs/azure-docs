@@ -7,6 +7,9 @@ title: What is Azure Machine Configuration?
 
 # What is Azure Machine Configuration?
 
+> [!WARNING]
+> Starting in November 2026, machines running older versions of certain Linux distributions will need an operating system upgrade to use PowerShell-based configurations with new agent versions. Review the [affected operating system versions](#supported-client-types) to plan your upgrade.
+
 Azure Policy's machine configuration feature provides native capability to audit or configure
 operating system settings as code for machines running in Azure and hybrid
 [Arc-enabled machines][01]. You can use the feature directly per-machine, or orchestrate it at
