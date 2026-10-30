@@ -134,4 +134,4 @@ For Azure platform issues (deployment failures, role assignments, resource provi
   > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
   >
   > [!div class="nextstepaction"]
-  > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
+  > [Azure Marketplace](https://marketplace.microsoft.com/product/datadog1591740804488.dd_liftr_v3_decoupled)
