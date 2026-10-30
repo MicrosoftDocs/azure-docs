@@ -11,9 +11,9 @@ ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to implement a backup solution for Azure Cosmos DB, so that I can ensure long-term data retention and protection against data loss events like accidental deletions or ransomware attacks.
 ---
 
-# About Azure Cosmos DB vaulted backup (preview)
+# About Azure Cosmos DB vaulted backup
 
-Azure Backup for Cosmos DB (preview) provides a centralized, secure, and compliant way to protect [Azure Cosmos DB accounts](/azure/cosmos-db/overview) using vaulted, long‑term backups managed by the Azure Backup service. This capability complements Cosmos DB’s [native short‑term retention backups](/azure/cosmos-db/online-backup-and-restore) by enabling off‑platform, immutable backups with retention of up to **10 years**, helping customers meet regulatory, cyber‑resiliency, and enterprise governance requirements. 
+Azure Backup for Cosmos DB provides a centralized, secure, and compliant way to protect [Azure Cosmos DB accounts](/azure/cosmos-db/overview) using vaulted, long‑term backups managed by the Azure Backup service. This capability complements Cosmos DB’s [native short‑term retention backups](/azure/cosmos-db/online-backup-and-restore) by enabling off‑platform, immutable backups with retention of up to **10 years**, helping customers meet regulatory, cyber‑resiliency, and enterprise governance requirements. 
 
 Azure Backup for Cosmos DB is designed for the following scenarios: 
 
@@ -22,7 +22,7 @@ Azure Backup for Cosmos DB is designed for the following scenarios:
 - Centralized governance across multiple workloads 
 - Protection against accidental or malicious deletion (ransomware scenarios) 
 
-Learn about the [supported regions, scenarios, and the limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup (preview). 
+Learn about the [supported regions, scenarios, and the limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup. 
 
 ## Why use Azure Backup for Cosmos DB? 
 
@@ -93,7 +93,7 @@ Azure Backup for Cosmos DB functions parallelly with the native Cosmos DB backup
 
 ## Backup costs
 
-For Cosmos DB vaulted backup (preview), you incur the following costs from, 1 July 2026:
+For Cosmos DB vaulted backup, you incur the following costs from July 1, 2026:
 
 - Protected Instance (PI) fee: A fixed management fee charged per protected account, based on the size of source data being backed up.
 - Backup data storage fee: A variable charge based on the amount of backup data stored in the Backup vault (per GB per month).
@@ -103,4 +103,4 @@ For more information, see the [Azure Backup pricing](https://azure.microsoft.com
 
 ## Next steps
 
-[Back up Azure Cosmos DB using Azure portal (preview)](backup-azure-cosmos-db.md).
+[Back up Azure Cosmos DB by using Azure portal](backup-azure-cosmos-db.md).

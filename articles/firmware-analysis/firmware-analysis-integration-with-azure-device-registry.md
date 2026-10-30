@@ -4,36 +4,36 @@ description: Learn about how firmware analysis results are mapped to deployed de
 author: karengu0
 ms.author: karenguo
 ms.topic: article
-ms.date: 04/10/2026
+ms.date: 10/28/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
 
 # Using Firmware analysis along with Azure Device Registry
 
-Azure Device Registry maintains an inventory of two types of resources: Assets and Devices. Firmware images will be mapped to both types of Azure Device Registry resources.
+Azure Device Registry maintains an inventory of two types of resources: assets and devices. Firmware images map to both types of Azure Device Registry resources.
 
-- Assets are managed by Azure IoT Operations  
+- Azure IoT Operations manages assets.  
   - An example of an asset managed by Azure IoT Operations could be an oven in a bakery.
-- Devices are managed by Azure IoT Hub (preview) and Azure IoT Operations  
+- Azure IoT Hub (preview) and Azure IoT Operations manage devices.  
   - Examples of devices managed by Azure IoT Hub could be cameras or wind turbines.
 
 Firmware analysis and Azure Device Registry operate as complementary Azure services. Firmware analysis evaluates the security of firmware images, while Azure Device Registry tracks deployed devices and assets and their associated metadata. To learn more about Azure Device Registry, visit [Integration with Azure Device Registry (preview)](./../iot-hub/iot-hub-device-registry-overview.md).
 
-The Firmware analysis and Azure Device Registry integration associates firmware analysis results with Azure Device Registry managed devices and assets based on shared metadata values. This association enables users to have a comprehensive understanding of the security posture of the firmware across your Azure Device Registry-managed devices fleet. With this integration, you can now know which devices are impacted by critical vulnerabilities in your firmware images and take the necessary actions to remediate risk across your Azure Device Registry device fleet.
+The Firmware analysis and Azure Device Registry integration associates firmware analysis results with Azure Device Registry managed devices and assets based on shared metadata values. This association enables you to have a comprehensive understanding of the security posture of the firmware across your Azure Device Registry-managed devices fleet. With this integration, you can now know which devices are impacted by critical vulnerabilities in your firmware images and take the necessary actions to remediate risk across your Azure Device Registry device fleet.
 
 
 ## Metadata-based association
 
-Firmware analysis associates firmware images with Azure Device Registry devices and assets by matching firmware metadata defined during firmware upload with Azure Device Registry resource metadata. This association occurs at the subscription level. Firmware analysis matches Azure Device Registry devices and assets in the same subscription as the Firmware analysis workspace.
+Firmware analysis associates firmware images with Azure Device Registry devices and assets by matching firmware metadata that you define during firmware upload with Azure Device Registry resource metadata. This association occurs at the subscription level. Firmware analysis matches Azure Device Registry devices and assets in the same subscription as the Firmware analysis workspace.
 
-When a firmware image is uploaded to Firmware analysis, the following metadata is specified:
+When you upload a firmware image to Firmware analysis, specify the following metadata:
 
 - Vendor  
 - Model  
 - Firmware version  
 
-Azure Device Registry maintains corresponding metadata for devices and assets. This integration establishes associations between firmware analysis results and Azure Device Registry resources by matching these metadata fields across both services.
+Azure Device Registry maintains corresponding metadata for devices and assets. By using this integration, you can establish associations between firmware analysis results and Azure Device Registry resources by matching these metadata fields across both services.
 
 The following metadata values are used to associate firmware images with Azure Device Registry resources:
 
@@ -43,14 +43,14 @@ The following metadata values are used to associate firmware images with Azure D
 | Model                      | Model                               |
 | Version                    | Operating system version (Devices) or Software revision (Assets)  |
 
-When metadata values match between a firmware image and an Azure Device Registry device or asset, the Azure Device Registry resource is associated with that firmware image for the purpose of reporting firmware analysis results for that Azure Device Registry resource.
+When metadata values match between a firmware image and an Azure Device Registry device or asset, the Azure Device Registry resource is associated with that firmware image. This association enables reporting firmware analysis results for that Azure Device Registry resource.
 
 
 ## Ensure metadata in Firmware analysis and Azure Device Registry match each other
 
-Because the firmware images are mapped to the Azure Device Registry resources and vice versa using metadata from both, be sure to keep your metadata fields up-to-date so that the list of Azure Device Registry resources associated with each firmware image is comprehensive.
+Because you map firmware images to Azure Device Registry resources and vice versa by using metadata from both, keep your metadata fields up-to-date so the list of Azure Device Registry resources associated with each firmware image is comprehensive.
 
-To update your metadata fields in Firmware analysis, navigate to your firmware image in Firmware analysis, and edit the metadata fields.
+To update your metadata fields in Firmware analysis, go to your firmware image in Firmware analysis, and edit the metadata fields.
 
 :::image type="content" source="media/device-registry-integration/update-metadata.png" alt-text="Screenshot of the update metadata icon." lightbox="media/device-registry-integration/update-metadata.png":::
 
@@ -83,31 +83,38 @@ To update your metadata fields in Azure Device Registry for your Azure Device Re
 Firmware analysis surfaces Azure Device Registry device and asset information associated with a firmware image in the following areas:
 
 - Firmware image list view in a Workspace  
-  Includes a Devices & assets column that shows the number of Azure Device Registry-managed resources associated with that firmware image  
+  Includes a **Devices & assets** column that shows the number of Azure Device Registry-managed resources associated with that firmware image.  
 
 - Firmware Overview right-hand pop-up in firmware list  
-  Displays two fields: “Devices” and “Assets” count associated with the firmware image  
+  Displays two fields: **Devices** and **Assets** count associated with the firmware image.  
 
     :::image type="content" source="media/device-registry-integration/devices-assets-firmware-list-popup.png" alt-text="Screenshot of the Devices and Assets list in the firmware list popup." lightbox="media/device-registry-integration/devices-assets-firmware-list-popup.png":::
 
   - Hover over the number to see a grouped list of Azure Device Registry Devices or Assets, each linking to that Azure Device Registry resource's name space in the Azure Device Registry portal.
     
 - Analysis results Azure Device Registry section  
-  - Azure Device Registry fields “Devices” and “Assets” that displays Azure Device Registry-associated devices and assets alongside firmware analysis findings  
+  - Azure Device Registry fields **Devices** and **Assets** that displays Azure Device Registry-associated devices and assets alongside firmware analysis findings.  
   
     :::image type="content" source="media/device-registry-integration/devices-assets-firmware-details.png" alt-text="Screenshot of the Devices and Assets fields in firmware analysis findings." lightbox="media/device-registry-integration/devices-assets-firmware-details.png":::
 
   - Like the experience in the Overview panel pop-up, hover over the number to see a scrollable list of Azure Device Registry name spaces and the count of devices within, each linking to that namespace.
   
-    ![Screenshot of the ADR integration card showing devices grouped by namespace.](media/firmware-analysis-integration-with-azure-device-registry/image.png)
-    
-    
-    
+    :::image type="content" source="media/firmware-analysis-integration-with-azure-device-registry/image.png" alt-text="Screenshot of the ADR integration card showing devices grouped by namespace.":::
+
+   
+## Where to find firmware analysis information in Azure Device Registry
+
+When you associate a firmware image with a device or asset in Azure Device Registry, a firmware analysis card appears in that resource's overview panel. The card summarizes the associated firmware image's security results, so you can assess firmware security posture and prioritize vulnerability review.
+
+To investigate the findings in more detail, select the link in the card to view the full firmware analysis report.
+
+  :::image type="content" source="media/firmware-analysis-integration-with-azure-device-registry/summary-in-device.png" alt-text="Screenshot of firmware analysis results summary in ADR device.":::
+
 ---
 
 ## Access requirements
 
-Access to Azure Device Registry associated device and asset information is governed by Azure role based access control (RBAC).
+Azure role-based access control (RBAC) governs access to Azure Device Registry associated device and asset information.
 
 Firmware analysis roles don't automatically grant access to Azure Device Registry resources. Users of Firmware analysis with the Firmware Analysis Admin role don't have proper permissions to view the list of Azure Device Registry devices. Users must also have appropriate Azure Device Registry permissions to view:
 
@@ -130,21 +137,20 @@ Additionally, the Reader role at the subscription level allows you to read both 
 
 Ensure you have the Firmware Analysis Admin role in addition to the appropriate Azure Device Registry roles to see Azure Device Registry-associated information.
 
-## Why am I not seeing any Azure Device Registry Devices or Assets?
+## Why don't I see any Azure Device Registry devices or assets?
 
-If Azure Device Registry device or asset counts aren't visible for a firmware image, it may be due to one of the following:
+If you don't see Azure Device Registry device or asset counts for a firmware image, it might be due to one of the following reasons:
 
-- Insufficient permissions – Azure Device Registry correlation requires read access to devices and assets. If the assigned Azure role doesn't include the required permissions, or if the Azure Device Registry resource provider isn't registered, device and asset usage can't be determined. When the resource provider is unregistered, Firmware analysis assumes that no devices or assets are present. Counts may appear blank (–) or partially populated.
+- Insufficient permissions – Azure Device Registry correlation requires read access to devices and assets. If the assigned Azure role doesn't include the required permissions, or if the Azure Device Registry resource provider isn't registered, you can't determine device and asset usage. When the resource provider is unregistered, Firmware analysis assumes that no devices or assets are present. Counts might appear blank (–) or partially populated.
 
-- Missing firmware metadata – Azure Device Registry correlation requires Vendor, Model, and Version fields. If these aren't populated accurately in both Firmware analysis and Azure Device Registry, device and asset usage can't be determined.  
+- Missing firmware metadata – Azure Device Registry correlation requires Vendor, Model, and Version fields. If you don't populate these fields accurately in both Firmware analysis and Azure Device Registry, you can't determine device and asset usage.  
 
-- Temporary query failure – Azure Device Registry results are retrieved using Azure Resource Graph (ARG). Counts may appear empty if a query error occurs. Refreshing the page might resolve this.  
+- Temporary query failure – Azure Device Registry results are retrieved by using Azure Resource Graph (ARG). Counts might appear empty if a query error occurs. Refreshing the page might resolve this problem.  
 
 
 ## Current limitations
 
 The initial preview version of this integration:
 
-- Displays Azure Device Registry device and asset count  
-- Displays results by using Azure Resource Graph. Changes to metadata for Azure Device Registry Devices and Assets might take a few minutes to appear in Firmware analysis  
-- Provides navigation to individual Azure Device Registry resources instead of a prefiltered Azure Device Registry device list view
+- Displays Azure Device Registry device and asset counts.
+- Displays results by using Azure Resource Graph. Changes to metadata for Azure Device Registry devices and assets might take a few minutes to appear in Firmware analysis.
