@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 05/05/2025
+ms.date: 10/22/2026
 ---
 
 # Analyze storage task runs
@@ -16,11 +16,11 @@ You can view a list of task runs. For each completed run, you can open a report 
 
 ## View a list of task runs
 
-After a task run completes, it appears in a list that you can open and review.
+Use the **Task runs** page to review execution status for a task assignment. See [Stop an in-progress run](storage-task-assignment-create.md#stop-an-in-progress-run) if you need to terminate the current execution instance of a task assignment. Disable the task assignment to stop future runs.
 
 ### Storage task view
 
-You can see all of the runs attempted by a storage task by opening a list of runs from the storage task menu. You'll see only those runs against accounts to which you have read permission.
+You can see all of the runs attempted by a storage task by opening a list of runs from the storage task menu. You see only those runs against accounts to which you have read permission.
 
 Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Task runs**.
 
@@ -33,16 +33,16 @@ Metrics appear as tiles that you can select to view a list of the task runs whic
 |--|--|
 | Execution start time | The date and time when the task run started. |
 | Storage account name | The name of the storage account that was targeted by the task assignment. |
-| Assignment name | The name of the assignment. This name is specified by the creator of the assignment at configuration time. |
-| Status | Specifies whether the task completed or is pending execution. |
-| Completed / attempted count | The number of objects which met the conditions of the storage task and the total number of objects targeted by the storage task. |
+| Assignment name | The name of the assignment. The creator of the assignment specifies this name during configuration. |
+| Status | The execution status of the task run - in progress, completed, or failed. |
+| Completed / attempted count | The number of objects on which operations were successfully completed and the total number of objects targeted by the storage task. |
 | Report download | A link to an execution report. This report appears only when the status is `Completed`.|
 
 ### Storage account view
 
 You can see all runs against a specific storage account by opening a list of runs from the storage account menu.
 
-Navigate to the storage account in the Azure portal and then under **Data management**, select **Storage tasks**.
+Go to the storage account in the Azure portal. Under **Data management**, select **Storage tasks**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the storage task list when opened from a storage account.](../media/storage-tasks/storage-task-runs/storage-task-runs-storage-account-view.png)
@@ -52,16 +52,17 @@ A list of task runs appears. You can filter this list by time frame. The followi
 | Column  | Description |
 |--|--|
 | Execution start time | The date and time when the task run started. |
-| Assignment name | The name of the assignment. This name is specified by the creator of the assignment at configuration time. |
-| Task name | The name of the storage task. This name is specified by the creator of the assignment at configuration time. |
-| Status | Specifies whether the task completed or is pending execution. When the status is `Completed`, a link to an execution report appears. |
-| Completed / attempted count | The number of objects which met the conditions of the storage task and the total number of objects targeted by the storage task. |
+| Assignment name | The name of the assignment. The creator of the assignment specifies this name during configuration. |
+| Task name | The name of the storage task. The creator of the assignment specifies this name during configuration. |
+| Status | The execution status of the task run - in progress, completed, or failed. |
+| Completed / attempted count | The number of objects on which operations were successfully completed and the total number of objects targeted by the storage task. |
+
 
 ## View execution reports
 
-Each task run generates an execution report. That report is stored in a container that is located in the targeted storage account. The name of that container is specified when the assignment is created.  A link to the report appears next to each run in the task run list. Use that link to open a report which contains status information about each object that was targeted by the run.
+Each task run generates an execution report that is stored in a container in the targeted storage account. You can specify the name of the report container through the task assignment configuration. The task execution report contains detailed status information about every attempted operation on each object and can be accessed through a link in the Task Runs list.
 
-To open the report, select the **View report** link for any listed task run. Then, the report begins downloading. The report is packaged as a compressed file so you have to extract the contents of that file to a directory on your client.
+To open the report, select the **View report** link for any listed task run. Then, the report begins downloading. The report is packaged as a compressed file so you need to extract the contents of that file to a directory on your client.
 
 The report is formatted as a CSV file. Each row of the report contains the details about the execution of the operation on each object that is targeted by the task. The following table describes the columns of information that appear in the execution report:
 

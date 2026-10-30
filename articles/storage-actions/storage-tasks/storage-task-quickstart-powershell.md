@@ -6,25 +6,25 @@ services: storage
 author: normesta
 ms.service: azure-storage-actions
 ms.topic: quickstart
-ms.date: 05/05/2025
+ms.date: 10/30/2026
 ms.author: normesta
 ---
 
 # Quickstart: Create, assign, and run a storage task by using PowerShell
 
-In this quickstart, you learn how to use Azure PowerShell to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. The storage task applies a time-based immutability policy on any Microsoft Word documents that exist in the storage account.
+In this quickstart, you learn how to use Azure PowerShell to create a storage task, assign it to an Azure Storage account for execution, and review the results of the run. This example applies a time-based immutability policy to any Microsoft Word documents that exist in the storage account.
 
 ## Prerequisites
 
 - An Azure subscription. See [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
+- An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). This example also requires version-level immutability support to set the immutability policy on blobs.
   
-  During the public, you can target only storage accounts that are in the same region as the storage tasks.
+  Currently, you can only assign tasks to run on storage accounts in the same region as the storage tasks.
 
 - The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is assigned to your user identity in the context of the storage account or resource group.
 
-- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
+- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles-assign.md#permission-to-manage-storage-task-assignments).
 
 - .NET Framework is 4.7.2 or greater installed. For more information, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
@@ -32,7 +32,7 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
 
 ## Install the PowerShell module
 
-1. Make sure you have the latest version of PowerShellGet installed.
+1. Ensure you have the latest version of PowerShellGet installed.
 
     ```powershell
     Install-Module PowerShellGet -Repository PSGallery -Force
@@ -60,7 +60,7 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, and you aren't prompted to select the subscription, then set your active subscription to subscription of the storage account that you want operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+2. If your identity is associated with more than one subscription, and PowerShell doesn't prompt you to select the subscription, set your active subscription to subscription of the storage account that you want to use. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>
@@ -68,7 +68,7 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
 
 ## Create a storage task
 
-1. Define a _condition_ by using JSON. A condition is a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
+1. Define a _condition_ by using JSON. A condition is a logical predicate that consists of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
 
    ```powershell
    $conditions = "[[endsWith(Name, '.docx')]]"
@@ -100,12 +100,12 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
    -OnSuccess continue
    ```
 
-3. Create a storage task by using the `New-AzStorageActionTask` command, and pass in the conditions and operations that you defined earlier. This example creates a storage task named `mystoragetask` in resource group `mystoragetaskresourcegroup` in the West US region.
+3. Create a storage task by using the `New-AzStorageActionTask` command, and pass in the conditions and operations that you defined earlier. This example creates a storage task named `mystoragetask` in resource group `quickstartresourcegroup` in the West US region.
 
    ```powershell
    $task = New-AzStorageActionTask `
    -Name mystoragetask `
-   -ResourceGroupName mystoragetaskresourcegroup `
+   -ResourceGroupName quickstartresourcegroup `
    -Location westus `
    -Enabled `
    -Description 'my powershell storage task' `
@@ -116,15 +116,15 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
 
 ## Create an assignment
 
-A storage task _assignment_ specifies a storage account. After you enable the storage task, the conditions and operations of your task will be applied to that storage account. The assignment also contains configuration properties which help you target specific blobs, or specify when and how often the task runs. You can add an assignment for each account you want to target.
+A storage task _assignment_ specifies a storage account on which the task runs. It includes execution configuration settings that help you target specific blobs, and specify when and how often the task runs. You must add task assignments for each storage account where you want the task to run.
 
-1. Create a storage task assignment by using the `New-AzStorageTaskAssignment` command. The following assignment targets the `mycontainer` container of an account named `mystorageaccount`. This assignment specifies that the task will run only one time, and will save execution reports to a folder named `storage-tasks-report`. The task is scheduled to run `10` minutes from the present time. 
+1. Create a storage task assignment by using the `New-AzStorageTaskAssignment` command. The following assignment targets the `mycontainer` container of an account named `mystorageaccount`. This assignment specifies that the task runs only once, and saves the execution report to the blob container `storage-tasks-report`. The task is scheduled to run `10` minutes from the present time. 
 
    ```powershell
    $startTime = (Get-Date).AddMinutes(10)   
  
    New-AzStorageTaskAssignment `
-   -ResourceGroupName mystoragetaskresourcegroup `
+   -ResourceGroupName quickstartresourcegroup `
    -AccountName mystorageaccount `
    -name mystoragetaskAssignment `
    -TaskId $task.Id `
@@ -140,7 +140,7 @@ A storage task _assignment_ specifies a storage account. After you enable the st
 
    ```powershell
    New-AzRoleAssignment `
-   -ResourceGroupName mystoragetaskresourcegroup `
+   -ResourceGroupName quickstartresourcegroup `
    -ResourceName mystorageaccount `
    -ResourceType "Microsoft.Storage/storageAccounts" `
    -ObjectId $task.IdentityPrincipalId  `
@@ -148,19 +148,19 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    ```
 ## View the results of a task run
 
-After the task completes running, get a run report summary for each assignment by using the `Get-AzStorageActionTasksReport` command.
+After the task finishes running, get a run report summary for each assignment by using the `Get-AzStorageActionTasksReport` command.
 
 ```powershell
 Get-AzStorageActionTasksReport `
--ResourceGroupName mystoragetaskresourcegroup `
+-ResourceGroupName quickstartresourcegroup `
 -StorageTaskName mystoragetask | Format-List
 ```
 
-The `SummaryReportPath` field of each report summary contains a path to a detailed report. That report contains comma-separated list of the container, the blob, and the operation performed along with a status.
+The `SummaryReportPath` field of each report summary contains a path to a detailed execution report. The report uses the CSV format and captures each object processed, including the blob container, blob name, the operation performed, and the operation result.
 
 ## Clean up resources
 
-Remove all of the assets you've created. The easiest way to remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
+Delete all the resources you created. In this quickstart, you created the storage account and the storage task in the same resource group. Deleting this resource group removes all these resources.
 
 ```powershell
 Remove-AzResourceGroup -Name $ResourceGroup 
