@@ -4,7 +4,7 @@ description: Explore how to create formulas from a base (shared gallery image or
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/06/2024
+ms.date: 10/29/2026
 ms.custom:
   - UpdateFrequency2
   - sfi-image-nochange
@@ -65,6 +65,9 @@ Follow these steps to create a formula from a base image:
       - For **Password** authentication, provide a **Password** for the user with administrator privileges.
 
       - For **SSH Public Key** authentication, provide an **SSH Public Key** for the user with administrator privileges.
+
+      > [!IMPORTANT]
+      > A password configured on a formula is write-only. After you save the formula, DevTest Labs doesn't display or return the password in Formula API responses. API responses instead report whether no credential, a password, or an SSH public key is configured, without exposing a password or its storage mechanism.
       
       - **Use a saved secret**: You can also save secrets in your Azure key vault first and then use the secrets when you create formulas and other resources in your lab. To use a password or SSH public key stored in your key vault, select **Use a saved secret**, and then specify a key value that corresponds to your stored secret (password or SSH public key). For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). 
 
@@ -140,13 +143,19 @@ To modify any formula in your lab, follow these steps:
 
 1. In the list of formulas, select the formula you want to modify.
 
-1. On the **Update formula** page, modify the configuration settings for the formula. The settings are similar to the options on the **Create formula** page.
+1. On the **Update formula** page, modify the configuration settings for the formula. The settings are similar to the options on the **Create formula** page. If a credential is already configured, choose one of these options:
+
+   - **Keep**: Preserve the existing password or SSH public key without retrieving or resubmitting it.
+   - **Replace**: Enter a new password or SSH public key. A configured credential can't be replaced with a blank value.
 
    Follow the instructions in [Create formula from base image](#create-formula-from-base-image) and update the formula configuration as needed.
 
 1. Select **Update Formula**.
 
 DevTest Labs updates the formula with your configuration changes and returns to the **Formulas (reusable bases)** page for the lab.
+
+> [!NOTE]
+> When you update a formula through the REST API, omit `password` and `sshKey` to preserve the existing credential. To replace the credential, submit the new value explicitly. Use the read-only `credentialState` property to determine whether the formula has no credential, a password, or an SSH public key configured without exposing the credential value.
 
 ## Delete formula
 
