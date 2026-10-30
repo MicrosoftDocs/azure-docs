@@ -3,7 +3,7 @@ title: Plugin Marketplace in Azure SRE Agent
 description: Browse, discover, and install community-built skills and MCP integrations from curated plugin marketplaces, including private repos and GitHub Enterprise.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -13,7 +13,7 @@ ms.ai-usage: ai-assisted
 
 # Plugin marketplace in Azure SRE Agent
 
-The plugin marketplace in Azure SRE Agent lets you install agent skills and MCP integrations from curated GitHub-hosted repositories. It supports public and private repos, including GitHub Enterprise. Each installation is pinned to a specific git commit, so updates are always explicit.
+The plugin marketplace in Azure SRE Agent lets you install agent skills and MCP integrations from curated GitHub-hosted repositories. It supports public and private repos, including GitHub Enterprise. Each installation records a specific git commit. Automatic updates can advance that version when enabled.
 
 ## Why organizations use the plugin marketplace
 
@@ -41,7 +41,7 @@ A marketplace is a GitHub repo that bundles multiple plugins under a single `mar
 - [Azure SRE Agent Plugins](https://github.com/Azure/sre-agent-plugins): official SRE Agent skills and integrations
 - [Claude Plugins](https://github.com/anthropics/claude-plugins-official): Anthropic's reference Claude plugins
 
-To get started, add a marketplace URL in **Builder > Plugins > Add marketplace**. The repository is cloned in the background. A status banner on the Plugins page tracks the clone, and a completion toast appears when the plugins are ready to browse.
+To get started, select **Build + setup** > **Extensions** > **Plugins** > **Connect marketplace** and enter a marketplace URL. The repository is cloned in the background. A status banner on the Plugins page tracks the clone, and a completion toast appears when the plugins are ready to browse.
 
 **Private repos and GitHub Enterprise.** Marketplaces can be hosted in private GitHub repos, including GitHub Enterprise. Authentication is handled per-marketplace using the same methods as the [GitHub Connector](github-connector.md). Auth is configured once per marketplace and all plugins within it inherit the credentials.
 
@@ -56,7 +56,7 @@ To get started, add a marketplace URL in **Builder > Plugins > Add marketplace**
 >
 > **Example:** User A registers a private marketplace with their PAT. User B has the Author role on the agent but no personal access to that GitHub repo. User B can still install plugins from it because the install uses User A's stored PAT. To prevent this, remove User B's Author role on the agent.
 
-**Version pinning.** Each plugin installation is pinned to the exact git commit at install time. Changes to the source repo after installation have no effect until you explicitly update. This enables production stability (upstream merges don't change your agent's behavior), staged rollouts (update dev first, then production), and version diversity (different agents can run different versions of the same plugin).
+**Version control.** Each plugin installation records the exact git commit used. To keep that version until an explicit update, turn off automatic updates. When automatic updates are enabled, upstream changes can update the installed plugin.
 
 **Install from URL.** You can also install a plugin directly from a GitHub repo URL without registering a marketplace. This is useful for one-off plugins or quick testing. The plugin is installed as a standalone with the same version pinning and authentication support.
 

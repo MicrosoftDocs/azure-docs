@@ -1,0 +1,207 @@
+# Supporting workflow for author reminders; reviewer automation is paused.
+# The caller validates labels and completes status cleanup before calling this.
+name: KP - Add reminder
+
+on:
+  workflow_call:
+    inputs:
+      inactivity-days:
+        description: Number of elapsed Redmond weekday days before sending a reminder
+        type: number
+        required: true
+      operations-per-run:
+        description: Positive whole-number operation budget for this reminder invocation
+        type: number
+        required: true
+      reminder-type:
+        description: Reminder to send; only author is currently enabled
+        type: string
+        required: true
+      event-label:
+        description: Label required for a PR to participate in the rollout
+        type: string
+        required: true
+      reminder-due-label:
+        description: Bot-owned label recording business-day reminder eligibility
+        type: string
+        required: true
+      author-action-label:
+        description: Label indicating that the author owns the next action
+        type: string
+        required: true
+      # reviewer-action-label:
+      #   description: Label indicating that a reviewer owns the next action
+      #   type: string
+      #   required: true
+      author-reminder-label:
+        description: Label recording an author inactivity reminder
+        type: string
+        required: true
+      # reviewer-reminder-label:
+      #   description: Label recording a reviewer inactivity reminder
+      #   type: string
+      #   required: true
+      exempt-label:
+        description: Label excluding a PR from routine reminders
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  # actions/stale v11 restores and replaces its processing-progress cache.
+  actions: write
+  # GitHub PRs are a type of issue. actions/stale discovers them through the
+  # Issues API, so read access is required even when issue reminders are disabled.
+  issues: read
+  pull-requests: write
+
+jobs:
+  send-reminders:
+    name: Send ${{ inputs.reminder-type }} reminders
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      EVENT_LABEL: ${{ inputs.event-label }}
+      REMINDER_DUE_LABEL: ${{ inputs.reminder-due-label }}
+      INACTIVITY_DAYS: ${{ inputs.inactivity-days }}
+      AUTHOR_ACTION_LABEL: ${{ inputs.author-action-label }}
+      # REVIEWER_ACTION_LABEL: ${{ inputs.reviewer-action-label }}
+      AUTHOR_REMINDER_LABEL: ${{ inputs.author-reminder-label }}
+      # REVIEWER_REMINDER_LABEL: ${{ inputs.reviewer-reminder-label }}
+      EXEMPT_LABEL: ${{ inputs.exempt-label }}
+      AUTHOR_REMINDER_MESSAGE: |-
+        ### Knowledge Partnership - Author action needed
+
+        <br>
+
+        Thanks for your work on this pull request. Comments may need your attention, or your branch may need to be synced with its target branch. Please check the latest comments and validation results and update the PR as needed. If anything is unclear, let us know in the PR, and we will help identify the best next step.
+
+        **Need help?** Visit [Knowledge Partnership support](https://aka.ms/kp-support).
+
+    steps:
+      - name: Validate reminder settings
+        env:
+          REMINDER_TYPE: ${{ inputs.reminder-type }}
+          OPERATIONS_PER_RUN: ${{ inputs.operations-per-run }}
+        shell: bash
+        run: |
+          case "$REMINDER_TYPE" in
+            author) ;;
+            # reviewer) ;; # Restore with reviewer automation.
+            *)
+              echo "::error::Invalid or disabled reminder type '$REMINDER_TYPE'. Only 'author' is enabled."
+              exit 1
+              ;;
+          esac
+          if [[ ! "$OPERATIONS_PER_RUN" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::operations-per-run must be a positive whole number."
+            exit 1
+          fi
+
+      # Only the trusted scan revision is checked out, never a contributor PR.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+
+      - name: Reconcile business-day reminder eligibility
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          script: |
+            const {reconcile} = require('./.github/scripts/kp-business-clock.cjs');
+            await reconcile({github, context, core});
+
+      - name: Check out the pinned stale action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: actions/stale
+          ref: 4391f3da665fdf50b6810c1a66712fb9ba21aa93
+          path: .kp-stale-action
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /action.yml
+            /package.json
+            /dist/
+
+      - name: Isolate KP reminder progress
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const {createHash} = require('node:crypto');
+          const root = '.kp-stale-action/';
+          const expected = {
+            'action.yml': '42c2129639c5e66ee659a85f3ab6bc67a05f46f1691f9fc1d2575035e30d06f4',
+            'package.json': 'f97133fb86d6112b7f32ce81089227eff4b89a79a8b8942b2e8d12dc91975e25',
+            'dist/index.js': 'b82d1121447dd601777e30e806db7d052bffddc35ef33bd3695fa10a3ddec34b'
+          };
+          for (const [file, hash] of Object.entries(expected)) {
+            const actual = createHash('sha256').update(fs.readFileSync(root + file)).digest('hex');
+            if (actual !== hash) throw new Error('Unexpected pinned stale content: ' + file);
+          }
+          const file = root + 'dist/index.js';
+          const original = fs.readFileSync(file, 'utf8');
+          const old = "const CACHE_KEY = '_state';";
+          if (original.split(old).length !== 2) throw new Error('Unexpected stale cache-key contract');
+          const posting = "async _markStale(issue, staleMessage, staleLabel, skipMessage) {\n        const issueLogger = new IssueLogger(issue);";
+          if (original.split(posting).length !== 2) throw new Error('Unexpected stale posting contract');
+          fs.writeFileSync(file, original.replace(old, "const CACHE_KEY = 'kp-author-reminders-v1';")
+            .replace(posting, posting + "\n        try {\n            const load = __WEBPACK_EXTERNAL_createRequire(import.meta.url);\n            const {canPost} = load(load('node:path').join(\n                process.env.GITHUB_WORKSPACE, '.github/scripts/kp-business-clock.cjs'));\n            if (!await canPost({\n                github: this.client, context: github_context, number: issue.number,\n                core: {info: message => issueLogger.info(message)}\n            })) return;\n        } catch (error) {\n            process.exitCode = 1;\n            throw error;\n        }\n"));
+          NODE
+
+      # Existing markers must reach stock cleanup even after due is removed.
+      - name: Remind authors to address outstanding comments
+        if: inputs.reminder-type == 'author'
+        uses: ./.kp-stale-action
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-pr-labels: ${{ env.EVENT_LABEL }}
+          any-of-pr-labels: ${{ format('{0},{1}', env.REMINDER_DUE_LABEL, env.AUTHOR_REMINDER_LABEL) }}
+          exempt-pr-labels: ${{ env.EXEMPT_LABEL }}
+          # Restore the reviewer ownership exclusion with reviewer automation:
+          # exempt-pr-labels: ${{ format('{0},{1}', env.EXEMPT_LABEL, env.REVIEWER_ACTION_LABEL) }}
+          stale-pr-label: ${{ env.AUTHOR_REMINDER_LABEL }}
+          exempt-draft-pr: true
+          days-before-issue-stale: -1
+          days-before-issue-close: -1
+          days-before-pr-stale: 0
+          days-before-pr-close: -1
+          days-before-close: -1
+          delete-branch: false
+          remove-pr-stale-when-updated: true
+          stale-pr-message: ${{ env.AUTHOR_REMINDER_MESSAGE }}
+          debug-only: false
+          operations-per-run: ${{ inputs.operations-per-run }}
+          enable-statistics: true
+
+      # 4. Reviewer reminders are paused until next-action ownership is agreed.
+      # - name: Remind reviewers to provide input
+      #   if: inputs.reminder-type == 'reviewer'
+      #   uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
+      #   with:
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     only-pr-labels: ${{ format('{0},{1}', env.EVENT_LABEL, env.REVIEWER_ACTION_LABEL) }}
+      #     exempt-pr-labels: ${{ format('{0},{1}', env.EXEMPT_LABEL, env.AUTHOR_ACTION_LABEL) }}
+      #     stale-pr-label: ${{ env.REVIEWER_REMINDER_LABEL }}
+      #     exempt-draft-pr: true
+      #     days-before-issue-stale: -1
+      #     days-before-issue-close: -1
+      #     days-before-pr-stale: ${{ inputs.inactivity-days }}
+      #     days-before-pr-close: -1
+      #     days-before-close: -1
+      #     delete-branch: false
+      #     remove-pr-stale-when-updated: true
+      #     stale-pr-message: |-
+      #       ### Knowledge Partnership - Reviewer input needed
+      #
+      #       <br>
+      #
+      #       This pull request is waiting for reviewer input and has had no activity for ${{ inputs.inactivity-days }} days. Reviewers, please review the changes and provide feedback or approval. If the review is blocked, comment with the blocker and next step.
+      #
+      #       **Need help?** Visit [Knowledge Partnership support](https://aka.ms/kp-support).
+      #     debug-only: false
+      #     operations-per-run: ${{ inputs.operations-per-run }}
+      #     enable-statistics: true

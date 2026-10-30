@@ -167,7 +167,7 @@ On your Linux client connected to your Azure Stack Edge Pro device, do the follo
 
    `sudo apt-get install nfs-common`
 
-    For more information, go to [Install NFSv4 client](https://help.ubuntu.com/community/NFSv4Howto).
+    For more information, go to [Install NFSv4 client](https://github.com/ubuntu/wiki-archives/blob/e1d802e604443adbdd264c281bec7fbcef2a0f34/UbuntuCommunityHelpWiki/S/SettingUpNFSHowTo.wiki#L4).
 
 2. After the NFS client is installed, mount the NFS share that you created on your Azure Stack Edge Pro device by using the following command:
 

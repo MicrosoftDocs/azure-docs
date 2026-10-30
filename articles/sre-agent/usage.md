@@ -3,7 +3,7 @@ title: Create and Use an agent in Azure SRE Agent
 description: Learn how to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 10/28/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -95,15 +95,13 @@ You can diagnose incidents your Azure services by setting up an incident respons
 
 SRE Agent connects to Azure Monitor alerts by default, but you can also use the following steps to connect it to PagerDuty. To set up SRE Agent with PagerDuty, you need a PagerDuty API key.
 
-1. In your SRE Agent resource, select the **Incident management** tab.
-
-1. Select **Incident platform**
-
-1. In the *Incident platform* dropdown list, select **PagerDuty**.
+1. In your SRE Agent resource, select **Incidents**.
+1. Select **Connect an incident platform**. If another platform is connected, disconnect it from its **...** menu first.
+1. Select the **PagerDuty** platform card.
 
 1. Enter your API key.
 
-1. Select **Save**.
+1. Complete the remaining wizard steps and select **Save**. Create a response plan under **Incidents** > **Triggers & response plans** if you don't already have one.
 
 ## Next step
 

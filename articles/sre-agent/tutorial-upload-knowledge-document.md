@@ -3,7 +3,7 @@ title: "Tutorial: Upload Knowledge Documents to Azure SRE Agent"
 description: Upload knowledge documents to your Azure SRE Agent's Knowledge settings through conversation and the portal UI so the agent can reference them in future investigations.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -68,18 +68,18 @@ The agent confirms the document was saved and provides a download link. Your run
 - Agent generated a structured runbook from the investigation.
 - Agent confirmed the document was saved.
 
-## Step 3: Verify in Knowledge settings
+## Step 3: Verify in Knowledge sources
 
-1. In the left sidebar, select **Builder** to expand the section.
-1. Select **Knowledge settings**.
+1. In the left sidebar, select **Build + setup**, and then expand **Context**.
+1. Select **Knowledge sources**.
 
-The **Knowledge settings** page displays your documents in a table with columns for **File Name**, **Status**, **Type**, and **Last modified**. The **Status** column shows **✓ Indexed** when the document is indexed and ready for search.
+The **Knowledge sources** page displays your documents in a table with columns for **Name**, **Status**, **Type**, and **Last modified**. The **Status** column shows **✓ Indexed** when the document is indexed and ready for search.
 
-If the status shows **Pending**, select **Refresh**. Indexing typically completes within a few seconds.
+If the status shows **Pending**, wait for indexing to complete and reload the page if needed.
 
 ### Checkpoint
 
-- Navigated to **Builder → Knowledge settings**
+- Navigated to **Build + setup > Context > Knowledge sources**
 - Document appears with **✓ Indexed** status
 
 ## Step 4: Upload files through the portal
@@ -123,7 +123,7 @@ Start a new chat thread and ask a question that your uploaded documents should a
 What are the steps for troubleshooting high memory usage on container apps?
 ```
 
-Your agent searches **Knowledge settings**, finds your uploaded runbook, and references it in the response. This process confirms the knowledge is indexed and retrievable.
+Your agent searches its knowledge sources, finds your uploaded runbook, and references it in the response. This process confirms the knowledge is indexed and retrievable.
 
 ### Checkpoint
 
@@ -133,7 +133,7 @@ Your agent searches **Knowledge settings**, finds your uploaded runbook, and ref
 
 ## Delete a knowledge document
 
-1. Go to **Builder** → **Knowledge settings**.
+1. Go to **Build + setup** > **Context** > **Knowledge sources**.
 1. In the documents list, select one or more documents by using the checkboxes.
 1. Select **Delete** in the toolbar.
 1. A confirmation dialog lists the documents to remove. Select **Delete** to confirm.
@@ -146,7 +146,7 @@ When you delete documents, you remove them from the agent's Knowledge settings a
 ## What you learned
 
 - Your agent can turn real investigations into structured runbooks and save them to Knowledge settings.
-- You can upload files manually through the portal UI in **Builder → Knowledge settings**. It supports many formats, including PDF, Office documents, and images.
+- You can upload files manually through the portal UI in **Build + setup** > **Context** > **Knowledge sources**. It supports many formats, including PDF, Office documents, and images.
 - The system indexes uploaded documents for semantic search, and they're available in all future conversations.
 - To update documents, upload them by using the same filename.
 

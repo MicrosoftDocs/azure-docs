@@ -3,7 +3,7 @@ title: Add a private marketplace to Azure SRE Agent
 description: Learn how to register a private GitHub repository as a plugin marketplace in Azure SRE Agent and install plugins to make skills available in your agent.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -18,13 +18,13 @@ In this article, you register a private GitHub repository as a marketplace sourc
 
 - An Azure SRE Agent in **Running** state
 - **SRE Agent Author** or **Administrator** role on the agent (see [User roles](user-roles.md))
-- The **Plugins** page visible under **Builder** in the sidebar
+- Access to **Build + setup** > **Extensions** > **Plugins**
 - A private GitHub repository containing a `marketplace.json` manifest with at least one plugin
 - GitHub credentials with read access to the repository (OAuth, PAT, or GitHub App for GHE)
 
 ## Open the add marketplace dialog
 
-In the SRE Agent portal, go to **Builder > Plugins**. If you haven't registered any marketplaces yet, select **Add marketplace** in the toolbar. If marketplaces already exist, select **Manage marketplaces**, and then select **Add marketplace**.
+In the SRE Agent portal, go to **Build + setup** > **Extensions** > **Plugins** and select **Connect marketplace** in the toolbar.
 
 ## Enter the private repository URL
 
@@ -46,8 +46,10 @@ The auth section appears below, showing whether your agent's GitHub identity can
     **For GitHub Enterprise** (`*.ghe.com`), the dialog shows a GitHub App registration form instead:
 
     - **Client ID**: the App's client ID
-    - **Private key secret URI (Key Vault)**: Azure Key Vault secret URI for the App's private key
-    - **Key Vault identity**: the managed identity with Key Vault Secrets User access
+    - **Private key URI (Key Vault)**: the RSA Key Vault key URI (`/keys/`), not a secret URI
+    - **Key Vault identity**: the managed identity with **Key Vault Crypto User** access to that key
+
+    For key import and role assignment instructions, see [Set up GitHub BYO App](setup-github-byo-app.md#step-3-store-private-key-in-key-vault).
 
 1. Select **Configure GitHub App** to register the connection.
 
@@ -60,7 +62,7 @@ Select **Add**. The marketplace clones in the background. After a few moments, p
 Select a plugin card to open its detail page. Review the skills it contains, and then select **Install**.
 
 > [!TIP]
-> After installation, the plugin shows "installed successfully with N skills." The skill is available in **Builder > Skill builder**.
+> After installation, the plugin shows "installed successfully with N skills." The skill is available in **Build + setup > Extensions > Skill builder**.
 
 > [!WARNING]
 > The credential you configured for authentication is shared across all plugin installs from this marketplace. Any user with the Author or Administrator role on the agent can install, even without personal GitHub access to the repo. For more information, see [Plugin marketplace](plugin-marketplace.md).

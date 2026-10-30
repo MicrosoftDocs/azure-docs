@@ -161,7 +161,7 @@ ACZ propagates created, updated, and deleted records from Azure Data Manager for
 
 ### Identify new, updated, and deleted records
 
-ACZ doesn't enable Delta Lake change data feed on its tables. To process changes incrementally, use `ingestTime` as a watermark. ACZ refreshes `ingestTime` whenever it writes a change to a row, including:
+ACZ doesn't turn on Delta Lake change data feed on its tables. If you turn it on yourself, each record update appears as a delete followed by an insert. To process changes incrementally, use `ingestTime` as a watermark. ACZ refreshes `ingestTime` whenever it writes a change to a row, including:
 
 - New records and new record versions.
 - Metadata-only updates, such as changes to tags, that don't create a new record version.
@@ -210,6 +210,8 @@ For more information about the entitlements table, see [Entitlements export in A
 | DDMS entity folders | One folder per Wellbore DDMS entity type (for example, `work-product-component--WellLog`). Starting with the October 2026 release, these folders are under `wellboreDDMS/`. Holds Parquet and JSON files by entity type and record ID. These folders aren't Delta tables; to find a record's files, use the `fileDownloadFolder` column in `osducatalog`. |
 | Parquet files | Snappy-compressed data files. Updates create new files. ACZ runs `VACUUM` and `OPTIMIZE` to compact small files and remove old ones. The `maintenance` property in the ACZ API response shows the status and last successful run of these maintenance activities. |
 
+ACZ regularly runs maintenance on its Delta tables, including `VACUUM`, which removes older data files. Time-travel queries can read only recent table versions. To keep a longer history, copy the data to your own storage on a schedule. If you have specific requirements for table history, [create a support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 ### Delta table schema
 
 The Delta table has the following fields:
@@ -249,7 +251,7 @@ Existing ACZ instances keep their schema version. To use the current schema, cre
 
 ACZ can optionally export OSDU entitlement membership data to an `entitlements` Delta Lake table alongside the catalog data. You can use this data to implement entitlement-aware filtering in downstream analytics platforms. ACZ doesn't configure or enforce downstream row-level security.
 
-Entitlements export is disabled by default. Contact your Microsoft representative to enable it. For details, see [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md).
+Entitlements export is disabled by default. To enable it, [create a support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade). For details, see [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md).
 
 ## Limits and access
 

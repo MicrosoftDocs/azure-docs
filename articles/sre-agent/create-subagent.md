@@ -3,7 +3,7 @@ title: "Tutorial: Create a subagent in Azure SRE Agent"
 description: "Learn how to create a specialized subagent with custom instructions, tools, skills, and hooks in Azure SRE Agent."
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 09/21/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -35,17 +35,17 @@ Follow these steps to create a new subagent from the portal.
 
 1. Open the [SRE Agent portal](https://sre.azure.com) and select your agent.
 
-1. Select **Builder** > **Agent Canvas**.
+1. Select **Build + setup** > **Workflows** > **Agent Canvas**.
 
-1. Select **+ Create subagent**.
+1. Select **Create** > **Custom Agent**.
 
-    The **Create a subagent** dialog opens with two tabs: **Form** and **YAML**.
+    The **Create a custom agent** form opens with two tabs: **Form** and **YAML**.
 
 1. Fill in the required fields:
 
     | Field | Example value |
     | --- | --- |
-    | **Subagent name** (required) | `health-check-reporter` |
+    | **Custom agent name** (required) | `health-check-reporter` |
     | **Instructions** (required) | "You're a health check reporter. Check Azure resource health for container apps in the production resource group. Summarize healthy, warning, and critical counts. Send the summary via email." |
 
     > [!TIP]
@@ -53,16 +53,10 @@ Follow these steps to create a new subagent from the portal.
 
 1. (Optional) Configure the remaining fields and sections in the dialog.
 
-    - **Handoff instructions**: Describe when another agent should delegate work to this subagent.
+    - **Skills**: Select **Choose skills** to override the inherited global skill selection. Leave it unchanged to inherit the defaults. For more information, see [Skills](skills.md).
+    - **Tools**: Select **Choose tools** to override the inherited global tool selection. To create custom tools first, see [Create a Kusto tool](create-kusto-tool.md) or [Create a Python tool](create-python-tool.md).
+    - **Hooks**: Select **Manage Hooks** to add safety and governance controls. For setup steps, see [Create and manage hooks in the portal](create-manage-hooks-ui.md).
 
-    - **Skills**: Turn on **Enable Skills** to let the subagent use skills. Under **Allowed Skills**, leave the selection empty to allow all skills or select the specific skills the subagent can use. For more information, see [Skills](skills.md).
-
-    - **Advanced settings**:
-
-      - **Handoff subagents**: Select other subagents that this subagent can delegate work to.
-      - **Tools**: Select **Choose tools**, and then select the tools the subagent can use. To create custom tools first, see [Create a Kusto tool](create-kusto-tool.md) or [Create a Python tool](create-python-tool.md). For more information, see [Tools](tools.md).
-      - **Hooks**: Select **Manage Hooks** to add safety and governance controls. For setup steps, see [Create and manage hooks in the portal](create-manage-hooks-ui.md). For more information, see [Agent hooks](agent-hooks.md).
-      - **Give access to knowledge base**: Turn on this option to let the subagent use documents in the knowledge base.
 
 1. Select **Create**.
 
