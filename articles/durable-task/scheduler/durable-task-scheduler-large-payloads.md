@@ -267,7 +267,7 @@ The default threshold is `262,144` bytes (256 KiB), with a maximum of `1,048,576
 
 For Microsoft Entra ID authentication, add `com.azure:azure-identity` and use `setAccountUri` and `setCredential` instead of `setConnectionString`.
 
-For an end-to-end example using the Durable Task Scheduler emulator and Azurite, see the [Java SDK large payload sample](https://github.com/microsoft/durabletask-java/blob/v1.10.0/samples/src/main/java/io/durabletask/samples/LargePayloadSample.java).
+For an end-to-end example using the Durable Task Scheduler emulator and Azurite, see the [Java SDK large payload sample](https://github.com/microsoft/durabletask-java/blob/main/samples/src/main/java/io/durabletask/samples/LargePayloadSample.java).
 
 ---
 

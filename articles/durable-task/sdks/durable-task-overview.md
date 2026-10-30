@@ -75,8 +75,6 @@ The Python SDK works with any Python 3.9+ hosting. It supports generator-based o
 
 The Java SDK works with any Java 8+ hosting, including Spring Boot applications.
 
-The Java SDK also supports [large payloads](../scheduler/durable-task-scheduler-large-payloads.md) and [orchestration history export (preview)](../scheduler/durable-task-scheduler-export-history.md).
-
 # [JavaScript](#tab/javascript)
 
 ```bash
