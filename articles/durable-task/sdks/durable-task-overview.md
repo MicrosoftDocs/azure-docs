@@ -33,7 +33,7 @@ The following table summarizes the available Durable Task SDKs, their packages, 
 | -------- | -------- | ------ | ------ | ------- |
 | **.NET** | `Microsoft.DurableTask.Worker.AzureManaged`<br/>`Microsoft.DurableTask.Client.AzureManaged` | GA | [durabletask-dotnet](https://github.com/microsoft/durabletask-dotnet) | [.NET samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/dotnet) |
 | **Python** | `durabletask-azuremanaged` | GA | [durabletask-python](https://github.com/microsoft/durabletask-python) | [Python samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/python) |
-| **Java** | `durabletask-client`<br/>`durabletask-azure-managed` | GA | [durabletask-java](https://github.com/microsoft/durabletask-java) | [Java samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/java) |
+| **Java** | `durabletask-client`<br/>`durabletask-azuremanaged` | GA | [durabletask-java](https://github.com/microsoft/durabletask-java) | [Java samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/java) |
 | **JavaScript / TypeScript** | `@microsoft/durabletask-js`<br/>`@microsoft/durabletask-js-azuremanaged` | Preview | [durabletask-js](https://github.com/microsoft/durabletask-js) | [JS samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/javascript) |
 | **Go** | `github.com/microsoft/durabletask-go` | Beta | [durabletask-go](https://github.com/microsoft/durabletask-go) | [Go samples](https://github.com/microsoft/durabletask-go/tree/main/samples) |
 
@@ -68,7 +68,7 @@ The Python SDK works with any Python 3.9+ hosting. It supports generator-based o
 </dependency>
 <dependency>
     <groupId>com.microsoft</groupId>
-    <artifactId>durabletask-azure-managed</artifactId>
+    <artifactId>durabletask-azuremanaged</artifactId>
     <version>1.10.0</version>
 </dependency>
 ```
