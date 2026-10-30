@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/10/2025
+ms.date: 10/29/2026
 ms.author: kesheth
 ---
 
@@ -208,6 +208,9 @@ A `CapabilityStatement` is returned that includes the following information on t
 A terminology service is a set of functions that can perform operations on medical “terminologies,” such as validating codes, translating codes, and expanding value sets. The FHIR service doesn't support terminology service. Information for supported operations ($), resource types, and interactions can be found in the service's CapabilityStatement. Resource types ValueSet, StructureDefinition and CodeSystem are supported with basic CRUD operations and Search (as defined in the CapabilityStatement) as well as being leveraged by the system for use in $validate. 
 
 ValueSets can contain a complex set of rules and external references. Presently, the service only considers the pre-expanded inline codes. Customers need to upload supported ValueSets to the FHIR server before utilizing the $validate operation. The ValueSet resources must be uploaded to the FHIR server, using PUT or conditional update as previously mentioned in the Storing Profiles section. 
+
+> [!NOTE]
+> Bulk operations require `EditProfileDefinitions` permission to modify or delete `StructureDefinition`, `ValueSet`, and `CodeSystem` resources.
 
 ## Next steps
 

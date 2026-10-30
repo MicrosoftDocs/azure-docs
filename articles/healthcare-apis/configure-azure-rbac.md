@@ -1,11 +1,11 @@
 ---
 title: Configure Azure RBAC role for Azure Health Data Services
 description: Learn how to configure Azure RBAC for FHIR and DICOM services in Azure Health Data Services. Assign roles and manage access to your data plane.
-author: chachachachami
+author: expekesheth
 ms.service: azure-health-data-services
 ms.topic: how-to
-ms.date: 03/27/2026
-ms.author: chrupa
+ms.date: 10/29/2026
+ms.author: kesheth
 ms.reviewer: v-catheribun
 ms.custom: sfi-image-nochange
 --- 
@@ -27,6 +27,7 @@ The built-in roles for the FHIR service include:
 * **FHIR Data Writer**: Can read, write, and soft delete FHIR data.
 * **FHIR Data Exporter**: Can read and export data by using the $export operator.
 * **FHIR Data Contributor**: Can perform all data plane operations.
+* **FHIR Data Bulk Operator**: Can perform bulk operations.
 * **FHIR Data Converter**: Can use the converter to perform data conversion.
 * **FHIR SMART User**: Can read and write FHIR data according to the SMART IG V1.0.0 specifications.
 
