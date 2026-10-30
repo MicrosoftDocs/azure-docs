@@ -1,0 +1,167 @@
+# Hourly/manual scans validate labels, backfill missed enrollment, clean obsolete
+# markers, and send reminders. PR-event enrollment has its own workflow/history.
+# Manual runs are live, not previews; reminders use the business-day eligibility clock.
+name: stale-comment-knowledgepartnership
+run-name: >-
+  ${{ github.event_name == 'schedule' && 'KP - Hourly stale reminder scan' ||
+      (inputs.labels-only && 'KP - Manual enrollment backfill (no reminders)' ||
+      'KP - Manual stale reminder scan') }}
+
+on:
+  schedule:
+    # Once per hour
+    - cron: "0 * * * *"
+  # Optional manual runs also apply changes; the hourly schedule needs no opt-in.
+  workflow_dispatch:
+    inputs:
+      labels-only:
+        description: Only validate and backfill event labels; skip cleanup and reminders
+        type: boolean
+        default: false
+        required: true
+
+# Read label definitions and allow the bot to update PR labels and comments.
+permissions:
+  contents: read
+  # Allow the reusable reminder workflow to maintain actions/stale progress.
+  actions: write
+  issues: read
+  pull-requests: write
+
+# An active run finishes rather than being canceled by a newer run.
+concurrency:
+  group: knowledge-partnership-reminders
+  cancel-in-progress: false
+
+jobs:
+  configuration:
+    name: Share workflow settings
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    permissions: {}
+    uses: ./.github/workflows/reusable-kp-configuration.yml
+
+  # Check that all manually created labels exist before labeling or reminders.
+  validate-labels:
+    name: Validate Knowledge Partnership labels
+    needs: configuration
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    uses: ./.github/workflows/reusable-kp-validate-labels.yml
+    with:
+      reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
+      event-label: ${{ needs.configuration.outputs.event-label }}
+      author-action-label: ${{ needs.configuration.outputs.author-action-label }}
+      # reviewer-action-label: ${{ needs.configuration.outputs.reviewer-action-label }}
+      author-reminder-label: ${{ needs.configuration.outputs.author-reminder-label }}
+      # reviewer-reminder-label: ${{ needs.configuration.outputs.reviewer-reminder-label }}
+      exempt-label: ${{ needs.configuration.outputs.exempt-label }}
+
+  # Backfill event labels only after process-label validation succeeds.
+  label-event-prs:
+    name: Backfill enrollment (no reminders)
+    needs: [configuration, validate-labels]
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    uses: ./.github/workflows/reusable-kp-label-event.yml
+    with:
+      reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
+      author-reminder-label: ${{ needs.configuration.outputs.author-reminder-label }}
+      event-label: ${{ needs.configuration.outputs.event-label }}
+      rollout-branch-prefix: ${{ needs.configuration.outputs.rollout-branch-prefix }}
+
+  # Run exemption handling and status cleanup after validation and labeling succeed.
+  manage-pr-reminders:
+    name: Manage Knowledge Partnership reminders
+    needs: [configuration, validate-labels, label-event-prs]
+    if: >-
+      github.repository == 'MicrosoftDocs/azure-docs-pr' &&
+      !inputs.labels-only
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      EVENT_LABEL: ${{ needs.configuration.outputs.event-label }}
+      AUTHOR_REMINDER_LABEL: ${{ needs.configuration.outputs.author-reminder-label }}
+      EXEMPT_LABEL: ${{ needs.configuration.outputs.exempt-label }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      # 1. Exemption handling: check that the event label exists and log exclusions.
+      # The supporting reminder workflow enforces these exclusions.
+      - name: Validate event scope and exemption policy
+        shell: bash
+        run: |
+          label_names=$(gh api --paginate "repos/$GH_REPO/labels?per_page=100" --jq '.[].name')
+          if ! grep -Fxq -- "$EVENT_LABEL" <<< "$label_names"; then
+            echo "::error::Required event label '$EVENT_LABEL' is missing. Create it and label rollout PRs before enabling reminders."
+            exit 1
+          fi
+          echo "Reminder scope: $EVENT_LABEL"
+          echo "Exemption: $EXEMPT_LABEL; drafts are also excluded."
+          echo "Reviewer automation is paused; no next-action label is required."
+
+      # 2. Status cleanup: remove reminder labels when a PR no longer qualifies.
+      # Drafts and exemptions invalidate reminder status.
+      # The supporting stale action clears its marker after new PR activity.
+      # Reviewer reminder cleanup is paused along with reviewer reminders.
+      #
+      # This step checks open, event-labeled PRs and removes only reminder labels.
+      # It leaves event, next-action, and exemption labels unchanged, sends no
+      # comments, and applies removals on scheduled and manual runs.
+      - name: Clean up obsolete reminder status
+        shell: bash
+        run: |
+          # Each result contains a PR number whose author marker is obsolete.
+          # Paused reviewer cleanup also checked REVIEWER_ACTION_LABEL and
+          # REVIEWER_REMINDER_LABEL; it must be restored with reviewer reminders.
+          candidates=$(
+            gh api --paginate "repos/$GH_REPO/pulls?state=open&per_page=100" |
+            jq -r --arg event "$EVENT_LABEL" \
+              --arg authorReminder "$AUTHOR_REMINDER_LABEL" \
+              --arg exempt "$EXEMPT_LABEL" '
+                def has_label($name): .labels | any(.name == $name);
+                .[] | select(has_label($event)) |
+                select(has_label($authorReminder) and
+                  (.draft or has_label($exempt))) |
+                .number'
+          )
+          # Remove only the reminder labels flagged as no longer applicable.
+          while read -r pr_number; do
+            [[ -z "$pr_number" ]] && continue
+            labels_to_remove=(--remove-label "$AUTHOR_REMINDER_LABEL")
+            # Reviewer label removal is paused:
+            # labels_to_remove+=(--remove-label "$REVIEWER_REMINDER_LABEL")
+            gh pr edit "$pr_number" "${labels_to_remove[@]}"
+          done <<< "$candidates"
+
+  # 3. Send author reminders through the supporting workflow after cleanup.
+  send-author-reminder:
+    name: Send author reminders
+    needs: [configuration, validate-labels, label-event-prs, manage-pr-reminders]
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    uses: ./.github/workflows/reusable-kp-reminder.yml
+    with:
+      reminder-type: author
+      reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
+      inactivity-days: ${{ fromJSON(needs.configuration.outputs.inactivity-days) }}
+      operations-per-run: ${{ fromJSON(needs.configuration.outputs.operations-per-run) }}
+      event-label: ${{ needs.configuration.outputs.event-label }}
+      author-action-label: ${{ needs.configuration.outputs.author-action-label }}
+      # reviewer-action-label: ${{ needs.configuration.outputs.reviewer-action-label }}
+      author-reminder-label: ${{ needs.configuration.outputs.author-reminder-label }}
+      # reviewer-reminder-label: ${{ needs.configuration.outputs.reviewer-reminder-label }}
+      exempt-label: ${{ needs.configuration.outputs.exempt-label }}
+
+  # 4. Reviewer reminders are paused until next-action ownership is agreed.
+  # send-reviewer-reminder:
+  #   name: Send reviewer reminders
+  #   needs: [configuration, validate-labels, label-event-prs, manage-pr-reminders, send-author-reminder]
+  #   uses: ./.github/workflows/reusable-kp-reminder.yml
+  #   with:
+  #     reminder-type: reviewer
+  #     inactivity-days: ${{ fromJSON(needs.configuration.outputs.inactivity-days) }}
+  #     operations-per-run: ${{ fromJSON(needs.configuration.outputs.operations-per-run) }}
+  #     event-label: ${{ needs.configuration.outputs.event-label }}
+  #     author-action-label: ${{ needs.configuration.outputs.author-action-label }}
+  #     reviewer-action-label: ${{ needs.configuration.outputs.reviewer-action-label }}
+  #     author-reminder-label: ${{ needs.configuration.outputs.author-reminder-label }}
+  #     reviewer-reminder-label: ${{ needs.configuration.outputs.reviewer-reminder-label }}
+  #     exempt-label: ${{ needs.configuration.outputs.exempt-label }}

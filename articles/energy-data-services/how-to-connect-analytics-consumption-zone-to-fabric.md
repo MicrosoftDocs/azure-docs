@@ -3,7 +3,7 @@ title: Connect Analytics Consumption Zone Data to Fabric - Azure Data Manager fo
 description: Learn how to connect Analytics Consumption Zone data in Data Lake Storage Gen2 to Microsoft Fabric by using Microsoft OneLake shortcuts for analytics and reporting.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 10/29/2026
+ms.date: 10/30/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -180,6 +180,7 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 
 ## Related content
 
+- To transform ACZ data into silver-layer Delta tables in Microsoft Fabric, see the [ADME ACZ Silver Layer sample notebook](https://github.com/microsoft/adme-acz-silverlayer) on GitHub. The sample flattens nested OSDU records into Delta tables and can process only new and changed records by using the `ingestTime` and `isActive` columns.
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Create an Azure Data Lake Storage Gen2 shortcut](/fabric/onelake/create-adls-shortcut)

@@ -367,7 +367,7 @@ The Azure Storage REST API contains an operation named [Set Container ACL](/rest
 - [POSIX 1003.1 2008](https://standards.ieee.org/wp-content/uploads/import/documents/interpretations/1003.1-2008_interp.pdf)
 - [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 - [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-- [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
+- [POSIX ACL on Ubuntu](https://manpages.ubuntu.com/manpages/focal/man5/acl.5.html)
 
 ## See also
 

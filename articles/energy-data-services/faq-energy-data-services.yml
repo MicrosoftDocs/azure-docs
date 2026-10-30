@@ -159,7 +159,7 @@ sections:
 
         - question: Are Azure Data Manager for Energy entitlements carried over to the Data Lake Storage Gen2 storage account?
           answer: >
-            ACZ exports all records that match your entity filters, but it doesn't enforce per-record entitlements in Data Lake Storage Gen2 or downstream analytics platforms. Optional [entitlements export (preview)](concepts-analytics-consumption-zone-entitlements.md) provides OSDU group membership data that you can use with catalog record access control lists to implement downstream filtering. Entitlements export is disabled by default. Contact your Microsoft representative to enable it for your Azure Data Manager for Energy instance. Use Azure role-based access control and Data Lake Storage Gen2 permissions to secure the exported data.
+            ACZ exports all records that match your entity filters, but it doesn't enforce per-record entitlements in Data Lake Storage Gen2 or downstream analytics platforms. Optional [entitlements export (preview)](concepts-analytics-consumption-zone-entitlements.md) provides OSDU group membership data that you can use with catalog record access control lists to implement downstream filtering. Entitlements export is disabled by default. To enable it for your Azure Data Manager for Energy instance, [create a support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade). Use Azure role-based access control and Data Lake Storage Gen2 permissions to secure the exported data.
 
         - question: How can I monitor ACZ instances?
           answer: |
@@ -175,7 +175,7 @@ sections:
 
         - question: Does ACZ enable Delta Change Data Feed?
           answer: |
-            No. ACZ doesn't enable Change Data Feed on the `osducatalog` table. To identify new, updated, and deleted records, use the `ingestTime` and `isActive` columns. For more information, see [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md#identify-new-updated-and-deleted-records).
+            ACZ doesn't turn on Change Data Feed on its tables, but you can turn it on yourself. If you do, each record update appears in the change feed as a delete followed by an insert. ACZ regularly runs maintenance on its tables, which removes older data files, so read the change feed often and don't rely on it for long-term history. Without Change Data Feed, you can identify new, updated, and deleted records by using the `ingestTime` and `isActive` columns. For more information, see [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md#identify-new-updated-and-deleted-records).
 
         - question: Can I disable ACZ?
           answer: |

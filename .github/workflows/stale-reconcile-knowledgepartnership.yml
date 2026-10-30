@@ -1,0 +1,47 @@
+# Reconcile current participation after retargeting; enrollment handles entry.
+# Never check out or execute contributor code in this privileged workflow.
+name: stale-reconcile-knowledgepartnership
+
+on:
+  pull_request_target:
+    types: [edited]
+
+permissions:
+  issues: read
+  pull-requests: write
+
+concurrency:
+  group: knowledge-partnership-label-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  configuration:
+    name: Share workflow settings
+    if: >-
+      github.repository == 'MicrosoftDocs/azure-docs-pr' &&
+      github.event.changes.base.ref.from != ''
+    permissions: {}
+    uses: ./.github/workflows/reusable-kp-configuration.yml
+
+  reconcile-participation:
+    name: Remove event label after leaving rollout scope
+    needs: configuration
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      EVENT_LABEL: ${{ needs.configuration.outputs.event-label }}
+      ROLLOUT_BRANCH_PREFIX: ${{ needs.configuration.outputs.rollout-branch-prefix }}
+    steps:
+      - uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          script: |
+            const {EVENT_LABEL, ROLLOUT_BRANCH_PREFIX} = process.env;
+            const {data: pr} = await github.rest.pulls.get({
+              ...context.repo, pull_number: context.payload.pull_request.number
+            });
+            if (pr.state !== 'open' || pr.base.ref.startsWith(ROLLOUT_BRANCH_PREFIX) ||
+                !pr.labels.some(label => label.name === EVENT_LABEL)) return;
+            await github.rest.issues.removeLabel({
+              ...context.repo, issue_number: pr.number, name: EVENT_LABEL
+            });

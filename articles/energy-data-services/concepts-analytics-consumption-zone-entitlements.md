@@ -3,7 +3,7 @@ title: Entitlements export in Analytics Consumption Zone (preview) - Azure Data 
 description: Learn how Analytics Consumption Zone exports OSDU entitlement membership data for use in downstream data and AI platforms.
 ms.service: azure-data-manager-energy
 ms.topic: concept-article
-ms.date: 10/27/2026
+ms.date: 10/30/2026
 ms.author: nsannala
 author: NSannala
 ---
@@ -17,7 +17,7 @@ The Analytics Consumption Zone (ACZ) can export entitlement membership data alon
 
 ## Enable entitlements export
 
-Entitlements export is disabled by default. Contact your Microsoft representative to enable it for your Azure Data Manager for Energy instance.
+Entitlements export is in preview and is disabled by default. To enable it for your Azure Data Manager for Energy instance, [create a support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade). The feature and the table schema might change before general availability.
 
 For information about setting up ACZ, see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
 
@@ -63,7 +63,7 @@ Use Azure role-based access control and Data Lake Storage Gen2 permissions to se
 
 ## Data freshness
 
-ACZ periodically refreshes the entitlements table, replacing the previous snapshot. Changes to users, groups, or memberships are reflected after a subsequent successful export. The entitlements table isn't a real-time authorization endpoint.
+ACZ refreshes the entitlements table on a regular schedule and replaces the previous snapshot. Changes to users, groups, or memberships appear in the table after the next refresh. The entitlements table isn't a real-time authorization endpoint.
 
 ## Related content
 

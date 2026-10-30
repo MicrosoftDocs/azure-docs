@@ -1,0 +1,68 @@
+name: KP - Shared settings
+
+on:
+  workflow_call:
+    outputs:
+      inactivity-days:
+        value: ${{ jobs.configuration.outputs.inactivity-days }}
+      operations-per-run:
+        value: ${{ jobs.configuration.outputs.operations-per-run }}
+      rollout-branch-prefix:
+        value: ${{ jobs.configuration.outputs.rollout-branch-prefix }}
+      event-label:
+        value: ${{ jobs.configuration.outputs.event-label }}
+      author-action-label:
+        value: ${{ jobs.configuration.outputs.author-action-label }}
+      author-reminder-label:
+        value: ${{ jobs.configuration.outputs.author-reminder-label }}
+      reminder-due-label:
+        value: ${{ jobs.configuration.outputs.reminder-due-label }}
+      exempt-label:
+        value: ${{ jobs.configuration.outputs.exempt-label }}
+
+permissions: {}
+
+env:
+  INACTIVITY_DAYS: "3"
+  OPERATIONS_PER_RUN: "350"
+  ROLLOUT_BRANCH_PREFIX: release-ignite26-
+  EVENT_LABEL: conference-event
+  AUTHOR_ACTION_LABEL: kp-author-addresscomments
+  AUTHOR_REMINDER_LABEL: kp-author-stalepr
+  REMINDER_DUE_LABEL: kp-reminder-due
+  EXEMPT_LABEL: keep-open
+
+jobs:
+  configuration:
+    name: Share workflow settings
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      inactivity-days: ${{ env.INACTIVITY_DAYS }}
+      operations-per-run: ${{ env.OPERATIONS_PER_RUN }}
+      rollout-branch-prefix: ${{ env.ROLLOUT_BRANCH_PREFIX }}
+      event-label: ${{ env.EVENT_LABEL }}
+      author-action-label: ${{ env.AUTHOR_ACTION_LABEL }}
+      author-reminder-label: ${{ env.AUTHOR_REMINDER_LABEL }}
+      reminder-due-label: ${{ env.REMINDER_DUE_LABEL }}
+      exempt-label: ${{ env.EXEMPT_LABEL }}
+    steps:
+      - name: Check shared settings
+        shell: bash
+        run: |
+          for setting in INACTIVITY_DAYS OPERATIONS_PER_RUN ROLLOUT_BRANCH_PREFIX EVENT_LABEL AUTHOR_ACTION_LABEL \
+                         AUTHOR_REMINDER_LABEL REMINDER_DUE_LABEL EXEMPT_LABEL; do
+            if [[ -z "${!setting}" ]]; then
+              echo "::error::Required setting '$setting' must not be empty."
+              exit 1
+            fi
+          done
+          if [[ ! "$INACTIVITY_DAYS" =~ ^(0|[1-9][0-9]*)$ ]]; then
+            echo "::error::INACTIVITY_DAYS must be a nonnegative whole number."
+            exit 1
+          fi
+          if [[ ! "$OPERATIONS_PER_RUN" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::OPERATIONS_PER_RUN must be a positive whole number."
+            exit 1
+          fi

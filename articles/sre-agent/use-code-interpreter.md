@@ -67,7 +67,7 @@ Your agent:
 - Executes the code in a secure sandbox
 - Returns a formatted table
 
-:::image type="content" source="media/common/code-interpreter-result-table.png" alt-text="Screenshot of Code Interpreter analyzing resource groups and displaying a formatted table.":::
+:::image type="content" source="media/common/code-interpreter-result-table.png" alt-text="Screenshot of Code Interpreter displaying a formatted table of sample resource groups and their regions.":::
 
 You should see your agent's reasoning steps (for example, "Clarifying Azure access needs," "Analyzing resource groups," "Building code for markdown table") followed by a formatted table of your resource groups.
 
@@ -75,7 +75,7 @@ You should see your agent's reasoning steps (for example, "Clarifying Azure acce
 
 Scroll to the bottom of your agent's response to find a download link for a CSV file.
 
-:::image type="content" source="media/common/code-interpreter-table-and-download.png" alt-text="Screenshot of table results with downloadable CSV file link at the bottom.":::
+:::image type="content" source="media/common/code-interpreter-table-and-download.png" alt-text="Screenshot of sample resource group results with a downloadable CSV file link at the bottom.":::
 
 Select the link to download the CSV file and verify it contains the resource group data. This confirms that Code Interpreter can generate files you can use outside the conversation.
 

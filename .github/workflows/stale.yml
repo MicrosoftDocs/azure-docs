@@ -21,7 +21,7 @@ jobs:
         days-before-pr-close: 90
         stale-pr-label: inactive
         close-pr-label: auto-close
-        exempt-pr-labels: keep-open
+        exempt-pr-labels: keep-open,conference-event
         operations-per-run: 1300
         ascending: false
         # start-date: '2021-03-19'

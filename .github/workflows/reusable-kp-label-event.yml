@@ -1,0 +1,132 @@
+# TEMPORARY: This workflow limits the initial stale-bot rollout to Ignite PRs.
+# Remove it after Ignite, when Knowledge Partnership reminders expand to all PRs.
+# In the same change, remove the caller job, its dependencies/output references,
+# and event-label checks/filters from reminders and cleanup. Keep next-action
+# labels and exemptions; expanding eligibility does not remove those rules.
+# Review the general stale bot's exclusions to prevent duplicate handling.
+# Reconcile only the event label; never execute contributor PR code.
+# Enrollment and scan entry points supply the label and prefix from shared settings.
+name: KP - Label PRs
+
+on:
+  workflow_call:
+    inputs:
+      event-label:
+        description: Existing label to add to rollout PRs
+        type: string
+        required: true
+      reminder-due-label:
+        type: string
+        required: true
+      author-reminder-label:
+        type: string
+        required: true
+      rollout-branch-prefix:
+        description: Target branch prefix to label
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: write
+
+jobs:
+  label-event-prs:
+    name: Add the event label to matching open PRs
+    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    concurrency:
+      group: knowledge-partnership-membership-${{ github.event_name == 'pull_request_target' && 'enrollment' || 'scan' }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      EVENT_NAME: ${{ github.event_name }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      EVENT_LABEL: ${{ inputs.event-label }}
+      REMINDER_DUE_LABEL: ${{ inputs.reminder-due-label }}
+      AUTHOR_REMINDER_LABEL: ${{ inputs.author-reminder-label }}
+      ROLLOUT_BRANCH_PREFIX: ${{ inputs.rollout-branch-prefix }}
+
+    steps:
+      - name: Pin trusted default-branch clock helper
+        id: trusted-clock-source
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          result-encoding: string
+          script: |
+            const branch = context.payload.repository?.default_branch;
+            if (!branch) throw new Error('Missing trusted default branch');
+            const {data} = await github.rest.repos.getBranch({...context.repo, branch});
+            if (!/^[a-f0-9]{40}$/.test(data.commit?.sha)) throw new Error('Invalid trusted branch SHA');
+            return data.commit.sha;
+
+      - name: Check out trusted KP clock helper
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ steps.trusted-clock-source.outputs.result }}
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: /.github/scripts/kp-business-clock.cjs
+
+      # Labels are maintained manually; fail rather than create a missing label.
+      - name: Validate the event label and branch prefix
+        shell: bash
+        run: |
+          if [[ -z "$ROLLOUT_BRANCH_PREFIX" ]]; then
+            echo "::error::A nonempty rollout branch prefix is required."
+            exit 1
+          fi
+          label_names=$(gh api --paginate "repos/$GH_REPO/labels?per_page=100" --jq '.[].name')
+          if ! grep -Fxq -- "$EVENT_LABEL" <<< "$label_names"; then
+            echo "::error::Required event label '$EVENT_LABEL' is missing. Create it before running this workflow."
+            exit 1
+          fi
+
+      # PR events inspect one PR; reusable and manual runs backfill all open PRs.
+      # Fresh reads and hourly cleanup recover replaced retarget runs.
+      - name: Reconcile current rollout membership
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          script: |
+            const {EVENT_LABEL, ROLLOUT_BRANCH_PREFIX, EVENT_NAME, PR_NUMBER} = process.env;
+            async function reconcile(candidate) {
+              const {data: pr} = await github.rest.pulls.get({
+                ...context.repo, pull_number: candidate.number
+              });
+              if (pr.state !== 'open') return;
+              const member = pr.labels.some(label => label.name === EVENT_LABEL);
+              const eligible = pr.base.ref.startsWith(ROLLOUT_BRANCH_PREFIX);
+              if (eligible && !member) {
+                const {initialize} = require(process.env.GITHUB_WORKSPACE + '/.github/scripts/kp-business-clock.cjs');
+                await initialize({github, context, core, pr, eventLabel: EVENT_LABEL, managedLabels: [
+                  process.env.REMINDER_DUE_LABEL, process.env.AUTHOR_REMINDER_LABEL
+                ]});
+                await github.rest.issues.addLabels({
+                  ...context.repo, issue_number: pr.number, labels: [EVENT_LABEL]
+                });
+              } else if (!eligible && member) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    ...context.repo, issue_number: pr.number, name: EVENT_LABEL
+                  });
+                } catch (error) {
+                  if (error.status !== 404) throw error;
+                  const {data: current} = await github.rest.pulls.get({
+                    ...context.repo, pull_number: pr.number
+                  });
+                  if (current.labels.some(label => label.name === EVENT_LABEL)) throw error;
+                }
+              }
+            }
+            if (EVENT_NAME === 'pull_request_target') {
+              await reconcile({number: Number(PR_NUMBER)});
+            } else {
+              for await (const page of github.paginate.iterator(github.rest.pulls.list, {
+                ...context.repo, state: 'open', per_page: 100
+              })) {
+                for (const candidate of page.data) await reconcile(candidate);
+              }
+            }
