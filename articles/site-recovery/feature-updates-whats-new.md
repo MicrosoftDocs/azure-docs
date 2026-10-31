@@ -19,7 +19,7 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 ### Azure Site Recovery for Azure Local
 
-Azure Site Recovery support for Azure Local is now generally available, making enterprise-grade disaster recovery simpler, accessible, easier to setup and secure than ever before. Customers can protect supported Windows and Linux virtual machines by replicating workloads to Azure, extending their disaster recovery capabilities to the cloud.
+Azure Site Recovery support for Azure Local is now generally available, making enterprise-grade disaster recovery simpler, accessible, easier to set up, and secure than ever before. Customers can protect supported Windows and Linux virtual machines by replicating workloads to Azure, extending their disaster recovery capabilities to the cloud.
 
 With streamlined setup in the Azure portal, customers can validate their recovery plans without disrupting production replication, fail over to Azure during planned or unplanned outages, and return workloads to Azure Local when their on-premises environment is ready. The capability is available in all Azure Local-supported regions.
 
