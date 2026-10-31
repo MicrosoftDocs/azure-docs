@@ -51,7 +51,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 Starting November 1, 2026, Synapse Spark Notebooks and Spark job definitions that convert, format, or calculate timestamps in British Columbia, Alberta, and affected Alberta-aligned locations, and Manitoba time zones might return local times that are off by an hour. Jobs that use UTC or any other time zones aren't affected. Synapse Spark Runtime 3.5 uses an outdated Java time zone database in most regions. Because of this, Spark sessions can apply the wrong daylight saving time (DST) rules for some Canadian time zones, and possibly for other regions affected by the same recent rule changes. 
 
-**Workaround**: Microsoft is actively working on providing the fix for Synapse Spark 3.5 runtime. Meanwhile, please follow the workaround below.
+**Workaround**: Microsoft is actively working on providing the fix for Synapse Spark 3.5 runtime. Meanwhile, follow the workaround in the following steps:
  
  - Create an `environment.yml` file.
  - Add the following dependencies in the YAML file:
