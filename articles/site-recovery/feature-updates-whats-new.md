@@ -17,13 +17,13 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 ## Updates (October 2026)
 
-### Azure Site Recovery support for Azure Local is generally available
+### Azure Site Recovery for Azure Local
 
-Azure Site Recovery support for Azure Local is now generally available in all Azure Local-supported regions. You can protect supported Windows and Linux virtual machines by replicating workloads to Azure, extending your disaster recovery capabilities to the cloud.
+Azure Site Recovery support for Azure Local is now generally available, making enterprise-grade disaster recovery simpler, accessible, easier to setup and secure than ever before. Customers can protect supported Windows and Linux virtual machines by replicating workloads to Azure, extending their disaster recovery capabilities to the cloud.
 
-With streamlined infrastructure preparation in the Azure portal, you can validate recovery plans without disrupting production replication, fail over to Azure during planned or unplanned outages, and return workloads to Azure Local when your on-premises environment is ready.
+With streamlined setup in the Azure portal, customers can validate their recovery plans without disrupting production replication, fail over to Azure during planned or unplanned outages, and return workloads to Azure Local when their on-premises environment is ready. The capability is available in all Azure Local-supported regions.
 
-For more information, see [Protect your Hyper-V virtual machine workloads on Azure Local with Azure Site Recovery](/azure/azure-local/manage/azure-site-recovery?view=azloc-2610) and the [general availability announcement](https://techcommunity.microsoft.com/blog/azurestackblog/azure-site-recovery-for-azure-local-is-now-generally-available/4529925).
+For more information, see [Tech Community Blog](https://techcommunity.microsoft.com/blog/azurestackblog/azure-site-recovery-for-azure-local-is-now-generally-available/4529925) and the [Official Documentation](/azure/azure-local/manage/azure-site-recovery).
 
 ### Azure Site Recovery support for Azure ARC-enabled Windows VMware/Physical servers
 
