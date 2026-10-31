@@ -61,7 +61,7 @@ dependencies:
       - pytz>=2026.5
       - tzdata>=2026.5
 ```
- - Upload the YAML file as a Requirements files in the Synapse Spark pool . Then, apply the changes.
+ - Upload the YAML file as a Requirements files in the Synapse Spark pool. Then, apply the changes.
  - Create a Notebook item and attach the above environment.
  - Execute the following command to make sure notebook picks up the version `2026e`. This confirms the fix worked.
 ```sql
