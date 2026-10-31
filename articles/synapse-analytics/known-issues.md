@@ -63,7 +63,7 @@ dependencies:
 ```
  - Upload the YAML file as a Requirements files in the Synapse Spark pool . Then, apply the changes.
  - Create a Notebook item and attach the above environment.
- - Execute the following command to make sure notebook picks up the version ‘2026e’. This confirms the fix has worked.
+ - Execute the following command to make sure notebook picks up the version `2026e`. This confirms the fix worked.
 ```sql
     print(sc._jvm.java.time.zone.ZoneRulesProvider.getVersions("America/Vancouver").lastKey())
 ```
