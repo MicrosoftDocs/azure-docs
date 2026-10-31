@@ -2,13 +2,13 @@
 author: mumian
 ms.service: azure-blueprints
 ms.topic: include
-ms.date: 06/26/2026
+ms.date: 10/30/2026
 ms.author: jgao
 ---
 
 > [!IMPORTANT]
 > Azure Blueprints (Preview) will be **retired on January 31, 2027**, with a phased retirement
-> beginning July 31, 2026. Migrate your existing blueprint definitions and assignments to
+> that began July 31, 2026. Migrate your existing blueprint definitions and assignments to
 > [Deployment Stacks](../articles/azure-resource-manager/bicep/deployment-stacks.md) (recommended)
 > and [Template Specs](../articles/azure-resource-manager/bicep/template-specs.md). Blueprint
 > artifacts are converted to ARM JSON templates or Bicep files used to define deployment stacks.

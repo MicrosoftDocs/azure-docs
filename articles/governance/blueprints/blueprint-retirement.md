@@ -3,14 +3,14 @@ title: Azure Blueprints retirement
 description: Learn when Azure Blueprints is retired, the phased retirement timeline, what changes in each phase, and how to migrate to Azure Deployment Stacks and template specs.
 ms.service: azure-blueprints
 ms.topic: concept-article
-ms.date: 06/26/2026
+ms.date: 10/30/2026
 ---
 
 # Azure Blueprints retirement
 
 Azure Blueprints (Preview) is being retired. The retirement was originally announced on
 September 14, 2023 with a retirement date of July 11, 2026. That timeline has been extended to
-**January 31, 2027**, with a **phased retirement beginning July 31, 2026**.
+**January 31, 2027**, with a **phased retirement that began July 31, 2026**.
 
 This article explains the phased timeline, what changes at each phase, and how to migrate. For
 answers to common questions, see the [Azure Blueprints retirement FAQ](./blueprint-retirement-faq.md).
@@ -33,19 +33,26 @@ answers to common questions, see the [Azure Blueprints retirement FAQ](./bluepri
 
 | Phase | Portal | PowerShell / REST API | Read | Create | Update | Delete |
 |-------|--------|-----------------------|------|--------|--------|--------|
-| Phase 1 (on announce) | Yes | Yes | Yes | Definitions: No (net-new disabled). Assignments: Yes | Yes | Yes |
-| Phase 2 (~T+90) | Yes | Yes | Yes | Assignments: No. Definitions: No | Definitions: No. Assignments: Yes | Yes |
-| Phase 3 (~T-30) | Yes | Yes | Yes | No | No (PUT fully disabled) | Yes |
-| Phase 4 (retired, Jan 31, 2027) | Removed | CLI/PS commands postponed (Apr/May 2027). REST: read/delete only until removed | Read goes away as the service is removed | No | No | Delete-only window until full service removal |
+| Phase 1 (July 31, 2026) | Yes | Yes | Yes | Definitions: No (net-new disabled). Assignments: Yes | Yes | Yes |
+| Phase 2 (October 31, 2026) | Yes | Yes | Yes | Assignments: No. Definitions: No | Definitions: No. Assignments: Yes | Yes |
+| Phase 3 (December 31, 2026) | Yes | Yes | Yes | No | No (PUT fully disabled) | Yes |
+| Phase 4 (retired, January 31, 2027) | Removed | No. The API no longer responds, and Azure CLI and Azure PowerShell commands stop functioning | No | No | No | No. Definitions, versions, and assignments that weren't exported are automatically deleted |
 
 ## Identify where Azure Blueprints is used
 
-You can identify Azure Blueprints usage in two ways:
+You can identify Azure Blueprints usage in these ways:
 
-- **Azure Advisor** surfaces a recommendation highlighting subscriptions and management groups
-  where Blueprints is in use.
-- The **Azure Blueprints blade in the Azure portal** lists your existing blueprint definitions and
-  assignments directly.
+- To see your impacted blueprint definitions, versions, and assignments for any subscription you
+  have access to, go to
+  [View Impacted Blueprints Resources](https://aka.ms/ViewImpactedBlueprintsResources). This view
+  lists impact by subscription, so blueprint definitions saved at a management group that aren't
+  assigned to any subscription don't appear in it.
+- To find and export your blueprint definitions and assignments before January 31, 2027, go to the
+  [Azure Blueprints portal](https://aka.ms/blueprintsportal). The portal also lists blueprint
+  definitions saved at a management group.
+- Azure Advisor also shows impacted resources. For additional ways to access impacted resource
+  information, see the
+  [impacted resources documentation](https://aka.ms/AzureRetirementImpactedResourcesChannels).
 
 ## Recommended migration
 
