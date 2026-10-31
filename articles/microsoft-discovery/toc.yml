@@ -20,12 +20,12 @@ items:
         displayName: Microsoft Discovery, Studio, web interface, investigations
   - name: Quickstarts
     items:
-      - name: Quickstart - Deploy infrastructure (portal or Bicep)
+      - name: Deploy infrastructure (portal or Bicep)
         href: quickstart-infrastructure.md
         displayName: Microsoft Discovery, quickstart, infrastructure, portal, Bicep, getting started
-      - name: Quickstart - First set of Agent and investigation
+      - name: Run your first agent and shared session
         href: quickstart-agents-studio.md
-        displayName: Microsoft Discovery, quickstart, project, studio, getting started
+        displayName: Microsoft Discovery, quickstart, project, studio, getting started, shared sessions, Discovery Engine
   - name: Agent catalog
     displayName: Microsoft Discovery, agents, catalog, capabilities
     items:
@@ -57,7 +57,7 @@ items:
             href: how-to-assign-persona-roles.md
             displayName: Microsoft Discovery, RBAC, persona, Platform Administrator, Scientist, PowerShell, Set-DiscoveryRoleAssignments, onboarding
           - name: Resource Naming
-            href: concept-resource-naming.md
+            href: reference-resource-naming.md
             displayName: Microsoft Discovery, resource naming conventions, best practices, organization
       - name: Infrastructure building blocks
         items:
@@ -65,7 +65,7 @@ items:
             href: concept-virtual-networks.md
             displayName: Microsoft Discovery, services, overview, virtual networks
           - name: Azure Container Registry
-            href: concept-azure-container-registry.md
+            href: how-to-configure-container-registry.md
             displayName: Microsoft Discovery, ACR, container registry, tools, images, infrastructure
           - name: Azure Blob Storage Account
             href: concept-storage-account.md
@@ -304,6 +304,8 @@ items:
           - name: Deploy a tool to Microsoft Discovery
             href: how-to-deploy-tool-to-discovery.md
             displayName: Microsoft Discovery, tool, deploy, create tool, definition content, environment variables, REST API, portal
+          - name: Configure a container registry
+            href: how-to-configure-container-registry.md
       - name: Observability
         items:
           - name: Access resource logs
@@ -348,9 +350,11 @@ items:
       - name: Tutorials & how-to videos
         href: tutorial-howto-videos.md
         displayName: tutorial, Discovery app, workspace creation, bookshelf creation, agent creation, tasks, engine
-      - name: "Tutorial: Discovery Mode"
+      - name: Run a shared session with Discovery Engine
         href: tutorial-discovery-mode.md
-        displayName: tutorial, Discovery Mode, first investigation, getting started
+        displayName: tutorial, Discovery Mode, first investigation, getting started, shared sessions, Discovery Engine
+      - name: Build a shared session with cognition
+        href: how-to-build-investigations-cognition.md
   - name: Reference
     items:
       - name: Troubleshoot Microsoft Discovery
@@ -377,3 +381,5 @@ items:
       - name: FAQ
         href: faq.yml
         displayName: faq, frequently asked questions
+      - name: Resource naming rules
+        href: reference-resource-naming.md

@@ -2,13 +2,15 @@
 title: Enable partitioning in Azure Service Bus Premium namespaces
 description: This article explains how to enable partitioning in Azure Service Bus Premium namespaces by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/02/2026
 ms.custom: ignite-2023, devx-track-arm-template, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
 # Enable partitioning for an Azure Service Bus Premium namespace
 Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, see [Partitioned queues and topics](service-bus-partitioning.md). This article shows you different ways to enable partitioning for a Service Bus Premium namespace. All entities in this namespace are partitioned.
+
+You can use [Geo-Replication](service-bus-geo-replication.md#setup) with partitioned namespaces to replicate metadata and message data across regions.
 
 > [!NOTE]
 > - JMS isn't currently supported on partitioned namespaces.
@@ -26,7 +28,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - Pairing a partitioned namespace with a non-partitioned namespace when using [Geo-disaster recovery](service-bus-geo-dr.md)
 
 ## Use Azure portal
-When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 
+When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image.
 :::image type="content" source="./media/enable-partitions/create-namespace.png" alt-text="Screenshot of screen where partitioning is enabled at the time of the namespace creation.":::
 
 ## Use Azure CLI
@@ -42,7 +44,7 @@ az servicebus namespace create \
 ```
 
 ## Use Azure PowerShell
-To **create a namespace with partitioning enabled**, use the [`New-AzServiceBusNamespace`](/powershell/module/az.servicebus/new-azservicebusnamespace) command with `-PremiumMessagingPartition` set to a number larger than 1. 
+To **create a namespace with partitioning enabled**, use the [`New-AzServiceBusNamespace`](/powershell/module/az.servicebus/new-azservicebusnamespace) command with `-PremiumMessagingPartition` set to a number larger than 1.
 
 ```azurepowershell-interactive
 New-AzServiceBusNamespace -ResourceGroupName myresourcegroup `
@@ -52,7 +54,7 @@ New-AzServiceBusNamespace -ResourceGroupName myresourcegroup `
 ```
 
 ## Use a template
-To **create a namespace with partitioning enabled**, set `premiumMessagingPartitions` to a number larger than 1 in the namespace properties section. In the following example, a partitioned namespace is created with 4 partitions, and 1 messaging unit assigned to each partition. For more information, see [Microsoft.ServiceBus namespaces template reference](/azure/templates/microsoft.servicebus/namespaces?tabs=json). 
+To **create a namespace with partitioning enabled**, set `premiumMessagingPartitions` to a number larger than 1 in the namespace properties section. In the following example, a partitioned namespace is created with 4 partitions, and 1 messaging unit assigned to each partition. For more information, see [Microsoft.ServiceBus namespaces template reference](/azure/templates/microsoft.servicebus/namespaces?tabs=json).
 
 # [Bicep](#tab/bicep)
 
@@ -118,9 +120,9 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
 ---
 
 ## Next steps
-Explore Azure Service Bus features by using the samples in the language of your choice. 
+Explore Azure Service Bus features by using the samples in the language of your choice.
 
-- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
