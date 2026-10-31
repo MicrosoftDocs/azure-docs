@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 02/24/2026
+ms.date: 10/31/2026
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -41,6 +41,16 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (October 2026)
+
+### Azure Site Recovery support for Azure Local is generally available
+
+Azure Site Recovery support for Azure Local is now generally available in all Azure Local-supported regions. You can protect supported Windows and Linux virtual machines by replicating workloads to Azure, extending your disaster recovery capabilities to the cloud.
+
+With streamlined infrastructure preparation in the Azure portal, you can validate recovery plans without disrupting production replication, fail over to Azure during planned or unplanned outages, and return workloads to Azure Local when your on-premises environment is ready.
+
+For more information, see [Protect your Hyper-V virtual machine workloads on Azure Local with Azure Site Recovery](/azure/azure-local/manage/azure-site-recovery?view=azloc-2610) and the [general availability announcement](https://techcommunity.microsoft.com/blog/azurestackblog/azure-site-recovery-for-azure-local-is-now-generally-available/4529925).
 
 ## Updates (February 2026)
 
