@@ -47,7 +47,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 ## Azure Synapse Apache Spark pool active known issues summary
 
-### Synapse Spark jobs return wrong local times for some Canadian time-zones
+### Synapse Spark jobs return wrong local times for some Canadian time zones
 
 Starting November 1, 2026, Synapse Spark Notebooks and Spark job definitions that convert, format or calculate timestamps in British Columbia, Alberta and affected Alberta-aligned locations, and Manitoba time zones may return local times that are off by an hour. Jobs that use UTC or any other time zones aren't affected. Synapse Spark Runtime 3.5 use an outdated Java time zone database in most regions. Because of this, Spark sessions can apply the wrong daylight saving time (DST) rules for some Canadian time zones, and possibly for other regions affected by the same recent rule changes. 
 
