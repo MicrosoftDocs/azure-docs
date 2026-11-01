@@ -5,7 +5,7 @@ description: Learn how to use Copy Activity to copy data and use Data Flow to tr
 author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 07/29/2026
+ms.date: 11/01/2026
 ms.author: makromer
 ms.custom:
   - synapse
@@ -93,7 +93,7 @@ The following properties are supported for the REST linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **RestService**. | Yes |
-| url | The base URL of the REST service. | Yes |
+| url | The base URL of the REST service. For Copy activity, request URLs must use the same scheme, host, and port, and the dataset's `relativeUrl` must resolve within this URL's path. See [REST request URL validation](#rest-request-url-validation). | Yes |
 | enableServerCertificateValidation | Whether to validate server-side TLS/SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
 | authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, **OAuth2ClientCredential**, and **ManagedServiceIdentity**. You can additionally configure authentication headers in `authHeaders` property. Refer to corresponding sections below on more properties and examples respectively.| Yes |
 | authHeaders | Other HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as "Anonymous" and specify API key in the header. | No |
@@ -364,6 +364,30 @@ In addition, you can configure request headers for authentication along with the
 }
 ```
 
+## REST request URL validation
+
+> [!IMPORTANT]
+> **Breaking change:** A REST connector security update enforces URL boundaries for Copy activity. Request URLs must use the same scheme, host, and port as the REST linked service's base URL. The dataset's `relativeUrl` must also resolve to the base URL's path or a path beneath it. Configurations that previously used `relativeUrl` to override these boundaries now fail with `HttpInvalidUrlAddress`. This is an expected security behavior change, not a functional regression.
+
+### Mitigate `HttpInvalidUrlAddress`
+
+If a previously working REST copy activity fails with `HttpInvalidUrlAddress`, check whether its resolved request URL is outside the linked service's URL boundaries. To address this validation failure:
+
+1. Set the REST linked service's base URL to the intended target's scheme, host, port, and base path. Verify that the linked service's authentication is appropriate for that target.
+1. Set the dataset's `relativeUrl` to only the remaining relative path, with query parameters if needed. Don't use an absolute URL to a different host or a path that escapes the configured base path.
+1. If you access multiple hosts, use a separate linked service for each target or [parameterize the linked service's base URL](parameterize-linked-services.md). Update the datasets and pipeline parameter values accordingly.
+1. Rerun the copy activity to validate the updated configuration.
+
+For example, instead of combining a linked service base URL of `https://api.example.com/` with `relativeUrl` set to `https://target.example.com/v1/orders`, use:
+
+| Property | Value |
+|:--- |:--- |
+| Linked service base URL | `https://target.example.com/v1/` |
+| Dataset `relativeUrl` | `orders` |
+| Resolved request URL | `https://target.example.com/v1/orders` |
+
+Pagination request URLs must also use the same scheme, host, and port as the linked service's base URL. An absolute URL in a pagination rule doesn't allow a request to a different host.
+
 ## Dataset properties
 
 This section provides a list of properties that the REST dataset supports. 
@@ -375,7 +399,7 @@ To copy data from REST, the following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **RestResource**. | Yes |
-| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
+| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The REST connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. The resolved URL must stay within the linked service's scheme, host, port, and base path. See [REST request URL validation](#rest-request-url-validation). | No |
 
 If you set `requestMethod`, `additionalHeaders`, `requestBody`, and `paginationRules` in the dataset, the copy operation still supports them as-is, although you should use the new model in the activity going forward.
 
@@ -627,7 +651,7 @@ This generic REST connector supports the following pagination patterns:
 
 | Key | Description |
 |:--- |:--- |
-| AbsoluteUrl | Indicates the URL to issue the next request. It can be **either absolute URL or relative URL**. |
+| AbsoluteUrl | Indicates the URL to issue the next request. It can be **either absolute URL or relative URL**, but must use the same scheme, host, and port as the linked service's base URL. See [REST request URL validation](#rest-request-url-validation). |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. |
 | Headers.*request_header* OR Headers['request_header'] | "request_header" is user-defined, which references one header name in the next HTTP request. |
 | EndCondition:*end_condition* | "end_condition" is user-defined, which indicates the condition that will end the pagination loop in the next HTTP request. |
