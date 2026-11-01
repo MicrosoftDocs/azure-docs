@@ -1,16 +1,24 @@
 ---
-title: Microsoft Discovery Resource Provider Registration
+title: Register Microsoft Discovery resource providers
 description: Learn how to register the Microsoft Discovery resource provider and its dependencies in your Azure subscription to enable Discovery services.
 author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
-ms.topic: concept-article
-ms.date: 03/10/2026
+ms.topic: how-to
+ms.date: 10/24/2026
 ---
 
-# Microsoft Discovery resource provider registration
+# Register Microsoft Discovery resource providers
 
-Registering the Microsoft Discovery resource provider is a prerequisite for creating and using Microsoft Discovery resources in your Azure subscription. This article explains what resource provider registration means, what permissions you need, and how to complete registration using the Azure portal, Azure CLI, Azure PowerShell, or the REST API.
+<a id="microsoft-discovery-resource-provider-registration"></a>
+
+Register `Microsoft.Discovery` and its dependencies before creating Discovery resources. This article covers manual registration through the Azure portal, Azure CLI, Azure PowerShell, or REST. If you use the onboarding tool, [Stage 2 (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) performs registration for its deployment scope.
+
+## Prerequisites
+
+- An active [Azure subscription](https://portal.azure.com/) **enabled by the Microsoft Discovery team** for `Microsoft.Discovery`. Registration doesn't replace service enablement.
+- **Contributor** or **Owner** at subscription scope, or a custom role permitting provider registration (`Microsoft.Resources/subscriptions/providers/register/action`) and the reads needed to verify it.
+- For command-line methods, the relevant Azure CLI or Azure PowerShell installation and a signed-in context for the intended subscription.
 
 ## What is a resource provider?
 
@@ -24,16 +32,6 @@ Resource types in Microsoft Discovery follow the format `Microsoft.Discovery/{re
 - `Microsoft.Discovery/bookshelves`
 
 Registering a resource provider configures your Azure subscription to work with that service. You need to register `Microsoft.Discovery` and its dependent providers before you can deploy any Discovery resources.
-
-## Prerequisites
-
-Before registering the Microsoft Discovery resource provider, ensure you have:
-
-- An active [Azure subscription](https://portal.azure.com/) **enabled by the Microsoft Discovery team** to use the `Microsoft.Discovery` resource provider.
-- One of the following roles assigned to your account at the subscription scope:
-  - **Contributor** role (or higher)
-  - **Owner** role
-  - A custom role with the `/register/action` operation for resource providers
 
 > [!IMPORTANT]
 > Only register resource providers when you're ready to use them, to maintain least-privilege access within your subscription.
@@ -54,7 +52,7 @@ You can register the `Microsoft.Discovery` resource provider using the Azure por
 
 The registration status changes from **Not Registered** to **Registering**, and then to **Registered**. Registration can take a few minutes. It runs in parallel across supported regions, so you don't need to wait for all regions to finish before you create resources.
 
-After registering `Microsoft.Discovery`, register the following dependent resource providers using the same steps:
+After registering `Microsoft.Discovery`, review and register the dependent providers for your planned services by using the same steps. This list covers the broader Discovery deployment guidance. The onboarding tool's Stage 2 registers its own implementation-defined subset and doesn't deploy every optional capability.
 
 - `Microsoft.Network`
 - `Microsoft.Compute`
@@ -83,7 +81,7 @@ After registering `Microsoft.Discovery`, register the following dependent resour
 
 #### Verify registration in the portal
 
-Refresh the **Resource providers** page and confirm that all the Resource Providers shows a **Registered** status.
+Refresh the **Resource providers** page and confirm that the providers needed for your deployment show **Registered**.
 
 ### Azure CLI
 
@@ -97,6 +95,8 @@ Refresh the **Resource providers** page and confirm that all the Resource Provid
 ```azurecli
 az provider register --namespace Microsoft.Discovery
 ```
+
+Select the subscription you want to use with `az account set --subscription "<subscription-id>"` before registration. Repeat registration for each required dependent provider.
 
 #### Verify registration
 
@@ -125,6 +125,8 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 Register-AzResourceProvider -ProviderNamespace Microsoft.Discovery
 ```
 
+Use `Set-AzContext -SubscriptionId "<subscription-id>"` to select the subscription you want. Repeat for the required dependent providers.
+
 #### Verify registration
 
 ```azurepowershell
@@ -150,6 +152,14 @@ POST https://management.azure.com/subscriptions/{subscription-id}/providers/Micr
 
 ## Post-registration steps
 
+For REST verification, use a GET request to the subscription's provider endpoint and confirm that `registrationState` is `Registered`:
+
+```http
+GET https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Discovery?api-version=2021-04-01
+```
+
+Use an Azure Resource Manager access token in the Authorization header as `Bearer <access-token>`; don't put real tokens in source files or reports.
+
 After registration is complete:
 
 1. **Verify the registration status.** Confirm that `Microsoft.Discovery` shows **Registered** in the portal, or run the CLI or PowerShell verification commands.
@@ -170,4 +180,4 @@ After registration is complete:
 ## Related content
 
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
-- [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
+- [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types)
