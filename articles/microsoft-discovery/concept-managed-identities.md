@@ -64,7 +64,7 @@ A bookshelf references your UAMI through its `workloadIdentities` property. Disc
 
 ## Required role assignments
 
-In the [onboarding-tool path (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md), create the UAMI before Stage 1; the tool doesn't create it. Stage 2 prepares its assignments after the dependencies exist. These are workload permissions, not the signed-in operator's stage permissions or human PIM eligibility.
+In the [onboarding-tool path](how-to-set-up-deployment-tool.md#identify-or-create-the-initial-dependencies), create the UAMI before Stage 1; the tool doesn't create it. Stage 2 prepares its assignments after the dependencies exist. These are workload permissions, not the signed-in operator's stage permissions or human PIM eligibility.
 
 You must assign the following built-in roles to your UAMI *before* you create Discovery resources. Assign these roles at the *resource group* scope.
 

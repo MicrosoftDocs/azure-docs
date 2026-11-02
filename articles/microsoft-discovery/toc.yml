@@ -79,6 +79,8 @@ items:
       - name: Deploy Discovery resources across multiple regions
         href: how-to-deploy-across-regions.md
         displayName: Microsoft Discovery, deploy, multi-region, resource group, supercomputer, workspace    
+      - name: Deployment planning overview
+        href: concept-deployment-planning.md
   - name: Concepts
     items:
       - name: Data & Knowledge
@@ -341,6 +343,12 @@ items:
           - name: Get operation correlation ID from Activity Log
             href: how-to-get-correlation-id.md
             displayName: Microsoft Discovery, operation correlation ID, Activity Log
+      - name: Onboarding tool
+        items:
+          - name: Set up the onboarding tool
+            href: how-to-set-up-deployment-tool.md
+          - name: Create an onboarding configuration
+            href: how-to-create-deployment-configuration.md
   - name: Operate & Support
     items:
       - name: Observability overview
@@ -361,6 +369,12 @@ items:
         displayName: tutorial, Discovery Mode, first investigation, getting started, shared sessions, Discovery Engine
       - name: Build a shared session with cognition
         href: how-to-build-investigations-cognition.md
+  - name: Onboarding user guide
+    items:
+      - name: "Before you begin - Set up tools and prerequisites"
+        href: how-to-set-up-deployment-tool.md
+      - name: "Step 1 - Plan and generate configuration"
+        href: how-to-create-deployment-configuration.md
   - name: Reference
     items:
       - name: Troubleshoot Microsoft Discovery
