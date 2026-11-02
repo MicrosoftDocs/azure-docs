@@ -29,7 +29,7 @@ Agents don't interact with Azure Blob Storage directly. Instead, they use a set 
 When an agent calls **WriteResource**, the platform uploads the content to blob storage, creates a storage asset (an Azure Resource Manager resource), and adds the file to the task's data context so other tools can find it. The file also appears in the task result as a `storageAssetId`.
 
 > [!IMPORTANT]
-> Agents access blob storage through the platform's managed identity, not your identity. This means agents can create files that **you can't view** unless your administrator has granted you access. To view output files in VS Code, you need **Storage Blob Data Reader** (or Contributor) on the storage account, and your network must be able to reach the storage endpoint. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md) for the required configuration.
+> Agents access blob storage through the platform's managed identity, not your identity. This condition means agents can create files that **you can't view** unless your administrator grants you access. To view output files in VS Code, you need **Storage Blob Data Reader** (or Contributor) on the storage account, and your network must be able to reach the storage endpoint. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md) for the required configuration.
 
 ## Supported file types
 

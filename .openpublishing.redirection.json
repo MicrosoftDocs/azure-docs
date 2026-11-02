@@ -16,6 +16,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/microsoft-discovery/concept-storage-account.md",
+      "redirect_url": "/azure/microsoft-discovery/how-to-configure-project-storage",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/ai-gateway/get-started.md",
       "redirect_url": "/azure/ai-gateway/get-started-portal",
       "redirect_document_id": true

@@ -68,7 +68,7 @@ items:
             href: how-to-configure-container-registry.md
             displayName: Microsoft Discovery, ACR, container registry, tools, images, infrastructure
           - name: Azure Blob Storage Account
-            href: concept-storage-account.md
+            href: how-to-configure-project-storage.md
             displayName: Microsoft Discovery, storage account, blob storage, CORS, networking, infrastructure
           - name: Managed identities
             href: concept-managed-identities.md
@@ -261,6 +261,8 @@ items:
           - name: Create Bookshelf and index a Knowledgebase
             href: how-to-index-bookshelf-knowledgebase.md
             displayName: Microsoft Discovery, bookshelf, knowledgebase, indexing, LazyGraphRAG, storage, blob, managed identity
+          - name: Configure project storage
+            href: how-to-configure-project-storage.md
       - name: Network Security & Data Protection
         items:
           - name: Configure network security
