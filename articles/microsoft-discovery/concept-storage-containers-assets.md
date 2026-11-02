@@ -100,7 +100,7 @@ The storage account backing a storage container must be network-accessible to th
 
 - The storage account must allow access from the **virtual network subnets** used by the supercomputer, workspace, and agents.
 - If you restrict public access on the storage account, configure **virtual network rules** or **private endpoints** so the platform can reach it.
-- For CORS requirements (needed for Discovery Studio file browsing), see [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md#cors-configuration).
+- For CORS requirements (needed for Discovery Studio file browsing), see [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md#cors-configuration).
 
 ## Limitations
 
@@ -112,6 +112,6 @@ The storage account backing a storage container must be network-accessible to th
 ## Related content
 
 - [Manage storage containers and storage assets](how-to-manage-storage-containers.md) - Step-by-step guide for creating, listing, and deleting storage containers and assets.
-- [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md) - Storage account prerequisites including networking, CORS, and identity access.
+- [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md) - Storage account prerequisites including networking, CORS, and identity access.
 - [Files and storage assets](concept-files-storage-assets.md) — How agents produce and consume files during investigations.
 - [Managed identities in Microsoft Discovery](concept-managed-identities.md) - Identity requirements for storage access.
