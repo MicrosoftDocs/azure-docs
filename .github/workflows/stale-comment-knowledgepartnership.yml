@@ -10,7 +10,7 @@ run-name: >-
 on:
   schedule:
     # Once per hour
-    - cron: "0 * * * *"
+    - cron: "17 * * * *"
   # Optional manual runs also apply changes; the hourly schedule needs no opt-in.
   workflow_dispatch:
     inputs:
@@ -140,6 +140,7 @@ jobs:
     uses: ./.github/workflows/reusable-kp-reminder.yml
     with:
       reminder-type: author
+      rollout-branch-prefix: ${{ needs.configuration.outputs.rollout-branch-prefix }}
       reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
       inactivity-days: ${{ fromJSON(needs.configuration.outputs.inactivity-days) }}
       operations-per-run: ${{ fromJSON(needs.configuration.outputs.operations-per-run) }}
