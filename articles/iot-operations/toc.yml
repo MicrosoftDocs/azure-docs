@@ -399,6 +399,9 @@ items:
               - name: Create a custom Akri connector with .NET
                 href: develop-edge-apps/howto-develop-akri-connectors.md
                 displayName: VS Code, template, develop
+              - name: Understand custom Akri connector development with Rust
+                href: develop-edge-apps/concept-akri-connector-development-rust.md
+                displayName: Rust, SDK, BaseConnector, develop
               - name: Build Akri connectors with VS Code extension
                 href: develop-edge-apps/howto-build-akri-connectors-vscode.md
                 displayName: develop
