@@ -63,11 +63,14 @@ After you create an intermediate CA, you must create a certificate policy before
 
 ### Set variables
 
-Optionally, define variables for the commands in this article.
+The following examples use Bash syntax. Optionally, define shared variables for the commands in this article. If you don't set these variables, replace each variable reference in the commands with its value.
+
+You must create certificate authorities in the same region as their Azure Device Registry namespace.
 
 ```azurecli
 RG_NAME="<resource-group>"
 NS_NAME="<adr-namespace>"
+SUBSCRIPTION_ID="<subscription-id>"
 ```
 
 ### Create the root CA
@@ -75,13 +78,13 @@ NS_NAME="<adr-namespace>"
 Run the following command to enable certificate management and provision a root CA for the namespace:
 
 ```azurecli
-az iot adr ns ca create --name "<root-ca-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id> --location <region> --type Root
+az iot adr ns ca create --name "<root-ca-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription "$SUBSCRIPTION_ID" --type Root
 ```
 
 Verify that provisioning succeeded and review the root CA certificate information:
 
 ```azurecli
-az iot adr ns ca show --name "<root-ca-name>" --namespace "$NS_NAME" --resource-group "$RG_NAME"
+az iot adr ns ca show --name "<root-ca-name>" --namespace "$NS_NAME" --resource-group "$RG_NAME" --subscription "$SUBSCRIPTION_ID"
 ```
 
 ### Create an intermediate CA
@@ -89,7 +92,7 @@ az iot adr ns ca show --name "<root-ca-name>" --namespace "$NS_NAME" --resource-
 Create an intermediate certificate authority that's issued by the namespace root CA.
 
 ```azurecli
-az iot adr ns ca create --name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id> --location <location> --type ICA --issuer-type Microsoft --issuer-ca-name "<root-ca-name>"
+az iot adr ns ca create --name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription "$SUBSCRIPTION_ID" --type ICA --issuer-type Microsoft --issuer-ca-name "<root-ca-name>"
 
 ```
 
@@ -97,7 +100,7 @@ Verify that the intermediate certificate authority properties match the values t
 
 
 ```azurecli
-az iot adr ns ca show --ca-name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id>
+az iot adr ns ca show --ca-name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription "$SUBSCRIPTION_ID"
 ```
 
 After you create an intermediate CA, you must create a certificate policy before you can issue device certificates. For instructions, see [Create or edit a certificate policy](how-to-create-edit-certificate-policy.md).
