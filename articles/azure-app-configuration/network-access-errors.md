@@ -62,5 +62,5 @@ Content-Type: application/problem+json; charset=utf-8
 - [Use private endpoints for Azure App Configuration](./concept-private-endpoint.md)
 - [Set up private access in Azure App Configuration](./howto-set-up-private-access.md)
 - [Disable public access in Azure App Configuration](./howto-disable-public-access.md)
-- [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
+- [Troubleshoot Azure Private Endpoint connectivity problems](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems)
 - [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md)
