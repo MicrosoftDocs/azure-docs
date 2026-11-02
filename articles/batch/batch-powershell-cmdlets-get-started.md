@@ -112,9 +112,9 @@ When using many of these cmdlets, in addition to passing a BatchContext object, 
 
 ### Create a Batch pool
 
-When creating or updating a Batch pool, you specify a [configuration](nodes-and-pools.md#configurations). Pools are configured with Virtual Machine Configuration, which lets you either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or provide a custom image from an [Azure Compute Gallery](batch-sig-images.md).
+When you create or update a Batch pool, specify a [configuration](nodes-and-pools.md#configurations). Configure pools with Virtual Machine Configuration, which you use to either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or provide a custom image from an [Azure Compute Gallery](batch-sig-images.md).
 
-When you run **New-AzBatchPool**, pass the operating system settings in a PSVirtualMachineConfiguration object. For example, the following snippet creates a Batch pool with size Standard_D4ds_v5 compute nodes in the virtual machine configuration, imaged with Ubuntu Server 24.04 LTS. Here, the **VirtualMachineConfiguration** parameter specifies the *$configuration* variable as the PSVirtualMachineConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
+When you run **New-AzBatchPool**, pass the operating system settings in a PSVirtualMachineConfiguration object. For example, the following snippet creates a Batch pool with size Standard_D4ds_v5 compute nodes in the virtual machine configuration, imaged with Ubuntu Server 24.04 LTS. The **VirtualMachineConfiguration** parameter specifies the *$configuration* variable as the PSVirtualMachineConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
 ```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("ubuntu-24_04-lts","Canonical","server")
