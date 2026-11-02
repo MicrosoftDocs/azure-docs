@@ -3,7 +3,7 @@ author: hhunter-ms
 title: Large payload support with Durable Task Scheduler (Preview)
 description: Learn how to use preview large payload support in Durable Functions and the Durable Task SDKs with Durable Task Scheduler and Azure Blob Storage.
 ms.topic: feature-guide
-ms.date: 10/12/2026
+ms.date: 10/28/2026
 ms.author: torosent
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
@@ -20,6 +20,7 @@ This feature is available for:
 - [Durable Functions](../durable-functions/durable-functions-overview.md) with the .NET isolated worker
 - [.NET Durable Task SDK](../sdks/durable-task-overview.md)
 - [Python Durable Task SDK](../sdks/durable-task-overview.md)
+- [Java Durable Task SDK](../sdks/durable-task-overview.md)
 - [Go Durable Task SDK (beta)](../sdks/durable-task-go.md)
 
 If your workflow stores data in Blob Storage and passes only a URI or identifier, keep using that pattern. Use large payload support when your orchestration logic must pass the payload between durable operations. For general guidance, see [Data persistence and serialization in Durable Functions](../durable-functions/durable-functions-serialization-and-persistence.md#keep-durable-functions-inputs-and-outputs-small).
@@ -31,8 +32,8 @@ This table shows large payload support by framework.
 | Framework | Support status | What you need |
 | --- | --- | --- |
 | Durable Functions | Supported in .NET isolated C# | Use Durable Task Scheduler as the storage provider and use `AzureWebJobsStorage` for payload blobs |
-| Durable Task SDKs | Supported in .NET, Python, and Go (beta) | Use the language-specific Azure Blob payload support with Azure Blob Storage |
-| JavaScript, PowerShell, and Java | Not available | Use external storage and pass references between durable operations |
+| Durable Task SDKs | Supported in .NET, Python, Java, and Go (beta) | Use the language-specific Azure Blob payload support with Azure Blob Storage |
+| JavaScript and PowerShell | Not available | Use external storage and pass references between durable operations |
 
 ## How it works
 
@@ -124,7 +125,7 @@ Large payload support with Durable Task Scheduler is available only for .NET iso
 
 ::: zone pivot="durable-task-sdks"
 
-Durable Task SDKs support large payloads for .NET, Python, and Go (beta) apps.
+Durable Task SDKs support large payloads for .NET, Python, Java, and Go (beta) apps.
 
 To enable large payload support in a Go app, configure it in your code:
 
@@ -134,7 +135,7 @@ To enable large payload support in a Go app, configure it in your code:
 
 For a complete Go example that you can run locally with the Azurite storage emulator, see the [Go SDK large payloads sample](https://github.com/microsoft/durabletask-go/tree/main/samples/largepayloads).
 
-The following tabs show how to enable large payload support for .NET and Python.
+The following tabs show how to enable large payload support for .NET, Python, and Java.
 
 # [C#](#tab/csharp)
 
@@ -183,11 +184,11 @@ For an end-to-end .NET example, see the [Durable Task SDK large payload sample](
 
 # [JavaScript](#tab/javascript)
 
-Large payload support with Durable Task Scheduler is available for the .NET, Python, and Go (beta) Durable Task SDKs.
+Large payload support with Durable Task Scheduler is available for the .NET, Python, Java, and Go (beta) Durable Task SDKs.
 
 # [PowerShell](#tab/powershell)
 
-Large payload support with Durable Task Scheduler is available for the .NET, Python, and Go (beta) Durable Task SDKs.
+Large payload support with Durable Task Scheduler is available for the .NET, Python, Java, and Go (beta) Durable Task SDKs.
 
 # [Python](#tab/python)
 
@@ -236,7 +237,37 @@ For an end-to-end Python example, see the [Durable Task SDK large payload Python
 
 # [Java](#tab/java)
 
-Large payload support with Durable Task Scheduler is available for the .NET, Python, and Go (beta) Durable Task SDKs.
+Add the Azure Blob payload extension alongside the client and Azure Managed packages:
+
+```xml
+<dependency>
+    <groupId>com.microsoft</groupId>
+    <artifactId>durabletask-azure-blob-payloads</artifactId>
+    <version>1.10.0</version>
+</dependency>
+```
+
+Create a `BlobPayloadStore` and enable externalized payloads on your client and worker builders:
+
+```java
+LargePayloadStorageOptions payloadOptions = new LargePayloadStorageOptions()
+    .setConnectionString(System.getenv("PAYLOAD_STORAGE_CONNECTION_STRING"))
+    .setContainerName("durabletask-payloads")
+    .setThresholdBytes(256 * 1024);
+
+PayloadStore payloadStore = new BlobPayloadStore(payloadOptions);
+
+LargePayloadClientExtensions.useExternalizedPayloads(clientBuilder, payloadStore, payloadOptions);
+LargePayloadWorkerExtensions.useExternalizedPayloads(workerBuilder, payloadStore, payloadOptions);
+```
+
+These types are in `com.microsoft.durabletask.azureblobpayloads`. Configure the same storage location on all clients and workers that exchange externalized payloads.
+
+The default threshold is `262,144` bytes (256 KiB), with a maximum of `1,048,576` bytes (1 MiB). The default maximum externalized payload size is 10 MiB.
+
+For Microsoft Entra ID authentication, add `com.azure:azure-identity` and use `setAccountUri` and `setCredential` instead of `setConnectionString`.
+
+For an end-to-end example using the Durable Task Scheduler emulator and Azurite, see the [Java SDK large payload sample](https://github.com/microsoft/durabletask-java/blob/main/samples/src/main/java/io/durabletask/samples/LargePayloadSample.java).
 
 ---
 
@@ -283,7 +314,7 @@ Large payload support with Durable Task Scheduler is available only for .NET iso
 
 ::: zone pivot="durable-task-sdks"
 
-Use these environment variables with the current .NET and Python Durable Task SDK samples.
+Use these environment variables with the current .NET, Python, and Java Durable Task SDK samples.
 
 # [C#](#tab/csharp)
 
@@ -303,11 +334,11 @@ If `PAYLOAD_STORAGE_CONNECTION_STRING` isn't set and `PAYLOAD_STORAGE_ACCOUNT_UR
 
 # [JavaScript](#tab/javascript)
 
-Sample settings are shown for .NET and Python.
+Sample settings are shown for .NET, Python, and Java.
 
 # [PowerShell](#tab/powershell)
 
-Sample settings are shown for .NET and Python.
+Sample settings are shown for .NET, Python, and Java.
 
 # [Python](#tab/python)
 
@@ -321,7 +352,12 @@ The Python sample sets `threshold_bytes` in code with `BlobPayloadStoreOptions`.
 
 # [Java](#tab/java)
 
-Sample settings are shown for .NET and Python.
+| Variable | Description | Sample default |
+| --- | --- | --- |
+| `DURABLE_TASK_SCHEDULER_CONNECTION_STRING` | Durable Task Scheduler connection string | `Endpoint=http://localhost:8080;TaskHub=default;Authentication=None` |
+| `PAYLOAD_STORAGE_CONNECTION_STRING` | Blob storage connection string for externalized payloads | `UseDevelopmentStorage=true` |
+| `PAYLOAD_SIZE_BYTES` | Payload size used for the round trip | `1572864` |
+| `EXTERNALIZE_THRESHOLD_BYTES` | Blob offload threshold used by the sample | `900000` |
 
 ---
 
@@ -357,6 +393,7 @@ The sample apps also validate the round trip:
 - The Durable Functions samples return a small summary object that confirms the input and output sizes.
 - The .NET Durable Task SDK sample prints whether the run creates new payload blobs.
 - The Python Durable Task SDK sample runs both inline and externalized payload flows and prints the orchestration result for each run.
+- The Java Durable Task SDK sample passes a payload larger than 1 MiB through an orchestration and activity and verifies that the output matches the input.
 
 Because the runtime stores externalized payloads with gzip content encoding, Azure reports the compressed on-disk blob size. With the current low-compressibility sample payloads, those blob sizes should stay reasonably close to the logical payload size.
 

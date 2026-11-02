@@ -21,6 +21,10 @@ on:
         description: Label required for a PR to participate in the rollout
         type: string
         required: true
+      rollout-branch-prefix:
+        description: Target branch prefix required for a reminder
+        type: string
+        required: true
       reminder-due-label:
         description: Bot-owned label recording business-day reminder eligibility
         type: string
@@ -63,6 +67,7 @@ jobs:
     timeout-minutes: 15
     env:
       EVENT_LABEL: ${{ inputs.event-label }}
+      ROLLOUT_BRANCH_PREFIX: ${{ inputs.rollout-branch-prefix }}
       REMINDER_DUE_LABEL: ${{ inputs.reminder-due-label }}
       INACTIVITY_DAYS: ${{ inputs.inactivity-days }}
       AUTHOR_ACTION_LABEL: ${{ inputs.author-action-label }}

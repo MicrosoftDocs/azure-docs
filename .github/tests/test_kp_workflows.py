@@ -42,7 +42,7 @@ class KnowledgePartnershipWorkflows(unittest.TestCase):
         self.assertEqual(self.scan["name"], Path(SCAN).stem)
         self.assertEqual(self.enroll["name"], Path(ENROLL).stem)
         self.assertEqual(set(self.scan["on"]), {"schedule", "workflow_dispatch"})
-        self.assertEqual(self.scan["on"]["schedule"], [{"cron": "0 * * * *"}])
+        self.assertEqual(self.scan["on"]["schedule"], [{"cron": "17 * * * *"}])
         self.assertEqual(set(self.enroll["on"]), {"pull_request_target"})
         self.assertEqual(
             self.enroll["on"]["pull_request_target"]["types"],
@@ -106,6 +106,18 @@ class KnowledgePartnershipWorkflows(unittest.TestCase):
         ])
         self.assertEqual(
             jobs["send-author-reminder"]["uses"], "./.github/workflows/reusable-kp-reminder.yml"
+        )
+        self.assertEqual(
+            jobs["send-author-reminder"]["with"]["rollout-branch-prefix"],
+            "${{ needs.configuration.outputs.rollout-branch-prefix }}",
+        )
+        reminder = self.workflows["reusable-kp-reminder.yml"]
+        self.assertEqual(
+            reminder["on"]["workflow_call"]["inputs"]["rollout-branch-prefix"]["required"], "true"
+        )
+        self.assertEqual(
+            reminder["jobs"]["send-reminders"]["env"]["ROLLOUT_BRANCH_PREFIX"],
+            "${{ inputs.rollout-branch-prefix }}",
         )
         self.assertEqual(
             jobs["manage-pr-reminders"]["env"]["EVENT_LABEL"],

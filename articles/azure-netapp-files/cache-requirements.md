@@ -82,6 +82,7 @@ The following features can't be used with Azure NetApp Files cache volumes:
 * Ransomware protection
 * Snapshot policies
 * S3 Buckets
+* Cool access
 
 #### Supported features
 
@@ -92,7 +93,8 @@ The following features are supported with cache volumes:
 * Lightweight Directory Access Protocol (LDAP)
 * NFSv3 and NFSv4.1, SMB, and dual-protocol (NFS and SMB)
 * Kerberos
-* File access logs 
+* File access logs
+* Service level changes
 
 >[!NOTE]
 >You can't transition noncustomer managed key cache volumes to customer managed key.
