@@ -27,14 +27,14 @@ ms.collection: ce-skilling-ai-copilot
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-[WordPress](https://www.wordpress.org) is an open-source Content Management System (CMS) that powers over 40% of the web. It allows users to create and manage websites, blogs, and e-commerce platforms. **WordPress on Azure App Service** is a *partially managed hosting offering*. Azure manages the underlying platform, while you manage and secure the WordPress application. This offering integrates key Azure services such as:
+[WordPress](https://www.wordpress.org) is an open-source content management system (CMS) that powers over 40% of the web. It lets you create and manage websites, blogs, and e-commerce platforms. **WordPress on Azure App Service** is a *partially managed hosting offering*. Azure manages the underlying platform, while you manage and secure the WordPress application. This offering integrates key Azure services such as:
 
 - **Azure App Service**: A scalable platform-as-a-service (PaaS) optimized for running WordPress.
 - **Azure Database for MySQL**: A managed database service for WordPress back-end storage.
 - **Azure Front Door**: Enhances website speed and performance by caching content across global servers and intelligently routing user traffic.
 - **Azure Blob Storage**: Offloads media files to reduce server load and enhance scalability.
 
-This solution is designed for both small and large-scale deployments. This fact makes it an ideal choice for personal blogs, corporate websites, and high-traffic e-commerce platforms. With automated platform updates, built-in security features, and global availability, WordPress on Azure App Service simplifies infrastructure management while ensuring high availability and performance.
+This solution is designed for both small and large-scale deployments. This fact makes it an ideal choice for personal blogs, corporate websites, and high-traffic e-commerce platforms. By using automated platform updates, built-in security features, and global availability, WordPress on Azure App Service simplifies infrastructure management while ensuring high availability and performance.
 
 For more information, see [Create a WordPress site](quickstart-wordpress.md) or start using the Azure portal to [create a WordPress site](https://portal.azure.com/#create/WordPress.WordPress).
 
@@ -62,9 +62,9 @@ Azure App Service makes deploying WordPress sites straightforward for both begin
 
 Microsoft manages and patches the App Service platform, including the underlying operating system and PHP runtime. You're responsible for selecting and upgrading the PHP major version when needed.
 
-You're responsible for keeping WordPress core, themes, and plugins secure and up to date. Some WordPress core updates might be applied automatically, depending on your configuration, but you should verify that the updates are applied. App Service platform updates don't update or overwrite the WordPress files in an existing site.
+You're responsible for keeping WordPress core, themes, and plugins secure and up to date. Depending on your configuration, some WordPress core updates might be applied automatically, but you should verify that the updates are applied. App Service platform updates don't update or overwrite the WordPress files in an existing site.
 
-For more information, see [How are security patches updated?](wordpress-faq.md#how-are-security-patches-updated).
+For more information, see [How are security patches updated?](wordpress-faq.md#how-are-security-patches-updated)
 
 ## What enterprise-grade features are available?
 
