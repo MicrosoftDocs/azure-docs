@@ -42,7 +42,7 @@ Both approaches work with Microsoft Discovery. The quickstart guides use a singl
 - An active Azure subscription enabled for **Microsoft Discovery**.
 - **Managed Identity Contributor** role at the resource group or subscription level - required to create UAMI resources.
 - **User Access Administrator** or **Owner** role at the resource group level - required to create role assignments on the UAMI.
-- The `Microsoft.ManagedIdentity` resource provider [registered](concept-resource-provider-registration.md) in your subscription.
+- The `Microsoft.ManagedIdentity` resource provider [registered](how-to-register-resource-providers.md) in your subscription.
 
 ## Create a user-assigned managed identity
 

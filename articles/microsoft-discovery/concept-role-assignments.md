@@ -453,6 +453,6 @@ The script validates the executor's permissions, supports both subscription and 
 - [Configure project-level access](how-to-configure-project-rbac.md)
 - [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md)
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
-- [Resource provider registration in Microsoft Discovery](concept-resource-provider-registration.md)
+- [Resource provider registration in Microsoft Discovery](how-to-register-resource-providers.md)
 - [Azure RBAC documentation](../role-based-access-control/overview.md)
 - [Azure built-in roles](../role-based-access-control/built-in-roles.md)

@@ -39,7 +39,7 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
     > [!TIP]
     > To assign the full **Platform Administrator** persona role set in a single, idempotent command, use the open-source `Set-DiscoveryRoleAssignments.ps1` PowerShell script. See [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md). This method is the recommended path for onboarding multiple users.
 
-- **Register the required resource providers** in your subscription. For more information, see [Resource provider registration](concept-resource-provider-registration.md). To register `Microsoft.Discovery`:
+- **Register the required resource providers** in your subscription. For more information, see [Resource provider registration](how-to-register-resource-providers.md). To register `Microsoft.Discovery`:
    1. Sign in to the [Azure portal](https://portal.azure.com).
    1. Navigate to **Subscriptions** and select your subscription.
    1. In the left-hand menu, select **Resource Providers**.
