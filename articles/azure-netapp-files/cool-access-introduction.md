@@ -72,7 +72,7 @@ For existing volumes in capacity pools where cool access was enabled prior to th
 | Premium | Quota in TiB * 36 MiB/s |  Quota in TiB * 64 MiB/s 
 | Ultra | Quota in TiB * 68 MiB/s |  Quota in TiB * 128 MiB/s 
 
-For example, a 10-TiB volume on the Premium service regularly delivers throughput of 640 MiB/s (10 TiB * 64 MiB/s). For regular volumes, once cool access is enabled, throughput is 360 MiB/s (10 TiB * 36 MiB/s) regardless of the amount of data tiered, and it stays at 360 MiB/s even if you later disable cool access. For large volumes, if you disable cool access, throughput reverts back to 640 MiB/s (10 TiB * 64 MiB/s).
+For example, a 10-TiB volume on the Premium service regularly delivers throughput of 640 MiB/s (10 TiB * 64 MiB/s). For regular volumes, once you enable cool access, throughput is 360 MiB/s (10 TiB * 36 MiB/s) regardless of the amount of data tiered, and it stays at 360 MiB/s even if you later disable cool access. For large volumes, if you disable cool access, throughput reverts back to 640 MiB/s (10 TiB * 64 MiB/s).
 
 > [!NOTE]
 > You should create a new capacity pool and move the old volumes to the new capacity pools to use the updated QoS limit. 
