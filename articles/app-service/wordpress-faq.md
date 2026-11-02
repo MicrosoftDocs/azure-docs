@@ -44,10 +44,8 @@ WordPress on Azure App Service is a partially managed hosting offering. Microsof
 You're responsible for the following updates:
 
 - **PHP major version:** Select and upgrade the PHP major version when needed under **App Service > Settings > Configuration**.
-- **WordPress core:** Keep WordPress core secure and up to date. Some core updates might be applied automatically, depending on your configuration. Verify that updates are applied, and update WordPress core when needed.
+- **WordPress core:** Keep WordPress core secure and up to date. Some core updates might be applied automatically, depending on your configuration. Verify that updates are applied, and update WordPress core when needed. For more information about automatic updates, see [How to keep your WordPress website stack on Azure App Service up to date](https://techcommunity.microsoft.com/blog/appsonazureblog/how-to-keep-your-wordpress-website-stack-on-azure-app-service-up-to-date/3832193).
 - **Plugins and themes:** Keep plugins and themes secure and up to date, either manually or by configuring automatic updates in WordPress. Back up your site before applying updates.
-
-For more information, see [How to keep your WordPress website stack on Azure App Service up to date](https://techcommunity.microsoft.com/blog/appsonazureblog/how-to-keep-your-wordpress-website-stack-on-azure-app-service-up-to-date/3832193).
 
 ## What security features are available to protect my website?
 
