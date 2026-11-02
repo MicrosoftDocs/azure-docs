@@ -1,31 +1,34 @@
 ---
-title: Azure Blob Storage in Microsoft Discovery
-description: Learn how Azure Blob Storage is used in Microsoft Discovery to store investigation input and output data, and how to configure networking, CORS, and identity access for the storage account.
+title: Configure project storage for Microsoft Discovery
+description: Create project storage for Microsoft Discovery and configure identity access, CORS, and approved private or selected-network access paths.
 author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
-ms.topic: concept-article
-ms.date: 03/10/2026
+ms.topic: how-to
+ms.date: 10/24/2026
 ---
 
-# Azure Blob Storage in Microsoft Discovery
+# Configure project storage for Microsoft Discovery
 
-Microsoft Discovery uses Azure Blob Storage as the backing store for investigation input and output data. This article explains the role a storage account plays in the platform, and what networking, CORS, and identity access configuration is required before you create Discovery resources.
+<a id="azure-blob-storage-in-microsoft-discovery"></a>
+
+Create and configure a customer-owned Azure Blob Storage account for project inputs and outputs. You need project storage even if you don't use Bookshelf.
+
+For the onboarding tool, create the account before Stage 1, and then let [Stage 2 (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) configure its storage networking and access settings after the network is available. The tool doesn't create the storage account. Review its changes before selecting a shared account.
+
+## Prerequisites
+
+- An active Azure subscription and permission to create and configure storage in the selected resource group, such as Storage Account Contributor or Contributor.
+- The `Microsoft.Storage` resource provider registered.
+- For role assignments, Owner, User Access Administrator, or Role Based Access Control Administrator at the assignment scope.
+- For final networking, an approved virtual network, subnet, and client-access plan. You can create the account before the final virtual network exists.
+- For runtime access, a [precreated UAMI](how-to-configure-managed-identity.md). Create its role assignments once the relevant resources exist.
 
 ## Role of storage in Microsoft Discovery
 
 When you run an investigation in Microsoft Discovery Studio, the platform reads input data from and writes output data to an Azure Blob Storage account that you own and manage in your Azure subscription. This design keeps your research data within your own Azure environment.
 
 In Discovery Studio, the storage account is surfaced through **Storage Containers**: logical groupings that map to Azure Blob Storage containers inside your account. Both input assets (datasets, parameter files) and output assets (results, logs) are stored as blobs within these containers.
-
-## Prerequisites
-
-Before creating a storage account for Microsoft Discovery, ensure you have:
-
-- An active Azure subscription with the **Contributor** or **Owner** role on the target resource group.
-- The `Microsoft.Storage` resource provider registered on your subscription.
-- A virtual network and subnets already provisioned. The storage account must allow network access from the same virtual network used by the supercomputer and workspace. See [Virtual networks and subnets in Microsoft Discovery](concept-virtual-networks.md).
-- A User Assigned Managed Identity (UAMI) that will be granted access to the storage account. See [Role assignments in Microsoft Discovery](concept-role-assignments.md).
 
 ## Storage account requirements
 
@@ -44,7 +47,12 @@ The storage account must be reachable from two sources:
 | Virtual network subnets (supercomputer, AKS, workspace) | Allows the Discovery platform to read and write investigation data |
 | Client IP address or on-premises network | Allows researchers to access output data from their Discovery Studio portal or local tools |
 
-Configure the **Networking** settings as follows:
+Choose the approved access path rather than applying both alternatives indiscriminately:
+
+- **Private endpoint:** configure a blob private endpoint, its private DNS zone group, and a link to the intended VNet. Clients need a private network path and DNS resolution. See [Storage private endpoints](/azure/storage/common/storage-private-endpoints). A firewall default action of Deny isn't the same as setting public network access to Disabled.
+- **Selected public networks/service endpoints:** keep public network access enabled only from approved networks and IPs, configure the `Microsoft.Storage` service endpoint on participating subnets, and add the required subnet/client rules.
+
+For the selected-network path, configure **Networking** as follows:
 
 - Set **Public network access** to **Enabled from selected virtual networks and IP addresses**.
 - Add the virtual network and **all subnets** created for your Discovery deployment (supercomputer, AKS, workspace, private endpoint, and agent subnets).
@@ -58,7 +66,7 @@ Configure the **Networking** settings as follows:
 You don't need to precreate output containers. When an agent writes outputs, the platform automatically performs a create-if-not-exists operation on the target blob container. Multiple investigations can safely share the same storage container, each conversation, or investigation creates a logical section within the container so that outputs remain isolated per conversation.
 
 > [!NOTE]
-> Automatic container creation requires two prerequisites: the workspace agent subnet must be added to the storage account network allow list, and the workspace managed identity must have the **Storage Blob Data Contributor** role on the storage account.
+> Automatic container creation requires the workspace managed identity to have **Storage Blob Data Contributor** and a working network path to storage. For selected-network access, allow the workspace agent subnet. For private access, configure the blob private endpoint and DNS instead.
 
 ### CORS configuration
 
@@ -98,15 +106,17 @@ az role assignment create \
 
 ### Azure portal
 
+If you only need the initial account for onboarding Stage 1, create it with the approved restrictive networking settings and complete final access after the VNet exists. The selected-network additions in the following steps apply when those subnets already exist; the private-endpoint alternative uses its own endpoint and DNS procedure.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Storage accounts** and select it.
 1. Select **Create**.
 1. On the **Basics** tab, enter the subscription, resource group, name, and region. Select the same region as your Discovery workspace.
 1. Under **Primary service**, select **Azure Blob Storage**.
 1. Select the **Networking** tab.
-1. Under **Public network access**, select **Enable access from selected virtual networks and IP addresses**.
-1. Under **Virtual networks**, select **Add existing virtual network**, then select your Discovery virtual network and all its subnets.
-1. Under **Firewall**, select **Add your client IP address** if you need browser access to output data over the public internet.
+1. Under **Public network access**, select the setting for the approved path: **Enable access from selected virtual networks and IP addresses** for service-endpoint access, or **Disabled** for private-only access.
+1. For the selected-network path, under **Virtual networks**, select **Add existing virtual network** and add the approved subnets when available. For an initial onboarding account, defer this step until Stage 2.
+1. Under **Firewall**, add your client IP address only if approved public browser access is part of the plan. For private-only access, configure the private endpoint and a private client path instead.
 1. Select **Review + create**, then **Create**.
 
 After the account is created, complete the following post-creation steps:
@@ -149,7 +159,11 @@ az storage account create \
   --allow-blob-public-access false
 ```
 
+This step creates the account with a deny-by-default firewall. It doesn't create a private endpoint or grant client access. In the onboarding tool path, record the existing account in Stage 1 and continue with Stage 2 for planned networking changes. You don't need a not-yet-created virtual network to create this account.
+
 #### Add virtual network rules
+
+Use these rules only for the approved selected-network/service-endpoint path. First, enable the `Microsoft.Storage` service endpoint on each selected subnet. For private-only access, follow the linked private-endpoint procedure or the onboarding Stage 2 path. Subnet allow rules aren't a substitute for a private endpoint and DNS.
 
 ```azurecli
 # Add each subnet that needs access to the storage account
@@ -157,10 +171,11 @@ for SUBNET in supercomputerNodepoolSubnet aksSubnet workspaceSubnet privateEndpo
   az storage account network-rule add \
     --account-name $STORAGE_NAME \
     --resource-group $RESOURCE_GROUP \
-    --vnet-name $VNET_NAME \
-    --subnet $SUBNET
+    --subnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET"
 done
 ```
+
+Replace the example subnet names with the actual approved subnets. The full resource ID identifies the virtual network's resource group independently of the storage account's group.
 
 #### Configure CORS
 
@@ -190,10 +205,18 @@ az role assignment create \
   --scope $STORAGE_RESOURCE_ID
 ```
 
+## Verify project storage access
+
+1. Confirm that the account, UAMI assignment, and approved network settings target the intended resource IDs.
+1. From an approved platform-network test location, verify blob-endpoint DNS resolution and HTTPS connectivity. For private-only access, confirm DNS resolves to the intended private endpoint.
+1. Use an approved test investigation to verify that the platform can write an output and that an authorized researcher can open it in Discovery Studio. Check the researcher's own network path, permissions, and browser CORS results separately.
+1. Remove only the identified test data according to its owner's retention policy. Don't delete a shared container or storage account to clean up a test.
+
 ## Related content
 
+- [Plan Discovery deployment (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md)
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
 - [Virtual networks and subnets in Microsoft Discovery](concept-virtual-networks.md)
 - [Role assignments in Microsoft Discovery](concept-role-assignments.md)
-- [Azure Blob Storage documentation](../storage/blobs/storage-blobs-overview.md)
-- [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md)
+- [Azure Blob Storage documentation](/azure/storage/blobs/storage-blobs-overview)
+- [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security)

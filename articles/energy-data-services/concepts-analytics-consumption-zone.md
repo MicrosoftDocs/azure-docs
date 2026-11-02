@@ -172,7 +172,7 @@ Purged records are removed from the Delta table. To remove purged records from d
 > [!NOTE]
 > Use `ingestTime` rather than `modifyTime` to detect changes. `modifyTime` reflects updates to the record in Azure Data Manager for Energy and doesn't change when a record is soft-deleted.
 
-For a reference implementation, see the [ADME Analytics Accelerator](https://github.com/microsoft/adme-acz-silverlayer).
+For a reference implementation, see the [ADME ACZ Silver Layer sample notebook](https://github.com/microsoft/adme-acz-silverlayer).
 
 ## Data output format
 
