@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.update:cycle: 365-days
 ms.reviewer: v-gajeronika
-ms.date: 05/08/2025
+ms.date: 11/02/2026
 ms.custom: vmware-scenario-422, mvc, engagement-fy25
 # Customer intent: As a VMware administrator, I want to troubleshoot slow replication or stuck migration, so that I can ensure efficient and timely replication of virtual machines during the migration process.
 ---
@@ -88,14 +88,19 @@ While performing replications, you might observe that replication for a particul
 
 ### NFC buffer size low 
 
-The Azure Migrate appliance operates under the constraint of using 32 MB of NFC buffer to concurrently replicate 8 disks on the ESXi host. An NFC buffer size of less than 32 MB might cause slow replication. 
+The Azure Migrate appliance uses the ESXi host NFC buffer when it reads disks for replication. By default, each ESXi host provides a 32-MB NFC buffer that supports up to eight concurrently replicating disks. A VM remains queued when the required buffer is unavailable or reserved for an earlier queued VM on the same host.
+
+Use the [monitoring and Expedite tool](#expedite-and-remediate-slow-or-stuck-replications-using-monitoring-and-expedite-tool) to review the resource usage and the blocking VMs.
+
 You may also get the following exception:  
 
 Exception: GatewayErrorHandling.GatewayServiceException: The operation failed with the error 'Memory allocation failed. Out of memory.'  
 
 #### Remediation
 
-You can increase the NFC buffer size beyond 32 MB to increase concurrency. The setting needs to be done on both the ESXi host and on the appliance. If not, the replication may perform even worse. 
+1. Pause or stop replication for lower-priority VMs on the same ESXi host to release NFC buffer capacity. If competing backup operations run on the host, reschedule them or configure an [Azure Migrate blackout window](concepts-vmware-agentless-migration.md#blackout-window) so that the operations don't overlap.
+1. Use vMotion to move the affected VM, or another lower-priority replicating VM, to an ESXi host with available capacity.
+1. If contention persists, you can increase the NFC buffer beyond 32 MB. Configure the same value on the ESXi host and the appliance. Mismatched values can reduce replication performance.
 
 > [!Caution]
 > Increasing the size to more than 32 MB might cause resource constraints in the environment. Before proceeding, consult with the System Administrator to understand the implications. 
@@ -135,6 +140,28 @@ You can increase the NFC buffer size beyond 32 MB to increase concurrency. The s
 6. Restart the Azure Migrate gateway service that is running on the appliance. Go to PowerShell and execute the following:
    - net stop asrgwy (wait for the service to stop) 
    - net start asrgwy  
+
+### Parallel disk replication capacity
+
+Each Azure Migrate appliance can replicate a bounded number of disks in parallel. When all available capacity is in use or reserved for earlier queued VMs, replication for another VM remains queued until capacity is released. For the current appliance and host limits, see [Constraints](concepts-vmware-agentless-migration.md#constraints).
+
+#### Remediation
+
+1. Use the [monitoring and Expedite tool](#expedite-and-remediate-slow-or-stuck-replications-using-monitoring-and-expedite-tool) to identify appliance capacity usage and the VMs ahead in the queue.
+1. Pause or stop replication for lower-priority VMs that use the same appliance. Stopping replication removes the intermediate replicated data, so use it only when restarting replication later is acceptable.
+1. For sustained contention across many VMs, [deploy a scale-out appliance](how-to-scale-out-for-migration.md) to distribute the migration workload.
+1. If parallel disk capacity is the only remaining bottleneck and the appliance has sufficient CPU, memory, storage, and network headroom, contact Microsoft Support to assess whether the worker capacity can be increased safely.
+
+### Datastore snapshot capacity
+
+Azure Migrate creates VMware snapshots while replicating disks. Each datastore supports up to 15 concurrent disk snapshots, except when a single VM has more than 15 disks. A VM remains queued when the datastore snapshot capacity is in use or reserved for an earlier queued VM.
+
+#### Remediation
+
+1. Use the [monitoring and Expedite tool](#expedite-and-remediate-slow-or-stuck-replications-using-monitoring-and-expedite-tool) to identify datastore usage and the VMs ahead in the queue.
+1. Pause or stop lower-priority replications that use the same datastore. You can also configure an [Azure Migrate blackout window](concepts-vmware-agentless-migration.md#blackout-window) to avoid overlap with backup or other snapshot-intensive operations.
+1. Use Storage vMotion to distribute lower-priority VMs across datastores with available snapshot capacity.
+1. If the datastore has low free space, increase its capacity or move VMs to a datastore with sufficient space. Avoid increasing concurrent snapshot activity beyond the documented limit.
 
  
 ### ESXi host available RAM low 
@@ -187,4 +214,3 @@ Try to migrate without shutting down the VM or turn off the VM manually and then
 
 ## Next steps
 [Learn more](tutorial-migrate-vmware.md) about migrating VMware VMs.
-
