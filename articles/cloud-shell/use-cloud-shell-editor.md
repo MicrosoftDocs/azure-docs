@@ -56,6 +56,9 @@ To launch the command palette, use the <kbd>F1</kbd> key when focus is set on th
 
 When the editor is in focus, the following keyboard shortcuts are available.
 
+> [!NOTE]
+> On macOS, use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd> for these shortcuts.
+
 |                  Shortcut                   |                      Action                      |
 | ------------------------------------------- | ------------------------------------------------ |
 | <kbd>Ctrl</kbd>+<kbd>`</kbd>                | Toggle focus between the terminal and the editor |
