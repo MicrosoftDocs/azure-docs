@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: concept-article
-ms.date: 01/12/2026
+ms.date: 09/10/2026
 
 #CustomerIntent: As a developer, I want to understand how to use Akri connectors and create custom connectors for my edge applications.
 
@@ -105,5 +105,6 @@ Akri connectors integrate seamlessly with the broader Azure IoT Operations envir
 
 - [What are Akri services?](../discover-manage-assets/overview-akri.md)
 - [Build and deploy Akri connectors](howto-develop-akri-connectors.md)
+- [Understand custom Akri connector development with Rust](concept-akri-connector-development-rust.md)
 - [Build Akri connectors with the VS Code extension](howto-build-akri-connectors-vscode.md)
 - [Akri operator and connector contract](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/Akri%20operator%20and%20connector%20contract.md)
