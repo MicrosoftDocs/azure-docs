@@ -136,7 +136,7 @@ This is a non-exhaustive list of items that can be found in advanced or complex 
 - Network peering, which might impact which DNS servers are used and how traffic is routed.  
 - Custom gateway (NAT) solutions might impact how traffic is routed, including traffic from DNS queries.
 
-For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](../private-link/troubleshoot-private-endpoint-connectivity.md)  
+For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems)  
 
 ## Common issues while using Azure Migrate with private endpoints
 

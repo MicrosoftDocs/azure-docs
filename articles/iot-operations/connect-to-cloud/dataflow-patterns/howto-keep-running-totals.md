@@ -286,4 +286,4 @@ To recover, pause incoming messages, restore the saved values in `initialStates`
 - [Data flow graph concepts](../concept-dataflow-graphs.md)
 - [Report meaningful value changes](howto-report-value-changes.md)
 - [Reduce noise with an exponential moving average](howto-smooth-each-reading.md)
-- [Detailed input and recovery contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/contracts.json)
+- [Detailed input and recovery contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/dataflow-patterns/contracts.json)

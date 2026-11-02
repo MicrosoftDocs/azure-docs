@@ -175,12 +175,16 @@ minutes without interaction.
 
 The Cloud Shell terminal has the following keyboard shortcuts available when the terminal is in focus.
 
+> [!NOTE]
+> On macOS, use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd> for these shortcuts.
+
 |                  Shortcut                   |                           Action                           |
 | ------------------------------------------- | ---------------------------------------------------------- |
 | <kbd>Ctrl</kbd>+<kbd>C</kbd>                | Copy selected text                                         |
 | <kbd>Ctrl</kbd>+<kbd>V</kbd>                | Paste from clipboard                                       |
 | <kbd>Ctrl</kbd>+<kbd>`</kbd>                | Toggle focus between the terminal and the editor           |
 | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>E</kbd> | Toggle the editor panel - same as using the toolbar button |
+| <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> | Toggle screen reader mode                                 |
 | <kbd>Shift</kbd>+<kbd>Tab</kbd>             | Move focus out of the terminal to toolbar                  |
 
 ## Next steps
