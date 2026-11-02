@@ -677,12 +677,18 @@
     - name: Canvas quickstart
       displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
       href: functions-hosted-skills-canvas.md
+    - name: Hosted Skill bindings in Python
+      displayName: AI, agent, hosted skills, binding, Python, hybrid workflows, HostedSkill
+      href: functions-hosted-skills-bindings.md
     - name: Dynamic workflows overview
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
       href: functions-hosted-skills-dynamic-workflows.md
     - name: Dynamic workflows quickstart
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
       href: functions-hosted-skills-dynamic-workflows-how-to.md
+    - name: Evaluate hosted skills
+      displayName: AI, agent, hosted skills, evaluation, Vally, graders, testing
+      href: functions-hosted-skills-evaluation.md
     - name: Reference
       displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
       href: functions-hosted-skills-reference.md

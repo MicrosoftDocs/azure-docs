@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 01/09/2026
+ms.date: 09/10/2026
 ai-usage: ai-assisted
 ---
 
@@ -18,7 +18,7 @@ The article uses the `aiopollingtelemetryconnector` .NET project template to sca
 
 After you develop a custom Akri connector, you deploy it and make it visible in the operations experience by packaging it with a valid configuration file, pushing it to a container registry, and registering it as a connector type in the Azure portal.
 
-For more information about developing Akri connectors by using the VS Code extension, see [Build Akri connectors in VS Code](howto-build-akri-connectors-vscode.md).
+For more information about developing Akri connectors by using the VS Code extension, see [Build Akri connectors in VS Code](howto-build-akri-connectors-vscode.md). To understand how a custom connector works in Rust code against the connector SDK, see [Understand custom Akri connector development with Rust](concept-akri-connector-development-rust.md).
 
 ## Prerequisites
 
@@ -372,13 +372,13 @@ After the asset configuration deploys to your Azure IoT Operations instance, the
 
 To verify that the connector works correctly, create a data flow that reads messages from the MQTT broker and writes them to an Event Hubs namespace. Then, use the Event Hubs data explorer to view the messages. To create the data flow and deploy an Event Hubs namespace, follow these steps:
 
-1. To download the bicep file that deploys an Event Hubs namespace with an event hub and that adds a data flow to your Azure IoT Operations instance, run the following command from a terminal:
+1. To download the Bicep file that deploys an Event Hubs namespace with an event hub and that adds a data flow to your Azure IoT Operations instance, run the following command from a terminal:
 
     ```bash
     wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/custom-connector-bicep/connector-verify.bicep -O connector-verify.bicep
     ```
 
-1. To use the bicep file to deploy your Event Hubs namespace and data flow, run the following commands:
+1. To use the Bicep file to deploy your Event Hubs namespace and data flow, run the following commands:
 
     ```bash
     RESOURCE_GROUP='<your Azure resource group name>'
