@@ -374,6 +374,8 @@ items:
         - name: Known issues
           href: known-issues.md
           displayName: Microsoft Discovery, known issues, workarounds, Studio sign-in, Azure Policy, public IP, supported regions
+        - name: Troubleshoot the onboarding tool
+          href: troubleshoot-deployment-tool.md
       - name: REST API
         href: /rest/api/discovery/
       - name: .NET SDKs
@@ -389,3 +391,7 @@ items:
         displayName: faq, frequently asked questions
       - name: Resource naming rules
         href: reference-resource-naming.md
+      - name: Onboarding permissions by stage
+        href: reference-deployment-permissions.md
+      - name: Onboarding reports and generated artifacts
+        href: reference-deployment-reports.md

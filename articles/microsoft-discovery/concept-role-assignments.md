@@ -302,7 +302,7 @@ The storage container roles don't grant access to the underlying blob contents. 
 
 ## Roles required by persona
 
-For onboarding automation, distinguish these target-user personas from the identity executing each stage. Planning and default readiness checks use subscription Reader; landing-zone preparation requires separate elevated authority. See [Onboarding permissions by stage (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md). Activate PIM-eligible roles before the operation that needs them; eligibility alone doesn't grant active access.
+For onboarding automation, distinguish these target-user personas from the identity executing each stage. Planning and default readiness checks use subscription Reader; landing-zone preparation requires separate elevated authority. See [Onboarding permissions by stage](reference-deployment-permissions.md). Activate PIM-eligible roles before the operation that needs them; eligibility alone doesn't grant active access.
 
 The following table summarizes the recommended role combinations for each user persona. Roles can be assigned at the subscription or resource group scope. You can add more roles as your requirements grow.
 
