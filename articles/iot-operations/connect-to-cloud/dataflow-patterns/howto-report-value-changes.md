@@ -283,4 +283,4 @@ Keep `messageId` unique for each asset, including across restarts, and keep `seq
 - [Data flow graph concepts](../concept-dataflow-graphs.md)
 - [Reduce noise with an exponential moving average](howto-smooth-each-reading.md)
 - [Detect offline sensors](howto-detect-offline-sensors.md)
-- [Detailed input and state contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/contracts.json)
+- [Detailed input and state contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/dataflow-patterns/contracts.json)

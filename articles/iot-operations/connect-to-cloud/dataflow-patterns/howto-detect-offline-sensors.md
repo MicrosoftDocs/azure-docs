@@ -305,4 +305,4 @@ A restart clears registrations, last-seen times, availability state, and retry t
 - [Data flow graph concepts](../concept-dataflow-graphs.md)
 - [Alarm hysteresis](howto-stabilize-alarms.md)
 - [Report meaningful value changes](howto-report-value-changes.md)
-- [Detailed input and state contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/contracts.json)
+- [Detailed input and state contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/dataflow-patterns/contracts.json)

@@ -278,4 +278,4 @@ A restart clears the alarm state, pending transitions, and retry tracking. Updat
 - [Data flow graph concepts](../concept-dataflow-graphs.md)
 - [Detect offline sensors](howto-detect-offline-sensors.md)
 - [Report meaningful value changes](howto-report-value-changes.md)
-- [Detailed input and state contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/contracts.json)
+- [Detailed input and state contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/dataflow-patterns/contracts.json)

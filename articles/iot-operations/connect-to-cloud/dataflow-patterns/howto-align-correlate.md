@@ -432,9 +432,9 @@ az deployment group create --resource-group $RESOURCE_GROUP --template-file main
 [!INCLUDE [kubernetes-debug-only-note](../../includes/kubernetes-debug-only-note.md)]
 
 Azure Samples provides a complete
-[`correlate-predictions.yaml`](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/manifests/correlate-predictions.yaml)
+[`correlate-predictions.yaml`](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/dataflow-patterns/manifests/correlate-predictions.yaml)
 with its own topics and published graph reference. The separate
-[`align-by-time.yaml`](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/manifests/align-by-time.yaml)
+[`align-by-time.yaml`](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/dataflow-patterns/manifests/align-by-time.yaml)
 contains the timestamp example.
 
 Clone the sample repository and run these commands after completing

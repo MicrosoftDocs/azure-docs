@@ -276,4 +276,4 @@ A restart clears previous outputs and retry tracking. The next reading initializ
 - [Data flow graph concepts](../concept-dataflow-graphs.md)
 - [Aggregate data over time](../howto-dataflow-graphs-window.md)
 - [Report meaningful value changes](howto-report-value-changes.md)
-- [Detailed input and state contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/contracts.json)
+- [Detailed input and state contracts](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/dataflow-patterns/contracts.json)
