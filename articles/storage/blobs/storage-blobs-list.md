@@ -8,7 +8,7 @@ ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 11/02/2026
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 # Customer intent: "As a .NET developer, I want to list blobs in my storage account, so that I can manage and explore my storage resources efficiently using both flat and hierarchical structures."
@@ -126,17 +126,16 @@ The following code example shows how to list blob versions.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
-## List blobs in Apache Arrow format (preview)
+## List blobs in Apache Arrow format
 
-> [!IMPORTANT]
-> Listing blobs in Apache Arrow format is currently in **PREVIEW**. This scenario requires a **beta (preview) version** of the Azure Blob Storage client library for .NET (for example, `Azure.Storage.Blobs` **12.30.0-beta.1** or later preview release). Preview features are provided without a service-level agreement and aren't recommended for production workloads. Some features might not be supported, or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Listing blobs in Apache Arrow format requires version **12.30.0** or later of the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs/12.30.0) package.
 
 This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The .NET SDK decodes Apache Arrow behind the scenes and still returns the same `BlobItem` objects. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
 
 > [!WARNING]
 > Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
 
-To request Apache Arrow-formatted results, set the [ResponseFormat](/dotnet/api/azure.storage.blobs.models.getblobsoptions.responseformat?view=azure-dotnet-preview&preserve-view=true) property of [GetBlobsOptions](/dotnet/api/azure.storage.blobs.models.getblobsoptions?view=azure-dotnet-preview&preserve-view=true) to [StorageResponseFormat.Arrow](/dotnet/api/azure.storage.storageresponseformat?view=azure-dotnet-preview&preserve-view=true), then pass the options to the [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet-preview&preserve-view=true) overload that accepts `GetBlobsOptions`. When using Apache Arrow output, you can also set the `StartFrom` and `EndBefore` properties to control the range of paths returned.
+To request Apache Arrow-formatted results, set the [ResponseFormat](/dotnet/api/azure.storage.blobs.models.getblobsoptions.responseformat) property of [GetBlobsOptions](/dotnet/api/azure.storage.blobs.models.getblobsoptions) to [StorageResponseFormat.Arrow](/dotnet/api/azure.storage.storageresponseformat), then pass the options to the [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) overload that accepts `GetBlobsOptions`. When using Apache Arrow output, you can also set the `StartFrom` and `EndBefore` properties to control the range of paths returned.
 
 The following example lists the blobs in a container and requests the results in Apache Arrow format:
 
