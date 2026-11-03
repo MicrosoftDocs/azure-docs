@@ -113,6 +113,8 @@ items:
     href: how-to-migrate.md
   - name: Migrate from Essential service tier
     href: how-to-migrate-essential-service-tier.md
+  - name: Integrate with Azure SRE Agent
+    href: how-to-integrate-with-sre-agent.md
   - name: Troubleshoot issues
     items:
     - name: Troubleshoot common issues

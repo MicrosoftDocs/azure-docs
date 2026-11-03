@@ -2,7 +2,7 @@
 title: Get started with Azure CLI for Batch
 description: Learn how to manage Azure Batch service resources using the Azure Command Line Interface (Azure CLI).
 ms.topic: how-to
-ms.date: 01/05/2026
+ms.date: 10/30/2026
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 
 # Customer intent: As a cloud developer, I want to learn how to manage Azure Batch resources using the command-line interface, so that I can automate resource management tasks and improve efficiency in my cloud workflows.
@@ -79,9 +79,9 @@ The Azure CLI reference documentation lists all [Azure CLI commands for Batch](/
 To list all Batch commands in the Azure CLI, run `az batch -h`.
 
 There are multiple [example CLI scripts for common Batch tasks](./scripts/batch-cli-sample-create-account.md). These examples show how to use many available commands for Batch in the Azure CLI. You can learn how to create and manage Batch accounts, pools, jobs, and tasks.
-### Use Batch CLI extension commands
 
-You can [use the Batch CLI extension](batch-cli-templates.md) to run Batch jobs without writing code. The extension provides commands to use JSON templates for creating pools, jobs, and tasks with the Azure CLI. The extension also provides commands to connect to an Azure Storage account linked to your Batch account. Then, you can upload job input files, and download job input files.
+> [!NOTE]
+> The Batch Azure CLI extension was retired on September 30, 2024. If you installed the extension, uninstall it with the command `az extension remove --name azure-batch-cli-extensions`.
 
 ### Create resources with JSON
 
