@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 06/02/2026
 ---
 
-- Don't use private ASNs for AS prepending.
+- Don't use private ASNs for AS prepending when you apply route maps in either direction on ExpressRoute connections, because ExpressRoute strips private ASNs.
 - Don't use ASNs reserved by Azure for AS prepending:
 
     - Public ASNs: 8074, 8075, 12076
