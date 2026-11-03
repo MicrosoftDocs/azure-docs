@@ -7,8 +7,8 @@ ms.date: 04/15/2026
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
-ms.author: v-rochak2
-author: RochakSingh-blr
+ms.author: pprajapat
+author: preranaprajapat
 ---
 
 # Run Automation runbooks on a Hybrid Runbook Worker
