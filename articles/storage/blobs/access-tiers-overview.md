@@ -24,7 +24,7 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
 > [!NOTE]
-> Setting the access tier is only allowed on Block Blobs (including versions and snapshots. Tier changes are not supported for Append and Page Blobs.
+> You can set the access tier only on block blobs, including versions and snapshots. Tier changes aren't supported for append and page blobs.
 
 ## Online access tiers
 
