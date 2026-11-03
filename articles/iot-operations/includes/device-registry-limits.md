@@ -7,7 +7,7 @@ ms.date: 11/07/2025
 ms.service: azure-iot-operations
 ---
 
-The following table lists the limits that apply to the Azure Device Registry resources. Azure Device Registry is used with Azure IoT Hub (preview) and Azure IoT Operations.
+The following table lists the limits that apply to the Azure Device Registry resources. Use Azure Device Registry with Azure IoT Hub and Azure IoT Operations.
 
 | Resource type | Limit type | Limit |
 |---------------|------------|-------|
@@ -29,18 +29,30 @@ The following table lists the limits that apply to the Azure Device Registry res
 | Schemas | Read operations per minute per Azure subscription | 600 |
 | Schema versions | Read operations per minute per Azure subscription | 600 |
 | Schema registries | Read operations per minute per Azure subscription | 600 |
-| Policies (preview) | Count per Azure Device Registry namespace | 1 |
-| Credentials (preview) | Count per Azure Device Registry namespace | 1 |
-| Credentials (preview) | Count per Entra ID tenant | 2 |
-| Certificate authority (preview) | Count per subscription | 50 |
-| Root certificate authorities (preview) | Count per Azure Device Registry namespace | 1 |
-| Root certificate authority (preview) | Maximum validity (years) | 10 |
-| Intermediate certificate authorities (preview) | Count per Azure Device Registry namespace | 3 |
-| Certificate policies (preview) | Count per intermediate certificate authority | 1 |
-| Intermediate certificate authority (preview) | Maximum validity (years) | 1 |
-| Leaf certificate (preview) | Minimum validity (days) | 1 |
-| Leaf certificate (preview) | Maximum validity (days) | 90 |
-| Certificates (preview) | Maximum issued per second (RPS) by a single namespace | 50 |
-| Certificates (preview) | Maximum issued per second (RPS) by a single certificate authority | 30 |
-| Certificates (preview) | Maximum unique certificates issued to a single device within 24 hours | 20 |
-| Certificates (preview) | Maximum leaf certificate revocations per minute | 500 |
+
+The following table lists the resource count limits for certificate management in Azure Device Registry.
+
+| Resource type | Limit type | Limit |
+|---------------|------------|-------|
+| Certificate authority | Count per subscription | 8 |
+| Root certificate authorities | Count per Azure Device Registry namespace | 1 |
+| Intermediate certificate authorities | Count per Azure Device Registry namespace | 3 |
+| Certificate policies | Count per intermediate certificate authority | 1 |
+
+The following table lists the certificate validity limits.
+
+| Resource type | Limit type | Limit |
+|---------------|------------|-------|
+| Root certificate authority | Maximum validity (years) | 10 |
+| Intermediate certificate authority | Maximum validity (years) | 1 |
+| Leaf certificate | Minimum validity (days) | 1 |
+| Leaf certificate | Maximum validity (days) | 90 |
+
+The following table lists the certificate issuance and revocation limits.
+
+| Resource type | Limit type | Limit |
+|---------------|------------|-------|
+| Leaf certificate | Maximum issued per minute by a single namespace | 1,000 |
+| Leaf certificate | Maximum issued per minute by a single intermediate certificate authority | 1,000 |
+| Leaf certificate | Maximum unique certificates issued to a single device within 24 hours | 20 |
+| Leaf certificate | Maximum leaf certificate revocations per minute | 1,000 |
