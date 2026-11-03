@@ -3,7 +3,7 @@ title: Known issues for deployment stacks
 description: Learn about the known limitations and known issues for Azure deployment stacks, and the recommended workarounds.
 ms.topic: troubleshooting-known-issue
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 06/11/2026
+ms.date: 11/02/2026
 ---
 
 # Known issues for deployment stacks
@@ -58,8 +58,6 @@ along with recommended workarounds when available.
   response.
 - **Microsoft Graph provider isn't supported.** The [Microsoft Graph provider](https://aka.ms/graphbicep)
   doesn't support deployment stacks.
-- **What-if isn't yet available.** The [what-if operation](./deploy-what-if.md) isn't yet supported for
-  deployment stacks.
 
 ## Handle the stack-out-of-sync error
 
