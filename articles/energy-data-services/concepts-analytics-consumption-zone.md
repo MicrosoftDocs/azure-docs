@@ -295,6 +295,7 @@ For more information, see [Reliability in Azure Data Manager for Energy](reliabi
 
 - [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
-- [Connect ACZ data to Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
+- [Connect ACZ data to Snowflake](how-to-connect-analytics-consumption-zone-to-snowflake.md)
 - [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
