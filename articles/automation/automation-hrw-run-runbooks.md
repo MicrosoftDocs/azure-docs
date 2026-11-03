@@ -116,7 +116,7 @@ To run PowerShell 7.6 runbooks on a Linux Hybrid Worker, install *PowerShell* fi
 
 After PowerShell 7.6 installation is complete, create an environment variable with **Variable name** as `powershell_7_6_path` and **Variable value** as the path of the executable *PowerShell* file, for example: `powershell_7_6_path="/usr/bin/pwsh"`.
 
-Restart the Hybrid Runbook Worker after an environment variable is created successfully.
+Restart the Hybrid Runbook Worker after you create the environment variable.
 
 **PowerShell 7.4**
 
