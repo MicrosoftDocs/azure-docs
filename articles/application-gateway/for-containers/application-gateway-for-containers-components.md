@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: concept-article
-ms.date: 08/04/2026
+ms.date: 11/2/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -27,8 +27,10 @@ This article provides detailed descriptions and requirements for components of A
 - An Application Gateway for Containers frontend defines the entry point client traffic uses for a given Application Gateway for Containers.
   - You can't associate a frontend with more than one Application Gateway for Containers.
   - You can create a CNAME record by using the unique FQDN that each frontend provides.
-  - Private IP addresses aren't currently supported.
+  - Both public and private frontends can exist on the same gateway.
 - A single Application Gateway for Containers can support more than one frontend.
+- [Private frontends](private-ingress.md) allow private endpoints to be connected for private connectivity.
+  - You can connect up to 200 private endpoints to a private frontend.
 
 ### Application Gateway for Containers associations
 
@@ -104,6 +106,10 @@ Some of the benefits of using the managed add-on over a helm based deployment ar
 ### Private IP address
 
 - A private IP address isn't explicitly defined as an Azure Resource Manager resource. A private IP address refers to a specific host address within a given virtual network's subnet.
+
+### Private endpoint
+
+- A [private endpoint](/azure/private-link/private-endpoint-overview) is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a private frontend in Application Gateway for Containers.
 
 ### Subnet delegation
 

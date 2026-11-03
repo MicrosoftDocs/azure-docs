@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 11/02/2026
 ms.author: shaas
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
@@ -127,19 +127,18 @@ Blob name: folderA/folderB/file3.txt
 ```
 
 > [!NOTE]
-> Blob snapshots can't be listed in a hierarchical listing operation.
+> You can't list blob snapshots in a hierarchical listing operation.
 
-## List blobs in Apache Arrow format (preview)
+## List blobs in Apache Arrow format
 
-> [!IMPORTANT]
-> Listing blobs in Apache Arrow format is currently in **PREVIEW**. This scenario requires a **beta (preview) version** of the Azure Blob Storage client library for Java (for example, `azure-storage-blob` **12.36.0-beta.1** or later preview release). Preview features are provided without a service-level agreement and aren't recommended for production workloads. Some features might not be supported, or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+To list blobs in Apache Arrow format, use version **12.36.0** or later of the [com.azure:azure-storage-blob](https://central.sonatype.com/artifact/com.azure/azure-storage-blob/12.36.0) package.
 
 This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The Java SDK decodes Apache Arrow behind the scenes and still returns the same `BlobItem` objects. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
 
 > [!WARNING]
 > Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
 
-To request Apache Arrow-formatted results, set the response serialization format on [ListBlobsOptions](/java/api/com.azure.storage.blob.models.listblobsoptions?view=azure-java-preview&preserve-view=true) to [StorageResponseSerializationFormat.ARROW](/java/api/com.azure.storage.blob.models.storageresponseserializationformat?view=azure-java-preview&preserve-view=true) by calling `setStorageResponseSerializationFormat`, then pass the options to [BlobContainerClient.listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient?view=azure-java-preview&preserve-view=true). When using Apache Arrow output, you can also call `setStartFrom` and `setEndBefore` to control the range of paths returned.
+To request Apache Arrow-formatted results, set the response serialization format on [ListBlobsOptions](/java/api/com.azure.storage.blob.models.listblobsoptions) to [StorageResponseSerializationFormat.ARROW](/java/api/com.azure.storage.blob.models.storageresponseserializationformat) by calling `setStorageResponseSerializationFormat`, then pass the options to [BlobContainerClient.listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient). When using Apache Arrow output, you can also call `setStartFrom` and `setEndBefore` to control the range of paths returned.
 
 The following example lists the blobs in a container and requests the results in Apache Arrow format:
 

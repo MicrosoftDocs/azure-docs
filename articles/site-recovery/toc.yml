@@ -596,7 +596,7 @@
       - name: Azure Site Recovery Deployment Planner
         href: deployment-planner-cost-estimation.md
   - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
+    href: https://azure.microsoft.com/blog/product/azure-site-recovery/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-site-recovery.html
   - name: Learning path

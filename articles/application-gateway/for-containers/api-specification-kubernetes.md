@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: concept-article
-ms.date: 9/11/2026
+ms.date: 11/3/2026
 ms.author: mbender
 # Customer intent: "As a Kubernetes developer, I want to understand the API specifications for the Application Gateway for Containers, so that I can effectively configure and manage load balancing and traffic routing for my containerized applications."
 ---
@@ -747,6 +747,7 @@ string
 <td>
 <code>clientCertificateRef</code><br/>
 <em>
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.6/spec/#secretobjectreference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -943,6 +944,7 @@ CommonTLSPolicyVerify
 <td>
 <code>caCertificateRef</code><br/>
 <em>
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.6/spec/#secretobjectreference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -987,6 +989,7 @@ Kubernetes core API.</p>
 <td>
 <code>NamespacedPolicyTargetReference</code><br/>
 <em>
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.6/spec/#namespacedpolicytargetreference">
 Gateway API .NamespacedPolicyTargetReference
 </a>
 </em>
@@ -1499,8 +1502,8 @@ HTTPPathModifierType
 <td>
 <p>Type defines the type of path modifier. More types may be
 added in a future release of the API.</p>
-<p>Values may be added to this enum, implementations
-must ensure unknown values won&rsquo;t cause a crash.</p>
+<p>This enum might be extended in the future. Implementations must handle
+unknown values without crashing.</p>
 <p>Unknown values here must result in the implementation setting the
 Accepted Condition for the rule to be false</p>
 </td>
@@ -1588,19 +1591,19 @@ the implementation setting the Accepted Condition for the Route to <code>status:
 <tr>
 <td>/foo/bar</td>
 <td>/foo</td>
-<td></td>
+<td>&nbsp;</td>
 <td>/bar</td>
 </tr>
 <tr>
 <td>/foo/</td>
 <td>/foo</td>
-<td></td>
+<td>&nbsp;</td>
 <td>/</td>
 </tr>
 <tr>
 <td>/foo</td>
 <td>/foo</td>
-<td></td>
+<td>&nbsp;</td>
 <td>/</td>
 </tr>
 <tr>
@@ -2979,7 +2982,7 @@ Default is 1.0.</p>
 <td>
 <em>(Optional)</em>
 <p>A list of custom metrics reported by endpoints to be used for reporting utilization
-and influencing load balancing decisions. Utilization will be computed by taking the
+and influencing load balancing decisions. Compute utilization by taking the
 max of the values of metrics specified in this list.</p>
 </td>
 </tr>
@@ -3095,6 +3098,7 @@ LoadAwareConfig
 <td>
 <code>caCertificateRef</code><br/>
 <em>
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.6/spec/#secretobjectreference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -3159,6 +3163,8 @@ certificate.</p>
 </tr><tr><td><p>&#34;OperationFailed&#34;</p></td>
 <td></td>
 </tr><tr><td><p>&#34;OverrideNotSupported&#34;</p></td>
+<td></td>
+</tr><tr><td><p>&#34;PartiallyResolvedTargetReference&#34;</p></td>
 <td></td>
 </tr><tr><td><p>&#34;Pending&#34;</p></td>
 <td></td>
@@ -3441,8 +3447,8 @@ int
 <td>
 <em>(Optional)</em>
 <p>StatusCode is the HTTP status code to be used in response.</p>
-<p>Values may be added to this enum, implementations
-must ensure that unknown values won&rsquo;t cause a crash.</p>
+<p>This enum might be extended in the future. Implementations must handle
+unknown values without crashing.</p>
 </td>
 </tr>
 </tbody>

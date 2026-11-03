@@ -2,7 +2,7 @@
 title: Support Matrix for Azure Files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure Files.
 ms.topic: reference
-ms.date: 10/09/2026
+ms.date: 11/03/2026
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -19,7 +19,7 @@ You can use the [Azure Backup service](./backup-overview.md) to back up Azure Fi
 Azure Backup now offers general availability of Vaulted Backup for Azure Files (Standard tier), enabling secure, long-term protection with ransomware defense, cross-region recovery, and compliance-ready retention—all managed through a unified backup policy. For more insights, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-vaulted-backup-for-azure-files---boost-your-data-security-a/4395344). To know the latest product enhancements and feature updates in Azure, see [Microsoft Azure Updates](https://azure.microsoft.com/updates?id=482659).
 
 > [!NOTE]
-> Azure Backup currently doesn't support file shares with the NFS (Network File System) protocol.
+> Snapshot and vaulted backups for NFS Azure file shares are currently in private preview. The preview is intended for evaluation with non-production subscriptions. To request access, complete the [preview sign-up form](https://forms.cloud.microsoft/r/DJubyYrkYN).
 
 ## Supported regions
 

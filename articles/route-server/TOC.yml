@@ -53,6 +53,8 @@
   items:
   - name: Configure and manage Route Server
     href: configure-route-server.md
+  - name: View effective routes
+    href: view-route-server-effective-routes.md
   - name: Configure route maps
     href: route-maps-how-to.md
   - name: Route maps scenarios
@@ -63,6 +65,8 @@
       href: route-maps-scenario-tag-bgp-communities.md
     - name: Drop inbound routes
       href: route-maps-scenario-drop-inbound-routes.md
+    - name: Apply route maps to an NVA in a spoke
+      href: route-maps-scenario-spoke-network-virtual-appliance.md
 - name: Monitor and troubleshoot
   items:
   - name: Monitor Route Server

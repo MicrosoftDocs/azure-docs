@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: release-notes
-ms.date: 10/23/2026
+ms.date: 11/3/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to access the release notes for the ALB Controller, so that I can understand the latest updates and changes to optimize my configuration and deployments of Application Gateway for Containers.
 ---
@@ -29,7 +29,7 @@ If using the AKS add-on, updates are automatically applied to the cluster.
 
 | ALB Controller Version | Gateway API Version | Gateway API Inference Extension Version | Minimum Kubernetes Version | Release notes |
 | ---------------------- | ------------------- | --------------------------------------- | ------------------ | ------------- |
-| 1.12.4 | v1.5.1 | v1.3.1 | v1.32 | Security patches |
+| 1.13.0 | v1.6.2 | v1.6.2 | v1.32 | New features: JWT validation, MCP gateway, Gateway API ListenerSet, LLM-D support in Gateway API Inference Extension, Gateway API v1.6.2, Gateway API Inference Extension 1.6.2, security patches, [WAF sectionName handling fix](https://github.com/Azure/AKS/issues/5996), and additional bug fixes |
 
 ## AKS add-on releases
 
@@ -46,6 +46,7 @@ Reference: [AKS Managed Gateway API installation](/azure/aks/managed-gateway-api
 
 | ALB Controller Version | Gateway API Version | Gateway API Inference Extension Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | --------------------------------------- | ------------------ | ------------- |
+| 1.12.4 | v1.5.1 | v1.3.1 | v1.32 | Security patches |
 | 1.12.2 | v1.5.1 | v1.3.1 | v1.32 | Security patches |
 | 1.12.1 | v1.5.1 | v1.3.1 | v1.32 | Security patches, bug fixes [helm chart pre-delete tolerations](https://github.com/Azure/AKS/issues/5729) [session affinity cookie fix](https://github.com/Azure/AKS/issues/5805), request mirror |
 | 1.11.7 | v1.5.1 | v1.3.1 | v1.27 | Security patches |

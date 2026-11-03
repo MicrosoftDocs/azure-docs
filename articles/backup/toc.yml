@@ -109,6 +109,8 @@
     items:
     - name: Backup security best practices
       href: azure-backup-data-protection-best-practices.md
+    - name: Plan a 3-2-1-1-0 backup strategy with Azure Backup
+      href: azure-backup-3-2-1-1-0-strategy.md
     - name: Plan backup protection against ransomware
       href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Azure role-based access control

@@ -606,7 +606,7 @@ To resolve this quiescing error and retry the failed application consistent back
 ```azurepowershell
 Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\MICROSOFT DATA PROTECTION MANAGER\VMWare]
-" FailbackToCrashConsistentBackup"=dword:00000001
+"FailbackToCrashConsistentBackup"=dword:00000001
 
 ```
 

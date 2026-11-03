@@ -349,6 +349,14 @@ items:
             href: how-to-set-up-deployment-tool.md
           - name: Create an onboarding configuration
             href: how-to-create-deployment-configuration.md
+          - name: Preview onboarding changes offline
+            href: how-to-preview-deployment-changes.md
+          - name: Prepare the landing zone
+            href: how-to-prepare-landing-zone.md
+          - name: Validate deployment readiness
+            href: how-to-validate-deployment-readiness.md
+          - name: Deploy with the onboarding tool
+            href: how-to-deploy-platform.md
   - name: Operate & Support
     items:
       - name: Observability overview
@@ -375,6 +383,12 @@ items:
         href: how-to-set-up-deployment-tool.md
       - name: "Step 1 - Plan and generate configuration"
         href: how-to-create-deployment-configuration.md
+      - name: "Step 2 - Prepare the landing zone"
+        href: how-to-prepare-landing-zone.md
+      - name: "Step 3 - Validate readiness"
+        href: how-to-validate-deployment-readiness.md
+      - name: "Step 4 - Deploy the platform"
+        href: how-to-deploy-platform.md
   - name: Reference
     items:
       - name: Troubleshoot Microsoft Discovery

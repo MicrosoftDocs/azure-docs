@@ -495,7 +495,7 @@ items:
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-migrate.html
   - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-migrate/
+    href: https://azure.microsoft.com/blog/product/azure-migrate/
   - name: Azure Migrate
     href: https://azure.microsoft.com/products/azure-migrate
   - name: Azure Roadmap
