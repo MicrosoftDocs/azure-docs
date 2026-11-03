@@ -343,6 +343,8 @@
       items:
       - name: Set up a capacity pool
         href: azure-netapp-files-set-up-capacity-pool.md
+      - name: Migrate volumes to the Flexible service level
+        href: migrate-volumes-flexible-service-level.md
       - name: Manage a manual QoS capacity pool
         href: manage-manual-qos-capacity-pool.md
       - name: Manage billing by using tags

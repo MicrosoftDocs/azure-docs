@@ -25,6 +25,12 @@ With streamlined setup in the Azure portal, customers can validate their recover
 
 For more information, see [Tech Community Blog](https://techcommunity.microsoft.com/blog/azurestackblog/azure-site-recovery-for-azure-local-is-now-generally-available/4529925) and the [Official Documentation](/azure/azure-local/manage/azure-site-recovery).
 
+### Enhanced Azure Site Recovery support for Virtual Machine Scale Sets with Flexible orchestration
+
+Enhanced Azure Site Recovery support for virtual machines in Virtual Machine Scale Sets with Flexible orchestration (VMSS Flex) is now generally available. The update improves target configuration and end-to-end recovery workflows, including failover, reprotection, and failback, in the Azure-to-Azure scenario. Site Recovery protects each VM in the scale set as an individual replicated item. Before you enable replication, create the target scale set in the target resource group.
+
+[Learn more](/azure/site-recovery/azure-to-azure-how-to-enable-replication-vmss-flex).
+
 ### Azure Site Recovery support for Azure ARC-enabled Windows VMware/Physical servers
 
 Azure Site Recovery (ASR) now supports protection for ARC-enabled Windows VMware virtual machines and on-premises physical servers. Previously, customers using Azure ARC on these machines could encounter compatibility issues. With this update, ASR detects the presence of ARC services on source machines and is able to maintain compatibility with existing ARC configurations during protection enablement. This update enables customers to adopt ASR for disaster recovery without disrupting existing ARC-based configurations for governance, inventory, monitoring, and management of these machines.
