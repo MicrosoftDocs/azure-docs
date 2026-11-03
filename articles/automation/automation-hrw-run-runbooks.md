@@ -114,7 +114,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 
 To run PowerShell 7.6 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. See [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
 
-After PowerShell 7.6 installation is complete, create an environment variable with **Variable name** as powershell_7_6_path and **Variable value** as path of the executable *PowerShell* file, for example: `powershell_7_6_path="/usr/bin/pwsh"`
+After PowerShell 7.6 installation is complete, create an environment variable with **Variable name** as `powershell_7_6_path` and **Variable value** as the path of the executable *PowerShell* file, for example: `powershell_7_6_path="/usr/bin/pwsh"`.
 
 Restart the Hybrid Runbook Worker after an environment variable is created successfully.
 
