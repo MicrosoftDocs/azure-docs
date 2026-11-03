@@ -189,8 +189,10 @@ ALTER ICEBERG TABLE acz_data.osdu.osdu_catalog REFRESH;
 
 ## Related content
 
-- [Connect Analytics Consumption Zone to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
-- [Connect Analytics Consumption Zone data to Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
-- [Snowflake: Create an Iceberg table from Delta files](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-delta)
+- [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
+- [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
+- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
+- [Snowflake: Create an Iceberg table from Delta files](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-delta)

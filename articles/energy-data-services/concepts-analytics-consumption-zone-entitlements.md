@@ -69,5 +69,7 @@ ACZ refreshes the entitlements table on a regular schedule and replaces the prev
 
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
-- [Connect ACZ data to Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
+- [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
+- [Connect ACZ data to Snowflake](how-to-connect-analytics-consumption-zone-to-snowflake.md)

@@ -81,7 +81,7 @@ Artifacts are placed beside the selected `-JsonPath` when emitted. Names include
 
 ## Stage 4 readiness-report handling
 
-The [deployment procedure (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) passes both Stage 3 JSON reports through `-ReadinessReport`.
+The [deployment procedure](how-to-deploy-platform.md) passes both Stage 3 JSON reports through `-ReadinessReport`.
 
 - In the normal path, each supplied report must exist, parse, and have `verdict=GO`; otherwise deployment is blocked.
 - Omitted reports produce a warning and the normal path can proceed.
@@ -100,5 +100,5 @@ Don't commit generated customer files or attach raw prompts, tokens, or confiden
 ## Related content
 
 - [Onboarding permissions by stage](reference-deployment-permissions.md)
-- [Validate readiness (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md)
+- [Validate readiness](how-to-validate-deployment-readiness.md)
 - [Troubleshoot onboarding](troubleshoot-deployment-tool.md)

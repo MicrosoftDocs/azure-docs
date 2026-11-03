@@ -12,7 +12,7 @@ ms.date: 10/24/2026
 
 <a id="microsoft-discovery-resource-provider-registration"></a>
 
-Register `Microsoft.Discovery` and its dependencies before creating Discovery resources. This article covers manual registration through the Azure portal, Azure CLI, Azure PowerShell, or REST. If you use the onboarding tool, [Stage 2 (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) performs registration for its deployment scope.
+Register `Microsoft.Discovery` and its dependencies before creating Discovery resources. This article covers manual registration through the Azure portal, Azure CLI, Azure PowerShell, or REST. If you use the onboarding tool, [Stage 2](how-to-prepare-landing-zone.md) performs registration for its deployment scope.
 
 ## Prerequisites
 

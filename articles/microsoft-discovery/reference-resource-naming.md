@@ -129,7 +129,7 @@ Use English terms and ASCII characters for all resource names to ensure maximum 
 
 ## Validation and error handling
 
-The [onboarding configuration task (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) checks names before provisioning. Review both syntax checks and any unavailable live name-availability checks; local success doesn't prove uniqueness in Azure. Tool-generated names can have additional derivation rules, such as the [default project storage-container name (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md).
+The [onboarding configuration task](how-to-create-deployment-configuration.md) checks names before provisioning. Review both syntax checks and any unavailable live name-availability checks; local success doesn't prove uniqueness in Azure. Tool-generated names can have additional derivation rules, such as the [default project storage-container name](how-to-deploy-platform.md#verify-deployment-and-access).
 
 All resource names are validated before creation or modification. Validation includes:
 

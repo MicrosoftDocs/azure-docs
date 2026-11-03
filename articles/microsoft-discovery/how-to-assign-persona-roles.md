@@ -20,7 +20,7 @@ To make this process a single, repeatable, idempotent step, the Microsoft Discov
 
 ## When to use this script
 
-This standalone utility creates permanent persona-role assignments. If you use the onboarding tool with `customer-jit-managed`, follow its [Stage 2 eligibility and activation workflow (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) instead. Don't use permanent assignments to bypass customer policy. This utility's Az-module and PowerShell prerequisites below differ from the onboarding tool's PowerShell 7/Azure CLI requirements.
+This standalone utility creates permanent persona-role assignments. If you use the onboarding tool with `customer-jit-managed`, follow its [Stage 2 eligibility and activation workflow](how-to-prepare-landing-zone.md#activate-and-verify-access) instead. Don't use permanent assignments to bypass customer policy. This utility's Az-module and PowerShell prerequisites below differ from the onboarding tool's PowerShell 7/Azure CLI requirements.
 
 Use the script when you need to:
 

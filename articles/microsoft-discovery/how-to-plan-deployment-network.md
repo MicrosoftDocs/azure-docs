@@ -90,9 +90,9 @@ Before generating configuration, have the network team confirm:
 - Runner, researcher browser, and compute-subnet access paths.
 - The method and owner for testing required DNS, TCP/TLS, and image-download dependencies from the actual compute subnets.
 
-A generated firewall request isn't confirmation that the appliance is configured. Preserve the resulting evidence for [readiness validation (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md).
+A generated firewall request isn't confirmation that the appliance is configured. Preserve the resulting evidence for [readiness validation](how-to-validate-deployment-readiness.md).
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Create an onboarding configuration (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md)
+> [Create an onboarding configuration](how-to-create-deployment-configuration.md)

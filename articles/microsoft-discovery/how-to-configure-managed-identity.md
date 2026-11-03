@@ -55,7 +55,7 @@ az identity create \
 
 Save the output values - you need `principalId` for role assignments and `id` (the full resource ID) when creating Discovery resources.
 
-For the [onboarding tool (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md), create the identity before Stage 1 and put its full resource `id` in `managedIdentity.id`. Stage 2 assigns its roles; it doesn't create the identity. The runner's permissions, human-user eligibility, and workload assignments are separate requirements.
+For the [onboarding tool](how-to-create-deployment-configuration.md), create the identity before Stage 1 and put its full resource `id` in `managedIdentity.id`. Stage 2 assigns its roles; it doesn't create the identity. The runner's permissions, human-user eligibility, and workload assignments are separate requirements.
 
 ## Assign required roles
 

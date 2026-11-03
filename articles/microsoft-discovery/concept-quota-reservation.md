@@ -23,7 +23,7 @@ The primary quota categories include:
 
 Available quota is a subscription entitlement, not a guarantee of regional physical capacity or an Azure capacity reservation. Confirm both quota and SKU/service availability for the selected deployment.
 
-For the [onboarding tool (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md), default compute planning uses three `Standard_D4s_v6` system nodes (12 vCPUs) and up to three `Standard_D4ds_v6` workload nodes (12 more vCPUs). Stages 1 and 3 derive requirements from live metadata and the configured maximum sizes. Advanced configuration can change these defaults. The workspace model path requires 450,000 GPT-5.4 GlobalStandard TPM across the built-in and validation deployments. Readiness checks account for remaining allocations on resumed deployments.
+For the [onboarding tool](how-to-create-deployment-configuration.md#complete-networking-storage-and-sizing), default compute planning uses three `Standard_D4s_v6` system nodes (12 vCPUs) and up to three `Standard_D4ds_v6` workload nodes (12 more vCPUs). Stages 1 and 3 derive requirements from live metadata and the configured maximum sizes. Advanced configuration can change these defaults. The workspace model path requires 450,000 GPT-5.4 GlobalStandard TPM across the built-in and validation deployments. Readiness checks account for remaining allocations on resumed deployments.
 
 Subscription Reader covers the usage and model-catalog reads needed by the tool. Cognitive Services Usages Reader alone isn't sufficient. The tool doesn't check Bookshelf AI Search capacity or deploy Bookshelf. The following full optional-capability requirements still apply. A generated request artifact isn't granted quota.
 

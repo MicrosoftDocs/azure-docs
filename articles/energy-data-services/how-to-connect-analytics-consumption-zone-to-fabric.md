@@ -180,8 +180,11 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 
 ## Related content
 
-- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
-- [Create an Azure Data Lake Storage Gen2 shortcut](/fabric/onelake/create-adls-shortcut)
+- [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
+- [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
+- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
+- [Connect ACZ data to Snowflake](how-to-connect-analytics-consumption-zone-to-snowflake.md)
 - [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
+- [Create an Azure Data Lake Storage Gen2 shortcut](/fabric/onelake/create-adls-shortcut)
 - To transform ACZ data into silver-layer Delta tables in Microsoft Fabric, see the [ADME ACZ Silver Layer sample notebook](https://github.com/microsoft/adme-acz-silverlayer) on GitHub. The sample flattens nested OSDU records into Delta tables and can process only new and changed records by using the `ingestTime` and `isActive` columns.

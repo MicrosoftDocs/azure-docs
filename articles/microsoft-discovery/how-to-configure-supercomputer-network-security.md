@@ -34,7 +34,7 @@ az feature register --namespace Microsoft.ContainerService --name EnableServiceT
 
 ## Enable connectivity to platform services
 
-A default/static [Stage 3 readiness report (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) inspects configuration; it doesn't prove successful outbound traffic. Verify DNS, TCP/TLS, routing, firewall rules, SNAT, and image downloads from the required compute-subnet paths before provisioning.
+A default/static [Stage 3 readiness report](how-to-validate-deployment-readiness.md) inspects configuration; it doesn't prove successful outbound traffic. Verify DNS, TCP/TLS, routing, firewall rules, SNAT, and image downloads from the required compute-subnet paths before provisioning.
 
 After setting up your virtual network with user defined routing, you must configure certain allowlisting rules to ensure that your Microsoft Discovery Supercomputer instance continues to function. Configure these rules before you create the Supercomputer resource to ensure successful creation.
 

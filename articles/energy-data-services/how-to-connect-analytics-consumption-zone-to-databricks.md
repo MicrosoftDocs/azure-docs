@@ -317,10 +317,11 @@ az storage fs directory list \
 
 ## Related content
 
+- [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
 - [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
-- [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
+- [Connect ACZ data to Snowflake](how-to-connect-analytics-consumption-zone-to-snowflake.md)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Azure Databricks Unity Catalog](/azure/databricks/data-governance/unity-catalog/)
 - [Use Azure managed identities in Unity Catalog](/azure/databricks/connect/unity-catalog/cloud-storage/azure-managed-identities)
-- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)

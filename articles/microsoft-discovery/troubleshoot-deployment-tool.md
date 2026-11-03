@@ -151,7 +151,7 @@ Use `-Recovery` only for its targeted **workspace re-PUT** case after diagnosing
 
 The recovery path precedes the normal readiness gate. Review fresh readiness and network evidence explicitly before any recovery write. Use the targeted command emitted by the tool for the intended subscription, resource group, and workspace. Don't adapt it to a different resource without diagnosis. Preserve operation history and the correlation ID before any approved resource deletion.
 
-**Verify:** Check resource states/IDs and required Foundry access, not only a successful command exit. See [deployment and resume guidance (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md).
+**Verify:** Check resource states/IDs and required Foundry access, not only a successful command exit. See [deployment and resume guidance](how-to-deploy-platform.md).
 
 ## PLAN is mistaken for readiness or reports are stale
 
