@@ -121,9 +121,9 @@ Keep `config.json` with the tool revision and approvals in customer-approved sto
 
 For report fields and failed checks, see [reports and artifacts](reference-deployment-reports.md) and [Stage 1 troubleshooting](troubleshoot-deployment-tool.md#stage-1-doesnt-generate-configjson).
 
-You can optionally [preview intended changes offline (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) with the generated configuration before live preparation. Preview is supporting guidance for Stages 2-5, not a separate stage or a Stage 1 `-DryRun` mode.
+You can optionally [preview intended changes offline](how-to-preview-deployment-changes.md) with the generated configuration before live preparation. Preview is supporting guidance for Stages 2-5, not a separate stage or a Stage 1 `-DryRun` mode.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Prepare the landing zone (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md)
+> [Prepare the landing zone](how-to-prepare-landing-zone.md)
