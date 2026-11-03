@@ -165,7 +165,7 @@ Azure Backup for AKS allows you to define the application boundary within AKS cl
   > [!NOTE]
   > You should add the labels to every single YAML file that is deployed and to be backed up. This includes namespace-scoped resources like persistent volume claims, and cluster-scoped resources like persistent volumes.
   >
-  > If you want to exclude specific Persistent Volume Claims from your backups, add the annotation `velero.io/exclude-from-backup=true`. This Velero annotation is supported by Azure Backup for AKS.
+  > To exclude specific Persistent Volume Claims from your backups, add the label `velero.io/exclude-from-backup=true`.
 
 ## Verify backup and snapshots
 
@@ -250,7 +250,6 @@ To enable a backup hook as part of the backup configuration flow to back up MySQ
 
       ```dotnetcli
       kubectl apply -f mysqlbackuphook.yaml
-
       ```
 
 1. When the deployment is finished, you can [configure backups for the AKS cluster](#configure-backup).

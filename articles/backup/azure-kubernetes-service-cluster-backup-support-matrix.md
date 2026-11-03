@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: reference
-ms.date: 10/09/2026
+ms.date: 10/31/2026
 ms.custom:
   - references_regions
   - ignite-2023
@@ -21,7 +21,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - **Operational tier backups for AKS clusters** are available in all Azure public regions and Azure Government clouds. 
 
-- **Vault tier backups** are available in all Azure public regions except Austria East, Belgium Central, Chile Central, Indonesia Central, Israel Northwest, Malaysia South, Malaysia West, Mexico Central, Qatar Central, South Central US 2, Southeast US, Southeast US 3, Southeast US 5, Southwest US, and West India. 
+- **Vault tier backups** are available in all Azure public regions except Indonesia Central, Malaysia South, Mexico Central, Qatar Central, Southeast US, and West India. 
 
   Vault tier backups are not supported in Azure Government clouds.
 
@@ -74,6 +74,13 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Both the AKS cluster and the Backup Extension pods must be in a running and healthy state before performing any backup or restore operations, including the deletion of expired recovery points.
 
+- For AKS clusters that use an Argo CD pipeline, add this configuration to the Argo CD ConfigMap to ensure that backup operations function as expected.
+
+  ```yml
+  data:
+  application.resourceTrackingMethod: annotation+label
+  ```
+
 - Azure Backup for AKS provides alerts via Azure Monitor that enables you to have a consistent experience for alert management across different Azure services, including classic alerts, built-in Azure Monitor alerts, and custom log alerts for backup failure notifications. The supported backup alerts [are available here](monitoring-and-alerts-overview.md)
 
 - Azure Backup for AKS supports various backup-related reports. Currently, backup data can only be viewed by selecting “All” for workload type in the report filters. The supported backup reports [are available here](monitoring-and-alerts-overview.md)
@@ -102,7 +109,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Modifying the backup configuration or the snapshot resource group assigned to a backup instance during AKS cluster backup setup isn't supported. You cannot update existing backup instances to include Azure Files-based volumes; you must create a new backup instance to back up these volumes.
 
-- The following namespaces are skipped from Backup Configuration and cannot be configured for backups: `kube-system`, `kube-node-lease`, `kube-public`. 
+- The following namespaces are skipped from Backup Configuration and you can't configure them for backups: `kube-system`, `kube-node-lease`, `kube-public`, `gatekeeper-system`. 
 
 - Azure Backup doesn't automatically scale out AKS nodes, it only restores data and associated resources. Autoscaling is managed by AKS itself, using features like the Cluster Autoscaler. If autoscaling is enabled on the target cluster, it should handle resource scaling automatically. Before restoring, ensure that the target cluster has sufficient resources to avoid restore failures or performance issues.
 
