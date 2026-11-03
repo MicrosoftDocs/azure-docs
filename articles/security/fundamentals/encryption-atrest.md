@@ -86,11 +86,9 @@ When services cache DEKs locally for active cryptographic operations, Azure plat
 
 With Azure Key Vault or Azure Key Vault Managed HSM, your organization controls key policies and authorized key use. The following error-handling and caching rules apply to Azure Key Vault Standard, Azure Key Vault Premium, Azure Key Vault Managed HSM, and Azure Key Vault Managed HSM with external keys.
 
-Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses indicating loss of key access also require consuming Azure services to stop using and flush cached data encryption keys (DEKs) associated with that customer-managed key encryption key. By default, affected encrypted data becomes inaccessible within one hour of your disabling the key, revoking access, or deleting it.
+Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses indicating loss of key access also require consuming Azure services to stop using and flush cached data encryption keys (DEKs) associated with that customer-managed key encryption key. By default, affected encrypted data becomes inaccessible within one hour of your disabling the key, revoking access, or deleting it. For other errors, services make a best effort to preserve workload availability using cached DEKs. 
 
-For other errors, services make a best effort to preserve workload availability using cached DEKs. Continued availability isn't guaranteed. Later transient errors don't override an observed denial or extend its revocation deadline.
-
-Managed HSM's architecture and technical controls prevent Microsoft personnel from overriding your key policies and authorized key-use decisions. When you use Managed HSM with external key management (EKM), your key encryption key remains in your HSM outside Microsoft infrastructure. For more information about Managed HSM's architectural protections, see [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details). The shared revocation behavior doesn't mean Azure Key Vault Premium has the same sovereignty architecture as Managed HSM.
+For more information about Managed HSM's architectural protections, see [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details). 
 
 ## Encryption at rest in Microsoft cloud services
 
