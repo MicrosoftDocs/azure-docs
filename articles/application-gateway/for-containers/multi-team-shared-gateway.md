@@ -37,16 +37,7 @@ A delegated listener model typically separates responsibilities as follows:
 
 The platform team doesn't need to add a listener to the Gateway each time an application team onboards a hostname. Instead, it authorizes selected namespaces, and each authorized team manages a ListenerSet in its own namespace. Use Kubernetes role-based access control (RBAC) to limit each team to its own namespace and reserve write access to the parent Gateway for the platform team.
 
-```mermaid
-flowchart TD
-    Platform[Platform team] --> Gateway[Gateway]
-    Gateway -->|allowedListeners| ListenerSetA[Team A ListenerSet]
-    Gateway -->|allowedListeners| ListenerSetB[Team B ListenerSet]
-    ListenerSetA --> RouteA[Team A HTTPRoute]
-    ListenerSetB --> RouteB[Team B HTTPRoute]
-    RouteA --> ServiceA[Team A service]
-    RouteB --> ServiceB[Team B service]
-```
+[![Diagram of a shared Gateway owned by the platform team, with separate ListenerSets for Team A and Team B, each routing through its own HTTPRoute to its own service.](./media/multi-team-shared-gateway/multi-team-shared-gateway-listenerset.png)](./media/multi-team-shared-gateway/multi-team-shared-gateway-listenerset.png#lightbox)
 
 ## How delegation works
 
