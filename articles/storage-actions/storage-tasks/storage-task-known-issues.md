@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: limits-and-quotas
-ms.date: 05/05/2025
+ms.date: 10/30/2026
 ms.author: normesta
 ---
 
@@ -14,7 +14,7 @@ ms.author: normesta
 
 This article describes limitations and known issues of storage tasks. The issues that appear in this article reflect the current state of the service. This list will change over time as support continues to expand.
 
-## Scale limits
+## Resource limits
 
 | Scale factor | Supported limit |
 |---|---|
@@ -28,23 +28,23 @@ Azure Storage Actions autoscales its processing tasks based on the volume of dat
 
 ## Task assignments applied on storage accounts across regions
 
-Task assignments can only be applied on storage accounts that are in the same region as the storage tasks.
+Task assignments can only be applied on storage accounts that are in the same region where the Storage Actions resource was created.
 
 ## Billing doesn't show task assignment name 
 
 Billing meters show up on the bill with only the storage account name. Subscription bill doesn't show the task assignment name for which the meter was emitted. To correlate the meter with the task assignment, you must look at the resource metrics for Storage Actions filtered by the storage account for that day.
 
-## Propagation of task definition updates 
+## Propagation of task definition updates may break task assignments
 
-Task assignments aren't updated when changes are made to a task definition. New task assignments must be created after deleting the older ones to pick up any changes.  
+When you update an Azure Storage Actions task definition, the changes automatically apply to all its task assignments. Updates to task assignments only validate the consistency of the task definition, but don't validate the changes against existing task assignments. The updates can hence cause task assignments to become invalid if the task definition refers to features that are unsupported on that storage account. For example, a Storage Actions task definition might initially be applied to both FNS and HNS storage accounts. If you make an update to the task definition that adds a condition or operation that's specific to FNS, such as blob versioning, the task definition becomes invalid on HNS storage accounts.
 
-## Stopping task assignments
+## Stop task assignments
 
-You can stop an in-progress run by [removing the role assignment](/azure/role-based-access-control/role-assignments-remove) for the underlying managed identity.
+You can stop a single task assignment or all task assignments from the **Task Runs** page of the Azure Storage Actions portal. This interface isn't currently available through the Storage Actions page of the storage account portal.
 
 ## Move for storage account resource is blocked when a task assignment exists
 
-The workaround is to delete the storage task assignment and then move the storage account resource.
+Delete the storage task assignment, and then move the storage account resource.
 
 ## Restrictions on moving a storage task across Microsoft Entra directories
 
@@ -52,13 +52,13 @@ You can move storage tasks across resource groups and subscriptions. However, be
 
 ## Concurrency limit for execution
 
-Storage tasks have a limit on the number of task assignments that can be executed concurrently on each storage account. To ensure optimal performance, make sure that task assignments on a single storage account are scheduled to run with a reasonable time interval between them based on the objects targeted, to ensure task runs complete in time. Task assignment executions exceeding the concurrency limit for a storage account are paused until other assignments have completed.
+Storage tasks have a limit on the number of task assignments that they can execute concurrently on each storage account. To ensure optimal performance, ensure that task assignments on a single storage account are scheduled to run with a reasonable time interval between them based on the targeted objects, to ensure task runs complete in time. Pause task assignment executions that exceed the concurrency limit for a storage account until other assignments complete.
 
 ## Scale dependence on transaction capacity available for the storage account
 
-Storage task assignment execution is autoscaled depending on the transaction request capacity available on the storage account. Scale is higher when more transaction capacity is available and lower when less transaction capacity is available.
+Storage task assignment execution autoscales depending on the transaction request capacity available on the storage account. Scale is higher when more transaction capacity is available and lower when less transaction capacity is available.
 
-When the targeted storage account has lower available transaction capacity, storage task execution might be throttled resulting in longer than expected duration for completing the task assignment execution.
+When the targeted storage account has lower available transaction capacity, storage task execution might be throttled, resulting in longer than expected duration for completing the task assignment execution.
 
 For more information about scale limits, see [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md).
 
@@ -67,27 +67,27 @@ For more information about scale limits, see [Scalability and performance target
 
 ## Storage task runs can write to the report export container without permission to the container
 
-As you create a task assignment, you'll assign a role to the system-assigned managed identity of the storage task. When the storage task runs, it can operate only on containers where it's managed identity is assigned the required role. This isn't the case with the report export container that you choose during task assignment. While a storage task can't operate on existing blobs in that container, a task doesn't require the correct role to write reports to that container.
+As you create a task assignment, you assign a role to the system-assigned managed identity of the storage task. When the storage task runs, it can operate only on containers where its managed identity has the required role. This rule doesn't apply to the report export container that you choose during task assignment. While a storage task can't operate on existing blobs in that container, a task doesn't require the correct role to write reports to that container.
 
 ## String operators on container metadata, blob metadata, and blob index tags don't work if the values are numbers
 
-You can't use string operators on container metadata, blob metadata, and blob index tags along with numbers as value. For example, equals(Tags.Value[Year], '2022') where the value '2022' is a number, along with string operator equals, doesn't evaluate correctly.
+You can't use string operators on container metadata, blob metadata, and blob index tags when the value is a number. For example, `equals(Tags.Value[Year], '2022')` where the value `2022` is a number, doesn't work correctly with the string operator `equals`.
 
 ## Assignments fail when they reference a storage account name that starts with a digit
 
-If you assign a storage task to a storage account that has a name, which starts with a digit, the storage task assignment fails.
+If you assign a storage task to a storage account that has a name starting with a digit, the storage task assignment fails.
 
-## Whitespace characters in Blob index tags and metadata aren't yet supported
+## Whitespace characters in Blob index tags and metadata aren't supported
 
-Whitespace characters in the key and value of blob tags are acceptable inputs. However, storage task conditions are unable to process the whitespace characters. If a key or value contains a whitespace character, an error appears when the task runs.
+You can use whitespace characters in the key and value of blob tags. However, storage task conditions can't process whitespace characters. If a key or value contains a whitespace character, an error appears when the task runs.
 
 ## Blob name property value contains or matches "." is unsupported
 
-The string field input on blob name clause accepts ".doc" or ".pdf" as inputs but fails to deploy the task resource. The service resource provider validation catches it and throws the error. The value of the property 'Name' is '.doc' and it doesn't follow the pattern '^[a-zA-Z0-9]+$'"}]}.
+The string field input on the blob name clause accepts `.doc` or `.pdf` as inputs but fails to deploy the task resource. The service resource provider validation catches it and throws the error. The value of the property `Name` is `.doc` and it doesn't follow the pattern `^[a-zA-Z0-9]+"}]}.
 
 ## Storage task assignments operate on an incomplete list of blobs when used with multiple directory filters in accounts that have a hierarchical namespace
 
-If multiple filters are used in storage task assignments, not all directory prefixes are scanned for blobs to be operated on.
+If you use multiple filters in storage task assignments, the task doesn't scan all directory prefixes for blobs to operate on.
 
 ## Using whitespace characters in the path prefix during task assignment isn't supported
 
@@ -100,27 +100,27 @@ Storage accounts that have a hierarchical namespace display location information
 
 ## Operating on storage accounts in a private network
 
-Storage task assignments can be successfully applied to storage accounts in private networks when the networking configuration includes an option that permits trusted Microsoft services to access the account. This setting ensures that tasks have the necessary access during execution, even when firewall or virtual network rules are in place. If this option is **not enabled**, task execution will fail because access is blocked by network restrictions. For detailed steps on enabling this setting, refer to the documentation. [Manage network security exceptions for Azure Storage](/azure/storage/common/storage-network-security-manage-exceptions)
+You can apply storage task assignments to storage accounts in private networks when the networking configuration includes an option that permit trusted Microsoft services to access the account. This setting ensures that tasks have the necessary access during execution, even when firewall or virtual network rules are in place. If you don't enable this option, task execution fails because network restrictions block access. For detailed steps on enabling this setting, see [Manage network security exceptions for Azure Storage](/azure/storage/common/storage-network-security-manage-exceptions).
 
 ## Storage task runs are stuck in the in progress state
 
-If during the assignment process, you assign a role which doesn't have the required permission, the storage task run will take 14 days to fail. To unblock the task run, you can add the required role to the managed identity of the storage task. Otherwise, the task assignment will be stuck in the **in progress** state until the task run ends in 14 days.
+If you assign a role that doesn't have the required permission during the assignment process, the storage task run takes 14 days to fail. To unblock the task run, add the required role to the managed identity of the storage task. Otherwise, the task assignment stays in the **in progress** state until the task run ends in 14 days.
 
-## Premium Block Blobs 
+## Premium block blobs 
 
 Creating assignments on premium block blobs storage accounts doesn't work.
 
 ## Soft deleted blobs are included in listing during scanning as objects targeted 
 
-The workaround is to exclude the specific prefixes which are soft deleted.
+Exclude the specific prefixes that are soft deleted.
 
 ## No option to choose priority when rehydrating blobs to an online tier 
 
-When rehydrating archived blobs, there's no option to choose a priority. The blobs are rehydrated with the standard priority. 
+When rehydrating archived blobs, you can't choose a priority. The blobs are rehydrated with the standard priority. 
 
 ## Delay in task assignment runs
 
-Task assignment runs can take around 20 minutes to change status to `In Progress` after being queued. Until then, no updates appear. This delay is expected and there is no workaround to shorten it.
+Task assignment runs can take around 20 minutes to change status to `In Progress` after being queued. Until then, no updates appear. This delay is expected and there's no workaround to shorten it.
 
 ## Mock run limitations
 

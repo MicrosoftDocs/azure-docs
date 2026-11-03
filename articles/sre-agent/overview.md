@@ -3,7 +3,7 @@ title: Overview of Azure SRE Agent
 description: Learn how Azure SRE Agent automates incident triage, scheduled operations, and site reliability workflows with integrations for PagerDuty, ServiceNow, and GitHub.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 08/26/2026
+ms.date: 10/28/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -132,15 +132,11 @@ Pick the path that matches your goal: schedule a task, handle an incident, or bu
 
 Use scheduled tasks to automate routine operational work (health checks, cleanup, and compliance sweeps) without writing infrastructure code.
 
-1. Select the **Schedule tasks** tab.
-
-1. Enter task details.
-
-1. Define the schedule to run your task.
-
-1. Craft custom agent instructions for the task.
-
-1. Select **Create scheduled task**.
+1. Select **Automation** in the sidebar.
+1. Select **Create** > **Scheduled task**.
+1. Enter the task name, instructions, and schedule.
+1. Optionally select a **Response subagent**.
+1. Select **Create task**.
 
 You see results from your scheduled task in your connected incident platform or notification channel.
 

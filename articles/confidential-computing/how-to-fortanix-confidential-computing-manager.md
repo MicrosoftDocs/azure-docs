@@ -14,7 +14,7 @@ ms.custom: sfi-image-nochange
 
 This article shows you how to deploy an application that's managed by Fortanix Confidential Computing Manager in the Azure portal.
 
-Fortanix is a third-party software vendor with products and services built on top of Azure infrastructure. There are other third-party providers offering similar confidential computing services on Azure.
+Fortanix is a third-party software vendor with products and services built on top of Azure infrastructure. Other third-party providers offer similar confidential computing services on Azure.
 
 > [!NOTE]
 >The products referenced in this document are not under the control of Microsoft. Microsoft is providing this information to you only as a convenience, and the reference to these non-Microsoft products do not imply endorsement by Microsoft.
@@ -116,4 +116,4 @@ In this quickstart, you enrolled a node using an Azure managed app to Fortanix's
 
 To learn more about Azure's confidential computing offerings, see [Azure confidential computing](overview.md).
 
-Learn how to complete similar tasks using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview) and [Scone](https://sconedocs.github.io).
+Learn how to complete similar tasks by using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview).

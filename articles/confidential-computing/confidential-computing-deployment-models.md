@@ -1,88 +1,85 @@
 ---
 title: Choose Between Deployment Models
-description: Choose between deployment models in Azure confidential computing.
+description: Compare AMD SEV-SNP and Intel TDX VM deployments with confidential container options on Azure.
 author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 4/30/2024
+ms.date: 06/30/2026
 ms.author: wwilliams
 # Customer intent: "As an IT manager, I want to compare deployment models for confidential computing, so that I can choose the most suitable option for my organization's security and operational requirements."
 ---
 
 # Deployment models in confidential computing
 
-Azure confidential computing supports multiple deployment models. These models support the wide variety of customer security requirements for modern cloud computing.
+Azure confidential computing supports multiple deployment models to meet different security, portability, and operational requirements.
 
 ## Infrastructure as a service
 
 Under the infrastructure as a service (IaaS) deployment model in cloud computing, you can use:
 
 - *Confidential virtual machines (VMs)* based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) for VM isolation.
-- *Application enclaves* with [Intel SGX](confidential-computing-enclaves.md) for app isolation.
+- *Application enclaves* with [Intel SGX](confidential-computing-enclaves.md) for specialized app-level isolation scenarios.
 
-These options provide organizations with differing deployment models, depending on their trust boundary or desired ease of deployment.
+These options differ primarily by trust boundary and deployment complexity.
 
 ![Diagram that shows the customer trust boundary of confidential computing technologies.](./media/confidential-computing-deployment-models/cloud-trust-boundary.png)
 
-The IaaS deployment model grants access to scalable computing resources (such as servers, storage, networking, and virtualization) on demand. By adopting an IaaS deployment model, organizations can forgo the process of procuring, configuring, and managing their own infrastructure. Instead, they pay for only the resources that they use. This ability makes IaaS a cost-effective solution.
-
-In the domain of cloud computing, the IaaS deployment model enables businesses to rent individual services from cloud service providers (CSPs) like Azure. Azure assumes responsibility for managing and maintaining the infrastructure so that organizations can concentrate on installing, configuring, and managing their software. Azure also offers supplementary services such as comprehensive billing management, logging, monitoring, storage resiliency, and security.
-
-Scalability is another advantage of the IaaS deployment model in cloud computing. Enterprises can swiftly scale their resources up and down according to their requirements. This flexibility facilitates faster development life cycles, accelerating time to market for new products and ideas. The IaaS deployment model also helps ensure reliability by eliminating single points of failure. Even if a hardware component fails, the service remains available.
-
-In summary, the IaaS deployment model in combination with Azure confidential computing offers benefits like cost savings, increased efficiency, innovation opportunities, reliability, and high scalability. It takes advantage of a robust and comprehensive security solution that's designed to protect highly sensitive data.
+The IaaS model gives on-demand access to compute, storage, networking, and virtualization. Azure manages the underlying infrastructure so you can focus on the guest OS and applications. For many teams, this model balances strong control with cloud scalability and operational simplicity.
 
 ## Platform as a service
 
-For platform as a service (PaaS), you can use [confidential containers](confidential-containers.md) in confidential computing. This offering includes enclave-aware containers in Azure Kubernetes Service (AKS).
+For platform as a service (PaaS), use [confidential containers](confidential-containers.md), including Azure Container Instances confidential containers and AKS confidential VM node pools.
 
-Choosing the right deployment model depends on many factors. You might need to consider the existence of legacy applications, operating system capabilities, and migration from on-premises networks.
+Intel SGX container and enclave-aware models are available for advanced scenarios, but most new deployments should start with SNP or TDX-backed VM isolation and managed container offerings.
 
-Although there are still many reasons to use VMs, containers provide extra flexibility for the many software environments of modern IT. Containers can support apps that:
+Choose the right model based on your application architecture, required trust boundary, and migration constraints.
 
-- Run on multiple clouds.
+Although VMs remain important, containers offer more flexibility for modern software environments. Containers can support apps that:
+
+- Run across multiple clouds.
 - Connect to microservices.
-- Use various programming languages and frameworks.
-- Use automation and Azure Pipelines, including continuous integration and continuous deployment (CI/CD) implementation.
+- Use multiple programming languages and frameworks.
+- Use automation and Azure Pipelines, including CI/CD.
 
-Containers also increase the portability of applications, and improve resource usage, by applying the elasticity of the Azure cloud.
+Containers can also increase portability and improve resource efficiency through elastic scaling.
 
-Normally, you might deploy your solution on confidential VMs if:
+Choose confidential VMs when:
 
-- You have legacy applications that can't be modified or containerized. However, you still need to introduce protection of data in memory while the data is being processed.
-- You're running multiple applications that require different operating systems (OSs) on a single piece of infrastructure.
-- You want to emulate an entire computing environment, including all OS resources.
+- You have legacy applications that you can't modify or containerize but still need protection for data in use.
+- You run multiple applications that require different operating systems.
+- You need a full guest OS environment.
 - You're migrating your existing VMs from on-premises to Azure.
 
-You might opt for a confidential container-based approach when:
+Choose confidential containers when:
 
-- You're concerned about cost and resource allocation. However, you need a more agile platform for deployment of your proprietary apps and datasets.
-- You're building a modern cloud-native solution. You also have full control of source code and the deployment process.
+- You need tighter cost and resource efficiency with faster deployment cycles.
+- You're building a cloud-native solution and control source code and deployment pipelines.
 - You need multicloud support.
 
-Both options offer the highest security level for Azure services.
+Both options provide strong security with different operational tradeoffs.
 
 ## Comparison of security boundaries
 
-There are some differences in the security postures of confidential VMs and confidential containers.
+Confidential VMs and confidential containers have different security postures.
 
-### Confidential VMs
+### Confidential VMs (SNP/TDX)
 
-Confidential VMs offer hardware-encrypted protection of an entire VM from unauthorized access by the host administrator. This level typically includes the hypervisor, which the CSP manages. You can use this type of confidential VM to prevent the CSP from accessing data and code executed within the VM.
+Confidential VMs provide hardware-encrypted protection for an entire VM, so the host administrator can't access it without authorization. This protection level includes the hypervisor, which the CSP manages. Use this type of confidential VM to prevent the CSP from accessing data and code that run within the VM.
 
-VM admins, or any other apps or services running inside the VM, operate beyond the protected boundaries. These users and services can access data and code within the VM.
+VM admins, apps, and other services running inside the VM operate beyond the protected boundaries. These users and services can access data and code within the VM.
 
 ![Diagram that shows the customer trust boundary of confidential VM technologies.](./media/confidential-computing-deployment-models/cvm-architecture.png)
 
-### Application enclaves
+### Application enclaves (specialized)
 
-Application enclaves help protect memory spaces inside a VM with hardware-based encryption. The security boundary of application enclaves is more restricted than the boundary for confidential VMs. For Intel SGX, the security boundary applies to portions of memory within a VM. Guest admins, apps, and services running inside the VM can't access any data and code in execution inside the enclave.
+Application enclaves help protect memory spaces inside a VM by using hardware-based encryption. The security boundary is more restricted than confidential VMs, but this model requires enclave-aware development and specialized operational patterns.
 
-Intel SGX enhances application security by isolating data in use. It creates secure enclaves that prevent modifications to selected code and data, so that only authorized code can access them. Even with high-level permissions, entities outside the enclave (including the OS and hypervisor) can't access enclave memory through standard calls. Accessing enclave functions requires specific Intel SGX CPU instructions, which include multiple security checks.
+Intel SGX can provide strong function-level isolation, but this path is typically best for existing enclave-native applications or niche requirements.
 
 ![Diagram that shows the customer trust boundary of app enclave technologies.](./media/confidential-computing-deployment-models/enclaves-architecture.png)
 
 ## Related content
 
-- [Learn about confidential containers](confidential-containers.md)
-- [Learn about confidential computing enclaves](confidential-computing-enclaves.md)
+- [Learn about confidential VM options](virtual-machine-options.md).
+- [Learn about confidential containers](confidential-containers.md).
+- [Learn about confidential computing enclaves (specialized)](confidential-computing-enclaves.md).

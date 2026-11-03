@@ -1,16 +1,17 @@
 ### YamlMime:Landing
 
 title: Save with Azure savings plans
-summary: Learn how Azure savings plans help you save money by committing an hourly spend for one-year or three-year plan for Azure compute resources.
+summary: Learn how Azure savings plans help you save money by committing to a fixed hourly spend on eligible Azure compute and database resources for a one-year or three-year term.
 metadata:
   title: Save with Azure savings plans
-  description: Learn how Azure savings plans help you save money by committing an hourly spend for one-year or three-year plan for Azure compute resources.
+  description: Learn how Azure savings plans help you save money by committing to a fixed hourly spend on eligible Azure compute and database resources for a one-year or three-year term.
   ms.service: cost-management-billing
   ms.subservice: savings-plan
   ms.topic: landing-page
   author: nwokolo
   ms.author: onwokolo
-  ms.date: 03/14/2026
+  ms.reviewer: onwokolo
+  ms.date: 10/29/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -25,14 +26,14 @@ landingContent:
         url: savings-plan-overview.md
       - text: Savings plan purchase recommendations
         url: purchase-recommendations.md
-      - text: Windows and SQL software cost charged separately
+      - text: Windows and SQL software costs charged separately
         url: software-costs-not-included.md
                 
     - linkListType: how-to-guide
       links:
       - text: Buy a savings plan
         url: buy-savings-plan.md
-      - text: Reservation trade ins
+      - text: Reservation trade-ins
         url: reservation-trade-in.md
       - text: Renew a savings plan
         url: renew-savings-plan.md
@@ -48,7 +49,7 @@ landingContent:
         url: decide-between-savings-plan-reservation.md
     - linkListType: learn
       links:
-      - text: Training - Azure savings plan for compute
+      - text: Training - Savings plans for compute and databases
         url: /training/modules/azure-savings-plan-for-compute/
 
   # Card (optional)

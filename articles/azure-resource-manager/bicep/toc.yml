@@ -514,6 +514,9 @@ items:
               - name: No conflicting metadata
                 displayName: linter
                 href: linter-rule-no-conflicting-metadata.md
+              - name: No conflicting version constraints
+                displayName: linter
+                href: linter-rule-no-conflicting-version-constraints.md
               - name: No deployments resources
                 href: linter-rule-no-deployments-resources.md
               - name: No explicit Any
@@ -528,6 +531,9 @@ items:
               - name: No hardcoded outputs
                 displayName: linter
                 href: linter-rule-no-hardcoded-outputs.md
+              - name: No incompatible entrypoint version
+                displayName: linter
+                href: linter-rule-no-incompatible-entrypoint-version.md
               - name: No location expressions outside of parameter default values
                 displayName: linter
                 href: linter-rule-no-loc-expr-outside-params.md
@@ -661,6 +667,8 @@ items:
         items:
           - name: Bicep config file
             href: bicep-config.md
+          - name: Compiler version requirements
+            href: bicep-config-version.md
           - name: Linter settings
             href: bicep-config-linter.md
           - name: Bicep config inheritance
@@ -844,6 +852,10 @@ items:
             href: diagnostics/bcp422.md
           - name: BCP446
             href: diagnostics/bcp446.md
+          - name: BCP456
+            href: diagnostics/bcp456.md
+          - name: BCP457
+            href: diagnostics/bcp457.md
       - name: Programmatic Bicep usage with JSON-RPC
         displayName: jsonrpc,json-rpc,rpc,pipe,socket,stdio,programmatic
         href: bicep-cli-jsonrpc.md

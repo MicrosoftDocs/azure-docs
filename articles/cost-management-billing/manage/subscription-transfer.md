@@ -7,7 +7,7 @@ ms.reviewer: clodwig
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 12/29/2025
+ms.date: 10/16/2026
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
@@ -94,7 +94,8 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 | EA | CSP (MCA managed by partner) | • If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), refer to the Transfer Reservations and Savings Plans with currency change section below. <br><br> • Transfers are supported for CSP authorized Direct Bill partners with an Azure Solutions Partner designation or Azure Expert MSP status, and CSP authorized distributors with a Frontier Distributor designation can request to transfer Azure products for their customers that have an Enterprise Agreement (EA). For more information, see [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Product transfers are allowed only for customers that accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program.<br><br> • There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.yml). |
 | MCA-online | MOSP (pay-as-you-go) | •  Microsoft doesn't support the transfer, so you must move resources yourself. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
 | MCA-online | MCA-online | • For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation and savings plan transfers are supported. |
-| MCA-online | EA | •  Microsoft doesn't support the transfer, so you must move resources yourself. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
+| MCA-online (Individual billing account) | EA | • Supported. When the identity that originated the Individual billing account is added as an EA account owner and activates the account, all subscriptions on any account that has that user's identity as its backing entity (as opposed to a business) move to the EA.<br><br> **Note:** The conversion is all or nothing and can't be reversed. For details, see [Transfer MCA-Online subscriptions to an Enterprise Agreement](mca-online-ea-transfer.md).<br><br> •  Reservations and savings plans don't necessarily transfer automatically. Because the whole account moves, you can't leave products behind. Review the product behaviors in [Transfer Reservations and Savings Plans with currency change](#transfer-reservations-and-savings-plans-with-currency-change). |
+| MCA-online (any other account type) | EA | •  Microsoft doesn't support the transfer, so you must move resources yourself. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
 | MCA-online | MCA-E | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br>•  Self-service reservation and savings plan transfers are supported. |
 | MCA-online | CSP (MCA managed by partner) | •  Microsoft doesn't support the transfer, so you must move resources yourself. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
 | MCA-E | EA | •  Microsoft doesn't support the transfer, so you must move resources yourself. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
@@ -134,7 +135,7 @@ Self-service reservation and savings plan transfers with no pricing or billing c
 
 ## Perform resource transfers
 
-Some product transfers require you to manually move Azure resources between subscription. Moving resources can incur downtime and there are various limitations to move Azure resource types such as VMs, NSGs, App Services, and others.
+Some product transfers require you to manually move Azure resources between subscriptions. Moving resources can incur downtime and there are various limitations to move Azure resource types such as VMs, NSGs, App Services, and others.
 
 Microsoft doesn't provide a tool to automatically move resources between subscriptions. When needed, you must manually move Azure resources between subscriptions. For details, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Extra time and planning are needed when you have a large number of resources to move.
 
@@ -277,7 +278,7 @@ Even if the [Azure role assignments](/azure/role-based-access-control/role-assig
 - Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-account-create.md).
 - Remote Access credentials for services like Azure Virtual Machines.
 
-When the recipient needs to restrict access to resources, they should consider updating any secrets associated with the service. Most resources can be updated. Sign in to the [Azure portal](https://portal.azure.com/) and then on the Hub menu, select **All resources**. Next, Select the resource. Then in the resource page, select **Settings**. There you can view and update existing secrets.
+When the recipient needs to restrict access to resources, they should consider updating any secrets associated with the service. Most resources can be updated. Sign in to the [Azure portal](https://portal.azure.com/) and then on the Hub menu, select **All resources**. Next, select the resource. Then in the resource page, select **Settings**. There you can view and update existing secrets.
 
 ### You pay for usage when you receive ownership
 

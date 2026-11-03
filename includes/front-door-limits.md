@@ -62,7 +62,7 @@ In addition to the following limits, there's a [composite limit on the number of
 | Maximum rules per rule set | 100 | 100 |
 | Maximum bandwidth <sup>1</sup> | 75 Gbps | 75 Gbps |
 | Maximum requests per second per profile <sup>1,</sup> <sup>2</sup> | 100,000 | 100,000 |
-| Maximum concurrent WebSocket connections per profile <sup>3</sup> | 3,000 | 3,000 |
+| Maximum concurrent WebSocket connections per profile <sup>3</sup> | 1,000,000 | 1,000,000 |
 | Path patterns to match for a routing rule | 100 | 100 |
 | URLs in a single cache purge call | 100 | 100 |
 | Maximum security policy per profile | 100 | 200 |
@@ -91,9 +91,9 @@ In addition to the following limits, there's a [composite limit on the number of
 
 <sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limit is needed, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-<sup>2</sup> There's currently a 5,000 requests per second per PoP limit for each Front Door profile. Beyond this limit, the PoP location drops connections. If requests are concentrated in one or more regions and exceed this limit, you can request a higher PoP limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+<sup>2</sup> There's currently a 15,000 requests per second per PoP limit for each Front Door profile. Beyond this limit, the PoP location drops connections. If requests are concentrated in one or more regions and exceed this limit, you can request a higher PoP limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-<sup>3</sup> If you need more than 3,000 concurrent WebSocket connections, submit an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+<sup>3</sup> If you need more than 1,000,000 concurrent WebSocket connections, submit an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 <sup>4</sup> Currently, **JavaScript** is the only supported language.
 

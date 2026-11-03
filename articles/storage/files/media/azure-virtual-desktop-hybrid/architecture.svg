@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="800" viewBox="0 0 1080 800" role="img" aria-labelledby="title description">
+  <title id="title">Azure Virtual Desktop Hybrid with Azure Files and Azure File Sync</title>
+  <desc id="description">Microsoft Entra ID provides identity and authentication for on-premises Arc-enabled session hosts. The hosts connect outbound to the Azure Virtual Desktop broker and gateway and access a local Windows file server over SMB. Azure File Sync synchronizes the local cache with Azure Files for FSLogix profiles, shared data, and centralized file storage.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#365a75"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #172b3a; font-size: 17px; }
+      .section { font-size: 22px; font-weight: 600; }
+      .heading { font-size: 19px; font-weight: 600; }
+      .label { font-size: 16px; }
+      .connector { fill: none; stroke: #365a75; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1080" height="800" fill="#ffffff"/>
+  <rect x="24" y="20" width="1032" height="214" rx="12" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text class="section" x="48" y="58">Azure control plane</text>
+  <rect x="48" y="82" width="300" height="126" rx="8" fill="#ffffff" stroke="#7baed6"/>
+  <text class="heading" x="198" y="119" text-anchor="middle">Microsoft Entra ID</text>
+  <text x="198" y="150" text-anchor="middle">Identity, authentication,</text>
+  <text x="198" y="175" text-anchor="middle">and policy</text>
+  <rect x="380" y="82" width="322" height="126" rx="8" fill="#ffffff" stroke="#7baed6"/>
+  <text class="heading" x="541" y="128" text-anchor="middle">Azure Virtual Desktop</text>
+  <text x="541" y="162" text-anchor="middle">Broker and gateway</text>
+  <rect x="734" y="82" width="298" height="126" rx="8" fill="#ffffff" stroke="#7baed6"/>
+  <text class="heading" x="883" y="145" text-anchor="middle">Monitoring and RBAC</text>
+  <text class="label" x="72" y="281">Identity and auth</text>
+  <text class="label" x="450" y="281">Secure outbound connection</text>
+  <rect x="24" y="304" width="1032" height="226" rx="12" fill="#f4f1fa" stroke="#a595c4" stroke-width="2"/>
+  <text class="section" x="48" y="338">On-premises / hybrid infrastructure</text>
+  <rect x="48" y="354" width="466" height="150" rx="8" fill="#ffffff" stroke="#a595c4"/>
+  <text class="heading" x="281" y="392" text-anchor="middle">Azure Virtual Desktop session hosts</text>
+  <text x="281" y="426" text-anchor="middle">Arc-enabled servers</text>
+  <text x="281" y="456" text-anchor="middle">User sessions</text>
+  <rect x="716" y="354" width="316" height="150" rx="8" fill="#ffffff" stroke="#a595c4"/>
+  <text class="heading" x="874" y="392" text-anchor="middle">Windows file server</text>
+  <text x="874" y="426" text-anchor="middle">Azure File Sync agent</text>
+  <text x="874" y="456" text-anchor="middle">Local cache</text>
+  <path class="connector" d="M 514 429 L 714 429"/>
+  <text class="label" x="614" y="400" text-anchor="middle">File access (SMB)</text>
+  <text class="label" x="614" y="460" text-anchor="middle">LAN-level latency</text>
+  <text class="label" x="570" y="571">Azure File Sync: sync and recall</text>
+  <rect x="24" y="610" width="1032" height="166" rx="12" fill="#edf7f0" stroke="#80b991" stroke-width="2"/>
+  <text class="section" x="48" y="648">Cloud file system: Azure Files</text>
+  <rect x="48" y="670" width="280" height="80" rx="8" fill="#ffffff" stroke="#80b991"/>
+  <text class="heading" x="188" y="716" text-anchor="middle">FSLogix profiles</text>
+  <rect x="360" y="670" width="280" height="80" rx="8" fill="#ffffff" stroke="#80b991"/>
+  <text class="heading" x="500" y="716" text-anchor="middle">Shared data</text>
+  <rect x="672" y="670" width="360" height="80" rx="8" fill="#ffffff" stroke="#80b991"/>
+  <text class="heading" x="852" y="703" text-anchor="middle">Central file storage</text>
+  <text x="852" y="731" text-anchor="middle">Single source of truth</text>
+  <path class="connector" d="M 198 208 L 198 304"/>
+  <path class="connector" d="M 430 304 L 430 208"/>
+  <path class="connector" d="M 874 504 L 874 610" marker-start="url(#arrow)"/>
+</svg>

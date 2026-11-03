@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 09/10/2026
+ms.date: 10/14/2026
 
 #CustomerIntent: As a tool publisher, I want to write a tool definition YAML file so that Microsoft Discovery can correctly deploy, configure, and invoke my containerized tool within investigations.
 ---
@@ -37,10 +37,12 @@ description: >
 version: 1.0.0                  # Semantic version; increment when making breaking changes
 category: Scientific Computing  # Category for organizing tools in the catalog
 license: MIT                    # License for this tool definition
+timeout_minutes: 1440           # Optional; defaults to 1440 minutes (24 hours)
 ```
 
 - Use a clear, lowercase `name` with hyphens rather than spaces. If you maintain multiple versions, include the version in the name (for example, `my-tool-v2`).
 - Write a `description` that explains what the tool does in enough detail for agents to understand when to invoke it. Agents use this description to decide which tool is appropriate for a given task.
+- Set `timeout_minutes` to a positive integer to configure the default maximum execution time for the tool's actions and code environments. If you omit it, the platform default is 1,440 minutes (24 hours). You can set `timeout_minutes` at the tool level as a default and override it per action or per code environment.
 
 ## Step 2: Define the infrastructure
 
@@ -76,7 +78,7 @@ infra:
 | Field | Guidance |
 |---|---|
 | `min_resources` | The minimum resources your tool needs to run. Must account for platform overhead. |
-| `max_resources` | The maximum your tool may use under peak load. If the tool exceeds the memory limit, it is forcefully stopped. |
+| `max_resources` | The maximum your tool can use under peak load. If the tool exceeds the memory limit, it's forcefully stopped. |
 | `recommended_sku` | Suggest Azure Virtual Machine (VM) SKUs that match your resource profile. The platform uses this field as a hint when scheduling. |
 | `pool_size` | For parallel workloads that run many simultaneous instances, increase this value. For most tools, `1` is correct. |
 
@@ -96,6 +98,7 @@ actions:
       CSV, or JSON input files. Writes detailed results to a CSV and a summary
       to results.json in the output directory.
     infra_node: worker
+    timeout_minutes: 120
     input_schema:
       type: object
       properties:
@@ -146,6 +149,7 @@ actions:
 | `name` | Yes | Unique identifier for the action within the tool. |
 | `description` | Yes | Explains what the action does, what inputs it expects, and what outputs it produces. Agents use this description to decide when to invoke the action. |
 | `infra_node` | Yes | Which infrastructure node runs this action. Must match a `name` in the `infra` section. |
+| `timeout_minutes` | No | Maximum execution time for this action, in minutes. Overrides the tool-level `timeout_minutes` value. Must be a positive integer. |
 | `input_schema` | Yes | JSON Schema describing all parameters the action accepts. |
 | `input_schema.required` | Yes | Array of parameter names that must always be provided. |
 | `command` | Yes | Command template executed in the container. Uses `{{parameter}}` to insert values and `{{#if parameter}}...{{/if}}` for optional parameters. |
@@ -163,7 +167,7 @@ actions:
 
 ## Step 3b: Define code environments (code environment and hybrid tools)
 
-Add a `code_environments` section to allow agents to write and execute custom scripts using your container's installed libraries.
+Add a `code_environments` section so agents can write and run custom scripts by using your container's installed libraries.
 
 ```yaml
 code_environments:
@@ -174,9 +178,21 @@ code_environments:
       scikit-learn pre-installed. Use this environment to write custom
       molecular analysis scripts.
     infra_node: worker
+    timeout_minutes: 240
 ```
 
-When an agent uses a code environment, the Discovery platform generates a Python script, mounts it into the container at the path specified by `{{scriptName}}`, and executes it using the `command` template.
+When an agent uses a code environment, the Discovery platform creates a Python script, mounts it into the container at the path you specify in `{{scriptName}}`, and runs it by using the `command` template.
+
+The optional `timeout_minutes` field sets the maximum execution time for the code environment and overrides the tool-level value. The value must be a positive integer.
+
+> [!IMPORTANT]
+> Microsoft Discovery resolves the execution timeout from the most specific setting to the least specific setting:
+>
+> 1. The action or code-environment `timeout_minutes` value.
+> 1. The top-level tool `timeout_minutes` value.
+> 1. The platform default of 1,440 minutes (24 hours).
+>
+> Timeout changes apply only to new tool executions. An execution that is already running keeps the timeout selected when it started.
 
 ## Complete examples
 
@@ -193,6 +209,7 @@ description: >
 version: 1.0.0
 category: Cheminformatics
 license: MIT
+timeout_minutes: 60
 
 infra:
   - name: worker
@@ -252,6 +269,7 @@ actions:
       PFAS, chemical weapon convention (CWC) compounds, and reactive groups.
       Accepts SMILES, CSV, or JSON input.
     infra_node: worker
+    timeout_minutes: 120
     input_schema:
       type: object
       properties:
@@ -294,6 +312,7 @@ description: >
 version: 1.0.0
 category: Scientific Computing
 license: MIT
+timeout_minutes: 240
 
 infra:
   - name: worker
@@ -340,9 +359,9 @@ Before registering your tool in Discovery, validate the YAML structure:
 
 ## Step 5: Register the tool in Microsoft Discovery
 
-After validating the definition, register the tool as a resource in your Discovery workspace. You can do register a tool through the Azure portal or via the REST API.
+After validating the definition, register the tool as a resource in your Discovery workspace. You can register a tool through the Azure portal or via the REST API.
 
-To perform this action, you need to convert the tool definition yaml created in [steps-3](#step-3a-define-actions-action-based-and-hybrid-tools) to corresponding json and provide that as an input during Discovery Tool resource creation.
+To perform this action, you need to convert the tool definition YAML you created in [Step 3](#step-3a-define-actions-action-based-and-hybrid-tools) to the corresponding JSON and provide that as an input during Discovery Tool resource creation.
 
 ## Related content
 

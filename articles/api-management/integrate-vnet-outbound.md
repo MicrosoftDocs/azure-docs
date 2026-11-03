@@ -3,7 +3,7 @@ title: Integrate API Management in private network
 description: Learn how to integrate an Azure API Management instance in the Standard v2 or Premium v2 tier with a virtual network to access backend APIs in the network.
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 12/04/2025
+ms.date: 10/28/2026
 ---
 
 # Integrate an Azure API Management instance with a private virtual network for outbound connections 
@@ -52,9 +52,15 @@ If you want to inject a Premium v2 API Management instance into a virtual networ
 > * Inbound NSG rules do not apply when a v2 tier instance is integrated in a virtual network for private outbound access. To enforce inbound NSG rules, use virtual network injection instead of integration.
 > * This differs from networking in the classic Premium tier, where inbound NSG rules are enforced in both external and internal virtual network injection modes. [Learn more](virtual-network-injection-resources.md)
 
-### Subnet delegation
+### Subnet delegation - Premium v2 
 
-The subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
+Delegate the subnet to the **Microsoft.ApiManagement/service** service. 
+
+:::image type="content" source="media/integrate-vnet-outbound/subnet-delegated-apim-service.png" alt-text="Screenshot of subnet delegation in Premium v2.":::
+
+### Subnet delegation - Standard v2 
+
+Delegate the subnet to the **Microsoft.Web/serverFarms** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
 

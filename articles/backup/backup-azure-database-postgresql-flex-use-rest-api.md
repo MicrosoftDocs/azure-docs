@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 # Back up Azure Database for PostgreSQL - Flexible Servers using REST API
 
-This article describes how to back up Azure Database for PostgreSQL - Flexible Severs using REST API.
+This article describes how to back up Azure Database for PostgreSQL - Flexible Servers using REST API.
 
 For information on the Azure PostgreSQL - Flexible server backup supported scenarios, limitations, and authentication mechanisms, see the [overview document](backup-azure-database-postgresql-flex-overview.md).
 
@@ -23,6 +23,7 @@ Before configuring backup for Azure PostgreSQL - Flexible servers, ensure that t
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 - [Create a PostgreSQL flexible server backup policy](backup-azure-database-postgresql-flex-use-rest-api-create-update-policy.md).
+- Ensure the identity creating or updating the backup instance has read permission on the source PostgreSQL flexible server, such as through the **Reader** role on that server. This permission is separate from the permissions assigned to the Backup vault's managed identity.
 
 
 ## Configure backup for PostgreSQL - Flexible servers
@@ -49,7 +50,9 @@ Once the vault and policy are created, there're three critical points to conside
 
 ### Prepare the request to configure backup
 
-After you set the relevant permissions to the vault and PostgreSQL flexible server, and configure the vault and policy, prepare the request to configure backup. See the following request body to configure backup for an Azure PostgreSQL flexible server. The Azure Resource Manager ID (ARM ID) of the Azure PostgreSQL flexible server and its details are present in the `datasourceinfo` section. The policy information is present in the `policyinfo` section.
+After you set the relevant permissions to the vault and PostgreSQL flexible server, and configure the vault and policy, prepare the request to configure backup.
+
+See the following request body to configure backup for an Azure Database for PostgreSQL flexible server. Set `dataSourceInfo.resourceID` and `dataSourceSetInfo.resourceID` to the full ARM ID of the source server. The policy information is in the `policyInfo` section.
 
 ```json
 {

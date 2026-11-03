@@ -51,8 +51,8 @@ Azure Migrate now supports the migration of both Generation 1 and Generation 2 v
 Azure Migrate currently supports the migration of the following operating systems to Confidential Virtual Machines (CVMs):
  - Windows Server: 2019, 2022
  - Ubuntu: 20.04 LTS, 22.04 LTS, 24.04 LTS
- - Rocky Linux 9.4
- - RHEL 9.4
+ - Rocky Linux 9.4, 9.5, 9.6
+ - RHEL 9.4, 9.5, 9.6
 
 ## Confidential encryption for OS disks (optional)
 Azure Migrate supports optional confidential encryption for OS disks during migration. This encryption protects all critical partitions of the disk. It also binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM.

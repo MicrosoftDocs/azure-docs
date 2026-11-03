@@ -32,6 +32,12 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Fix for sorted SQL searches with `$includes`**: Fixed an issue where sorted SQL searches with `$includes` could return missing or incorrect included resources. Pagination now works correctly for sorted searches with includes.
 
+**Fix for `editProfileDefinitions` authorization on profile resources**: Bulk update, bulk delete, and conditional delete operations now correctly enforce the `editProfileDefinitions` permission when modifying or deleting `CodeSystem`, `ValueSet`, and `StructureDefinition` resources, ensuring consistent authorization for protected profile definition resources. Bulk update and bulk delete skip resources when the permission is absent and report them in the operation outcome. To grant selected users access to these operations, add the `editProfileDefinitions` data action to a custom role and assign it to them. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+
+**Fix for parallel bundle cancellation responses**: When a transaction entry fails during parallel bundle processing and triggers cancellation, the service now correctly returns HTTP 424 Failed Dependency for canceled sibling entries instead of HTTP 500.
+
+**Fix for `$includes` with `_summary=count`**: Queries that use `$includes` with `_summary=count` now return the distinct count of included resources instead of HTTP 500 Internal Server Error.
+
 ## September 2026
 ### FHIR service
 

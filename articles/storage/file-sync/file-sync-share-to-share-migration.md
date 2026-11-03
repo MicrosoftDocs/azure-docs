@@ -3,7 +3,7 @@ title: Migrate files between file shares when using Azure File Sync
 description: Learn how to migrate files from one SMB Azure file share to another when using Azure File Sync, even if the file shares are in different storage accounts.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/06/2024
+ms.date: 10/27/2026
 ms.author: kendownie
 author: khdownie
 # Customer intent: As a cloud administrator, I want to migrate files between Azure file shares using Azure File Sync, so that I can efficiently manage storage and ensure data accessibility during the transition.
@@ -25,7 +25,7 @@ The following instructions assume you have one Azure File Sync server in your sy
 
 1. Run the [Invoke-StorageSyncFileRecall](file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet and use the -PerFileRetryCount parameter to ensure that any files that fail to recall are retried. Because there could be an active cloud tiering session when you first run this cmdlet, it's a good idea to run it twice and examine the summary output to ensure that all files are fully recalled and local on the server before you continue.
 
-1. [Create a new SMB Azure file share](../files/storage-how-to-create-file-share.md) as the target.
+1. [Create a new SMB Azure file share](../files/create-classic-file-share.md) as the target.
 
 1. [Create a new sync group](file-sync-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) and associate the cloud endpoint to the Azure file share you created. The sync group must be in a storage sync service in the same region as the new target Azure file share.
 
@@ -72,7 +72,7 @@ Follow these instructions if cloud tiering is on and you're migrating within the
 
 :::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-same-region.png" alt-text="Diagram showing the architecture for a same-region Azure File Sync migration with cloud tiering on." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-same-region.png" border="false":::
 
-1. [Create a new SMB Azure file share](../files/storage-how-to-create-file-share.md) as the target share.
+1. [Create a new SMB Azure file share](../files/create-classic-file-share.md) as the target share.
 
 1. [Create a new sync group](file-sync-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in the existing storage sync service and associate the cloud endpoint to the target share. Don't connect your existing Azure File Sync server to the new sync group yet.
    
@@ -80,7 +80,7 @@ Follow these instructions if cloud tiering is on and you're migrating within the
   
 1. In your IaaS VM, use different disks for source and target file shares. Use one small disk for your source data connected to the existing sync group and one larger disk that can hold your entire data set.
 
-1. Install the Azure File Sync agent on the IaaS VM and register the server.
+1. Install the latest Azure File Sync agent on the IaaS VM (Windows Server 2016 or later) and register the server.
 
 1. In the Azure portal, go to your original sync group (source share) and create a server endpoint on the IaaS VM (use the small disk). Enable cloud tiering on this server endpoint.
 
@@ -94,7 +94,7 @@ Follow these instructions if cloud tiering is on and you're migrating to a file 
 
 :::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-cross-region.png" alt-text="Diagram showing the architecture for a cross-region Azure File Sync migration with cloud tiering on." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-cross-region.png" border="false":::
 
-1. [Create a new SMB Azure file share](../files/storage-how-to-create-file-share.md) in the new region as the target share.
+1. [Create a new SMB Azure file share](../files/create-classic-file-share.md) in the new region as the target share.
  
 1. [Create a Storage Sync Service](file-sync-deployment-guide.md#deploy-the-storage-sync-service) in the target region and a [sync group](file-sync-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) attached to your target share. 
 

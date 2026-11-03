@@ -3,7 +3,7 @@ title: Operations Hub in Azure SRE Agent
 description: Monitor your agent's performance from a unified dashboard with incident analytics, automation health, and operational metrics in one view.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 06/08/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -116,7 +116,7 @@ Use Operations Hub when you need to:
 | **Checking agent health** | Visit multiple pages: Monitor, Settings, individual tasks | Open Operations Hub: one dashboard, three tabs |
 | **Incident analytics** | Go to separate metrics views, manually cross-reference | Incident Analytics tab with KPI cards and drill-down charts |
 | **Automation monitoring** | Select each scheduled task individually | Automation tab shows all automations with health indicators |
-| **AAU consumption** | Go to Settings > Agent consumption | Overview tab metrics chart includes AAU data |
+| **AAU consumption** | Go to Build + setup > Monitor > Agent consumption | Overview tab metrics chart includes AAU data |
 | **Pending approvals** | Scan chat threads for items waiting for input | Pending Actions count visible on the Overview tab |
 
 ## Limitations

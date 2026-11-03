@@ -22,7 +22,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 * This feature doesn't guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation fails.
 
-* After a volume is created with an availability zone, the specified availability zone can’t be modified. Volumes can’t be moved between availability zones. If you need to move volumes between availability zones, consider using the [Elastic zone-redundant service level](elastic-zone-redundant-concept.md) where you can move capacity pools between availability zones. 
+* After a volume is created with an availability zone, you can't modify the specified availability zone. You can't move volumes between availability zones. <!--  If you need to move volumes between availability zones, consider using the [Elastic zone-redundant service level](elastic-zone-redundant-concept.md) where you can move capacity pools between availability zones. -->
 
 * NetApp accounts and capacity pools aren't bound by the availability zone. A capacity pool can contain volumes in different availability zones.  
 

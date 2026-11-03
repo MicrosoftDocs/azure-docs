@@ -7,7 +7,7 @@ ms.service: azure-app-service
 ---
 Azure CLI commands can be run on a computer with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-Azure CLI has a command `az webapp up` that will create the necessary resources and deploy your application in a single step.
+Create the Azure resources, and then deploy your application by using separate Azure CLI commands.
 
 If necessary, log in to Azure using [az login](/cli/azure/authenticate-azure-cli).
 
@@ -15,44 +15,24 @@ If necessary, log in to Azure using [az login](/cli/azure/authenticate-azure-cli
 az login
 ```
 
-Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
+Replace `<app-name>` with a globally unique name. Create a resource group and an App Service plan, and then create the web app by using [az webapp create](/cli/azure/webapp#az-webapp-create).
 
 ```azurecli
-az webapp up --runtime PYTHON:3.14 --sku B1 --logs
+az group create --name myResourceGroup --location eastus
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku P0v3 --is-linux
+az webapp create --name <app-name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "PYTHON:3.14"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
 
-* The `--runtime` parameter specifies what version of Python your app is running. This example uses Python 3.13. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.
-* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan. This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
-* The `--logs` flag configures default logging required to enable viewing the log stream immediately after launching the webapp.
-* You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name will be automatically generated.
-* You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az appservice list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
+* Use the `--runtime` parameter to specify the version of Python your app runs. This example uses Python 3.14. To list supported Python runtimes, use `az webapp list-runtimes --os-type linux --runtime python --output table`.
+* Use the `--sku` parameter to define the size (CPU and memory) and cost of the App Service plan. This example uses the P0v3 (Premium v3) service plan, which incurs a cost in your Azure subscription. For a full list of App Service plans, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
+* Replace `eastus` with your preferred region. To list available regions, run [`az account list-locations`](/cli/azure/account#az-account-list-locations) with `--output table`.
+* The `SCM_DO_BUILD_DURING_DEPLOYMENT` setting enables the Oryx build, including installation of the dependencies in *requirements.txt*, when you deploy the source archive.
 
-The command may take a few minutes to complete. While the command is running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then returns a message that includes the app's URL, which is the app's URL on Azure.
+Create a ZIP file with the application files, including *requirements.txt*, at the root of the archive. Exclude local files such as *.venv*, *.git*, and *.env*. For platform-specific instructions, see [Create a ZIP file of your application](../../quickstart-python.md#deploy-your-application-code-to-azure) in the **Deploy using a ZIP file** tab. Then deploy the archive by using [az webapp deploy](/cli/azure/webapp#az-webapp-deploy):
 
-<pre>
-The webapp '&lt;app-name>' doesn't exist
-Creating Resource group '&lt;group-name>' ...
-Resource group creation complete
-Creating AppServicePlan '&lt;app-service-plan-name>' ...
-Creating webapp '&lt;app-name>' ...
-Configuring default logging for the app, if not already enabled
-Creating zip with contents of dir /home/cephas/myExpressApp ...
-Getting scm site credentials for zip deployment
-Starting zip deployment. This operation can take a while to complete ...
-Deployment endpoint responded with status code 202
-You can launch the app at &lt;URL>
-{
-  "URL": "&lt;URL>",
-  "appserviceplan": "&lt;app-service-plan-name>",
-  "location": "centralus",
-  "name": "&lt;app-name>",
-  "os": "&lt;os-type>",
-  "resourcegroup": "&lt;group-name>",
-  "runtime_version": "python|3.14",
-  "runtime_version_detected": "0.0",
-  "sku": "FREE",
-  "src_path": "&lt;your-folder-location>"
-}
-</pre>
+```azurecli
+az webapp deploy --name <app-name> --resource-group myResourceGroup --src-path <zip-file-path> --type zip
+```
 
-[!INCLUDE [az webapp up command note](../../../../includes/app-service-web-az-webapp-up-note.md)]
+The deployment can take a few minutes. Browse to `https://<app-name>.azurewebsites.net` to view your app. To stream logs, enable them by running `az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem`, and then run `az webapp log tail --name <app-name> --resource-group myResourceGroup`.

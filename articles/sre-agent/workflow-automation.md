@@ -3,7 +3,7 @@ title: Workflow automation in Azure SRE Agent
 description: Automate operational workflows by connecting triggers, subagents, and tools to run without manual intervention.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -62,9 +62,9 @@ Workflows combine three building blocks:
 
 | Building block | What it does | Where to configure |
 |---|---|---|
-| **Connectors** | Provide tools from external systems (Outlook, Teams, GitHub, PagerDuty) | Builder > Connectors |
-| **Custom agents** | Specialized workers with specific tool access and autonomy settings | Builder > Agent Canvas |
-| **Triggers** | Start workflows on schedule or in response to incidents | Scheduled tasks / Incident response plans |
+| **Connectors** | Provide tools from external systems (Outlook, Teams, GitHub, PagerDuty) | Build + setup > Extensions > Connectors |
+| **Custom agents** | Specialized workers with specific tool access and autonomy settings | Build + setup > Workflows > Agent Canvas |
+| **Triggers** | Start workflows on schedule or in response to incidents | **Automation** for scheduled tasks and HTTP triggers; **Incidents > Triggers & response plans** for incident routing |
 
 For step-by-step setup, see [Step 5: Automate Workflows](automate-workflows.md) in the getting started guide.
 
@@ -109,7 +109,7 @@ The orchestrator delegates tasks to custom agents as needed. See [Custom agents]
 | **Use descriptive names** | `email-health-report` vs `custom-agent-1` |
 
 Before attaching a scheduled task, test your custom agent:
-1. Go to **Builder** → **Agent Canvas**
+1. Go to **Build + setup** > **Workflows** > **Agent Canvas**
 1. Select **Test playground** view
 1. Pick a custom agent from the dropdown and select **Apply**
 1. Type your planned instructions in the Test panel and verify the agent executes them correctly

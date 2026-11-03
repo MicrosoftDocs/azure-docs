@@ -444,4 +444,4 @@ If a resource doesn't appear in your conversation, use the following steps:
 - [Microsoft Discovery agents](concept-discovery-agent.md)
 - [Agent types in Microsoft Discovery](concept-discovery-agent-types.md)
 - [Bookshelf and knowledge bases](concept-bookshelf-knowledge-bases.md)
-- [Storage assets and storage containers in Microsoft Discovery](concept-storage-account.md)
+- [Storage assets and storage containers in Microsoft Discovery](how-to-configure-project-storage.md)

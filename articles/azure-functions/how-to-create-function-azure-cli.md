@@ -1,7 +1,7 @@
 ---
 title: Create a function in Azure from the command line
 description: Learn how to use command line tools, such as Azure Functions Core Tools, to create a function code project, create Azure resources, and publish function code to run in Azure Functions.
-ms.date: 06/02/2026
+ms.date: 10/12/2026
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet, devx-track-go
 zone_pivot_groups: programming-languages-set-functions-full
@@ -14,10 +14,6 @@ In this article, you use local command-line tools to create a function that resp
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 
 Make sure to select your preferred development language at the top of the article.
-
-::: zone pivot="programming-language-go"
-[!INCLUDE [functions-go-preview-note](../../includes/functions-go-preview-note.md)]
-::: zone-end
 
 ## Prerequisites
 
@@ -362,11 +358,6 @@ Before you can deploy your function code to Azure, you need to create a resource
 
     Replace `<APP_NAME>` with a globally unique name and `<STORAGE_NAME>` with the account name you used in the previous step. This command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
 
-1. Disable HTTP/2 on the function app, which is required during the Go public preview:
-
-    ```azurecli
-    az resource update --resource-group AzureFunctionsQuickstart-rg --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
-    ```
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"

@@ -3,7 +3,7 @@ title: Configure managed identities for Microsoft Discovery
 description: Learn how to create and configure user-assigned managed identities (UAMI) for Microsoft Discovery workspaces, supercomputers, and bookshelves, including the required Azure role assignments.
 ms.service: azure
 ms.topic: how-to
-ms.date: 09/10/2026
+ms.date: 10/24/2026
 ms.author: umamm
 author: umamm
 ms.custom: identity, managed-identity, rbac
@@ -41,8 +41,8 @@ Both approaches work with Microsoft Discovery. The quickstart guides use a singl
 
 - An active Azure subscription enabled for **Microsoft Discovery**.
 - **Managed Identity Contributor** role at the resource group or subscription level - required to create UAMI resources.
-- **User Access Administrator** or **Owner** role at the resource group level - required to create role assignments on the UAMI.
-- The `Microsoft.ManagedIdentity` resource provider [registered](concept-resource-provider-registration.md) in your subscription.
+- **User Access Administrator**, **Role Based Access Control Administrator**, or **Owner** at the assignment scope - required to grant roles to the UAMI.
+- The `Microsoft.ManagedIdentity` resource provider [registered](how-to-register-resource-providers.md) in your subscription.
 
 ## Create a user-assigned managed identity
 
@@ -54,6 +54,8 @@ az identity create \
 ```
 
 Save the output values - you need `principalId` for role assignments and `id` (the full resource ID) when creating Discovery resources.
+
+For the [onboarding tool (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md), create the identity before Stage 1 and put its full resource `id` in `managedIdentity.id`. Stage 2 assigns its roles; it doesn't create the identity. The runner's permissions, human-user eligibility, and workload assignments are separate requirements.
 
 ## Assign required roles
 
@@ -73,7 +75,7 @@ After creating the UAMI, assign the following Azure built-in roles at the **reso
 |------|-------------------|-------------|
 | **Cognitive Services OpenAI User** | `5e0bd9bd-7b93-4f28-af87-19fc36ad61bd` | When using Azure OpenAI chat model deployments with agents. Assigned by the service on the managed resource group. |
 | **Managed Identity Operator** | `f1a07417-d97a-45cb-824c-7a7467783830` | The Discovery control plane assigns this role to itself on your UAMI during workspace creation (no action needed from you). |
-| **Network Contributor** | `4d97b98b-1d4f-4787-a291-c67834d212e7` | When the workspace uses delegated subnets or NetApp volumes. |
+| **Network Contributor** | `4d97b98b-1d4f-4787-a291-c67834d212e7` | Required for the supercomputer cluster identity to operate its referenced network resources; also applicable to delegated-network scenarios. Scope it to the required VNet/subnets or their resource group. |
 
 ### Assign the core roles
 

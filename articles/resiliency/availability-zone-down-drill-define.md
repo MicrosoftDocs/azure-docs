@@ -19,10 +19,13 @@ This article describes how to define a zone down drill (preview) in Infrastructu
 Before you define a zone down drill, ensure that you review the following prerequisites:
 
 - Verify that your existing service group has the required resources.
-- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available.
+- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing for advanced capabilities.
 - Set up an Azure role-based access control (RBAC) permissions. See the [Support Matrix](availability-zone-down-drills-support-matrix.md#required-roles-and-permissions).
 - Set up a recovery plan for your service group.
 - Register the `Microsoft.Chaos`, `Microsoft.Insights`, `Microsoft.OperationalInsights`, and `Microsoft.Automation` resource provider namespaces in the subscription where the Chaos Workspace gets created.
+
+> [!NOTE]
+> Starting December 1, 2026, Azure Infrastructure Resiliency Manager will charge for service groups that are onboarded and associated with a usage plan. Goals and recommendations are available for free without associating the service group with a usage plan. Advanced capabilities, such as drills and recovery plans, require a usage plan. For more information, see [Infrastructure Resiliency Manager pricing](https://azure.microsoft.com/products/infrastructure-resiliency-manager#pricing).
 
 ## Register the resource provider namespaces
 

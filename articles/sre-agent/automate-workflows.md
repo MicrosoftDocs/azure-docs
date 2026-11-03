@@ -3,7 +3,7 @@ title: Automate workflows in Azure SRE Agent
 description: Schedule recurring health checks, connect notification tools, and build automated workflows with connectors and custom agents.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 09/03/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -58,7 +58,7 @@ Connectors let the agent interact with external services. Start with a notificat
 
 Two identities are in scope before you begin. Your sign-in authorizes the agent to act in Outlook, which is why the mail it sends comes from your account. The agent uses its own user-assigned managed identity to reach Azure and gather the resource data for the report, so the RBAC roles assigned to that identity decide what the report can include. Azure creates that identity with the agent, so you don't create one here. For more information, see [Agent identity](agent-identity.md) and [Agent permissions](permissions.md).
 
-1. Go to **Build + setup** > **Connectors** in the side navigation.
+1. Go to **Build + setup** > **Extensions** > **Connectors** in the side navigation.
 1. Select **Add connector**.
 1. Select the **Notification** tab.
 1. Select the **Office 365 Outlook** connector for the **Microsoft Outlook** service.
@@ -83,7 +83,7 @@ Two identities are in scope before you begin. Your sign-in authorizes the agent 
 
 Custom agents are specialized workers with access to specific tools. You build and connect them on the **Agent Canvas**, a visual diagram of your custom agents, their tools, and the triggers that start them.
 
-1. Go to **Build + setup** > **Agent Canvas** in the side navigation.
+1. Go to **Build + setup** > **Workflows** > **Agent Canvas** in the side navigation.
 1. Select **Create** in the toolbar, and then select **Custom Agent**. The creation dialog opens with two tabs, **Form** and **YAML**.
 1. Fill in the required fields:
    - **Custom agent name**: for example, `health-check-reporter`
@@ -105,13 +105,13 @@ The custom agent appears as a node on the canvas, and its selected Outlook opera
 Link a scheduled task to the custom agent so it runs automatically.
 
 1. Select the **+** button on the side of your custom-agent node.
-1. Under the **Trigger** group, select **Add scheduled task**. The dialog opens with **Response custom agent** already set to that agent.
+1. Under the **Trigger** group, select **Add scheduled task**. The dialog opens with **Response subagent** already set to that agent.
 1. Fill in the fields:
 
     | Field | Example value |
     |---|---|
     | **Task name** | `daily-health-report` |
-    | **Response custom agent** | Your custom agent, already selected |
+    | **Response subagent** | Your custom agent, already selected |
     | **Task details** | Check the health of the resources in my resource group. Verify all apps are running, check CPU and memory metrics over the last hour, and review any recent warning logs. Summarize findings and send the report. |
     | **Frequency** | Daily |
     | **Time of day** | 8:00 AM |
@@ -150,7 +150,7 @@ A scheduled task can finish without producing the result you expected. Start wit
 |---|---|---|
 | The execution shows **Success**, but no email arrives | The email operation isn't enabled on the connector, the recipient parameter is locked to a different address, or the agent never reached the send step | Open the thread to see whether the agent called the Outlook tool. Then edit the connector, confirm the send operation is selected, and check the locked **To** value |
 | The execution shows **Success**, and the thread is waiting for approval | The task's **Agent autonomy level** is **Review**, so the agent pauses in the thread before it acts | Open the thread and approve the pending action, or edit the task and set **Agent autonomy level** to **Autonomous** |
-| The execution shows **No thread found** | The run failed before it created a thread | Confirm the connector status is **Connected** and the task's **Response custom agent** still exists, then select **Run now** to try again |
+| The execution shows **No thread found** | The run failed before it created a thread | Confirm the connector status is **Connected** and the task's **Response subagent** still exists, then select **Run now** to try again |
 | The connector isn't **Connected** | The authorization expired, or the account lost access to the mailbox | Edit the connector and sign in again |
 | The report arrives with no resource data | The agent's identity doesn't have access to the resources the task checks | Review the assignments described in [Agent permissions](permissions.md) |
 

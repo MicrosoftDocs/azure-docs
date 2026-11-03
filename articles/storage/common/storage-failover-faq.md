@@ -154,7 +154,7 @@ Failovers carry with them a few limitations and conflicting features that users 
 - **Change Feed:** Attempting to initiate a planned failover on an account with Change Feed generates an error. In this case, you can disable Change Feed and attempt the failover again.
 - **Object Replication:** Attempting to initiate a planned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
 - **Point-in-time-Restore:** Attempting to initiate a planned failover on an account with Point-in-time-Restore (PITR) generates an error. In this case, you can disable PITR and Change Feed and attempt the failover again.
-- **Last Sync Time is greater than 30 minutes:** Planned Failover isn't supported for storage accounts with a Last Sync Time greater than 30 minutes.
+- **Last Sync Time is greater than 2 hours:** Planned failover isn't supported for storage accounts with a Last Sync Time greater than 2 hours.
 
 Azure File Sync doesn't support customer-managed planned or unplanned failover. Storage accounts used as cloud endpoints for Azure File Sync shouldn't be failed over. Failover disrupts file sync and might cause the unexpected data loss of newly tiered files. For more information, see Best practices for disaster recovery with Azure File Sync for details.
 

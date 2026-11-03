@@ -10,11 +10,11 @@ ms.custom: build-2026
 # Customer intent: "As a database administrator, I want to manage backup policies and monitor backup operations for Azure Cosmos DB, so that I can ensure data protection and recoverability in accordance with my organization's requirements."
 ---
 
-# Manage backups of Azure Cosmos DB using Azure portal (preview)
+# Manage backups of Azure Cosmos DB by using Azure portal
 
-This article describes how to manage backup of Azure Cosmos DB (preview) using Azure portal.
+This article describes how to manage the backup of Azure Cosmos DB by using Azure portal.
 
-Learn about the [supported regions, scenarios, and the limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup (preview).
+Learn about the [supported regions, scenarios, and the limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup.
 
 ## Change a backup policy
 
@@ -24,7 +24,7 @@ To change the backup policy for an Azure Cosmos DB account, follow these steps:
 
 1. Go to **Resiliency** and select **Protection inventory** > **Protected items**. 
 
-2. On the **Protected items** pane, select **Datasource type** as **Azure Cosmos DB (Preview)** and select a protected instance from the list for which you want to change the backup policy. 
+2. On the **Protected items** pane, select **Datasource type** as **Azure Cosmos DB** and select a protected instance from the list for which you want to change the backup policy. 
 
 3. On the selected **Protected Instance** pane, select an associated item. 
 
@@ -36,7 +36,7 @@ To change the backup policy for an Azure Cosmos DB account, follow these steps:
 
 Azure Backup creates a job to track scheduled backups and on-demand backup operations. The service also creates a job when you trigger a restore operation, showing notifications in the Azure portal. You can view the backup job status or monitor the restore job progress from the Jobs pane.
 
-To monitor the backup and restore operations for Azure Cosmos DB (preview), follow these steps:
+To monitor the backup and restore operations for Azure Cosmos DB, follow these steps:
 
 1. Go to the **Resiliency** and select **Protection Inventory** > **Protected items**.
 
@@ -65,7 +65,7 @@ Auto-healed jobs appear in the **Backup jobs** list with an Auto-healed indicato
  
 ## Stop Protection for Azure Cosmos DB
 
-You can stop protecting an Azure Cosmos DB (preview) in the following ways:
+You can stop protecting an Azure Cosmos DB account in the following ways:
 
 - **Stop Protection and Retain Data (Retain forever)**: Stops all future backup jobs from protecting your server. However, Azure Backup service retains the recovery points that are backed up forever. You need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You can restore the database account, if needed. To resume server protection, use the **Resume backup** option.
 
@@ -73,11 +73,11 @@ You can stop protecting an Azure Cosmos DB (preview) in the following ways:
 
 - **Stop Protection and Delete Data**: Stops all future backup jobs from protecting your servers and delete all the recovery points. This option does not allow you to restore the database account or use the **Resume backup** option.
 
-To stop protection for Azure Cosmos DB (preview), follow these steps: 
+To stop protection for Azure Cosmos DB, follow these steps: 
 
 1. Go to the **Resiliency** and select **Protection Inventory** > **Protected items**. 
 
-2. On the **Protected items** pane, apply the filters to view the protected instances for Azure Cosmos DB (preview), and select the required instance from the list.
+2. On the **Protected items** pane, apply the filters to view the protected instances for Azure Cosmos DB, and select the required instance from the list.
 
 3. On the **Protected instance** pane, select the **Associated Items** for which you want to stop protection. 
 
@@ -85,7 +85,7 @@ To stop protection for Azure Cosmos DB (preview), follow these steps:
 
 ### Stop Protection and Retain Data
 
-To stop protection and retain data for Azure Cosmos DB (preview) from the **Stop Backup** pane, follow these steps: 
+To stop protection and retain data for Azure Cosmos DB from the **Stop Backup** pane, follow these steps: 
  
 1. On the **Stop Backup** pane, select one of the following data retention options:
 
@@ -100,7 +100,7 @@ To stop protection and retain data for Azure Cosmos DB (preview) from the **Stop
 
 ### Stop Protection and Delete Data
 
-To stop protection and delete data for Azure Cosmos DB (preview) from the **Stop Backup** pane, follow these steps: 
+To stop protection and delete data for Azure Cosmos DB from the **Stop Backup** pane, follow these steps: 
 
 1. On the **Stop Backup** pane, select **Delete Backup Data**.
 
@@ -114,11 +114,11 @@ To stop protection and delete data for Azure Cosmos DB (preview) from the **Stop
 
 If you have selected the **Stop Protection and Retain data** option, you can resume protection for your servers. When you resume protection for a backup instance, the existing backup policy applies only to new recovery points. Azure Backup cleans up existing recovery points that exceed their originally configured retention, based on the backup policy active at the time of creation.
 
-To resume protection for an Azure Cosmos DB backup instance (preview), follow these steps: 
+To resume protection for an Azure Cosmos DB backup instance, follow these steps: 
 
 1. Go to the **Resiliency** and select **Protection Inventory** > **Protected items**.
 
-2. On the **Protected items** pane, apply the filters to view the protected instances for Azure Cosmos DB (preview), and select the required instance from the list.
+2. On the **Protected items** pane, apply the filters to view the protected instances for Azure Cosmos DB, and select the required instance from the list.
 
 3. On the selected protected instance pane, select the **Associated Items** for which you want to resume protection.
 
@@ -128,13 +128,13 @@ To resume protection for an Azure Cosmos DB backup instance (preview), follow th
 
 ## Delete Azure Cosmos DB Backup Instance
 
-If you want to delete a protected instance of Azure Cosmos DB (preview), stop all scheduled backups and remove all existing recovery points. 
+To delete a protected instance of Azure Cosmos DB, stop all scheduled backups and remove all existing recovery points.
 
 To delete an Azure Cosmos DB protected instance, follow these steps: 
 
 1. Go to the **Resiliency** and select **Protection Inventory** > **Protected items**. 
 
-2. On the Protected items pane, apply the filters to view the protected instances for Azure Cosmos DB (preview), and select the required instance from the list. 
+2. On the **Protected items** pane, apply the filters to view the protected instances for Azure Cosmos DB, and select the instance you want from the list. 
 
 3. On the selected protected instance pane, select the **Associated Items** that you want to delete. 
 

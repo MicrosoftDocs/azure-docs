@@ -64,7 +64,7 @@ Use the same user name that works in that portal.
 User account is locked out, error code 50053. Error message is similar to:
 
 ```
-{"error":"unauthorized_client","error_description":"AADSTS50053: You've tried to sign in too many times with an incorrect user ID or password.\r\nTrace ID: 00aa00aa-bb11-cc22-dd33-44ee44ee44ee\r\nCorrelation ID: 11bb11bb-cc22-dd33-ee44-55ff55ff55ff\r\nTimestamp: 2019-06-06 09:47:23Z","error_codes":[50053],"timestamp":"2019-06-06 09:47:23Z","trace_id":"aaaa0000-bb11-2222-33cc-444444dddddd","correlation_id":"aaaa0000-bb11-2222-33cc-444444dddddd"}
+{"error":"unauthorized_client","error_description":"AADSTS50053: You've tried to sign in too many times with an incorrect user ID or password.\r\nTrace ID: 00aa00aa-bb11-cc22-dd33-44ee44ee44ee\r\nCorrelation ID: 11bb11bb-cc22-dd33-ee44-55ff55ff55ff\r\nTimestamp: 2019-06-06 09:47:23Z","error_codes":[50053],"timestamp":"2019-06-06 09:47:23Z","trace_id":"ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0","correlation_id":"aaaa0000-bb11-2222-33cc-444444dddddd"}
 ```
 
 ### Cause

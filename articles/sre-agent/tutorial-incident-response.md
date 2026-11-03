@@ -3,7 +3,7 @@ title: "Step 4: Set Up Incident Response in Azure SRE Agent"
 description: Connect your incident platform and create response plans so your agent automatically investigates incoming incidents.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 06/08/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -47,23 +47,23 @@ Azure Monitor connects automatically when you create your agent. No additional c
 
 To connect PagerDuty or ServiceNow as your incident platform:
 
-1. Select **Settings** in the left sidebar.
-1. Select **Incident platform**.
-1. Choose your platform from the dropdown:
+1. Select **Incidents** in the left sidebar.
+1. Select **Connect an incident platform**. If another platform is connected, use its **...** menu to disconnect it first.
+1. Choose your platform card:
    - **PagerDuty**: Enter your REST API access key.
    - **ServiceNow**: Enter your instance URL and credentials.
-1. Select **Save**.
+1. Complete the remaining wizard steps and select **Save**.
 
 Your agent now receives incidents from your platform.
 
 ## Create a response plan
 
-Create response plans from the **Subagent builder** canvas. You can see which triggers route to which subagents.
+Create response plans from the **Agent Canvas**. You can see which triggers route to which subagents.
 
-1. Select **Builder** in the left sidebar.
-1. Select **Subagent builder**.
+1. Select **Build + setup** in the left sidebar.
+1. Expand **Workflows** and select **Agent Canvas**.
 1. Find the subagent you want to handle incidents and select the **+** button on its left side.
-1. Select **Add incident trigger**.
+1. Select **Add incident response plan**.
 1. Configure the trigger: set a name, select severity levels (for example, P1 and P2), choose the impacted service, and optionally add a title keyword filter.
 1. Choose the autonomy level (**Review** is recommended to start).
 1. Preview matching incidents, and then select **Create**.

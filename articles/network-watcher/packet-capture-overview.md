@@ -22,11 +22,7 @@ You can trigger packet captures through the portal, PowerShell, Azure CLI, or RE
 > [!IMPORTANT]
 > Packet capture requires the Network Watcher agent VM extension `AzureNetworkWatcherExtension`. For more information, see [Manage Network Watcher Agent VM extension](network-watcher-agent-manage.md).
 
-## Continuous packet capture (preview) 
-
-> [!IMPORTANT]
-> Continuous packet capture is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+## Continuous packet capture
 
 Continuous packet capture allows you to persistently monitor network traffic using a ring buffer–based mechanism. Unlike standard packet captures that stop after reaching a specific time or file size, continuous capture is designed to run over extended durations, making it ideal for diagnosing intermittent or long-tail issues. Currently, you can configure continuous packet capture using the [Azure portal](packet-capture-manage.md?tabs=portal#start-a-packet-capture).
 
@@ -84,7 +80,7 @@ Use filters to capture only the traffic that you want to monitor. Filters are ba
 
 ### Continuous capture considerations
 
-In addition to the previous considerations, keep the following considerations in mind when using continuous packet capture (preview):
+In addition to the previous considerations, keep the following considerations in mind when using continuous packet capture:
 
 - Continuous capture is available only for supported VM and virtual machine scale set SKUs and regions. 
 

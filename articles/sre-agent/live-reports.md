@@ -3,7 +3,7 @@ title: Live Reports in Azure SRE Agent (preview)
 description: Create, refresh, share, and govern reusable dashboards built from your agent's connected operational data.
 ms.topic: feature-guide
 ms.service: azure-sre-agent
-ms.date: 08/21/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -103,7 +103,7 @@ To permanently remove a report, select **Delete** from the overflow menu. You mu
 
 Creating a live report or updating an existing one consumes [active-flow](pricing-billing.md#active-flow-variable-cost) AAUs. After the report is created, refreshing it doesn't consume active-flow AAUs when it only retrieves data through connector tools. If the report uses an LLM on refresh to summarize or analyze data, those model calls consume active-flow AAUs.
 
-AAUs consumed while creating or updating a report appear in **Settings** > **Agent consumption**.
+AAUs consumed while creating or updating a report appear in **Build + setup** > **Monitor** > **Agent consumption**.
 
 For current rates, see [Pricing and billing](pricing-billing.md).
 

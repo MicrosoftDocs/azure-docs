@@ -113,7 +113,7 @@ Azure supports Windows, Mac, and Linux for P2S VPN.
 
 ### I already have a VPN gateway deployed. Can I enable RADIUS or IKEv2 VPN on it?
 
-Yes. If the gateway SKU that you're using supports RADIUS or IKEv2, you can enable these features on gateways that you already deployed by using Azure PowerShell or the Azure portal. The Basic SKU doesn't support RADIUS or IKEv2.
+Yes. If the gateway SKU that you're using supports RADIUS or IKEv2, you can enable these features on gateways that you already deployed by using Azure PowerShell or the Azure portal. The Basic SKU supports IKEv2 but doesn't support RADIUS authentication. For existing Basic SKU gateways that use SSTP only, see [SSTP protocol retirement and connections migration](../articles/vpn-gateway/ikev2-openvpn-from-sstp.md).
 
 ###  <a name="vpn-disconnect"></a>Why am I getting disconnected from my Azure VPN client? What can I do to reduce the frequency of disconnection?
 

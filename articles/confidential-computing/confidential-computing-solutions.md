@@ -1,36 +1,38 @@
 ---
 title: Building Azure confidential solutions
-description: Learn how to build solutions on Azure confidential computing
+description: Compare options for building confidential solutions on Azure and choose the right approach for your workload.
 author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 11/01/2021
+ms.date: 06/30/2026
 ms.author: wwilliams
 # Customer intent: "As a cloud architect, I want to design confidential computing solutions on Azure, so that I can ensure data protection and security for sensitive workloads while leveraging the capabilities of secure enclaves and confidential virtual machines."
 ---
 
 # Building confidential computing solutions
 
-Azure confidential computing offers various options for building confidential solutions. The spectrum of option ranges from enabling "lift and shift" scenarios of existing applications, to a full control of various features of security. These features include control on the level of access. You set the host provider or guest operator access levels to data and code. You can also control other rootkit or malware access that may compromise the integrity of workloads running in the cloud.
+Azure confidential computing supports a range of implementation choices, from lift-and-shift migration to specialized enclave application design. For most workloads, start with VM-level TEEs (AMD SEV-SNP or Intel TDX) and managed confidential container offerings.
 
 ## Solutions
 
-Technologies such as secure enclaves or confidential virtual machines allow for customers to choose the approach that they want to take in building confidential solutions.
+Use the following order of preference for most solution designs:
 
-- Existing applications with no access to source code may benefit from confidential VMs based on AMD SEV-SNP technology for easy onboarding to the Azure confidential computing platform.
-- Sophisticated workloads that include proprietary code to protect from any trust vector, may benefit of secure application enclave technology. Azure current offers application enclaves in VMs based on Intel SGX. Intel SGX provides protection of data and code running in a hardware-encrypted memory space. These applications typically require communication with an attested secure enclave, which is obtained by using open-source frameworks.
-- Containerized solutions running on [confidential containers](confidential-containers.md) enabled in Azure Kubernetes Service may fit customers looking for a balanced approach to confidentiality. In these scenarios, existing apps can be packaged and deployed in containers with limited changes, but still offering full security isolation from the cloud service provider and administrators.
+- Existing applications without source code changes can use confidential VMs based on AMD SEV-SNP or Intel TDX for fast onboarding.
+- Containerized workloads can use [confidential containers](confidential-containers.md) on Azure Container Instances and Azure Kubernetes Service confidential VM node pools for strong protection with limited operational overhead.
+- Specialized application-enclave workloads can use Intel SGX-based designs when function-level isolation is required and enclave-aware development is acceptable.
 
 ![Screenshot of the confidential computing spectrum, showing easier options to options with most security control.](media/confidential-computing-solutions/spectrum.png)
 
 ## Learn more
 
-To use the power of enclaves and isolated environments, you'll need to use tools that support confidential computing. There are various tools that support enclave application development. Read about [enclave application development](application-development.md) for more information. 
+To design modern confidential solutions, start with [Azure confidential VM options](virtual-machine-options.md) and [confidential containers](confidential-containers.md).
 
-Learn about [open-source tools](enclave-development-oss.md) for building solutions for Intel SGX enclave applications for virtual machines.
+For specialized enclave-aware implementations, see [enclave application development](application-development.md) and [open-source tools](enclave-development-oss.md).
 
-Use [partners and open-source tools for confidential containers](confidential-containers.md). You can also use some of these tools for Azure Kubernetes workloads.
+Explore [partners and open-source tools for confidential containers](confidential-containers.md), including options for Azure Kubernetes workloads.
 
 ## Next steps
 
-- [Learn about application enclave development](application-development.md)
+- [Review confidential VM options (AMD SEV-SNP and Intel TDX)](virtual-machine-options.md).
+- [Review confidential container options](confidential-containers.md).
+- [Learn about application enclave development (specialized)](application-development.md).

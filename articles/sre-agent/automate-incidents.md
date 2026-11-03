@@ -2,7 +2,7 @@
 title: "Tutorial: Automate Incident Response in Azure SRE Agent"
 description: Connect Azure Monitor, create a response plan, and see how your agent investigates matching alerts.
 ms.topic: tutorial
-ms.date: 08/21/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-sre-agent
@@ -35,10 +35,10 @@ By the end of this step, your agent:
 
 Link Azure Monitor as your incident platform so the agent automatically receives alerts.
 
-1. In the left sidebar, go to **Incidents** > **Triggers + response plans**.
+1. In the left sidebar, go to **Incidents** > **Triggers & response plans**.
 1. If no incident platform is connected, select **Connect an incident platform**.
-1. In **Choose platform**, select **Azure Monitor**.
-1. In **Connect to platform**, complete the required fields, and then select **Save** to connect Azure Monitor.
+1. On **Connect to platform**, select the **Azure Monitor** platform card.
+1. Complete the required fields, and then select **Save** to connect Azure Monitor.
 
 Wait for the connection to complete. The status changes to **"Azure Monitor connected. Your next step is to set up incident response plans."**
 
@@ -51,7 +51,7 @@ Wait for the connection to complete. The status changes to **"Azure Monitor conn
 
 An incident response plan tells the agent which incidents to pick up and how much autonomy it has. The following steps are for Azure Monitor. PagerDuty and ServiceNow response plans use different filter fields based on their own incident metadata, such as priority, category, and assignment group.
 
-1. Go to **Incidents** > **Triggers + response plans**.
+1. Go to **Incidents** > **Triggers & response plans**.
 
 1. Open the creation dialog:
    - If no response plans exist, select **Add an incident response plan**.

@@ -15,7 +15,7 @@ On this page, you can access the download links for the Azure Data Manager for A
 ## Data-plane SDKs
 
 - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agrifood/azure-agrifood-farming)
-- [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood/azure-resourcemanager-agrifood)
+- [Java](https://github.com/Azure/azure-sdk-for-java/tree/azure-verticals-agrifood-farming_1.0.0-beta.3/sdk/agrifood/azure-resourcemanager-agrifood)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/agrifood/agrifood-farming-rest)
 - [CSharp](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood/Azure.Verticals.AgriFood.Farming)
 
@@ -23,7 +23,7 @@ On this page, you can access the download links for the Azure Data Manager for A
 ## Control-plane or Management-plane SDKs
 
 - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agrifood/azure-mgmt-agrifood)
-- [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood/azure-resourcemanager-agrifood)
+- [Java](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-agrifood_1.0.0-beta.2/sdk/agrifood/azure-resourcemanager-agrifood/)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/agrifood/arm-agrifood)
 - [CSharp](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood/Azure.ResourceManager.AgFoodPlatform)
 

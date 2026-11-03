@@ -198,10 +198,10 @@ First, determine whether you can update the language version or need to retain t
 
     | Language version | Debian Bullseye value | Newer distribution | Newer image value |
     | --- | --- | --- | --- |
-    | Python 3.11 | `Python\|3.11\|2.0` | Debian Bookworm | `Python\|3.11\|3.0` |
-    | Java 8 | `Java\|8\|2.0` | Ubuntu Noble | `Java\|8\|4.0` |
-    | Java 11 | `Java\|11\|2.0` | Ubuntu Noble | `Java\|11\|4.0` |
-    | Java 17 | `Java\|17\|2.0` | Ubuntu Noble | `Java\|17\|4.0` |
+    | Python 3.11 | <code>Python&#124;3.11&#124;2.0</code> | Debian Bookworm | <code>Python&#124;3.11&#124;3.0</code> |
+    | Java 8 | <code>Java&#124;8&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;8&#124;4.0</code> |
+    | Java 11 | <code>Java&#124;11&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;11&#124;4.0</code> |
+    | Java 17 | <code>Java&#124;17&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;17&#124;4.0</code> |
 
     These three-part values explicitly select the managed Linux image for these Bullseye-era images. They aren't returned by the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command.
 

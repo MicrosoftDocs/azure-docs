@@ -2,7 +2,7 @@
 title: Azure Service Bus Geo-Replication | Microsoft Docs
 description: How to use geographical regions to promote between regions in Azure Service Bus for metadata and data
 ms.topic: article
-ms.date: 08/24/2026
+ms.date: 11/02/2026
 ms.custom:
   - references_regions
 ---
@@ -22,14 +22,12 @@ This feature allows you to promote any secondary region to primary, at any time.
 :::image type="content" source="./media/service-bus-geo-replication/geo-replication-overview.png" alt-text="Diagram showing Geo-Replication with a primary region (East US) replicating to a secondary region (East US 2), with clients connected to the primary.":::
 
 > [!NOTE]
-> - This feature is available for the Premium tier of Azure Service Bus.
+> - This feature is available for the Premium tier of Azure Service Bus, including [partitioned namespaces](enable-partitions-premium.md).
 > - Currently only a single secondary region is supported.
 
 > [!IMPORTANT]
 > - You can't use this feature in combination with the [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md) feature.
-> - The following features aren't currently available yet. The product team is continuously working on bringing more features and will update this list with the latest status.
->     - Large messages aren't supported yet.
->     - Geo-Replication on [partitioned namespaces](enable-partitions-premium.md) is still in public preview.
+> - Large messages aren't supported yet.
 > - When you perform a failover, the timer for entities that have auto-delete on idle enabled is reset and starts over.
 > - When you enable Event Grid integration on a namespace that uses Geo-Replication, note the following:
 >   - Event Grid replicates to the [geo-paired location](/azure/reliability/reliability-event-grid#set-up-disaster-recovery), not the secondary region set up for geo-replication.
@@ -390,13 +388,9 @@ Keep the following considerations in mind when using this feature:
 ## Pricing
 The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-premium-messaging.md#how-many-messaging-units-are-needed). With the Geo-Replication feature, each replica runs on the same number of MUs as configured on the primary, and you're charged for the total MUs across all replicas. Additionally, there's a charge based on the data replicated to secondary replicas. The data transfer rate is determined by the zone where the primary region is located at the time of replication. For current pricing details, including data transfer rates, see the [Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
 
-You can calculate the total cost as follows:
-</br>
-(number of replicas x MUs configured on primary x hours x hourly rate per MU) + (GBs replicated x data transfer rate per GB)
+You can calculate the total cost as follows: </br> (number of replicas x MUs configured on primary x hours x hourly rate per MU) + (GBs replicated x data transfer rate per GB)
 
-For example, if you have 2 MUs configured on the primary namespace with 10 GB of data replicated:
-</br>
-(2 replicas x 2 MUs x hours x hourly rate) + (10 GB x data transfer rate)
+For example, if you have 2 MUs configured on the primary namespace with 10 GB of data replicated: </br> (2 replicas x 2 MUs x hours x hourly rate) + (10 GB x data transfer rate)
 
 ## Recommended scenarios to trigger promotion
 While you can trigger a promotion at any time, here are some recommended scenarios where promoting a secondary to primary is advisable. For more details on each scenario, see [Scenarios](#scenarios).

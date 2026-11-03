@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure Files uses the same encryption scheme as the other Azure storage services, such as Azure Blob Storage. All data stored in Azure Files is encrypted at rest through [service-side encryption (SSE)](../articles/storage/common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json), which works similarly to BitLocker on Windows.
+Azure Files uses the same encryption scheme as the other Azure storage services. All data stored in Azure Files is [encrypted at rest](../articles/storage/files/files-encryption-at-rest.md). Encryption at rest works similarly to BitLocker on Windows.
 
 Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't need access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
