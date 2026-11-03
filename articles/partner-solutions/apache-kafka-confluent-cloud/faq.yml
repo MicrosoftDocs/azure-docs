@@ -6,7 +6,7 @@ metadata:
   ms.author: praveenrajap
   ms.topic: faq 
   ai-usage: ai-generated
-  ms.date: 03/17/2026
+  ms.date: 11/03/2026
 
 title: Apache Kafka & Apache Flink on Confluent Cloud FAQ
 summary: |
@@ -58,6 +58,10 @@ sections:
       - question: How do I delete a Confluent resource?
         answer: |
           You can delete a Confluent resource from the Azure portal by selecting **Delete** from the resource's overview page. Deleting the Azure resource removes the Confluent organization from Azure but doesn't delete the corresponding organization from Confluent Cloud. To delete the resource on Confluent Cloud, see the documentation for [Confluent Cloud Environments](https://docs.confluent.io/current/cloud/using/environments.html) and [Confluent Cloud Basics](https://docs.confluent.io/current/cloud/using/cloud-basics.html). The cluster and all data are permanently deleted, and you're billed for prorated usage up to the time the cluster is deleted.
+      
+      - question: Why can't I view or manage topics in the Azure portal for a cluster with private networking?
+        answer: |
+          Topic operations in the Azure portal communicate with the cluster's Kafka REST endpoint over public networking. When a Confluent Cloud cluster uses private networking (such as Azure Private Link or virtual network peering), its Kafka REST endpoint is accessible only from within your private network, so topic listing and creation in the Azure portal fail with a `Name or service not known` error. Manage topics for private clusters directly in the Confluent Cloud portal or Confluent CLI from within your connected private network.
 
   - name: Connectors and integration
     questions:

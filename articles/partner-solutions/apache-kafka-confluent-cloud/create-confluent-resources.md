@@ -4,7 +4,7 @@ description: Learn how to create and manage Confluent environments, clusters, an
 ms.author: praveenrajap
 author: praveenrajap
 ms.topic: how-to
-ms.date: 1/28/2026
+ms.date: 11/03/2026
 
 #customer intent: As an IT professional, I want to learn how to create Confluent environments, clusters, and topics in the Azure portal so that I can create my own resources.
 ---
@@ -129,6 +129,9 @@ To delete a cluster:
 ## Topics
 
 Topics in Confluent Cloud are fundamental units of organization for your data streams. Topics are contained in clusters and serve as channels for data publication and consumption.
+
+> [!NOTE]
+> Viewing, creating, and deleting topics in the Azure portal is supported only for Confluent clusters with public endpoints. If your cluster uses private networking (such as Azure Private Link or virtual network peering), manage topics from within your private network by using the Confluent UI or Confluent CLI.
 
 ### Create a topic
 
