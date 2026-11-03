@@ -17,7 +17,7 @@ This article walks you through the prerequisites for network hardening and how t
 
 - An Azure subscription with the **Microsoft.Discovery** resource provider registered.
 - Azure CLI 2.50+ or Azure PowerShell 10.0+.
-- Permission to create the required network resources, plus custom-role and role-assignment authority at the appropriate scopes. Contributor alone can't create role definitions or assignments. For automated subscription preparation, see [Stage 2 permissions (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md).
+- Permission to create the required network resources, plus custom-role and role-assignment authority at the appropriate scopes. Contributor alone can't create role definitions or assignments. For automated subscription preparation, see [Stage 2 permissions](reference-deployment-permissions.md#stage-2-landing-zone-preparation).
 - A virtual network with dedicated subnets for:
   - Agent workloads
   - Private endpoints
@@ -28,7 +28,7 @@ This article walks you through the prerequisites for network hardening and how t
 
 ## Assign the NSP Perimeter Joiner role
 
-The Discovery control plane needs permission to associate managed resources with its Network Security Perimeter. Create the custom role and assign it to the **Discovery control-plane service App** service principal, together with subscription Reader. The join role doesn't grant arbitrary perimeter or access-rule administration. [Onboarding Stage 2 (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) automates this preparation.
+The Discovery control plane needs permission to associate managed resources with its Network Security Perimeter. Create the custom role and assign it to the **Discovery control-plane service App** service principal, together with subscription Reader. The join role doesn't grant arbitrary perimeter or access-rule administration. [Onboarding Stage 2](how-to-prepare-landing-zone.md) automates this preparation.
 
 ### Verify the service principal
 

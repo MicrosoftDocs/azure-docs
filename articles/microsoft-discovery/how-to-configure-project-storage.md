@@ -14,7 +14,7 @@ ms.date: 10/24/2026
 
 Create and configure a customer-owned Azure Blob Storage account for project inputs and outputs. You need project storage even if you don't use Bookshelf.
 
-For the onboarding tool, create the account before Stage 1, and then let [Stage 2 (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) configure its storage networking and access settings after the network is available. The tool doesn't create the storage account. Review its changes before selecting a shared account.
+For the onboarding tool, create the account before Stage 1, and then let [Stage 2](how-to-prepare-landing-zone.md) configure its storage networking and access settings after the network is available. The tool doesn't create the storage account. Review its changes before selecting a shared account.
 
 ## Prerequisites
 
@@ -214,7 +214,7 @@ az role assignment create \
 
 ## Related content
 
-- [Plan Discovery deployment (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md)
+- [Plan Discovery deployment](concept-deployment-planning.md)
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
 - [Virtual networks and subnets in Microsoft Discovery](concept-virtual-networks.md)
 - [Role assignments in Microsoft Discovery](concept-role-assignments.md)
