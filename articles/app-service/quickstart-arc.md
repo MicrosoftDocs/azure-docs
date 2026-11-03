@@ -84,9 +84,6 @@ Supported runtimes:
 
 ## 4. Deploy some code
 
-> [!NOTE]
-> `az webapp up` is not supported during the public preview.
-
 Get a sample Node.js app using Git and deploy it using [ZIP deploy](deploy-zip.md). Replace `<app-name>` with your web app name.
 
 ```azurecli-interactive

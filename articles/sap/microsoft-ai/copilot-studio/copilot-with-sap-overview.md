@@ -169,7 +169,7 @@ You can use Power Automate Desktop to build end-to-end automation that ranges fr
 
 MCP, the [Model Context Protocol](https://github.com/modelcontextprotocol), is an open protocol that enables seamless integration between LLM applications (like Copilot) and external data sources and tools. In contrast to the simple API-based integration mentioned earlier, an MCP-based integration enables the Copilot to identify and create the required payload to retrieve data from the SAP system in a dynamic and efficient way.
 
-Hundreds of open-source MCP servers are already available. The [Azure MCP registry](https://techcommunity.microsoft.com/blog/integrationsonazureblog/build-secure-launch-your-private-mcp-registry-with-azure-api-center-/4438016) provides a list of curated MCP servers and offers customers the possibility of creating their own in-house MCP servers. You can use tools like [Azure API Management](/azure/api-management/export-rest-mcp-server) to create new MCP servers from existing APIs.
+Hundreds of open-source MCP servers are already available. The [Azure MCP registry](https://registry.modelcontextprotocol.io/) provides a list of curated MCP servers and offers customers the possibility of creating their own in-house MCP servers. You can use tools like [Azure API Management](/azure/api-management/export-rest-mcp-server) to create new MCP servers from existing APIs.
 
 On the SAP side, the **SAP MCP Gateway** on the SAP Integration Suite provides an SAP-managed, governed MCP endpoint that turns existing SAP APIs, integration flows, and OpenAPI specifications into MCP tools -- with authentication, rate limiting, and observability handled by SAP. See [Use the SAP MCP Gateway on SAP Integration Suite](architecture-mcp-gateway-integration-suite.md).
 

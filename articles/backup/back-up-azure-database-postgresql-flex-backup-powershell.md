@@ -65,9 +65,11 @@ $ossId = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/oss
 
 Backup vault has to connect to the PostgreSQL – Flexible Server, and then access the database via the keys present in the key vault. So, it requires access to the PostgreSQL – Flexible Server and the key vault. Grant the required access to the Backup vault's **Managed Service Identity (MSI)**.
 
-Check the [permissions](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup) required for the Backup vault's **Managed Service Identity (MSI)** on the PostgreSQL – Flexible Server and Azure Key vault that stores keys to the database.
+Check the [permissions](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup) required for the Backup vault's **Managed Service Identity (MSI)** on PostgreSQL – Flexible Server and Azure Key Vault that stores the database keys.
 
 ### Prepare the backup configuration request
+
+The identity that runs the cmdlets needs read permission on the source PostgreSQL flexible server, such as through the **Reader** role on that server. This permission is separate from the permissions assigned to the Backup vault's managed identity.
 
 Once all the relevant permissions are set, configure the backup by running following cmdlets:
 

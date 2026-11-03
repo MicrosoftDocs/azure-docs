@@ -6,7 +6,7 @@ metadata:
   author: asudbring
   ms.service: azure-dns
   ms.topic: faq
-  ms.date: 06/01/2026
+  ms.date: 10/05/2026
   ms.author: allensu
 title: Azure DNS FAQ
 summary: |
@@ -173,8 +173,6 @@ sections:
           What are Traffic Manager Linked Records?
         answer: |
           Traffic Manager Linked Records is an Azure DNS feature that creates a direct link between a DNS record set (A, AAAA, or CNAME) and an Azure Traffic Manager profile using the `trafficManagementProfile` property. Unlike alias records, Traffic Manager Linked Records always use integrated resolution mode—returning endpoint IP addresses directly to the client without an intermediate CNAME lookup to `trafficmanager.net`.
-
-          Traffic Manager Linked Records is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply.
 
           For more information, see [Traffic Manager Linked Records overview](dns-traffic-manager-linked-records.md).
 

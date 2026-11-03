@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="380" viewBox="0 0 1100 380" role="img" aria-labelledby="title desc">
+  <title id="title">Fit, approve, and store coefficients for later predictions</title>
+  <desc id="desc">Matched features and measured weights go to an external application for NumPy fitting and approval. The application stores the approved coefficients and model version in the state store. A separate prediction graph looks up that model for a new reading and evaluates the formula, producing weight 203 with model version 8.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1100" height="380" fill="#fff"/>
+  <rect x="285" y="205" width="795" height="140" rx="12" fill="#f8fafc" stroke="#687d8f" stroke-width="1.5"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 240 90 H 300"/>
+    <path d="M 550 90 H 650"/>
+    <path d="M 775 135 V 175 H 420 V 250" stroke-dasharray="7 5"/>
+    <path d="M 240 290 H 300"/>
+    <path d="M 540 290 H 600"/>
+    <path d="M 840 290 H 890"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="45" width="220" height="90" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="300" y="35" width="250" height="110" rx="10" fill="#f1eafa" stroke="#69518c"/>
+    <rect x="650" y="45" width="250" height="90" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="20" y="250" width="220" height="80" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="300" y="250" width="240" height="80" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="600" y="250" width="240" height="80" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="890" y="250" width="170" height="80" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="130" y="80"><tspan x="130" font-weight="bold">Matched records</tspan><tspan x="130" dy="26">Features + weights</tspan></text>
+    <text x="425" y="66"><tspan x="425" font-weight="bold">External application</tspan><tspan x="425" dy="26">Fit with NumPy</tspan><tspan x="425" dy="26">Validate and approve</tspan></text>
+    <text x="600" y="70">Write</text>
+    <text x="775" y="80"><tspan x="775" font-weight="bold">State store</tspan><tspan x="775" dy="26">Approved coefficients + v8</tspan></text>
+    <text x="600" y="165">Look up approved model</text>
+    <text x="300" y="230" text-anchor="start" font-weight="bold">Separate prediction graph</text>
+    <text x="130" y="296" font-weight="bold">New reading</text>
+    <text x="420" y="280"><tspan x="420" font-weight="bold">Built-in enrichment</tspan><tspan x="420" dy="26">Look up by asset ID</tspan></text>
+    <text x="720" y="280"><tspan x="720" font-weight="bold">Built-in map</tspan><tspan x="720" dy="26">Evaluate formula</tspan></text>
+    <text x="975" y="280"><tspan x="975" font-weight="bold">Prediction: 203</tspan><tspan x="975" dy="26">Model version: 8</tspan></text>
+    <text x="550" y="370">The external application fits and approves. The prediction graph reads and evaluates.</text>
+  </g>
+</svg>

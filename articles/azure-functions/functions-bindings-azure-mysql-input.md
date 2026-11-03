@@ -1,10 +1,8 @@
 ---
 title: Azure Database for MySQL Input Binding for Functions
 description: Learn how to use the Azure Database for MySQL input binding in Azure Functions.
-author: JetterMcTedder
 ms.topic: reference
 ms.date: 9/26/2024
-ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ms.custom:

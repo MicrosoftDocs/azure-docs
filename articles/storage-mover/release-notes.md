@@ -6,7 +6,7 @@ author: rajsinghmsa
 ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: release-notes
-ms.date: 10/06/2026
+ms.date: 10/17/2026
 ---
 
 # Release notes for the Azure Storage Mover service
@@ -50,7 +50,7 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 - Major versions are supported for at least six months from the date of initial release.
 - We guarantee there's an overlap of at least three months between the support of major agent versions.
-- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Expired agent versions, might still be able to update themselves to a supported version but there are no guarantees.
+- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Expired agent versions might still be able to update themselves to a supported version but there are no guarantees.
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent can't update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
@@ -66,6 +66,18 @@ Refresh release notes for:
 - Fixed failure with Single endpoint testing for storage account name starting with number.
 - Upgraded Mover VM Linux version to 6.8.0-1064-azure.
 - Removed strict check of ACL version for SMB to Azure Files SMB share migration.
+- Supports VMXNET3 Ethernet Controller by using the official OVA image.
+
+#### Steps to enable VMXNET3 Ethernet Controller
+
+The OVA defaults to the e1000e network adapter. To enable the VMXNET3 Ethernet Controller, follow these steps:
+
+1. Use the OVA package from [Download Azure Storage Mover Agent from Official Microsoft Download Center](https://aka.ms/StorageMover/agent) and create the VM.
+1. Power off the VM. By using **Edit Settings** for the VM, update the network adapter type to **VMXNET 3**.
+
+   :::image type="content" source="media/release-notes/vmxnet3-network-adapter.png" alt-text="Screenshot of the VM settings showing Network Adapter 1 with the Adapter Type set to VMXNET 3.":::
+
+1. Start the VM.
 
 
 ## 2025 October 22
@@ -243,7 +255,7 @@ Refresh release notes for:
 - Agent version: 2.0.287
 
 ### Migration scenarios
-Azure Storage mover can migrate your SMB share to Azure file shares (in public preview).
+Azure Storage Mover can migrate your SMB share to Azure file shares (in public preview).
 
 ### Service
 

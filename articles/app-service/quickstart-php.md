@@ -80,52 +80,27 @@ You can use the [Azure Cloud Shell](https://shell.azure.com).
 
 ### [Azure CLI](#tab/cli)
 
-Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az-webapp-up) that creates the necessary resources and deploys your application in a single step.
+Create the Azure resources and deploy the application with separate Azure CLI commands.
 
-In the terminal, deploy the code in your local folder using the `az webapp up` command:
+In the terminal, replace `<app-name>` with a globally unique name and create the resource group, Linux App Service plan, and PHP web app:
 
 ```azurecli
-az webapp up --runtime "PHP:8.2" --os-type=linux
+az group create --name myResourceGroup --location eastus
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku P0v3 --is-linux
+az webapp create --name <app-name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "PHP:8.2"
 ```
 
 - If the `az` command isn't recognized, be sure you have [Azure CLI](/cli/azure/install-azure-cli) installed.
-- The `--runtime "PHP:8.2"` argument creates the web app with PHP version 8.2.
-- The `--os-type=linux` argument creates the web app on App Service on Linux.
-- You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name is automatically generated.
-- You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
-- If you see the error **Could not auto-detect the runtime stack of your app**, make sure you're running the command in the code directory. To learn more, see [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md).
+- The `--runtime "PHP:8.2"` argument creates a PHP 8.2 web app; `--is-linux` selects App Service on Linux.
+- The `--sku P0v3` argument selects a paid Premium v3 plan. Replace `eastus` with your preferred region. You can list available regions with [`az account list-locations`](/cli/azure/account#az-account-list-locations).
 
-The command can take a few minutes to complete. While it's running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then provides the app's URL on Azure.
+Create a ZIP archive containing the files in the *php-docs-hello-world* directory at its root, not the enclosing directory. On Linux or macOS, run `zip -r ../app.zip . -x '*/.git/*' '*/.env*'` from the application directory. On Windows, run `Compress-Archive -Path * -DestinationPath ..\app.zip` in PowerShell from the application directory. Then deploy it:
 
-```
-The webapp '<app-name>' doesn't exist
-Creating Resource group '<group-name>' ...
-Resource group creation complete
-Creating AppServicePlan '<app-service-plan-name>' ...
-Creating webapp '<app-name>' ...
-Configuring default logging for the app, if not already enabled
-Creating zip with contents of <directory-location> ...
-Getting scm site credentials for zip deployment
-Starting zip deployment. This operation can take a while to complete ...
-Deployment endpoint responded with status code 202
-You can launch the app at http://<app-name>.azurewebsites.net
-{
-  "URL": "http://<app-name>.azurewebsites.net",
-  "appserviceplan": "<app-service-plan-name>",
-  "location": "centralus",
-  "name": "<app-name>",
-  "os": "linux",
-  "resourcegroup": "<group-name>",
-  "runtime_version": "php|8.2",
-  "runtime_version_detected": "0.0",
-  "sku": "FREE",
-  "src_path": "<directory-path>"
-}
+```azurecli
+az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path ../app.zip --type zip
 ```
 
-[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
-
-Browse to the deployed application in your web browser at the URL that's provided in the terminal.
+Browse to `https://<app-name>.azurewebsites.net` to see the deployed application.
 
 ### [Portal](#tab/portal)
 
@@ -191,10 +166,10 @@ The PHP sample code is running in an Azure App Service.
     echo "Hello Azure!";
     ```
 
-1. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with these arguments:
+1. Save your changes, re-create *../app.zip* from the application files as described in [Deploy your application code to Azure](#deploy-your-application-code-to-azure), and redeploy:
 
     ```azurecli
-    az webapp up --runtime "PHP:8.2" --os-type=linux
+    az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path ../app.zip --type zip
     ```
 
 1. Once deployment is completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.

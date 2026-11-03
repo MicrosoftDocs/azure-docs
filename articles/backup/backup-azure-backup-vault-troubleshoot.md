@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Backup Vault
 description: Symptoms, causes, and resolutions of the Azure Backup Vault related operations.
 ms.topic: troubleshooting
-ms.date: 08/14/2025
+ms.date: 10/20/2026
 ms.update-cycle: 1825-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -13,6 +13,34 @@ ms.author: v-mallicka
 # Troubleshoot Azure Backup Vault related operations
 
 This article provides troubleshooting steps that help you resolve Azure Backup Vault management errors.
+
+## Backup configuration request errors
+
+When you create or update a backup instance, the request can fail because the calling identity lacks access to a source resource or a source resource ID is invalid.
+
+### 403 LinkedAuthorizationFailed
+
+**Cause**: The identity submitting the backup configuration request doesn't have the required read permission on a source resource referenced by the request.
+
+**Recommended action**:
+
+1. Identify the caller used by your portal session, script, or deployment. Check this identity's permissions, not the Backup vault's managed identity.
+1. Check read permission on each resource referenced by `properties.dataSourceInfo.resourceID` and `properties.dataSourceSetInfo.resourceID`, when populated. The **Reader** role on the resource grants read permission. An existing role inherited from a resource group or subscription can also provide it.
+   - For cross-subscription backup, check access in the source resource's subscription.
+   - For a disk in an AKS node resource group, access to the AKS cluster alone doesn't grant read permission on the disk.
+1. Correct the permissions, and then retry the request.
+
+### 400 LinkedInvalidPropertyId
+
+**Cause**: A linked resource ID in the backup configuration request isn't a valid, full Azure Resource Manager (ARM) ID.
+
+**Recommended action**: Check both `properties.dataSourceInfo.resourceID` and `properties.dataSourceSetInfo.resourceID`, when populated. Each must contain the full ARM ID of the referenced source resource, not just a resource name. For a storage account, use this format:
+
+```text
+/subscriptions/<source-subscription-id>/resourceGroups/<source-resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
+```
+
+Correct all invalid IDs in the request or the ARM template, Bicep, or Terraform configuration that generates it, and then retry.
 
 ## Common user errors
 
@@ -47,5 +75,4 @@ This article provides troubleshooting steps that help you resolve Azure Backup V
 - [About Azure Backup Vault](create-manage-backup-vault.md).
 - [Create and delete Backup vaults](create-manage-backup-vault.md).
 - [Manage Backup vaults](manage-backup-vault.md).
-
 

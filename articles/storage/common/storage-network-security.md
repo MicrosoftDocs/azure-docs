@@ -1,18 +1,22 @@
 --- 
-title: "Azure Storage firewall rules and network access"
+title: "Firewall rules and network access for Azure Blob, Data Lake, Queue, and Table Storage"
 description: "Configure Azure Storage firewall rules to control network access. Restrict traffic by IP address, virtual network, or trusted services to secure your storage account."
 services: storage
 author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 07/06/2026
+ms.date: 10/23/2026
 ms.author: normesta
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement, ignite-2024
 # Customer intent: As a cloud administrator, I want to configure network firewalls and access rules for Azure Storage, so that I can enhance security by restricting access to specific IP addresses, virtual networks, and trusted services.
 ---
 
-# Azure Storage firewall rules and network access control
+# Firewall rules and network access control for Azure Blob, Data Lake, Queue, and Table Storage
+
+:heavy_check_mark: **Applies to:** Azure Blob Storage, Azure Data Lake Storage, Azure Queue Storage, Azure Table Storage
+
+:heavy_multiplication_x: **Doesn't apply to:** Azure Files (`Microsoft.Storage` or `Microsoft.FileShares`)
 
 Azure Storage firewall rules provide granular control over network access to your storage account's public endpoint. By default, storage accounts allow connections from any network, but you can restrict access by configuring network rules that define which sources can connect to your storage account.
 
@@ -20,13 +24,15 @@ You can configure four types of network rules:
 
 - **Virtual network rules**: Allow traffic from specific subnets within Azure Virtual Networks
 - **IP network rules**: Allow traffic from specific public IP address ranges
-- **Resource instance rules**: Allow traffic from specific Azure resource instances that can't be isolated through virtual network or IP rules
+- **Resource instance rules**: Allow traffic from specific Azure resource instances that you can't isolate through virtual network or IP rules
 - **Trusted service exceptions**: Allow traffic from specific Azure services that operate outside your network boundary
 
 When you configure network rules, only traffic from explicitly allowed sources can access your storage account through its public endpoint. All other traffic is denied.
 
 > [!NOTE]
 > Clients that make requests from allowed sources must also meet the authorization requirements of the storage account. To learn more about account authorization, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+
+For Azure Files, see [Azure Files networking considerations](../files/storage-files-networking-overview.md#inbound-access-control) and [Configure network endpoints for Azure file shares](../files/storage-files-networking-endpoints.md#restrict-public-endpoint-access). Storage accounts that contain Azure file shares use the same firewall rules, but the Azure Files articles describe considerations for Azure Files.
 
 <a id="grant-access-from-a-virtual-network"></a>
 <a id="azure-storage-cross-region-service-endpoints"></a>

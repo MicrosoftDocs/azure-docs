@@ -28,7 +28,7 @@ This article covers three active/passive disaster recovery configurations. Choos
 | [Scenario 3: Shared GRS storage](#scenario-3-load-balanced-compute-with-shared-grs) | Compute *and* storage outage (with replication) | Possible loss of recent transactions (async replication lag) | Yes (until DNS failover completes) | High |
 
 > [!NOTE]
-> If you use the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) instead of the Azure Storage provider, Scenario 2 is the recommended disaster recovery approach.
+> If you use Durable Task Scheduler with the Dedicated SKU, you can configure [cross-region state replication and failover (public preview)](../scheduler/disaster-recovery.md). For setup steps, see [Configure disaster recovery in Durable Task Scheduler](../scheduler/disaster-recovery-configure.md).
 
 ## Background
 
@@ -78,7 +78,7 @@ There are several benefits to using this deployment scenario:
 
 The preceding scenario covers only failures limited to the compute infrastructure. An outage of the function app can also occur when either the storage service or the Durable Task Scheduler fails.
 
-To ensure continuous operation of Durable Functions, the second scenario deploys a dedicated storage account or Durable Task Scheduler in each region where function apps are hosted. We currently recommend this disaster recovery approach when you're using the Durable Task Scheduler.
+To ensure continuous operation of Durable Functions, the second scenario deploys a dedicated storage account or Durable Task Scheduler in each region where function apps are hosted. The regional backends are independent and don't replicate orchestration or entity state between regions.
 
 :::image type="content" source="./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png" alt-text="Diagram that shows function apps in separate regions with separate Azure Storage accounts.":::
 
@@ -120,5 +120,7 @@ For more information, see [Azure storage disaster recovery planning and failover
 - [Design highly available applications with Azure Storage](../../storage/common/geo-redundant-design.md)
 - [Durable Functions storage providers](../common/durable-task-storage-providers.md)
 - [Durable Task Scheduler overview](../scheduler/durable-task-scheduler.md)
+- [Disaster recovery in Durable Task Scheduler](../scheduler/disaster-recovery.md)
+- [Configure disaster recovery in Durable Task Scheduler](../scheduler/disaster-recovery-configure.md)
 - [Azure Traffic Manager overview](../../traffic-manager/traffic-manager-overview.md)
 - [Azure Storage disaster recovery planning and failover](../../storage/common/storage-disaster-recovery-guidance.md)

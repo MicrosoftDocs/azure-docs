@@ -7,17 +7,17 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
 # Download your savings plan price sheet
 
-This article explains how you can download the price sheet for an Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA) via the Azure portal. Included in the price sheet is the list of products that are eligible for savings plans, as well as the 1- and 3-year savings plans prices for these products.
+This article explains how to download the price sheet for an Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA) through the Azure portal. The price sheet lists products that are eligible for savings plans and their one-year and three-year savings plan prices.
 
 ## Download EA price sheet
 
-To download your EA price sheet via the Azure portal, do the following tasks.
+To download your EA price sheet through the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Search for **Cost Management + Billing**.
@@ -30,7 +30,7 @@ To download your EA price sheet via the Azure portal, do the following tasks.
 
 ## Download MCA price sheet
 
-To download your MCA price sheet via the Azure portal, do the following tasks.
+To download your MCA price sheet through the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Search for **Cost Management + Billing**.
@@ -48,12 +48,12 @@ To learn more about downloading your price sheet using price sheet APIs, see the
 
 ## Need help? Contact us.
 
-If you have questions about savings plans, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides expert support for savings plans in English.
+If you have questions about savings plans, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Currently, Microsoft provides expert support for savings plans only in English.
 
 ## Next steps
 
 - To learn more about savings plans, see the following articles:
-  - [What are Savings plans?](savings-plan-overview.md)
+  - [What are savings plans?](savings-plan-overview.md)
   - [Manage savings plans](manage-savings-plan.md)
   - [How a savings plan discount is applied](discount-application.md)
   - [Understand savings plan costs and usage](utilization-cost-reports.md)

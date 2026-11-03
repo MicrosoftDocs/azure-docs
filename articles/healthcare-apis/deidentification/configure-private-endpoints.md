@@ -1,7 +1,7 @@
 ---
-title: Configure Private Endpoint network access to Azure Health Data Services de-identification service
-description: Learn how to restrict network access to your de-identification service.
-ms.date: 06/16/2025
+title: Configure Private Endpoint Access for De-identification Service
+description: Learn how to configure private endpoint access to the Azure Health Data Services de-identification service and restrict public network access. Get started now.
+ms.date: 10/28/2026
 ms.topic: how-to
 author: jovinson-ms
 ms.author: jovinson
@@ -10,14 +10,14 @@ ms.subservice: deidentification-service
 # customer intent: As an IT admin, I want to restrict network access to a de-identification service to a private endpoint in a virtual network. 
 ---
 
-# Configure Private Endpoint network access to Azure Health Data Services de-identification service
-Azure Private Link enables you to access Azure services over a **private endpoint** in your virtual network.
+# Configure private endpoint network access to Azure Health Data Services de-identification service
+Learn how to configure private endpoint network access to restrict connections to your Azure Health Data Services de-identification service. By using Azure Private Link, you can access Azure services, including the de-identification service, over a **private endpoint** in your virtual network.
 
-A private endpoint is a network interface that connects you privately and securely to an Azure service which supports Azure Private Link. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service is routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating exposure from the public Internet. You can restrict connections to specific instances of an Azure service, giving you the highest level of granularity in access control.
+A private endpoint is a network interface that connects you privately and securely to an Azure service that supports Azure Private Link. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service routes through the private endpoint, so you don't need gateways, NAT devices, Azure ExpressRoute or VPN connections, or public IP addresses. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating exposure from the public Internet. You can restrict connections to specific instances of an Azure service, giving you the highest level of granularity in access control.
 
 For more information, see [What is Azure Private Link?](../../private-link/private-link-overview.md)
 
-## Add a private endpoint using the Azure portal
+## Add a private endpoint by using the Azure portal
 
 ### Prerequisites
 
@@ -26,25 +26,25 @@ For more information, see [What is Azure Private Link?](../../private-link/priva
  
 ### Create a private endpoint
 
-Follow the steps at [Quickstart: Create a private endpoint by using the Azure portal](/azure/private-link/create-private-endpoint-portal). 
+Follow the steps in [Quickstart: Create a private endpoint by using the Azure portal](/azure/private-link/create-private-endpoint-portal). 
 
-- Instead of a webapp, create a private endpoint to a de-identification service.
-- When you reach [Create a private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#create-a-private-endpoint), step 5, enter resource type **Microsoft.HealthDataAIServices/deidServices**.
-- Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it automatically filters virtual networks that are in that region. Your de-identification service can be in a different region.
+- Instead of a web app, create a private endpoint to a de-identification service.
+- When you reach [Create a private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#create-a-private-endpoint), in the resource pane, enter resource type **Microsoft.HealthDataAIServices/deidServices**.
+- Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint by using the portal, it automatically filters virtual networks that are in that region. Your de-identification service can be in a different region.
 - When you reach [Test connectivity to the private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#test-connectivity-to-the-private-endpoint) steps 8 and 10, use the service URL of your de-identification service plus the `/health` path.
 
 ### Configure private access
 
 > [!IMPORTANT]
-> Creating a private endpoint does **not** restrict public network access automatically.
+> Creating a private endpoint doesn't automatically restrict public network access.
 
-When creating a de-identification service, you can either allow public only (from all networks) or private only (only via private endpoints) access to the de-identification service.
+When you create a de-identification service, you can either allow public access only (from all networks) or private access only (only via private endpoints) to the de-identification service.
 
 If you already have a de-identification service, you can configure network access by going to the service's Azure portal **Networking** page, and under **Public network access**, selecting **Disabled**. 
 
 ## Manage private endpoints using Azure portal
 
-When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory, you can approve the connection request provided you have sufficient permissions. If you're connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
+When you create a private endpoint, you must approve the connection. If the resource for which you're creating a private endpoint is in your directory, you can approve the connection request if you have sufficient permissions. If you're connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
 There are four provisioning states:
 
@@ -58,34 +58,34 @@ There are four provisioning states:
 ###  Approve, reject, or remove a private endpoint connection
 
 1. Sign in to the Azure portal.
-2. In the search bar, type in **de-id**.
-3. Select the **de-identification service** that you want to manage.
-4. Select the **Networking** tab.
-5. Go to the appropriate following section based on the operation you want to: approve, reject, or remove.
+1. In the search bar, type **de-id**.
+1. Select the **de-identification service** that you want to manage.
+1. Select the **Networking** tab.
+1. Go to the appropriate section based on the operation you want to perform: approve, reject, or remove.
 
 ### Approve a private endpoint connection
 1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
-2. Select the **private endpoint** you wish to approve
-3. Select the **Approve** button.
-4. On the **Approve connection** page, add a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
-5. You should see the status of the private endpoint connection in the list changed to **Approved**. 
+1. Select the **private endpoint** you want to approve.
+1. Select the **Approve** button.
+1. On the **Approve connection** page, add a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
+1. You see the status of the private endpoint connection in the list change to **Approved**. 
 
 ### Reject a private endpoint connection
 
 1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection, select the connection and select the **Reject** button.
-2. On the **Reject connection** page, enter a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
-3. You should see the status of the private endpoint connection in the list changed to **Rejected**. 
+1. On the **Reject connection** page, enter a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
+1. You see the status of the private endpoint connection in the list change to **Rejected**. 
 
 ### Remove a private endpoint connection
 
 1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar.
-2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens.
-3. You should see the status changed to **Disconnected**. Then, the endpoint disappears from the list.
+1. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens.
+1. You see the status change to **Disconnected**. Then, the endpoint disappears from the list.
 
 ## Limitations and design considerations
 
 - For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-- This feature is available in all Azure public regions.
+- This feature is available in all Azure Commercial regions.
 - Because network traffic is blocked at the application layer, you can still ping the public endpoint of your service even though public network access is disabled. 
 
 For more, see [Azure Private Link service: Limitations](../../private-link/private-link-service-overview.md#limitations)

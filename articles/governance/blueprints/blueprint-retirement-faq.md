@@ -3,12 +3,12 @@ title: Azure Blueprints retirement FAQ
 description: Frequently asked questions about the Azure Blueprints retirement, including what changes at retirement, data retention, deny-assignment impact, and migration to Azure Deployment Stacks and template specs.
 ms.service: azure-blueprints
 ms.topic: concept-article
-ms.date: 06/26/2026
+ms.date: 10/30/2026
 ---
 
 # Azure Blueprints retirement FAQ
 
-Azure Blueprints (Preview) is retired on **January 31, 2027**, with a phased retirement beginning
+Azure Blueprints (Preview) is retired on **January 31, 2027**, with a phased retirement that began
 July 31, 2026. For the phased timeline and migration recommendation, see
 [Azure Blueprints retirement](./blueprint-retirement.md). This article answers common questions
 about the retirement.
@@ -39,8 +39,8 @@ impact on the deployed resources' effective permissions.
 ### Does Microsoft still recommend a full migration for a tenant planned for retirement?
 
 Yes. Microsoft recommends migration to **Deployment Stacks** (preferred) or template specs.
-Starting January 31, 2027, Blueprint updates are no longer possible (effectively delete-only),
-Locks (Deny Assignments) are removed, and Blueprints is retired. Any definitions, versions, and
+Starting January 31, 2027, the Azure Blueprints API no longer responds, Locks (Deny Assignments)
+are removed, and Blueprints is retired. Any definitions, versions, and
 assignments you haven't exported are permanently deleted at retirement and can't be recovered, so
 export anything you want to keep before January 31, 2027.
 
@@ -48,10 +48,10 @@ export anything you want to keep before January 31, 2027.
 
 | Phase | Portal | PowerShell / REST API | Read | Create | Update | Delete |
 |-------|--------|-----------------------|------|--------|--------|--------|
-| Phase 1 (on announce) | Yes | Yes | Yes | Definitions: No (net-new disabled). Assignments: Yes | Yes | Yes |
-| Phase 2 (~T+90) | Yes | Yes | Yes | Assignments: No. Definitions: No | Definitions: No. Assignments: Yes | Yes |
-| Phase 3 (~T-30) | Yes | Yes | Yes | No | No (PUT fully disabled) | Yes |
-| Phase 4 (retired, Jan 31, 2027) | Removed | CLI/PS commands postponed (Apr/May 2027). REST: read/delete only until removed | Read goes away as the service is removed | No | No | Delete-only window until full service removal |
+| Phase 1 (July 31, 2026) | Yes | Yes | Yes | Definitions: No (net-new disabled). Assignments: Yes | Yes | Yes |
+| Phase 2 (October 31, 2026) | Yes | Yes | Yes | Assignments: No. Definitions: No | Definitions: No. Assignments: Yes | Yes |
+| Phase 3 (December 31, 2026) | Yes | Yes | Yes | No | No (PUT fully disabled) | Yes |
+| Phase 4 (retired, January 31, 2027) | Removed | No. The API no longer responds, and Azure CLI and Azure PowerShell commands stop functioning | No | No | No | No. Definitions, versions, and assignments that weren't exported are automatically deleted |
 
 ### Once retired, are Blueprint Locks / Deny Assignments removed automatically, even if I take no action?
 
@@ -78,12 +78,19 @@ management-plane protection, including deny settings, in a supported, forward-go
 
 ### How can I identify where Azure Blueprints is being used in my environment?
 
-You can identify Azure Blueprints usage in two ways:
+You can identify Azure Blueprints usage in these ways:
 
-- **Azure Advisor** surfaces a recommendation highlighting subscriptions and management groups
-  where Blueprints is in use.
-- You can review the **Azure Blueprints blade in the Azure portal** to see your existing blueprint
-  definitions and assignments directly.
+- To see your impacted blueprint definitions, versions, and assignments for any subscription you
+  have access to, go to
+  [View Impacted Blueprints Resources](https://aka.ms/ViewImpactedBlueprintsResources). This view
+  lists impact by subscription, so blueprint definitions saved at a management group that aren't
+  assigned to any subscription don't appear in it.
+- To find and export your blueprint definitions and assignments before January 31, 2027, go to the
+  [Azure Blueprints portal](https://aka.ms/blueprintsportal). The portal also lists blueprint
+  definitions saved at a management group.
+- Azure Advisor also shows impacted resources. For additional ways to access impacted resource
+  information, see the
+  [impacted resources documentation](https://aka.ms/AzureRetirementImpactedResourcesChannels).
 
 ### What's the recommended replacement for Azure Blueprints?
 

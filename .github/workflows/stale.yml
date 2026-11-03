@@ -14,14 +14,14 @@ jobs:
     runs-on: ubuntu-latest
    
     steps:
-    - uses: actions/stale@v11
+    - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         days-before-pr-stale: 14
         days-before-pr-close: 90
         stale-pr-label: inactive
         close-pr-label: auto-close
-        exempt-pr-labels: keep-open
+        exempt-pr-labels: keep-open,conference-event
         operations-per-run: 1300
         ascending: false
         # start-date: '2021-03-19'

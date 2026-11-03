@@ -59,12 +59,14 @@ Choose a public frontend IP address when clients reach the application behind th
 
 ## Frontend port
 
-Associate a frontend port. You can select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. The same port can be used for public and private listeners. 
+Associate a frontend port. You can select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable.
+
+On Application Gateway v2, public and private IPv4 listeners can use the same frontend port. A public IPv6 listener and a private IPv6 listener must use different frontend ports. For example, if the public IPv6 listener uses port 443, configure the private IPv6 listener to use a different port, such as 8443.
 
 Port 80 is the typical choice for an HTTP listener, and port 443 is the typical choice for an HTTPS listener. Use a custom port when your application requires one, and confirm that the value falls within the allowed range for your SKU, because the supported range differs between the v1 and v2 SKUs.
 
 >[!NOTE] 
-> When using private and public listeners with the same port number, your application gateway changes the "destination" of the inbound flow to the frontend IPs of your gateway. Hence, depending on your Network Security Group's configuration, you may need an inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs.
+> When public and private IPv4 listeners use the same frontend port on Application Gateway v2, your application gateway changes the destination of the inbound flow to the frontend IPs of your gateway. Depending on your network security group's configuration, you might need an inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs.
 > 
 > **Inbound Rule**:
 > - Source: (as per your requirement)

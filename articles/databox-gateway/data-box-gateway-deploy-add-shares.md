@@ -118,7 +118,7 @@ On your Linux client connected to your device, do the following procedure:
 
    `sudo apt-get install nfs-common`
 
-    For more information, go to [Install NFSv4 client](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
+    For more information, go to [Install NFSv4 client](https://github.com/ubuntu/wiki-archives/blob/e1d802e604443adbdd264c281bec7fbcef2a0f34/UbuntuCommunityHelpWiki/S/SettingUpNFSHowTo.wiki#user-content-NFSv4_client).
 
 2. After the NFS client is installed, use the following command to mount the NFS share you created on your Data Box Gateway device:
 

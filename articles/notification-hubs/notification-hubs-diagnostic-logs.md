@@ -28,7 +28,7 @@ Here's an example of an operational log JSON string:
 ```json
 {
     "operationName": "Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action",
-    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/SAMPLES/PROVIDERS/MICROSOFT.NOTIFICATIONHUBS/NAMESPACES/SAMPLE-NS",
+    "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/SAMPLES/PROVIDERS/MICROSOFT.NOTIFICATIONHUBS/NAMESPACES/SAMPLE-NS",
     "time": "1/1/2021 5:16:32 AM +00:00",
     "category": "OperationalLogs",
     "resultType": "Succeeded",

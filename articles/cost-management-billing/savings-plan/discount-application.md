@@ -8,38 +8,38 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: concept-article
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ---
 
 # How a savings plan discount is applied
 
-Savings plans save you money when you have consistent usage of Azure compute resources. A savings plan can help you save money by allowing you to commit to a fixed hourly spend on compute services for one-year or three-year terms. The savings can significantly reduce your resource costs by up to 65% from pay-as-you-go prices. Discount rates per meter vary by commitment term (1-year or 3-year), not commitment amount.
+Savings plans save you money when you have consistent usage of eligible Azure compute or database resources. A savings plan lets you commit to a fixed hourly spend for a one-year or three-year term. Savings plans for compute offer savings of up to 65% compared with pay-as-you-go prices, while savings plans for databases offer savings of up to 35%. Discount rates per meter vary by commitment term (1-year or 3-year), not commitment amount.
 
-Each hour with a savings plan, your eligible compute usage is discounted until you reach your commitment amount – subsequent usage after you reach your commitment amount is priced at pay-as-you-go rates. A resource within the savings plan's scope must generate the usage to be eligible for a savings plan benefit. Each hour's benefit is _use-it-or-lose-it_, and can't be rolled over to another hour.
+Each hour, your savings plan discounts eligible usage until you reach your commitment amount. Usage beyond your commitment amount is priced at pay-as-you-go rates. Eligibility depends on the selected plan type: a compute savings plan applies to eligible compute usage, and a database savings plan applies to eligible database usage. The resource that generates the usage must also be within the savings plan's benefit scope. Each hour's benefit is _use-it-or-lose-it_, and can't be rolled over to another hour.
 
-The benefit is first applied to the product that has the greatest savings plan discount when compared to the equivalent pay-as-you-go rate (see your price list for savings plan pricing). The application prioritization is done to ensure that you receive the maximum benefit from your savings plan investment. We multiply the savings plan rate to that product's usage and deduct the result from the savings plan commitment. The process repeats until the commitment is exhausted (or until there's no more usage to consume the benefit).
+Azure first applies the benefit to the product with the greatest savings plan discount compared with the equivalent pay-as-you-go rate (see your price list for savings plan pricing). This priority order helps maximize the benefit of your savings plan investment. Azure multiplies the savings plan rate by that product's usage and deducts the result from the savings plan commitment. The process repeats until the commitment is exhausted or there's no more eligible usage.
 
-A savings plan discount only applies to resources associated with Enterprise Agreement, Microsoft Partner Agreement, and Microsoft Customer Agreements. Resources that run in a subscription with other offer types don't receive the discount.
+A savings plan discount applies only to resources associated with an Enterprise Agreement, Microsoft Partner Agreement, or Microsoft Customer Agreement. Resources in subscriptions with other offer types don't receive the discount.
 
-Here's a video that explains how a savings plan is applied to the compute environment.
+The following video shows how a compute savings plan applies to a compute environment.
 
 >[!VIDEO https://www.youtube.com/embed/AZOyh1rl3kU]
 
-## Changes to savings plans discounts
+## Changes to savings plan discounts
 
-Like the pay-as-you-go model, prices under savings plans are subject to change. All price changes take effect on the first day of the month. Regardless of when an active saving plan was purchased, current savings plan pricing is used when applying savings plan benefits.
+As with the pay-as-you-go model, savings plan prices are subject to change. All price changes take effect on the first day of the month. Current savings plan pricing applies to benefits regardless of when the active savings plan was purchased.
 
 ## Savings plans and reservations
 
-If you have both dynamic and stable workloads, you likely have both savings plans and reservations. Since reservation benefits are more restrictive than savings plans, and usually have greater discounts, Azure applies reservation benefits first.
+If you have both dynamic and stable workloads, you might have both savings plans and reservations. Because reservation benefits are more restrictive than savings plan benefits and usually offer greater discounts, Azure applies reservation benefits first.
 
-For example, VM _X_ has the highest savings plan discount of all savings plan-eligible resources you used in a particular hour. If you have an available VM reservation that's compatible with _X_, the reservation is consumed instead of the savings plan. The approach reduces the possibility of waste and it ensures that you’re always getting the best benefit.
+For a compute example, VM _X_ has the highest compute savings plan discount of all eligible compute resources you used in a particular hour. If you have an available VM reservation that's compatible with _X_, the reservation is consumed instead of the savings plan. The approach reduces the possibility of waste and it ensures that you’re always getting the best benefit.
 
 ## Savings plan and Azure consumption discounts
 
-In most situations, a savings plan provides the best combination of flexibility and pricing.  If you're operating under an Azure consumption discount (ACD), in rare occasions, you might have some pay-as-you-go rates that are lower than the savings plan rate. In these cases, Azure uses the lower of the two rates.
+In most situations, a savings plan provides the best combination of flexibility and pricing. If you have an Azure consumption discount (ACD), you might occasionally have pay-as-you-go rates that are lower than the savings plan rate. In these cases, Azure uses the lower of the two rates.
 
-For example, VM _X_ has the highest savings plan discount of all savings plan-eligible resources you used in a particular hour. If you have an ACD rate that is lower than the savings plan rate, the ACD rate is applied to your hourly usage. The result is decremented from your hourly commitment. The approach ensures you always get the best available rate.
+For a compute example, VM _X_ has the highest compute savings plan discount of all eligible compute resources you used in a particular hour. If you have an ACD rate that is lower than the savings plan rate, the ACD rate is applied to your hourly usage. The result is decremented from your hourly commitment. The approach ensures you always get the best available rate.
 
 ## Benefit allocation window
 

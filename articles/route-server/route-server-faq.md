@@ -179,6 +179,66 @@ To avoid this issue, ensure that routes advertised by NVAs do not contain Azure-
  
 Example: If an NVA advertises prefix 10.10.0.0/16 with an AS_PATH of 65001 65515, Azure Route Server drops the route because the AS_PATH already contains its own ASN (65515), which would create a potential routing loop. This behavior is consistent with standard BGP loop prevention mechanisms.
 
+### Does Azure Route Server support Equal-Cost Multi-Path (ECMP) routing with ExpressRoute?
+
+Yes. When your on-premises network advertises the same routes over the primary and secondary links of a single ExpressRoute circuit, Azure Route Server preserves both equal-cost paths. Traffic from Azure to your on-premises network is load-balanced across the circuit's two links.
+
+## Route maps
+
+### Can an Azure Route Server route map filter data-plane traffic?
+
+No. Route maps don't filter data-plane traffic and don't act as access control lists. They operate on routing information in the control plane. They can filter routes and modify supported BGP attributes, which can influence the paths that data-plane traffic takes.
+
+### Can an NVA in a spoke virtual network peer with Azure Route Server in the hub virtual network?
+
+Yes. An NVA in a spoke virtual network can establish a BGP peering with Azure Route Server in the hub virtual network when the spoke and hub virtual networks are peered.
+
+### What is a virtual network connection in Azure Route Server?
+
+A virtual network connection represents the connection between Azure Route Server in a hub virtual network and a peered spoke virtual network. It's the attachment point for route maps that control the routes exchanged between Route Server and the NVAs in that spoke. You can associate an inbound route map, an outbound route map, or both. From Route Server's perspective, an inbound route map processes routes received through the connection, and an outbound route map processes routes advertised through the connection.
+
+An inbound route map on a virtual network connection can modify:
+
+- The address ranges configured for the spoke virtual network.
+- BGP routes that any NVA in the spoke virtual network advertises to Route Server.
+
+An outbound route map on a virtual network connection can modify:
+
+- Routes advertised to the spoke virtual network through virtual network peering.
+- BGP routes that Route Server advertises to an NVA in the spoke virtual network.
+
+For an example, see [Apply route maps to an NVA in a spoke virtual network](route-maps-scenario-spoke-network-virtual-appliance.md).
+
+### Does creating a virtual network connection also create virtual network peering?
+
+No. A virtual network connection doesn't create virtual network peering. Create the peering between the hub and spoke virtual networks first by using the Azure portal, Azure PowerShell, the Azure CLI, or the REST API, and then create the virtual network connection.
+
+### Why is Azure Route Server a virtual hub resource?
+
+In Azure Resource Manager, Azure Route Server is a `Microsoft.Network/virtualHubs` resource configured with the Route Server SKU. In a virtual network, it provides a managed BGP route-exchange service between NVAs and supported Azure gateways. Although Route Server uses the virtual hub resource type, it isn't an Azure Virtual WAN virtual hub.
+
+### Can I use route maps with virtual network address prefix summarization?
+
+Yes. Azure Route Server supports both route-map prefix summarization and virtual network address prefix summarization, which you configure with the `summarizedGatewayPrefixes` property. You can't apply both to the same connection. For more information about the property, see [Advertised gateway prefixes](../virtual-network/advertised-gateway-prefixes-overview.md).
+
+To summarize prefixes by using a route map, configure a route-map rule that replaces the matched prefixes with a summary, and then associate the route map with the ExpressRoute, VPN, or virtual network connection.
+
+When virtual network address prefix summarization is configured on the hub virtual network, Route Server applies it to the ExpressRoute and VPN connections. If you then associate a route map with one of those connections, the route map takes precedence, and Route Server disables `summarizedGatewayPrefixes` for that connection. A single summarization method then determines the prefixes advertised over each connection.
+
+### Why do I get an error when I create a virtual network connection?
+
+You might see the following error:
+
+```output
+Failed to add peering 'hvconn_GUID_spokevnet'. Error: To create a VNet connection, the Route Server needs to be updated to the latest software version. If you successfully create a Route-map for Route Server <Route_Server_Name>, then this Route Server will automatically be updated to the latest software version
+```
+
+This error occurs when you create a virtual network connection before you create a route map on Route Server. Creating the first route map triggers the required software upgrade. After the route map is created and the upgrade completes, create the virtual network connection again.
+
+### Can I apply a route map to a spoke that's connected by subnet peering?
+
+No. Azure Route Server doesn't support virtual network connections for spokes connected by subnet peering, so you can't apply route maps to them.
+
 ## Limitations
 
 ### How many Azure Route Servers can I create in a virtual network?

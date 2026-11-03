@@ -262,7 +262,7 @@ This section shows examples of the output for the client and the server. The cli
 
 #### Read counter
 
-The following example shows the output messages for read counter. Requests and responses across the client and server are matched by correlation ID, which, in this example, is `5b282690-8c59-4bf2-9926-9236582ce4b3`.
+The following example shows the output messages for read counter. Requests and responses across the client and server are matched by correlation ID, which, in this example, is `aaaa0000-bb11-2222-33cc-444444dddddd`.
 
 Client output:
 
@@ -273,12 +273,12 @@ CounterClient Information: 0 : >> [2026-07-29T17:35:53.4689212Z] [6]: RX (6 byte
 CounterClient Information: 0 : Subscribed to topic filter 'clients/+/rpc/command-samples/+/readCounter' for command invoker 'readCounter'
 
 # Invoke readCounter once on startup and once at end -- only one shown.
-info: CounterClient.RpcCommandRunner[0] Calling ReadCounter with 5b282690-8c59-4bf2-9926-9236582ce4b3
+info: CounterClient.RpcCommandRunner[0] Calling ReadCounter with aaaa0000-bb11-2222-33cc-444444dddddd
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.4777793Z] [11]: TX (335 bytes) >>> Publish: [Topic=rpc/command-samples/counter-server/readCounter] [PayloadLength=0] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=3]
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.4818287Z] [10]: RX (4 bytes) <<< PubAck: [PacketIdentifier=3] [ReasonCode=Success]
-CounterClient Information: 0 : Invoked command 'readCounter' with correlation ID 5b282690-8c59-4bf2-9926-9236582ce4b3 to topic 'rpc/command-samples/counter-server/readCounter'
+CounterClient Information: 0 : Invoked command 'readCounter' with correlation ID aaaa0000-bb11-2222-33cc-444444dddddd to topic 'rpc/command-samples/counter-server/readCounter'
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.5861515Z] [10]: RX (260 bytes) <<< Publish: [Topic=clients/counter-client/rpc/command-samples/counter-server/readCounter] [PayloadLength=21] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=1]
-info: CounterClient.RpcCommandRunner[0] called read 0 with id 5b282690-8c59-4bf2-9926-9236582ce4b3
+info: CounterClient.RpcCommandRunner[0] called read 0 with id aaaa0000-bb11-2222-33cc-444444dddddd
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.6572000Z] [10]: TX (4 bytes) >>> PubAck: [PacketIdentifier=1] [ReasonCode=Success]
 ```
 
@@ -292,8 +292,8 @@ CounterServer Information: 0 : Command executor for 'readCounter' started.
 
 # Multiple (2) invocations occur - only one shown.
 CounterServer Information: 0 : >> [2026-07-29T17:35:53.4842146Z] [11]: RX (334 bytes) <<< Publish: [Topic=rpc/command-samples/counter-server/readCounter] [PayloadLength=0] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=1]
-<6>17:35:53CounterServer.CounterService[0] --> Executing Counter.ReadCounter with id 5b282690-8c59-4bf2-9926-9236582ce4b3 for counter-client
-<6>17:35:53CounterServer.CounterService[0] --> Executed Counter.ReadCounter with id 5b282690-8c59-4bf2-9926-9236582ce4b3 for counter-client
+<6>17:35:53CounterServer.CounterService[0] --> Executing Counter.ReadCounter with id aaaa0000-bb11-2222-33cc-444444dddddd for counter-client
+<6>17:35:53CounterServer.CounterService[0] --> Executed Counter.ReadCounter with id aaaa0000-bb11-2222-33cc-444444dddddd for counter-client
 CounterServer Information: 0 : >> [2026-07-29T17:35:53.5815820Z] [7]: TX (261 bytes) >>> Publish: [Topic=clients/counter-client/rpc/command-samples/counter-server/readCounter] [PayloadLength=21] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=4]
 CounterServer Information: 0 : >> [2026-07-29T17:35:53.5854665Z] [11]: RX (4 bytes) <<< PubAck: [PacketIdentifier=4] [ReasonCode=Success]
 CounterServer Information: 0 : >> [2026-07-29T17:35:53.5881430Z] [12]: TX (4 bytes) >>> PubAck: [PacketIdentifier=1] [ReasonCode=Success]
@@ -301,21 +301,21 @@ CounterServer Information: 0 : >> [2026-07-29T17:35:53.5881430Z] [12]: TX (4 byt
 
 #### Increment counter
 
-The following example shows the output messages for increment counter. Requests and responses are matched across the client and server by correlation ID, which, in this example, is `5a4da7c4-3922-4049-8065-77f344c3478f`.
+The following example shows the output messages for increment counter. Requests and responses are matched across the client and server by correlation ID, which, in this example, is `bbbb1111-cc22-3333-44dd-555555eeeeee`.
 
 Client output:
 
 ```output
 # Invoke increment multiple times -- only one shown.
-info: CounterClient.RpcCommandRunner[0] calling counter.incr  with id 5a4da7c4-3922-4049-8065-77f344c3478f
+info: CounterClient.RpcCommandRunner[0] calling counter.incr  with id bbbb1111-cc22-3333-44dd-555555eeeeee
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.6375578Z] [11]: TX (49 bytes) >>> Subscribe: [PacketIdentifier=4] [TopicFilters=clients/+/rpc/command-samples/+/increment@AtLeastOnce]
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.6399406Z] [10]: RX (6 bytes) <<< SubAck: [PacketIdentifier=4] [ReasonCode=GrantedQoS1]
 CounterClient Information: 0 : Subscribed to topic filter 'clients/+/rpc/command-samples/+/increment' for command invoker 'increment'
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.6461370Z] [11]: TX (372 bytes) >>> Publish: [Topic=rpc/command-samples/counter-server/increment] [PayloadLength=20] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=21]
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.6552803Z] [10]: RX (4 bytes) <<< PubAck: [PacketIdentifier=21] [ReasonCode=Success]
-CounterClient Information: 0 : Invoked command 'increment' with correlation ID 5a4da7c4-3922-4049-8065-77f344c3478f to topic 'rpc/command-samples/counter-server/increment'
+CounterClient Information: 0 : Invoked command 'increment' with correlation ID bbbb1111-cc22-3333-44dd-555555eeeeee to topic 'rpc/command-samples/counter-server/increment'
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.6960747Z] [13]: RX (259 bytes) <<< Publish: [Topic=clients/counter-client/rpc/command-samples/counter-server/increment] [PayloadLength=22] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=12]
-info: CounterClient.RpcCommandRunner[0] called counter.incr 10 with id 5a4da7c4-3922-4049-8065-77f344c3478f
+info: CounterClient.RpcCommandRunner[0] called counter.incr 10 with id bbbb1111-cc22-3333-44dd-555555eeeeee
 CounterClient Information: 0 : >> [2026-07-29T17:35:53.7138884Z] [10]: TX (4 bytes) >>> PubAck: [PacketIdentifier=12] [ReasonCode=Success]
 ```
 
@@ -329,8 +329,8 @@ CounterServer Information: 0 : Command executor for 'increment' started.
 
 # Multiple invocations are received -- only one shown.
 CounterServer Information: 0 : >> [2026-07-29T17:35:53.6502886Z] [13]: RX (371 bytes) <<< Publish: [Topic=rpc/command-samples/counter-server/increment] [PayloadLength=20] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=2]
-<6>17:35:53CounterServer.CounterService[0] --> Executing Counter.Increment with id 5a4da7c4-3922-4049-8065-77f344c3478f for counter-client
-<6>17:35:53CounterServer.CounterService[0] --> Executed Counter.Increment with id 5a4da7c4-3922-4049-8065-77f344c3478f for counter-client
+<6>17:35:53CounterServer.CounterService[0] --> Executing Counter.Increment with id bbbb1111-cc22-3333-44dd-555555eeeeee for counter-client
+<6>17:35:53CounterServer.CounterService[0] --> Executed Counter.Increment with id bbbb1111-cc22-3333-44dd-555555eeeeee for counter-client
 CounterServer Information: 0 : >> [2026-07-29T17:35:53.6924040Z] [7]: TX (260 bytes) >>> Publish: [Topic=clients/counter-client/rpc/command-samples/counter-server/increment] [PayloadLength=22] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=15]
 CounterServer Information: 0 : >> [2026-07-29T17:35:53.6983722Z] [18]: RX (4 bytes) <<< PubAck: [PacketIdentifier=15] [ReasonCode=Success]
 CounterServer Information: 0 : >> [2026-07-29T17:35:53.6992783Z] [12]: TX (4 bytes) >>> PubAck: [PacketIdentifier=2] [ReasonCode=Success]

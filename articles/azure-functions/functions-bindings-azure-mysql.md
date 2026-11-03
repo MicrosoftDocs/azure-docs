@@ -1,10 +1,8 @@
 ---
 title: Azure Database for MySQL Bindings for Functions
 description: Understand how to use Azure Database for MySQL bindings in Azure Functions.
-author: JetterMcTedder
 ms.topic: reference
 ms.date: 10/03/2025
-ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.custom:

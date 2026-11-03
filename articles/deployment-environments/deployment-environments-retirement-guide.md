@@ -25,7 +25,7 @@ Azure Deployment Environments retires on February 22, 2027. Start developing you
 - Delete unused environments and customer-owned Azure resources to reduce costs and formally offboard from ADE.
 
 > [!IMPORTANT]
-> Microsoft Dev Box has a separate retirement date of September 18, 2028. Don't delete shared Dev Center resources until you confirm that they have no remaining Microsoft Dev Box dependency.
+> Microsoft Dev Box has a separate retirement date of September 18, 2028. Dev Center will continue to be supported until Microsoft Dev Box retires on September 18, 2028. Don't delete shared Dev Center resources until you confirm that they have no remaining Microsoft Dev Box dependency.
 
 ## Transition guidance overview
 

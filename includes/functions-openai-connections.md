@@ -62,7 +62,7 @@ At runtime, the host interprets these settings as a single `myAzureOpenAI` setti
 {
     "endpoint": "https://contoso.openai.azure.com/",
     "credential": "managedidentity",
-    "clientId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
+    "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444"
 }
 ```
 

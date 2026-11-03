@@ -35,11 +35,16 @@ Yes, Windows Server 2025 domain controllers are supported as of September 9, 202
 
 ## What happens if LDAP signing is required but I don't enable LDAP signing for the Azure NetApp Files Active Directory connection?
 
-If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. 
+If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. This fallback behavior requires PTR records for the applicable Active Directory domain controllers.
 
-For environments that use Windows Server 2025 domain controllers, enabling LDAP signing on the Active Directory connection remains the recommended configuration. Enabling LDAP signing avoids relying on the fallback behavior.
+For environments that use Windows Server 2025 domain controllers, enable LDAP signing on the Azure NetApp Files Active Directory connection.
 
-PTR records are required for the Active Directory domain controllers for the LDAP signing fallback mechanism to function.
+> [!IMPORTANT] 
+> Microsoft is investigating customer reports of an issue affecting Azure NetApp Files on Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025 domain controllers. Some customers reported this issue after installing the October 2026 Windows security updates for these versions of Windows Server (KB5126868, KB5126651, KB5126655, and KB5126646).
+> 
+> Installing one of these updates might prevent Azure NetApp Files from using the LDAP signing fallback mechanism. This condition might disrupt applications that depend on access to existing Azure NetApp Files shares. In addition, this condition might cause new SMB volume creation to fail when LDAP signing isn't enabled on the Active Directory connection.
+> 
+> If either update is already installed, signing might become immediately required and should be checked in the Active Directory connector. We'll update this documentation when more information is available. For more details, contact Microsoft Support.
 
 ## What SMB minimum version should be configured on Windows Server 2025 domain controllers for Azure NetApp Files?
 

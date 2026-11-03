@@ -155,7 +155,7 @@ az datadog monitor wait --name "myDatadog" --resource-group "myResourceGroup" --
 You can start the Datadog creation workflow from either entry point:
 
 - **Azure portal**: open the [Datadog resource browse page](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) and select **Create**.
-- **Azure Marketplace**: open the [Datadog – an Azure Native ISV Service offering](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview) and select **Get It Now**.
+- **Azure Marketplace**: open the [Datadog – an Azure Native ISV Service offering](https://marketplace.microsoft.com/product/datadog1591740804488.dd_liftr_v3_decoupled) and select **Get It Now**.
 
 Alternatively, from the Azure portal global search bar, search for **Datadog** and select the **Datadog – An Azure Native ISV Service** result.
 

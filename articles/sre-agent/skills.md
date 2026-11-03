@@ -3,7 +3,7 @@ title: Skills in Azure SRE Agent
 description: Learn how skills extend your agent with procedural guidance and execution capabilities like Azure CLI, Kusto queries, and Python scripts.
 ms.topic: feature-guide
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -31,7 +31,7 @@ These three concepts work together but serve different purposes:
 | **Purpose** | Reusable procedures and execution | Scoped domain specialists | Reference content |
 | **Best for** | Team-wide troubleshooting guides | Database experts, security auditors | Runbooks, architecture docs |
 
-Both your main agent and custom agents can use skills. When you create a custom agent in **Builder** > **Agent Canvas**, select the skills it can access. Choose the skills directly from the **Choose Skills** panel in the custom agent creation dialog.
+Both your main agent and custom agents can use skills. When you create a custom agent in **Build + setup** > **Workflows** > **Agent Canvas**, select the skills it can access. Choose the skills directly from the **Choose Skills** panel in the custom agent creation dialog.
 
 In YAML, use `allowed_skills` to specify which skills a custom agent can access. Setting `allowed_skills` automatically enables skills on that agent.
 
@@ -72,7 +72,7 @@ Skills turn your agent from a general assistant into a team member who knows how
 
 ## Create skills
 
-Create skills in **Builder > Skills**. A skill includes a `SKILL.md` file with procedural guidance and optional tool attachments for execution.
+Create skills in **Build + setup > Extensions > Skill builder**. A skill includes a `SKILL.md` file with procedural guidance and optional tool attachments for execution.
 
 :::image type="content" source="media/skills/portal-create-skill.png" alt-text="Screenshot of create skill dialog in the portal." lightbox="media/skills/portal-create-skill.png":::
 

@@ -3,12 +3,12 @@ title: Azure Service Bus Enable FIFO with Sessions
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 #customer intent: As a developer, I want to understand how to use Azure Service Bus sessions to implement the FIFO pattern so that I can ensure ordered message processing.
 ms.topic: concept-article
-ms.date: 08/20/2026
+ms.date: 10/30/2026
 # Customer intent: As a developer, I want to know how to enable joint and ordered handling of unbounded sequences of related messages.
 ---
 
 # Message sessions
-Azure Service Bus sessions enable joint and ordered processing of unbounded sequences of related messages. Use sessions in **first in, first out (FIFO)** and **request-response** patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
+Azure Service Bus sessions enable joint and ordered processing of unbounded sequences of related messages. Use sessions in **first in, first out (FIFO)** and **request-response** patterns. This article shows how to use sessions to implement these patterns when using Service Bus.
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -25,9 +25,9 @@ Typically, however, an application defines where a set of related messages start
 > [!IMPORTANT]
 > When you enable sessions on a queue or a subscription, client applications ***can no longer*** send or receive regular messages. Clients must send messages as part of a session by setting the session ID and receive messages by accepting the session. Clients can still peek a queue or subscription that has sessions enabled. For more information, see [Message browsing](message-browsing.md).
 
-The APIs for sessions exist on queue and subscription clients. There are two ways to receive sessions and messages: the imperative model, where you manually control when and how messages are received, and the handler-based model, which simplifies things by automatically managing the message loop and processing. 
+The APIs for sessions exist on queue and subscription clients. There are two ways to receive sessions and messages: the imperative model, where you manually control when and how messages are received, and the handler-based model, which simplifies things by automatically managing the message loop and processing.
 
-For samples, use links in the [Samples](#samples) section. 
+For samples, use links in the [Samples](#samples) section.
 
 ### Session features
 
@@ -77,7 +77,7 @@ When a message in a session is abandoned (for example, due to a processing failu
 > If a dead-lettered message is later moved back to the original queue for reprocessing, the original ordering relative to other session messages is lost because the resubmitted message receives a new enqueue time and sequence number.
 
 ## Request-response pattern
-The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics. 
+The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics.
 
 Multiple applications can send their requests to a single request queue, with a specific header parameter set to uniquely identify the sender application. The receiver application can process the requests coming in the queue and send replies on the session enabled queue, setting the session ID to the unique identifier the sender had sent on the request message. The application that sent the request can then receive messages on the specific session ID and correctly process the replies.
 
@@ -85,41 +85,40 @@ Multiple applications can send their requests to a single request queue, with a 
 > The application that sends the initial requests should know about the session ID and use it to accept the session so that the session on which it's expecting the response is locked. Use a GUID that uniquely identifies the instance of the application as a session ID. To ensure that responses are available to be locked and processed by specific receivers, the queue should have no session handler or a time-out specified on the session receiver.
 
 ## Sequencing vs. sessions
-[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extraction order of messages, but not the processing order, which requires sessions. 
+[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extraction order of messages, but not the processing order, which requires sessions.
  
-Say, there are three messages in the queue and two consumers. 
+Say, there are three messages in the queue and two consumers.
 1. Consumer 1 picks up message 1.
 1. Consumer 2 picks up message 2.
 1. Consumer 2 finishes processing message 2 and picks up message 3, while Consumer 1 isn't done with processing message 1 yet.
 1. Consumer 2 finishes processing message 3, but consumer 1 is still not done with processing message 1 yet.
-1. Finally, consumer 1 completes processing message 1. 
+1. Finally, consumer 1 completes processing message 1.
  
 So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
 
-If messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. Set the same session ID on messages that belong together, which could be message 1, 4, and 8 in a set, and 2, 3, and 6 in another set. 
+If messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. Set the same session ID on messages that belong together, which could be message 1, 4, and 8 in a set, and 2, 3, and 6 in another set.
 
 ## List message sessions
 
 Use session listing to discover the session IDs in a session-enabled queue or subscription without accepting each session. By default, the operation returns sessions that have active messages or stored session state. It excludes sessions that have neither. You can also filter the results to sessions whose stored state was set or updated after a point in time.
 
-> [!IMPORTANT]
-> The SDK APIs for listing sessions are currently in preview. The beta package versions in the following table introduce the preview APIs. Preview APIs can change before they become generally available.
+The following stable package versions introduce the session-listing APIs.
 
-| SDK | Preview package version | API | Sample |
-|-----|-------------------------|-----|--------|
-| .NET | `7.21.0-beta.1` | `ServiceBusClient.GetMessageSessionsAsync` | [List message sessions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample22_GetMessageSessions.md) |
-| Java | `7.18.0-beta.3` | `ServiceBusSessionReceiverClient.listSessions` and `ServiceBusSessionReceiverAsyncClient.listSessions` | [Synchronous](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ListSessionsSample.java) and [asynchronous](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ListSessionsAsyncSample.java) |
-| JavaScript | `7.10.0-beta.5` | `ServiceBusClient.listMessageSessions` | [List message sessions](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus#list-message-sessions) |
-| Go | `1.11.0-beta.1` | `Client.NewListSessionsForQueuePager` and `Client.NewListSessionsForSubscriptionPager` | [List sessions](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/messaging/azservicebus/example_client_test.go) |
-| Python | `7.15.0b2` | `ServiceBusClient.list_queue_sessions` and `ServiceBusClient.list_subscription_sessions` | [Synchronous](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/samples/sync_samples/list_sessions.py) and [asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/samples/async_samples/list_sessions_async.py) |
+| SDK | Minimum stable package version | API | Sample |
+|-----|--------------------------------|-----|--------|
+| .NET | `7.21.0` | `ServiceBusClient.GetMessageSessionsAsync` | [List message sessions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample22_GetMessageSessions.md) |
+| Java | `7.18.0` | `ServiceBusSessionReceiverClient.listSessions` and `ServiceBusSessionReceiverAsyncClient.listSessions` | [Synchronous](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ListSessionsSample.java) and [asynchronous](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ListSessionsAsyncSample.java) |
+| JavaScript | `7.10.0` | `ServiceBusClient.listMessageSessions` | [List message sessions](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus#list-message-sessions) |
+| Go | `1.11.0` | `Client.NewListSessionsForQueuePager` and `Client.NewListSessionsForSubscriptionPager` | [List sessions](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/messaging/azservicebus/example_client_test.go) |
+| Python | `7.15.0` | `ServiceBusClient.list_queue_sessions` and `ServiceBusClient.list_subscription_sessions` | [Synchronous](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/samples/sync_samples/list_sessions.py) and [asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/samples/async_samples/list_sessions_async.py) |
 
 ## Message expiration
 For session-enabled queues or topics' subscriptions, messages are locked at the session level. If the time-to-live (TTL) for any of the messages expires, the system either drops or dead-letters all messages related to that session based on the dead-lettering enabled on messaging expiration setting on the entity. In other words, if there's a single message in the session that passes the TTL, all the messages in the session expire. The messages expire only if there's an active listener. For more information, see [Message expiration](message-expiration.md).
 
 ## Samples
-You can enable message sessions while creating a queue by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable message sessions](enable-message-sessions.md). 
+You can enable message sessions while creating a queue by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable message sessions](enable-message-sessions.md).
 
-Try the samples in the language of your choice to explore Azure Service Bus features. 
+Try the samples in the language of your choice to explore Azure Service Bus features.
 - .NET
     - [Sending and receiving session messages](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample03_SendReceiveSessions.md)
     - [Using the session processor](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample05_SessionProcessor.md)
@@ -139,6 +138,5 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 ## Related content
 
 - [A blog post describing techniques for reordering messages that arrive out of order](https://particular.net/blog/you-dont-need-ordered-delivery)
-
 
 

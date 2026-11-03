@@ -3,7 +3,7 @@ title: "Tutorial: Configure Agent Hooks (API) in Azure SRE Agent"
 description: Add Stop and PostToolUse hooks to your agent using the REST API v2 to validate responses, audit tool usage, and enforce policies.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.custom: hooks, agent-hooks, stop-hook, post-tool-use, configuration, REST API
@@ -23,11 +23,11 @@ In this tutorial, you create a custom agent with a Stop hook that forces the age
 > [!NOTE]
 > **Agent-level vs. custom-agent-level hooks:** This tutorial creates hooks on a **custom agent** (custom-agent-level hooks). These hooks only fire when that specific custom agent runs.
 >
-> To create **agent-level hooks** that apply to the entire agent (all threads, all custom agents), use **Builder** > **Hooks** in the portal.
+> To create **agent-level hooks** that apply to the entire agent (all threads, all custom agents), use **Build + setup** > **Extensions** > **Hooks** in the portal.
 >
 > | Level | How to create | Scope |
 > |-------|--------------|-------|
-> | **Agent level** | Portal: Builder > Hooks | Applies to all threads and custom agents |
+> | **Agent level** | Portal: Build + setup > Extensions > Hooks | Applies to all threads and custom agents |
 > | **Custom agent level** | REST API (this tutorial) or Portal: Agent Canvas > Custom agent > Manage Hooks | Applies only to one custom agent |
 
 In this tutorial, you learn how to:
@@ -46,11 +46,11 @@ In this tutorial, you learn how to:
 
 ## Understand the hook API format
 
-This tutorial uses the **REST API v2** to create hooks on a custom agent. The portal's YAML editor tab shows v1 format and doesn't display hooks configured via the API, but the hooks are still active. You can verify them in the **Builder** > **Hooks** page or the **Test playground**.
+This tutorial uses the **REST API v2** to create hooks on a custom agent. The portal's YAML editor tab shows v1 format and doesn't display hooks configured via the API, but the hooks are still active. To inspect custom-agent hooks, go to **Build + setup** > **Workflows** > **Agent Canvas**, edit the custom agent, and select **Manage Hooks**. The **Extensions** > **Hooks** page manages agent-level hooks, not custom-agent hooks.
 
 > [!TIP]
 > **When to use the API vs the portal:**
-> - **Portal** (Builder > Hooks): Best for agent-level hooks in visual form. No code is necessary.
+> - **Portal** (Build + setup > Extensions > Hooks): Best for agent-level hooks in visual form. No code is necessary.
 > - **API** (this tutorial): Best for custom-agent-level hooks, CI/CD pipelines, or programmatic management.
 
 ## Find your agent's API URL
@@ -64,7 +64,7 @@ https://{agent-name}--{hash}.{hash}.{region}.azuresre.ai
 To find it:
 
 1. Open [sre.azure.com](https://sre.azure.com) and select your agent.
-1. In the left sidebar, select **Builder** > **Agent Canvas**.
+1. In the left sidebar, select **Build + setup** > **Workflows** > **Agent Canvas**.
 1. Open your browser's **Developer Tools** (F12 or right-click > Inspect).
 1. Go to the **Network** tab, filter by "api", and look for requests to a URL ending in `.azuresre.ai`.
 1. The base URL is everything before `/api/...`.
@@ -154,7 +154,7 @@ The Stop hook evaluates the agent's response before it returns to the user:
 
 Follow these steps to test the Stop hook:
 
-1. Go to your agent in the portal and select **Builder** > **Agent Canvas**.
+1. Go to your agent in the portal and select **Build + setup** > **Workflows** > **Agent Canvas**.
 1. Select the **Test playground** radio button.
 1. Select the **Subagent/Tool** dropdown, find **my_hooked_agent**, and select **Apply**.
 
@@ -307,7 +307,7 @@ Command hooks can also use exit codes instead of JSON:
 After you configure and test the hooks, confirm the following conditions:
 
 - You configure **custom-agent-level hooks** by using REST API v2. They apply only to that custom agent.
-- You create **agent-level hooks** in Builder > Hooks. They apply across the entire agent.
+- You create **agent-level hooks** in Build + setup > Extensions > Hooks. They apply across the entire agent.
 - The stop hook causes the agent to add the `=== RESPONSE COMPLETE ===` marker before stopping.
 - The PostToolUse audit hook logs `[AUDIT]` messages for tool calls.
 - The policy hook blocks dangerous commands like `rm -rf` and `sudo`.
@@ -318,7 +318,7 @@ The following table lists common problems and solutions for agent hooks.
 
 | Problem | Solution |
 |---|---|
-| Hooks not visible in portal YAML tab | Expected - the YAML tab shows v1 only. Custom agent-level hooks created through the API are active and visible in **Builder** > **Hooks** or the playground. |
+| Hooks not visible in portal YAML tab | The YAML tab shows v1 only. Inspect custom-agent hooks in **Agent Canvas** > edit custom agent > **Manage Hooks**, or test them in **Test playground**. **Extensions** > **Hooks** manages agent-level hooks. |
 | `Unsupported kind: ExtendedAgent` | Use the v2 endpoint: `PUT /api/v2/extendedAgent/agents/{name}`. |
 | `Handoffs cannot be null` | Add `"handoffs": []` to the JSON payload. |
 | Hook has no effect | Include a `reason` field when rejecting. Without it, rejection is treated as approval. |

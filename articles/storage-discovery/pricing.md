@@ -5,8 +5,9 @@ description: Storage Discovery pricing and features available with each pricing 
 author: fauhse
 ms.service: azure-storage-discovery
 ms.topic: overview
-ms.date: 10/09/2025
+ms.date: 10/27/2026
 ms.author: fauhse
+modified_by: pthippes
 ---
 
 # Azure Storage Discovery pricing
@@ -99,9 +100,7 @@ For example: Azure Blob Storage consists of storage accounts and each storage ac
 
 ### Other cost considerations
 
-Storing, retrieving, or generating Discovery insights causes no extra charges. Your Azure Storage resources experience no transactions or performance impact when analyzing them with Azure Storage Discovery.
-
-Every workspace is billed individually. Including a storage resource in a paid Discovery workspace increases the bill of that workspace, even if the same storage resource is already included in a different workspace. 
+Storing, retrieving, or generating Discovery insights causes no extra charges. Every workspace is billed individually. Including a storage resource in a paid Discovery workspace increases the bill of that workspace, even if the same storage resource is already included in another workspace.
 
 ## Next steps
 

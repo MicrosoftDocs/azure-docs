@@ -1,0 +1,56 @@
+### YamlMime:Landing
+
+title: AI Gateway documentation
+summary: Learn how AI Gateway (preview) connects applications and agents to AI models and Model Context Protocol (MCP) tools. Find key concepts, migration guidance, and links to the portal and in-product documentation.
+
+metadata:
+  title: AI Gateway documentation
+  description: Understand AI Gateway (preview), plan migration from Azure API Management, and find portal and command-line guidance in the in-product documentation.
+  ms.service: azure
+  ms.topic: landing-page
+  ms.author: patricka
+  ms.date: 10/23/2026
+
+landingContent:
+  - title: Understand AI Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is AI Gateway?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: AI Gateway concepts
+            url: concepts.md
+          - text: AI Gateway and Azure API Management service
+            url: compare-api-management-service.md
+  - title: Get started with AI Gateway
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an AI Gateway
+            url: quickstart-create-ai-gateway.md
+      - linkListType: get-started
+        links:
+          - text: Start with the Azure CLI extension
+            url: get-started-cli.md
+  - title: Adopt to AI Gateway
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migrate from the AI Gateway tier in Azure API Management
+            url: ai-gateway-resource.md
+          - text: Move AI workloads to AI Gateway
+            url: migrate-api-management.md
+  - title: Configure and use your gateway
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: AI Gateway portal
+            url: https://ai.gateway.azure.com
+          - text: In-product documentation
+            url: https://ai.gateway.azure.com/docs
+          - text: Portal guide
+            url: https://ai.gateway.azure.com/docs/quickstarts/portal
+          - text: Start with the Azure CLI extension
+            url: get-started-cli.md

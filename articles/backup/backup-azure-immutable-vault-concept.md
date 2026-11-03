@@ -4,7 +4,7 @@ description: This article explains the concept of an immutable vault for Azure B
 ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions, engagement-fy24, ignite-2024
-ms.date: 09/09/2026
+ms.date: 10/26/2026
 ms.update-cycle: 1095-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -22,7 +22,7 @@ An immutable vault for Azure Backup can help you protect your backup data by blo
 | Vault types | Recovery Services vault, Backup vault |
 | Regions | Immutability (enabled and locked) is generally available in all Azure public and US government regions. |
 | Workloads | Immutability is supported for all workloads that Azure Backup protects. |
-| Time-based immutability | Supported for Recovery Services vaults. |
+| Time-based immutability | Supported for Recovery Services vaults in all Azure regions. For Backup vaults, supported only in Australia East, North Europe, and West Central US. |
 
 ### WORM storage support
 

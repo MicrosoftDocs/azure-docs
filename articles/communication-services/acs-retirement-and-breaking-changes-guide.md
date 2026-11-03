@@ -635,7 +635,7 @@ However, this documentation and code aren't intended to support new Virtual Appo
 > Restrictions on retiring services will begin with limiting onboarding for customers without an Azure Communication Services resource created before October 23, 2026. These customers will not be able to acquire phone numbers for retiring telephony workloads, including PSTN calling and SMS.
 
 > [!TIP]
-> To get started planning your migration, visit the [Teams Phone Extensibility (TPE) migration guide](https://aka.ms/acs-directrouting-tpe).
+> To get started planning your migration, visit the [Teams Phone Extensibility (TPE) overview](https://learn.microsoft.com/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-overview).
 
 |  | Teams Direct Routing | Teams Calling Plan | Teams Operator Connect |
 |---|---|---|---|
@@ -668,7 +668,7 @@ Dynamics 365 workloads follow the product-specific [Dynamics 365 ACS retirement 
 ### ACS Voice and Video Calling SDK
 
 > [!TIP]
-> To get started planning your migration, visit the [Teams Meeting interoperability migration guide](https://aka.ms/acs-calling-teamsinterop).
+> To get started planning your migration, visit the [Teams interoperability overview](https://learn.microsoft.com/azure/communication-services/concepts/teams-interop).
 
 **What are the migration options for Voice and Video Calling?**
 
@@ -691,7 +691,7 @@ There are no immediate changes to how your existing Azure Communication Services
 ### ACS Call Diagnostics
 
 > [!TIP]
-> To get started planning your migration, visit the [Teams Meeting interoperability migration guide](https://aka.ms/acs-calldiagnostics-teamsinterop).
+> To get started planning your migration, visit the [Teams interoperability overview](https://learn.microsoft.com/azure/communication-services/concepts/teams-interop).
 
 ---
 

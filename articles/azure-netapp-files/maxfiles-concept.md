@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 09/25/2026
+ms.date: 11/02/2026
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the `maxfiles` limits for Azure NetApp Files, so that I can effectively manage volume capacity and avoid 'out of space' errors when creating new files."
 ---
@@ -14,6 +14,11 @@ ms.author: anfdocs
 Azure NetApp Files volumes have a value called `maxfiles` that refers to the maximum number of files and folders (also known as inodes) a volume can contain. The `maxfiles` limit for an Azure NetApp Files volume is based on the size (quota) of the volume. The service dynamically adjusts the `maxfiles` limit for a volume based on its provisioned size and uses the following guidelines.
 
 ## `maxfiles` limits for the Flexible, Premium, Standard, and Ultra service levels
+
+>[!NOTE]
+> For volumes you create with a size from 100 GiB through approximately 682.7 GiB, the `maxfiles` limit is set to 21,251,126. For volumes you create outside this range, calculate `maxfiles` based on the volume size as described in the following sections.
+>   
+> When you resize a volume, determine `maxfiles` based on the resulting volume size. Shrinking a volume doesn't reduce its existing `maxfiles` limit. As a result, volumes of the same size can have different `maxfiles` limits depending on their resize history.
 
 - For regular volumes, the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity, up to a maximum of 2,147,483,632.
 - For [large volumes](large-volumes-requirements-considerations.md), the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity up to a default maximum of 15,938,355,048.
@@ -49,7 +54,7 @@ To see the `maxfiles` allocation for a specific volume size, check the **Maximum
 >[!NOTE]
 >The maximum number of files metric is reported against the `maxfiles` account quota limit. The metric in Azure Monitor might reflect fewer files than metrics provided by the operating system mounting the volume. This behavior is expected. 
 
-
+<!-- 
 ## `maxfiles` limits for Elastic zone-redundant storage 
 
 

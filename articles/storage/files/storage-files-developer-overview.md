@@ -55,6 +55,12 @@ The Azure Storage resource provider is a service that is based on [Azure Resourc
 
 The Storage resource provider is recommended for operations that are performed at the *file service* or *file share* level. To learn more about the language-specific management libraries that build on the Azure Storage resource provider REST API, see the [Libraries for resource management](#libraries-for-resource-management).
 
+## Track changes with Azure Files change feed
+
+Azure Files change feed provides a durable, ordered record of changes to files and directories in an Azure file share. Use change feed to build incremental synchronization, indexing, auditing, backup, analytics, and other applications that process file and directory changes.
+
+To learn about supported configurations, enablement, event records, and how to consume the feed, see [Change feed for Azure Files](storage-files-change-feed.md).
+
 ## Azure SDK libraries for Azure Files
 
 The Azure SDK provides two sets of libraries for working with Azure Files resources. One set of libraries builds on the FileREST API, and is designed to handle data access operations at the *directory* or *file* level. These libraries are sometimes referred to as the [data plane](#libraries-for-data-access). Another set of libraries builds on top of the Azure Storage resource provider REST API, and is designed to handle resource management operations at the *file service* or *file share* level. These libraries are sometimes referred to as the [control plane](#libraries-for-resource-management) (or management plane).
@@ -163,4 +169,5 @@ The following table shows the Azure Storage client libraries for resource manage
 
 ## Related content
 
+- [Change feed for Azure Files](storage-files-change-feed.md)
 - Develop for Azure Files with [.NET](storage-dotnet-how-to-use-files.md), [Java](storage-java-how-to-use-file-storage.md), or [Python](storage-python-how-to-use-file-storage.md)

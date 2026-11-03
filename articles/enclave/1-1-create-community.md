@@ -5,7 +5,7 @@ author: aserfass-msft
 ms.author: aserfass
 ms.service: azure-enclave
 ms.topic: tutorial
-ms.date: 08/31/2026
+ms.date: 09/23/2026
 ai-usage: ai-assisted
 ---
 
@@ -389,8 +389,10 @@ az resource delete \
   --resource-group myResourceGroup \
   --resource-type Microsoft.Mission/communities \
   --name fabrikam \
-  --api-version 2026-03-01-preview
+  --api-version <api-version>
 ```
+
+Use a currently supported `Microsoft.Mission` API version from the [Azure Enclave API reference](https://aka.ms/ae/api) (for example, `2026-04-01`).
 
 **What gets deleted:**
 - Community resource

@@ -1,69 +1,65 @@
 ---
-title: Threads in Azure SRE Agent
-description: Learn how threads organize conversations with your agent, including thread sources, filtering, search, chat commands, and keyboard shortcuts.
+title: Chats in Azure SRE Agent
+description: Learn how chats organize conversations with your agent, including chat sources, filtering, search, chat commands, and keyboard shortcuts.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
-ms.custom: threads, conversations, chat, history, slash commands, compaction, thread search
-#customer intent: As an SRE, I want to understand threads so that I can organize and navigate my agent conversations efficiently.
+ms.custom: chats, conversations, chat, history, slash commands, compaction, chat search
+#customer intent: As an SRE, I want to understand chats so that I can organize and navigate my agent conversations efficiently.
 ---
 
-# Threads in Azure SRE Agent
-A thread is a conversation with your agent. Each time you start a new investigation or ask a question, you create a thread that maintains context throughout the conversation.
+# Chats in Azure SRE Agent
+A chat is a conversation with your agent. Each time you start a new investigation or ask a question, you create a chat that maintains context throughout the conversation.
 
-## Thread sources
+## Chat sources
 
-Your agent creates threads from several different sources.
+Your agent creates chats from several different sources.
 
 | Source | Description |
 |---|---|
 | **Conversation** | You start a chat in the portal. |
 | **Incident** | An incident from **PagerDuty**, **ServiceNow**, or **Azure Monitor** triggers an investigation. |
-| **Scheduled task** | A [scheduled task](scheduled-tasks.md) runs and creates a thread for its output. |
+| **Scheduled task** | A [scheduled task](scheduled-tasks.md) runs and creates a chat for its output. |
 | **Teams** | You tag your agent in a Teams channel or direct message. |
 | **Alert** | A webhook or alert triggers your agent. |
 | **Daily report** | Automated daily summary of your agent's activity. |
 | **Best practices** | Security and operational recommendations from your agent. |
-| **Playground** | Test threads created in the [test playground](agent-playground.md). |
-| **Welcome message** | Initial welcome thread when you first access an agent. |
-| **Agent** | The agent proactively creates a thread (for example, for monitoring alerts). |
+| **Playground** | Test chats created in the [test playground](agent-playground.md). |
+| **Welcome message** | Initial welcome chat when you first access an agent. |
+| **Agent** | The agent proactively creates a chat (for example, for monitoring alerts). |
 
-## Thread organization
+## Chat organization
 
-The sidebar shows threads organized into two categories.
+The sidebar shows chats organized into two categories.
 
 | Section | Purpose |
 |---|---|
-| **Favorites** | Threads you pinned for quick access. |
-| **Chats** | All other conversations. |
+| **Favorites** | Chats you pinned for quick access. |
+| **Other chats** | All other conversations. |
 
-:::image type="content" source="media/threads/thread-sidebar-overview.png" alt-text="Screenshot of thread sidebar showing Favorites and Chats categories, with filter buttons and thread list.":::
+Each chat in the sidebar displays its title. You can easily spot unread chats because they appear in **bold** text.
 
-Each thread in the sidebar displays its title. You can easily spot unread threads because they appear in **bold** text.
+### Filter chats
 
-### Filter threads
-
-Use the two filter buttons at the top of the thread list to find relevant conversations.
+Select the filter icon next to **Chats** to open the **Filters** menu and find relevant conversations.
 
 | Filter | What it shows |
 |---|---|
-| **Unread** | Only threads you didn't read yet. |
-| **Mine** | Only threads you started (excludes scheduled tasks and agent-initiated threads). |
+| **Unread only** | Only chats you didn't read yet. |
+| **Type** | Conversations from selected sources, such as incidents or scheduled tasks. |
+| **Created by** | Conversations from **Me**, other authors, or all authors. |
+| **Sort by** | The order in which conversations appear. |
 
-The **Mine** filter is active by default. When you open the sidebar, you see your own threads first. Toggle it off to see all threads on the agent.
+**Created by** defaults to **Me**. To include teammates' conversations, select more authors or all authors in that submenu.
 
-When active, a filter button appears filled (blue). You can activate both filters at the same time so that only threads matching **both** conditions appear.
+Combine the controls to narrow the list. Select **Reset** to restore **Me**, all types, recently active sorting, and no unread-only restriction.
 
-:::image type="content" source="media/threads/thread-filter-mine-active.png" alt-text="Screenshot of thread sidebar with the Mine filter active, showing only user-initiated threads.":::
+### Chat status
 
-:::image type="content" source="media/threads/thread-filter-unread-active.png" alt-text="Screenshot of thread sidebar with the Unread filter active, showing only unread threads.":::
-
-### Thread status
-
-Each thread has a status that indicates its current state.
+Each chat has a status that indicates its current state.
 
 | Status | Meaning |
 |---|---|
@@ -71,44 +67,44 @@ Each thread has a status that indicates its current state.
 | **Pending User Input** | The agent is waiting for your response or approval. |
 | **Complete** | The investigation finished. |
 
-### Manage threads
+### Manage chats
 
-Right-click any thread in the sidebar, or select the **...** (More options) menu, to access thread actions.
+Right-click any chat in the sidebar, or select the **...** (More options) menu, to access chat actions.
 
-:::image type="content" source="media/threads/thread-context-menu.png" alt-text="Screenshot of thread context menu showing Add to favorites, Info, Copy link to thread, Rename, and Delete options.":::
+:::image type="content" source="media/threads/thread-context-menu.png" alt-text="Screenshot of chat context menu showing Add to favorites, Info, Copy link to chat, Rename, and Delete options.":::
 
 | Action | Description |
 |---|---|
-| **Add to favorites** | Pin the thread to the **Favorites** section for quick access. |
-| **Info** | View thread details including thread ID, creation date, and source. |
-| **Copy link to thread** | Copy a deep link to share with teammates. |
-| **Rename** | Change the thread title. |
-| **Delete** | Permanently remove the thread. |
+| **Add to favorites** | Pin the chat to the **Favorites** section for quick access. |
+| **Info** | View chat details including chat ID, creation date, and source. |
+| **Copy link to chat** | Copy a deep link to share with teammates. |
+| **Rename** | Change the chat title. |
+| **Delete** | Permanently remove the chat. |
 
-:::image type="content" source="media/threads/thread-favorites-populated.png" alt-text="Screenshot of thread sidebar showing a thread pinned in the Favorites section above the Chats section.":::
+:::image type="content" source="media/threads/thread-favorites-populated.png" alt-text="Screenshot of chat sidebar showing a chat pinned in the Favorites section above the Chats section.":::
 
-### View thread details
+### View chat details
 
-Select a thread to open it. The title bar shows the thread name, a **...** (More options) menu, and a **View trace** button when you configure Application Insights.
+Select a chat to open it. The title bar shows the chat name, a **...** (More options) menu, and a **View trace** button when you configure Application Insights.
 
-### Search threads
+### Search chats
 
-Select **Search threads** in the sidebar to open the search dialog. Type any part of a thread title, or paste a full or partial thread ID, to find a specific conversation.
+Select **Search chats and pages** in the sidebar to open search. Type any part of a chat title, or paste a full or partial chat ID, to find a conversation. Search also finds portal pages, including pages under **Build + setup**.
 
-:::image type="content" source="media/threads/thread-search-dialog.png" alt-text="Screenshot of search dialog showing thread results with title, thread ID, and last message preview.":::
+:::image type="content" source="media/threads/thread-search-dialog.png" alt-text="Screenshot of search dialog showing chat results with title, chat ID, and last message preview.":::
 
-Search results display each thread's title, unique ID, and a preview of the last message. The search text is highlighted wherever it matches, in the title, the ID, or both.
+Search results display each chat's title, unique ID, and a preview of the last message. The search text is highlighted wherever it matches, in the title, the ID, or both.
 
-The following table describes scenarios where searching by thread ID is helpful.
+The following table describes scenarios where searching by chat ID is helpful.
 
 | Scenario | How it helps |
 |---|---|
-| **Debugging** | Paste a thread ID from logs or monitoring tools to jump directly to the conversation. |
-| **Collaboration** | A teammate shares a thread ID for you to review. |
-| **Cross-referencing** | Navigate to a thread linked from an incident report or support ticket. |
+| **Debugging** | Paste a chat ID from logs or monitoring tools to jump directly to the conversation. |
+| **Collaboration** | A teammate shares a chat ID for you to review. |
+| **Cross-referencing** | Navigate to a chat linked from an incident report or support ticket. |
 
 > [!TIP]
-> To find a thread's ID, right-click any thread in the sidebar and select **Info**. The dialog displays the thread ID with a **Copy** button, making it easy to share with teammates or reference in documentation.
+> To find a chat's ID, right-click any chat in the sidebar and select **Info**. The dialog displays the chat ID with a **Copy** button, making it easy to share with teammates or reference in documentation.
 
 ## Image zoom
 
@@ -125,12 +121,12 @@ A scale indicator in the toolbar shows the current zoom percentage (zoom range: 
 
 ## Keyboard shortcuts
 
-The following keyboard shortcuts help you navigate threads quickly.
+The following keyboard shortcuts help you navigate chats quickly.
 
 | Shortcut | Action |
 |---|---|
-| **Alt+N** | Start a new chat thread. |
-| **Alt+S** | Open the thread search dialog. |
+| **Alt+N** | Start a new chat. |
+| **Alt+S** | Open the chat search dialog. |
 
 Shortcut hints appear next to the corresponding buttons in the sidebar. The app ignores shortcuts when focus is inside a text input field or when modifier keys (Ctrl, Shift) are held.
 
@@ -143,7 +139,7 @@ Type `/` or `#` in the chat input to access quick commands.
 | Command | Description | Learn more |
 |---|---|---|
 | `/agent` | Switch to a specific custom agent. | [Custom Agents](sub-agents.md#how-custom-agents-work) |
-| `/clear` | Start a fresh thread. | |
+| `/clear` | Start a fresh chat. | |
 | `/compact` | Summarize and compress conversation history. | |
 | `/incident` | List all incidents. | [Incident response](incident-response.md) |
 | `/resource` | List agent-managed resources. | |
@@ -162,19 +158,19 @@ You can also manually trigger compaction by using the `/compact` command to summ
 > [!TIP]
 > Markdown tables with numeric columns sort numerically (1, 2, 12) rather than lexicographically (1, 12, 2).
 
-## Test threads
+## Test chats
 
-When you test your agent configuration in the [test playground](agent-playground.md), you create **test threads** that run in read-only mode. Test threads:
+When you test your agent configuration in the [test playground](agent-playground.md), you create **test chats** that run in read-only mode. Test chats:
 
-- Are separate from production threads in the sidebar.
+- Are separate from production chats in the sidebar.
 - Don't execute real actions against your Azure resources.
 - Let you validate prompt changes, tool configurations, and agent behavior safely.
 
-Test threads appear with a distinct label so you can tell them apart from real conversations.
+Test chats appear with a distinct label so you can tell them apart from real conversations.
 
 ## Related content
 
 | Resource | Why it matters |
 |----------|----------------|
 | [Memory and knowledge](memory.md) | How your agent remembers information |
-| [Incident response](incident-response.md) | Threads created from incidents |
+| [Incident response](incident-response.md) | Chats created from incidents |

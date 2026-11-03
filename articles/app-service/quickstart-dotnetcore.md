@@ -351,20 +351,31 @@ Follow these steps to create your App Service resources and publish your project
 
    - If the `az` command isn't recognized, ensure that you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
 
-1. Use [az webapp up](/cli/azure/webapp#az-webapp-up) to deploy the code in your local *MyFirstAzureWebApp* directory:
+1. Create a resource group, an App Service plan, and a web app. Replace `<app-name>` with a name that's unique across all of Azure (valid characters are `a-z`, `0-9`, and `-`). For Linux, run:
 
    ```azurecli
-   az webapp up --sku F1 --name <app-name> --os-type <os>
+   az group create --name myResourceGroup --location eastus
+   az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku P0v3 --is-linux
+   az webapp create --name <app-name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "DOTNETCORE:10.0"
    ```
 
-   - Replace `<app-name>` with a name that's unique across all of Azure. Valid characters are `a-z`, `0-9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
-   - The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
-   - Replace `<os>` with either `linux` or `windows`.
-   - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. To get a list of allowable regions for your Azure account, run the [az account list-locations](/cli/azure/appservice#az-appservice-list-locations) command.
+   For Windows, use the same commands but omit `--is-linux` from `az appservice plan create` and use `--runtime "DOTNET:10"` with `az webapp create`. The `--sku P0v3` argument selects the paid Premium v3 [pricing tier][app-service-pricing-tier]. Replace `eastus` with an available region, which you can list by using [`az account list-locations`](/cli/azure/account#az-account-list-locations).
 
-   The command might take a few minutes to complete. While it runs, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL.
+1. From the *MyFirstAzureWebApp* directory, publish the application and create a ZIP archive of the contents of the *publish* directory (not the directory itself):
 
-1. Open a web browser and navigate to the URL. You see the ASP.NET Core 10.0 web app displayed in the page.
+   ```dotnetcli
+   dotnet publish --configuration Release --output publish
+   ```
+
+   On Linux or macOS, run `cd publish && zip -r ../app.zip . && cd ..`. On Windows, run `Compress-Archive -Path publish\* -DestinationPath app.zip` in PowerShell.
+
+1. Deploy the archive by using [az webapp deploy](/cli/azure/webapp#az-webapp-deploy):
+
+   ```azurecli
+   az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path app.zip --type zip
+   ```
+
+   Open `https://<app-name>.azurewebsites.net` in a browser. You see the ASP.NET Core 10.0 web app displayed in the page.
 
    :::image type="content" source="media/quickstart-dotnetcore/web-app-net-10.png" lightbox="media/quickstart-dotnetcore/web-app-net-10.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 10.0 web app in Azure.":::
 
@@ -628,13 +639,19 @@ Make a change to the default page and redeploy to see the changes.
    Example .NET app to Azure App Service.
    ```
 
-1. Save your changes, then redeploy the app using the `az webapp up` command again and replace `<os>` with either `linux` or `windows`.
+1. Save your changes, then publish and redeploy the updated app:
 
    ```azurecli
-   az webapp up --os-type <os>
+   dotnet publish --configuration Release --output publish
    ```
 
-   This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.
+   Re-create *app.zip* from the contents of *publish* as described in [Publish your web app](#publish-your-web-app), then run:
+
+   ```azurecli
+   az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path app.zip --type zip
+   ```
+
+   Replace `<app-name>` with the name you used when you created the web app.
 
 1. After deployment completes, switch back to the browser window that opened in the **Browse to the app** step, and refresh.
 
@@ -805,10 +822,8 @@ The **Overview** page for your web app contains options for basic management lik
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
 
 ```azurecli
-az group delete
+az group delete --name myResourceGroup
 ```
-
-For your convenience, the [az webapp up](/cli/azure/webapp#az-webapp-up) command that you ran earlier in this project saves the resource group name as the default value whenever you run `az` commands from this project.
 
 :::zone-end
 

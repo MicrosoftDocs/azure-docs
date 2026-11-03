@@ -70,6 +70,19 @@ Before creating a new Entra ID connection, complete the following steps:
     * **Hybrid identities**: Configure Microsoft Entra Connect Sync to synchronize on-premises Active Directory users with Microsoft Entra ID.
     * **Cloud-only identities**: No Microsoft Entra Connect Sync or on-premises Active Directory configuration is required.
 
+1. Enable a system-assigned managed identity for the NetApp account
+
+    Before creating and uploading the certificate and granting Azure Key Vault permissions, enable the system-assigned managed identity for the NetApp account.
+    
+    1. In the Azure portal, navigate to **Azure NetApp Files > NetApp account**.
+    1. Under **Settings**, select **Identity**.
+    
+        Azure NetApp Files supports either a system-assigned or user-assigned managed identity. For this procedure, select the system-assigned identity.
+
+    1. On the **System assigned** tab, set the status to On.
+    1. Select **Save**.
+
+    Azure NetApp Files uses the NetApp account managed identity to access Azure Key Vault during Microsoft Entra Kerberos authentication configuration. 
 
 1. [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app). Register the application by using either the Microsoft Entra admin center or the Azure portal. Use the Azure portal so you can stay in a single workflow while configuring Azure NetApp Files resources. Complete the application registration with the following settings:
 
@@ -85,20 +98,6 @@ Before creating a new Entra ID connection, complete the following steps:
     > From the application’s Overview page, record the Application (client) ID. This ID uniquely identifies your application and is used in your application's code as part of validating the security tokens it receives from the Microsoft identity platform.
  
     After you register your application, create and upload the certificate for authorization and set up permissions to configure Microsoft Entra ID connections.   
-
-1. Enable a system-assigned managed identity for the NetApp account
-
-    Before creating and uploading the certificate and granting Azure Key Vault permissions, enable the system-assigned managed identity for the NetApp account.
-    
-    1. In the Azure portal, navigate to **Azure NetApp Files > NetApp account**.
-    1. Under **Settings**, select **Identity**.
-    
-        Azure NetApp Files supports either a system-assigned or user-assigned managed identity. For this procedure, select the system-assigned identity.
-
-    1. On the **System assigned** tab, set the status to On.
-    1. Select **Save**.
-
-        Azure NetApp Files uses the NetApp account managed identity to access Azure Key Vault during Microsoft Entra Kerberos authentication configuration. 
 
 1. Upload the certificate and set up permissions:
 
@@ -168,98 +167,10 @@ Before creating a new Entra ID connection, complete the following steps:
 
         > [!NOTE]
         > The NAT gateway is used for outbound connectivity only. No inbound access or additional firewall rules are required for this configuration.
-
-1. [Create Windows virtual machines](/azure/virtual-machines/windows/quick-create-portal) to connect to Azure NetApp Files using Microsoft Entra Kerberos authentication
-
-    In some environments, you might not be able to connect directly to an Entra ID–joined virtual machine using Remote Desktop Protocol (RDP). In these cases, use an Entra ID–registered virtual machine as a jump box to establish the connection to the Entra ID–joined virtual machine. If you can connect directly to the Entra ID–joined virtual machine by signing in with your AzureAD\user@EntraIDdomain account, the Entra ID–registered virtual machine isn't required.
-
-    Depending on your environment, create one or two Windows virtual machines that you use to connect to Azure NetApp Files SMB volumes using Microsoft Entra Kerberos authentication. These virtual machines provide the client-side context required for Microsoft Entra Kerberos authentication and SMB access. Azure NetApp Files doesn't prompt for user credentials or issue Kerberos tickets. Windows clients obtain Kerberos tickets during an interactive sign-in.
-
-    **Entra ID–joined virtual machine (Primary)** 
-
-    Create an Entra ID–joined virtual machine to use Kerberos authentication and SMB access to Azure NetApp Files. Use this virtual machine to:  
-
-    * Sign in as a hybrid user using Microsoft Entra ID credentials.
-    * Obtain a cloud-issued Kerberos ticket during interactive sign-in.
-    * Mount the Azure NetApp Files SMB volume using Kerberos authentication.
-
-    To configure the Entra ID–joined virtual machine:
-    
-    * Go to **Work and school account** > **Connect to Azure** > **Use global Entra ID cloud account username and password**.
-
-    :::image type="content" source="./media/entra-kerberos-authentication-for-hybrid-identities/set-up-account.png" alt-text="Screenshot to set up account." lightbox="./media/entra-kerberos-authentication-for-hybrid-identities/set-up-account.png":::
-
-    * Sign in as hybrid or Entra ID cloud-only user by using Microsoft Entra ID credentials
-    * Obtain a cloud-issued Kerberos ticket during interactive sign-in.
-    * Mount the Azure NetApp Files SMB volume using Kerberos authentication.
-
-    This virtual machine represents the client that uses the end-to-end Microsoft Entra Kerberos authentication flow.
-
-    **Entra ID–registered virtual machine (if required for remote access)**
-
-    > [!NOTE]
-    > The Entra ID–registered virtual machine is a jump host to facilitate testing.
-
-    Create an Entra ID–registered virtual machine to facilitate access to the Entra ID–joined virtual machine. Use this virtual machine to:  
-
-    * Sign in with a global Microsoft Entra ID account.
-    * Register the device with Microsoft Entra ID.
-
-    To configure the Entra ID–registered virtual machine:
-
-    * Go to **Work and school account** > **Connect to Azure** > **Use global Entra ID cloud account username and password**.
-    * Sign in with a global Microsoft Entra ID account.
-    * Register the device with Microsoft Entra ID.
-
-    This virtual machine is typically used for identity validation and administrative access and doesn't mount Azure NetApp Files SMB volumes.
-
-    > [!IMPORTANT]
-    > * Production environments can use Entra ID–joined virtual machines to access Azure NetApp Files SMB volumes using Microsoft Entra Kerberos authentication.
-    > * The authentication configuration (Microsoft Entra ID, certificates, Azure Key Vault, NAT gateway) remains valid after testing without these virtual machines.
-
-    The Entra ID registers and joins to the VM.
-
-    1. Sign in to Entra Joined VM as a hybrid user to mount the volume:   
-       ```
-       AzureAD\user@EntraIDdomain
-       Example: AzureAD\jsmith@contoso.com 
-       ```
-
-        > [!NOTE]
-        > If you encounter any issues, select **More Choices** and then enter the credentials.
-
-    1. Perform the following configuration on Entra joined VM:
-
-        1. Sign in by using the virtual machine username and password.
-        1. Go to **Group Policy** > **Computer Configuration** > **Administrative Templates** > **System** > **Kerberos**.
-        1. Enable **Allow retrieving the cloud kerberos ticket during the logon**.
-        1. Select **Define host name-to-kerberos realm mappings** and provide the FQDN for the Azure NetApp Files volume.    
-
-            > [!NOTE]
-            > Configure the **Define host name-to-kerberos realm mappings** setting after creating the Azure NetApp Files Entra ID volume.
-        
-        1. Go to **Group Policy** > **Computer Configuration** > **Windows Settings** > **Security Settings** > **Local Policies** > **Security Options**.
-        1. Enable **Network security: Allow PKU2U authentication requests to this computer to use online identities**.
-        1. Add the hybrid user to the **Remote Desktop Users** by running the command:
-            
-            net localgroup "Remote Desktop Users" /add <AzureAD\UPN>
-
-    1. Grant admin consent to the Microsoft Entra application:
-        
-        To mount the volume, grant admin consent to the new Microsoft Entra application registered in your Microsoft Entra tenant. 
-
-        1. Open Microsoft Entra ID.
-        1. Under **Manage**, select **App registrations**.
-        1. Select **All Applications**.
-        1. Select the application with the name that matches SMB-PREFIX.Random chars. This name appears in the mount instruction for the volume on the Volume Overview screen.
-        1. Under **Manage**, select **API permissions**.
-        1. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
-        1. Select **Yes**.
-        
-        > [!NOTE]
-        > The service principal is autogenerated and isn't used for authorization to the file share. Don't make any edits to this autogenerated service principal other than the ones listed here. If you do, you might get an error. 
-    
+      
 ## Create Entra ID connection
+
+Create a Microsoft Entra ID connection for the NetApp account by using the application registration, certificate, Azure Key Vault, and managed identity that you configured in the preceding sections. The connection enables Azure NetApp Files to use Microsoft Entra Kerberos authentication for SMB volumes.
 
 1. From the NetApp account, go to **Azure NetApp Files** > **Entra ID connection**, and then select **Create**.
 
@@ -282,30 +193,123 @@ Before creating a new Entra ID connection, complete the following steps:
     * **SMB server prefix**  
         The naming prefix for a new application created on the Entra ID. This is the FQDN through which you mount the SMB volume.
 
+After creating the Microsoft Entra ID connection, create an SMB volume that uses the connection.
+
+## Create the SMB volume
+Create an SMB volume that uses the Microsoft Entra ID connection you configured in the previous section. Follow the steps in [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md).
+
+After creating the volume, record the following information:
+
+* The SMB server name and fully qualified domain name (FQDN)
+* The mount path
+* The name of the autogenerated Microsoft Entra application associated with the volume
+
+You use this information to grant admin consent, configure the client virtual machine, and mount the volume in the following sections.
+
+## Grant admin consent to the Microsoft Entra application created for the SMB volume
+        
+Grant admin consent to the Microsoft Entra application created for the SMB volume:
+
+1. Open Microsoft Entra ID.
+1. Under **Manage**, select **App registrations**.
+1. Select **All Applications**.
+1. Select the application whose name begins with the SMB server prefix and includes the autogenerated characters shown in the volume’s mount instructions. Example: SMB-PREFIX.Random_chars
+1. Under **Manage**, select **API permissions**.
+1. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
+1. Select **Yes** to confirm.
+        
+> [!NOTE]
+> The service principal is autogenerated and isn't used for authorization to the file share. Don't make any edits to this autogenerated service principal other than the ones listed in this procedure. If you do, you might get an error.
+
+## Create Windows virtual machines to connect to Azure NetApp Files using Microsoft Entra Kerberos authentication
+
+In some environments, you might not be able to connect directly to an Entra ID–joined virtual machine using Remote Desktop Protocol (RDP). In these cases, use an Entra ID–registered virtual machine as a jump box to establish the connection to the Entra ID–joined virtual machine. If you can connect directly to the Entra ID–joined virtual machine by signing in with your AzureAD\user@EntraIDdomain account, the Entra ID–registered virtual machine isn't required.
+
+Depending on your environment, create one or two Windows virtual machines that you use to connect to Azure NetApp Files SMB volumes using Microsoft Entra Kerberos authentication. These virtual machines provide the client-side context required for Microsoft Entra Kerberos authentication and SMB access. Azure NetApp Files doesn't prompt for user credentials or issue Kerberos tickets. Windows clients obtain Kerberos tickets during an interactive sign-in.
+
+### Entra ID–joined virtual machine (Primary)
+
+Create an Entra ID–joined virtual machine to use Kerberos authentication and SMB access to Azure NetApp Files. Use this virtual machine to:  
+
+* Sign in as a hybrid user using Microsoft Entra ID credentials.
+* Obtain a cloud-issued Kerberos ticket during interactive sign-in.
+* Mount the Azure NetApp Files SMB volume using Kerberos authentication.
+
+To configure the Entra ID–joined virtual machine:
+    
+* Go to **Work and school account** > **Connect to Azure** > **Use global Entra ID cloud account username and password**.
+
+:::image type="content" source="./media/entra-kerberos-authentication-for-hybrid-identities/set-up-account.png" alt-text="Screenshot to set up account." lightbox="./media/entra-kerberos-authentication-for-hybrid-identities/set-up-account.png":::
+
+* Sign in as hybrid or Entra ID cloud-only user by using Microsoft Entra ID credentials
+* Obtain a cloud-issued Kerberos ticket during interactive sign-in.
+* Mount the Azure NetApp Files SMB volume using Kerberos authentication.
+
+This virtual machine represents the client that uses the end-to-end Microsoft Entra Kerberos authentication flow.
+
+### Entra ID–registered virtual machine (if required for remote access)
+
+> [!NOTE]
+> The Entra ID–registered virtual machine is a jump host to facilitate testing.
+
+Create an Entra ID–registered virtual machine to facilitate access to the Entra ID–joined virtual machine. Use this virtual machine to:  
+
+* Sign in with a global Microsoft Entra ID account.
+* Register the device with Microsoft Entra ID.
+
+To configure the Entra ID–registered virtual machine:
+
+* Go to **Work and school account** > **Connect to Azure** > **Use global Entra ID cloud account username and password**.
+* Sign in with a global Microsoft Entra ID account.
+* Register the device with Microsoft Entra ID.
+
+This virtual machine is typically used for identity validation and administrative access and doesn't mount Azure NetApp Files SMB volumes.
+
+> [!IMPORTANT]
+> * Production environments can use Entra ID–joined virtual machines to access Azure NetApp Files SMB volumes using Microsoft Entra Kerberos authentication.
+> * The authentication configuration (Microsoft Entra ID, certificates, Azure Key Vault, NAT gateway) remains valid after testing without these virtual machines.
+
+### Configure the Microsoft Entra ID-joined virtual machine
+
+Configure the Microsoft Entra ID-joined virtual machine to obtain cloud Kerberos tickets and connect to the Azure NetApp Files SMB volume by using Microsoft Entra Kerberos authentication.
+
+1. Sign in to Entra Joined VM as a hybrid user to mount the volume:   
+   ```
+   AzureAD\user@EntraIDdomain
+   Example: AzureAD\jsmith@contoso.com 
+   ```
+    > [!NOTE]
+    > If you encounter any issues, select **More Choices** and then enter the credentials.
+
+1. Go to **Group Policy** > **Computer Configuration** > **Administrative Templates** > **System** > **Kerberos**.
+1. Enable **Allow retrieving the cloud kerberos ticket during the logon**.
+1. Select **Define host name-to-kerberos realm mappings** and provide the FQDN for the Azure NetApp Files volume.    
+
+    Example:
+    * Value name: `KERBEROS.MICROSOFTONLINE.COM`
+    * Value: `smbserver.contoso.com`
+        
+1. Go to **Group Policy** > **Computer Configuration** > **Windows Settings** > **Security Settings** > **Local Policies** > **Security Options**.
+1. Enable **Network security: Allow PKU2U authentication requests to this computer to use online identities**.
+1. Add the hybrid user to the **Remote Desktop Users** by running the command:
+            
+    net localgroup "Remote Desktop Users" /add <AzureAD\UPN>
+1. Create an entry in the Windows hosts file to map the IP address to the Azure NetApp Files volume to the SMB Server FQDN.
+    
+    Example: `102.54.94.97 smbserver.contoso.com`
+
 ## Configure directory-level and file-level permissions for Azure NetApp Files shares
  
 By default, any user can access the share, but you maintain control by using the Access Control List (ACL) for users and groups. You can configure Windows access control lists (ACLs), also known as NTFS permissions. Windows ACLs (NTFS permissions) operate at a more granular level to control the operations the user can perform at the directory or file level. You can set Windows ACLs at the root, directory, or file level. When a user tries to access a file or directory, file-level and directory-level permissions are enforced. If there are differences among them, only the most restrictive one applies.
-
-Before you configure Windows ACLs:
-
-1. [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md).
-
-1. Create an entry in the Windows hosts file to map the IP address to the Azure NetApp Files volume to the SMB Server FQDN.   
-   
-    Example: `102.54.94.97 smbserver.contoso.com`
-
-1. Confirm that you have configured Define host name-to-kerberos realm mappings.  
-
-    Example:  
-    * Value name: `KERBEROS.MICROSOFTONLINE.COM`
-    * Value: `smbserver.contoso.com`
 
 ## Configure Windows ACLs by using icacls
 
 To grant full permissions to a hybrid user on directories and files under the file share, run the following command from the Entra Joined Windows VM’s command prompt where the share is mounted. 
 
 > [!NOTE]
-> You can configure access control lists only by using icacls. For more information, see [icacls](/windows-server/administration/windows-commands/icacls).  
+> You can configure access control lists only by using icacls. For more information, see [icacls](/windows-server/administration/windows-commands/icacls).
+
+Mount the SMB volume by using the mount path you recorded when you created the volume.   
 
 **Grant permissions by using a mapped drive**
 

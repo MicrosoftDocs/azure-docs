@@ -9,7 +9,7 @@
 | Property | Description |
 |:--- |:---|
 |**time** | The Universal Time Coordinated (UTC) time when the request was received by storage. For example: `2018/11/08 21:09:36.6900118`.|
-|**resourceId** | The resource ID of the storage account. For example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
+|**resourceId** | The resource ID of the storage account. For example: `/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
 |**category** | The category of the requested operation. For example: `StorageRead`, `StorageWrite`, or `StorageDelete`.|
 |**operationName** | The type of REST operation that was performed. <br> For a complete list of operations, see [Storage Analytics Logged Operations and Status Messages topic](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 |**operationVersion** | The storage service version that was specified when the request was made. This is equivalent to the value of the **x-ms-version** header. For example: `2017-04-17`.|

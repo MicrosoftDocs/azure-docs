@@ -35,7 +35,7 @@ Azure DDoS Protection identifies and mitigates DDoS attacks without any user int
 
 - If the protected resource is in the subscription covered under Microsoft Defender for Cloud, DDoS Protection automatically sends an alert to Defender for Cloud whenever a DDoS attack is detected and mitigated against the protected application.
 - Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](alerts.md) on the metric Under DDoS attack or not.
-- You can additionally choose to create alerts for the other DDoS metrics and [configure attack telemetry](telemetry.md) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors, and other details.
+- You can additionally choose to create alerts for the other DDoS metrics and [configure attack telemetry](telemetry.md) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors, and other details. Attack vector reporting is changing as `DDoSMitigationReports` is retired ~mid-August 2026; see [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports) for the new approach.
 
 ![DDoS metrics](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 

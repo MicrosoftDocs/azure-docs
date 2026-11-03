@@ -3,7 +3,7 @@ title: Send Notifications in Azure SRE Agent
 description: Send contextual notifications to Microsoft Teams, Outlook, or MCP-enabled tools with investigation summaries, root cause analysis, and recommended actions.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -97,11 +97,11 @@ Updates about the same issue stay in the same thread, so your channels stay orga
 
 Outgoing Teams messages include a "Sent by Azure SRE Agent" footer with a UTC timestamp. When the message originates from a conversation thread in the portal, the footer includes a **View thread** link back to the SRE Agent portal so recipients can see the full investigation context.
 
-The footer appears on both standard messages and Adaptive Cards. It's enabled by default when you set up the Teams connector. To disable it, clear the **Add "Sent by Azure SRE Agent" footer to messages** checkbox in the connector settings (**Builder** > **Connectors** > **Edit**).
+The footer appears on both standard messages and Adaptive Cards. It's enabled by default when you set up the Teams connector. To disable it, clear the **Add "Sent by Azure SRE Agent" footer to messages** checkbox in the connector settings (**Build + setup** > **Extensions** > **Connectors** > **Edit**).
 
 ## Use notifications
 
-After you connect Outlook or Teams through **Builder** > **Connectors**, ask the agent directly in chat:
+After you connect Outlook or Teams through **Build + setup** > **Extensions** > **Connectors**, ask the agent directly in chat:
 
 ```text
 Send an email to oncall@contoso.com summarizing the investigation

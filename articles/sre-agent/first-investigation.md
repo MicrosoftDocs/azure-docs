@@ -2,7 +2,7 @@
 title: Run your first investigation with Azure SRE Agent
 description: Ask your agent to investigate an issue using the code, logs, Azure resources, and knowledge connected to your agent.
 ms.topic: tutorial
-ms.date: 08/21/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-sre-agent
@@ -41,7 +41,7 @@ By the end of this guide, you:
 
 Open a new chat thread and describe the problem you want the agent to investigate.
 
-1. Select **New thread** in the left sidebar.
+1. Select **New chat** in the left sidebar.
 1. Describe the problem you want investigated. Be specific about which service or resource group is affected. For example:
 
    > "Users report that the Add to Cart feature on our app is broken. The cart API returns errors. Can you investigate the container apps in the resource group?"

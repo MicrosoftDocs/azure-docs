@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 10/23/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -169,6 +169,16 @@ See any of the following resources:
 - [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
 
 <a id="previous-version"></a>
+
+## Opt out of AzCopy telemetry
+
+Starting with AzCopy v10.34.0, AzCopy collects usage telemetry. You can opt out of sending telemetry by using the `--disable-telemetry` option.
+
+To disable telemetry, add the option to your AzCopy command:
+
+`--disable-telemetry=true`
+
+When this option is enabled, AzCopy doesn't send usage telemetry, including Azure Storage account names and pseudonymous installation and job identifiers.
 
 ## Next steps
 

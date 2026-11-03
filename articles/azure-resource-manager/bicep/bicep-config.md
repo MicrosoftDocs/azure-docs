@@ -2,7 +2,7 @@
 title: Configure your Bicep environment
 description: Learn how to configure your environment for Bicep file deployments.
 ms.topic: article
-ms.date: 06/26/2026
+ms.date: 10/29/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -123,6 +123,12 @@ In the context of a Bicep file invoking multiple modules, each module undergoes 
 
 In the absence of a _bicepconfig.json_ file in the `A` and `B` folders, all three Bicep files are compiled using the _bicepconfig.json_ found in the `root` folder. If _bicepconfig.json_ isn't present in any of the folders, the compilation defaults to using the [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
 
+## Configure compiler version requirements
+
+Use `bicep.version` in `bicepconfig.json` to declare an exact compiler version or an allowed range. Bicep checks the running compiler against this requirement; the setting doesn't itself install or switch versions.
+
+For supported syntax, examples, CLI and editor behavior, and troubleshooting, see [Configure Bicep compiler version requirements](bicep-config-version.md).
+
 ## Configure Bicep modules
 
 When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. You can also configure cloud profile and  credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
@@ -154,4 +160,3 @@ See [Experimental Features](https://aka.ms/bicep/experimental-features) for more
 
 - Learn how to add [module settings](bicep-config-modules.md) and [linter settings](bicep-config-linter.md) in the Bicep config file.
 - Learn about the [Bicep linter](linter.md).
-

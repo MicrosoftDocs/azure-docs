@@ -1,9 +1,9 @@
 ---
 title: End-to-end network-hardened deployment for Microsoft Discovery
-description: Learn how to deploy a fully network-hardened Microsoft Discovery stack where all traffic stays within your virtual network, including workspace, bookshelf, supercomputer, and customer storage.
+description: Learn how to deploy a Microsoft Discovery stack with private data-plane access for workspaces, bookshelves, and customer storage while planning outbound dependencies.
 ms.service: azure
 ms.topic: how-to
-ms.date: 08/05/2026
+ms.date: 10/24/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -11,7 +11,7 @@ ms.custom: networking, private-link, nsp
 
 # End-to-end network-hardened deployment
 
-This guide walks you through deploying a complete Microsoft Discovery stack where **all traffic stays within your virtual network**. By the end, your workspace data-plane APIs, bookshelf search, supercomputer jobs, and customer blob storage are all accessible exclusively through private endpoints - with zero public internet exposure.
+This guide walks you through deploying a Microsoft Discovery stack with private workspace data-plane, Bookshelf, and customer-storage access. Private data-plane access doesn't eliminate outbound platform dependencies or control-plane access requirements. Plan firewall and FQDN rules and verify the actual network paths before deployment.
 
 ## What you build
 

@@ -35,7 +35,7 @@ The following table shows Microsoft's responsibilities, shared responsibilities,
 
 Microsoft has the following tagging strategy for the [self-hosted gateway container image](self-hosted-gateway-overview.md#packaging), following the major, minor, patch convention: `{major}.{minor}.{patch}`. For a full list of available tags, see [available tags](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
 
-We recommend that you run the latest stable version of our container image. Given the continuous releases of our container image, Microsoft provides official support for the following versions.
+Run the latest stable version of the container image. Because we release the container image continuously, Microsoft provides official support for specific versions. If you encounter problems, roll back and open a support ticket.
 
 > [!TIP]
 > We highly encourage you to upgrade to a newer self-hosted gateway by following [Safe Deployment Practices (SDP)](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
@@ -51,6 +51,8 @@ We recommend that you run the latest stable version of our container image. Give
     If we discover a bug, CVE, or performance issue in a supported version, the fix appears as a patch in the latest minor version. For example, if a bug is found in the container image 2.0.0, the fix lands in 2.2.x. 
 
 ### Unsupported versions 
+
+- Using container images with the `latest` or `v2` tag for production. Roll out a new version by following [Safe Deployment Practices (SDP)](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
 
 - Container images with the `beta` tag.
 

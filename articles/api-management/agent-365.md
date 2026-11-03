@@ -182,7 +182,7 @@ Microsoft Agent 365 integrates with Microsoft Defender and Microsoft Purview to 
 
 Azure administrators can configure policies in the gateway to ensure MCP servers registered in the AI Gateway tier in Azure API Management are protected before tools are invoked and before their results get into the agent.
 
-To learn more about how this capability works, see [Protect tool calls with Defender and Purview in AI Gateway tier (preview)](ai-gateway-policy-tool-threat.md).
+To learn more about how this capability works, see [Protect tool calls with Defender and Purview in AI Gateway tier (preview)](../ai-gateway/policy-tool-threat.md).
 
 ## Supported capabilities
 
@@ -209,5 +209,5 @@ Consider the following limitations when using the integration with Microsoft Age
 
 ## Related content
 
-- [Manage models and tools in Azure AI Gateway](./ai-gateway-manage-models-tools.md)
-- [Govern, secure, and operate AI Gateway tier](./ai-gateway-govern-secure-assets.md)
+- [AI Gateway concepts](../ai-gateway/concepts.md)
+- [AI Gateway in-product documentation](https://ai.gateway.azure.com/docs)

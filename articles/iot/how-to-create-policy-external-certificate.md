@@ -95,12 +95,14 @@ Prepare Azure CLI and sign in so the external CA policy commands run against the
 
 ## Set variables
 
-Optionally, define reusable variables before you run create, activation, and verification commands.
+The following examples use Bash syntax. Optionally, define shared variables for the commands in this article. If you don't set these variables, replace each variable reference in the commands with its value.
+
+You must create certificate authorities in the same region as their Azure Device Registry namespace.
 
 ```azurecli
 RG_NAME="<resource-group>"
 NS_NAME="<adr-namespace>"
-SUBCRIPTION_ID="<subscription-id>"
+SUBSCRIPTION_ID="<subscription-id>"
 ```
 
 ## Create an intermediate CA that is signed by an external CA
@@ -113,7 +115,6 @@ az iot adr ns ca create \
     --ns "$NS_NAME" \
     --resource-group "$RG_NAME" \
     --subscription "$SUBSCRIPTION_ID" \
-    --location <location> \
     --type ICA \
     --issuer-type External
 ```
@@ -126,7 +127,7 @@ After creation, the certificate authority is **pending activation** and the serv
 az iot adr ns ca activate \
     --name "<external-ica-name>" \
     --ns "$NS_NAME" \
-    --resource-group "$RG_NAME" \ 
+    --resource-group "$RG_NAME" \
     --subscription "$SUBSCRIPTION_ID" \
     --certificate-chain-file "C:\path\to\signed-chain.pem"
 

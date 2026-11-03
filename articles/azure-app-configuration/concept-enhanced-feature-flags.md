@@ -273,7 +273,7 @@ Enhanced feature flags aren't currently available in Java.
 
 #### JavaScript configuration provider
 
-Use version **2.7.0-preview** or later of the following package to access enhanced feature flags:
+Use version **2.7.0-preview.1** or later of the following package to access enhanced feature flags:
 
 - `@azure/app-configuration-provider`
 

@@ -22,6 +22,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 |Azure Synapse Component|Status|Issue|
 |:---------|:---------|:---------|
+|Azure Synapse Apache Spark pool|[Synapse Spark jobs return wrong local times for some Canadian time-zones"](#synapse-spark-jobs-return-wrong-local-times-for-some-canadian-time-zones)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Data Factory copy command fails with error "The request could not be performed because of an I/O device error"](#data-factory-copy-command-fails-with-error-the-request-could-not-be-performed-because-of-an-io-device-error)|Has workaround|
 |Azure Synapse dedicated SQL pool|[COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used](#copy-into-statement-fails-with-error-an-internal-dms-error-occurred-that-caused-this-operation-to-fail--when-managed-identity-is-used)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of dedicated SQL pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has workaround|
@@ -44,6 +45,30 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
 
+## Azure Synapse Apache Spark pool active known issues summary
+
+### Synapse Spark jobs return wrong local times for some Canadian time zones
+
+Starting November 1, 2026, Synapse Spark Notebooks and Spark job definitions that convert, format, or calculate timestamps in British Columbia, Alberta, and affected Alberta-aligned locations, and Manitoba time zones might return local times that are off by an hour. Jobs that use UTC or any other time zones aren't affected. Synapse Spark Runtime 3.5 uses an outdated Java time zone database in most regions. Because of this, Spark sessions can apply the wrong daylight saving time (DST) rules for some Canadian time zones, and possibly for other regions affected by the same recent rule changes. 
+
+**Workaround**: Microsoft is actively working on providing the fix for Synapse Spark 3.5 runtime. Meanwhile, follow the workaround in the following steps:
+ 
+ - Create an `environment.yml` file.
+ - Add the following dependencies in the YAML file:
+```markdown
+dependencies:
+  - pip:
+      - pytz>=2026.5
+      - tzdata>=2026.5
+```
+ - Upload the YAML file as a Requirements files in the Synapse Spark pool. Then, apply the changes.
+ - Create a Notebook item and attach the above environment.
+ - Execute the following command to make sure notebook picks up the version `2026e`. This confirms the fix worked.
+```sql
+    print(sc._jvm.java.time.zone.ZoneRulesProvider.getVersions("America/Vancouver").lastKey())
+```
+> [!NOTE]
+> Remove this temporary workaround when Microsoft releases the fix. 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
 

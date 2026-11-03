@@ -3,10 +3,11 @@ title: Reliability in Azure Health Data Services De-identification Service
 description: Learn how to ensure healthcare data privacy with reliable de-identification services. Use active-active configurations and Azure Front Door for traffic routing.
 author: jovinson-ms
 ms.author: jovinson
+ms.reviewer: v-catheribun
 ms.topic: reliability-article
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
-ms.date: 09/27/2024
+ms.date: 10/28/2026
 #Customer intent: As an IT admin, I want to understand reliability support for the de-identification service so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
