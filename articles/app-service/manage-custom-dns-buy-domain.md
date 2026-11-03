@@ -252,7 +252,7 @@ After you purchase the App Service domain, you can update the domain contact inf
 
    If you no longer have access to the original email address, you can't complete the contact change through self-service in the Azure portal. Submitting a new email address doesn't bypass the required confirmation from the original address.
 
-   This creates a verification dependency: the address that you want to replace must first receive and approve the change. Editing the contact information again doesn't remove that requirement. Similarly, access to the Azure subscription or the App Service domain resource doesn't substitute for confirmation through the registered contact email address.
+   This condition creates a verification dependency: the address that you want to replace must first receive and approve the change. Editing the contact information again doesn't remove that requirement. Similarly, access to the Azure subscription or the App Service domain resource doesn't substitute for confirmation through the registered contact email address.
 
    If the original mailbox is still managed by your organization, work with your email administrator to determine whether access or mail delivery can be restored. If the mailbox can't be recovered, or the address belongs to an email domain that you no longer control, proceed to Azure Support rather than relying on repeated contact updates. Explain that the original address is inaccessible and that the required confirmation can't be completed. Azure Support can guide you through the ownership verification needed to proceed.
 
