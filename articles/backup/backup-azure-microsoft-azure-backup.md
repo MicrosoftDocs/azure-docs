@@ -46,7 +46,7 @@ The first step towards getting the Azure Backup Server up and running is to set 
 
 ### Using a server in Azure
 
-When choosing a server for running Azure Backup Server, it's recommended you start with a gallery image of Windows Server 2022 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
+When choosing a server for running Azure Backup Server, it's recommended you start with a gallery image of Windows Server 2025 Datacenter (MABS V4 UR1 and later), Windows Server 2022 Datacenter, or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
 
 Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](./backup-mabs-protection-matrix.md) helps explain these nuances. Before deploying the machine, read this article completely.
 
@@ -56,6 +56,7 @@ If you don't want to run the base server in Azure, you can run the server on a H
 
 | Operating System | Platform | SKU |
 |:--- | --- |:--- |
+| Windows Server 2025 (MABS V4 UR1 and later) |64 bit |Standard, Datacenter |
 | Windows Server 2022 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials  |
 
