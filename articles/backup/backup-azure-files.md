@@ -22,7 +22,7 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 - Store backup data in the Recovery Service vault, retaining it for up to **10 years**.
 
 > [!NOTE]
-> Snapshot backup for NFS Azure file shares is currently in private preview. The preview is intended for evaluation with non-production subscriptions. Vaulted backup for NFS Azure file shares isn't included in this preview. To request access, complete the [preview sign-up form](https://forms.cloud.microsoft/r/DJubyYrkYN).
+> Snapshot and vaulted backups for NFS Azure file shares are currently in private preview. The preview is intended for evaluation with non-production subscriptions. To request access, complete the [preview sign-up form](https://forms.cloud.microsoft/r/DJubyYrkYN).
 
 ## Prerequisites
 
