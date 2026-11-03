@@ -6,7 +6,7 @@ ai-usage: ai-assisted
 author: reddyabhishek
 ms.service: azure-app-service
 ms.topic: faq
-ms.date: 03/13/2026
+ms.date: 11/02/2026
 # ms.devlang: wordpress
 ms.author: tulikac
 ms.custom:
@@ -39,13 +39,13 @@ Bandwidth is unlimited, but [charges apply for internet egress](https://azure.mi
 
 ## How are security patches updated?
 
-Azure manages security patches for core technologies, while WordPress-specific updates might require manual or semi-automated steps:
+WordPress on Azure App Service is a partially managed hosting offering. Microsoft manages the App Service platform, including patching the underlying operating system and PHP runtime. App Service platform updates don't update or overwrite the WordPress files in an existing site.
 
-- **PHP Major Versions:** Update manually under **App Service > Settings > Configuration**.
-- **WordPress Core:** Minor updates are automatic, while major updates need manual configuration.
-- **Plugins and Themes:** Perform manual updates after backing up your site to avoid issues. WordPress also offers auto update options.
+You're responsible for the following updates:
 
-For more information, see [How to keep your WordPress website stack on Azure App Service up to date](https://techcommunity.microsoft.com/blog/appsonazureblog/how-to-keep-your-wordpress-website-stack-on-azure-app-service-up-to-date/3832193).
+- **PHP major version:** Select and upgrade the PHP major version when needed under **App Service > Settings > Configuration**.
+- **WordPress core:** Keep WordPress core secure and up to date. Some core updates might be applied automatically, depending on your configuration. Verify that updates are applied, and update WordPress core when needed. For more information about automatic updates, see [How to keep your WordPress website stack on Azure App Service up to date](https://techcommunity.microsoft.com/blog/appsonazureblog/how-to-keep-your-wordpress-website-stack-on-azure-app-service-up-to-date/3832193).
+- **Plugins and themes:** Keep plugins and themes secure and up to date, either manually or by configuring automatic updates in WordPress. Back up your site before applying updates.
 
 ## What security features are available to protect my website?
 

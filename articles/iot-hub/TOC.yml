@@ -411,7 +411,7 @@
           href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
           displayName: samples, azure-iot-samples-python
         - name: iOS Platform
-          href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+          href: https://github.com/Azure-Samples/azure-iot-samples-ios
           displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
     - name: Terraform modules
       items:
