@@ -98,7 +98,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 ### Linux Hybrid Worker
 
 > [!NOTE]
->- PowerShell 7.6,7.4 and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
+>- PowerShell 7.6, 7.4, and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
 >- PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 >- PowerShell 7.2 runbook is supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
