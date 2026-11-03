@@ -1,8 +1,8 @@
 ---
 title: Manage Network Watcher Agent VM Extension
 description: Learn about the Network Watcher Agent virtual machine extension and how to install, update, and uninstall it on Windows and Linux virtual machines.
-author: namanrathi
-ms.author: namanrathi
+author: srijanch
+ms.author: rathinaman
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 09/14/2026
