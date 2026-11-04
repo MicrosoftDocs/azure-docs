@@ -186,7 +186,7 @@ Download and apply the complete manifest:
 
 ```bash
 curl --fail --location \
-  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasmdataflow-patterns/manifests/running-total.yaml \
+  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasm/dataflow-patterns/manifests/running-total.yaml \
   --output running-total.yaml
 kubectl apply -f running-total.yaml
 ```

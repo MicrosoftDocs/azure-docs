@@ -186,7 +186,7 @@ Download and apply the complete manifest:
 
 ```bash
 curl --fail --location \
-  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasmdataflow-patterns/manifests/report-by-exception.yaml \
+  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasm/dataflow-patterns/manifests/report-by-exception.yaml \
   --output report-by-exception.yaml
 kubectl apply -f report-by-exception.yaml
 ```

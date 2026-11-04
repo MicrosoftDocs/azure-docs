@@ -186,7 +186,7 @@ Download and apply the complete manifest:
 
 ```bash
 curl --fail --location \
-  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasmdataflow-patterns/manifests/stable-alarm.yaml \
+  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasm/dataflow-patterns/manifests/stable-alarm.yaml \
   --output stable-alarm.yaml
 kubectl apply -f stable-alarm.yaml
 ```

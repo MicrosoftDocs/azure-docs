@@ -46,7 +46,7 @@ graph LR
 Select the latest context at or before the reading's timestamp. This selection requires custom stateful WASM or an external service, not a built-in window.
 
 This wiring uses the custom `graph-align-by-time` sample in
-the `factory-artifacts` registry endpoint for `ghcr.io`. The [sample source and contracts](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasmdataflow-patterns)
+the `factory-artifacts` registry endpoint for `ghcr.io`. The [sample source and contracts](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/dataflow-patterns)
 describe its bounded state and diagnostics. The contract
 for this example is: buffer by asset; allow two seconds for out-of-order context;
 select the newest temperature at or before the speed timestamp, at most five

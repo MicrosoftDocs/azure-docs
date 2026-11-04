@@ -191,7 +191,7 @@ Download and apply the complete manifest:
 
 ```bash
 curl --fail --location \
-  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasmdataflow-patterns/manifests/offline-detection.yaml \
+  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasm/dataflow-patterns/manifests/offline-detection.yaml \
   --output offline-detection.yaml
 kubectl apply -f offline-detection.yaml
 ```
