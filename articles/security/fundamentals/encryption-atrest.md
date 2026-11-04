@@ -86,7 +86,9 @@ When services cache DEKs locally for active cryptographic operations, Azure plat
 
 With Azure Key Vault or Azure Key Vault Managed HSM, your organization controls key policies and authorized key use. The following error-handling and caching rules apply to Azure Key Vault Standard, Azure Key Vault Premium, Azure Key Vault Managed HSM, and Azure Key Vault Managed HSM with external keys.
 
-Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses indicating loss of key access also require consuming Azure services to stop using and flush cached data encryption keys (DEKs) associated with that customer-managed key encryption key. For most services, affected encrypted data becomes inaccessible within one hour of your disabling the key, revoking access, or deleting it. Disabling the key is the recommended way of stopping use of a customer key encryption key use for encryption at rest. For other errors, services make a best effort to preserve workload availability using cached DEKs. 
+Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses from Key Vault indicate loss of key access so consuming Azure services will persist in-memory data and flush cached data encryption keys (DEKs) associated with that customer-managed key encryption key. For most services, the affected encrypted data becomes inaccessible within one hour of loss of key access. To stop use of a customer-managed key encryption key for encryption at rest, disable the key, revoke access, or delete the key.
+
+For other errors, services make a best effort to preserve workload availability using cached DEKs.
 
 For more information about Managed HSM's architectural protections, see [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details).
 
