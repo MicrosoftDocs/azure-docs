@@ -5,7 +5,7 @@ ms.topic: concept-article
 author: rvandenbedem
 ms.author: rvandenbedem
 ms.service: azure-vmware
-ms.date: 11/3/2026
+ms.date: 11/4/2026
 # Customer intent: As a cloud architect, I want to understand how VMware Cloud Foundation 9.1 has been designed and implemented with Azure VMware Solution.
 ---
 
@@ -31,7 +31,7 @@ A private cloud includes clusters with:
 - VCF Protection & Recovery Live Recovery for disaster recovery.
 - Resources in the Azure underlay (required for connectivity and to operate the private cloud).
 
-Install and manage private clouds within an Azure subscription. You can scale the number of private clouds within a subscription. Initially, you can have only one private cloud per subscription. There's a logical relationship between Azure subscriptions, Azure VMware Solution private clouds, vSAN clusters, and hosts.
+Install and manage private clouds within an Azure subscription. You can scale the number of private clouds within a subscription. Initially, you can have only one private cloud per subscription. There's a logical relationship between Azure subscriptions, Azure VMware Solution private clouds, VMware Cloud Foundation instances, vSAN clusters, and hosts.
 
 The following diagram describes the architectural components of Azure VMware Solution with VMware Cloud Foundation 9.1.
 
@@ -42,8 +42,8 @@ Each Azure VMware Solution architectural component has the following function:
 - **Azure subscription**: Provides controlled access, budget, and quota management for Azure VMware Solution.
 - **Azure region**: Groups datacenters into availability zones and then groups availability zones into regions.
 - **Azure resource group**: Places Azure services and resources into logical groups.
-- **Azure VMware Solution private cloud**: Offers compute, networking, and storage resources by using VMware software, including VCF Fleet Manager, SDDC Manager, VCF Operations with License Server, vCenter, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESX hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
-- **Azure VMware Solution resource cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESX hosts. Azure NetApp Files, Elastic SAN, and Pure Cloud Block Store are also supported.
+- **Azure VMware Solution private cloud**: Offers compute, networking, and storage resources by using VMware software, including VCF Fleet Manager, SDDC Manager, VCF Operations with License Server, vCenter, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESX hosts. Azure NetApp Files, Azure Elastic SAN, and Everpure Cloud Block Store are also supported.
+- **Azure VMware Solution resource cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESX hosts. Azure NetApp Files, Elastic SAN, and Everpure Cloud Block Store are also supported.
 - **VMware Operations HCX**: Delivers mobility, migration, and network extension services.
 - **VCF Protection & Recovery Live Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Enhanced Replication. Non-Microsoft disaster recovery solutions Zerto disaster recovery and JetStream Software disaster recovery are also supported.
 - **Dedicated Microsoft Enterprise Edge**: Router that connects Azure Cloud Services and the Azure VMware Solution private cloud instance.
@@ -66,7 +66,7 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 | AV36 SKU | No |
 | Microsoft Azure Government | Yes |
 | VCF License Included | No (VCF BYOL only) |
-| VCF Operations | License Management (VCF BYOL) |
+| VCF Operations | License Management only (VCF BYOL) |
 | VCF Fleet Manager | No |
 | SDDC Manager | No |
 | vSphere Supervisor | No |
@@ -88,7 +88,7 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 | vSphere/NSX Enhanced Data Path (EDP) | Yes |
 | VMware vDefend | Yes |
 | Application Networking and Security (ANS) Shared Services Platform (SSP) | No |
-| VMware vCD/vCDA (self-managed) | Yes (custom patch with EoS date) |
+| VMware vCD/vCDA (self-managed) | Yes (custom patch with Broadcom EoS date) |
 | Azure Arc | Yes |
 | Run Commands | Yes |
 
@@ -147,7 +147,7 @@ This change is normal when a product evolves over time. The following table list
 | Aria Automation | VCF Automation |
 
 ### What version of VCF 9.1 does Azure VMware Solution use?
-Microsoft plans to use VCF 9.1.2. This build includes the necessary API calls to support Azure VMware Solution.
+Microsoft plans to use VCF 9.1.2. This build includes the necessary VCF API calls to support Azure VMware Solution.
 
 ### What VCF 9 and VMware Application Networking & Security features can I use with Azure VMware Solution?
 You can use VMware vDefend. You can't use the Application Networking and Security (ANS) Shared Services Platform (SSP).
