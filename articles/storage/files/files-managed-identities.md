@@ -272,7 +272,7 @@ The managed identity can be either [system assigned or user assigned](/entra/ide
 ### Assign a built-in RBAC role to the managed identity
 
 > [!NOTE]
-> Managed-identity SMB mounts require the built-in administrator RBAC permission. Azure Files uses the built-in administrator SID for the access check; managed identities do not currently have individual SIDs and do not support per-identity file-level ACL permissions.
+> Managed-identity SMB mounts require the built-in administrator RBAC permission. Azure Files uses the built-in administrator SID for the access check; managed identities don't currently have individual SIDs and don't support per-identity file-level ACL permissions.
 
 1. Go to the storage account that contains the file share you want to mount by using a managed identity. On the service menu, select **Access Control (IAM)**.
 
