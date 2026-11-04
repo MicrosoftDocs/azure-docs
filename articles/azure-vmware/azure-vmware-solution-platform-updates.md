@@ -4,13 +4,19 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 08/28/2026
+ms.date: 11/4/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
+
+## November 2026
+
+**Introduction to VMware Cloud Foundation 9.1**
+
+As we approach the completion of the VMware Cloud Foundation 9.1 integration with Azure VMware Solution, we have created a page explaining how VCF 9.1 will work with Azure VMware Solution, including an FAQ section. [Learn more](architecture-vmware-cloud-foundation.md)
 
 ## August 2026
 
