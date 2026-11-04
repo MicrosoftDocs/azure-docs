@@ -116,7 +116,7 @@ Previously, Azure VMware Solution used its own control plane to manage VMware so
 6.	VCF Operations, VCF Fleet Manager, VCF Software Depot, and VCF Runtime services deployed to Cluster-1.
 7.	VCF 9.1 Installer converted to SDDC Manager.
 
-## Private Cloud Brownfield Upgrade process
+## Private Cloud Brownfield upgrade process
 
 1.	If add-on enabled, upgrade VMware HCX to VCF Operations HCX 9.1.
 2.	If add-on enabled, upgrade VMware Live Site Recovery to VCF Protection & Recovery Live Recovery 9.1.
