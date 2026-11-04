@@ -34,7 +34,7 @@ permissions:
 jobs:
   label-event-prs:
     name: Add the event label to matching open PRs
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     concurrency:
       group: knowledge-partnership-membership-${{ github.event_name == 'pull_request_target' && 'enrollment' || 'scan' }}
       cancel-in-progress: false

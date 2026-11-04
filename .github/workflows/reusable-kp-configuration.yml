@@ -26,7 +26,7 @@ env:
   INACTIVITY_DAYS: "3"
   OPERATIONS_PER_RUN: "350"
   ROLLOUT_BRANCH_PREFIX: release-ignite26-
-  EVENT_LABEL: conference-event
+  EVENT_LABEL: kp-conference-event
   AUTHOR_ACTION_LABEL: kp-author-addresscomments
   AUTHOR_REMINDER_LABEL: kp-author-stalepr
   REMINDER_DUE_LABEL: kp-reminder-due
@@ -35,7 +35,7 @@ env:
 jobs:
   configuration:
     name: Share workflow settings
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:

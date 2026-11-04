@@ -36,7 +36,7 @@ concurrency:
 jobs:
   configuration:
     name: Share workflow settings
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     permissions: {}
     uses: ./.github/workflows/reusable-kp-configuration.yml
 
@@ -44,7 +44,7 @@ jobs:
   validate-labels:
     name: Validate Knowledge Partnership labels
     needs: configuration
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     uses: ./.github/workflows/reusable-kp-validate-labels.yml
     with:
       reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
@@ -59,7 +59,7 @@ jobs:
   label-event-prs:
     name: Backfill enrollment (no reminders)
     needs: [configuration, validate-labels]
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     uses: ./.github/workflows/reusable-kp-label-event.yml
     with:
       reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
@@ -72,7 +72,7 @@ jobs:
     name: Manage Knowledge Partnership reminders
     needs: [configuration, validate-labels, label-event-prs]
     if: >-
-      github.repository == 'MicrosoftDocs/azure-docs-pr' &&
+      github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr' &&
       !inputs.labels-only
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -136,7 +136,7 @@ jobs:
   send-author-reminder:
     name: Send author reminders
     needs: [configuration, validate-labels, label-event-prs, manage-pr-reminders]
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     uses: ./.github/workflows/reusable-kp-reminder.yml
     with:
       reminder-type: author

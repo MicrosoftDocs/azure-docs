@@ -62,7 +62,7 @@ permissions:
 jobs:
   send-reminders:
     name: Send ${{ inputs.reminder-type }} reminders
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -154,7 +154,7 @@ jobs:
           const posting = "async _markStale(issue, staleMessage, staleLabel, skipMessage) {\n        const issueLogger = new IssueLogger(issue);";
           if (original.split(posting).length !== 2) throw new Error('Unexpected stale posting contract');
           fs.writeFileSync(file, original.replace(old, "const CACHE_KEY = 'kp-author-reminders-v1';")
-            .replace(posting, posting + "\n        try {\n            const load = __WEBPACK_EXTERNAL_createRequire(import.meta.url);\n            const {canPost} = load(load('node:path').join(\n                process.env.GITHUB_WORKSPACE, '.github/scripts/kp-business-clock.cjs'));\n            if (!await canPost({\n                github: this.client, context: github_context, number: issue.number,\n                core: {info: message => issueLogger.info(message)}\n            })) return;\n        } catch (error) {\n            process.exitCode = 1;\n            throw error;\n        }\n"));
+            .replace(posting, posting + "\n        try {\n            const load = __WEBPACK_EXTERNAL_createRequire(import.meta.url);\n            const {canPost, authorReminder} = load(load('node:path').join(\n                process.env.GITHUB_WORKSPACE, '.github/scripts/kp-business-clock.cjs'));\n            if (!await canPost({\n                github: this.client, context: github_context, number: issue.number,\n                core: {info: message => issueLogger.info(message)}\n            })) return;\n            staleMessage = await authorReminder({\n                github: this.client, context: github_context, number: issue.number, message: staleMessage\n            });\n        } catch (error) {\n            process.exitCode = 1;\n            throw error;\n        }\n"));
           NODE
 
       # Existing markers must reach stock cleanup even after due is removed.

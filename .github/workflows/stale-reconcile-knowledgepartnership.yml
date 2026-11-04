@@ -18,7 +18,7 @@ jobs:
   configuration:
     name: Share workflow settings
     if: >-
-      github.repository == 'MicrosoftDocs/azure-docs-pr' &&
+      github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr' &&
       github.event.changes.base.ref.from != ''
     permissions: {}
     uses: ./.github/workflows/reusable-kp-configuration.yml
@@ -26,7 +26,7 @@ jobs:
   reconcile-participation:
     name: Remove event label after leaving rollout scope
     needs: configuration
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:

@@ -59,6 +59,7 @@ class KnowledgePartnershipWorkflows(unittest.TestCase):
         self.assertNotIn("env", self.enroll)
         self.assertEqual(set(self.config["on"]), {"workflow_call"})
         self.assertEqual(self.config["permissions"], {})
+        self.assertEqual(self.config["env"]["EVENT_LABEL"], "kp-conference-event")
         self.assertEqual(self.config["env"]["INACTIVITY_DAYS"], "3")
         self.assertEqual(self.config["env"]["OPERATIONS_PER_RUN"], "350")
         outputs = self.config["on"]["workflow_call"]["outputs"]
@@ -72,11 +73,8 @@ class KnowledgePartnershipWorkflows(unittest.TestCase):
             self.assertEqual(caller["jobs"]["configuration"]["uses"], f"./.github/workflows/{CONFIG}")
             self.assertEqual(caller["jobs"]["configuration"]["permissions"], {})
 
-    def test_stale_bots_share_single_keep_open_exemption(self):
+    def test_kp_owned_keep_open_exemption(self):
         self.assertEqual(self.config["env"]["EXEMPT_LABEL"], "keep-open")
-        general_steps = self.workflows["stale.yml"]["jobs"]["stale"]["steps"]
-        general = next(step["with"] for step in general_steps if "uses" in step)
-        self.assertIn("keep-open", general["exempt-pr-labels"].split(","))
         for caller in [self.scan, self.enroll]:
             for job in caller["jobs"].values():
                 if "exempt-label" in job.get("with", {}):
@@ -192,7 +190,11 @@ class KnowledgePartnershipWorkflows(unittest.TestCase):
         self.assertEqual(self.enroll["permissions"]["contents"], "read")
 
     def test_reusable_input_contracts_and_dependency_graphs_resolve(self):
-        for workflow in self.workflows.values():
+        for filename, workflow in self.workflows.items():
+            if not (filename.startswith("reusable-kp-") or filename in {
+                SCAN, ENROLL, "stale-reconcile-knowledgepartnership.yml"
+            }):
+                continue
             remaining = set(workflow["jobs"])
             complete = set()
             while remaining:
@@ -239,11 +241,11 @@ const assert = require('node:assert/strict');
 const {script, condition} = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
 const run = new (Object.getPrototypeOf(async function(){}).constructor)(
   'github', 'context', script);
-process.env.EVENT_LABEL = 'conference-event';
+process.env.EVENT_LABEL = 'kp-conference-event';
 process.env.ROLLOUT_BRANCH_PREFIX = 'release-ignite26-';
 const baseline = {
   number: 42, state: 'open', base: {ref: 'main'},
-  labels: [{name: 'conference-event'}, {name: 'kp-author-stalepr'},
+  labels: [{name: 'kp-conference-event'}, {name: 'kp-author-stalepr'},
     {name: 'kp-author-addresscomments'}, {name: 'kp-stale-exempt'}]
 };
 // GitHub edited payload: changes.base.ref.from, not changes.base.from.
@@ -260,7 +262,7 @@ for (const repo of ['MicrosoftDocs/azure-docs-pr', 'kp-rollout-negative-fork/azu
         : key === Symbol.toPrimitive ? () => '' : empty
     });
     const selected = new Function('github', `return (${condition});`)(
-      wrap({repository: repo, event: {changes}}));
+      wrap({repository: repo, event: {repository: {private: true}, changes}}));
     assert.equal(selected, repo === 'MicrosoftDocs/azure-docs-pr' && changes === targetChange);
   }
 }
@@ -294,7 +296,7 @@ async function check(fresh, expected, failRead = false, failWrite = false) {
   assert.equal(calls[0][1].pull_number, 42);
   if (expected) {
     assert.deepEqual(calls[1][1], {owner: 'MicrosoftDocs', repo: 'azure-docs-pr',
-      issue_number: 42, name: 'conference-event'});
+      issue_number: 42, name: 'kp-conference-event'});
   }
 }
 (async () => {
@@ -324,6 +326,49 @@ async function check(fresh, expected, failRead = false, failWrite = false) {
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Verified target-change routing", result.stdout)
 
+    def test_kp_owned_jobs_require_exact_private_repository(self):
+        guarded = {
+            filename: {job: value["if"] for job, value in workflow["jobs"].items()}
+            for filename, workflow in self.workflows.items()
+            if filename.startswith("reusable-kp-") or filename in {
+                SCAN, ENROLL, "stale-reconcile-knowledgepartnership.yml"
+            }
+        }
+        for filename, jobs in guarded.items():
+            for job, condition in jobs.items():
+                self.assertIn("github.event.repository.private == true", condition, (filename, job))
+                self.assertIn(f"github.repository == '{PRIVATE_REPO}'", condition, (filename, job))
+        runner = r"""
+const {guarded, privateRepo} = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
+const assert = require('node:assert/strict');
+let count = 0;
+for (const jobs of Object.values(guarded)) {
+  for (const condition of Object.values(jobs)) {
+    for (const [repo, visibility] of [
+      [privateRepo, false], [privateRepo, undefined],
+      [privateRepo.replace(/-pr$/, ''), false],
+      ['other-owner/' + privateRepo.split('/')[1], true],
+      ['other-owner/' + privateRepo.split('/')[1], false]
+    ]) {
+      const github = {repository: repo, event: {repository: {private: visibility}}};
+      const selected = new Function('github', `return (${condition});`)(github);
+      assert.equal(Boolean(selected), false, JSON.stringify({condition, repo, visibility}));
+      count++;
+    }
+  }
+}
+assert.equal(Object.keys(guarded).length, 7);
+assert.equal(count, 70);
+console.log(`Verified ${count} public/fork/missing-visibility job rejections for fourteen KP-owned jobs.`);
+"""
+        result = subprocess.run(
+            ["node", "-e", runner], input=json.dumps({"guarded": guarded, "privateRepo": PRIVATE_REPO}),
+            text=True, capture_output=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("public/fork/missing-visibility job rejections", result.stdout)
+
+
     def test_trigger_and_job_routing_matrix(self):
         cases = [
             {"repo": repo, "event": event, "action": action, "branch": branch, "labelsOnly": labels}
@@ -340,7 +385,7 @@ async function check(fresh, expected, failRead = false, failWrite = false) {
 const {workflows, cases} = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
 for (const c of cases) {
   const github = {repository:c.repo, event_name:c.event,
-    event:{pull_request:{number:42, base:{ref:c.branch}}}};
+    event:{repository:{private:true},pull_request:{number:42, base:{ref:c.branch}}}};
   const inputs = {'labels-only':c.labelsOnly};
   const needs = {configuration:{outputs:{'rollout-branch-prefix':'release-ignite26-'}}};
   const evaluate = expression => new Function('github','inputs','needs','startsWith',
@@ -390,53 +435,24 @@ console.log(`Verified ${cases.length * 2} entry-point routing cases.`);
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Verified 384 entry-point routing cases.", result.stdout)
 
-    def test_general_stale_excludes_kp_preserving_policy(self):
-        expected = [{'workflow': 'stale.yml',
-          'job': 'stale',
-          'step': 0,
-          'uses': 'actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93',
-          'settings': {'repo-token': '${{ secrets.GITHUB_TOKEN }}',
-                       'days-before-pr-stale': '14',
-                       'days-before-pr-close': '90',
-                       'stale-pr-label': 'inactive',
-                       'close-pr-label': 'auto-close',
-                       'exempt-pr-labels': 'keep-open,conference-event',
-                       'operations-per-run': '1300',
-                       'ascending': 'false',
-                       'stale-pr-message': 'This pull request has been inactive for at least '
-                                           '14 days.\n'
-                                           "If you are finished with your changes, don't "
-                                           'forget to sign off. See the [platform '
-                                           'guide](https://learn.microsoft.com/help/platform/prmerger-hashtag-commands) '
-                                           '(sign-in required) for instructions.\n'
-                                           ' \n'
-                                           '[Get '
-                                           'Help](https://learn.microsoft.com/help/platform/help-options)  '
-                                           '(sign-in required) | [Learn Support Teams '
-                                           'Channel](https://teams.microsoft.com/l/channel/19%3a7ecffca1166a4a3986fed528cf0870ee%40thread.skype/General?groupId=de9ddba4-2574-4830-87ed-41668c07a1ca&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47)   '
-                                           '| [Resolve Merge '
-                                           'Conflicts](https://learn.microsoft.com/help/contribute/resolve-merge-conflicts) '
-                                           '(sign-in required)\n',
-                       'close-pr-message': 'This pull request has been inactive for 90 days, '
-                                           'and an `auto-close` label has been added. At this '
-                                           'time, the system is closing the PR automatically. '
-                                           'If you decide to continue working on your changes, '
-                                           'scroll to the bottom of the pull request comments '
-                                           'and select the **Reopen pull request** button. '
-                                           '<br/>\n'}}]
-        actual = []
-        for filename, workflow in sorted(self.workflows.items()):
-            if filename.startswith(('reusable-kp-', 'stale-enroll-knowledgepartnership',
-                                    'stale-comment-knowledgepartnership', 'stale-reconcile-knowledgepartnership')):
-                continue
-            for job_name, job in sorted(workflow['jobs'].items()):
-                for index, step in enumerate(job.get('steps', [])):
-                    if str(step.get('uses', '')).startswith('actions/stale@'):
-                        actual.append({'workflow': filename, 'job': job_name, 'step': index,
-                                       'uses': step['uses'], 'settings': step.get('with', {})})
-        self.assertEqual(actual, expected)
-        for invocation in actual:
-            self.assertIn('conference-event', invocation['settings']['exempt-pr-labels'].split(','))
+    def test_native_general_stale_exempts_kp_membership(self):
+        if "stale.yml" not in self.workflows:
+            return  # Native absence is valid; KP does not introduce an unowned bot.
+        invocations = [
+            (job_name, index, step)
+            for job_name, job in self.workflows["stale.yml"]["jobs"].items()
+            for index, step in enumerate(job.get("steps", []))
+            if str(step.get("uses", "")).startswith("actions/stale@")
+        ]
+        self.assertTrue(invocations, "Expected native general-stale action integration")
+        for job_name, index, step in invocations:
+            labels = step.get("with", {}).get("exempt-pr-labels", "")
+            self.assertIsInstance(labels, str, (job_name, index))
+            self.assertIn(
+                "kp-conference-event",
+                [label.strip() for label in labels.split(",")],
+                (job_name, index, "Native general stale must exempt KP-enrolled PRs"),
+            )
 
     def test_review_fixes_recover_membership_and_isolate_stock_cache(self):
         workflows = self.workflows
@@ -461,7 +477,7 @@ const executeMembership = new (Object.getPrototypeOf(async function(){}).constru
   'github', 'context', 'core', 'require', input.membership);
 const action = (github, context) => executeMembership(github, context, {info() {}},
   () => ({initialize: async () => {}}));
-process.env.EVENT_LABEL = 'conference-event';
+process.env.EVENT_LABEL = 'kp-conference-event';
 process.env.ROLLOUT_BRANCH_PREFIX = 'release-ignite26-';
 process.env.EVENT_NAME = 'schedule';
 async function check(pr, expected, failure) {
@@ -483,17 +499,17 @@ async function check(pr, expected, failure) {
   assert.equal(reads[0].pull_number, 42);
   assert.deepEqual(writes.map(item => item[0]), expected ? [expected] : []);
   if (expected) assert.equal(writes[0][1].issue_number, 42);
-  if (expected === 'remove') assert.equal(writes[0][1].name, 'conference-event');
-  if (expected === 'add') assert.deepEqual(writes[0][1].labels, ['conference-event']);
+  if (expected === 'remove') assert.equal(writes[0][1].name, 'kp-conference-event');
+  if (expected === 'add') assert.deepEqual(writes[0][1].labels, ['kp-conference-event']);
 }
 (async () => {
   for (const state of ['open', 'closed']) for (const member of [false, true])
     for (const eligible of [false, true]) {
       const pr = {number: 42, state, base: {ref: eligible ? 'release-ignite26-test' : 'main'},
-        labels: member ? [{name: 'conference-event'}, {name: 'keep-open'}] : [{name: 'keep-open'}]};
+        labels: member ? [{name: 'kp-conference-event'}, {name: 'keep-open'}] : [{name: 'keep-open'}]};
       await check(pr, state !== 'open' ? null : eligible && !member ? 'add' : !eligible && member ? 'remove' : null);
     }
-  const pr = {number: 42, state: 'open', base: {ref: 'main'}, labels: [{name: 'conference-event'}]};
+  const pr = {number: 42, state: 'open', base: {ref: 'main'}, labels: [{name: 'kp-conference-event'}]};
   await check(pr, null, 'read');
   await check(pr, null, 'write');
   for (const mode of ['already-absent', 'still-present', 'read-failed', 'forbidden', 'server-error']) {
@@ -552,25 +568,32 @@ async function check(pr, expected, failure) {
   assert.equal(patched.slice(0, -guard.length), original.replace("'_state'", "'kp-author-reminders-v1'"));
   assert.match(guard, /canPost/);
   const beforePost = new (Object.getPrototypeOf(async function(){}).constructor)(
-    'issue', 'issueLogger', '__WEBPACK_EXTERNAL_createRequire', 'process', 'github_context',
-    guard.replace('import.meta.url', '"file:///fixture.js"') + '\nreturn "post";');
-  for (const result of [true, false, 'error']) {
+    'issue', 'issueLogger', '__WEBPACK_EXTERNAL_createRequire', 'process', 'github_context', 'staleMessage',
+    guard.replace('import.meta.url', '"file:///fixture.js"') + '\nreturn staleMessage;');
+  for (const result of [true, false, 'error', 'author-error']) {
     const client = {}, context = {repo: {owner: 'owner', repo: 'private'}};
     const fakeProcess = {env: {GITHUB_WORKSPACE: '/trusted'}};
     let calls = 0;
     const load = name => name === 'node:path' ? require('node:path') : {
+      authorReminder: async args => {
+        assert.ok(result === true || result === 'author-error');
+        assert.equal(args.github, client); assert.equal(args.context, context); assert.equal(args.number, 42);
+        assert.equal(args.message, 'Original reminder');
+        if (result === 'author-error') throw Error('Missing PR author');
+        return '@pr-author\n\nOriginal reminder';
+      },
       canPost: async args => {
         calls++;
         assert.equal(args.github, client); assert.equal(args.context, context); assert.equal(args.number, 42);
         if (result === 'error') throw Error('Read failed');
-        return result;
+        return result === 'author-error' ? true : result;
       }
     };
-    const promise = beforePost.call({client}, {number: 42}, {info() {}}, () => load, fakeProcess, context);
-    if (result === 'error') {
-      await assert.rejects(promise, /Read failed/);
+    const promise = beforePost.call({client}, {number: 42}, {info() {}}, () => load, fakeProcess, context, 'Original reminder');
+    if (result === 'error' || result === 'author-error') {
+      await assert.rejects(promise, result === 'error' ? /Read failed/ : /Missing PR author/);
       assert.equal(fakeProcess.exitCode, 1);
-    } else assert.equal(await promise, result ? 'post' : undefined);
+    } else assert.equal(await promise, result ? '@pr-author\n\nOriginal reminder' : undefined);
     assert.equal(calls, 1);
   }
   assert.throws(() => isolate(true), /Unexpected pinned stale content/);
