@@ -4,7 +4,7 @@ description: Learn how Azure Copilot Resiliency Agent works, what it can and can
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 10/12/2026
+ms.date: 11/04/2026
 ms.topic: faq
 ms.service: resiliency
 ms.collection: ce-skilling-ai-copilot
@@ -39,6 +39,16 @@ The agent can:
 - Provide step-by-step guidance for resources that require migration or redeployment.
 - Generate enablement scripts in PowerShell, Azure CLI, Bicep, Terraform, and Azure Resource Manager template formats.
 - Generate Bicep templates for new, zone-resilient deployments.
+
+## Can I use Azure Copilot Resiliency Agent in GitHub Copilot?
+
+Yes. You can use a focused set of Azure Copilot Resiliency Agent capabilities in limited preview through the **Azure Resiliency Agent** plugin for GitHub Copilot in Visual Studio Code and GitHub Copilot CLI.
+
+The plugin connects to the same hosted Azure Resiliency Agent used by Azure Copilot. It supports Azure resiliency guidance, application architecture assessment, generation of resilient Bicep, ARM JSON, or Terraform, and review of existing infrastructure-as-code files.
+
+When a workflow needs local files, the agent displays each file and asks for approval before sharing it. You send only files that you approve to Azure Resiliency Agent for that request.
+
+For prerequisites, installation options, supported workflows, and example prompts, see [Use Azure Resiliency Agent in GitHub Copilot](https://aka.ms/AzureResiliencyAgentInGithubCopilot).
 
 ## What is the intended use of Azure Copilot Resiliency Agent?
 

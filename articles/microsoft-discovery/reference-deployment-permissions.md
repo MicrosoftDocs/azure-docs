@@ -69,7 +69,7 @@ The effective-network custom permissions are:
 - `Microsoft.Network/networkInterfaces/effectiveRouteTable/action`
 - `Microsoft.Network/networkWatchers/nextHop/action`
 
-These actions return Azure-calculated network state; they don't replace packet-level tests. See [Validate readiness (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md).
+These actions return Azure-calculated network state; they don't replace packet-level tests. See [Validate readiness](how-to-validate-deployment-readiness.md).
 
 ## Stage 4: Platform deployment
 
@@ -98,4 +98,4 @@ The runner must also reach the workspace data-plane endpoint. For private worksp
 
 - [Role assignments and persona definitions](concept-role-assignments.md)
 - [Configure managed identities](how-to-configure-managed-identity.md)
-- [Prepare a landing zone (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md)
+- [Prepare a landing zone](how-to-prepare-landing-zone.md)

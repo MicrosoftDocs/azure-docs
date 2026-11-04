@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/29/2026
+ms.date: 10/19/2026
 ---
 
 # Best practices for Azure Front Door
@@ -47,6 +47,12 @@ To configure logging for your own application, see [Configure Azure Front Door l
 Azure Front Door terminates TCP and TLS connections from clients. It then establishes new connections from each point of presence (PoP) to the origin. Secure each of these connections with TLS, even for origins that are hosted in Azure. This approach keeps your data encrypted during transit.
 
 For more information, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
+
+### Choose compatible TLS key exchange groups
+
+For Azure Front Door Standard and Premium custom domains, start with the **Standard** TLS key exchange policy unless your requirements call for another selection. Test browsers, devices, SDKs, and automated clients before restricting supported groups. If you permit TLS 1.2, include at least one classical group in a custom policy.
+
+Hybrid post-quantum key exchange requires TLS 1.3. The domain's key exchange policy controls client-to-Front Door connections; it doesn't configure key exchange on the separate origin connection. Continue to configure HTTPS to the origin. For policy options and compatibility guidance, see [TLS key exchange policy](tls-key-exchange-policy.md).
 
 ### Use HTTP-to-HTTPS redirection
 
