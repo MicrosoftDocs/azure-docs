@@ -126,6 +126,7 @@ Before you use route maps, consider the following limitations:
 - You can't use route maps to modify or filter the virtual network address space that Azure Route Server advertises.
 - Route maps support only route summarization. Don't use route maps to create more specific routes.
 - You can't apply route maps on the Microsoft Enterprise Edge (MSEE) for ExpressRoute connections.
+- Azure Route Server doesn't support point-to-site (P2S) configurations on Azure VPN Gateway. If the Azure VPN gateway has a P2S configuration, route map creation on Route Server fails.
 - The first time you create a route map on an Azure Route Server, the route server undergoes an upgrade that can take up to 30 minutes.
 - Using route maps incurs extra charges. For more information, see [Azure Route Server pricing](https://azure.microsoft.com/pricing/details/route-server/).
 
