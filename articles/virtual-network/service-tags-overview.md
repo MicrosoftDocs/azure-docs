@@ -67,6 +67,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
 | **[ActionGroup](/azure/azure-monitor/ip-addresses)** | Action Group. | Inbound | No | Yes |
+| **AgentFabric** | Allow customers to author NSG policies with explicit Allow rules to and from AgentFabric's dataplane components | Both | Yes | Yes |
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. <br/><br/>**Note**: This tag represents the Azure API Management service endpoint for control plane per region. The tag enables customers to perform management operations on the APIs, Operations, Policies, NamedValues configured on the API Management service. | Inbound | Yes | Yes |
 | **[ApplicationInsightsAvailability](/azure/azure-monitor/app/availability-private-test)** | Application Insights Availability. | Inbound | No | Yes |
 | **AppConfiguration** | App Configuration. | Outbound | No | Yes |

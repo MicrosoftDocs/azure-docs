@@ -218,6 +218,9 @@ After you enable a managed identity, grant all necessary permissions through Azu
 
 Follow these steps to assign the built-in Azure RBAC role [Storage File Data SMB MI Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-mi-admin). This role gives admin-level access for managed identities on files and directories in Azure Files.
 
+> [!NOTE]
+> Managed-identity SMB mounts require the built-in administrator RBAC permission. Azure Files uses the built-in administrator SID for the access check; managed identities don't currently have individual SIDs and don't support per-identity file-level ACL permissions.
+
 1. Go to the storage account that contains the file share you want to mount by using a managed identity. On the service menu, select **Access Control (IAM)**.
 
 1. Under **Grant access to this resource**, select **Add role assignment**.
@@ -267,6 +270,9 @@ The managed identity can be either [system assigned or user assigned](/entra/ide
 1. Go to the user-assigned managed identity that you just created and copy the **Client ID** value. You need this value later.
 
 ### Assign a built-in RBAC role to the managed identity
+
+> [!NOTE]
+> Managed-identity SMB mounts require the built-in administrator RBAC permission. Azure Files uses the built-in administrator SID for the access check; managed identities don't currently have individual SIDs and don't support per-identity file-level ACL permissions.
 
 1. Go to the storage account that contains the file share you want to mount by using a managed identity. On the service menu, select **Access Control (IAM)**.
 

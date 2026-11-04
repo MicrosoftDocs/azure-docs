@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1040" viewBox="0 0 1200 1040" role="img" aria-labelledby="title description">
+  <title id="title">Example execution plan for two application VMs and a database</title>
+  <desc id="description">Azure Migrate generates an execution plan from a wave containing two application virtual machines and a database. Initialization finishes before the application group starts. VM replication and database preparation can run in parallel. Each VM's migration approval waits for that VM's replication and database migration. The VMs then migrate, and finalization follows completion of the application group. These are illustrative steps, not an exact migration-method template.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#50555a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="1040" fill="#ffffff"/>
+  <g font-family="Segoe UI, sans-serif" fill="#202124">
+    <text x="40" y="42" font-size="26" font-weight="600">Example execution plan: application VMs and database</text>
+    <text x="40" y="74" font-size="18" fill="#50555a">Illustrative steps; actual plans depend on migration methods.</text>
+
+    <rect x="40" y="100" width="1120" height="126" rx="4" fill="#f5f6f7" stroke="#8a9096"/>
+    <text x="64" y="132" font-size="22" font-weight="600">Wave workloads</text>
+    <rect x="64" y="148" width="330" height="58" rx="4" fill="#ffffff" stroke="#8a9096"/>
+    <rect x="434" y="148" width="330" height="58" rx="4" fill="#ffffff" stroke="#8a9096"/>
+    <rect x="804" y="148" width="330" height="58" rx="4" fill="#ffffff" stroke="#8a9096"/>
+    <text x="229" y="173" text-anchor="middle" font-size="18" font-weight="600">Application VM 1</text>
+    <text x="229" y="195" text-anchor="middle" font-size="16">Target: Azure VM</text>
+    <text x="599" y="173" text-anchor="middle" font-size="18" font-weight="600">Application VM 2</text>
+    <text x="599" y="195" text-anchor="middle" font-size="16">Target: Azure VM</text>
+    <text x="969" y="173" text-anchor="middle" font-size="18" font-weight="600">SQL Server database</text>
+    <text x="969" y="195" text-anchor="middle" font-size="16">Target: Azure SQL Managed Instance</text>
+
+    <path d="M 600 226 V 284" fill="none" stroke="#50555a" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="624" y="260" font-size="17">Azure Migrate generates the workflow</text>
+
+    <rect x="40" y="292" width="1120" height="90" rx="4" fill="#eaf4ff" stroke="#0078d4" stroke-width="2"/>
+    <text x="64" y="324" font-size="21" font-weight="600">Initialization group</text>
+    <text x="64" y="354" font-size="18">Shared setup and validation</text>
+
+    <path d="M 600 382 V 422" fill="none" stroke="#50555a" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="624" y="410" font-size="16">Initialization finishes first</text>
+
+    <rect x="40" y="430" width="1120" height="440" rx="4" fill="#ffffff" stroke="#6b737a" stroke-width="2"/>
+    <text x="64" y="464" font-size="21" font-weight="600">Application group</text>
+    <text x="680" y="464" font-size="16" fill="#50555a">Independent work can run in parallel</text>
+
+    <rect x="84" y="490" width="460" height="82" rx="4" fill="#eaf4ff" stroke="#0078d4" stroke-width="2"/>
+    <text x="314" y="522" text-anchor="middle" font-size="20" font-weight="600">Replicate application VMs</text>
+    <text x="314" y="550" text-anchor="middle" font-size="16">One step; separate execution for VM 1 and VM 2</text>
+
+    <rect x="680" y="490" width="420" height="82" rx="4" fill="#effaf2" stroke="#16804a" stroke-width="2"/>
+    <text x="890" y="537" text-anchor="middle" font-size="20" font-weight="600">Prepare database</text>
+    <path d="M 890 572 V 604" fill="none" stroke="#50555a" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="680" y="612" width="420" height="80" rx="4" fill="#effaf2" stroke="#16804a" stroke-width="2"/>
+    <text x="890" y="646" text-anchor="middle" font-size="20" font-weight="600">Migrate database</text>
+    <text x="890" y="672" text-anchor="middle" font-size="16">Database workload</text>
+
+    <path d="M 314 572 V 650" fill="none" stroke="#50555a" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M 680 652 H 592 V 699 H 552" fill="none" stroke="#50555a" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="84" y="658" width="460" height="82" rx="4" fill="#fff5d6" stroke="#a56b00" stroke-width="2"/>
+    <text x="314" y="690" text-anchor="middle" font-size="20" font-weight="600">Approve VM migration</text>
+    <text x="314" y="718" text-anchor="middle" font-size="16">Each VM: after its replication and database migration</text>
+
+    <path d="M 314 740 V 774" fill="none" stroke="#50555a" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="84" y="782" width="460" height="64" rx="4" fill="#eaf4ff" stroke="#0078d4" stroke-width="2"/>
+    <text x="314" y="821" text-anchor="middle" font-size="20" font-weight="600">Migrate application VMs</text>
+
+    <path d="M 600 870 V 922" fill="none" stroke="#50555a" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="624" y="902" font-size="16">After all application work finishes</text>
+
+    <rect x="40" y="930" width="1120" height="86" rx="4" fill="#eaf4ff" stroke="#0078d4" stroke-width="2"/>
+    <text x="64" y="961" font-size="21" font-weight="600">Finalization group</text>
+    <text x="64" y="991" font-size="18">Final checks and sign-off</text>
+  </g>
+</svg>

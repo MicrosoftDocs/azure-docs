@@ -247,20 +247,40 @@ items:
       href: how-to-configure-wave-plan.md
 - name: Execute migrations
   items:
-  - name: Overview of migration method
-    href: server-migrate-overview.md
-  - name: Execute server migrations in Azure Migrate portal
-    href: execute-server-migrations.md
-  - name: Agentless migrations using portal
-    href: tutorial-migrate-vmware.md
-  - name: Agent-based migration using portal
-    href: tutorial-migrate-vmware-agent.md
-  - name: Redeploy servers using IaC
-    href: server-redeploy.md
+  - name: Overview of migration execution
+    href: migration-execution-overview.md
+  - name: Execute migrations using waves
+    items:
+      - name: Overview of wave migrations
+        href: wave-migrations-overview.md
+      - name: How wave migrations work
+        href: wave-migrations.md
+      - name: Configure and customize a wave
+        href: configure-customize-wave.md
+      - name: Execute a wave
+        href: execute-wave-migration.md
+      - name: Track and troubleshoot wave migrations
+        href: track-wave-migrations.md
+  - name: Execute migrations using classic waves
+    href: configure-execute-track-classic-waves.md
+  - name: Execute direct server migrations
+    items:
+      - name: Overview of server migrations
+        href: server-migrate-overview.md
+      - name: Execute direct server migrations using portal
+        href: execute-server-migrations.md
+      - name: Agentless migrations using portal
+        href: tutorial-migrate-vmware.md
+      - name: Agent-based migration using portal
+        href: tutorial-migrate-vmware-agent.md
+      - name: Redeploy servers using IaC
+        href: server-redeploy.md
   - name: Generate and deploy a platform landing zone
     href: platform-landing-zone.md
   - name: Support Matrix
     items:
+    - name: Overview of server migration methods
+      href: server-migrate-overview.md
     - name: VMware vSphere migration requirements
       href: migrate-support-matrix-vmware-migration.md
     - name: Physical Agent-based migration requirements
@@ -472,6 +492,8 @@ items:
     href: ./policy-reference.md
   - name: Azure Migration Hub
     href: /azure/migration/
+  - name: Wave migration reference
+    href: reference-wave-migrations.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

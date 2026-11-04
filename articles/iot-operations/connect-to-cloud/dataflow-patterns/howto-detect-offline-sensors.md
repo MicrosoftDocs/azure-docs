@@ -22,7 +22,7 @@ Register sensors you expect to hear from so you can also detect one that never s
 
 Start with an existing Azure IoT Operations deployment and MQTT broker access. Follow [Create a data flow graph](../howto-create-dataflow-graph.md) to configure a data flow profile and MQTT endpoint.
 
-Complete the [Azure Samples deployment instructions](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/README.md#data-flow-pattern-samples) for registry setup and single-instance deployment, then use the [standalone sample setup](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/README.md#use-complete-standalone-manifests). The examples use namespace `azure-iot-operations`. Configure the [clock publisher](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/README.md#supply-clock-events-during-sensor-silence).
+Complete the [Azure Samples deployment instructions](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#data-flow-pattern-samples) for registry setup and single-instance deployment, then use the [standalone sample setup](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#use-complete-standalone-manifests). The examples use namespace `azure-iot-operations`. Configure the [clock publisher](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#supply-clock-events-during-sensor-silence).
 
 The `default` data flow profile must already exist with one instance. The examples reuse the existing `factory-mqtt` MQTT endpoint and `factory-artifacts` registry endpoint for `ghcr.io`; they don't create profiles or endpoints.
 
@@ -191,7 +191,7 @@ Download and apply the complete manifest:
 
 ```bash
 curl --fail --location \
-  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/manifests/offline-detection.yaml \
+  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasm/dataflow-patterns/manifests/offline-detection.yaml \
   --output offline-detection.yaml
 kubectl apply -f offline-detection.yaml
 ```

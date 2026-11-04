@@ -22,7 +22,7 @@ Use this pattern when a consumer needs meaningful changes rather than every fluc
 
 Start with an existing Azure IoT Operations deployment and MQTT broker access. Follow [Create a data flow graph](../howto-create-dataflow-graph.md) to configure a data flow profile and MQTT endpoint.
 
-Complete the [Azure Samples deployment instructions](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/README.md#data-flow-pattern-samples) for registry setup and single-instance deployment. Then, use the [standalone sample setup](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/README.md#use-complete-standalone-manifests). The examples use namespace `azure-iot-operations`. Configure the [clock publisher](https://github.com/Azure-Samples/explore-iot-operations/blob/huguesBouvier/dataflow-pattern-samples/samples/wasm/README.md#supply-clock-events-during-sensor-silence) for heartbeats during sensor silence.
+Complete the [Azure Samples deployment instructions](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#data-flow-pattern-samples) for registry setup and single-instance deployment. Then, use the [standalone sample setup](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#use-complete-standalone-manifests). The examples use namespace `azure-iot-operations`. Configure the [clock publisher](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#supply-clock-events-during-sensor-silence) for heartbeats during sensor silence.
 
 The `default` data flow profile must already exist with one instance. The examples reuse the existing `factory-mqtt` MQTT endpoint and `factory-artifacts` registry endpoint for `ghcr.io`; they don't create profiles or endpoints.
 
@@ -186,7 +186,7 @@ Download and apply the complete manifest:
 
 ```bash
 curl --fail --location \
-  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/huguesBouvier/dataflow-pattern-samples/samples/wasm/dataflow-patterns/manifests/report-by-exception.yaml \
+  https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/wasm/dataflow-patterns/manifests/report-by-exception.yaml \
   --output report-by-exception.yaml
 kubectl apply -f report-by-exception.yaml
 ```
