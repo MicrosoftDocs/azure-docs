@@ -16,7 +16,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 **Introduction to VMware Cloud Foundation 9.1**
 
-As we approach the completion of the VMware Cloud Foundation 9.1 integration with Azure VMware Solution, we have created a page explaining how VCF 9.1 will work with Azure VMware Solution, including an FAQ section. [Learn more](architecture-vmware-cloud-foundation.md)
+As we approach the completion of the VMware Cloud Foundation 9.1 (VCF) integration with Azure VMware Solution, we have created a page explaining how VCF 9.1 will work with Azure VMware Solution, including an FAQ section. [Learn more](architecture-vmware-cloud-foundation.md)
 
 ## August 2026
 
@@ -38,9 +38,9 @@ nConnect support on Azure VMware Solution for Azure NetApp Files is now Generall
 
 ## May 2026
 
-**VMware Live Site Recovery** for Stretched Clusters is now Generally Available in Azure VMware Solution, enabling protection of workloads across regions.
-This capability delivers resilient cross-region disaster recovery with automated failover and minimal downtime.
-Mission-critical applications can now achieve higher availability and stronger business continuity at scale. [Learn More](/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager) 
+**Azure VMware Solution Stretched Clusters**
+
+**VMware Live Site Recovery** for Stretched Clusters is now Generally Available in Azure VMware Solution, enabling protection of workloads across regions. This capability delivers resilient cross-region disaster recovery with automated failover and minimal downtime. Mission-critical applications can now achieve higher availability and stronger business continuity at scale. [Learn More](/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager) 
 
 **Azure VMware Solution Gen 2 (VNet Injection Service): 7170 Anchor NIC & iBGP Full Mesh Cutover**
 
