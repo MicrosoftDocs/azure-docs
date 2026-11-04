@@ -178,8 +178,7 @@ $vnet.PrivateEndpointVNetPolicies
 
 | **Limit** | **Description** |
 |---|---|
-| Access to Baremetal subnets from an HSPE enabled peered VNet isn't supported | Connections destined to Azure baremetal subnets won't work  |
-| Feature currently available in all public regions | Mooncake and Azure Gov regions aren't supported at this time |
+| No known limitations at this time |  |
 
 
 ## Next Steps
