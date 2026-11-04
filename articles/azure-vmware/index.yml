@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page 
   author: jjaygbay1
   ms.author: jacobjaygbay 
-  ms.date: 4/1/2024 
+  ms.date: 11/2/2026 
 
 
 highlightedContent:
@@ -21,9 +21,9 @@ highlightedContent:
     - title: What's Azure VMware Solution? 
       itemType: overview
       url: /azure/azure-vmware/introduction
-    - title: Introduction to Azure VMware Solution Generation 2 Private Clouds
-      itemType: overview
-      url: /azure/azure-vmware/native-introduction
+    - title: Introducing VMware Cloud Foundation 9.1
+      itemType: whats-new
+      url: /azure/azure-vmware/architecture-vmware-cloud-foundation
     - title: Networking
       itemType: how-to-guide
       url: tutorial-expressroute-global-reach-private-cloud.md
