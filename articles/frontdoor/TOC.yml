@@ -201,6 +201,8 @@
     href: end-to-end-tls.md
   - name: TLS policy
     href: tls-policy.md
+  - name: TLS key exchange policy
+    href: tls-key-exchange-policy.md
   - name: Mutual TLS authentication
     href: mutual-tls.md
   - name: Set up managed identity

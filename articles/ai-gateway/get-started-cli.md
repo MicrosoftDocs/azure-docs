@@ -31,7 +31,7 @@ This example uses a Foundry account named `ai-foundry-demo-learn` with a `gpt-6.
 
 ## Install the extension
 
-Use the installer from the [AI Gateway CLI repository](https://github.com/Azure/ai-gateway/blob/main/cli/README.md#install). Choose the command for your shell:
+Use the installer from the [AI Gateway CLI repository](https://github.com/Azure/aigateway/blob/main/cli/README.md#install). Choose the command for your shell:
 
 ### [Bash](#tab/bash)
 
@@ -47,7 +47,7 @@ irm https://aka.ms/aigateway-cli-install-ps | iex
 
 ---
 
-The installers download the published release, verify its SHA-256 checksum, and install or upgrade the `aigateway` extension. Installation requires HTTPS access and permission to write to your Azure CLI extension directory, but doesn't require an Azure sign-in. To review the scripts before running them, see [install.sh](https://github.com/Azure/ai-gateway/blob/main/cli/install.sh) or [install.ps1](https://github.com/Azure/ai-gateway/blob/main/cli/install.ps1).
+The installers download the published release, verify its SHA-256 checksum, and install or upgrade the `aigateway` extension. Installation requires HTTPS access and permission to write to your Azure CLI extension directory, but doesn't require an Azure sign-in. To review the scripts before running them, see [install.sh](https://github.com/Azure/aigateway/blob/main/cli/install.sh) or [install.ps1](https://github.com/Azure/aigateway/blob/main/cli/install.ps1).
 
 Check the installation and available commands:
 
@@ -465,7 +465,7 @@ To remove your test configuration:
 
 ## Related content
 
-- [AI Gateway CLI command reference](https://github.com/Azure/ai-gateway/blob/main/cli/command-reference.md)
+- [AI Gateway CLI command reference](https://github.com/Azure/aigateway/blob/main/cli/command-reference.md)
 - [Quickstart: Create an AI Gateway](./quickstart-create-ai-gateway.md)
 - [AI Gateway concepts](./concepts.md)
 - [Migrate from the AIGateway SKU in Azure API Management](./ai-gateway-resource.md)

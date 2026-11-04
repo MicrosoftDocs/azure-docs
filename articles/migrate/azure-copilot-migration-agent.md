@@ -108,9 +108,9 @@ When code analysis results are available, the agent can also highlight code read
 
 ### Wave planning and execution (preview) 
 
-Azure Copilot Migration Agent automatically groups applications and workloads into a proposed wave plan. It explains the factors behind the grouping and sequencing, highlighting dependencies, risks, and other considerations that influence migration planning.
+Azure Copilot Migration Agent automatically groups applications and workloads into a proposed wave plan. It explains the factors behind the grouping and sequencing, highlighting dependencies, risks, and other considerations that influence migration planning. For the plan sections and planning engine, see [Wave planning overview](wave-plan-overview.md).
 
-After you review the wave plan, the agent helps you create migration waves and provides guidance for wave operations, including editing waves, selection of migration methods and prerequisites to proceed with the migration. 
+Review and configure the proposed waves before committing them. For the portal workflow, see [Configure a wave plan](how-to-configure-wave-plan.md). Wave planning ends at commitment; migration method selection, execution prerequisites, and tracking are separate activities.
 
 During execution, the agent provides contextual guidance and summarizes the migration status of applications and workloads. It helps you track replication and migration status, troubleshoot issues, and determine appropriate next steps.
 
@@ -188,4 +188,3 @@ The following examples show prompts that you can use with the Migration Agent. A
 - [Learn about how to plan and analyze migration with Agent](how-to-plan-analyze-migration-with-agent.md).
 - [Learn about Azure landing zones](platform-landing-zone.md).
 - [Learn about business case in Azure Migrate](how-to-build-a-business-case.md).
-

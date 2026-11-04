@@ -19,7 +19,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (September 2026)
 
-- Public preview: Auto Wave Planning (Preview) is now available in Azure Migrate. Use Auto Wave Planning to automatically generate recommended migration waves based on workload inventory, assessment data, application mappings, and dependencies. The feature helps sequence migrations by applying planning conditions and providing priority, confidence, and risk indicators for each wave. [Learn more](automatic-wave-planning-architecture.md).
+- Public preview: Wave planning is now available in Azure Migrate. Generate recommended migration waves based on workload inventory, assessment data, application mappings, and dependencies. Review grouping and sequencing, dependencies, and risks, then configure and commit selected waves. [Learn more](wave-plan-overview.md).
 
 - Public preview: Azure Migrate now supports network assessments for VMware environments, including those integrated with NSX. You can assess application-associated network resources and receive recommendations for Azure networking components such as virtual networks, subnets, Network Security Groups (NSGs), Azure Firewall, load balancers, and Azure Virtual Network Manager configurations. The assessment also provides migration readiness insights, estimated network costs, and sustainability metrics to help you plan application migrations to Azure. A new assessment report experience lets you review recommended network resources, cost estimates, and migration considerations before migration. [Learn more](network-assessment.md).
 
@@ -80,21 +80,19 @@ If no tags are applied, workloads default to Production for the environment type
 - Public preview: Azure Migrate now supports Arc-based discovery, enabling you to assess on-premises servers and SQL Server instances that are already Azure Arc-enabled—without deploying additional infrastructure. This integration accelerates migration planning by leveraging existing Arc data to generate business cases and assessments within an hour. [Learn more](concepts-arc-resource-discovery.md). 
     - The VM extension is an optional component that collects performance data from Arc-enabled servers to provide right sized recommendations in assessments and business cases. [Learn more](migrate-virtual-machine-extension-reference.md).
 
-- Public preview: Wave Planning in Azure Migrate provides a structured approach to cloud migration and modernization. It helps organizations break down large-scale migrations into manageable **waves** of workloads and applications. This capability accelerates timelines, reduces uncertainty, and minimizes risks through phased execution and logical grouping. [Learn more](overview.md).
+- Public preview: Wave planning in Azure Migrate provides a structured approach to migration planning. It helps organizations break down large-scale migrations into manageable **waves** of workloads and applications, review recommendations, and commit selected waves. Execution and tracking are separate activities. [Learn more](wave-plan-overview.md).
 
-    - Distribute workloads and applications into waves for high-fidelity planning, leveraging Azure Migrate’s discovery and assessment information. 
+    - Group workloads and applications using discovery, assessment, and dependency information.
 
-    - Sequence and prioritize migration waves based on business criticality, complexity of applications ensuring efficient and risk-mitigated execution. 
+    - Review sequencing based on dependencies, business criticality, and application complexity.
 
-    - Visualize execution plans and timelines across all waves, providing clear visibility into migration progress and sequence. 
- 
-    - Execute and centrally track migrations using integrated tools, for example, Server Migration for unified tracking. 
+    - Review wave composition, dependencies, reasoning, and risks.
 
-    - Monitor progress as migrations proceed, with status updates.
+    - Configure proposed wave assignments by exporting, editing, and validating the inventory-to-wave mapping CSV file.
 
-    - Support both automated and manual migration scenarios, allowing for flexible execution and tracking regardless of workload type or migration tool. 
+    - Commit reviewed waves for the next phase.
 
-Wave Planning in Azure Migrate provides a scalable, transparent, and risk-aware migration experience, enabling organizations to modernize infrastructure with confidence and control. 
+For the current workflow, see [Configure a wave plan](how-to-configure-wave-plan.md).
 
 
 ## Update (October 2025)
@@ -209,7 +207,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (March 2024)
 
-- Public preview: Spring Boot app discovery and assessment is now available through a packaged solution to deploy a Kubernetes appliance. [Learn more](tutorial-discover-spring-boot.md).
+- Public preview: Spring Boot app discovery and assessment is now available through a packaged solution to deploy a Kubernetes appliance.
 
 ## Update (February 2024)
 
@@ -231,7 +229,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (September 2023)
 
-- Azure Migrate now supports discovery and assessment of Spring Boot apps. [Learn more](how-to-create-azure-spring-apps-assessment.md).
+- Azure Migrate now supports discovery and assessment of Spring Boot apps.
 
 ## Update (August 2023)
 
@@ -268,7 +266,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (February 2023)
 
 - Azure Migrate now supports discovery and assessment of SQL Server Always On failover cluster instances and Always On availability groups. [Learn more](how-to-discover-applications.md).
-- Public preview: Modernize your ASP.NET web apps on Azure Kubernetes Service directly through Azure Migrate. [Learn more](tutorial-modernize-asp-net-aks.md).
+- Public preview: Modernize your ASP.NET web apps on Azure Kubernetes Service directly through Azure Migrate.
 
 ## Update (January 2023)
 

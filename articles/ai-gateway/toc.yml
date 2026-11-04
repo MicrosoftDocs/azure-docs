@@ -22,3 +22,11 @@
   href: ../api-management/agent-365.md
 - name: In-product documentation
   href: https://ai.gateway.azure.com/docs
+- name: Reference
+  items:
+    - name: REST API
+      href: /rest/api/aigateway/
+    - name: Azure CLI extension
+      href: https://github.com/Azure/aigateway/blob/main/cli/command-reference.md
+    - name: Azure Resource Manager
+      href: https://github.com/Azure-Samples/simple-foundry-hosted-agent-python-aigateway/tree/main/infra/ai-gateway

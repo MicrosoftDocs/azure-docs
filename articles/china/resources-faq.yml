@@ -1,0 +1,32 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about Azure in China
+  description: Frequently asked questions for Azure in China, including global accessibility, quota request, and global connectivity.
+  ms.topic: faq
+  ms.date: 07/20/2020
+    
+title: Frequently asked questions about Azure in China
+summary: |
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          Can workloads deployed on Azure in China be accessed anywhere globally?
+        answer: |
+          Yes, you can access your workloads deployed on Azure in China anywhere globally. 
+
+      - question: |
+          How do I submit a quota request?
+        answer: |
+          If you want to make changes on the resource quota of subscriptions (like virtual machine cores, Azure Storage, Azure HDInsight cores, or the number of IP addresses), raise service requests through [online submission](https://support.azure.cn/support/support-azure/). You need to sign in with your Azure in China subscription.
+          
+          For more details, see [Support for Azure in China](/azure/china/concepts-support).
+          
+      - question: |
+          Can I connect between Azure global regions and Azure in China regions?
+        answer: |
+          Azure global regions and Azure in China regions are physically disconnected. However, you can still connect subscriptions in Azure in China and Azure global regions through [composite VPN site-to-site or ExpressRoute](/azure/china/overview-connectivity-and-interoperability#through-vpn-site-to-site-or-expressroute). You connect the subscription in the Azure in China region with your on-premises site, and connect your on-premises site to your subscription in the Azure global region.
+          
+          For other questions about Azure in China, please check [Azure in China FAQs](https://support.azure.cn/en-us/support/faq/).  
+          

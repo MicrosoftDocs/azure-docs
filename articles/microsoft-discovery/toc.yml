@@ -357,6 +357,8 @@ items:
             href: how-to-validate-deployment-readiness.md
           - name: Deploy with the onboarding tool
             href: how-to-deploy-platform.md
+          - name: Verify an onboarding deployment
+            href: how-to-verify-deployment.md
   - name: Operate & Support
     items:
       - name: Observability overview
@@ -389,6 +391,8 @@ items:
         href: how-to-validate-deployment-readiness.md
       - name: "Step 4 - Deploy the platform"
         href: how-to-deploy-platform.md
+      - name: "Step 5 - Enable and verify a scenario"
+        href: how-to-verify-deployment.md
   - name: Reference
     items:
       - name: Troubleshoot Microsoft Discovery

@@ -363,6 +363,17 @@ kubectl delete httproute http-route -n test-infra
 kubectl delete gateway gateway-01 -n test-infra
 ```
 
+## Troubleshooting
+
+**Q: Why does the FQDN of my private frontend resolve to 2001:db8::/32?**
+
+**A:** The `2001:db8::/32` range is reserved for documentation and is returned when DNS resolution for `*.privatelink.alb.azure.com` is not configured correctly.
+
+If you see an address in this range, verify that:
+
+- Your DNS resolver can communicate with Azure DNS.
+- The private DNS zone is linked to the virtual network containing your DNS resolver or, if using Azure DNS directly, your client.
+
 ## Related content
 
 - [Private ingress with Application Gateway for Containers](private-ingress.md)

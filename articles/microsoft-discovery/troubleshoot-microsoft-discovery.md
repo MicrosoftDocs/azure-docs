@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: troubleshooting-general
-ms.date: 09/24/2026
+ms.date: 10/28/2026
 
 #customer intent: As a Discovery platform administrator or developer, I want to troubleshoot common Microsoft Discovery problems so that I can restore a working deployment and run investigations.
 
@@ -82,8 +82,15 @@ A region can be restricted or withdrawn for Discovery managed resources even whe
 1. Deploy to a supported region.
 1. If a required role is eligible through Privileged Identity Management (PIM), activate it before deploying.
 1. Create the resource group in the correct region. If an organizational policy blocks the deployment, ask the policy administrator whether an exemption is permitted at the required scope.
+1. Check model and compute quota in the target region. Request additional quota if needed. If capacity isn't available, select another supported target region.
 
 For a region that appears selectable but isn't supported, see [Known issues for Microsoft Discovery](known-issues.md#an-unsupported-region-appears-as-a-deployment-option).
+
+### Cross-region managed resources deploy to the wrong region
+
+For a [cross-region deployment](how-to-deploy-across-regions.md), verify that the `discovery.overridemrgregion` tag was present on each supported Discovery resource when it was created. The value must be a valid Azure programmatic region identifier, and the target region must support Discovery cross-region deployment and the required Foundry features.
+
+If resources can't communicate, check network security groups, routes, firewalls, private endpoints, and private DNS. Verify that managed identities can access storage accounts, the container registry, and other dependencies.
 
 ## Deployment appears stuck and never finishes
 
@@ -137,6 +144,49 @@ AKS node OS upgrades can evict or kill running jobs and pods, so a subset of lon
 1. If a node or GPU node pool is unhealthy, ensure the latest node image and recreate the node pool.
 1. Review the affected run in the supercomputer logs. See [Debug task execution](how-to-debug-task-execution.md).
 
+## Supercomputer nodes never reach the Ready state
+
+Nodes provision at the infrastructure layer but never join the cluster, and the supercomputer stays in a provisioning or failed state. Bootstrap failures happen before your containers run, so application logs might contain no useful evidence.
+
+### Solution: Check bootstrap dependencies and cluster health
+
+1. Check that nodes can resolve `mcr.microsoft.com` and `management.azure.com`, and that DNS responses return along the same path as the query.
+1. Compare outbound rules with the [supercomputer network requirements](how-to-plan-supercomputer-network-security-groups.md) and [AKS outbound rules](/azure/aks/outbound-rules-control-egress). Check container image and OS package endpoints, including dependencies covered by Azure Front Door service tags.
+1. Verify node subnets can reach the management subnet on ports 443 and 4443. Check rules on the management subnet's network security group, not only the node subnets.
+1. Inspect [virtual network flow logs](/azure/network-watcher/vnet-flow-logs-overview) during the provisioning window. A denied flow identifies the matching rule. If there are no deny records, check effective routes and the egress appliance for drops, asymmetric paths, and source network address translation port exhaustion.
+1. Confirm the management subnet exists, is delegated to `Microsoft.ContainerService/managedClusters`, and isn't shared with another service.
+1. Check subnet IP availability, VM quota and SKU availability, Azure Policy denials, managed identity permissions, and role assignment failures.
+1. Inspect the virtual machine scale set instance and extension provisioning state for the specific failure.
+
+Flow logs have three limitations:
+
+- Traffic dropped by routing, an egress appliance, or a DNS failure doesn't reach network security group evaluation. No deny record isn't proof that traffic was allowed.
+- A capture only covers the lifecycle events observed. Bootstrap, upgrade, and failover rules might have no matches in a steady-state capture. Don't remove a rule solely because it matched nothing.
+- Flow logs are aggregated, not real time. Allow several collection intervals before concluding a flow didn't occur.
+
+After you fix the cause, use the supported recovery path before recreating resources. Reconcile the cluster, then repair or reimage affected instances. Recreate a node pool only if instances remain in a terminal failed state, accounting for workload evacuation and system node pool constraints.
+
+## A node pool fails to delete
+
+Node pool deletion returns `InternalServerError` with the target `internalMetadata`, and the backing AKS cluster shows a `Failed` or `Deallocated` state.
+
+### Solution: Reconcile the backing cluster before retrying deletion
+
+1. Check the cluster in the supercomputer's managed resource group.
+
+   ```azurecli
+   az aks show --resource-group mrg-dscmp-<supercomputer>-<suffix> --name aks-dscmp-<suffix> \
+     --query "{provisioningState:provisioningState, powerState:powerState.code}"
+   ```
+
+1. Reconcile the cluster.
+
+   ```azurecli
+   az aks update --resource-group mrg-dscmp-<supercomputer>-<suffix> --name aks-dscmp-<suffix> --yes
+   ```
+
+1. When `provisioningState` returns `Succeeded`, retry node pool deletion. A direct node pool reprovision doesn't clear this state. See [Delete Microsoft Discovery resources](how-to-delete-discovery-resources.md).
+
 ## Tool runs fail because resources aren't allowlisted
 
 A storage account or supercomputer exists but isn't associated with the workspace, so tool runs that reference it are rejected with a "Resources not allowed" error.
@@ -155,14 +205,25 @@ The workspace's Azure Container Apps environment requires enough quota to create
 1. Request or confirm at least 80 cores of Azure Container Apps quota in the target region.
 1. Retry workspace creation. See [Quota and reservations](concept-quota-reservation.md).
 
+## Workspace creation fails validation
+
+Check the first failed operation for the following conditions:
+
+- **Name conflict:** Workspace names must be globally unique and lowercase. Choose a different name if the failure identifies a naming conflict.
+- **Permissions:** Verify the deploying identity has **Microsoft Discovery Platform Administrator (Preview)** or **Owner** on the resource group, plus the [required supporting roles](#deployment-fails-because-the-identity-is-missing-required-roles).
+- **Subnet delegation:** Verify `workspaceSubnet` and `agentSubnet` are delegated to `Microsoft.App/environments`.
+- **Quota:** Use the [workspace quota checks](#workspace-creation-fails-because-of-insufficient-quota).
+- **Identity:** Use the [workspace identity checks](#workspace-creation-fails-with-identity-error).
+
 ## The workspace host doesn't resolve over a private endpoint
 
 Private DNS isn't resolving the workspace data-plane host from inside the virtual network after you enable network isolation or disable public access, so investigations are unreachable over Private Link.
 
 ### Solution: Fix private DNS resolution
 
-1. Verify the private DNS zone and A-records for the data-plane host exist.
+1. Verify the private DNS zone `privatelink.workspace.discovery.azure.com` and A-records for the data-plane host exist.
 1. Confirm the private endpoint is approved and linked to the correct virtual network and subnet.
+1. Confirm the private DNS zone is linked to the client virtual network and the private endpoint has the correct DNS zone group. With custom DNS, check forwarding to Azure DNS (`168.63.129.16`) through the appropriate Azure-connected DNS path. See [Configure private DNS](how-to-configure-network-security.md#configure-private-dns).
 1. Validate resolution from a host inside the virtual network:
 
    ```bash
@@ -170,6 +231,37 @@ Private DNS isn't resolving the workspace data-plane host from inside the virtua
    ```
 
 1. Apply the same checks to a bring-your-own Cosmos DB private endpoint when project creation depends on it. See [Network security for Microsoft Discovery](concept-network-security.md).
+
+If public network access is disabled, connect to the workspace from a private network path through a private endpoint, VPN, or ExpressRoute. Discovery Studio users also need that path. Don't enable public access as a routine troubleshooting fix.
+
+## Network hardening or private endpoint access fails
+
+<a id="permission-to-perform-joinperimeterruleaction-is-missing"></a>
+
+### Missing permission to perform joinPerimeterRule/action
+
+The custom NSP Perimeter Joiner role assignment is missing or hasn't propagated.
+
+1. [Verify the role assignment](how-to-configure-network-security.md#assign-the-nsp-perimeter-joiner-role).
+1. Confirm the assignment is at **subscription** scope, not resource group scope.
+1. Wait up to five minutes for Azure RBAC propagation.
+1. Retry workspace creation. The create-or-update operation is idempotent.
+
+### Service principal not found
+
+If the Discovery Control Plane service principal doesn't exist in your tenant, create it, then retry the role assignment:
+
+```azurecli
+az ad sp create --id 92c174ac-8e41-4815-a1b7-d81b19ab03ce
+```
+
+### An approved private endpoint still returns API errors
+
+| Error | Checks and resolution |
+| --- | --- |
+| 504 Gateway Timeout | The backend might be temporarily unavailable. Compare with the public path only if that path is already allowed by your network policy. Don't enable public access for this test. If both allowed paths fail, check service availability. |
+| 401 Unauthorized | Verify the token audience is `https://discovery.azure.com/` and the caller has the required role on the resource. |
+| DNS resolves to a public IP | Follow the [private DNS checks](#the-workspace-host-doesnt-resolve-over-a-private-endpoint). |
 
 ## Network security group rules block deployment and usage
 
@@ -240,6 +332,219 @@ An invalid or mismatched message identifier passed from the agent to the tool pr
 1. Ensure you're on a release that includes the message ID fix and diagnostic logging.
 1. Apply any recommended prompt-level improvements.
 1. Collect the agent, workflow, and tool definitions to reproduce the issue. See [Debug task execution](how-to-debug-task-execution.md).
+
+## Managed identity operations fail
+
+### Storage access denied
+
+Storage container creation or blob operations fail with `403 Forbidden`, `AuthorizationFailed`, `AuthorizationPermissionMismatch`, or `This request is not authorized to perform this operation`.
+
+Verify that the workspace's user-assigned managed identity (UAMI) has **Storage Blob Data Contributor** on the target storage account. For example:
+
+```azurecli
+az role assignment create \
+  --assignee-object-id "{uamiPrincipalId}" \
+  --assignee-principal-type ServicePrincipal \
+  --role "Storage Blob Data Contributor" \
+  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+```
+
+Role assignment propagation can take up to 10 minutes. Wait, then retry. If the failure affects a user's access to output files rather than the workspace identity, use [Can't view output files](how-to-debug-task-execution.md#cant-view-output-files).
+
+### Container image pull failures
+
+Tool runs fail with `ImagePullBackOff`. Check that the image repository and tag in the tool definition exist, and that the registry network rules allow access from the supercomputer.
+
+Verify permissions for the supercomputer's **kubelet UAMI**, which pulls images. In a shared-identity deployment, it can be the same UAMI used by the workspace. For a registry in **RBAC Registry Permissions** mode, assign **AcrPull** at the registry scope:
+
+```azurecli
+az role assignment create \
+  --assignee-object-id "{uamiPrincipalId}" \
+  --assignee-principal-type ServicePrincipal \
+  --role "AcrPull" \
+  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{acrName}"
+```
+
+For an ABAC-enabled registry, use supported repository roles instead. AcrPull isn't a substitute for repository-scoped permissions. See [Supercomputer registry access](how-to-configure-container-registry.md#supercomputer-access).
+
+### Workspace creation fails with identity error
+
+For `ManagedIdentityNotFound` or `LinkedAuthorizationFailed` errors:
+
+1. Verify the UAMI exists: `az identity show --name {name} --resource-group {rg}`.
+1. Verify the identity resource ID in the request and that the UAMI is in the same region as the workspace.
+1. Confirm the caller has **Reader** access to the identity resource.
+
+See [Configure a user-assigned managed identity](how-to-configure-managed-identity.md).
+
+### Chat model deployment fails
+
+Agent responses fail with authentication errors when calling Azure OpenAI if the service-managed **Cognitive Services OpenAI User** assignment is missing.
+
+Find the workspace managed resource group:
+
+```azurecli
+az rest --method GET \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-02-01-preview" \
+  --query "properties.managedResourceGroup"
+```
+
+Verify role assignments there. If the autoassigned role is missing, contact Microsoft Support. Don't manually modify assignments managed by the Discovery service.
+
+## Persona role assignment script fails
+
+Use the failed and skipped rows in the [persona role assignment script summary](how-to-assign-persona-roles.md#output-and-exit-codes) to identify the affected scope.
+
+| Symptom | Cause and resolution |
+| --- | --- |
+| `FATAL: -ResourceGroupName is required when -Scope is 'ResourceGroup'.` | Supply `-ResourceGroupName <name>` or choose `-Scope Subscription` when that broader scope is intended. |
+| `Role 'Microsoft Discovery Bookshelf Index Data Reader - Preview' not found in this tenant.` | The role isn't available in the tenant yet. The run continues; rerun later to pick up the role. |
+| `Azure AI Owner/User ... [-WorkspaceManagedRGName not provided; ...]` | The workspace doesn't exist yet. Follow the [two-step assignment workflow](how-to-assign-persona-roles.md), or use subscription scope only if that scope is intended. |
+| `Permission denied` from `New-AzRoleAssignment` | The script runner needs **Owner**, **User Access Administrator**, or **Role Based Access Control Administrator** at the target scope. |
+| `Unable to acquire token for tenant '...'` and `User interaction is required` | Specify the subscription's tenant with `-TenantId <guid>` or enter the tenant GUID at the prompt. |
+
+For additional cross-tenant guidance, see the [script troubleshooting reference](https://github.com/microsoft/discovery/blob/main/utilities/rbac-roles-assignment/README.md#troubleshooting).
+
+## Project access or linked-resource permissions are incorrect
+
+Use the [project role verification commands](how-to-configure-project-rbac.md#verify-the-assignments) to inspect direct and inherited assignments.
+
+| Symptom | Cause and resolution |
+| --- | --- |
+| You can't see a project | Assign the role at the full project resource ID and allow time for Azure RBAC propagation. |
+| You can see every project | Review and narrow an inherited Microsoft Discovery Platform role at workspace, resource group, or subscription scope. |
+| The tool list is empty or agent creation is denied | Assign **Microsoft Discovery Tools Reader (Preview)** on each referenced tool or an approved containing scope. |
+| The model picker is empty or agent creation is denied | Assign **Microsoft Discovery Chat Model Reader (Preview)** on the selected model deployment or workspace. |
+| A contributor can run an existing agent but can't view its tool or model | This behavior is expected for an agent created by a platform administrator. Add Tools Reader or Chat Model Reader only if the contributor needs to view those definitions or update the agent. |
+| Discovery Engine runs without Chat Model Reader | This behavior is expected. Project Contributor authorizes Discovery Engine, and the platform `gpt-5-4` deployment doesn't require a separate user assignment. |
+| Project artifacts' storage account is inaccessible | Assign **Storage Account Contributor** on the backing storage account or resource group. |
+| Storage assets are visible, but files can't be opened | Assign **Storage Blob Data Reader** or **Storage Blob Data Contributor** at the backing Azure Storage scope. Also check the [client network and CORS requirements](how-to-debug-task-execution.md#cant-view-output-files). |
+| A knowledge base isn't listed or can't be queried | Assign **Microsoft Discovery Bookshelf Index Data Reader - Preview** on the bookshelf or an inherited scope. |
+| Agent creation worked before a linked-resource role was removed | Access is checked during agent create or update, not every run. Update or remove agents that reference the revoked resource. |
+| A project-only user can't read Workbench session status | Some Workbench read and status operations require inherited workspace access because they don't include project context. |
+
+## Storage container creation fails or stays in provisioning
+
+If Azure reports that `.../storageAccounts/{name}` wasn't found, verify `storageAccountId` is the full ARM ID of an existing storage account. Create the storage account before the Discovery storage container.
+
+For a storage container stuck in provisioning, first confirm the workspace is `Succeeded`. Resolve workspace failures before creating storage containers. After correcting the cause, re-PUT the storage container with the same request body to retry provisioning. See [Manage storage containers](how-to-manage-storage-containers.md).
+
+For blob permission failures, use [Storage access denied](#storage-access-denied).
+
+## Tool deployment fails
+
+| Symptom | Cause and resolution |
+| --- | --- |
+| `InvalidDefinitionContent` during creation | Revalidate the YAML against the [tool definition reference](how-to-create-tool-definition.md), then convert it to JSON again. |
+| Environment variables aren't visible in the container | Confirm the uploaded file is a flat `{ "KEY": "value" }` JSON object, then recreate the tool resource with that file. |
+| `RoleAssignmentNotFound` during creation | Assign **Contributor** or **Microsoft Discovery Platform Administrator (Preview)** at resource group scope. |
+| `ImagePullBackOff` during a tool run | Follow the [container image and identity checks](#container-image-pull-failures). |
+
+See [Deploy a tool to Microsoft Discovery](how-to-deploy-tool-to-discovery.md) for the creation workflow.
+
+## Shared sessions or tasks don't make progress
+
+| Symptom | Where to start |
+| --- | --- |
+| Tasks stay in New status | Check the [Discovery Engine and task dependencies](how-to-debug-task-execution.md#tasks-stuck-in-new-status). |
+| Tasks finish without useful results | Add specific, achievable validation requirements and set the task back to New. |
+| The agent keeps retrying the same approach | Review [validation requirements and agent capability](how-to-debug-task-execution.md#tasks-cycling-between-executing-and-incomplete). |
+| No tasks start after several minutes | Allow 2-3 minutes for startup, then confirm the project has at least one deployed agent. See [Cognition warmup](how-to-debug-task-execution.md#cognition-warmup-takes-a-long-time). |
+| Tool calls take a long time | Compare with [normal execution times](how-to-debug-task-execution.md#normal-execution-times), including the first-call cold start. |
+| Logs show a task in `FLAGGED_HUMAN` state | Open the shared session in Discovery Studio and address the task that needs attention. |
+| CogLoop is waiting for a running tool task | Inspect the associated job in the [supercomputer logs](how-to-query-supercomputer-logs.md). |
+| A context-window saturation reset failed | Contact your Discovery administrator with the instance and error details. |
+
+### Serialization errors block all cognition instances
+
+An instance's working memory might not deserialize after a model-schema change, or instance data in Cosmos DB might be corrupted.
+
+1. Run the [serialization-error query](how-to-query-cognitive-loop-logs.md#detect-serialization-errors-jsonexception) to confirm the pattern.
+1. Inspect `Exception` for the JSON path and property that fails.
+1. Escalate to the service team with the instance ID and exception details.
+
+### Tasks aren't being validated
+
+1. Run the [TaskValidationAgent lifecycle query](how-to-query-cognitive-loop-logs.md#view-taskvalidationagent-lifecycle) to check provisioning, upsert, and invocation.
+1. Look for upsert failures or provisioning errors. If there are no entries, first rule out [missing or delayed logs](#application-logs-contain-no-data), then check whether the validation agent was provisioned.
+1. Verify the required workspace model deployment using the [Discovery Engine startup checks](how-to-debug-task-execution.md#discovery-engine-wont-start).
+
+### Circuit breaker events persist
+
+Repeated model API failures can open a circuit breaker and temporarily pause CogLoop requests. Events normally clear after the cooldown. Use the [circuit-breaker query](how-to-query-cognitive-loop-logs.md#detect-circuit-breaker-events) to inspect `BrokenCircuitException`. If the events persist, contact Microsoft Support.
+
+## Resources or tool outputs aren't visible
+
+For files that exist but return access errors, use [Can't view output files](how-to-debug-task-execution.md#cant-view-output-files) to check the user's network path, CORS, and storage permissions.
+
+### A resource doesn't appear in the conversation
+
+1. Call `GetResourceContext` to confirm that the resource URI exists in conversation context.
+1. Check whether it is marked as not shared. If so, the agent hasn't called `ShareResource`.
+1. Call `PreviewResource` on the URI to confirm it contains content.
+1. If the description is missing, verify `UpdateResourceDetails` was called before `ShareResource`.
+1. If the resource is still absent, use Azure Storage Explorer to check whether the file exists under `discoveryOutputs/{projectName}/{investigationName}/{conversationGuid}/`.
+
+### Tool outputs don't appear in GetResourceContext
+
+1. Confirm the tool's output directory is listed in `outputMounts`.
+1. Verify the tool succeeded by checking conversation history for errors.
+1. Confirm each output mount is an absolute **directory** path, not a file path.
+
+See [Configure output mounts](how-to-data-handling-with-tools-agents.md#capture-tool-outputs-by-using-output-mounts).
+
+### Agent resource calls look incorrect in logs
+
+Agents reason iteratively, so an unsuccessful call followed by a corrected call doesn't necessarily require intervention.
+
+| Log pattern | Interpretation |
+| --- | --- |
+| `PreviewResource` returns "resource not found" | The output might not exist yet, or the URI is wrong. The agent can refresh `GetResourceContext` and retry with the correct URI. |
+| Repeated `GetResourceContext` calls | The agent is refreshing the resource list after tool execution. |
+| `ShareResource` returns "already shared" | The resource is already visible; the tool returns a success confirmation. |
+| `UpdateResourceDetails` follows `ShareResource` | The description update doesn't retroactively change the storage asset that was already created. |
+
+Intervene if the agent repeats the same failing call without progress, not merely because it makes a mistake and then self-corrects.
+
+## Application logs contain no data
+
+First, confirm you're querying the [Log Analytics workspace for the affected resource](how-to-access-resource-logs.md), not a different managed resource group. Expand the time range to the last 24 hours and allow for ingestion latency. Logs usually arrive within seconds, but ingestion can take up to five minutes.
+
+If the resource has no relevant activity, generate logs by running an appropriate operation:
+
+| Component | Table or query guide | Operation that generates logs |
+| --- | --- | --- |
+| Workspace | [DiscoveryLogs_CL](how-to-query-workspace-logs.md) | Run a shared session. |
+| Bookshelf queries | [DiscoveryLogs_CL](how-to-query-bookshelf-logs.md) | Run a knowledge base query in Discovery Studio. |
+| Bookshelf indexing | [DiscoveryBookshelfLogs_CL](how-to-query-bookshelf-indexing-logs.md) | Create or reindex a knowledge base. |
+| Cognition loop | [DiscoveryCogLoopLogs_CL](how-to-query-cognitive-loop-logs.md) | Run a shared session with Discovery Engine. |
+| Supercomputer | [Supercomputer log tables](how-to-query-supercomputer-logs.md) | Run a shared session or indexing job that uses compute. |
+
+## Log queries time out or run slowly
+
+Narrow the time range and filter before aggregating. For cognition logs, filter by `InstanceId`, `LogLevel`, or `Message`. Use `take` or `limit` to restrict the result set, or `summarize` when you need aggregates rather than raw rows.
+
+## Activity log entries are missing or show Failed
+
+If entries are missing:
+
+1. Extend the time range to cover the operation. Activity logs retain up to 90 days.
+1. Verify the resource group filter contains the resource, or remove the filter.
+1. Confirm the operation changed the resource. Read-only HTTP GET requests don't appear in the Activity Log.
+
+For a failed entry, inspect its **Properties** in the Azure portal or query the error details:
+
+```kql
+AzureActivity
+| where ResourceProviderValue == "MICROSOFT.DISCOVERY"
+| where ActivityStatusValue == "Failure"
+| extend ErrorCode = tostring(parse_json(Properties).statusCode)
+| extend ErrorMessage = tostring(parse_json(Properties).statusMessage)
+| project TimeGenerated, OperationNameValue, Caller, ErrorCode, ErrorMessage
+| order by TimeGenerated desc
+```
+
+See [View activity logs](how-to-view-activity-logs.md) for access and export instructions.
 
 ## Advanced troubleshooting and data collection
 

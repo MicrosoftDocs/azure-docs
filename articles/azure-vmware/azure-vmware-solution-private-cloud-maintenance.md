@@ -86,6 +86,8 @@ The following actions are necessary for ensuring host maintenance operations are
 > [!NOTE]
 > Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because the Azure VMware Solution control plane on vCenter Server manages them. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
 
+## Removal of hosts with maintenance-blocking configurations
+Removal of a host with VMs having a configuration that prevent VMware vMotion from live migrating the VM on to another host fails. Either reconfigure such VMs to unblock VMware vMotion and live migrate the VM or manually migrate these VMs on to another host. You might need to wait for 15 minutes after reconfiguring or evacuating such VMs before attempting to remove the host from a cluster.
 
 ## Next steps
 

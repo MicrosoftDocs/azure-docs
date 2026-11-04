@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/16/2026
+ms.date: 10/19/2026
 ai-usage: ai-assisted
 ---
 
@@ -65,6 +65,8 @@ Data protection for Azure Front Door focuses on encrypting traffic, protecting c
 - **Use end-to-end TLS**: Configure HTTPS from clients to Azure Front Door and from Azure Front Door to origins so traffic remains encrypted across the full request path. For more information, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
 - **Configure current TLS policies**: Use the newest predefined TLS policy or a custom TLS policy that meets your security requirements for minimum protocol versions and cipher suites. For more information, see [Azure Front Door TLS policy](tls-policy.md).
+
+- **Choose compatible TLS key exchange groups**: Configure a custom domain's key exchange policy separately from its protocol and cipher-suite policy. Start with **Standard** and test client compatibility before restricting groups. Hybrid post-quantum groups require TLS 1.3. The domain's policy controls key establishment on client-to-Front Door connections, not the separate origin connection. For more information, see [TLS key exchange policy](tls-key-exchange-policy.md).
 
 - **Don't rely on Front Door for client certificate authentication**: Front Door Standard and Premium don't currently support client or mutual authentication (mTLS). If your workload requires mTLS, implement that control at an origin or alternate ingress layer and validate the complete request path. For more information, see [Azure Front Door TLS policy](tls-policy.md).
 

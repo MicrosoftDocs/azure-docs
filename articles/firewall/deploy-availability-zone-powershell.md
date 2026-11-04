@@ -27,7 +27,7 @@ Azure Firewall uses a **Zone-redundant-by-default** deployment model to improve 
 For new deployments, **don't specify availability zones for the firewall**. Azure manages backend zone allocation across multiple availability zones in regions where the default is available. You don't need to choose zone identifiers to get zone redundancy.
 
 - New firewalls with no specified zones are zone redundant by default in the [ZR compatible regions](#zr-compatible-regions).
-- Existing non-zone-redundant firewalls, including firewalls with an explicitly specified single zone, are platform-migrated in regions that support multiple availability zones.
+- Existing firewalls with no specified zones, are platform-migrated in regions that support multiple availability zones.
 - Migration is complete in the listed regions. Other regions are enabled as the migration progresses.
 - You don't need to deallocate, redeploy, or change the firewall's zone settings to receive the automatic migration.
 

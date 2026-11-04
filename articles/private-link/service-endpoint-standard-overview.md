@@ -19,7 +19,7 @@ A standard service endpoint enables you to securely connect IaaS workloads to Pa
 
 ## How a standard service endpoint works
 
-A standard service endpoint introduces the concept of a **network identifier** - a public IP address that you associate with service endpoints on your subnets. The public IP address is only used as method of identification of the traffic connecting directly to the virtual network to the service.
+A standard service endpoint introduces the concept of a **network identifier** - a public IP address that you associate with service endpoints on your subnets. The public IP address is the only method of identification for the traffic connecting directly to the virtual network to the service. Deployment requires permissions on the public IP address resource. By using this method, you provide a strong network identification for VNet owners, ensuring they also own the public IP address that is used when connecting to PaaS services.
 
 To configure a standard service endpoint, you create a public IP address, associate it as a network identifier with service endpoints on your subnets, secure your PaaS resources within a network security perimeter, and add IP-based inbound access rules that match the network identifier. The network identifier identifies traffic from your subnets and the network security perimeter authorizes it. You can assign the same public IP address to all subnets in a region and subscription, which dramatically reduces the number of ACL entries required compared to basic service endpoints. A single network identifier can represent many VNets and subnets.
 

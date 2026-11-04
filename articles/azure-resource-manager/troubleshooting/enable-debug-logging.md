@@ -4,7 +4,7 @@ description: Describes how to enable debug logging to troubleshoot Azure resourc
 tags: top-support-issue
 ms.custom: devx-track-arm-template, devx-track-bicep, devx-track-azurecli
 ms.topic: troubleshooting
-ms.date: 04/28/2025
+ms.date: 08/10/2026
 ---
 
 # Enable debug logging
@@ -12,7 +12,7 @@ ms.date: 04/28/2025
 To troubleshoot a deployment error, you can enable debug logging to get more information. Debug logging works for deployments with Bicep files or Azure Resource Manager templates (ARM templates). You can get data about a deployment's request and response to learn the cause of a problem.
 
 > [!WARNING]
-> Debug logging can expose secrets like passwords or `listKeys` operations. Only enable debug logging when you need to troubleshoot a deployment error. When you're finished debugging, you should [remove the debug deployment history](#remove-debug-deployment-history).
+> Debug logging can expose secrets like passwords or `listKeys` operations. Redaction of an exact secure parameter value in a deployment error message doesn't guarantee that transformed or derived variants of that value are redacted. Only enable debug logging when you need to troubleshoot a deployment error. When you're finished debugging, [remove the debug deployment history](#remove-debug-deployment-history).
 
 ## Set up debug logging
 
