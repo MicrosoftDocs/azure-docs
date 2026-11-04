@@ -50,7 +50,7 @@ For example, suppose you expect to consume 2,000,000 GitHub AI Credits. Assuming
 
 ## Purchase GitHub AI Credits commit units
 
-GitHub AI Credits pre-purchase plan purchases are eligible for payment with Azure Prepayment and count toward your Microsoft Azure Consumption Commitment (MACC).
+You can pay for GitHub AI Credits pre-purchase plans with Azure Prepayment. These plans count toward your Microsoft Azure Consumption Commitment (MACC).
 
 Purchase GitHub AI Credits pre-purchase plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 
 
