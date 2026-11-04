@@ -81,7 +81,7 @@ This example demonstrates how the Pre-Purchase plan can provide cost savings for
 
 ## Purchase GitHub Pre-Purchase Plan commit units
 
-GitHub Pre-Purchase plan purchases are eligible for payment with Azure Prepayment and count toward your Microsoft Azure Consumption Commitment (MACC).
+You can pay for GitHub pre-purchase plan purchases with Azure prepayment. These purchases count toward your Microsoft Azure Consumption Commitment (MACC).
 
 Purchase GitHub Pre-Purchase Plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 
 
