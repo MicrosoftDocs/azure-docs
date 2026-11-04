@@ -4,7 +4,7 @@ description: Learn about the available metrics that can let you understand how y
 author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
-ms.date: 01/07/2026
+ms.date: 11/04/2026
 ms.author: rogarana
 # Customer intent: As a cloud storage administrator, I want to monitor the performance metrics of my Azure Elastic SAN, so that I can optimize its availability and manage resource usage effectively.
 ---
@@ -40,7 +40,7 @@ The following metrics are currently available for your Elastic SAN resource. You
 | Metric | Definition | Recommended use | 
 |---|---|---|
 |**Provisioned Base**| The baseline capacity you configure for the Elastic SAN when you create it. This capacity includes the initial reserved SAN capacity before you add any extra expansion capacity.| Understand the base capacity that contributes to the SAN’s provisioned performance. |
-|**Provisioned Capacity**| The total currently provisioned SAN capacity. This capacity includes the original **Provisioned Base** plus any extra capacity expansions you add.| Monitor the SAN’s configured capacity and capacity growth. |
+|**Provisioned Additional Capacity**| Any additional storage capacity provisioned beyond the baseline Elastic SAN capacity.| Monitor the SAN’s configured capacity and capacity growth. |
 |**Provisioned Size**| The total allocated size of all volumes you provision within the SAN. Unlike **Provisioned Capacity**, which represents the total SAN capacity configured and available at the SAN level, **Provisioned Size** reflects how much of that SAN capacity you already assigned to volumes.| Compare provisioned size with other SAN capacity metrics. |
 |**Snapshot Size**| The total snapshot size for the provisioned size under the SAN.| Track snapshot capacity separately from volume capacity.|
 |**Total Provisioned Volume Capacity**| The aggregate logical footprint of provisioned volumes plus snapshots within the SAN.| Understand how much capacity is provisioned to volumes.|
@@ -49,17 +49,16 @@ The following metrics are currently available for your Elastic SAN resource. You
 Before you monitor capacity metrics, it's important to understand how they relate to each other:
 ```text
 Provisioned Base
-└─ Provisioned Capacity (base capacity + any purchased expansions)
+└─ Provisioned Capacity (any purchased expansions)
  └─ Provisioned Size (sum of all provisioned volume sizes within the SAN)
   └─ Total Provisioned Volume Capacity (total allocated volume capacity)
 ```
-* You set **Provisioned Base** when you create the SAN. Expanding the SAN increases **Provisioned Capacity**, not the base. 
-* **Provisioned Size** can never exceed **Provisioned Capacity**. If it does, volume creation fails. 
+* You set **Provisioned Base** when you create the SAN. Expanding the SAN increases **Provisioned Additional Capacity**, not the base. 
 * **Total Provisioned Volume Capacity** is the total provisioned and allocated volume capacity, not the actual written usage. For example, provisioning a 10 GiB volume can result in 10 GiB of **Total Provisioned Volume Capacity** being reported, even if the volume contains minimal data. 
 * **Snapshot Size** accumulates separately and isn't included in the **Total Provisioned Volume Capacity**. Monitor both together for total billed storage.
 
-## Transaction metrics definitions
-Transaction metrics represent the total number of I/O requests that the Elastic SAN service processes. Transactions include successful requests, failed requests, and requests that return errors.
+## Performance metrics definitions
+Performance metrics represent the total number of I/O requests that the Elastic SAN service processes. Transactions include successful requests, failed requests, and requests that return errors.
 
 | Metric | Unit | Definition | Recommended use |
 |---|---|---|---|
