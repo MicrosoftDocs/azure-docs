@@ -339,7 +339,7 @@ one second; slower input increases the collection delay. To change the default
 timeout, configure an explicit [duration-based closing condition](../howto-dataflow-graphs-window.md#duration-based-window)
 and account for partial batches downstream.
 
-For a smoothed value after every reading, see the exponential moving average sample in the [Azure Samples deployment instructions](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasmREADME.md#data-flow-pattern-samples).
+For a smoothed value after every reading, see the exponential moving average sample in the [Azure Samples deployment instructions](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#data-flow-pattern-samples).
 
 ## Related content
 

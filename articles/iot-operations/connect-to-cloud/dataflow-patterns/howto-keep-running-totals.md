@@ -22,7 +22,7 @@ Each reading must contain the amount **since the previous reading**, not the met
 
 Start with an existing Azure IoT Operations deployment and MQTT broker access. Follow [Create a data flow graph](../howto-create-dataflow-graph.md) to configure a data flow profile and MQTT endpoint.
 
-Complete the [Azure Samples deployment instructions](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasmREADME.md#data-flow-pattern-samples) for registry setup and single-instance deployment, then use the [standalone sample setup](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasmREADME.md#use-complete-standalone-manifests). The examples use namespace `azure-iot-operations`. Arrange durable checkpoints and an ordered input log for continuity across restarts.
+Complete the [Azure Samples deployment instructions](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#data-flow-pattern-samples) for registry setup and single-instance deployment, then use the [standalone sample setup](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#use-complete-standalone-manifests). The examples use namespace `azure-iot-operations`. Arrange durable checkpoints and an ordered input log for continuity across restarts.
 
 The `default` data flow profile must already exist with one instance. The examples reuse the existing `factory-mqtt` MQTT endpoint and `factory-artifacts` registry endpoint for `ghcr.io`; they don't create profiles or endpoints.
 
