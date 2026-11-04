@@ -23,8 +23,8 @@ The revert functionality is also available in configurations with volume replica
 
 ## Considerations
 
-* Reverting a volume using snapshot revert isn't supported on [Azure NetApp Files volumes that have backups](backup-requirements-considerations.md). 
-* In configurations with a volume replication relationship, a SnapMirror snapshot is created to synchronize between the source and destination volumes. This snapshot is created in addition to any user-created snapshots. **When reverting a source volume with an active volume replication relationship, only snapshots that are more recent than this SnapMirror snapshot can be used in the revert operation.** 
+* For volumes configured with Azure NetApp Files backup, snapshot revert is supported. However, you can only revert to snapshots that are newer than the latest snapshot used for backup.
+* For volumes with an active replication relationship, a SnapMirror snapshot is created to synchronize the source and destination volumes, in addition to any user-created snapshots. **You can only revert the source volume to user snapshots that are newer than the latest SnapMirror snapshot.**
 
 ## Steps
 
