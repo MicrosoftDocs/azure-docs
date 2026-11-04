@@ -146,6 +146,9 @@ items:
   - name: Business Continuity Center
     tocHref: /azure/business-continuity-center/
     topicHref: /azure/business-continuity-center/index
+  - name: Azure in China Playbook
+    tocHref: /azure/china/
+    topicHref: /azure/china/
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
