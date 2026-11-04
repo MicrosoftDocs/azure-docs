@@ -88,7 +88,7 @@ With Azure Key Vault or Azure Key Vault Managed HSM, your organization controls 
 
 Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses indicating loss of key access also require consuming Azure services to stop using and flush cached data encryption keys (DEKs) associated with that customer-managed key encryption key. For most services, affected encrypted data becomes inaccessible within one hour of your disabling the key, revoking access, or deleting it. Disabling the key is the recommended way of stopping use of a customer key encryption key use for encryption at rest. For other errors, services make a best effort to preserve workload availability using cached DEKs. 
 
-For more information about Managed HSM's architectural protections, see [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details). 
+For more information about Managed HSM's architectural protections, see [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details).
 
 ## Encryption at rest in Microsoft cloud services
 
