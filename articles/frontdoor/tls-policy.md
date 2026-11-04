@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/13/2026
+ms.date: 10/19/2026
 ---
 
 # Configure an Azure Front Door TLS policy
@@ -16,12 +16,14 @@ Azure Front Door supports [end-to-end TLS encryption](end-to-end-tls.md). When y
 
 Azure Front Door Standard and Premium provide predefined and custom TLS policies. If you use Azure Front Door (classic) or Microsoft CDN (classic), you continue to use the minimum TLS 1.2 version.
 
+To control classical and hybrid post-quantum key exchange methods for client connections, configure the domain's [TLS key exchange policy](tls-key-exchange-policy.md) separately. The TLS policy controls protocol versions and cipher suites; the key exchange policy controls supported groups.
+
 During the TLS handshake, Azure Front Door negotiates the protocol version and cipher suite with the client. For a minimum TLS version of 1.2, it first attempts to establish TLS 1.3 and then TLS 1.2. The client must support at least one of the supported cipher suites to establish an HTTPS connection with Azure Front Door. Azure Front Door chooses a cipher suite in the listed order from the cipher suites that the client supports.
 
 When Azure Front Door initiates TLS traffic to the origin, it attempts to negotiate the best TLS version that the origin can reliably and consistently accept. Front Door supports TLS 1.2 and TLS 1.3 for origin connections.
 
 > [!NOTE]
-> Clients with TLS 1.3 enabled must support one of the Microsoft Security Development Lifecycle (SDL) compliant elliptic (EC) curves, including secp384r1, secp256r1, and secp521r1. Use one of these curves as the preferred curve during requests to avoid increased TLS handshake latency caused by multiple round trips to negotiate a supported EC curve.
+> Clients must support at least one group in the domain's TLS key exchange policy. Hybrid post-quantum groups require TLS 1.3. If you permit TLS 1.2, include at least one classical group in a custom key exchange policy. For supported groups and compatibility considerations, see [TLS key exchange policy](tls-key-exchange-policy.md).
 
 ## Choose a TLS policy
 

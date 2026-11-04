@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: error-reference #Don't change
-ms.date: 09/24/2026
+ms.date: 10/28/2026
 
 #customer intent: As a Discovery platform administrator or developer, I want a list of Microsoft Discovery error codes and their resolutions so that I can quickly diagnose and fix failed operations.
 
@@ -23,6 +23,21 @@ The following general checks resolve most errors before you consult a specific c
 - **Check `provisioningState`.** `Succeeded` means the operation completed, `Accepted` usually means the operation is still in progress, and `Failed` means you must inspect the operation history. Some resource types must be deleted and recreated after they enter a terminal `Failed` state.
 - **Verify the deploying identity's roles.** Discovery requires data-plane, storage, network-perimeter, and Foundry permissions in addition to control-plane rights. Subscription **Owner** alone isn't sufficient. See [Role assignments for Microsoft Discovery](concept-role-assignments.md).
 - **Confirm region and API version.** Deploy only to a supported region and use the API version that ships with the current Toolbox or [infrastructure quickstart](quickstart-infrastructure.md).
+
+## REST API response errors
+
+Control-plane Azure Resource Manager requests and workspace data-plane job requests can return the following HTTP errors. Inspect the response body and the correlation ID before retrying.
+
+| HTTP status | API or error code | Resolution |
+| --- | --- | --- |
+| 400 | Control plane: `InvalidRequestContent` | Correct a malformed request body or missing required properties. See the [supercomputer request properties](how-to-manage-supercomputers-rest-api.md). |
+| 401 | Data plane: Unauthorized | Refresh the access token. |
+| 403 | Data plane: Forbidden | Verify the caller's RBAC permissions on the workspace or project. See [Project access troubleshooting](troubleshoot-microsoft-discovery.md#project-access-or-linked-resource-permissions-are-incorrect). |
+| 404 | Control plane: `ResourceNotFound` | Verify the subscription, resource group, and resource ID identify an existing resource. |
+| 404 | Data plane: Not Found | Check the project name, operation ID, and workspace URL. |
+| 409 | Control plane: `Conflict` | Inspect resource state. For example, wait for the supercomputer to finish provisioning before creating a node pool. For a terminal failed state, use the [failed-resource guidance](troubleshoot-microsoft-discovery.md#a-discovery-resource-is-stuck-in-a-terminal-failed-state). |
+| 429 | `TooManyRequests` | Apply backoff and retry. Honor the `Retry-After` header when returned. |
+| 5xx | Data plane: Server Error | Retry transient failures with bounded exponential backoff. For an example, see the [job API retry strategy](how-to-run-jobs-supercomputer-rest-api.md#retry-strategy). |
 
 ## Deployment and control-plane error codes
 
