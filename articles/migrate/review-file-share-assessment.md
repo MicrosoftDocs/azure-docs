@@ -109,12 +109,12 @@ You can use this path to:
 
 - Understand migration issues and warnings that must be remediated before migrating to Azure Files.  
 
-> [!Note]
+> [!NOTE]
 > - The recommended deployment strategy is Azure Files when file shares are assessed successfully and meet readiness requirements with cost benefits.
 > - Azure Migrate attempts to provide a successful migration path for all selected file shares.
 > - If an error occurs during assessment, such as volume or size estimation issues, the affected file share and all collocated shares on the server are recommended for an Azure virtual machine migration path.
 
-### Migrate all files shares to Azure Files
+### Migrate all file shares to Azure Files
 
 This strategy shows readiness and cost estimates for migrating file shares to Azure Files. Review individual share details, source information, target recommendations, and estimated monthly costs.
 
@@ -123,7 +123,7 @@ Select **View details** to see the following information on each file share:
 - Source servers hosting such instances 
 - Monthly cost 
 - Target Azure service SKU 
-- Top file shares by used capacity and  
+- Top file shares by used capacity
 
 A drill-down view provides details on readiness states, source properties, and target recommendations.
 
@@ -260,7 +260,7 @@ Two further sections help you act on the recommendation:
 
 ## Act on the results
 
-- **Generate a wave plan** from a path card to sequence the migration into waves.
+- [Configure a wave plan](how-to-configure-wave-plan.md) from **Plan** > **Wave plan** to review and sequence proposed waves for the selected assessment and migration path.
 - **Build a business case** to compare the economics of a PaaS-preferred modernization approach against an IaaS lift-and-shift option across the estate.
 - **Download the report** to review the results offline and share them with stakeholders.
 - **Recalculate** after a new discovery cycle or after changing assessment settings, so the results reflect the current environment.
