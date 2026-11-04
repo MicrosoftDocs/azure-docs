@@ -59,12 +59,12 @@ The tool in the [Microsoft Discovery repository](https://github.com/microsoft/di
 | Stage | Purpose and output | Azure writes | Learn task |
 | --- | --- | --- | --- |
 | 1. Planning | Validate the workbook and generate `config.json`. | No; live checks read Azure state. | [Create a configuration](how-to-create-deployment-configuration.md) |
-| 2. Landing zone | Prepare providers, access, networking, and storage settings; generate team request artifacts. | Yes, including in existing-network mode. | [Prepare the landing zone (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) |
-| 3. Validation | Inspect readiness and generate reports for the selected profiles. | No by default; the optional probe mode creates resources. | [Validate readiness (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) |
-| 4. Deployment | Provision the core platform in dependency order. | Yes | [Deploy with the tool (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) |
-| 5. Scenario verification | Exercise a Q&A agent and inspect project-storage configuration. | Yes; creates scenario objects and sends a model request. | [Verify the deployment (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) |
+| 2. Landing zone | Prepare providers, access, networking, and storage settings; generate team request artifacts. | Yes, including in existing-network mode. | [Prepare the landing zone](how-to-prepare-landing-zone.md) |
+| 3. Validation | Inspect readiness and generate reports for the selected profiles. | No by default; the optional probe mode creates resources. | [Validate readiness](how-to-validate-deployment-readiness.md) |
+| 4. Deployment | Provision the core platform in dependency order. | Yes | [Deploy with the tool](how-to-deploy-platform.md) |
+| 5. Scenario verification | Exercise a Q&A agent and inspect project-storage configuration. | Yes; creates scenario objects and sends a model request. | [Verify the deployment](how-to-verify-deployment.md) |
 
-After Stage 1, you can optionally [preview Stages 2-5 offline (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md). Previewing is not a readiness gate and doesn't replace live checks.
+After Stage 1, you can optionally [preview Stages 2-5 offline](how-to-preview-deployment-changes.md). Previewing is not a readiness gate and doesn't replace live checks.
 
 ## Coordinate handoffs
 
