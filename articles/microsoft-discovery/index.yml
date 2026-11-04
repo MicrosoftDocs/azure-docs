@@ -9,7 +9,7 @@ metadata:
   ms.service: azure
   ms.topic: landing-page
   ms.author: mukeshdua
-  ms.date: 09/04/2026
+  ms.date: 10/24/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -36,10 +36,50 @@ landingContent:
         links:
           - text: Deploy Microsoft Discovery infrastructure
             url: quickstart-infrastructure.md
-          - text: Run your first agent and investigation
+          - text: Run your first agent and shared session
             url: quickstart-agents-studio.md
+      - linkListType: tutorial
+        links:
+          - text: Tutorials & how-to videos
+            url: tutorial-howto-videos.md
+          - text: Run a shared session with Discovery Engine
+            url: tutorial-discovery-mode.md
 
-  - title: Agents and investigations
+  - title: Plan and prepare
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Deployment planning and path choices
+            url: concept-deployment-planning.md
+          - text: Quota and capacity requirements
+            url: concept-quota-reservation.md
+          - text: Role assignments
+            url: concept-role-assignments.md
+          - text: Virtual networks and subnets
+            url: concept-virtual-networks.md
+      - linkListType: reference
+        links:
+          - text: Resource naming rules
+            url: reference-resource-naming.md
+      - linkListType: how-to-guide
+        links:
+          - text: Register resource providers
+            url: how-to-register-resource-providers.md
+
+  - title: Use the onboarding tool
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up the onboarding tool
+            url: how-to-set-up-deployment-tool.md
+          - text: Preview onboarding changes offline
+            url: how-to-preview-deployment-changes.md
+          - text: Validate deployment readiness
+            url: how-to-validate-deployment-readiness.md
+          - text: Deploy with the onboarding tool
+            url: how-to-deploy-platform.md
+
+  - title: Agents
     linkLists:
       - linkListType: concept
         links:
@@ -47,98 +87,128 @@ landingContent:
             url: concept-discovery-agent.md
           - text: Discovery Agent types
             url: concept-discovery-agent-types.md
+          - text: Agent catalog
+            url: concept-agent-catalog.md
       - linkListType: how-to-guide
         links:
           - text: Create agents
             url: how-to-agent-creation.md
           - text: Select models for agents
             url: how-to-select-models-for-agents.md
-          - text: Write effective prompts for agents
-            url: how-to-prompt-engineering.md
-          - text: Data handling with tools and agents
-            url: how-to-data-handling-with-tools-agents.md
 
-  - title: Discovery Engine
+  - title: Projects and shared sessions
     linkLists:
       - linkListType: concept
         links:
+          - text: Projects and shared sessions
+            url: concept-projects-investigations.md
           - text: Discovery Engine overview
             url: concept-discovery-engine.md
           - text: Cognition overview
             url: concept-cognition-overview.md
-          - text: Tasks and investigations
+          - text: Tasks and shared sessions
             url: concept-tasks-investigations.md
-          - text: Advanced investigation patterns
-            url: concept-advanced-investigation-patterns.md
       - linkListType: how-to-guide
         links:
-          - text: Build investigations with cognition
+          - text: Build shared sessions with cognition
             url: how-to-build-investigations-cognition.md
+          - text: Add and manage tasks
+            url: how-to-task-addition-execution.md
+
+  - title: Tools
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Tools and model integration
+            url: concept-tools-model-integration.md
+      - linkListType: how-to-guide
+        links:
+          - text: Plan tool requirements
+            url: how-to-plan-tool-requirements.md
+          - text: Create a Dockerfile for a tool
+            url: how-to-create-tool-docker-file.md
+          - text: Publish a tool to Azure Container Registry
+            url: how-to-publish-tool-to-acr.md
+          - text: Create a tool definition
+            url: how-to-create-tool-definition.md
+          - text: Deploy a tool to Microsoft Discovery
+            url: how-to-deploy-tool-to-discovery.md
 
   - title: Data and knowledge
     linkLists:
       - linkListType: concept
         links:
-          - text: Bookshelf and Knowledge Bases
-            url: concept-bookshelf-knowledge-bases.md
           - text: Storage containers and storage assets
             url: concept-storage-containers-assets.md
+          - text: Files and task data inheritance
+            url: concept-files-storage-assets.md
+          - text: Bookshelf and knowledge bases
+            url: concept-bookshelf-knowledge-bases.md
       - linkListType: how-to-guide
         links:
           - text: Manage storage containers
             url: how-to-manage-storage-containers.md
-          - text: Create and index a Bookshelf Knowledge Base
+          - text: Data handling with tools and agents
+            url: how-to-data-handling-with-tools-agents.md
+          - text: Create a Bookshelf and index a knowledge base
             url: how-to-index-bookshelf-knowledgebase.md
 
-  - title: Security and compliance
+  - title: Infrastructure and security
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
+          - text: Discovery Supercomputer and model execution
+            url: concept-supercomputer.md
           - text: Security and compliance overview
             url: concept-security-overview.md
-      - linkListType: concept
-        links:
-          - text: Compliance guidance
-            url: concept-compliance-framework-mappings.md
-          - text: Role assignments
-            url: concept-role-assignments.md
-          - text: Project-level access control
-            url: concept-project-rbac.md
-          - text: Network security overview
-            url: concept-network-security.md
-          - text: Data encryption at rest
-            url: concept-data-encryption-at-rest.md
+          - text: Billing and costs
+            url: concept-discovery-billing.md
+          - text: Business continuity and disaster recovery
+            url: concept-discovery-business-continuity-disaster-recovery.md
       - linkListType: how-to-guide
         links:
-          - text: Configure project-level access
-            url: how-to-configure-project-rbac.md
-          - text: Configure network security
-            url: how-to-configure-network-security.md
-          - text: End-to-end network-hardened deployment
-            url: how-to-deploy-network-hardened-stack.md
+          - text: Manage workspaces
+            url: how-to-manage-workspaces.md
           - text: Configure customer-managed keys
             url: howto-data-encryption-at-rest.md
-      - linkListType: reference
-        links:
-          - text: SIG-based security and compliance FAQ
-            url: faq-security-compliance-sig.yml
 
-  - title: Billing and reference
+  - title: Monitoring
     linkLists:
       - linkListType: concept
         links:
-          - text: Billing overview
-            url: concept-discovery-billing.md
+          - text: Observability overview
+            url: concept-observability.md
+      - linkListType: how-to-guide
+        links:
+          - text: Access resource logs
+            url: how-to-access-resource-logs.md
+          - text: View activity logs
+            url: how-to-view-activity-logs.md
+          - text: Query Discovery Engine (CogLoop) logs
+            url: how-to-query-cognitive-loop-logs.md
+
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot general issues
+            url: troubleshoot-microsoft-discovery.md
+          - text: Known issues
+            url: known-issues.md
+      - linkListType: reference
+        links:
+          - text: Error codes
+            url: troubleshooting-error-code.md
+
+  - title: Reference
+    linkLists:
       - linkListType: reference
         links:
           - text: REST API
             url: /rest/api/discovery/
+          - text: Resource naming rules
+            url: reference-resource-naming.md
+          - text: .NET SDKs
+            url: reference-dotnet-sdks.md
           - text: Frequently asked questions
             url: faq.yml
-
-  - title: Tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Tutorials & how-to videos
-            url: tutorial-howto-videos.md
