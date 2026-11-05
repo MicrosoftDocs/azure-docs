@@ -139,7 +139,7 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
     const actor = event.actor?.login || event.user?.login;
     const ownLabel = ['labeled', 'unlabeled'].includes(event.event) &&
       [settings.event, ...settings.managedLabels].includes(event.label?.name);
-    const ownComment = event.body?.startsWith(PREFIX) || event.body === settings.message;
+    const ownComment = event.body?.startsWith(PREFIX) || isReminder(event.body, settings);
     if (actor === BOT && (ownLabel || ownComment)) bookkeeping = true;
     else if (Date.parse(time) > Date.parse(latest)) latest = time;
   }
@@ -165,7 +165,7 @@ function commentIdentities(comments, reviews, settings) {
   for (const [kind, entries] of [['issue', comments], ['review', reviews]]) {
     if (!Array.isArray(entries)) throw new Error('Missing paginated KP comments');
     result[kind] = entries.filter(item => !(item.user?.login === BOT &&
-      (item.body?.startsWith(PREFIX) || item.body === settings.message))).map(item => item.id)
+      (item.body?.startsWith(PREFIX) || isReminder(item.body, settings)))).map(item => item.id)
       .sort((left, right) => left - right);
   }
   validateCommentIdentities(result);
@@ -344,7 +344,7 @@ async function canPost({github, context, core, number, now = Date.now}) {
       }
       const current = await activity(github, context.repo, finalPR, selected, finalComments, settings, now);
       const feedback = entries => entries.filter(item => !(item.user?.login === BOT &&
-        (item.body?.startsWith(PREFIX) || item.body === settings.message)))
+        (item.body?.startsWith(PREFIX) || isReminder(item.body, settings))))
         .sort((left, right) => left.id - right.id)
         .map(item => [item.id, item.body, item.created_at, item.updated_at]);
       const finalHas = label => finalPR.labels.some(item => item.name === label);
@@ -363,4 +363,21 @@ async function canPost({github, context, core, number, now = Date.now}) {
   return due;
 }
 
-module.exports = {isDue, fingerprint, readClock, activity, reconcile, canPost, initialize, PREFIX};
+function isReminder(body, settings) {
+  if (body === settings.message) return true;
+  const mention = typeof body === 'string' && body.match(/^@([A-Za-z0-9][A-Za-z0-9_-]*(?:\[bot\])?)\n\n/);
+  return Boolean(mention && body.slice(mention[0].length) === settings.message);
+}
+
+async function authorReminder({github, context, number, message}) {
+  const {data: pr} = await github.rest.pulls.get({...context.repo, pull_number: number});
+  const login = pr?.user?.login;
+  if (pr?.number !== number || typeof login !== 'string' ||
+      !/^[A-Za-z0-9][A-Za-z0-9_-]*(?:\[bot\])?$/.test(login) || login.toLowerCase() === 'ghost') {
+    throw new Error(`Missing or invalid PR author for KP reminder on #${number}`);
+  }
+  if (typeof message !== 'string' || !message.trim()) throw new Error('Missing KP author reminder message');
+  return `@${login}\n\n${message}`;
+}
+
+module.exports = {isDue, fingerprint, readClock, activity, reconcile, canPost, initialize, authorReminder, PREFIX};

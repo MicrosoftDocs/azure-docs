@@ -62,7 +62,7 @@ permissions:
 jobs:
   send-reminders:
     name: Send ${{ inputs.reminder-type }} reminders
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -105,21 +105,21 @@ jobs:
           fi
 
       # Only the trusted scan revision is checked out, never a contributor PR.
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
           sparse-checkout: .github/scripts
 
       - name: Reconcile business-day reminder eligibility
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const {reconcile} = require('./.github/scripts/kp-business-clock.cjs');
             await reconcile({github, context, core});
 
       - name: Check out the pinned stale action
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: actions/stale
           ref: 4391f3da665fdf50b6810c1a66712fb9ba21aa93
@@ -154,7 +154,7 @@ jobs:
           const posting = "async _markStale(issue, staleMessage, staleLabel, skipMessage) {\n        const issueLogger = new IssueLogger(issue);";
           if (original.split(posting).length !== 2) throw new Error('Unexpected stale posting contract');
           fs.writeFileSync(file, original.replace(old, "const CACHE_KEY = 'kp-author-reminders-v1';")
-            .replace(posting, posting + "\n        try {\n            const load = __WEBPACK_EXTERNAL_createRequire(import.meta.url);\n            const {canPost} = load(load('node:path').join(\n                process.env.GITHUB_WORKSPACE, '.github/scripts/kp-business-clock.cjs'));\n            if (!await canPost({\n                github: this.client, context: github_context, number: issue.number,\n                core: {info: message => issueLogger.info(message)}\n            })) return;\n        } catch (error) {\n            process.exitCode = 1;\n            throw error;\n        }\n"));
+            .replace(posting, posting + "\n        try {\n            const load = __WEBPACK_EXTERNAL_createRequire(import.meta.url);\n            const {canPost, authorReminder} = load(load('node:path').join(\n                process.env.GITHUB_WORKSPACE, '.github/scripts/kp-business-clock.cjs'));\n            if (!await canPost({\n                github: this.client, context: github_context, number: issue.number,\n                core: {info: message => issueLogger.info(message)}\n            })) return;\n            staleMessage = await authorReminder({\n                github: this.client, context: github_context, number: issue.number, message: staleMessage\n            });\n        } catch (error) {\n            process.exitCode = 1;\n            throw error;\n        }\n"));
           NODE
 
       # Existing markers must reach stock cleanup even after due is removed.

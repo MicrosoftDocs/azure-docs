@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const {isDue, reconcile, readClock, canPost, PREFIX} = require('../scripts/kp-business-clock.cjs');
+const {isDue, reconcile, readClock, canPost, authorReminder, PREFIX} = require('../scripts/kp-business-clock.cjs');
 
 test('72 elapsed Redmond weekday hours, not office hours or calendar-date counting', () => {
   const due = (start, end) => isDue(start, Date.parse(end), 3);
@@ -24,16 +24,16 @@ test('72 elapsed Redmond weekday hours, not office hours or calendar-date counti
 
 function fixture() {
   Object.assign(process.env, {
-    EVENT_LABEL: 'conference-event', REMINDER_DUE_LABEL: 'kp-reminder-due',
+    EVENT_LABEL: 'kp-conference-event', REMINDER_DUE_LABEL: 'kp-reminder-due',
     AUTHOR_REMINDER_LABEL: 'kp-author-stalepr', EXEMPT_LABEL: 'keep-open',
     AUTHOR_REMINDER_MESSAGE: 'Existing author reminder', INACTIVITY_DAYS: '3',
     ROLLOUT_BRANCH_PREFIX: 'release-ignite26-'
   });
   let now = Date.parse('2026-10-26T19:00:00Z');
   const comments = [], events = [], reviews = [], writes = [];
-  const pr = {number: 42, state: 'open', draft: false, title: 'Title', body: 'Body',
+  const pr = {number: 42, user: {login: 'pr-author'}, state: 'open', draft: false, title: 'Title', body: 'Body',
     head: {sha: 'abc'}, base: {ref: 'release-ignite26-test'},
-    created_at: '2026-10-23T19:00:00Z', updated_at: '2026-10-23T19:00:00Z', labels: [{name: 'conference-event'}],
+    created_at: '2026-10-23T19:00:00Z', updated_at: '2026-10-23T19:00:00Z', labels: [{name: 'kp-conference-event'}],
     assignees: [], requested_reviewers: [], requested_teams: []};
   const stamp = () => new Date(now += 1000).toISOString();
   function label(name, add) {
@@ -89,6 +89,109 @@ function fixture() {
         user: {login: 'author'}, created_at: pr.updated_at, updated_at: pr.updated_at});
     }};
 }
+
+test('scheduled batch reminders mention each API PR author, never the actor or reviewer', async () => {
+  const context = {repo: {owner: 'test', repo: 'repo'}, actor: 'workflow-actor',
+    eventName: 'schedule', payload: {sender: {login: 'workflow-actor'}}};
+  const authors = new Map([[42, 'first-author'], [43, 'second_author']]);
+  const reads = [];
+  const github = {rest: {pulls: {get: async args => {
+    reads.push(args);
+    return {data: {number: args.pull_number, user: {login: authors.get(args.pull_number)},
+      requested_reviewers: [{login: 'reviewer'}]}};
+  }}}};
+  const message = '### Author action needed\n\nExisting text and **team credit**.';
+  for (const [number, login] of authors) {
+    for (let retry = 0; retry < 2; retry++) {
+      const body = await authorReminder({github, context, number, message});
+      assert.equal(body, `@${login}\n\n${message}`);
+      assert.equal(body.split(`@${login}`).length - 1, 1);
+      assert.doesNotMatch(body, /workflow-actor|reviewer|\{\{|\$\{|@@/);
+    }
+  }
+  assert.deepEqual(reads.map(args => args.pull_number), [42, 42, 43, 43]);
+  assert.ok(reads.every(args => args.owner === 'test' && args.repo === 'repo'));
+});
+
+test('missing, deleted, malformed or unreadable authors fail before an unmentioned reminder', async () => {
+  const f = fixture();
+  for (const user of [null, {}, {login: ''}, {login: 'ghost'}, {login: '@someone'},
+    {login: 'name\n@someone'}]) {
+    f.pr.user = user;
+    await assert.rejects(authorReminder({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+      number: 42, message: process.env.AUTHOR_REMINDER_MESSAGE}), /Missing or invalid PR author/);
+  }
+  f.pr.user = {login: 'pr-author'};
+  await assert.rejects(authorReminder({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    number: 42, message: ''}), /Missing KP author reminder message/);
+  f.github.rest.pulls.get = async () => {throw new Error('Author read denied');};
+  await assert.rejects(authorReminder({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    number: 42, message: process.env.AUTHOR_REMINDER_MESSAGE}), /Author read denied/);
+  assert.deepEqual(f.writes, []);
+});
+
+test('mentioned and historical bot reminders retain bookkeeping without deliberate reposting', async () => {
+  for (const mentioned of [false, true]) {
+    const f = fixture();
+    await f.run();
+    const activityAt = readClock(f.comments[0]).activityAt;
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    const body = mentioned ? await authorReminder({github: f.github,
+      context: {repo: {owner: 'test', repo: 'repo'}}, number: 42,
+      message: process.env.AUTHOR_REMINDER_MESSAGE}) : process.env.AUTHOR_REMINDER_MESSAGE;
+    await f.github.rest.issues.createComment({body});
+    f.label('kp-author-stalepr', true);
+    await f.run();
+    assert.equal(readClock(f.comments[0]).activityAt, activityAt);
+    assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+      core: {info() {}}, number: 42, now: Date.parse('2026-10-28T19:01:00Z')}), false);
+    const identities = readClock(f.comments[0]).commentIds;
+    assert.deepEqual(identities.issue, []);
+    f.comments.splice(f.comments.findIndex(comment => comment.body === body), 1);
+    await f.run();
+    assert.equal(readClock(f.comments[0]).activityAt, activityAt);
+  }
+});
+
+test('a human copy of the mentioned reminder remains genuine feedback activity', async () => {
+  const f = fixture();
+  await f.run();
+  const observed = '2026-10-28T19:01:00Z';
+  f.setTime(observed);
+  f.pr.updated_at = observed;
+  f.comments.push({id: 900, user: {login: 'pr-author'},
+    body: `@pr-author\n\n${process.env.AUTHOR_REMINDER_MESSAGE}`,
+    created_at: observed, updated_at: observed});
+  await f.run();
+  assert.equal(readClock(f.comments[0]).activityAt, observed);
+  assert.ok(!f.pr.labels.some(label => label.name === 'kp-reminder-due'));
+  assert.ok(!f.pr.labels.some(label => label.name === 'kp-author-stalepr'));
+});
+
+test('only the configured KP membership label enrolls reconciliation and posting', async () => {
+  const legacy = fixture();
+  legacy.pr.labels = [{name: 'conference-event'}];
+  await legacy.run();
+  assert.deepEqual(legacy.writes, []);
+  await assert.rejects(canPost({github: legacy.github,
+    context: {repo: {owner: 'test', repo: 'repo'}}, core: {info() {}},
+    number: 42, now: Date.parse('2026-10-28T19:01:00Z')}), /Expected one KP clock/);
+
+  const current = fixture();
+  await current.run();
+  assert.ok(current.comments.some(comment => comment.body.startsWith(PREFIX)));
+  current.setTime('2026-10-28T19:01:00Z');
+  await current.run();
+  assert.ok(current.pr.labels.some(label => label.name === 'kp-reminder-due'));
+  assert.equal(await canPost({github: current.github,
+    context: {repo: {owner: 'test', repo: 'repo'}}, core: {info() {}},
+    number: 42, now: Date.parse('2026-10-28T19:01:00Z')}), true);
+  current.pr.labels = [{name: 'conference-event'}, {name: 'kp-reminder-due'}];
+  assert.equal(await canPost({github: current.github,
+    context: {repo: {owner: 'test', repo: 'repo'}}, core: {info() {}},
+    number: 42, now: Date.parse('2026-10-28T19:01:00Z')}), false);
+});
 
 test('initialization, due bookkeeping, stock reminder, activity cleanup and reset', async () => {
   const f = fixture();
@@ -358,9 +461,9 @@ test('enrollment preserves idle time before writing the event label', async () =
   f.setTime('2026-10-28T19:01:00Z');
   const args = {github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
     core: {info() {}}, pr: structuredClone(f.pr),
-    eventLabel: 'conference-event', managedLabels: ['kp-reminder-due', 'kp-author-stalepr']};
+    eventLabel: 'kp-conference-event', managedLabels: ['kp-reminder-due', 'kp-author-stalepr']};
   await initialize(args);
-  f.label('conference-event', true);
+  f.label('kp-conference-event', true);
   await f.run();
   assert.equal(readClock(f.comments[0]).activityAt, '2026-10-23T19:00:00Z');
   assert.ok(f.pr.labels.some(label => label.name === 'kp-reminder-due'));
@@ -419,7 +522,7 @@ test('overlapping enrollment and backfill share the oldest trusted clock without
   f.setTime('2026-10-28T19:01:00Z');
   const args = {github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
     core: {info() {}}, pr: structuredClone(f.pr),
-    eventLabel: 'conference-event', managedLabels: ['kp-reminder-due', 'kp-author-stalepr']};
+    eventLabel: 'kp-conference-event', managedLabels: ['kp-reminder-due', 'kp-author-stalepr']};
   const paginate = f.github.paginate;
   let release, reads = 0;
   const barrier = new Promise(resolve => {release = resolve;});
@@ -438,7 +541,7 @@ test('overlapping enrollment and backfill share the oldest trusted clock without
   const duplicateBody = duplicate.body;
   f.comments.reverse();
   f.github.paginate = paginate;
-  f.label('conference-event', true);
+  f.label('kp-conference-event', true);
   await f.run();
   assert.ok(f.pr.labels.some(label => label.name === 'kp-reminder-due'));
   assert.equal(readClock(oldest).activityAt, '2026-10-23T19:00:00Z');
@@ -484,7 +587,7 @@ test('restored PR descriptions retain server edit activity through later bot wri
 
 test('existing enrollment without a clock conservatively retains latest PR activity', async () => {
   const f = fixture();
-  f.events.push({event: 'labeled', label: {name: 'conference-event'},
+  f.events.push({event: 'labeled', label: {name: 'kp-conference-event'},
     actor: {login: 'github-actions[bot]'}, created_at: '2026-10-24T19:00:00Z'});
   f.pr.updated_at = '2026-10-28T18:00:00Z';
   f.setTime('2026-10-28T19:01:00Z');
@@ -693,7 +796,7 @@ test('legacy wording upgrades the same clock once and preserves its full hidden 
     f.setTime('2026-11-10T20:00:00Z');
     const run = enrollment ? () => initialize({
       github: f.github, context: {repo: {owner: 'test', repo: 'repo'}}, core: {info() {}},
-      pr: structuredClone(f.pr), eventLabel: 'conference-event',
+      pr: structuredClone(f.pr), eventLabel: 'kp-conference-event',
       managedLabels: ['kp-reminder-due', 'kp-author-stalepr']
     }) : f.run;
     const updates = f.writes.filter(([kind]) => kind === 'update').length;
@@ -714,7 +817,7 @@ test('a failed creation-time wording update recovers the existing clock rather t
   const {initialize} = require('../scripts/kp-business-clock.cjs');
   const f = fixture();
   const args = {github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
-    core: {info() {}}, pr: structuredClone(f.pr), eventLabel: 'conference-event',
+    core: {info() {}}, pr: structuredClone(f.pr), eventLabel: 'kp-conference-event',
     managedLabels: ['kp-reminder-due', 'kp-author-stalepr']};
   const update = f.github.rest.issues.updateComment;
   f.github.rest.issues.updateComment = async () => {throw Error('Wording update failed');};
