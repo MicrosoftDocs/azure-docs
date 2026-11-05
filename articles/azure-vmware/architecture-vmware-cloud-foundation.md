@@ -111,7 +111,7 @@ Previously, Azure VMware Solution used its own control plane to manage VMware so
 1.	Add Cluster-1 ESX 9.1 hosts to Azure VMware Solution tenant.
 2.	Deploy vCenter 9.1 to first ESX host of Cluster-1.
 3.	NSX 9.1 deployed to Cluster-1.
-4.	Deploy VCF 9.1 installer with offline software depot.
+4.	Deploy VCF 9.1 Installer with offline software depot.
 5.	VCF Installer 9.1 executes VCF instance **brownfield claim** mode.
 6.	VCF Operations, VCF Fleet Manager, VCF Software Depot, and VCF Runtime services deployed to Cluster-1.
 7.	VCF 9.1 Installer converted to SDDC Manager.
@@ -120,14 +120,14 @@ Previously, Azure VMware Solution used its own control plane to manage VMware so
 
 1.	If add-on enabled, upgrade VMware HCX to VCF Operations HCX 9.1.
 2.	If add-on enabled, upgrade VMware Live Site Recovery to VCF Protection & Recovery Live Recovery 9.1.
-3.	Deploy VCF 9.1 installer with offline software depot.
+3.	Deploy VCF 9.1 Installer with offline software depot.
 4.	Upgrade VMware NSX to 9.1.
 5.	Upgrade VMware vCenter Server 8.0 to vCenter 9.1.
 6.	Activate VMware NSX and VMware vCenter 9.1 API.
 7.	Upgrade VMware ESXi 8.0 to ESX 9.1.
 8.	Execute VCF Installer 9.1 in VCF instance **brownfield claim** mode.
 9.	Deploy VCF Operations, VCF Fleet Manager, VCF Software Depot, and VCF Runtime services to Cluster-1.
-10.	Convert VCF 9.1 installer to SDDC Manager.
+10.	Convert VCF 9.1 Installer to SDDC Manager.
 
 ## Frequently asked questions (FAQ)
 
@@ -142,11 +142,14 @@ This change is normal when a product evolves over time. The following table list
 | VMware Site Recovery Manager (SRM) | VCF Protection & Recovery Live Recovery |
 | VMware HCX | VCF Operations HCX |
 | VMware NSX-T Data Center | VMware NSX |
-| Aria Suite | VCF Operations Suite, VCF Automation |
+| VMware Aria Suite | VCF Operations Suite, VCF Automation |
 | VMware vCloud Director (vCD) | VCF Automation |
-| Aria Automation | VCF Automation |
-| Aria Operations for Logs | VCF Log Management |
-| Aria Operations for Networks | VCF Operations for Networks |
+| VMware Aria Automation | VCF Automation |
+| VMware Aria Operations | VCF Operations |
+| VMware Aria Operations for Logs | VCF Log Management |
+| VMware Aria Operations for Networks | VCF Operations for Networks |
+| VMware Aria Suite Lifecycle | VCF Fleet Manager |
+| VMware Identity Manager (vIDM - retired) | VMware Identity Broker (vIDB - new product)|
 
 ### What version of VCF 9.1 does Azure VMware Solution use?
 Microsoft plans to use VCF 9.1.2. This build includes the necessary VCF API calls to support Azure VMware Solution.

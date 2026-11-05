@@ -126,7 +126,7 @@ Here's an example format of a version 1 NSG flow log:
             "time": "2017-02-16T22:00:32.8950000Z",
             "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 1,
@@ -163,7 +163,7 @@ Here's an example format of a version 1 NSG flow log:
             "time": "2017-02-16T22:01:32.8960000Z",
             "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 1,
@@ -201,7 +201,7 @@ Here's an example format of a version 1 NSG flow log:
                     "time": "2017-02-16T22:00:32.8950000Z",
                     "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -238,7 +238,7 @@ Here's an example format of a version 1 NSG flow log:
                     "time": "2017-02-16T22:01:32.8960000Z",
                     "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -274,7 +274,7 @@ Here's an example format of a version 1 NSG flow log:
                     "time": "2017-02-16T22:02:32.9040000Z",
                     "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -324,7 +324,7 @@ Here's an example format of a version 2 NSG flow log:
             "time": "2018-11-13T12:00:35.3899262Z",
             "systemId": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 2,
@@ -363,7 +363,7 @@ Here's an example format of a version 2 NSG flow log:
             "time": "2018-11-13T12:01:35.3918317Z",
             "systemId": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 2,

@@ -463,7 +463,7 @@ This section describes different ways that you can view the elevate access log e
     ```json
       "submissionTimestamp": "2021-08-27T15:42:00.1527942Z",
       "subscriptionId": "",
-      "tenantId": "33333333-3333-3333-3333-333333333333"
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     {
       "authorization": {
