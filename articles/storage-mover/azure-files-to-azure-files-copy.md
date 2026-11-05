@@ -5,7 +5,7 @@ author: jeevanbalanmanoj
 ms.author: jeevanm
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 10/07/2026
+ms.date: 11/04/2026
 ms.custom: references_regions
 ---
 
@@ -72,6 +72,7 @@ The Azure Files-to-Azure Files data copy feature in Azure Storage Mover has the 
 - For recurring schedules, the end date must be within one year of the date on which the schedule was created. Set the start date up to 90 days from the creation date.
 - Azure Files-to-Azure Files data copy doesn't allow you to select the same source and target endpoint in the same job.
 - Don't modify the target file share between job runs. Storage Mover doesn't perform conflict resolution, and changes made on the target between runs can be overwritten or lost. Treat the target share as read-only while a copy schedule is active.
+- Incremental copies operate at the file level, not at the range level. If a file changes, Storage Mover copies the entire file, even when only a small part of it changed. For large files with few changed ranges, the incremental copy still transfers the whole file, which increases copy time and cost.
 - Files aren't truly moved but copied. The source file share continues to exist in its current location along with the target location set.
 
 ## Configure source and target endpoints
@@ -80,7 +81,7 @@ In the context of the Azure Storage Mover service, an *endpoint* is a resource t
 
 Follow the steps in this section to configure an Azure Files source and target endpoints. To learn more about Storage Mover endpoints, refer to the [Manage Azure Storage Mover endpoints](endpoint-manage.md) article.
 
-### Configure an Azure file share source endpoint
+### Configure an Azure Files source endpoint
 
 1. Go to your Storage Mover instance in Azure.
 1. From the **Resource management** group in the left navigation, select **Storage endpoints**.
@@ -88,7 +89,7 @@ Follow the steps in this section to configure an Azure Files source and target e
 1. In the **Create source endpoint** pane:
 
     - Select Azure to Azure as the **Migration type**.
-    - Select Azure File share (Preview) as the **Source type**.
+    - Select Azure Files (Preview) as the **Source type**.
     - Select your subscription and storage account from the respective **Subscription** and **Storage account** drop-down lists. The **Media tier** of the storage account is displayed.
     - Under **Protocol**, **SMB** is selected. NFS isn't available in the preview.
     - Choose the file share you want to copy from the **File share** drop-down list.
@@ -218,7 +219,7 @@ When configured, Azure Storage Mover can also provide copy logs and job run logs
 
 ## Post-copy validation
 
-Post-copy data validation ensures that your data is accurate and that the transfer from the source Azure file share is complete. This validation process verifies data integrity and consistency by comparing copied data to the same data from the source. You can also choose to conduct user acceptance tests to further confirm functionality. Validation helps identify and resolve discrepancies, ensuring the copied data is reliable and meets your business requirements.
+Post-copy data validation ensures that your data is accurate and that the transfer from the Azure Files is complete. This validation process verifies data integrity and consistency by comparing copied data to the same data from the source. You can also choose to conduct user acceptance tests to further confirm functionality. Validation helps identify and resolve discrepancies, ensuring the copied data is reliable and meets your business requirements.
 
 Follow the steps in this section to complete manual validation.
 
@@ -226,8 +227,63 @@ Follow the steps in this section to complete manual validation.
 
     :::image type="content" source="./media/files-to-files-copy/target-share-browse.png" alt-text="Screenshot of the target Azure file share Browse page listing the copied files.":::
 
-1. Use a recurring schedule if you need to keep the target Azure file share in sync with the source over time.
-1. Delete the source Azure file share after the data copy is fully completed and verified if you don't need it anymore.
+1. Use a recurring schedule if you need to keep the target Azure Files in sync with the source over time.
+1. Delete the source Azure Files after the data copy is fully completed and verified if you don't need it anymore.
+
+## Benchmark results
+
+The following benchmark results provide an indication of Azure Files-to-Azure Files copy performance using Azure Storage Mover. The results include both the **initial copy of the full dataset** and **incremental copies after data changes**. Actual performance can vary depending on factors such as the source and target locations, Storage Mover instance location, dataset characteristics, and workload activity. Use these results as a reference, not as a performance guarantee.
+
+### Test configuration
+
+| Dimension | Configuration |
+|---|---|
+| Protocol | SMB |
+| Share type | SSD provisioned v2 |
+| Source region | West US 3 |
+| Storage Mover region | Central US |
+| Target region | Central US |
+| Topology | Storage Mover instance and target file share in the same region; source file share in a remote region |
+| Directory structure | Standard directory hierarchy |
+
+> [!NOTE]
+> Performance can vary based on the locations of the source, target, and Storage Mover instance. These tests were conducted with the Storage Mover instance in the same region as the target file share. For best performance, deploy the Storage Mover resource in the supported region closest to the target file share.
+
+### Test datasets
+
+Two datasets were used to evaluate the effect of file size on copy performance.
+
+| Dataset | File count | File size | Approximate dataset size |
+|---|---|---|---|
+| Medium files | 1 million | 256 KB | ~256 GB |
+| Large files | 1 million | 1 MB | ~1 TB |
+
+### Initial copy
+
+The initial copy is the first transfer, in which Storage Mover scans the complete source dataset and copies it to the target file share.
+
+| Dataset | File scan duration | Total duration (scan and transfer) | IOPS consumed | Throughput (MB/s) |
+|---|---|---|---|---|
+| Medium files | 1 min 3 sec | 40 min 28 sec | 2,539 | 108.0 |
+| Large files | 1 min 4 sec | 1 hr 14 min | 1,426 | 236.7 |
+
+### Incremental copy
+
+Incremental copy results show the time required to scan the source and transfer changes after the initial copy. *Churn* is the percentage of files in the dataset that changed between copy runs. A 0% churn test represents a scan in which no files require transfer.
+
+| Dataset | Churn | File scan duration | Total duration (scan and transfer) | IOPS consumed | Throughput (MB/s) |
+|---|---|---|---|---|---|
+| Medium files | 0% | 49 sec | 50 sec | N/A | N/A |
+| Medium files | 10% | 1 min 30 sec | 5 min 50 sec | 1,753 | 74.9 |
+| Large files | 0% | 49.9 sec | 50.1 sec | N/A | N/A |
+| Large files | 10% | 1 min 27 sec | 8 min 55 sec | 1,383 | 195.9 |
+
+> [!NOTE]
+> Incremental copies are file-level, not range-level. When a file changes, Storage Mover copies the entire file, even if only a few ranges changed. This behavior contributes to the incremental copy durations shown in the preceding table, and it might increase copy time for large files that change in only a few places.
+
+### Estimate copy time for your workload
+
+Every workload is different. Run a test between your intended source and target regions before you plan a production copy. If you need only a rough estimate, and your data characteristics are similar to those in the preceding tests and network latency isn't a bottleneck because of the storage account locations, expect the copy time to scale approximately linearly with the number of objects (files and directories). For example, a dataset with 10 million medium-sized files takes roughly 10 times as long as the 1 million-file test dataset. Use this assumption for a rough calculation for your dataset.
 
 ## Troubleshooting and support
 
