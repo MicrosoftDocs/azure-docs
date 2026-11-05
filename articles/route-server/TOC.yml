@@ -53,6 +53,8 @@
   items:
   - name: Configure and manage Route Server
     href: configure-route-server.md
+  - name: Enable IPv4/IPv6 dual-stack (preview)
+    href: enable-route-server-dual-stack.md
   - name: Configure customer-controlled maintenance
     href: configure-customer-controlled-maintenance.md
   - name: View effective routes
