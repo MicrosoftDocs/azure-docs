@@ -26,11 +26,11 @@ Certificate issuance is integrated with device provisioning through DPS. The dev
 
 3. DPS submits the CSR to the intermediate certificate authority (CA) configured in the DPS enrollment. The intermediate CA issues a signed operational X.509 certificate.
 
-4. DPS returns the issued certificate and the assigned IoT Hub connection details to the device.
+4. DPS returns the operational certificate and the assigned IoT Hub connection details to the device.
 
-5. The device connects to its assigned IoT Hub, presents its certificate chain, and proves possession of the corresponding private key. Azure Device Registry synchronizes the intermediate CA certificate to the linked IoT Hub, enabling the hub to validate the chain. IoT Hub validates the certificate and device identity before accepting the connection.
+5. The device connects to its assigned IoT Hub, presents its operational certificate chain, and proves possession of the corresponding private key. During setup, ADR had synchronized the intermediate CA certificate to the linked IoT Hub, enabling the hub to validate the chain.
 
-The device uses its operational certificate - not its onboarding credential - for routine IoT Hub connectivity.
+The device uses its operational certificate for routine IoT Hub connectivity until it expires or is revoked.
 
 :::image type="content" source="media/concept-certificate-issuance/certificate-issuance-runtime-flow-hub-devices.png" alt-text="Conceptual diagram showing how devices acquire the first operational certificate." lightbox="media/concept-certificate-issuance/certificate-issuance-runtime-flow-hub-devices.png":::
 
@@ -44,7 +44,13 @@ When a device provisions or reprovisions, it sends a CSR to DPS. DPS expects the
 
 For implementation guidance, see [Unified Azure IoT SDKs for IoT Hub and Azure Device Registry](device-registry/concept-unified-iot-sdks.md).
 
-## Cryptographic algorithms
+## Issued certificate properties
+
+### Certificate validity and expiration
+
+Each issued device certificate's expiration date (`ValidNotAfter`) includes a randomly generated extra buffer of 0-24 hours beyond the policy's validity period. For example, a policy with a 30-day validity period produces certificates that expire 30 days plus 0-24 hours after their `ValidFrom` date. Device applications can read the `ValidNotAfter` value to schedule renewal before expiration.
+
+### Cryptographic algorithms
 
 Certificate authorities you create in Azure Device Registry use the following cryptographic standards for all certificates they issue:
 
@@ -53,11 +59,10 @@ Certificate authorities you create in Azure Device Registry use the following cr
 | Key algorithm | ECC (ECDSA) |
 | Curve | NIST P-384 (secp384r1) |
 | Hash algorithm | SHA-384 |
-| Key storage | Azure Managed HSM |
 
 ECC with P-384 offers equivalent security to RSA at much smaller key sizes. This algorithm produces smaller certificates, faster TLS handshakes, and lower power consumption on constrained IoT devices.
 
-## IoT Hub trust and CA sync
+## How IoT Hub trusts issued certificates
 
 For a device to authenticate with IoT Hub using its issued certificate, IoT Hub must trust the intermediate CA that signed the device certificate. When you create the CA, ADR automatically pushes the public CA certificate to your linked IoT Hubs. IoT Hub stores the intermediate CA certificate and uses it to validate the certificate chain that your devices present during TLS authentication.
 
