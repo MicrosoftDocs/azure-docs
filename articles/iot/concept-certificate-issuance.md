@@ -52,8 +52,6 @@ The certificate policy defines the validity period of device certificates issued
 
 For a device to authenticate with IoT Hub using its issued certificate, IoT Hub must trust the intermediate CA that signed the device certificate. When you create the CA, ADR automatically pushes the public CA certificate to your linked IoT Hubs. IoT Hub stores the intermediate CA certificate and uses it to validate the certificate chain that your devices present during TLS authentication.
 
-For supported CA signing algorithms, see the [feature table in the certificate management overview](iot-certificate-management-overview.md#overview-of-features).
-
 ## Get started with device certificate issuance
 
 IoT devices can request device certificates from ADR by using standard device workflows. To get started, see [Unified Azure IoT SDKs for IoT Hub and Azure Device Registry](device-registry/concept-unified-iot-sdks.md).
