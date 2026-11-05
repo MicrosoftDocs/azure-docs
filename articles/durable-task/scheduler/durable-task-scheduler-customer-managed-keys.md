@@ -55,7 +55,7 @@ When you configure or update a customer-managed key, make sure your key and key 
 
 Durable Task Scheduler needs permission to read and use the key for encryption operations. Grant the Durable Task Scheduler service identity the minimum permissions required by your key store.
 
-The Durable Task Scheduler service identity uses application ID `00001111-aaaa-2222-bbbb-3333cccc4444`. This application ID isn't a secret.
+The Durable Task Scheduler service identity uses application ID `887c6b43-ba92-4adb-a82b-73670fc48dac`. This application ID isn't a secret.
 
 ### Ensure the service principal exists
 
@@ -66,7 +66,7 @@ You can create the service principal by using Microsoft Entra methods such as [A
 The Azure CLI examples in this article use the following Bash commands:
 
 ```bash
-DTS_SERVICE_PRINCIPAL_APP_ID="00001111-aaaa-2222-bbbb-3333cccc4444"
+DTS_SERVICE_PRINCIPAL_APP_ID="887c6b43-ba92-4adb-a82b-73670fc48dac"
 
 DTS_SERVICE_PRINCIPAL_OBJECT_ID=$(az ad sp show \
   --id "$DTS_SERVICE_PRINCIPAL_APP_ID" \
@@ -84,7 +84,7 @@ fi
 If you use Azure PowerShell, use the Durable Task Scheduler application ID to get or create the service principal:
 
 ```azurepowershell
-$dtsServicePrincipalAppId = "00001111-aaaa-2222-bbbb-3333cccc4444"
+$dtsServicePrincipalAppId = "887c6b43-ba92-4adb-a82b-73670fc48dac"
 
 $dtsServicePrincipal = Get-AzADServicePrincipal `
   -ApplicationId $dtsServicePrincipalAppId
