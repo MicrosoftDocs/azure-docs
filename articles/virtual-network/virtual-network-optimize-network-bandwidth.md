@@ -228,7 +228,7 @@ sudo sysctl --system
 Create a udev rule in `/etc/udev/rules.d/99-azure-ring-buffer.rules` to apply ring buffer settings to network interfaces. Matching on `ENV{ID_NET_DRIVER}` detects whichever Accelerated Networking driver is present (`mana`, `mlx4_core`, or `mlx5_core`, depending on the VM SKU`) without needing to know the driver ahead of time. Use `rx 4096 tx 4096` for Accelerated Networking interfaces and keep `rx 1024 tx 1024` for synthetic `hv_netvsc` interfaces:
 
 ```ini
-# Set up accelerated networking ring buffers (mana, mlx4_core, mlx5_core, mlx5_core[ib_ipoib], depending on the VM SKU)
+# Set up accelerated networking ring buffers (mana, mlx4_core, mlx5_core, or mlx5_core[ib_ipoib], depending on the VM SKU)
 SUBSYSTEM=="net", ACTION=="add|move", ENV{ID_NET_DRIVER}=="mana", RUN+="/usr/sbin/ethtool -G %k rx 4096 tx 4096"
 SUBSYSTEM=="net", ACTION=="add|move", ENV{ID_NET_DRIVER}=="mlx4_core", RUN+="/usr/sbin/ethtool -G %k rx 4096 tx 4096"
 SUBSYSTEM=="net", ACTION=="add|move", ENV{ID_NET_DRIVER}=="mlx5_core*", RUN+="/usr/sbin/ethtool -G %k rx 4096 tx 4096"
