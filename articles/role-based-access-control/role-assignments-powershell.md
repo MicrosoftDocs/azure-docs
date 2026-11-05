@@ -188,10 +188,10 @@ New-AzRoleAssignment -ObjectId <objectId> `
 
 #### Assign a role for all blob containers in a storage account resource scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* and Application ID *66666666-6666-6666-6666-666666666666* at a resource scope for a storage account named *storage12345*.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb* and Application ID *00001111-aaaa-2222-bbbb-3333cccc4444* at a resource scope for a storage account named *storage12345*.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ApplicationId 66666666-6666-6666-6666-666666666666 `
+PS C:\> New-AzRoleAssignment -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 `
 -RoleDefinitionName "Storage Blob Data Contributor" `
 -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 
@@ -201,17 +201,17 @@ DisplayName        : example-identity
 SignInName         :
 RoleDefinitionName : Storage Blob Data Contributor
 RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
-ObjectId           : 55555555-5555-5555-5555-555555555555
+ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
 #### Assign a role for a specific blob container resource scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* and Application ID *66666666-6666-6666-6666-666666666666* at a resource scope for a blob container named *blob-container-01*.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb* and Application ID *00001111-aaaa-2222-bbbb-3333cccc4444* at a resource scope for a blob container named *blob-container-01*.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ApplicationId 66666666-6666-6666-6666-666666666666 `
+PS C:\> New-AzRoleAssignment -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 `
 -RoleDefinitionName "Storage Blob Data Contributor" `
 -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
 
@@ -222,7 +222,7 @@ DisplayName        : example-identity
 SignInName         :
 RoleDefinitionName : Storage Blob Data Contributor
 RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
-ObjectId           : 55555555-5555-5555-5555-555555555555
+ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
@@ -262,13 +262,13 @@ PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com `
 -ResourceGroupName pharma-sales
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/pr
-                     oviders/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
+                     oviders/Microsoft.Authorization/roleAssignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 DisplayName        : Pat Long
 SignInName         : patlong@contoso.com
 RoleDefinitionName : Virtual Machine Contributor
 RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
-ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectId           : cccccccc-2222-3333-4444-dddddddddddd
 ObjectType         : User
 CanDelegate        : False
 ```
@@ -280,13 +280,13 @@ PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com `
 -RoleDefinitionName "Virtual Machine Contributor" `
 -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 DisplayName        : Pat Long
 SignInName         : patlong@contoso.com
 RoleDefinitionName : Virtual Machine Contributor
 RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
-ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectId           : cccccccc-2222-3333-4444-dddddddddddd
 ObjectType         : User
 CanDelegate        : False
 ```
@@ -303,37 +303,37 @@ Even if a role is renamed, the role ID does not change. If you are using scripts
 The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *patlong\@contoso.com* user at the *pharma-sales* resource group scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 `
+PS C:\> New-AzRoleAssignment -ObjectId cccccccc-2222-3333-4444-dddddddddddd `
 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c `
 -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 DisplayName        : Pat Long
 SignInName         : patlong@contoso.com
 RoleDefinitionName : Virtual Machine Contributor
 RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
-ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectId           : cccccccc-2222-3333-4444-dddddddddddd
 ObjectType         : User
 CanDelegate        : False
 ```
 
 #### Assign a role for an application at a resource group scope
 
-Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with service principal object ID 77777777-7777-7777-7777-777777777777 at the *pharma-sales* resource group scope.
+Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with service principal object ID dddddddd-3333-4444-5555-eeeeeeeeeeee at the *pharma-sales* resource group scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 `
+PS C:\> New-AzRoleAssignment -ObjectId dddddddd-3333-4444-5555-eeeeeeeeeeee `
 -RoleDefinitionName "Virtual Machine Contributor" `
 -ResourceGroupName pharma-sales
 
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00001111-aaaa-2222-bbbb-3333cccc4444
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 DisplayName        : MyApp1
 SignInName         :
 RoleDefinitionName : Virtual Machine Contributor
 RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
-ObjectId           : 77777777-7777-7777-7777-777777777777
+ObjectId           : dddddddd-3333-4444-5555-eeeeeeeeeeee
 ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
@@ -347,13 +347,13 @@ PS C:\> New-AzRoleAssignment -SignInName annm@example.com `
 -RoleDefinitionName "Reader" `
 -Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00001111-aaaa-2222-bbbb-3333cccc4444
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
 DisplayName        : Ann M
 SignInName         : annm@example.com
 RoleDefinitionName : Reader
 RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-ObjectId           : 77777777-7777-7777-7777-777777777777
+ObjectId           : dddddddd-3333-4444-5555-eeeeeeeeeeee
 ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
@@ -373,7 +373,7 @@ DisplayName        : Alain Charon
 SignInName         : alain@example.com
 RoleDefinitionName : Billing Reader
 RoleDefinitionId   : fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64
-ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectId           : cccccccc-2222-3333-4444-dddddddddddd
 ObjectType         : User
 CanDelegate        : False
 ```
