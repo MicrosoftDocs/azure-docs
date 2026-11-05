@@ -43,7 +43,7 @@ DisplayName        : Alain
 SignInName         : alain@example.com
 RoleDefinitionName : Storage Blob Data Reader
 RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
-ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ObjectType         : User
 CanDelegate        : False
 

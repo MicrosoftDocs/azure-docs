@@ -83,10 +83,10 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
 -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-Removes the [User Access Administrator](built-in-roles.md#user-access-administrator) role with ID 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 from the principal with ID 33333333-3333-3333-3333-333333333333 at subscription scope with ID 00000000-0000-0000-0000-000000000000.
+Removes the [User Access Administrator](built-in-roles.md#user-access-administrator) role with ID 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 from the principal with ID aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb at subscription scope with ID 00000000-0000-0000-0000-000000000000.
 
 ```azurepowershell
-PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 `
+PS C:\> Remove-AzRoleAssignment -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb `
 -RoleDefinitionId 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 `
 -Scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```

@@ -122,7 +122,7 @@ Select **Submit**. After setup finishes, the guided setup opens the namespace, w
 
 ## Connect services individually
 
-If you want full control over each resource, connect services to a namespace one at a time instead of using the guided setup. Connect a DPS instance first, then one or more IoT Hub instances, and then an optional software update instance. This method produces the same connected result as the guided setup.
+If you want full control over each resource, connect services to a namespace one at a time instead of using the guided setup. Connect a DPS instance first, then one or more IoT Hub instances. You can then optionally set up a root certificate authority (CA) and connect a software update instance. This method produces the same connected result as the guided setup.
 
 ### 1. Create or open a namespace
 
@@ -147,6 +147,7 @@ LOCATION="<region>"
 NS="<namespace-name>"
 DPS="<dps-name>"
 HUB="<iot-hub-name>"
+ROOT_CA="<root-ca-name>"
 SU="<software-update-instance-name>"
 ```
 
@@ -175,6 +176,7 @@ $LOCATION = "<region>"
 $NS = "<namespace-name>"
 $DPS = "<dps-name>"
 $HUB = "<iot-hub-name>"
+$ROOT_CA = "<root-ca-name>"
 $SU = "<software-update-instance-name>"
 ```
 
@@ -292,7 +294,52 @@ To connect more IoT Hub instances, repeat these steps with a different IoT Hub i
 
 ---
 
-### 4. Connect software updates (optional)
+### 4. Set up a root certificate authority (optional)
+
+# [Azure portal](#tab/azure-portal)
+
+1. In your namespace, under **Security**, select **Certificate Authorities**.
+1. Select **Create** > **Root Certificate Authority**. This option is disabled if the namespace already has a root CA.
+1. Enter a name for the root CA that's 3-63 characters long, and then select **Create**.
+1. Wait for provisioning to finish. Confirm that the root CA appears on the **Certificate Authorities** page.
+
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+Use the root CA name, namespace, and resource group variables from step 1.
+
+1. Create the root CA in the namespace:
+
+   ```azurecli
+   az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
+   ```
+
+1. Verify that provisioning succeeded and review the root CA certificate information:
+
+   ```azurecli
+   az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
+   ```
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Use the root CA name, namespace, and resource group variables from step 1.
+
+1. Create the root CA in the namespace:
+
+   ```powershell
+   az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
+   ```
+
+1. Verify that provisioning succeeded and review the root CA certificate information:
+
+   ```powershell
+   az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
+   ```
+
+---
+
+To issue device certificates, you also need an intermediate CA and a certificate policy. For instructions, see [Set up a managed root and intermediate CA](../how-to-create-policy.md).
+
+### 5. Connect software updates (optional)
 
 # [Azure portal](#tab/azure-portal)
 
@@ -336,7 +383,7 @@ Only one software update instance can connect to a namespace.
 
 ---
 
-### 5. Verify the connected resources
+### 6. Verify the connected resources
 
 # [Azure portal](#tab/azure-portal)
 
@@ -397,6 +444,7 @@ For example, if the namespace name is `contoso-devices`, the guided setup sugges
 | Azure Device Registry namespace | `<namespace-name>` | `contoso-devices` |
 | IoT Hub instance | `<namespace-name>-hub-<number>` | `contoso-devices-hub-1` |
 | Device Provisioning Service | `<namespace-name>-provisioning` | `contoso-devices-provisioning` |
+| Root certificate authority | `<namespace-name>-root-ca` | `contoso-devices-root-ca` |
 | Software update instance | `<namespace-name>-su` | `contoso-devices-su` |
 
 ## Manage connected resources
