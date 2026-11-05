@@ -177,20 +177,20 @@ The following shows an example of the output when you assign the [Virtual Machin
 
 #### Assign a role for all blob containers in a storage account resource scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a storage account named *storage12345*.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb* at a resource scope for a storage account named *storage12345*.
 
 ```azurecli
-az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
+az role assignment create --assignee "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
 
 #### Assign a role for a specific blob container resource scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a blob container named *blob-container-01*.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb* at a resource scope for a blob container named *blob-container-01*.
 
 ```azurecli
-az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
+az role assignment create --assignee "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
 ```
@@ -234,20 +234,20 @@ az role assignment create --assignee "patlong@contoso.com" \
 
 #### Assign a role for all blob containers at a resource group scope
 
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at the *Example-Storage-rg* resource group scope.
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb* at the *Example-Storage-rg* resource group scope.
 
 ```azurecli
-az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
+az role assignment create --assignee "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" \
 --role "Storage Blob Data Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Example-Storage-rg"
 ```
 
 #### Assign a role for an application at a resource group scope
 
-Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with service principal object ID 44444444-4444-4444-4444-444444444444 at the *pharma-sales* resource group scope.
+Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with service principal object ID bbbbbbbb-1111-2222-3333-cccccccccccc at the *pharma-sales* resource group scope.
 
 ```azurecli
-az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
+az role assignment create --assignee "bbbbbbbb-1111-2222-3333-cccccccccccc" \
 --role "Virtual Machine Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales"
 ```
@@ -268,7 +268,7 @@ az role assignment create --assignee-object-id "{assigneeObjectId}" \
 The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *msi-test* managed identity at the *pharma-sales* resource group scope:
 
 ```azurecli
-az role assignment create --assignee-object-id "33333333-3333-3333-3333-333333333333" \
+az role assignment create --assignee-object-id "cccccccc-2222-3333-4444-dddddddddddd" \
 --assignee-principal-type "ServicePrincipal" \
 --role "Virtual Machine Contributor" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales"

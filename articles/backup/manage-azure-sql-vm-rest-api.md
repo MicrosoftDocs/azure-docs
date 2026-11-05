@@ -197,7 +197,7 @@ Body:
 Then, track the resulting operation using the location header or Azure-AsyncOperation header with a *GET* command:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/0000aaaa-11bb-cccc-dd22-eeeeee333333?api-version=2016-12-01
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e?api-version=2016-12-01
 ```
 
 ### Response body
