@@ -33,7 +33,7 @@ items:
       href: device-registry/concept-unified-iot-sdks.md
   - name: Manage certificate lifecycle
     items:
-      - name: Certificate management in Azure Device Registry
+      - name: Certificate management overview 
         href: iot-certificate-management-overview.md
       - name: PKI fundamentals
         href: iot-certificate-management-concepts.md
