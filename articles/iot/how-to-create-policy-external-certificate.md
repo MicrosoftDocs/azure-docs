@@ -25,7 +25,7 @@ This article explains how to create an intermediate certificate authority within
 Before you begin, make sure you have the required setup and permissions so you can create, activate, and edit an external CA policy without deployment delays.
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Device Registry namespace. For setup steps, see [Get started with Azure Device Registry (preview)](device-registry/get-started-azure-device-registry.md).
+- An existing Device Registry namespace. For setup steps, see [Get started with Azure Device Registry](device-registry/get-started-azure-device-registry.md).
 - Permission to create and activate intermediate certificate authorities in this Azure Device Registry namespace, such as the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) role. If you don't have access, ask your Azure administrator to assign you this role on the namespace.
 - CA signing authority: Access to an external PKI (or a managed CA) to perform a one-time signing operation. You need to upload a Microsoft-generated CSR and have your root CA sign it to create the intermediate CA (ICA) certificate.
 
@@ -136,7 +136,7 @@ az iot adr ns ca activate \
 If you don't have an external root CA, use this sample to create one: [Create a self-signed root CA and private key using OpenSSL and PowerShell](../iot-hub/reference-self-sign-script.md).
 ## Related content
 
-- [Get started with Azure Device Registry (preview)](device-registry/get-started-azure-device-registry.md)
+- [Get started with Azure Device Registry](device-registry/get-started-azure-device-registry.md)
 - [Set up a Microsoft-managed root and intermediate CA](how-to-create-policy.md)
 - [Certificate revocation and policy management](concepts-certificate-policy-management.md)
 

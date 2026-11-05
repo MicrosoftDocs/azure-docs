@@ -144,7 +144,7 @@ IoT Hub uses X.509 certificates only for authentication, not authorization. Unli
 
 ## Related content
 
-- [Get started with Azure Device Registry (preview)](device-registry/get-started-azure-device-registry.md)
+- [Get started with Azure Device Registry](device-registry/get-started-azure-device-registry.md)
 - [What is Microsoft-backed X.509 certificate management?](iot-certificate-management-overview.md)
 
 - [Integration with Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md)

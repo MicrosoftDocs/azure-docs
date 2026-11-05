@@ -23,7 +23,7 @@ For information about how the root and intermediate CAs establish trust, see [CA
 Before you begin, make sure you have:
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Azure Device Registry namespace. For setup instructions, see [Get started with Azure Device Registry (preview)](device-registry/get-started-azure-device-registry.md).
+- An existing Azure Device Registry namespace. For setup instructions, see [Get started with Azure Device Registry](device-registry/get-started-azure-device-registry.md).
 - Permission to create and manage certificate authorities in this Azure Device Registry namespace, such as the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) role. If you don't have access, ask your Azure administrator to assign you this role on the namespace.
 ## Set up the certificate authorities
 
