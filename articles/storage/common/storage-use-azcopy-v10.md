@@ -4,8 +4,8 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/23/2026
-ms.author: normesta
+ms.date: 11/05/2026
+ms.author: dafalkne
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -62,6 +62,26 @@ An installation package is available only for Linux. For all other operating sys
 - [macOS ARM64](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
 
 These files are compressed as a zip file (Windows and macOS) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
+
+### Run AzCopy in a Docker container
+
+You can run AzCopy in a Linux container instead of installing the executable on your host. Install Docker, and then select the image that matches your host architecture. To see the available image tags, refer to the tag list for your architecture:
+
+- [AMD64 image tags](https://mcr.microsoft.com/v2/azcopy/linux/amd64/tags/list)
+- [ARM64 image tags](https://mcr.microsoft.com/v2/azcopy/linux/arm64/tags/list)
+
+For repeatable deployments, use a version-specific tag instead of `latest`. The following example pulls an AMD64 image and verifies the installed AzCopy version. Replace `<tag>` with an available tag.
+
+```bash
+docker pull mcr.microsoft.com/azcopy/linux/amd64:<tag>
+docker run --rm mcr.microsoft.com/azcopy/linux/amd64:<tag> azcopy --version
+```
+
+To use the ARM64 image, replace `amd64` with `arm64`. To run another AzCopy command, replace `azcopy --version` with the command and arguments that you want to use. If the command accesses files on the host, mount the local directory into the container by using the Docker `--volume` option. For example:
+
+```bash
+docker run --rm --volume "<local-directory>:/data" mcr.microsoft.com/azcopy/linux/amd64:<tag> azcopy copy "/data/<file-name>" "<destination-url>"
+```
 
 ### Add AzCopy to your system path
 

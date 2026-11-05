@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 02/24/2026
+ms.date: 10/30/2026
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -25,6 +25,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup / Configuration server** | **Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 84](https://support.microsoft.com/en-us/servicing/azure/update/2026/10/update-rollup-84-for-azure-site-recovery) | NA | NA | 9.68.7951.1 (Windows), 9.68.7950.1 (Linux) | NA | NA
 [Rollup 83](https://support.microsoft.com/en-us/topic/update-rollup-83-for-azure-site-recovery-a855fd73-e9f5-4339-adf7-d45b2dc9f4e3) | NA | NA | 9.66.7691.1 | NA | NA
 [Rollup 82](https://support.microsoft.com/en-us/topic/update-rollup-82-for-azure-site-recovery-df7f6773-43a1-4818-a5b1-20c62f60f195) | NA | NA | 9.66.7643.1 | NA | NA
 [Rollup 81](https://support.microsoft.com/en-us/topic/update-rollup-81-for-azure-site-recovery-fafaa6b3-2a55-4025-ab73-f14de258fdf2) | NA | NA | 9.66.7640.1 | NA | NA
@@ -41,6 +42,18 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (October 2026)
+
+### Update Rollup 84
+
+Update rollup 84 provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Mobility Agent** | Updates to Site Recovery Mobility Agent as detailed in the rollup KB article.
+**Issue fixes and improvements** | Many fixes and improvements as detailed in the rollup KB article.
+**Azure VM disaster recovery** | New Linux distributions and kernel support as detailed in the rollup KB article.
 
 ## Updates (February 2026)
 
@@ -64,7 +77,7 @@ Update rollup 82 provides the following updates:
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
-**VMware VM/physical disaster recovery to Azure** | Added Distro support for Redhat 9.7, Redhat 10.1, Alma 9.7, Alma 10.1, Rocky 9.7, Rocky 10.1.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
+**VMware VM/physical disaster recovery to Azure** | Added distro support for Red Hat 9.7, Red Hat 10.1, Alma 9.7, Alma 10.1, Rocky 9.7, Rocky 10.1.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
 
 ### Update Rollup 81
 
@@ -86,8 +99,8 @@ Update rollup 80 provides the following updates:
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
-**Azure VM disaster recovery** | Added Distro support for Redhat 9.6, Redhat 10.0, Alma 10.0, Rocky 10.0, SLES15SP7.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
-**VMware VM/physical disaster recovery to Azure** | Added Distro support for Redhat 9.6, Redhat 10.0, Alma 10.0, Rocky 10.0, SLES15SP7.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
+**Azure VM disaster recovery** | Added distro support for Red Hat 9.6, Red Hat 10.0, Alma 10.0, Rocky 10.0, SLES15SP7.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
+**VMware VM/physical disaster recovery to Azure** | Added distro support for Red Hat 9.6, Red Hat 10.0, Alma 10.0, Rocky 10.0, SLES15SP7.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
 
 ## Updates (May 2025)
 
@@ -98,7 +111,7 @@ Update rollup 79 provides the following updates:
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added Distro support for Oracle 9.5, Windows 2025 <br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
 
 ## Updates (April 2025)
@@ -110,7 +123,7 @@ Update [rollup 78](https://support.microsoft.com/topic/update-rollup-78-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Alma 9.5, Rocky 9.5, RHEL 9.5. <br> Added kernel support for Debian 11, Debian 11, SLES 12, SLES 15, and Ubuntu 22.04 to 18.04 distros.
 **VMware VM/physical disaster recovery to Azure** | Added support for Windows 2022 appliance OVA, OEL 8.10, Alma 8.6 to 8.10, Alma 9.0 to 9.5, Rocky 9.0 to 9.5, SUSE 15SP6, Ubuntu 24.04, RHEL 9.5. <br> Added kernel support for Debian 11, Debian 11, SLES 12, SLES 15, and Ubuntu 22.04 to 18.04 distros.
 
@@ -124,7 +137,7 @@ Update [rollup 77](https://support.microsoft.com/topic/update-rollup-77-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Debian 11, SLES 12, SLES 15, Ubuntu 24.04 to 18.04 distros, Oracle Linux 9.4, and RHEL 9 Linux distros. 
 
 
@@ -137,7 +150,7 @@ Update [rollup 76](https://support.microsoft.com/topic/update-rollup-76-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Debian 11, SLES 12, SLES 15, Ubuntu 22.04 to 18.04 distros, Oracle Linux 9.4, and RHEL 9 Linux distros. 
 **VMware VM/physical disaster recovery to Azure** | Added support for Debian 11, SLES 12, SLES 15, Ubuntu 22.04 to 18.04 distros, Oracle Linux 9.4, and RHEL 9 Linux distros.
 
@@ -165,7 +178,7 @@ Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Debian 11, SLES 12, SLES 15, and RHEL 9 Linux distros. <br><br/> Added capacity reservation support for  Virtual Machine Scale Sets Flex machines protected using Site Recovery.
 **VMware VM/physical disaster recovery to Azure** | Added support for Debian 11, SLES 12, SLES 15, and RHEL 9 Linux distros. <br><br/> Added capacity reservation support for  Virtual Machine Scale Sets Flex machines protected using Site Recovery. <br><br/> Added support to enable replication for newly added data disks that are added to a VMware virtual machine, which already has disaster recovery enabled. [Learn more](./vmware-azure-enable-replication-added-disk.md)
 
@@ -179,7 +192,7 @@ Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Debian 12 and Ubuntu 18.04 Pro Linux distros. <br><br/> Added capacity reservation support for  Virtual Machine Scale Sets Flex machines protected using Site Recovery.
 **VMware VM/physical disaster recovery to Azure** | Added support for Debian 12 and Ubuntu 18.04 Pro Linux distros. <br><br/> Added support to enable replication for newly added data disks that are added to a VMware virtual machine, which already has disaster recovery enabled. [Learn more](./vmware-azure-enable-replication-added-disk.md)
 
@@ -192,7 +205,7 @@ Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Oracle Linux 9.2, Oracle Linux 9.3, RHEL 9.2, Rocky Linux 9.0 and Rocky Linux 9.1 Linux distros.
 **VMware VM/physical disaster recovery to Azure** |   Added support for Oracle Linux 9.2, Oracle Linux 9.3, RHEL 9.2, Rocky Linux 9.0 and Rocky Linux 9.1 Linux distros. <br><br/> Added support for Windows 11 server. <br><br/> Enabled the proxy bypass capability in the Azure Site Recovery replication appliance. With this, customers can now bypass proxy settings from the Appliance configuration manager. 
 
@@ -217,15 +230,14 @@ Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azur
 ### Update Rollup 70
 
 > [!Note]
-> - The 9.58 version for mobility agent and configuration server was made live for Classic VMware/Physical to Azure scenario, during the 9.57 deployment. This version has not been released for any other scenario. The download links have been rolled back to 9.57 version for Classic VMware/Physical to Azure scenario. If you have already upgraded to 9.58 version then it is not recommended to setup replication on machines which are running on RHEL 9.1, Oracle Linux 9.1, Rocky Linux 9.1, RHEL 9.2, Oracle Linux 9.2 and Ubuntu-22.04 kernel 6.2.
-> - No OVF will be released for Classic VMware/Physical to Azure scenario from this release. Only Unified Setup will be made available.
+> - Version 9.58 for the mobility agent and configuration server went live for the Classic VMware/Physical to Azure scenario during the 9.57 deployment. This version isn't available for any other scenario. The download links rolled back to version 9.57 for the Classic VMware/Physical to Azure scenario. If you already upgraded to version 9.58, don't set up replication on machines that run RHEL 9.1, Oracle Linux 9.1, Rocky Linux 9.1, RHEL 9.2, Oracle Linux 9.2, or Ubuntu-22.04 kernel 6.2.
 
 [Update rollup 70](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) provides the following updates:
 
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for RHEL 8.9, Oracle Linux 8.9, Rocky Linux 8.8 and Rocky Linux 8.9 Linux distros. <br><br/> Added a diagnostics collection tool support, to help debug issues associated with Site Recovery services. 
 **VMware VM/physical disaster recovery to Azure** | Added support for RHEL 8.9, Oracle Linux 8.9, Rocky Linux 8.8 and Rocky Linux 8.9 Linux distros. <br><br/> Added a diagnostics collection tool support, to help debug issues associated with Site Recovery services or the replication appliance. 
 
@@ -240,7 +252,7 @@ Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros. <br><br/> Added support for Windows 11 servers.
 **VMware VM/physical disaster recovery to Azure** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros.
 
@@ -254,7 +266,7 @@ Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for RHEL 8.8 Linux distros.
 **VMware VM/physical disaster recovery to Azure** | Added support for RHEL 8.8 Linux distros.
 
@@ -267,9 +279,9 @@ Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azur
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
-**Azure VM disaster recovery** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9 and Cent OS 9 Linux distros.
-**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9, Cent OS 9 and Oracle Linux 9 Linux distros. <br> <br/> Added support for Windows Server 2019 as the Azure Site Recovery replication appliance. <br> <br/> Added support for Microsoft Edge to be the default browser in Appliance Configuration Manager. <br> <br/> Added support to select an Availability set or a Proximity Placement group, after enabling replication using modernized VMware/Physical machine replication scenario.
+**Issue fixes/improvements** | Many fixes and improvements as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9, and CentOS 9 Linux distros.
+**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9, CentOS 9, and Oracle Linux 9 Linux distros. <br> <br/> Added support for Windows Server 2019 as the Azure Site Recovery replication appliance. <br> <br/> Added support for Microsoft Edge to be the default browser in Appliance Configuration Manager. <br> <br/> Added support to select an availability set or a proximity placement group, after enabling replication by using the modernized VMware/Physical machine replication scenario.
 
 
 ## Next steps
