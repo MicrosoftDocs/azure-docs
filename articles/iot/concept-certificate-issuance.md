@@ -44,23 +44,9 @@ When a device provisions or reprovisions, it sends a CSR to DPS. DPS expects the
 
 For implementation guidance, see [Unified Azure IoT SDKs for IoT Hub and Azure Device Registry](device-registry/concept-unified-iot-sdks.md).
 
-## Issued certificate properties
+## Certificate validity and expiration
 
-### Certificate validity and expiration
-
-Each issued device certificate's expiration date (`ValidNotAfter`) includes a randomly generated extra buffer of 0-24 hours beyond the policy's validity period. For example, a policy with a 30-day validity period produces certificates that expire 30 days plus 0-24 hours after their `ValidFrom` date. Device applications can read the `ValidNotAfter` value to schedule renewal before expiration.
-
-### Cryptographic algorithms
-
-Certificate authorities you create in Azure Device Registry use the following cryptographic standards for all certificates they issue:
-
-| Property | Value |
-|----------|-------|
-| Key algorithm | ECC (ECDSA) |
-| Curve | NIST P-384 (secp384r1) |
-| Hash algorithm | SHA-384 |
-
-ECC with P-384 offers equivalent security to RSA at much smaller key sizes. This algorithm produces smaller certificates, faster TLS handshakes, and lower power consumption on constrained IoT devices.
+The certificate policy defines the validity period of device certificates issued by the intermediate CA. However, each issued device certificate's expiration date (`ValidNotAfter`) includes a randomly generated extra buffer of 0-24 hours beyond that period. For example, a policy with a 30-day validity period produces certificates that expire 30 days plus 0-24 hours after their `ValidFrom` date. Device applications can read the `ValidNotAfter` value to schedule renewal before expiration.
 
 ## How IoT Hub trusts issued certificates
 
