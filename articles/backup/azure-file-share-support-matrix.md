@@ -31,11 +31,11 @@ Azure Files backup is available in all regions, **except** for Germany Central (
 
 # [Vault-standard tier](#tab/vault-tier)
 
-Vaulted backup for Azure Files is available in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, Central US, Central India, North Europe, Australia East, West US, East US, South India, France Central, Canada Central, North Central US, East US 2, Australia Southeast, Germany North, France South, West US 2, Brazil South, Japan West, Germany West Central, Canada East, Korea South, Jio India West, Korea Central, South Africa West, Japan East, Norway East, Switzerland West, Norway West, South Africa North, UAE North, West Europe, Sweden Central, Switzerland North, Sweden South, Brazil Southeast, UAE Central, Italy North, Jio India Central, West US 3, Australia Central, Australia Central 2, New Zealand North.
+Vaulted backup for Azure Files is supported in all Azure public regions except West India, Qatar Central, Indonesia Central, Malaysia South, Southeast US, and Mexico Central.
 
-Cross Region Restore is supported in all preceding regions, except Italy North.
+Cross-region restore (CRR) is supported in Azure public regions where vaulted backup is available and the region has an Azure paired region.
 
-Migration of file shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North, Brazil South, Switzerland North, South Africa North, Australia Southeast, Sweden Central, Norway East, UAE North, West US 3, Japan West, Korea Central, Canada East, South India, Italy North, Poland Central, Australia Central, West Europe, East US, Germany West Central, East US 2, West US 2, Australia East, Japan East, Canada Central, North Central US, West US, France Central. 
+Migration of file shares protected with snapshot backup to vaulted backup is supported in all Azure public regions except West India, Norway West, Switzerland West, UAE Central, Qatar Central, Indonesia Central, Malaysia South, Southeast US, and Mexico Central.
 
 >[!Note]
 >Cross Subscription Backup and Restore are supported for vaulted backup.
@@ -241,4 +241,3 @@ Azure Trusted Services are allowed, but private endpoints take priority; so, thi
 * [Back up Azure Files using Azure portal](backup-afs.md).
 * [Restore Azure Files using Azure portal](restore-afs.md).
 * [Manage Azure Files backups using Azure portal](manage-afs-backup.md).
-
