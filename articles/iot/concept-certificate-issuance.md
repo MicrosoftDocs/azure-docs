@@ -48,7 +48,7 @@ For implementation guidance, see [Unified Azure IoT SDKs for IoT Hub and Azure D
 
 ### Certificate validity and expiration
 
-Each issued device certificate's expiration date (`ValidNotAfter`) includes a randomly generated additional buffer of 0-24 hours beyond the policy's validity period. For example, a policy with a 30-day validity period produces certificates that expire 30 days plus 0-24 hours after their `ValidFrom` date. Device applications can read the `ValidNotAfter` value to schedule renewal before expiration.
+Each issued device certificate's expiration date (`ValidNotAfter`) includes a randomly generated extra buffer of 0-24 hours beyond the policy's validity period. For example, a policy with a 30-day validity period produces certificates that expire 30 days plus 0-24 hours after their `ValidFrom` date. Device applications can read the `ValidNotAfter` value to schedule renewal before expiration.
 
 ### Cryptographic algorithms
 
