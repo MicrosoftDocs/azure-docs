@@ -101,7 +101,7 @@ For more information about integration with Microsoft Teams, see [Native SAP app
 For more information about integration with Microsoft Power Platform, see the following Power Automate resources:
 
 - [Overview of SAP integration](/power-platform/sap/connect/connect-power-platform-and-sap)
-- [SAP Principal Propagation using Azure API Management | blog](https://community.powerplatform.com/blogs/post/?postid=c6a609ab-3556-ef11-a317-6045bda95bf0)
+- [SAP Principal Propagation using Azure API Management | blog](https://community.powerplatform.com/blogs/post/?postid=aaaabbbb-0000-cccc-1111-dddd2222eeee)
 - [Finance and operations templates for SAP process mining with Power Automate Process Advisor](/power-automate/process-mining-finance-ops-templates)
 - [Hyperautomation for SAP based integration and automation with Power Automate | video series](https://flow.microsoft.com/blog/hyperautomation-special-video-series-for-sap-based-integration-automation-with-power-automate/)
 - [RPA Playbook for SAP GUI Automation with Power Automate | blog](https://flow.microsoft.com/blog/rpa-playbook-for-sap-gui-automation-with-power-automate-api-flows-ui-flows-and-power-automate-desktop/)
