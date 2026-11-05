@@ -31,7 +31,6 @@ When Object Replication Priority Replication is enabled, users benefit from prio
 
 - Objects larger than 5 gigabytes (GB).
 - Objects that are modified more than 10 times per second.
-- Object Replication Policies where the Source Storage Account and Destination Storage Account aren't within the same continent.
 - Storage accounts that are:
   - Larger than 100 petabytes (PB), or 
     
