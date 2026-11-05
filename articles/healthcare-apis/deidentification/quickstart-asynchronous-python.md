@@ -6,7 +6,7 @@ ms.author: leakassab
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: tutorial
-ms.date: 10/01/2026
+ms.date: 11/05/2026
 
 #customer intent: As an IT admin, I want to de-identify multiple documents with the de-identification service in Python.
 
@@ -85,20 +85,24 @@ Next, you upload a document that contains synthetic protected health information
     az storage blob upload --data $DocumentContent --account-name $StorageAccountName --container-name deidtest --name deidsample_fr.txt --auth-mode login
     ```
 
-## Grant the de-identification service access to the storage account
+## Grant the de-identification service access to the container
 
 In this step, you grant role-based access to the container for the system-assigned managed identity of the de-identification service.
 
-You grant the Storage Blob Data Contributor role because the de-identification service reads the original document and writes the de-identified output documents.
+You grant the Storage Blob Data Contributor role because the de-identification service reads the original document and writes the de-identified output documents. You assign the role at the container scope so that the service can access only this container.
 
 Substitute the name of your de-identification service for the `<deid_service_name>` placeholder:
 
 ```powershell
 $DeidServicePrincipalId=$(az resource show -n <deid_service_name> -g $ResourceGroup --resource-type microsoft.healthdataaiservices/deidservices --query identity.principalId --output tsv)
-az role assignment create --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $StorageAccountId
+$ContainerScope = "$StorageAccountId/blobServices/default/containers/deidtest"
+az role assignment create --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $ContainerScope
 ```
 
-To verify that the de-identification service has access to the storage account, check on the Azure portal under **storage accounts**. On the **Storage center** and **Resources** tab, select your storage account name. Select **Access control (IAM)**. In the search bar, search for the name of your de-identification service (`$ResourceGroup`).
+> [!IMPORTANT]
+> Batch jobs access storage as the service's managed identity. Anyone who can create jobs can read and write any location that the managed identity can access. Assign storage roles at the narrowest scope that your jobs need. For more information, see [Storage access for batch jobs](manage-access-rbac.md#storage-access-for-batch-jobs).
+
+To verify that the de-identification service has access to the container, check on the Azure portal under **storage accounts**. On the **Storage center** and **Resources** tab, select your storage account name, and then select the `deidtest` container. Select **Access control (IAM)**. In the search bar, search for the name of your de-identification service (`$ResourceGroup`).
 
 ## Configure network isolation on the storage account
 
@@ -212,7 +216,7 @@ curl -X GET \
 When you finish using the storage account, delete the storage account and role assignments.
 
 ```powershell
-az role assignment delete --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $StorageAccountId
+az role assignment delete --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $ContainerScope
 az role assignment delete --assignee $UserId --role "Storage Blob Data Contributor" --scope $StorageAccountId
 az storage account delete --ids $StorageAccountId --yes
 ```
