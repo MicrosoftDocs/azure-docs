@@ -58,7 +58,7 @@ See the following request body to configure backup for an Azure Database for Pos
 {
   "backupInstance": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -67,7 +67,7 @@ See the following request body to configure backup for an Azure Database for Pos
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -110,7 +110,7 @@ The request body that we prepared earlier will be used to provide details of the
 {
   "backupInstance": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -119,7 +119,7 @@ The request body that we prepared earlier will be used to provide details of the
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -335,7 +335,7 @@ We'll use the [same request body that we used to validate the backup request](ba
   "type": "Microsoft.DataProtection/backupvaults/backupInstances",
   "properties": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -344,7 +344,7 @@ We'll use the [same request body that we used to validate the backup request](ba
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -401,7 +401,7 @@ X-Powered-By: ASP.NET
       "properties": {
            "friendlyName": "pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149",
            "dataSourceInfo": {
-           "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+           "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
            "resourceUri": "",
            "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
            "resourceName": "pgflextestserver",
@@ -410,7 +410,7 @@ X-Powered-By: ASP.NET
            "objectType": "Datasource"
        },
        "dataSourceSetInfo": {
-           "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+           "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
            "resourceUri": "",
            "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
            "resourceName": "pgflextestserver",
