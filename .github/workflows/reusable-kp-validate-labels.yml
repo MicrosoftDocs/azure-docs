@@ -40,7 +40,7 @@ permissions:
 jobs:
   validate-labels:
     name: Validate Knowledge Partnership labels
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

@@ -13,6 +13,10 @@ ms.custom: sfi-image-nochange
 
 This article answers frequently asked questions (FAQs) about the SMB protocol of Azure NetApp Files.
 
+> [!IMPORTANT] 
+> After installing the October 2026 (and later) Windows security updates on Active Directory domain controllers, some environments might lose access to Azure NetApp Files SMB shares and related operations might fail (for example, “Invalid credentials” errors).
+>For the latest workaround and detailed guidance, see [KB5134907: Access to NetApp SMB shares might fail after installing the October 2026 Windows security update](https://support.microsoft.com/servicing/os/windows/docs/2026/10/access-to-netapp-smb-shares-might).
+
 ## Which SMB versions are supported by Azure NetApp Files?
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 

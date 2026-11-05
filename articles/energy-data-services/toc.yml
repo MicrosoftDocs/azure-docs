@@ -85,6 +85,8 @@ items:
       items:
         - name: Manage users
           href: how-to-manage-users.md
+        - name: Manage permissions with Microsoft Entra ID groups
+          href: how-to-manage-microsoft-entra-id-groups.md
         - name: Manage ACLs
           href: how-to-manage-acls.md
         - name: Manage legal tags

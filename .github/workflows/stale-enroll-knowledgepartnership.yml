@@ -19,7 +19,7 @@ concurrency:
 jobs:
   configuration:
     name: Share workflow settings
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     permissions: {}
     uses: ./.github/workflows/reusable-kp-configuration.yml
 
@@ -27,7 +27,7 @@ jobs:
     name: Validate Knowledge Partnership labels
     needs: configuration
     if: >-
-      github.repository == 'MicrosoftDocs/azure-docs-pr' &&
+      github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr' &&
       startsWith(github.event.pull_request.base.ref, needs.configuration.outputs.rollout-branch-prefix)
     uses: ./.github/workflows/reusable-kp-validate-labels.yml
     with:
@@ -40,7 +40,7 @@ jobs:
   label-event-prs:
     name: Enroll rollout PR (no reminders)
     needs: [configuration, validate-labels]
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     uses: ./.github/workflows/reusable-kp-label-event.yml
     with:
       reminder-due-label: ${{ needs.configuration.outputs.reminder-due-label }}
