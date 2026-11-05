@@ -105,7 +105,7 @@ jobs:
           fi
 
       # Only the trusted scan revision is checked out, never a contributor PR.
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
@@ -119,7 +119,7 @@ jobs:
             await reconcile({github, context, core});
 
       - name: Check out the pinned stale action
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: actions/stale
           ref: 4391f3da665fdf50b6810c1a66712fb9ba21aa93
