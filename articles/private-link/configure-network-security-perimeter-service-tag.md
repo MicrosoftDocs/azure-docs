@@ -5,14 +5,11 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 10/02/2026
+ms.date: 11/05/2026
 ms.custom: template-how-to
 ---
 
 # Configure service tag access in Azure Network Security Perimeter
-
-> [!IMPORTANT]
-> Service tag support for network security perimeter is currently in public preview. This preview is provided without a service level agreement, and it isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you learn how to configure an inbound access rule that uses an Azure service tag in a network security perimeter profile. A service tag represents a group of IP address prefixes for an Azure service. Microsoft manages and automatically updates these prefixes as addresses change.
 
@@ -85,7 +82,7 @@ On the profile page, select **Inbound access rules** and confirm that the new ru
 
 ## Limitations
 
-- Service tag-based inbound access rules are currently supported for Azure Key Vault and Azure Monitor resources within a network security perimeter. For the complete list of resource providers supported by network security perimeter, see [Onboarded private link resources](network-security-perimeter-concepts.md#onboarded-private-link-resources).
+- Service tag-based inbound access rules are supported for Azure Key Vault, Azure Monitor, Azure AI Search, Azure Event Hubs, and Azure Service Bus resources within a network security perimeter. For the complete list of resource providers supported by network security perimeter, see [Onboarded private link resources](network-security-perimeter-concepts.md#onboarded-private-link-resources).
 - Not all service tags can be used as inbound rules in Network security perimeter. Be careful when using service tags as inbound rules and use the right and applicable tags.
 - Azure Storage currently doesn't support service tags as inbound access rules. While some access scenarios might appear to work when using service tag-based rules, other scenarios might fail or behave inconsistently. To avoid unexpected access issues, don't use service tags to control inbound access to Azure Storage resources. Doing so might result in inconsistent behavior and unreliable connectivity.
 

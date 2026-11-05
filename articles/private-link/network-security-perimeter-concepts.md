@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 10/02/2026
+ms.date: 11/05/2026
 ms.custom:
   - references_regions, ignite-2024
   - ai-gen-docs-bap
@@ -139,7 +139,7 @@ Network security perimeter supports the following access rule types:
 | --------------------------- | --------------- |
 | Inbound | Subscription-based rules |
 | Inbound | IP-based rules (check respective onboarded private link resources for v6 support) |
-| Inbound | [Service tags (Preview)](configure-network-security-perimeter-service-tag.md) |
+| Inbound | [Service tags](configure-network-security-perimeter-service-tag.md) |
 | Outbound | FQDN-based rules |
 
 > [!NOTE]
