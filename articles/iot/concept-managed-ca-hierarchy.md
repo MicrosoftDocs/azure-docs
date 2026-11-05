@@ -21,6 +21,8 @@ Certificate management in Azure Device Registry uses a two-tier certificate auth
 
 - Uses the intermediate CA to issue device certificates while the root CA remains the trusted anchor for the hierarchy.
 
+For supported CA signing algorithms, see the [feature table in the certificate management overview](iot-certificate-management-overview.md#overview-of-features).
+
 ## Deployment options
 
 In a single namespace, you can create up to three intermediate CAs. You have two deployment options for your intermediate certificate authorities: 
