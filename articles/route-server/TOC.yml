@@ -19,6 +19,8 @@
   items:
   - name: Peer Route Server with NVA
     href: peer-route-server-with-virtual-appliance.md
+  - name: Configure dual-stack Route Server - PowerShell (preview)
+    href: tutorial-configure-route-server-nva-dual-stack-powershell.md
   - name: Deploy Route Server with DDoS protection
     href: tutorial-protect-route-server-ddos.md
 - name: Concepts
