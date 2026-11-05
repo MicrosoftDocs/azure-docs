@@ -1,48 +1,50 @@
 # Codeowners file
+
 # Each line is a file pattern followed by one or more owners.
+# Protect github config 
+.github/ @MicrosoftDocs/azure-docs-codeowners
+.docutune/ @MicrosoftDocs/azure-docs-codeowners
+CODEOWNERS @MicrosoftDocs/azure-docs-codeowners
 
 # Folder paths in this list have been migrated to new repositories and content can no longer be created for these services in this repo.
-/articles/aks @thomps23 @jasonwhowell
-/articles/defender-for-cloud @thomps23 @jasonwhowell
-/articles/attestation @thomps23 @jasonwhowell
-/articles/confidential-ledger @thomps23 @jasonwhowell
-/articles/dedicated-hsm @thomps23 @jasonwhowell
-/articles/key-vault @thomps23 @jasonwhowell
-/articles/payment-hsm @thomps23 @jasonwhowell
-/articles/postgresql @thomps23 @jasonwhowell
-/articles/cosmos-db @thomps23 @jasonwhowell
-/articles/dms @thomps23 @jasonwhowell
-/articles/mariadb @thomps23 @jasonwhowell
-/articles/mysql @thomps23 @jasonwhowell
-/articles/managed-instance-apache-cassandra @thomps23 @jasonwhowell
-/articles/virtual-machines @jasonwhowell @thomps23
-/articles/virtual-machines-scale-sets @jasonwhowell @thomps23
-/articles/container-instances @jasonwhowell @thomps23
-/articles/service-fabric @jasonwhowell @thomps23
-/articles/machine-learning @jasonwhowell @thomps23
-/articles/ai-studio @jasonwhowell @thomps23
-/articles/ai-services @jasonwhowell @thomps23
-/articles/genomics @jasonwhowell @thomps23
-/articles/open-datasets @jasonwhowell @thomps23
-/articles/search @jasonwhowell @thomps23
-/articles/azure-monitor @jasonwhowell @thomps23
-/articles/advisor @jasonwhowell @thomps23
-/articles/chaos-studio @jasonwhowell @thomps23
-/articles/service-health @jasonwhowell @thomps23
-/articles/azure-arc @jasonwhowell @thomps23
-/articles/azure-linux @jasonwhowell @thomps23
-/articles/azure-portal @jasonwhowell @thomps23
-/articles/copilot @jasonwhowell @thomps23
-/articles/lighthouse @jasonwhowell @thomps23
-/articles/quotas @jasonwhowell @thomps23
-/articles/container-registry @jasonwhowell @thomps23
+/articles/advisor @MicrosoftDocs/azure-docs-codeowners
+/articles/ai-services @MicrosoftDocs/azure-docs-codeowners
+/articles/ai-studio @MicrosoftDocs/azure-docs-codeowners
+/articles/aks @MicrosoftDocs/azure-docs-codeowners
+/articles/attestation @MicrosoftDocs/azure-docs-codeowners
+/articles/azure-arc @MicrosoftDocs/azure-docs-codeowners
+/articles/azure-cache-for-redis @MicrosoftDocs/azure-docs-codeowners
+/articles/azure-linux @MicrosoftDocs/azure-docs-codeowners
+/articles/azure-monitor @MicrosoftDocs/azure-docs-codeowners
+/articles/azure-portal @MicrosoftDocs/azure-docs-codeowners
+/articles/chaos-studio @MicrosoftDocs/azure-docs-codeowners
+/articles/confidential-ledger @MicrosoftDocs/azure-docs-codeowners
+/articles/container-instances @MicrosoftDocs/azure-docs-codeowners
+/articles/container-registry @MicrosoftDocs/azure-docs-codeowners
+/articles/copilot @MicrosoftDocs/azure-docs-codeowners
+/articles/cosmos-db @MicrosoftDocs/azure-docs-codeowners
+/articles/dedicated-hsm @MicrosoftDocs/azure-docs-codeowners
+/articles/defender-for-cloud @MicrosoftDocs/azure-docs-codeowners
+/articles/defender-for-iot @MicrosoftDocs/azure-docs-codeowners
+/articles/dms @MicrosoftDocs/azure-docs-codeowners
+/articles/external-attack-surface-management @MicrosoftDocs/azure-docs-codeowners
+/articles/genomics @MicrosoftDocs/azure-docs-codeowners
+/articles/key-vault @MicrosoftDocs/azure-docs-codeowners
 /articles/kubernetes-fleet @MicrosoftDocs/azure-docs-codeowners
-/articles/reliability @thomps23
-/articles/sentinel @thomps23
-/articles/defender-for-iot @thomps23
-/articles/external-attack-surface-management @thomps23
-/‎articles/azure-cache-for-redis @thomps23
-/‎articles/redis @thomps23
-
-# Bicep docs content ownership - auto-request review on Bicep PRs
-/articles/azure-resource-manager/bicep/ @torreymicrosoft
+/articles/lighthouse @MicrosoftDocs/azure-docs-codeowners
+/articles/machine-learning @MicrosoftDocs/azure-docs-codeowners
+/articles/managed-instance-apache-cassandra @MicrosoftDocs/azure-docs-codeowners
+/articles/mariadb @MicrosoftDocs/azure-docs-codeowners
+/articles/mysql @MicrosoftDocs/azure-docs-codeowners
+/articles/open-datasets @MicrosoftDocs/azure-docs-codeowners
+/articles/payment-hsm @MicrosoftDocs/azure-docs-codeowners
+/articles/postgresql @MicrosoftDocs/azure-docs-codeowners
+/articles/quotas @MicrosoftDocs/azure-docs-codeowners
+/articles/redis @MicrosoftDocs/azure-docs-codeowners
+/articles/reliability @MicrosoftDocs/azure-docs-codeowners
+/articles/search @MicrosoftDocs/azure-docs-codeowners
+/articles/sentinel @MicrosoftDocs/azure-docs-codeowners
+/articles/service-fabric @MicrosoftDocs/azure-docs-codeowners
+/articles/service-health @MicrosoftDocs/azure-docs-codeowners
+/articles/virtual-machines @MicrosoftDocs/azure-docs-codeowners
+/articles/virtual-machines-scale-sets @MicrosoftDocs/azure-docs-codeowners
