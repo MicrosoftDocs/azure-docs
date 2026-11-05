@@ -50,7 +50,7 @@ This command includes several parameters:
 * `--edge-enabled` or `--ee`: Declare that the device is an IoT Edge device.
 * `--auth-method` or `--am`: Declare the authorization type the device is going to use. In this case, we're using X.509 certificate thumbprints.
 * `--primary-thumbprint` or `--ptp`: Provide an X.509 certificate thumbprint to use as a primary key. Only hexadecimal values are supported. Remove colon separators and spaces from the thumbprint value. For example, `AA:11:BB:22:CC:33:DD:44:EE:55:FF:66:AA:77:BB:88:CC:99:DD:00` is entered as `AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00`.
-* `--secondary-thumbprint` or `--stp`: Provide an X.509 certificate thumbprint to use as a secondary key. Remove colon separators and spaces from the thumbprint value. If you're testing and want to use one certificate, you can use the same certificate for both the primary and secondary thumbprints.
+* `--secondary-thumbprint` or `--stp`: Enter an X.509 certificate thumbprint to use as a secondary key. Remove colon separators and spaces from the thumbprint value. If you're testing and want to use one certificate, you can use the same certificate for both the primary and secondary thumbprints.
 ---
 
 Now that you have a device registered in IoT Hub, retrieve the information that you use to complete installation and provisioning of the IoT Edge runtime.
