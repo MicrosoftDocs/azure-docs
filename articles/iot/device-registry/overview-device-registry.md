@@ -54,7 +54,7 @@ A *schema registry* is a feature of Azure Device Registry that stores the defini
 
 ### Certificate management
 
-Certificate management is a feature of Azure Device Registry that enables you to issue, renew, and revoke X.509 certificates for your IoT Hub-connected devices through a Microsoft-backed certificate authority. By managing certificates through Azure Device Registry, you can handle the full certificate lifecycle for IoT Hub-connected devices from the Azure control plane. Certificate management for IoT Hub-connected devices is currently in preview. For more information, see [What is certificate management in Azure Device Registry?](../iot-certificate-management-overview.md)
+Certificate management is a feature of Azure Device Registry that enables you to issue, renew, and revoke X.509 certificates for your IoT Hub-connected devices through a Microsoft-managed certificate authority or by bringing your own certificate authority. By managing certificates through Azure Device Registry, you can handle the full certificate lifecycle for IoT Hub-connected devices from the Azure control plane. For more information, see [What is certificate management in Azure Device Registry?](../iot-certificate-management-overview.md)
 
 ### Groups, jobs, and software updates
 
