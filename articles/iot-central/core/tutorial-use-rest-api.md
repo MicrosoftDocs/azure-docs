@@ -92,7 +92,7 @@ To create an operator token called `operator-token` by using the Azure CLI, run 
 appName=<the app name generated previously>
 bearerTokenApp=<the bearer token generated previously>
 
-az rest --method put --uri https://$appName.azureiotcentral.com/api/apiTokens/operator-token?api-version=2022-07-31 --headers Authorization="Bearer $bearerTokenApp" "Content-Type=application/json" --body '{"roles": [{"role": "aaaabbbb-0000-cccc-1111-dddd2222eeee"}]}'
+az rest --method put --uri https://$appName.azureiotcentral.com/api/apiTokens/operator-token?api-version=2022-07-31 --headers Authorization="Bearer $bearerTokenApp" "Content-Type=application/json" --body '{"roles": [{"role": "ae2c9854-393b-4f97-8c42-479d70ce626e"}]}'
 ```
 
 Make a note of the operator token the command returns, you use it later in the tutorial. The token looks like `SharedAccessSignature sr=2...`.
@@ -103,7 +103,7 @@ To create an admin token called `admin-token` by using the Azure CLI, run the fo
 $appName=<the app name generated previously>
 $bearerTokenApp=<the bearer token generated previously>
 
-az rest --method put --uri https://$appName.azureiotcentral.com/api/apiTokens/admin-token?api-version=2022-07-31 --headers Authorization="Bearer $bearerTokenApp" "Content-Type=application/json" --body '{"roles": [{"role": "bbbbcccc-1111-dddd-2222-eeee3333ffff"}]}'
+az rest --method put --uri https://$appName.azureiotcentral.com/api/apiTokens/admin-token?api-version=2022-07-31 --headers Authorization="Bearer $bearerTokenApp" "Content-Type=application/json" --body '{"roles": [{"role": "ca310b8d-2f4a-44e0-a36e-957c202cd8d4"}]}'
 ```
 
 Make a note of the admin token the command returns, you use it later in the tutorial. The token looks like `SharedAccessSignature sr=2...`.
