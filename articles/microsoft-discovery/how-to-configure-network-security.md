@@ -36,20 +36,20 @@ The Discovery first-party app (**Discovery control-plane service App**) has the 
 
 | Property | Value |
 |----------|-------|
-| **Application (client) ID** | `00001111-aaaa-2222-bbbb-3333cccc4444` |
+| **Application (client) ID** | `92c174ac-8e41-4815-a1b7-d81b19ab03ce` |
 | **Display name** | Discovery control-plane service App |
 
 Verify the service principal exists in your tenant:
 
 ```azurecli
-az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 \
+az ad sp show --id 92c174ac-8e41-4815-a1b7-d81b19ab03ce \
   --query "{displayName:displayName, objectId:id, appId:appId}"
 ```
 
 > [!TIP]
 > If the service principal doesn't exist in your tenant, create it:
 > ```azurecli
-> az ad sp create --id 00001111-aaaa-2222-bbbb-3333cccc4444
+> az ad sp create --id 92c174ac-8e41-4815-a1b7-d81b19ab03ce
 > ```
 
 ### Create the custom role definition
@@ -112,7 +112,7 @@ New-AzRoleDefinition -InputFile "nsp-perimeter-joiner-role.json"
 SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 
 az role assignment create \
-  --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
+  --assignee "92c174ac-8e41-4815-a1b7-d81b19ab03ce" \
   --role "Discovery NSP Perimeter Joiner" \
   --scope "/subscriptions/$SUBSCRIPTION_ID"
 ```
@@ -123,7 +123,7 @@ az role assignment create \
 $subscriptionId = (Get-AzContext).Subscription.Id
 
 New-AzRoleAssignment `
-  -ApplicationId "00001111-aaaa-2222-bbbb-3333cccc4444" `
+  -ApplicationId "92c174ac-8e41-4815-a1b7-d81b19ab03ce" `
   -RoleDefinitionName "Discovery NSP Perimeter Joiner" `
   -Scope "/subscriptions/$subscriptionId"
 ```
@@ -134,7 +134,7 @@ New-AzRoleAssignment `
 2. Select **Access control (IAM)** > **+ Add** > **Add role assignment**.
 3. Search for **Discovery NSP Perimeter Joiner** and select it > **Next**.
 4. Select **User, group, or service principal** > **+ Select members**.
-5. Search for `Discovery control-plane service App` or `00001111-aaaa-2222-bbbb-3333cccc4444`.
+5. Search for `Discovery control-plane service App` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
 6. Select the service principal > **Select** > **Review + assign**.
 
 ---
@@ -145,7 +145,7 @@ Also assign the built-in **Reader** role to the same Discovery service principal
 
 ```azurecli
 az role assignment list \
-  --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
+  --assignee "92c174ac-8e41-4815-a1b7-d81b19ab03ce" \
   --scope "/subscriptions/$SUBSCRIPTION_ID" \
   --query "[].{role:roleDefinitionName, scope:scope}" \
   -o table
@@ -167,7 +167,7 @@ The Discovery data-plane service app also requires **Reader** access at subscrip
 
 ```azurecli
 az role assignment create \
-  --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
+  --assignee "92c174ac-8e41-4815-a1b7-d81b19ab03ce" \
   --role "Reader" \
   --scope "/subscriptions/$SUBSCRIPTION_ID"
 ```
@@ -178,7 +178,7 @@ az role assignment create \
 $subscriptionId = (Get-AzContext).Subscription.Id
 
 New-AzRoleAssignment `
-  -ApplicationId "00001111-aaaa-2222-bbbb-3333cccc4444" `
+  -ApplicationId "92c174ac-8e41-4815-a1b7-d81b19ab03ce" `
   -RoleDefinitionName "Reader" `
   -Scope "/subscriptions/$subscriptionId"
 ```
@@ -189,7 +189,7 @@ New-AzRoleAssignment `
 2. Select **+ Add** > **Add role assignment**.
 3. Search for **Reader** and select it > **Next**.
 4. Select **User, group, or service principal** > **+ Select members**.
-5. Search for `Discovery control-plane service App` or `00001111-aaaa-2222-bbbb-3333cccc4444`.
+5. Search for `Discovery control-plane service App` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
 6. Select the service principal > **Select** > **Review + assign**.
 
 ---
@@ -477,7 +477,7 @@ The custom role assignment is missing or hasn't propagated.
 The Discovery Control Plane service principal doesn't exist in your tenant yet:
 
 ```azurecli
-az ad sp create --id 00001111-aaaa-2222-bbbb-3333cccc4444
+az ad sp create --id 92c174ac-8e41-4815-a1b7-d81b19ab03ce
 ```
 
 Then retry the role assignment.
