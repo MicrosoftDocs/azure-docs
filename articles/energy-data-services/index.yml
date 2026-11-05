@@ -114,6 +114,8 @@ landingContent:
         links:
           - text: How to manage users
             url: how-to-manage-users.md
+          - text: Manage permissions with Microsoft Entra ID groups
+            url: how-to-manage-microsoft-entra-id-groups.md
           - text: How to manage ACLs
             url: how-to-manage-acls.md  
           - text: How to manage legal tags
