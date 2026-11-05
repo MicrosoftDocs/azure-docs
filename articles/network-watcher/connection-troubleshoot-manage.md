@@ -173,7 +173,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -183,7 +183,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "VirtualMachine",
                            "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
                            "Address": "10.0.0.5",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
                            "NextHopIds": [],
                            "Issues": []
                          }
@@ -210,7 +210,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -220,7 +220,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "VirtualMachine",
                            "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
                            "Address": "10.0.0.5",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
                            "NextHopIds": [],
                            "Issues": [
                              {
@@ -268,7 +268,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -290,7 +290,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "VirtualMachine",
                            "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
                            "Address": "10.0.0.5",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
                            "NextHopIds": [],
                            "Issues": [
                              {
@@ -326,7 +326,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -336,7 +336,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "VirtualMachine",
                            "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
                            "Address": "10.0.0.5",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
                            "NextHopIds": [],
                            "Issues": [
                              {
@@ -408,7 +408,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
@@ -429,7 +429,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
           "type": "VirtualMachine"
         }
       ],
@@ -468,7 +468,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
@@ -507,7 +507,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
           "type": "VirtualMachine"
         }
       ],
@@ -559,7 +559,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
@@ -587,7 +587,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
           "type": "VirtualMachine"
         }
       ],
@@ -627,7 +627,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
@@ -661,7 +661,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
           "type": "VirtualMachine"
         }
       ],
@@ -747,7 +747,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -782,7 +782,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -856,7 +856,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
@@ -927,7 +927,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
@@ -1046,7 +1046,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -1081,7 +1081,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -1091,7 +1091,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "VirtualNetwork",
                            "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
                            "Address": "10.10.10.10",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup1/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup1/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
                            "NextHopIds": [],
                            "Issues": []
                          }
@@ -1120,7 +1120,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                            "Address": "10.0.0.4",
-                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "ResourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
                            ],
@@ -1212,7 +1212,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
@@ -1233,7 +1233,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
           "type": "VirtualNetwork"
         }
       ],
@@ -1272,7 +1272,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
@@ -1293,7 +1293,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
           "type": "VirtualNetwork"
         }
       ],
@@ -1362,7 +1362,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
