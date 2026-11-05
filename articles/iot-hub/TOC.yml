@@ -22,6 +22,30 @@
     - name: Send telemetry using CLI
       href: quickstart-send-telemetry-cli.md
       displayName: Azure CLI
+- name: IoT Hub with MQTT v5 (preview)
+  items:
+    - name: Overview
+      href: mqtt-v5-overview.md
+    - name: Supported capabilities
+      href: mqtt-v5-capabilities.md
+    - name: Compare connectivity options
+      href: compare-iot-hub-connectivity.md
+    - name: Get started
+      href: mqtt-v5-get-started.md
+    - name: Set up cloud resources
+      href: mqtt-v5-cloud-setup.md
+    - name: Configure custom topics
+      href: mqtt-v5-custom-topics.md
+    - name: Route messages to destinations
+      href: mqtt-v5-route-messages.md
+    - name: Develop with the unified SDKs
+      href: develop-unified-iot-sdks.md
+    - name: Connect a device
+      href: mqtt-v5-device-setup.md
+    - name: TLS and X.509 requirements
+      href: mqtt-v5-tls-requirements.md
+    - name: Monitor and troubleshoot
+      href: mqtt-v5-monitor-troubleshoot.md
 - name: Plan and scale your IoT Hub
   items:
     - name: Choose the right IoT Hub tier
