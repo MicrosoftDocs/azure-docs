@@ -36,7 +36,7 @@ To resolve this issue, you need to use the Power BI desktop to refresh the seman
 
 When you run the Gold view creation notebook for the first time from the orchestration pipeline, it might fail while it creates the `vtPURGDOCUMENTCATEGORYTEXT` view with the following error message:
 
-`Notebook execution failed at Notebook service with http status code - '200', please check the Run logs on Notebook, additional details - 'Error name - ProgrammingError, Error value - ('ID - 43bd12c2-6e77-4466-a33e-25facde8939d | traceid = 729aa4f3-f4b1-4046-9717-466d58a41af9 42S02', "[42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server] Invalid object name 'I_PURGDOCUMENTCATEGORYTEXT'. (208) (SQLExecDirectW)")'`
+`Notebook execution failed at Notebook service with http status code - '200', please check the Run logs on Notebook, additional details - 'Error name - ProgrammingError, Error value - ('ID - 43bd12c2-6e77-4466-a33e-25facde8939d | traceid = 0000aaaa-11bb-cccc-dd22-eeeeee333333 42S02', "[42S02] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server] Invalid object name 'I_PURGDOCUMENTCATEGORYTEXT'. (208) (SQLExecDirectW)")'`
 
 This error occurs because the view `vtPURGDOCUMENTCATEGORYTEXT` depends on the tables `SAPLANGUAGE`, `I_PURGDOCUMENTCATEGORYTEXT`, and `I_PURCHASINGDOCUMENTCATEGORY`, but the check for the existence of these tables is incorrect in the notebook.
 
