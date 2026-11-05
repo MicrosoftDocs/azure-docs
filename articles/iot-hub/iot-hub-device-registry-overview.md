@@ -55,6 +55,6 @@ For Azure subscription and service limits for Azure Device Registry in GA, see [
 
 - [FAQ: What is new in Azure IoT Hub?](iot-hub-faq.md)
 - [Get started with Azure Device Registry and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
-- [What is Microsoft-backed X.509 certificate management?](../iot/iot-certificate-management-overview.md)
+- [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md)
 - [Key concepts for certificate management](../iot/iot-certificate-management-concepts.md)
 - [Unified Azure IoT SDKs (preview) for IoT Hub and Azure Device Registry](../iot/device-registry/concept-unified-iot-sdks.md)

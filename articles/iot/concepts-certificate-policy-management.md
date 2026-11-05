@@ -174,7 +174,7 @@ az iot adr ns ca revoke \
 ## Related content
 
 - [Key concepts for certificate management](iot-certificate-management-concepts.md)
-- [What is certificate management?](iot-certificate-management-overview.md)
+- [Certificate management in Azure Device Registry](iot-certificate-management-overview.md)
 
 - [Authenticate devices with X.509 CA certificates](../iot-hub/authenticate-authorize-x509.md)
 - [Azure role-based access control (RBAC) for IoT Hub](../iot-hub/authenticate-authorize-azure-ad.md)

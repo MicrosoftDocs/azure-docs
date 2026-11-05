@@ -61,4 +61,4 @@ IoT devices can request device certificates from ADR by using standard device wo
 - [Certificate renewal in Azure IoT Hub certificate management](concept-certificate-renewal.md)
 - [Key concepts for certificate management](iot-certificate-management-concepts.md)
 
-- [What is certificate management?](iot-certificate-management-overview.md)
+- [Certificate management in Azure Device Registry](iot-certificate-management-overview.md)

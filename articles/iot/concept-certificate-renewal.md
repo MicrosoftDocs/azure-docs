@@ -88,6 +88,6 @@ To remove access for a device that uses an X.509 operational certificate without
 - [Revoke certificates](concepts-certificate-policy-management.md)
 
 - [Key concepts for certificate management](iot-certificate-management-concepts.md)
-- [Certificate management overview](iot-certificate-management-overview.md)
+- [Certificate management in Azure Device Registry](iot-certificate-management-overview.md)
 
 - [Device twins in Azure IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
