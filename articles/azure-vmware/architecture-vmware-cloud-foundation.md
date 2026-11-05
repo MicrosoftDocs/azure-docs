@@ -5,13 +5,13 @@ ms.topic: concept-article
 author: rvandenbedem
 ms.author: rvandenbedem
 ms.service: azure-vmware
-ms.date: 11/4/2026
+ms.date: 11/5/2026
 # Customer intent: As a cloud architect, I want to understand how VMware Cloud Foundation 9.1 has been designed and implemented with Azure VMware Solution.
 ---
 
 # Azure VMware Solution and VMware Cloud Foundation 9.1
 
-Azure VMware Solution provides Broadcom's VMware Cloud Foundation 9.1 Software-Defined Data Center (SDDC) private cloud in Azure. Azure fully integrates and automates the private cloud hardware and software deployments. Deploy and manage the private cloud through the Azure portal, the Azure CLI, or PowerShell.
+Azure VMware Solution provides Broadcom's VMware Cloud Foundation 9.1 Software-Defined Data Center (SDDC) private cloud in Azure. Azure fully integrates and automates the private cloud hardware and software deployments. You deploy and manage the private cloud through the Azure portal, the Azure CLI, or PowerShell.
 
 > [!NOTE]
 > This article updates as Microsoft progresses to general availability.
@@ -43,7 +43,7 @@ Each Azure VMware Solution architectural component has the following function:
 - **Azure region**: Groups datacenters into availability zones and then groups availability zones into regions.
 - **Azure resource group**: Places Azure services and resources into logical groups.
 - **Azure VMware Solution private cloud**: Offers compute, networking, and storage resources by using VMware software, including VCF Fleet Manager, SDDC Manager, VCF Operations with License Server, vCenter, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESX hosts. Azure NetApp Files, Azure Elastic SAN, and Everpure Cloud Block Store are also supported.
-- **Azure VMware Solution resource cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESX hosts. Azure NetApp Files, Elastic SAN, and Everpure Cloud Block Store are also supported.
+- **Azure VMware Solution resource cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESX hosts. Azure NetApp Files, Azure Elastic SAN, and Everpure Cloud Block Store are also supported.
 - **VMware Operations HCX**: Delivers mobility, migration, and network extension services.
 - **VCF Protection & Recovery Live Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Enhanced Replication. Non-Microsoft disaster recovery solutions Zerto disaster recovery and JetStream Software disaster recovery are also supported.
 - **Dedicated Microsoft Enterprise Edge**: Router that connects Azure Cloud Services and the Azure VMware Solution private cloud instance.
@@ -82,7 +82,7 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 | Jetstream DR | Yes |
 | Azure NetApp Files | Yes |
 | Azure eSAN | Yes |
-| Everpure Cloud Block Storage (CBS) | Yes |
+| Everpure Cloud Block Store (CBS) | Yes |
 | VMware NSX Public IP Address (PIP) | Yes |
 | NSX Virtual Private Cloud (VPC) | No |
 | vSphere/NSX Enhanced Data Path (EDP) | Yes |
@@ -99,7 +99,7 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 
 Broadcom revamped the VMware solution stack, with VMware Cloud Foundation (VCF) as the way to consume the entire suite at scale. Broadcom made these changes in VMware Cloud Foundation 9.0 (2025) and VMware Cloud Foundation 9.1 (2026), with future versions of VCF coming each year. Broadcom made major architectural changes in the VCF control plane as it engineers VCF to its desired target state. The first change to mention is the move from license keys to license files with a dedicated License Server running in VCF paired with the customer’s Broadcom Business Console tracking license usage. The second change is the containerization of the control plane with the VCF Management Services Platform (VCF services runtime) where services like VCF Fleet Manager and VCF Log Management run as containers. The third change is the convergence of VMware vCloud Director (vCD) and VMware Aria Automation into VCF Automation.
 
-Previously, Azure VMware Solution used its own control plane to manage VMware software components running in the private cloud. With VMware Cloud Foundation 9.1, Azure VMware Solution now uses the VCF 9.1 management and control plane to operate and manage the private cloud. Azure VMware Solution uses the VCF 9.1 Installer in **brownfield claim** mode. This means the SDDC Manager runs in **sync mode** while the Azure VMware Solution control plane continues to connect to the vCenter and NSX SDKs. Azure VMware Solution deploys VCF in Simple mode, to support the 3-node minimum of Cluster-1. Since Azure VMware Solution is a managed service, our initial release of VCF 9.1 only gives the customer access to VCF Operations for License Management by using the **vcfopsadmin** user. You configure a single VCF instance with the Management Domain only. You can't configure Workload Domains or add more VCF instances within a single Azure VMware Solution tenant. This constraint is part of the Azure VMware Solution managed service platform architecture.
+Previously, Azure VMware Solution used its own control plane to manage VMware software components running in the private cloud. With VMware Cloud Foundation 9.1, Azure VMware Solution now uses the VCF 9.1 management and control plane to operate and manage the private cloud. Azure VMware Solution uses the VCF 9.1 Installer in **brownfield claim** mode. This means the SDDC Manager runs in **sync mode** while the Azure VMware Solution control plane continues to connect to the vCenter and NSX SDKs. Azure VMware Solution deploys VCF in Simple mode, to support the 3-node minimum of Cluster-1. Since Azure VMware Solution is a managed service, our initial release of VCF 9.1 only gives the customer access to VCF Operations for License Management by using the **vcfopsadmin** user. Azure VMware Solution configures a single VCF instance with the Management Domain only. You can't configure Workload Domains or add more VCF instances within a single Azure VMware Solution tenant. This constraint is part of the Azure VMware Solution managed service platform architecture.
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ Previously, Azure VMware Solution used its own control plane to manage VMware so
 1.	Add Cluster-1 ESX 9.1 hosts to Azure VMware Solution tenant.
 2.	Deploy vCenter 9.1 to first ESX host of Cluster-1.
 3.	NSX 9.1 deployed to Cluster-1.
-4.	VCF 9.1 Installer deployed with offline software depot.
+4.	Deploy VCF 9.1 installer with offline software depot.
 5.	VCF Installer 9.1 executes VCF instance **brownfield claim** mode.
 6.	VCF Operations, VCF Fleet Manager, VCF Software Depot, and VCF Runtime services deployed to Cluster-1.
 7.	VCF 9.1 Installer converted to SDDC Manager.
@@ -145,6 +145,8 @@ This change is normal when a product evolves over time. The following table list
 | Aria Suite | VCF Operations Suite, VCF Automation |
 | VMware vCloud Director (vCD) | VCF Automation |
 | Aria Automation | VCF Automation |
+| Aria Operations for Logs | VCF Log Management |
+| Aria Operations for Networks | VCF Operations for Networks |
 
 ### What version of VCF 9.1 does Azure VMware Solution use?
 Microsoft plans to use VCF 9.1.2. This build includes the necessary VCF API calls to support Azure VMware Solution.

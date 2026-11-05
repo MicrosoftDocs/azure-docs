@@ -53,6 +53,8 @@
   items:
   - name: Configure and manage Route Server
     href: configure-route-server.md
+  - name: Configure customer-controlled maintenance
+    href: configure-customer-controlled-maintenance.md
   - name: View effective routes
     href: view-route-server-effective-routes.md
   - name: Configure route maps

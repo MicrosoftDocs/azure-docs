@@ -6,7 +6,7 @@ author: derdanu
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.author: normesta
-ms.date: 11/04/2026
+ms.date: 11/05/2026
 ms.custom:
   - "monitoring"
   - sfi-image-nochange
