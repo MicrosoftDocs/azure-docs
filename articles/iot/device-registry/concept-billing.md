@@ -42,8 +42,6 @@ Both CAs and ICAs use the `Microsoft.DeviceRegistry/namespaces/certificateAuthor
 
 ### Certificate operations
 
-Certificate policies define settings for certificate issuance and renewal. They use the `Microsoft.DeviceRegistry/namespaces/certificateAuthorities/certificatePolicies` resource type.
-
 You're billed for each certificate issuance or renewal. Usage is metered by the number of these operations.
 
 Certificate revocations aren't billed.
