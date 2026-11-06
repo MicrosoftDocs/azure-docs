@@ -31,8 +31,8 @@ App Service runs customer apps in a multitenant hosting environment.
 
 - Apps deployed in the Free and Shared tiers run in worker processes on shared virtual machines (VMs).
 - Apps deployed in the Standard and Premium tiers run on VMs dedicated specifically for the apps associated with a single customer.
-
-Windows apps in the Free (F1) and Shared (D1) tiers support both 32-bit and 64-bit (x64) worker processes. You can [select the process architecture in the platform settings](configure-common.md#configure-general-settings). Using a 64-bit process doesn't increase the Free tier's memory, CPU, or other resource quotas.
+- Windows apps support both 32-bit and 64-bit (x64) processes. To select the process architecture, [configure the app's platform settings](configure-common.md#configure-general-settings). 
+- Linux apps run exclusively as 64-bit processes.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
