@@ -86,6 +86,7 @@ When you use Traffic View, you're billed based on the number of data points used
 * [Do I need to enable Traffic View for each profile in my subscription?](./traffic-manager-faqs.md#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
 * [How can I turn off Traffic View?](./traffic-manager-faqs.md#how-can-i-turn-off-traffic-view)
 * [How does Traffic View billing work?](./traffic-manager-faqs.md#how-does-traffic-view-billing-work)
+* [When I create endpoints in the Azure Portal why does my external endpoint appear in an unexpected location in Traffic View?](./traffic-manager-faqs.md#when-i-create-endpoints-in-the-azure-portal-why-does-my-external-endpoint-appear-in-an-unexpected-location-in-traffic-view)
 
 ## Next steps
 
