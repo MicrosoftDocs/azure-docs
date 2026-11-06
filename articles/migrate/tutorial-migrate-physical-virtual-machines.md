@@ -105,23 +105,17 @@ To set up a new appliance, you can use PowerShell installer script. Ensure you m
 
 ## Set up the replication appliance
 
-> [!IMPORTANT]
-> The classic replication appliance retires on September 30, 2026.
->  - The final recovery point for existing replications is May 31, 2026.
->  - Migration support for these replications continues until September 30, 2026.
->  - You must use the simplified appliance for all new agent-based migrations.
+This section describes how to download and use the PowerShell installer script to set up the replication appliance.
 
-This section describes how to download and use the PowerShell installer script to set up the simplified appliance.
-
-1. In the Azure Migrate project > **Execute** > **Migration**, select **Start execution**.
+1. In the Azure Migrate project, go to **Manage** > **Server replication**, and select **Start replication**.
    
-1. On **Specify intent**, under **What do you want to migrate**, select **Servers** or **virtual machines (VMs)**. Under **Where do you want to migrate to**, select **Azure VM**.
+2. On **Specify intent**, under **What do you want to migrate**, select **Servers** or **virtual machines (VMs)**. Under **Where do you want to migrate to**, select **Azure VM**.
    
-1. In **How will you select workloads**, under **Other sources**, select **From replication appliance (Physical or Others)**. Select the link available in the page to start the setup.
-1. In the setup page, the virtualization type is prepopulated based on the selection you made in the previous step (Physical).
-1. In **Target region**, select the Azure region to which you want to migrate the machines.
-1. Select **Confirm that the target region for migration is ``region-name``**.
-1. Select **Create resources**. This action creates an Azure Site Recovery vault in the background.
+3. In **How will you select workloads**, under **Other sources**, select **From replication appliance (Physical or Others)**. Select the link available in the page to start the setup.
+4. In the setup page, the virtualization type is prepopulated based on the selection you made in the previous step (Physical).
+5. In **Target region**, select the Azure region where you want to migrate the machines.
+6. Select **Confirm that the target region for migration is ``region-name``**.
+7. Select **Create resources**. This action creates an Azure Site Recovery vault in the background.
     > [!NOTE]
     > You can't change the target region for this project after selecting the **Create resources** button, and all subsequent migrations go to this region.
 
@@ -232,7 +226,7 @@ You can install the Mobility service using the Mobility service agent software. 
 > [!NOTE]
 > In the portal you can select up to 10 machines at once for replication. If you need to replicate more, then group them in batches of 10.
 
-1. In the Azure Migrate project > **Execute** > **Migration**, select **Start execution**.
+1. In the Azure Migrate project, go to **Manage** > **Server replication**, and select **Start replication**.
 
 2. On the Specify intent page, under **What do you want to migrate**, select Servers or virtual machines (VMs). Under **Where do you want to migrate to**, select Azure VM.
 
@@ -311,87 +305,55 @@ You can install the Mobility service using the Mobility service agent software. 
 
 9. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 
-10. In **Review and start execution**, review the settings, and select **Review and start execution** to start the initial replication for the servers.
+10. In **Review and start execution**, review the settings, and select **Execute migration** to start the initial replication for the servers.
+11. When you select **Execute migration**, you start replication for the selected servers. Replication proceeds as follows:
+    - When the start replication job finishes successfully, the server begins initial replication to Azure.
+    - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks (seed disks) in Azure.
+    - After initial replication finishes, delta replication begins. The process periodically replicates incremental changes to the source disks to the replica disks in Azure and the server is ready for migration in delta replication.  
 
-## Track and monitor
+## Track and migrate replicating servers
 
-1. In Azure Migrate project, go to Execute > Migrations. Use **View by applications** or **View by workloads** to switch how items are grouped.
+This section explains how to track replicating servers and perform test and final migrations.
 
-1. Replication occurs as follows: 
-    1. When the **Start replication** job finishes successfully, the machines begin their initial replication to Azure.
-    2. During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in Azure.
-    3. After initial replication finishes, delta replication begins. Incremental changes to the source disks are periodically replicated to the replica disks in Azure.
-
-1. Execution progress is shown in **Execution stage** and **Execution status**:
-      - **Execution stage**: Preparation, Testing, or Completion.
-      - **Execution status**: In progress, In error, Action pending, or Completed.
+1. In your Azure Migrate project, go to **Manage** > **Server replication**. Navigate to **Other**.
+2. The following columns show the replication and migration status of your servers for which you initiated replication:
+    - **Replication status**: Displays the current state of replication for the server. Learn more about [replication states](concepts-vmware-agentless-migration.md#replication-states).
+    - **Replication health**: Indicates whether replication is Healthy, Warning, or Critical.
+    - **Last sync**: Shows when the latest replication data was synchronized to Azure.
+    - **Test migration status**: Indicates the current or most recent test migration status for the replicating server or shows as **Pending**.
+    - **Migration status**: Displays the current or most recent migration status for the replicating server or shows as **Ready to migrate** if the initial replication is completed.
+3. **Test migration**:
+    - For servers that complete initial replication and are in **Delta sync**, you can run a test migration to validate your workloads and applications in Azure before final migration. Use an isolated Azure virtual network to avoid impacting your production environment. Test migration doesn't interrupt ongoing delta replication, and you can run multiple test migrations as needed. After validation is complete, ensure to clean up the test migration resources.
+    - For the server you want to test, select the menu on the right, and then select **Test migration**.
   
-1. Execution progress is tracked across three stages in the **Execution stage**:
-   1. **Preparation**:
-         - Servers that are enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress.
-         - You can perform **Stop replication** and **Start replication** operations in this stage if required by using the drop-downs available in the server drill-down blade.
-         - After initial replication is complete, the servers move to the **Testing** stage. 
-      
-        :::image type="content" source="./media/tutorial-migrate-vmware/preparation.png"alt-text="Screenshot shows the Preparation stage."lightbox="./media/tutorial-migrate-vmware/preparation.png":::
-      
-   2. **Testing**:
-         - Servers for which initial replication is complete and delta replication is in progress move to the **Testing** stage.
-         - You can choose to perform test migrations on a test virtual network before the actual migration (recommended).
-         - You can skip the **Testing** stage and start migration directly by using the actions available in the **Completion** drop-down menu.
-           
-   3. **Completion**:
-         - Servers for which test migrations are completed or skipped move to this stage. You can perform final migrations (Cutover) for these servers.
-         - After migration is completed, perform **Complete migration** to clean up the migration resources by using the drop-downs available in the server drill-down blade.
+       :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/start-test-migration.png" alt-text="Screenshot how to navigate to start test migration." lightbox="./media/tutorial-migrate-physical-virtual-machines/start-test-migration.png":::
+       
+    - In **Test migration** page:
+       - Choose the **Virtual network** and **Subnet**.
+       - Optionally, upgrade the operating system. To perform OS upgrade, select **Upgrade available** (only supported for Windows OS, currently in preview). Learn more about [Upgrading windows OS upgrade](how-to-upgrade-windows.md). 
+       - After configuring the above settings, select **Test migration**.
+        
+After validation is complete, select the menu on the right of the server, and then select **Clean up test migration** to remove the test VM and associated resources.
 
-## Run a test migration
-
-When delta replication begins, you can run a test migration for the VMs, before running a full migration to Azure. We highly recommend that you do this at least once for each machine, before you migrate it.
-
-- Running a test migration checks that migration works as expected, without impacting the source (on-premises or AVS) machines, which remain operational, and continue replicating.
-- Test migration simulates the migration by creating an Azure VM using replicated data (usually migrating to a non-production virtual network in your Azure subscription).
-- You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
-
-Do a test migration as follows:
-
-1. In Azure Migrate project, under **Execute** > **Migrations**, select the server by selecting its name in the **Workloads** column.
-2. In the drill-down menu, under **Testing** drop-down, select **Start test migration**.
-3. In **Test migration**, select the Azure virtual network in which the Azure VM will be located during testing. We recommend you use a non-production virtual network. 
-4. Select the subnet to associate with each network interface card (NIC) on the migrated VM.
-5. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option.
-6. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
-7. Select the **Test migration** to start the job. Monitor the job status in the portal under **Execution status**. After the test migration completes, clean up the test resources by navigating to the server and selecting **Clean up test migration** from the **Testing** drop-down.
-
+1.  **Migration**:
+    - Servers that are ready for migration show as **Ready to migrate** under the column **Migration status**.
+    - To perform migration for these servers, select **Migrate** in the **Server replication** page.
+    - In the **Migrate** page,
+       - Select the servers you want to migrate.
+       - Optionally, select the Target OS if you want to upgrade the OS (only supported for Windows OS, currently in preview). Learn more about [Upgrading windows OS upgrade](how-to-upgrade-windows.md).
+       - Choose to shut down virtual machines if you want to perform a planned migration with no data loss.
+       - After configuring the above settings, select **Migrate**.
+  
+2. View the status and migration completion time for migrated servers in the **Migration status** column.
+3. . **Optional replication actions**:
+   The following actions are optional and needed only for specific replication or recovery scenarios. You can access them from the menu for each server.    
+     - **Stop replication**: Stops replication for the server when you no longer want to replicate or migrate it.
+     - **Resynchronize**: Resynchronizes the server when replication needs to be re-established to bring the replica back in sync with the source.
+  
     > [!NOTE]
-    >- To take advantage of automated patching, automated backup, and simplified license management by using SQL IaaS Agent Extension, register your servers running SQL Server with SQL VM RP.
-    >- Select the server under **Workloads** column in Execute> Migrations page. In Compute and Network settings, select checkbox associated with register with SQL IaaS extension.
-    >- Select Azure Hybrid benefit for SQL Server if you have SQL Server instances that are covered with active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.
-
-## Migrate VMs
-
-After you've verified that the test migration works as expected, you can migrate the source machines.
-
-1. In Azure Migrate project, under **Execute** > **Migrations**, select the server by selecting its name in the **Workloads** column.
-2. In the drill-down menu, under **Completion** drop-down, select **Migrate**.
-3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes**.
-    - By default, Azure Migrate shuts down the source VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication. This process ensures no data loss.
-    - If you don't want to shut down the VM, select **No**.
-4. You have an option to upgrade the Windows Server OS during migration.
-5. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
-6. If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. The capacity reservation for the SKU can be in any resource group within the target subscription and location. [Learn more](/azure/virtual-machines/capacity-reservation-create).
-7. After completing the settings, select **Migrate**. A migration job starts for the server. Track the job in Azure notifications.
-8. After the job finishes, you can view and manage the server from the **Migrations** page which will be tracked under **Completion** stage.
-
-## Complete the migration
-
-1. After the migration completes, open the server drill-down page. Under Completion, select Complete migration.
-   This action stops replication for the source machine and cleans up the replication state information for the VM.
-1. Verify and [troubleshoot any Windows activation issues on the Azure VM](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).
-1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.
-1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
-1. Cut over traffic to the migrated Azure VM instance.
-1. Remove the on-premises VMs from your local VM inventory.
-1. Remove the on-premises VMs from local backups.
-1. Update any internal documentation to show the new location and IP address of the Azure VMs.
+    > You can now register your servers running SQL Server with SQL VM RP to take advantage of automated patching, automated backup, and simplified license management by using SQL IaaS Agent Extension.
+    >- Select the servers replicating under **Manage** >**Server replication** page. In Compute and Network settings, select checkbox associated with register with SQL IaaS extension.
+    >- Select Azure Hybrid Benefit for SQL Server if you have SQL Server instances that are covered by active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.hs.
 
 ## Post-migration best practices
 

@@ -435,6 +435,24 @@
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
       - name: JavaScript SDK
         href: /javascript/api/overview/azure/cdn
+      - name: Edge actions
+        items:
+        - name: Azure CLI
+          href: /cli/azure/edge-action
+        - name: Azure PowerShell
+          href: /powershell/module/az.edgeaction/
+        - name: Bicep, ARM, and Terraform AzAPI reference
+          href: /azure/templates/microsoft.cdn/edgeactions?pivots=deployment-language-bicep
+        - name: REST API
+          href: /rest/api/edge-actions/operation-groups
+        - name: Python SDK
+          href: /python/api/overview/azure/mgmt-edgeactions-readme
+        - name: .NET SDK (preview)
+          href: /dotnet/api/overview/azure/resourcemanager.edgeactions-readme?view=azure-dotnet-preview&preserve-view=true
+        - name: Go SDK
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/edgeactions/armedgeactions#section-readme
+        - name: Java SDK
+          href: /java/api/overview/azure/resourcemanager-edgeactions-readme
     - name: Classic
       items:
       - name: Azure CLI
@@ -508,4 +526,3 @@
       href: /shows/Inside-Azure-for-IT/?products=azure-cdn
   - name: Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
-

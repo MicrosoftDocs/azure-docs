@@ -101,9 +101,10 @@ jobs:
               const eligible = pr.base.ref.startsWith(ROLLOUT_BRANCH_PREFIX);
               if (eligible && !member) {
                 const {initialize} = require(process.env.GITHUB_WORKSPACE + '/.github/scripts/kp-business-clock.cjs');
-                await initialize({github, context, core, pr, eventLabel: EVENT_LABEL, managedLabels: [
+                const result = await initialize({github, context, core, pr, eventLabel: EVENT_LABEL, managedLabels: [
                   process.env.REMINDER_DUE_LABEL, process.env.AUTHOR_REMINDER_LABEL
                 ]});
+                if (result === 'skipped') return;
                 await github.rest.issues.addLabels({
                   ...context.repo, issue_number: pr.number, labels: [EVENT_LABEL]
                 });

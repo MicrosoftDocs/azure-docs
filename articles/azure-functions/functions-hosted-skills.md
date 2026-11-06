@@ -63,7 +63,7 @@ Choose the Azure capability that best fits your scenario:
 | Scenario | Option |
 | --- | --- |
 | Expose deterministic functions as tools for another AI client | [Azure Functions MCP extension](functions-create-ai-enabled-apps.md) |
-| Long-running, multi-step orchestration with human-in-the-loop approvals | [Durable Functions](../durable-task/durable-functions/durable-functions-overview.md) |
+| Long-running, multistep orchestration with human-in-the-loop approvals | [Durable Functions](../durable-task/durable-functions/durable-functions-overview.md) |
 | Create and manage AI agents without custom hosting | [Microsoft Foundry](/azure/ai-foundry/agents/overview) or [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) |
 
 ## Project definition
@@ -77,6 +77,9 @@ An Azure Functions hosted skills app is a standard Python v2 function app projec
 | `requirements.txt` | Includes the hosted skills runtime package and any app-specific Python dependencies. |
 
 For more information, see the [Azure Functions developer reference guide for Python apps](./functions-reference-python.md#folder-structure).
+
+> [!IMPORTANT]
+> Azure Functions hosted skills support only HTTP streaming functions. Any other HTTP functions in the same hosted skills app must also use streaming. Combining streaming and non-streaming HTTP functions within the same app isn't supported. For more information, see [HTTP streams in Python](functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1).
 
 ## Hosted skills project files
 
