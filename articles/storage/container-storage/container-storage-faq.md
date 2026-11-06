@@ -3,7 +3,7 @@ title: Frequently asked questions about Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions (FAQ).
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 09/03/2025
+ms.date: 10/30/2026
 ms.author: kendownie
 ms.topic: faq
 ms.custom: references_regions
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Frequently asked questions (FAQ) about Azure Container Storage
 
-Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers.
+Azure Container Storage provides cloud-native persistent-volume orchestration and data acceleration for Kubernetes applications.
 
 ## General questions
 
@@ -64,7 +64,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
   - Default storage class names are `local-csi` for `ephemeralDisk` (local NVMe) and `azuresan-csi` for `elasticSan` (Azure Elastic SAN).
   - Supports multiple storage types.
 
-  Supported storage types for version 2.1.0 and later: `ephemeralDisk` (local NVMe) and `elasticSan` (Azure Elastic SAN).
+  Persistent-volume storage type values are `ephemeralDisk` (local NVMe) and `elasticSan` (Azure Elastic SAN). To enable distributed accelerator for cloud storage (preview), pass `distributedAccelerator` on its own. DACS uses a separate extension and controller; it doesn't install a CSI driver or create a StorageClass. See [How do I enable distributed accelerator for cloud storage?](#distributed-accelerator-install)
 
 * <a id="azure-container-storage-install-models-terraform"></a>
   **How do installation models work with Terraform?**
@@ -167,7 +167,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 * <a id="azure-container-storage-arm"></a>
   **Does Azure Container Storage support ARM node pools?**  
-  Currently, Azure Container Storage doesn't support ARM node pools. Our supported architectures are AMD64/x86-64.
+  The local NVMe and Elastic SAN persistent-volume drivers currently support AMD64/x86-64 node pools. Distributed accelerator for cloud storage preview supports x64 and Arm64. Check the support matrix for the capability you deploy.
 
 * <a id="azure-container-storage-endpoints"></a>
   **What endpoints need to be allowlisted in the Azure Firewall for Azure Container Storage to work?**
@@ -196,6 +196,60 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
   **Is there a service-level agreement (SLA) for Azure Container Storage?**
 
   Azure Container Storage is an orchestration solution of underlying storage options including Ephemeral Disks, Azure Elastic SAN, and Azure Disks. Azure Container Storage doesn't provide a service-level agreement (SLA). However an SLA is offered for each storage option. See [Microsoft Service Level Agreements for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
+## Distributed accelerator for cloud storage questions
+
+* <a id="distributed-accelerator-purpose"></a>
+  **What is distributed accelerator for cloud storage?**
+  Distributed accelerator for cloud storage (DACS) caches Azure Blob data on local NVMe to accelerate model loading for inference and repeated dataset reads for training. It's a read-through cache, not persistent-volume storage. See [Distributed accelerator for cloud storage overview](distributed-accelerator-for-cloud-storage-overview.md).
+
+* <a id="distributed-accelerator-install"></a>
+  **How do I enable distributed accelerator for cloud storage?**
+  Enable the `distributedAccelerator` capability through Azure CLI. The managed extension installs the controller and NVMe prerequisite DaemonSet in `kube-system`; you create the Cache resource separately. Prerequisite setup can format disks on labeled cache nodes, so use dedicated NVMe disks. For prerequisites and steps, see [Get started with distributed accelerator for cloud storage on AKS](distributed-accelerator-for-cloud-storage-quickstart.md).
+
+* <a id="distributed-accelerator-origin"></a>
+  **Which data origins are supported?**
+  Azure Blob Storage is the supported origin. Direct Hugging Face, Amazon S3, and Google Cloud Storage origins aren't supported in this preview.
+
+* <a id="distributed-accelerator-durability"></a>
+  **Is cached data durable?**
+  No. Cached data is ephemeral and can be evicted or lost when a cache node is replaced. Keep authoritative model files and datasets in Azure Blob Storage.
+
+* <a id="distributed-accelerator-blob-access"></a>
+  **How does a workload authenticate to Azure Blob Storage?**
+  The quickstart uses the AKS kubelet managed identity with read-only access to the Blob container. For role assignment and client configuration, see [Grant read access to model data](distributed-accelerator-for-cloud-storage-quickstart.md#grant-read-access-to-model-data).
+
+* <a id="distributed-accelerator-verify-cache"></a>
+  **How do I confirm that reads use DACS rather than going directly to Azure Blob Storage?**
+  Check client cache-hit metrics and successful cache-server request counter increases. Successful or faster reads alone aren't proof of caching because the client can fall back to Blob Storage. For the verification steps, see [Verify the DACS request path](distributed-accelerator-for-cloud-storage-quickstart.md#verify-the-dacs-request-path).
+
+* <a id="distributed-accelerator-prefetch"></a>
+  **Can I prefetch models before inference pods start?**
+  Yes. Prefetch can populate selected model paths before planned deployment or scale-out. See [Manage distributed accelerator for cloud storage](manage-distributed-accelerator-for-cloud-storage.md).
+
+* <a id="distributed-accelerator-cold-read"></a>
+  **Does distributed accelerator for cloud storage deduplicate concurrent cold reads?**
+  No. Coordinated cold-cache population isn't available in this preview. Concurrent clients can independently retrieve the same missing data from Azure Blob Storage. Use prefetch for large synchronized scale events.
+
+* <a id="distributed-accelerator-code-changes"></a>
+  **Does distributed accelerator for cloud storage require application changes?**
+  It depends on the integration. Applications can use the Python client APIs or supported adapters. See [Use distributed accelerator for cloud storage with the Python client](use-distributed-accelerator-for-cloud-storage-python.md) for integration and configuration guidance.
+
+* <a id="distributed-accelerator-scale"></a>
+  **What scale does distributed accelerator for cloud storage support?**
+  The preview supports clusters with up to 100 nodes.
+
+* <a id="distributed-accelerator-cost"></a>
+  **Is there an added charge for distributed accelerator for cloud storage?**
+  There's no DACS software fee. Standard charges apply for Azure VMs, Azure Blob Storage, networking, monitoring, and other resources used by the deployment.
+
+* <a id="distributed-accelerator-upgrade"></a>
+  **Can I upgrade distributed accelerator for cloud storage in place?**
+  Follow the release-specific upgrade guidance, and don't assume cached data is preserved across an upgrade. See [Manage distributed accelerator for cloud storage](manage-distributed-accelerator-for-cloud-storage.md).
+
+* <a id="distributed-accelerator-remove"></a>
+  **What happens when I remove distributed accelerator for cloud storage?**
+  Cached copies are ephemeral; source model files and datasets in Azure Blob Storage aren't deleted. Delete Cache resources while the controller is running, then disable DACS. Disablement removes the extension, controller, and managed NVMe prerequisite DaemonSet but retains the Cache CRD. Don't remove managed prerequisites separately. For the cleanup order and commands, see [Remove distributed accelerator for cloud storage](remove-container-storage.md#remove-distributed-accelerator-for-cloud-storage).
 
 ## See also
 

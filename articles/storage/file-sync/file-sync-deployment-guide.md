@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure File Sync storage sync service by usi
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/22/2026
+ms.date: 11/04/2026
 ms.author: kendownie
 ms.devlang: azurecli
 ms.custom:
@@ -481,7 +481,22 @@ az connectedmachine extension create \
 
 ---
 
-After installing the extension, [register the server](#register-windows-server-with-storage-sync-service) with a Storage Sync Service to begin syncing.
+After installing the extension, [register the server](#register-windows-server-with-storage-sync-service) with a Storage Sync Service to begin syncing. In the Azure portal, you can install the extension and register the server from the same page. See [Install and register from the Azure File Sync page on an Arc-enabled server (preview)](#install-and-register-from-the-azure-file-sync-page-on-an-arc-enabled-server-preview).
+
+### Install and register from the Azure File Sync page on an Arc-enabled server (preview)
+
+You can install the Azure File Sync agent and register your server with a Storage Sync Service directly from the **Azure File Sync** page on your Azure Arc-enabled Windows server. This guided experience brings agent installation, server registration, and configuration and management of sync into one place.
+
+1. In the Azure portal, go to **Azure Arc** > **Machines** and select your Arc-enabled Windows server.
+2. Under **Windows management**, select **Azure File Sync (Preview)**.
+
+   :::image type="content" source="media/storage-sync-files-deployment-guide/arc-azure-file-sync-page.png" alt-text="Screenshot of the Azure File Sync (Preview) page for an Azure Arc-enabled server, with Azure File Sync (Preview) highlighted in the Windows management menu and the Install Azure File Sync agent, Register server, and Configure Azure File Sync sections shown.":::
+
+3. Under **Install Azure File Sync agent**, select **Install agent**. This action installs the **Azure File Sync Agent for Windows** extension on the server. Wait for the installation to complete.
+4. After installation completes, under **Register server**, select **Register** to register the server with an existing Storage Sync Service. If you need a new service, select **Create Storage Sync Service**.
+5. After registration completes, under **Configure Azure File Sync**, select **Configure** to continue setting up your sync group, endpoints, and cloud tiering.
+
+To begin syncing files, [create a sync group and a cloud endpoint](#create-a-sync-group-and-a-cloud-endpoint), and then [create a server endpoint](#create-a-server-endpoint) on the registered server.
 
 ## <a name = "register-windows-server-with-storage-sync-service"></a>Register Windows Server with a storage sync service
 
