@@ -29,7 +29,7 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 
 ## Known issues and considerations
 
-- Smart tier is **generally available** in all regions with zonal redundancy across Azure public cloud, Azure Government, and Microsoft Azure operated by 21Vianet (Azure in China).
+- Smart tier is **generally available** in all regions with zone redundancy across Azure public cloud, Azure Government, and Microsoft Azure operated by 21Vianet (Azure in China).
 
 - **Redundancy conversions** to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account **fails over**, convert the LRS account to zone-redundant within **60 days** to continue smart tier support.
