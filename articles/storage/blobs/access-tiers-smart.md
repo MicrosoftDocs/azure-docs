@@ -29,9 +29,8 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 
 ## Known issues and considerations
 
-- Smart tier is **generally available** in all public cloud regions with zonal redundancies.
+- Smart tier is **generally available** in all regions with zone redundancy across Azure public cloud, Azure Government, and Microsoft Azure operated by 21Vianet (Azure in China).
 
-- Smart tier is in **Public Preview** for the Azure Government cloud regions as well as Microsoft Azure operated by 21Vianet (Azure in China).
 - **Redundancy conversions** to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account **fails over**, convert the LRS account to zone-redundant within **60 days** to continue smart tier support.
 
@@ -44,9 +43,6 @@ After you enable smart tier on existing storage accounts, all blobs in the accou
 Smart tier is configured on the [default account access tier](access-tiers-overview.md#default-account-access-tier-setting).
 You can move objects out of smart tier by setting a different online tier or changing the default account access tier to another tier. Once moved to an explicit tier, objects can't be tiered back to smart tier.
 To set the default access tier setting for a storage account, see [Set a blob's access tier](access-tiers-online-manage.md).
-
-> [!NOTE]
-> In clouds where smart tier remains in Public Preview (Azure Government, and Azure operated by 21Vianet), enable access by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
 
 #### [Portal](#tab/azure-portal)
 
