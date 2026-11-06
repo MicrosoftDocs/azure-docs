@@ -4,7 +4,7 @@ description: Learn how to configure common settings for an Azure App Service app
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
-ms.date: 04/13/2026
+ms.date: 11/06/2026
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
@@ -475,6 +475,8 @@ You can set many of the common configurable options by using [az webapp config s
 az webapp config set --resource-group <group-name> --name <app-name>  --use-32bit-worker-process [true|false] --web-sockets-enabled [true|false] --always-on [true|false]--http20-enabled --auto-heal-enabled [true|false] --remote-debugging-enabled [true|false] --number-of-workers
 ```
 
+For a Windows app, set `--use-32bit-worker-process false` to use a 64-bit (x64) process. This setting doesn't increase the tier's resource quotas.
+
 To show the existing settings, use the [az webapp config show](/cli/azure/webapp/config#az-webapp-config-show) command.
 
 # [Azure PowerShell](#tab/ps)
@@ -484,6 +486,8 @@ You can set many of the common configurable options by using [Set-AzWebApp](/pow
 ```azurecli-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -Use32BitWorkerProcess [$True|$False] -WebSocketsEnabled [$True|$False] -AlwaysOn [$True|$False] -NumberOfWorkers
 ```
+
+For a Windows app, set `-Use32BitWorkerProcess $False` to use a 64-bit (x64) process. This setting doesn't increase the tier's resource quotas.
 
 To show the existing settings, use the [Get-AzWebApp](/powershell/module/az.websites/get-azwebapp) command.
 
