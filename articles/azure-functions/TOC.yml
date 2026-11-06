@@ -671,9 +671,12 @@
       href: register-mcp-server-api-center.md
   - name: Hosted skills
     items:
-    - name: Overview
+    - name: What are hosted skills?
       displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
       href: functions-hosted-skills.md
+    - name: Scenarios
+      displayName: AI, hosted skills, events, connectors, workflows, messages, schedules, files
+      href: functions-hosted-skills-scenarios.md
     - name: Canvas quickstart
       displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
       href: functions-hosted-skills-canvas.md
