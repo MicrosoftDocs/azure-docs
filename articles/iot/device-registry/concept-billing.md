@@ -13,9 +13,9 @@ ai-usage: ai-assisted
 
 # Understand Azure Device Registry billing
 
-Azure Device Registry provides a centralized registry for managing IoT devices and industrial assets as Azure resources. Optional certificate management capabilities help you manage device certificates throughout their lifecycle.
+Azure Device Registry provides a centralized registry for managing IoT devices and industrial assets as Azure resources. Optional certificate management helps you manage device certificates throughout their lifecycle.
 
-Billing is based on registered assets and devices and, if you use certificate management, certificate authorities and billable operations. For certificate management, billable operations include certificate issuance and renewal. This page explains what is billed and how usage is metered.
+You're billed for registered assets and devices. Certificate management adds charges for certificate authorities and operations, including certificate issuance and renewal. This article explains what is billed and how usage is metered.
 
 ## Assets and devices
 
@@ -42,9 +42,9 @@ Both CAs and ICAs use the `Microsoft.DeviceRegistry/namespaces/certificateAuthor
 
 ### Certificate operations
 
-Certificate policies use the `Microsoft.DeviceRegistry/namespaces/certificateAuthorities/certificatePolicies` resource type and define the settings for certificate issuance and renewal.
+Certificate policies define settings for certificate issuance and renewal. They use the `Microsoft.DeviceRegistry/namespaces/certificateAuthorities/certificatePolicies` resource type.
 
-You're billed for each certificate issuance and certificate renewal. These operations are metered by the number of issuances and renewals.
+You're billed for each certificate issuance or renewal. Usage is metered by the number of these operations.
 
 Certificate revocations aren't billed.
 
@@ -52,7 +52,7 @@ Certificate revocations aren't billed.
 
 Jobs, groups, and software updates aren't billed while they're in preview.
 
-## Estimate costs and find pricing
+## Cost estimates and pricing
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate costs.
 
