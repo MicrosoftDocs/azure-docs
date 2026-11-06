@@ -89,7 +89,7 @@ On other distributions, use the appropriate package manager or [compile from sou
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you can. However, the instructions in this article are for the Azure CLI.
 
-* **On Azure Linux 4, ensure the `nc` command is available.** If needed, install the `nmap-ncat` package before running the connectivity test:
+* **On Azure Linux 4, ensure the `nc` command is available.** If needed, install the `nmap-ncat` package before running the connectivity test.
 
     ```bash
     sudo dnf install nmap-ncat
