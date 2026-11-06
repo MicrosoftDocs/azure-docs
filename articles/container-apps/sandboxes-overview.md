@@ -155,8 +155,6 @@ Each sandbox is assigned a resource tier that checks its CPU, memory, and disk a
 | 2XL | 8 cores | 16 GiB | 160 GiB |
 | 3XL | 16 cores | 32 GiB | 320 GiB |
 
-Disk size scales with CPU at 20 GiB per core and is fixed for each tier.
-
 ## Considerations
 
 Consider these points when working with sandboxes:
