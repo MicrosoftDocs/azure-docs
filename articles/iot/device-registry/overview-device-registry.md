@@ -54,7 +54,7 @@ A *schema registry* is a feature of Azure Device Registry that stores the defini
 
 ### Certificate management
 
-Certificate management is a feature of Azure Device Registry that enables you to issue, renew, and revoke X.509 certificates for your IoT Hub-connected devices through a Microsoft-managed certificate authority or by bringing your own certificate authority. By managing certificates through Azure Device Registry, you can handle the full certificate lifecycle for IoT Hub-connected devices from the Azure control plane. For more information, see [What is certificate management in Azure Device Registry?](../iot-certificate-management-overview.md)
+Certificate management is a feature of Azure Device Registry that enables you to issue, renew, and revoke X.509 certificates for your IoT Hub-connected devices through a Microsoft-managed certificate authority or by bringing your own certificate authority. By managing certificates through Azure Device Registry, you can handle the full certificate lifecycle for IoT Hub-connected devices from the Azure control plane. For more information, see [Certificate management in Azure Device Registry](../iot-certificate-management-overview.md)
 
 ### Groups, jobs, and software updates
 
@@ -118,7 +118,7 @@ In Azure IoT Operations, Azure Device Registry is generally available and manage
 
 ### Azure IoT Hub
 
-In Azure IoT Hub, Azure Device Registry integration is in preview. Azure Device Registry represents each Azure IoT Hub device as an Azure Resource Manager resource, which enables management across multiple Azure IoT Hub instances through shared namespaces. Azure Device Registry provides certificate management for IoT Hub-connected devices, enabling you to issue, renew, and revoke X.509 device certificates from the Azure control plane. For more information, see [Integration with Azure Device Registry (preview)](../../iot-hub/iot-hub-device-registry-overview.md) and [What is certificate management in Azure Device Registry?](../iot-certificate-management-overview.md).
+In Azure IoT Hub, Azure Device Registry integration is in preview. Azure Device Registry represents each Azure IoT Hub device as an Azure Resource Manager resource, which enables management across multiple Azure IoT Hub instances through shared namespaces. Azure Device Registry provides certificate management for IoT Hub-connected devices, enabling you to issue, renew, and revoke X.509 device certificates from the Azure control plane. For more information, see [Integration with Azure Device Registry (preview)](../../iot-hub/iot-hub-device-registry-overview.md) and [Certificate management in Azure Device Registry](../iot-certificate-management-overview.md).
 
 For IoT Hub-connected devices, Azure Device Registry software updates uses groups and jobs to deploy updates over the air to many devices at once, across all the IoT hubs linked to a namespace. These capabilities are currently in preview. For more information, see [Software updates concepts (preview)](concept-software-updates.md).
 
@@ -128,5 +128,5 @@ For IoT Hub-connected devices, Azure Device Registry software updates uses group
 - [Best practices for Azure Device Registry namespaces](best-practices-namespaces.md)
 - [Best practices for Azure Device Registry schema registries](best-practices-schema-registries.md)
 - [Integration with Azure Device Registry (preview) - Azure IoT Hub](../../iot-hub/iot-hub-device-registry-overview.md)
-- [What is certificate management in Azure Device Registry?](../iot-certificate-management-overview.md)
+- [Certificate management in Azure Device Registry](../iot-certificate-management-overview.md)
 - [What is asset and device management in Azure IoT Operations?](../../iot-operations/discover-manage-assets/overview-manage-assets.md)

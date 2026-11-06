@@ -13,7 +13,7 @@ ms.date: 09/17/2026
 
 # Key concepts for certificate management
 
-Certificate management in Azure Device Registry simplifies the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication. For more information, see [What is certificate management?](iot-certificate-management-overview.md)
+Certificate management in Azure Device Registry simplifies the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication. For more information, see [Certificate management in Azure Device Registry](iot-certificate-management-overview.md).
 
 ## Cloud public key infrastructure (PKI)
 
@@ -145,6 +145,6 @@ IoT Hub uses X.509 certificates only for authentication, not authorization. Unli
 ## Related content
 
 - [Get started with Azure Device Registry](device-registry/get-started-azure-device-registry.md)
-- [What is Microsoft-backed X.509 certificate management?](iot-certificate-management-overview.md)
+- [Certificate management in Azure Device Registry](iot-certificate-management-overview.md)
 
 - [Integration with Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md)

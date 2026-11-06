@@ -187,4 +187,4 @@ az iot adr ns ca policy show \
 
 ## Next steps
 
-[Certificate management overview](iot-certificate-management-overview.md)
+[Certificate management in Azure Device Registry](iot-certificate-management-overview.md)
