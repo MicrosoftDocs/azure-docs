@@ -4,7 +4,7 @@ description: Learn how App Service plans work in Azure App Service, how they're 
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: overview
-ms.date: 08/24/2026
+ms.date: 11/06/2026
 ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
@@ -45,6 +45,10 @@ You can find more comparisons of plans in [App Service limits](../azure-resource
 <a name="new-pricing-tier-premiumv3"></a>
 
 For pricing information, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+
+## Process architecture
+
+Windows apps support both 32-bit and 64-bit (x64) processes. To select the process architecture, [configure the app's platform settings](configure-common.md#configure-general-settings). Linux apps run exclusively as 64-bit processes.
 
 ## Considerations for running and scaling an app
 

@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: faq
-  ms.date: 10/19/2026
+  ms.date: 11/02/2026
 title: Azure Front Door frequently asked questions (FAQ) 
 summary : |
   This article provides answers to the most frequently asked questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -110,11 +110,11 @@ sections:
       - question: |
           How does Azure Front Door support HTTP/2?
         answer:  |
-          Azure Front Door supports HTTP/2 protocol for client connections. However, the backend pool communication uses HTTP/1.1 protocol. HTTP/2 support is on by default.
+          Azure Front Door supports HTTP/2 for client connections by default. Routes without gRPC enabled use HTTP/1.1 for communication to origins. During the public preview, gRPC-enabled routes in Front Door Standard and Premium use HTTPS and HTTP/2 on both connections. For more information, see [gRPC support in Azure Front Door (preview)](grpc.md).
       - question: |
           Does Azure Front Door support gRPC?
         answer:  |
-          No. Currently, Azure Front Door only supports HTTP/1.1 from the edge to the origin. For gRPC to work, HTTP/2 is required.
+          Yes. Azure Front Door Standard and Premium support native gRPC in public preview. Enable gRPC on the route and every origin in its origin group. HTTPS and HTTP/2 are required from the client to Front Door and from Front Door to the origin. For configuration and preview limitations, see [gRPC support in Azure Front Door (preview)](grpc.md).
       - question: |
           Does Azure Front Door support HTTP to HTTPS redirection?
         answer: |

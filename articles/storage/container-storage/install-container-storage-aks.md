@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage for use with Azure Kub
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 09/10/2025
+ms.date: 10/30/2026
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions
 zone_pivot_groups: azure-cli-or-terraform
@@ -15,7 +15,7 @@ zone_pivot_groups: azure-cli-or-terraform
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built for containers. Use this tutorial to install the latest production version of Azure Container Storage on an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster, whether you create a new cluster or enable the service on an existing cluster.
 
-This article explains how to install Azure Container Storage using two supported flows (installer-only or installer + storage type), how driver installation is triggered, and how to verify and troubleshoot your deployment. Azure Container Storage installs drivers that implement the Container Storage Interface (CSI).
+This article explains how to install Azure Container Storage using two supported flows (installer-only or installer + capability), how component installation is triggered, and how to verify and troubleshoot your deployment. Persistent-volume storage types install drivers that implement the Container Storage Interface (CSI). Azure Container Storage can also enable and manage distributed accelerator for cloud storage (DACS), which installs a separate extension and doesn't create a StorageClass.
 
 If you prefer the open-source version of Azure Container Storage, see the [local-csi-driver](https://github.com/Azure/local-csi-driver) repository for alternate installation instructions.
 
@@ -129,6 +129,39 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 ```
 
 This command installs the installer, deploys the Elastic SAN CSI driver, and creates a default storage class called `azuresan-csi`. You can install and use both local NVMe and Elastic SAN by providing a list such as `ephemeralDisk elasticSan`.
+
+### Install distributed accelerator for cloud storage (preview)
+
+Enable distributed accelerator for cloud storage on an existing AKS cluster by using the `distributedAccelerator` value. The uppercase `A` is required. The extension installs on the AKS managed-cluster resource; you don't need to Arc-connect the cluster.
+
+Use `aks-preview` version `22.0.0b9` or later. Install or upgrade the extension, verify its version, and install or upgrade `connectedk8s` and `k8s-extension` to manage and inspect the DACS extension:
+
+```azurecli
+az extension add --name aks-preview --upgrade --yes
+az extension show --name aks-preview --query version --output tsv
+az extension add --name connectedk8s --upgrade --yes
+az extension add --name k8s-extension --upgrade --yes
+```
+
+Before enabling DACS, select a Linux node pool with local NVMe data disks dedicated to the cache. Apply the `dacs.azure.com/processing-unit=cpu` label through the node-pool configuration, preserving any existing custom labels. Follow [Verify the cache node pool](distributed-accelerator-for-cloud-storage-quickstart.md#verify-the-cache-node-pool).
+
+> [!CAUTION]
+> Enabling DACS installs a prerequisite DaemonSet that discovers, formats, and mounts local NVMe disks on labeled cache nodes. Label only nodes with disks that aren't claimed by another storage component.
+
+Run the following command, replacing `<cluster-name>` and `<resource-group>` with your values:
+
+```azurecli
+az aks update \
+  --name <cluster-name> \
+  --resource-group <resource-group> \
+  --enable-azure-container-storage distributedAccelerator
+```
+
+This command installs the `distributedaccelerator` extension, the DACS controller and NVMe prerequisite DaemonSet in `kube-system`, and the `caches.storage.azure.com` custom resource definition (CRD). You don't install a separate prerequisite chart or manage the extension's Helm release yourself. It doesn't create a StorageClass or provision a Cache resource and cache-server pods by default. Successful extension installation doesn't by itself mean that a cache is ready for application traffic.
+
+Pass `distributedAccelerator` on its own in this command rather than combining it with the persistent-volume storage options shown earlier. Before provisioning cache servers, verify that the managed prerequisites are ready on every labeled cache node. For the cache setup and application workflow, see [Get started with distributed accelerator for cloud storage on AKS](distributed-accelerator-for-cloud-storage-quickstart.md).
+
+To remove DACS, follow [Remove distributed accelerator for cloud storage](remove-container-storage.md#remove-distributed-accelerator-for-cloud-storage). Delete Cache resources while the controller is running, then disable DACS. Disablement removes the controller and managed prerequisite DaemonSet; don't remove those prerequisites separately.
 
 ::: zone-end
 
@@ -319,6 +352,37 @@ acstor-cluster-manager                2/2     2            2           4d9h
 acstor-geneva                         2/2     2            2           4d9h
 ```
 
+### Verify distributed accelerator for cloud storage
+
+For a DACS installation, check the extension rather than looking for a StorageClass:
+
+```azurecli
+az k8s-extension show \
+  --cluster-type managedClusters \
+  --cluster-name <cluster-name> \
+  --resource-group <resource-group> \
+  --name distributedaccelerator \
+  --query '{extensionType:extensionType,provisioningState:provisioningState,currentVersion:currentVersion,releaseTrain:releaseTrain}' \
+  --output table
+```
+
+Confirm that the extension type is `microsoft.distributedaccelerator` and its provisioning state is `Succeeded`. The `currentVersion` field shows the installed version. The extension resource name is lowercase `distributedaccelerator`, unlike the CLI storage option `distributedAccelerator`.
+
+After connecting to the cluster, verify the controller, prerequisite DaemonSet, and CRD:
+
+```bash
+kubectl rollout status deployment/dacs-manager --namespace kube-system --timeout=5m
+kubectl get deployment dacs-manager --namespace kube-system
+kubectl rollout status daemonset/dacs-prereq --namespace kube-system --timeout=10m
+kubectl get daemonset dacs-prereq --namespace kube-system
+kubectl get pods --namespace kube-system --selector app.kubernetes.io/name=dacs-prereq --output wide
+kubectl get crd caches.storage.azure.com
+```
+
+Continue only after the extension is in the `Succeeded` state, the controller has a ready replica, and the prerequisite DaemonSet has a Ready pod on every labeled cache node. A DaemonSet with zero desired replicas doesn't verify NVMe preparation. If a check fails, see [Troubleshoot distributed accelerator for cloud storage](troubleshoot-distributed-accelerator-for-cloud-storage.md).
+
+The storage-class and CSI-driver verification steps that follow apply to persistent-volume storage types, not DACS.
+
 ### Verify storage class presence
 
 After you create a storage class or enable a storage type, verify the storage class:
@@ -378,5 +442,6 @@ kubectl describe ocirepositories.source.installer.acstor.io -n kube-system
 
 - [Use Azure Container Storage with local NVMe](use-container-storage-with-local-disk.md)
 - [Use Azure Container Storage with Elastic SAN](use-container-storage-with-elastic-san.md)
+- [Get started with distributed accelerator for cloud storage on AKS (preview)](distributed-accelerator-for-cloud-storage-quickstart.md)
 - [Overview of deploying a highly available PostgreSQL database on Azure Kubernetes Service (AKS)](/azure/aks/postgresql-ha-overview#storage-considerations)
 - [Frequently asked questions (FAQ) about Azure Container Storage](container-storage-faq.md)

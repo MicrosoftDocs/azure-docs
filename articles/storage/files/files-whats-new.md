@@ -159,7 +159,7 @@ The Azure File Sync v19 release improves performance, security, and adds support
 - Preview: Managed Identities support for Azure File Sync service and servers
 - Azure File Sync agent support for Windows Server 2025
 
-To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100).
+To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md).
 
 #### Provisioned v2 for HDD file shares
 The provisioned v2 model for Azure Files HDD (standard) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 also enables increased scale and performance, up to 256 TiB, 50,000 IOPS, and 5 GiB/sec of throughput; and per share monitoring.
