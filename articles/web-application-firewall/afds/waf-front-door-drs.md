@@ -553,7 +553,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 ### <a name="drs99006-22"></a> MS-ThreatIntel-Response-CVEs
 |Rule ID|Anomaly score severity|Paranoia Level|Description|
 |---|---|--|--|
-|99006001|N/A|1|This rule does not block traffic. When its action is set to "Block on Anomaly," it removes the PHP session cookie from the HTTP response [CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618) and [CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619)|
+|99006001|N/A|1|This rule doesn't block traffic. When you set its action to "Block on Anomaly," it removes the PHP session cookie from the HTTP response. [CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618) and [CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619)|
 
 
 > [!NOTE]
