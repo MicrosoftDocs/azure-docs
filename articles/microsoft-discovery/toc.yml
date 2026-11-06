@@ -265,6 +265,9 @@ items:
           - name: Compliance guidance
             href: concept-compliance-framework-mappings.md
             displayName: Microsoft Discovery, compliance, control framework, audit evidence, Service Trust Portal, Microsoft Cloud Security Benchmark, MCSB, Compliance Manager, certification scope
+          - name: Data flows and threat model
+            href: concept-data-flows-threat-model.md
+            displayName: Microsoft Discovery, threat model, STRIDE, data flow, trust boundary, security review, OWASP
           - name: SIG-based security and compliance FAQ
             href: faq-security-compliance-sig.yml
             displayName: Microsoft Discovery, security FAQ, compliance FAQ, security questionnaire, vendor assessment, CAIQ, SIG
