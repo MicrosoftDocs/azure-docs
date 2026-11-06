@@ -418,6 +418,29 @@ In this hosting model, the endpoint uses `AzureServiceBusServerlessTransport`, a
 
 The trigger must set `AutoCompleteMessages = false` because NServiceBus completes or abandons each message based on the outcome of its handlers.
 
+### Configure the connection for Azure Functions 
+
+The Functions host doesn't read the `ConnectionStrings:AzureServiceBusConnectionString` value from the `appsettings.json` that the console applications use. The `ServiceBusTrigger` reads its [default connection](../azure-functions/functions-bindings-service-bus-trigger.md#connections) from an application setting named `AzureWebJobsServiceBus`. `AzureServiceBusServerlessTransport` doesn't take a connection string, the endpoint uses the connection configured for the trigger..
+
+To run the function locally, add the connection string to the `Values` collection in the [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file) file:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "AzureWebJobsServiceBus": "<CONNECTION_STRING>"
+  }
+}
+```
+
+The `local.settings.json` file is used only when you run the function locally, and it isn't deployed to Azure. To set up the function app in Azure, add `AzureWebJobsServiceBus` as an [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md#settings). In the Azure portal, go to your function app, select Settings > Environment variables, and add the setting on the App settings tab. 
+
+You can also use the [Azure CLI](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=azure-cli#settings) or [Azure PowerShell](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=azure-powershell#settings) to set this value.
+
+To use a different setting name, set the `Connection` property on the trigger, for example `[ServiceBusTrigger("Receiver", Connection = "AzureServiceBusConnectionString", AutoCompleteMessages = false)]`, and use that name in `local.settings.json` and in the function app settings.
+
 For more information about using NServiceBus with Functions, see [Azure Functions hosting](https://docs.particular.net/nservicebus/hosting/azure/functions/) in the NServiceBus documentation.
 
 ## Next steps
