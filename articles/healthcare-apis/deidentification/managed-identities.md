@@ -6,7 +6,7 @@ ms.author: jovinson
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: how-to
-ms.date: 10/28/2026
+ms.date: 11/05/2026
 ---
 
 # Use managed identities with the de-identification service
@@ -69,7 +69,9 @@ the resource definition. Replace **resource-id** with the Azure Resource Manager
 
 ## Supported scenarios using managed identities
 
-You can use managed identities assigned to the de-identification service to access Azure Blob Storage for batch de-identification jobs. The service acquires a token as the managed identity to access Blob Storage, and de-identify blobs that match a specified pattern. For more information, including how to grant access to your managed identity, see [Quickstart: Azure Health De-identification client library for .NET](quickstart-sdk-net.md).
+You can use managed identities assigned to the de-identification service to access Azure Blob Storage for batch de-identification jobs. The service acquires a token as the managed identity to access Blob Storage, and de-identify blobs that match a specified pattern. For more information, including how to grant access to your managed identity, see [Configure Azure Storage to de-identify documents](configure-storage.md).
+
+Grant the managed identity access only to the containers that your jobs use. Anyone who can create jobs on the service can use the managed identity's storage access. For guidance, see [Storage access for batch jobs](manage-access-rbac.md#storage-access-for-batch-jobs).
 
 ## Remove managed identities from the de-identification service
 
