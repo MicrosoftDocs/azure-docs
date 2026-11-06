@@ -292,6 +292,9 @@ import (
 
 #### Go configuration provider
 
+> [!NOTE]
+> If you're using version **1.7.0** or later, the audience is auto detected, unless you manually provide one by using the following method.
+
 If your application uses the following package, configure the audience by passing the `ClientOptions` with the cloud configuration to the `Load` function. Use version **1.0.0** or later of the following package.
  - `azureappconfiguration`
 
