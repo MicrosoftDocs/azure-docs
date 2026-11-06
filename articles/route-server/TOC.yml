@@ -63,6 +63,8 @@
     href: view-route-server-effective-routes.md
   - name: Configure route maps
     href: route-maps-how-to.md
+  - name: Configure dual-stack route maps - Portal (preview)
+    href: route-maps-dual-stack-portal.md
   - name: Route maps scenarios
     items:
     - name: Prepend routes

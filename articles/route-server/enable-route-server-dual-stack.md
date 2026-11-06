@@ -82,5 +82,6 @@ If provisioning doesn't reach **Succeeded**, don't assume the route server is re
 
 ## Next steps
 
+- To filter and summarize IPv4 and IPv6 routes, see [Configure dual-stack route maps by using the Azure portal](route-maps-dual-stack-portal.md).
 - For an example of BGP peering with an NVA, see [Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)](peer-route-server-with-virtual-appliance.md).
 - To inspect routes learned by Route Server, see [View effective routes](view-route-server-effective-routes.md).
