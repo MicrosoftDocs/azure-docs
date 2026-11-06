@@ -72,7 +72,7 @@ The following table lists additional workload-specific limitations.
 
 ## Considerations
 
-- Configure the mapping in advance as part of your recovery planning. Creating a mapping requires access to the source tenant and the Backup Contributor role on the source vault. If that access is lost before a mapping exists, you can't create the mapping solely from the target tenant. With an existing mapping, authorized users can restore from the target tenant without signing in to the source tenant.
+- Configure the mapping in advance as part of your recovery planning. Creating a mapping requires access to the source tenant and the Backup Contributor role on the source vault. If you lose that access before a mapping exists, you can't create the mapping solely from the target tenant. With an existing mapping, authorized users can restore from the target tenant without signing in to the source tenant.
 - Creating and keeping an empty target vault incurs no Azure Backup charge for the vault itself. Costs for restored resources and any subsequent backup protection are separate. For advance setup, see [Prerequisites](tutorial-cross-tenant-restore.md#prerequisites).
 - The source vault and protected item must exist and must not be deleted when you restore. Only vaulted recovery points are eligible, as described in [Supported workloads and limitations](#supported-workloads-and-limitations).
 - While a mapping exists, you can't delete the source vault, the target vault, or a protected item in the source vault. Delete the mapping first.
