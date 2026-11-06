@@ -20,7 +20,7 @@ This new version of Start/Stop VMs v2 provides a decentralized low-cost automati
 >
 > + The TriggerAutoUpdate and UpdateStartStopV2 functions are now deprecated and will be removed in the future. To update Start/Stop v2, we recommend that you stop the site, install to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments), and then start the site. To disable the automatic update functionality, set the Function App's **AzureClientOptions:EnableAutoUpdate** [application setting](../functions-how-to-use-azure-function-app-settings.md?tabs=azure-portal%2Cto-premium#get-started-in-the-azure-portal) to **false**. No built-in notification system is available for updates. After an update to Start/Stop v2 becomes available, we will update the [readme.md](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md) in the GitHub repository. Third-party GitHub file watchers might be available to notify you of changes.
 > 
-> + As of August 19, 2024, Start/Stop v2 has been updated to the [.NET 8 isolated worker model](../functions-versions.md?tabs=isolated-process%2Cv4&pivots=programming-language-csharp#languages).  
+> + As of November 6, 2024, Start/stop v2 is updated to [.NET 10](../functions-versions.md?tabs=isolated-process%2Cv4&pivots=programming-language-csharp#languages).
 
     
 ## Overview
