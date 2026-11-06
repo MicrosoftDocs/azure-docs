@@ -176,6 +176,9 @@ items:
         items:
           - name: Deployment planning overview
             href: concept-deployment-planning.md
+          - name: Architecture decisions
+            href: concept-deployment-decisions.md
+            displayName: Microsoft Discovery, plan, architecture, decisions, immutable settings, create-only, network, identities, customer-managed keys
           - name: Quota and capacity requirements
             href: concept-quota-reservation.md
           - name: Resource naming rules
@@ -262,6 +265,9 @@ items:
           - name: Compliance guidance
             href: concept-compliance-framework-mappings.md
             displayName: Microsoft Discovery, compliance, control framework, audit evidence, Service Trust Portal, Microsoft Cloud Security Benchmark, MCSB, Compliance Manager, certification scope
+          - name: Data flows and threat model
+            href: concept-data-flows-threat-model.md
+            displayName: Microsoft Discovery, threat model, STRIDE, data flow, trust boundary, security review, OWASP
           - name: SIG-based security and compliance FAQ
             href: faq-security-compliance-sig.yml
             displayName: Microsoft Discovery, security FAQ, compliance FAQ, security questionnaire, vendor assessment, CAIQ, SIG
