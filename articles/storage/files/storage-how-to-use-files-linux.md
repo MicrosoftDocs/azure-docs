@@ -1,11 +1,11 @@
 ---
 title: Mount SMB Azure File Share on Linux
 description: Learn how to mount an Azure file share over SMB on Linux and review SMB security considerations on Linux clients.
-author: khdownie, saimsh
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/08/2026
-ms.author: kendownie
+ms.author: kendownie, saimsh
 ms.custom:
   - linux-related-content
   - devx-track-azurecli
