@@ -5,7 +5,7 @@ description: Azure Container Apps Sandboxes deliver fast, secure, ephemeral comp
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
-ms.date: 05/26/2026
+ms.date: 11/06/2026
 ms.topic: overview
 ms.service: azure-container-apps
 ---
@@ -147,13 +147,15 @@ Each sandbox is assigned a resource tier that checks its CPU, memory, and disk a
 
 | Tier | CPU | Memory | Disk |
 |---|---|---|---|
-| XS | 0.25 cores | 0.5 GiB | 20 GiB |
-| S | 0.5 cores | 1 GiB | 20 GiB |
+| XS | 0.25 cores | 0.5 GiB | 5 GiB |
+| S | 0.5 cores | 1 GiB | 10 GiB |
 | M (default) | 1 core | 2 GiB | 20 GiB |
 | L | 2 cores | 4 GiB | 40 GiB |
 | XL | 4 cores | 8 GiB | 80 GiB |
 | 2XL | 8 cores | 16 GiB | 160 GiB |
 | 3XL | 16 cores | 32 GiB | 320 GiB |
+
+Disk size scales with CPU at 20 GiB per core and is fixed for each tier.
 
 ## Considerations
 
