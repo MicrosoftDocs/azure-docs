@@ -15,6 +15,8 @@ items:
   items:
   - name: What is Azure Device Registry?
     href: device-registry/overview-device-registry.md
+  - name: Understand billing
+    href: device-registry/concept-billing.md
   - name: Get started with Azure Device Registry
     items:
       - name: Azure IoT Hub get started (preview)
