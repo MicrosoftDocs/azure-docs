@@ -56,8 +56,6 @@
       displayName: operations, traffic, connections, latency
     - name: Pricing examples
       href: iot-hub-devguide-pricing.md
-    - name: Azure Device Registry billing
-      href: ../iot/device-registry/concept-billing.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Understand IoT Hub endpoints
       href: iot-hub-devguide-endpoints.md
       displayName: multitenant
