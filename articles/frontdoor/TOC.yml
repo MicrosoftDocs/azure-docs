@@ -241,6 +241,8 @@
     href: standard-premium/websocket.md
   - name: HTTP/2
     href: front-door-http2.md
+  - name: gRPC (preview)
+    href: grpc.md
   - name: Compression
     href: standard-premium/how-to-compression.md
   - name: Blue/Green deployment with Front Door
