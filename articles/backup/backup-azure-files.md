@@ -24,7 +24,7 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 > [!NOTE]
 > Snapshot backup for NFS Azure file shares is currently in private preview. The preview is intended for evaluation with non-production subscriptions. To request access, complete the [preview sign-up form](https://forms.cloud.microsoft/r/DJubyYrkYN).
 >
-> Vaulted backup support for NFS Azure file shares is coming soon and is not yet available in private preview.
+> Vaulted backup support for NFS Azure file shares is coming soon and isn't yet available in private preview.
 
 ## Prerequisites
 
