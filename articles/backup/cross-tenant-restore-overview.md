@@ -39,7 +39,7 @@ Cross-tenant restore involves the following entities:
 
 To restore across tenants:
 
-1. Create a vault mapping between the source vault and the target vault.
+1. During normal operations, create and verify a vault mapping between the source vault and the target vault, before an incident affects access to the source tenant.
 1. In the target vault, browse the protected items that the mapping surfaces from the source vault.
 1. Select a recovery point, and restore the data to the target tenant.
 
@@ -48,6 +48,7 @@ Because the target vault must be associated with a [Resource Guard](multi-user-a
 ## Supported workloads and limitations
 
 Cross-tenant restore supports alternate location restore only. It doesn't support original location restore. Only vaulted recovery points are eligible. Snapshot-only recovery points aren't eligible.
+The following table lists additional workload-specific limitations.
 
 | Vault type | Workload | Limitations |
 | --- | --- | --- |
@@ -71,6 +72,8 @@ Cross-tenant restore supports alternate location restore only. It doesn't suppor
 
 ## Considerations
 
+- Configure the mapping in advance as part of your recovery planning. Creating a mapping requires access to the source tenant and the Backup Contributor role on the source vault. If that access is lost before a mapping exists, you can't create the mapping solely from the target tenant. With an existing mapping, authorized users can restore from the target tenant without signing in to the source tenant.
+- Creating and keeping an empty target vault incurs no Azure Backup charge for the vault itself. Costs for restored resources and any subsequent backup protection are separate. For advance setup, see [Prerequisites](tutorial-cross-tenant-restore.md#prerequisites).
 - The source vault and protected item must exist and must not be deleted when you restore. Only vaulted recovery points are eligible, as described in [Supported workloads and limitations](#supported-workloads-and-limitations).
 - While a mapping exists, you can't delete the source vault, the target vault, or a protected item in the source vault. Delete the mapping first.
 - Cross-tenant restore requires a Resource Guard in the target tenant and specific Azure roles. For details, see [Prerequisites](tutorial-cross-tenant-restore.md#prerequisites) and [Assign the required roles](tutorial-cross-tenant-restore.md#assign-the-required-roles) in the tutorial.
