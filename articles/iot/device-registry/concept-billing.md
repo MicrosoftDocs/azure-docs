@@ -54,6 +54,6 @@ Jobs, groups, and software updates aren't billed while they're in preview.
 
 ## Cost estimates and pricing
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate costs.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
-For Azure Device Registry prices, see the [Azure IoT Hub pricing page](https://azure.microsoft.com/en-us/pricing/details/iot-hub/#pricing) and the [Azure IoT Operations pricing page](https://azure.microsoft.com/en-us/pricing/details/iot-operations/#pricing).
+For Azure Device Registry prices, see the [Azure IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/#pricing) and the [Azure IoT Operations pricing page](https://azure.microsoft.com/pricing/details/iot-operations/#pricing).
