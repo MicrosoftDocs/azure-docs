@@ -176,6 +176,9 @@ items:
         items:
           - name: Deployment planning overview
             href: concept-deployment-planning.md
+          - name: Architecture decisions
+            href: concept-deployment-decisions.md
+            displayName: Microsoft Discovery, plan, architecture, decisions, immutable settings, create-only, network, identities, customer-managed keys
           - name: Quota and capacity requirements
             href: concept-quota-reservation.md
           - name: Resource naming rules
