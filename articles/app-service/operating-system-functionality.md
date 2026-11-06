@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: concept-article
-ms.date: 07/21/2025
+ms.date: 11/06/2026
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
@@ -31,6 +31,8 @@ App Service runs customer apps in a multitenant hosting environment.
 
 - Apps deployed in the Free and Shared tiers run in worker processes on shared virtual machines (VMs).
 - Apps deployed in the Standard and Premium tiers run on VMs dedicated specifically for the apps associated with a single customer.
+
+Windows apps in the Free (F1) and Shared (D1) tiers support both 32-bit and 64-bit (x64) worker processes. You can [select the process architecture in the platform settings](configure-common.md#configure-general-settings). Using a 64-bit process doesn't increase the Free tier's memory, CPU, or other resource quotas.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
