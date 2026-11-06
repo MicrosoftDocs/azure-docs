@@ -89,7 +89,7 @@ Next, you upload a document that contains synthetic protected health information
 
 In this step, you grant role-based access to the container for the system-assigned managed identity of the de-identification service.
 
-You grant the Storage Blob Data Contributor role because the de-identification service reads the original document and writes the de-identified output documents. You assign the role at the container scope so that the service can access only this container.
+You grant the **Storage Blob Data Contributor** role because the de-identification service reads the original document and writes the de-identified output documents. Assign the role at the container scope so that the service can access only this container.
 
 Substitute the name of your de-identification service for the `<deid_service_name>` placeholder:
 
