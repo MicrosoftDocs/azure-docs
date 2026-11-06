@@ -42,7 +42,7 @@ Both CAs and ICAs use the `Microsoft.DeviceRegistry/namespaces/certificateAuthor
 
 ### Certificate operations
 
-You're billed for each certificate issuance or renewal. Usage is metered by the number of these operations.
+Certificate issuances and renewals are billed as Azure Device Registry operations. The operations meter counts the combined number of issuances and renewals.
 
 Certificate revocations aren't billed.
 
