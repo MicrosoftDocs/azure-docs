@@ -14,7 +14,7 @@ You can use the provided PowerShell script to create a free root CA and private 
 
 ## Prerequisites
 
-- A Device Registry namespace. For setup steps, see [Set up a managed root and intermediate CA](../iot/how-to-create-policy.md).
+- A Device Registry namespace. For setup steps, see [Get started with Azure Device Registry](../iot/device-registry/get-started-azure-device-registry.md).
 - A Device Registry namespace intermediate CA configured to be signed by an [external root CA](../iot/how-to-create-policy-external-certificate.md). Download the CSR file from your intermediate CA to your local machine.
 
 - Install OpenSSL. If you don't have OpenSSL installed, use the command `winget install --id ShiningLight.OpenSSL.Dev -e`. Add OpenSSL to PATH in your environment variables.
