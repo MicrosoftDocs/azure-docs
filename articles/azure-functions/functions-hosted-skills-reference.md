@@ -16,6 +16,8 @@ ms.collection:
 
 This article provides the configuration reference for Azure Functions hosted skills. For an overview of the runtime and guidance on when to use it, see [Azure Functions hosted skills](functions-hosted-skills.md).
 
+For development examples, see the [Azure Functions hosted skills developer guide](functions-hosted-skills-developer-guide.md).
+
 [!INCLUDE [functions-hosted-skills-preview](../../includes/functions-hosted-skills-preview.md)]
 
 ## Agent file reference

@@ -82,8 +82,8 @@ Before you submit the request, stop write and delete operations on the dataset. 
 
    ```json
    {
-     "operation_id": "c3d282e6-e7d1-40d8-8ac2-edc15b6d174c",
-     "statusUrl": "/seistore-svc/api/v3/operation/restore/c3d282e6-e7d1-40d8-8ac2-edc15b6d174c"
+     "operation_id": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+     "statusUrl": "/seistore-svc/api/v3/operation/restore/aaaabbbb-0000-cccc-1111-dddd2222eeee"
    }
    ```
 
@@ -106,7 +106,7 @@ Poll the status endpoint to track the asynchronous restore.
 
    ```json
    {
-     "operationId": "c3d282e6-e7d1-40d8-8ac2-edc15b6d174c",
+     "operationId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
      "status": "InProgress",
      "sdPath": "sd://opendes/test-subproject/surveys/dataset1",
      "restorePointInTime": "2026-07-10T08:30:00.000Z",
@@ -130,7 +130,7 @@ Poll the status endpoint to track the asynchronous restore.
 
    ```json
    {
-     "operationId": "c3d282e6-e7d1-40d8-8ac2-edc15b6d174c",
+     "operationId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
      "status": "Rejected",
      "sdPath": "sd://opendes/test-subproject/surveys/dataset1",
      "restorePointInTime": "2026-07-10T08:30:00.000Z",

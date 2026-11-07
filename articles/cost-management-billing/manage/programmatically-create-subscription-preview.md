@@ -105,7 +105,7 @@ ObjectId                               | PrincipalName
 aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb   | SignUpEngineering@contoso.com
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
-Use the `principalName` property to identify the account that you want subscriptions to be billed to. Copy the `ObjectId` of that account. For example, to create subscriptions under the SignUpEngineering@contoso.com enrollment account, copy ```aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e```. Paste the object ID somewhere so that you can use it in the next step as the `enrollmentAccountObjectId`.
+Use the `principalName` property to identify the account that you want subscriptions to be billed to. Copy the `ObjectId` of that account. For example, to create subscriptions under the SignUpEngineering@contoso.com enrollment account, copy ```aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb```. Paste the object ID somewhere so that you can use it in the next step as the `enrollmentAccountObjectId`.
 
 ### [Azure CLI](#tab/azure-cli)
 
