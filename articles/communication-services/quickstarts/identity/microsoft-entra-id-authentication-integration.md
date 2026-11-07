@@ -57,7 +57,7 @@ The Contoso Administrator can create a service principal in Contoso tenant by on
 POST https://graph.microsoft.com/v1.0/servicePrincipals
 Content-Type: application/json
 {
-  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
+  "appId": "2a04943b-b6a7-4f65-8786-2bb6131b59f6"
 }
 ```
 
@@ -66,7 +66,7 @@ Content-Type: application/json
 - Use the [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to run the following command:
 
 ```azurecli-interactive
-az ad sp create --id 00001111-aaaa-2222-bbbb-3333cccc4444
+az ad sp create --id 2a04943b-b6a7-4f65-8786-2bb6131b59f6
 ```
 
 <a name='step-2-create-an-entra-application-registration-or-select-an-entra-application'></a>
@@ -147,7 +147,7 @@ The service principal of the Contoso application in the Fabrikam tenant is creat
 You can see that the status of the Communication Services Clients application API permissions is *Granted for {Directory_name}*.
 
 
-If you run into the issue "The app is trying to access a service '00001111-aaaa-2222-bbbb-3333cccc4444'(Azure Communication Services Clients) that your organization '{GUID}' lacks a service principal for. You need to create a service principal for your tenant by following the instructions in the [Step 1: Create a service principal for Azure Communication Services Clients application](microsoft-entra-id-authentication-integration.md#step-1-create-a-service-principal-for-azure-communication-services-clients-application).
+If you run into the issue "The app is trying to access a service '2a04943b-b6a7-4f65-8786-2bb6131b59f6'(Azure Communication Services Clients) that your organization '{GUID}' lacks a service principal for. You need to create a service principal for your tenant by following the instructions in the [Step 1: Create a service principal for Azure Communication Services Clients application](microsoft-entra-id-authentication-integration.md#step-1-create-a-service-principal-for-azure-communication-services-clients-application).
 
 The group access to Azure Communication Services Clients application should be only provided if the Contoso Administrator provided a group access to the Contoso Azure Communication Services resource in the previous step. For the user or entire tenant access to the Azure Communication Services resource, the Fabrikam Administrator can skip this step.
 
