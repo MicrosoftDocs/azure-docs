@@ -3,20 +3,160 @@ title:  Enable telemetry for feature flags in an ASP.NET Core application
 titleSuffix: Azure App Configuration
 description: Learn how to use telemetry in ASP.NET Core for feature flags in Azure App Configuration.
 ms.service: azure-app-configuration
-author: jimmyca15
-ms.author: jimmyca
+author: yuanqu72
+ms.author: yuanqu
 ms.topic: how-to
-ms.date: 11/04/2025
+ms.date: 11/02/2026
+zone_pivot_groups: app-configuration-telemetry-aspnet-core
 ---
 
 # Enable telemetry for feature flags in an ASP.NET Core application
 
-In this tutorial, you use telemetry in your ASP.NET Core application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in the [overview for enabling telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled. This tutorial builds on top of the tutorial for [using variant feature flags in an ASP.NET Core application](./howto-variant-feature-flags-aspnet-core.md).
+In this tutorial, you use telemetry in your ASP.NET Core application to track feature flag evaluations and custom events. Telemetry helps you make informed decisions about your feature management strategy. You use the feature flag with telemetry enabled that you created in the [overview for enabling telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled. You must complete [Use variant feature flags in an ASP.NET Core application](./howto-variant-feature-flags-aspnet-core.md) before starting this tutorial, which extends the application created there.
+
+> [!TIP]
+> OpenTelemetry is the recommended integration for feature flag telemetry in Azure App Configuration, especially if you're setting up telemetry for the first time. The Application Insights SDK integration remains available for applications that already use it.
 
 ## Prerequisites
 
 - The variant feature flag with telemetry enabled from [Enable telemetry for feature flags](./howto-telemetry.md).
 - The application from [Use variant feature flags in an ASP.NET Core application](./howto-variant-feature-flags-aspnet-core.md).
+- An Application Insights resource. If you don't have one, [create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource).
+
+::: zone pivot="app-configuration-telemetry-opentelemetry"
+
+## Add telemetry to your ASP.NET Core application
+
+1. Add the following NuGet packages to your project. OpenTelemetry integration requires version **4.8.0 or later** of `Microsoft.FeatureManagement.Telemetry.OpenTelemetry` and `Microsoft.FeatureManagement.AspNetCore`.
+
+    ```dotnetcli
+    dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
+    dotnet add package Microsoft.FeatureManagement.Telemetry.OpenTelemetry
+    ```
+
+1. In *Program.cs*, add the following using statement.
+
+    ```csharp
+    using Azure.Monitor.OpenTelemetry.AspNetCore;
+    ```
+
+1. Keep the Azure App Configuration and feature management service registration, including `WithTargeting()`.
+
+    ```csharp
+    builder.Services.AddAzureAppConfiguration()
+        .AddFeatureManagement()
+        .WithTargeting();
+    ```
+
+1. After registering feature management services and before `builder.Build()`, add OpenTelemetry and the feature management processors. Then configure Azure Monitor to export telemetry.
+
+    ```csharp
+    var openTelemetry = builder.Services.AddOpenTelemetry();
+
+    openTelemetry.AddFeatureManagementProcessors();
+
+    openTelemetry.UseAzureMonitor(options =>
+    {
+        options.ConnectionString =
+            builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"];
+        options.TracesPerSecond = null;
+        options.SamplingRatio = 1.0F;
+        options.EnableTraceBasedLogsSampler = false;
+    });
+    ```
+
+    > [!WARNING]
+    > Call `AddFeatureManagementProcessors()` before `UseAzureMonitor()` so the processors can publish feature evaluation events and enrich logs and traces with the targeting ID before export. The sampling settings retain all traces and prevent trace-based sampling from dropping experiment events.
+
+1. Add the targeting middleware after authentication and before authorization. Ensure the middleware appears in the following order, without duplicating existing calls.
+
+    ```csharp
+    app.UseAzureAppConfiguration();
+    app.UseAuthentication();
+    app.UseMiddleware<TargetingHttpContextMiddleware>();
+    app.UseAuthorization();
+    ```
+
+    > [!WARNING]
+    > Authentication must run before the targeting middleware so the signed-in user's identity is available when associating feature evaluations and custom events with a targeting ID.
+
+### Track custom events
+
+Use the existing `ILogger` in *Index.cshtml.cs* to record when a signed-in user likes a quote. Azure Monitor maps a log with the `microsoft.custom_event.name` attribute to an Application Insights custom event.
+
+1. In *Index.cshtml.cs*, add the following handler to the `IndexModel` class.
+
+    ```csharp
+    public IActionResult OnPostHeartQuoteAsync()
+    {
+        string? userId = User.Identity?.Name;
+
+        if (!string.IsNullOrEmpty(userId))
+        {
+            _logger.LogInformation("{microsoft.custom_event.name}", "Liked");
+
+            return new JsonResult(new { success = true });
+        }
+        else
+        {
+            return new JsonResult(new
+            {
+                success = false,
+                error = "User not authenticated"
+            });
+        }
+    }
+    ```
+
+1. In *Index.cshtml*, add an antiforgery token before the script tag.
+
+    ```cshtml
+    <form action="/" method="post">
+        @Html.AntiForgeryToken()
+    </form>
+    ```
+
+1. Replace the `heartClicked` function with the following code.
+
+    ```javascript
+    function heartClicked(button) {
+        var icon = button.querySelector('i');
+        icon.classList.toggle('far');
+        icon.classList.toggle('fas');
+
+        if (icon.classList.contains('fas')) {
+            fetch('/Index?handler=HeartQuote', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                }
+            });
+        }
+    }
+    ```
+
+    > [!NOTE]
+    > The request invokes `OnPostHeartQuoteAsync` and includes the antiforgery token required by Razor Pages. A `Liked` event is recorded when a signed-in user selects the heart, but not when they deselect it.
+
+### Build and run the app
+
+1. Copy your Application Insights resource's connection string from its **Overview** page in the Azure portal. From your application's project directory, set the connection string as a user secret.
+
+    ```dotnetcli
+    dotnet user-secrets set "APPLICATIONINSIGHTS_CONNECTION_STRING" "<ApplicationInsightsConnectionString>"
+    ```
+
+1. After setting the user secret, rebuild and run the application.
+
+    ```powershell
+    dotnet build
+    dotnet run
+    ```
+
+::: zone-end
+
+::: zone pivot="app-configuration-telemetry-appinsights"
 
 ## Add telemetry to your ASP.NET Core application
 
@@ -86,7 +226,7 @@ Now you'll add a custom event to track when users like a quote. You'll create a 
     }
     ```
 
-1. In *Index.cshtml*, add an antiforgerytoken before the script tag.
+1. In *Index.cshtml*, add an antiforgery token before the script tag.
 
     ```html
     <form method="post" style="display:none;">
@@ -129,6 +269,8 @@ Now you'll add a custom event to track when users like a quote. You'll create a 
     dotnet build
     dotnet run
     ```
+
+::: zone-end
 
 ## Collect telemetry
 

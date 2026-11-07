@@ -20,6 +20,7 @@ To select the most efficient restore workflow for your particular restore situat
 
 :::image type="content" source="./media/manage-restores/manage-data-restores.png" alt-text="Screenshot that shows how to manage restore in different workflows." lightbox="./media/manage-restores/manage-data-restores.png":::
 
+
 Reference documentation
 
 1. [Restore a snapshot to a new volume using Azure NetApp Files](snapshots-restore-new-volume.md)
@@ -29,3 +30,9 @@ Reference documentation
 1. [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
 1. [Restore individual files with single-file restore from backups in Azure NetApp Files](restore-single-file-backup.md)
 1. [Restore a backup to a new volume](backup-restore-new-volume.md)
+
+**How snapshots work**
+
+To learn about how Azure NetApp Files snapshots and backup work, see [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md).
+
+ 

@@ -8,8 +8,8 @@ metadata:
   description: Explore all of your cloud resources and more effectively manage your cloud inventory.
   ms.service: azure-resource-graph
   ms.topic: landing-page
-  author: daphnemamsft
-  ms.author: daphnema
+  author: kgremban
+  ms.author: kgremban
   ms.date: 07/11/2024
 
 landingContent:

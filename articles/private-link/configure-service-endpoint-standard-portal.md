@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 07/08/2026
+ms.date: 09/22/2026
 ---
 
 # Configure a standard service endpoint using the Azure portal
@@ -14,7 +14,7 @@ ms.date: 07/08/2026
 This article walks you through configuring a [standard service endpoint](service-endpoint-standard-overview.md) using the Azure portal. You create a public IP address as a network identifier, associate it with service endpoints on a subnet, configure a network security perimeter, and validate connectivity.
 
 > [!IMPORTANT]
-> Standard service endpoint is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Standard service endpoint is generally available.
 
 ## Prerequisites
 
@@ -22,25 +22,9 @@ This article walks you through configuring a [standard service endpoint](service
 
 - **Network Contributor** role or higher on the subscription. Specifically, you need the `Microsoft.Network/publicIPAddresses/joinServiceEndpointNetworkIdentifier/action` permission. For more information, see [network security perimeter role-based access control requirements](network-security-perimeter-role-based-access-control-requirements.md).
 
-- The **AllowServiceEndpointNetworkIdentifier** feature must be registered in your subscription. Use the following steps to register the feature:
-
-    1. Sign in to the [Azure portal](https://portal.azure.com/?feature.vnetnetworkidentifier=true).
-
-    1. In the search box at the top of the portal, enter **Subscriptions**. Select **Subscriptions** in the search results.
-
-    1. Select the subscription you want to enable the feature for.
-
-    1. In the left menu, select **Preview features** under **Settings**.
-
-    1. In the search box, enter **AllowServiceEndpointNetworkIdentifier**.
-
-    1. Select **AllowServiceEndpointNetworkIdentifier** in the results, and then select **Register**.
-
-    1. Wait for the registration state to change to **Registered**. You can select **Refresh** to update the status.
-
 ## Create a resource group
 
-1. Sign in to the [Azure portal](https://portal.azure.com/?feature.vnetnetworkidentifier=true) with your Azure account.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
@@ -280,7 +264,7 @@ A network identifier is a public IP address that you assign to your service endp
 1. In the **Network identifier** dropdown, select the public IP address you created in the previous step.
 
     > [!NOTE]
-    > The same public IP address can be assigned to all subnets in a region within a subscription. The network identifier is supported across subscriptions during the public preview.
+    > You can use the same public IP address as the network identifier for all subnets across subscriptions within the same tenant and region.
 
 1. Select **Save**.
 

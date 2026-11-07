@@ -78,6 +78,8 @@
           href: create-network-security-perimeter-template.md
         - name: Configure a perimeter link between network security perimeters
           href: configure-perimeter-link.md
+        - name: Configure service tag access on inbound rules
+          href: configure-network-security-perimeter-service-tag.md
         - name: Transition to a network security perimeter
           href: network-security-perimeter-transition.md
     - name: Configure a standard service endpoint
@@ -156,6 +158,8 @@
       items:
         - name: Diagnostic logs
           href: network-security-perimeter-diagnostic-logs.md
+        - name: Metrics
+          href: network-security-perimeter-metrics.md
 - name: Troubleshoot
   items:
     - name: Troubleshoot Azure Private Link

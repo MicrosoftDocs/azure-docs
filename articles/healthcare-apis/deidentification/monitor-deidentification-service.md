@@ -1,7 +1,7 @@
 ---
 title: Monitor the De-identification service in Azure Health Data Services
 description: Start here to learn how to monitor De-identification service in Azure Health Data Services.
-ms.date: 06/16/2025
+ms.date: 10/28/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: jovinson-ms
@@ -11,6 +11,7 @@ ms.subservice: deidentification-service
 ---
 
 # Monitor the Azure Health Data Services de-identification service
+
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
@@ -53,7 +54,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 ### De-identification service alert rules
 
-The following table lists some suggested alert rules for the de-identification service. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [de-identification service monitoring data reference](monitor-deidentification-service-reference.md).
+The following table lists some suggested alert rules for the de-identification service. These alerts are just examples. Set alerts for any metric, log entry, or activity log entry listed in the [de-identification service monitoring data reference](monitor-deidentification-service-reference.md).
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|

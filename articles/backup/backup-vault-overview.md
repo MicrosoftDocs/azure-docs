@@ -2,7 +2,7 @@
 title: Overview of the Backup vaults
 description: An overview of Backup vaults.
 ms.topic: overview
-ms.date: 01/29/2026
+ms.date: 10/09/2026
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -48,6 +48,8 @@ You can fetch your own keys to encrypt the backup data by using the **Customer M
 
 Backup vaults provide a robust Role-Based Access Control (RBAC) mechanism that not only governs who can access a Backup vault and what operations they can perform, but also enables fine-grained control over which individual workloads the vault can access and to what extent. This includes access to Azure resources such as Azure Disks or PostgreSQL servers to be backed up and Key Vaults used for encryption key management.
 
+The identity that creates or updates a backup instance needs read permission on the source resources referenced by that instance. The **Reader** role on a source resource is one way to grant this permission. This permission is separate from the permissions assigned to the Backup vault's managed identity.
+
 RBAC is enforced through Managed Identities associated with the Backup vault. Specific roles can be assigned to these identities to grant the required access. Backup vaults support two types of managed identities:
 
 - **System Assigned Managed Identity:** This identity is automatically created when the Backup vault is provisioned and is tied to the lifecycle of the vault. You have the option to disable this identity if needed.
@@ -65,6 +67,10 @@ Learn [how to perform Cross Region Restore](manage-backup-vault.md#perform-cross
 >[!Note]
 >- Cross Region Restore is now available for PostgreSQL backups protected in Backup vaults. 
 >- Backup vaults enabled with Cross Region Restore are automatically charged at [RA-GRS rates](https://azure.microsoft.com/pricing/details/backup/) for the PostgreSQL backups stored in the vault.
+
+## Cross-tenant restore (preview)
+
+Cross-tenant restore lets you restore vaulted backup data from a source tenant to a different target tenant by mapping the source Backup vault to a target vault. You can use it for Azure Database for PostgreSQL - Flexible Server, Azure Blobs (vaulted backup), Azure Cosmos DB, Azure Data Lake Storage, and AKS backups in supported regions. [Learn more about cross-tenant restore](cross-tenant-restore-overview.md).
 
 ## Next steps
 

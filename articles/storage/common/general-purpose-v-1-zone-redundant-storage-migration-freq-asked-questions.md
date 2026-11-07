@@ -23,6 +23,8 @@ This FAQ addresses common questions about upgrading from **GPv1 standard ZRS** t
 > Microsoft will retire accounts that use **GPv1 standard ZRS** on **October 13, 2026**. All affected accounts must be upgraded to **GPv2** before this date to avoid service disruption.  
 > See: [Upgrade storage account](storage-account-upgrade.md) [general purpose v1 (GPv1) with ZRS redundancy migration overview](general-purpose-version-1-zone-redundant-storage-migration-overview.md)
 
+> [!IMPORTANT]
+> GPv1 storage accounts are expected to transition to GPv2 pricing shortly after the retirement date, regardless of when the backend update of your storage accounts from GPv1 to GPv2 is completed. To maintain control over your update timeline, proactively update your GPv1 accounts to GPv2 before the Microsoft-initiated conversion begins.
 
 ### What is GPv1 standard ZRS storage?
 

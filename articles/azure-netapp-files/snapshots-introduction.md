@@ -108,7 +108,7 @@ Most use cases require that you keep online snapshots on the Azure NetApp Files 
 
 ## Ways to restore data from snapshots  
 
-The Azure NetApp Files snapshot technology greatly improves the frequency and reliability of backups. It incurs minimal performance overhead and can be safely created on an active volume. Azure NetApp Files snapshots allow near-instantaneous, secure, and optionally user-managed restores. This section describes various ways in which data can be accessed or restored from Azure NetApp Files snapshots.
+The Azure NetApp Files snapshot technology greatly improves the frequency and reliability of data protection. It incurs minimal performance overhead and can be safely created on an active volume. Azure NetApp Files snapshots allow near-instantaneous, secure, and optionally user-managed restores. This section describes various ways in which data can be accessed or restored from Azure NetApp Files snapshots. A [decision tree](azure-netapp-files-manage-data-restores.md) is provided for selecting the optimal restore method for restoring individual files or complete volumes when snapshots and backups are present.
 
 ### Restoring (cloning) an online snapshot to a new volume
 
@@ -152,7 +152,7 @@ See [Revert a volume using snapshot revert](snapshots-revert-volume.md) about ho
 
 ### Restoring files or directories from online snapshots using a client
 
-The [snapshot path visibility]() option controls whether the snapshot path of a volume is visible. Hiding the snapshot path adds an extra layer of protection to your snapshots, hiding snapshot paths from accidental discovery. During [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume creation, you can specify whether the snapshot path should be hidden. You can edit [snapshot path visibility](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option) as needed. 
+The [snapshot path visibility](snapshots-manage-policy.md) option controls whether the snapshot path of a volume is visible. Hiding the snapshot path adds an extra layer of protection to your snapshots by hiding snapshot paths from accidental discovery. During [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume creation, you can specify whether the snapshot path should be hidden. You can edit [snapshot path visibility](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option) as needed. 
 
 The following diagram shows file or directory access to a snapshot using a client: 
 

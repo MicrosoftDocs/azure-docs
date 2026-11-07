@@ -6,7 +6,7 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
-ms.date: 09/16/2026
+ms.date: 10/09/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -32,6 +32,7 @@ This article summarizes the scenarios supported and limitations present when you
 | **Backup types** | Full, Differential, and Log backups. | Incremental, archival support is currently not available. |
 | **Restore types** | ALR-Alternate Location Restore, OLR-Original Location Restore (In-Place), Restore as Files.  |  |
 | **Cross Subscription Restore** | Supported via the Azure portal.<br>Cross Subscription Restore to Paired Region. |  Region of Choice isn't supported. |
+| **Cross Tenant Restore (preview)** | Supported for vaulted recovery points through alternate location restore. [Learn more](cross-tenant-restore-overview.md). |  |
 | **Number of full backups per day** | One scheduled backup. <br><br> Three on-demand backups. <br> <br> We recommend not to trigger more than three backups per day. However, to allow user retries for failed attempts, hard limit for on-demand backups is set to nine attempts. |
 | **ASE deployments** | Standalone, Multi SID on Single VM. | HA on Single VM. |
 | **Compression** | You can enable ASE Native compression via the Backup policy and when you take an on-demand Backup/Backup Now. In Preregistration Script, Compression Level is set to **Level 101** for Optimal results. |  |
@@ -92,6 +93,14 @@ The following table lists the required parameters for adding/removing SAP ASE in
 >If you have the preregistration script already installed, update the script name by running the following bash command:
 >
 > `sudo ./<script name> -us`
+
+## Support for High Availability (HA) configuration
+
+Azure Backup supports backing up SAP ASE (Sybase) databases deployed in a High Availability (HA) configuration across multiple Azure virtual machines (for example, active/passive or primary/secondary node setups). In such deployments, Azure Backup treats all participating nodes as a single logical HA container and automatically handles backup operations during failover without requiring manual intervention.
+
+HA configurations that span multiple Azure VMs are supported. HA implemented within a single Azure VM (for example, multiple ASE instances or HA constructs confined to one VM) isn't supported.
+
+For details on configuring Azure Backup for SAP ASE HA clusters, including prerequisites and registration requirements, see [Configure backup for an SAP ASE high-availability cluster](sap-ase-database-backup.md#configure-backup-for-an-sap-ase-high-availability-cluster).
 
 ## Next steps
 

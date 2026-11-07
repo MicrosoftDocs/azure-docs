@@ -2,7 +2,7 @@
 title: Create a pool with disk encryption enabled
 description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
 ms.topic: how-to
-ms.date: 07/29/2026
+ms.date: 10/05/2026
 ms.devlang: csharp
 ms.custom: devx-track-azurecli
 # Customer intent: "As a cloud administrator, I want to create a Batch pool with disk encryption enabled, so that I can safeguard data on the compute nodes while reducing management overhead."
@@ -14,6 +14,9 @@ When you create an Azure Batch pool using [Virtual Machine Configuration](nodes-
 
 This article explains how to create a Batch pool with disk encryption enabled.
 
+> [!IMPORTANT]
+> Azure Disk Encryption (ADE) for Azure Batch pools retires on September 15, 2028. Before that date, migrate pool configurations that rely on ADE for temporary-disk encryption to [encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data). The retirement doesn't affect the default server-side encryption of managed disks.
+
 ## Why use a pool with disk encryption configuration?
 
 With a Batch pool, you can access and store data on the OS and temporary disks of the compute node. Encrypting the server-side disk with a platform-managed key will safeguard this data with low overhead and convenience.
@@ -22,20 +25,97 @@ Batch will apply one of these disk encryption technologies on compute nodes, bas
 
 - [Managed disk encryption at rest with platform-managed keys](/azure/virtual-machines/disk-encryption#platform-managed-keys)
 - [Encryption at host using a platform-managed Key](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-- [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview)
+- [Azure Disk Encryption for Batch pools](/azure/virtual-machines/disk-encryption-overview), which retires on September 15, 2028
 
-You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the compute node. The following image depicts how Batch makes that choice.
+The disk encryption targets don't directly select an encryption technology. You specify the target disks that you want to encrypt, and Batch selects an applicable technology based on the pool configuration. You can explicitly request encryption at host in the virtual machine security profile. The following image depicts how Batch makes the selection.
 
 > [!IMPORTANT]
-> If you are creating your pool with a Linux [custom image](batch-sig-images.md), you can only enable disk encryption only if your pool is using an [Encryption At Host Supported VM size](/azure/virtual-machines/disk-encryption#supported-vm-sizes).
-> Encryption At Host is not currently supported on User Subscription Pools until the feature becomes [publicly available in Azure](/azure/virtual-machines/disks-enable-host-based-encryption-portal#prerequisites).
+> If you create your pool with a Linux [custom image](batch-sig-images.md), you can enable disk encryption only if your pool uses a VM size that supports encryption at host.
+>
+> For a user subscription pool, register the `Microsoft.Compute/EncryptionAtHost` feature in the subscription that contains the pool resources, and explicitly set `securityProfile.encryptionAtHost` to `true`. For more information, see [Prerequisites for encryption at host](/azure/virtual-machines/disks-enable-host-based-encryption-portal#prerequisites).
 
 ![Screenshot of the Pool Creation in the Azure portal.](./media/disk-encryption/decision-tree.svg)
 
 Some disk encryption configurations require that the VM family of the pool supports encryption at host. See [End-to-end encryption using encryption at host](/azure/virtual-machines/disks-enable-host-based-encryption-portal) to determine which VM families support encryption at host.
 
 > [!NOTE]
-> Temporary-disk encryption on VM sizes that don't support encryption at host requires [Azure Disk Encryption (ADE)](/azure/virtual-machines/disk-encryption-overview). ADE isn't supported on Basic, A-series, v6-series, v7-series (and later) VM sizes, or on VMs with less than 2 GB of memory. If you enable temporary-disk encryption on one of these unsupported sizes, Batch rejects pool creation with an `AzureDiskEncryptionNotSupportedOnVMSize` error. To use temporary-disk encryption when ADE isn't supported, choose a VM size and subscription that support encryption at host, and don't explicitly disable encryption at host in the pool's security profile.
+> Temporary-disk encryption on VM sizes that don't support encryption at host requires [Azure Disk Encryption (ADE)](/azure/virtual-machines/disk-encryption-overview). ADE isn't supported on Basic, A-series, v6-series, v7-series (and later) VM sizes, or on VMs with less than 2 GB of memory. If you enable temporary-disk encryption on one of these unsupported sizes, Batch rejects pool creation with an `AzureDiskEncryptionNotSupportedOnVMSize` error. To use temporary-disk encryption without ADE, choose a VM size and subscription that support encryption at host. For a Batch service pool, don't explicitly disable encryption at host. For a user subscription pool, explicitly set `securityProfile.encryptionAtHost` to `true`.
+
+## Azure Disk Encryption retirement
+
+Azure Disk Encryption (ADE) for Batch pools retires on September 15, 2028. After the retirement date, Batch pools don't support ADE. Pool configurations that continue to depend on ADE can experience disruptions when Batch provisions or replaces compute nodes.
+
+Complete the migration before the retirement date if your pool configuration requests temporary-disk encryption and can select ADE. Use encryption at host as the replacement. Encryption at host encrypts the temporary disk, ephemeral OS disks, and the caches of OS and data disks at the VM host.
+
+The ADE retirement doesn't affect managed disk encryption at rest with platform-managed keys, which is enabled by default for Azure managed disks.
+
+## Determine whether your pool requires action
+
+The Batch pool properties show the disk encryption targets that you requested, but they don't identify the encryption technology that Batch selected for the nodes. Use the following table to assess whether a pool configuration can depend on ADE.
+
+| Pool configuration | ADE dependency | Action |
+| --- | --- | --- |
+| `diskEncryptionConfiguration` isn't set, or `TemporaryDisk` isn't included in its targets | The configuration doesn't depend on ADE for temporary-disk encryption. | No action is required for this retirement. |
+| Batch service pool allocation mode, `TemporaryDisk` is requested, the VM size supports encryption at host, and encryption at host isn't explicitly disabled | Batch selects encryption at host. | No migration is required. Continue to use a VM size that supports encryption at host. |
+| Batch service pool allocation mode, `TemporaryDisk` is requested, and the VM size doesn't support encryption at host | The configuration can depend on ADE. | Migrate to a VM size that supports encryption at host. |
+| User subscription pool allocation mode, `TemporaryDisk` is requested, and `securityProfile.encryptionAtHost` isn't set to `true` | The configuration can depend on ADE. Batch doesn't automatically enable encryption at host for user subscription pools. | Register the encryption-at-host feature in the pool subscription and explicitly enable encryption at host. |
+| `securityProfile.encryptionAtHost` is explicitly set to `false` and `TemporaryDisk` is requested | The configuration can depend on ADE. | Use a supported VM size and set `encryptionAtHost` to `true`. |
+
+To determine whether a VM size supports encryption at host, see [Supported VM sizes](/azure/virtual-machines/disks-enable-host-based-encryption-portal#supported-vm-sizes).
+
+## Configure new pools
+
+For new pools that require temporary-disk encryption, select a VM size that supports encryption at host. Don't explicitly disable encryption at host.
+
+For user subscription pools, also register the `Microsoft.Compute/EncryptionAtHost` feature in the subscription that contains the pool resources and set `securityProfile.encryptionAtHost` to `true`.
+
+## Migrate an existing pool to encryption at host
+
+You can update an existing pool without deleting the Batch pool. The update replaces the underlying compute deployment when you scale the pool out again.
+
+1. Stop scheduling new work on the pool, and wait for running tasks to finish or move them to another pool.
+1. Resize both the dedicated and Spot or low-priority target node counts to zero.
+1. Wait until the pool allocation state is **Steady** and the current node counts are zero.
+1. Use the Batch Management Plane [Pool - Update API](/rest/api/batchmanagement/pool/update) version `2024-07-01` or later to:
+   - Select a VM size that supports encryption at host, if the current size doesn't support it.
+   - Set `deploymentConfiguration.virtualMachineConfiguration.securityProfile.encryptionAtHost` to `true`.
+   - Preserve the required disk encryption targets and the other virtual machine configuration properties.
+1. Resize the pool to the required target node counts. Batch creates a new underlying compute deployment by using the updated configuration.
+
+For example, the relevant part of a Management Plane `PATCH` request is:
+
+```json
+{
+  "properties": {
+    "vmSize": "<encryption-at-host-supported-vm-size>",
+    "deploymentConfiguration": {
+      "virtualMachineConfiguration": {
+        "imageReference": {
+          "publisher": "<publisher>",
+          "offer": "<offer>",
+          "sku": "<sku>",
+          "version": "<version>"
+        },
+        "nodeAgentSkuId": "<node-agent-sku-id>",
+        "diskEncryptionConfiguration": {
+          "targets": [
+            "OsDisk",
+            "TemporaryDisk"
+          ]
+        },
+        "securityProfile": {
+          "encryptionAtHost": true
+        }
+      }
+    }
+  }
+}
+```
+
+> [!CAUTION]
+> Include the existing virtual machine configuration properties that the pool must retain, such as its image reference, node agent SKU, OS disk settings, container configuration, extensions, and data disks. Before you update a production pool, retrieve its current configuration and construct the request with all required values.
+
+For more information about zero-node updates and update behavior, see [Update Batch pool properties](batch-pool-update-properties.md).
 
 ## Azure portal
 
@@ -125,7 +205,7 @@ Request body:
                 "OsDisk",
                 "TemporaryDisk"
             ]
-        }
+        },
         "nodeAgentSKUId": "batch.node.ubuntu 22.04"
     },
     "resizeTimeout": "PT15M",

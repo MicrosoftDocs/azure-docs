@@ -3,7 +3,7 @@ title: Name generation pattern
 description: Describes the name generation pattern.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 10/26/2026
 ---
 
 # Name generation pattern
@@ -30,7 +30,7 @@ When planning a resource's name, you need to ensure it is:
 Use Bicep's [string interpolation](bicep-functions-string.md#concat) to generate resource names as [variables](variables.md). If the resource requires a globally unique name, use the [uniqueString()](bicep-functions-string.md#uniquestring) function to generate part of the resource name. Prepend or append meaningful information to ensure your resources are easily identifiable.
 
 > [!NOTE]
-> Some Azure resources, such as Azure RBAC role definitions and role assignments, need to have globally unique identifiers (GUIDs) as their names. Use the [guid() function](bicep-functions-string.md#guid) to generate names for these resources.
+> Some Azure resources, such as Azure RBAC role definitions and role assignments, need to have globally unique identifiers (GUIDs) as their names. Use the [guid() function](bicep-functions-string.md#guid) to generate names for role definitions. For new role assignments, use the [getRoleAssignmentName() function](bicep-functions-resource.md#getroleassignmentname) to generate a deterministic name from the scope, principal ID, and role definition ID. Before changing the name of an existing role assignment, review the [migration guidance](scenarios-rbac.md#name).
 
 If you're creating reusable Bicep code, you should consider defining names as [parameters](parameters.md). Use a [default parameter value](parameters.md#set-default-values) to define a default name that can be overridden. Default values help to make your Bicep files more reusable, ensuring that users of the file can define their own names if they need to follow a different naming convention.
 
@@ -64,4 +64,3 @@ The following example generates the names for two storage accounts for a differe
 ## Next steps
 
 [Learn about the shared variable file pattern.](patterns-shared-variable-file.md)
-

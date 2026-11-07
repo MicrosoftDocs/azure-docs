@@ -3,7 +3,7 @@ title: Portable VMware Cloud Foundation licensing reference for Azure VMware Sol
 description: Review licensing rules, important dates, core requirements, and security details for portable VMware Cloud Foundation on Azure VMware Solution.
 ms.topic: reference
 ms.service: azure-vmware
-ms.date: 08/14/2026
+ms.date: 10/27/2026
 # Customer intent: As a cloud administrator, I want to understand portable VMware Cloud Foundation licensing requirements for Azure VMware Solution, so that I can maintain compliant licensing across my private clouds.
 ---
 
@@ -60,6 +60,8 @@ Use the following core counts for each host type:
 | AV52 | 52 |
 | AV64 | 64 |
 
+Note: BYOL cores are accounted for before License-Included cores are calculated.
+
 Multiply the number of BYOL hosts by the cores per host. For example, three AV64 BYOL hosts require 192 registered portable VCF cores: 3 hosts * 64 cores per host = 192 cores.
 
 In a mixed-licensing private cloud, register only the cores for BYOL hosts. For example, a private cloud with three license-included AV36P hosts and four BYOL AV36P hosts has 252 deployed cores:
@@ -75,7 +77,7 @@ In a mixed-licensing private cloud, register only the cores for BYOL hosts. For 
 VMware vDefend Firewall can be enabled for NSX Distributed Firewall and NSX Gateway Firewall. Calculate add-on cores as follows:
 
 * **NSX Distributed Firewall**: Count all host cores in the private cloud. For example, 10 AV36P hosts require 360 firewall add-on cores: 10 hosts * 36 cores per host = 360 cores.
-* **NSX Gateway Firewall**: Multiply the number of NSX edges by the vCPUs per edge, and then multiply by four. For example, two large NSX edges with eight vCPUs each require 64 Gateway Firewall cores: 2 edges * 8 vCPUs * 4 = 64 cores.
+* **NSX Gateway Firewall**: Multiply the number of NSX edges by the vCPUs per edge, and then multiply by three. For example, two large NSX edges with eight vCPUs each require 64 Gateway Firewall cores: 2 edges * 8 vCPUs * 3 = 48 cores.
 
 If an NSX edge is scaled up to extra large (16 vCPUs) or scaled out, recalculate the Gateway Firewall cores. Azure VMware Solution Generation 2 includes three large NSX edges by default, or four edges when cluster 1 has four or more nodes.
 
@@ -92,7 +94,8 @@ Provide a Broadcom vDefend Firewall add-on license when either of the following 
 
 Enabling firewall features without purchasing and registering the required Broadcom subscription makes the private cloud noncompliant. Microsoft may suspend a noncompliant private cloud until the issue is resolved.
 
-Not all Broadcom vDefend Firewall features are supported on Azure VMware Solution. Contact your Microsoft account team or Microsoft support to confirm support for a specific feature.
+Not all Broadcom vDefend Firewall features are supported on Azure VMware Solution. [Here](faq.yml#does-azure-vmware-solution-all-advanced-vdefend-features-with-supported-vdefend-byol-license)
+ is high level info on what vDefend features are supported on Azure VMware Solution. If you need more info, please contact your Microsoft account team or Microsoft support to confirm support for a specific feature.
 
 ## Security and data handling
 

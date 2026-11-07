@@ -188,8 +188,8 @@ Before switching production traffic, verify that the migrated application:
 [Get Copyright From Bounding Box]: /rest/api/maps/render/get-copyright-from-bounding-box
 [Get Copyright From Bounding Box v1]: /rest/api/maps/render/get-copyright-from-bounding-box?view=rest-maps-1.0
 [Get Map Attribution]: /rest/api/maps/render/get-map-attribution
-[Get Map Image]: /rest/api/maps/render/get-map-image?view=rest-maps-1.0
-[Get Map Imagery Tile]: /rest/api/maps/render/get-map-imagery-tile?view=rest-maps-1.0
+[Get Map Image]: /rest/api/maps/render/get-map-static-image
+[Get Map Imagery Tile]: /rest/api/maps/render/get-map-tile
 [Get Map State Tile]: /rest/api/maps/render/get-map-state-tile
 [Get Map State Tile v1]: /rest/api/maps/render/get-map-state-tile?view=rest-maps-1.0
 [Get Map Static Image]: /rest/api/maps/render/get-map-static-image

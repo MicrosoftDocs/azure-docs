@@ -183,7 +183,7 @@ At this point, you should revalidate that the scale-out appliance is able to con
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Screenshot shows view credentials and discovery sources to be validated.":::
 
 > [!IMPORTANT]
-> If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications.<br/> If you do not need the scale-out appliance any longer, make sure that you disable the scale-out appliance. [**Learn more**](./common-questions-appliance.md) on how to disable the scale-out appliance when not needed.
+> If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications. <br/> If you don't need the scale-out appliance any longer, you must manually disable the scale-out appliance by deleting the corresponding storage account backed configuration entries. Deleting the appliance from the project isn't currently supported.
 
 ## Replicate
 

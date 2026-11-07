@@ -1,8 +1,6 @@
 ---
 title: Migrate Azure Blueprints to template specs
 description: Step-by-step instructions to migrate Azure Blueprints definitions and artifacts to template specs, and deploy them with Azure Deployment Stacks before the Blueprints retirement.
-author: mumian
-ms.author: jgao
 ms.service: azure-blueprints
 ms.topic: how-to
 ms.date: 06/26/2026

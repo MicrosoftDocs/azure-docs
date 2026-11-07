@@ -2,7 +2,7 @@
 title: Tutorial to assess web apps for migration
 description: Learn how to create assessment for web apps in Azure Migrate
 author: ankitsurkar06
-ms.author: ankitsurkar
+ms.author: nikitabajaj
 ms.topic: tutorial
 ms.date: 10/22/2025
 ms.service: azure-migrate

@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for the De-identification service in Azure Health Data Services
-description: This article contains important reference material you need when you monitor the De-identification service in Azure Health Data Services.
-ms.date: 06/16/2025
+description: Find resource logs, log tables, and activity log operations for the Azure Health Data Services de-identification service. Use this reference to monitor it.
+ms.date: 10/28/2026
 ms.custom: horz-monitor
 ms.topic: reference
 author: jovinson-ms
@@ -13,7 +13,7 @@ ms.subservice: deidentification-service
 # Azure Health Data Services de-identification service monitoring data reference
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor the de-identification service](monitor-deidentification-service.md) for details on the data you can collect for the de-identification service and how to use it.
+To learn more about the data you can collect for the de-identification service and how to use it, see [Monitor the de-identification service](monitor-deidentification-service.md).
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
@@ -22,7 +22,7 @@ See [Monitor the de-identification service](monitor-deidentification-service.md)
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-### Azure Health Data Services de-identification service
+### Log tables for the de-identification service
 Microsoft.HealthDataAIServices/deidServices
 - [AHDSDeidAuditLogs](/azure/azure-monitor/reference/tables/ahdsdeidauditlogs#columns)
 
@@ -31,5 +31,5 @@ Microsoft.HealthDataAIServices/deidServices
 
 ## Related content
 
-- See [Monitor the Azure Health Data Services de-identification service](monitor-deidentification-service.md) for a description of monitoring the Azure Health Data Services de-identification service.
-- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- To learn more about monitoring the Health Data Services de-identification service, see [Monitor the Azure Health Data Services de-identification service](monitor-deidentification-service.md).
+- To learn more about monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).

@@ -5,7 +5,7 @@ ms.custom: devx-track-js, devx-track-azurecli, linux-related-content
 ms.devlang: javascript
 # ms.devlang: javascript, devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/29/2025
+ms.date: 11/06/2026
 author: msangapu-msft
 ms.author: msangapu
 zone_pivot_groups: app-service-platform-windows-linux
@@ -55,6 +55,8 @@ az webapp list-runtimes --os linux | grep NODE
 ## Set the Node.js version
 
 ::: zone pivot="platform-windows"  
+
+Node.js 24 and Node.js 26 require 64-bit (x64) processes. Before using these versions, [set the app's platform to 64-bit](configure-common.md#configure-general-settings).
 
 To set your app to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
 
@@ -388,7 +390,7 @@ If you deploy your files by using Git or by using ZIP deployment [with build aut
 
 The generated *web.config* file is tailored to the detected start script. For other deployment methods, add the *web.config* file manually. Make sure the file is formatted properly.
 
-If you use [ZIP deployment](deploy-zip.md) (via Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy). It's not enabled by default. [`az webapp up`](/cli/azure/webapp#az-webapp-up) uses ZIP deployment with build automation enabled.
+If you use [ZIP deployment](deploy-zip.md) (via Visual Studio Code or [`az webapp deploy`](/cli/azure/webapp#az-webapp-deploy), for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy). It's not enabled by default.
 
 ::: zone-end
 

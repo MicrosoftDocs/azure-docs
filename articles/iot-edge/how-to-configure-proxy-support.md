@@ -65,7 +65,7 @@ Whether your IoT Edge device runs on Windows or Linux, access the installation p
 
 ### Linux devices
 
-If you're installing the IoT Edge runtime on a Linux device, set up the package manager to use your proxy server to access the installation package. For example, [Set up apt-get to use a http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). After setting up your package manager, follow the instructions in [Install Azure IoT Edge runtime](how-to-provision-single-device-linux-symmetric.md).
+If you're installing the IoT Edge runtime on a Linux device, set up the package manager to use your proxy server to access the installation package. For example, [Set up apt-get to use a http-proxy](https://askubuntu.com/questions/257290/configure-proxy-for-apt). After setting up your package manager, follow the instructions in [Install Azure IoT Edge runtime](how-to-provision-single-device-linux-symmetric.md).
 
 ### Windows devices using IoT Edge for Linux on Windows
 

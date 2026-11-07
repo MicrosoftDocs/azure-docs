@@ -61,7 +61,4 @@ To set up your IoT Hub instance with Device Registry integration and certificate
    - [Certificate issuance in Azure IoT Hub certificate management](../iot/concept-certificate-issuance.md)
    - [Certificate renewal in Azure IoT Hub certificate management](../iot/concept-certificate-renewal.md)
 
-1. Certificate management is supported across select [IoT Hub SDKs and DPS for device SDKs](../iot-dps/libraries-sdks.md#device-sdks). You can now onboard devices by using Microsoft-backed X.509 certificate management with the following SDK samples:
-
-   - [Certificate management device SDKs (preview)](../iot-dps/libraries-sdks.md#certificate-management-device-sdks-preview)
-   - [Embedded device SDKs](../iot-dps/libraries-sdks.md#certificate-management-embedded-device-sdks-preview)
+1. To onboard devices and manage certificates by using the supported SDK path, see [Unified Azure IoT SDKs (preview) for IoT Hub and Azure Device Registry](../iot/device-registry/concept-unified-iot-sdks.md).

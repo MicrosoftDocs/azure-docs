@@ -5,7 +5,7 @@ author: seligj95
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 11/26/2025
+ms.date: 10/05/2026
 ms.author: jordanselig
 ms.custom: mvc, devx-track-arm-template
 ms.service: azure-app-service
@@ -108,7 +108,7 @@ To configure your App Service Environment to use just the ciphers that it requir
 
 ## Enable FIPS mode
 
-This setting applies to Linux-based workloads in your App Service Environment. You can configure your Linux-based workloads running on App Service Environment to operate in FIPS (Federal Information Processing Standards) mode. When enabled, FIPS mode ensures that cryptographic operations comply with FIPS 140-2 standards.
+This setting applies to Linux-based workloads in your App Service Environment. You can configure your Linux-based workloads running on App Service Environment to operate in FIPS (Federal Information Processing Standards) mode. When enabled, FIPS mode ensures that cryptographic operations comply with FIPS 140 standards.
 
 To enable FIPS mode on your App Service Environment, you can set the following **clusterSettings** entry:
 

@@ -3,7 +3,8 @@ author: hhunter-ms
 title: "Custom Orchestration Status: Configure and Query"
 description: "Learn how to set, query, and display custom orchestration status values to track progress and share metadata with external clients in your workflows."
 ms.topic: how-to
-ms.date: 04/24/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 reviewer: hhunter-ms
 ms.service: durable-task
@@ -31,7 +32,7 @@ In Azure Functions, this status is available via the [HTTP GetStatus API](../dur
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
-In Durable Task SDKs, this status is available through orchestration status query APIs on the `DurableTaskClient` (for example, `GetInstanceAsync` in .NET or `getInstanceMetadata` in Java).
+In Durable Task SDKs, you can access this status through the SDK's orchestration metadata APIs (for example, `GetInstanceAsync` in .NET, `getInstanceMetadata` in Java, or `FetchOrchestrationMetadata` in Go). Go orchestrators set typed custom status with `ctx.SetCustomStatusValue` and check its error. The [Go continue-as-new example](durable-task-eternal-orchestrations.md?pivots=durable-task-sdks&tabs=go) reports its cycle count this way.
 
 [!INCLUDE [preview-sample-limitations](../scheduler/includes/preview-sample-limitations.md)]
 
@@ -232,6 +233,11 @@ public String sayHello(@DurableActivityTrigger(name = "name") String name) {
     return String.format("Hello %s!", name);
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -342,6 +348,10 @@ const helloCities: TOrchestrator = async function* (ctx: OrchestrationContext): 
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
 
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
+
 ---
 
 The client can poll orchestration metadata and wait until the `CustomStatus` field is set to `"London"`:
@@ -408,6 +418,10 @@ while (!state?.serializedCustomStatus || JSON.parse(state.serializedCustomStatus
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -581,6 +595,10 @@ public HttpResponseMessage startHelloCities(
     return req.createResponseBuilder(HttpStatus.OK).build();
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -821,6 +839,10 @@ class Recommendation {
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -970,6 +992,10 @@ const cityRecommender: TOrchestrator = async function* (ctx: OrchestrationContex
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -1162,6 +1188,10 @@ class DiscountInfo {
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -1294,6 +1324,10 @@ const reserveTicket: TOrchestrator = async function* (ctx: OrchestrationContext,
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
 
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
+
 ---
 
 ::: zone-end
@@ -1327,7 +1361,7 @@ You can also query custom status programmatically using the orchestration client
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
-Durable Task SDKs don't provide a built-in HTTP status endpoint. Instead, query custom status programmatically using orchestration instance metadata APIs on the `DurableTaskClient`.
+Durable Task SDKs don't provide a built-in HTTP status endpoint. Instead, query custom status programmatically using the SDK's orchestration instance metadata APIs.
 
 # [C#](#tab/csharp)
 
@@ -1365,6 +1399,33 @@ const client = createAzureManagedClient(connectionString);
 // Get the custom status of an orchestration instance
 const state = await client.getOrchestrationState(instanceId, true);
 const customStatusJson = state?.serializedCustomStatus;
+```
+
+# [Go](#tab/go)
+
+The following helper reads the integer cycle count set by the Go continue-as-new example:
+
+```go
+package main
+
+import (
+	"context"
+
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/durabletaskscheduler"
+)
+
+func readCycle(ctx context.Context, durableClient *durabletaskscheduler.Client, id api.InstanceID) (int, error) {
+	metadata, err := durableClient.FetchOrchestrationMetadata(ctx, id, api.WithFetchPayloads(true))
+	if err != nil {
+		return 0, err
+	}
+	var cycle int
+	if err := metadata.ReadCustomStatus(&cycle); err != nil {
+		return 0, err
+	}
+	return cycle, nil
+}
 ```
 
 # [PowerShell](#tab/powershell)

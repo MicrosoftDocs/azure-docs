@@ -2,7 +2,7 @@
 title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
 ms.topic: how-to
-ms.date: 11/26/2025
+ms.date: 09/16/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

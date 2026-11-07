@@ -5,14 +5,16 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: reference
-ms.date: 04/02/2026
+ms.date: 09/22/2026
 ai-usage: ai-assisted
 
 ---
 
 # Azure IoT device and service SDKs
 
-This reference lists the Azure SDKs you can use to build IoT solutions, including device, service, and management SDKs for IoT Hub and Device Provisioning Service (DPS), preview SDKs for certificate management, and links to Azure Digital Twins control plane and data plane APIs.
+This reference lists the Azure SDKs you can use to build IoT solutions, including device, service, and management SDKs for IoT Hub and Device Provisioning Service (DPS), and links to Azure Digital Twins control plane and data plane APIs.
+
+Looking ahead, the [unified Azure IoT SDKs (preview)](../iot/device-registry/concept-unified-iot-sdks.md) bring these device and service capabilities together across IoT Hub and Azure Device Registry.
 
 ## Device SDKs
 
@@ -77,18 +79,6 @@ Alternatives to the management SDKs include the [Azure CLI](../iot-hub/iot-hub-c
 ## DPS management SDKs
 
 [!INCLUDE [iot-dps-sdks-management](../../includes/iot-dps-sdks-management.md)]
-
-## Certificate management SDKs (preview)
-
-For SDKs that support Microsoft-backed X.509 certificate management in preview, use the following instructions and samples. To use certificate management SDKs in preview, you must use Azure IoT Hub with a linked DPS instance, and devices must provision through DPS.
-
-#### Certificate management device SDKs (preview)
-
-[!INCLUDE [iot-hub-sdks-certificate-management](../../includes/iot-hub-sdks-certificate-management.md)]
-
-#### Certificate management embedded device SDKs (preview)
-
-[!INCLUDE [iot-hub-sdks-certificate-management-embedded](../../includes/iot-hub-sdks-certificate-management-embedded.md)]
 
 ## Azure Digital Twins control plane APIs
 

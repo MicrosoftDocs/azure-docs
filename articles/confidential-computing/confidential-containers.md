@@ -1,51 +1,56 @@
 ---
 title: Confidential containers on Azure
-description: Learn about unmodified container support with confidential containers.
+description: Learn how confidential containers on Azure protect data in use and container integrity.
 services: container-service
 author: angarg05
 ms.topic: overview
-ms.date: 9/12/2023
-ms.author: ananyagarg
+ms.date: 06/30/2026
+ms.author: akhandavilli
 ms.service: azure-confidential-computing
 # Customer intent: As a cloud architect, I want to implement confidential containers for my applications so that I can enhance data security and ensure code integrity while benefiting from a lift-and-shift deployment model without altering existing container images.
 ---
 
 # Confidential containers on Azure
 
-Confidential containers provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security, data privacy and runtime code integrity goals. Confidential containers run in a hardware backed Trusted Execution Environment (TEE) that provide intrinsic capabilities like data integrity, data confidentiality and code integrity. Azure offers a portfolio of capabilities through different confidential container service options as discussed below.
+Confidential containers add hardware-backed protection to standard container workloads. They run in Trusted Execution Environments (TEEs) to help improve data confidentiality, data integrity, and runtime code integrity.
 
 ## Benefits
-Confidential containers on Azure run within an enclave-based TEE or VM based TEE environments. Both deployment models help achieve high-isolation and memory encryption through hardware-based assurances. Confidential computing can help you with your zero trust deployment security posture in Azure cloud by protecting your memory space through encryption. 
+Confidential containers on Azure run in hardware-backed TEEs. For most deployments, this protection means VM-based isolation on AMD SEV-SNP or Intel TDX-backed infrastructure.
 
-Below are the qualities of confidential containers:
+Key benefits include:
 
-- Allows running existing standard container images with no code changes (lift-and-shift) within a TEE
-- Ability to extend/build new applications that have confidential computing awareness
-- Allows to remotely challenge runtime environment for cryptographic proof that states what was initiated as reported by the secure processor 
-- Provides strong assurances of data confidentiality, code integrity and data integrity in a cloud environment with hardware based confidential computing offerings
-- Helps isolate your containers from other container groups/pods, as well as VM node OS kernel
+- Run existing container images with no code changes (lift-and-shift) inside a TEE.
+- Build new applications that are confidential-computing aware.
+- Remotely attest runtime environments and verify what was launched.
+- Strengthen confidentiality and integrity with hardware-backed guarantees.
+- Isolate containers from other pods and from the VM node OS kernel.
 
 ## VM Isolated Confidential containers on Azure Container Instances (ACI)
 [Confidential containers on ACI](/azure/container-instances/container-instances-confidential-overview) enables fast and easy deployment of containers natively in Azure and with the ability to protect data and code in use thanks to AMD EPYC™ processors with confidential computing capabilities. This is because your container(s) runs in a hardware-based and attested Trusted Execution Environment (TEE) without the need to adopt a specialized programming model and without infrastructure management overhead.  With this launch you get: 
-1.	Full guest attestation, which reflects the cryptographic measurement of all hardware and software components running within your Trusted Computing Base (TCB). 
-2.	Tooling to generate policies that will be enforced in the Trusted Execution Environment.
-3.	Open-source sidecar containers for secure key release and encrypted file systems. 
+1. Full guest attestation that reports cryptographic measurements of hardware and software in the trusted computing base (TCB).
+1. Tooling to generate and enforce policies in the TEE.
+1. Open-source sidecars for secure key release and encrypted file systems.
 
 :::image type="content" source="./media/confidential-containers/confidential-container-group.png" alt-text="Graphic of ACI.":::
 
-## Confidential containers in an Intel SGX enclave through OSS or partner software
+## Confidential VM node pools on Azure Kubernetes Service (AKS)
+
+For Kubernetes deployments, use [confidential VM node pools on AKS](confidential-node-pool-aks.md) to run container workloads on AMD SEV-SNP confidential VMs with managed cluster operations.
+
+## Confidential containers in Intel SGX enclaves (specialized)
 Azure Kubernetes Service (AKS) supports adding [Intel SGX confidential computing VM nodes](confidential-computing-enclaves.md) as agent pools in a cluster. These nodes allow you to run sensitive workloads within a hardware-based TEE. TEEs allow user-level code from containers to allocate private regions of memory to execute the code with CPU directly. These private memory regions that execute directly with CPU are called enclaves. Enclaves help protect data confidentiality, data integrity and code integrity from other processes running on the same nodes, as well as Azure operator. The Intel SGX execution model also removes the intermediate layers of Guest OS, Host OS and Hypervisor thus reducing the attack surface area. The *hardware based per container isolated execution* model in a node allows applications to directly execute with the CPU, while keeping the special block of memory encrypted per container. Confidential computing nodes with confidential containers are a great addition to your zero-trust, security planning and defense-in-depth container strategy. Learn more on this capability [here](confidential-containers-enclaves.md)
 
 :::image type="content" source="./media/confidential-nodes-aks-overview/sgx-aks-node.png" alt-text="Graphic of AKS Confidential Compute Node, showing confidential containers with code and data secured inside.":::
 
 ## Questions?
 
-If you have questions about container offerings, please reach out to <acconaks@microsoft.com>.
+If you have questions about container offerings, contact <acconaks@microsoft.com>.
 
 ## Next steps
 
-- [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
+- [Start with Azure confidential computing code samples on GitHub](https://aka.ms/accsamples)
 - [Deploy Confidential container group with Azure Container Instances](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
+- [Deploy confidential VM node pools in AKS](/azure/aks/use-cvm)
 - [Microsoft Azure Attestation](/azure/attestation/overview)
-- [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
+- [Intel SGX confidential container guidance (specialized)](confidential-containers-enclaves.md)
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

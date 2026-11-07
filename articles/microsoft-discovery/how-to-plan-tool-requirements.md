@@ -108,6 +108,7 @@ Container-managed batching is preferred for tools where the agent can't easily p
 
 ## Related content
 
+- [Understand AKS upgrades for Microsoft Discovery Supercomputer](concept-supercomputer-aks-upgrades.md)
 - [Write action scripts for a Discovery tool](how-to-write-tool-action-scripts.md)
 - [Create a Dockerfile for a Discovery tool](how-to-create-tool-docker-file.md)
 - [Create a tool definition](how-to-create-tool-definition.md)

@@ -105,6 +105,8 @@ items:
     items:
     - name: Develop
       items:
+      - name: Go SDK (beta)
+        href: ../sdks/durable-task-go.md
       - name: Unit testing
         href: ../durable-functions/durable-functions-unit-testing.md
       - name: Schedules
@@ -241,6 +243,8 @@ items:
         href: ../scheduler/durable-task-scheduler-auto-purge.md
       - name: Add tags to orchestrations and activities
         href: ../scheduler/durable-task-scheduler-tags.md
+      - name: Task queues (preview)
+        href: ../scheduler/durable-task-scheduler-task-queues.md
     - name: Secure
       items:
       - name: Identity-based access
@@ -249,6 +253,10 @@ items:
         href: ../scheduler/durable-task-scheduler-customer-managed-keys.md
       - name: Private endpoints
         href: ../scheduler/durable-task-scheduler-private-endpoints.md
+    - name: Disaster recovery overview
+      href: ../scheduler/disaster-recovery.md
+    - name: Configure disaster recovery
+      href: ../scheduler/disaster-recovery-configure.md
     - name: Monitor
       items:
       - name: Monitoring dashboard
@@ -285,6 +293,8 @@ items:
       href: /python/api/overview/azure/durable-task
     - name: Java API
       href: /java/api/com.microsoft.durabletask
+    - name: Go API (beta)
+      href: https://pkg.go.dev/github.com/microsoft/durabletask-go@v1.0.0-beta3
   - name: Durable Functions
     items:
     - name: Host.json settings

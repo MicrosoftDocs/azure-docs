@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 05/07/2025
+ms.date: 10/05/2026
 ms.author: anfdocs
 # Customer intent: "As a Linux system administrator, I want to configure optimal NFS mount options for Azure NetApp Files, so that I can enhance performance and reduce job run times in a multi-node environment."
 ---
@@ -16,7 +16,7 @@ This article helps you understand mount options and the best practices for using
 
 ## `Nconnect` 
 
-Using the `nconnect` mount option allows you to specify the number of connections (network flows) that should be established between the NFS client and NFS endpoint up to a limit of 16. Traditionally, an NFS client uses a single connection between itself and the endpoint. Increasing the number of network flows increases the upper limits of I/O and throughput significantly. Testing has found `nconnect=8` to be the most performant. 
+Use the `nconnect` mount option to specify the number of connections (network flows) between the NFS client and NFS endpoint, up to 16. Traditionally, an NFS client uses a single connection between itself and the endpoint. Increasing the number of network flows significantly increases the upper limits of I/O and throughput. To find the optimum setting for your specific environment, test various settings for `nconnect` before putting your application in production, if possible. In most environments, the optimum result is `nconnect=4`.
 
 When preparing a multi-node SAS GRID environment for production, you might notice a repeatable 30% reduction in run time going from 8 hours to 5.5 hours: 
 

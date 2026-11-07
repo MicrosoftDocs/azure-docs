@@ -6,14 +6,14 @@ services: storage
 author: normesta
 ms.service: azure-storage-actions
 ms.topic: quickstart
-ms.date: 05/05/2025
+ms.date: 10/30/2026
 ms.author: normesta
 ms.devlang: csharp
 ---
 
 # Quickstart: Create and assign a storage task by using .NET
 
-In this quickstart, you learn how to use the Azure Storage Actions client library for .NET to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. The storage task applies a time-based immutability policy on any Microsoft Word documents that exist in the storage account.
+In this quickstart, you learn how to use the Azure Storage Actions client library for .NET to create a storage task, assign it to an Azure Storage account, and review the results of the run. This example applies a time-based immutability policy on any Microsoft Word documents that exist in the storage account.
 
 [API reference documentation](/dotnet/api/overview/azure/resourcemanager.storageactions-readme?view=azure-dotnet-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions) | [Package (NuGet)](https://www.nuget.org/packages/Azure.ResourceManager.StorageActions/1.0.0-beta.2) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions/tests/Generated/Samples)
 
@@ -21,13 +21,13 @@ In this quickstart, you learn how to use the Azure Storage Actions client librar
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
-- An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
+- An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). This example also requires version-level immutability support to set the immutability policy on blobs.
 
-- The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is assigned to your user identity in the context of the storage account or resource group.
+- The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role assigned to your user identity in the context of the storage account or resource group.
 
-- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
+- A custom role assigned to your user identity in the context of the resource group that contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles-assign.md#permission-to-manage-storage-task-assignments).
 
-- .NET Framework is 4.7.2 or greater installed. For more information, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+- .NET Framework 4.7.2 or greater installed. For more information, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
 ## Setting up
 
@@ -39,13 +39,13 @@ Create a .NET console app using either the .NET CLI or Visual Studio 2022.
 
 ### [Visual Studio 2022](#tab/visual-studio)
 
-1. At the top of Visual Studio, navigate to **File** > **New** > **Project..**.
+1. At the top of Visual Studio, go to **File** > **New** > **Project**.
 
 1. In the dialog window, enter *console app* into the project template search box and select the first result. Choose **Next** at the bottom of the dialog.
 
     :::image type="content" source="../media/storage-tasks/storage-quickstart-dotnet/visual-studio-new-console-app.png" alt-text="A screenshot showing how to create a new project using Visual Studio.":::
 
-1. For the **Project Name**, enter *StorageTaskQuickstart*. Leave the default values for the rest of the fields and select **Next**.
+1. For the **Project Name**, enter *StorageTaskQuickstart*. Keep the default values for the rest of the fields and select **Next**.
 
 1. For the **Framework**, ensure the latest installed version of .NET is selected. Then choose **Create**. The new project opens inside the Visual Studio environment.
 
@@ -109,15 +109,15 @@ Use the following command to install the `Azure.ResourceManager.Authorization` p
 dotnet add package Azure.ResourceManager.Authorization
 ```
 
-If either of these commands fail, then follow these steps:
+If any of these commands fail, follow these steps:
 
-- Make sure that `nuget.org` is added as a package source. You can list the package sources using the [`dotnet nuget list source`](/dotnet/core/tools/dotnet-nuget-list-source#examples) command:
+- Ensure that `nuget.org` is added as a package source. You can list the package sources by using the [`dotnet nuget list source`](/dotnet/core/tools/dotnet-nuget-list-source#examples) command:
 
     ```dotnetcli
     dotnet nuget list source
     ```
 
-- If you don't see `nuget.org` in the list, you can add it using the [`dotnet nuget add source`](/dotnet/core/tools/dotnet-nuget-add-source#examples) command:
+- If you don't see `nuget.org` in the list, add it by using the [`dotnet nuget add source`](/dotnet/core/tools/dotnet-nuget-add-source#examples) command:
 
     ```dotnetcli
     dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
@@ -129,7 +129,7 @@ Now that the package source is updated, run the commands to install the packages
 
 ### Set up the app code
 
-Replace the starting code in the `Program.cs` file so that it matches the following example, which includes the necessary `using` statements for this QuickStart.
+Replace the starting code in the `Program.cs` file so that it matches the following example, which includes the necessary `using` statements for this quickStart.
 
 ```csharp
 using Azure;
@@ -151,13 +151,13 @@ using Azure.ResourceManager.Authorization.Models;
 
 2. [!INCLUDE [visual-studio-add-identity](../../../includes/passwordless/visual-studio-add-identity.md)]
 
-3. Add the following using statement to the *Program.cs** file:
+3. Add the following using statement to the *Program.cs* file:
  
    ```csharp
    using Azure.Identity;
    ```
 
-4. Add the following code to the *Program.cs* file. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
+4. Add the following code to the *Program.cs* file. When you run the code on your local workstation during development, it uses the developer credentials of the prioritized tool you sign in to authenticate to Azure, such as the Azure CLI or Visual Studio.
 
    ```csharp
    TokenCredential cred = new DefaultAzureCredential();
@@ -166,7 +166,7 @@ using Azure.ResourceManager.Authorization.Models;
 
 ## Create a storage task
 
-1. Pick a resource group in your subscription where you'd like to create a storage task. Then, get the storage task collection of that resource group. 
+1. Select a resource group in your subscription where you want to create a storage task. Then, get the storage task collection for that resource group. 
 
    - Replace the `<subscription-id>` placeholder value in this example with the ID of your subscription.
 
@@ -185,7 +185,7 @@ using Azure.ResourceManager.Authorization.Models;
     StorageTaskCollection storageTaskcollection = resourceGroupResource.GetStorageTasks();
    ```
 
-2. Define a *condition clause* by using JSON. A condition has a collection of one or more clauses. A clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
+2. Define a *condition clause* by using JSON. A condition is a logical predicate that consists of one or more clauses. A clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
 
    ```csharp
    string clause = "[[endsWith(Name, '.docx')]]"
@@ -242,7 +242,7 @@ using Azure.ResourceManager.Authorization.Models;
 
 ## Create an assignment
 
-To use a storage task, you must create a *storage task assignment*. The assignment is saved as part of the storage account resource instance, and defines among other settings, a subset of objects to target, when and how often a task runs against those objects, and where the execution reports are stored. 
+To execute a storage task on a storage account, you must create a *storage task assignment*. Save the assignment as part of the storage account resource instance. The assignment defines the subset of objects to target, when and how often a task runs against those objects, and where to store the execution reports. 
 
 1. Specify prefix filters, run frequency, start times by creating an execution context. The following example targets the `mycontainer` container and is scheduled to run `10` minutes from the present time. 
 
@@ -344,11 +344,11 @@ After the task completes running, get a run report summary for each assignment.
     }
 ```
 
-The `SummaryReportPath` field of each report summary contains a path to a detailed report. That report contains comma-separated list of the container, the blob, and the operation performed along with a status.
+The `SummaryReportPath` field of each report summary contains a path to a detailed execution report. The report uses the CSV format and captures each object processed, including the blob container, blob name, the operation performed, and the operation result.
 
 ## Clean up resources
 
-Remove all of the assets you've created. The easiest way to remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
+Delete all the resources you created. If you created all the resources in the same resource group, delete the resource group.
 
 ```powershell
 Remove-AzResourceGroup -Name $ResourceGroup 

@@ -1,14 +1,14 @@
 ---
 title: Azure Service Bus - message count
-description: Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
+description: Retrieve message counts for Azure Service Bus queues and subscriptions by using the Azure portal, Azure CLI, or Azure PowerShell.
 ms.topic: article
-ms.date: 12/20/2022 
+ms.date: 10/06/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
 # Get message counters
-This article shows you different ways of getting message counts for a queue or subscription. Knowing the active message count is useful in determining whether a queue builds up a backlog that requires more resources to process than what has currently been deployed. 
+This article shows you different ways of getting message counts for a queue or subscription. Knowing the active message count is useful in determining whether a queue builds up a backlog that requires more resources to process than what has currently been deployed.
 
 | Counter | Description |
 | ----- | ---------- |
@@ -35,7 +35,7 @@ Navigate to your namespace, select the topic, and then select the subscription f
 :::image type="content" source="./media/message-counters/subscription-overview.png" alt-text="Screenshot showing the Overview page of a topic's subscription with the Message Counts section highlighted. ":::
 
 ## Using Azure CLI
-Use the [`az servicebus queue show`](/cli/azure/servicebus/queue#az-servicebus-queue-show) command to get the message count details for a queue as shown in the following example. 
+Use the [`az servicebus queue show`](/cli/azure/servicebus/queue#az-servicebus-queue-show) command to get the message count details for a queue as shown in the following example.
 
 ```azurecli-interactive
 az servicebus queue show --resource-group myresourcegroup \
@@ -52,7 +52,7 @@ ActiveMessageCount    DeadLetterMessageCount    ScheduledMessageCount    Transfe
 0                     0                         0                        0                       0
 ```
 
-Use the [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show) command to get the message count details for a subscription as shown in the following example. 
+Use the [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show) command to get the message count details for a subscription as shown in the following example.
 
 ```azurecli-interactive
 az servicebus topic subscription show --resource-group myresourcegroup \
@@ -94,20 +94,14 @@ $topicObj= Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `
 $topicObj.CountDetails
 ```
 
-The returned `MessageCountDetails` object has the following properties: `ActiveMessageCount`, `DeadLetterMessageCount`, `ScheduledMessageCount`, `TransferDeadLetterMessageCount`, `TransferMessageCount`. 
+The returned `MessageCountDetails` object has the following properties: `ActiveMessageCount`, `DeadLetterMessageCount`, `ScheduledMessageCount`, `TransferDeadLetterMessageCount`, `TransferMessageCount`.
 
 ## Next steps
 
-Try the samples in the language of your choice to explore Azure Service Bus features. 
+Try the samples in the language of your choice to explore Azure Service Bus features.
 
-- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-
-Find samples for the older .NET and Java client libraries below:
-- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

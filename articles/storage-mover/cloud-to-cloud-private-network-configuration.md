@@ -1,10 +1,10 @@
 ---
 title: Azure private network connectivity options (ExpressRoute, VPN, SD-WAN)
-description: This concept article explains common options for connecting Azure to private networks (including on-premises and AWS), how they compare, and what to consider for latency, bandwidth, security, cost, and operational complexity.
-author: stevenmatthew
+description: This concept article explains common options for connecting Azure to private networks (including AWS, Google Cloud, and Oracle Cloud), how they compare, and what to consider for latency, bandwidth, security, cost, and operational complexity.
+author: rajsinghmsa
 ms.service: azure-storage-mover
 ms.topic: concept-article
-ms.author: shaas
+ms.author: singra
 ms.date: 07/10/2026
 zone_pivot_groups: storage-mover-multicloud
 ---
@@ -180,7 +180,8 @@ Example: S3 bucket policy restricted to a specific VPCE.
 
 :::image type="content" source="./media/cloud-to-cloud-networking/s3-bucket-policy.png" alt-text="Screenshot of bucket policy." lightbox="./media/cloud-to-cloud-networking/s3-bucket-policy.png":::
 
-**Note:** Record the VPCE private IP address; it is used as the destination IP for Azure Private Link Service Direct Connect.
+> [!NOTE]
+> Record the VPCE private IP address; it is used as the destination IP for Azure Private Link Service Direct Connect.
 
 #### Security group considerations
 
@@ -830,187 +831,6 @@ The following benchmarks were measured using Azure VPN Gateway with multiple IPs
 
 :::zone-end
 
-
-
-
-
-
-
-
-
-
-
-
-:::zone pivot="on-premises"
-
-
-
-
-
-
-
-Azure supports several ways to connect to private networks. The best approach depends on your requirements for latency, bandwidth, security, cost, and operational complexity.
-
-* **Azure ExpressRoute** - Private, dedicated connectivity that doesn't traverse the public internet.
-* **Site-to-site IPsec VPN** - Encrypted tunnels over the public internet (typically using Azure VPN Gateway).
-* **SD-WAN via network virtual appliances (NVAs)** - Third-party appliances provide VPN and firewall features, and they can terminate tunnels instead of using native gateways.
-
-In general, ExpressRoute is preferred for the highest bandwidth and lowest latency. When ExpressRoute isn't available, use site-to-site VPN or an SD-WAN/NVA-based design.
-
-## Key concepts
-
-**ExpressRoute**: Private connectivity to Azure through a connectivity provider. Typically used for predictable latency and higher throughput.
-
-**Azure VPN Gateway SKU**: The gateway size/SKU affects tunnel counts and throughput. Choose based on required bandwidth and resiliency.
-
-**IPsec/IKE policy**: Cryptographic algorithms and parameters used to establish and secure VPN tunnels, such as AES and SHA families, DH, and PFS groups.
-
-**BGP (Border Gateway Protocol)**: Dynamic routing that exchanges prefixes between networks. Commonly used for active/active tunnels and route failover.
-
-**Network virtual appliance (NVA)**: A third-party virtual network device, such as a firewall or SD-WAN deployed in Azure. Often used for advanced inspection, policy, and routing.
-
-**UDR (user-defined routes)**: Custom routes in Azure that steer traffic to a specific next hop, such as an NVA.
-
-**Azure Private Link Service Direct Connect**: Azure capability to create outbound private connectivity to a destination IP, such as an AWS VPCE IP, for services like Storage Mover private connections.
-
-**Private connection approval**: Private connections might require explicit approval before workloads or jobs can use them.
-
-## When to use each option
-
-**ExpressRoute**: Choose when you need predictable performance, private connectivity, and higher throughput for hybrid connectivity.
-
-**Site-to-site VPN**: Choose for faster setup, lower cost, or as a backup path. Performance depends on internet conditions and gateway SKU.
-
-**SD-WAN/NVAs**: Choose when you need vendor-specific routing, security inspection, or an existing SD-WAN operational model.
-
-| **Option** | **Connectivity path** | **Typical strengths** | **Common tradeoffs** |
-|---|---|---|---|
-| **ExpressRoute** | Private circuit via provider/colocation | Low latency, high throughput, predictable performance | Lead time, cost, provider dependencies |
-| **Site-to-site IPsec VPN** | Encrypted tunnels over public internet | Quick to deploy, good for backup/DR | Variable performance; throughput limits per gateway/SKU |
-| **SD-WAN / NVAs** | Tunnels terminate on third-party appliances | Advanced policy, inspection, vendor features | More components to manage; appliance sizing/licensing |
-
-## Connectivity options in Azure
-
-### ExpressRoute
-
-**Learn more:** [ExpressRoute documentation](/azure/expressroute/)
-
-**Routing:** BGP is commonly used over private circuits to exchange prefixes between Azure and your network.
-
-**Connectivity providers:** Typically, you provision ExpressRoute through a colocation or connectivity provider, such as Equinix or Megaport.
-
-### Site-to-site IPsec VPN (Azure VPN Gateway)
-
-**Overview:** Use Azure VPN Gateway for encrypted site-to-site IPsec tunnels over the public internet. For higher throughput and resiliency, select an appropriate gateway SKU, such as Generation2 and zone-redundant SKUs where available.
-
-**Learn more:** [Tutorial - Create an S2S VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal)
-
-**Routing:** Use BGP to exchange routes and support active/active tunnels across multiple connections.
-
-#### Implementation tips (VPN performance)
-
-Example custom IPsec/IKE settings (validate against your device compatibility): **GCMAES256** for IPsec encryption and integrity, **SHA256** for IKE integrity, **DHGroup14**, **PFS2048**.
-
-:::image type="content" source="./media/cloud-to-cloud-networking/ipsec-policy.png" alt-text="Screenshot of ipsec policy." lightbox="./media/cloud-to-cloud-networking/ipsec-policy.png":::
-
-**Learn more:** [Configure custom IPsec/IKE connection policies](/azure/vpn-gateway/ipsec-ike-policy-howto).
-
-### SD-WAN with network virtual appliances (NVAs)
-
-SD-WAN and firewall NVAs can terminate VPN tunnels, perform inspection, and apply centralized routing and security policy. This approach is useful when you need vendor-specific capabilities or you already operate an SD-WAN platform across sites.
-
-**Fortinet**: FortiGate Next-Generation Firewall
-
-**Cisco**: Catalyst SD-WAN, Meraki SD-WAN
-
-**HPE (Aruba Networks)**: EdgeConnect SD-WAN
-
-**Palo Alto Networks**: Prisma SD-WAN
-
-**Arista (VMware)**: VeloCloud SD-WAN Virtual Edge
-
-SD-WAN NVAs are commonly licensed as either pay-as-you-go (PAYG) or bring-your-own-license (BYOL). Vendor support varies by deployment option.
-
-#### Example deployment (FortiGate NVA in Azure)
-
-**Select a topology** (single VM, active/passive, or active/active) based on availability and throughput requirements.
-
-**Choose a suitable VM size** (often F or D-series with higher vCPU) and enable **accelerated networking** where supported.
-
-**Network design**: place interfaces in WAN/LAN (and protected) subnets and configure NSG rules for required management and VPN ports (for example, UDP 500/4500 for IPsec).
-
-**Routing**: use UDRs to steer Azure-to-AWS prefixes through the NVA next hop.
-
-**Vendor documentation:** For example steps to configure IPsec between FortiGate devices, see the Fortinet Community article below.
-
-[How to configure VPN site-to-site between FortiGate devices (Fortinet Community)](https://community.fortinet.com/t5/FortiGate/Technical-Tip-How-to-configure-VPN-Site-to-Site-between/ta-p/197922)
-
-#### Security group considerations
-
-Allow required traffic from on-premise source prefixes to the Azure virtual network (VNet) using the principle of least privilege.
-
-## Azure configuration for Private Link Service Direct Connect
-
-> [!IMPORTANT]
-> Your Azure VNet should have connectivity to your on-premises resources through the Private Link Scope direct connect.
-
-> [!IMPORTANT]
-> For Windows SMB share sources, ensure that secure traffic is permitted on port 445 by default. For S3 sources, ensure that secure traffic is permitted on port 443 by default.
-
-### Create the Private Link Service Direct Connect resource
-
-Private Link Service Direct Connect enables Azure to create outbound private connectivity to a destination IP address. In this scenario, it enables Storage Mover private connections to reach an on-premises endpoint over your established Azure VNet path.
-
-1. Deploy the PLS Direct Connect resource in the **same Azure region** as the Storage Mover resource and the Azure virtual network used to reach your on-premises data.
-1. Enable the feature in the Azure portal by using the provided flight link: [Azure portal flight link (PLS Direct Connect)](https://ms.portal.azure.com/?feature.canmodifystamps=true&exp.plsdirectconnect=true).
-1. Ensure the Azure VNet and subnet selected for source NAT has connectivity to the source target address.
-
-#### High-level steps
-
-1. Create the **Private Link Service (Your Service)** resource for Direct Connect in the correct region.
-1. Configure **Outbound settings**:
-1. Set connection method to **Destination IP address** and enter the **source target address**.
-1. Select the **source NAT** virtual network and subnet that can route to your file share.
-1. Configure private IP address settings as required for resiliency, such as two or more addresses in supported increments.
-
-### Create and approve private connections
-
-After creating the Direct Connect resource, create a private connection in Storage Mover and approve it before use.
-
-1. In **Storage Mover**, open **Storage Endpoints** and then the **Private Connections** tab.
-1. Create a private connection that references the Direct Connect private link service, and then approve it so it can be associated to jobs.
-1. Use the preceding private connection as part of the *create job* operation for your SMB migration workload.
-1. Select the migration type and source type values corresponding to **agentless SMB mount** in your tenant.
-1. Configure the SMB source endpoint (host/share and Key Vault credentials) and associate the approved private connection.
-1. Verify the private connection is listed and in **Approved** state.
-1. Complete the remaining job configuration and run steps as documented for SMB-to-Azure target migrations.
-
-## Troubleshooting
-
-### Connectivity and IP addressing
-
-- Verify Destination IP in Azure PLS: Ensure the Azure Private Link Service Direct connects Destination IP is pointed to correct reachable server on premises. A mismatch here will prevent the initial handshake.
-- Validate Network Path: Confirm that the underlying network infrastructure (e.g., VPN, ExpressRoute, or Cloud Interconnect) is established and routing traffic correctly between the Azure environment and the on-premises network.
-- Check the Virtual Network Configurations: Review the virtual network and as applicable, the network gateway configuration to ensure it's active and associated with the correct subnets and security groups.
-
-### On-Premises network configuration
-
-Allow network traffic over required ports: Verify firewall settings allow the in-bound network traffic over required ports (Port 445 for SMB and Port 443 for S3 and HTTPS traffic) from azure virtual network.
-
-## Limits
-
-* Customers can configure up to 10 Private Connections per region. This includes private connection state in Approved, Pending, and Disconnected states.
-* You should configure PLS direct in the same region as the Storage Mover Resource.
-
-## Performance
-
-| **Setup**                                                          | ** Max Throughput (Apxmt)** |
-|--------------------------------------------------------------------|-----------------------------|
-| **FortiGate SDWAN with a Private Connection**                      | 2 Gbps                      |
-| **2 FortiGate SDWANs each with VPN tunnel and Private Connection** | 2 Gbps * 2                  |
-
-:::zone-end
-
 ## Next steps
 
 :::zone pivot="aws"
@@ -1030,22 +850,6 @@ Allow network traffic over required ports: Verify firewall settings allow the in
 
 
 We need some "next step" links for Oracle migration.
-
-
-:::zone-end
-
-
-
-
-
-:::zone pivot="on-premises"
-
-
-
-
-- [Migrate data from on-premises SMB to Azure Files with Azure Storage Mover (Preview)](agentless-on-premises-files-migration.md)
-- [Migrate data using private connections in Azure Storage Mover](migrations-requiring-private-connections.md)
-- [Azure Storage Mover networking Requirements](network-prerequisites.md)
 
 
 :::zone-end

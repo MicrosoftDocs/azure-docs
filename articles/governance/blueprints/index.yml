@@ -8,8 +8,8 @@ metadata:
   description: Simplify deployments by packaging artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition.
   ms.service: azure-blueprints
   ms.topic: landing-page
-  author: mumian
-  ms.author: jgao
+  author: kgremban
+  ms.author: kgremban
   ms.date: 08/27/2020
 
 landingContent:

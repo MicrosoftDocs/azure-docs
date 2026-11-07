@@ -60,6 +60,8 @@ items:
 - name: API reference
   expanded: true
   items: 
+    - name: Azure Policy built-ins
+      href: ../azure-health-data-services-policy-reference.md#dicom-service
     - name: DICOMweb APIs
       expanded: false
       items: 

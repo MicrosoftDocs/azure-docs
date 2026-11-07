@@ -3,7 +3,7 @@ title: Connect Analytics Consumption Zone Data to Fabric - Azure Data Manager fo
 description: Learn how to connect Analytics Consumption Zone data in Data Lake Storage Gen2 to Microsoft Fabric by using Microsoft OneLake shortcuts for analytics and reporting.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 05/17/2026
+ms.date: 10/30/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -14,16 +14,11 @@ ms.reviewer:
 
 # Connect Analytics Consumption Zone data to Fabric
 
-This article shows you how to connect your Analytics Consumption Zone (ACZ) data to Microsoft Fabric by using Microsoft OneLake shortcuts. ACZ stores data in Azure Data Lake Storage Gen2. After you create shortcuts, you can query, transform, and visualize your Azure Data Manager for Energy data in Fabric lakehouses, notebooks, and Azure Power BI.
-
-> [!IMPORTANT]
-> Analytics Consumption Zone is currently in preview. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-During the preview, ACZ is available only on Developer tier instances and requires the use of allow lists. Follow the guidance in [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md), and contact your Microsoft representative.
+This article shows you how to connect your Analytics Consumption Zone (ACZ) data to Microsoft Fabric by using Microsoft OneLake shortcuts. ACZ stores data in Azure Data Lake Storage Gen2. After you create shortcuts, you can query, transform, and visualize your Azure Data Manager for Energy data in Fabric lakehouses, notebooks, and Power BI.
 
 ## Prerequisites
 
-- An Azure subscription with an Azure Data Manager for Energy (Developer tier) instance. See [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+- An Azure subscription with an Azure Data Manager for Energy (Developer or Standard tier) instance. See [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - ACZ enabled with at least one ACZ instance in `ACTIVE` status and `historicalSnapshotStatus` set to `COMPLETED`. For more information, see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
 - A [Fabric capacity](/fabric/enterprise/licenses) (F2 or higher) or a Fabric trial.
 - A [Fabric workspace](/fabric/get-started/create-workspaces).
@@ -35,8 +30,8 @@ Before you connect Fabric, confirm that ACZ synced data to your Data Lake Storag
 
 1. Go to your Data Lake Storage Gen2 storage account in the [Azure portal](https://portal.azure.com/).
 1. Select **Containers** from the left menu.
-1. Open the container and go to the `<aczId>/osducatalog/` folder. The `aczId` is the identifier returned when you created the ACZ instance (for example, `acz-8a0aa7433085`).
-1. Verify that Delta Parquet folders exist for the catalog entity types that you configured (for example, `master-data--Well`, `master-data--Field`).
+1. Open the container and go to the `osducatalog` folder under your ACZ ID folder. The container is the first segment of the `basePath` that you specified when you created the ACZ instance. For details, see [Create an ACZ instance](how-to-enable-analytics-consumption-zone.md#create-an-acz-instance). The `aczId` is the identifier returned when you created the ACZ instance (for example, `acz-8a0aa7433085`).
+1. Verify that the `osducatalog` folder contains a `_delta_log` folder and Parquet data files.
 
 ## Step 2: Create or use an existing Fabric lakehouse
 
@@ -74,7 +69,7 @@ Schema-enabled workspaces require that data follows a structured schema → tabl
 
 1. Select **Next**.
 1. Browse to the container where your ACZ data is stored.
-1. Go to the `<aczId>/osducatalog/` folder. The `aczId` is the identifier from your ACZ instance creation (for example, `acz-8a0aa7433085`).
+1. Go to the `osducatalog` folder under your ACZ ID folder (inside any folders from your `basePath`). The `aczId` is the identifier from your ACZ instance creation (for example, `acz-8a0aa7433085`).
 1. Select **osducatalog** to add as a table shortcut.
 1. Select **Next** to review your selections, and then select **Create**.
 
@@ -100,7 +95,7 @@ A Data Lake Storage Gen2 shortcut makes ACZ data available in your Fabric lakeho
    > If your Fabric tenant and Data Lake Storage Gen2 account are in different Microsoft Entra tenants, you must use a service principal or SAS token for authentication. For more information, see [Data Lake Storage Gen2 shortcut limitations](/fabric/onelake/create-adls-shortcut#limitations).
 
 1. Select **Next**.
-1. Browse to the `<aczId>/osducatalog/` folder in your container. The `aczId` is the identifier from your ACZ instance creation (for example, `acz-8a0aa7433085`).
+1. Go to the `osducatalog` folder under your ACZ ID folder (inside any folders from your `basePath`). The `aczId` is the identifier from your ACZ instance creation (for example, `acz-8a0aa7433085`).
 1. Select **osducatalog** to add as a shortcut for catalog data.
 1. Select **Next** to review your selections.
 1. Select **Create**.
@@ -185,6 +180,11 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 
 ## Related content
 
-- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
+- [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
+- [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
+- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
+- [Connect ACZ data to Snowflake](how-to-connect-analytics-consumption-zone-to-snowflake.md)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Create an Azure Data Lake Storage Gen2 shortcut](/fabric/onelake/create-adls-shortcut)
+- To transform ACZ data into silver-layer Delta tables in Microsoft Fabric, see the [ADME ACZ Silver Layer sample notebook](https://github.com/microsoft/adme-acz-silverlayer) on GitHub. The sample flattens nested OSDU records into Delta tables and can process only new and changed records by using the `ingestTime` and `isActive` columns.

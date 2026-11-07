@@ -1,10 +1,9 @@
 ---
-title: Azure Synapse connectivity settings
+title: Azure Synapse Connectivity Settings
 description: Learn to configure connectivity settings in Azure Synapse Analytics.
 author: danzhang-msft
 ms.author: danzhang
-
-ms.date: 03/18/2025
+ms.date: 10/05/2026
 ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: how-to
@@ -71,7 +70,7 @@ The serverless SQL endpoint and development endpoint only accept TLS 1.2 and abo
 Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. You can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
 
 > [!IMPORTANT]
-> Azure will begin to retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Use TLS 1.2 or higher. After March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2.  After this date, sign-in attempts from connections using a TLS version lower than 1.2 will fail. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
+> Azure will begin to retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Use TLS 1.2 or higher. After March 31, 2025, you won't be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2. After this date, sign-in attempts from connections using a TLS version lower than 1.2 will fail. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
 
 ## Azure Policy
 
@@ -104,7 +103,7 @@ To enable public network access for the logical server hosting your standalone d
 
 From this page, you can add a virtual network rule, as well as configure firewall rules for your public endpoint.
 
-Choose the **Private access** tab to configure a [private endpoint](/azure/azure-sql/database/private-endpoint-overview).
+Choose the **Private access** tab to configure a [private endpoint](../sql/private-endpoint-overview.md).
 
 #### Configure public access in PowerShell
 
@@ -142,7 +141,7 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ### Deny public network access
 
-The default for the **Public network access** setting is **Disable**. Customers can choose to connect to a database by using either public endpoints (with IP-based server-level firewall rules or with virtual-network firewall rules), or [private endpoints](/azure/azure-sql/database/private-endpoint-overview) (by using Azure Private Link), as outlined in the [network access overview](/azure/azure-sql/database/network-access-controls-overview).
+The default for the **Public network access** setting is **Disable**. You can connect to a database by using either public endpoints (with IP-based server-level firewall rules or with virtual-network firewall rules), or [private endpoints](../sql/private-endpoint-overview.md) (by using Azure Private Link), as outlined in the [network access overview](../sql/network-access-controls-overview.md).
 
 When **Public network access** is set to **Disable**, only connections from private endpoints are allowed. All connections from public endpoints will be denied with an error message similar to:  
 
@@ -169,13 +168,13 @@ The minimum [Transport Layer Security (TLS)](/troubleshoot/sql/database-engine/c
 
 After you test to confirm that your applications support it, we recommend setting the minimal TLS version to 1.3. This version includes fixes for vulnerabilities in previous versions and is the highest supported version of TLS for standalone dedicated SQL pools.
 
-### Upcoming retirement changes 
+### Upcoming retirement changes
 
 Azure has announced that support for older TLS versions (TLS 1.0, and 1.1) ends August 31, 2025. For more information, see [TLS 1.0 and 1.1 deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
 
 Starting November 2024, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2. 
 
-### Configure minimum TLS version 
+### Configure minimum TLS version
 
 You can configure the minimum TLS version for client connections by using the Azure portal, Azure PowerShell, or the Azure CLI.
 
@@ -251,7 +250,7 @@ az sql server show -n sql-server-name -g sql-server-group --query "minimalTlsVer
 az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVersion="1.2"
 ```
 
-## Identify client connections 
+## Identify client connections
 
 You can use the Azure portal and SQL audit logs to identify clients that are connecting using TLS 1.0 and 1.0. 
 
@@ -267,11 +266,11 @@ The connection policy for Synapse SQL in Azure Synapse Analytics is set to **Def
 
 Logins for SQL pools in Azure Synapse Analytics can land on **any of the individual Gateway IP addresses or Gateway IP address subnets in a region**. For consistent connectivity, allow network traffic to and from **all the individual Gateway IP addresses and Gateway IP address subnets** in a region. Refer to the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) for a list of your region's IP addresses to allow.
 
-- **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`.  The default policy is: 
+- **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The default policy is: 
    - `Redirect` for all client connections originating inside of Azure (for example, from an Azure Virtual Machine).
    - `Proxy` for all client connections originating outside (for example, connections from your local workstation).
 - **Redirect:** Clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput. For connections to use this mode, clients need to:
-  - Allow outbound communication from the client to all Azure SQL IP addresses in the region on ports in the range of 11000 to 11999. Use the Service Tags for SQL to make this easier to manage. If you are using Private Link, see [Use Redirect connection policy with private endpoints](/azure/azure-sql/database/private-endpoint-overview#use-redirect-connection-policy-with-private-endpoints) for the port ranges to allow.
+  - Allow outbound communication from the client to all Azure SQL IP addresses in the region on ports in the range of 11000 to 11999. Use the Service Tags for SQL to make this easier to manage. If you are using Private Link, see [Azure Private Link for Synapse SQL](../sql/private-endpoint-overview.md) for the port ranges to allow.
   - Allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
   - When using the Redirect connection policy, refer to the [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) for a list of your region's IP addresses to allow.
 - **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways, leading to increased latency and reduced throughput. For connections to use this mode, clients need to allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
@@ -279,6 +278,6 @@ Logins for SQL pools in Azure Synapse Analytics can land on **any of the individ
 
 ## Related content
 
- - [Azure Synapse Analytics IP firewall rules](synapse-workspace-ip-firewall.md)
- - [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://aka.ms/dedicatedSQLpooldiff)
- - [What is a logical SQL server in Azure SQL Database and Azure Synapse?](../sql/logical-servers.md)
+- [Azure Synapse Analytics IP firewall rules](synapse-workspace-ip-firewall.md)
+- [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://aka.ms/dedicatedSQLpooldiff)
+- [What is a logical server in Azure Synapse Analytics?](../sql/logical-servers.md)

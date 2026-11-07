@@ -5,7 +5,7 @@ author: sethmanheim
 
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 04/22/2026
+ms.date: 09/29/2026
 ms.author: sethm
 ms.custom: devx-track-csharp
 ---
@@ -27,7 +27,11 @@ You can run queries against your IoT hub directly in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 1. Select **Queries** from the **Device management** section of the navigation menu.
-1. Enter your query in the text box and select **Run query**.
+1. Keep the prefilled `SELECT * FROM devices` query to retrieve device twins, or replace it with your own query.
+1. Select **Run query** to display the results.
+
+> [!IMPORTANT]
+> Searches and filters on the **Devices** page and queries on the **Queries** page use eventually consistent data. Newly created devices and recent twin changes might not appear immediately, and deleted devices might remain in results temporarily. To check the current twin values for a known device, use a direct [Get Twin](/rest/api/iothub/service/devices/get-twin) request instead of a query. For more information, see [Twin query limitations](#twin-query-limitations).
 
 You also can run queries within your applications using the Azure IoT service SDKs and service APIs.
 
@@ -164,6 +168,8 @@ GROUP BY <group_by_element>
 `Attribute_name` refers to any property of the JSON document in the FROM collection.
 
 ### Query results pagination
+
+Query-result pagination is separate from the default **Devices** list in the Azure portal, which displays up to 15 devices and doesn't provide pagination through the complete device inventory. When using a service SDK to enumerate query results, continue requesting pages until no more results are available.
 
 A query object is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](how-to-device-twins.md?pivots=programming-language-node#create-a-device-twin-query) on Node.js SDK or [GetNextAsTwinAsync](how-to-device-twins.md?pivots=programming-language-csharp#create-a-device-twin-query) on .NET SDK method multiple times.
 A query object can expose multiple Next values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
@@ -502,7 +508,7 @@ SELECT * FROM devices.modules
 > [!IMPORTANT]
 > Query results are eventually consistent operations and delays of up to 30 minutes should be tolerated. In most instances, twin query returns results in the order of a few seconds. IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it can't guarantee a certain latency. 
 
-An alternative option to twin queries is to query individual device twins by ID by using the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+An alternative to twin queries is to query individual device twins by ID by using the [get twin REST API](/rest/api/iothub/service/devices/get-twin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Query expressions can have a maximum length of 8,192 characters.
 

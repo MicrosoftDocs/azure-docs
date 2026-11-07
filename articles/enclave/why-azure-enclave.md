@@ -13,9 +13,6 @@ ms.date: 06/26/2026
 
 Azure Enclave helps teams deploy and manage secure Azure environments for sensitive workloads without rebuilding the same foundations each time. Azure Enclave combines managed networking, Azure Policy guardrails, logging and diagnostics, and governance controls so teams can focus on application delivery.
 
-> [!IMPORTANT]
-> Azure Enclave is currently in Preview and is provided without a service-level agreement. At this time, Azure Enclave shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Azure Enclave Terms](./preview-terms.md).
-
 ## The value of Azure Enclave
 
 Azure Enclave provides value in several ways:

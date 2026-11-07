@@ -2,7 +2,7 @@
 title: Azure Service Bus duplicate message detection
 description: This article explains how you can detect duplicates in Azure Service Bus messages. The duplicate message can be ignored and dropped.
 ms.topic: concept-article
-ms.date: 06/03/2026
+ms.date: 10/06/2026
 
 #customer intent: As a developer, I want to understand duplicate detection in Azure Service Bus so that I can prevent duplicate messages from being processed in my application.
 
@@ -47,20 +47,14 @@ Enabling duplicate detection and the size of the window directly impact the queu
 Keeping the window small means that fewer message IDs must be retained and matched, and throughput is impacted less. For high-throughput entities that require duplicate detection, keep the window as small as possible.
 
 ## Next steps
-You can enable duplicate message detection by using the Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable duplicate message detection](enable-duplicate-detection.md). 
+You can enable duplicate message detection by using the Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable duplicate message detection](enable-duplicate-detection.md).
 
 In scenarios where client code can't resubmit a message with the same *MessageId* as before, design messages that can be safely reprocessed. This [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean) describes various techniques for how to do that.
 
-Try the samples in the language of your choice to explore Azure Service Bus features. 
+Try the samples in the language of your choice to explore Azure Service Bus features.
 
-- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-
-See samples for the older .NET and Java client libraries here:
-- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 09/01/2026
+ms.date: 10/22/2026
 
 # Customer intent: As a security administrator, I want to configure Azure Web Application Firewall policies on Azure Front Door, so that I can protect my web applications from malicious attacks and ensure compliance with security standards while maintaining high availability.
 ---
@@ -111,7 +111,7 @@ To configure custom rules for a WAF, use the following controls:
 - **HTTP parameters-based access control**: Base rules on string matches in HTTP/HTTPS request parameters. Examples include query strings, POST args, Request URI, Request Header, and Request Body.
 - **Request method-based access control**: Base rules on the HTTP request method of the request. Examples include GET, PUT, or HEAD.
 - **Size constraint**: Base rules on the lengths of specific parts of a request, such as query string, Uri, or Request Body.
-- **Rate limiting rules**: A rate limiting rule limits abnormally high traffic from any client IP address. You might configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all requests from a client IP. Rate limits can be combined with other match conditions, such as HTTP(S) parameter matches for granular rate control.
+- **Rate limiting rules**: A rate limiting rule limits abnormally high traffic from any client IP address. You might configure a threshold on the number of web requests allowed from a client IP during a one-minute or five-minute duration. On Azure Front Door Premium, you can also group the count by country/region, autonomous system number (ASN), or JA4 client fingerprint (preview). This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all requests from a client IP. Rate limits can be combined with other match conditions, such as HTTP(S) parameter matches for granular rate control.
 
 ### Azure-managed rule sets
 

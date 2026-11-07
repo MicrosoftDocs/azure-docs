@@ -27,6 +27,45 @@ In this article, you learn how to:
 > [!IMPORTANT]
 > Setting `minReplicas` to `0` enables scale-to-zero, which saves costs when idle but introduces cold-start latency when new work items arrive. Set `minReplicas` to `1` or higher if your workload is latency-sensitive.
 
+## Configure Durable Functions autoscaling
+
+For Durable Functions apps that use Durable Task Scheduler on Azure
+Container Apps, include the Durable Task Scheduler configuration in the
+deployed `host.json` file so the platform can generate the Durable scale
+rules.
+
+> [!IMPORTANT]
+> Don't configure these settings only through environment-variable overrides. The Functions host currently reads the Durable configuration directly from
+> `host.json` when building the trigger metadata used for autoscaling. Your app can connect to the scheduler and process work successfully
+> without the corresponding Durable scale rules being configured.
+
+For example, merge the following configuration into your existing
+`host.json`:
+
+```json
+{
+  "version": "2.0",
+  "extensions": {
+    "durableTask": {
+      "hubName": "myTaskHub",
+      "storageProvider": {
+        "type": "azureManaged",
+        "connectionStringName": "MySchedulerConnection"
+      }
+    }
+  }
+}
+```
+
+In this example, `MySchedulerConnection` is the name of an application
+setting containing your scheduler connection string. Store the
+connection-string value in that setting, not in `host.json`.
+
+Keep the provider type, task-hub name, and connection-setting name
+consistent with any runtime overrides. After redeploying, verify that
+the new revision contains the Durable orchestration, activity, and
+entity scale rules.
+
 ## Configure the autoscaler
 
 You can set the autoscaler configuration via the Azure portal, a Bicep template, and the Azure CLI. 

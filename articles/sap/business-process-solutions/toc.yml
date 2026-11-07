@@ -37,6 +37,8 @@ items:
       href: manage-datasets.md
   - name: Performance optimization
     href: performance-optimization.md
+  - name: Frequently asked questions
+    href: faq.yml
   - name: Troubleshooting common issues
     href: troubleshooting.md
   - name: Update artifacts

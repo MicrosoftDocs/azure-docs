@@ -1,18 +1,20 @@
 ---
 title: About Azure Recovery Orchestration Plan
-description: Learn about Azure Recovery Orchestration Plan (preview) and how it can help you orchestrate recovery across multiple resources within an application for zonal resiliency in Azure.
+description: Learn about Azure Recovery Orchestration Plan (preview) and how it can help you orchestrate recovery across multiple resources within an application for zone resilience in Azure.
 ms.topic: overview
 ms.service: resiliency
-ms.date: 06/02/2026
+ms.date: 10/12/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: "As a cloud administrator, I want to understand how Azure Recovery Orchestration Plan can help me orchestrate recovery across multiple resources within an application for zonal resiliency."
+# Customer intent: "As a cloud administrator, I want to understand how Azure Recovery Orchestration Plan can help me orchestrate recovery across multiple resources within an application for zone resilience."
 ---
 
 
 # About Azure Recovery Orchestration Plan (preview)
 
-Azure Recovery Orchestration Plan performs efficient and seamless recovery by orchestrating recovery across multiple resources within an application for zonal resiliency. The capability integrates with Azure Service Groups to provide application-level recovery orchestration.
+Azure Recovery Orchestration Plan performs efficient and seamless recovery by orchestrating recovery across multiple resources within an application for zone resilience. The capability integrates with Azure Service Groups to provide application-level recovery orchestration.
+
+Recovery Orchestration Plans are an advanced capability and require the service group to be enrolled in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
 
 ## Key benefits of Azure Recovery Orchestration Plan
 
@@ -20,20 +22,20 @@ With Recovery Orchestration Plan, you can:
 
 - Define the order of recovery for resources within your application using customizable groups.
 - Perform automated readiness checks to detect drift in your applications, increasing the chances of successful recovery.
-- Execute zonal failover operations across multiple resource types.
-- Automate group-level actions using Azure Automation Runbooks.
+- Execute zone failover operations across multiple resource types.
+- Automate group-level actions using Azure Automation runbooks.
 - Reprotect resources after failover to maintain ongoing protection.
 
 >[!NOTE]
->The Recovery Orchestration Plan orchestrates recovery and doesn’t protect individual resources. To protect resources, configure Azure Site Recovery for Virtual Machines (VMs) or use Highly Available (HA) solutions for other resources. This capability supports only zonal recovery and doesn’t support regional recovery.
+>The Recovery Orchestration Plan orchestrates recovery and doesn't protect individual resources. To protect resources, configure Azure Site Recovery for Virtual Machines (VMs) or use Highly Available (HA) solutions for other resources. This capability supports only zone recovery and doesn't support regional recovery.
 
 ## Understand recovery plan components and actions
 
 This section defines how recovery plans organize resources, track states, and execute operations for coordinated recovery.
 
-### Recovery Plan and Service Groups
+### Recovery plan and service groups
 
-A Recovery Orchestration Plan gets created within a Service Group. A Service Group represents your application and contains the Azure resources that create your application. The Recovery Plan orchestrates the failover of these resources in a defined order.
+Create a Recovery Orchestration Plan within a service group. A service group represents your application and contains the Azure resources that make up your application. The recovery plan orchestrates the failover of these resources in a defined order.
 
 ### Plan status
 
@@ -46,7 +48,7 @@ The following plan statuses indicate the readiness for failover:
 
 Groups define the order of resource recovery. By default, a Default Group is created. You can create other groups and move resources between them.
 
-Resources within the same group failover in parallel. Resources in different groups fail over sequentially - Group 2 starts only after all Group 1 resources complete failover.
+Resources within the same group fail over in parallel. Resources in different groups fail over sequentially - Group 2 starts only after all Group 1 resources complete failover.
 
 ### Resource protection and inclusion status
 
@@ -80,7 +82,7 @@ The execution operations for plan orchestration are categorized as:
 
 ### Group actions
 
-Add Azure Automation Runbooks as prescripts and post-scripts. You can also add manual steps.
+Add Azure Automation runbooks as prescripts and postscripts. You can also add manual steps.
 
 - **Pre-scripts**: Runs before group resources begin failover.
 - **Post-scripts**: Runs after group resources complete failover.

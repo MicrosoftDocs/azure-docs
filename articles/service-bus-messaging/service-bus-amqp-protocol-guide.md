@@ -8,9 +8,9 @@ ms.date: 11/18/2024
 
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
 
-The Advanced Message Queueing Protocol 1.0 is a standardized framing and transfer protocol for asynchronously, securely, and reliably transferring messages between two parties. It's the primary protocol of Azure Service Bus Messaging and Azure Event Hubs.  
+The Advanced Message Queueing Protocol 1.0 is a standardized framing and transfer protocol for asynchronously, securely, and reliably transferring messages between two parties. It's the primary protocol of Azure Service Bus Messaging and Azure Event Hubs.
 
-AMQP 1.0 is the result of broad industry collaboration that brought together middleware vendors, such as Microsoft and Red Hat, with many messaging middleware users such as JP Morgan Chase representing the financial services industry. The technical standardization forum for the AMQP protocol and extension specifications is OASIS, and it has achieved formal approval as an international standard as ISO/IEC 19494:2014. 
+AMQP 1.0 is the result of broad industry collaboration that brought together middleware vendors, such as Microsoft and Red Hat, with many messaging middleware users such as JP Morgan Chase representing the financial services industry. The technical standardization forum for the AMQP protocol and extension specifications is OASIS, and it has achieved formal approval as an international standard as ISO/IEC 19494:2014.
 
 ## Goals
 
@@ -69,11 +69,7 @@ Connections, channels, and sessions are ephemeral. If the underlying connection 
 
 ### AMQP outbound port requirements
 
-Clients that use AMQP connections over TCP require ports 5671 and 5672 to be opened in the local firewall. Along with these ports, it might be necessary to open additional ports if the [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) feature is enabled. `EnableLinkRedirect` is a new messaging feature that helps skip one-hop while receiving messages, thus helping to boost throughput. The client would start communicating directly with the back-end service over port range 104XX as shown in the following image. 
-
-![List of destination ports][4]
-
-A .NET client would fail with a SocketException ("An attempt was made to access a socket in a way forbidden by its access permissions") if these ports are blocked by the firewall. The feature can be disabled by setting `EnableAmqpLinkRedirect=false` in the connection string, which forces the clients to communicate with the remote service over port 5671.
+Clients that use AMQP connections over TCP require ports 5671 and 5672 to be opened in the local firewall. For current port requirements, see [Service Bus network ports](service-bus-faq.yml#what-ports-do-i-need-to-open-on-the-firewall--).
 
 The AMQP **WebSocket binding** provides a mechanism for tunneling an AMQP connection over a WebSocket transport. This binding creates a tunnel over the TCP port 443, which is equivalent to AMQP 5671 connections. Use AMQP WebSockets if you are behind a firewall that blocks TCP connections over ports 5671, 5672 but allows TCP connections over port 443 (https).
 
@@ -249,8 +245,7 @@ There are few other service bus message properties, which aren't part of AMQP me
 
 ### Transaction capability
 
-A transaction groups two or more operations together into an execution scope. By nature, such a transaction must ensure that all operations belonging to a given group of operations either succeed or fail jointly.
-The operations are grouped by an identifier `txn-id`.
+A transaction groups two or more operations together into an execution scope. By nature, such a transaction must ensure that all operations belonging to a given group of operations either succeed or fail jointly. The operations are grouped by an identifier `txn-id`.
 
 For transactional interaction, the client acts as a `transaction controller` , which controls the operations that should be grouped together. Service Bus Service acts as a `transactional resource` and performs work as requested by the `transaction controller`.
 
@@ -285,7 +280,7 @@ The controller concludes the transactional work by sending a `discharge` message
 
 #### Sending a message in a transaction
 
-All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. When sending messages, the transactional-state is carried by the message's transfer frame. 
+All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. When sending messages, the transactional-state is carried by the message's transfer frame.
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
@@ -392,7 +387,7 @@ The client is subsequently responsible for keeping track of token expiration. Wh
 
 [Send-via / Transfer sender](service-bus-transactions.md#transfers-and-send-via) is a functionality that lets service bus forward a given message to a destination entity through another entity. This feature is used to perform operations across entities in a single transaction.
 
-With this functionality, you create a sender and establish the link to the `via-entity`. While establishing the link, additional information is passed to establish the true destination of the messages/transfers on this link. Once the attach has been successful, all the messages sent on this link are automatically forwarded to the *destination-entity* through *via-entity*. 
+With this functionality, you create a sender and establish the link to the `via-entity`. While establishing the link, additional information is passed to establish the true destination of the messages/transfers on this link. Once the attach has been successful, all the messages sent on this link are automatically forwarded to the *destination-entity* through *via-entity*.
 
 > Note: Authentication has to be performed for both *via-entity* and *destination-entity* before establishing this link.
 
@@ -409,4 +404,3 @@ To learn more about AMQP, see [Service Bus AMQP overview](service-bus-amqp-overv
 [2]: ./media/service-bus-amqp-protocol-guide/amqp2.png
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
-

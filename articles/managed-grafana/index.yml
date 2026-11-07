@@ -67,11 +67,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure Grafana resource authentication and permissions
+          - text: Configure Grafana authentication
             url: how-to-authentication-permissions.md
-          - text: Modify access to Azure Monitor
+          - text: Grant access to Azure Monitor data
             url: how-to-permissions.md
-          - text: Manage access and permissions for users and identities
+          - text: Grant access to Grafana
             url: how-to-manage-access-permissions-users-identities.md
           - text: Connect to a data source privately
             url: how-to-connect-to-data-source-privately.md

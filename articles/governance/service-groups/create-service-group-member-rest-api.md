@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Add Service Group members using the REST API - Azure Governance"
 description: In this quickstart, you use REST API to add a resource to a service group with a service group member relationship.
-author: rthorn17
+author: kenieva
 ms.author: kenieva
 ms.service: azure-policy
 ms.topic: quickstart

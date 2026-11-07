@@ -10,19 +10,21 @@ ms.topic: how-to
 ms.service: resiliency
 ---
 
-# Execute a Zone Down Drill in Infrastructure Resiliency Manager (preview)
+# Execute a zone down drill in Infrastructure Resiliency Manager (preview)
 
-This article describes how to execute a Zone Down Drill (preview) in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resiliency. It also covers tracking drill execution progress, analyzing resource health, and ending the drill execution process.
+This article describes how to execute a zone down drill (preview) in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resilience. It also covers tracking drill execution progress, analyzing resource health, and ending the drill execution process.
 
 ## Prerequisites
 
-Before you execute the down drill operation, ensure that you [define a Zone Down Drill (preview)](availability-zone-down-drill-define.md).
+Before you execute the down drill operation, ensure that you meet the following prerequisites:
 
-Learn about the [supported scenarios and limitations for Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-support-matrix.md).
+- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
+- [Define a zone down drill (preview)](availability-zone-down-drill-define.md).
+- Review the [supported scenarios and limitations for Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-support-matrix.md).
 
 ## Execute the drill
 
-When the Drill execution readiness shows the status as **Ready**, you can execute the drill. 
+When the drill execution readiness shows the status as **Ready**, you can execute the drill.
 
 To execute the drill, follow these steps: 
 

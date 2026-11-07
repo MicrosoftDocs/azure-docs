@@ -9,7 +9,7 @@ ms.custom:
 ms.collection: 
  - migration
  - aws-to-azure
-ms.date: 08/28/2026
+ms.date: 10/12/2026
 ms.topic: upgrade-and-migration-article
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.
 ---
@@ -150,7 +150,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 | PowerShell | Not supported | 7.6, 7.4 |
 | .NET | .NET 8 | .NET 8, .NET 9, .NET Framework 4.8.1 |
 | Ruby | 3.2, 3.3 | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
-| Go | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Go (Preview)](/azure/azure-functions/functions-reference-go) |
+| Go | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Go](/azure/azure-functions/functions-reference-go) |
 | Rust | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
 
 ### Programming model

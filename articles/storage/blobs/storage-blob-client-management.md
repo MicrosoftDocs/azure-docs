@@ -323,6 +323,9 @@ const containerClient = new ContainerClient(
 ## [Python](#tab/python)
 
 ```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import ContainerClient
+
 def get_blob_container_client(self, account_name, container_name):
     # Append the container name to the URI
     account_url = f"https://{account_name}.blob.core.windows.net/{container_name}"

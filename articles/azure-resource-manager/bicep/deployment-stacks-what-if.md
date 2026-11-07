@@ -3,7 +3,7 @@ title: Preview deployment stack changes with what-if
 description: Learn how to use the what-if operation to preview the changes a deployment stack makes before you create or update it.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 08/12/2026
+ms.date: 11/04/2026
 ---
 
 # Preview deployment stack changes by using what-if
@@ -43,8 +43,8 @@ The stack you evaluated doesn't need to exist yet. If it doesn't, what-if report
 
 What-if for deployment stacks shares the underlying [what-if limitations](./deploy-what-if.md) of Azure Resource Manager template deployments, including [result accuracy](./deploy-what-if.md#change-types) for certain resource types and properties. Always review the predicted changes carefully before you apply a stack, particularly when `actionOnUnmanage` is set to a delete option.
 
-- **Noise reduction doesn't remove every difference.** What-if filters many common differences that aren't real changes, but it doesn't filter all of them. For more information, see [Noise reduction](#noise-reduction).
-- **Stored results persist until their retention interval elapses.** Each what-if result is a resource in the scope you create it in, and it counts toward that scope's resource limits. A result that uses a retention interval longer than `PT3H` isn't deleted automatically, so delete results you no longer need. For more information, see [Retrieve and delete stored results](#retrieve-and-delete-stored-results).
+- **Noise reduction doesn't remove every difference.** What-if filters many common differences that aren't real changes, but it doesn't filter all of them. For more information, see [Noise reduction in deployment stack what-if results](./deployment-stacks-what-if-noise-reduction.md).
+- **A scope can contain up to 800 what-if results.** This limit is separate from the limits on deployments and deployment stacks, so running what-if doesn't consume the deployment history for the scope. Results are deleted automatically when their retention interval elapses. For more information, see [Retrieve and delete stored results](#retrieve-and-delete-stored-results).
 
 ## How what-if works with deployment stacks
 
@@ -66,23 +66,100 @@ What-if also surfaces resources that are **detached** from the stack (no longer 
 
 ## Noise reduction
 
-What-if compares your template against the current state of the resources that the stack manages. Not every difference it finds is a change that you made. Resource providers add and normalize values after a resource is deployed, so a property can differ from your template even when nothing meaningful changed. These differences are noise, and they make a result harder to read.
+What-if compares your template against the current state of the resources that the stack manages, and not every difference it finds is a change that deploying your template would actually make. Resource providers add and normalize values after a resource is deployed, so a property can differ from your template even when nothing meaningful changed. These differences are noise.
 
-Deployment stacks filter this noise for you. When you deploy or update a stack, Azure evaluates what-if for the stack at that moment and keeps the result as a baseline. When you run what-if against the stack later, any property that is unchanged between that baseline and the current evaluation is removed from the result as noise. What remains is closer to the set of changes that your template actually introduces.
+Deployment stacks filter noise for you. When you deploy or update a stack, Azure evaluates what-if for the stack at that moment and keeps the result as a baseline. When you run what-if against the stack later, any property that is unchanged between that baseline and the current evaluation is removed from the result. Noise reduction is enabled in all regions.
 
-Because the baseline is recorded when the stack is deployed, noise reduction applies to stacks that were created or updated after the feature became available. If a stack hasn't been deployed or updated since then, its what-if results still include noise. Deploy or update the stack once to establish the baseline.
+Because Azure records the baseline when you deploy the stack, noise reduction applies to stacks that you created or updated on or after August 13, 2026. If you haven't deployed or updated a stack since then, its what-if results still include noise. Deploy or update the stack once to establish the baseline.
 
 > [!NOTE]
 > Noise reduction removes many common differences, but it doesn't remove every one. Review the reported changes rather than assuming that every difference is a real change.
+
+For where noise comes from, what the filtering removes, and what it doesn't, see [Noise reduction in deployment stack what-if results](./deployment-stacks-what-if-noise-reduction.md).
+
+## Use what-if to investigate configuration drift
+
+Configuration drift occurs when the current state of a resource differs from the intended configuration in your template and parameters. Because noise reduction filters out differences that were already present when you last deployed the stack, a later what-if run with the same template, parameters, and stack settings reports changes that were made outside the stack after that deployment, such as edits in the Azure portal or by a script. Each reported difference shows the change that reapplying the stack would make to restore the intended configuration.
+
+What-if is a point-in-time check, not continuous drift monitoring. It reports what differs, but not who or what made the change. To find the source of a change, use the [activity log](/azure/azure-monitor/fundamentals/activity-log) or [resource changes in Azure Resource Graph](/azure/governance/resource-graph/changes/get-resource-changes).
+
+### Before you begin
+
+- Keep the Bicep file or ARM template and the parameter values that represent the intended configuration.
+- Target the same deployment stack and scope that manage the resources.
+- Use the same `actionOnUnmanage` and deny settings as the stack's intended configuration. Changing these inputs can change the what-if result.
+- Make sure that the stack has a baseline, which means that you created or updated it on or after August 13, 2026. Without a baseline, the result also includes noise. Updating the stack establishes a baseline, but it can also revert existing drift, so review a what-if result first. For more information, see [Establish the baseline](./deployment-stacks-what-if-noise-reduction.md#establish-the-baseline).
+- Make sure that you have permission to read the stack and the resources it manages, and permission to create the what-if result, which is the `Microsoft.Resources/deploymentStacksWhatIfResults/write` action. If the what-if request uses deny settings, you also need the `Microsoft.Resources/deploymentStacks/manageDenySetting/action` action.
+
+### Check for drift
+
+1. Run what-if against the stack by using the same template, parameters, and stack settings. The following example checks a resource group stack:
+
+   ```azurecli
+   az stack-whatif group create \
+     --name "<what-if-result-name>" \
+     --resource-group "<resource-group-name>" \
+     --stack-id "<deployment-stack-resource-id>" \
+     --template-file "main.bicep" \
+     --parameters "@main.parameters.json" \
+     --action-on-unmanage "detachAll" \
+     --deny-settings-mode "none" \
+     --retention-interval "PT3H"
+   ```
+
+   The example uses `detachAll` and `none` as placeholders. Use the `actionOnUnmanage` and deny settings that match your stack's intended configuration.
+
+1. Review the property-level changes in the command output. To review the stored result later, include the property-level changes when you retrieve it:
+
+   ```azurecli
+   az stack-whatif group show \
+     --name "<what-if-result-name>" \
+     --resource-group "<resource-group-name>" \
+     --with-property-changes true
+   ```
+
+### Interpret the results
+
+The following example shows a result for a stack after changes were made outside the stack. On one managed network security group, a port and a tag value were changed and a tag was added. A second managed network security group was deleted.
+
+```output
+Changes to Managed Resources:
+
+Azure
+  ~ /subscriptions/<subscription-id>/resourceGroups/demo-rg/providers/Microsoft.Network/networkSecurityGroups/examplensg [2024-05-01]
+    = Management Status: "managed"
+    = Deny Status: "none"
+    ~ properties.securityRules:
+      ~ 0:
+        ~ properties.destinationPortRange: "8443" => "443"
+    ~ tags.env: "drifted" => "test"
+    - tags.owner: "portal"
+  + /subscriptions/<subscription-id>/resourceGroups/demo-rg/providers/Microsoft.Network/networkSecurityGroups/examplensg2 [2024-05-01]
+    = Management Status: "managed"
+    = Deny Status: "none"
+```
+
+Each change describes what reapplying the stack would do:
+
+- **Modify** (`~`) on a property that your template sets means that the current value differs from your template. The value before `=>` is the current value, and the value after it is the value in your template.
+- **Delete** (`-`) on a property or array item means that the resource has a value that your template doesn't define and that wasn't present when you last deployed the stack, such as a tag or a rule added outside the stack.
+- **Create** (`+`) on a resource that the stack already manages means that the resource no longer exists, for example because it was deleted outside the stack.
+- **NoChange** (`=`) means that what-if found no difference in the properties it evaluated.
+- **Delete** or **Detach** on a resource usually reflects your template or `actionOnUnmanage` setting rather than drift. Review the template and stack settings.
+- **Unsupported**, **Ignore**, or a diagnostic means that what-if couldn't fully evaluate that part of the stack, so the result doesn't show whether it drifted.
+
+After you confirm a difference, either update the stack to restore the intended configuration, or update your template and parameters to keep the change.
+
+> [!IMPORTANT]
+> Confirm a reported difference against the live resource before you correct it. Not every difference comes from a change made outside the stack. For example, a resource provider can change a default value in a newer API version, and expressions that what-if can't evaluate, such as `reference()`, nondeterministic functions, and secure values, can appear as changes. What-if can also miss changes: it doesn't evaluate unsupported resource types, and expansion limits or [short-circuiting](./deploy-what-if.md#short-circuiting) can leave resources out of the result. For more information, see [What noise reduction doesn't remove](./deployment-stacks-what-if-noise-reduction.md#what-noise-reduction-doesnt-remove) and [Unevaluated expressions](./deploy-what-if.md#unevaluated-expressions).
 
 ## Run what-if before you create or update a stack
 
 Run the what-if command to preview the changes without applying them. You identify the target stack by its resource ID: use `--stack-id` in Azure CLI or `-StackResourceId` in Azure PowerShell. The `--name` (Azure CLI) or `-Name` (Azure PowerShell) value names the stored what-if result, and the operation keeps that result for the retention interval you set so you can retrieve it later.
 
-The retention interval uses ISO 8601 duration format, such as `PT3H` for three hours or `P7D` for seven days.
+The retention interval uses ISO 8601 duration format and must be between `PT1H` (one hour) and `PT3H` (three hours). Azure deletes the result automatically when the retention interval elapses.
 
-> [!TIP]
-> Set the retention interval to `PT3H` or less. Results that use a longer retention interval aren't deleted automatically, so you need to delete them yourself when you no longer need them.
+By default, what-if also checks that you have permission to write each resource in the template. To run what-if with read-only permissions, for example from a pipeline identity that has Reader, set the validation level to `ProviderNoRbac` with `--validation-level ProviderNoRbac` in Azure CLI or `-ValidationLevel ProviderNoRbac` in Azure PowerShell. That level checks read permissions instead.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -174,7 +251,7 @@ To preview the effect of an update on an existing stack, run the same what-if co
 
 ## Retrieve and delete stored results
 
-Because each what-if result is its own resource, you can list, retrieve, and delete results at any scope. Delete results you no longer need, especially when you set a retention interval longer than `PT3H`.
+Because each what-if result is its own resource, you can list, retrieve, and delete results at any scope. A scope is limited to 800 what-if results. Azure automatically deletes results when their retention interval ends. You can delete a result before then when you no longer need it.
 
 # [Azure CLI](#tab/azure-cli)
 

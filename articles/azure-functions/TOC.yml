@@ -363,7 +363,7 @@
             href: python-memory-profiler-reference.md
       - name: Python SDK API reference
         href: /python/api/azure-functions/azure.functions
-  - name: Go (Preview)
+  - name: Go
     displayName: golang
     href: functions-reference-go.md
 - name: How-to guides
@@ -671,15 +671,33 @@
       href: register-mcp-server-api-center.md
   - name: Hosted skills
     items:
-    - name: Overview
+    - name: What are hosted skills?
       displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
       href: functions-hosted-skills.md
+    - name: Scenarios
+      displayName: AI, hosted skills, events, connectors, workflows, messages, schedules, files
+      href: functions-hosted-skills-scenarios.md
+    - name: Canvas quickstart
+      displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
+      href: functions-hosted-skills-canvas.md
+    - name: Developer guide
+      displayName: AI, agent, hosted skills, Markdown, triggers, tools, MCP, skills
+      href: functions-hosted-skills-developer-guide.md
+    - name: Hosted Skill bindings in Python
+      displayName: AI, agent, hosted skills, binding, Python, hybrid workflows, HostedSkill
+      href: functions-hosted-skills-bindings.md
     - name: Dynamic workflows overview
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
       href: functions-hosted-skills-dynamic-workflows.md
     - name: Dynamic workflows quickstart
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
       href: functions-hosted-skills-dynamic-workflows-how-to.md
+    - name: Monitor and troubleshoot
+      displayName: hosted skills, Application Insights, KQL, tokens, latency, connectors, diagnostics
+      href: functions-hosted-skills-monitor-troubleshoot.md
+    - name: Evaluate hosted skills
+      displayName: AI, agent, hosted skills, evaluation, Vally, graders, testing
+      href: functions-hosted-skills-evaluation.md
     - name: Reference
       displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
       href: functions-hosted-skills-reference.md
@@ -975,6 +993,14 @@
       - name: Output
         displayName: Kafka
         href: functions-bindings-kafka-output.md
+    - name: Managed connectors
+      items:
+      - name: Overview
+        displayName: Connector Extension, Connector Namespace, Managed Connectors
+        href: functions-bindings-connector.md
+      - name: Trigger (Preview)
+        displayName: Connector Trigger, Connector Namespace, Office 365, SharePoint Online
+        href: functions-bindings-connector-trigger.md
     - name: MCP
       items:
       - name: Overview

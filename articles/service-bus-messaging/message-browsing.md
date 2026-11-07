@@ -2,7 +2,7 @@
 title: Azure Service Bus - Browse or peek messages
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
 ms.topic: concept-article
-ms.date: 07/25/2024
+ms.date: 10/06/2026
 ms.custom: sfi-ropc-nochange
 #customer intent: As a developer, I want to know how to browse or peek messages in a queue or a subscription, for diagnostic and debugging purposes. 
 ---
@@ -10,7 +10,7 @@ ms.custom: sfi-ropc-nochange
 # Browse or peek messages
 Message browsing, or peeking, enables a Service Bus client to enumerate all messages in a queue or a subscription, for diagnostic and debugging purposes.
 
-The Peek operation on a queue or a subscription returns at most the requested number of messages. The following table shows the types of messages that are returned by the Peek operation. 
+The Peek operation on a queue or a subscription returns at most the requested number of messages. The following table shows the types of messages that are returned by the Peek operation.
 
 | Type of messages | Included? | 
 | ---------------- | ----- | 
@@ -25,7 +25,7 @@ The Peek operation on a queue or a subscription returns at most the requested nu
 To peek into **dead-lettered** messages of a queue or subscription, the peek operation should be run on the dead letter queue associated with the queue or subscription. For more information, see [accessing dead letter queues](service-bus-dead-letter-queues.md#path-to-the-dead-letter-queue).
 
 ## Expired messages
-Expired messages might be included in the results returned from the Peek operation. Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run. This step might not necessarily occur immediately after messages expire. That's why, a peek operation might return messages that have already expired. These messages will be removed or dead-lettered when a receive operation is invoked on the queue or subscription the next time. Keep this behavior in mind when attempting to recover deferred messages from the queue. 
+Expired messages might be included in the results returned from the Peek operation. Consumed and expired messages are cleaned up by an asynchronous "garbage collection" run. This step might not necessarily occur immediately after messages expire. That's why, a peek operation might return messages that have already expired. These messages will be removed or dead-lettered when a receive operation is invoked on the queue or subscription the next time. Keep this behavior in mind when attempting to recover deferred messages from the queue.
 
 An expired message is no longer eligible for regular retrieval by any other means, even when it's being returned by Peek. Returning these messages is by design as Peek is a diagnostics tool reflecting the current state of the log.
 
@@ -38,7 +38,7 @@ Deferred messages remain in the main queue along with all other active messages 
 To retrieve a deferred message, its owner is responsible for remembering the **sequence number** as it defers it. Any receiver that knows the sequence number of a deferred message can later receive the message by using receive methods that take the sequence number as a parameter. For more information about sequence numbers, see [Message sequencing and timestamps](message-sequencing.md).
 
 ## Peek APIs
-Peek works on queues, subscriptions, and their dead-letter queues. 
+Peek works on queues, subscriptions, and their dead-letter queues.
 
 When called repeatedly, the peek operation enumerates all messages in the queue or subscription, in order, from the lowest available sequence number to the highest. It’s the order in which messages were enqueued, not the order in which messages might eventually be retrieved.
 
@@ -46,7 +46,7 @@ You can also pass a SequenceNumber to a peek operation. It's used to determine w
 
 ## Maximum number of messages
 
-You can specify the maximum number of messages that you want the peek operation to return. But, there's no way to guarantee a minimum size for the batch. The number of returned messages depends on several factors of which the most impactful is how quickly the network can stream messages to the client. 
+You can specify the maximum number of messages that you want the peek operation to return. But, there's no way to guarantee a minimum size for the batch. The number of returned messages depends on several factors of which the most impactful is how quickly the network can stream messages to the client.
 
 
 ### [C#](#tab/csharp)
@@ -89,7 +89,7 @@ while (peekedMessages.Count > 0)
 }
 ```
 
-The following sample output is from peeking a queue with 13 messages in it. 
+The following sample output is from peeking a queue with 13 messages in it.
 
 ```bash
 Message 1
@@ -144,16 +144,10 @@ print("Receive is done.")
 ---
 
 ## Related content
-Try the samples in the language of your choice to explore Azure Service Bus features. 
+Try the samples in the language of your choice to explore Azure Service Bus features.
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - - **Sending and receiving messages** sample.
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/) - **Peek at a message** sample
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)  - **receive_peek.py** sample
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)  - **browseMessages.js** sample
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - **browseMessages.ts** sample
-
-Find samples for the older .NET and Java client libraries here:
-- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Message Browsing (Peek)** sample
-- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus) - **Message Browse** sample. 
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

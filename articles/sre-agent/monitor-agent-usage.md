@@ -3,7 +3,7 @@ title: Monitor agent usage in Azure SRE Agent
 description: Track per-thread Azure Agent Unit consumption by type, manage allocation limits, and identify cost drivers.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 05/12/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -17,7 +17,7 @@ Your agent runs conversations, processes incidents, and executes scheduled tasks
 
 ## Agent consumption
 
-View your AAU usage at **Settings** > **Agent consumption**.
+View your AAU usage at **Build + setup** > **Monitor** > **Agent consumption**.
 
 Azure SRE Agent billing is measured in Azure Agent Units (AAU). Your monthly allocation includes both a fixed **always-on flow** and a variable **active flow** that you can adjust. The consumption page breaks down your usage by thread type so you can see exactly where your AAUs are going.
 
@@ -79,7 +79,7 @@ Select **Change AAU allocation** on the monthly limit card to increase or decrea
 
 ## Get started
 
-Usage monitoring is built in. Go to **Settings** > **Agent consumption** to see your AAU breakdown immediately.
+Usage monitoring is built in. Go to **Build + setup** > **Monitor** > **Agent consumption** to see your AAU breakdown immediately.
 
 | Resource | What you learn |
 |----------|-------------------|

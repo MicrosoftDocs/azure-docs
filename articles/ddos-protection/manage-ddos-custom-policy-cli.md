@@ -7,7 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: duau
-ms.date: 06/25/2026
+ms.date: 10/08/2026
 # Customer intent: As a network administrator, I want to create a DDoS Protection custom policy with Azure CLI, so that I can script protocol-specific detection thresholds.
 ---
 
@@ -46,7 +46,13 @@ az network ddos-custom-policy create \
   --packets-per-second 1000000
 ```
 
-The `--packets-per-second` value must be from 50,000 to 2,000,000. The `--traffic-type` value is one of `Tcp`, `Udp`, or `TcpSyn`. The `create` command sets a single detection rule. To tune more protocols, add rules from the policy's **Policy settings** page in the [Azure portal](manage-ddos-custom-policy-portal.md), or use an [ARM template](manage-ddos-custom-policy-template.md).
+The `--traffic-type` value is one of `Tcp`, `Udp`, or `TcpSyn`. The valid `--packets-per-second` range depends on the traffic type:
+
+- `Tcp`: 50,000 to 2,000,000.
+- `Udp`: 20,000 to 200,000.
+- `TcpSyn`: 1,000 to 100,000.
+
+The `create` command sets a single detection rule. To tune more protocols, add rules from the policy's **Policy settings** page in the [Azure portal](manage-ddos-custom-policy-portal.md), or use an [ARM template](manage-ddos-custom-policy-template.md).
 
 ## View the custom policy
 

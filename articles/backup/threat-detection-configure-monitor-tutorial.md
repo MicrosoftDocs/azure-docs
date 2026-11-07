@@ -3,6 +3,7 @@ title: Tutorial - Configure Threat Detection and manage health of Azure VM Backu
 description: Learn how to enable threat detection for Azure VM backups using Azure Backup. The feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 ms.service: azure-backup
 ms.date: 11/20/2025
+ms.update-cycle: 1825-days
 ms.topic: tutorial
 author: AbhishekMallick-MS
 ms.author: v-mallicka

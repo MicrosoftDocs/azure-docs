@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
 title: Elastic integration with Azure
-summary: Centralizes log, metric, and tracing analytics.
+summary: Provides managed search, vector database, observability, and security services.
 
 metadata:
   title: Elastic with Azure documentation
-  description: Elastic integrates with Azure to offer monitoring solutions.
+  description: Elastic integrates with Azure to offer search, vector database, observability, and security solutions.
   author: pdjokar96
   ms.author: piyushdash
   ms.service: partner-services
   ms.topic: landing-page
   
   
-  ms.date: 09/15/2025
+  ms.date: 09/21/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

@@ -1,6 +1,20 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/iot-hub/how-to-disable-enable-device.md",
+      "redirect_url": "/azure/iot/device-registry/how-to-disable-enable-device"
+    },
+    {
+      "source_path": "articles/iot/how-to-revoke-certificate-delete-policy.md",
+      "redirect_url": "/azure/iot/concepts-certificate-policy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/how-to-configure-credential.md",
+      "redirect_url": "/azure/iot/how-to-create-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-fundamentals/iot-solution-apaas-paas.md",
       "redirect_url": "/azure/iot",
       "redirect_document_id": false
@@ -209,6 +223,21 @@
       "source_path_from_root": "/articles/iot/howto-iot-industrial-dataspaces.md",
       "redirect_url": "/azure/architecture/guide/iot/howto-iot-industrial-dataspaces",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-device-registry-overview.md",
+      "redirect_url": "/azure/iot/device-registry/overview-device-registry",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-device-registry-namespace-guidance.md",
+      "redirect_url": "/azure/iot/device-registry/best-practices-namespaces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-device-registry-schema-registry-guidance.md",
+      "redirect_url": "/azure/iot/device-registry/best-practices-schema-registries",
+      "redirect_document_id": true
     }
   ]
 }

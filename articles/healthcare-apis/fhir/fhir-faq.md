@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: faq
-ms.date: 02/23/2026
+ms.date: 10/12/2026
 ms.author: kesheth
 ms.custom: references_regions
 ---
@@ -35,6 +35,10 @@ In the managed service, you can't access the underlying data. This policy is to 
 
 We support Microsoft Entra ID and non-Microsoft identity providers that support OpenID connect.
 
+### What is the backup and recovery policy for the FHIR service?
+
+Azure Health Data Services automatically retains FHIR database backups for seven days. To request a restore, submit a support ticket as soon as possible and at least 24 business hours before the seven-day retention period ends. Include the service name and the requested restore point in UTC. For details, see [Database backups for the FHIR service](../business-continuity-disaster-recovery.md#database-backups-for-the-fhir-service).
+
 ### Can I use Azure AD B2C with the FHIR service?
 
 Yes. You can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR service to grant access to your applications and users. For more information, see [Use Azure Active Directory B2C to grant access to the FHIR service](../fhir/azure-ad-b2c-setup.md). However, effective **May 1, 2025**, Azure AD B2C will no longer be available to purchase for new customers. New customers need to use [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
@@ -47,7 +51,7 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 
 ### What is the difference between Azure API for FHIR and the FHIR service in the Azure Health Data Services?
 
-Azure API for FHIR was our initial generally available product and is being retired as of September 30, 2026. The following table describes differences between Azure API for FHIR and Azure Health Data Services, FHIR service.
+Microsoft deprecated Azure API for FHIR on **September 30, 2026**. For questions or assistance, create an Azure support request by using **Azure API for FHIR Extension Request**. The following table compares Azure API for FHIR with the FHIR service in Azure Health Data Services.
 
 |Capabilities|Azure API for FHIR|Azure Health Data Services|
 |------------|------------------|--------------------------|
@@ -90,11 +94,6 @@ No. We don't have a way to change the version of an existing database. You need 
 ### Can I customize the URL for my FHIR service?
 
 No. You can't change the URL for the FHIR service. 
-
-### What are the limits associated with the FHIR service in Azure Health Data Services?
-
-Refer to the "Service limits" section in 
-[Azure FHIR service limits](fhir-features-supported.md#service-limits)
 
 **What should I do if I accidentally deployed the Azure API for FHIR into the wrong subscription, deleted it, and am now facing a deployment failure in the correct subscription with a message stating that the resource name is not available?**
 
@@ -148,11 +147,47 @@ Posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html) and 
 
 Use the [$patient-everything operation](patient-everything.md) that gets you all data related to a single patient. 
 
+### How can I sort search results?
+
+Use `_sort=_lastUpdated` to sort by the last updated date. The FHIR service also supports sorting by string and dateTime fields, one field at a time. Results are sorted in ascending order unless you prefix the sort field with `-` for descending order. For details, see [Overview of FHIR search](overview-of-search.md).
+
 ### Does the FHIR service support any terminology operations?
 
 No, the FHIR service doesn't currently support terminology operations.
 
+### How does `$export` work?
+
+The `$export` operation exports FHIR data to an Azure Data Lake Storage Gen2 account. First, [configure export settings](configure-export-data.md), including the service's managed identity and storage permissions. Then call `$export` at the system, patient, or group level. For details, see [Export your FHIR data](export-data.md).
+
+### Are there limitations on group export?
+
+Group export includes referenced resources but doesn't export the characteristics of the group resource itself. Patient and group exports can contain duplicate resources. For details, see [Export your FHIR data](export-data.md).
+
+### Can I export de-identified data?
+
+Yes. The FHIR service can de-identify data during a system-level `$export` operation by using an anonymization configuration file. De-identified export isn't supported at the patient or group level. For configuration steps and compliance considerations, see [Export de-identified data](deidentified-export.md).
+
+### How can I recover a soft-deleted resource?
+
+If the resource's history is still available, retrieve the last version with data by using a history request. Use `PUT` to recreate the resource with the same ID or `POST` to create a new resource. You can't recover hard-deleted resources through resource history. For details, see [Recovery of deleted files](rest-api-capabilities.md#recovery-of-deleted-files).
+
 ## Using the FHIR service
+
+### How do I enable diagnostic logs?
+
+In the Azure portal, open your FHIR service, select **Diagnostic settings** under **Monitoring**, and add a setting that sends **AuditLogs** to a Log Analytics workspace. For steps and sample queries, see [Enable diagnostic settings](fhir-service-diagnostic-logs.md). To include more request information, see [Use custom HTTP headers in diagnostic logs](use-custom-headers-diagnosticlog.md).
+
+### What should I do if I receive HTTP 429 responses?
+
+The FHIR service scales automatically; you don't need to enable autoscaling. Increase your request rate gradually rather than sending all requests at once. If HTTP 429 responses persist, create an Azure support request. For details, see [Autoscaling for the FHIR service](autoscale.md) and [FHIR service best practices for better performance](fhir-best-practices.md).
+
+### Can I encrypt FHIR data with my own key?
+
+Yes. You can use a customer-managed key in Azure Key Vault to encrypt data stored by the FHIR service. For requirements and setup steps, see [Configure customer-managed keys](configure-customer-managed-keys.md).
+
+### Where can I find examples of healthcare workflows?
+
+See the [Health Architectures repository](https://github.com/microsoft/health-architectures) for reference architectures. Review each example's prerequisites and supported services before using it with Azure Health Data Services.
 
 ### Can I perform health checks on FHIR service?
 
@@ -168,10 +203,9 @@ Refer to documentation for
 
 ## Next steps
 
-In this article, you learned the answers to frequently asked questions about FHIR service. To see the frequently asked questions about FHIR service in Azure API for FHIR, see
+For more information about the FHIR service in Azure Health Data Services, see:
  
 >[!div class="nextstepaction"]
->[FAQs about Azure API for FHIR](../azure-api-for-fhir/fhir-faq.yml)
+>[FHIR service overview](overview.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
-

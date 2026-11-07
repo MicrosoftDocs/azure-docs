@@ -221,6 +221,9 @@ LocalAddress Network       NextHop  SourcePeer Origin AsPath Weight
 10.0.1.4     172.16.2.0/24 10.0.0.4 10.0.0.4   EBgp   65001  32768
 ```
 
+> [!TIP]
+> If BGP peering fails to establish or Route Server doesn't learn routes from your NVA, see [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md) for guidance on BGP peering and route propagation problems.
+
 ## Clean up resources
 
 When no longer needed, you can delete all resources created in this tutorial by deleting the **myResourceGroup** resource group:

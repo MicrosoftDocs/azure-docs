@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 01/12/2026
+ms.date: 10/05/2026
 ms.topic: concept-article
 # Customer intent: As a cloud architect, I want to implement security best practices for Azure Batch deployments so that I can ensure compliance and protect sensitive data within my organization's cloud infrastructure.
 ---
@@ -192,7 +192,10 @@ For extra security, encrypt these disks using one of these Azure disk encryption
 
 - [Managed disk encryption at rest with platform-managed keys](/azure/virtual-machines/disk-encryption#platform-managed-keys)
 - [Encryption at host using a platform-managed key](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-- [Azure Disk Encryption](disk-encryption.md)
+- [Configure Batch pool disk encryption](disk-encryption.md)
+
+> [!IMPORTANT]
+> Azure Disk Encryption for Batch pools retires on September 15, 2028. Migrate configurations that can use Azure Disk Encryption for temporary-disk encryption to encryption at host before the retirement date. For impact assessment and migration steps, see [Azure Disk Encryption retirement](disk-encryption.md#azure-disk-encryption-retirement).
 
 ## Securely access services from compute nodes
 

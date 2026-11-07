@@ -1,8 +1,9 @@
 ---
 title: "Troubleshoot Durable Task SDKs: Common Issues and Fixes"
-description: Diagnose and resolve common issues with the portable Durable Task SDKs for .NET, Java, JavaScript, and Python. Fix connection errors, orchestration failures, and activity issues.
+description: Diagnose common issues with the portable Durable Task SDKs for .NET, Java, JavaScript, Python, and Go. Resolve setup, connection, and replay failures.
 ms.topic: troubleshooting
-ms.date: 04/30/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 author: torosent
 ms.reviewer: hhunter-ms
@@ -55,6 +56,10 @@ This article helps you diagnose and fix common issues when building applications
 - [Java: OrchestratorBlockedException](#orchestratorblockedexception)
 - [Python: Retry policy requires max_retry_interval](#retry-policy-requires-max_retry_interval)
 - [Python: WhenAllTask exception behavior](#whenalltask-exception-behavior)
+- [Go: Missing module checksum entries](#missing-module-checksum-entries)
+- [Go: Migrate from earlier Go SDK versions](#migrate-from-earlier-go-sdk-versions)
+- [Go: Orchestration replay failures or hangs](#orchestration-replay-failures-or-hangs)
+- [Go: Missing or misleading orchestration results](#missing-or-misleading-orchestration-results)
 
 These SDKs connect to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) backend and run on any hosting platform, including Azure Container Apps, Kubernetes, and VMs.
 
@@ -82,6 +87,7 @@ These SDKs connect to the [Durable Task Scheduler](../scheduler/durable-task-sch
 | `CS0419` / `VSTHRD105` warnings break build | [Source generator warnings break builds (C#)](#source-generator-warnings-break-builds) |
 | `OrchestratorBlockedException` (Java) | [OrchestratorBlockedException (Java)](#orchestratorblockedexception) |
 | Unhelpful error when using `retry_policy` (Python) | [Retry policy requires max_retry_interval (Python)](#retry-policy-requires-max_retry_interval) |
+| `missing go.sum entry` (Go) | [Missing module checksum entries (Go)](#missing-module-checksum-entries) |
 
 ## Connection and setup issues
 
@@ -707,6 +713,26 @@ except TaskFailedError as e:
     print(f"At least one task failed: {e}")
 ```
 
+### Go
+
+The Go SDK is in beta. For known limitations, see [Go beta compatibility considerations](durable-task-go.md#beta-compatibility-considerations).
+
+#### Missing module checksum entries
+
+If `go run` or `go build` reports a `missing go.sum entry` error in a new application, save the code that imports the SDK packages, run `go mod tidy`, and then run the application again. Running `go get` before your code imports the SDK packages doesn't record every transitive dependency checksum.
+
+#### Migrate from earlier Go SDK versions
+
+The beta isn't a drop-in upgrade from v0.6.0. It removes the embedded SQLite and PostgreSQL backends and the standalone gRPC host. Use Go 1.25 or later, and connect with `durabletaskscheduler.NewClient` and `durabletaskscheduler.NewWorker`. For details, see the [Go SDK beta release notes](https://github.com/microsoft/durabletask-go/releases/tag/v1.0.0-beta.1).
+
+#### Orchestration replay failures or hangs
+
+Check that orchestrator code doesn't use native goroutines, channels, blocking synchronization, `time.Sleep`, map iteration to schedule work, or direct I/O. For details, see [Go orchestrators](../common/durable-task-code-constraints.md?pivots=durable-task-sdks#go-orchestrators). Also check task registration errors, and use automatic work item filters when workers host different task sets.
+
+#### Missing or misleading orchestration results
+
+`WaitForOrchestrationCompletion` returns metadata for failed and terminated instances, not only completed ones. Request payloads with `api.WithFetchPayloads(true)`, check that `RuntimeStatus` is `api.RUNTIME_STATUS_COMPLETED`, and then call `ReadOutput`. For an example, see [Go instance management](../common/durable-task-instance-management.md?pivots=durable-task-sdks#go-instance-management).
+
 ## Get support
 
 For questions and reporting bugs, open an issue in the GitHub repo for the relevant SDK. When you report a bug, include:
@@ -723,6 +749,7 @@ For questions and reporting bugs, open an issue in the GitHub repo for the relev
 | Java | [microsoft/durabletask-java](https://github.com/microsoft/durabletask-java/issues) |
 | JavaScript | [microsoft/durabletask-js](https://github.com/microsoft/durabletask-js/issues) |
 | Python | [microsoft/durabletask-python](https://github.com/microsoft/durabletask-python/issues) |
+| Go | [microsoft/durabletask-go](https://github.com/microsoft/durabletask-go/issues) |
 
 ## Related content
 

@@ -2,7 +2,7 @@
 title: Authenticate an Application to Access Azure Service Bus Entities
 description: This article provides information about authenticating an application with Microsoft Entra ID to access Azure Service Bus entities like queues and topics.
 ms.topic: concept-article
-ms.date: 09/15/2026
+ms.date: 10/06/2026
 ms.custom:
   - subject-rbac-steps
   - sfi-image-nochange
@@ -12,7 +12,7 @@ ms.custom:
 
 Azure Service Bus supports using Microsoft Entra ID to authorize requests to Service Bus entities (queues, topics, subscriptions, or filters). With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal. The security principal can be a user, group, application service principal, or [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-A key advantage of using Microsoft Entra ID with Azure Service Bus is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. If the authentication succeeds, Microsoft Entra ID returns an access token to the application. The application can then use the access token to authorize requests to Service Bus resources.  
+A key advantage of using Microsoft Entra ID with Azure Service Bus is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. If the authentication succeeds, Microsoft Entra ID returns an access token to the application. The application can then use the access token to authorize requests to Service Bus resources.
 
 You can disable local or shared access signature (SAS) key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 
@@ -129,14 +129,12 @@ TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_
 var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
 ```
 
-If you're using the older .NET packages, see the [Azure RBAC samples for Service Bus on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl).
-
 ## Related content
 
 - To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md).
 
 - To learn how to assign and manage Azure role assignments by using Azure PowerShell, the Azure CLI, or the REST API, see these articles:
-  - [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+  - [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
   - [Assign Azure roles using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
   - [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md)
   - [Assign Azure roles using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)

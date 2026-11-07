@@ -199,10 +199,14 @@
           href: chat-faq.md
         - name: SDKs and REST API
           href: chat-reference-sdk-and-rest.md
-        - name: Service SDK - Java
-          href: chat-reference-service-sdk-java.md
+        - name: Service SDK - Python
+          href: /python/api/overview/azure/messaging-webpubsubchatservice-readme
         - name: Service SDK - JavaScript
-          href: chat-reference-service-sdk-javascript.md
+          href: /javascript/api/overview/azure/web-pubsub-chat-readme
+        - name: Service SDK - C#
+          href: /dotnet/api/overview/azure/messaging.webpubsub.chat-readme
+        - name: Service SDK - Java
+          href: /java/api/overview/azure/messaging-webpubsub-chat-readme
         - name: Error codes
           href: chat-reference-errors.md
 - name: Socket.IO

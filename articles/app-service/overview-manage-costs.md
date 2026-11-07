@@ -8,7 +8,7 @@ ms.custom:
   - build-2025
 ms.service: azure-app-service
 ms.topic: how-to
-ms.date: 04/29/2025
+ms.date: 11/06/2026
 ---
 
 # Plan and manage costs for Azure App Service
@@ -123,6 +123,8 @@ For details, see [App Service plan overview](overview-hosting-plans.md).
 ### Nonproduction workloads
 
 To test your app or solution while accruing low or minimal cost, you can begin by using the two entry-level pricing tiers, **Free** and **Shared**, which are hosted on shared instances. To test your app on dedicated instances with better performance, you can upgrade to **Basic** tier, which supports both Windows and Linux apps. 
+
+Windows apps in the **Free (F1)** tier support 64-bit (x64) processes, so you don't need a paid plan solely to test an app that requires x64. This support doesn't increase the Free tier's resource quotas. For more information, see [Process architecture](overview-hosting-plans.md#process-architecture).
 
 > [!NOTE]
 > **Azure Dev/Test Pricing**: To test preproduction workloads that require higher tiers (all tiers except for **Isolated**), Visual Studio subscribers can also take advantage of the [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/), which offers significant discounts.

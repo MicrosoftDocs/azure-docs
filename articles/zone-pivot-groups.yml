@@ -1,5 +1,14 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: yuanqu72
+- id: app-configuration-telemetry-aspnet-core
+  title: ASP.NET Core feature flag telemetry
+  prompt: Choose a telemetry integration
+  pivots:
+  - id: app-configuration-telemetry-opentelemetry
+    title: Open Telemetry
+  - id: app-configuration-telemetry-appinsights
+    title: App Insights
 # Owner: v-mallicka
 - id: backup-client-portal-cli
   title: Clients
@@ -358,6 +367,22 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: durable-task-sdk-languages
+  title: Durable Task SDK programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: csharp
+    title: C#
+  - id: javascript
+    title: JavaScript
+  - id: python
+    title: Python
+  - id: powershell
+    title: PowerShell
+  - id: java
+    title: Java
+  - id: go
+    title: Go (beta)
 - id: function-worker-process
   title: .NET Azure Functions process model
   prompt: Choose your .NET mode
@@ -2150,7 +2175,13 @@ groups:
     title: Google Cloud
   - id: oracle
     title: Oracle Cloud
-  - id: on-premises
+- id: storage-mover-on-premises
+  title: Storage Mover on-premises migration sources
+  prompt: Select your on-premises source.
+  pivots:
+  - id: on-premises-smb
+    title: On-premises SMB
+  - id: on-premises-s3
     title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
@@ -2170,6 +2201,8 @@ groups:
   pivots:
   - id: elastic-search
     title: Elastic Search
+  - id: elastic-vector-database
+    title: Elastic Vector Database
   - id: elastic-observability
     title: Elastic Observability
   - id: elastic-security

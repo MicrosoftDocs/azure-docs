@@ -100,7 +100,7 @@ openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -sub
 openssl x509 -req -days $CERT_DAYS -in $CERT_DIR/server-req.pem -signkey $KEY_DIR/server-key.pem -out $CERT_DIR/server-cert.pem 
 
 # Combining private key and permissions
-cat ./private/server-key.pem server-cert.pem > server-combined.pem
+cat $KEY_DIR/server-key.pem $CERT_DIR/server-cert.pem > $CERT_DIR/server-combined.pem
 
 echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
 ```
@@ -112,7 +112,7 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
 
 1. From your NetApp volume, select **Buckets**. 
 1. Select **+ Create bucket**. 
-1. In Create or update bucket, provide the following information for the bucket:
+1. Provide the following information for the bucket:
 
     **Bucket configuration**
 
@@ -202,7 +202,7 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
 
 1. Select **Create** to provision the bucket.
 
-After you create a bucket, you need to generate credentials to access the bucket.
+After you create a bucket, you need to generate credentials to access the bucket. 
 
 ## Generate credentials
 

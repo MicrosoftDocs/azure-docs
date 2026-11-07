@@ -31,7 +31,7 @@ Azure Files provides fully managed file shares in the cloud that you can access 
 - **Fully managed** — No hardware to manage, no OS to patch, no disks to replace. Azure handles infrastructure, updates, and backups.
 - **Shared access** — Industry-standard SMB and NFS protocols ensure compatibility with existing applications, tools, and workflows.
 - **Resilient** — Zone-redundant (ZRS) and geo-redundant (GRS) storage options protect against hardware failures and datacenter outages.
-- **Familiar programmability** — Access data through [file system I/O APIs](/dotnet/api/system.io.file), [Azure Storage client libraries](/dotnet/api/overview/azure/storage.files.shares-readme), or the [REST API](/rest/api/storageservices/file-service-rest-api).
+- **Familiar programmability** — Access data through [file system I/O APIs](/dotnet/api/system.io.file), [Azure Storage client libraries](/dotnet/api/overview/azure/storage.files.shares-readme), or the [REST API](/rest/api/storageservices/file-service-rest-api). Build applications that track file and directory changes by using [Azure Files change feed](storage-files-change-feed.md).
 - **Scriptable** — Create, mount, and manage file shares using PowerShell, Azure CLI, the Azure portal, or Azure Storage Explorer.
 
 ## Get started

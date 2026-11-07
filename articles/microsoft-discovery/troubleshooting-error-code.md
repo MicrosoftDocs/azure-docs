@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: error-reference #Don't change
-ms.date: 09/24/2026
+ms.date: 10/28/2026
 
 #customer intent: As a Discovery platform administrator or developer, I want a list of Microsoft Discovery error codes and their resolutions so that I can quickly diagnose and fix failed operations.
 
@@ -24,12 +24,27 @@ The following general checks resolve most errors before you consult a specific c
 - **Verify the deploying identity's roles.** Discovery requires data-plane, storage, network-perimeter, and Foundry permissions in addition to control-plane rights. Subscription **Owner** alone isn't sufficient. See [Role assignments for Microsoft Discovery](concept-role-assignments.md).
 - **Confirm region and API version.** Deploy only to a supported region and use the API version that ships with the current Toolbox or [infrastructure quickstart](quickstart-infrastructure.md).
 
+## REST API response errors
+
+Control-plane Azure Resource Manager requests and workspace data-plane job requests can return the following HTTP errors. Inspect the response body and the correlation ID before retrying.
+
+| HTTP status | API or error code | Resolution |
+| --- | --- | --- |
+| 400 | Control plane: `InvalidRequestContent` | Correct a malformed request body or missing required properties. See the [supercomputer request properties](how-to-manage-supercomputers-rest-api.md). |
+| 401 | Data plane: Unauthorized | Refresh the access token. |
+| 403 | Data plane: Forbidden | Verify the caller's RBAC permissions on the workspace or project. See [Project access troubleshooting](troubleshoot-microsoft-discovery.md#project-access-or-linked-resource-permissions-are-incorrect). |
+| 404 | Control plane: `ResourceNotFound` | Verify the subscription, resource group, and resource ID identify an existing resource. |
+| 404 | Data plane: Not Found | Check the project name, operation ID, and workspace URL. |
+| 409 | Control plane: `Conflict` | Inspect resource state. For example, wait for the supercomputer to finish provisioning before creating a node pool. For a terminal failed state, use the [failed-resource guidance](troubleshoot-microsoft-discovery.md#a-discovery-resource-is-stuck-in-a-terminal-failed-state). |
+| 429 | `TooManyRequests` | Apply backoff and retry. Honor the `Retry-After` header when returned. |
+| 5xx | Data plane: Server Error | Retry transient failures with bounded exponential backoff. For an example, see the [job API retry strategy](how-to-run-jobs-supercomputer-rest-api.md#retry-strategy). |
+
 ## Deployment and control-plane error codes
 
 | Code | Error message | Details |
 | --- | --- | --- |
 | `AuthorizationFailed` | `The client '<principal>' doesn't have authorization to perform action 'Microsoft.Discovery/...' over scope '...'. If access was recently granted, refresh your credentials.` | The signed-in principal lacks a required Discovery platform role, or a recently granted role didn't propagate to the token. Assign **Microsoft Discovery Platform Administrator** and refresh credentials (sign out and back in) so the new role is in the token. See [Role assignments for Microsoft Discovery](concept-role-assignments.md). |
-| `InvalidResourceType` | `Microsoft.Discovery is registered, but the provider metadata doesn't expose the 'supercomputers' or 'storageContainers' resource types. Direct ARM requests return InvalidResourceType for API version <version>.` | The request uses an unsupported API version or region, or the provider isn't fully registered. Use the API version and Toolbox or [quickstart](quickstart-infrastructure.md) from the current release, deploy to a supported region, and re-register the provider. See [Resource provider registration](concept-resource-provider-registration.md). |
+| `InvalidResourceType` | `Microsoft.Discovery is registered, but the provider metadata doesn't expose the 'supercomputers' or 'storageContainers' resource types. Direct ARM requests return InvalidResourceType for API version <version>.` | The request uses an unsupported API version or region, or the provider isn't fully registered. Use the API version and Toolbox or [quickstart](quickstart-infrastructure.md) from the current release, deploy to a supported region, and re-register the provider. See [Resource provider registration](how-to-register-resource-providers.md). |
 | `DeploymentFailed` | `The resource operation completed with terminal provisioning state 'Failed'.` | A backing operation failed. Read the deployment operation history by using the correlation ID to find the first internally failing operation, resolve its root cause (often a missing role, a network feature, or a subnet or quota limit), then retry without deleting partially created resources where possible. See [Get operation correlation ID from Activity Log](how-to-get-correlation-id.md). |
 | `ResourceDeploymentFailure` | `The resource provision operation didn't complete successfully.` | A dependent resource failed to provision. Identify the failing child operation from the operation history and correct the underlying cause. If the resource remains in a terminal `Failed` state and can't be retried, delete and recreate only the failed resource. |
 | `InternalServerError` | `The server encountered an internal error. Please retry the request.` | A transient backend error during create or update. Retry the operation. If it persists, capture the correlation ID and [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). |

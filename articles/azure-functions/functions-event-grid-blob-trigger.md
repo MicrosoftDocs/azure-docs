@@ -3,7 +3,7 @@ title: 'Tutorial: Trigger Azure Functions on blob containers using an event subs
 description: This tutorial shows how to create a low-latency, event-driven trigger on an Azure Blob Storage container using an Event Grid event subscription.
 ms.topic: tutorial
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts, ignite-2024
-ms.date: 08/19/2026
+ms.date: 10/12/2026
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want learn how to create an event-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
 ---
@@ -36,7 +36,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 This article creates a C# app that runs in isolated worker mode, which supports .NET 8.0.
 ::: zone-end
 ::: zone pivot="programming-language-go"
-This article uses the Azure Functions Go worker, which is currently in preview.
+This article uses the Azure Functions Go worker, which is generally available for Flex Consumption apps.
 ::: zone-end
 
 > [!TIP]  
@@ -470,12 +470,6 @@ Use the Azure CLI to create the Go function app in the Flex Consumption plan. Th
     ```
 
     Replace `<RESOURCE_GROUP>` with the name of your resource group, `<APP_NAME>` with a globally unique function app name, `<STORAGE_NAME>` with the name of your storage account, and `<REGION>` with its region.
-
-1. Disable HTTP/2 on the function app, which is required during the Go public preview:
-
-    ```azurecli
-    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
-    ```
 
 1. From the root folder of your local project, deploy the function code:
 

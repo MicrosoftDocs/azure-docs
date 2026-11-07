@@ -3,7 +3,7 @@ title: Memory and Knowledge in Azure SRE Agent
 description: Learn how your agent remembers past incident resolutions and references your documentation to improve over time.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -163,7 +163,7 @@ Upload your documentation and connect external sources to give your agent a broa
 
 ### Upload documents
 
-Go to **Builder** > **Knowledge base** to upload your documentation. For full details on supported formats, limits, and how your agent creates knowledge automatically, see [Upload knowledge documents](upload-knowledge-document.md).
+Go to **Build + setup** > **Context** > **Knowledge sources** to upload your documentation. For full details on supported formats, limits, and how your agent creates knowledge automatically, see [Upload knowledge documents](upload-knowledge-document.md).
 
 | Document type | Good for |
 |---|---|
@@ -185,7 +185,7 @@ Access knowledge directly from external systems by using [connectors](connectors
 | **GitHub** | Search repos, wikis, issues |
 | **Custom MCP** | Any knowledge source you configure |
 
-Configure connectors in **Builder** > **Connectors**. For more information, see [Connectors](connectors.md).
+Configure connectors in **Build + setup** > **Extensions** > **Connectors**. For more information, see [Connectors](connectors.md).
 
 ## Use knowledge in conversations
 
@@ -259,7 +259,7 @@ Outdated documents cause incorrect responses. Review your knowledge base quarter
 What knowledge documents do you have?
 ```
 
-Remove outdated documents in **Builder > Knowledge base**.
+Remove outdated documents in **Build + setup > Context > Knowledge sources**.
 
 ### Name documents clearly
 

@@ -23,6 +23,8 @@ This FAQ addresses common questions about migrating from legacy blob storage (bl
 > Microsoft will retire legacy blob storage accounts on **October 2026**. All legacy blob storage must be migrated to general-purpose v2 before this date to avoid service disruption.  
 > See: [Migrate to GPv2](storage-account-upgrade.md) and [general purpose v1 (GPv1) account migration overview](general-purpose-version-1-account-migration-overview.md) for more details.
 
+> [!IMPORTANT]
+> GPv1 storage accounts are expected to transition to GPv2 pricing shortly after the retirement date, regardless of when the backend update of your storage accounts from GPv1 to GPv2 is completed. To maintain control over your update timeline, proactively update your GPv1 accounts to GPv2 before the Microsoft-initiated conversion begins.
 
 A legacy blob storage account is a legacy Azure storage account type designed for blob workloads. It supports **block blobs** and **append blobs** with **account-level access tiering** (hot, cool, archive). It does not support File Shares, Tables, Queues or other Azure Storage features.
 

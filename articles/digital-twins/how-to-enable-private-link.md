@@ -256,7 +256,7 @@ For troubleshooting, here are some solutions to common issues:
 
     **Resolution:** Verify that there are no [network security group](../virtual-network/network-security-groups-overview.md) rules that prohibit the client from communicating to the private endpoint and its subnet. Communication on TCP port 443 must be permitted between the client's source IP address/subnet, and the private endpoint destination IP address/subnet.
 
-For more Private Link troubleshooting suggestions, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
+For more Private Link troubleshooting suggestions, see [Troubleshoot Azure Private Endpoint connectivity problems](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems).
 
 ## Next steps
 

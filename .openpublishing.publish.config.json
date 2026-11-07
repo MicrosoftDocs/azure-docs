@@ -23,7 +23,7 @@
             "version": 0
         }
     ],
-    "notification_subscribers": ["azure-docs-publish@microsoft.com"],
+    "notification_subscribers": [],
     "sync_notification_subscribers": ["azure-docs-publish@microsoft.com"],
     "branches_to_filter": [],
     "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",

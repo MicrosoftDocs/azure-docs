@@ -237,4 +237,5 @@ Custom rules can be duplicated within a given policy. When duplicating a rule, y
 
 - [Configure a WAF policy by using Azure PowerShell](waf-front-door-custom-rules-powershell.md)
 - [Azure Web Application Firewall on Azure Front Door](afds-overview.md)
+- [What is service tag matching for Azure Front Door?](service-tag-match-condition.md)
 - [Create an Azure Front Door instance](../../frontdoor/quickstart-create-front-door.md)

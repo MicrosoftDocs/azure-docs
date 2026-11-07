@@ -1,7 +1,7 @@
 ---
 title: Azure Quickstart SDK for Java
 description: Create configuration profile assignments using the Java SDK for Automanage.
-author: andrsmith
+author: smitty-94
 ms.service: azure-automanage
 ms.custom: devx-track-extended-java
 ms.topic: quickstart

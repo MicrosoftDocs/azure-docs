@@ -3,7 +3,7 @@ title: Supported Languages in Azure Functions
 description: Find out which languages are supported for developing function apps in Azure, the support level of the various language versions, and end-of-support dates.
 ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 08/27/2026
+ms.date: 10/12/2026
 zone_pivot_groups: programming-languages-set-functions
 # customer intent: As a developer, I want to find information about Azure Functions support for languages and language versions so that I can check whether my function app code is supported and stay informed about when I need to update it.
 ---
@@ -24,10 +24,10 @@ Existing function apps keep their selected managed Linux image until you change 
 
 | Language version | Debian Bullseye value | Newer distribution | Newer image value |
 | --- | --- | --- | --- |
-| Python 3.11 | `Python\|3.11\|2.0` | Debian Bookworm | `Python\|3.11\|3.0` |
-| Java 8 | `Java\|8\|2.0` | Ubuntu Noble | `Java\|8\|4.0` |
-| Java 11 | `Java\|11\|2.0` | Ubuntu Noble | `Java\|11\|4.0` |
-| Java 17 | `Java\|17\|2.0` | Ubuntu Noble | `Java\|17\|4.0` |
+| Python 3.11 | <code>Python&#124;3.11&#124;2.0</code> | Debian Bookworm | <code>Python&#124;3.11&#124;3.0</code> |
+| Java 8 | <code>Java&#124;8&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;8&#124;4.0</code> |
+| Java 11 | <code>Java&#124;11&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;11&#124;4.0</code> |
+| Java 17 | <code>Java&#124;17&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;17&#124;4.0</code> |
 
 For instructions to test and change the managed image, see [Update the managed Linux image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image). For apps on the Linux Consumption plan, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux).
 
@@ -44,7 +44,7 @@ The following table shows which languages supported by Functions can run on Linu
 | [Java](functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
 | [TypeScript](functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
-| [Go (Preview)](functions-reference-go.md) | Go |✓ | | |
+| [Go](functions-reference-go.md) | Go |✓ | | |
 | [Rust/other](functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
 
 1. In-portal editing isn't currently supported when running in the [Flex Consumption plan](./flex-consumption-plan.md). When in-portal editing isn't available, you must instead [develop your function apps locally](functions-develop-local.md#local-development-environments).

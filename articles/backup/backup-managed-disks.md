@@ -78,6 +78,10 @@ To create a backup policy for Azure Disks, follow these steps:
 
 - Once you configure the disk backup, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.
 
+Before you configure backup, ensure you have read permission on each source disk (`Microsoft.Compute/disks/read`), such as through the **Reader** role on that disk. This permission is separate from the permissions assigned to the Backup vault's managed identity.
+
+If the source disk is in an AKS node resource group, access to the AKS cluster alone isn't sufficient. You need read permission on the disk, either directly or inherited from its node resource group. You don't need a role assignment on the entire resource group if your existing permissions cover the disk. For permission errors, see [Troubleshoot backup configuration requests](backup-azure-backup-vault-troubleshoot.md#backup-configuration-request-errors).
+
 To configure Azure Disk backup, follow these steps:
 
 1. Go to **Resiliency**, and then select **+ Configure protection**.
@@ -159,7 +163,7 @@ To configure Azure Disk backup, follow these steps:
 
 1. Select **Confirm** to provide consent. Azure Backup automatically propagates role assignment changes on your behalf and tries to revalidate.
 
-   If you want to grand permission for the Backup vault managed identity to the selected disk(s) and snapshot resource group, select **Resource** in the **Scope** drop-down list. 
+   If you want to grant permission for the Backup vault managed identity to the selected disks and snapshot resource group, select **Resource** in the **Scope** drop-down list. 
 
    :::image type="content" source="./media/backup-managed-disks/confirm-role-propagation.png" alt-text="Screenshot shows the option to provide consent to Azure Backup for automatic role assignment." lightbox="./media/backup-managed-disks/confirm-role-propagation.png":::
 

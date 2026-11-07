@@ -33,31 +33,55 @@ All releases are produced compliant with Microsoft’s Secure Development Lifecy
 ## Release notes for the latest release
 The following release is the latest generally available release.
 
-## Release 2606.03
-This 2606.03 Azure Operator Service Manager release bundles together changes across RP, NFO, CLI and Github product components. 
+## Release 2609.01
+This 2609.01 Azure Operator Service Manager release bundles together changes across RP, NFO, CLI, and GitHub product components.
 
 ### Release details
-* Release Date: 2026-06-30
-* R2D Approvals: 240920
-* NFO Release Version: 3.0.3462-255
+* Release date: 2026-09-30
+* R2D Approvals: 29.1622
+* NFO Release Version: 3.0.3553-263
 * RP Release Version: 1.0.3464-580
 * CLI Extension Release Version: [2.0.0b6](https://github.com/Azure/azure-cli-extensions/blob/main/src/aosm/HISTORY.rst)
 * Is NFO update required: YES, Update only
-* Dependency Versions: Go/1.26.4 - Helm/3.18.4 - Azure Linux 3.0.20260517
+* Dependency Versions: Go/1.26.6 - Helm/3.18.4 - Azure Linux 3.0 (Latest)
 
 ### Release updates to improve quality
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
-* NFO - [523366] Fix delete failure propagation by using delete operationId.
-* NFO - [532657] Fix refuse operation on component CR with stale deletionTimestamp.
-* NFO - [537357] Parameterize NFO controller manager resource allocation during installation.
-* RP - [2875423] Set SNS orchestration timeout for delete actions to maximum 2h25m.
+* NFO - [549059] Fix EOL annotation to target superseded digest after push.
+* NFO - [570239] Retry transient ACR errors during helm chart download.
+* NFO - [585024] Summarize and truncate error messages.
+* NFO - [551756] Improve NFO component lifecycle logs.
+* NFO - [561226] Standardize webhook logging keys and add durationMs.
+* NFO - [564360] Improve artifact controller event logging.
+* NFO - [571918] Use Info log level for transient ACR retry attempts.
+* NFO - [545020] Add S360 monthly vuln triage skill for NFO.
+  
+### Release updates to improve security
+* NFO - [543143] Upgrade containerd to 1.7.33.
+* NFO - [552634] Update Geneva MCR image versions.
+* NFO - [565450] Resolve container registry vulns.
+* NFO - [584007] Resolve redeploy mar container image.
+* CVE	- Address a total of twenty-seven CVEs in this release.
+
+## Release 2609.02
+This 2609.02 Azure Operator Service Manager release bundles together changes across RP, NFO, CLI, and GitHub product components.
+
+### Release details
+* Release date: 2026-09-30
+* R2D approvals: 29.1630
+* NFO release version: 3.0.3557-264
+* RP release version: 1.0.3464-580
+* CLI extension release version: [2.0.0b6](https://github.com/Azure/azure-cli-extensions/blob/main/src/aosm/HISTORY.rst)
+* Is NFO update required: Yes, update only
+* Dependency versions: Go/1.26.6 - Helm/4.1.4 - Azure Linux 3.0 (Latest)
+
+### Release updates to improve quality
+This release delivers the following bug fixes, defect resolutions, and usability improvements for Network Function Operator (NFO) and resource provider (RP) components.
+* NFO - [585024] Summarize and truncate error messages.
 
 ### Release updates to improve security
-* NFO - [531790] CFS Network Isolation for NFO Pipelines.
-* NFO - [536344] Upgrade go runtime to 1.26.4.
-* RP - [2879109] SFI: MSRC vulberability fix.
-* RP - [2825307] SFI: 1ES open source vulnerabilities
-* CVE - A total of 17 direct CVEs are resolved.
+* NFO - [584007] Resolve redeploy mar container image.
+* CVE - Address a total of seven CVEs in this release.
 
 ## Release notes for all releases 
 The following generally available releases are listed in order from oldest to newest.
@@ -600,3 +624,29 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * NFO - [483706] Upgrade mdsd:1.38.2-20260111-1 to mdsd:1.40.2-20260218-1
 * NFO - [485471] Upgrade fluentd:1.18.0-20260211-1 to fluentd:1.18.0-20260323-1
 * CVE - A total of 14 direct CVE are resolved.
+
+## Release 2606.03
+This 2606.03 Azure Operator Service Manager release bundles together changes across RP, NFO, CLI, and GitHub product components. 
+
+### Release details
+* Release date: 2026-06-30
+* R2D approvals: 240920
+* NFO release version: 3.0.3462-255
+* RP release version: 1.0.3464-580
+* CLI Extension Release Version: [2.0.0b6](https://github.com/Azure/azure-cli-extensions/blob/main/src/aosm/HISTORY.rst)
+* Is NFO update required: Yes, update only
+* Dependency versions: Go/1.26.4 - Helm/3.18.4 - Azure Linux 3.0.20260517
+
+### Release updates to improve quality
+This release delivers the following bug fixes, defect resolutions, and usability improvements for Network Function Operator (NFO) and resource provider (RP) components.
+* NFO - [523366] Fix delete failure propagation by using delete operationId.
+* NFO - [532657] Fix refuse operation on component CR with stale deletionTimestamp.
+* NFO - [537357] Parameterize NFO controller manager resource allocation during installation.
+* RP - [2875423] Set SNS orchestration timeout for delete actions to a maximum of 2h25m.
+
+### Release updates to improve security
+* NFO - [531790] CFS network isolation for NFO pipelines.
+* NFO - [536344] Upgrade Go runtime to 1.26.4.
+* RP - [2879109] SFI: MSRC vulnerability fix.
+* RP - [2825307] SFI: 1ES open source vulnerabilities.
+* CVE - A total of 17 direct CVEs are resolved.

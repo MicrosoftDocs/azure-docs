@@ -1,19 +1,16 @@
 ---
-title: Launch mode for Azure Compute Fleet (Preview)
+title: Launch mode for Azure Compute Fleet
 description: Learn how Launch mode for Azure Compute Fleet provisions virtual machines in bulk and then hands off lifecycle control to you or your orchestrator.
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: concept-article
 ms.service: azure-compute-fleet
-ms.date: 07/27/2026
+ms.date: 09/09/2026
 ms.reviewer: cynthn
 # Customer intent: As a platform engineer or orchestrator author, I want to provision many VMs in a single Compute Fleet request and then manage their lifecycle myself, so that I can integrate Azure capacity with my own scheduler.
 ---
 
-# Launch mode for Azure Compute Fleet (Preview)
-
-> [!IMPORTANT]
-> Launch mode for Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+# Launch mode for Azure Compute Fleet
 
 Azure Compute Fleet supports two modes that determine how the fleet manages the virtual machines (VMs) it provisions:
 
@@ -53,77 +50,14 @@ Launch mode provisions VMs and then steps out of the way:
 
 ## Prerequisites
 
-Launch mode requires a minimum API version of `2026-04-01-preview`.
-
-### Register the Launch mode preview feature flags
-
-Because Launch mode is in preview, you must register both of the following feature flags on the subscription where you create the fleet. Together, they enable Launch mode on Azure Compute Fleet. If either flag isn't registered, your Launch mode request is rejected.
-
-- `Microsoft.AzureFleet/Mode`
-- `Microsoft.AzureFleet/VmssLaunchPad`
-
-#### [Azure CLI](#tab/cli-feature-flags)
-
-Register both feature flags:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.AzureFleet --name Mode
-az feature register --namespace Microsoft.AzureFleet --name VmssLaunchPad
-```
-
-Registration can take up to 30 minutes. Check the state of each feature until both report `Registered`:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.AzureFleet --name Mode --query properties.state -o tsv
-az feature show --namespace Microsoft.AzureFleet --name VmssLaunchPad --query properties.state -o tsv
-```
-
-After both features are registered, propagate the change to the resource provider:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.AzureFleet
-```
-
-#### [Azure PowerShell](#tab/powershell-feature-flags)
-
-Register both feature flags:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName Mode -ProviderNamespace Microsoft.AzureFleet
-Register-AzProviderFeature -FeatureName VmssLaunchPad -ProviderNamespace Microsoft.AzureFleet
-```
-
-Registration can take up to 30 minutes. Check the state of each feature until both report `Registered`:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName Mode -ProviderNamespace Microsoft.AzureFleet
-Get-AzProviderFeature -FeatureName VmssLaunchPad -ProviderNamespace Microsoft.AzureFleet
-```
-
-After both features are registered, propagate the change to the resource provider:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.AzureFleet
-```
-
-#### [Azure portal](#tab/portal-feature-flags)
-
-1. In the [Azure portal](https://portal.azure.com), go to your subscriptions.
-1. Select the subscription where you want to enable Launch mode.
-1. Under **Settings**, select **Preview features**.
-1. Set the filter to the **Microsoft.AzureFleet** provider.
-1. Select **Mode**, and then select **Register**.
-1. Select **VmssLaunchPad**, and then select **Register**.
-1. After both features show as **Registered**, go to **Settings** > **Resource providers**, search for *Microsoft.AzureFleet*, and select **Re-register**.
-
----
+Launch mode requires a minimum API version of `2026-08-01`.
 
 ## Create a Launch mode fleet with REST
 
 The following abbreviated request shows how to create a Launch mode fleet. Supply the complete VM profile required for your workload in `baseVirtualMachineProfile`.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName}?api-version=2026-04-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName}?api-version=2026-08-01
 Content-Type: application/json
 
 {
@@ -153,7 +87,7 @@ Content-Type: application/json
 }
 ```
 
-For a complete VM profile example, see [Create a fleet in Launch mode](quickstart-create-rest-api.md#create-a-fleet-in-launch-mode-preview).
+For a complete VM profile example, see [Create a fleet in Launch mode](quickstart-create-rest-api.md#create-a-fleet-in-launch-mode).
 
 ## Retrieve and monitor VMs
 
@@ -165,7 +99,7 @@ When you create a Compute Fleet in Launch mode, the fleet provisions VMs and the
 Call the Fleet List VMs API to return every VM associated with a fleet, along with its resource ID and current operation status.
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName}/virtualMachines?api-version=2026-04-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName}/virtualMachines?api-version=2026-08-01
 ```
 
 The response lists each VM with its `name`, fully qualified resource `id`, and `operationStatus`:
@@ -218,7 +152,7 @@ To find the VMs later, you can also list VMs in the resource group with standard
 - **Launch mode configuration can't be updated.** After you submit a Launch mode request, you can't change its capacity or VM configuration. Create a new fleet request to use different settings.
 - **Quota is validated up front.** Compute Fleet checks that your subscription has sufficient Spot and Standard vCPU quota for the requested capacity before provisioning. If quota is insufficient, the request is rejected. Confirm quota before submitting a request.
 - **The `maintain` Spot capacity preference isn't available in Launch mode.** The `spotPriorityProfile.maintain` setting applies only to Managed mode. For more information, see [Spot VM configuration](spot-vm-configuration.md).
-- **Some VM profile properties aren't yet supported in Launch mode.** Keep the VM profile to the properties validated for Launch mode during preview.
+- **Some VM profile properties aren't yet supported in Launch mode.** Keep the VM profile to the properties supported in Launch mode.
 
 ## Next steps
 

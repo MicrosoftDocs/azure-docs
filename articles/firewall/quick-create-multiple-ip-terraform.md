@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.date: 03/29/2026
+ms.date: 10/14/2026
 ms.custom: devx-track-terraform
 content_well_notification:
   - AI-contribution
@@ -15,7 +15,10 @@ ai-usage: ai-assisted
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - Terraform
 
-In this quickstart, use Terraform to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+In this quickstart, use Terraform to deploy an Azure Firewall with multiple public IP addresses. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+
+> [!NOTE]
+> Azure Firewall doesn't support attaching a public IP prefix itself, but it can use individual Standard SKU public IP addresses provisioned from a public IP prefix. You can associate up to 250 public IP addresses with a firewall in a virtual network.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 

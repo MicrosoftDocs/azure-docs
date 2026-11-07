@@ -14,8 +14,9 @@ You can use the provided PowerShell script to create a free root CA and private 
 
 ## Prerequisites
 
-- A Device Registry namespace. For setup steps, see [Configure a Root CA credential in Azure Device Registry](../iot/how-to-configure-credential.md).
-- A Device Registry policy with an [external root CA](../iot/how-to-create-policy-external-certificate.md). Download the CSR file from your external root CA to your local machine.
+- A Device Registry namespace. For setup steps, see [Set up a managed root and intermediate CA](../iot/how-to-create-policy.md).
+- A Device Registry namespace intermediate CA configured to be signed by an [external root CA](../iot/how-to-create-policy-external-certificate.md). Download the CSR file from your intermediate CA to your local machine.
+
 - Install OpenSSL. If you don't have OpenSSL installed, use the command `winget install --id ShiningLight.OpenSSL.Dev -e`. Add OpenSSL to PATH in your environment variables.
 
 ## Script
@@ -185,19 +186,4 @@ In the directory where your files are located, run the following command.
 .\selfsign.ps1
 ```
 
-The script generates a signed certificate chain file called *byor-certificate-chain.pem*. 
-
-## Upload the signed CSR
-
-Upload the generated file into your external root CA in the Device Registry.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Open your **Azure Device Registry** namespace.
-
-1. In the sidebar menu, under **Namespace resources**, select **Credential Policies**.
-
-1. Select your external root CA, then select the **Pending activation** link.
-
-1. On the **Upload Certificate** page, use the file browser to select *byor-certificate-chain.pem*. Once completed, activate the policy.
-
+The script generates a signed certificate chain file called *byor-certificate-chain.pem*. Follow the steps on [Bring your own CA](../iot/how-to-create-policy-external-certificate.md) to complete activation and setup.

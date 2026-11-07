@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 07/21/2026
+ms.date: 10/02/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
@@ -32,6 +32,20 @@ Yes, Windows Server 2025 domain controllers are supported as of September 9, 202
 > Include all domain controllers in the Active Directory site specified by the Azure NetApp Files Active Directory connection and any preferred LDAP servers configured for the connection.
 >
 > Missing or inconsistent PTR records can prevent signed LDAP communication even when the domain controller is reachable and the required Windows updates and AES configuration are present. For more information, see [Troubleshoot volume errors](troubleshoot-volumes.md#errors-for-missing-or-inconsistent-dns-records).
+
+## What happens if LDAP signing is required but I don't enable LDAP signing for the Azure NetApp Files Active Directory connection?
+
+If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. This fallback behavior requires PTR records for the applicable Active Directory domain controllers.
+
+For environments that use Windows Server 2025 domain controllers, enable LDAP signing on the Azure NetApp Files Active Directory connection.
+
+> [!IMPORTANT] 
+> Microsoft is investigating customer reports of an issue affecting Azure NetApp Files on Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025 domain controllers. Some customers reported this issue after installing the October 2026 Windows security updates for these versions of Windows Server (KB5126868, KB5126651, KB5126655, and KB5126646).
+>  Installing one of these updates might prevent Azure NetApp Files from using the LDAP signing fallback mechanism. This condition might disrupt applications that depend on access to existing Azure NetApp Files shares. In addition, this condition might cause new SMB volume creation to fail when LDAP signing isn't enabled on the Active Directory connection.
+> If either update is already installed, signing might become immediately required and should be checked in the Active Directory connector. We'll update this documentation when more information is available. For more details, contact Microsoft Support.
+>
+> After installing the October 2026 (and later) Windows security updates on Active Directory domain controllers, some environments might lose access to Azure NetApp Files SMB shares and related operations might fail (for example, “Invalid credentials” errors).
+>For the latest workaround and detailed guidance, see [KB5134907: Access to NetApp SMB shares might fail after installing the October 2026 Windows security update](https://support.microsoft.com/servicing/os/windows/docs/2026/10/access-to-netapp-smb-shares-might).
 
 ## What SMB minimum version should be configured on Windows Server 2025 domain controllers for Azure NetApp Files?
 

@@ -28,6 +28,33 @@ For information on release notes for the connected machine agent, see
 The following sections of this article detail the notes for each release of the agent. The heading
 for each section includes the specific version for that release and the date for the release.
 
+## Version 1.26.122 - November 2026
+
+<a id="1.26.122"></a>
+<a id="2026-11"></a>
+
+### Updated
+
+- Updated bundled PowerShell from version 7.4.20 (.NET 8) to 7.6.9 (.NET 10).
+- Moved OpenSSL from version 3.6.5 to version 3.5.9 on the long-term support (LTS) branch.
+- Updated Linux compatibility requirements. For details, see [Supported client types and Linux PowerShell compatibility][03].
+
+## Version 1.26.121 - October 2026
+
+<a id="1.26.121"></a>
+<a id="2026-10"></a>
+
+### Updated
+
+- Updated OpenSSL from version 3.6.4 to 3.6.5.
+- Updated bundled PowerShell from version 7.4.19 to 7.4.20.
+
+### Fixed
+
+- Hardened package extraction for ZIP entries with excessively long filenames.
+- Prevented command injection when validating package signatures.
+- Prevented command injection through security baseline pre-installation settings.
+
 ## Version 1.26.119 - September 2026
 
 <a id="1.26.119"></a>
@@ -318,6 +345,7 @@ az vm extension set \
 <!-- Reference link definitions -->
 [01]: /azure/azure-arc/servers/agent-release-notes
 [02]: ./windows.md
+[03]: /azure/governance/machine-configuration/overview/01-overview-concepts#supported-client-types
 [aa]: https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/system-assigned-identity-based-access-for-machine-configuration-packages-%E2%80%93-ga-on/4446603
 [ab]: https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/user-assigned-identity-based-access-for-machine-configuration-packages-%E2%80%93-general/4305594
 [ac]: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007

@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Service Bus messaging en
 #customer intent: As a system architect, I want to know the benefits of using Service Bus queues, topics, and subscriptions so that I can design a scalable and decoupled application.
 ms.topic: concept-article
 ms.custom: devx-track-extended-java
-ms.date: 01/31/2026
+ms.date: 10/06/2026
 ---
 
 # Service Bus queues, topics, and subscriptions
@@ -29,7 +29,7 @@ The following table summarizes the key differences between queues and topics to 
 
 ## Queues
 
-Queues offer **First In, First Out** (FIFO) message delivery to one or more competing consumers. That is, receivers typically receive and process messages in the order in which they were added to the queue. And, only one message consumer receives and processes each message. 
+Queues offer **First In, First Out** (FIFO) message delivery to one or more competing consumers. That is, receivers typically receive and process messages in the order in which they were added to the queue. And, only one message consumer receives and processes each message.
 
 :::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-queue.png" alt-text="Diagram of a Service Bus queue showing messages flowing from senders to the queue and then to receivers.":::
 
@@ -90,7 +90,7 @@ If your scenario can't tolerate duplicate processing, add extra logic in your ap
 
 ## Topics and subscriptions
 
-A queue allows processing of a message by a single consumer. In contrast to queues, topics and subscriptions provide a one-to-many form of communication in a **publish and subscribe** pattern. It's useful for scaling to large numbers of recipients. Each published message is made available to each subscription registered with the topic. Publisher sends a message to a topic and one or more subscribers receive a copy of the message. 
+A queue allows processing of a message by a single consumer. In contrast to queues, topics and subscriptions provide a one-to-many form of communication in a **publish and subscribe** pattern. It's useful for scaling to large numbers of recipients. Each published message is made available to each subscription registered with the topic. Publisher sends a message to a topic and one or more subscribers receive a copy of the message.
 
 :::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-topic.png" alt-text="Diagram of a Service Bus topic with three subscriptions receiving copies of messages.":::
 
@@ -98,7 +98,7 @@ Publishers send messages to a topic in the same way that they send messages to a
 
 ### Subscription filters
 
-Subscriptions can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contains an **action** that annotates the selected message. By default, a subscription to a topic receives all messages sent to the topic. The subscription has an initial default rule with a true filter that enables all messages to be selected into the subscription. The default rule has no associated action. You can define filters with rules and actions on a subscription so that the subscription receives only a subset of messages sent to the topic. 
+Subscriptions can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contains an **action** that annotates the selected message. By default, a subscription to a topic receives all messages sent to the topic. The subscription has an initial default rule with a true filter that enables all messages to be selected into the subscription. The default rule has no associated action. You can define filters with rules and actions on a subscription so that the subscription receives only a subset of messages sent to the topic.
 
 For more information about filters, see [Filters and actions](topic-filters.md).
 
@@ -148,16 +148,10 @@ In regular entities, any runtime operation (like `Send`, `Complete`, `Abandon`, 
 
 ## Next steps
 
-Try the samples in the language of your choice: 
+Try the samples in the language of your choice:
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-
-For samples that use the older .NET and Java client libraries, use the following links:
-- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

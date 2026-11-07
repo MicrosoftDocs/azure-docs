@@ -3,6 +3,7 @@ title: Configure and manage soft delete for Azure Backup
 description: This article describes about how to configure and manage soft delete for Azure Backup.
 ms.topic: how-to
 ms.date: 11/11/2025
+ms.update-cycle: 1825-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

@@ -152,7 +152,7 @@ Managed Identity authentication is required when your storage account is attache
 
     ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-1. Configure Microsoft Entra authentication. Refer to [Configure and manage Microsoft Entra authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell). 
+1. Configure Microsoft Entra authentication. See [Configure and manage Microsoft Entra authentication with Azure Synapse Analytics](../sql/authentication-aad-configure.md?tabs=azure-powershell).
 
 1. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
 

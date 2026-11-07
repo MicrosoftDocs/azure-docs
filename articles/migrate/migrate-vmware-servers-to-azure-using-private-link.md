@@ -101,7 +101,7 @@ Enable replication as follows:
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
 
 1. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers. 
-    Next, follow the instructions to [perform migrations](tutorial-migrate-vmware.md#run-a-test-migration). 
+    Next, follow the instructions to [perform migrations](tutorial-migrate-vmware.md#track-and-migrate-replicating-servers). 
 
 #### Provisioning for the first time  
 
@@ -126,6 +126,6 @@ Ensure that the on-premises appliance has network connectivity to the storage ac
 
 ## Next steps 
 
- - [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
- - Complete the [migration process](tutorial-migrate-vmware.md#complete-the-migration).
+ - [Migrate VMs](tutorial-migrate-vmware.md#track-and-migrate-replicating-servers).
+ - Complete the [migration process](tutorial-migrate-vmware.md#track-and-migrate-replicating-servers).
  - Review the [post-migration best practices](tutorial-migrate-vmware.md#post-migration-best-practices). 

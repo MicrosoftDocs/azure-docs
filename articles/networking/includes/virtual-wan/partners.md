@@ -23,7 +23,7 @@ You can check the links in this section for more information about services offe
 |[HPE Aruba](https://arubanetworking.hpe.com/)|[Aruba SD-WAN and Microsoft Azure Virtual WAN Deployment Guide](https://arubanetworking.hpe.com/techdocs/sdwan-PDFs/deployments/dg_ECV-Azure_latest.pdf)|
 | [NetFoundry](https://netfoundry.io)|[Netfoundry Support Hub: Azure Virtual WAN](https://support.netfoundry.io/hc/articles/360054527871-Configure-NetFoundry-Network-for-Azure-Windows-Virtual-Desktop-Short-Path)|
 |[Nuage/Nokia](https://www.nokia.com/)|[Nuage and Azure Virtual WAN Deployment Guide](https://onestore.nokia.com/asset/210073)|
-|[Open Systems](https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Open Systems and Azure Virtual WAN Deployment Guide](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
+|[Open Systems](https://open-systems.com/blog/press-release/open-systems-joins-microsoft-azure-wan-partner-ecosystem/)|[Open Systems and Azure Virtual WAN Deployment Guide](https://open-systems.com/platform/)|
 |[Palo Alto Networks](https://www.paloaltonetworks.com/blog/2018/09/) |[Palo Alto Networks Azure Virtual WAN Deployment Guide](https://github.com/PaloAltoNetworks/microsoft_azure_virtual_wan)|
 |[Riverbed Technology](https://www.riverbed.com/technical-alliance-microsoft/)|[Azure Virtual WAN & SteelConnect EX](https://www.riverbed.com/technical-alliance-microsoft/) |
 |[Silver-Peak (HPE)](https://www.hpe.com/us/en/alliance/microsoft.html)|[EdgeConnect and Microsoft Azure Virtual WAN Integration Guide](https://arubanetworking.hpe.com/techdocs/sdwan/)|

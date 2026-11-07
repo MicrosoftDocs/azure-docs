@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 10/01/2026
 
 #CustomerIntent: As a researcher or scientist, I want to create agents in Microsoft Discovery so that I can automate scientific research tasks and multistep workflows.
 ---
@@ -34,54 +34,54 @@ A *prompt agent* is a declaratively defined agent that combines model configurat
 
 1. Select the **Projects** tab in the left pane and open your project.
 
-1. In the **Resources** pane, select the **+** button next to **Agents**, and then select **Create new agent**.
+1. In the **Discovery** tab, select **AI Capabilities**. In the **AI Capabilities** tab, select **Agents**, and then select **New agent** > **Create new agent**.
 
-1. In the **New Agent** dialog, select **Agent** as the type.
+   :::image type="content" source="media/how-to-agent-creation/ai-capabilities-agents.png" alt-text="Screenshot showing the Agents section of the AI Capabilities tab with the New agent button in Discovery Studio." lightbox="media/how-to-agent-creation/ai-capabilities-agents.png":::
 
 1. Enter a name and description for the agent. The name serves as the agent's unique identifier within the project. Other agents and workflows reference it by this name.
 
-1. Under **Chat model**, select your workspace-level model deployment.
+1. Under **Model**, select your workspace-level model deployment.
 
    > [!NOTE]
    > The following parameters are currently unsupported with reasoning models: `temperature`, `top_p`. See [Azure OpenAI reasoning models](/azure/foundry/openai/how-to/reasoning#not-supported) to learn more.
 
 1. Enter the agent instructions. Instructions are natural language prompts that define the agent's behavior, persona, and reasoning approach.
 
-1. (Optional) Attach tools to give the agent access to external capabilities:
+1. (Optional) Under **Plan Confirmation**, select **Enable plan confirmation** if you want the agent to pause and ask for your confirmation before it runs when it requires user input.
 
-   1. Expand the **Tools** section and select the search box. A dropdown list shows all available tools in your workspace. Select the checkbox next to each tool you want to attach.
+1. (Optional) Under **Parameters**, set **Top P** and **Temperature** to tune the model's response behavior. Leave these fields as **Default** to use the model's default values.
+
+1. (Optional) Attach tools to give the agent access to external capabilities. In the **Tools** section, select **Add tool**, select the tools you want to attach, and confirm your selection.
 
       :::image type="content" source="media/how-to-agent-creation/agent-creation-tool-selection.jpg" alt-text="Screenshot showing the tool selection dropdown with available tools listed in the agent creation form." lightbox="media/how-to-agent-creation/agent-creation-tool-selection.jpg":::
 
-   1. (Optional) If you want the agent to ask for user approval before running a tool, select the **Confirm before running tool** checkbox. When this option is enabled, the agent pauses and prompts the user for confirmation each time it invokes the tool during a conversation.
+1. (Optional) Connect bookshelves for retrieval-augmented grounding. In the **Bookshelves** section, select **Add bookshelf**, select the bookshelves you want the agent to use for grounding its responses, and confirm your selection.
 
-      :::image type="content" source="media/how-to-agent-creation/agent-creation-tool-confirmation.jpg" alt-text="Screenshot showing the Confirm before running tool checkbox in the agent creation form." lightbox="media/how-to-agent-creation/agent-creation-tool-confirmation.jpg":::
+1. Select **Save**.
 
-   1. Select **Done** to save your tool selections.
+   :::image type="content" source="media/how-to-agent-creation/create-agent-form.png" alt-text="Screenshot showing the agent creation form with name, description, model, instructions, plan confirmation, parameters, tools, and bookshelves fields in Discovery Studio." lightbox="media/how-to-agent-creation/create-agent-form.png":::
 
-1. (Optional) Connect knowledge bases for retrieval-augmented grounding. Expand the **Knowledge Bases** section. A table lists all available knowledge bases with their name, associated bookshelf, and description. Select the checkbox next to each knowledge base you want the agent to use for grounding its responses.
+Each save creates a new, immutable version with full history. You can test the agent by typing `@AgentName` in a shared session chat.
 
-      :::image type="content" source="media/how-to-agent-creation/agent-creation-knowledge-base-selection.jpg" alt-text="Screenshot showing the knowledge base selection table with available knowledge bases in the agent creation form." lightbox="media/how-to-agent-creation/agent-creation-knowledge-base-selection.jpg":::
+## Add an existing agent from another project
 
-1. Select **Create agent**.
-
-Each save creates a new, immutable version with full history. You can test the agent by typing `@AgentName` in an investigation chat.
-
-## Copy a prompt agent from another project
-
-You can reuse prompt agents across projects by copying them from an existing project.
+You can reuse prompt agents across projects by adding them from an existing project.
 
 1. Sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com/).
 
 1. Select the **Projects** tab and open the target project where you want to add the agent.
 
-1. On the **Resources** pane, select the **+** button next to **Agents**. Then select **Copy from project**.
+1. In the **Discovery** tab, select **AI Capabilities** > **Agents**, and then select **New agent** > **Add existing agent**.
 
-1. Select the source project that contains the agent you want to copy.
+1. On the **Add Agents** page, on the **Agents** tab, select the source project from the **Select a project to add agents from** dropdown. To add a predefined set of agents instead, use the **Bundles** tab.
 
-1. Select the agent to copy and confirm the operation.
+1. Select the agents you want to add. Your selections appear under **Added**.
 
-The copied agent appears as a new agent in your target project. You can edit its instructions, tools, and settings independently of the original.
+1. Select **Add**.
+
+   :::image type="content" source="media/how-to-agent-creation/add-existing-agent.png" alt-text="Screenshot showing the Add Agents page with the Agents and Bundles tabs and the project selector in Discovery Studio." lightbox="media/how-to-agent-creation/add-existing-agent.png":::
+
+The added agent appears as a new agent in your target project. You can edit its instructions, tools, and settings independently of the original.
 
 ## Create agents in the Discovery app
 

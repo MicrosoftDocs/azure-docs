@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: azure-firewall
 ms.topic: overview
 ms.custom: mvc, references_regions
-ms.date: 03/28/2026
+ms.date: 10/09/2026
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 

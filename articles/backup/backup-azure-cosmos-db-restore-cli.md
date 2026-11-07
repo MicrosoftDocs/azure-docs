@@ -2,7 +2,7 @@
 title: Restore Azure Cosmos DB using Azure CLI
 description: Learn how to restore Azure Cosmos DB using Azure CLI.
 ms.topic: how-to
-ms.date: 08/27/2026
+ms.date: 10/29/2026
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, ignite-2026
 author: AbhishekMallick-MS
@@ -10,9 +10,9 @@ ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to restore an Azure Cosmos DB using Azure CLI, so that I can recover data from backups to a specified storage account safely and efficiently.
 ---
 
-# Restore Azure Cosmos DB by using Azure CLI (preview)
+# Restore Azure Cosmos DB by using Azure CLI
 
-This article describes how to restore Azure Cosmos DB by using Azure CLI (preview).
+This article describes how to restore Azure Cosmos DB by using Azure CLI.
 
 > [!NOTE]
 > The original location recovery (OLR) option isn't supported. Instead, use the alternate-location recovery (ALR) option to restore from a recovery point and create a new Azure Cosmos DB account, keeping both the source and restored database accounts.
@@ -20,7 +20,8 @@ This article describes how to restore Azure Cosmos DB by using Azure CLI (previe
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Trigger a restore.
+> * Trigger a restore
+> * Trigger cross-region restore to a secondary region
 > * Track a restore job.
 
 ## Trigger a restore for Azure Cosmos DB account
@@ -73,6 +74,61 @@ To trigger restore for an Azure Cosmos DB account, run the following commands:
      --restore-request-object cosmosdb_restore.json
    ```
 
+## Restore Azure Cosmos DB account to a secondary region
+
+Use cross-region restore to restore vaulted backups of an Azure Cosmos DB account to the Azure paired region.
+
+To trigger restore for an Azure Cosmos DB account to the secondary region, run the following commands:
+
+1. Grant the Backup vault's managed identity the required permissions on the **target** Azure Cosmos DB account in the secondary region. Reuse `az dataprotection backup-instance update-msi-permissions` with `--operation Restore`.
+
+2. List the recovery points for the protected item in the secondary region by using the [az dataprotection recovery-point list](/cli/azure/dataprotection/recovery-point#az-dataprotection-recovery-point-list) command, and adding `--use-secondary-region true`. Capture the recovery point ID that you want to restore.
+
+    ```azurecli-interactive
+    az dataprotection recovery-point list \
+      --resource-group testBkpVaultRG \
+      --vault-name TestBkpVault \
+      --backup-instance-name testcosmosaccount-testcosmosaccount-00000000-0000-0000-0000-000000000000 \
+      --use-secondary-region true -o table
+    ```
+
+3. Prepare the restore request by using the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-data-recovery) command, providing the ARM ID of the target Azure Cosmos DB account. Save the output to a JSON file. Set `--restore-location` to the vault's secondary region (for example, _eastus_ when the vault is in _westus_), and set `--target-resource-id` to a target Azure Cosmos DB account in that region.
+
+    ```azurecli-interactive
+    targetCosmosDBAccountId="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/targetcosmosrg-eus/providers/Microsoft.DocumentDB/databaseAccounts/targetcosmosaccounteus"
+    az dataprotection backup-instance restore initialize-for-data-recovery \
+      --datasource-type AzureCosmosDB \
+      --source-datastore VaultStore \
+      --restore-location eastus \
+      --target-resource-id $targetCosmosDBAccountId \
+      --recovery-point-id <secondaryRegionRecoveryPointId> > cosmosdb_crr_restore.json
+    ```
+
+    >[!NOTE]
+    >The deployment region and the primary write region of the target Azure Cosmos DB account must be same as the secondary region of the Backup vault.
+
+4. (Optional) Validate the restore request by using the [az dataprotection backup-instance validate-for-restore](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-validate-for-restore) command and adding `--use-secondary-region true`.
+
+    ```azurecli-interactive
+    az dataprotection backup-instance validate-for-restore \
+      --resource-group testBkpVaultRG \
+      --vault-name TestBkpVault \
+      --backup-instance-name testcosmosaccount-testcosmosaccount-00000000-0000-0000-0000-000000000000 \
+      --restore-request-object cosmosdb_crr_restore.json \
+      --use-secondary-region true
+    ```
+
+5. Trigger the restore by using the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-trigger) command and adding `--use-secondary-region true`.
+
+    ```azurecli-interactive
+    az dataprotection backup-instance restore trigger \
+      --resource-group testBkpVaultRG \
+      --vault-name TestBkpVault \
+      --backup-instance-name testcosmosaccount-testcosmosaccount-00000000-0000-0000-0000-000000000000 \
+      --restore-request-object cosmosdb_crr_restore.json \
+      --use-secondary-region true
+    ```
+
 ## Track the restore job for an Azure Cosmos DB account
 
 Azure Backup creates a job when you trigger a restore operation. Track restore jobs the same way you track backup jobs, filtering on the *Restore* operation.
@@ -85,6 +141,15 @@ az dataprotection job list \
 az dataprotection job list-from-resourcegraph \
   --datasource-type AzureCosmosDB \
   --operation Restore
+```
+
+Cross-region restore jobs run in the secondary region. To list them, add `--use-secondary-region true`. 
+
+```azurecli-interactive
+az dataprotection job list \
+  --resource-group testBkpVaultRG \
+  --vault-name TestBkpVault \
+  --use-secondary-region true -o table
 ```
 
 ## View a protected item
@@ -114,5 +179,5 @@ az dataprotection backup-instance list-from-resourcegraph \
 
 ## Next steps
 
-* [About Azure Cosmos DB backup (preview)](backup-azure-cosmos-db-overview.md)
-* [Manage backups of Azure Cosmos DB using Azure portal (preview)](backup-azure-cosmos-db-manage.md)
+* [About Azure Cosmos DB backup](backup-azure-cosmos-db-overview.md)
+* [Manage backups of Azure Cosmos DB using Azure portal](backup-azure-cosmos-db-manage.md)

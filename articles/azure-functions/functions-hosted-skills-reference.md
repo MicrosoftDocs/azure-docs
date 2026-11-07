@@ -2,7 +2,7 @@
 title: Azure Functions hosted skills reference
 description: "Reference for agent file fields, app configuration, MCP servers, skills, tools, model providers, managed identity, and built-in endpoints in Azure Functions hosted skills."
 ms.topic: reference
-ms.date: 08/25/2026
+ms.date: 10/14/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -15,6 +15,8 @@ ms.collection:
 # Azure Functions hosted skills reference
 
 This article provides the configuration reference for Azure Functions hosted skills. For an overview of the runtime and guidance on when to use it, see [Azure Functions hosted skills](functions-hosted-skills.md).
+
+For development examples, see the [Azure Functions hosted skills developer guide](functions-hosted-skills-developer-guide.md).
 
 [!INCLUDE [functions-hosted-skills-preview](../../includes/functions-hosted-skills-preview.md)]
 
@@ -74,9 +76,6 @@ The following table lists the supported `trigger.type` values, their required `a
 | `sql_trigger` | `table_name`, `connection_string_setting` | [SQL trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#sql-trigger) |
 | `mysql_trigger` | `table_name`, `connection_string_setting` | [MySQL trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#mysql-trigger) |
 | `kafka_trigger` | `topic`, `broker_list` | [Kafka trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#kafka-trigger) |
-| `dapr_binding_trigger` | `binding_name` | [Dapr binding trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#dapr-binding-trigger) |
-| `dapr_service_invocation_trigger` | `method_name` | [Dapr service invocation trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#dapr-service-invocation-trigger) |
-| `dapr_topic_trigger` | `pub_sub_name`, `topic` | [Dapr topic trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#dapr-topic-trigger) |
 | `generic_trigger` | `type` (binding type name) | [Generic trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#generic-trigger) |
 | `connector_trigger` | Configured in the [Connector Namespace](./functions-connectors-overview.md). | [Connector trigger](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/triggers.md#connector-triggers) |
 
@@ -450,7 +449,7 @@ The runtime uses managed identities when connecting to Azure resources that supp
 | Blob-backed session history<sup>3</sup> | `AzureWebJobsStorage__clientId` | `AZURE_CLIENT_ID`, then `DefaultAzureCredential` |
 
 1. When you don't configure an identity setting, the runtime uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential), which resolves to the system-assigned managed identity in Azure and your developer identity (Azure CLI or Visual Studio) locally.
-1. When you configure an API key in Azure OpenAI (using `AZURE_OPENAI_API_KEY`), the model provider uses the key instead of a managed identity. For more information, see [Azure OpenAI extension for Azure Functions](functions-bindings-openai.md#connections).
+1. When you configure an API key in Azure OpenAI (using `AZURE_OPENAI_API_KEY`), the model provider uses the key instead of a managed identity. For more information about SDK authentication with API keys or Microsoft Entra ID, see [Azure OpenAI v1 API authentication](/azure/foundry/openai/api-version-lifecycle#code-changes).
 1. Session history uses the same default host storage identity configuration as the Azure Functions host. Use `AzureWebJobsStorage`, `AzureWebJobsStorage__blobServiceUri`, and `AzureWebJobsStorage__clientId` to configure identity-based storage for blob-backed history. The runtime doesn't use a separate agent-specific identity setting for session history. For more information, see [Define connections](manage-connections.md?tabs=host&pivots=functions-auth-identity#define-connections) in the Functions developer guide.
 
 ## Built-in endpoints

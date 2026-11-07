@@ -310,6 +310,8 @@ CPU scaling allows your app to scale in or out depending on how much the CPU is 
 
 For example, if you create a CPU scale rule with a utilization value of `50`, Azure Container Apps creates more replicas of your container app when the average CPU utilization for all replicas reaches 50%.
 
+For apps with multiple containers, CPU utilization is an allocation-weighted average, calculated as the total CPU usage of all containers in a replica divided by their total CPU allocation, expressed as a percentage. For example, if one container uses all of its 0.25 vCPU allocation and another uses none of its 0.75 vCPU allocation, the replica's CPU utilization is 25%, not 50% or 100%.
+
 CPU scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
 
 Add a CPU scale rule to your container app by running the `az containerapp update` command.

@@ -59,7 +59,7 @@ The following resources define AI-specific attack types:
 - [Microsoft Security Response Center's (MSRC) vulnerability severity classification for AI systems](https://www.microsoft.com/msrc/aibugbar)
 - [MITRE Adversarial Threat Landscape for Artificial-Intelligence Systems (ATLAS)](https://atlas.mitre.org/)
 - [OWASP top 10 for Large Language Model (LLM) applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
-- [OWASP Machine Learning (ML) security top 10](https://owasp.org/www-project-machine-learning-security-top-10/)
+- [OWASP Machine Learning (ML) security top 10](https://owasp.org/projects/machine-learning-security-top-ten)
 - [NIST AI risk management framework](https://www.nist.gov/itl/ai-risk-management-framework)
 
 ## Configure before you customize

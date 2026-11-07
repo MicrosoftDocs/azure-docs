@@ -6,7 +6,7 @@ ms.reviewer: zainzaigham
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 01/07/2026
+ms.date: 10/05/2026
 ms.author: zainzaigham
 ms.custom:
 - build-2025
@@ -14,63 +14,172 @@ ms.custom:
 
 # Microsoft Entra ID Free
 
-Microsoft Entra ID Free is a free cloud-based identity management product from Microsoft that you use to manage your subscriptions. You get it as part of your Azure billing account as a customer on the Microsoft Customer Agreement (MCA). It's also free for Microsoft 365. For more information about sign-up, see [Microsoft Entra ID Free](https://www.microsoft.com/security/business/microsoft-entra-pricing).
+Microsoft Entra ID Free is a no-charge billing record that represents the legal ownership of your [Microsoft Entra tenant](https://learn.microsoft.com/entra/fundamentals/whatis). It connects the tenant to the billing account that owns it and makes that relationship visible in Microsoft billing experiences.
 
-## Microsoft Entra ID Free purpose
+## What Microsoft Entra ID Free represents
 
-As part of Microsoft's [Secure Future Initiative](https://www.microsoft.com/trust-center/security/secure-future-initiative), we're making improvements to Microsoft Entra ID tenant management and security. Microsoft couples subscription ownership to a billing account to provide clear ownership and visibility for the Microsoft Entra tenants you own. The subscription tracks new tenants created with the same billing account, allowing you to maintain an inventory of all new tenants. The subscription also helps proves tenant ownership and help regain administrative access if you ever lose administrative access.
+Your Microsoft Entra tenant is the directory where you manage identities, applications, access, and tenant settings. Microsoft Entra ID Free is the billing record that represents the tenant's legal ownership in Microsoft systems.
 
-## No required action and no cost
+The billing record:
 
-When you create a free account, there's no other action required from you. Microsoft Entra ID Free is automatically added to your billing account. You aren't charged for the product and it's a free product. It remains active as long as your billing account is active.
+- Identifies a specific Microsoft Entra tenant in Microsoft billing systems.
+- Associates the tenant with the billing account that owns it.
 
-## Services included
+Microsoft Entra ID Free doesn't replace or change the tenant. The tenant ID, users, groups, applications, and settings remain part of the Microsoft Entra directory.
 
-Microsoft Entra ID Free provides you with the following services at no cost:
+> [!NOTE]
+> Not all existing Microsoft Entra tenants have a Microsoft Entra ID Free billing record yet. Microsoft is adding these records to eligible tenants in phases. Customers are notified when this process begins for their tenants, and no action is required before then.
 
-- User and group management
-- On-premises directory synchronization
-- Basic reports
-- Self-service password change for cloud users
-- Single sign-on across Azure, Microsoft 365, and many popular SaaS apps
+## How it appears under your billing account and tenant
 
-## Billing and account management
+For a [Microsoft Customer Agreement](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview), the Microsoft Entra ID Free billing record appears in the billing hierarchy:
 
-The following sections describe how Microsoft Entra ID Free works with your billing account and subscriptions.
+| Billing hierarchy level | Relationship |
+|---|---|
+| [**Billing account**](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview#your-billing-account) | Represents the commercial relationship with Microsoft and the organization that owns the tenant. |
+| [**Billing profile**](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview#billing-profiles) | Exists within the billing account and manages invoice and payment information. |
+| [**Invoice section**](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview#invoice-sections) | Exists within the billing profile and organizes products and subscriptions. |
+| **Microsoft Entra ID Free** | Exists within the invoice section and represents the tenant's legal ownership. |
 
-### Where to find the Microsoft Entra ID Free subscription
+> [!NOTE]
+> The Microsoft Entra tenant isn't another level in the billing hierarchy. It's a separate directory that contains the organization's identities, applications, access configuration, and directory settings. The Microsoft Entra ID Free billing record represents the tenant's legal ownership; it doesn't contain or move the directory.
 
-The Microsoft Entra ID Free subscription appears in your list of billing subscriptions under **All Billing Subscriptions** in the Microsoft Entra admin center and the Azure portal. It appears on the **Your products** page in the Microsoft 365 admin center.
+## Where to find Microsoft Entra ID Free
 
-### A credit card is required for Microsoft Entra ID Free
+You can find Microsoft Entra ID Free in the following admin experiences:
 
-Although the Microsoft Entra ID Free subscription is free, we require a credit card to verify your identity and to protect Microsoft Entra ID Free. Your credit card isn't charged for Microsoft Entra ID Free.
+| Admin experience | Location |
+|---|---|
+| Azure portal | **Cost Management + Billing** > **Products + services** > **All billing subscriptions** |
+| Microsoft 365 admin center | **Billing** > **Your products** |
 
->[!NOTE]
->A free Azure account has limits to the number of free services you can use. For more information, see [Azure free account FAQ](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). If you use Azure services beyond the free limits, you're charged for the services at pay-as-you-go rates.
+If your billing account is associated with multiple Microsoft Entra tenants, each Microsoft Entra ID Free billing record represents the legal ownership of its associated tenant.
 
-### Cancellation not available
+## Charges and billing impact
 
-You can't cancel Microsoft Entra ID Free. You must have it to access your billing account and manage it. You can, however, cancel and then delete Azure subscriptions. For more information, see [Cancel your Azure subscription](cancel-azure-subscription.md).
+Microsoft Entra ID Free has no product charges. Its appearance in a billing account or list of billing subscriptions doesn't mean that the tenant is generating usage charges.
 
-Note: If you create additional Entra tenants and one of those tenants is deleted through the Azure portal, the associated subscription may still appear as active. This is a known gap and will be rectified.
+Microsoft automatically adds the billing record to an applicable billing account. No action is required to activate it, and it remains active while the billing account remains active.
 
-### Upgrade from Free to paid services not available
+Other Azure services, Microsoft Entra licenses, or Microsoft products purchased separately can generate charges. Those charges aren't caused by the Microsoft Entra ID Free billing record.
 
-You can't upgrade Microsoft Entra ID to other Microsoft Entra products such as Microsoft Entra ID P1, Microsoft Entra ID P2, and Microsoft Entra Suite. However, you can buy a license for those products separately.
+## How tenant lifecycle changes affect the billing record
 
-### You can't change the license quantity
+The Microsoft Entra tenant and its Microsoft Entra ID Free billing record are separate objects. Creating, deleting, or transferring a tenant can affect the billing record associated with it.
 
-You can't change the license quantity of the free subscription. Microsoft Entra Free is licensed to you as part of your billing account, so you can't increase the license quantity.
+### Tenant creation
 
-### Free subscription transfers not allowed
+When you create an eligible Microsoft Entra tenant, Microsoft automatically creates a Microsoft Entra ID Free billing record and associates it with the applicable billing account. No action is required.
 
-You can't transfer Microsoft Entra ID Free. Your free subscription is tied to your billing account, so you can't transfer it to anyone else.
+Not all existing tenants have this billing record yet. Microsoft is adding records to eligible existing tenants in phases and will notify affected customers.
 
-### Close billing account with an active free subscription
+To create a tenant, see [Quickstart: Access and create a new tenant](https://learn.microsoft.com/entra/fundamentals/create-new-tenant?tabs=workforce).
 
-If you're an Azure user and you want to close your billing account, create a [support request](https://go.microsoft.com/fwlink/?linkid=2083458) in the Azure portal.
+### Tenant deletion
 
-## Related content
+Deleting or canceling the Microsoft Entra ID Free billing record isn't the way to delete a Microsoft Entra tenant. To delete a tenant, follow the Microsoft Entra tenant-deletion process.
 
-- [Upgrade an Azure free account](upgrade-azure-subscription.md)
+After you delete a tenant, its billing record might remain visible temporarily while Microsoft billing systems process the change.
+
+For instructions, see [Delete a Microsoft Entra tenant](https://learn.microsoft.com/entra/identity/users/directory-delete-howto).
+
+### Tenant transfer
+
+Transferring a tenant's legal ownership changes the billing account associated with its Microsoft Entra ID Free billing record. It doesn't move or recreate the Microsoft Entra directory.
+
+The tenant ID and directory contents remain unchanged. Users, groups, domains, applications, authentication settings, Microsoft Entra roles, [Azure role-based access control assignments](https://learn.microsoft.com/azure/role-based-access-control/overview), service data, and tenant configuration aren't affected.
+
+> [!IMPORTANT]
+> A tenant ownership transfer is a billing operation, not a directory migration. Review the transfer scope before you accept the request.
+
+#### When to transfer a tenant
+
+Transfer a tenant when the billing account that represents its legal ownership must change. Common scenarios include:
+
+- A merger or acquisition in which the acquiring organization assumes ownership.
+- A divestiture or business separation in which a new organization assumes ownership.
+- An organizational restructuring that changes the responsible legal entity.
+- Consolidation under the billing account of the organization that now owns the tenant.
+- Correction of a tenant associated with the wrong billing account.
+
+#### Choose a transfer scope
+
+Choose the scope that matches your business transaction.
+
+| Transfer scope | What moves | What remains unchanged | Use this option when |
+|---|---|---|---|
+| Microsoft Entra tenant only | The tenant's billing record moves to the destination billing account. | The Microsoft Entra directory and any associated Azure subscription remain in place. | Legal ownership must change without transferring an Azure subscription. |
+| Entire Azure subscription | The subscription, its resources, and its billing ownership move to the destination billing account. | The Microsoft Entra directory contents remain unchanged. | The subscription and all its resources must move together. |
+| Combined transfer | The tenant billing record and Azure subscription are both included in one request. | The Microsoft Entra directory contents remain unchanged. | Both items must be included in the same business transaction. |
+
+#### Prerequisites
+
+Before creating a transfer request, confirm the following conditions.
+
+The transfer requester must:
+
+- Have a billing account for a Microsoft Customer Agreement. To identify your billing account type, see [Check for access to a Microsoft Customer Agreement](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#check-for-access).
+- Have an owner or contributor role for the destination billing account or the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](https://learn.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles#invoice-section-roles-and-tasks).
+
+The transfer recipient must:
+
+- Be the recipient named in the transfer request.
+- Be able to review and accept the request.
+- Confirm that organizational policies permit transfers out of the tenant.
+
+The tenant must:
+
+- Have a billing subscription named **Microsoft Entra ID Free** that represents its legal ownership. A tenant without this billing record isn't eligible for transfer.
+- Exist in the same Azure cloud as the destination billing account. Cross-cloud tenant transfers aren't supported.
+
+#### Create the transfer request
+
+The transfer requester starts the transfer by using the process for requesting billing ownership of Azure products under a Microsoft Customer Agreement:
+
+1. Follow the steps in [Create the product transfer request](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#create-the-product-transfer-request).
+2. Select the destination billing account, billing profile, and invoice section.
+3. Send the request to the transfer recipient.
+
+The request remains pending until the transfer recipient responds. It expires after 15 days if it isn't completed.
+
+#### Review and approve the transfer
+
+The transfer recipient uses the standard Microsoft Customer Agreement process to review the request:
+
+1. Open the transfer request.
+2. On the transfer page, select the **Entra Tenants** tab.
+3. Select the Microsoft Entra tenants to transfer.
+4. Select the **Review request** tab and verify the selected products.
+5. Resolve any warnings or failed validation messages, and then complete the transfer.
+
+Only tenants with a **Microsoft Entra ID Free** billing record are available for selection. For the complete workflow, see [Review and approve the transfer request](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#review-and-approve-transfer-request).
+
+#### Check the transfer status
+
+After the transfer recipient approves the request, use the standard transfer experience to monitor it. For instructions and status definitions, see [Check the transfer request status](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#check-the-transfer-request-status).
+
+If the request contains multiple products, review the transfer details to confirm the result for each selected Microsoft Entra tenant.
+
+#### Verify the transfer
+
+After the transfer completes:
+
+1. Confirm that the request status is **Completed**.
+2. Confirm that the Microsoft Entra ID Free billing record appears under the destination billing account, billing profile, and invoice section.
+3. Confirm that the Microsoft Entra tenant ID and directory configuration are unchanged.
+4. If the transaction also included an Azure subscription, confirm its billing ownership and resources separately.
+
+For a tenant-only transfer, any associated Azure subscription and its resources remain under their existing billing account.
+
+#### Troubleshoot a transfer
+
+If validation or processing fails, confirm that:
+
+- The destination billing account, billing profile, and invoice section are active.
+- The transfer recipient opened the request with the intended identity.
+- The tenant has a **Microsoft Entra ID Free** billing record.
+- Source and destination transfer policies allow the operation.
+- The source and destination are in the same Azure cloud.
+- The request hasn't expired.
+
+For general transfer warnings and failed validation messages, see [Review and approve the transfer request](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#review-and-approve-transfer-request).

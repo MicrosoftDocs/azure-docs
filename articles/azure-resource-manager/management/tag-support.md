@@ -2987,7 +2987,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkSecurityGroups | Yes | Yes |
 > | networkWatchers | Yes | Yes |
 > | networkWatchers / connectionMonitors | Yes | No |
-> | networkWatchers / flowLogs | Yes | Yes |
+> | networkWatchers / flowLogs | Yes | No |
 > | networkWatchers / lenses | Yes | No |
 > | networkWatchers / pingMeshes | Yes | No |
 > | privateEndpointRedirectMaps | Yes | Yes |

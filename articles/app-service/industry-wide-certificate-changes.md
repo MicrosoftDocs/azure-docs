@@ -3,7 +3,7 @@ title: Industry-wide certificate changes impacting Azure App Service
 description: Describes industry-wide TLS certificate changes that affect Azure App Service Managed Certificates and App Service Certificates, including scope, timelines, and required actions.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 05/18/2026
+ms.date: 10/15/2026
 ms.topic: concept-article
 ms.service: azure-app-service
 ---
@@ -71,15 +71,14 @@ To maintain one year of certificate coverage, Azure App Service automatically is
 ## Domain validation reuse (ASC only)
 
 ### What’s changing
-Starting March 2026, domain ownership validation for App Service Certificates can be reused for up to **198 days** to remain compliant with industry requirements defined by the CA/Browser Forum.
+Starting March 2026, industry requirements defined by the CA/Browser Forum limit domain ownership validation reuse to **198 days** at most. The 198-day limit is a maximum, not a promise of reuse. A renewal or rekey of an App Service Certificate might require validation again within that period.
 
 ### Impact on App Service Managed Certificates (ASMC)
 No change. Domain ownership validation for ASMC is automated and requires no customer action.
 
 ### Impact on App Service Certificates (ASC)
 - Domain validation completed before March 2026 cannot be reused. Certificate issuance starting March 2026 requires domain ownership validation.
-- During March 2026, domain ownership validation might be required again for each renewal and rekey.
-- After March 2026, domain ownership must be revalidated only if the domain was not validated within the past 198 days.
+- A renewal or rekey might require domain ownership validation again, even if the domain was validated within the past 198 days.
 - App Service Certificates do not automatically revalidate domains.
 
 If validation is required, certificate orders remain in a pending issuance state until validation is completed.

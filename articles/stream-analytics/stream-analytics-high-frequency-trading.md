@@ -5,7 +5,7 @@ author: AliciaLiMicrosoft
 ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 05/20/2026
+ms.date: 10/06/2026
 ms.custom:
   - devx-track-csharp
   - sfi-ropc-nochange
@@ -40,34 +40,11 @@ This scenario requires:
 
 ### Real-time quote feed
 
-> [!IMPORTANT]
-> The IEX trading WebSocket API (`iextrading.com`) referenced in this section has been retired. IEX Cloud now provides market data through [IEX Cloud](https://iexcloud.io/) with different authentication and endpoints. Update the URL and authentication in your implementation accordingly.
+Use a market-data feed that provides bid and ask quotes. Convert the quotes to JSON events that match the fields in the following examples, and publish them to your event hub. For .NET publishing code using `Azure.Messaging.EventHubs`, see [Send events to an event hub](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#send-events-to-the-event-hub).
 
-> [!IMPORTANT]
-> The `SocketIoClientDotNet` and `WindowsAzure.ServiceBus` NuGet packages used in this sample are deprecated. For new projects, use a current Socket.IO client library and the [`Azure.Messaging.EventHubs`](/dotnet/api/overview/azure/messaging.eventhubs-readme) package with `EventHubProducerClient` instead of the legacy `EventHubClient`.
+Configure an [Event Hubs input](stream-analytics-define-inputs.md#create-an-input-from-event-hubs) for your Stream Analytics job. Set **Input alias** to `quotes` and **Event serialization format** to **JSON** to match the queries in this article.
 
-Investors Exchange (IEX) formerly offered free [real-time bid and ask quotes](https://iextrading.com/developer/docs/#websockets) by using socket.io. You can write a simple console program to receive real-time quotes and push them to Azure Event Hubs as a data source. The following code is a skeleton of the program. The code omits error handling for brevity. You also need to include the `SocketIoClientDotNet` and `WindowsAzure.ServiceBus` NuGet packages in your project.
-
-```csharp
-using Quobject.SocketIoClientDotNet.Client;
-using Microsoft.ServiceBus.Messaging;
-var symbols = "msft,fb,amzn,goog";
-var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-var socket = IO.Socket("https://ws-api.iextrading.com/1.0/tops");
-socket.On(Socket.EVENT_MESSAGE, (message) =>
-{
-    eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes((string)message)));
-});
-socket.On(Socket.EVENT_CONNECT, () =>
-{
-    socket.Emit("subscribe", symbols);
-});
-```
-
-> [!CAUTION]
-> This code sample is for illustration only. The IEX WebSocket API endpoint and the NuGet packages used here are no longer available. Don't use this code in production. See the IMPORTANT notes earlier in this section for current alternatives.
-
-Here are some generated sample events:
+The following sample events show the input format:
 
 ```json
 {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
@@ -80,13 +57,13 @@ Here are some generated sample events:
 ```
 
 > [!NOTE]
-> The time stamp of the event is **lastUpdated**, in epoch time.
+> Set `lastUpdated` and `lastSaleTime` to Unix timestamps in milliseconds. The queries use `lastUpdated` as the event timestamp.
 
 ### Predictive model for high-frequency trading
 
 For this demonstration, the sample uses a linear model described in [Order Imbalance Based Strategy in High Frequency Algorithmic Trading](https://www.academia.edu/73231992/Order_Imbalance_Based_Strategy_in_High_Frequency_Algorithmic_Trading).
 
-Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price and volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past five VOI values and the price change in the next 10 ticks. The model trains on the previous day's data with linear regression. 
+Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price and volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past five VOI values and the price change in the next 10 ticks. The model trains on the previous day's data with linear regression.
 
 The trained model then makes price change predictions on quotes in the current trading day in real time. When the model predicts a large enough price change, it executes a trade. Depending on the threshold setting, a single stock might generate thousands of trades during a trading day.
 

@@ -3,7 +3,7 @@ title: Azure VMware Solution Generation 2 private cloud design considerations
 description: Learn about Azure VMware Solution Generation 2 private cloud design considerations.
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 05/11/2026
+ms.date: 10/29/2026
 ms.custom:
   - build-2025
 # Customer intent: As a cloud administrator, I want to understand the design considerations for Azure VMware Solution Generation 2 private clouds so that I can effectively plan and implement my private cloud deployment while ensuring compliance with current limitations and requirements.
@@ -27,12 +27,10 @@ The following functionality is limited during this time. These limitations will 
 - You can't ***move*** your private cloud from one Resource Group to another after the private cloud is created.  
 - You can't ***move*** your private cloud from one tenant to another after the private cloud is created.  
 - If you require **ExpressRoute FastPath** or **Global Virtual Network Peering** for your AVS Private Cloud, create a Support Case through the Azure portal. 
-- **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.
 - **Private Endpoints when globally peered** across regions connected to Azure VMware Solution isn't supported.
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.  
 - **vSAN Stretched Clusters** isn't supported.
-- **Public IP down to the VMware NSX Microsoft Edge** for configuring internet isn't supported. You can find what internet options are supported in [Internet connectivity options](native-internet-connectivity-design-considerations.md).  
-- During **unplanned maintenance** – like a host hardware failure – on any of the first four hosts in your Software Defined Data Center (SDDC), you may experience a temporary North-South network connectivity disruption for some workloads, lasting up to 30 seconds. North-South connectivity refers to traffic between your AVS VMware workloads and external endpoints beyond the NSX-T Tier-0 (T0) Edge, such as Azure services or on-premises environments. This limitation was removed in specific Azure regions. Confirm whether your region is affected by this limitation by checking with Azure Support.  
+- **Public IP down to the VMware NSX Microsoft Edge** for configuring internet isn't supported. You can find what internet options are supported in [Internet connectivity options](native-internet-connectivity-design-considerations.md).   
 - **Network Security Groups** associated with the private cloud host virtual network must be created in the ***same*** resource group as the private cloud and its virtual network.  
 - **Cross-resource group and cross-subscription references** from customer virtual networks to the Azure VMware Solution virtual network aren't supported by default. This includes resource types such as: User-defined routes (UDRs), DDoS Protection Plans, and other linked networking resources. If a customer virtual network is associated with one of these references that resides in a different resource group or subscription than the Azure VMware Solution virtual network, network programming (such as NSX segment propagation) may fail. To avoid problems, customers should make sure the Azure VMware Solution virtual network isn't connected to resources in another resource group or subscription. Before continuing, remove any such connections, such as DDoS Protection Plans, from the virtual network.  
   - To maintain your cross-resource group reference, create a role assignment from your cross-resource group or subscription and give the "AzS VIS Prod App” the "AVS on Fleet VIS Role." The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.  

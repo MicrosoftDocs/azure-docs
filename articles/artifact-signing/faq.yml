@@ -42,7 +42,7 @@ sections:
           For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
       - question: What are my support options when I set up Artifact Signing?
         answer: | 
-          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
+          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**).  
   - name: Identity validation
     questions:
       - question: What if I need to create another identity validation for the same organization with a different primary email address?
@@ -90,9 +90,6 @@ sections:
         answer: | 
           - For questions about identity validation in Artifact Signing, contact us via Azure Support or by using Microsoft Q&A (use the tag **artifact-signing**).
           - Note: creating more identity validation requests for the same entity that is in progress doesn't help. Identity validation requests can't be expedited.
-      - question: What if I need assistance with AU10TIX?
-        answer: | 
-          - For issues related to the AU10TIX identity-verification experience, contact [AU10TIX Support]((mailto:au10tix.support@au10tix.com) directly. This includes problems uploading identity documents, completing facial verification, or using the AU10TIX verification flow.
       - question: What if the email validation link has expired?
         answer: | 
           If you missed clicking on the email verification within seven days, you need to start a new identity validation request. A new link can't be resent on the same request.
@@ -109,9 +106,13 @@ sections:
         answer: |  
           If you see the error, it's because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
           :::image type="content" source="media/artifact-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/artifact-signing-indie-validation-email-mismatch.png"::: 
-      - question: For Individual identity validation, I see an error - address does not match, first name last name not matched or FaceCheck fail.
-        answer: |  
-          If you encounter one of these errors, delete the existing identity validation request and remove the associated Verified ID from the Microsoft Authenticator app. Then submit a new identity validation request and create a new Verified ID, ensuring that all information is accurate and that the verification environment has adequate lighting.
+      - question: What should I do if I see an address mismatch, first or last name mismatch, or Face Check error after obtaining a Verified ID and scanning the QR code?
+        answer: |
+          This guidance applies to individual identity validation, including the individual verification step within organization identity validation. Delete the existing identity validation request and remove the associated Verified ID from Microsoft Authenticator. Then submit a new request and create a new Verified ID, following the guidance for your error below.
+
+          - Face Check failed: Complete verification in even, moderate lighting. Avoid direct sunlight, strong backlighting, and deep shadows. Keep your face centered, fully visible, and facing the camera, with the lens clean and unobstructed. Remove sunglasses or other items that obscure your face, and follow the on-screen instructions. See [Microsoft Entra Face Check guidance](https://learn.microsoft.com/en-us/entra/verified-id/using-facecheck).
+          - First or last name mismatch: Ensure the first and last names in your identity validation request match the corresponding names on your Verified ID and those extracted from your government-issued ID. Check for spelling errors, missing names, or incorrectly assigned first and last names.
+          - Address mismatch (only applies to individual validation): Ensure the address in your identity validation request matches the address on your supporting document. Check the street address, apartment or unit number, city, state or province, postal code, and country or region for errors or omissions.
       - question: How do I troubleshoot technical errors when completing identity validation with Microsoft Authenticator and Verified ID?
         answer: |  
           - Close all open instances of the authenticator app on your mobile, this is usually done by swiping up, finding the app, then swiping up again.  Ensure you close all instances of the authenticator app before relaunching.
@@ -119,6 +120,7 @@ sections:
           - Clear your web cache, if you are accessing the Verified ID setup through a browser, clear your cache or try completing the process using a different browser.
           - Avoid Weak Internet Connections or VPNs. Do not use a weak Wi‑Fi connection or any VPN/Proxy service. These can interrupt the secure handshake between the browser and Microsoft Authenticator, causing technical errors.
           - Try a different device. Some device‑specific settings or security policies may interfere with the process. If possible, try completing the setup on another phone.
+          - When reaching out via support channels - [Send Microsoft Authenticator logs](https://learn.microsoft.com/troubleshoot/entra/entra-id/ad-dmn-services/send-microsoft-authenticator-logs) and an incident ID.
   - name: Certificate profiles
     questions:
       - question: Why is the CN/O dropdown empty when I create a certificate profile? 

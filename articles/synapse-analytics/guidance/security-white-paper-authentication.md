@@ -12,7 +12,7 @@ ms.date: 01/14/2022
 
 [!INCLUDE [security-white-paper-context](includes/security-white-paper-context.md)]
 
-Authentication is the process of proving the user is who they claim to be. Authentication activities can be logged with [Azure SQL Auditing](/azure/azure-sql/database/auditing-overview), and an IT administrator can configure reports and alerts whenever a login from a suspicious location is attempted.
+Authentication is the process of proving the user is who they claim to be. Authentication activities can be logged with [Azure Synapse Analytics auditing](../sql/auditing-overview.md), and an IT administrator can configure reports and alerts whenever a login from a suspicious location is attempted.
 
 ## Benefits
 

@@ -39,16 +39,16 @@ After transferring the subscription to another tenant, follow the below steps to
 
 1. [Disable and re-enable the system Assigned Managed Identity](#disablereenable). More information later in this article.
 2. [Assign Azure RBAC (role based access control) permissions to the required Microsoft Entra users, groups, and managed identities](../role-based-access-control/transfer-subscription.md#step-3-re-create-resources) on the Synapse Analytics workspace and required Azure resources.
-3. [Set the SQL Active Directory admin.](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#provision-azure-ad-admin-sql-database)
+3. [Set the SQL Active Directory admin.](sql/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database)
 4. Re-create [Microsoft Entra users and groups](sql/sql-authentication.md?tabs=provisioned#non-administrator-users) based on their equivalent users and groups in the new Microsoft Entra tenant for the dedicated and serverless SQL pools.
 5. Assign Azure RBAC to Microsoft Entra users, groups to Synapse Analytics workspace. This step should be first step after recovering the workspace. Without this step, launching Synapse Studio will throw 403 messages, due to Microsoft Entra users not having permissions on the workspace:
    ```JSON
    {"error":{"code":"Unauthorized","message":"The principal '<subscriptionid>' does not    have the required Synapse RBAC permission to perform this action. Required permission:    Action: Microsoft.Synapse/workspaces/read, Scope: workspaces/tenantmove-ws-1/*."}}
    ```
 6. Assign Azure RBAC roles to Microsoft Entra users, groups, service principals to all the resources used in the workspace artifacts, such as ADLS Gen2. For more information on Azure RBAC in ADLS Gen2, see [Role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac).
-7. Add Synapse RBAC role assignments to Microsoft Entra users and groups. For more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) 
-8. Recreate all the Microsoft Entra logins and users in dedicated and serverless SQL pool. For more information, see [SQL Authentication in Azure Synapse Analytics](sql/sql-authentication.md)
-9. Recreate all user assigned managed identity and assign user-assigned managed identity to the Synapse Analytics workspace. For more information, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md)
+7. Add Synapse RBAC role assignments to Microsoft Entra users and groups. For more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) .
+8. Recreate all the Microsoft Entra logins and users in dedicated and serverless SQL pool. For more information, see [SQL Authentication in Azure Synapse Analytics](sql/sql-authentication.md).
+9. Recreate any user-assigned managed identity, or assign a user-assigned managed identity, in the Synapse Analytics workspace. For more information, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md).
 
 > [!NOTE]
 > Ensure the following steps are executed only after confirming subscription is successfully moved to another tenant.  

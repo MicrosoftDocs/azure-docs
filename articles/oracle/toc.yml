@@ -31,6 +31,14 @@ items:
     items:
     - name: Onboard Oracle Database@Azure
       href: oracle-db/onboard-oracle-database.md
+    - name: Oracle Exadata Database on Dedicated Infrastructure Logs on Azure for Enhanced Observability
+      href: oracle-db/oracle-exadata-database-dedicated-infrastructure-logs.md
+    - name: Azure proximity placement groups with Oracle AI Database@Azure
+      href: oracle-db/proximity-placement-groups-with-oracle.md
+  - name: Security
+    items:
+    - name: Manage Oracle TDE with Azure Key Vault
+      href: oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault.md
   - name: Design considerations 
     items:
     - name: Design considerations for Oracle Database@Azure

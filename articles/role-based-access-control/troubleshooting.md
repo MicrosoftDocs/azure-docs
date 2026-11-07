@@ -2,13 +2,12 @@
 title: Troubleshoot Azure RBAC
 description: Troubleshoot issues with Azure role-based access control (Azure RBAC).
 services: azure-portal
-author: rolyon
-manager: pmwongera
+author: egreenberg14
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.topic: troubleshooting
-ms.date: 05/06/2026
-ms.author: rolyon
+ms.date: 10/19/2026
+ms.author: egreenberg
 ms.custom:
   - seohack1
   - devx-track-azurecli
@@ -147,9 +146,13 @@ For example, if you create a role assignment for a managed identity, then you de
 
 The role assignment `name` isn't unique, and it's viewed as an update.
 
-Role assignments are uniquely identified by their name, which is a globally unique identifier (GUID). You can't create two role assignments with the same name, even in different Azure subscriptions. You also can't change the properties of an existing role assignment.
+Role assignments are uniquely identified by their name, which is a globally unique identifier (GUID). You can't create two role assignments with the same name, even in different Azure subscriptions.
+
+You can't change the properties and scope of an existing role assignment. Reusing the same role assignment name doesn't allow you to replace the assigned principal or role. 
 
 **Solution**
+
+To change the principal, role, or scope, delete the existing role assignment and create a new role assignment with a new name (GUID) and the desired values. Both operations require the appropriate permissions and must satisfy any applicable role assignment conditions. Plan the sequence carefully to avoid unintended access gaps or overlapping permissions.
 
 Provide an idempotent unique value for the role assignment `name`. It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. It's a good idea to use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
 
@@ -200,7 +203,7 @@ DisplayName        :
 SignInName         :
 RoleDefinitionName : Storage Blob Data Contributor
 RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
-ObjectId           : 33333333-3333-3333-3333-333333333333
+ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ObjectType         : User
 CanDelegate        : False
 ```
@@ -212,7 +215,7 @@ Similarly, if you list this role assignment using Azure CLI, you might see an em
     "canDelegate": null,
     "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",
     "name": "22222222-2222-2222-2222-222222222222",
-    "principalId": "33333333-3333-3333-3333-333333333333",
+    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
     "principalName": "",
     "roleDefinitionId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe",
     "roleDefinitionName": "Storage Blob Data Contributor",
@@ -240,11 +243,11 @@ It's a good practice to remove any role assignments that aren't being used. You 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you'll get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
 
 ```
-PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
+PS C:\> Remove-AzRoleAssignment -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -RoleDefinitionName "Storage Blob Data Contributor"
 
 Remove-AzRoleAssignment : The provided information does not map to a role assignment.
 At line:1 char:1
-+ Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 ...
++ Remove-AzRoleAssignment -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 + CategoryInfo          : CloseError: (:) [Remove-AzRoleAssignment], KeyNotFoundException
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
@@ -253,7 +256,7 @@ At line:1 char:1
 If you get this error message, make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
 
 ```
-PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" -Scope /subscriptions/11111111-1111-1111-1111-111111111111
+PS C:\> Remove-AzRoleAssignment -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -RoleDefinitionName "Storage Blob Data Contributor" -Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
 ### Symptom - Cannot delete the last Owner role assignment

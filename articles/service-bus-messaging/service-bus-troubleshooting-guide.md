@@ -2,13 +2,13 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
-ms.date: 08/07/2026
+ms.date: 10/06/2026
 ms.custom:
   - build-2025
 ---
 
 # Troubleshooting guide for Azure Service Bus
-This article provides troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus. 
+This article provides troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 
 
 ## Check service health before troubleshooting your client
@@ -21,9 +21,9 @@ If either check shows an active service-side event, the service is the likely so
 
 
 ## Resource health
-The unhealthy period marked on the **Resource health** page of your Service Bus namespace in the Azure portal might be longer by a few minutes than the actual period. For example, the page might indicate that the namespace is unhealthy for 5-6 minutes, while the actual unhealthy period was only 1-2 minutes. 
+The unhealthy period marked on the **Resource health** page of your Service Bus namespace in the Azure portal might be longer by a few minutes than the actual period. For example, the page might indicate that the namespace is unhealthy for 5-6 minutes, while the actual unhealthy period was only 1-2 minutes.
 
-This behavior is due to the alert system's evaluation mechanism, which uses a 3-minute evaluation interval combined with a 5-minute lookback window. The lookback window is used to ensure that there are no errors for at least 5 minutes before considering the namespace healthy. In the above example, the namespace got healthy in a minute or two but the next evaluation happened was at least 5 minutes (lookback window) after the namespace became healthy. 
+This behavior is due to the alert system's evaluation mechanism, which uses a 3-minute evaluation interval combined with a 5-minute lookback window. The lookback window is used to ensure that there are no errors for at least 5 minutes before considering the namespace healthy. In the above example, the namespace got healthy in a minute or two but the next evaluation happened was at least 5 minutes (lookback window) after the namespace became healthy.
 
 
 ## Connectivity issues
@@ -142,32 +142,32 @@ In order to use the GA DiagnosticActivity support, you can integrate with the Ap
 
 The library creates the following spans:
 
-`Message`  
-`ServiceBusSender.Send`  
-`ServiceBusSender.Schedule`  
-`ServiceBusSender.Cancel`  
-`ServiceBusReceiver.Receive`  
-`ServiceBusReceiver.ReceiveDeferred`  
-`ServiceBusReceiver.Peek`  
-`ServiceBusReceiver.Abandon`  
-`ServiceBusReceiver.Complete`  
-`ServiceBusReceiver.DeadLetter`  
-`ServiceBusReceiver.Defer`  
-`ServiceBusReceiver.RenewMessageLock`  
-`ServiceBusSessionReceiver.RenewSessionLock`  
-`ServiceBusSessionReceiver.GetSessionState`  
-`ServiceBusSessionReceiver.SetSessionState`  
-`ServiceBusProcessor.ProcessMessage`  
-`ServiceBusSessionProcessor.ProcessSessionMessage`  
-`ServiceBusRuleManager.CreateRule`  
-`ServiceBusRuleManager.DeleteRule`  
-`ServiceBusRuleManager.GetRules`  
+- `Message`
+- `ServiceBusSender.Send`
+- `ServiceBusSender.Schedule`
+- `ServiceBusSender.Cancel`
+- `ServiceBusReceiver.Receive`
+- `ServiceBusReceiver.ReceiveDeferred`
+- `ServiceBusReceiver.Peek`
+- `ServiceBusReceiver.Abandon`
+- `ServiceBusReceiver.Complete`
+- `ServiceBusReceiver.DeadLetter`
+- `ServiceBusReceiver.Defer`
+- `ServiceBusReceiver.RenewMessageLock`
+- `ServiceBusSessionReceiver.RenewSessionLock`
+- `ServiceBusSessionReceiver.GetSessionState`
+- `ServiceBusSessionReceiver.SetSessionState`
+- `ServiceBusProcessor.ProcessMessage`
+- `ServiceBusSessionProcessor.ProcessSessionMessage`
+- `ServiceBusRuleManager.CreateRule`
+- `ServiceBusRuleManager.DeleteRule`
+- `ServiceBusRuleManager.GetRules`
 
 Most of the spans are self-explanatory and are started and stopped during the operation that bears its name. The span that ties the others together is `Message`. The way that the message is traced is via the `Diagnostic-Id` that is set in the [ServiceBusMessage.ApplicationProperties](/dotnet/api/azure.messaging.servicebus.servicebusmessage.applicationproperties) property by the library during send and schedule operations. In Application Insights, `Message` spans are displayed as linking out to the various other spans that were used to interact with the message, for example, the `ServiceBusReceiver.Receive` span, the `ServiceBusSender.Send` span, and the `ServiceBusReceiver.Complete` span would all be linked from the `Message` span. Here's an example of what this looks like in Application Insights:
 
 :::image type="content" source="./media/service-bus-troubleshooting-guide/distributed-trace-example.png" alt-text="Image showing a sample distributed trace.":::
 
-In the screenshot, you see the end-to-end transaction that can be viewed in Application Insights in the portal. In this scenario, the application is sending messages and using the [ServiceBusSessionProcessor](/dotnet/api/azure.messaging.servicebus.servicebussessionprocessor) to process them. The `Message` activity is linked to `ServiceBusSender.Send`, `ServiceBusReceiver.Receive`, `ServiceBusSessionProcessor.ProcessSessionMessage`, and `ServiceBusReceiver.Complete`. 
+In the screenshot, you see the end-to-end transaction that can be viewed in Application Insights in the portal. In this scenario, the application is sending messages and using the [ServiceBusSessionProcessor](/dotnet/api/azure.messaging.servicebus.servicebussessionprocessor) to process them. The `Message` activity is linked to `ServiceBusSender.Send`, `ServiceBusReceiver.Receive`, `ServiceBusSessionProcessor.ProcessSessionMessage`, and `ServiceBusReceiver.Complete`.
 
 > [!NOTE]
 > For more information, see [Distributed tracing and correlation through Service Bus messaging](service-bus-end-to-end-tracing.md).
@@ -178,7 +178,7 @@ In the screenshot, you see the end-to-end transaction that can be viewed in Appl
 When an app sends a batch to a partition-enabled entity, all messages included in a single send operation must have the same `PartitionKey`. If your entity is session-enabled, the same requirement holds true for the `SessionId` property. In order to send messages with different `PartitionKey` or `SessionId` values, group the messages in separate [`ServiceBusMessageBatch`][ServiceBusMessageBatch] instances or include them in separate calls to the [SendMessagesAsync][SendMessages] overload that takes a set of `ServiceBusMessage` instances.
 
 ### Batch fails to send
-A message batch is either [`ServiceBusMessageBatch`][ServiceBusMessageBatch] containing two or more messages, or a call to [SendMessagesAsync][SendMessages] where two or more messages are passed in. The service doesn't allow a message batch to exceed 1 MB. This behavior is true whether or not the [Premium large message support](service-bus-premium-messaging.md#large-messages-support) feature is enabled. If you intend to send a message greater than 1 MB, it must be sent individually rather than grouped with other messages. Unfortunately, the [ServiceBusMessageBatch][ServiceBusMessageBatch] type doesn't currently support validating that a batch doesn't contain any messages greater than 1 MB as the size is constrained by the service and might change. So, if you intend to use the premium large message support feature, ensure that you send messages over 1 MB individually. 
+A message batch is either [`ServiceBusMessageBatch`][ServiceBusMessageBatch] containing two or more messages, or a call to [SendMessagesAsync][SendMessages] where two or more messages are passed in. The service doesn't allow a message batch to exceed 1 MB. This behavior is true whether or not the [Premium large message support](service-bus-premium-messaging.md#large-messages-support) feature is enabled. If you intend to send a message greater than 1 MB, it must be sent individually rather than grouped with other messages. Unfortunately, the [ServiceBusMessageBatch][ServiceBusMessageBatch] type doesn't currently support validating that a batch doesn't contain any messages greater than 1 MB as the size is constrained by the service and might change. So, if you intend to use the premium large message support feature, ensure that you send messages over 1 MB individually.
 
 ## Troubleshoot receiver issues
 
@@ -197,7 +197,7 @@ When working with topics, you can't peek scheduled messages on the subscription,
 You can use a regular [ServiceBusReceiver][ServiceBusReceiver] to peek across all sessions. To peek for a specific session you can use the [ServiceBusSessionReceiver][ServiceBusSessionReceiver], but you need to obtain a session lock.
 
 ### NotSupportedException thrown when accessing message body
-This issue occurs most often in interop scenarios when receiving a message sent from a different library that uses a different AMQP message body format. If you're interacting with these types of messages, see the [AMQP message body sample][MessageBody] to learn how to access the message body. 
+This issue occurs most often in interop scenarios when receiving a message sent from a different library that uses a different AMQP message body format. If you're interacting with these types of messages, see the [AMQP message body sample][MessageBody] to learn how to access the message body.
 
 ### Server busy errors when many receivers are open
 If you open a large number of receivers on the same queue, topic, or subscription and keep them active at the same time, you might see a `ServiceBusException` with a `Reason` of `ServiceBusy`. Service Bus allows up to 5,000 concurrent receive requests on a single entity, combined across all subscriptions of a topic. Each open receiver issues credit and continually polls for messages - even when the entity is empty - so a large number of idle receivers can push the combined receive requests past this limit, and additional requests are rejected.
@@ -243,14 +243,14 @@ This behavior is by design. Consider the following scenario - you're attempting 
 
 ### Transactions across entities aren't working
 
-In order to perform transactions that involve multiple entities, you need to set the `ServiceBusClientOptions.EnableCrossEntityTransactions` property to `true`. For details, see the [Transactions across entities][CrossEntityTransactions] sample. 
+In order to perform transactions that involve multiple entities, you need to set the `ServiceBusClientOptions.EnableCrossEntityTransactions` property to `true`. For details, see the [Transactions across entities][CrossEntityTransactions] sample.
 
 ## Quotas
 
 Information about Service Bus quotas can be found [here][ServiceBusQuotas].
 
 ## Connectivity, certificate, or timeout issues
-The following steps help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
+The following steps help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net.
 
 - If your namespace uses a private endpoint with public access disabled, confirm name resolution before you run the connectivity checks that follow. A port check can succeed against the public endpoint even in that configuration, so resolution to a public IP address from inside the virtual network points to a DNS problem. For details, see [Troubleshoot private endpoint connectivity](private-link-service.md#troubleshoot-private-endpoint-connectivity).
 - Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues, which are common when using Java SDK.
@@ -271,7 +271,7 @@ The following steps help you with troubleshooting connectivity/certificate/timeo
         </Detail>
     </Error>
     ```
-- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that checks whether the 5671 port is blocked. 
+- Check that the firewall allows the ports used by your client: 443 for HTTPS or AMQP over WebSockets, and 5671 and 5672 for AMQP. The following command checks connectivity on port 5671.
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671
@@ -287,9 +287,9 @@ The following steps help you with troubleshooting connectivity/certificate/timeo
     ```shell
     .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
     ```
-    You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
-- Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
-- To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allowlist-). 
+    You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on.
+- Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed.
+- To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allowlist-).
 
 ### TLS certificate chain and intermediate certificate issues
 Service Bus endpoints (`*.servicebus.windows.net`) present a TLS certificate that chains to a public root certificate authority (CA). Microsoft periodically rotates the TLS certificates and the intermediate CAs in that chain. If your client's trust store is missing an updated intermediate CA, or if your client pins a specific intermediate or leaf certificate, the TLS handshake fails after a rotation even though nothing changed in your application.
@@ -332,24 +332,24 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 ```
 
 ### Cause
-The identity doesn't have permissions to access the Service Bus topic. 
+The identity doesn't have permissions to access the Service Bus topic.
 
 ### Resolution
-To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library. For more information, see [Local development authentication](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication). 
+To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library. For more information, see [Local development authentication](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication).
 
 To learn how to assign permissions to roles, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md).
 
 ## Service Bus Exception: Put token failed
 
 ### Symptoms
-You receive the following error message: 
+You receive the following error message:
 
-`Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
+`Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.`
 
 [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ### Cause
-Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace exceeded the limit: 1000. 
+Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace exceeded the limit: 1000.
 
 ### Resolution
 Do one of the following steps:
@@ -361,10 +361,10 @@ Do one of the following steps:
 ## Resource locks don't work when using the data plane SDK
 
 ### Symptoms
-You configured a delete lock on a Service Bus namespace, but you're able to delete resources in the namespace (queues, topics, etc.) by using the Service Bus Explorer. 
+You configured a delete lock on a Service Bus namespace, but you're able to delete resources in the namespace (queues, topics, etc.) by using the Service Bus Explorer.
 
 ### Cause
-Resource lock is preserved in Azure Resource Manager (control plane) and it doesn't prevent the data plane SDK call from deleting the resource directly from the namespace. The standalone Service Bus Explorer uses the data plane SDK, so the deletion goes through. 
+Resource lock is preserved in Azure Resource Manager (control plane) and it doesn't prevent the data plane SDK call from deleting the resource directly from the namespace. The standalone Service Bus Explorer uses the data plane SDK, so the deletion goes through.
 
 ### Resolution
 We recommend that you use the Azure Resource Manager based API via Azure portal, PowerShell, CLI, or Resource Manager template to delete entities so that the resource lock prevents the resources from being accidentally deleted.
@@ -372,14 +372,14 @@ We recommend that you use the Azure Resource Manager based API via Azure portal,
 ## Entity is no longer available
 
 ### Symptoms
-You see an error that the entity is no longer available. 
+You see an error that the entity is no longer available.
 
 ### Cause
-The resource might have been deleted. Follow these steps to identify why the entity was deleted. 
+The resource might have been deleted. Follow these steps to identify why the entity was deleted.
 
-- Check the activity log to see if there's an Azure Resource Manager request for deletion. 
+- Check the activity log to see if there's an Azure Resource Manager request for deletion.
 - Check the operational log to see if there was a direct API call for deletion. To learn how to collect an operational log, see [Monitor Azure Service Bus](monitor-service-bus.md#data-storage). For the schema and an example of an operation log, see [Operation logs](monitor-service-bus-reference.md#operational-logs)
-- Check the operation log to see if there was an `autodeleteonidle` related deletion. 
+- Check the operation log to see if there was an `autodeleteonidle` related deletion.
 
 ## Entity names show tilde (~) instead of forward slash (/)
 
@@ -394,7 +394,7 @@ This is expected behavior. The underlying entity name uses `/`. The `~` appears 
 
 
 ## Next steps
-See the following articles: 
+See the following articles:
 
 - [Azure Resource Manager exceptions](service-bus-resource-manager-exceptions.md). It list exceptions generated when interacting with Azure Service Bus using Azure Resource Manager (via templates or direct calls).
 - [Messaging exceptions](service-bus-messaging-exceptions-latest.md). It provides a list of exceptions generated by .NET Framework for Azure Service Bus.

@@ -14,35 +14,63 @@ items:
 - name: Azure Device Registry
   items:
   - name: What is Azure Device Registry?
-    href: iot-device-registry-overview.md
-  - name: Best practices for namespaces
-    href: iot-device-registry-namespace-guidance.md
-  - name: Best practices for schema registries
-    href: iot-device-registry-schema-registry-guidance.md
-  - name: Manage certificate lifecycle
+    href: device-registry/overview-device-registry.md
+  - name: Get started with Azure Device Registry
     items:
-      - name: Certificate management (preview) in Azure Device Registry
+      - name: Azure IoT Hub get started (preview)
+        href: device-registry/get-started-azure-device-registry.md
+      - name: Azure IoT Operations get started
+        href: ../iot-operations/get-started-end-to-end-sample/quickstart-deploy.md
+  - name: What is an Azure Device Registry namespace?
+    href: device-registry/concept-namespaces.md
+  - name: Best practices for namespaces
+    href: device-registry/best-practices-namespaces.md
+  - name: Best practices for schema registries
+    href: device-registry/best-practices-schema-registries.md
+  - name: Develop with Azure IoT SDKs
+    items:
+    - name: Unified Azure IoT SDKs for IoT Hub and Azure Device Registry
+      href: device-registry/concept-unified-iot-sdks.md
+  - name: Manage certificate lifecycle (preview)
+    items:
+      - name: Certificate management overview 
         href: iot-certificate-management-overview.md
-      - name: Key concepts for certificate management
+      - name: PKI fundamentals
         href: iot-certificate-management-concepts.md
       - name: Set up certificate management
         items:
-          - name: Configure a credential
-            href: how-to-configure-credential.md
-          - name: Create a policy with a Microsoft root CA
+          - name: Certificate Authorities in Azure Device Registry
+            href: concept-managed-ca-hierarchy.md
+          - name: Set up a root and intermediate CA
             href: how-to-create-policy.md
-          - name: Create a policy with an external root CA
+          - name: Bring your own CA
             href: how-to-create-policy-external-certificate.md
-      - name: Manage certificates and policies
+          - name: Create or edit a certificate policy
+            href: how-to-create-edit-certificate-policy.md
+      - name: Issue, renew, and revoke certificates
         items:
-          - name: Issuance of device certificates
+          - name: Issue device certificates
             href: concept-certificate-issuance.md
-          - name: Renewal of device certificates
+          - name: Renew device certificates
             href: concept-certificate-renewal.md
-          - name: Certificate revocation and policy management
+          - name: Revoke certificates
             href: concepts-certificate-policy-management.md
-          - name: Revoke certificates and delete policies 
-            href: how-to-revoke-certificate-delete-policy.md
+  - name: Manage your device fleet
+    items:
+    - name: Disable or enable a device (preview)
+      href: device-registry/how-to-disable-enable-device.md
+    - name: Groups concepts (preview)
+      href: device-registry/concept-groups.md
+    - name: Jobs concepts (preview)
+      href: device-registry/concept-jobs.md
+    - name: Software updates concepts (preview)
+      href: device-registry/concept-software-updates.md
+    - name: Import a software update (preview)
+      href: device-registry/how-to-import-software-update.md
+    - name: Deploy a software update to a group (preview)
+      href: device-registry/how-to-deploy-software-update-group.md
+    - name: Deploy an onboarding update to a namespace (preview)
+      href: device-registry/how-to-deploy-onboarding-update-namespace.md
 - name: References
   items:
   - name: Support and help options

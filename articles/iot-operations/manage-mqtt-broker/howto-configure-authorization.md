@@ -457,6 +457,57 @@ spec:
 
 Here, if the `clientIds` weren't set under the `Connect` method, a client with any client ID could connect as long as it had the `building` attribute set to `building22` or `building23`. When you add the `clientIds` field, only clients with client IDs that start with `building22` or `building23` can connect. This designation ensures that the client has the correct attribute and that the client ID matches the expected pattern.
 
+### Prevent session takeover
+
+To prevent a client from accessing another client's persistent session and queued or inflight messages, bind each authenticated principal to its allowed client IDs. Match the principal by using authentication attributes or a [verified username](#use-a-username-for-authorization), then set `clientIds` on the same rule's `Connect` resource. Don't use `principals.clientIds` alone to establish identity because clients choose their own client IDs.
+
+The following configuration allows a principal with the `identity` attribute `principal-a` to connect only as `client-a`, and a principal with `identity` set to `principal-b` to connect only as `client-b`. Configure these attributes through [X.509 authentication](howto-configure-authentication.md#optional-certificate-attributes-for-authorization) or [Kubernetes service account annotations](#authorize-clients-that-use-kubernetes-service-account-tokens).
+
+```json
+{
+  "authorizationPolicies": {
+    "rules": [
+      {
+        "principals": {
+          "attributes": [
+            {
+              "identity": "principal-a"
+            }
+          ]
+        },
+        "brokerResources": [
+          {
+            "method": "Connect",
+            "clientIds": [
+              "client-a"
+            ]
+          }
+        ]
+      },
+      {
+        "principals": {
+          "attributes": [
+            {
+              "identity": "principal-b"
+            }
+          ]
+        },
+        "brokerResources": [
+          {
+            "method": "Connect",
+            "clientIds": [
+              "client-b"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+If `principal-b` requests `client-a`, authorization denies the connection. To allow multiple client IDs for a principal, add them to that rule's `Connect` resource. Ensure no other rule grants the principal broader `Connect` access.
+
 ## Authorize clients that use X.509 authentication
 
 You can authorize clients that use [X.509 certificates for authentication](./howto-configure-authentication.md) to access resources based on X.509 properties present on their certificate or their issuing certificates up the chain.

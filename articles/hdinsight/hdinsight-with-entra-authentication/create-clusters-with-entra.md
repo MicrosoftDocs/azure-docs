@@ -74,7 +74,7 @@ This operation allows users to change the cluster gateway HTTP credentials.
 		{ 
 		"restAuthEntraUsers": [ 
 			{ 
-				"objectId": "0d7c4bd6-d042-45ec-9ae5-1ed7871c38e0", 
+				"objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb", 
 						"displayName": "Hemant Gupta", 
 						"upn": "john@contoso.com" 
 					} 

@@ -2,7 +2,7 @@
 title: Dapr Extension for Azure Functions
 description: Learn to use the Dapr triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.date: 05/10/2024
+ms.date: 10/14/2026
 ms.author: nigreenf
 ms.reviewer: hannahhunter
 ms.subservice: dapr
@@ -16,6 +16,8 @@ ms.custom:
 ---
 
 # Dapr Extension for Azure Functions
+
+[!INCLUDE [dapr-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr Extension for Azure Functions is a set of tools and services that allow developers to easily integrate Azure Functions with the [Distributed Application Runtime (Dapr)](https://docs.dapr.io/) platform. 
 
@@ -66,9 +68,63 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
+## Install bundle
+
+For existing apps that use the Dapr extension, which retires on April 20, 2027, select the bundle your app uses and add or replace the following code in your `host.json` file. These version ranges exclude the versions scheduled to remove the Dapr extension.
+
+The selected older bundle must be available to your app. Setting a version range doesn't change the contents of the bundles preinstalled in Linux images or available on disk on Windows SKUs. Continuing to pin an older bundle doesn't extend support beyond April 20, 2027, or change the removal date.
+
+# [Main bundle](#tab/main-bundle)
+
+The Dapr extension is scheduled for removal on April 20, 2027, starting with main extension bundle version 4.42.0.
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 4.42.0)"
+  }
+}
+```
+
+# [Preview bundle](#tab/preview-bundle)
+
+The Dapr extension is scheduled for removal on April 20, 2027, starting with preview extension bundle version 4.60.0.
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 4.60.0)"
+  }
+}
+```
+
+---
 
 ::: zone-end
+
+## Migrate from the Dapr extension
+
+You can continue using Dapr in Azure Container Apps without the Azure Functions Dapr extension. This migration requires changes to your function code and Dapr callback configuration; installing a client SDK alone doesn't replace Dapr triggers.
+
+1. Replace Dapr input and output bindings with calls to a [Dapr client SDK](https://docs.dapr.io/developing-applications/sdks/) or the [Dapr HTTP APIs](https://docs.dapr.io/reference/api/). Use the corresponding APIs for state reads and writes, secret retrieval, service invocation, message publishing, and output bindings. Preserve component names, app IDs, state keys, and metadata required by your existing app. Select APIs and SDK packages [supported in Azure Container Apps](../container-apps/dapr-overview.md#supported-dapr-apis-components-and-tooling).
+
+1. Replace extension-specific triggers with [HTTP-triggered functions](functions-bindings-http-webhook-trigger.md) and configure Dapr to call the new endpoints:
+
+   | Existing trigger | Replacement |
+   | --- | --- |
+   | `daprServiceInvocationTrigger` | An HTTP endpoint that handles the invoked method. See [Dapr service invocation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-discover-services/). |
+   | `daprTopicTrigger` | An HTTP endpoint that receives topic messages, with a declarative or programmatic [Dapr subscription](https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/) that routes messages to it. |
+   | `daprBindingTrigger` | An HTTP endpoint that accepts the binding's `POST` callbacks and `OPTIONS` discovery requests. See [Dapr input binding callbacks](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-triggers/). |
+
+1. Update the [Dapr configuration in Azure Container Apps](../container-apps/enable-dapr.md) to use the function app's HTTP listening port and the HTTP app protocol, rather than the extension's listener on port `3001`. Match callback routes to the function endpoints, accounting for the default `/api` route prefix. If you use programmatic pub/sub subscriptions, expose the discovery endpoint at the exact `/dapr/subscribe` path. Ensure Dapr can reach the required endpoints while preserving your app's authentication and access controls.
+
+1. Verify state and secret access, service invocation, publishing, callback payloads, acknowledgments, retries, and duplicate-event handling before switching traffic. After all extension-specific bindings and triggers are replaced, remove the Dapr extension package or registration and the temporary bundle pin. Use the normal bundle configuration required by your remaining bindings.
+
+The following sections describe configuration for existing apps that still use the Dapr extension before its retirement on April 20, 2027.
 
 ## Dapr enablement
 

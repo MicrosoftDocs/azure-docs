@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430" role="img" aria-labelledby="title desc">
+  <title id="title">Predict with coefficients from the message or the state store</title>
+  <desc id="desc">The first path sends a reading with coefficients and model version eight directly to built-in map. The second looks up coefficients and model version eight by asset ID through built-in enrichment before map. Both evaluate ten times two plus twenty times one half plus one hundred seventy-three, producing predicted weight two hundred three and preserving the model version.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1100" height="430" fill="#fff"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 235 100 H 600"/>
+    <path d="M 840 100 H 890"/>
+    <path d="M 235 320 H 300"/>
+    <path d="M 540 320 H 600"/>
+    <path d="M 840 320 H 890"/>
+    <path d="M 420 230 V 275" stroke-dasharray="7 5"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="55" width="215" height="90" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="600" y="55" width="240" height="90" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="890" y="55" width="190" height="90" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="20" y="275" width="215" height="90" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="300" y="275" width="240" height="90" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="300" y="155" width="240" height="75" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="600" y="275" width="240" height="90" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="890" y="275" width="190" height="90" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="20" y="30" text-anchor="start" font-weight="bold">Option 1: coefficients included in each message</text>
+    <text x="127" y="90"><tspan x="127" font-weight="bold">Reading + coefficients</tspan><tspan x="127" dy="25">Model version: 8</tspan></text>
+    <text x="720" y="90"><tspan x="720" font-weight="bold">Built-in map</tspan><tspan x="720" dy="25">10 x 2 + 20 x 0.5 + 173</tspan></text>
+    <text x="985" y="90"><tspan x="985" font-weight="bold">Prediction: 203</tspan><tspan x="985" dy="25">Model version: 8</tspan></text>
+    <text x="20" y="250" text-anchor="start" font-weight="bold">Option 2: look up coefficients</text>
+    <text x="127" y="310"><tspan x="127" font-weight="bold">Reading</tspan><tspan x="127" dy="25">Asset: line-1</tspan></text>
+    <text x="420" y="185"><tspan x="420" font-weight="bold">State store</tspan><tspan x="420" dy="25">Coefficients + version 8</tspan></text>
+    <text x="420" y="310"><tspan x="420" font-weight="bold">Built-in enrichment</tspan><tspan x="420" dy="25">Look up by asset ID</tspan></text>
+    <text x="720" y="310"><tspan x="720" font-weight="bold">Built-in map</tspan><tspan x="720" dy="25">10 x 2 + 20 x 0.5 + 173</tspan></text>
+    <text x="985" y="310"><tspan x="985" font-weight="bold">Prediction: 203</tspan><tspan x="985" dy="25">Model version: 8</tspan></text>
+    <text x="550" y="410">Both paths evaluate known coefficients and preserve the model version.</text>
+  </g>
+</svg>

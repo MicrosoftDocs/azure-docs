@@ -23,7 +23,7 @@ The *ingress* limit refers to all data sent to a storage account or disk access.
 
 | Resource | Limit |
 |--|--|
-| Maximum number of storage accounts with standard endpoints per region per subscription, including standard and premium storage accounts. | 250 by default, 500 by request<sup>1</sup> |
+| Maximum number of storage accounts with standard endpoints per region per subscription, including standard and premium storage accounts. | 250 by default, 1000 by request<sup>1</sup> |
 | Maximum number of storage accounts with Azure DNS zone endpoints (preview) per region per subscription, including standard and premium storage accounts. | 5,000 (preview) |
 | Default maximum storage account capacity. | 5 PiB <sup>2</sup> |
 | Maximum number of blob containers, blobs, directories, and subdirectories (if hierarchical namespace is enabled), file shares, tables, queues, entities, or messages per storage account. | No limit |
@@ -41,6 +41,6 @@ The *ingress* limit refers to all data sent to a storage account or disk access.
 | Maximum number of resource instance rules per storage account. | 200 |
 | Maximum number of private endpoints per storage account. | 200 |
 
-<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
+<sup>1</sup> With a quota increase, you can create up to 1000 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 
 <sup>2</sup> Azure Storage standard accounts support higher capacity limits and higher limits for ingress and egress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).

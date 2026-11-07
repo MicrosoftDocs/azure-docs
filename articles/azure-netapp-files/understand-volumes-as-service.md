@@ -70,9 +70,9 @@ Azure NetApp Files tight integration with Azure’s ecosystem and its API-driven
 
 ## Scalability and Performance On-Demand
 
-Azure NetApp Files is designed to scale with the demands of modern enterprise workloads, both in capacity and performance. Each Azure NetApp Files volume can be sized from as small as 50 GiB up to many terabytes or even petabytes, and in many scenarios volumes can be resized dynamically without downtime as your data grows. This elastic scalability eliminates the need to over-provision storage upfront – you can start with the capacity you need now and expand later, avoiding stranded capacity and upfront costs. 
+Azure NetApp Files scales with the demands of modern enterprise workloads, both in capacity and performance. Each Azure NetApp Files volume can be sized from as small as 50 GiB up to many terabytes or even petabytes. In many scenarios, you can dynamically resize volumes without downtime as your data grows. <!-- This elastic scalability eliminates the need to over-provision storage upfront – you can start with the capacity you need now and expand later, avoiding stranded capacity and upfront costs. -->
 
-In addition to capacity scaling, Azure NetApp Files offers performance on-demand through multiple service levels (Elastic, Flexible, Standard, Premium, Ultra) which you can select and even adjust on the fly. If an application suddenly requires higher IOPS or throughput, you can move its volume to a higher performance service level or adjust performance allocation with a simple change, rather than migrating data or reconfiguring hardware. 
+In addition to capacity scaling, Azure NetApp Files offers performance on demand through multiple service levels <!--(Elastic,-->(Flexible, Standard, Premium, Ultra) which you can select and even adjust on the fly. If an application suddenly requires higher IOPS or throughput, you can move its volume to a higher performance service level or adjust performance allocation with a simple change, rather than migrating data or reconfiguring hardware. 
 
 Conversely, you can dial back to a lower service level or performance allocation when high performance is no longer needed, controlling costs. Dynamically adjusting throughput and IOPS in this way means performance is always aligned to workload requirements – applications get the performance they need, when they need it, ensuring consistent user experiences and business continuity even as demand fluctuates. 
 
@@ -91,7 +91,7 @@ Azure NetApp Files provides a highly reliable foundation for critical workloads,
 ## Cost Optimization and Governance
 Azure NetApp Files also helps organizations optimize costs and enforce good governance in their cloud storage usage. The service’s pay-as-you-go model means you only pay for the capacity and performance you provision, with no large upfront expenditures. 
 
-This model, combined with the ability to start small and scale as needed, avoids the common scenario of over-provisioning (buying expensive storage that sits idle). In self-managed and procured environments, over-provisioning leads to wasted capital, whereas Azure NetApp Files' elasticity ensures you consume just what is required at any given time.
+This model, combined with the ability to start small and scale as needed, avoids the common scenario of over-provisioning (buying expensive storage that sits idle). <!--In self-managed and procured environments, over-provisioning leads to wasted capital, whereas Azure NetApp Files' elasticity ensures you consume just what is required at any given time. -->
 
 Azure NetApp Files includes features that automatically reduce costs for less-used data. For instance, storage with cool access can transparently tier infrequently accessed data to cheaper Azure storage, lowering the cost of storing cold data while keeping it transparently accessible when needed. Similarly, space-efficient snapshots and short-term clones ensure that backup or test copies of data consume minimal storage, providing further savings. 
 

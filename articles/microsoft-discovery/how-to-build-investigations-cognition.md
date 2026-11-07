@@ -147,7 +147,7 @@ When all tasks reach a terminal status (Complete, Needs User Attention), the sha
 Review the results of your root or parent tasks that typically synthesize the findings from child tasks into a coherent output. File outputs from child tasks propagate up to the root task, so you can find all produced files in one place.
 
 > [!IMPORTANT]
-> To view output files, you need **Storage Blob Data Reader** on the storage account and network access to the storage endpoint. Agents create files using the platform's managed identity, and your own identity is used when you view them. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md).
+> To view output files, you need **Storage Blob Data Reader** on the storage account and network access to the storage endpoint. Agents create files using the platform's managed identity, and you use your own identity when you view them. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md).
 
 If you're satisfied with the results, stop the Discovery Engine to prevent further resource consumption.
 

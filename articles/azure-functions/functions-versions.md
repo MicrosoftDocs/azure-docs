@@ -3,7 +3,7 @@ title: Compare Azure Functions Runtime Versions
 description: Learn how Azure Functions supports multiple versions of the runtime, and understand the differences between them and how to choose the one that's right for you.
 ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
-ms.date: 09/15/2026
+ms.date: 10/12/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -131,7 +131,7 @@ For Visual Studio Code development, you might also need to update the user setti
 ::: zone-end  
 
 ::: zone pivot="programming-language-go"
-Go support is currently in public preview and requires Azure Functions runtime 4.x. For version requirements, see the [Go developer reference](functions-reference-go.md#prerequisites).
+Go support is generally available for Flex Consumption apps and requires Azure Functions runtime 4.x. For version requirements, see the [Go developer reference](functions-reference-go.md#prerequisites).
 ::: zone-end
 
 ## Related content

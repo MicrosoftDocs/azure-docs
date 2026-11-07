@@ -20,6 +20,7 @@ This article describes the requirements and considerations you need to be aware 
 ## Requirements and considerations
 
 * You need to use the [manual QoS capacity pool](manage-manual-qos-capacity-pool.md) type.  
+* Volume names created through application volume group must be unique across your Azure subscription.
 * You need to prepare input of the required database size and throughput.  See the following references:   
     * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
     * [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183)

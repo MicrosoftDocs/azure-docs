@@ -1,0 +1,24 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/confidential-computing/partner-pages/scone.md",
+      "redirect_url": "/azure/confidential-computing/partner-pages/partner-pages-index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/confidential-computing/partner-pages/mithril.md",
+      "redirect_url": "/azure/confidential-computing/partner-pages/partner-pages-index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/confidential-computing/partner-pages/habu.md",
+      "redirect_url": "/azure/confidential-computing/partner-pages/partner-pages-index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/confidential-computing/partner-pages/enclaive.md",
+      "redirect_url": "/azure/confidential-computing/partner-pages/partner-pages-index",
+      "redirect_document_id": false
+    }
+  ]
+}

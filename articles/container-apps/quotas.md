@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: limits-and-quotas
-ms.date: 09/23/2026
+ms.date: 10/09/2026
 ms.author: cshoe
 ---
 
@@ -62,6 +62,9 @@ Please check https://learn.microsoft.com/en-us/azure/container-apps/quotas for r
 ```
 
 Other error messages could indicate that you've reached an environment or other quota limit. The Azure Quota Management System allows you to [monitor and alert](/azure/quotas/monitoring-alerting) on quota usage to proactively prevent constraints.
+
+> [!NOTE]
+> An environment creation error caused by limited regional capacity isn't a quota issue. Increasing quota doesn't resolve a capacity constraint. If the error message links to [Troubleshoot environment capacity errors in Azure Container Apps](troubleshoot-environment-capacity.md), follow the retry and deployment planning guidance in that article.
 
 ## Quota types
 

@@ -17,7 +17,7 @@ ms.author: anjbanerjee
 
 Azure Files NFS v4.1 volumes support [encryption in-transit](https://aka.ms/nfs/EiT/Announcement) via TLS providing enterprise-grade security by encrypting all traffic between clients and servers, without compromising performance. With Azure Files NFS, you could encrypt your data end-to-end: at rest, in transit, and across the network.
 
-For more information, refer the following document: [Encryption in transit for NFS Azure file shares](../../storage/files/encryption-in-transit-for-nfs-shares.md).
+For more information, refer the following document: [Encryption in transit for NFS Azure file shares](../../storage/files/files-encryption-in-transit.md).
 
 ## Deploying Encryption in Transit (EiT) for Azure Files NFS Shares
 
@@ -41,7 +41,7 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 - Configure an Azure Files storage account, NFS file share, and private endpoint as described in [Create an NFS Azure file share](../../storage/files/storage-files-quick-create-use-linux.md)
 
   > [!NOTE]
-  > To enforce Encryption in Transit for all the file shares in the Azure Storage account, enable [secure transfer required](../../storage/files/encryption-in-transit-for-nfs-shares.md#enforce-encryption-in-transit) option in the configuration tab of the storage account.
+  > To enforce Encryption in Transit for all the file shares in the Azure Storage account, enable [secure transfer required](../../storage/files/files-encryption-in-transit.md#enforce-encryption-in-transit) option in the configuration tab of the storage account.
 
 - Deploy the mount helper (AZNFS) package on the Linux VM.
 
@@ -59,7 +59,7 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 
   Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
-  For more information, see the [package installation](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation) section.
+  For more information, see the [package installation](../../storage/files/storage-files-how-to-mount-nfs-shares.md#install-the-aznfs-mount-helper) section.
 
   #### [**RHEL**](#tab/RHEL)
 
@@ -73,7 +73,7 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 
   Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
-  For more information, see the [package installation](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation) section.
+  For more information, see the [package installation](../../storage/files/storage-files-how-to-mount-nfs-shares.md#install-the-aznfs-mount-helper) section.
 
   ---
 
@@ -95,7 +95,7 @@ sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs nore
 mount -a
 ```
 
-For more information, refer to [mount the NFS file shares section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-2-mount-the-nfs-file-share) for mounting the Azure Files NFS Encryption in Transit file share in Linux VMs.
+For more information, refer to [mount the NFS file shares section](../../storage/files/storage-files-how-to-mount-nfs-shares.md#mount-a-classic-nfs-share-by-using-the-aznfs-mount-helper) for mounting the Azure Files NFS Encryption in Transit file share in Linux VMs.
 
 - File system mentioned is an example to explain the mount command syntax.
 - To use AZNFS mount helper and Encryption in Transit, use the fstype as `aznfs`. You should always add `_netdev` option to their /etc/fstab entries to make sure file shares are mounted on reboot only after the required services are active.
@@ -171,7 +171,7 @@ eite10app1:~ #
 
 These mounting details indicate that the client(VM) is connected through the local port 127.0.0.1, not an external network. The stunnel process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client (the VM). Stunnel then intercepts this traffic and securely forwards it over TLS to the Azure Files NFS server on Azure.
 
-For more information, see the [Verify that the in-transit data encryption succeeded](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-3-verify-that-the-in-transit-data-encryption-succeeded) section.
+For more information, see the [Verify encryption in transit](../../storage/files/storage-files-how-to-mount-nfs-shares.md#verify-encryption-in-transit) section.
 
 ## Next steps
 

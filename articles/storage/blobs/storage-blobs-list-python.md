@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 11/02/2026
 ms.author: shaas
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -132,7 +132,7 @@ The Azure Blob Storage client library for Python supports listing blobs asynchro
 
 Follow these steps to list blobs by using asynchronous APIs:
 
-1. Add the following import statements:
+1. Add the import statements.
 
     ```python
     import asyncio
@@ -151,17 +151,16 @@ Follow these steps to list blobs by using asynchronous APIs:
 
 With this basic setup in place, you can implement other examples in this article as coroutines by using async/await syntax.
 
-## List blobs in Apache Arrow format (preview)
+## List blobs in Apache Arrow format
 
-> [!IMPORTANT]
-> Listing blobs in Apache Arrow format is currently in **PREVIEW**. This scenario requires a **beta (preview) version** of the Azure Blob Storage client library for Python (for example, `azure-storage-blob` **12.31.0b1** or later preview release). Preview features are provided without a service-level agreement and aren't recommended for production workloads. Some features might not be supported, or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+To list blobs in Apache Arrow format, use version **12.31.0** or later of the [azure-storage-blob](https://pypi.org/project/azure-storage-blob/12.31.0/) package.
 
 This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The Python SDK decodes Apache Arrow behind the scenes and still returns the same `BlobProperties` objects. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
 
 > [!WARNING]
 > Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
 
-To request Apache Arrow-formatted results, set the `response_format` keyword argument to `"arrow"` when you call [ContainerClient.list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient?view=azure-python-preview&preserve-view=true#azure-storage-blob-containerclient-list-blobs) or [ContainerClient.list_blob_names](/python/api/azure-storage-blob/azure.storage.blob.containerclient?view=azure-python-preview&preserve-view=true#azure-storage-blob-containerclient-list-blob-names). When using Apache Arrow output, you can also set the `start_from` and `end_before` keyword arguments to control the range of paths returned.
+To request Apache Arrow-formatted results, set the `response_format` keyword argument to `"arrow"` when you call [ContainerClient.list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-list-blobs) or [ContainerClient.list_blob_names](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-list-blob-names). When using Apache Arrow output, you can also set the `start_from` and `end_before` keyword arguments to control the range of paths returned.
 
 > [!NOTE]
 > Using `response_format="arrow"` requires the [nanoarrow](https://pypi.org/project/nanoarrow/) package to be installed.

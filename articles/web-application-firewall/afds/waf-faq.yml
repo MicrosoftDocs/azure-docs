@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-web-application-firewall
   ms.topic: faq
-  ms.date: 09/01/2026
+  ms.date: 10/22/2026
 title: Frequently asked questions for Azure Web Application Firewall on Azure Front Door
 summary: This article answers common questions about features and functionality for Azure Web Application Firewall on Azure Front Door. 
 
@@ -103,7 +103,7 @@ sections:
       - question: |
           Do you support the same WAF features in all integrated platforms?
         answer: |
-          Currently, Core Rule Set (CRS) 3.0, CRS 3.1, and CRS 3.2 rules are supported only with Azure Web Application Firewall on Application Gateway. Rate limiting and Azure-managed DRS rules are supported only with Azure Web Application Firewall on Azure Front Door.
+          Currently, Core Rule Set (CRS) 3.0, CRS 3.1, and CRS 3.2 rules are supported only with Azure Web Application Firewall on Application Gateway. Rate limiting and the Default Rule Set (DRS) are supported on both platforms, although the available options differ. For example, grouping rate limits by JA4 client fingerprint or autonomous system number (ASN) is available only on Azure Front Door Premium (preview).
 
       - question: |
           Is DDoS protection integrated with Azure Front Door? 
@@ -116,6 +116,11 @@ sections:
           Why do additional requests above the threshold configured for my rate-limit rule get passed to my back-end server?
         answer: |
           You might not see requests immediately blocked by the rate limit when different Azure Front Door servers process requests. For more information, see [Rate limits and Azure Front Door servers](waf-front-door-rate-limit.md#rate-limits-and-azure-front-door-servers).
+
+      - question: |
+          Can I rate limit by something other than the client IP address?
+        answer: |
+          Yes. By default, a rate limit rule counts requests separately for each socket IP address. On Azure Front Door Premium, you can instead group a rate limit rule by country/region, autonomous system number (ASN), or JA4 client fingerprint, or count all matching requests together. These groupings are in preview. For more information, see [Group rate limit traffic (preview)](waf-front-door-rate-limit.md#group-rate-limit-traffic-preview).
 
       - question: |
           What content types does the WAF support?

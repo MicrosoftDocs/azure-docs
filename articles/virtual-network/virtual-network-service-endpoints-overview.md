@@ -32,7 +32,7 @@ Service endpoints are available for the following Azure services and regions. Th
 
 - **[Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in all Azure regions.
 
-- **[Azure Synapse Analytics](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in all Azure regions for dedicated SQL pools (formerly SQL DW).
+- **[Azure Synapse Analytics](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in all Azure regions for dedicated SQL pools (formerly SQL DW).
 
 - **[Azure Database for MariaDB](/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft.Sql*): Generally available in Azure regions where database service is available.
 
@@ -182,7 +182,7 @@ For FAQs, see [Virtual Network Service Endpoint FAQs](./virtual-networks-faq.md#
 
 - [Secure an Azure SQL Database to a virtual network](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-- [Secure an Azure Synapse Analytics to a virtual network](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Secure Azure Synapse Analytics to a virtual network](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 
 - [Compare Private Endpoints and Service Endpoints](./vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints)
 

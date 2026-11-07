@@ -1,11 +1,11 @@
 ---
 title: Deploy a tool to Microsoft Discovery
-description: Learn how to convert a tool definition YAML to JSON and create a Microsoft Discovery tool resource by using the Azure portal or REST API.
+description: Learn how to convert a tool definition YAML to JSON and create a Microsoft Discovery tool resource by using the Azure portal, REST API, or Discovery Studio.
 author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 05/01/2026
+ms.date: 10/01/2026
 
 #CustomerIntent: As a tool publisher, I want to deploy my tool resource to Microsoft Discovery so that agents and investigations can use it.
 ---
@@ -17,7 +17,7 @@ After you publish your tool's container image to Azure Container Registry (ACR) 
 This article shows you how to:
 
 - Convert your YAML tool definition into the JSON format that the Discovery resource provider accepts.
-- Create the tool resource by using the Azure portal or REST API.
+- Create the tool resource by using the Azure portal, the REST API, or Discovery Studio.
 - Optionally pass runtime environment variables to the tool's container at deployment time.
 
 ## Prerequisites
@@ -94,7 +94,7 @@ Save the file (for example, `my-tool.env.json`). You upload it alongside the def
 
 ## Step 3: Create the tool resource
 
-You can create the Discovery tool resource by using either the Azure portal or the REST API.
+You can create the Discovery tool resource by using the Azure portal, the REST API, or Discovery Studio.
 
 # [Azure portal](#tab/portal)
 
@@ -122,12 +122,12 @@ After deployment completes, the tool appears in the Discovery tool catalog and c
 
 # [REST API](#tab/rest)
 
-Send a `PUT` request to the tools resource endpoint. All examples use API version `2026-02-01-preview`.
+Send a `PUT` request to the tools resource endpoint. All examples use API version `2026-06-01`.
 
 ### Request
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/tools/{toolName}?api-version=2026-02-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/tools/{toolName}?api-version=2026-06-01
 Content-Type: application/json
 Authorization: Bearer <access-token>
 ```
@@ -186,7 +186,7 @@ jq -n \
    }' > tool-body.json
 
 az rest --method PUT \
-  --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.Discovery/tools/$TOOL?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.Discovery/tools/$TOOL?api-version=2026-06-01" \
   --body @tool-body.json
 ```
 
@@ -207,14 +207,47 @@ A successful create returns `201 Created` (or `200 OK` when updating an existing
 }
 ```
 
+# [Discovery Studio](#tab/studio)
+
+Create the tool resource directly in your project without switching to the Azure portal. The subscription, resource group, and region come from the current project.
+
+1. Sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) and open your project.
+1. In the **Discovery** tab, select **AI Capabilities**, and then select **Tools**.
+1. Select **New tool**. The **Create tool** page opens.
+
+   :::image type="content" source="media/how-to-deploy-tool-to-discovery/studio-tools-list.png" alt-text="Screenshot of the Tools section of the AI Capabilities tab in Discovery Studio with the New tool button." lightbox="media/how-to-deploy-tool-to-discovery/studio-tools-list.png":::
+
+1. Under **Project details**, review the **Subscription** and **Resource group**. These values come from the current project and you can't change them here. If you need different data, privacy, or security settings, select **Configure in Azure Portal** to use the portal flow instead.
+1. Under **Instance details**, fill in the following fields:
+
+   | Field | Description |
+   |---|---|
+   | **Name** | A unique name for the tool resource. |
+   | **Region** | Comes from the current project. |
+   | **Definition content file** | Select **Choose file** and upload the JSON file produced in [Step 1](#step-1-convert-the-tool-definition-yaml-to-json). |
+   | **Environment variables file** | Optional. Upload the JSON file from [Step 2](#step-2-optional-prepare-an-environment-variables-file). You can also upload a `.env` file. |
+   | **Definition content version** | Any string that identifies the version of the definition (for example, `1.0.0`). Increment this value each time you upload a new definition. |
+
+   :::image type="content" source="media/how-to-deploy-tool-to-discovery/studio-create-tool.png" alt-text="Screenshot of the Create tool page in Discovery Studio showing the Project details and Instance details fields." lightbox="media/how-to-deploy-tool-to-discovery/studio-create-tool.png":::
+
+1. Select **Create**.
+
+When deployment finishes, the tool appears in the **Tools** section under **All tools**.
+
 ---
 
 ## Step 4: Verify the deployment
 
+After you create the tool, verify that it deployed successfully. In Discovery Studio, open your project, select **AI Capabilities** > **Tools**, and then select **All tools** to confirm your tool appears in the list.
+
+:::image type="content" source="media/how-to-deploy-tool-to-discovery/studio-tools-verify.png" alt-text="Screenshot of the Tools page in Discovery Studio showing the tools list." lightbox="media/how-to-deploy-tool-to-discovery/studio-tools-verify.png":::
+
+You can also verify the deployment by using the Azure CLI:
+
 ```azurecli
 az resource show \
   --ids "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Discovery/tools/<toolName>" \
-  --api-version 2026-02-01-preview \
+  --api-version 2026-06-01 \
   --query "{name:name, state:properties.provisioningState, version:properties.definitionContentVersion}" \
   -o table
 ```

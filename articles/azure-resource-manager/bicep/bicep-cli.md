@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 05/14/2026
+ms.date: 10/30/2026
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -86,6 +86,26 @@ az bicep build --file main.bicep --stdout
 ```
 
 ---
+
+To use a specific Bicep configuration file instead of automatic _bicepconfig.json_ discovery (Bicep CLI v0.49 or later), use `--config`:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep build main.bicep --config ./bicepconfig.prod.json
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+`az bicep build` doesn't support `--config` yet. Use [`az bicep run`](/cli/azure/bicep#az-bicep-run) (Azure CLI 2.88.0 or later) to pass the command directly to the Bicep CLI:
+
+```azurecli
+az bicep run --command "build main.bicep --config ./bicepconfig.prod.json"
+```
+
+---
+
+For more information and a list of all commands that support `--config`, see [Specify a configuration file in the Bicep CLI](./bicep-config.md#specify-a-configuration-file-in-the-bicep-cli).
 
 If your Bicep file includes a module that references an external registry, the `build` command automatically calls [`restore`](#restore). The `restore` command gets the file from the registry and stores it in the local cache.
 
@@ -473,6 +493,24 @@ az bicep lint --file main.bicep
 
 ---
 
+To lint a file with a specific Bicep configuration file (Bicep CLI v0.49 or later), use `--config`:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep lint main.bicep --config ./eng/common/bicepconfig.json
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+`az bicep lint` doesn't support `--config` yet. Use [`az bicep run`](/cli/azure/bicep#az-bicep-run) (Azure CLI 2.88.0 or later) to pass the command directly to the Bicep CLI:
+
+```azurecli
+az bicep run --command "lint main.bicep --config ./eng/common/bicepconfig.json"
+```
+
+---
+
 If your Bicep file includes a module that references an external registry, the `lint` command automatically calls [`restore`](#restore). The `restore` command gets the file from the registry and stores it in the local cache.
 
 > [!NOTE]
@@ -753,7 +791,7 @@ To simulate a real deployment environment, you can pass the following flags:
 
 | Argument | Purpose | Example Value |
 | :--- | :--- | :--- |
-| `--subscription-id` | Replaces the value returned by `subscription().subscriptionId` | `00000000-1111-2222-3333-444444444444` |
+| `--subscription-id` | Replaces the value returned by `subscription().subscriptionId` | `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` |
 | `--resource-group` | Replaces the value returned by `resourceGroup().name` | `my-production-rg` |
 | `--location` | Sets the default location for `deployment().location` | `westeurope` |
 | `--tenant-id` | Replaces the value returned by `tenant().tenantId` | `72f988bf-86f1-41af-91ab-2d7cd011db47` |

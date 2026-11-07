@@ -17,6 +17,27 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## October 2026
+### FHIR service
+
+**Extra large bundle support**: The FHIR service now supports extra large bundles beyond the standard size limit, enabling scenarios that require larger payload sizes.
+
+**SearchParameter canonical URL conflict validation**: Creating or updating a SearchParameter with a canonical URL that conflicts with a built-in parameter is now rejected, preventing unintended overrides of standard search behavior.
+
+**Token introspection returns the correct client ID**: The token introspection endpoint now returns the Entra v1 `appid` or v2 `azp` claim as the RFC 7662 `client_id`, improving compatibility with SMART on FHIR clients.
+
+#### Bug fixes:
+
+**Fix for forged metadata in internal Bundle context**: Fixed a security issue where internal Bundle context could potentially allow forged metadata to change authorization behavior. Bundle context is now passed securely through internal request properties.
+
+**Fix for sorted SQL searches with `$includes`**: Fixed an issue where sorted SQL searches with `$includes` could return missing or incorrect included resources. Pagination now works correctly for sorted searches with includes.
+
+**Fix for `editProfileDefinitions` authorization on profile resources**: Bulk update, bulk delete, and conditional delete operations now correctly enforce the `editProfileDefinitions` permission when modifying or deleting `CodeSystem`, `ValueSet`, and `StructureDefinition` resources, ensuring consistent authorization for protected profile definition resources. Bulk update and bulk delete skip resources when the permission is absent and report them in the operation outcome. To grant selected users access to these operations, add the `editProfileDefinitions` data action to a custom role and assign it to them. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+
+**Fix for parallel bundle cancellation responses**: When a transaction entry fails during parallel bundle processing and triggers cancellation, the service now correctly returns HTTP 424 Failed Dependency for canceled sibling entries instead of HTTP 500.
+
+**Fix for `$includes` with `_summary=count`**: Queries that use `$includes` with `_summary=count` now return the distinct count of included resources instead of HTTP 500 Internal Server Error.
+
 ## September 2026
 ### FHIR service
 
@@ -25,6 +46,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 **Reindex operation optimizations**: Reindex operations are significantly optimized with reduced memory usage, removal of unnecessary database scans, and a fail-fast approach for improved reliability.
 
 **Improved error handling for `$export` with invalid resource types**: `$export` jobs with invalid resource types now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error.
+
+**`permission-v1` added to SMART configuration endpoint**: The FHIR service now includes `permission-v1` in the `/.well-known/smart-configuration` endpoint alongside the existing `permission-v2` capability, improving compatibility with SMART on FHIR clients that rely on v1 permissions.
 
 #### Bug fixes:
 
@@ -45,6 +68,14 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 **Fix for HTTP 500 on searches with extreme dates**: Fixed an issue where FHIR search queries with extreme dates (for example, `_lastUpdated=gt9999-12-31`) caused an internal overflow and returned HTTP 500. These queries now return proper results.
 
 **Fix for `$import` status polling with processing job ID**: Fixed an issue where polling the `$import` status endpoint with a processing job ID instead of the orchestrator's ID returned HTTP 500. The endpoint now returns a proper error response.
+
+**Fix for whitespace in `$export` resource type parameters**: Fixed an issue where `$export` operations could include unexpected whitespace in resource type parameters, potentially causing export failures. Resource type inputs are now trimmed correctly.
+
+**Fix for SMART-scoped requests creating bulk delete or update jobs**: Fixed an issue where SMART-scoped requests could create bulk delete or bulk update background jobs. SMART-scoped tokens are now properly restricted from initiating these bulk operations.
+
+**Fix for `StructureDefinition` imports bypassing `editProfileDefinitions` permission**: Fixed an issue where `StructureDefinition` resources could be imported via `$import` without requiring the `editProfileDefinitions` data action permission. Import now correctly excludes `StructureDefinition` resources, aligning with the existing permission requirements for profile management.
+
+**Fix for `EnableAadSmartOnFhirProxy` feature configuration not being enforced**: Fixed an issue where the `EnableAadSmartOnFhirProxy` feature configuration wasn't being properly enforced. The existing feature filter is now correctly applied, returning HTTP 401 Unauthorized when the feature is disabled.
 
 ## August 2026
 ### FHIR service

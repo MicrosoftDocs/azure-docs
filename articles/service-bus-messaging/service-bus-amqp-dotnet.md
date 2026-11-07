@@ -1,20 +1,20 @@
 ---
-title: Use legacy WindowsAzure.ServiceBus .NET framework library with AMQP 1.0 | Microsoft Docs
-description: This article describes how to use the legacy WindowsAzure.ServiceBus .NET framework library with AMQP (Advanced Messaging Queuing Protocol).
+title: AMQP compatibility for the retired WindowsAzure.ServiceBus library
+description: Review AMQP configuration and serialization differences when migrating existing WindowsAzure.ServiceBus applications to Azure.Messaging.ServiceBus.
 ms.topic: article
-ms.date: 04/30/2021
+ms.date: 10/06/2026
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
 
-# Use legacy WindowsAzure.ServiceBus .NET framework library with AMQP 1.0
+# AMQP compatibility for the retired WindowsAzure.ServiceBus library
 
 > [!NOTE]
-> This article is for existing users of the WindowsAzure.ServiceBus package looking to switch to using AMQP within the same package. While this package will continue to receive critical bug fixes until 30 September 2026, we strongly encourage to upgrade to the new [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) package instead which is available as of November 2020 and which support AMQP by default.
+> This article provides AMQP configuration and serialization details for existing `WindowsAzure.ServiceBus` applications during migration. Use the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md) to move to the supported `Azure.Messaging.ServiceBus` library.
 
 [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
-By default, the WindowsAzure.ServiceBus package communicates with the Service Bus service using a dedicated SOAP-based protocol called Service Bus Messaging Protocol (SBMP). In version 2.1 support for AMQP 1.0 was added which we recommend using rather than the default protocol.
+`WindowsAzure.ServiceBus` defaults to the retired Service Bus Messaging Protocol (SBMP). Versions 2.1 and later also provide AMQP 1.0. Existing applications that continue to use this library must select AMQP explicitly.
 
 To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string, or in the client constructors via the [TransportType](/dotnet/api/microsoft.servicebus.messaging.transporttype) option. Other than this change, application code remains unchanged when using AMQP 1.0.
 
@@ -22,19 +22,18 @@ There are a few API features that are not supported when using AMQP. These unsup
 
 ## Configure connection string to use AMQP 1.0
 
-Append your connection string with `;TransportType=Amqp` to instruct the client to make its connection to Service Bus using AMQP 1.0.
-For example, 
+Append your connection string with `;TransportType=Amqp` to instruct the client to make its connection to Service Bus using AMQP 1.0. For example,
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
 Where `namespace` and `SAS key` are obtained from the [Azure portal] when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal].
 
 ### AMQP over WebSockets
-To use AMQP over WebSockets, set `TransportType` in the connection string to `AmqpWebSockets`. For example: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 
+To use AMQP over WebSockets, set `TransportType` in the connection string to `AmqpWebSockets`. For example: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`.
 
 ## Message serialization
 
-When using the default protocol, the default serialization behavior of the .NET client library is to use the [DataContractSerializer][DataContractSerializer] type to serialize a [BrokeredMessage][BrokeredMessage] instance for transport between the client library and the Service Bus service. When using the AMQP transport mode, the client library uses the AMQP type system for serialization of the [brokered message][BrokeredMessage] into an AMQP message. This serialization enables the message to be received and interpreted by a receiving application that is potentially running on a different platform, for example, a Java application that uses the JMS API to access Service Bus.
+When using SBMP, `WindowsAzure.ServiceBus` used [DataContractSerializer][DataContractSerializer] for the body of a [BrokeredMessage][BrokeredMessage]. With AMQP, the library uses the AMQP type system to represent the message body. This representation allows an application on another platform, such as a Java application using JMS, to interpret supported body types.
 
 When you construct a [BrokeredMessage][BrokeredMessage] instance, you can provide a .NET object as a parameter to the constructor to serve as the body of the message. For objects that can be mapped to AMQP primitive types, the body is serialized into AMQP data types. If the object cannot be directly mapped into an AMQP primitive type; that is, a custom type defined by the application, then the object is serialized using the [DataContractSerializer][DataContractSerializer], and the serialized bytes are sent in an AMQP data message.
 
@@ -76,7 +75,7 @@ To facilitate interoperability with non-.NET clients, use only .NET types that c
 
 ## Behavioral differences
 
-There are some small differences in the behavior of the WindowsAzure.ServiceBus API when using AMQP, compared to the default protocol:
+When migrating an existing `WindowsAzure.ServiceBus` application from SBMP to AMQP, account for these differences:
 
 * The [OperationTimeout][OperationTimeout] property is ignored.
 * `MessageReceiver.Receive(TimeSpan.Zero)` is implemented as `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
@@ -97,6 +96,7 @@ Ready to learn more? Visit the following links:
 
 * [Service Bus AMQP overview]
 * [AMQP 1.0 protocol guide]
+* [Migrate from WindowsAzure.ServiceBus to Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md)
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer

@@ -3,7 +3,7 @@ title: App Service Environment Overview
 description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
 author: seligj95
 ms.topic: overview
-ms.date: 08/24/2026
+ms.date: 10/05/2026
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -57,7 +57,7 @@ If you require physical isolation down to the hardware level, you can deploy you
 
 - Dedicated host deployments limit scaling across all App Service plans to the number of available cores in that environment.
 
-- Each environment has 132 vCores.
+- Each environment has two dedicated hosts with 64 vCores per host, for a total of 128 vCores.
 - Instances sizes use the following vCore allocations:
   - I1v2 uses two vCores.
   - I2v2 uses four vCores.

@@ -4,7 +4,8 @@ title: "Sub-orchestrations in Durable Task"
 description: Learn how to use sub-orchestrations to call orchestrator functions from parent orchestrators in Durable Functions and Durable Task SDKs. Get started now.
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 04/23/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 zone_pivot_groups: azure-durable-approach
 ---
@@ -180,6 +181,10 @@ public void deviceProvisioningOrchestration(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -280,6 +285,10 @@ public class DeviceProvisioningOrchestration implements TaskOrchestration {
     }
 }
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -443,6 +452,10 @@ public void provisionNewDevices(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ## Next steps
@@ -520,7 +533,7 @@ def provision_new_devices(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -542,6 +555,52 @@ public class ProvisionNewDevices implements TaskOrchestration {
     }
 }
 ```
+
+# [Go](#tab/go)
+
+The following self-contained workflow functions demonstrate parent/child composition without external device services. Register them as `ParentGreeting` and `ChildGreeting`.
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func childGreeting(ctx *task.OrchestrationContext) (any, error) {
+	var name string
+	if err := ctx.GetInput(&name); err != nil {
+		return nil, err
+	}
+	return fmt.Sprintf("Hello %s!", name), nil
+}
+
+func parentGreeting(ctx *task.OrchestrationContext) (any, error) {
+	var names []string
+	if err := ctx.GetInput(&names); err != nil {
+		return nil, err
+	}
+	pending := make([]task.Task, len(names))
+	for i, name := range names {
+		pending[i] = ctx.CallSubOrchestrator(
+			"ChildGreeting", task.WithSubOrchestratorInput(name))
+	}
+	if err := ctx.WhenAll(pending...); err != nil {
+		return nil, err
+	}
+	results := make([]string, len(pending))
+	for i, child := range pending {
+		if err := child.Await(&results[i]); err != nil {
+			return nil, err
+		}
+	}
+	return results, nil
+}
+```
+
+Schedule all children before waiting to run them in parallel. The results remain in input order. For child results, instance IDs, metadata, and failures, see the [Go SDK sub-orchestrations sample](https://github.com/microsoft/durabletask-go/tree/main/samples/suborchestrations).
 
 ---
 

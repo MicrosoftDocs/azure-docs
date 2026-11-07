@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 09/21/2026
+ms.date: 10/15/2026
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -251,7 +251,7 @@ On the configuration server, go to the folder _%ProgramData%\ASR\home\svsystems\
 > - `Microsoft-ASR_UA_9.30.0.0_Windows_GA_22Oct2019_release.exe`
 > - `Microsoft-ASR_UA_9.30.0.0_UBUNTU-16.04-64_GA_22Oct2019_release.tar.gz`
 
-[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 Installer file | Operating system (64-bit only)
 --- | ---

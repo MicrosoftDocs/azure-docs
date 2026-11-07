@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 09/11/2026
+ms.date: 10/15/2026
 ---
 
 # Prepare on-premises disks for Azure through hydration
@@ -101,7 +101,7 @@ The preparation script executes the following changes based on the OS type of th
 
 1. **Install the Windows Azure Guest Agent**.
 
-[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
+   [!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
    Azure Site Recovery will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Site Recovery automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
 

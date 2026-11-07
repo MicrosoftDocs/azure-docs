@@ -177,6 +177,7 @@ azd down
 ## Related content
 
 + [Azure Functions hosted skills](functions-hosted-skills.md)
++ [Build and test a hosted skill with the Azure Functions hosted skills canvas](functions-hosted-skills-canvas.md)
 + [Azure Functions hosted skills reference](functions-hosted-skills-reference.md)
 + [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md)
 + [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md)

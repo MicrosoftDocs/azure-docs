@@ -5,7 +5,7 @@ description: Learn about threat detection for Azure VM backups, a feature that h
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 11/10/2025
+ms.date: 03/12/2026
 ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions

@@ -96,7 +96,7 @@ Sample trace output:
         data_partition_id = ctx_payload['data-partition-id']
     KeyError: 'data-partition-id'
     
-    requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://contoso.energy.azure.com/api/workflow/v1/workflow/Osdu_ingest/workflowRun/e9a815f2-84f5-4513-9825-4d37ab291264
+    requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://contoso.energy.azure.com/api/workflow/v1/workflow/Osdu_ingest/workflowRun/aaaabbbb-0000-cccc-1111-dddd2222eeee
 ```
 
 ## Failed schema validation

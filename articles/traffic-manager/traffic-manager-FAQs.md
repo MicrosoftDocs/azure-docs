@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 06/01/2026
+ms.date: 10/05/2026
 ms.author: allensu
 # Customer intent: As a Cloud Architect, I want to understand Azure Traffic Manager functionalities and limitations, so that I can effectively implement it for DNS-based traffic routing and ensure optimal performance of my distributed applications.
 ---
@@ -614,9 +614,6 @@ The following table describes the behavior of Traffic Manager health checks for 
 In order to add Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.
 
 ## Traffic Manager Linked Records
-
-> [!IMPORTANT]
-> Traffic Manager Linked Records and Strictly Typed Profiles are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### What are Traffic Manager Linked Records?
 

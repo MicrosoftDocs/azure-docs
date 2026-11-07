@@ -1,13 +1,16 @@
 ---
-title: "include file"
-description: "include file"
+title: "Retired Azure Service Bus client libraries"
+description: "Retirement status and migration guidance for the older Azure Service Bus client libraries and SBMP."
 author: egrootenboer
 ms.service: azure-service-bus
 ms.topic: include
-ms.date: 10/10/2023
+ms.date: 10/06/2026
 ms.author: egrootenboer
 ---
 
-> On 30 September 2026, we'll retire the Azure Service Bus SDK libraries WindowsAzure.ServiceBus, Microsoft.Azure.ServiceBus, and com.microsoft.azure.servicebus, which don't conform to Azure SDK guidelines. We'll also end support of the SBMP protocol, so you'll no longer be able to use this protocol after 30 September 2026. Migrate to the latest Azure SDK libraries, which offer critical security updates and improved capabilities, before that date.
+> [!IMPORTANT]
+> The Azure Service Bus libraries `WindowsAzure.ServiceBus`, `Microsoft.Azure.ServiceBus`, and `com.microsoft.azure.servicebus` were retired on September 30, 2026. They no longer receive official support or updates from Microsoft. Applications can continue to use these libraries with AMQP, but migrate to a supported library to receive security updates and bug fixes.
 >
->Although the older libraries can still be used beyond 30 September 2026, they'll no longer receive official support and updates from Microsoft. For more information, see the [support retirement announcement](https://azure.microsoft.com/updates/retirement-notice-update-your-azure-service-bus-sdk-libraries-by-30-september-2026/).
+> For Service Bus, migrate to `Azure.Messaging.ServiceBus` for .NET or `com.azure:azure-messaging-servicebus` for Java. See the migration guides for [WindowsAzure.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md), [Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md), and [com.microsoft.azure:azure-servicebus](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/migration-guide.md).
+>
+> The Service Bus Messaging Protocol (SBMP) was also retired on September 30, 2026. Use AMQP for Service Bus messaging. Support for `WindowsAzure.ServiceBus` with Azure WCF Relay continues until further notice. For details, see the [retirement announcement](https://techcommunity.microsoft.com/blog/messagingonazureblog/some-azure-service-bus-sdk-libraries-will-be-retired-on-30-september-2026%E2%80%94migrat/3917853).

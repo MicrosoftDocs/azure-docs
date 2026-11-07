@@ -24,6 +24,9 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
+* You must configure data protection for your volume.  
+   See [snapshots](snapshots-introduction.md) for very fast and space-efficient primary data protection and [backup](backup-introduction.md) to enable recovery from accidental deletion or corruption.
+
 
 ## Considerations
 
@@ -159,6 +162,9 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
         This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
+
+    > [!Important]
+    > SMB opportunistic locking (oplocks) is currently in preview. You must [register the feature](azure-netapp-files-create-volumes-smb.md#register-the-feature) before configuring this setting.
 
     * To enable opportunistic locks (oplocks) on new or existing volumes, select **Enabled** from the dropdown menu. 
     

@@ -11,13 +11,13 @@ ms.custom:
   - build-2025
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 05/14/2024
+ms.date: 10/12/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure OpenAI extension for Azure Functions
 
-[!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
+[!INCLUDE [retirement-warning](../../includes/functions-openai-support-limitations.md)]
 
 The Azure OpenAI extension for Azure Functions implements a set of triggers and bindings that enable you to easily integrate features and behaviors of [Azure OpenAI in Foundry Models](/azure/ai-services/openai/overview) into your function code executions. 
 
@@ -76,14 +76,13 @@ When using a vector database for storing content, you should also install at lea
 
 ## Install bundle
 
-You can add the preview extension by adding or replacing the following code in your `host.json` file, which specifically targets a preview version of the 4.x bundle that contains the OpenAI extension:
-<!---verify this bundle info-->
+For existing apps that use the extension, add or replace the following code in your `host.json` file. This version range excludes preview bundle version 4.60.0 and later, which do not contain the OpenAI extension:
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
+    "version": "[4.*, 4.60.0)"
   }
 }
 ``` 

@@ -48,7 +48,7 @@ If the SAMI is not enabled, enable the SAMI. Regardless, refresh the Synapse Lin
 
 ### Solution: Enable the SAMI, refresh the Synapse Link
 
-1. If disabled, enable the [system assigned managed identity (SAMI)](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) for the Azure SQL Database logical server. Regardless, proceed to Step 2.
+1. If disabled, enable the [system assigned managed identity (SAMI)](../../sql/authentication-azure-ad-user-assigned-managed-identity.md) for the Azure SQL Database logical server. Regardless, proceed to Step 2.
 1. In the Azure portal, navigate to your Synapse Link for SQL connection in Azure Synapse workspace. In the **Integrate** hub, under **Link connection**, select your link connection. In the General window, expand the **Advanced** section. Select the **Refresh** button. You will see a message with checked green tick indicating the SQL logical server resource ID and managed identity ID have been refreshed.
    :::image type="content" source="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png" alt-text="A screenshot of the Azure portal in the Synapse workspace. In the General section under Advanced, the Refresh button is highlighted." lightbox="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png":::
 1. If this does not resolve the Synapse Link issue, [submit an Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following the below instructions:
@@ -104,7 +104,7 @@ Disable and re-enable the SAMI for the Azure SQL logical server.
 ## Next steps
 
  - [Get started with Azure Synapse Link for Azure SQL Database](../connect-synapse-link-sql-database.md)
- - [Managed identities in Microsoft Entra for Azure SQL](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity)
+ - [Managed identities in Microsoft Entra for Azure Synapse Analytics](../../sql/authentication-azure-ad-user-assigned-managed-identity.md)
  - [Azure Synapse Link for SQL FAQ](../faq.yml)
  - [Known limitations and issues with Azure Synapse Link for SQL](../synapse-link-for-sql-known-issues.md)
  - [sys.dm_change_feed_errors (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors)

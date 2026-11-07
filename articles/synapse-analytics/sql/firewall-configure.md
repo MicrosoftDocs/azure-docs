@@ -5,7 +5,7 @@ description: Configure server-level IP firewall rules for a database in Azure Sy
 author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
-ms.date: 05/28/2026
+ms.date: 10/05/2026
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: how-to
@@ -63,7 +63,7 @@ To create and manage IP firewall rules, you need to have one of the following ro
 You create the first server-level firewall setting by using the [Azure portal](https://portal.azure.com/) or programmatically by using [Azure PowerShell](/powershell/module/az.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule), or an Azure [REST API](/rest/api/sql/firewall-rules/create-or-update). You create and manage additional server-level IP firewall rules by using these methods or Transact-SQL. Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
 > [!TIP]  
-> You can use [Auditing for Azure Synapse Analytics](/azure/azure-sql/database/auditing-overview?view=azure-sqldw-latest&preserve-view=true) to audit server-level and database-level firewall changes.
+> Use [Auditing in Azure Synapse Analytics](auditing-overview.md) to audit server-level and database-level firewall changes.
 
 ### Use the Azure portal to manage server-level IP firewall rules
 
@@ -140,7 +140,9 @@ az synapse workspace firewall-rule create --name AllowAllWindowsAzureIps --works
 |[Sql Pools](/rest/api/synapse/resourcemanager/sql-pools) | Synapse SQL pool management. |
 |[Ip Firewall Rules](/rest/api/synapse/resourcemanager/ip-firewall-rules) | Synapse Ip firewall rule management. |
 
-## Understanding the latency of firewall updates
+<a id="understanding-the-latency-of-firewall-updates"></a>
+
+## Understand the latency of firewall updates
 
 The server authentication model has a latency of 5 minutes for all changes to security settings, unless the database is contained and without a failover partner. Changes made to contained databases without a failover partner are instantaneous. For contained databases with a failover partner, each security update is instantaneous on the primary database, but the secondary database can take up to 5 minutes to reflect the changes. 
 
@@ -155,7 +157,8 @@ The following table describes the latency of security settings changes based on 
 
 ## Manually refreshing firewall rules
 
-If you need to see firewall rules updated more quickly than the 5 minute latency, you can manually refresh the firewall rules. Log in to the database instance that needs its rules updated, and run DBCC FLUSHAUTHCACHE.  This will cause the database instance to flush its local cache and refresh firewall rules.
+If you need to see firewall rules updated more quickly than the five-minute latency, you can manually refresh the firewall rules. Sign in to the database instance that needs its rules updated, and run `DBCC FLUSHAUTHCACHE`. This command causes the database instance to flush its local cache and refresh firewall rules.
+
 ```syntaxsql
 DBCC FLUSHAUTHCACHE[;]
 ```

@@ -5,7 +5,7 @@ description: Explore Azure Service Bus messaging samples to learn key features a
 author: spelluru
 ms.topic: article
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 02/10/2026
+ms.date: 10/06/2026
 ms.author: spelluru
 ---
 
@@ -19,13 +19,11 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | Package | Samples location | 
 | ------- | ---------------- | 
 | `Azure.Messaging.ServiceBus` (latest) | [Code samples](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) | 
-| `Microsoft.Azure.ServiceBus` (legacy) | [GitHub location](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus) |
 
 ## Java samples
 | Package | Samples location | 
 | ------- | ---------------- | 
 | `azure-messaging-servicebus` (latest) | [Code samples](/samples/azure/azure-sdk-for-java/servicebus-samples/) |
-| `azure-servicebus` (legacy) | [GitHub location](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) |
 
 ## Spring samples
 | Package                                           | Samples location                                                                                                                                                          | 

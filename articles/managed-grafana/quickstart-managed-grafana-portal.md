@@ -55,7 +55,7 @@ In this quickstart, you create an Azure Managed Grafana workspace by using the A
 1. Review the managed identity setting. If you have the Owner or User Access Administrator role on the subscription, **System assigned managed identity** is set to **On** by default.
 
     > [!NOTE]
-    > After the workspace is deployed, you can replace the system-assigned managed identity with a user-assigned managed identity. For more information, see [Configure Azure Managed Grafana authentication and permissions](how-to-authentication-permissions.md).
+    > After the workspace is deployed, you can replace the system-assigned managed identity with a user-assigned managed identity. For more information, see [Configure authentication for Azure Managed Grafana](how-to-authentication-permissions.md).
 
 1. Configure role assignments based on your Azure permissions:
     - If you're a subscription Owner or a User Access Administrator:

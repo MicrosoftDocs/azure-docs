@@ -1,58 +1,111 @@
 ---
-title: Use the Resiliency agent in Infrastructure Resiliency Manager
-description: Learn how to use the Resiliency agent to get conversational AI guidance for resiliency improvements in Infrastructure Resiliency Manager (preview).
+title: Use Azure Copilot Resiliency Agent in Infrastructure Resiliency Manager
+description: Learn how to use Azure Copilot Resiliency Agent to design, assess, and improve the zone resilience of Azure workloads.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 06/02/2026
+ms.date: 10/12/2026
 ms.topic: how-to
 ms.service: resiliency
-#customer intent: As a cloud administrator, I want to use the Resiliency agent so that I can get conversational guidance for improving my application's zone resiliency.
+#customer intent: As a cloud administrator, I want to use Azure Copilot Resiliency Agent to design resilient applications and improve the zone resilience of existing workloads.
 ---
 
-# Use the Resiliency agent in Infrastructure Resiliency Manager (preview)
+# Use Azure Copilot Resiliency Agent in Infrastructure Resiliency Manager (preview)
 
-The Resiliency agent is a conversational AI experience integrated into Azure Copilot that provides guided resiliency improvements for your applications. This article describes how to use Resiliency agent in Infrastructure Resiliency Manager (preview).
+Azure Copilot Resiliency Agent is an AI-powered assistant integrated into Azure Copilot. Use natural language to design resilient applications, understand the resilience posture of existing Azure workloads, get actionable recommendations, and remediate resilience gaps.
+
+The agent supports two primary capability areas:
+
+- **Start Resilient** helps you build resilience into applications before deployment.
+- **Get Resilient** helps you assess and improve workloads that are already running in Azure.
 
 ## Prerequisites
 
-- Tenant must be allowlisted for the Resiliency agent. To request access, [fill out this form](https://aka.ms/azurecopilot/agents/feedbackprogram).
-- **Agents (Preview)** must be enabled in the Azure Copilot admin center:
-  1. Go to **Azure Copilot admin center** > **Settings** > **Access management**.
-  2. Toggle **Agents (Preview)** to **On**.
+- An Azure subscription.
+- Access to the Azure resources you want the agent to assess or manage.
+- Access to Azure Copilot and its agents. Administrators can [manage access to Azure Copilot and agents](/azure/copilot/manage-access).
 
-## Start Resilient for greenfield applications
+## Open the Resiliency Agent
 
-Use the Resiliency agent to design new applications with resiliency best practices from the start.
+You can open the agent from Azure Copilot or from the Resiliency experience.
 
-### Get recommendations from a natural language description
+### Open from Azure Copilot
 
-Describe your application architecture to the agent. The agent evaluates your description and suggests resiliency improvements.
+1. In the [Azure portal](https://portal.azure.com/), select the **Copilot** icon in the portal header.
+2. In the agent selector at the top of the Copilot pane, select **Resiliency**.
+3. Select a suggested prompt or enter your own question.
 
-### Generate Infrastructure as Code (IaC) templates
+### Open from Resiliency
 
-Ask the agent to generate Azure Resource Manager (ARM) or Bicep templates with resiliency configurations already included.
+On the **Resiliency** overview pane, select one of the top actions for a common resilience workflow. The Azure Copilot pane opens with the Resiliency Agent selected and a relevant prompt.
+
+The agent maintains context across turns, so you can move from assessment to remediation without repeating the application context.
+
+## Start Resilient for new applications
+
+Describe your proposed application architecture in natural language. The agent analyzes the topology, identifies relevant resilience practices, and generates recommendations tailored to the resources in the architecture.
+
+The agent can also generate deployment-ready Bicep templates that have recommended resilience configurations enabled.
+
+Sample prompts include:
+
+- *My app has a VM, a PostgreSQL database, and a load balancer. Help me start my resilient journey.*
+- *I'm building an application with AKS, Redis, Storage, and Cosmos DB. What should I do to make it resilient?*
+- *Generate a Bicep template for a zone-resilient VM setup.*
+- *Create Bicep templates for a resilient architecture with VMs, AKS, and Storage.*
 
 ## Get Resilient for existing applications
 
-Use the Resiliency agent to improve the zone resiliency of applications already running in Azure.
+Use the agent to assess and improve the zone resilience of workloads that are already running in Azure.
 
-### Define your application
+### Check resilience and prerequisites
 
-Provide your list of resources to the agent. The agent creates a service group to model your application. [Learn how to define a Zone Down Drill (preview)](availability-zone-down-drill-define.md).
+Ask whether an individual resource or an entire service group is zone-resilient. The agent returns the current resilience status and relevant configuration details. It can also identify blockers such as regional limitations, permissions, and configuration dependencies.
 
-### Set goals and assess
+Sample prompts include:
 
-The agent assigns resiliency goals and evaluates your current posture, showing which resources meet goals and which don't. [Learn how to assign goals and view resiliency posture (preview)](goals-recommendations-assign-goals-view-posture.md).
+- *Is my VM zone-resilient?*
+- *Get the zone resilience posture of my service group.*
+- *What are the prerequisites to make my VM zone-resilient?*
 
-### Guided remediation
+### Enable resilience and generate scripts
 
-The agent provides step-by-step remediation guidance, including cost and downtime insights, for resources that don't meet your goals. [Learn how to review recommendations and get guided remediation steps (preview)](goals-recommendations-review-recommendations.md).
+For resource types that support in-place conversion, the agent can enable zone resilience after you confirm the change. For resources that require redeployment, such as virtual machines, the agent provides migration guidance and scripts instead of changing the resource.
 
-> [!NOTE]
-> The Resiliency agent doesn't make changes to your resources automatically. All actions require your confirmation and manual execution.
+The agent can generate enablement scripts in Azure PowerShell, Azure CLI, Bicep, Terraform, and Azure Resource Manager template formats.
+
+Sample prompts include:
+
+- *Enable zone resilience for my PostgreSQL server.*
+- *How do I make my storage account zone-redundant?*
+- *Give me scripts to enable zone resilience for my resources.*
+
+> [!IMPORTANT]
+> Review and validate all recommendations, scripts, templates, and proposed changes before you use them in a production environment. Resource-changing operations require your confirmation.
+
+### Organize resources and track goals
+
+The agent can create service groups, add resources to them, set zone resilience goals, check goal compliance, exclude resources, and refresh compliance after configuration changes.
+
+For an end-to-end workflow, ask the agent to:
+
+1. Create a service group for your application.
+2. Set zone resilience goals.
+3. Check the resilience posture.
+4. Fix identified problems or generate scripts for remediation.
+
+For more information about these workflows, see [Assign goals and view resilience posture](goals-recommendations-assign-goals-view-posture.md) and [Review recommendations](goals-recommendations-review-recommendations.md).
+
+## Known limitations
+
+- The agent is optimized for zone resilience. Regional resilience and other resilience dimensions aren't currently supported.
+- The **Start Resilient** template-generation flow currently supports Bicep.
+- Operations can take longer for large service groups or complex application architectures.
+- Results depend on the resource metadata available to the agent and the signed-in user's permissions.
+- AI-generated output can be incomplete or inaccurate and isn't authoritative.
 
 ## Related content
 
-- [Assign goals and view resiliency posture](goals-recommendations-assign-goals-view-posture.md)
+- [Transparency frequently asked questions for Azure Copilot Resiliency Agent](resiliency-agent-transparency.md)
+- [Assign goals and view resilience posture](goals-recommendations-assign-goals-view-posture.md)
 - [Review recommendations](goals-recommendations-review-recommendations.md)

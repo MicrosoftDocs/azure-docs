@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 07/31/2025
+ms.date: 10/14/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to understand how to manage quota and throughput for Azure NetApp Files, so that I can optimize storage performance based on my workload requirements.
 ---
@@ -94,8 +94,56 @@ To reduce the risk of backend resource concentration and to optimize workload di
 
 Application volume groups help improve placement, optimization, and predictability for supported workloads by organizing related volumes by using application-aware deployment rules following best practices.
 
+## Troubleshoot performance issues
+
+The throughput limit is only one factor that determines actual performance. To troubleshoot volume throughput or IOPS that's lower than expected, review the following recommendations:
+
+* Understand application performance requirements before mapping them to Azure NetApp Files volumes.
+* Ensure the virtual machines (VMs) are sized appropriately. See [Azure virtual machine SKUs best practices for Azure NetApp Files](performance-virtual-machine-sku.md).
+* Enable [accelerated networking](/azure/virtual-network/create-vm-accelerated-networking-powershell) for the VMs.
+* Select the desired [service level](azure-netapp-files-service-levels.md) and size for the capacity pool. Use a capacity pool with the [flexible service level](azure-netapp-files-service-levels.md) for the highest flexibility in capacity and throughput sizing.
+* Use a capacity pool with [manual QoS](manage-manual-qos-capacity-pool.md) to set throughput and capacity independently.
+* Create a volume with the desired quota size and throughput. See the [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/).
+* Understand the performance impacts of [Kerberos](performance-impact-kerberos.md).
+* Follow the [server message block (SMB) performance best practices](azure-netapp-files-smb-performance.md#smb-multichannel) for Azure NetApp Files.
+* Enable [SMB Multichannel](azure-netapp-files-smb-performance.md#smb-multichannel).
+* Disable [SMB signing](azure-netapp-files-smb-performance.md#performance-impact-of-smb-signing) where possible to improve I/O performance.
+* For Linux performance consideration and tuning:
+    * Enable [`nconnect`](performance-linux-mount-options.md#nconnect) for high-performance, single-instance workloads.
+    * Cap [`rsize` and `wsize`](performance-linux-mount-options.md#rsize-and-wsize) at 256 KiB.
+    * In Linux, the default maximum number of remote procedure call (RPC) slots is 65,536. Azure NetApp Files volumes allow 128 RPCs at any given time. If a client launches more than 128 concurrent operations, performance might be degraded.
+* Use the [FIO](https://github.com/axboe/fio) tool for performance benchmark testing with Azure NetApp Files. See [Azure NetApp Files performance benchmark test recommendations](azure-netapp-files-performance-metrics-volumes.md).
+
+    > [!NOTE]
+    > Using tools such as `dd` isn't recommended for Azure NetApp Files benchmark testing. They generate single-threaded sequential reads and writes only, which aren't representative of application workloads.
+
+## Deploy SAP HANA scale-out workloads and Azure NetApp Files in proximity
+
+For SAP HANA scale-out workloads to achieve low latency, work with your Microsoft representative to ensure the VMs and the Azure NetApp Files volumes are deployed in proximity.
+
+* Use [application volume group for SAP HANA](application-volume-group-introduction.md) to deploy volumes with an optimal layout in the infrastructure.
+* Deploy Azure NetApp Files volumes in the same availability zone as the SAP HANA VMs for optimal latency and performance.
+* Very specific conditions might require a proximity placement group with VM pinning. Use the [SAP HANA VM Pinning Requirements Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) to address this requirement. To provide feedback on pinning or related features, send an email to anffeedback@microsoft.com, or talk to your Azure NetApp Files sales representative.
+
+For more information, see:
+
+* [Azure proximity placement groups for optimal network latency with SAP applications](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios)
+* [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+* [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+
+## Performance metrics aggregation
+
+* Metrics are reported as aggregates of multiple data points collected during a five-minute interval. For more information about metrics aggregation, see [Azure Monitor Metrics aggregation and display explained](/azure/azure-monitor/essentials/metrics-aggregation-explained). 
+* Individual metric streams are aggregated across time to produce statistical summaries at different data granularities.
+
+## Resources
+
+* [Throughput metrics for capacity pool](azure-netapp-files-metrics.md#throughput-metrics-for-capacity-pools) and [volumes](azure-netapp-files-metrics.md#throughput-metrics-for-volumes)
+* [Performance FAQs](faq-performance.md)
+* [Performance benchmarks for Linux](performance-benchmarks-linux.md)
+
 ## Next steps
 
-- [Azure NetApp Files Performance Calculator](https://docs.netapp.com/us-en/netapp-solutions/ehc/azure-storage-options.html?hs_preview=tIKQbfoF-41214739590)
+- [Azure NetApp Files Performance Calculator](https://azure.github.io/azure-netapp-files/calc/)
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Performance benchmarks for Linux](performance-benchmarks-linux.md)

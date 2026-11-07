@@ -128,7 +128,7 @@ To learn more about tuning data transfer options, see [Performance tuning for up
 
 [!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
 
-Transfer validation options can be defined at the client level using [BlobClientConfig](/javascript/api/@azure/storage-blob/blobclientconfig), which applies validation options to all methods called from a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) instance.  Alternatively, you can override transfer validation options at the operation level via options, such as [BlobUploadOptions](/javascript/api/@azure/storage-blob/blobuploadoptions).
+Transfer validation options can be defined at the client level using [BlobClientConfig](/javascript/api/@azure/storage-blob/blobclientconfig), which applies validation options to all methods called from a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) instance.  Alternatively, you can override transfer validation options at the operation level via options, such as [BlockBlobUploadOptions](/javascript/api/@azure/storage-blob/blockblobuploadoptions).
 
 ### [JavaScript](#tab/javascript)
 

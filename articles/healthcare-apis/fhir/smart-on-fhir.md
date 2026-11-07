@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 08/20/2026
+ms.date: 10/04/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -108,17 +108,6 @@ The sample supports the following scenarios for Microsoft Entra ID:
 
 AHDS FHIR service supports SMART v1.0.0 and SMART v2.0.0. You can't mix and match SMART v1.0.0 and SMART v2.0.0 scopes in the same client app registration. You must choose one or the other. 
 
-
-## Migrate from SMART on FHIR Proxy to SMART on FHIR
-
-<details>
-<summary>Click to expand</summary>
-
-1. **Configure native SMART on FHIR** — Set up your identity provider (Microsoft Entra ID) to support SMART on FHIR capabilities natively, including registering SMART client applications and configuring the appropriate FHIR SMART user roles.
-1. **Update client applications** — Modify any client applications currently using the proxy endpoint to point to the native FHIR service endpoint and use the native SMART authorization flow.
-1. **Disable the SMART on FHIR proxy** — Uncheck the SMART on FHIR proxy setting under the Authentication blade for the FHIR service and save the changes.
-
-</details>
 
 ## Next steps
 

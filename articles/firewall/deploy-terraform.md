@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.date: 03/28/2026
+ms.date: 10/09/2026
 ms.custom: devx-track-terraform
 content_well_notification:
   - AI-contribution
@@ -16,6 +16,9 @@ ai-usage: ai-assisted
 # Quickstart: Deploy Azure Firewall with Availability Zones - Terraform
 
 In this quickstart, use Terraform to deploy an Azure Firewall in three Availability Zones.
+
+> [!NOTE]
+> For new deployments, omit the firewall's `zones` argument and let Azure manage backend zone allocation in [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). To use platform-managed allocation, omit `zones` from the `azurerm_firewall` resource in your configuration. Don't remove zone settings from an existing deployment solely to obtain redundancy; eligible existing firewalls are migrated automatically.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -109,8 +112,9 @@ In this article, you learn how to:
 
 1. Run [az network firewall show](/cli/azure/network/firewall#az-network-firewall-show) with a [JMESPath](/cli/azure/query-azure-cli) query to display the availability zones for the firewall.
 
+
     ```azurecli
-    az network firewall show --name $firewall_name --resource-group $resource_group_name --query "{Zones:zones"}
+    az network firewall show --name $firewall_name --resource-group $resource_group_name --query "{Zones:zones}"
     ```
 
 ---

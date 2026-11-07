@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 04/24/2026
+ms.date: 10/19/2026
 ms.custom: sfi-image-nochange
 
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
@@ -19,6 +19,8 @@ ms.custom: sfi-image-nochange
 Azure Front Door enables secure Transport Layer Security (TLS) delivery to your applications by default when you use your own custom domains. To learn more about custom domains, including how custom domains work with HTTPS, see [Domains in Azure Front Door](../domain.md).
 
 Azure Front Door supports Azure-managed certificates and customer-managed certificates. In this article, you learn how to configure both types of certificates for your Azure Front Door custom domains.
+
+Configure the domain's [TLS policy](../tls-policy.md) and [TLS key exchange policy](../tls-key-exchange-policy.md) separately to control protocol versions, cipher suites, and supported key exchange groups. Hybrid post-quantum key exchange requires TLS 1.3. The domain's key exchange policy controls client-to-Front Door connections, not the separate Front Door-to-origin TLS connection.
 
 ## Prerequisites
 
@@ -82,6 +84,8 @@ Currently, two methods authenticate Azure Front Door to access your Key Vault:
 > [!WARNING]
 > - Azure Front Door currently only supports Key Vault in the same subscription. Selecting Key Vault under a different subscription results in a failure.
 > - Azure Front Door doesn't support certificates with elliptic curve cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA also must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
+
+The certificate algorithm restriction is separate from the classical and hybrid groups supported for [TLS key exchange](../tls-key-exchange-policy.md). Selecting a key exchange group doesn't replace the certificate requirements.
 
 #### Register Azure Front Door
 

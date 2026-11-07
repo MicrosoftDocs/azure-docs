@@ -23,18 +23,20 @@ items:
   items:
   - name: Grafana settings
     href: grafana-settings.md
-  - name: Remote MCP server
+  - name: Azure Managed Grafana Remote MCP
     href: grafana-mcp-server.md
+  - name: Azure Monitor dashboards remote MCP server
+    href: azure-monitor-dashboards-mcp-server.md
   expanded: true
 - name: How-to guides
   items:
   - name: Access and sharing
     items:
-    - name: Configure Grafana resource authentication and permissions
+    - name: Configure Grafana authentication
       href: how-to-authentication-permissions.md
-    - name: Modify access permissions to Azure Monitor
+    - name: Grant access to Azure Monitor data
       href: how-to-permissions.md
-    - name: Manage access and permissions for users and identities
+    - name: Grant access to Grafana
       href: how-to-manage-access-permissions-users-identities.md
     - name: Use Grafana Team Sync
       href: how-to-sync-teams-with-entra-groups.md

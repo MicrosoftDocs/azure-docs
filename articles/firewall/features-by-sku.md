@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 08/27/2026
+ms.date: 10/14/2026
 ms.author: duau
 # Customer intent: As a network security administrator, I want to understand all Azure Firewall features across different SKUs, so that I can choose the right version and effectively implement network security for our Azure Virtual Network resources.
 ---
@@ -61,7 +61,7 @@ Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to
 
 - **Built-in high availability**: High availability is built in, so no extra load balancers are required and there's nothing you need to configure.
 
-- **Availability Zones**: Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. You can also associate Azure Firewall to a specific zone for proximity reasons.
+- **Availability Zones**: For new deployments, don't specify firewall zones. Azure manages zone-redundant backend allocation in [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). Existing non-zone-redundant firewalls are migrated automatically in regions that support multiple availability zones.
 
 - **Application FQDN filtering rules**: You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require Transport Layer Security (TLS) termination.
 
@@ -77,7 +77,7 @@ Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to
 
 - **Inbound DNAT support**: Inbound Internet network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks.
 
-- **Multiple public IP addresses**: You can associate multiple public IP addresses with your firewall for enhanced DNAT and SNAT scenarios.
+- **Multiple public IP addresses**: You can associate multiple public IP addresses with your firewall for enhanced DNAT and SNAT scenarios. Azure Firewall doesn't support attaching a public IP prefix itself, but it can use individual Standard SKU public IP addresses provisioned from a public IP prefix. You can associate up to 250 public IP addresses with a firewall in a virtual network, and up to 80 with a firewall in a secured virtual hub.
 
 - **Azure Monitor logging**: All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your event hub, or send them to Azure Monitor logs.
 
@@ -119,7 +119,7 @@ Standard includes all Basic features, plus:
 
 - **Web categories**: Web categories let administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. In Standard, categorization is based on FQDN only.
 
-- **Enhanced multiple public IP support**: You can associate up to 250 public IP addresses with your firewall.
+- **Enhanced multiple public IP support**: You can associate up to 250 public IP addresses with a firewall in a virtual network (up to 80 with a firewall in a secured virtual hub). Azure Firewall doesn't support attaching a public IP prefix itself, but it can use individual Standard SKU public IP addresses provisioned from a public IP prefix.
 
 ### Standard limitations compared to Premium
 
@@ -179,6 +179,8 @@ All Azure Firewall SKUs include:
 - Built-in high availability with no extra load balancers required
 - Support for Availability Zones deployment for increased availability
 - No extra cost for deployment across multiple Availability Zones
+
+For new deployments, omit explicit firewall zone settings and let Azure manage zone allocation. Zone redundancy by default is available in the [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). In regions without **Availability Zones**, the firewall remains regional. 
 
 ### Network Address Translation (NAT)
 

@@ -4,7 +4,7 @@ description: "Durable Task is Microsoft's durable execution framework for buildi
 author: cgillum
 ms.author: cgillum
 ms.reviewer: hannahhunter
-ms.date: 04/22/2026
+ms.date: 10/12/2026
 ms.topic: overview
 ms.service: durable-task
 titleSuffix: Durable Task
@@ -51,10 +51,11 @@ Durable Task supports multiple programming languages across two hosting models: 
 | JavaScript/TypeScript | Yes | Yes |
 | Python | Yes | Yes |
 | Java | Yes | Yes |
+| Go | No | Yes (beta) |
 | PowerShell | Yes | No |
 
 > [!NOTE]
-> [Durable Task Go SDK](https://github.com/microsoft/durabletask-go) is also available as a community-supported, open-source option for self-hosted scenarios, but is in experimental stages and not yet recommended for production use.
+> The [Durable Task SDK for Go](../sdks/durable-task-go.md) is an open-source beta for self-hosted applications that connect to Durable Task Scheduler. Durable Functions doesn't support Go.
 
 For guidance on choosing between Azure Functions and self-hosted, see [Choose your hosting model](./choose-orchestration-framework.md).
 

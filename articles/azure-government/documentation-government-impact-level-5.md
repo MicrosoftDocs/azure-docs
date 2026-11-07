@@ -153,7 +153,7 @@ For Analytics services availability in Azure Government, see [Products available
 
 ### [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
-- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-overview). The instructions to enable this configuration for Azure Synapse Analytics are the same as the instructions to do so for Azure SQL Database.
+- Add transparent data encryption with customer-managed keys through Azure Key Vault. For more information, see [Customer-managed TDE for Azure Synapse Analytics](/azure/synapse-analytics/sql/transparent-data-encryption-byok-overview).
 
 ### [Data Factory](../data-factory/index.yml)
 
@@ -188,7 +188,7 @@ All virtual machines should use Disk Encryption for virtual machines or Disk Enc
 
 Azure Dedicated Host provides physical servers that can host one or more virtual machines and that are dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our datacenters, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts, in whatever configuration meets your needs.
 
-These VMs provide the necessary level of isolation required to support IL5 workloads when deployed outside of the dedicated DoD regions. When you use Dedicated Host, your Azure VMs are placed on an isolated and dedicated physical server that runs only your organization’s workloads to meet compliance guidelines and standards.
+These VMs provide the necessary level of isolation required to support IL5 workloads when deployed outside of the dedicated DoD regions. When you use Dedicated Host, your Azure VMs are placed on an isolated and dedicated physical server that runs only your organization's workloads to meet compliance guidelines and standards.
 
 Current Dedicated Host SKUs (VM series and Host Type) that offer the required compute isolation include SKUs in the VM families listed on the [Dedicated Host pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
 

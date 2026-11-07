@@ -44,6 +44,7 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 ## Limitations
 
 * Only v2 SKU supports a frontend with both IPv4 and IPv6 addresses
+* A public IPv6 listener and a private IPv6 listener can't share a frontend port. Configure them with different frontend ports.
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
@@ -52,9 +53,6 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 * The following limitations apply to WAF custom rules when IPv6 traffic is involved:
     - Custom rules that use IP address-based match conditions do not support IPv6 traffic.
     - Geo-based custom rules are not supported for IPv6 traffic.
-
-> [!NOTE]
-> Geo-based custom rules can be defined in a WAF policy. However, associating a policy that includes geo-based rules with a dual-stack (IPv4 + IPv6) Application Gateway may fail.
 
 ## Prerequisites
 

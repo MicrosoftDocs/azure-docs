@@ -159,6 +159,8 @@
       items:
         - name: Overview
           href: expressroute-about-virtual-network-gateways.md
+        - name: Manage advertised route scale
+          href: expressroute-connection-manage-advertised-routes.md
         - name: Use a VPN or ExpressRoute gateway in a different region
           href: ../vpn-gateway/vpn-gateway-different-region.md?toc=/azure/expressroute/toc.json
         - name: About Scalable Gateway
@@ -211,6 +213,8 @@
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
         - name: Design VPN as private peering backup
           href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
+  - name: Test link failover
+    href: test-link-failover.md
   - name: ExpressRoute gateway
     items:
     - name: Reliability in ExpressRoute gateway
@@ -351,7 +355,7 @@
         - name: Create a virtual network gateway for ExpressRoute
           href: /shows/azure/expressroute-how-to-create-vpn-gateway-your-virtual-network
         - name: Create an ExpressRoute circuit
-          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/
+          href: /shows/azure/expressroute-how-to-create-expressroute-circuit
         - name: Evolve your network infrastructure for connectivity
           href: /events/ignite-2015/brk2481
         - name: How to set up private peering for your circuit
@@ -359,7 +363,7 @@
         - name: "Hybrid partnerships: Enabling on-premises scenarios"
           href: /events/ignite-2015/brk1454
         - name: Set up Microsoft peering for your circuit
-          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
+          href: /shows/azure/expressroute-how-to-set-up-microsoft-peering-your-expressroute-circuit
     - name: Classic and legacy articles
       items:
         - name: Configure ExpressRoute and S2S coexisting connections

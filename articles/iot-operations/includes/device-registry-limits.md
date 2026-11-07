@@ -32,3 +32,15 @@ The following table lists the limits that apply to the Azure Device Registry res
 | Policies (preview) | Count per Azure Device Registry namespace | 1 |
 | Credentials (preview) | Count per Azure Device Registry namespace | 1 |
 | Credentials (preview) | Count per Entra ID tenant | 2 |
+| Certificate authority (preview) | Count per subscription | 50 |
+| Root certificate authorities (preview) | Count per Azure Device Registry namespace | 1 |
+| Root certificate authority (preview) | Maximum validity (years) | 10 |
+| Intermediate certificate authorities (preview) | Count per Azure Device Registry namespace | 3 |
+| Certificate policies (preview) | Count per intermediate certificate authority | 1 |
+| Intermediate certificate authority (preview) | Maximum validity (years) | 1 |
+| Leaf certificate (preview) | Minimum validity (days) | 1 |
+| Leaf certificate (preview) | Maximum validity (days) | 90 |
+| Certificates (preview) | Maximum issued per second (RPS) by a single namespace | 50 |
+| Certificates (preview) | Maximum issued per second (RPS) by a single certificate authority | 30 |
+| Certificates (preview) | Maximum unique certificates issued to a single device within 24 hours | 20 |
+| Certificates (preview) | Maximum leaf certificate revocations per minute | 500 |

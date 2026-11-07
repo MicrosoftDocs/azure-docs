@@ -177,7 +177,6 @@ Considerations:
 * Refer to the [Subnets](#subnets) section for Flex Consumption specific sizing considerations.
 * The subnet can't already be in use for other purposes (like private or service endpoints, or [delegated](../virtual-network/subnet-delegation-overview.md) to any other hosting plan or service). While you can share the same subnet with multiple Flex Consumption apps, the networking resources are shared across these function apps, which can lead to one app impacting the performance of others on the same subnet.
 * You can't share the same subnet between a Container Apps environment and a Flex Consumption app.
-* The Flex Consumption plan currently doesn't support subnets with names that contain underscore (`_`) characters.
 
 ::: zone-end
 ::: zone pivot="premium-plan,dedicated-plan"

@@ -5,7 +5,7 @@ items:
   items:
   - name: What is Elastic on Azure?
     href: overview.md
-    displayName: Elastic, Elasticsearch, Observability, Security, Azure Native Integration
+    displayName: Elastic, Elasticsearch, Vector Database, Observability, Security, Azure Native Integration
   - name: FAQ
     href: faq.yml
 - name: Quickstarts

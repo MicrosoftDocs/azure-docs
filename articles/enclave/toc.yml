@@ -222,6 +222,8 @@
   items:
     - name: Azure Enclave templates
       href: azure-enclave-templates.md
+    - name: Azure Enclave and Azure Local integration
+      href: azure-local-integration.md
     - name: Troubleshoot guide
       href: troubleshoot.md
     - name: Migrate Azure resources into Azure Enclave

@@ -4,7 +4,8 @@ title: "Durable Timers: Implement Delays and Timeouts"
 description: "Learn how to implement durable timers in Durable Functions and Durable Task SDKs to add delays, set timeouts on async actions, and schedule billing notifications. Get started with code examples in C#, Python, Java, and JavaScript."
 ms.topic: feature-guide
 ms.service: durable-task
-ms.date: 04/22/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, powershell, python, java
@@ -100,6 +101,10 @@ Start-DurableTimer -Duration $duration
 ctx.createTimer(Duration.ofHours(72)).await();
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -138,6 +143,10 @@ yield ctx.createTimer(72 * 60 * 60);
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -282,6 +291,10 @@ public String billingIssuer(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -354,6 +367,34 @@ const billingIssuer: TOrchestrator = async function* (ctx: OrchestrationContext)
     return "done";
 };
 ```
+
+# [Go](#tab/go)
+
+Register `billingIssuer` as an orchestrator and your billing activity as `SendBillingEvent`. This demonstration uses one-second intervals so you can run it locally; choose a suitable billing interval for your application.
+
+```go
+package main
+
+import (
+	"time"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func billingIssuer(ctx *task.OrchestrationContext) (any, error) {
+	for i := 0; i < 10; i++ {
+		if err := ctx.CreateTimer(time.Second).Await(nil); err != nil {
+			return nil, err
+		}
+		if err := ctx.CallActivity("SendBillingEvent").Await(nil); err != nil {
+			return nil, err
+		}
+	}
+	return "done", nil
+}
+```
+
+`CreateTimer` takes a `time.Duration`. Unlike `time.Sleep`, a durable timer doesn't block a worker while it waits. The orchestration resumes when the timer fires.
 
 # [PowerShell](#tab/powershell)
 
@@ -543,6 +584,10 @@ public boolean tryGetQuote(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -649,6 +694,10 @@ const tryGetQuote: TOrchestrator = async function* (ctx: OrchestrationContext): 
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 

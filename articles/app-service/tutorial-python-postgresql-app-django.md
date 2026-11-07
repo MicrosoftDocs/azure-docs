@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django web app with PostgreSQL'
 description: Create a Python Django web app with a PostgreSQL database and deploy it to Azure. The app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/08/2025
+ms.date: 10/08/2026
 ms.update-cycle: 180-days
 ms.author: msangapu
 author: msangapu-msft
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- A GitHub account. you can also [get one for free](https://github.com/join).
+- A GitHub account. You can also [get one for free](https://github.com/join).
 - Knowledge of Python with Django development.
 - **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
@@ -416,6 +416,8 @@ Having issues? Check the [Troubleshooting guide](configure-language-python.md#tr
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run [Django database migrations](https://docs.djangoproject.com/en/4.1/topics/migrations/) is in an SSH session with the Linux container in App Service. 
 
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
+
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the **App Service** page, in the left menu: 
@@ -624,7 +626,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
-1. You need to use the five app settings for connectivity in App service. Open *azureproject/production.py*, uncomment the following lines (lines 29-48), and save the file:
+1. You need to use the five app settings for connectivity in App Service. Open *azureproject/production.py*, uncomment the following lines (lines 29-48), and save the file:
 
     ```python
     DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
@@ -666,6 +668,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 ## Generate database schema
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run Django database migrations is in an SSH session with the Linux container in App Service.
+
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
 
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 

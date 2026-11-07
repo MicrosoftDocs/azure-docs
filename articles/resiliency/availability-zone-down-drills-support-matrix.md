@@ -2,7 +2,7 @@
 title: Availability zone down drills support matrix for Infrastructure Resiliency Manager
 description: Provides a summary regional availability, supported scenarios, and limitations for availability zone down drills in Infrastructure Resiliency Manager.
 ms.topic: reference
-ms.date: 09/28/2026
+ms.date: 10/12/2026
 ms.service: resiliency
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -13,6 +13,8 @@ ms.author: v-mallicka
 # Support matrix for Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)
 
 This article summarizes the regional availability, supported scenarios, and limitations for Availability Zone Down Drill in Infrastructure Resiliency Manager (preview).
+
+Availability Zone Down Drills require the service group to be enrolled in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
 
 ## Supported regions
 

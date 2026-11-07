@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 07/08/2026
+ms.date: 09/22/2026
 ---
 
 # Configure a standard service endpoint using Azure PowerShell
@@ -14,39 +14,13 @@ ms.date: 07/08/2026
 This article walks you through configuring a [standard service endpoint](service-endpoint-standard-overview.md) using Azure PowerShell. You create a public IP address as a network identifier, associate it with service endpoints on a subnet, configure a network security perimeter, and validate connectivity.
 
 > [!IMPORTANT]
-> Standard service endpoint is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Standard service endpoint is generally available.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account).
 
 - **Network Contributor** role or higher on the subscription. Specifically, you need the `Microsoft.Network/publicIPAddresses/joinServiceEndpointNetworkIdentifier/action` permission. For more information, see [network security perimeter role-based access control requirements](network-security-perimeter-role-based-access-control-requirements.md).
-
-- The **AllowServiceEndpointNetworkIdentifier** feature must be registered in your subscription. Use the following commands to register the feature:
-
-    ```azurepowershell-interactive
-    $featureParams = @{
-        FeatureName       = "AllowServiceEndpointNetworkIdentifier"
-        ProviderNamespace = "Microsoft.Network"
-    }
-    Register-AzProviderFeature @featureParams
-    ```
-
-    Verify the registration status:
-
-    ```azurepowershell-interactive
-    $featureParams = @{
-        FeatureName       = "AllowServiceEndpointNetworkIdentifier"
-        ProviderNamespace = "Microsoft.Network"
-    }
-    Get-AzProviderFeature @featureParams | Select-Object -Property RegistrationState
-    ```
-
-    Wait for the state to show **Registered**, then refresh the resource provider registration:
-
-    ```azurepowershell-interactive
-    Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-    ```
 
 - Azure PowerShell installed locally or Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
@@ -360,7 +334,7 @@ $vnet | Set-AzVirtualNetwork
 ```
 
 > [!NOTE]
-> The same public IP address can be assigned to all subnets in a region within a subscription. The network identifier is supported across subscriptions during the public preview.
+> You can use the same public IP address as the network identifier for all subnets across subscriptions within the same tenant and region.
 
 ## Create a network security perimeter
 

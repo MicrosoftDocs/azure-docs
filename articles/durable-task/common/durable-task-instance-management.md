@@ -3,7 +3,8 @@ title: "Manage Orchestration Instances in Durable Functions and Durable Task SDK
 description: Learn how to manage orchestration instances in Durable Functions and Durable Task SDKs. Start, query, terminate, suspend, and resume workflows using built-in APIs.
 author: cgillum
 ms.topic: how-to
-ms.date: 04/22/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 reviewer: hhunter-ms
 ms.service: durable-task
@@ -14,7 +15,7 @@ zone_pivot_groups: azure-durable-approach
 
 # Manage orchestration instances
 
-Use the built-in instance management APIs to start, query, terminate, suspend, resume, and purge orchestration instances in your durable workflows. In [Durable Functions](what-is-durable-task.md), the [orchestration client binding](../durable-functions/durable-functions-bindings.md#orchestration-client) exposes these APIs. In the [Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md), the same operations are available through the `DurableTaskClient` class. This article shows how to perform each instance management operation with code examples for both platforms.
+Use the built-in instance management APIs to start, query, terminate, suspend, resume, and purge orchestration instances in your durable workflows. In [Durable Functions](what-is-durable-task.md), the [orchestration client binding](../durable-functions/durable-functions-bindings.md#orchestration-client) exposes these APIs. In the [Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md), the same operations are available through the SDK's client API, such as .NET's `DurableTaskClient` or Go's `durabletaskscheduler.Client`. This article shows how to perform each instance management operation with code examples for both platforms.
 
 > [!TIP]
 > The [Azure Durable Task Scheduler](what-is-durable-task.md) is the recommended backend for both Durable Functions and the Durable Task SDKs, providing a fully managed, serverless experience for running durable workflows at scale.
@@ -2130,8 +2131,36 @@ public static Task Run(
 
 # [JavaScript](#tab/javascript)
 
+In a starter function with a durable client binding, restart an orchestration with a generated new instance ID. This example applies to JavaScript and TypeScript:
+
+```javascript
+const client = df.getClient(context);
+await client.restart(instanceId, true);
+```
+
+You can also specify a target instance ID and version, and access the source instance ID inside the cloned orchestrator, using the JavaScript and TypeScript APIs shown below.
+
 > [!NOTE]
-> JavaScript doesn't currently support this feature.
+> Restarting with an explicit target instance ID and version and accessing `context.df.sourceInstanceId` require version `3.6.0` or later of the `durable-functions` npm package and version `3.16.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. Until v3.16.0 is available in extension bundles, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version).
+>
+> [See when version releases are available for the extension bundle.](https://github.com/Azure/azure-functions-extension-bundles/releases)
+
+```javascript
+await client.restart(sourceId, {
+    newInstanceId: "cloned-instance",
+    version: "2.0.0",
+});
+```
+
+When passing a `RestartOptions` object, `newInstanceId` is required and `version` is optional. If `version` is omitted, the new execution uses the `defaultVersion` configured in `host.json`, not the source instance's version. Specifying only `version` isn't supported.
+
+This creates a fresh execution of the source orchestrator with its original input and leaves the source instance unchanged. It doesn't copy execution progress or completed activity results; activities run again.
+
+Inside the cloned orchestrator, read the source instance ID from the orchestration context:
+
+```javascript
+const sourceInstanceId = context.df.sourceInstanceId;
+```
 
 # [Python](#tab/python)
 
@@ -2567,6 +2596,60 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 > [!NOTE]
 > For the purge history operation to succeed, the runtime status of the target instance must be **Completed**, **Terminated**, or **Failed**.
+
+::: zone pivot="durable-task-sdks"
+
+## Go instance management
+
+Create a Go management client with `durabletaskscheduler.NewClient`. The following methods correspond to the operations described in this article:
+
+| Operation | Go client method |
+| --- | --- |
+| Start an instance | `ScheduleNewOrchestration` |
+| Read instance metadata | `FetchOrchestrationMetadata` |
+| Query instances | `QueryInstances` |
+| Wait for execution | `WaitForOrchestrationStart` and `WaitForOrchestrationCompletion` |
+| Send an event | `RaiseEvent` |
+| Suspend or resume | `SuspendOrchestration` and `ResumeOrchestration` |
+| Terminate | `TerminateOrchestration` |
+| Restart | `RestartInstance` |
+| Rewind a failed instance | `RewindInstance` |
+| Purge one instance | `PurgeOrchestrationState` |
+
+Always check the terminal status before reading a successful result. This helper requests payloads and decodes a typed output only for a completed instance:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/durabletaskscheduler"
+)
+
+func waitForResult[T any](ctx context.Context, durableClient *durabletaskscheduler.Client, id api.InstanceID) (T, error) {
+	var result T
+	metadata, err := durableClient.WaitForOrchestrationCompletion(
+		ctx, id, api.WithFetchPayloads(true))
+	if err != nil {
+		return result, err
+	}
+	if metadata.RuntimeStatus != api.RUNTIME_STATUS_COMPLETED {
+		return result, fmt.Errorf("instance %s ended with %s: %+v",
+			id, metadata.RuntimeStatus, metadata.FailureDetails)
+	}
+	if err := metadata.ReadOutput(&result); err != nil {
+		return result, err
+	}
+	return result, nil
+}
+```
+
+For example, use `waitForResult[string]` for an orchestration with string output. The [Go SDK management sample](https://github.com/microsoft/durabletask-go/tree/main/samples/management) demonstrates queries, lifecycle operations, restart, and instance-scoped purge. For rewind behavior and emulator limitations, see [Go beta compatibility considerations](../sdks/durable-task-go.md#beta-compatibility-considerations).
+
+::: zone-end
 
 ## Next steps
 

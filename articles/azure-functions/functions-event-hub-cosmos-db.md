@@ -1,8 +1,6 @@
 ---
 title: 'Tutorial: Use Java functions with Azure Cosmos DB and Event Hubs'
 description: This tutorial shows you how to consume events from Event Hubs to make updates in Azure Cosmos DB using a function written in Java.
-author: KarlErickson
-ms.author: karler
 ms.topic: tutorial
 ms.date: 02/14/2024
 ms.devlang: java

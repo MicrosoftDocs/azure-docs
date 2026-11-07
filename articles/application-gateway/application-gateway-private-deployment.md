@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/18/2026
+ms.date: 10/1/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
@@ -350,10 +350,6 @@ The following limitations apply:
 ### Private link configuration
 
 Application Gateway doesn't support [private link configuration](private-link.md) for tunneling traffic through private endpoints when you use a private-only frontend IP configuration.
-
-### WAF Rate Limiting
-
-[Rate limiting custom rules](../web-application-firewall/ag/rate-limiting-configure.md) for Application Gateway WAF v2 are not currently supported.
 
 ### Private IP frontend configuration only with AGIC
 

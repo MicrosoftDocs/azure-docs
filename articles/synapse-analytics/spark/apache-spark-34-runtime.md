@@ -34,10 +34,10 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | R | 4.2.2    |
 
 > [!TIP]
-> For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.4).
+> For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.5).
 ## Libraries
 
-To check the libraries included in Azure Synapse Runtime for Apache Spark 3.4 for Java/Scala, Python and R go to [Azure Synapse Runtime for Apache Spark 3.4 Releases Notes](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.4).             
+To check the libraries included in Azure Synapse Runtime for Apache Spark 3.4 for Java/Scala, Python and R go to [Azure Synapse Runtime for Apache Spark 3.4 Releases Notes](https://spark.apache.org/releases/spark-release-3-4-0.html).             
 
 > [!TIP]
 > spark.memoryOverheadFactor.preferred: If set to true, Spark will prioritize spark.driver.memoryOverheadFactor and spark.executor.memoryOverheadFactor over the explicit values defined by spark.driver.memoryOverhead and spark.executor.memoryOverhead. When enabled, the overhead is always computed using the factor, and the explicit overhead settings are ignored. The default is false for backward compatibility.

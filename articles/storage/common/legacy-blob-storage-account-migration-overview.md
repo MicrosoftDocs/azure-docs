@@ -46,13 +46,15 @@ By retiring legacy blob storage accounts, Azure simplifies the platform and ensu
 >[!Warning]
 >If you do not migrate your legacy blob storage account to GPv2 by October, 2026, all existing legacy blob storage accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
 
+> [!IMPORTANT]
+> GPv1 storage accounts are expected to transition to GPv2 pricing shortly after the retirement date, regardless of when the backend update of your storage accounts from GPv1 to GPv2 is completed. To maintain control over your update timeline, proactively update your GPv1 accounts to GPv2 before the Microsoft-initiated conversion begins.
+ 
+
 | Date           | Milestone                                      |
 |----------------|------------------------------------------------|
 | **September 2025** | Retirement announced                          |
 | **September 2026**    | Creation of new legacy blob storage accounts disabled                         |
-| **October 2026** | Full retirement; Any remaining legacy blob storage accounts automigrated to GPv2. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf. |
-
-After the retirement date, **data access will be blocked** for all legacy blob storage accounts. This change takes effect globally across all Azure regions.
+| **October 2026** | Full retirement. If you don't migrate an existing legacy blob storage account, Microsoft interprets that choice as consent to convert the account to GPv2 on your behalf. Billing changes start in November 2026. Accounts conversion starts in early November and extends to Q1CY26.|
 
 ## Preparing for migration
 >[!Tip]
@@ -94,12 +96,12 @@ resources
 
 ## Special Cases: Databricks DBFS Accounts
 
-If you see a storage account that is part of a **Databricks-managed resource group** in your subscription, **no action is required**. These accounts are read-only for you and are used by Databricks for workspace operations. Microsoft will migrate these DBFS accounts to **GPv2 automatically** ahead of the October 13, 2026 retirement.
+If you see a storage account that's part of a **Databricks-managed resource group** in your subscription, **no action is required**. Databricks manages these accounts, and they're read-only for you. Databricks uses these accounts for workspace operations. Microsoft migrates these DBFS accounts to **GPv2 automatically** after the October 13, 2026 retirement. The account conversion happens in waves and extends to Q1CY2027.
 
 ### How to identify DBFS accounts
 - Most DBFS accounts start with the prefix `dbstorage`.  
 Examples:  
-   - `dbstoragezeoppf6waviqm`
+- `dbstoragezeoppf6waviqm`
    -`dbstorageb3qvu2dqsbsrg`
    - `dbstorageolaatsgryngy6`
 

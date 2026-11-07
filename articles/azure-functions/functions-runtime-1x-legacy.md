@@ -3,7 +3,7 @@ title: Azure Functions runtime 1.x legacy reference
 description: Review historical behavior and reference resources for apps that use the retired Azure Functions runtime 1.x.
 ms.service: azure-functions
 ms.topic: reference
-ms.date: 09/16/2026
+ms.date: 10/06/2026
 ---
 
 # Azure Functions runtime 1.x legacy reference
@@ -469,9 +469,9 @@ http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FU
 
 ## Service Bus bindings in runtime 1.x
 
-Runtime 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging) namespace. Newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus) require Service Bus extension 5.x or later and runtime 4.x.
+Runtime 1.x exposed types from the `Microsoft.ServiceBus.Messaging` namespace in `WindowsAzure.ServiceBus`, which was retired for Service Bus messaging on September 30, 2026. Migrate to Service Bus extension 5.x or later and runtime 4.x to use [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus) types.
 
-On September 30, 2026, the Azure Service Bus SDK libraries WindowsAzure.ServiceBus, Microsoft.Azure.ServiceBus, and com.microsoft.azure.servicebus will retire. These libraries don't conform to Azure SDK guidelines. Support for the Service Bus Messaging Protocol (SBMP) will also end. Although you can continue to use the older libraries after retirement, they will no longer receive official support and updates from Microsoft. For more information, see the [support retirement announcement](https://azure.microsoft.com/updates/retirement-notice-update-your-azure-service-bus-sdk-libraries-by-30-september-2026/).
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ### Trigger usage
 

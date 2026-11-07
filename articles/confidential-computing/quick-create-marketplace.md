@@ -1,10 +1,10 @@
 ---
-title: Quickstart - Create Intel SGX VM in the Azure Marketplace
-description: Get started with your deployments by learning how to quickly create an Intel SGX VM with Marketplace.
+title: Quickstart - Create Intel SGX VM in the Azure Marketplace (specialized)
+description: Specialized quickstart for creating Intel SGX VMs from Azure Marketplace templates.
 author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: quickstart
-ms.date: 11/01/2021
+ms.date: 06/30/2026
 ms.author: wwilliams
 ms.custom:
   - mode-other
@@ -15,14 +15,17 @@ ms.custom:
 
 # Quickstart: Create Intel SGX VM in the Azure Marketplace
 
-This tutorial guides you through the process of deploying Intel SGX VMs using Azure Marketplace. Otherwise, we recommend following the VM deployment flow [using portal or CLI.](quick-create-portal.md)
+> [!IMPORTANT]
+> For most new deployments, use [Azure confidential VM quickstarts](quick-create-confidential-vm-portal.md) based on AMD SEV-SNP or Intel TDX where available. This SGX quickstart is for specialized enclave-based workloads.
+
+This tutorial guides you through the process of deploying Intel SGX VMs by using Azure Marketplace. Otherwise, follow the VM deployment flow [using portal or CLI](quick-create-portal.md).
 
 ## Prerequisites
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!NOTE]
-> Free trial accounts do not have access to the VMs in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
+> Free trial accounts don't have access to the VMs in this tutorial. Upgrade to a pay-as-you-go subscription.
 
 
 ## Sign in to Azure
@@ -31,18 +34,18 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. At the top, select **Create a resource**.
 
-1. In the **Get Started** default pane, search **Azure Confidential Computing (Virtual Machine)** .
+1. In the **Get Started** default pane, search for **Azure Confidential Computing (Virtual Machine)**.
 
-1. Click the **Azure Confidential Computing (Virtual Machine)** template.
+1. Select the **Azure Confidential Computing (Virtual Machine)** template.
 
     ![Deploy a VM](media/quick-create-marketplace/portal-search-marketplace.png)
 
 1. On the Virtual machine landing page, select **Create**.
 
 
-## Configure an Intel SGX Virtual Machine
+## Configure an Intel SGX virtual machine
 
-1. In the **Basics** tab, select your **Subscription** and **Resource Group** (group needs to be empty to deploy this template).
+1. In the **Basics** tab, select your **Subscription** and **Resource Group** (the resource group needs to be empty to deploy this template).
 
 1. For **Virtual machine name**, enter a name for your new VM.
 
@@ -53,33 +56,33 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
         > [!NOTE]
         > Intel SGX VMs run on specialized hardware in specific regions. For the latest regional availability, look for DCsv2-series or DCsv3/DCdsv3-series in [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
-1. Configure the operating system image that you would like to use for your virtual machine. This setup only support Gen 2 VM and image deployments
+1. Configure the operating system image that you want to use for your virtual machine. This setup only supports Gen 2 VM and image deployments.
 
-    * **Choose Image**: For this tutorial, select Ubuntu 20.04 LTS (Gen 2). You may also select Windows Server Datacenter 2019, or and Ubuntu 18.04 LTS. If you choose to do so, you'll be redirected in this tutorial accordingly.
+    * **Choose Image**: For this tutorial, select Ubuntu 20.04 LTS (Gen 2). You can also select Windows Server Datacenter 2019 or Ubuntu 18.04 LTS. If you choose one of those images, the tutorial redirects you accordingly.
    
-1. Fill in the following information in the Basics tab:
+1. Fill in the following information in the **Basics** tab:
 
    * **Authentication type**: Select **SSH public key** if you're creating a Linux VM.
 
         > [!NOTE]
         > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-    * **Username**: Enter the Administrator name for the VM.
+    * **Username**: Enter the administrator name for the VM.
 
     * **SSH public key**: If applicable, enter your RSA public key.
     
     * **Password**: If applicable, enter your password for authentication.
     
-1. Fill in the following information in the "Virtual Machine Settings" tab:
+1. Fill in the following information in the **Virtual Machine Settings** tab:
 
    * Choose the VM SKU Size
    * **DCsv2-series** supports **Standard SSD**, **Premium SSD** is supported across DC1, DC2 and DC4. 
-   * **DCsv3 and DCdsv3-series** supports **Standard SSD**, **Premium SSD** and **Ultra Disk**
+   * **DCsv3 and DCdsv3-series** support **Standard SSD**, **Premium SSD**, and **Ultra Disk**.
    
    * **Public inbound ports**: Choose **Allow selected ports** and select **SSH (22)** and **HTTP (80)** in the **Select public inbound ports** list. If you're deploying a Windows VM, select **HTTP (80)** and **RDP (3389)**. In this quickstart, this step is necessary to connect to the VM.
    
     >[!Note]
-    > Allowing RDP/SSH ports is not recommended for production deployments.  
+    > Don't allow RDP or SSH ports for production deployments.
 
      ![Inbound ports](media/quick-create-portal/inbound-port-virtual-machine.png)
 
