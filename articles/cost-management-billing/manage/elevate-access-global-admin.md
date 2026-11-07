@@ -193,7 +193,7 @@ The API response returns list of roles available to your billing account.
 }
 ```
 
-Use the `roleName` property to identify the owner role definition. Copy the `name` of the role definition. For example, from the above API response, you'd copy `aaaabbbb-0000-cccc-1111-dddd2222eeee`. Paste this value somewhere so that you can use it in the next step.
+Use the `roleName` property to identify the owner role definition. Copy the `name` of the role definition. For example, from the preceding API response, you'd copy `aaaabbbb-0000-cccc-1111-dddd2222eeee`. Paste this value somewhere so that you can use it in the next step.
 
 ### Add yourself as an owner
 
