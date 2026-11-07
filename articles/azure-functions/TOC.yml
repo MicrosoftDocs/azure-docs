@@ -680,6 +680,9 @@
     - name: Canvas quickstart
       displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
       href: functions-hosted-skills-canvas.md
+    - name: Developer guide
+      displayName: AI, agent, hosted skills, Markdown, triggers, tools, MCP, skills
+      href: functions-hosted-skills-developer-guide.md
     - name: Hosted Skill bindings in Python
       displayName: AI, agent, hosted skills, binding, Python, hybrid workflows, HostedSkill
       href: functions-hosted-skills-bindings.md
