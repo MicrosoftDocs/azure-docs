@@ -2304,7 +2304,7 @@ curl --request POST \
 Sample response:
 ```JSON
 {
-  "ddms_urn": "urn://rafs/opendes:work-product-component--SamplesAnalysis:1c022fcfa0134607b7c3dbc26f8783cf/samplesanalysis/nmr/1.0.0/2fb9788f-043c-4f32-b9fa-29a2cb218d3a",
+  "ddms_urn": "urn://rafs/opendes:work-product-component--SamplesAnalysis:1c022fcfa0134607b7c3dbc26f8783cf/samplesanalysis/nmr/1.0.0/aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "updated_wpc_id": [
     "opendes:work-product-component--SamplesAnalysis:1c022fcfa0134607b7c3dbc26f8783cf:1758009160406872"
   ]
@@ -2316,7 +2316,7 @@ To get record data, use `GET /api/rafs-ddms/v2/samplesanalysis/{record_id}/data/
 
 ```bash
 curl --request GET \
-  --url {{DNS}}/api/rafs-ddms/v2/samplesanalysis/opendes:work-product-component--SamplesAnalysis:1c022fcfa0134607b7c3dbc26f8783cf/data/nmr/2fb9788f-043c-4f32-b9fa-29a2cb218d3a \
+  --url {{DNS}}/api/rafs-ddms/v2/samplesanalysis/opendes:work-product-component--SamplesAnalysis:1c022fcfa0134607b7c3dbc26f8783cf/data/nmr/aaaabbbb-0000-cccc-1111-dddd2222eeee \
   --header 'accept: */*;version={{rafsddms-content-schema-version}}' \
   --header 'authorization: Bearer {{ACCESS_TOKEN}}' \
   --header 'cache-control: no-store' \
@@ -3427,7 +3427,7 @@ OEPDataplaneLogs
 
 | TenantId                               | TimeGenerated [UTC]      | Message                                                                                                                                                                                                                              | _ResourceId                                                                                                                                         |
 |----------------------------------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| aaaabbbb-0000-cccc-1111-dddd2222eeee   | 2025-10-21 13:33:12.495  | 2025-10-21 13:33:12,495 [11][INFO] --- {correlation-id=rafs-ddms-7f9c2e1a-4b2d-4e3a-8c1d-9a2b3c4d5e6f} uvicorn.access: 127.0.0.6:32997 - "GET /api/rafs-ddms/healthz HTTP/1.1" 200                                                  | /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/test-rg/providers/microsoft.openenergyplatform/energyservices/adme-instance     |
+| aaaabbbb-0000-cccc-1111-dddd2222eeee   | 2025-10-21 13:33:12.495  | 2025-10-21 13:33:12,495 [11][INFO] --- {correlation-id=rafs-ddms-aaaa0000-bb11-2222-33cc-444444dddddd} uvicorn.access: 127.0.0.6:32997 - "GET /api/rafs-ddms/healthz HTTP/1.1" 200                                                  | /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourcegroups/test-rg/providers/microsoft.openenergyplatform/energyservices/adme-instance     |
 
 
 
