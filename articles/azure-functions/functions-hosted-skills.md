@@ -198,6 +198,8 @@ For the latest configuration details, telemetry fields, and usage guidance, use 
 
 + [Observability in azure-functions-agents-runtime](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/observability.md)
 
+For monitoring setup, KQL queries, token usage, latency, and connector checks, see [Monitor and troubleshoot hosted skills](functions-hosted-skills-monitor-troubleshoot.md).
+
 ## Related content
 
 + [Azure Functions hosted skills scenarios](functions-hosted-skills-scenarios.md)

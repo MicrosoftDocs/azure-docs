@@ -689,6 +689,9 @@
     - name: Dynamic workflows quickstart
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
       href: functions-hosted-skills-dynamic-workflows-how-to.md
+    - name: Monitor and troubleshoot
+      displayName: hosted skills, Application Insights, KQL, tokens, latency, connectors, diagnostics
+      href: functions-hosted-skills-monitor-troubleshoot.md
     - name: Evaluate hosted skills
       displayName: AI, agent, hosted skills, evaluation, Vally, graders, testing
       href: functions-hosted-skills-evaluation.md
