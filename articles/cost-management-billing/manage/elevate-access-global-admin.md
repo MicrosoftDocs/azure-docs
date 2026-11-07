@@ -173,7 +173,7 @@ The API response returns list of roles available to your billing account.
         },
         {
             "id": "/providers/Microsoft.Billing/billingAccounts/6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingRoleDefinitions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
-            "name": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+            "name": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
             "properties": {
                 "description": "The Reader role gives the user read permissions to a billing account.",
                 "permissions": [
