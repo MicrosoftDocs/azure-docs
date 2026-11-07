@@ -221,7 +221,7 @@ Some bots, such as verified search engine or social media crawlers, can match ru
 
 ## Monitor the AI bot ruleset
 
-Requests that match the AI bot ruleset are recorded in the Azure Front Door WAF logs. The rule name in each log entry identifies the ruleset, rule group, and rule ID, for example `Microsoft_AIBotRuleSet-1.0-AIBotAccess-800101`. When Azure WAF attributes a request to a known AI operator, the `provider_s` field contains the operator name, such as `OpenAI`, `Google`, `Anthropic`, `Amazon`, `Meta`, or `Perplexity`. The operator name also appears in the `details_data_s` field.
+Azure Front Door WAF logs record requests that match the AI bot ruleset. The rule name in each log entry identifies the ruleset, rule group, and rule ID, for example `Microsoft_AIBotRuleSet-1.0-AIBotAccess-800101`. When Azure WAF attributes a request to a known AI operator, the `provider_s` field contains the operator name, such as `OpenAI`, `Google`, `Anthropic`, `Amazon`, `Meta`, or `Perplexity`. The operator name also appears in the `details_data_s` field.
 
 The following Log Analytics query shows how many requests each AI operator sent, the AI bot rule that they matched, and the action that Azure WAF took:
 
