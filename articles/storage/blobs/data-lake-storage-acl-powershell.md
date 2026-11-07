@@ -218,12 +218,12 @@ This example creates or updates the ACL on a **directory** for a user.
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID aaaaaaaa-bbbb-cccc-1111-222222222222 -Permission r-x -InputObject $acl
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID 00aa00aa-bb11-cc22-dd33-44ee44ee44ee -Permission r-x -InputObject $acl
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 ```
 
 > [!NOTE]
-> To update a **default** ACL entry, use the **-DefaultScope** parameter when you run the [Set-AzDataLakeGen2ItemAclObject](/powershell/module/az.storage/set-azdatalakegen2itemaclobject) command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID aaaaaaaa-bbbb-cccc-1111-222222222222 -Permission r-x -DefaultScope`.
+> To update a **default** ACL entry, use the **-DefaultScope** parameter when you run the [Set-AzDataLakeGen2ItemAclObject](/powershell/module/az.storage/set-azdatalakegen2itemaclobject) command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID 00aa00aa-bb11-cc22-dd33-44ee44ee44ee -Permission r-x -DefaultScope`.
 
 ### Update ACLs recursively
 

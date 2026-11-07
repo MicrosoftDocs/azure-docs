@@ -5,7 +5,7 @@ author: joeolerich
 ms.author: joeolerich
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 11/05/2026
+ms.date: 11/06/2026
 # Customer intent: As a web platform owner, I want to control how AI crawlers and AI agents access my applications behind Azure Front Door, so that I can protect my content while still supporting the AI experiences I choose.
 ---
 
@@ -26,10 +26,10 @@ When you assign the AI bot ruleset to a WAF policy, Azure WAF classifies request
 
 Keep the following behaviors in mind:
 
-- **Identity verification**: For rules 800101, 800102, and 800103, Azure WAF verifies that a request comes from the operator of the AI bot that it claims to be. A request that identifies itself as one of these bots but fails verification matches rule 800104 instead.
+- **Identity verification**: For rules 800101, 800102, and 800103, Azure WAF verifies that a request comes from the operator of the AI bot that it claims to be. A request that identifies itself as one of these bots but fails verification matches only rule 800104.
 - **Managed signatures**: Microsoft manages the AI bot signatures and updates them as AI bots change. You don't need to change the ruleset version to get updated signatures.
 - **Log by default**: When you assign the ruleset, all of its rules are enabled with the **Log** action. Matching requests are recorded in the WAF logs, but no traffic is blocked until you change a rule's action.
-- **Evaluation order**: Custom rules are evaluated before the AI bot ruleset. If your policy also uses the Bot Manager ruleset, the Bot Manager rules are evaluated before the AI bot ruleset. Both bot rulesets are evaluated before the Default Rule Set.
+- **Evaluation order**: Azure WAF evaluates the [HTTP DDoS ruleset](http-ddos-ruleset.md) first, then custom rules, and then managed rulesets in the order that they appear in the policy. The AI bot ruleset is evaluated immediately after the Bot Manager ruleset. In a policy that uses all of these rulesets, the default order is the HTTP DDoS ruleset, custom rules, the Default Rule Set, the Bot Manager ruleset, and then the AI bot ruleset.
 - **Detection mode**: If your WAF policy is in detection mode, requests that match the AI bot ruleset are logged, and the configured action isn't taken.
 
 ## Ruleset rules
@@ -41,7 +41,7 @@ The AI bot ruleset appears as **Microsoft_AIBotRuleSet_1.0** in the managed rule
 | 800101 | AI training | Verified crawlers that collect public web content to train or fine-tune AI models. | Log |
 | 800102 | AI search | Verified crawlers that index content to power AI search, answers, or summaries. This category includes search crawlers that also feed AI experiences. | Log |
 | 800103 | AI Interactive agents | Verified AI agents that retrieve pages or perform tasks in real time when a user asks an AI assistant to. | Log |
-| 800104 | Miscellaneous AI agents | AI bots and agents that can't be verified or attributed to a known AI operator, including requests that claim to be a known AI bot but fail verification. | Log |
+| 800104 | Miscellaneous AI agents | AI bots and agents that Azure WAF can't verify. This category includes bots from known AI operators that don't publish IP address or reverse DNS information for verification, and requests that claim to be a known AI bot but fail verification. | Log |
 
 A single AI company can operate bots in more than one category. For example, a company might use one crawler to collect training data and a separate agent to fetch a page when a user asks about it. Each request is classified by the purpose of the bot that sent it.
 
@@ -50,7 +50,10 @@ Consider the following points when you choose an action for each rule:
 - **AI training (800101)**: Block this category if you don't want your public content collected to train AI models.
 - **AI search (800102)**: Blocking this category can reduce how often your content appears in AI-powered search and answer experiences.
 - **AI Interactive agents (800103)**: These requests are made on behalf of a person in real time. Because a person starts the request, these agents might not follow robots.txt directives. Blocking this category prevents AI assistants from retrieving your pages when users ask about them.
-- **Miscellaneous AI agents (800104)**: This category includes AI bots whose identity can't be confirmed, such as bots that impersonate a well-known AI crawler. Consider the **Block** or **JS challenge** action for this rule.
+- **Miscellaneous AI agents (800104)**: This category includes AI bots that Azure WAF can't verify. Many of these bots come from known AI operators that don't publish verification information, and some impersonate a well-known AI crawler. Consider the **Block**, **JS challenge**, or **CAPTCHA** action for this rule.
+
+> [!IMPORTANT]
+> Rule 800104 also matches the user agents of the verified bots in rules 800101, 800102, and 800103. The **Log** action doesn't stop rule evaluation, so a verified request that matches a rule set to **Log** is then evaluated by rule 800104. If you set rule 800104 to **Block**, **JS challenge**, or **CAPTCHA**, set the rules for the categories that you want to permit to **Allow** instead of **Log**. Otherwise, rule 800104 blocks or challenges the verified bots in those categories.
 
 ## Supported actions
 
@@ -61,6 +64,7 @@ You can set any of the following actions on each rule in the AI bot ruleset:
 - **Log**: Log the request, and have Azure WAF continue to evaluate lower priority rules.
 - **Redirect**: Redirect the request to the redirect URL that you configure in your [policy settings](waf-front-door-policy-settings.md).
 - **JS challenge**: Require the client to complete a [JavaScript challenge](../waf-javascript-challenge.md) before forwarding the request. Clients that can't run JavaScript, which includes most crawlers, can't complete the challenge.
+- **CAPTCHA**: Require the client to complete a [CAPTCHA challenge](captcha-challenge.md) before forwarding the request. Most automated clients can't complete the challenge.
 
 The **Anomaly score** action isn't supported for this ruleset. The rules don't use sensitivity levels. For more information about each action, see [WAF actions](afds-overview.md#waf-actions).
 
@@ -135,7 +139,7 @@ az network front-door waf-policy managed-rules override add \
 
 # [Bicep](#tab/bicep)
 
-The following example Bicep file creates a Front Door Premium WAF policy with the AI bot ruleset. It blocks AI training crawlers (rule 800101), sends a JavaScript challenge to miscellaneous AI agents (rule 800104), and leaves the other rules at their default **Log** action.
+The following example Bicep file creates a Front Door Premium WAF policy with the AI bot ruleset. It blocks AI training crawlers (rule 800101), allows verified AI search crawlers and AI interactive agents (rules 800102 and 800103), and sends a JavaScript challenge to miscellaneous AI agents (rule 800104). Rules 800102 and 800103 use the **Allow** action instead of **Log** so that rule 800104 doesn't also challenge the verified bots in those categories.
 
 ```bicep
 param wafPolicyName string = 'WafPolicy'
@@ -166,6 +170,16 @@ resource wafPolicy 'Microsoft.Network/frontDoorWebApplicationFirewallPolicies@20
                   action: 'Block'
                 }
                 {
+                  ruleId: '800102'
+                  enabledState: 'Enabled'
+                  action: 'Allow'
+                }
+                {
+                  ruleId: '800103'
+                  enabledState: 'Enabled'
+                  action: 'Allow'
+                }
+                {
                   ruleId: '800104'
                   enabledState: 'Enabled'
                   action: 'JSChallenge'
@@ -184,31 +198,44 @@ resource wafPolicy 'Microsoft.Network/frontDoorWebApplicationFirewallPolicies@20
 
 ## Allow trusted AI bots and agents
 
-To allow specific traffic while you block or challenge the rest of a category, create a [custom rule](waf-front-door-custom-rules.md) with the **Allow** action that matches the traffic you trust. For example, you might allow an AI agent that a partner operates. Custom rules are evaluated before the AI bot ruleset, so a request that matches an **Allow** custom rule isn't evaluated by the AI bot ruleset or the other managed rulesets in the policy, except the [HTTP DDoS ruleset](http-ddos-ruleset.md).
+To allow specific AI bots while you block or challenge the rest of a category, create an [exception](front-door-exceptions.md) for the AI bot ruleset that uses the **AIProvider** match variable. This match variable matches the AI operator that Azure WAF attributes a request to, such as `OpenAI` or `Google`. Azure WAF maintains the mapping between AI bots and their operators and verifies it daily, so you don't need to track the IP address ranges that each operator uses.
 
-Scope these custom rules as narrowly as possible. Where an AI operator publishes the IP address ranges that its bots use, match on those ranges instead of on the `User-Agent` header, which any client can set.
+To create the exception, follow the steps in [Apply an exception to your WAF policy](front-door-exceptions.md#apply-an-exception-to-your-waf-policy), and use the following settings:
+
+- **Applies to**: Select *Microsoft_AIBotRuleSet_1.0*, and scope the exception to the rule, rule group, or ruleset that you want the trusted bots to bypass. Use the narrowest scope that works, such as a single rule.
+- **Match variable**: *AIProvider*
+- **Operator**: *Equals*
+- **Values**: The names of the AI operators that you trust, exactly as they appear in the `provider_s` field of your WAF logs. Match values are case-sensitive.
+
+A request that matches the exception bypasses only the AI bot rules in the exception's scope. Your custom rules, the Default Rule Set, and the Bot Manager ruleset still evaluate the request.
+
+The AI bot ruleset doesn't support exclusions. Use exceptions instead.
+
+Avoid using a custom rule with the **Allow** action to allow AI bots. A request that matches an **Allow** custom rule isn't evaluated by any managed ruleset in the policy, including the Default Rule Set and the Bot Manager ruleset, so the allowed traffic isn't inspected for attacks. You also have to maintain each operator's IP address ranges yourself. If you need to allow an AI agent that Azure WAF doesn't attribute to a known operator, such as an agent that a partner operates, scope the [custom rule](waf-front-door-custom-rules.md) as narrowly as possible. Match on the IP address ranges that the agent uses instead of on the `User-Agent` header, which any client can set.
 
 ## Use with the Bot Manager ruleset
 
-You can assign the AI bot ruleset to the same WAF policy as the [Bot Manager ruleset](afds-overview.md#bot-protection-rule-set) and the Default Rule Set. The Bot Manager rules are evaluated first. If a request matches a Bot Manager rule with the **Allow** or **Block** action, the AI bot ruleset doesn't evaluate that request.
+You can assign the AI bot ruleset to the same WAF policy as the [Bot Manager ruleset](afds-overview.md#bot-protection-rule-set) and the Default Rule Set. The AI bot ruleset is evaluated immediately after the Bot Manager ruleset, and by default the Default Rule Set is evaluated before both bot rulesets. If a request matches an earlier rule with the **Allow** or **Block** action, such as a Bot Manager rule, the AI bot ruleset doesn't evaluate that request.
 
 Some bots, such as verified search engine or social media crawlers, can match rules in both rulesets. If you want the AI bot ruleset to decide how to handle these bots, set the matching Bot Manager rules to **Log**.
 
 ## Monitor the AI bot ruleset
 
-Requests that match the AI bot ruleset are recorded in the Azure Front Door WAF logs. The rule name in each log entry identifies the ruleset, rule group, and rule ID, for example `Microsoft_AIBotRuleSet-1.0-AIBotAccess-800101`.
+Azure Front Door WAF logs record requests that match the AI bot ruleset. The rule name in each log entry identifies the ruleset, rule group, and rule ID, for example `Microsoft_AIBotRuleSet-1.0-AIBotAccess-800101`. When Azure WAF attributes a request to a known AI operator, the `provider_s` field contains the operator name, such as `OpenAI`, `Google`, `Anthropic`, `Amazon`, `Meta`, or `Perplexity`. The operator name also appears in the `details_data_s` field.
 
-The following Log Analytics query shows how many requests matched each AI bot rule, and the action that Azure WAF took:
+The following Log Analytics query shows how many requests each AI operator sent, the AI bot rule that they matched, and the action that Azure WAF took:
 
 ```kusto
 AzureDiagnostics
 | where Category == "FrontDoorWebApplicationFirewallLog"
 | where ruleName_s startswith "Microsoft_AIBotRuleSet"
-| summarize RequestCount = count() by ruleName_s, action_s
+| summarize RequestCount = count() by provider_s, ruleName_s, action_s
 | order by RequestCount desc
 ```
 
-You can also monitor matches by using the **Web Application Firewall Request Count** metric and filtering by rule name. For more information, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
+You can also monitor AI bot traffic by using Azure Monitor metrics. To track matches for each AI bot rule, use the **Web Application Firewall Request Count** metric and filter by rule name. AI bot request metrics also include an **AIProvider** dimension that you can use to track traffic from each AI operator. For more information, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
+
+To review AI bot traffic without writing queries, use WAF insights in the Azure portal. It shows AI bot traffic by category and by operator, the top AI bot operators, and the URLs that AI bots request most.
 
 ## Related content
 
@@ -216,5 +243,7 @@ You can also monitor matches by using the **Web Application Firewall Request Cou
 - [Configure bot protection for Web Application Firewall](waf-front-door-policy-configure-bot-protection.md)
 - [HTTP DDoS ruleset in Azure Front Door WAF](http-ddos-ruleset.md)
 - [Custom rules for Azure Front Door WAF](waf-front-door-custom-rules.md)
+- [Azure Front Door WAF exceptions list](front-door-exceptions.md)
 - [Azure Web Application Firewall JavaScript challenge](../waf-javascript-challenge.md)
+- [Azure Front Door Web Application Firewall CAPTCHA](captcha-challenge.md)
 - [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md)

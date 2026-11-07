@@ -29,6 +29,15 @@ For information on release notes for the connected machine agent, see
 The following sections of this article detail the notes for each release of the agent. The heading
 for each section includes the specific version for that release and the date for the release.
 
+## Version 1.29.123.0 - November 2026
+
+<a id="1.29.123.0"></a>
+<a id="2026-11"></a>
+
+### Updated
+
+- Updated bundled PowerShell from version 7.4.20 (.NET 8) to 7.6.9 (.NET 10).
+
 ## Version 1.29.122.0 - October 2026
 
 <a id="1.29.122.0"></a>
