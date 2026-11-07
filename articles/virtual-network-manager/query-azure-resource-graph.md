@@ -52,7 +52,7 @@ The following are sample queries you can run on your virtual network manager dat
 
 #### List all virtual network managers impacting a given virtual network
 
-Input: Enter the **vnetId** of the virtual network. This value is the full Azure Resource Manager resource ID of the virtual network, not the virtual network GUID, because the query concatenates it with a provider path to match the resource ID of the effective security admin rules. It uses the following syntax: */subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork*
+Input: Enter the **vnetId** of the virtual network. This value is the full Azure Resource Manager resource ID of the virtual network, not the virtual network GUID, because the query concatenates it with a provider path to match the resource ID of the effective security admin rules. It uses the following syntax: */subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork*
 Output: List of virtual network manager IDs.
 
 ```kusto
