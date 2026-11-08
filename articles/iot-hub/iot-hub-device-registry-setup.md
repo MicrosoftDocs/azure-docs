@@ -1,64 +1,118 @@
 ---
-title: Deploy IoT Hub with Device Registry Integration and Certificate Management (Preview)
+title: Enable Azure Device Registry integration for IoT Hub
 titleSuffix: Azure IoT Hub
-description: Learn how to create an IoT Hub with Azure Device Registry integration and Microsoft-backed X.509 certificate management.
+description: Link a new or existing eligible Standard IoT hub to Azure Device Registry and plan optional certificate management.
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
-services: iot-hub
 ms.topic: how-to
-ms.date: 08/04/2026
-zone_pivot_groups: iot-hub-deployment-methods
-#Customer intent: As a developer new to IoT, I want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
+ms.date: 11/07/2026
 ---
 
-# Deploy Azure IoT Hub with Device Registry integration and certificate management (preview)
+# Enable Azure Device Registry integration for IoT Hub
 
-This article explains how to deploy Azure IoT Hub with [Azure Device Registry](iot-hub-device-registry-overview.md) integration and enable [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md).
+Azure Device Registry (ADR) linking is generally available for Standard hubs.
+You can use a new hub or enable ADR on an eligible existing Standard hub.
+Creating a replacement hub isn't required just to enable ADR integration.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+Certificate management through Standard IoT Hub is also generally available,
+except for hubs with the MQTT v5 connection profile. MQTT v5 devices retain
+their supported DPS operational certificate issuance and renewal flows.
 
 ## Prerequisites
 
-- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- The privilege to perform role assignments within your target scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
-- A [supported region](iot-hub-what-is-new.md#supported-regions) to deploy instances of IoT Hub, Azure Device Registry, and Device Provisioning Service (DPS).
+- An Azure subscription and permission to configure the selected resources.
+- Permission to create the required role assignments at the applicable scopes.
+- An eligible Standard IoT hub, or permission to create one.
+- An ADR namespace and DPS configuration appropriate to your onboarding flow.
+- Compatible region and resource configurations. Review the current
+  [ADR prerequisites](../iot/device-registry/get-started-azure-device-registry.md#prerequisites)
+  before selecting existing resources.
+
+> [!WARNING]
+> Connecting an existing IoT Hub or DPS instance to an ADR namespace is permanent
+> and can't be reversed. Review the portal's eligibility and impact messages
+> before confirming. Plan for the effect on management applications; don't
+> assume an unlink operation can roll back the change.
 
 ## Choose a deployment method
 
-To use certificate management, you must also set up IoT Hub, Device Registry, and [DPS](../iot-dps/index.yml). If you prefer, you can choose not to enable certificate management and configure only IoT Hub with Device Registry.
+Use the [ADR guided setup](../iot/device-registry/get-started-azure-device-registry.md#use-the-guided-setup)
+to select new or existing resources, or
+[connect services individually](../iot/device-registry/get-started-azure-device-registry.md#connect-services-individually).
+These instructions include portal and CLI paths and the required service identities
+and permissions.
 
-To set up your IoT Hub instance with Device Registry integration and certificate management, you can use the Azure portal, the Azure CLI, or a script that automates the setup process.
+Use the path for the resources you already have. Don't run a new-environment
+creation script against an existing hub as a substitute for linking it.
 
-| Deployment method | Description |
-|-------------------|-------------|
-| Select the **Azure portal** tab at the top of the page. | Use the Azure portal to create a new IoT hub, a DPS instance, and a Device Registry namespace and to configure all necessary settings. |
-| Select the **Azure CLI** tab at the top of the page. | Use the Azure CLI to create a new IoT hub, a DPS instance, and a Device Registry namespace and to configure all necessary settings. |
-| Select the **PowerShell script** tab at the top of the page. | Use a PowerShell script (Windows only) to automate the creation of a new IoT hub, a DPS instance, and a Device Registry namespace and to configure all necessary settings. |
+## Enable ADR on an existing Standard hub
 
-:::zone pivot="portal"
+1. Record the hub, subscription, resource group, location and existing provisioning
+   configuration. Identify the device-management applications that use it.
+1. Open the ADR guided setup from **Azure Device Registry > Get started**, or from
+   **Get started** on an existing namespace.
+1. Choose the appropriate namespace and the **Use existing resources** path.
+   Select the eligible DPS/IoT Hub resources for your scenario.
+1. Review the required identities, role assignments, resource eligibility and
+   permanent-link confirmation before submitting.
+1. Follow the setup's progress and verify the link results for each service.
+   A namespace deployment alone doesn't prove that its service links succeeded.
+1. Test the device and management operations your application requires before
+   completing the rollout.
 
-[!INCLUDE [iot-hub-device-registry-portal](../../includes/iot-hub-device-registry-portal.md)]
+The [guided setup](../iot/device-registry/get-started-azure-device-registry.md)
+is the authority for the current selection sequence and eligibility checks.
+Do not delete or recreate resources to bypass a failed eligibility check.
 
-:::zone-end
+ADR linking doesn't select a different connection profile or automatically
+replace existing device credentials. Configure certificate issuance and lifecycle
+management separately when your solution requires them.
 
-:::zone pivot="azure-cli"
+<!-- REVIEW BLOCKER: Validate the GA existing-hub workflow and its impact on
+existing device-management applications. Canonical ADR setup/shared includes
+outside this PR's IoT Hub tree still contain earlier preview guidance. -->
 
-[!INCLUDE [iot-hub-device-registry-azurecli](../../includes/iot-hub-device-registry-azure-cli.md)]
+## Create a new ADR-enabled hub
 
-:::zone-end
+Use the same guided setup and choose **Create new resources**, or follow the
+individual-service setup instructions. Select the connection profile required by
+your devices rather than treating ADR linking as a protocol upgrade.
 
-:::zone pivot="script"
+For MQTT v5, use the dedicated [cloud setup](mqtt-v5-cloud-setup.md). This article
+doesn't change that profile's existing DPS onboarding and certificate flows.
 
-[!INCLUDE [iot-hub-device-registry-script](../../includes/iot-hub-device-registry-script.md)]
+## Configure optional certificate management
 
-:::zone-end
+An onboarding credential authenticates the device to DPS. An operational
+certificate authenticates the provisioned device to IoT Hub. ADR linking alone
+doesn't create a certificate policy, enroll a device, or replace its credentials.
+
+Follow the applicable guidance:
+
+- [Certificate management concepts](../iot/iot-certificate-management-concepts.md)
+- [Certificate issuance](../iot/concept-certificate-issuance.md)
+- [Certificate renewal](../iot/concept-certificate-renewal.md)
+
+Management directly through the hub isn't supported for MQTT v5-profile hubs.
+For that profile, use its existing
+[DPS certificate issuance and renewal guidance](mqtt-v5-tls-requirements.md#operational-certificate-management).
+
+## Verify the result
+
+Verify the namespace association and successful service-link state for the
+intended resources. Confirm that the relevant management identity has the
+required permissions.
+
+Test a known device and inspect its identity, provisioning result where applicable,
+hub connection, and message delivery. Don't equate a successful control-plane
+deployment with successful device authentication or destination receipt.
+
+Review the configured resources and ongoing costs. Don't delete an existing
+production hub or namespace as sample cleanup.
 
 ## Next steps
 
-1. Your IoT hub with Device Registry integration and certificate management is set up and ready to use. You can now start onboarding your IoT devices to the hub by using a DPS instance. You can use your Device Registry policies to issue certificates to your devices:
-
-   - [Certificate issuance in Azure IoT Hub certificate management](../iot/concept-certificate-issuance.md)
-   - [Certificate renewal in Azure IoT Hub certificate management](../iot/concept-certificate-renewal.md)
-
-1. To onboard devices and manage certificates by using the supported SDK path, see [Unified Azure IoT SDKs (preview) for IoT Hub and Azure Device Registry](../iot/device-registry/concept-unified-iot-sdks.md).
+- [Understand ADR integration](iot-hub-device-registry-overview.md)
+- [Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md)
+- [Review frequently asked questions](iot-hub-faq.md)

@@ -129,7 +129,14 @@ The system property names vary based on the endpoint to which the messages are b
 
 ## Message schema at routing endpoints
 
-When IoT Hub routes a device-to-cloud message to a custom endpoint, it delivers the message in three parts:
+The message body, schema reference, and destination envelope are separate
+concepts. A route's schema reference doesn't automatically validate or transform
+its messages. An endpoint's payload format can change where a consumer finds
+the original value. See [Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md)
+for schema references, device-type context, and preview output formats.
+
+For the device payload format, IoT Hub delivers a routed device-to-cloud message
+in three parts:
 
 * **Body**: The message body is delivered as-is (not base64 encoded) to Event Hubs, Service Bus queues, and Service Bus topics. For Azure Storage and Azure Cosmos DB, encoding depends on the message content type and content encoding system properties. For more information, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
 
@@ -164,7 +171,7 @@ The following example shows a logical view of a telemetry message routed to an E
 
 > [!NOTE]
 > Routing to a Microsoft Fabric Eventstream endpoint uses the CloudEvents schema instead of the schema described here. For more information, see
-[Microsoft Fabric Eventstreams as a routing endpoint](iot-hub-devguide-endpoints.md#microsoft-fabric-eventstreams-as-a-routing-endpoint-preview).
+[Microsoft Fabric Eventstreams as a routing endpoint](iot-hub-devguide-endpoints.md#microsoft-fabric-eventstreams-as-a-routing-endpoint).
 
 ## Message size
 

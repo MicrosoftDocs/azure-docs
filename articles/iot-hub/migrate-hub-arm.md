@@ -342,7 +342,7 @@ To run the application, specify three connection strings and five options. You p
 
 Here are the five options you specify when you run the application:
 
-* **addDevices** (argument 1) - set this option to `True` if you want to add virtual devices that are generated for you. These devices are added to the source hub. Also, set **numToAdd** (argument 2) to specify how many devices you want to add. The maximum number of devices you can register to a hub is one million. The purpose of this option is for testing. You can generate a specific number of devices, and then copy them to another hub.
+* **addDevices** (argument 1) - set this option to `True` if you want to add virtual devices that are generated for you. These devices are added to the source hub. Also, set **numToAdd** (argument 2) to specify how many devices you want to add. Stay within the hub's [supported and approved identity capacity](iot-hub-devguide-quotas-throttling.md#plan-device-identity-capacity-and-request-an-increase). The purpose of this option is for testing. You can generate a specific number of devices, and then copy them to another hub.
 
 * **copyDevices** (argument 3) - set this option to `True` to copy the devices from one hub to another.
 

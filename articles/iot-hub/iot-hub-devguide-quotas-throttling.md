@@ -104,7 +104,40 @@ The same throttle limits apply to identity operations made through [bulk registr
 
 The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle doesn't relate to the maximum number of simultaneously connected devices. Increase the number of units in an IoT hub to increase the *device connections* rate.
 
-For example, if you buy a single S1 unit, you get a throttle of 100 connections/second. Therefore, to connect 100,000 devices, it takes at least 1,000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry (up to 1,000,000).
+For example, if you buy a single S1 unit, you get a throttle of 100 connections/second. Therefore, to connect 100,000 devices, it takes at least 1,000 seconds (approximately 16 minutes). The connection-attempt rate is separate from the hub's registered identity capacity. For larger fleets, see [Plan device-identity capacity and request an increase](#plan-device-identity-capacity-and-request-an-increase).
+
+## Plan device-identity capacity and request an increase
+
+Don't treat one million identities as a universal maximum for every Standard
+hub configuration. Before provisioning a larger fleet, verify the identity
+capacity available to your hub and any required capacity approval.
+
+If you need to grow beyond five million, contact Azure support for a capacity
+assessment before relying on that capacity. A support request isn't automatic
+approval or a guarantee of capacity in a particular region. Adding hub units
+doesn't establish an unlimited device-identity entitlement.
+
+<!-- REVIEW BLOCKER: Confirm the default/tier/unit identity capacity table and
+whether each threshold counts devices alone or devices plus modules. Do not
+publish the unapproved S3 scaling proposal as a product limit. -->
+
+To request an increase:
+
+1. Follow [Azure support request guidance](/azure/azure-portal/supportability/how-to-create-azure-support-request)
+   and identify the affected IoT hub and subscription.
+1. Describe the request as an increase in registered device-identity capacity,
+   not a daily message-quota or connection-rate increase.
+1. Provide the resource ID, region, SKU and unit count, current device and module
+   counts, requested capacity, target date and expected fleet growth.
+1. Include expected concurrent connections, new connections per second, telemetry
+   rate, message sizes and routing destinations so the workload can be assessed.
+1. Wait for confirmation of the approved scope and any required configuration,
+   then validate the workload before expanding the fleet.
+
+Report device and module counts separately. Identity capacity, simultaneous
+connections, connection-attempt rates, daily message quotas and operation
+throttles are different constraints. An increase to one doesn't imply an
+increase to all of them.
 
 ## Other limits
 
@@ -112,7 +145,7 @@ IoT Hub enforces other operational limits:
 
 | Operation | Limit |
 | --------- | ----- |
-| Device and module identities | The total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. |
+| Device and module identities | Capacity depends on the hub configuration and approved quota. See [Plan device-identity capacity and request an increase](#plan-device-identity-capacity-and-request-an-increase). |
 | File uploads | 10 concurrent file uploads per device. |
 | Jobs<sup>1</sup> | Maximum concurrent jobs are 1 (for free and S1), 5 (for S2), and 10 (for S3). However, the max concurrent [device import/export jobs](iot-hub-bulk-identity-mgmt.md) is 1 for all tiers. <br/>Job history is retained up to 30 days. |
 | Extra endpoints | Basic and standard tier hubs can have 10 extra endpoints. Free tier hubs can have one extra endpoint. |

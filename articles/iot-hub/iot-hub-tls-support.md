@@ -5,7 +5,7 @@
  author: sethmanheim
  ms.service: azure-iot-hub
  ms.topic: how-to
- ms.date: 05/26/2026
+ ms.date: 11/07/2026
  ms.author: sethm
  ms.custom: references_regions
 ---
@@ -13,6 +13,27 @@
 # Transport Layer Security (TLS) support in IoT Hub
 
 IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devices and services. 
+
+TLS 1.3 support is generally available. TLS 1.2 remains supported; TLS 1.3
+availability doesn't require an immediate migration of all clients or change a
+hub's device-messaging protocols.
+
+## TLS 1.3 and connection profiles
+
+Use an SDK and TLS library compatible with the endpoint your device connects to,
+and verify the negotiated version. TLS version, device application protocol,
+and certificate authentication are separate concerns.
+
+Adding TLS 1.3 support doesn't convert a classic-profile hub to MQTT v5.
+For the MQTT v5 connection profile's required endpoints and TLS behavior, see
+[TLS and X.509 requirements](mqtt-v5-tls-requirements.md).
+
+Don't assume that the existing `minTlsVersion` setting accepts `1.3` merely
+because TLS 1.3 negotiation is supported. Use only configuration values documented
+for the selected API and endpoint.
+
+<!-- REVIEW BLOCKER: Confirm the GA TLS 1.3 endpoint/protocol/region matrix and
+negotiated cipher suites before adding client configuration examples. -->
 
 > [!NOTE]
 > Azure IoT Hub ends support for TLS 1.0 and 1.1 in alignment with the Azure wide service announcement for [TLS 1.0 and 1.1 retirement](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services) on **August 31, 2025**. In addition, IoT Hub no longer supports weak cipher suites as of August 31, 2025. Only recommended strong cipher suites are supported for both existing and new IoT Hubs. 
@@ -53,7 +74,7 @@ Root CA migrations are rare. Always prepare your IoT solution for the unlikely e
 
 Starting **August 31, 2025**, IoT Hub enforces the use of recommended strong cipher suites for all existing and new IoT Hubs. Non-recommended (weak) cipher suites aren't supported after this date.  
 
-To comply with Azure security policy for a secure connection, IoT Hub only supports the following RSA and ECDSA cipher suites:
+For TLS 1.2 connections, the recommended RSA and ECDSA cipher suites are:
 
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
