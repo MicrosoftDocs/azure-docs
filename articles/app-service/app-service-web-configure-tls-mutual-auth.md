@@ -135,6 +135,8 @@ For some client certificate settings, App Service requires TLS renegotiation to 
 > [!NOTE]
 > TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols don't work if your app is configured with client certificate settings that use TLS renegotiation.
 
+Post-quantum hybrid key exchange is compatible with client certificate authentication when a TLS 1.3 connection negotiates `X25519MLKEM768`. Key exchange and client certificate authentication are separate parts of TLS: hybrid key exchange doesn't replace client certificates or make client certificate authentication post-quantum. It also doesn't change the TLS 1.3 renegotiation limitation or make settings that require renegotiation compatible with TLS 1.3. For more information, see [Post-quantum hybrid key exchange](overview-tls.md#post-quantum-hybrid-key-exchange).
+
 To disable TLS renegotiation and have the app negotiate client certificates during TLS handshake, you must take the following actions in your app:
 
 - Set the client certificate mode to **Required** or **Optional**.
