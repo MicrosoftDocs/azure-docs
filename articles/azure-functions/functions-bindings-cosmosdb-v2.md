@@ -210,7 +210,8 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
     "extensions": {
         "cosmosDB": {
             "connectionMode": "Gateway",
-            "userAgentSuffix": "MyDesiredUserAgentStamp"
+            "userAgentSuffix": "MyDesiredUserAgentStamp",
+            "defaultMaxItemsPerInvocation": 50
         }
     }
 }
@@ -220,6 +221,9 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 |----------|--------|------------|
 |**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options: `Direct` connects directly to backend replicas over TCP and can provide lower latency, and `Gateway` routes requests through a front-end gateway over HTTPS. For more information, see [Azure Cosmos DB SDK connection modes](/azure/cosmos-db/nosql/sdk-connection-modes).|
 |**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`. |
+|**defaultMaxItemsPerInvocation**| Unset | The default batch limit for Cosmos DB triggers in the app. A trigger's positive `MaxItemsPerInvocation` or `MaxItemsPerInvocationSetting` takes precedence. When specified, the default must be a positive 32-bit integer. An invalid default prevents startup. |
+
+To override the default for a deployment, set `AzureFunctionsJobHost__extensions__cosmosDB__defaultMaxItemsPerInvocation` in the function app's settings.
 
 
 # [Extension 3.x](#tab/functionsv2)
