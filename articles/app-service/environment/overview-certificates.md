@@ -29,6 +29,10 @@ Once you add the certificate to your App Service app or function app, you can [s
 
 You can [configure the TLS setting](../configure-ssl-bindings.md#enforce-tls-versions) at an app level.
 
+### Post-quantum key exchange
+
+Hybrid key exchange protects the client-to-App Service front-end TLS connection when a compatible TLS 1.3 client and the front end negotiate `X25519MLKEM768`; other clients continue to use a supported classical key exchange. Key exchange is separate from application certificates, custom-domain suffix certificates, private certificate authority (CA) roots, and client certificates. It doesn't change the existing requirements for these certificates. The Root Certificate API manages trust for private client scenarios; it doesn't enable post-quantum key exchange. For more information, see [Post-quantum hybrid key exchange](../overview-tls.md#post-quantum-hybrid-key-exchange).
+
 ## Root certificates for private client scenarios
 
 When your app acts as a client connecting to services secured with private Certificate Authority (CA) certificates, you need to add root certificates to establish trust. App Service Environment v3 provides two methods for managing root certificates:

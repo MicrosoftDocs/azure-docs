@@ -462,6 +462,9 @@ Here, you can configure some common settings for the app. Some settings require 
   - **HTTPS Only**: Enable if you want to redirect all HTTP traffic to HTTPS.
   - **Minimum TLS version**: Select the minimum TLS encryption version that your app requires.
 
+    > [!NOTE]
+    > [Post-quantum hybrid key exchange](overview-tls.md#post-quantum-hybrid-key-exchange) is managed by the platform and has no app-level setting. Setting the minimum TLS version to 1.3 doesn't require the hybrid group `X25519MLKEM768`. Neither the minimum TLS version nor the minimum cipher-suite setting enables, disables, or requires this group.
+
 - **Debugging**: Enable remote debugging for [ASP.NET](/visualstudio/debugger/remote-debugging-azure-app-service#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: Require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
 
