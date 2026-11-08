@@ -3,6 +3,7 @@ title: Securing Azure Functions
 description: Learn how to secure your Azure Functions code against common attacks by using best practices and built-in security features.
 ms.date: 01/20/2026
 ms.topic: concept-article
+ms.keywords: PQC, ML-KEM, X25519MLKEM768
 
 #Customer intent: As a developer, I want to understand the security features and principles of Azure Functions so that I can make my cloud-based function code as secure as possible.
 ---
@@ -55,6 +56,14 @@ When you require HTTPS, also require the latest TLS version. To learn how, see [
 For more information, see [Secure connections (TLS)](../app-service/overview-security.md#https-and-certificates).
 
 You only need to manage certificates when you use a custom domain name, need your function code to authenticate to an external service using a client certificate, or require mutual TLS (mTLS) from callers. The default `*.azurewebsites.net` domain already has a platform-managed certificate. Certificate behavior and limits depend on your hosting plan. For a comparison, see [Certificates](functions-scale.md#certificates).
+
+### Post-quantum TLS key exchange
+
+Azure Functions apps hosted on App Service infrastructure in public Azure support the hybrid TLS 1.3 key exchange group `X25519MLKEM768`. Clients that support TLS 1.3 and the hybrid group can negotiate it automatically; clients that don't support the group use a supported classical key exchange. This support applies to Flex Consumption, Consumption, Premium, Dedicated, and App Service Environment hosting on Windows and Linux, including SCM/Kudu endpoints, custom domains, and connections using mutual TLS (mTLS).
+
+Negotiation is platform managed. You don't need to change function code or host configuration, and there's no Functions app setting to enable or require the hybrid group. Minimum TLS and cipher-suite settings don't control the supported group; setting the minimum TLS version to 1.3 doesn't require post-quantum key exchange. A new or post-quantum certificate isn't required. Hybrid key exchange doesn't change client certificate authentication for mTLS or existing certificate requirements.
+
+Azure Functions on Azure Container Apps aren't included because they use Azure Container Apps ingress rather than App Service front ends. For protocol details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
 
 ### Function access keys
 
