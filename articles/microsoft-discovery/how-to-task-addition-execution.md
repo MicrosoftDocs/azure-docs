@@ -47,7 +47,7 @@ Keep in mind:
 
 ### Dependencies
 
-Dependencies control execution order. A dependency finishing doesn't necessarily mean its output passed validation. Review upstream outcomes before consuming results from tasks that are Failed, Removed, or Needs User Attention. For status meanings, see [Task status lifecycle](concept-tasks-investigations.md#task-status-lifecycle).
+Dependencies control execution order. A dependency finishing doesn't necessarily mean its output passed validation. Review upstream outcomes before consuming results from tasks that are **Failed**, **Removed**, or **Needs User Attention**. For status meanings, see [Task status lifecycle](concept-tasks-investigations.md#task-status-lifecycle).
 
 To add a dependency:
 
@@ -170,9 +170,9 @@ When writing validation requirements for file outputs, describe the expected con
 
 When Task B depends on Task A, the agent executing Task B receives Task A's result text as context. Cognition builds this dependency context automatically. You don't need to manually pass text data between tasks.
 
-File outputs (storage assets) also flow across dependencies. Task B's agent can list inherited files with `GetResourceContext` and read text-based content with `PreviewResource`. For transitive inheritance, execution-history fields such as `inheritedStorageAssets`, and parent-chain behavior, see [How files move between tasks](concept-files-storage-assets.md#how-files-move-between-tasks).
+File outputs (storage assets) also flow across dependencies. Task B's agent can list inherited files by using `GetResourceContext` and read text-based content by using `PreviewResource`. For transitive inheritance, execution-history fields such as `inheritedStorageAssets`, and parent-chain behavior, see [How files move between tasks](concept-files-storage-assets.md#how-files-move-between-tasks).
 
-Files don't flow between siblings without a dependency or across shared session boundaries. Inherited contents aren't injected into the prompt; the agent must read them through the file tools.
+Files don't flow between sibling tasks without a dependency or across shared session boundaries. Inherited contents aren't injected into the prompt; the agent must read them through the file tools.
 
 #### To make this work well
 
@@ -187,7 +187,7 @@ If a Complete task's result doesn't meet your expectations, create a follow-up t
 1. **Adjust the validation requirements** to be more specific about what was missing.
 2. **Add a note** explaining what needs to change.
 
-Stop the Discovery Engine before manually changing a task's status. Stopping cognition doesn't cancel agent tasks already executing; inspect their current execution before resetting or resubmitting work.
+Stop the Discovery Engine before manually changing a task's status. Stopping cognition doesn't cancel agent tasks that are already running. Inspect their current execution before resetting or resubmitting work.
 
 ## Tasks created by cognition
 

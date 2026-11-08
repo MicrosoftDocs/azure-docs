@@ -16,7 +16,7 @@ Microsoft Discovery organizes scientific research through two key concepts: **pr
 
 ## Projects
 
-A project is the organizational unit within a Microsoft Discovery workspace for agents, shared sessions, and related research tasks. It references shared tools, knowledge bases, and storage containers, but those resources aren't owned by the project. Project access and access to shared resources are separate authorization boundaries.
+A project is the organizational unit within a Microsoft Discovery workspace for agents, shared sessions, and related research tasks. It references shared tools, knowledge bases, and storage containers, but the project doesn't own those resources. Project access and access to shared resources are separate authorization boundaries.
 
 ### Resources a project contains and uses
 
