@@ -40,7 +40,7 @@ The following tables describe the log tables available in each resource's MRG Lo
 | Table | Description |
 |---|---|
 | `DiscoveryLogs_CL` | Execution traces for agent invocations, tool calls, workflow steps, and error diagnostics for investigations run within the workspace |
-| `DiscoveryCogLoopLogs_CL` | AI orchestration logs from the CogLoop engine, including Act and Cognition sub-loop activity, investigation progress, decisions, and error diagnostics |
+| `DiscoveryCogLoopLogs_CL` | AI orchestration logs from the CogLoop engine, including Act and Cognition sub-loop activity, investigation progress, decisions, and error diagnostics. |
 
 ### Supercomputer
 
@@ -118,9 +118,9 @@ For control plane issues, check the Activity logs for a correlation ID associate
 
 ## Log ingestion latency
 
-Log ingestion is asynchronous. Latency varies by source, collection pipeline, and service conditions; a missing recent entry doesn't establish that an operation didn't run. Confirm the resource, table, and time range, then rerun the query after allowing for ingestion. See [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
+Log ingestion is asynchronous. Latency varies by source, collection pipeline, and service conditions. A missing recent entry doesn't mean that an operation didn't run. Confirm the resource, table, and time range, and then rerun the query after allowing for ingestion. See [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
 
-Application-log retention is determined by the Log Analytics table's plan and retention settings. The 90-day activity-log retention period doesn't apply to application logs. Check the table settings in the MRG workspace without modifying managed infrastructure. For customer-owned export destinations, see [Manage log retention](how-to-enable-audit-logging.md#manage-log-retention).
+The Log Analytics table's plan and retention settings determine application-log retention. The 90-day activity-log retention period doesn't apply to application logs. Check the table settings in the MRG workspace without modifying managed infrastructure. For customer-owned export destinations, see [Manage log retention](how-to-enable-audit-logging.md#manage-log-retention).
 
 ## Next steps
 

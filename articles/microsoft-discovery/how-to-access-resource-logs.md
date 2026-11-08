@@ -74,7 +74,7 @@ To see the log tables available for the resource:
 
 ## Adjust the time range
 
-Set the time range using the selector at the top of the query editor. You can further filter rows with `where TimeGenerated` in your KQL query. For Basic or Auxiliary tables, the query requires an explicit time range in the picker or API `timespan`; a KQL time filter doesn't replace it. See [Query Basic and Auxiliary tables](/azure/azure-monitor/logs/basic-logs-query).
+Set the time range by using the selector at the top of the query editor. You can further filter rows by using `where TimeGenerated` in your KQL query. For Basic or Auxiliary tables, the query requires an explicit time range in the picker or API `timespan`; a KQL time filter doesn't replace it. See [Query Basic and Auxiliary tables](/azure/azure-monitor/logs/basic-logs-query).
 
 ```kql
 DiscoveryLogs_CL
