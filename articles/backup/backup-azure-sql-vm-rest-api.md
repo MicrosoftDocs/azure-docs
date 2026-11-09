@@ -544,6 +544,211 @@ Once the operation is complete, it returns 200 (OK) with the ID of the resulting
 
 As the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-backup-and-restore-jobs).
 
+## Configure snapshot backup for a SQL Server instance
+
+To configure instance-level snapshot backup, create a policy with a `SnapshotFull` subpolicy and enable protection for the SQL instance. The following examples use `2024-01-31-preview` unless they specify a different API version. Complete the VM discovery and registration steps earlier in this article before enabling protection.
+
+Replace `{subscriptionId}`, `{resourceGroupName}`, and `{vaultName}` with your vault details. Use the container and item names returned by discovery rather than constructing them manually. JSON values enclosed in braces are placeholders that you must replace before submitting a request.
+
+### Create a snapshot backup policy
+
+Create the policy with a *PUT* request:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/SQLInstanceSnapPolicy?api-version=2024-01-31-preview
+```
+
+The following policy schedules snapshots every six hours within a 12-hour window and log backups every 60 minutes. It retains instant recovery points for four days and specifies daily, weekly, monthly, and yearly retention.
+
+```json
+{
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "workLoadType": "SQLInstance",
+    "settings": {
+      "timeZone": "UTC",
+      "issqlcompression": false
+    },
+    "subProtectionPolicy": [
+      {
+        "policyType": "SnapshotFull",
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunFrequency": "Hourly",
+          "hourlySchedule": {
+            "interval": 6,
+            "scheduleWindowStartTime": "2023-12-19T20:00:00.000Z",
+            "scheduleWindowDuration": 12
+          }
+        },
+        "retentionPolicy": {
+          "retentionPolicyType": "LongTermRetentionPolicy",
+          "dailySchedule": {
+            "retentionTimes": ["2023-12-19T20:00:00.000Z"],
+            "retentionDuration": {
+              "count": 10,
+              "durationType": "Days"
+            }
+          },
+          "weeklySchedule": {
+            "daysOfTheWeek": ["Sunday"],
+            "retentionTimes": ["2023-12-19T20:00:00.000Z"],
+            "retentionDuration": {
+              "count": 20,
+              "durationType": "Weeks"
+            }
+          },
+          "monthlySchedule": {
+            "retentionScheduleFormatType": "Weekly",
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": ["Sunday"],
+              "weeksOfTheMonth": ["Second"]
+            },
+            "retentionTimes": ["2023-12-15T20:00:00.000Z"],
+            "retentionDuration": {
+              "count": 10,
+              "durationType": "Months"
+            }
+          },
+          "yearlySchedule": {
+            "retentionScheduleFormatType": "Weekly",
+            "monthsOfYear": ["January"],
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": ["Sunday"],
+              "weeksOfTheMonth": ["Last"]
+            },
+            "retentionTimes": ["2023-12-19T20:00:00.000Z"],
+            "retentionDuration": {
+              "count": 12,
+              "durationType": "Years"
+            }
+          }
+        },
+        "snapshotBackupAdditionalDetails": {
+          "instantRpRetentionRangeInDays": 4,
+          "instantRPDetails": "{snapshotResourceGroupName}",
+          "userAssignedManagedIdentityDetails": {
+            "identityArmId": "/subscriptions/{subscriptionId}/resourceGroups/{identityResourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}",
+            "identityName": "{identityName}",
+            "userAssignedIdentityProperties": {
+              "clientId": "{clientId}",
+              "principalId": "{principalId}"
+            }
+          }
+        },
+        "timeZone": "UTC"
+      },
+      {
+        "policyType": "Log",
+        "schedulePolicy": {
+          "schedulePolicyType": "LogSchedulePolicy",
+          "scheduleFrequencyInMins": 60
+        },
+        "retentionPolicy": {
+          "retentionPolicyType": "SimpleRetentionPolicy",
+          "retentionDuration": {
+            "count": 10,
+            "durationType": "Days"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+Replace the snapshot resource group and user-assigned managed identity placeholders with the values for your environment. Save the policy resource ID for the protection request.
+
+### List databases available for instance protection
+
+Use the following request to list unprotected databases with the specified parent instance name:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2024-01-31-preview&$filter=backupManagementType eq 'AzureWorkload' and workloadType eq 'SQLInstance' and status eq 'NotProtected' and parentName eq 'MSSQLSERVER'
+```
+
+The response contains a `value` array of protectable items. For each database, inspect `properties.parentName`, `properties.serverName`, `properties.friendlyName`, and `properties.protectionState` to select the databases on the intended server. For example, the returned database properties can include:
+
+```json
+{
+  "parentName": "MSSQLSERVER",
+  "serverName": "sqlserver-0",
+  "IsProtectable": true,
+  "backupManagementType": "AzureWorkload",
+  "workloadType": "SQL",
+  "protectableItemType": "SQLDataBase",
+  "friendlyName": "model",
+  "protectionState": "NotProtected"
+}
+```
+
+### Enable protection for a standalone instance
+
+Submit a *PUT* request for the SQL instance protected item:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/sqlinstance;mssqlserver?api-version=2024-01-31-preview
+```
+
+Use the snapshot policy ID and the selected database names in the request body:
+
+```json
+{
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "workloadType": "SQLInstance",
+    "protectedItemType": "AzureVmWorkloadSQLInstance",
+    "friendlyName": "MSSQLSERVER",
+    "policyId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/SQLInstanceSnapPolicy",
+    "childDatabaseNameList": ["model"]
+  }
+}
+```
+
+### Enable protection for an availability group
+
+For an availability group, use its discovered `sqlagworkloadcontainer` name and instance protected item name. The following example uses the availability group `chgag1` and API version `2021-02-01-preview`:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/sqlagworkloadcontainer;{availabilityGroupContainerId}/protectedItems/SQLInstance;chgag1?api-version=2021-02-01-preview
+```
+
+```json
+{
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "workloadType": "SQLInstance",
+    "protectedItemType": "AzureVmWorkloadSQLInstance",
+    "friendlyName": "chgag1",
+    "policyId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/SQLInstanceSnapPolicy",
+    "childDatabaseNameList": ["testdb3", "testdb4", "testdb5"]
+  }
+}
+```
+
+To inspect the protected instance and its databases, see [List protected SQL instances and databases](manage-azure-sql-vm-rest-api.md#list-protected-sql-instances-and-databases).
+
+## Trigger an on-demand snapshot backup for an instance
+
+Use the instance protected item name to trigger a snapshot backup. The following request uses API version `2017-07-01`:
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/SQLInstance;mssqlserver/backup?api-version=2017-07-01
+```
+
+```json
+{
+  "properties": {
+    "backupType": "snapshotfull",
+    "enableCompression": false,
+    "recoveryPointExpiryTimeInUTC": "{recoveryPointExpiryTimeInUTC}",
+    "objectType": "AzureWorkloadBackupRequest"
+  }
+}
+```
+
+Replace `{recoveryPointExpiryTimeInUTC}` with the required expiry time in UTC, such as `2026-12-08T11:34:36.000Z`. Track the asynchronous operation and resulting job as described in [Monitor jobs](manage-azure-sql-vm-rest-api.md#monitor-jobs).
+
 ## Next steps
 
 - [Restore SQL databases using REST API](restore-azure-sql-vm-rest-api.md).
