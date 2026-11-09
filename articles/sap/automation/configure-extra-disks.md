@@ -213,6 +213,51 @@ The three data disks are striped by using LVM. The log disk and the backup disk 
 }
 ```
 
+## Volume groups and logical volumes
+
+Each volume group is a collection of physical disks that are managed as a single unit. Logical volumes are created within these volume groups and can span multiple physical disks, providing flexibility and efficient use of storage resources.
+
+SDAF uses the "name" attribute to determine which disks belong to which volume group. Disks with the same "name" value are grouped together into a single volume group.
+
+From the example above each database server will have a volume group named `vg_data` that includes all the `data` disks, and a volume group named `vg_log` that includes all the `log` disks. Similarly, a volume group named `vg_backup` will include all the `backup` disks. 
+
+The application servers will follow a similar pattern, with volume groups created based on the "name" attribute of the disks. For example, if an application server has disks named `sap`, a volume group named `vg_sap` will be created to include all these disks.
+
+SDAF will create by default create a logical volume that consumes the entire space within each volume group. 
+
+For the vg_sap volume group, a logical volume lv_usrsap will be created, consuming the entire space within the volume group. If a smaller logical volume is desired, it can be specified explicitly in the configuration as shown in the example below.
+
+'''terraform
+# configuration_settings is a dictionary containing values that will be persisted in sap-parameters.yaml
+configuration_settings = {
+  usrsap_vol    ume_size   = "40g"
+}
+'''
+
+If you want to create a custom logical volume in addition to the default logical volume, you can use the `custom_logical_volumes` array as shown in the example below.
+
+'''terraform
+# configuration_settings is a dictionary containing values that will be persisted in sap-parameters.yaml
+configuration_settings = {
+  usrsap_vol    ume_size   = "40g"
+
+  custom_logical_volumes = [
+    {
+      tier      = "sapos"
+      node_tier = "all"
+      vg        = "vg_sap"
+      lv        = "lv_custom"
+      size      = "30gb"
+      fstype    = "xfs"
+      path      = "/custompath/tmp"
+    }
+  ]
+}
+'''
+
+The above configuration demonstrates how to define a custom logical volume within the `vg_sap` volume group. The `usrsap_volume_size` specifies the size of the default logical volume, while the `custom_logical_volumes` array allows you to create additional logical volumes with specific attributes such as size, filesystem type, and mount path.
+
+
 ## Add extra disks to an existing system
 
 If you need to add disks to an already deployed system, you can add a new block to your JSON structure. Include the attribute `append` in this block, and set the value to `true`. For example, in the following sample code, the last block contains the attribute `"append" : true`. The last block adds a new disk to the database tier, which is already configured in the first `"data"` block in the code.
@@ -283,3 +328,4 @@ If you need to add disks to an already deployed system, you can add a new block 
 ## Related content
 
 - [Configure custom naming](naming-module.md)
+- [Extensibility](extensibility.md)
