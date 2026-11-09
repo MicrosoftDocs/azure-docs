@@ -688,6 +688,9 @@
     - name: Developer guide
       displayName: AI, agent, hosted skills, Markdown, triggers, tools, MCP, skills
       href: functions-hosted-skills-developer-guide.md
+    - name: Migrate an existing workflow
+      displayName: hosted skills, migration, automation, coding agents, GitHub Copilot, Claude Code, Codex
+      href: functions-hosted-skills-migrate.md
     - name: Hosted Skill bindings in Python
       displayName: AI, agent, hosted skills, binding, Python, hybrid workflows, HostedSkill
       href: functions-hosted-skills-bindings.md
