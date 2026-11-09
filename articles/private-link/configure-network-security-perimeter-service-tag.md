@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 11/05/2026
+ms.date: 11/09/2026
 ms.custom: template-how-to
 ---
 
@@ -14,7 +14,7 @@ ms.custom: template-how-to
 In this article, you learn how to configure an inbound access rule that uses an Azure service tag in a network security perimeter profile. A service tag represents a group of IP address prefixes for an Azure service. Microsoft manages and automatically updates these prefixes as addresses change.
 
 > [!NOTE]
-> Service tags can include traffic from multiple Microsoft-owned service instances. Evaluate whether service tag-based access meets your security requirements, and use it only where broader service-level trust is acceptable. For stricter network isolation, consider more granular access controls, such as specific IP ranges and subscriptions. Service Tags can represent multitenant workloads and might run third‑party or untrusted code, and might expose your resources to associated risks.
+> Service tags can include traffic from multiple Microsoft-owned service instances. Evaluate whether service tag-based access meets your security requirements, and use it only where broader service-level trust is acceptable. For stricter network isolation, consider more granular access controls, such as specific IP ranges and subscriptions. Service tags can represent multitenant workloads and might run third‑party or untrusted code, and might expose your resources to associated risks.
 
 ## Prerequisites
 
@@ -82,9 +82,9 @@ On the profile page, select **Inbound access rules** and confirm that the new ru
 
 ## Limitations
 
-- Service tag-based inbound access rules are supported for Azure Key Vault, Azure Monitor, Azure AI Search, Azure Event Hubs, and Azure Service Bus resources within a network security perimeter. For the complete list of resource providers supported by network security perimeter, see [Onboarded private link resources](network-security-perimeter-concepts.md#onboarded-private-link-resources).
-- Not all service tags can be used as inbound rules in Network security perimeter. Be careful when using service tags as inbound rules and use the right and applicable tags.
-- Azure Storage currently doesn't support service tags as inbound access rules. While some access scenarios might appear to work when using service tag-based rules, other scenarios might fail or behave inconsistently. To avoid unexpected access issues, don't use service tags to control inbound access to Azure Storage resources. Doing so might result in inconsistent behavior and unreliable connectivity.
+- Azure Key Vault, Azure Monitor, Azure AI Search, Azure Event Hubs, and Azure Service Bus resources within a network security perimeter support service tag-based inbound access rules. For the complete list of resource providers supported by network security perimeter, see [Onboarded private link resources](network-security-perimeter-concepts.md#onboarded-private-link-resources).
+- You can't use all service tags as inbound rules in Network security perimeter. Be careful when using service tags as inbound rules and use the right and applicable tags.
+- Azure Storage doesn't currently support service tags as inbound access rules. While some access scenarios might appear to work when using service tag-based rules, other scenarios might fail or behave inconsistently. To avoid unexpected access issues, don't use service tags to control inbound access to Azure Storage resources. Doing so might result in inconsistent behavior and unreliable connectivity.
 
 ## Frequently asked questions
 
