@@ -40,7 +40,7 @@ The following distributions were tested with the framework:
 | Distribution | Versions |
 |--|--|
 | **Red Hat** | **7.9** <br> **8.2** <br> **8.4** <br> **8.6** <br> **8.8** <br> **9.0** <br> **9.2** <br> **9.4** <br> **9.6** <br> **10.0**  <br> **10.2** |
-| **SUSE** | **12     SP4** <br> **15 SP2** <br> **15 SP3** <br> **15 SP4** <br> **15 SP5** <br> **15 SP6** <br> **15 SP7**  <br> **16**  <br> **16 SP1** |
+| **SUSE** | **12 SP4** <br> **15 SP2** <br> **15 SP3** <br> **15 SP4** <br> **15 SP5** <br> **15 SP6** <br> **15 SP7**  <br> **16**  <br> **16 SP1** |
 | **Oracle** | **8.2** <br> **8.4** <br> **8.6** <br> **8.8** <br> **8.9** |
 | **Windows Server** | **2016** <br> **2019** <br> **2022**  <br> **2025**    |
     
