@@ -367,7 +367,7 @@ You can verify the external endpoint location by using the below Azure CLI
 az network traffic-manager endpoint show --resource-group MyResourceGroup --profile-name MyTrafficManagerProfile --name MyExternalEndpoint --type externalEndpoints --query endpointLocation --output tsv
 ```
 
-You can update the external endpoint location by using the below Azure CLI
+You can update the external endpoint location by using the following Azure CLI command:
 
 ``` shell
 az network traffic-manager endpoint update --resource-group MyResourceGroup --profile-name MyTrafficManagerProfile --name MyExternalEndpoint --type externalEndpoints --endpoint-location westus
