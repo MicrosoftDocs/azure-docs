@@ -355,7 +355,7 @@ You can turn off Traffic View for any profile using the Portal or REST API.
 
 ### When I create endpoints in the Azure portal, why does my external endpoint appear in an unexpected location in Traffic View?
 
-When you create an external endpoint in the Azure portal on a profile that is not configured for Performance routing, the portal assigns a default endpoint location. Traffic View uses this configured Azure region to position the endpoint on its heat map, which might not reflect the endpoint's actual physical location.
+When you create an external endpoint in the Azure portal on a profile that isn't configured for Performance routing, the portal assigns a default endpoint location. Traffic View uses this configured Azure region to position the endpoint on its heat map, which might not reflect the endpoint's actual physical location.
 
 To change the location, update the endpoint using Azure CLI, Azure PowerShell, or the REST API. If you don't want an Azure region mapping, delete and recreate the endpoint using a non-portal method, omitting the endpoint location. External endpoints without a location appear at the top of the Traffic View map and have no associated latency information.
 
