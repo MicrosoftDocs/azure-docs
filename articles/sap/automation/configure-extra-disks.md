@@ -228,7 +228,7 @@ SDAF creates a logical volume that consumes the entire space within each volume 
 For the `vg_sap` volume group, SDAF creates a logical volume `lv_usrsap` that consumes the entire space within the volume group. If you want a smaller logical volume, specify it explicitly in the configuration as shown in the following example.
 
 ```terraform
-# configuration_settings is a dictionary containing values that are persisted in sap-parameters.yaml
+
 configuration_settings = {
   usrsap_volume_size = "40g"
 }
@@ -237,7 +237,6 @@ configuration_settings = {
 If you want to create a custom logical volume in addition to the default logical volume, use the `custom_logical_volumes` array as shown in the following example.
 
 ```terraform
-# configuration_settings is a dictionary containing values that persist in sap-parameters.yaml
 configuration_settings = {
   usrsap_volume_size   = "40g"
 
