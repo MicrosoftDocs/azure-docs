@@ -5,7 +5,7 @@ ms.topic: concept-article
 author: rvandenbedem
 ms.author: rvandenbedem
 ms.service: azure-vmware
-ms.date: 11/5/2026
+ms.date: 11/6/2026
 # Customer intent: As a cloud architect, I want to understand how VMware Cloud Foundation 9.1 has been designed and implemented with Azure VMware Solution.
 ---
 
@@ -42,8 +42,8 @@ Each Azure VMware Solution architectural component has the following function:
 - **Azure subscription**: Provides controlled access, budget, and quota management for Azure VMware Solution.
 - **Azure region**: Groups datacenters into availability zones and then groups availability zones into regions.
 - **Azure resource group**: Places Azure services and resources into logical groups.
-- **Azure VMware Solution private cloud**: Offers compute, networking, and storage resources by using VMware software, including VCF Fleet Manager, SDDC Manager, VCF Operations with License Server, vCenter, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESX hosts. Azure NetApp Files, Azure Elastic SAN, and Everpure Cloud Block Store are also supported.
-- **Azure VMware Solution resource cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESX hosts. Azure NetApp Files, Azure Elastic SAN, and Everpure Cloud Block Store are also supported.
+- **Azure VMware Solution private cloud**: Offers compute, networking, and storage resources by using VMware software, including VCF Fleet Manager, SDDC Manager, VCF Operations with License Server, vCenter, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESX hosts. Azure NetApp Files, Azure Elastic SAN, and Everpure Cloud Azure Native for Azure VMware Solution are also supported.
+- **Azure VMware Solution resource cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESX hosts. Azure NetApp Files, Azure Elastic SAN, and Everpure Cloud Azure Native for Azure VMware Solution are also supported.
 - **VMware Operations HCX**: Delivers mobility, migration, and network extension services.
 - **VCF Protection & Recovery Live Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Enhanced Replication. Non-Microsoft disaster recovery solutions Zerto disaster recovery and JetStream Software disaster recovery are also supported.
 - **Dedicated Microsoft Enterprise Edge**: Router that connects Azure Cloud Services and the Azure VMware Solution private cloud instance.
@@ -82,7 +82,7 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 | Jetstream DR | Yes |
 | Azure NetApp Files | Yes |
 | Azure eSAN | Yes |
-| Everpure Cloud Block Store (CBS) | Yes |
+| Everpure Cloud Azure Native for Azure VMware Solution | Yes |
 | VMware NSX Public IP Address (PIP) | Yes |
 | NSX Virtual Private Cloud (VPC) | No |
 | vSphere/NSX Enhanced Data Path (EDP) | Yes |
@@ -111,7 +111,7 @@ Previously, Azure VMware Solution used its own control plane to manage VMware so
 1.	Add Cluster-1 ESX 9.1 hosts to Azure VMware Solution tenant.
 2.	Deploy vCenter 9.1 to first ESX host of Cluster-1.
 3.	NSX 9.1 deployed to Cluster-1.
-4.	Deploy VCF 9.1 installer with offline software depot.
+4.	Deploy VCF 9.1 Installer with offline software depot.
 5.	VCF Installer 9.1 executes VCF instance **brownfield claim** mode.
 6.	VCF Operations, VCF Fleet Manager, VCF Software Depot, and VCF Runtime services deployed to Cluster-1.
 7.	VCF 9.1 Installer converted to SDDC Manager.
@@ -120,18 +120,18 @@ Previously, Azure VMware Solution used its own control plane to manage VMware so
 
 1.	If add-on enabled, upgrade VMware HCX to VCF Operations HCX 9.1.
 2.	If add-on enabled, upgrade VMware Live Site Recovery to VCF Protection & Recovery Live Recovery 9.1.
-3.	Deploy VCF 9.1 installer with offline software depot.
+3.	Deploy VCF 9.1 Installer with offline software depot.
 4.	Upgrade VMware NSX to 9.1.
 5.	Upgrade VMware vCenter Server 8.0 to vCenter 9.1.
 6.	Activate VMware NSX and VMware vCenter 9.1 API.
 7.	Upgrade VMware ESXi 8.0 to ESX 9.1.
 8.	Execute VCF Installer 9.1 in VCF instance **brownfield claim** mode.
 9.	Deploy VCF Operations, VCF Fleet Manager, VCF Software Depot, and VCF Runtime services to Cluster-1.
-10.	Convert VCF 9.1 installer to SDDC Manager.
+10.	Convert VCF 9.1 Installer to SDDC Manager.
 
 ## Frequently asked questions (FAQ)
 
-### Why did the VMware product names change in VCF 9.1?
+### Why did the product names change?
 This change is normal when a product evolves over time. The following table lists the name changes. The Azure VMware Solution public documentation will be updated when VCF 9.1 is generally available.
 
 | VCF 4.x/5.x | VCF 9.x |
@@ -142,11 +142,15 @@ This change is normal when a product evolves over time. The following table list
 | VMware Site Recovery Manager (SRM) | VCF Protection & Recovery Live Recovery |
 | VMware HCX | VCF Operations HCX |
 | VMware NSX-T Data Center | VMware NSX |
-| Aria Suite | VCF Operations Suite, VCF Automation |
+| VMware Aria Suite | VCF Operations Suite, VCF Automation |
 | VMware vCloud Director (vCD) | VCF Automation |
-| Aria Automation | VCF Automation |
-| Aria Operations for Logs | VCF Log Management |
-| Aria Operations for Networks | VCF Operations for Networks |
+| VMware Aria Automation | VCF Automation |
+| VMware Aria Operations | VCF Operations |
+| VMware Aria Operations for Logs | VCF Log Management |
+| VMware Aria Operations for Networks | VCF Operations for Networks |
+| VMware Aria Suite Lifecycle | VCF Fleet Manager |
+| VMware Identity Manager (vIDM - retired) | VMware Identity Broker (vIDB - new product)|
+| Pure Storage Cloud Block Store (CBS) | Everpure Cloud Azure Native for Azure VMware Solution |
 
 ### What version of VCF 9.1 does Azure VMware Solution use?
 Microsoft plans to use VCF 9.1.2. This build includes the necessary VCF API calls to support Azure VMware Solution.

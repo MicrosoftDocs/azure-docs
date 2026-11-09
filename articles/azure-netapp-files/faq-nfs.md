@@ -59,6 +59,13 @@ For environments that use Windows Server 2025 domain controllers, enable LDAP si
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
 
+## What are the mount-rootonly and nfs-rootonly settings in Azure NetApp Files?
+
+| Setting | Azure NetApp Files behavior | Customer action |
+| - | - | - |
+| `mount-rootonly` | Enabled by default. Mount requests from non-privileged client ports are rejected. | None required. |
+| `nfs-rootonly` | Disabled, consistent with the ONTAP default. Enabling it could disrupt workloads that use high-numbered ephemeral ports for NFS traffic, such as Oracle dNFS and some Kubernetes or container scenarios. | You can't enable `nfs-rootonly` through an Azure NetApp Files control-plane setting. Making it configurable requires a feature request. |
+
 ## Can I use the same file path for multiple volumes?
 
 The same file path can be used for:

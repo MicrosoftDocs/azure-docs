@@ -6,7 +6,7 @@ ms.author: leakassab
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart-sdk
-ms.date: 10/01/2026
+ms.date: 11/05/2026
 ---
 
 
@@ -55,15 +55,21 @@ To learn how to assign this role to your de-identification service, see [Manage 
     az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --location $REGION
     ```
 
-### Authorize de-identification service on the Azure Storage account
+### Authorize de-identification service on the storage container
 
-Give the de-identification service access to your storage account.
+Give the de-identification service access to the container that holds your job's input and output. Assign the role at the container scope rather than the storage account scope. Replace `<ContainerName>` with the container that you use in the job:
 
 ```bash
+CONTAINER_NAME="<ContainerName>"
+az storage container create --account-name $STORAGE_ACCOUNT_NAME --name $CONTAINER_NAME --auth-mode login
 STORAGE_ACCOUNT_ID=$(az storage account show --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --query id --output tsv)
+CONTAINER_SCOPE="$STORAGE_ACCOUNT_ID/blobServices/default/containers/$CONTAINER_NAME"
 DEID_SERVICE_PRINCIPAL_ID=$(az resource show -n $DEID_SERVICE_NAME -g $RESOURCE_GROUP_NAME  --resource-type microsoft.healthdataaiservices/deidservices --query identity.principalId --output tsv)
-az role assignment create --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage Blob Data Contributor" --scope $STORAGE_ACCOUNT_ID
+az role assignment create --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage Blob Data Contributor" --scope $CONTAINER_SCOPE
 ```
+
+> [!IMPORTANT]
+> Batch jobs access storage as the service's managed identity. Anyone who can create jobs can read and write any location that the managed identity can access. For more information, see [Storage access for batch jobs](manage-access-rbac.md#storage-access-for-batch-jobs).
 
 ### Install the package
 
@@ -199,7 +205,7 @@ az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-ty
 ### Delete role assignment
 
 ```bash
-az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage Blob Data Contributor" --scope $STORAGE_ACCOUNT_ID
+az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage Blob Data Contributor" --scope $CONTAINER_SCOPE
 ```
 
 
@@ -209,7 +215,7 @@ az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage 
 
 Ensure you have the necessary permissions, and that the Managed Identity for the de-identification service is set up properly.
 
-See [Authorize de-identification service on the Azure Storage account](#authorize-de-identification-service-on-the-azure-storage-account).
+See [Authorize de-identification service on the storage container](#authorize-de-identification-service-on-the-storage-container).
 
 ### Job failed with status PartialFailed
 

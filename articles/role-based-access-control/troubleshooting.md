@@ -203,7 +203,7 @@ DisplayName        :
 SignInName         :
 RoleDefinitionName : Storage Blob Data Contributor
 RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
-ObjectId           : 33333333-3333-3333-3333-333333333333
+ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ObjectType         : User
 CanDelegate        : False
 ```
@@ -215,7 +215,7 @@ Similarly, if you list this role assignment using Azure CLI, you might see an em
     "canDelegate": null,
     "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",
     "name": "22222222-2222-2222-2222-222222222222",
-    "principalId": "33333333-3333-3333-3333-333333333333",
+    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
     "principalName": "",
     "roleDefinitionId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe",
     "roleDefinitionName": "Storage Blob Data Contributor",
@@ -243,11 +243,11 @@ It's a good practice to remove any role assignments that aren't being used. You 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you'll get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
 
 ```
-PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
+PS C:\> Remove-AzRoleAssignment -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -RoleDefinitionName "Storage Blob Data Contributor"
 
 Remove-AzRoleAssignment : The provided information does not map to a role assignment.
 At line:1 char:1
-+ Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 ...
++ Remove-AzRoleAssignment -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 + CategoryInfo          : CloseError: (:) [Remove-AzRoleAssignment], KeyNotFoundException
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
@@ -256,7 +256,7 @@ At line:1 char:1
 If you get this error message, make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
 
 ```
-PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" -Scope /subscriptions/11111111-1111-1111-1111-111111111111
+PS C:\> Remove-AzRoleAssignment -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -RoleDefinitionName "Storage Blob Data Contributor" -Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
 ### Symptom - Cannot delete the last Owner role assignment

@@ -5,7 +5,7 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 11/08/2026
 
 #CustomerIntent: As a researcher or scientist, I want to know how to create and manage tasks so that I can effectively guide the Discovery Engine through my research.
 ---
@@ -15,6 +15,8 @@ ms.date: 05/29/2026
 This guide covers the practical steps for creating tasks, setting up relationships between them, monitoring execution, and managing results in the [Discovery Engine](concept-discovery-engine.md). For conceptual background on task structure and statuses, see [Tasks and shared sessions](concept-tasks-investigations.md).
 
 ## Adding a task
+
+You need permission to create and run tasks in the project. For project roles and separate storage access requirements, see [Project-level access control](concept-project-rbac.md). For workspace, model, and agent prerequisites, see [Build shared sessions with cognition](how-to-build-investigations-cognition.md#prerequisites).
 
 ### Using Discovery Studio
 
@@ -45,7 +47,7 @@ Keep in mind:
 
 ### Dependencies
 
-Dependencies control execution order. A task with a dependency waits until the dependency reaches a terminal status (Complete, Needs User Attention, Failed, or Removed).
+Dependencies control execution order. A dependency finishing doesn't necessarily mean its output passed validation. Review upstream outcomes before consuming results from tasks that are **Failed**, **Removed**, or **Needs User Attention**. For status meanings, see [Task status lifecycle](concept-tasks-investigations.md#task-status-lifecycle).
 
 To add a dependency:
 
@@ -155,7 +157,7 @@ To get an agent to produce files, describe what you want in the task description
 - "Write a markdown report summarizing the analysis results with an introduction, methodology, and conclusion"
 - "Generate a JSON configuration file with parameters for temperature, pressure, and concentration"
 
-When writing validation requirements for file outputs, describe what the file should contain rather than how to check it:
+When writing validation requirements for file outputs, describe the expected content:
 
 - "Read the CSV file and verify it contains at least 10 rows of compound data"
 - "Verify the report includes a conclusion section that references the experimental results"
@@ -168,20 +170,9 @@ When writing validation requirements for file outputs, describe what the file sh
 
 When Task B depends on Task A, the agent executing Task B receives Task A's result text as context. Cognition builds this dependency context automatically. You don't need to manually pass text data between tasks.
 
-File outputs (storage assets) also flow across dependencies. When Task A finishes, the storage assets it produced are inherited by every downstream task that depends on Task A — directly or transitively. Task B's agent can list inherited files with `GetResourceContext` and read them with `PreviewResource`, the same tools it uses for its own workspace files. Each inheritance event is captured in Task B's execution history under `inheritedStorageAssets`, with a breakdown of which file came from which upstream task.
+File outputs (storage assets) also flow across dependencies. Task B's agent can list inherited files by using `GetResourceContext` and read text-based content by using `PreviewResource`. For transitive inheritance, execution-history fields such as `inheritedStorageAssets`, and parent-chain behavior, see [How files move between tasks](concept-files-storage-assets.md#how-files-move-between-tasks).
 
-#### Two inheritance paths
-
-| Wiring | What Task B inherits |
-|---|---|
-| Task B `dependsOn` Task A | The storage assets Task A produced, plus any assets attached to Task A's own inputs. Inheritance is transitive: if A → B → C, then C sees A's and B's outputs through its direct dependency on B. |
-| Task B is a subtask of (parented to) Task A | The storage assets attached as inputs to Task A — for example, files the user uploaded to a root task before decomposition. |
-
-#### What doesn't propagate automatically
-
-- Files don't flow between sibling tasks that have no dependency edge between them. If two tasks need to share outputs, declare the dependency explicitly.
-- Files don't cross shared session boundaries. Each shared session is its own scope.
-- Inherited files are made available to the downstream agent, but the agent still has to call `GetResourceContext` or `PreviewResource` to read them — file contents aren't auto-injected into the prompt.
+Files don't flow between sibling tasks without a dependency or across shared session boundaries. Inherited contents aren't injected into the prompt; the agent must read them through the file tools.
 
 #### To make this work well
 
@@ -191,10 +182,12 @@ File outputs (storage assets) also flow across dependencies. When Task A finishe
 
 ### Handling unsatisfactory results
 
-If a completed task's result doesn't meet your expectations and the task is flagged for user attention:
+If a Complete task's result doesn't meet your expectations, create a follow-up task with clearer requirements. If a task is flagged as Needs User Attention:
 
 1. **Adjust the validation requirements** to be more specific about what was missing.
 2. **Add a note** explaining what needs to change.
+
+Stop the Discovery Engine before manually changing a task's status. Stopping cognition doesn't cancel agent tasks that are already running. Inspect their current execution before resetting or resubmitting work.
 
 ## Tasks created by cognition
 

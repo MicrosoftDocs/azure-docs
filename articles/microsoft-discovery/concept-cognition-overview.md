@@ -5,7 +5,7 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: concept-article
-ms.date: 05/29/2026
+ms.date: 11/08/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand how cognition works so that I can effectively collaborate with it on long-running research.
 ---
@@ -94,7 +94,7 @@ When an agent completes a task, cognition doesn't accept the result automaticall
 An independent process validates the result, not the agent that produced it. The agent that did the work never grades its own output. This separation ensures that validation requirements are evaluated objectively.
 
 > [!IMPORTANT]
-> Validation requires a chat model deployment in your workspace. New projects create a default chat model deployment named `gpt-5-4` (gpt-5.4). Without this deployment, the Discovery Engine can't start. For setup instructions, see [Create chat model deployment](quickstart-infrastructure.md#6-create-chat-model-deployment). The Microsoft Discovery app uses a different model wiring and doesn't require a workspace-hosted deployment; see [Microsoft Discovery and the Microsoft Discovery app](concept-discovery-and-discovery-app.md).
+> Validation requires a chat model deployment in your workspace named `gpt-5-4` (model: `gpt-5.4`). Deploy it at the workspace level; creating a project doesn't create this deployment. Without it, the Discovery Engine can't start. For setup instructions, see [Create chat model deployment](quickstart-infrastructure.md#6-create-chat-model-deployment). The Microsoft Discovery app uses a different model wiring and doesn't require a workspace-hosted deployment; see [Microsoft Discovery and the Microsoft Discovery app](concept-discovery-and-discovery-app.md).
 
 During validation, the process:
 

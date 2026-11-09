@@ -408,7 +408,7 @@ Use Azure PowerShell to create a hub-and-spoke configuration with the network gr
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerHub]]$hubList = @()
     
     $hub = @{
-        ResourceId = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
+        ResourceId = '/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
         ResourceType = 'Microsoft.Network/virtualNetworks'
     } 
     $hubvnet = New-AzNetworkManagerHub @hub

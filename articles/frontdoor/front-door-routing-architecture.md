@@ -40,6 +40,9 @@ The following sections describe these steps in detail.
 
 The user or client application initiates a connection to the origin behind Azure Front Door. The domain name resolves to the Front Door's Azure Traffic Manager endpoint. The Traffic Manager consumes health and availability signals from all the Front Door PoPs across the world. It determines the optimal PoP to serve the request and returns the unicast IP of that PoP.
 
+>[!WARNING]
+>AFD Unicast routing determines the appropriate PoP during DNS resolution. When the end user's location isn't available from the request metadata, routing is based on the location of the DNS resolver. This condition means the request might not be routed to the PoP closest to the user.
+
 ## Connect to Azure Front Door PoP Unicast IP
 
 Client makes a direct connection to the returned IP address of the Front Door PoP location.

@@ -209,6 +209,24 @@ items:
                     href: blobfuse2-troubleshooting.md
                   - name: FAQ
                     href: blobfuse2-faq.yml
+          - name: Distributed accelerator for cloud storage (preview)
+            items:
+              - name: Overview
+                href: ../container-storage/distributed-accelerator-for-cloud-storage-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Get started on AKS
+                href: ../container-storage/distributed-accelerator-for-cloud-storage-quickstart.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Use distributed accelerator for cloud storage with BlobFuse2
+                href: ../container-storage/use-distributed-accelerator-for-cloud-storage-blobfuse2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Use distributed accelerator for cloud storage with the Python client
+                href: ../container-storage/use-distributed-accelerator-for-cloud-storage-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Use distributed accelerator for cloud storage with Run:ai Model Streamer
+                href: ../container-storage/use-distributed-accelerator-for-cloud-storage-model-streamer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Manage distributed accelerator for cloud storage
+                href: ../container-storage/manage-distributed-accelerator-for-cloud-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Monitor distributed accelerator for cloud storage
+                href: ../container-storage/monitor-distributed-accelerator-for-cloud-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Troubleshoot distributed accelerator for cloud storage
+                href: ../container-storage/troubleshoot-distributed-accelerator-for-cloud-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: NFS 3.0
             items:
               - name: Overview
