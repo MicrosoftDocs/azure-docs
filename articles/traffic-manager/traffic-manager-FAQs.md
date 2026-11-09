@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 10/05/2026
+ms.date: 11/06/2026
 ms.author: allensu
 # Customer intent: As a Cloud Architect, I want to understand Azure Traffic Manager functionalities and limitations, so that I can effectively implement it for DNS-based traffic routing and ensure optimal performance of my distributed applications.
 ---
@@ -352,6 +352,26 @@ During the preview period, Traffic View was enabled at a subscription level. As 
 ### How can I turn off Traffic View?
 
 You can turn off Traffic View for any profile using the Portal or REST API. 
+
+### When I create endpoints in the Azure Portal why does my external endpoint appear in an unexpected location in Traffic View?
+
+When you create an external endpoint in the Azure portal on a profile that is not configured for Performance routing, the portal assigns a default endpoint location. Traffic View uses this configured Azure region to position the endpoint on its heat map, which might not reflect the endpoint's actual physical location.
+
+To change the location, update the endpoint using Azure CLI, Azure PowerShell, or the REST API. If you don't want an Azure region mapping, delete and recreate the endpoint using a non-portal method, omitting the endpoint location. External endpoints without a location appear at the top of the Traffic View map and have no associated latency information.
+
+Endpoint location is required for the Performance routing method. Changing it can affect routing decisions for profiles that use this method.
+
+You can verify the external endpoint location by using the below Azure CLI
+
+``` shell
+az network traffic-manager endpoint show --resource-group MyResourceGroup --profile-name MyTrafficManagerProfile --name MyExternalEndpoint --type externalEndpoints --query endpointLocation --output tsv
+```
+
+You can update the external endpoint location by using the below Azure CLI
+
+``` shell
+az network traffic-manager endpoint update --resource-group MyResourceGroup --profile-name MyTrafficManagerProfile --name MyExternalEndpoint --type externalEndpoints --endpoint-location westus
+```
 
 ### How does Traffic View billing work?
 
