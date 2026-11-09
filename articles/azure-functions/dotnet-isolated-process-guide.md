@@ -124,7 +124,7 @@ With the updated Azure Functions Core Tools, run the following command to create
 func init --worker-runtime dotnet-isolated --target-framework net11.0
 ```
 
-The generated project file has the following configuration:
+The following example shows a generated project file. SDK and package versions can differ depending on your installed template version and are updated as new releases become available.
 
 ```xml
 <Project Sdk="Azure.Functions.Sdk/1.0.1">
@@ -143,7 +143,7 @@ The generated project file has the following configuration:
 </Project>
 ```
 
-The package versions shown are the versions used by this template example, not minimum version requirements for every app. The example includes OpenTelemetry and ASP.NET Core HTTP integration packages; your app's extension and telemetry dependencies depend on its features and configuration.
+The SDK and package versions shown are the versions used by this template example, not minimum version requirements for every app. Use the latest compatible stable releases that meet the requirements for your target framework. The example includes OpenTelemetry and ASP.NET Core HTTP integration packages; your app's extension and telemetry dependencies depend on its features and configuration.
 
 For an existing project, change the project SDK to `Azure.Functions.Sdk/1.0.1` and the target framework to `net11.0`. Keep an explicit `Microsoft.Azure.Functions.Worker` package reference and the trigger and binding extension packages your app uses. `Azure.Functions.Sdk` replaces `Microsoft.NET.Sdk` in the `Project` element and the `Microsoft.Azure.Functions.Worker.Sdk` package reference; it doesn't replace the worker runtime package.
 

@@ -509,7 +509,7 @@ When deploying a containerized function app, the deployment task you use depends
 
 You can use the [Azure Container Apps Deploy](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1) task (`AzureContainerApps`) to deploy a function app image to an Azure Container App instance that is optimized for Azure Functions. 
 
-This code deploys the base image for a .NET function app using the isolated worker model. Replace `<DOTNET_VERSION>` with a supported runtime version that matches your project's target framework and has a published [base image tag](container-concepts.md#maintaining-custom-containers):
+This code deploys the base image for a .NET function app that uses the isolated worker model. Replace `<BASE_IMAGE_TAG>` with a published [base image tag](container-concepts.md#maintaining-custom-containers) for a supported runtime version that matches your project's target framework. For .NET 11, use `4-dotnet-isolated11.0-chiseled`; the tag without `-chiseled` isn't published:
 
 ```yaml
 trigger:
@@ -522,7 +522,7 @@ steps:
 - task: AzureContainerApps@1
   inputs:
     azureSubscription: <Name of your Azure subscription>
-    imageToDeploy: 'mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated<DOTNET_VERSION>'
+    imageToDeploy: 'mcr.microsoft.com/azure-functions/dotnet-isolated:<BASE_IMAGE_TAG>'
     containerAppName: <Name of your container app>
     resourceGroup: <Name of the resource group>
 ```

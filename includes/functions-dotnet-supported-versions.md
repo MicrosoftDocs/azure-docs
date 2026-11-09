@@ -31,6 +31,9 @@ The following table shows the highest level of .NET or .NET Framework that can b
 
 Projects that target .NET 11 require `Azure.Functions.Sdk` version 1.0.1 or later as the project SDK and an explicit `Microsoft.Azure.Functions.Worker` package reference. For configuration and tooling guidance, see [.NET 11 in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#net-11).
 
+> [!NOTE]
+> .NET 11 currently supports C# only. F# support is [temporarily unavailable](https://github.com/Azure/azure-functions-templates/issues/1816).
+
 For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
 
 [end of official support]: https://dotnet.microsoft.com/platform/support/policy
