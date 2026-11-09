@@ -13,6 +13,11 @@ You need to update the runtime of the function app host in Azure to version 4.x 
 
 The easiest way is to [update without slots](#update-without-slots) and then republish your app project. You can also minimize the downtime in your app and simplify rollback by [updating using slots](#update-using-slots). 
 
+::: zone pivot="programming-language-csharp"
+> [!IMPORTANT]
+> Configure the language stack to match your project's target framework, not the .NET version used internally by the Functions host. Replace `<TARGET_VERSION>` in the Windows commands with the runtime version supported by your programming model and hosting plan. For current version requirements and hosting restrictions, see [Supported versions](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions). For stack configuration details, see [Update the stack configuration](../articles/azure-functions/update-language-versions.md?pivots=programming-language-csharp#update-the-stack-configuration). When using slots, apply the stack configuration to the staging slot before validating and swapping.
+::: zone-end
+
 ### Update without slots
 
 The simplest way to update to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on your function app in Azure. You must follow a [different procedure](#update-using-slots) on a site with slots. 
@@ -34,23 +39,23 @@ You must also set another setting, which differs between Windows and Linux.
 
 # [Windows](#tab/windows/azure-cli)
 
-When running on Windows, you also need to enable .NET 8.0, which is required by version 4.x of the runtime.
+For Windows apps, configure the stack to match your project's target framework.
 
 ```azurecli
-az functionapp config set --net-framework-version v8.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+az functionapp config set --net-framework-version "v<TARGET_VERSION>" -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 ```
 
-.NET 8.0 is required for function apps in any language running on Windows.
+The Functions host's .NET requirements are separate from an isolated worker app's target framework.
 
 # [Windows](#tab/windows/azure-powershell)
 
-When running on Windows, you also need to enable .NET 8.0, which is required by version 4.x of the runtime.
+For Windows apps, configure the stack to match your project's target framework.
 
 ```azurepowershell
-Set-AzWebApp -NetFrameworkVersion v8.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+Set-AzWebApp -NetFrameworkVersion "v<TARGET_VERSION>" -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
 ```
 
-.NET 8.0 is required for function apps in any language running on Windows.
+The Functions host's .NET requirements are separate from an isolated worker app's target framework.
 
 # [Linux](#tab/linux/azure-cli)
 
@@ -98,17 +103,17 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. Version 4.x of the Functions runtime requires .NET 8.0 in Windows. On Linux, .NET apps must also update to .NET 8.0. Use the following command so that the runtime can run on .NET 8.0:
+1. Update the language stack configuration to match your project's target framework.
    
     # [Windows](#tab/windows)
 
-    When running on Windows, you also need to enable .NET 8.0, which is required by version 4.x of the runtime.
+    For Windows apps, configure the stack in the staging slot:
 
     ```azurecli
-    az functionapp config set --net-framework-version v8.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+    az functionapp config set --net-framework-version "v<TARGET_VERSION>" -g <RESOURCE_GROUP_NAME> -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-    Function apps in any language running on Windows require .NET 8.0.
+    The Functions host's .NET requirements are separate from an isolated worker app's target framework.
 
     # [Linux](#tab/linux)
 
@@ -160,17 +165,17 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. Version 4.x of the Functions runtime requires .NET 8.0 in Windows. On Linux, .NET apps must also update to .NET 8.0. Use the following command so that the runtime can run on .NET 8.0:
+1. Update the language stack configuration to match your project's target framework.
    
     # [Windows](#tab/windows)
 
-    When running on Windows, you also need to enable .NET 8.0, which is required by version 4.x of the runtime.
+    For Windows apps, configure the stack in the staging slot:
 
     ```azurecli
-    az functionapp config set --net-framework-version v8.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+    az functionapp config set --net-framework-version "v<TARGET_VERSION>" -g <RESOURCE_GROUP_NAME> -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-    .NET 8.0 is required for function apps in any language running on Windows.
+    The Functions host's .NET requirements are separate from an isolated worker app's target framework.
 
     # [Linux](#tab/linux)
 

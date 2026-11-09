@@ -103,7 +103,7 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **Unless your app depends on a library or API only available to .NET Framework, update to .NET 10 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that choice was available when they were created. If your app doesn't need to stay on .NET Framework because of a dependency, target .NET 10, the current long-term support (LTS) release.
+> **Unless your app depends on a library or API only available to .NET Framework, update to a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).** Many apps on version 1.x target .NET Framework only because that choice was available when they were created. If your app doesn't need to stay on .NET Framework because of a dependency, target a supported .NET release instead.
 >
 > Although you can choose to use the in-process model instead, this approach isn't recommended if you can avoid it. [Support ends for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you need to move to the isolated worker model before then. Migrating models while you migrate to version 4.x decreases the total effort required, and the isolated worker model gives your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to target future versions of .NET more easily. If you're moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 

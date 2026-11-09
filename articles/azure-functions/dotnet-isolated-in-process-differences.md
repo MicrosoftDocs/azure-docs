@@ -27,7 +27,7 @@ Use the following table to compare feature and functional differences between th
 
 | Feature/behavior | Isolated worker model  |  In-process model<sup>3</sup> |
 | ---- | ---- | ---- |
-| [Supported .NET versions](#supported-versions) | Long Term Support (LTS) versions,<br/>Standard Term Support (STS) versions,<br/>.NET Framework | Long Term Support (LTS) versions, ending with .NET 8 |
+| [Supported .NET versions](#supported-versions) | Long Term Support (LTS) versions,<br/>Standard Term Support (STS) versions,<br/>.NET Framework | Long Term Support (LTS) versions [supported by the in-process model](functions-dotnet-class-library.md#supported-versions) |
 | Core SDK and packages | [Azure.Functions.Sdk](https://www.nuget.org/packages/Azure.Functions.Sdk/)<sup>6</sup><br/>[Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) |
 | Binding extension packages | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  |
 | Durable Functions | [Supported](../durable-task/durable-functions/durable-functions-dotnet-isolated-overview.md)| [Supported](../durable-task/common/what-is-durable-task.md) |
@@ -50,7 +50,7 @@ Use the following table to compare feature and functional differences between th
 3. C# Script functions also run in-process and use the same libraries as in-process class library functions. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md). 
 4. Service SDK types include types from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) such as [BlobClient](/dotnet/api/azure.storage.blobs.blobclient).
 5. ASP.NET Core types aren't supported for .NET Framework.
-6. `Azure.Functions.Sdk` supports .NET 8 and later and .NET Framework. It doesn't support out-of-support target frameworks from .NET Core 2.x through .NET 7.
+6. For supported target frameworks and package version requirements for `Azure.Functions.Sdk`, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package). Upgrade out-of-support target frameworks before adopting this SDK.
 
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult

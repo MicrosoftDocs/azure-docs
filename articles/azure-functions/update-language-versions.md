@@ -53,6 +53,8 @@ Use these steps to update the project on your local computer:
 
 1. Update the project SDK to the latest version of [Azure.Functions.Sdk](https://www.nuget.org/packages/Azure.Functions.Sdk/) and update your explicit [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) reference to the latest version.
 
+   Choose a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions). For project SDK, worker package, and tooling requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
+
 1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the *.csproj* file. For more information about your version, see [Target frameworks](/dotnet/standard/frameworks).
 
    Changing your project's target framework might also require changes to parts of your toolchain, outside project code. For example, in Visual Studio Code, you might need to update the `azureFunctions.deploySubpath` extension setting in your user settings or your project's *.vscode/settings.json* file. Check for any dependencies on the framework version that exist outside your project code, as part of build steps or a continuous integration and continuous delivery (CI/CD) pipeline.

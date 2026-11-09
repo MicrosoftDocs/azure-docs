@@ -638,6 +638,9 @@
         href: python-memory-profiler-reference.md
 - name: AI
   items: 
+  - name: Azure Functions skills for coding agents
+    displayName: AI, coding agents, GitHub Copilot, Claude Code, Codex CLI, skills
+    href: functions-skills.md
   - name: Create AI-enabled functions
     displayName: OpenAI, agent, agentic, tools, trigger
     href: functions-create-ai-enabled-apps.md
@@ -688,6 +691,9 @@
     - name: Developer guide
       displayName: AI, agent, hosted skills, Markdown, triggers, tools, MCP, skills
       href: functions-hosted-skills-developer-guide.md
+    - name: Migrate an existing workflow
+      displayName: hosted skills, migration, automation, coding agents, GitHub Copilot, Claude Code, Codex
+      href: functions-hosted-skills-migrate.md
     - name: Hosted Skill bindings in Python
       displayName: AI, agent, hosted skills, binding, Python, hybrid workflows, HostedSkill
       href: functions-hosted-skills-bindings.md
@@ -744,6 +750,44 @@
       href: /azure/operational-excellence/relocation-functions?toc=%2Fazure%2Fazure-functions%2Ftoc.json
 - name: Reference
   items:
+  - name: Azure Functions skills
+    items:
+    - name: Reference overview
+      href: functions-skills-reference/index.md
+    - name: Best practices
+      href: functions-skills-reference/azure-functions-best-practices.md
+    - name: Common references
+      href: functions-skills-reference/azure-functions-common.md
+    - name: Connector creation
+      href: functions-skills-reference/azure-functions-connector-create.md
+    - name: Connector MCP tools
+      href: functions-skills-reference/azure-functions-connector-mcp.md
+    - name: Connector validation
+      href: functions-skills-reference/azure-functions-connector-validate.md
+    - name: Create
+      href: functions-skills-reference/azure-functions-create.md
+    - name: Deploy
+      href: functions-skills-reference/azure-functions-deploy.md
+    - name: Diagnostics
+      href: functions-skills-reference/azure-functions-diagnostics.md
+    - name: Project diagnostics
+      href: functions-skills-reference/azure-functions-doctor.md
+    - name: Feedback
+      href: functions-skills-reference/azure-functions-feedback.md
+    - name: Health status
+      href: functions-skills-reference/azure-functions-health-status.md
+    - name: Help
+      href: functions-skills-reference/azure-functions-help.md
+    - name: Hosted-skills authoring
+      href: functions-skills-reference/azure-functions-hosted-skills.md
+    - name: Hosted-skills migration
+      href: functions-skills-reference/azure-functions-hosted-skills-migrate.md
+    - name: Inventory
+      href: functions-skills-reference/azure-functions-inventory.md
+    - name: Setup
+      href: functions-skills-reference/azure-functions-setup.md
+    - name: Update
+      href: functions-skills-reference/azure-functions-update.md
   - name: API references
     items:
     - name: ARM template

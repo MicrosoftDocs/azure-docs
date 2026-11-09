@@ -32,7 +32,7 @@ Because the new server runs in a Flex Consumption plan, which follows a _pay-for
 ## Prerequisites
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
++ The [.NET SDK](https://dotnet.microsoft.com/download) that matches your template's target framework. Use a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).
 ::: zone-end  
 <!--- replace after Java gets added:
 ::: zone pivot="programming-language-java"  
