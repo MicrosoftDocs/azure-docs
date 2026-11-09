@@ -361,7 +361,7 @@ To change the location, update the endpoint by using Azure CLI, Azure PowerShell
 
 Endpoint location is required for the Performance routing method. Changing it can affect routing decisions for profiles that use this method.
 
-You can verify the external endpoint location by using the below Azure CLI
+You can verify the external endpoint location by using the following Azure CLI command:
 
 ``` shell
 az network traffic-manager endpoint show --resource-group MyResourceGroup --profile-name MyTrafficManagerProfile --name MyExternalEndpoint --type externalEndpoints --query endpointLocation --output tsv
