@@ -227,16 +227,16 @@ SDAF will create by default create a logical volume that consumes the entire spa
 
 For the vg_sap volume group, a logical volume lv_usrsap will be created, consuming the entire space within the volume group. If a smaller logical volume is desired, it can be specified explicitly in the configuration as shown in the example below.
 
-'''terraform
+```terraform
 # configuration_settings is a dictionary containing values that will be persisted in sap-parameters.yaml
 configuration_settings = {
   usrsap_vol    ume_size   = "40g"
 }
-'''
+```    
 
 If you want to create a custom logical volume in addition to the default logical volume, you can use the `custom_logical_volumes` array as shown in the example below.
 
-'''terraform
+```terraform
 # configuration_settings is a dictionary containing values that will be persisted in sap-parameters.yaml
 configuration_settings = {
   usrsap_vol    ume_size   = "40g"
@@ -253,7 +253,7 @@ configuration_settings = {
     }
   ]
 }
-'''
+```
 
 The above configuration demonstrates how to define a custom logical volume within the `vg_sap` volume group. The `usrsap_volume_size` specifies the size of the default logical volume, while the `custom_logical_volumes` array allows you to create additional logical volumes with specific attributes such as size, filesystem type, and mount path.
 
