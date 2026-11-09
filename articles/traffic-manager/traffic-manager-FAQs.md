@@ -353,7 +353,7 @@ During the preview period, Traffic View was enabled at a subscription level. As 
 
 You can turn off Traffic View for any profile using the Portal or REST API. 
 
-### When I create endpoints in the Azure Portal why does my external endpoint appear in an unexpected location in Traffic View?
+### When I create endpoints in the Azure portal, why does my external endpoint appear in an unexpected location in Traffic View?
 
 When you create an external endpoint in the Azure portal on a profile that is not configured for Performance routing, the portal assigns a default endpoint location. Traffic View uses this configured Azure region to position the endpoint on its heat map, which might not reflect the endpoint's actual physical location.
 
