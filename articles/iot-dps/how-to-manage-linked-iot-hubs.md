@@ -27,11 +27,14 @@ After an IoT hub is linked to DPS, it's eligible to participate in allocation. W
 
 The following settings control how DPS uses linked IoT hubs:
 
-* **Connection string**: Sets the IoT Hub connection string that DPS uses to connect to the linked IoT hub. The connection string is based on one of the IoT hub's shared access policies. DPS needs the following permissions on the IoT hub: *RegistryWrite* and *ServiceConnect*. The connection string must be for a shared access policy that has these permissions. To learn more about IoT Hub shared access policies, see  [IoT Hub access control and permissions](../iot-hub/authenticate-authorize-sas.md#access-control-and-permissions).
+* **Authentication type**: Specifies how DPS authenticates to the linked IoT hub. Supported values are `KeyBased` (shared access policy connection string), `SystemAssigned` (system-assigned managed identity), and `UserAssigned` (user-assigned managed identity). In every case, DPS needs the *RegistryWrite* and *ServiceConnect* permissions on the IoT hub.
 
-* **Authentication type**: Controls how DPS authenticates to the linked IoT hub. Supported values are `KeyBased` (connection string), `SystemAssigned` (system-assigned managed identity), and `UserAssigned` (user-assigned managed identity). See [Link an IoT hub by using managed identity](#link-an-iot-hub-by-using-managed-identity).
+    * **Connection string**: Applies only to `KeyBased` authentication. Sets the IoT Hub connection string that DPS uses to connect to the linked IoT hub. The connection string must be for a shared access policy that has the *RegistryWrite* and *ServiceConnect* permissions. To learn more about IoT Hub shared access policies, see [IoT Hub access control and permissions](../iot-hub/authenticate-authorize-sas.md#access-control-and-permissions).
+
+    * **Managed identity**: Applies to `SystemAssigned` and `UserAssigned` authentication. DPS uses its managed identity instead of a connection string, so you don't need a connection string or shared access policy. The identity must have the **IoT Hub Data Contributor** role (or a custom role with the *RegistryWrite* and *ServiceConnect* permissions) on the IoT hub. See [Link an IoT hub by using managed identity](#link-an-iot-hub-by-using-managed-identity).
 
 * **Hostname type**: Sets which IoT Hub endpoint DPS uses when provisioning devices. Use `classic` for the standard endpoint or `device` for the TLS 1.3-capable device endpoint. See [Use TLS 1.3 endpoints for linked hubs](#use-tls-13-endpoints-for-linked-hubs).
+
 * **Allocation weight**: Determines the likelihood of an IoT hub being selected when DPS hashes device assignment across a set of IoT hubs. The value can be between one and 1000. The default is one (or **null**). Higher values increase the IoT hub's probability of being selected.
 
 * **Apply allocation policy**: Sets whether the IoT hub participates in allocation policy. The default is **Yes** (true). If set to **No** (false), devices aren't assigned to the IoT hub. The IoT hub can still be selected on an enrollment, but it won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
