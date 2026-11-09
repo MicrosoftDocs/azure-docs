@@ -5,14 +5,14 @@ services: iot-hub
 author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 07/14/2026
+ms.date: 11/09/2026
 ms.author: sethm
 ms.custom: references_regions
 ---
 
 # Update private endpoints to enable TLS 1.3 on Azure IoT Hub
 
-Azure IoT Hub supports [TLS 1.3](iot-hub-tls-support.md#tls-13-support-preview) through new device and service endpoints. As part of this change, every IoT hub exposes two additional hostnames alongside its default hostname:
+Azure IoT Hub supports [TLS 1.3](iot-hub-tls-support.md#tls-13-support) through new device and service endpoints. As part of this change, every IoT hub exposes two additional hostnames alongside its default hostname:
 
 | Endpoint | Hostname |
 | --- | --- |

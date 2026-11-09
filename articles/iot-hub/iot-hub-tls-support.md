@@ -5,7 +5,7 @@
  author: sethmanheim
  ms.service: azure-iot-hub
  ms.topic: how-to
- ms.date: 05/26/2026
+ ms.date: 11/09/2026
  ms.author: sethm
  ms.custom: references_regions
 ---
@@ -255,7 +255,7 @@ Official SDK support for this public preview feature isn't yet available. To get
 
 [Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates and intermediate certificates associated with IoT Hub endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 
-## TLS 1.3 support (preview)
+## TLS 1.3 support
 
 Azure IoT Hub supports TLS 1.3 through new device and service endpoints available alongside the existing classic endpoint. These endpoints are provisioned automatically on all IoT hubs and can be adopted at your own pace.
 
@@ -264,8 +264,8 @@ Azure IoT Hub supports TLS 1.3 through new device and service endpoints availabl
 | Endpoint | Hostname | TLS support |
 |----------|----------|-------------|
 | Classic | `<hub>.azure-devices.net` | TLS 1.2 |
-| Device (preview) | `<hub>.device.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
-| Service (preview) | `<hub>.service.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
+| Device | `<hub>.device.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
+| Service | `<hub>.service.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
 
 The classic endpoint remains fully supported and continues to be the default for existing workloads.
 
@@ -278,6 +278,22 @@ The new endpoints have stricter requirements than the classic endpoint:
 - **Devices using TLS 1.2 can connect** to the new endpoints if they support the required cipher suites.
 
 ### Use the new endpoints
+
+#### [Azure portal](#tab/portal)
+
+To view the endpoints and get connection strings for them in the Azure portal:
+
+1. Navigate to your IoT hub in the [Azure portal](https://portal.azure.com).
+
+1. On the **Overview** tab, the **Essentials** section shows the **Service hostname** and **Device hostname** for your hub.
+
+    :::image type="content" source="media/iot-hub-tls-support/tls-13-hub-endpoints.png" alt-text="Screenshot that shows the service hostname and device hostname in the Overview page of an IoT hub." lightbox="media/iot-hub-tls-support/tls-13-hub-endpoints.png":::
+
+1. To get a connection string, on the left menu, select **Security settings** > **Shared access policies**, and then select a policy. The policy pane lists connection strings for the **Device endpoint**, **Service endpoint**, and **Classic endpoint**.
+
+    :::image type="content" source="media/iot-hub-tls-support/tls-13-connection-strings.png" alt-text="Screenshot that shows the connection strings for the device, service, and classic endpoints in a shared access policy." lightbox="media/iot-hub-tls-support/tls-13-connection-strings.png":::
+
+#### [Azure CLI](#tab/cli)
 
 To retrieve connection strings for the new endpoints, use the `--hostname-type` parameter:
 
@@ -306,6 +322,8 @@ az iot hub show --name <hub-name> --resource-group <resource-group> \
 
 > [!NOTE]
 > The `service` hostname type isn't valid for device or module connection strings. Use `device` or `classic` for device-side connections.
+
+---
 
 ### Migrate to the TLS 1.3 endpoints
 
