@@ -104,7 +104,7 @@ of these paths:
 - **Use ADR simplified onboarding.** Start from an ADR namespace and configure
   the connected services through the simplified onboarding flow. For this
   alternative path, see
-  [Get started with Azure Device Registry](../iot/device-registry/get-started-azure-device-registry.md).
+  [Get started with Azure Device Registry for Azure IoT Hub](../iot/device-registry/get-started-azure-device-registry.md).
 
 This article focuses on the first path: setting up the resources directly as
 part of IoT Hub setup. Select the MQTT v5 connection profile when creating the

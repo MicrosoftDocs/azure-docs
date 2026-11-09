@@ -7,7 +7,7 @@ ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 05/15/2026
+ms.date: 11/09/2026
 ms.custom: references_regions
 ai-usage: ai-assisted
 
@@ -45,12 +45,23 @@ For more information, see [Azure IoT Hub Device Provisioning Service (DPS)](../i
 
 ## Supported regions
 
-To use IoT Hub with Azure Device Registry and certificate management, deploy instances of IoT Hub, Azure Device Registry, and Device Provisioning Service in one of the following supported regions:
+To use IoT Hub with Azure Device Registry and certificate management, deploy instances of IoT Hub, Azure Device Registry, and Device Provisioning Service in one of the following supported regions. The Azure Device Registry preview capabilities for IoT Hub-connected devices&mdash;groups, jobs, and software updates&mdash;are also available in these regions:
 
-- Australia East
-- Japan East
-- Central US
-- UK South
+| Azure region |
+|---|
+| Australia East |
+| Central US |
+| East US |
+| Japan East |
+| UK South |
+| West Europe |
+| West US |
+| West US 3 |
+
+> [!NOTE]
+> IoT Hub MQTT5 (preview) is available with Azure Device Registry only in Australia East, Central US, Japan East, UK South, and West US.
+
+For regional availability of Azure Device Registry with IoT Hub and Azure IoT Operations, see [Azure Device Registry regional availability](../iot/device-registry/overview-device-registry.md#regional-availability).
 
 ## Get started with ADR and certificate management
 

@@ -6,7 +6,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: concept-article
-ms.date: 10/05/2026
+ms.date: 11/09/2026
 ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to understand the Azure Device Registry software updates capability so that I can plan how to prepare, deploy, and monitor updates across my device fleet.
 ---
@@ -46,7 +46,7 @@ Keep the following considerations in mind if you already use Device Update for I
 
 ## How software updates work
 
-You enable software updates on an Azure Device Registry namespace, either when you set up the namespace or later. To learn how, see [Get started with Azure Device Registry (preview)](get-started-azure-device-registry.md). The capability introduces the following components:
+You enable software updates on an Azure Device Registry namespace, either when you set up the namespace or later. To learn how, see [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md). The capability introduces the following components:
 
 - **Software update**: An update that you import into a namespace. A software update consists of one or more update files and an import manifest. After you import a software update, it's available to software update jobs and onboarding update jobs in that namespace.
 - **Software update job**: Applies a software update to the compatible devices in a target group.
