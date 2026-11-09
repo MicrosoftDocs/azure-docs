@@ -31,8 +31,8 @@ automation framework supports. For an overview of the framework, see
 The framework supports the following operating systems and distributions:
 
 - Windows Server 64 bit for the x86-64 platform
-- SUSE Linux 64 bit for the x86-64 platform (12.x, 15.x and 16.x)
-- Red Hat Linux 64 bit for the x86-64 platform (7.x, 8.x, 9.x, 10.x)
+- SUSE Linux 64-bit for the x86-64 platform (12.x, 15.x, and 16.x)
+- Red Hat Linux 64-bit for the x86-64 platform (7.x, 8.x, 9.x, and 10.x)
 - Oracle Linux 64 bit for the x86-64 platform
 
 The following distributions were tested with the framework:
