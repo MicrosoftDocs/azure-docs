@@ -24,6 +24,8 @@ To get started, choose the experience that matches your goal:
 + To provision Azure resources and deploy a complete hosted skills app by
   using the Azure Developer CLI (`azd`), see [Build an event-driven AI app with
   Azure Functions hosted skills](scenario-hosted-skills.md).
++ To convert supported local coding-agent automation, see
+  [Migrate local agent workflows to Azure Functions hosted skills](functions-hosted-skills-migrate.md).
 
 For the most up-to-date and comprehensive runtime documentation, see [Azure Functions Agents Runtime](https://azure.github.io/azure-functions-agents-runtime/).
 

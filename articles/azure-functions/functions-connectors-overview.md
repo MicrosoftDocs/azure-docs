@@ -37,7 +37,7 @@ You can use managed connectors alongside classic Functions triggers and bindings
 | Dimension | Availability |
 |---|---|
 | **Connector Namespace region** | Any region where [Connector Namespace](../connector-namespace/connector-namespace-overview.md) is supported. |
-| **Languages** | .NET 10 isolated, Python 3.13+, Node.js 22+ (JS/TS). Java, PowerShell, and Go aren't supported. |
+| **Languages** | [.NET isolated worker](dotnet-isolated-process-guide.md#supported-versions), Python 3.13+, Node.js 22+ (JS/TS). Java, PowerShell, and Go aren't supported. |
 | **Hosting plans** | [Flex Consumption](./flex-consumption-plan.md) (recommended), [Premium](./functions-premium-plan.md), [Dedicated](./dedicated-plan.md), and [Container Apps](./functions-container-apps-hosting.md). |
 | **Pricing** | [Standard Functions pricing](https://azure.microsoft.com/pricing/details/functions/): No extra charge for connector trigger/SDK during preview.<br/>*Connector Namespace has separate billing.* |
 
@@ -89,7 +89,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Connector --prere
 dotnet add package Azure.Connectors.Sdk --prerelease
 ```
 
-For the .NET isolated worker, target `net8.0` or `net10.0` and the latest Functions worker.
+For .NET, use the isolated worker model and a [supported .NET version](dotnet-isolated-process-guide.md#supported-versions). Follow the [project SDK and worker package requirements](dotnet-isolated-process-guide.md#core-sdk-and-package) for your target framework.
 
 ::: zone-end
 

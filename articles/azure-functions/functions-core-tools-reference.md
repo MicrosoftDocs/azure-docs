@@ -96,7 +96,7 @@ The `func init` command supports these options, which depend on the version:
 | **`--skip-npm-install`** | Skip running `npm install` after project creation. Applicable for Node.js projects. |
 | **`--source-control`** | Controls whether a Git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
 | **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `dotnet-isolated`, `javascript`, `node` (JavaScript), `powershell`, `python`, and `typescript`. For Java, use [Maven](functions-reference-java.md#create-java-functions). To generate a language-agnostic project with just the project files, use `custom`. When not set, you're prompted to choose your runtime during initialization. |
-| **`--target-framework`** | Sets the target framework for the function app project. Valid only with `--worker-runtime dotnet-isolated`. Supported values are: `net10.0` (preview), `net9.0`, `net8.0` (default), `net6.0`, and `net48` (.NET Framework 4.8). |
+| **`--target-framework`** | Sets the target framework for the function app project. Valid only with `--worker-runtime dotnet-isolated`. Choose the target framework moniker for a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions). Run `func init --help` to view the available values and default for your installed tools and templates. For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package). |
 
 > [!NOTE]
 > When you use either the `--docker` or `--docker-only` option, Core Tools automatically creates the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
@@ -155,7 +155,7 @@ The `init` command expands when you install one or more of these workloads:
 
 | Option | Description |
 | ----- | ----- |
-| **`--target-framework`**, **`-tfm`** | The target .NET framework for the project (for example, `net10.0`). Default: `net10.0`. |
+| **`--target-framework`**, **`-tfm`** | The target framework moniker for a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions). Run `func init --help` to view the available values and default for your installed workload. |
 
 The .NET initializer doesn't write an extension bundle block, so `--no-bundles` and `--bundles-channel` aren't applicable.
 

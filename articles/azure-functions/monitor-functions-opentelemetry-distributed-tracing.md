@@ -46,7 +46,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 + [Node.js 22.x or later](https://nodejs.org/)
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
++ The [.NET SDK](https://dotnet.microsoft.com/download) that matches your template's target framework. Use a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure), version 11 or later
@@ -898,7 +898,7 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 + **Function chaining**: The first function calls the second using HttpClient with OpenTelemetry instrumentation
 + **Service Bus integration**: The second function outputs to Service Bus using output bindings, which triggers the third function
 + **Managed identity**: All Service Bus connections use managed identity instead of connection strings
-+ **.NET 8 Isolated Worker**: Uses the latest Azure Functions .NET Isolated Worker model for better performance and flexibility
++ **.NET isolated worker model**: Runs the functions in an isolated worker process
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-otel).  
 ::: zone-end  

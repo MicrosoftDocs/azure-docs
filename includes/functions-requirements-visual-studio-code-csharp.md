@@ -8,7 +8,9 @@ ms.author: glenga
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
++ The [.NET SDK](https://dotnet.microsoft.com/download) for a [supported .NET version using the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions).
+
+  Update the Azure Functions extension, Core Tools, and templates to support your target version. For project SDK and worker package requirements, see [Core SDK and package](../articles/azure-functions/dotnet-isolated-process-guide.md#core-sdk-and-package).
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 

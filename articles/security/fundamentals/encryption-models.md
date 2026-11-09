@@ -3,7 +3,7 @@ title: Data encryption models in Microsoft Azure
 description: Learn how Azure encryption models protect data at rest, including client encryption and server-side encryption by using platform-managed or customer-managed keys.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/08/2026
+ms.date: 11/09/2026
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -92,7 +92,7 @@ Loss of key encryption keys means loss of data. For this reason, don't delete ke
 > [!WARNING]
 > If you suspect a key is compromised, don't immediately disable or delete it. Disabling or deleting a key takes all dependent services offline, but it doesn't invalidate any copies of the key that were backed up and restored to another vault. Those copies remain fully functional. Instead, rotate to a new key and migrate all dependent services before disabling the compromised key. For the full incident response procedure, see [Backup security considerations](/azure/key-vault/general/backup#security-considerations) and [Key compromise response](/azure/key-vault/keys/secure-keys#key-compromise-response).
 
-For customer-managed key scenarios, use Azure Key Vault Premium tier (HSM-backed) as the minimum for compliance requirements that mandate HSM-protected keys. Use Azure Key Vault Managed HSM for workloads that require key sovereignty or dedicated HSM capacity. For organizations that have regulatory or contractual requirements that mandate key material to physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management (preview)](/azure/key-vault/managed-hsm/external-key-management-overview), which keeps the KEK in a customer-operated HSM entirely outside Azure.
+For customer-managed key scenarios, use Azure Key Vault Premium tier (HSM-backed) as the minimum for compliance requirements that mandate HSM-protected keys. Use Azure Key Vault Managed HSM for workloads that require key sovereignty or dedicated HSM capacity. For organizations that have regulatory or contractual requirements that mandate key material to physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management](/azure/key-vault/managed-hsm/external-key-management-overview), which keeps the KEK in a customer-operated HSM entirely outside Azure.
 
 > [!NOTE]
 > For a list of services that support customer-managed keys in Azure Key Vault and Azure Key Vault Managed HSM, see [Services that support CMKs in Azure Key Vault and Azure Key Vault Managed HSM](encryption-customer-managed-keys-support.md).

@@ -8,7 +8,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/08/2026
+ms.date: 11/09/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -53,7 +53,7 @@ Azure provides two primary approaches for managing encryption keys:
 
 **Platform-managed keys (default)** (also sometimes called service-managed keys): Azure automatically handles all aspects of encryption key management, including key generation, storage, rotation, and backup. This approach provides encryption at rest with zero configuration, and Azure enables it by default across Azure services. Platform-managed keys offer the highest level of convenience and require no extra cost or management overhead.
 
-**Customer-managed keys (optional)**: Organizations that require greater control over their encryption keys can choose to manage their own keys by using Azure Key Vault or Azure Key Vault Managed HSM. This approach allows you to control key lifecycles, access policies, and cryptographic operations. Customer-managed keys provide extra control at the cost of increased management responsibility and complexity. For organizations with regulatory or contractual requirements that mandate key material physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management (preview)](/azure/key-vault/managed-hsm/external-key-management-overview), which keeps the key encryption key (KEK) in a customer-operated hardware security module (HSM) entirely outside Azure.
+**Customer-managed keys (optional)**: Organizations that require greater control over their encryption keys can choose to manage their own keys by using Azure Key Vault or Azure Key Vault Managed HSM. This approach allows you to control key lifecycles, access policies, and cryptographic operations. Customer-managed keys provide extra control at the cost of increased management responsibility and complexity. For organizations with regulatory or contractual requirements that mandate key material physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management](/azure/key-vault/managed-hsm/external-key-management-overview), which keeps the key encryption key (KEK) in a customer-operated hardware security module (HSM) entirely outside Azure.
 
 The choice between these approaches depends on your organization's security requirements, compliance needs, and operational preferences. Most organizations can rely on platform-managed keys for strong encryption protection, while organizations with specific regulatory or security requirements might opt for customer-managed keys.
 
