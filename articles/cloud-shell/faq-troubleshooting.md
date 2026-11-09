@@ -106,17 +106,17 @@ service requires CIDR notation.
 The following table lists Cloud Shell container egress IPs by Azure geography. Use the geography of your Cloud Shell session, not the region of the resource you want to access. To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
 `$env:ACC_LOCATION` in PowerShell. Since the Cloud Shell region that serves your session might change based on your geography, your storage account's region, or available capacity, it's recommended to allow list all the IPs in your nearest Azure geography.
 
-| Geography | Regions in this geography | Outbound IPv4 addresses |
+| Geography | Regions that serve Cloud Shell containers | Outbound IPv4 addresses |
 | --- | --- | --- |
-| Asia Pacific | Southeast Asia (`southeastasia`) | `135.171.36.88`, `135.171.36.89`, `135.171.36.90` |
-| Australia | Australia East (`australiaeast`)<br>Australia Southeast (`australiasoutheast`) | `4.198.204.254`, `4.198.205.186`, `4.198.205.187`, `4.198.205.189`<br>`4.199.114.154`, `4.199.115.154`, `4.199.115.155`, `4.199.115.157` |
-| Europe | North Europe (`northeurope`)<br>West Europe (`westeurope`) | `134.149.91.186`<br>`134.149.156.73`, `134.149.156.74`, `134.149.156.75` |
-| France | France Central (`francecentral`) | `48.220.18.170`, `48.220.18.172` |
-| Germany | Germany West Central (`germanywestcentral`) | `135.220.92.106` |
-| India | Central India (`centralindia`)<br>South India (`southindia`) | `135.13.5.170`, `135.13.5.171`, `135.13.7.192`<br>`135.13.134.69`, `135.13.134.72`, `135.13.134.73`, `135.13.134.74` |
-| Sweden | Sweden Central (`swedencentral`) | `135.116.40.62`, `135.116.40.63`, `135.116.41.120`, `135.225.147.226` |
-| United States | East US 2 (`eastus2`)<br>South Central US (`southcentralus`)<br>West Central US (`westcentralus`)<br>West US 2 (`westus2`) | `9.234.210.115`, `9.234.210.168`, `9.234.210.169`, `9.234.210.170`<br>`48.221.10.88`, `48.221.10.92`, `48.221.10.96`, `48.221.10.97`<br>`48.221.128.48`, `48.221.128.53`, `48.221.128.56`, `48.221.128.57`<br>`128.24.198.36`, `128.24.198.43`, `128.24.198.46` |
-| EUAP (United States) | Central US EUAP (`centraluseuap`)<br>East US 2 EUAP (`eastus2euap`) | `20.46.12.224`, `20.46.12.226`<br>`74.151.26.8`, `74.151.26.9`, `74.151.26.10` |
+| Asia Pacific | Southeast Asia | `135.171.36.88`, `135.171.36.89`, `135.171.36.90` |
+| Australia | Australia East<br>Australia Southeast | `4.198.204.254`, `4.198.205.186`, `4.198.205.187`, `4.198.205.189`<br>`4.199.114.154`, `4.199.115.154`, `4.199.115.155`, `4.199.115.157` |
+| Europe | North Europe<br>West Europe | `134.149.91.186`<br>`134.149.156.73`, `134.149.156.74`, `134.149.156.75` |
+| France | France Central | `48.220.18.170`, `48.220.18.172` |
+| Germany | Germany West Central | `135.220.92.106` |
+| India | Central India<br>South India | `135.13.5.170`, `135.13.5.171`, `135.13.7.192`<br>`135.13.134.69`, `135.13.134.72`, `135.13.134.73`, `135.13.134.74` |
+| Sweden | Sweden Central | `135.116.40.62`, `135.116.40.63`, `135.116.41.120`, `135.225.147.226` |
+| United States | East US 2 <br>South Central US<br>West Central US <br>West US 2 | `9.234.210.115`, `9.234.210.168`, `9.234.210.169`, `9.234.210.170`<br>`48.221.10.88`, `48.221.10.92`, `48.221.10.96`, `48.221.10.97`<br>`48.221.128.48`, `48.221.128.53`, `48.221.128.56`, `48.221.128.57`<br>`128.24.198.36`, `128.24.198.43`, `128.24.198.46` |
+| EUAP (United States) | Central US EUAP<br>East US 2 EUAP | `20.46.12.224`, `20.46.12.226`<br>`74.151.26.8`, `74.151.26.9`, `74.151.26.10` |
 
 These IPs can change. To view the egress IP of your Cloud Shell session, run `curl -4 -s https://api.ipify.org; echo` in Bash or `Invoke-RestMethod -Uri 'https://api.ipify.org'` in PowerShell.
 
