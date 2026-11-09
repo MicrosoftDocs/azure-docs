@@ -71,6 +71,8 @@ items:
       href: device-registry/how-to-deploy-software-update-group.md
     - name: Deploy an onboarding update to a namespace (preview)
       href: device-registry/how-to-deploy-onboarding-update-namespace.md
+  - name: Understand billing
+    href: device-registry/concept-billing.md
 - name: References
   items:
   - name: Support and help options
