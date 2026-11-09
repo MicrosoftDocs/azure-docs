@@ -15,8 +15,6 @@ items:
   items:
   - name: What is Azure Device Registry?
     href: device-registry/overview-device-registry.md
-  - name: Understand billing
-    href: device-registry/concept-billing.md
   - name: Get started with Azure Device Registry
     items:
       - name: Azure IoT Hub get started (preview)
@@ -73,6 +71,8 @@ items:
       href: device-registry/how-to-deploy-software-update-group.md
     - name: Deploy an onboarding update to a namespace (preview)
       href: device-registry/how-to-deploy-onboarding-update-namespace.md
+  - name: Understand billing
+    href: device-registry/concept-billing.md
 - name: References
   items:
   - name: Support and help options
