@@ -25,7 +25,7 @@ This model lets you pay only for what you use and track spending with precision 
 
 ## What is a User Message?
 
-A **User Message** is the unit of billing for Microsoft Discovery runtime usage. Discovery aggregates billable backend operations—actions that create, update, delete, run, submit, or cancel work—by the hour, then converts them to User Messages at the rate shown below.
+A **User Message** is the unit of billing for Microsoft Discovery runtime usage. Discovery aggregates billable backend operations—actions that create, update, delete, run, submit, or cancel work—by the hour, then converts them to User Messages using the conversion in the billing calculation note.
 
 Read-only calls such as GET, list, status checks, and log retrieval are **not** billed. Billing covers **runtime (data-plane) usage** only, not resource management (control-plane) operations.
 
