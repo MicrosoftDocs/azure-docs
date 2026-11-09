@@ -3,7 +3,7 @@ title: Azure Functions Node.js developer reference
 description: Develop Azure Functions using JavaScript and TypeScript with the @azure/functions npm package, including programming models, triggers, bindings, and best practices.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: how-to
-ms.date: 10/30/2026
+ms.date: 11/09/2026
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
 ms.custom:
@@ -38,9 +38,9 @@ Azure Functions for Node.js supports two programming model versions. **New proje
 | Function registration | Code-centric (`app.http()`, `app.timer()`) | File-based (`function.json`) |
 | File structure | Flexible | Fixed (one folder per function) |
 | Functions runtime version | 4.25+ | 4.x |
-| Node.js versions | 26.x (Preview), 24.x, 22.x | 26.x (Preview), 24.x, 22.x |
+| Node.js versions | 26.x (Preview, Linux only), 24.x, 22.x | 26.x (Preview, Linux only), 24.x, 22.x |
 
-Use Node.js 24 for new production apps. Node.js 26 is in preview.
+Use Node.js 24 for new production apps. Node.js 26 is available in preview only on Linux and isn't supported on Windows.
 
 ::: zone pivot="nodejs-model-v4"  
 In the Node.js v4 programming model, you register functions by importing the `app` object from `@azure/functions` and calling trigger-specific methods. The functions are defined directly in your code with a flexible file structure. Every function has a single *trigger* that starts its execution and can also have *bindings*, which are declarative connections to other services for reading input data or writing output data. For more information, see [Triggers and bindings](#triggers-and-bindings).
@@ -2330,6 +2330,8 @@ The way that you upgrade your Node.js version depends on the OS on which your fu
 #### [Windows](#tab/windows)
 
 When it runs on Windows, set the Node.js version by using the [`WEBSITE_NODE_DEFAULT_VERSION`](./functions-app-settings.md#website_node_default_version) application setting. Update this setting either by using the Azure CLI or in the Azure portal.
+
+Node.js 24 is the latest supported Node.js version on Windows. The Node.js 26 preview is available only on Linux.
 
 #### [Linux](#tab/linux)
 

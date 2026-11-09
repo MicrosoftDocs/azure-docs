@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/30/2026
+ms.date: 11/09/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -90,9 +90,11 @@ The following table shows the language versions supported for Node.js function a
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [Node.js 26](https://endoflife.date/nodejs) | Preview | |
+| [Node.js 26](https://endoflife.date/nodejs) | Preview (Linux only) | |
 | [Node.js 24](https://endoflife.date/nodejs) | GA | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
+
+Node.js 26 is available in preview only on Linux. On Windows, use Node.js 24 or Node.js 22.
 
 TypeScript is supported through transpiling to JavaScript. For more information, see [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#programming-model).
 

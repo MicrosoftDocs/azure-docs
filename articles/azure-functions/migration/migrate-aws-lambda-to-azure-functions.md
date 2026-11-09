@@ -9,7 +9,7 @@ ms.custom:
 ms.collection: 
  - migration
  - aws-to-azure
-ms.date: 10/30/2026
+ms.date: 11/09/2026
 ms.topic: upgrade-and-migration-article
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.
 ---
@@ -144,7 +144,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 | Programming language  | [AWS Lambda supported versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported)  | [Azure Functions supported versions](/azure/azure-functions/supported-languages) |
 |---|---|---|
-| Node.js | 20, 22 | 22, 24, 26 (Preview) |
+| Node.js | 20, 22 | 22, 24, 26 (Preview, Linux only) |
 | Python | 3.9, 3.10, 3.11, 3.12, 3.13 | 3.10, 3.11, 3.12, 3.13 |
 | Java | 8, 11, 17, 21 | 8, 11, 17, 21 |
 | PowerShell | Not supported | 7.6, 7.4 |
