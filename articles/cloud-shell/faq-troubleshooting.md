@@ -115,7 +115,8 @@ The following table groups Cloud Shell NAT gateway egress IPs by [Azure geograph
 | Germany | Germany West Central (`germanywestcentral`) | `135.220.92.106` |
 | India | Central India (`centralindia`)<br>South India (`southindia`) | `135.13.5.170`, `135.13.5.171`, `135.13.7.192`<br>`135.13.134.69`, `135.13.134.72`, `135.13.134.73`, `135.13.134.74` |
 | Sweden | Sweden Central (`swedencentral`) | `135.116.40.62`, `135.116.40.63`, `135.116.41.120`, `135.225.147.226` |
-| United States | Central US EUAP (`centraluseuap`)<br>East US 2 (`eastus2`)<br>East US 2 EUAP (`eastus2euap`)<br>South Central US (`southcentralus`)<br>West Central US (`westcentralus`)<br>West US 2 (`westus2`) | `9.234.210.115`, `9.234.210.168`, `9.234.210.169`, `9.234.210.170`<br>`20.46.12.224`, `20.46.12.226`<br>`48.221.10.88`, `48.221.10.92`, `48.221.10.96`, `48.221.10.97`<br>`48.221.128.48`, `48.221.128.53`, `48.221.128.56`, `48.221.128.57`<br>`74.151.26.8`, `74.151.26.9`, `74.151.26.10`<br>`128.24.198.36`, `128.24.198.43`, `128.24.198.46` |
+| United States | East US 2 (`eastus2`)<br>South Central US (`southcentralus`)<br>West Central US (`westcentralus`)<br>West US 2 (`westus2`) | `9.234.210.115`, `9.234.210.168`, `9.234.210.169`, `9.234.210.170`<br>`48.221.10.88`, `48.221.10.92`, `48.221.10.96`, `48.221.10.97`<br>`48.221.128.48`, `48.221.128.53`, `48.221.128.56`, `48.221.128.57`<br>`128.24.198.36`, `128.24.198.43`, `128.24.198.46` |
+| EUAP (United States) | Central US EUAP (`centraluseuap`)<br>East US 2 EUAP (`eastus2euap`) | `20.46.12.224`, `20.46.12.226`<br>`74.151.26.8`, `74.151.26.9`, `74.151.26.10` |
 
 Please note that these IPs are subject to change. To view the egress IP of your Cloud Shell session, run `curl -4 -s https://api.ipify.org; echo` in Bash or `Invoke-RestMethod -Uri 'https://api.ipify.org'` in PowerShell.
 
