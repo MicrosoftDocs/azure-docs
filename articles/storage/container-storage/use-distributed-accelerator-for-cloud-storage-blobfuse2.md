@@ -531,7 +531,7 @@ Each case used fresh worker and cache resources. Results are aggregate measureme
 
 ### Sequential reads
 
-Sequential tests used 16-MiB I/O and five read iterations per case. Cold throughput is the first iteration. Warm throughput and the BlobFuse-only baseline are the averages of iterations 2 through 5. Values are aggregate **GB/s**.
+Sequential tests use 16-MiB I/O and five read iterations per case. Cold throughput is the first iteration. Warm throughput and the BlobFuse-only baseline are the averages of iterations 2 through 5. Values are aggregate **GB/s**.
 
 | Threads per worker | BlobFuse-only | Dedicated cold | Dedicated warm | Colocated cold | Colocated warm |
 |---|---:|---:|---:|---:|---:|
