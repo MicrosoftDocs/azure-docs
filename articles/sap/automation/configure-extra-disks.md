@@ -215,31 +215,31 @@ The three data disks are striped by using LVM. The log disk and the backup disk 
 
 ## Volume groups and logical volumes
 
-Each volume group is a collection of physical disks that are managed as a single unit. Logical volumes are created within these volume groups and can span multiple physical disks, providing flexibility and efficient use of storage resources.
+Each volume group is a collection of physical disks that you manage as a single unit. You create logical volumes within these volume groups. Logical volumes can span multiple physical disks, so you get flexibility and efficient use of storage resources.
 
-SDAF uses the "name" attribute to determine which disks belong to which volume group. Disks with the same "name" value are grouped together into a single volume group.
+SDAF uses the `name` attribute to determine which disks belong to which volume group. Disks with the same `name` value are grouped together into a single volume group.
 
-From the example above each database server will have a volume group named `vg_data` that includes all the `data` disks, and a volume group named `vg_log` that includes all the `log` disks. Similarly, a volume group named `vg_backup` will include all the `backup` disks. 
+In the preceding example, each database server has a volume group named `vg_data` that includes all the `data` disks, and a volume group named `vg_log` that includes all the `log` disks. Similarly, a volume group named `vg_backup` includes all the `backup` disks.
 
-The application servers will follow a similar pattern, with volume groups created based on the "name" attribute of the disks. For example, if an application server has disks named `sap`, a volume group named `vg_sap` will be created to include all these disks.
+The application servers follow a similar pattern, with volume groups created based on the `name` attribute of the disks. For example, if an application server has disks named `sap`, a volume group named `vg_sap` includes all these disks.
 
-SDAF will create by default create a logical volume that consumes the entire space within each volume group. 
+SDAF creates a logical volume that consumes the entire space within each volume group by default.
 
-For the vg_sap volume group, a logical volume lv_usrsap will be created, consuming the entire space within the volume group. If a smaller logical volume is desired, it can be specified explicitly in the configuration as shown in the example below.
+For the `vg_sap` volume group, SDAF creates a logical volume `lv_usrsap` that consumes the entire space within the volume group. If you want a smaller logical volume, specify it explicitly in the configuration as shown in the following example.
 
 ```terraform
-# configuration_settings is a dictionary containing values that will be persisted in sap-parameters.yaml
+# configuration_settings is a dictionary containing values that are persisted in sap-parameters.yaml
 configuration_settings = {
-  usrsap_vol    ume_size   = "40g"
+  usrsap_volume_size = "40g"
 }
 ```    
 
-If you want to create a custom logical volume in addition to the default logical volume, you can use the `custom_logical_volumes` array as shown in the example below.
+If you want to create a custom logical volume in addition to the default logical volume, use the `custom_logical_volumes` array as shown in the following example.
 
 ```terraform
-# configuration_settings is a dictionary containing values that will be persisted in sap-parameters.yaml
+# configuration_settings is a dictionary containing values that persist in sap-parameters.yaml
 configuration_settings = {
-  usrsap_vol    ume_size   = "40g"
+  usrsap_volume_size   = "40g"
 
   custom_logical_volumes = [
     {
@@ -255,7 +255,7 @@ configuration_settings = {
 }
 ```
 
-The above configuration demonstrates how to define a custom logical volume within the `vg_sap` volume group. The `usrsap_volume_size` specifies the size of the default logical volume, while the `custom_logical_volumes` array allows you to create additional logical volumes with specific attributes such as size, filesystem type, and mount path.
+The preceding configuration shows how to define a custom logical volume within the `vg_sap` volume group. The `usrsap_volume_size` value sets the size of the default logical volume. The `custom_logical_volumes` array lets you create more logical volumes with specific attributes like size, filesystem type, and mount path.
 
 
 ## Add extra disks to an existing system
