@@ -5,7 +5,7 @@ author: CLodwigDocs
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: article
-ms.date: 4/14/2026
+ms.date: 10/30/2026
 ms.author: clodwig
 ms.reviewer: clodwig
 ---
@@ -58,33 +58,23 @@ You use the billing account to manage billing for your Microsoft customer agreem
 
 ## Identify changes related to Savings Plans and Reservations
 
+Before transferring Azure reservations or Savings Plans, check that the source agreement, destination agreement, and transfer method are supported in the [Azure product transfer hub](/azure/cost-management-billing/manage/subscription-transfer#product-transfer-support). Under MCA, Azure reservations and Savings Plans are priced in USD. Their billing currency can differ.
+
 ### Azure Savings Plan
 
-Self-service savings plan transfer: Supported if pricing currency is USD.
+The EA-to-MCA enrollment migration has Savings Plan outcomes that differ from individual product-transfer requests. During migration, a USD-priced Savings Plan moves to MCA and remains active. A non-USD-priced Savings Plan can't transfer directly as-is. To maintain coverage, choose automatic replacement during the transfer or, with Azure Support assistance, purchase a new MCA plan before requesting cancellation of the original EA plan. Automatic replacement creates a new one-year plan with monthly payments. The support-assisted replacement allows a new three-year plan. Both replacement plans are priced in USD with a new commitment term. The remaining EA plan term doesn't carry over. If you want a three-year plan after automatic replacement has created a one-year plan, contact Azure Support to request cancellation of that new MCA plan and purchase of a new three-year MCA plan. See the [Savings Plan migration guidance](/azure/cost-management-billing/manage/mca-setup-account#savings-plan-transfers-with-a-non-usd-billing-currency) for commitment and process details.
 
-- Non-USD currency savings plans:
-  - Savings Plans from the source don't transfer.
-  - They're canceled in the source and automatically repurchased in USD in the destination billing account.
-
-- Important details for repurchased Savings Plans:
-  - Each new Savings Plan is billed monthly, regardless of the original billing frequency.
-  - Each new Savings Plan is priced as the USD equivalent of the original plan (for example, €5/hour → $5.85/hour at €1:$1.17). [Learn More](/azure/cost-management-billing/manage/mca-request-billing-ownership#prerequisites)
-  - Each new Savings Plan has a one year term, even if the original was three years.
-  - If the original plan was one year, savings benefits remain the same.
-  - If moving from three years to one year, expect reduced savings benefits due to discount differences.
-    - To maintain previous savings levels, work with your Microsoft Account Team to purchase another one year Savings Plan. Recommendations for this new one year plan may take up to two days to appear in the Azure portal.
-  - Customers with three year plans who want to retain discounts should immediately after transfer contact Azure Support to purchase new three year plans in the destination billing account.
-
-- For more details, please review: [Azure product transfer hub - Microsoft Cost Management | Microsoft Learn](/azure/cost-management-billing/manage/subscription-transfer#product-transfer-support)
+For reservation outcomes and Savings Plan outcomes in other supported transfer processes, review the [currency-change guidance in the Azure product transfer hub](/azure/cost-management-billing/manage/subscription-transfer#transfer-reservations-and-savings-plans-with-currency-change). Use the [EA-to-MCA migration guidance](/azure/cost-management-billing/manage/mca-setup-account#savings-plan-transfers-with-a-non-usd-billing-currency) for the migration process and Savings Plan details.
 
 ### Reservations
 
-Self-service reservation transfers: Supported when there's no currency change or if the reservation is paid upfront. [Learn More](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) 
+Confirm that your reservation transfer is supported in the product transfer support table. For a supported transfer, a pricing currency change alone doesn't change the payment schedule. If billing currency changes, a reservation with a monthly payment plan is canceled at its next scheduled payment; an upfront-paid reservation remains active. See the [reservation outcome matrix](/azure/cost-management-billing/manage/subscription-transfer#transfer-reservations-and-savings-plans-with-currency-change) for the complete guidance.
 
-- Currency change scenario:
-  - If there's a currency change during or after enrollment transfer, monthly paid reservations are canceled for the source. 
-  - Cancellation occurs at the time of the next monthly payment for each individual reservation.
-  - This cancellation is intentional and only affects monthly reservation purchases.
+For cancellation and refund policies, see [Self-service exchanges and refunds for Azure Reservations](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). If you can't determine the impact on your reservations or savings plans, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) before transferring.
+
+### Centrally managed SQL Azure Hybrid Benefit
+
+If you use centrally managed SQL Server licenses with Azure Hybrid Benefit under an Enterprise Agreement (EA) and transition to an enterprise Microsoft Customer Agreement (MCA-E), the licenses don't automatically transfer. After migration, manually assign the licenses under the new agreement. For details, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](/azure/cost-management-billing/manage/mca-setup-account#understand-changes-to-your-billing-hierarchy) and [Transition to centrally managed Azure Hybrid Benefit](/azure/cost-management-billing/scope-level/transition-existing).
 
 ## Cost management & reporting
 
@@ -168,4 +158,3 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
 - [Onboard to the Microsoft Customer Agreement (MCA).](/azure/cost-management-billing/microsoft-customer-agreement/onboard-microsoft-customer-agreement)
 
 - [Transfer Azure product billing ownership to a Microsoft Customer Agreement](/azure/cost-management-billing/manage/mca-request-billing-ownership)
-

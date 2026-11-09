@@ -37,7 +37,7 @@ Consider the following support scenarios when you back up Azure Database for Pos
 - PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
 - Backups for PostgreSQL Flexible servers exclude databases owned by `azuresu` or `azure_pg_admin`, including the native PostgreSQL database. So, databases with these owners can't be backed up or restored.
 - Recommended frequency for restore operations is once a day. Multiple restore operations triggered in a day can fail.
-- Cross-tenant restore (preview) is supported in select regions. For more information, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md#region-availability).
+- Cross-tenant restore (preview) is supported in select regions. For more information, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md#supported-workloads-and-limitations).
 
 ## Limitation
 

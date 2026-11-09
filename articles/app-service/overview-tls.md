@@ -1,7 +1,7 @@
 ---
 title: What Is TLS/SSL in Azure App Service?
-description: Learn how TLS and SSL work in App Service, including TLS version support, certificate management, bindings, and mutual authentication to protect web app traffic.
-keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual authentication, secure bindings, SSL certificates, App Service Certificates, SSL in code, TLS versions
+description: Learn how TLS and SSL work in App Service, including TLS version support, post-quantum hybrid key exchange, certificate management, bindings, and mutual authentication to protect web app traffic.
+keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual authentication, secure bindings, SSL certificates, App Service Certificates, SSL in code, TLS versions, post-quantum cryptography, PQC, ML-KEM, hybrid key exchange, X25519MLKEM768
 ms.topic: overview
 ms.date: 09/08/2025
 ms.update-cycle: 180-days
@@ -62,6 +62,18 @@ TLS 1.3 supports the following cipher suites, which are fixed and can't be custo
 - `TLS_AES_128_GCM_SHA256`
 
 These suites provide strong encryption and are automatically used when TLS 1.3 is negotiated.
+
+### Post-quantum hybrid key exchange
+
+An attacker could capture encrypted traffic today and decrypt it later if future quantum computers can break classical key exchange. To help protect against this *harvest-now, decrypt-later* risk, Azure App Service supports post-quantum hybrid key exchange for compatible TLS 1.3 clients in public Azure.
+
+The hybrid TLS supported group `X25519MLKEM768` combines classical X25519 with ML-KEM-768, a post-quantum key encapsulation mechanism standardized by NIST. It's a **supported group**, not a cipher suite. When both the TLS 1.3 client and App Service front end support the group, they negotiate it automatically. Otherwise, clients continue to negotiate a supported classical key exchange. The platform manages this negotiation; there is no customer setting to enable or require the hybrid group.
+
+Hybrid key exchange supports inbound client-to-App Service front-end TLS connections for Web Apps and Azure Functions apps hosted on App Service infrastructure, including Windows and Linux apps across applicable hosting plans. Coverage includes app and SCM (Kudu) endpoints, default and custom domains, and connections that use mutual TLS (mTLS). Each connection negotiates its TLS supported group independently. Azure Functions on Azure Container Apps aren't included. TLS between the App Service front end and the app worker is a separate connection that negotiates independently; this hybrid key exchange support doesn't extend to that connection.
+
+You don't need to change your app configuration, minimum TLS version, cipher-suite settings, or [TLS certificate and binding](configure-ssl-bindings.md) to use hybrid key exchange. No new or post-quantum certificate is required; existing server and mTLS client-certificate requirements still apply. Setting the minimum TLS version to 1.3 doesn't require post-quantum key exchange: TLS 1.3 clients that support only classical groups can still connect. Neither **Minimum TLS Cipher Suite** nor `FrontEndSSLCipherSuiteOrder` enables, disables, prioritizes, or requires `X25519MLKEM768`, because these settings control cipher suites rather than supported groups.
+
+For background, see the [Microsoft Quantum overview](https://quantum.microsoft.com/vision/quantum-cryptography-overview) and the [Windows TLS supported groups reference](https://learn.microsoft.com/windows/win32/secauthn/tls-supported-groups-in-windows-11-24h2-and-later).
 
 ### TLS 1.2
 

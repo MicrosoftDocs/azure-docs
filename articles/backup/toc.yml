@@ -703,6 +703,12 @@
     href: faq-backup-sql-server.yml
   - name: Support matrix
     href: sql-support-matrix.md
+  - name: Quickstarts for SQL Server database backup
+    items:
+    - name: Back up SQL Server databases using stream-based backups
+      href: quickstart-backup-sql-server-database.md
+    - name: Back up SQL Server instances using snapshot-based backups
+      href: quickstart-backup-sql-server-instance-snapshot.md
   - name: Tutorial for SQL Server on Azure VM backup
     href: tutorial-sql-backup.md
   - name: Backup scenarios
@@ -729,6 +735,14 @@
           href: back-up-sql-server-instance-snapshot-restore.md
       - name: Manage
         href: manage-monitor-sql-database-backup.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-azure-sql-vm-powershell.md
+      - name: Restore
+        href: restore-azure-sql-vm-powershell.md
+      - name: Manage
+        href: manage-azure-sql-vm-powershell.md
     - name: With CLI
       items:
       - name: Backup

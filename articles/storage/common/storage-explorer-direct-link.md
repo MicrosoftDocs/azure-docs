@@ -46,8 +46,8 @@ Here's an example v1 direct link to a blob container:
 ```
 storageexplorer://
 ?v=1
-&accountid=/subscriptions/01234567-89ab-cdef-0123-456789abcdef/resourceGroups/resource_group/providers/Microsoft.Storage/storageAccounts/storage_account_name
-&subscriptionid=01234567-89ab-cdef-0123-456789abcdef
+&accountid=/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resource_group/providers/Microsoft.Storage/storageAccounts/storage_account_name
+&subscriptionid=aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 &resourcetype=Azure.BlobContainer
 &resourcename=blob_container_name
 ```
@@ -57,12 +57,12 @@ Here's an example v2 direct link to a folder within a blob container:
 ```
 storageexplorer://
 ?v=2
-&tenantId=fedcba98-7654-3210-fedc-ba9876543210
+&tenantId=aaaabbbb-0000-cccc-1111-dddd2222eeee
 &type=blobPath
 &path=path%2Fto%2Ffolder
 &container=blob_container_name
 &serviceEndpoint=https%3A%2F%2Fstorage-account-name.blob.core.windows.net%2F
-&subscriptionId=01234567-89ab-cdef-0123-456789abcdef
+&subscriptionId=aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
 ## Get a direct link from Storage Explorer

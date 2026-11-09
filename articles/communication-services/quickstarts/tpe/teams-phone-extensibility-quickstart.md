@@ -95,7 +95,7 @@ New-AzBotService -ResourceGroupName <your RG name here> -Name "<name of Teams Ph
 Example:
 
 ```azurecli
-New-AzBotService -ResourceGroupName teamsphonetest-rg -Name "teamsPhoneBot" -ApplicationId aa123456-1234-1234-1234-aaa123456789 -Location "global" -Sku S1 -Description "My Teams Phone Test Bot" 
+New-AzBotService -ResourceGroupName teamsphonetest-rg -Name "teamsPhoneBot" -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 -Location "global" -Sku S1 -Description "My Teams Phone Test Bot" 
 ```
 
 For this step, when you configure Teams, set the webhook to `https://eventgrid.azure.net`. This value determines how your application receives incoming call notifications. When you configure the Event Grid URL, incoming call notifications are delivered through Azure Event Grid. If you set a different URL, notifications are delivered directly to that webhook instead. Use `https://eventgrid.azure.net` unless you specifically set up a direct webhook endpoint to handle incoming call notifications.
@@ -122,7 +122,7 @@ Use the [New-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell
 Example:
 
 ```azurecli
- New-CsOnlineApplicationInstance -UserPrincipalName myteamsphoneresourceaccount@contoso.com -ApplicationId aa123456-1234-1234-1234-aaa123456789 -DisplayName "My Teams Phone Resource Account" 
+ New-CsOnlineApplicationInstance -UserPrincipalName myteamsphoneresourceaccount@contoso.com -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 -DisplayName "My Teams Phone Resource Account" 
 ```
 
 Use the updated [Set-CSonlineApplicationInstance](/powershell/module/teams/set-csonlineapplicationinstance) command to assign the Resource Account to your Azure Communication Services Resource. This command routes calls to that Azure Communication Services Resource. It's up to the CCaaS developer on how to communicate the `ACSResourceID` to the Teams Tenant.
@@ -130,7 +130,7 @@ Use the updated [Set-CSonlineApplicationInstance](/powershell/module/teams/set-c
 Example:
 
 ```azurecli
-Set-CsOnlineApplicationInstance -Identity myteamsphoneresourceaccount@contoso.com -ApplicationId aa123456-1234-1234-1234-aaa123456789 -AcsResourceId bb567890-1234-1234-1234-bbb123456789 
+Set-CsOnlineApplicationInstance -Identity myteamsphoneresourceaccount@contoso.com -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 -AcsResourceId 11112222-bbbb-3333-cccc-4444dddd5555 
 ```
 
 Use the updated [Sync-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/sync-csonlineapplicationinstance) command to sync the Resource Account to your Agent Provisioning Service. This command routes calls to that Azure Communication Services Resource. There's no change for Teams Phone extensibility in this command.
@@ -138,7 +138,7 @@ Use the updated [Sync-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/p
 Example:
 
 ```azurecli
-Sync-CsOnlineApplicationInstance -ObjectId cc123456-5678-5678-1234-ccc123456789 -ApplicationId aa123456-1234-1234-1234-aaa123456789  
+Sync-CsOnlineApplicationInstance -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444  
 ```
 
 Optionally, you can use the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance) cmdlet to return the provisioned Resource Account.
@@ -224,7 +224,7 @@ You can extend the base query with OData options such as:
 The following example returns only Resource Accounts that are associated with a specific ACS Resource ID:
 
 ```rest
-GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=acsResourceId eq 'aa123456-1234-1234-1234-aaa123456789'
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=acsResourceId eq '00001111-aaaa-2222-bbbb-3333cccc4444'
 ```
 
 Successful response:
@@ -234,12 +234,12 @@ Successful response:
   "@odata.context": "https://graph.microsoft.com/beta/$metadata#admin/teams/resourceAccounts",
   "value": [
     {
-      "id": "aa123456-1234-1234-1234-aaa123456789",
+      "id": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "userPrincipalName": "myteamsphoneresourceaccount@contoso.com",
       "displayName": "My RA Name",
-      "appId": "aa123456-1234-1234-1234-aaa123456789",
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "phoneNumber": "tel:+1234567890",
-      "acsResourceId": "aa123456-1234-1234-1234-aaa123456789"
+      "acsResourceId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   ]
 }
@@ -276,7 +276,7 @@ To continue paging, call the URL in the @odata.nextLink field until it's no long
 Developers can combine $top and $filter to retrieve a filtered, paginated list:
 
 ```rest
-GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5&$filter=acsResourceId eq 'aa123456-1234-1234-1234-aaa123456789'
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5&$filter=acsResourceId eq '00001111-aaaa-2222-bbbb-3333cccc4444'
 ```
 This query returns up to five Resource Accounts that match the specified ACS Resource ID.
 
@@ -458,7 +458,7 @@ Sample Incoming Call Event with Teams Resource Account Identifier and custom con
 { 
   "to": { 
     "kind": "unknown", 
-    "rawId": "28:orgid:cc123456-5678-5678-1234-ccc123456789" 
+    "rawId": "28:orgid:aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" 
   }, 
   "from": { 
     "kind": "phoneNumber", 
@@ -477,7 +477,7 @@ Sample Incoming Call Event with Teams Resource Account Identifier and custom con
         }
   },
   "incomingCallContext": "<CALL_CONTEXT VALUE>", 
-  "correlationId": "2e0fa6fe-bf3e-4351-9beb-568add4f5315" 
+  "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd" 
 } 
 ```
 

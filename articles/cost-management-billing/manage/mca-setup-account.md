@@ -243,29 +243,35 @@ Access to Azure resources that was set using Azure role-based access control (Az
 
 ### Azure reservations and savings plans
 
-Any Azure reservations and savings plan in your Enterprise Agreement enrollment are moved to your new billing account. During the transition, there are no changes to the reservation discounts that are being applied to your subscriptions. If you have a savings plan that's getting transferred and it was purchased in USD, there are no changes to the saving plan discounts. For more details, refer to the **Changes after migration** section below. 
+Azure reservations and Savings Plans under MCA are priced in USD. Their billing currency can differ.
 
-### Savings plan transfers with a non-USD billing currency
+Azure reservations in your Enterprise Agreement enrollment move to the new billing account. For the effect of pricing and billing currency changes on reservation payment schedules, see [Transfer reservations and savings plans with currency change](subscription-transfer.md#transfer-reservations-and-savings-plans-with-currency-change).
 
-You see the following image when your Enterprise Agreement enrollment savings plan wasn't purchased in USD.
+During the EA-to-MCA enrollment migration, a Savings Plan originally priced in USD transfers to the new billing account and remains active. For a Savings Plan originally priced in a non-USD currency, see [Savings Plan migration when the original pricing currency isn't USD](#savings-plan-transfers-with-a-non-usd-billing-currency).
+
+<a name="savings-plan-transfers-with-a-non-usd-billing-currency"></a>
+### Savings Plan migration when the original pricing currency isn't USD
+
+During the EA-to-MCA enrollment migration, you can't transfer an Enterprise Agreement Savings Plan that isn't priced in USD directly as-is. Maintain Savings Plan coverage through one of these replacement options:
+
+- **Automatic replacement:** During the transfer, the existing EA Savings Plan is automatically canceled and replaced with a new one-year Savings Plan. The new plan's commitment is exactly the USD equivalent of the outstanding balance of the original plan, and the new plan is billed monthly.
+- **Support-assisted replacement:** With Azure Support assistance, purchase a new MCA Savings Plan with a commitment equal to or greater than the USD equivalent of the outstanding balance of the existing EA plan. Then submit an [Azure Support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to cancel the original EA plan. This option allows you to purchase a new three-year Savings Plan.
+
+Both replacement Savings Plans are priced in USD and start a new commitment term. The remaining term of the original EA plan doesn't carry over.
+
+#### Support assistance after automatic replacement
+
+If automatic replacement creates a new one-year Savings Plan with monthly payments and you want a three-year term, contact [Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) after migration to request cancellation of that new MCA plan and purchase of a new three-year MCA Savings Plan. This is a separate post-migration option; it doesn't change the plan's term in place.
+
+#### Automatic replacement
+
+You see the following page during automatic replacement.
 
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" alt-text="Screenshot showing the Savings Plan page." lightbox="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" :::
 
->[!NOTE]
-> - If your enrollment is non USD currency, any Azure Savings Plans purchased will not be transferred to the destination billing account. The Savings Plans will be cancelled in the source enrollment and automatically repurchased in the destination billing account. Note the following:
->    - Each newly purchase Savings Plan will be billed Monthly, regardless of the billing frequency of the Savings Plan it is replacing.
->    - Each newly purchased Savings Plan will be priced as the USD equivalent of the original Savings Plan. For example, assuming a €1: $1.17 rate, a €5/hour Savings Plan would be replaced with a $5.85/hour Savings Plan. 
->    - Each newly purchased Savings Plans will have a 1-year term, regardless of the term of the Savings Plan it is replacing. As a result, each new Savings Plan will have a different term end date when compared to the Savings Plan being replaced.
->    - If the original Savings Plan has a 1-year term, the new 1-year Savings Plan will provide identical savings benefits. If you are going from 3-year to 1-year Savings Plans, expect reduced savings benefits due to the discount differences between the terms. To maintain your previous savings level, you should buy an additional 1- year Savings Plan. Hourly commitment recommendations for the additional savings plan may take up to 2 days to appear in the Azure portal.
-> - Customers with 3-year savings plans, who want to retain their discount levels should immediately contact Azure support for assistance purchasing the new 3-year Savings Plans in the destination enrollment.
+To move forward, select **View charges** to open the Exchange savings plans page and review the Savings Plans selected for automatic replacement.
 
-To move forward, select **View charges** to open the Exchange savings plans page and view the savings plans that must be repurchased.
-
-The Exchange savings plans page shows you the savings plans that get canceled and credit that is returned in the original currency to the source enrollment. It also shows the new savings plans that get charged in USD for a one-year term for the target billing account. The new offer is a one-year term and matches the previous savings plan commitment per hour.
-
-Here’s an example showing the exchange. Monetary values are examples.
-
-:::image type="content" source="./media/microsoft-customer-agreement-setup-account/exchange-savings-plans.png" alt-text="Screenshot showing the Exchange savings plan page." lightbox="./media/microsoft-customer-agreement-setup-account/exchange-savings-plans.png" :::
+The Exchange savings plans page lists the Savings Plans canceled in the source enrollment, any credit returned to the source enrollment, and the new USD-priced, one-year Savings Plans in the destination billing account.
 
 Close the Exchange savings plan page and then select the **I have viewed and agree to the charges for my new savings plans and understand they my current savings plans will be canceled and refunded to my original payment method** prompt to agree and continue.
 
@@ -325,7 +331,7 @@ To complete the setup, you need access to both the new billing account and the E
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
     - The billing of your Azure subscriptions is transitioned to the new account. **There won't be any impact on your Azure services during this transition. They'll keep running without any disruption**.
-    - If you have Azure reservations or savings plans, they're moved to your new billing account with no change to benefits or term. If you have savings plans under the Enterprise Agreement purchased in non-USD currency, then the savings plans are canceled. They're repurchased under the terms of the new Microsoft Customer Agreement in USD.
+    - Azure reservations and USD-priced Savings Plans move to your new billing account. A non-USD-priced EA Savings Plan can't transfer directly as-is; maintain coverage through automatic or support-assisted replacement. For details, see [Savings Plan migration when the original pricing currency isn't USD](#savings-plan-transfers-with-a-non-usd-billing-currency).
 
 4. You can monitor the status of the transition on the **Transition status** page. Canceled savings plans are shown in the Transition details.
     - If you had a savings plan that was repurchased, select the **new savings plan** link to view its details and to verify that it was created successfully.
@@ -420,9 +426,9 @@ Enterprise administrators and department administrators are listed as invoice se
 - **Cost Management** using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
     - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.
-- **Reservations** - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration. **Reservations cancellations triggered by this migration do not count toward the cancellation threshold of USD 50,000 within a rolling 12-month window**. For the cancellation policy, please refer to [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md)
+- **Reservations** - A pricing currency change alone doesn't change a reservation's payment schedule. When an enrollment migration changes billing currency, a reservation with a monthly payment plan is canceled at its next scheduled payment; an upfront-paid reservation remains active. You can repurchase a canceled reservation after migration. For the complete currency outcome matrix, see [Transfer reservations and savings plans with currency change](subscription-transfer.md#transfer-reservations-and-savings-plans-with-currency-change). **Reservation cancellations triggered by this migration don't count toward the cancellation threshold of USD 50,000 within a rolling 12-month window**. For the cancellation policy, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 - Reserved Instance (RI) charges may appear under the primary invoice section. To ensure accurate billing, customers should verify the placement of RI charges immediately. If adjustments are needed, submit a transfer request to update the invoice section.
-- **Savings Plans** - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
+- **Savings Plans** - During EA-to-MCA migration, a USD-priced Savings Plan moves to MCA and remains active. A non-USD-priced Savings Plan can't transfer directly as-is; use automatic or support-assisted replacement. Both replacement plans are priced in USD and start a new commitment term. If you want a three-year plan after automatic replacement creates a one-year plan, contact Azure Support to request cancellation of that new MCA plan and purchase of a new three-year plan. For details about these separate options, see [Savings Plan migration when the original pricing currency isn't USD](#savings-plan-transfers-with-a-non-usd-billing-currency).
 - **API changes** - API endpoints differ between EA and MCA. Existing EA API calls don't work with MCA. You need to use Microsoft Cost Management APIs instead if using consumption APIs. For more information, see:
     - [Migrate EA to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md)
     - [Azure Billing REST API](/rest/api/billing/)

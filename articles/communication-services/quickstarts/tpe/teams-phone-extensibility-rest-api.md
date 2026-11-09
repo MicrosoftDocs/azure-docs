@@ -67,7 +67,7 @@ A successful request returns `201 Created` (or `200 OK` when it updates an exist
 
 ```json
 {
-  "objectId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+  "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "principalType": "user",
   "clientIds": ["00001111-aaaa-2222-bbbb-3333cccc4444"]
@@ -107,7 +107,7 @@ A successful request returns `200 OK`:
 
 ```json
 {
-  "objectId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+  "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "principalType": "user",
   "clientIds": ["00001111-aaaa-2222-bbbb-3333cccc4444"]

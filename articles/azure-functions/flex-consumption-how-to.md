@@ -847,6 +847,9 @@ Enable E2E TLS encryption by setting the `endToEndEncryptionEnabled` site proper
 
 For more information about how E2E TLS encryption protects traffic, see [End-to-end TLS encryption in Azure App Service](../app-service/overview-tls.md#end-to-end-tls-encryption).
 
+> [!NOTE]
+> End-to-end TLS encryption and post-quantum key exchange protect different connection segments. `endToEndEncryptionEnabled` encrypts traffic between the platform front end and function worker; that connection negotiates TLS separately. Post-quantum key exchange applies to key establishment between a compatible client and the front end. This setting doesn't enable, disable, or require post-quantum negotiation. For details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
+
 ## Configure site-scoped certificates
 
 Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL certificates are scoped to your individual function app rather than shared across apps in the same webspace. The following table shows the supported certificate types and how each one is added to your function app:
@@ -858,6 +861,9 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 | [Certificate imported from Key Vault](../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault) | Imported from Azure Key Vault | Private certificate limit |
 | Uploaded private certificate (.pfx) | [Uploaded as a PFX file](#add-a-certificate) | Private certificate limit |
 | Uploaded public certificate (.cer) | [Uploaded as a CER file](#add-a-certificate) | Public certificate limit |
+
+> [!NOTE]
+> Post-quantum TLS key exchange doesn't require a new or post-quantum certificate. Existing certificate requirements still apply. For details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
 
 ### Considerations for site-scoped certificates
 
