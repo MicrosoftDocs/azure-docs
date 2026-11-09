@@ -65,7 +65,7 @@ The following release notes are for Azure File Sync version 23.2.0.0 (released N
 
 ### Improvements and fixed issues
 
-Fixes an issue in the Azure File Sync event manifest recovery script that incorrectly granted all users access to the StorageSyncAgent folder. This update also corrects permissions on existing servers, if needed. For more information about this vulnerability, see [CVE-2026-118288](https://msrc.microsoft.com/update-guide/advisory/CVE-2026-118288). Note: The affected permissions are introduced only when running `FixAfsEventsCorruption.ps1` or the cmdlet `Debug-StorageSyncServer -FixAfsEventsCorruption` is explicitly run on demand, and not during normal, automatic agent operation. Most users do not run this script or cmdlet and hence are not impacted.
+Fixes an issue in the Azure File Sync event manifest recovery script that incorrectly granted all users access to the StorageSyncAgent folder. This update also corrects permissions on existing servers, if needed. For more information about this vulnerability, see [CVE-2026-118288](https://msrc.microsoft.com/update-guide/advisory/CVE-2026-118288). Note: The affected permissions are introduced only when running `FixAfsEventsCorruption.ps1` or the cmdlet `Debug-StorageSyncServer -FixAfsEventsCorruption` is explicitly run on demand, and not during normal, automatic agent operation. Most users don't run this script or cmdlet and hence aren't impacted.
 
 
 ## Version 23.1.0.0
