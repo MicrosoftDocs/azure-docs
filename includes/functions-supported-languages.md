@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/12/2026
+ms.date: 10/30/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -90,6 +90,7 @@ The following table shows the language versions supported for Node.js function a
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| [Node.js 26](https://endoflife.date/nodejs) | Preview | |
 | [Node.js 24](https://endoflife.date/nodejs) | GA | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
 

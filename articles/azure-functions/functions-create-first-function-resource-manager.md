@@ -1,7 +1,7 @@
 ---
 title: Create your function app resources using Azure Resource Manager templates
 description: Create and deploy to Azure a simple HTTP triggered serverless function by using an Azure Resource Manager template (ARM template).
-ms.date: 03/17/2025
+ms.date: 10/30/2026
 ms.topic: quickstart
 ms.service: azure-functions
 zone_pivot_groups: programming-languages-set-functions-no-go
@@ -44,6 +44,16 @@ This template creates these Azure resources needed by a function app that secure
 
 These scripts are designed for and tested in [Azure Cloud Shell](../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. When prompted, enter the name of a region that [supports the Flex Consumption plan](./flex-consumption-how-to.md#view-currently-supported-regions), such as `eastus` or `northeurope`.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+Before you run the Node.js commands:
+
+1. Download the [ARM template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-flex-managed-identities/azuredeploy.json) and save it as **azuredeploy.json**.
+1. Add `"24"` to the list in `parameters.functionAppRuntimeVersion.allowedValues`.
+1. Upload the updated file to Cloud Shell. Run the following commands from the directory that contains the file.
+
+The Node.js commands use this local template to deploy Node.js 24.
+::: zone-end
+
 ### [Azure CLI](#tab/azure-cli)
 ::: zone pivot="programming-language-csharp"  
 ```azurecli-interactive 
@@ -71,9 +81,9 @@ read
 ```azurecli-interactive 
 read -p "Enter a supported Azure region: " location &&
 resourceGroupName=exampleRG &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-flex-managed-identities/azuredeploy.json" &&
+templateFile="azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri --parameters functionAppRuntime=node functionAppRuntimeVersion=20 &&
+az deployment group create --resource-group $resourceGroupName --template-file "$templateFile" --parameters functionAppRuntime=node functionAppRuntimeVersion=24 &&
 echo "Press [ENTER] to continue ..." &&
 read
 ```
@@ -130,10 +140,10 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 ```powershell-interactive
 $resourceGroupName = "exampleRG"
 $location = Read-Host -Prompt "Enter a supported Azure region"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-flex-managed-identities/azuredeploy.json"
+$templateFile = "azuredeploy.json"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -functionAppRuntime "node" -functionAppRuntimeVersion "20"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFile -functionAppRuntime "node" -functionAppRuntimeVersion "24"
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
