@@ -99,14 +99,40 @@ command that requires elevated permissions.
 
 ### How can I access an Azure resource that restricts public network access?
 
-If the resource supports source public IP network rules, you can allow the applicable
-[Cloud Shell outbound IP addresses][08] on its public endpoint. The article explains how to find
-your session's region and lists the NAT gateway addresses by region. These shared service
-addresses don't identify your user or tenant, and normal resource authorization is still required.
+If the resource supports source public IP network rules, allow the Cloud Shell NAT gateway
+addresses for your session's region on its public endpoint. Use `/32` for each address if the
+service requires CIDR notation.
 
-IP allowlisting doesn't enable access to a private-endpoint-only resource or override disabled
-public network access. To access resources privately without enabling public access on them,
-[deploy Cloud Shell in a virtual network][02].
+To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
+`$env:ACC_LOCATION` in PowerShell. Match the result to the region identifier below, and check it
+again for new sessions. This table covers NAT gateway egress, not every outbound path.
+
+| Region | Region identifier | Outbound IPv4 addresses |
+| --- | --- | --- |
+| Australia East | `australiaeast` | `4.198.204.254`, `4.198.205.186`, `4.198.205.187`, `4.198.205.189` |
+| Australia Southeast | `australiasoutheast` | `4.199.114.154`, `4.199.115.154`, `4.199.115.155`, `4.199.115.157` |
+| Central India | `centralindia` | `135.13.134.69`, `135.13.134.72`, `135.13.134.73`, `135.13.134.74` |
+| Central US EUAP | `centraluseuap` | `20.46.12.224`, `20.46.12.226` |
+| East US 2 | `eastus2` | `9.234.210.115`, `9.234.210.168`, `9.234.210.169`, `9.234.210.170` |
+| East US 2 EUAP | `eastus2euap` | `74.151.26.8`, `74.151.26.9`, `74.151.26.10` |
+| France Central | `francecentral` | `48.220.18.170`, `48.220.18.172` |
+| Germany West Central | `germanywestcentral` | `135.220.92.106` |
+| North Europe | `northeurope` | `134.149.91.186` |
+| South Central US | `southcentralus` | `48.221.128.48`, `48.221.128.53`, `48.221.128.56`, `48.221.128.57` |
+| South India | `southindia` | `135.13.5.170`, `135.13.5.171`, `135.13.7.192` |
+| Southeast Asia | `southeastasia` | `135.171.36.88`, `135.171.36.89`, `135.171.36.90` |
+| Sweden Central | `swedencentral` | `135.116.40.62`, `135.116.40.63`, `135.116.41.120`, `135.225.147.226` |
+| West Central US | `westcentralus` | `128.24.198.36`, `128.24.198.43`, `128.24.198.46` |
+| West Europe | `westeurope` | `134.149.156.73`, `134.149.156.74`, `134.149.156.75` |
+| West US 2 | `westus2` | `48.221.10.88`, `48.221.10.92`, `48.221.10.96`, `48.221.10.97` |
+
+These shared service addresses don't identify your user or tenant; authentication and authorization
+are still required. Don't treat a single observed address as fixed for a session or user.
+Allowlisting doesn't override routing, firewalls, or disabled public network access, and doesn't
+provide access to private-endpoint-only resources.
+
+To access resources privately without enabling public access on them,
+[deploy Cloud Shell in a virtual network][02], following its prerequisites and network configuration.
 
 ## Troubleshoot errors
 
@@ -304,4 +330,3 @@ Use the following steps to delete your user settings.
 [05]: https://code.visualstudio.com/docs/azure/vscodeforweb
 [06]: media/faq-troubleshooting/devtools-small.png
 [07]: media/faq-troubleshooting/devtools-large.png#lightbox
-[08]: security/egress-ip-addresses.md
