@@ -42,9 +42,7 @@ Both CAs and ICAs use the `Microsoft.DeviceRegistry/namespaces/certificateAuthor
 
 ### Certificate operations
 
-Certificate issuances and renewals are billed as Azure Device Registry operations. The operations meter counts the combined number of issuances and renewals.
-
-Certificate revocations aren't billed.
+Azure Device Registry operations include certificate issuances and renewals. The operations meter counts the combined number of issuances and renewals. Certificate revocations aren't billed.
 
 ## Features in preview
 
@@ -52,6 +50,4 @@ Jobs, groups, and software updates aren't billed while they're in preview.
 
 ## Cost estimates and pricing
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
-
-For Azure Device Registry prices, see the [Azure IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/#pricing) and the [Azure IoT Operations pricing page](https://azure.microsoft.com/pricing/details/iot-operations/#pricing).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. For Azure Device Registry prices, see the [Azure IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/#pricing) and the [Azure IoT Operations pricing page](https://azure.microsoft.com/pricing/details/iot-operations/#pricing).
