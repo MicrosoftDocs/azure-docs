@@ -3,7 +3,7 @@ title: Custom disk configuration reference for SAP Deployment Automation Framewo
 description: Review default disk configurations and custom sizing options for SAP systems in SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
-ms.date: 04/15/2026
+ms.date: 11/09/2026
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
