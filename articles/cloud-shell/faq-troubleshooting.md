@@ -103,11 +103,8 @@ To access resources privately without enabling public access on them,
 [deploy Cloud Shell in a virtual network][02].
 
 Alternatively, if the resource supports source public IP network rules, allow the Cloud Shell egress IP
-addresses on its public endpoint. Use `/32` for each address if the
-service requires CIDR notation.
-
-The following table lists Cloud Shell container egress IPs by Azure geography. Use the geography of your Cloud Shell session, not the region of the resource you want to access. To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
-`$env:ACC_LOCATION` in PowerShell. Since the Cloud Shell region that serves your session might change based on your geography, your storage account's region, or available capacity, it's recommended to allow list all the IPs in your nearest Azure geography.
+addresses on its public endpoint. The following table lists Cloud Shell container egress IPs by Azure geography. Use the geography of your Cloud Shell session, not the region of the resource you want to access. To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
+`$env:ACC_LOCATION` in PowerShell. Since the Cloud Shell region that serves your session might change based on your geography, your storage account's region, or available capacity, it's recommended to allow list all the IPs in your nearest Azure geography. Use `/32` for each address if the service requires CIDR notation.
 
 | Geography | Regions that serve Cloud Shell containers | Outbound IPv4 addresses |
 | --- | --- | --- |
