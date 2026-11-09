@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: troubleshooting-general
-ms.date: 10/28/2026
+ms.date: 11/09/2026
 
 #customer intent: As a Discovery platform administrator or developer, I want to troubleshoot common Microsoft Discovery problems so that I can restore a working deployment and run investigations.
 
@@ -385,7 +385,7 @@ Find the workspace managed resource group:
 
 ```azurecli
 az rest --method GET \
-  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-06-01" \
   --query "properties.managedResourceGroup"
 ```
 
