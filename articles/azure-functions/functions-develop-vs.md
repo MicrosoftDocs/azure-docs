@@ -24,6 +24,8 @@ This article provides detailed information about how to use Visual Studio to dev
 There are two models for developing C# class library functions: the [isolated worker model](dotnet-isolated-process-guide.md) and the [in-process model](functions-dotnet-class-library.md).
 ::: zone pivot="isolated"
 You're reading the isolated worker model version of this article. You can select your preferred model at the top of the article. 
+
+Install the .NET SDK for a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions) and update your Visual Studio Azure Functions tools and templates. For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
 ::: zone-end  
 ::: zone pivot="in-proc"
 You're reading the in-process model version of this article. You can select your preferred model at the top of the article.
@@ -55,7 +57,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
    | Setting      | Action  | Description                      |
    | ------------ | ------ |--------------------------------- |
-   | **Functions worker** | Select **.NET 8.0 Isolated (Long Term Support)**. | Visual Studio creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). The isolated worker process also supports other versions of .NET and .NET Framework that don't offer long term support (LTS). For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+   | **Functions worker** | Select a supported .NET version using the isolated worker model. | Visual Studio creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). For version requirements and hosting restrictions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions). |
    | **Function** | Select **Http trigger**. | Visual Studio creates a function triggered by an HTTP request. |
    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Select this checkbox. | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use a Storage account connection string. All other trigger types require a valid Storage account connection string. |
    | **Authorization level** | Select **Anonymous**. | When you use this authorization setting, any client can trigger the created function without providing a key. This configuration makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
@@ -67,7 +69,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
    | Setting      | Action  | Description                      |
    | ------------ | ------ |--------------------------------- |
-   | **Functions worker** | Select **.NET 8.0 In-process (Long Term Support)**. | Visual Studio creates a function project that runs in-process with version 4.x of the Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+   | **Functions worker** | Select a supported .NET version using the in-process model. | Visual Studio creates a function project that runs in-process with version 4.x of the Functions runtime. For this model's version requirements, see the [in-process model guide](functions-dotnet-class-library.md#supported-versions). |
    | **Function** | Select **Http trigger**. | Visual Studio creates a function triggered by an HTTP request. |
    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Select this checkbox. | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use a Storage account connection string. All other trigger types require a valid Storage account connection string. |
    | **Authorization level** | Select **Anonymous** | When you use this authorization setting, any client can trigger the created function without providing a key. This configuration makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
@@ -81,7 +83,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 1. Select **Create** to create the function project and HTTP trigger function.
 
 ::: zone pivot="isolated" 
-After you create a Functions project, the project template creates a C# project, installs the `Microsoft.Azure.Functions.Worker` and `Microsoft.Azure.Functions.Worker.Sdk` NuGet packages, and sets the target framework. 
+After you create a Functions project, the updated project template uses `Azure.Functions.Sdk` as the project SDK, adds an explicit `Microsoft.Azure.Functions.Worker` package reference, and sets the target framework. The new project SDK replaces the `Microsoft.Azure.Functions.Worker.Sdk` package reference.
 ::: zone-end  
 ::: zone pivot="in-proc" 
 After you create a Functions project, the project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. 

@@ -148,7 +148,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 | Python | 3.9, 3.10, 3.11, 3.12, 3.13 | 3.10, 3.11, 3.12, 3.13 |
 | Java | 8, 11, 17, 21 | 8, 11, 17, 21 |
 | PowerShell | Not supported | 7.6, 7.4 |
-| .NET | .NET 8 | .NET 8, .NET 9, .NET Framework 4.8.1 |
+| .NET | [Supported .NET runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported) | [Supported .NET versions using the isolated worker model](../dotnet-isolated-process-guide.md#supported-versions) |
 | Ruby | 3.2, 3.3 | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
 | Go | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Go](/azure/azure-functions/functions-reference-go) |
 | Rust | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
@@ -718,4 +718,3 @@ Enable [Application Insights](/azure/azure-functions/functions-monitoring) f
    - Use [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) tools to monitor and analyze your Azure Functions costs.
 
    - Set up budgeting and cost alerts to manage and predict expenses effectively.
-

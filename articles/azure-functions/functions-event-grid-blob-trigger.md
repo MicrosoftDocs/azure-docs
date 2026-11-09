@@ -33,7 +33,7 @@ This article supports version 4 of the Node.js programming model for Azure Funct
 This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
-This article creates a C# app that runs in isolated worker mode, which supports .NET 8.0.
+This article creates a C# app that targets a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).
 ::: zone-end
 ::: zone pivot="programming-language-go"
 This article uses the Azure Functions Go worker, which is generally available for Flex Consumption apps.
@@ -89,7 +89,7 @@ When you create a Blob Storage trigger function by using Visual Studio Code, you
    |Prompt|Action|
    |--|--|
    |**Select a language**| Select `C#`. |
-   |**Select a .NET runtime**| Select `.NET 8.0 Isolated LTS`. |
+   |**Select a .NET runtime**| Select a supported .NET version using the isolated worker model. |
    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger (using Event Grid)`. |
    |**Provide a function name**| Enter `EventGridBlobTrigger`. |
    |**Provide a namespace** | Enter `My.Functions`. |
@@ -98,6 +98,8 @@ When you create a Blob Storage trigger function by using Visual Studio Code, you
    |**Select a storage account**| Use Azurite emulator for local storage. |
    |**The path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
    |**Select how you would like to open your project**| Select `Open in current window`. |
+
+   Verify that the generated project targets your selected .NET version, uses `Azure.Functions.Sdk` as its project SDK, and explicitly references `Microsoft.Azure.Functions.Worker`. For version requirements and an example project file, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
    ::: zone-end
    ::: zone pivot="programming-language-python"
    |Prompt|Action|

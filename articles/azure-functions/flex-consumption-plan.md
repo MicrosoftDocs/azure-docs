@@ -192,14 +192,15 @@ This table shows the language stack versions that are currently supported for Fl
 
 | Language stack  | Required version |
 | --- | :-----: |
-| C# (isolated worker model)<sup>1</sup> | .NET 8, .NET 9, .NET 10 |
+| C# (isolated worker model)<sup>1</sup> | .NET 8, .NET 9, .NET 10, .NET 11 |
+| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13, Python 3.14, Python 3.15 | 
+| Node.js | Node.js 22, Node.js 24, Node.js 26 |
+| Go | Go 1.24 or later |
 | Java | Java 8, Java 11, Java 17, Java 21, Java 25 |
-| Node.js | Node.js 22, Node.js 24   |
-| PowerShell | PowerShell 7.6, PowerShell 7.4 |
-| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13, Python 3.14  | 
+| PowerShell | PowerShell 7.4, PowerShell 7.6 |
 | Custom handlers | 1.0 |
 
-1. The [C# in-process model](./functions-dotnet-class-library.md) isn't supported. You need to [migrate your .NET project to the isolated worker model](migrate-dotnet-to-isolated-model.md).  
+1. The [C# in-process model](./functions-dotnet-class-library.md) isn't supported. You need to [migrate your .NET project to the isolated worker model](migrate-dotnet-to-isolated-model.md). For .NET 11 project SDK and tooling requirements, see [.NET 11 in the isolated worker model](dotnet-isolated-process-guide.md#net-11).
 
 ## Regional subscription memory quotas
 
