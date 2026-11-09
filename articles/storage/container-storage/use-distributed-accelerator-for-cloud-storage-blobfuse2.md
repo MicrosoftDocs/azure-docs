@@ -5,7 +5,7 @@ description: Configure BlobFuse2 with distributed accelerator for cloud storage 
 author: wolfgang-desalvador
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 11/02/2026
+ms.date: 11/09/2026
 ms.author: wdesalvador
 ms.custom: devx-track-azurecli
 # Customer intent: "As an AKS administrator, I want applications that read files to use BlobFuse2 with DACS so that repeated Blob reads reuse the distributed cache."
@@ -33,8 +33,6 @@ This article covers configuration, read-path verification, and [Standard storage
 
 > [!IMPORTANT]
 > Use a read-only mount for each container. Verify DACS activity through cache-server metrics and BlobFuse2 logs.
-
-> DACS treats the Kubernetes cluster as a single trust domain and doesn't provide tenant isolation. Don't use it in a multitenant cluster. Workload identity authorizes Blob Storage access; it doesn't isolate cached data. For more information, see the [DACS security model](https://github.com/Azure/dacs/blob/main/docs/security-model.md).
 > DACS treats the Kubernetes cluster as a single trust domain and doesn't provide tenant isolation. Don't use it in a multitenant cluster. Workload identity authorizes Blob Storage access; it doesn't isolate cached data. For more information, see the [DACS security model](https://github.com/Azure/dacs/blob/main/docs/security-model.md).
 
 ## Set variables
@@ -392,11 +390,11 @@ Configure scraping for each cache-server pod by following [Monitor distributed a
 Use checksums to verify data integrity and request counters to verify the cache path. For detailed commands, see [Verify the DACS request path](distributed-accelerator-for-cloud-storage-quickstart.md#verify-the-dacs-request-path).
 
 ### Verify reuse across two nodes
-The introductory workload reads twice from one node, which can reuse its local cache. To verify distributed reuse, use two ready nodes from the verified workload pool and a test file that you didn't read through this Cache. Choose a file small enough to fit in the cache and get its expected SHA-256 from the original source or a trusted manifest.
+
 The introductory workload reads twice from one node, which can reuse its local cache. To verify distributed reuse, use two ready nodes from the verified workload pool and a test file that you didn't read through this Cache. Choose a file small enough to fit in the cache and get its expected SHA-256 from the original source or a trusted manifest.
 
 Use a Cache dedicated to this test so unrelated workloads don't affect its request counters.
-List eligible nodes, and then set the hostname labels, the file path relative to the container root, and its expected checksum:
+
 List eligible nodes, and then set the hostname labels, the file path relative to the container root, and its expected checksum:
 
 ```bash
@@ -464,7 +462,7 @@ kubectl wait pod/blobfuse-dacs-cold pod/blobfuse-dacs-warm \
 kubectl get pods blobfuse-dacs-cold blobfuse-dacs-warm \
   --namespace "$WORKLOAD_NAMESPACE" --output wide
 ```
-Confirm that both readers are ready on different nodes. Don't read the file from the warm node yet.
+
 Confirm that both readers are ready on different nodes. Don't read the file from the warm node yet.
 
 Read and verify the entire file from the cold node:
@@ -474,7 +472,7 @@ kubectl exec --namespace "$WORKLOAD_NAMESPACE" blobfuse-dacs-cold -- \
   sh -c 'set -eu; cd /mnt/blob; printf "%s  %s\n" "$1" "$2" | sha256sum --check' \
   sh "$EXPECTED_SHA256" "$VALIDATION_FILE"
 ```
-Stop if the checksum check fails. Keep the cold reader running and use the cache-server metrics to confirm that background population is complete. Immediately before the warm read, record the successful Download counter baseline across the servers owned by your Cache.
+
 Stop if the checksum check fails. Keep the cold reader running and use the cache-server metrics to confirm that background population is complete. Immediately before the warm read, record the successful Download counter baseline across the servers owned by your Cache.
 
 Read and verify the same file from the second node:
@@ -500,7 +498,7 @@ Tune application I/O separately from BlobFuse2 cache settings:
 | `--distributed-cache-parallelism` | Concurrent block downloads, including prefetch work. |
 | Cache resource sizing | DACS server count, local-NVMe capacity, CPU, memory, and server threads. |
 
-Measure sequential and random access separately. Tune block size, prefetch, and concurrency together while monitoring throughput, memory, origin traffic, and throttling.
+Measure sequential and random access separately. Tune block size, prefetch, and concurrency together while monitoring throughput, memory, and origin traffic.
 
 For colocated deployments, reserve CPU, memory, network bandwidth, and local disk capacity for both application workers and cache servers.
 
@@ -508,7 +506,7 @@ Apply changed mount options through a coordinated unmount and remount for all po
 
 ## Standard storage benchmark results
 
-The benchmarks compare BlobFuse2 alone with dedicated and colocated DACS on a Standard_LRS, Hot-tier StorageV2 account in Central US. Each profile covers five thread counts across the three configurations.
+The benchmarks compare BlobFuse2 alone with dedicated and colocated DACS on a Standard_LRS, Hot-tier StorageV2 account. Each profile covers five thread counts across the three configurations.
 
 ### Deployment scenarios
 
@@ -521,7 +519,7 @@ BlobFuse2 alone provides the baseline for both scenarios.
 
 | Setting | Measured configuration |
 |---|---|
-| VMs | Cache servers: `Standard_E192ids_v6` * 10; workers: `Standard_E192ids_v6` * 10 |
+| VMs | 10 `Standard_E96ds_v6` worker nodes. Dedicated DACS adds 10 cache nodes of the same size; colocated DACS uses the worker nodes. |
 | DACS server resource limits | 32 CPUs and 128 GiB of memory per server. |
 | Native chart server resource requests | `250m` CPU and `100Mi` memory per server. |
 | Benchmark | [Elbencho](https://github.com/breuner/elbencho) `3.0-38`; I/O depth 1. |
@@ -533,15 +531,15 @@ Each case used fresh worker and cache resources. Results are aggregate measureme
 
 ### Sequential reads
 
-Sequential tests used 16-MiB I/O and five read iterations per case. Cold throughput is the first iteration. Warm throughput and the BlobFuse-only baseline are the averages of iterations 2 through 5. Values are aggregate MiB/s.
+Sequential tests use 16-MiB I/O and five read iterations per case. Cold throughput is the first iteration. Warm throughput and the BlobFuse-only baseline are the averages of iterations 2 through 5. Values are aggregate **GB/s**.
 
 | Threads per worker | BlobFuse-only | Dedicated cold | Dedicated warm | Colocated cold | Colocated warm |
 |---|---:|---:|---:|---:|---:|
-| 1 | 18,074 | 15,689 | 19,976.75 | 15,564 | 20,443.5 |
-| 2 | 18,745 | 18,923 | 36,779.75 | 19,380 | 36,827.75 |
-| 4 | 21,497 | 22,028 | 41,211.75 | 23,793 | 44,692.25 |
-| 8 | 25,544 | 25,970 | 42,445 | 24,532 | 47,158.25 |
-| 16 | 25,953.25 | 21,296 | 43,082.25 | 22,899 | 47,760.75 |
+| 1 | 19.0 | 16.5 | 20.9 | 16.3 | 21.4 |
+| 2 | 19.7 | 19.8 | 38.6 | 20.3 | 38.6 |
+| 4 | 22.5 | 23.1 | 43.2 | 24.9 | 46.9 |
+| 8 | 26.8 | 27.2 | 44.5 | 25.7 | 49.4 |
+| 16 | 27.2 | 22.3 | 45.2 | 24.0 | 50.1 |
 
 At 16 threads per worker, colocated warm throughput was **84% higher** than BlobFuse-only and **10.9% higher** than dedicated warm throughput.
 
@@ -579,7 +577,7 @@ For storage-mount troubleshooting, see [Troubleshoot BlobFuse2](../blobs/blobfus
 ### Identify local-cache or origin fallback
 
 A successful mount or read doesn't prove that DACS is serving data:
-- If CSI logs report `BlobFuse2 distributed-cache support could not be verified`, the driver removes the distributed-cache options and selects local block cache. Verify the host BlobFuse2 version and mount capabilities, then coordinate an unmount and remount.
+
 - If CSI logs report `BlobFuse2 distributed-cache support could not be verified`, the driver removes the distributed-cache options and selects local block cache. Verify the host BlobFuse2 version and mount capabilities, then coordinate an unmount and remount.
 - If BlobFuse2 discovers no cache servers, the mount can still succeed and reads go directly to Blob Storage. Check the discovery service, DNS address, endpoints, and node-to-cache connectivity.
 

@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: concept-article
-ms.date: 08/17/2026
+ms.date: 11/08/2026
 # Customer intent: As a platform administrator, I want to understand project-level access control so that I can isolate research teams in a shared Microsoft Discovery workspace.
 ---
 
@@ -137,7 +137,7 @@ The Microsoft Discovery storage roles control Discovery container and asset meta
 ## How companion resource access works
 
 - **Agent creation and update checks:** When a user creates or updates an agent, Microsoft Discovery verifies that the user has read access to every referenced tool and to the selected chat model deployment. The operation is denied if any linked resource isn't accessible.
-- **Cross-project isolation:** The checks prevent a project-only user from attaching an agent to a tool or model that belongs to another team.
+- **Shared-resource authorization:** The checks prevent a project-only user from attaching an agent to a tool or model without the corresponding companion access. A separately authorized shared resource can be used by more than one project.
 - **Pre-created agents:** A Project Contributor doesn't need Tools Reader or Chat Model Reader solely to run an agent that a platform administrator already created with its tools and model. Those roles are needed when the contributor must view or select linked resources during agent creation or update.
 - **Access revocation:** Tool and chat model access is checked when the agent is created or updated, not each time it runs. Removing a user's linked-resource role later doesn't prevent an already-created agent from continuing to use that resource. Update or remove affected agents when revoking linked-resource access.
 - **Discovery Engine model:** Discovery Engine uses its platform-configured `gpt-5-4` chat model deployment. A Project Contributor can run Discovery Engine without a separate Chat Model Reader assignment for that deployment.
