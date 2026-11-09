@@ -97,15 +97,14 @@ location is the `Azure:` drive, are saved to your `$HOME` folder.
 No. Your user account in Cloud Shell is an unprivileged account. You can't use `sudo` or run any
 command that requires elevated permissions.
 
-### How can I access an Azure resource that restricts public network access?
+### How can I access an Azure resource that restricts public network access via Cloud Shell?
 
-If the resource supports source public IP network rules, allow the Cloud Shell NAT gateway
-addresses for your session's region on its public endpoint. Use `/32` for each address if the
+If the resource supports source public IP network rules, allow the Cloud Shell egress IP
+addresses on its public endpoint. Use `/32` for each address if the
 service requires CIDR notation.
 
-To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
-`$env:ACC_LOCATION` in PowerShell. Match the result to the region identifier below, and check it
-again for new sessions. This table covers NAT gateway egress, not every outbound path.
+The following table lists the egress IPs of Cloud Shell containers served by each region, irrespective of the region of the resource you are connecting to. To find the region of your current Cloud Shell machine, run `echo "$ACC_LOCATION"` in Bash or
+`$env:ACC_LOCATION` in PowerShell. Since the Cloud Shell region that serves your session may change based on your geography, your storage account's region, or available capacity, it's recommended to allowlist all the IPs in your nearest Azure geography.
 
 | Region | Region identifier | Outbound IPv4 addresses |
 | --- | --- | --- |
@@ -126,13 +125,10 @@ again for new sessions. This table covers NAT gateway egress, not every outbound
 | West Europe | `westeurope` | `134.149.156.73`, `134.149.156.74`, `134.149.156.75` |
 | West US 2 | `westus2` | `48.221.10.88`, `48.221.10.92`, `48.221.10.96`, `48.221.10.97` |
 
-These shared service addresses don't identify your user or tenant; authentication and authorization
-are still required. Don't treat a single observed address as fixed for a session or user.
-Allowlisting doesn't override routing, firewalls, or disabled public network access, and doesn't
-provide access to private-endpoint-only resources.
+Please note that these IPs are subject to change. To view the egress IP of your Cloud Shell session, run `curl -4 -s https://api.ipify.org; echo` in Bash or `Invoke-RestMethod -Uri 'https://api.ipify.org'` in PowerShell.
 
 To access resources privately without enabling public access on them,
-[deploy Cloud Shell in a virtual network][02], following its prerequisites and network configuration.
+[deploy Cloud Shell in a virtual network][02].
 
 ## Troubleshoot errors
 
