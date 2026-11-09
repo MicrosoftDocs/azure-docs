@@ -99,7 +99,10 @@ command that requires elevated permissions.
 
 ### How can I access an Azure resource that restricts public network access via Cloud Shell?
 
-If the resource supports source public IP network rules, allow the Cloud Shell egress IP
+To access resources privately without enabling public access on them,
+[deploy Cloud Shell in a virtual network][02].
+
+Alternatively, if the resource supports source public IP network rules, allow the Cloud Shell egress IP
 addresses on its public endpoint. Use `/32` for each address if the
 service requires CIDR notation.
 
@@ -108,20 +111,17 @@ The following table lists Cloud Shell container egress IPs by Azure geography. U
 
 | Geography | Regions that serve Cloud Shell containers | Outbound IPv4 addresses |
 | --- | --- | --- |
-| Asia Pacific | Southeast Asia | `135.171.36.88`, `135.171.36.89`, `135.171.36.90` |
+| Asia Pacific | East Asia<br>Southeast Asia | `57.158.63.170`, `57.158.63.171`, `57.158.63.176`, `57.158.63.177`<br>`135.171.36.88`, `135.171.36.89`, `135.171.36.90`, `135.171.36.91` |
 | Australia | Australia East<br>Australia Southeast | `4.198.204.254`, `4.198.205.186`, `4.198.205.187`, `4.198.205.189`<br>`4.199.114.154`, `4.199.115.154`, `4.199.115.155`, `4.199.115.157` |
-| Europe | North Europe<br>West Europe | `134.149.91.186`<br>`134.149.156.73`, `134.149.156.74`, `134.149.156.75` |
-| France | France Central | `48.220.18.170`, `48.220.18.172` |
-| Germany | Germany West Central | `135.220.92.106` |
-| India | Central India<br>South India | `135.13.5.170`, `135.13.5.171`, `135.13.7.192`<br>`135.13.134.69`, `135.13.134.72`, `135.13.134.73`, `135.13.134.74` |
+| Europe | North Europe<br>West Europe | `134.149.91.186`<br>`134.149.155.206`, `134.149.156.73`, `134.149.156.74`, `134.149.156.75` |
+| France | France Central | `48.220.18.170`, `48.220.18.171`, `48.220.18.172` |
+| Germany | Germany West Central | `135.220.92.106`, `135.220.92.108`, `135.220.92.109` |
+| India | Central India<br>South India | `135.13.134.69`, `135.13.134.72`, `135.13.134.73`, `135.13.134.74`<br>`135.13.5.170`, `135.13.5.171`, `135.13.7.192`, `135.13.7.193` |
 | Sweden | Sweden Central | `135.116.40.62`, `135.116.40.63`, `135.116.41.120`, `135.225.147.226` |
-| United States | East US 2 <br>South Central US<br>West Central US <br>West US 2 | `9.234.210.115`, `9.234.210.168`, `9.234.210.169`, `9.234.210.170`<br>`48.221.10.88`, `48.221.10.92`, `48.221.10.96`, `48.221.10.97`<br>`48.221.128.48`, `48.221.128.53`, `48.221.128.56`, `48.221.128.57`<br>`128.24.198.36`, `128.24.198.43`, `128.24.198.46` |
-| EUAP (United States) | Central US EUAP<br>East US 2 EUAP | `20.46.12.224`, `20.46.12.226`<br>`74.151.26.8`, `74.151.26.9`, `74.151.26.10` |
+| United States | East US 2<br>South Central US<br>West Central US<br>West US 2 | `9.234.210.115`, `9.234.210.168`, `9.234.210.169`, `9.234.210.170`<br>`48.221.128.48`, `48.221.128.53`, `48.221.128.56`, `48.221.128.57`<br>`128.24.198.36`, `128.24.198.42`, `128.24.198.43`, `128.24.198.46`<br>`48.221.10.88`, `48.221.10.92`, `48.221.10.93`, `48.221.10.96`, `48.221.10.97` |
+| EUAP (United States) | Central US EUAP<br>East US 2 EUAP | `20.46.12.224`, `20.46.12.226`, `172.215.41.0`, `172.215.41.1`<br>`74.151.26.8`, `74.151.26.9`, `74.151.26.10` |
 
 These IPs can change. To view the egress IP of your Cloud Shell session, run `curl -4 -s https://api.ipify.org; echo` in Bash or `Invoke-RestMethod -Uri 'https://api.ipify.org'` in PowerShell.
-
-To access resources privately without enabling public access on them,
-[deploy Cloud Shell in a virtual network][02].
 
 ## Troubleshoot errors
 
