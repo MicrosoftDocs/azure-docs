@@ -41,6 +41,8 @@ items:
         href: vnet/migrate-container-permissions.md
   - name: Security
     items:
+      - name: Outbound IP addresses
+        href: security/egress-ip-addresses.md
       - name: Allow multiple users to use a single storage account and file share
         href: security/how-to-support-multiple-users.md
       - name: Security baseline

@@ -1,6 +1,6 @@
 ---
 description: This article describes a scenario for using Azure Cloud Shell in a private virtual network.
-ms.date: 10/28/2026
+ms.date: 11/09/2026
 ms.topic: concept-article
 title: Use Cloud Shell in an Azure virtual network
 ---
@@ -15,6 +15,10 @@ cluster with locked-down access.
 
 To provide access to your private resources, you can deploy Cloud Shell into an Azure virtual
 network that you control. This technique is called _virtual network isolation_.
+
+If your resource instead permits selected public endpoint access, you can configure supported
+network rules by using the [Cloud Shell outbound IP addresses][05]. This option uses the resource's
+public endpoint; it doesn't provide private connectivity or replace virtual network isolation.
 
 ## Benefits of virtual network isolation with Cloud Shell
 
@@ -83,3 +87,4 @@ When you're ready to deploy your own instance of Cloud Shell, see
 [02]: /azure/azure-relay/relay-what-is-it
 [03]: deployment.md
 [04]: media/overview/data-diagram.png
+[05]: ../security/egress-ip-addresses.md

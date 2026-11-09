@@ -1,6 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.date: 02/09/2026
+ms.date: 11/09/2026
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -96,6 +96,17 @@ location is the `Azure:` drive, are saved to your `$HOME` folder.
 
 No. Your user account in Cloud Shell is an unprivileged account. You can't use `sudo` or run any
 command that requires elevated permissions.
+
+### How can I access an Azure resource that restricts public network access?
+
+If the resource supports source public IP network rules, you can allow the applicable
+[Cloud Shell outbound IP addresses][08] on its public endpoint. The article explains how to find
+your session's region and lists the NAT gateway addresses by region. These shared service
+addresses don't identify your user or tenant, and normal resource authorization is still required.
+
+IP allowlisting doesn't enable access to a private-endpoint-only resource or override disabled
+public network access. To access resources privately without enabling public access on them,
+[deploy Cloud Shell in a virtual network][02].
 
 ## Troubleshoot errors
 
@@ -293,3 +304,4 @@ Use the following steps to delete your user settings.
 [05]: https://code.visualstudio.com/docs/azure/vscodeforweb
 [06]: media/faq-troubleshooting/devtools-small.png
 [07]: media/faq-troubleshooting/devtools-large.png#lightbox
+[08]: security/egress-ip-addresses.md
