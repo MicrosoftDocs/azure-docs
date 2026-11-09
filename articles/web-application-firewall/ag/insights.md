@@ -1,18 +1,14 @@
 ---
-title: Azure Application Gateway WAF Insights (Preview)
+title: Azure Application Gateway WAF Insights
 description: Learn how to use Azure Application Gateway WAF insights dashboards to monitor, investigate, and report on web application firewall activity.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 02/20/2026
+ms.date: 11/06/2026
 ---
 
-# Azure Application Gateway Web Application Firewall (WAF) Insights (preview)
-
-> [!IMPORTANT]
-> The WAF Insights for Azure Application Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Azure Application Gateway Web Application Firewall (WAF) Insights
 
 The WAF Insights dashboards for Azure Application Gateway provide a unified experience for monitoring, investigation, and reporting of WAF activity. They help security and operations teams detect attack patterns, validate WAF policy effectiveness, identify misconfigurations, and accelerate incident response through deep drill-down analysis. By combining high-level visibility with detailed request-level insights, the dashboards support both strategic monitoring and hands-on troubleshooting.
 
