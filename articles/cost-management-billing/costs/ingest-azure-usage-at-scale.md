@@ -49,7 +49,7 @@ Request URL: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostM
     "format": "Csv",
     "deliveryInfo": {
       "destination": {
-        "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
+        "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
         "container": "{yourContainer}",
         "rootFolderPath": "{yourDirectory}"
       }

@@ -5,7 +5,7 @@ ms.custom: devx-track-js, devx-track-azurecli, linux-related-content
 ms.devlang: javascript
 # ms.devlang: javascript, devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/29/2025
+ms.date: 11/06/2026
 author: msangapu-msft
 ms.author: msangapu
 zone_pivot_groups: app-service-platform-windows-linux
@@ -55,6 +55,8 @@ az webapp list-runtimes --os linux | grep NODE
 ## Set the Node.js version
 
 ::: zone pivot="platform-windows"  
+
+Node.js 24 and Node.js 26 require 64-bit (x64) processes. Before using these versions, [set the app's platform to 64-bit](configure-common.md#configure-general-settings).
 
 To set your app to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
 

@@ -316,6 +316,7 @@ If a route map affects routes you didn't intend to modify:
 
 ## Related content
 
+- [Configure dual-stack route maps by using the Azure portal](route-maps-dual-stack-portal.md)
 - [View effective routes](view-route-server-effective-routes.md)
 - [About route maps for Azure Route Server](route-maps-about.md)
 - [Prepend routes by using route maps](route-maps-scenario-prepend-routes.md)

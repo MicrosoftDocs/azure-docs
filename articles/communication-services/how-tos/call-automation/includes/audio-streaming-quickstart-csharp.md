@@ -121,7 +121,7 @@ The Correlation ID and Call Connection ID are now included in the WebSocket head
 {
   "kind": "AudioMetadata",
   "audioMetadata": {
-    "subscriptionId": "89e8cb59-b991-48b0-b154-1db84f16a077",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "encoding": "PCM",
     "sampleRate": 16000,
     "channels": 1,
@@ -182,8 +182,3 @@ byte[] jsonBytes = Encoding.UTF8.GetBytes(stopData);
 // Example of how to send stop data over the WebSocket
 await m_webSocket.SendAsync(new ArraySegment < byte > (jsonBytes), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
 ```
-
-
-
-
-

@@ -92,7 +92,7 @@ When configuring OAuth 2.0 user authorization in the test console of the develop
 Throughout this tutorial you'll be asked to record key information to reference later on:
 
 - **Backend application (client) ID**: The GUID of the application that represents the backend API
-- **Backend application scopes**: One or more scopes you might create to access the API. The scope format is `api://<Backend Application (client) ID>/<Scope Name>` (for example, api://a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/Read)
+- **Backend application scopes**: One or more scopes you might create to access the API. The scope format is `api://<Backend Application (client) ID>/<Scope Name>` (for example, api://aaaabbbb-0000-cccc-1111-dddd2222eeee/Read)
 - **Client application (client) ID**: The GUID of the application that represents the developer portal
 - **Client application secret value**: The GUID that serves as the secret for interaction with the client application in Microsoft Entra ID 
 

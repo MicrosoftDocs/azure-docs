@@ -4,7 +4,7 @@ description: Enable monitoring for stateful workloads running on Azure Container
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/03/2025
+ms.date: 10/07/2026
 ms.author: kendownie
 # Customer intent: As a cloud administrator, I want to enable monitoring for stateful workloads on Azure Container Storage using managed Prometheus, so that I can gain insights into performance metrics and ensure the reliability of my systems.
 ---
@@ -15,6 +15,9 @@ You can now monitor your stateful workloads running on Azure Container Storage u
 
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you want to enable monitoring for version 1.x.x, see [this article](enable-monitoring-version-1.md).
+
+> [!NOTE]
+> This Managed Prometheus integration doesn't currently include distributed accelerator for cloud storage (DACS). DACS customers must configure their metrics pipeline to scrape each cache server directly. See [Monitor distributed accelerator for cloud storage](monitor-distributed-accelerator-for-cloud-storage.md).
 
 [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview#azure-monitor-managed-service-for-prometheus) is a component of [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) that provides a fully managed and scalable environment for running Prometheus. It enables collecting Prometheus metrics from your Azure Kubernetes Service (AKS) clusters to monitor your workloads.
 

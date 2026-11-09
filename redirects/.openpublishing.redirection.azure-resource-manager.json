@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/azure-resource-manager/management/arm-mcp-governance.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-mcp-governance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/arm-mcp-other-clients.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-mcp-other-clients",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/arm-mcp-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-mcp-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/arm-mcp-quickstart.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-mcp-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/arm-mcp-skills.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-mcp-skills",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/arm-mcp-tools.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-mcp-tools",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/arm-mcp-troubleshoot.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-mcp-troubleshoot",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/bicep/learn-bicep.md",
       "redirect_url": "overview",
       "redirect_document_id": false

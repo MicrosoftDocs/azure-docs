@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Container Storage?
     href: container-storage-introduction.md
+  - name: What is distributed accelerator for cloud storage? (preview)
+    href: distributed-accelerator-for-cloud-storage-overview.md
 - name: How-to guides
   expanded: true
   items:
@@ -28,6 +30,24 @@
       href: volume-snapshot-restore.md
     - name: Configure encryption
       href: configure-encryption-for-elastic-san.md
+  - name: Use distributed accelerator for cloud storage (preview)
+    items:
+    - name: Get started with distributed accelerator for cloud storage on AKS
+      href: distributed-accelerator-for-cloud-storage-quickstart.md
+    - name: Client integrations
+      items:
+      - name: Use distributed accelerator for cloud storage with BlobFuse2
+        href: use-distributed-accelerator-for-cloud-storage-blobfuse2.md
+      - name: Use distributed accelerator for cloud storage with the Python client
+        href: use-distributed-accelerator-for-cloud-storage-python.md
+      - name: Use distributed accelerator for cloud storage with Run:ai Model Streamer
+        href: use-distributed-accelerator-for-cloud-storage-model-streamer.md
+    - name: Manage distributed accelerator for cloud storage
+      href: manage-distributed-accelerator-for-cloud-storage.md
+    - name: Monitor distributed accelerator for cloud storage
+      href: monitor-distributed-accelerator-for-cloud-storage.md
+    - name: Troubleshoot distributed accelerator for cloud storage
+      href: troubleshoot-distributed-accelerator-for-cloud-storage.md
   - name: Resize persistent volumes
     href: resize-volume.md
   - name: Connect with Prometheus

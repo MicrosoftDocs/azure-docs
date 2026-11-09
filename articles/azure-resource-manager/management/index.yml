@@ -29,6 +29,34 @@ landingContent:
             url: deployment-models.md
 
   # Card
+  - title: Azure Resource Manager MCP server (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the ARM MCP server?
+            url: azure-resource-manager-mcp-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with ARM MCP server
+            url: azure-resource-manager-mcp-quickstart.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure an MCP client
+            url: azure-resource-manager-mcp-other-clients.md
+      - linkListType: reference
+        links:
+          - text: ARM MCP server tools
+            url: azure-resource-manager-mcp-tools.md
+      - linkListType: concept
+        links:
+          - text: Security and governance
+            url: azure-resource-manager-mcp-governance.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot the ARM MCP server
+            url: azure-resource-manager-mcp-troubleshoot.md
+
+  # Card
   - title: About Azure services
     linkLists:
       - linkListType: concept

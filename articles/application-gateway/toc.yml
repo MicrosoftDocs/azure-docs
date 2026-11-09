@@ -337,6 +337,8 @@
     href: application-gateway-probe-overview.md
   - name: Backend health
     href: application-gateway-backend-health.md
+  - name: Gateway health
+    href: health-dashboard.md     
   - name: Diagnostic logs
     href: application-gateway-diagnostics.md
   - name: Metrics

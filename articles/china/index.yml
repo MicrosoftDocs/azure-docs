@@ -20,11 +20,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure in China checklist
-            url: /azure/china/overview-checklist
+            url: overview-checklist.md
           - text: What is Azure in China?
-            url: /azure/china/overview-operations
+            url: overview-operations.md
           - text: Azure in China datacenter
-            url: /azure/china/overview-datacenter
+            url: overview-datacenter.md
             
   # Card
   - title: Concepts
@@ -32,9 +32,9 @@ landingContent:
       - linkListType: concept
         links:          
           - text: Service availability and roadmaps
-            url: /azure/china/concepts-service-availability
+            url: concepts-service-availability.md
           - text: Remote management for Azure in China
-            url: /azure/china/concepts-management
+            url: concepts-management.md
           - text: Microsoft Azure in China Docs
             url: https://docs.azure.cn/en-us/
 
@@ -44,8 +44,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure in China developer guide
-            url: /azure/china/resources-developer-guide
+            url: resources-developer-guide.md
           - text: Azure in China FAQ
             url: /zh-cn/azure/china/resources-faq                     
           - text: Support for Azure in China
-            url: /azure/china/concepts-support
+            url: concepts-support.md

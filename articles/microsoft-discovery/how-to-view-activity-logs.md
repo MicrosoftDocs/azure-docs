@@ -5,14 +5,14 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 11/08/2026
 
 #CustomerIntent: As a Discovery platform administrator, I want to view activity logs for Microsoft Discovery resources so that I can audit control plane operations, investigate failures, and track configuration changes.
 ---
 
 # View activity logs for Microsoft Discovery resources
 
-Azure Activity Logs record all control plane operations performed on Microsoft Discovery resources through the Azure Resource Manager (ARM) API. These logs let you audit who made changes, what was changed, and when—covering operations such as creating a workspace, updating a supercomputer, or deleting a bookshelf.
+Azure activity logs record management operations performed on Microsoft Discovery resources through the Azure Resource Manager (ARM) API. These logs let you audit who made changes, what was changed, and when—for example, creating a workspace, updating a supercomputer, or deleting a bookshelf. They aren't a record of every read or data-plane operation.
 
 Activity logs are available in **Azure Monitor** and are separate from the application logs that Discovery stores in MRG-based Log Analytics workspaces. For information on application logs, see [Observability in Microsoft Discovery](concept-observability.md).
 
@@ -35,10 +35,10 @@ Activity logs record **control plane write and delete operations** on Discovery 
 | `Microsoft.Discovery/bookshelves/delete` | Delete a bookshelf |
 | `Microsoft.Discovery/tools/write` | Create or update a tool |
 | `Microsoft.Discovery/tools/delete` | Delete a tool |
-| `Microsoft.Discovery/storagecontainers/write` | Create or update a storage container |
-| `Microsoft.Discovery/storagecontainers/delete` | Delete a storage container |
-| `Microsoft.Discovery/storageassets/write` | Create or update a storage asset |
-| `Microsoft.Discovery/storageassets/delete` | Delete a storage asset |
+| `Microsoft.Discovery/storageContainers/write` | Create or update a storage container |
+| `Microsoft.Discovery/storageContainers/delete` | Delete a storage container |
+| `Microsoft.Discovery/storageContainers/storageAssets/write` | Create or update a storage asset |
+| `Microsoft.Discovery/storageContainers/storageAssets/delete` | Delete a storage asset |
 
 
 Activity logs also capture:
@@ -46,7 +46,7 @@ Activity logs also capture:
 - The **identity** (user or service principal) that performed the operation.
 - The **result** of the operation: `Succeeded`, `Failed`, or `Accepted`.
 - The **timestamp** and **correlation ID** for the operation.
-- The **request and response details** for the ARM API call.
+- **Operation properties**, including error details when provided. Activity logs don't necessarily include the complete HTTP request or response body.
 
 > [!NOTE]
 > Activity logs don't capture read operations (HTTP GET requests). They record write and delete operations only.
@@ -79,7 +79,7 @@ Use the following filters to narrow activity log results:
 |---|---|
 | **Subscription** | Scope logs to the subscription containing your Discovery resources |
 | **Resource group** | Scope logs to the resource group containing your Discovery resources |
-| **Resource type** | Filter to `Microsoft.Discovery/workspaces`, `Microsoft.Discovery/supercomputers`, `Microsoft.Discovery/bookshelves`, `Microsoft.Discovery/tools`, `Microsoft.Discovery/storagecontainers`, or `Microsoft.Discovery/storageassets` |
+| **Resource type** | Filter to `Microsoft.Discovery/workspaces`, `Microsoft.Discovery/supercomputers`, `Microsoft.Discovery/bookshelves`, `Microsoft.Discovery/tools`, `Microsoft.Discovery/storageContainers`, or `Microsoft.Discovery/storageContainers/storageAssets` |
 | **Time range** | Set the time window for the query (default: last 6 hours, maximum: 90 days) |
 | **Event severity** | Filter by `Critical`, `Error`, `Warning`, or `Informational` |
 | **Event initiated by** | Filter by user, service principal, or application identity |
@@ -107,10 +107,13 @@ AzureActivity
 
 ### Filter to a specific resource type
 
+This example filters supercomputer operations in a resource group.
+
 ```kql
 AzureActivity
 | where ResourceProviderValue == "MICROSOFT.DISCOVERY"
 | where ResourceGroup == "<your-resource-group>"
+| where OperationNameValue startswith "MICROSOFT.DISCOVERY/SUPERCOMPUTERS/"
 | order by TimeGenerated desc
 ```
 

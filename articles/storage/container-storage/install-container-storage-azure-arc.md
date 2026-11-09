@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage (version 1.x.x) for us
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/03/2025
+ms.date: 10/30/2026
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions
 # Customer intent: As a cloud architect, I want to install Azure Container Storage (version 1.x.x) on an AKS cluster using Azure Arc CLI commands so that I can enable scalable and flexible storage solutions for my containerized applications.
@@ -16,6 +16,8 @@ This article shows you how to create an [Azure Kubernetes Service (AKS)](/azure/
 
 > [!IMPORTANT]
 > This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
+
+For distributed accelerator for cloud storage (DACS), use [Get started with distributed accelerator for cloud storage on AKS](distributed-accelerator-for-cloud-storage-quickstart.md) instead. DACS uses a separate managed extension on the AKS managed-cluster resource and doesn't require connecting the cluster to Azure Arc. The version 1.x.x procedure in this article doesn't install DACS.
 
 ## Prerequisites
 

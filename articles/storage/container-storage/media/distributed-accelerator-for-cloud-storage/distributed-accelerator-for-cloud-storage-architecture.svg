@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="660" viewBox="0 0 1080 660" style="max-width:100%;height:auto" role="img" aria-labelledby="title desc">
+  <title id="title">DACS managed architecture on AKS</title>
+  <desc id="desc">A workload uses the DACS client to read distributed NVMe cache servers. On a miss or fallback, the client reads Azure Blob Storage and can populate the cache. The managed controller reconciles Cache resources separately from the data path.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#0078d4"/></marker>
+    <marker id="control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#687787"/></marker>
+    <style>
+      text { font-family: Segoe UI, Arial, sans-serif; fill: #172b4d; }
+      .heading { font-size: 19px; font-weight: 600; }
+      .label { font-size: 16px; }
+      .small { font-size: 14px; }
+      .data { fill: none; stroke: #0078d4; stroke-width: 2.5; marker-end: url(#arrow); }
+      .manage { fill: none; stroke: #687787; stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#control); }
+    </style>
+  </defs>
+  <rect width="1080" height="660" rx="12" fill="#fff"/>
+  <text x="32" y="38" font-size="25" font-weight="600">Distributed accelerator for cloud storage</text>
+  <text x="32" y="64" class="label">Cluster-local cache. Azure Blob Storage remains the source of truth.</text>
+  <rect x="25" y="89" width="770" height="510" rx="16" fill="#f5f9fd" stroke="#b4cce3" stroke-width="2"/>
+  <text x="46" y="119" class="heading">Azure Kubernetes Service (AKS)</text>
+  <rect x="53" y="145" width="267" height="111" rx="10" fill="#fff" stroke="#687787"/>
+  <text x="72" y="175" class="heading">Managed control plane</text>
+  <text x="72" y="202" class="label">DACS extension + controller</text>
+  <text x="72" y="228" class="small">Controller namespace: kube-system</text>
+  <rect x="440" y="145" width="314" height="111" rx="10" fill="#fff" stroke="#687787"/>
+  <text x="461" y="175" class="heading">Cache resource</text>
+  <text x="461" y="202" class="label">Server count, capacity, placement</text>
+  <text x="461" y="228" class="small">Discovery information for clients</text>
+  <path d="M440 198 H322" class="manage"/>
+  <text x="337" y="184" class="small">Watches</text>
+  <rect x="53" y="325" width="267" height="187" rx="12" fill="#fff" stroke="#0078d4" stroke-width="2"/>
+  <text x="73" y="357" class="heading">Application workload</text>
+  <text x="73" y="386" class="label">Inference model loading</text>
+  <text x="73" y="411" class="label">Training dataset reads</text>
+  <rect x="73" y="435" width="227" height="54" rx="8" fill="#e4f1fc"/>
+  <text x="110" y="468" class="heading">DACS client</text>
+  <rect x="440" y="325" width="314" height="187" rx="12" fill="#fff" stroke="#0078d4" stroke-width="2"/>
+  <text x="460" y="357" class="heading">Distributed cache servers</text>
+  <text x="460" y="384" class="label">Eligible Linux cache nodes</text>
+  <rect x="460" y="411" width="83" height="70" rx="8" fill="#e4f1fc" stroke="#b4cce3"/>
+  <rect x="555" y="411" width="83" height="70" rx="8" fill="#e4f1fc" stroke="#b4cce3"/>
+  <rect x="650" y="411" width="83" height="70" rx="8" fill="#e4f1fc" stroke="#b4cce3"/>
+  <text x="477" y="452" class="label">NVMe</text>
+  <text x="572" y="452" class="label">NVMe</text>
+  <text x="667" y="452" class="label">NVMe</text>
+  <path d="M597 256 V322" class="manage"/>
+  <text x="612" y="295" class="small">Reconciled by controller</text>
+  <path d="M440 414 H322" class="data"/>
+  <text x="337" y="387" class="small">Cache hit</text>
+  <path d="M320 467 H437" class="data"/>
+  <text x="331" y="493" class="small">Populate cache</text>
+  <rect x="835" y="325" width="220" height="187" rx="12" fill="#eaf7f2" stroke="#107c41" stroke-width="2"/>
+  <text x="856" y="365" class="heading">Azure Blob Storage</text>
+  <text x="856" y="400" class="label">Versioned model files</text>
+  <text x="856" y="427" class="label">and datasets</text>
+  <text x="856" y="474" class="small">Durable source of truth</text>
+  <path d="M186 512 V554 H945 V514" class="data"/>
+  <rect x="350" y="539" width="421" height="28" rx="5" fill="#f5f9fd"/>
+  <text x="365" y="559" class="label">Client reads Blob on cache miss or fallback</text>
+  <path d="M39 627 H98" class="data"/>
+  <text x="111" y="632" class="small">Data path</text>
+  <path d="M250 627 H309" class="manage"/>
+  <text x="322" y="632" class="small">Resource management (not a data proxy)</text>
+</svg>

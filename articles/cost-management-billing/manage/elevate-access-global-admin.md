@@ -1,4 +1,4 @@
-﻿---
+---
 title: Elevate access to manage billing accounts
 titleSuffix: Microsoft Cost Management
 description: Describes how to elevate access for a Global Administrator to manage billing accounts using the Azure portal or REST API.
@@ -173,7 +173,7 @@ The API response returns list of roles available to your billing account.
         },
         {
             "id": "/providers/Microsoft.Billing/billingAccounts/6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingRoleDefinitions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
-            "name": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+            "name": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
             "properties": {
                 "description": "The Reader role gives the user read permissions to a billing account.",
                 "permissions": [
@@ -193,7 +193,7 @@ The API response returns list of roles available to your billing account.
 }
 ```
 
-Use the `roleName` property to identify the owner role definition. Copy the `name` of the role definition. For example, from the above API response, you'd copy `a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1`. Paste this value somewhere so that you can use it in the next step.
+Use the `roleName` property to identify the owner role definition. Copy the `name` of the role definition. For example, from the preceding API response, you'd copy `aaaabbbb-0000-cccc-1111-dddd2222eeee`. Paste this value somewhere so that you can use it in the next step.
 
 ### Add yourself as an owner
 

@@ -121,7 +121,8 @@ The RemoteApp template supports scripting to automate the process of installing 
     ![Screenshot of account resource id for use in this deployment.](./media/remoteapp-storage-account-resource-id.png)
 
     - For the container name, copy the name of the private container that holds the artifacts.
-    - Example storage container resource ID: `/subscriptions/000000a0-a0a0-000a-00a0-0000aaa0a000/resourceGroups/resource-group-example/providers/Microsoft.Storage/storageAccounts/storage-account-example/blobServices/default/containers/container-name`
+    - Example storage container resource ID: `/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/resource-group-example/providers/Microsoft.Storage/storageAccounts/storage-account-example/blobServices/default/containers/container-name`
+
 1. If the parameter **AzCopy File URI** is displayed, enter the URI to `azcopy.exe` from the container.
     - Select the file, and copy its URL:
 

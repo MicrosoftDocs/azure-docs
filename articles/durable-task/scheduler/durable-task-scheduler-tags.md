@@ -10,7 +10,7 @@ ms.subservice: durable-task-scheduler
 ms.date: 10/12/2026
 ---
 
-# Add Tags to Orchestrations and Activities in Durable Task Scheduler
+# Add tags to orchestrations and activities in Durable Task Scheduler
 
 Tags are key-value pairs that you can attach to orchestrations, activities, and sub-orchestrations to add custom metadata. Use tags to categorize and correlate work as it runs. You can also use orchestration tags to query orchestration instances.
 
@@ -45,6 +45,10 @@ When you schedule an orchestration, activity, or sub-orchestration, you can supp
 - **Activity tags** are stored on the activity's scheduled event in the parent orchestration history. You can inspect them in orchestration history, but they aren't indexed or available in orchestration tag queries. Activity tags also aren't passed to the activity function.
 
 Set tags when you schedule the orchestration, activity, or sub-orchestration. You can't change tags afterward.
+
+## Select a task queue (preview)
+
+Set the `DTS_TaskQueue` tag to select a task queue for an orchestration, activity, or sub-orchestration. Create the queue resource first; setting a tag doesn't create it. For queue creation, throughput configuration, inheritance, and worker requirements, see [Use task queues in Durable Task Scheduler](./durable-task-scheduler-task-queues.md).
 
 ## Set a custom display name
 
@@ -161,7 +165,7 @@ result = yield ctx.call_activity(
 
 # [Java](#tab/java)
 
-Activity tags aren't supported in the Java SDK. `TaskOptions` supports retry policies only.
+The Java SDK doesn't support activity tags. `TaskOptions` supports retry policies only.
 
 ---
 
@@ -202,7 +206,7 @@ The Python SDK doesn't support sub-orchestration tags.
 
 # [Java](#tab/java)
 
-Sub-orchestration tags aren't supported in the Java SDK. `TaskOptions` supports retry policies only.
+The Java SDK doesn't support sub-orchestration tags. `TaskOptions` supports retry policies only.
 
 ---
 

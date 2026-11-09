@@ -33,8 +33,6 @@ items:
         href: metrics-logs.md
   - name: Data and storage partners
     items:
-    - name: Astro
-      href: ./astronomer/index.yml
     - name: Commvault
       href: ./commvault/index.yml
     - name: Confluent
@@ -56,4 +54,3 @@ items:
     - name: Palo Alto Network
       href: ./palo-alto/index.yml
   expanded: true
-

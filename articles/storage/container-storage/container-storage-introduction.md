@@ -1,9 +1,9 @@
 ---
 title: Introduction to Azure Container Storage
-description: An overview of Azure Container Storage, a service built for containers that enables customers to create and manage volumes for production-scale stateful container applications.
+description: An overview of Azure Container Storage persistent-volume orchestration and distributed data acceleration for AI inference and training on Kubernetes.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 09/04/2025
+ms.date: 10/07/2026
 ms.author: kendownie
 ms.topic: overview
 ms.custom: references_regions
@@ -12,12 +12,12 @@ ms.custom: references_regions
 
 # What is Azure Container Storage?
 
-Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built for containers. It integrates with Kubernetes so you can dynamically provision persistent volumes for stateful applications on Kubernetes clusters.
+Azure Container Storage provides cloud-native persistent-volume orchestration for Kubernetes. It integrates with Kubernetes so you can dynamically provision persistent volumes for stateful applications. On Azure Kubernetes Service (AKS), it also enables and manages distributed accelerator for cloud storage (DACS) to accelerate repeated AI data reads from Azure Blob Storage.
 
 To get started, see [Install Azure Container Storage for use with Azure Kubernetes Service](install-container-storage-aks.md).
 
 > [!IMPORTANT]
-> This article covers features and capabilities available in Azure Container Storage (version 2.x.x), which supports local NVMe disk and Elastic SAN as backing storage types. For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md).
+> This article covers features and capabilities available in Azure Container Storage (version 2.x.x), which supports local NVMe disk and Elastic SAN as persistent-volume backing storage types and manages distributed accelerator for cloud storage (preview). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md).
 
 ## Why Azure Container Storage is useful
 
@@ -31,6 +31,18 @@ You can create and manage storage volumes using standard Kubernetes tools. You d
 
 Azure Container Storage works with Azure Kubernetes Service (AKS) and self-managed Kubernetes clusters. Because it uses open-source components, it supports deployments across Azure and other clouds.
 
+## Manage distributed accelerator for cloud storage for AI data acceleration
+
+[Distributed accelerator for cloud storage (DACS) (preview)](distributed-accelerator-for-cloud-storage-overview.md) is a distributed, read-through cache for Azure Blob data on AKS. Azure Container Storage enables and manages DACS on AKS. DACS accelerates model loading for inference by using local NVMe disks across cache nodes to keep frequently read model chunks close to GPU compute. It can also cache dataset reads for training workloads.
+
+Distributed accelerator for cloud storage is separate from the persistent-volume storage types in this article. It doesn't create a StorageClass, persistent volume (PV), or persistent volume claim (PVC). Azure Blob Storage remains the durable and authoritative source for model files and datasets.
+
+Use distributed accelerator for cloud storage for inference workloads that repeatedly read the same model data during pod startup, node replacement, or cluster scale-out.
+
+For training workloads, DACS can also accelerate dataset loading when workers repeatedly read the same data, such as across training epochs or between jobs that reuse a dataset. The cache reduces repeated reads from Azure Blob Storage; it doesn't provide persistent storage for training outputs or checkpoints.
+
+Distributed accelerator for cloud storage supports prefetch, x64 and Arm64, and clusters with up to 100 nodes during preview.
+
 ## Key benefits
 
 - **Seamless scaling of stateful pods:** Azure Container Storage mounts persistent volumes by using NVMe over Fabrics (NVMe-oF) or iSCSI (Internet Small Computer System Interface). This speeds attach and detach operations and supports fast pod recovery. When used with Elastic SAN, Azure Container Storage can provision and attach thousands of persistent volumes per cluster. This avoids bottlenecks such as Azure Resource Manager disk attachment limits (for example, 64 disks per VM).
@@ -38,6 +50,7 @@ Azure Container Storage works with Azure Kubernetes Service (AKS) and self-manag
 - **Cost efficiency through storage consolidation:** Azure Container Storage reduces storage cost and management overhead by consolidating many smaller volumes under a single SAN. Elastic SAN tiered provisioning also helps reduce overprovisioning and lowers total cost of ownership.
 - **Kubernetes-native volume orchestration:** Create StorageClass objects and persistent volumes, and manage the full lifecycle of volumes including provisioning, expansion, deletion, and snapshots using `kubectl` commands.
 - **Open source and community-driven:** Azure Container Storage is developed as an open-source project. You can install it through an AKS extension, as described in the [tutorial](install-container-storage-aks.md), or through Helm using the [local-csi-driver](https://github.com/Azure/local-csi-driver) repository.
+- **Managed AI data acceleration:** Enable and manage distributed accelerator for cloud storage (DACS) to cache Azure Blob model data across local NVMe nodes to accelerate inference scale-out and recovery, and cache frequently read datasets to accelerate training data loading.
 
 ## Supported storage types
 
@@ -98,6 +111,7 @@ Use these terms when you work with Azure Container Storage and Kubernetes:
 ## Next steps
 
 - [Install Azure Container Storage for use with AKS](install-container-storage-aks.md)
+- [Get started with distributed accelerator for cloud storage on AKS (preview)](distributed-accelerator-for-cloud-storage-quickstart.md)
 - [Azure Container Storage pricing](https://aka.ms/AzureContainerStoragePricingPage)
 - [Azure Container Storage (version 1.x.x)](container-storage-introduction-version-1.md)
 - [Overview of deploying a highly available PostgreSQL database on Azure Kubernetes Service (AKS)](/azure/aks/postgresql-ha-overview#storage-considerations)

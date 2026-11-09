@@ -2,7 +2,7 @@
 title: Agent bindings for Python in Azure Functions
 description: Add agentic behaviors to existing Python functions while keeping deterministic application logic in code.
 ms.topic: concept-article
-ms.date: 09/18/2026
+ms.date: 11/06/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -14,15 +14,17 @@ ms.collection:
 
 # Agent bindings for Python in Azure Functions
 
-Agent bindings for Python function apps let you add agentic behaviors to existing functions. When the function runs, the extension constructs an `Agent` from Markdown instructions and injects it into your handler as a typed parameter. Your code decides when and how to invoke the agent alongside your deterministic application logic.
+Agent bindings for Python function apps let you add agentic behaviors to existing functions. When the function runs, the extension constructs an SDK-specific agent or session from Markdown instructions and injects it into your handler as a typed parameter. Your code decides when and how to invoke the agent alongside your deterministic application logic.
 
 [!INCLUDE [functions-agent-bindings-preview](../../includes/functions-agent-bindings-preview.md)]
 
 To compare agent bindings with other AI-related features, such as Azure Functions hosted skills and Model Context Protocol (MCP) tools, see [AI integration options for Azure Functions](functions-create-ai-enabled-apps.md).
 
-An *agent binding* is an extension-owned input binding that provides a fully constructed `Agent` object to a Python function. The extension reads agent instructions as raw text from an `.agent.md` file. Your application code retains client and provider-specific tool configuration, while the function app project can discover file-based agent skills and remote MCP servers.
+## What is an agent binding?
 
-The agent binding architecture supports agent objects from different SDKs through provider-specific extension packages. Microsoft Agent Framework is the only agent SDK supported in the current preview. To use it, install the `azurefunctions-agents-extensions-agent-framework` package.
+An *agent binding* is an input binding that provides a configured agent or session as a typed parameter to a Python function. The extension combines Markdown instructions with the app's provider configuration and tools, so your handler doesn't need to construct and wire the agent for each invocation.
+
+The binding doesn't replace your function or its trigger. Your code still validates inputs, decides when to invoke the agent, handles errors, and produces the output. Instructions live in an `.agent.md` file, while client, model, and tool configuration remain in application code and settings. Provider packages connect this shared binding model to different agent SDKs.
 
 ## When to use agent bindings
 
@@ -32,19 +34,20 @@ Use agent bindings when an Azure Function needs agentic reasoning for part of a 
 + **Enrich or classify events.** Receive a queue message, Event Grid event, or other trigger payload and use an agent to classify, summarize, or enrich the data before your function writes the result.
 + **Add reasoning to a durable workflow.** Call an agent from a Durable Functions orchestrator through the replay-safe `context.call_agent()` API, then use the result in later orchestration steps.
 
-Agent bindings are a good fit when the function's deterministic code should remain the coordinator. The agent performs a bounded reasoning task and returns control to the handler or orchestration.
+The function remains the coordinator: it prepares the task, invokes the agent, and decides what to do with the result. Bindings reduce setup code, separate Markdown instructions from runtime configuration, and work with familiar Azure Functions triggers and local debugging tools.
 
-## Why use agent bindings?
+If you prefer to define behavior and triggers primarily through Markdown and declarative configuration instead of a Python handler, consider [Azure Functions hosted skills](functions-hosted-skills.md).
 
-Many production workflows combine steps that must be deterministic with steps that benefit from model reasoning. Agent bindings provide the following benefits for these hybrid workflows:
+## Available packages
 
-+ **Add agentic behavior to existing functions.** Use agent reasoning from HTTP-, timer-, queue-, Event Grid-, Service Bus-, and other triggered functions.
-+ **Control agent invocation safely in code.** Decide when to invoke the agent, inspect its response, and determine the function output. The extension closes invocation-owned resources after success, failure, or cancellation.
-+ **Reduce agent setup code.** Receive a configured `Agent` as a typed handler parameter instead of constructing and wiring it for each invocation.
-+ **Separate instructions from runtime configuration.** Store natural-language instructions in an `.agent.md` file and configure clients and provider-specific tools explicitly in Python.
-+ **Use shared agent capabilities.** The extension discovers file-based agent skills and HTTP-based MCP servers from the application root and makes them available to each agent binding.
-+ **Call agents from durable orchestrations.** The extension runs agent work in a hidden activity so that orchestration replay remains deterministic.
-+ **Debug locally with familiar tools.** Run and debug the app locally like any other Python function app. You can set breakpoints and step through both the deterministic function logic and the code that invokes the agent.
+Provider-specific extension packages connect the shared binding model to an agent SDK. The following packages are available in preview and require Python 3.13 or later:
+
+| SDK | Package | Get started |
+| --- | --- | --- |
+| Microsoft Agent Framework | [azurefunctions-agents-extensions-agent-framework](https://pypi.org/project/azurefunctions-agents-extensions-agent-framework/) | [Python function quickstart](functions-agent-bindings-agent-framework.md) · [Durable orchestration quickstart](functions-agent-bindings-agent-framework-durable.md) |
+| GitHub Copilot SDK | [azurefunctions-agents-extensions-copilot-sdk](https://pypi.org/project/azurefunctions-agents-extensions-copilot-sdk/) | [Python function quickstart](functions-agent-bindings-copilot-sdk.md) · [HTTP and queue sample](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-agents-extensions-copilot-sdk/samples/agent_samples_copilot-sdk) · [Durable orchestration sample](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-agents-extensions-copilot-sdk/samples/agent_samples_copilot-sdk_durable) |
+
+Each package defines its supported types, authentication, model configuration, and invocation API. Follow its quickstart or sample for SDK-specific setup and deployment requirements.
 
 ## How an agent binding works
 
@@ -54,83 +57,26 @@ For each agent binding, the extension performs the following operations:
 
 1. Resolves the requested `.agent.md` file from the function app root or its `agents/` directory.
 1. Loads the complete file as raw UTF-8 instructions.
-1. Combines the instructions with the configured client factory, explicitly configured provider tools, and discovered agent skills and MCP servers.
-1. Creates a fresh `Agent` and opens invocation-owned resources.
-1. Injects the `Agent` into the handler parameter.
+1. Combines the instructions with provider configuration, explicit tools, and discovered agent skills and MCP servers.
+1. Creates a fresh SDK-specific agent or session and opens invocation-owned resources.
+1. Injects the agent or session into the handler parameter.
 1. Closes invocation-owned resources when execution ends.
 
-The extension can cache provider discovery and compiled binding definitions. It doesn't cache or reuse live invocation resources across function invocations.
+The provider manages its client lifecycle. Invocation-owned resources are closed after success, failure, or cancellation.
 
 ## Define an agent binding
 
-The following example uses the currently supported Microsoft Agent Framework provider to add an `Agent` to an HTTP-triggered function. The function constructs the task in code, invokes the agent, and returns the agent response:
+To add a binding to a Python v2 function app:
 
-```python
-import azure.functions as func
-from agent_framework import Agent
-from azurefunctions.agents.extensions.agent_framework import AgentFunctionApp
+1. Install a provider package and import its `AgentFunctionApp`.
+1. Configure the client, model, authentication, and tools as required by that package.
+1. Add an `.agent.md` instructions file in the app root or `agents/` directory. The file is raw UTF-8 text; the system doesn't parse YAML front matter or runtime configuration.
+1. Add `markdown_agent` to a triggered function. Set `arg_name` to match the typed handler parameter and `agent_name` to identify the instructions file.
+1. Invoke the injected object through its SDK API and handle the result in your function code.
 
+For example, `agent_name="order-fulfillment"` can identify `order-fulfillment.agent.md` in either supported directory, but not both. Names must resolve unambiguously within the app root and can't contain path separators or traversal components. To inject multiple agents, stack decorators with distinct `arg_name` values and matching handler parameters.
 
-app = AgentFunctionApp(client_factory=create_chat_client)
-
-
-@app.function_name(name="ProcessOrder")
-@app.route(route="orders/{orderId}", methods=["POST"])
-@app.markdown_agent(
-    arg_name="order_agent",
-    agent_name="order-fulfillment",
-)
-async def process_order(
-    req: func.HttpRequest,
-    order_agent: Agent,
-) -> func.HttpResponse:
-    task = (
-        "Validate the order and return fulfillment guidance for "
-        f"{req.route_params['orderId']}."
-    )
-    response = await order_agent.run(task)
-    return func.HttpResponse(response.text)
-```
-
-The `arg_name` value must match the injected handler parameter. To inject multiple agents into the same function, stack `markdown_agent` decorators and use a unique `arg_name` and handler parameter for each agent binding. The `agent_name` value identifies the instructions file. In this example, `order-fulfillment` must resolve to exactly one of these locations:
-
-```text
-<app_root>/order-fulfillment.agent.md
-<app_root>/agents/order-fulfillment.agent.md
-```
-
-If both files exist, the definition is ambiguous and app startup fails. Agent names can't contain absolute paths, path separators, or traversal components. Files that resolve outside the application root aren't allowed.
-
-## Configure the agent client and tools
-
-Configure a zero-argument `client_factory` when you construct `AgentFunctionApp`. The factory returns a fresh client supported by the provider package. You can also pass Microsoft Agent Framework tool objects or Python callables through the `tools` parameter at the app level. A binding can override the app-level client factory and tools when it requires different behavior.
-
-For example, the following HTTP-triggered function uses an agent binding that makes `lookup_inventory` available as a tool only to `order_agent`:
-
-```python
-def lookup_inventory(product_id: str) -> str:
-    """Return the available inventory for a product."""
-    return f"Inventory is available for {product_id}."
-
-
-@app.markdown_agent(
-    arg_name="order_agent",
-    agent_name="order-fulfillment",
-    tools=[lookup_inventory],
-)
-async def process_order(
-    req: func.HttpRequest,
-    order_agent: Agent,
-) -> func.HttpResponse:
-    response = await order_agent.run(req.get_body().decode())
-    return func.HttpResponse(response.text)
-```
-
-Keep these considerations in mind when you configure the agent client and tools:
-
-+ The base agent extension is provider-neutral. A provider package integrates a specific agent SDK and defines the supported client and agent types.
-+ The currently supported Microsoft Agent Framework provider package doesn't select or configure a model provider for your application. Your client factory determines which supported Microsoft Agent Framework chat client and model the agent uses.
-+ The extension passes the entire `.agent.md` file to the configured provider as agent instructions. It doesn't parse model settings, tools, YAML front matter, or other runtime configuration from the file.
+For complete code examples, see the [package quickstarts and samples](#available-packages).
 
 ## Shared agent skills and MCP servers
 
@@ -140,7 +86,7 @@ The extension automatically discovers shared agent capabilities from the applica
 | --- | --- | --- |
 | Agent skills | `skills/<skill-name>/SKILL.md` or `Skills/<skill-name>/SKILL.md` | The provider package loads and validates the file-based agent skill. |
 | Remote MCP servers | `mcp.json` | The extension configures supported HTTP or streamable HTTP servers and optional tool allowlists. |
-| Provider tools | Application or binding configuration | Microsoft Agent Framework tool objects or Python callables are explicitly supplied instead of discovered. |
+| Provider tools | Application or binding configuration | SDK-specific tools or Python callables supported by the provider are explicitly supplied instead of discovered. |
 
 Keep these considerations in mind when you use shared agent capabilities:
 
@@ -155,31 +101,9 @@ Local-process and standard input/output (stdio) MCP servers aren't supported. MC
 
 ## Use agent bindings with Durable Functions
 
-Agent bindings support hybrid, long-running workflows through an optional Durable Functions integration. A synchronous generator orchestrator calls `context.call_agent()` and yields the resulting task:
+When you install a provider's optional Durable Functions integration, a synchronous generator orchestrator yields `context.call_agent(agent_name, input_)`. The extension runs agent work in a hidden activity, keeping model calls, tools, and other nondeterministic operations outside orchestrator replay.
 
-```python
-from typing import Any
-
-from azurefunctions.agents.extensions.agent_framework import AgentFunctionApp
-
-
-app = AgentFunctionApp(client_factory=create_chat_client)
-
-
-@app.orchestration_trigger(context_name="context")
-def order_orchestrator(context: Any):
-    assessment = yield context.call_agent(
-        "order-fulfillment",
-        {"order": context.get_input()},
-    )
-    return assessment
-```
-
-`call_agent()` schedules a hidden activity that resolves the agent definition and performs all model, file system, credential, tool, and network operations. The orchestrator only creates a deterministic, JSON-serializable schema-v1 request. As a result, orchestration replay doesn't repeat nondeterministic agent operations.
-
-Durable agent calls use the provider and shared capabilities configured by `AgentFunctionApp`. Inputs and outputs must be JSON serializable.
-
-Durable Functions support is optional. Applications that don't use it don't need to install or import Durable Functions. To use `orchestration_trigger` and `context.call_agent()`, install the supported provider package with its Durable dependency extra.
+Inputs and outputs must be JSON serializable. Calls use the provider and shared capabilities configured by the app. See the [package quickstarts and samples](#available-packages) for installation and orchestration examples.
 
 ## Project files
 
@@ -189,7 +113,7 @@ An agent-enabled application is a standard Python v2 function app with agent ext
 | --- | --- |
 | `function_app.py` | Defines `AgentFunctionApp`, standard Functions triggers, agent bindings, client factories, and explicitly configured provider tools. |
 | `host.json` | Configures the Azure Functions host. |
-| `requirements.txt` | Includes a supported agent provider package and any SDK-specific client package. For the current preview, use `azurefunctions-agents-extensions-agent-framework`. Optional extras enable Durable Functions and MCP support. |
+| `requirements.txt` | Includes a provider package and its required dependencies. Optional extras can enable Durable Functions and MCP support. |
 | `*.agent.md` or `agents/*.agent.md` | Contains raw UTF-8 instructions for an agent. Each referenced name must resolve to exactly one file. |
 | `skills/` or `Skills/` | (Optional) Contains file-based agent skills shared by all agent bindings. |
 | `mcp.json` | (Optional) Defines remote HTTP-based MCP servers shared by all agent bindings. |
@@ -213,5 +137,6 @@ Where available, the extension preserves the Azure Function name, invocation ID,
 
 + [AI integration options for Azure Functions](functions-create-ai-enabled-apps.md)
 + [Use a Microsoft Agent Framework agent in a Python function](functions-agent-bindings-agent-framework.md)
++ [Use a GitHub Copilot SDK agent in a Python function](functions-agent-bindings-copilot-sdk.md)
 + [Use a Microsoft Agent Framework agent binding in a Durable orchestration](functions-agent-bindings-agent-framework-durable.md)
-+ [Microsoft Agent Framework overview](/agent-framework/overview/agent-framework-overview)
++ [Hybrid hosted-skill sample in the Azure Functions agents runtime (AFAR) repository](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/hybrid-hosted-skill) — a separate model for invoking a hosted skill from ordinary function code.

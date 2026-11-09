@@ -143,6 +143,21 @@ You need to manage certificates when you use a custom domain name with your func
 1. Subject to [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 2. Certificates imported from Key Vault are automatically synced within 24 hours after renewal.
 
+## Post-quantum TLS key exchange
+
+In public Azure, post-quantum TLS key exchange is a platform front-end capability for App Service-hosted function apps. This capability is separate from the certificate model for each hosting option. It applies to both Windows and Linux function apps. Clients that support TLS 1.3 and the hybrid group can negotiate `X25519MLKEM768` automatically. Clients that don't support the group use a supported classical key exchange.
+
+| Hosting option | Post-quantum TLS key exchange |
+| --- | --- |
+| Flex Consumption | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| Consumption | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| Premium | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| Dedicated App Service plan | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| App Service Environment | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| Azure Container Apps | Not supported; uses Azure Container Apps ingress instead of App Service front ends |
+
+For protocol details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
+
 ## Billing
 
 | Plan | Details |

@@ -57,6 +57,10 @@ Assign each role at the scope that the previous tables list. For steps, see [Ass
 
 ## Create a cross-tenant vault mapping
 
+Create and verify the mapping during normal operations, while you still have access to the source tenant. If you lose that access before creating the mapping, you can't create a new mapping solely from the target tenant.
+
+Selecting the target tenant and vault during setup requires the mapping creator's assigned permissions in the target tenant. Creating the mapping doesn't grant other source-vault users access to enumerate the target tenant or its vaults. After setup, mapping details are visible only from the target vault, as described in [Verify the mapping](#verify-the-mapping).
+
 1. In the source tenant, open the source vault.
 1. Select **Properties**.
 1. Under **Cyber recovery settings**, in the **Cross Tenant Restore (Preview)** row, select **View details**.
@@ -75,7 +79,9 @@ Assign each role at the scope that the previous tables list. For steps, see [Ass
 
 ### Verify the mapping
 
-Cross-tenant mappings and mapped-item details are intentionally not visible from the source tenant or source vault. This design helps prevent someone with unauthorized access to the source vault from discovering the target vault and mapping details. Use the target vault to view and manage mappings, browse mapped items, and perform restores, with the required permissions.
+Cross-tenant mappings and mapped-item details are intentionally not visible from the source tenant or source vault. Creating a mapping doesn't grant source-vault users permission to enumerate the target tenant or its vaults. Access to the source vault alone therefore doesn't reveal the recovery destination through the cross-tenant mapping, helping limit discovery of recovery plans if the source vault is compromised.
+
+The mapping creator's ability to select the target during setup depends on explicit permissions on the target vault and its Resource Guard, not on access to the source vault alone. After setup, authorized users view and manage mappings, browse mapped items, and perform restores from the target vault. This behavior applies to both Recovery Services vaults and Backup vaults.
 
 In the target vault, you can find cross-tenant mapped vaults through either of these paths:
 
@@ -97,7 +103,7 @@ Use either path to view mappings later. You can review the mapping name, vault d
 
 ## Restore data across tenants
 
-You can restore only from vaulted recovery points, and only to an alternate location.
+You can restore only from vaulted recovery points, and only to an alternate location. This procedure requires a mapping that you created and verified in advance. If you lose access to the source tenant, use the existing mapping and the required target-side roles. You don't need to sign in to the source tenant to perform the restore.
 
 1. In the target tenant, open the target vault.
 1. Under **Protected items**, select **Backup items**.

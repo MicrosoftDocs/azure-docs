@@ -100,10 +100,10 @@ You must register your application for `TeamsExtension.ManageCalls` permission f
 
 Send a request to the Microsoft Teams Phone access assignments API to give a Teams user access through Communication Services resource. For more information about how to authenticate the web request, see [Authentication](/rest/api/communication/authentication).
 
-The following example shows a request for a user with identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111`.
+The following example shows a request for a user with identifier `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`.
 
 ```http
-PUT {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5bd/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
+PUT {endpoint}/access/teamsExtension/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/assignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2025-06-30
 
 {
     "principalType" : "user",
@@ -120,8 +120,8 @@ HTTP/1.1 201 Created
 Content-type: application/json
 
 {
-    "objectId": "e5b7f628-ea94-4fdc-b3d9-1af1fe231111",
-    "tenantId": "87d349ed-44d7-43e1-9a83-5f2406dee5bd",
+    "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "principalType" : "user",
     "clientIds" : ["1bfa671a-dc6b-47f3-8940-45c0f1af0fa6"]
 }
@@ -171,7 +171,7 @@ const callAgent = await client.createCallAgent(credential);
 Send a request to the Microsoft Teams Phone access assignments API to delete the access for your Teams user to your Azure Communication Services resource.
 
 ```http
-DELETE {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5bd/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
+DELETE {endpoint}/access/teamsExtension/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/assignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2025-06-30
 ```
 
 ### Response
@@ -186,7 +186,7 @@ Content-type: application/json
 To verify that the Teams user is no longer linked with the Communication Services resource, send a GET request to the Microsoft Teams Phone access assignments API. Verify that its response status code is 404.
 
 ```http
-GET {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5bd/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
+GET {endpoint}/access/teamsExtension/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/assignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2025-06-30
 ```
 
 ## Next steps

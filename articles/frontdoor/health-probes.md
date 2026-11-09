@@ -1,12 +1,12 @@
 ---
 title: Health Probes
 titleSuffix: Azure Front Door
-description: This article helps you understand how Azure Front Door monitors the health of your origins.
+description: Learn how Azure Front Door uses health probes to select healthy origins, measure latency, handle failures, and support HTTP, HTTPS, and gRPC preview probes.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 04/30/2026
+ms.date: 11/05/2026
 ---
 
 # Health probes
@@ -17,33 +17,39 @@ ms.date: 04/30/2026
 > In this article, an *origin* and an *origin group* refer to the backend and backend pool of an Azure Front Door (classic) configuration.
 >
 
-To determine the health and proximity of each origin for a given Azure Front Door environment, each Front Door profile periodically sends a synthetic HTTP or HTTPS request to all your configured origins. Front Door then uses responses from the health probe to determine the *best* origin to route your client requests to. 
+To determine the health and proximity of each origin for a given Azure Front Door environment, each Front Door profile periodically sends health probes to your configured origins. Front Door then uses responses from the health probe to determine the *best* origin to route your client requests to.
 
 > [!WARNING]
-> Since each Azure Front Door edge location sends health probes to your origins, the health probe volume for your origins can be high. The number of probes depends on your customer's traffic location and your health probe frequency. If the Azure Front Door edge locations don't receive real traffic from your end users, the frequency of the health probe from the edge location decreases from the configured frequency. If there's traffic to all the Azure Front Door edge locations, the health probe volume can be high depending on your health probes frequency.
+> Each Azure Front Door edge location sends health probes to your origins, so probe volume can be high. The volume depends on where your users send traffic and the configured probe frequency. Front Door reduces probe frequency at edge locations that don't receive real user traffic.
 >
 > To roughly estimate the health probe volume per minute to an origin when using the default probe frequency of 30 seconds, multiply the number of edge locations by two requests per minute. The probing requests are fewer if there's no traffic sent to all of the edge locations. For a list of edge locations, see [edge locations by region](edge-locations-by-region.md).
 
 ## Supported protocols
 
-Azure Front Door supports sending probes over either HTTP or HTTPS protocols. These probes use the same TCP ports configured for routing client requests, and you can't override them. Front Door HTTP or HTTPS probes include a `User-Agent` header set with the value `Edge Health Probe`.
+Azure Front Door supports sending probes over HTTP or HTTPS. These probes use the same TCP ports configured for routing client requests, and you can't override them. Front Door HTTP or HTTPS probes include a `User-Agent` header set with the value `Edge Health Probe`.
+
+### gRPC probes (preview)
+
+During the public preview, Azure Front Door Standard and Premium also support native gRPC health probes for gRPC-enabled origins. Each origin must implement the standard `grpc.health.v1.Health/Check` RPC. HTTP and HTTPS probes remain supported alternatives. For configuration and preview limitations, see [Configure origins and health probes for gRPC](grpc.md#configure-origins-and-health-probes).
 
 ## Supported HTTP methods for health probes
 
 Azure Front Door supports the following HTTP methods for sending the health probes:
 
-- **GET:** The GET method retrieves whatever information (in the form of an entity) gets identified by the Request-URI.
-- **HEAD:** The HEAD method is identical to GET except that the server **MUST NOT** return a message-body in the response. For new Front Door profiles, the probe method is set as HEAD by default.
+- **GET:** Requests an endpoint's response, including its response body.
+- **HEAD:** Requests response headers without a response body. For new Front Door profiles, the default probe method is HEAD.
 
 > [!TIP]
 > To lower the load and cost to your origins, use HEAD requests for health probes.
 
 ## Health probe responses
 
-| Responses  | Description | 
-| ------------- | ------------- |
-| Determining health  | A **200 OK** status code indicates the origin is healthy. Any other status code is considered a failure. If for any reason a valid HTTP response isn't received for a probe, the probe is counted as a failure. |
-| Measuring latency  | Latency is the wall-clock time measured from the moment immediately before the probe request gets sent to the moment when Front Door receives the last byte of the response. Front Door uses a new TCP connection for each request. The measurement isn't biased towards origins with existing warm connections. |
+The following response criteria apply to HTTP and HTTPS probes.
+
+| Responses | Description |
+| --- | --- |
+| Determining health | A **200 OK** status code indicates a healthy origin. Front Door counts any other status code or the absence of a valid HTTP response as a probe failure. |
+| Measuring latency | Front Door measures latency from immediately before it sends the probe request until it receives the last byte of the response. It uses a new TCP connection for each request, so existing warm connections don't bias the measurement. |
 
 ## How Front Door determines origin health
 
@@ -53,11 +59,11 @@ Azure Front Door uses a three-step process across all algorithms to determine he
 
 1. Exclude origins that have health probe errors:
 
-    * Front Door looks at the last _n_ health probe responses. If at least _x_ responses are healthy, the origin is considered healthy.
+    - Front Door looks at the last *n* health probe responses. If at least *x* responses are healthy, the origin is considered healthy.
 
-    * Change the **SampleSize** property in load-balancing settings to set _n_.
+    - Change the **SampleSize** property in load-balancing settings to set *n*.
 
-    * Change the **SuccessfulSamplesRequired** property in load-balancing settings to set _x_.
+    - Change the **SuccessfulSamplesRequired** property in load-balancing settings to set *x*.
 
 1. For sets of healthy origins in an origin group, Front Door measures and maintains the latency for each origin.
 
@@ -79,4 +85,3 @@ If your origin group has a single origin, you can disable health probes to reduc
 
 - [Create an Azure Front Door profile](create-front-door-portal.md)
 - [Front Door routing architecture](front-door-routing-architecture.md)
-

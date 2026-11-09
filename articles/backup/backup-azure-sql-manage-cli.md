@@ -55,9 +55,9 @@ To change the policy underlying the SQL backup configuration, use the [az backup
 ```azurecli-interactive
 az backup item set-policy --resource-group SQLResourceGroup \
     --vault-name SQLVault \
-    --container-name VMAppContainer;Compute;SQLResourceGroup;testSQLVM \
+    --container-name "VMAppContainer;Compute;SQLResourceGroup;testSQLVM" \
     --policy-name newSQLPolicy \
-    --name sqldatabase;mssqlserver;master \
+    --name sqldatabase;mssqlserver;master 
 ```
 
 The output appears as:
@@ -85,10 +85,10 @@ Example:
 az backup policy create --resource-group SQLResourceGroup --vault-name SQLVault --name SQLPolicy --backup-management-type AzureWorkload --policy SQLPolicy.json --workload-type SQLDataBase
 ```
 
-Sample JSON (sqlpolicy.json):
+Sample JSON (SQLPolicy.json):
 
 ```json
-  "eTag": null,
+  {"eTag": null,
   "id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SQLResourceGroup/providers/Microsoft.RecoveryServices/vaults/SQLVault/backupPolicies/SQLPolicy",
   "location": null,
   "name": "sqlpolicy",
@@ -293,11 +293,11 @@ However, if you've added new databases to the SQL instance later, use the [az ba
 ```azurecli-interactive
 az backup protectable-item initialize --resource-group SQLResourceGroup \
     --vault-name SQLVault \
-    --container-name VMAppContainer;Compute;SQLResourceGroup;testSQLVM \
+    --container-name "VMAppContainer;Compute;SQLResourceGroup;testSQLVM" \
     --workload-type SQLDataBase
 ```
 
-Then use the [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SQL instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SQL database](backup-azure-sql-backup-cli.md#enable-backup-on-the-sql-database).
+Then, use the [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) cmdlet to list all the databases that are discovered on your SQL instance. Check or filter their protection state. When you find the database you want to back up, see [Enable backup on SQL database](backup-azure-sql-backup-cli.md#enable-backup-on-the-sql-database).  
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group SQLResourceGroup \
@@ -338,8 +338,8 @@ To stop protection with retain data, use the [az backup protection disable](/cli
 ```azurecli-interactive
 az backup protection disable --resource-group SQLResourceGroup \
     --vault-name SQLVault \
-    --container-name VMAppContainer;Compute;SQLResourceGroup;testSQLVM \
-    --item-name sqldatabase;mssqlserver;master \
+    --container-name "VMAppContainer;Compute;SQLResourceGroup;testSQLVM" \
+    --item-name "sqldatabase;mssqlserver;master" \
     --workload-type SQLDataBase \
     --output table
 ```
@@ -361,8 +361,8 @@ To stop protection without retain data, use the [az backup protection disable](/
 ```azurecli-interactive
 az backup protection disable --resource-group SQLResourceGroup \
     --vault-name SQLVault \
-    --container-name VMAppContainer;Compute;SQLResourceGroup;testSQLVM \
-    --item-name sqldatabase;mssqlserver;master \
+    --container-name "VMAppContainer;Compute;SQLResourceGroup;testSQLVM" \
+    --item-name "sqldatabase;mssqlserver;master" \
     --workload-type SQLDataBase \
     --delete-backup-data true \
     --output table
@@ -387,8 +387,9 @@ To resume protection, use the [az backup protection resume](/cli/azure/backup/pr
 ```azurecli-interactive
 az backup protection resume --resource-group SQLResourceGroup \
     --vault-name SQLVault \
-    --container-name VMAppContainer;Compute;SQLResourceGroup;testSQLVM \
+    --container-name "VMAppContainer;Compute;SQLResourceGroup;testSQLVM" \
     --policy-name SQLPolicy \
+    --item-name "<native-database-item-name>" \
     --output table
 ```
 
@@ -401,6 +402,79 @@ b2a7f108-1020-4529-870f-6c4c43e2bb9e  SQLResourceGroup
 ```
 
 To verify the status of this operation, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
+
+## Manage SQL instance snapshot backups
+
+The following snapshot commands use **PowerShell shell syntax**, not Bash. Replace the placeholders and use an Azure CLI version that supports the snapshot options shown in this article. Run only the intended operation. The `retain-data` and `delete-data` examples are alternatives.
+
+### Select the vault and protected instance
+
+Use the **vault's** subscription and resource group for the common arguments:
+
+```powershell
+$vaultSubscription = "<vault-subscription-id>"
+$vaultRg = "<vault-rg>"
+$vaultName = "<vault-name>"
+$vaultArgs = @("--subscription", $vaultSubscription, "--resource-group", $vaultRg, "--vault-name", $vaultName)
+
+az backup vault show --subscription $vaultSubscription --resource-group $vaultRg --name $vaultName
+az backup container list @vaultArgs --backup-management-type AzureWorkload `
+  --query "[].{Name:name,VM:properties.friendlyName}" --output table
+$containerName = "<native-source-container-name>"
+$sourceArgs = $vaultArgs + @("--container-name", $containerName, "--backup-management-type", "AzureWorkload")
+```
+
+Copy the exact container name from the output. List all snapshot-protected instances in the vault, and then scope the list to the selected container:
+
+```powershell
+az backup item list @vaultArgs --backup-management-type AzureWorkload `
+  --workload-type SQLInstance --output json
+az backup item list @sourceArgs --workload-type SQLInstance --output json
+$instanceItemName = "<native-protected-instance-item-name>"
+az backup item show @sourceArgs --workload-type SQLInstance `
+  --name $instanceItemName --output json
+$instanceArgs = $sourceArgs + @("--item-name", $instanceItemName, "--workload-type", "SQLInstance")
+```
+
+Use native names returned by the service rather than constructing container or item names. For policy creation and database selection, see [Configure SQL instance snapshot backup](backup-azure-sql-backup-cli.md#configure-sql-instance-snapshot-backup).
+
+### Monitor snapshot operations
+
+Use the job name that a backup, restore, or protection operation returns to check its status.
+
+```powershell
+az backup job show @vaultArgs --name "<job-name>" --output json
+```
+
+### Stop protection and retain data
+
+Confirm that the selected item is the intended instance before stopping its backups:
+
+```powershell
+az backup protection disable @instanceArgs --delete-backup-data false
+```
+
+This operation stops backup while retaining existing backup data. Review the confirmation prompt before proceeding.
+
+### Stop protection and delete data
+
+> [!WARNING]
+> The following is a destructive alternative to retaining backup data. Verify the selected instance and its databases before requesting deletion. Vault immutability and soft-delete settings can affect deletion behavior.
+
+```powershell
+az backup protection disable @instanceArgs --delete-backup-data true
+```
+
+### Unregister the VM container
+
+Unregister the container only after all its protected items are no longer protected and no backup data remains. This operation applies to the entire VM application container, not just one instance or database.
+
+```powershell
+az backup container unregister @vaultArgs --container-name $containerName `
+  --backup-management-type AzureWorkload
+```
+
+For snapshot recovery-point queries and restore configurations, see [Restore SQL instance snapshots](backup-azure-sql-restore-cli.md#restore-sql-instance-snapshots).
 
 ## Next steps
 

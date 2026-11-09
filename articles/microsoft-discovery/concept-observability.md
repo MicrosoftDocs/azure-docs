@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/15/2026
+ms.date: 11/08/2026
 ---
 
 # Observability in Microsoft Discovery
@@ -40,7 +40,7 @@ The following tables describe the log tables available in each resource's MRG Lo
 | Table | Description |
 |---|---|
 | `DiscoveryLogs_CL` | Execution traces for agent invocations, tool calls, workflow steps, and error diagnostics for investigations run within the workspace |
-| `DiscoveryCogLoopLogs` | AI orchestration logs from the CogLoop engine, including Act and Cognition sub-loop activity, investigation progress, decisions, and error diagnostics |
+| `DiscoveryCogLoopLogs_CL` | AI orchestration logs from the CogLoop engine, including Act and Cognition sub-loop activity, investigation progress, decisions, and error diagnostics. |
 
 ### Supercomputer
 
@@ -112,13 +112,15 @@ Using a correlation ID, you can trace the complete end-to-end flow of a request:
 
 Correlation IDs are returned in the **`X-Ms-Correlation-Request-Id`** response header of API calls made by Discovery Studio. You can retrieve them from the browser's developer tools Network tab.
 
-For a step-by-step walkthrough of how to locate and use a correlation ID, see [Query workspace logs](how-to-query-workspace-logs.md).
+For tracing application requests, see [Query workspace logs](how-to-query-workspace-logs.md). For retrieving an ARM operation's correlation ID, see [Get operation correlation ID from Activity Log](how-to-get-correlation-id.md).
 
 For control plane issues, check the Activity logs for a correlation ID associated with the failed operation. Include this correlation ID when opening a support request with Microsoft Support to help expedite investigation.
 
 ## Log ingestion latency
 
-Logs are typically available in Log Analytics within a few seconds of the event. In rare cases, ingestion can be delayed by up to five minutes. When troubleshooting recent activity, wait a moment and refresh your query if you don't see expected log entries.
+Log ingestion is asynchronous. Latency varies by source, collection pipeline, and service conditions. A missing recent entry doesn't mean that an operation didn't run. Confirm the resource, table, and time range, and then rerun the query after allowing for ingestion. See [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
+
+The Log Analytics table's plan and retention settings determine application-log retention. The 90-day activity-log retention period doesn't apply to application logs. Check the table settings in the MRG workspace without modifying managed infrastructure. For customer-owned export destinations, see [Manage log retention](how-to-enable-audit-logging.md#manage-log-retention).
 
 ## Next steps
 
