@@ -447,10 +447,7 @@ For more information about using NServiceBus with Functions, see [Azure Function
 
 For more information about using NServiceBus with Azure services, see the following articles:
 
-- [Azure Service Bus Send/Reply Sample](https://docs.particular.net/samples/azure-service-bus-netstandard/send-reply/)
-- [Using NServiceBus with Azure Functions](https://docs.particular.net/nservicebus/hosting/azure/functions/)
-- [Azure Service Bus transport on NServiceBus](https://docs.particular.net/transports/azure-service-bus/)
-- [Azure Service Bus transport topology](https://docs.particular.net/transports/azure-service-bus/topology)
 - [NServiceBus and Azure](https://docs.particular.net/nservicebus/azure/)
+- [Loan Broker Showcase](https://docs.particular.net/samples/showcase/loan-broker-showcase)
 - [NServiceBus](https://particular.net/nservicebus)
 - [NServiceBus Quick Start Tutorial](https://docs.particular.net/tutorials/quickstart)
