@@ -1,5 +1,5 @@
 ---
-title: Manage Microsoft Discovery supercomputers using REST APIs
+title: Manage Microsoft Discovery supercomputers by using REST APIs
 description: Learn how to create and manage Microsoft Discovery supercomputers and node pools using the control-plane REST API.
 author: anzaman
 ms.author: alzam
@@ -9,9 +9,9 @@ ms.date: 11/10/2026
 ms.custom: references_regions
 ---
 
-# Manage Microsoft Discovery supercomputers using REST APIs
+# Manage Microsoft Discovery supercomputers by using REST APIs
 
-This article explains how to prepare Microsoft Discovery Supercomputer infrastructure by using the control-plane REST API. You create a Supercomputer, add node pools, monitor provisioning, scale compute, and clean up resources. To submit and monitor tool runs after provisioning, see [Submit and monitor jobs using REST APIs](how-to-run-jobs-supercomputer-rest-api.md).
+This article explains how to prepare Microsoft Discovery Supercomputer infrastructure by using the control-plane REST API. You create a supercomputer, add node pools, monitor provisioning, scale compute, and clean up resources. To submit and monitor tool runs after provisioning, see [Submit and monitor jobs using REST APIs](how-to-run-jobs-supercomputer-rest-api.md).
 
 Azure Discovery Supercomputers provide dedicated, cloud-hosted high-performance computing (HPC) infrastructure for running workloads such as AI model training, scientific simulations, and large-scale data processing. Node pools are the compute building blocks that run your tasks — each pool defines the VM size, scaling limits, and priority of the underlying virtual machine scale set.
 
@@ -326,7 +326,7 @@ After the update completes, the workload identity's `principalId` and `clientId`
 
 ## Step 6: Scale your node pool
 
-You can update a node pool's scaling limits, for example, to increase its maximum capacity or allow it to scale to zero when idle. Use the job API to cancel a job; changing node-count limits isn't a cancellation request.
+You can update a node pool's scaling limits, such as increasing its maximum capacity or allowing it to scale to zero when idle. Use the job API to cancel a job. Changing node count limits isn't a cancellation request.
 
 ### Request
 
@@ -357,7 +357,7 @@ Authorization: Bearer <access-token>
 }
 ```
 
-`maxNodeCount` must be at least `1`. A minimum of `0` permits scale-to-zero behavior when the pool is idle while preserving capacity to run future jobs.
+You must set `maxNodeCount` to at least `1`. A minimum of `0` permits scale-to-zero behavior when the pool is idle while preserving capacity to run future jobs.
 
 ### Azure CLI equivalent
 
@@ -573,5 +573,5 @@ All API operations return standard Azure Resource Manager error responses on fai
 
 ## Related content
 
-- [Supercomputers REST API reference](/rest/api/discovery/supercomputers?view=rest-discovery-2026-06-01)
-- [Node Pools REST API reference](/rest/api/discovery/node-pools?view=rest-discovery-2026-06-01)
+- [Supercomputers REST API reference](/rest/api/discovery/supercomputers?view=rest-discovery-2026-06-01&preserve-view=true)
+- [Node Pools REST API reference](/rest/api/discovery/node-pools?view=rest-discovery-2026-06-01&preserve-view=true)
