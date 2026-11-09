@@ -24,7 +24,7 @@ NServiceBus is a commercial messaging framework from Particular Software. It sup
 - An [Azure Service Bus namespace](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal).
 
 > [!IMPORTANT]
-> NServiceBus requires at least the Standard tier. The Basic tier doesn't support topics, so it won't work.
+> This sample makes use of Azure Service Bus Topics, which are available on the [Standard and Premium tiers](https://azure.microsoft.com/en-us/pricing/details/service-bus/) - but not on the Basic tier.
 
 ## Download and prepare the solution
 
