@@ -4,7 +4,7 @@ description: Learn how to configure networking for Azure File Sync, including pr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/23/2026
+ms.date: 11/09/2026
 ms.author: kendownie
 # Customer intent: As an IT administrator, I want to configure networking for Azure File Sync on my on-premises Windows Server, so that I can efficiently cache files while maintaining secure and optimized access to Azure file shares.
 ---
@@ -41,7 +41,7 @@ For more information on how to configure Azure File Sync with a proxy server, se
 
 ### Configuring firewalls and service tags
 
-For security reasons, many organizations isolate their file servers from most internet locations. To use Azure File Sync in such an environment, you need to configure your firewall to allow outbound access to select Azure services. If your firewall supports URL or domain filtering, allow port 443 outbound access to [required cloud endpoints](file-sync-firewall-and-proxy.md#azure-file-sync-firewall-settings) that host those specific Azure services. If it doesn't, you can retrieve the IP address ranges for these Azure services through [service tags](../../virtual-network/service-tags-overview.md).
+For security reasons, many organizations isolate their file servers from most internet locations. To use Azure File Sync in such an environment, you need to configure your firewall to allow outbound access to select Azure services. If your firewall supports URL or domain filtering, allow port 443 outbound access to [required cloud endpoints](file-sync-firewall-and-proxy.md#azure-file-sync-firewall-settings) that host those specific Azure services. Certificate validation also requires outbound access on port 80 to the Microsoft PKI endpoints in that list. If your firewall doesn't support URL or domain filtering, you can retrieve the IP address ranges for these Azure services through [service tags](../../virtual-network/service-tags-overview.md).
 
 
 Azure File Sync requires the IP address ranges for the following services, as identified by their service tags:
@@ -54,6 +54,9 @@ Azure File Sync requires the IP address ranges for the following services, as id
 | Microsoft Entra ID | Microsoft Entra ID (formerly Azure AD) contains the user principals required to authorize server registration against a Storage Sync Service, and the service principals required for Azure File Sync to be authorized to access your cloud resources. | `AzureActiveDirectory` |
 
 If you're using Azure File Sync within Azure, even if it's in a different region, you can use the name of the service tag directly in your network security group to allow traffic to that service. To learn more, see [Network security groups](../../virtual-network/network-security-groups-overview.md).
+
+> [!NOTE]
+> In addition to the service tag IP address ranges, allow outbound access on ports 80 and 443 to the Microsoft PKI endpoints listed in [Azure File Sync firewall settings](file-sync-firewall-and-proxy.md#azure-file-sync-firewall-settings). The server uses these endpoints to validate certificates.
 
 If you're using Azure File Sync on-premises, you can use the service tag API to get specific IP address ranges for your firewall allow list. There are two methods for getting this information:
 
