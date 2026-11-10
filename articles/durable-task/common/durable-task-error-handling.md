@@ -3,7 +3,7 @@ title: "Handle Errors and Retries in Durable Functions"
 description: Learn how to handle errors, configure automatic retries, and set timeouts in Durable Functions and Durable Task SDKs. Explore retry policies, custom retry handlers, and compensation patterns to build resilient orchestrations.
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 10/12/2026
+ms.date: 11/10/2026
 ai-usage: ai-assisted
 ms.author: hannahhunter
 author: hhunter-ms
@@ -31,6 +31,10 @@ Apps that use cloud services need to handle failures, and client-side retries ar
 
 ::: zone-end
 
+
+## Compensate for external changes
+
+Retries and compensation don't provide cross-service transaction isolation or automatic database rollback. Explicitly author compensating activities, such as releasing an inventory reservation on cancellation or failure, and make both forward operations and compensation retry-safe with stable, operation-specific idempotency keys and atomic service-side deduplication. Cleanup might not run after termination, so the inventory service must also expire abandoned holds. For the reservation and confirmation boundaries, see [Coordinate changes to external business data](durable-task-orchestrations.md#coordinate-changes-to-external-business-data).
 
 ## Handle errors in activity functions and sub-orchestrations
 

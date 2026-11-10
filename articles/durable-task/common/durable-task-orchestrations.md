@@ -4,7 +4,7 @@ description: Learn how durable orchestrations define reliable, long-running work
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 04/22/2026
+ms.date: 11/10/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 zone_pivot_groups: azure-durable-approach
@@ -86,6 +86,29 @@ When an orchestration function gets more work to do (for example, a response mes
 > If an orchestrator function emits log messages, the replay behavior can cause duplicate log messages to be emitted. To learn why this behavior occurs and how to work around it, see [Replay-safe logging](../durable-functions/durable-functions-diagnostics.md#replay-safe-logging-in-orchestrator-functions).
 
 ::: zone-end
+
+## Coordinate changes to external business data
+
+Durable orchestration preserves workflow progress, not the current state of external business data. Neither Durable Functions nor Durable Task Scheduler provides cross-service ACID transactions or isolation for your databases and services.
+
+When an activity result is successfully recorded in orchestration history, replay reuses that result without executing the activity again. A `CheckStock` result of "available" is a historical observation, not a reservation. Another customer can buy the stock before your workflow uses it. This check-to-use race also exists without replay; combining activities or checking again doesn't remove the race unless the inventory service atomically checks and updates availability.
+
+This issue is separate from [at-least-once activity execution](programming-model-overview.md#activities): an external change can succeed, but recording the activity's completion can fail, causing the operation to execute again.
+
+### Example: Reserve inventory before confirming an order
+
+An application-owned reservation protocol can use the sequence `ValidateOrder` → `ReserveStock` → `ObtainQuote` → `ConfirmReservation`:
+
+1. **ValidateOrder:** Validate the order's inputs and business rules. Validation alone doesn't hold inventory.
+1. **ReserveStock:** Ask the inventory service to atomically check availability and reserve stock. The service returns a reservation ID and expiry time.
+1. **ObtainQuote:** Obtain a quote associated with that reservation. Define price and quote validity separately; a stock reservation doesn't guarantee a price.
+1. **ConfirmReservation:** Ask the inventory service to atomically validate and consume the unexpired reservation. Reject an expired hold or explicitly start a new reservation attempt and obtain a new quote as required. An expiry check in orchestrator code alone isn't atomic with confirmation.
+
+Use stable, operation-specific idempotency keys for external changes, with atomic service-side deduplication. Retries of the same operation must reuse its key; a deliberately new reservation attempt needs a distinct identity. A plain check-before-write doesn't prevent concurrent duplicates.
+
+Explicitly implement retry-safe release operations for cancellation or failure, and inventory-side expiry to reclaim abandoned holds even if the workflow never runs its cleanup. These [compensating actions](durable-task-error-handling.md#compensate-for-external-changes) are application logic, not automatic database rollback. A reservation still doesn't make inventory, payment, and order-record updates one transaction.
+
+If your business only needs an indicative quote, you can intentionally make no availability promise and accept an out-of-stock result at final confirmation instead of reserving stock. For broader consistency trade-offs, see [Potential data anomalies in sagas](/azure/architecture/patterns/saga#potential-data-anomalies-in-sagas).
 
 ## Orchestration history
 
