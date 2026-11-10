@@ -164,7 +164,7 @@ The following example shows a logical view of a telemetry message routed to an E
 
 > [!NOTE]
 > Routing to a Microsoft Fabric Eventstream endpoint uses the CloudEvents schema instead of the schema described here. For more information, see
-[Microsoft Fabric Eventstreams as a routing endpoint](iot-hub-devguide-endpoints.md#microsoft-fabric-event-streams-as-a-routing-endpoint-preview).
+[Microsoft Fabric Eventstreams as a routing endpoint](iot-hub-devguide-endpoints.md#microsoft-fabric-event-streams-as-a-routing-endpoint).
 
 ## Message size
 
