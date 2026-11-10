@@ -7,13 +7,13 @@ metadata:
   ms.author: yousefi
   ms.service: azure
   ms.topic: faq
-  ms.date: 09/05/2026
+  ms.date: 11/10/2026
   ms.custom: security, compliance
 title: Microsoft Discovery SIG-based security and compliance FAQ
 summary: |
-  This article answers the questions that most often appear in security reviews and third-party risk assessments for Microsoft Discovery. The sections are aligned one-to-one to the **21 risk domains** of the Shared Assessments **Standardized Information Gathering (SIG)** questionnaire, so you can complete a SIG-based assessment (Lite or Core) end to end. To separate the controls you assess in Discovery from the controls you inherit from Azure, and to find the authoritative Microsoft source for each framework question, see [Compliance guidance](concept-compliance-framework-mappings.md). For an orientation to the platform's security posture and the shared responsibility model, see the [Security and compliance overview](concept-security-overview.md).
+  This FAQ groups Microsoft Discovery security and vendor-assessment questions by Shared Assessments **Standardized Information Gathering (SIG)** risk domains. Use [Compliance guidance](concept-compliance-framework-mappings.md) to distinguish Discovery configuration decisions from inherited Azure controls and identify the evidence required for your assessment.
 
-  Microsoft Discovery is built on Azure and inherits the platform-level controls of Azure and the managed services it uses. Domains that are satisfied by inherited Azure controls (for example, physical security, personnel security, and server hardening) are answered by reference to the central sources of truth—the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Service Trust Portal](https://servicetrust.microsoft.com/).
+  Microsoft Discovery uses Azure platform and managed-service controls. For inherited controls such as physical security, personnel security, and server hardening, consult the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Service Trust Portal](https://servicetrust.microsoft.com/). Verify the scope that applies to your deployment rather than assuming that Azure certifications establish Discovery-specific certification.
 
   > [!IMPORTANT]
   > This article is provided **for informational purposes only**. It doesn't constitute a certification, attestation, audit, or guarantee of compliance, and it doesn't imply that Microsoft Discovery is certified or independently audited against any framework referenced here. For the current, authoritative list of Microsoft certifications, audit reports, and control implementation details, use the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Service Trust Portal](https://servicetrust.microsoft.com/).
@@ -37,7 +37,7 @@ sections:
     questions:
       - question: Is Microsoft Discovery certified for SOC 2, ISO/IEC 27001, HIPAA, or similar frameworks?
         answer: |
-          Microsoft Discovery is built on Azure and inherits the compliance posture of the Azure platform and the managed services it uses. Microsoft publishes its certifications, audit reports (for example, SOC 1/2/3 and ISO/IEC 27001), and control mappings centrally rather than per service. Review the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and download audit reports from the [Service Trust Portal](https://servicetrust.microsoft.com/). Confirm the applicable certification scope against your requirements before you process regulated data.
+          Azure platform certifications alone don't establish whether Microsoft Discovery is included in a certification or audit scope. Review the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and audit reports from the [Service Trust Portal](https://servicetrust.microsoft.com/). Verify that the applicable scope includes the services and regions in your deployment, and assess your own configuration before processing regulated data.
 
       - question: Where do I obtain audit reports and control documentation for a vendor assessment?
         answer: |
@@ -87,7 +87,7 @@ sections:
     questions:
       - question: Where is customer data stored, and how is it managed?
         answer: |
-          Customer data is stored in resources deployed in your own subscription (for example, Azure Blob Storage in the managed resource groups). Data is organized through storage containers and storage assets, and access is governed by Microsoft Entra ID and RBAC. For how data flows through tools and agents, see [Manage data handling with tools and agents](how-to-data-handling-with-tools-agents.md) and [Storage containers and storage assets](concept-storage-containers-assets.md).
+          Project input and output files remain in customer-owned storage accounts referenced by Discovery storage containers. The service stores platform state in its managed resources. For the data flow and access requirements, see [Data handling with tools and agents](how-to-data-handling-with-tools-agents.md) and [Storage containers and assets](concept-storage-containers-assets.md).
 
       - question: Who is responsible for data classification?
         answer: |
@@ -109,7 +109,7 @@ sections:
 
       - question: Is data encrypted in transit?
         answer: |
-          Data-plane traffic between Discovery components stays on the Azure backbone network. With network hardening (enabled by default) and private endpoints, workspace and bookshelf API traffic is routed through Azure Private Link and doesn't traverse the public internet. For more information, see [Network security](concept-network-security.md).
+          Workspace and bookshelf APIs use HTTPS. Client private endpoints route API traffic through Azure Private Link; backend hardening alone doesn't require clients to use them. For private-only access, configure endpoint DNS and disable public network access. See [Network security](concept-network-security.md).
 
       - question: How are the servers and managed infrastructure hardened and patched?
         answer: |
@@ -119,19 +119,19 @@ sections:
     questions:
       - question: Are Microsoft Discovery services exposed to the public internet?
         answer: |
-          Most backend resources are private and are protected by a Network Security Perimeter (NSP), private endpoints, and virtual network injection. Backend resources in the managed resource groups aren't directly accessible from outside the environment. The Discovery Studio portal UI is publicly reachable (like the Azure portal) and secured with Microsoft Entra ID, but backend data isn't exposed through public endpoints. For more information, see [Network security](concept-network-security.md).
+          Discovery Studio is publicly reachable and requires Microsoft Entra authentication. Managed backend resources are hardened separately. Workspace and bookshelf APIs can remain publicly accessible unless `publicNetworkAccess` is disabled; client private endpoints and DNS provide the private path. See [Network security](concept-network-security.md).
 
       - question: What network isolation controls are available?
         answer: |
-          Network hardening is enabled by default for workspaces and bookshelves managed with the `2026-02-01-preview` API version and later. It applies Network Security Perimeters around managed resources, private endpoints for data-plane APIs over Azure Private Link, and virtual network injection for workspace services and agents. You can also set `publicNetworkAccess` to `Disabled` so public data-plane calls are rejected. For more information, see [Configure network security](how-to-configure-network-security.md) and [End-to-end network-hardened deployment](how-to-deploy-network-hardened-stack.md).
+          Backend hardening, Workbench isolation, and client API access are separate controls. Set `publicNetworkAccess=Disabled` and configure client private endpoints to require private workspace or bookshelf APIs. For Workbench access, select `networkIsolation` independently. See [Network security](concept-network-security.md) and [Network-hardened deployment](how-to-deploy-network-hardened-stack.md).
 
       - question: Does Microsoft need inbound access into my network?
         answer: |
-          No. No explicit inbound access from Microsoft into your environment is required. All interactions occur within Azure Container Apps, private endpoints, and internal Azure services. For more information, see [Network security](concept-network-security.md).
+          A private supercomputer uses Discovery-managed Private Link for management-plane access. Follow its [subnet and routing requirements](how-to-configure-supercomputer-network-security.md#private-supercomputer) rather than opening broad public inbound access to workload subnets.
 
       - question: Are there known networking limitations for a hardened deployment?
         answer: |
-          Yes. Cross-region private endpoints aren't supported (the private endpoint must be in the same region as the resource), each Discovery resource requires its own non-overlapping subnets, and the supercomputer's AKS API server currently has a public FQDN even though workload traffic stays within the virtual network. Network hardening is supported in East US, UK South, and Sweden Central. For the full list, see [Limitations](concept-network-security.md#limitations).
+          See the current [Networking limitations](concept-network-security.md#limitations), including endpoint placement and subnet layout. Private supercomputer management-plane access must be configured at creation; private workspace APIs don't enable it automatically.
 
   - name: Endpoint security (SIG - Endpoint Security)
     questions:
@@ -181,11 +181,11 @@ sections:
     questions:
       - question: Is Microsoft Discovery resilient to a regional outage?
         answer: |
-          Microsoft Discovery uses a highly available, multiregion architecture and deploys critical service components redundantly across Azure regions, so the service has no single point of failure. During a regional outage, you can continue working by accessing a secondary Microsoft Discovery deployment in another region. For more information, see [Business continuity and disaster recovery](concept-discovery-business-continuity-disaster-recovery.md).
+          Plan for a separate, prepared secondary deployment and an operational failover procedure. Test the availability of its tools, models, integrations, and required data; don't assume that a second deployment or file replication guarantees service continuity. See [Business continuity and disaster recovery](concept-discovery-business-continuity-disaster-recovery.md).
 
       - question: Does the platform back up or replicate my data automatically?
         answer: |
-          No. Microsoft Discovery doesn't automatically replicate customer state between regional deployments. You're responsible for replicating your own stateful resources to meet recovery objectives—for example, Azure Blob Storage object replication, Azure Container Registry geo-replication, and Azure Key Vault backup. For more information, see [Recommended resources for geo-replication](concept-discovery-business-continuity-disaster-recovery.md#recommended-resources-for-geo-replication).
+          Microsoft Discovery doesn't automatically replicate customer state between regional deployments. Evaluate replication and backup options for your customer-managed resources against your recovery objectives. These options don't restore service-managed history automatically, and their recovery limits differ. For more information, see [Recommended resources for geo-replication](concept-discovery-business-continuity-disaster-recovery.md#recommended-resources-for-geo-replication).
 
   - name: Physical and personnel security (SIG - Physical and Environmental Security, Human Resources Security)
     questions:
@@ -211,7 +211,7 @@ sections:
     questions:
       - question: Where is my data located, and can I control data residency?
         answer: |
-          Because all resources deploy into your own subscription and tenant, customer data remains within the Azure regions you choose. The control plane is available in East US, Sweden Central, and UK South, and managed resource group (data-plane) resources can be deployed in other regions through cross-region deployment to meet data-residency or capacity requirements. For the authoritative statement of Microsoft data-residency commitments, see [Azure data residency](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).
+          Choose resource placement and model deployment type together. [Cross-region deployment](how-to-deploy-across-regions.md) controls workload placement, but Global model deployments can process prompts and responses outside that region. Review [Foundry deployment types](/azure/foundry/foundry-models/concepts/deployment-types) and [Azure data residency](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) before relying on a residency commitment.
 
       - question: Where can I find Microsoft's privacy and data-handling commitments?
         answer: |
