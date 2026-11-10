@@ -79,10 +79,10 @@ Before you enable the device, confirm that its configuration and security settin
 
 ## Azure CLI prerequisites
 
-The following examples use Bash syntax and Azure CLI 2.73.0 or later with preview version `1.1.0b1` of the `azure-iot` extension. [Install Azure CLI](/cli/azure/install-azure-cli), if necessary, then install or update the extension:
+The following examples use Bash syntax and Azure CLI 2.73.0 or later with stable version `1.0.0` of the `azure-iot` extension. [Install Azure CLI](/cli/azure/install-azure-cli), if necessary, then install or update the extension:
 
 ```azurecli
-az extension add --name azure-iot --version 1.1.0b1 --allow-preview true --upgrade
+az extension add --name azure-iot --version 1.0.0 --upgrade
 ```
 
 Sign in and select the subscription that contains your ADR namespace:
@@ -111,7 +111,7 @@ az iot adr ns device list \
   -o table
 ```
 
-Set `DEVICE_NAME` to the **Name** of the device you want to manage. This is the ADR resource name, which can differ from the external device ID used by IoT Hub.
+Set `DEVICE_NAME` to the **Name** of the device you want to manage. This name is the ADR resource name, which can differ from the external device ID used by IoT Hub.
 
 ```azurecli
 DEVICE_NAME="<registry-device-name>"
