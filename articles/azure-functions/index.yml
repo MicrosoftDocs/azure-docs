@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: ggailey777
   ms.author: glenga
-  ms.date: 10/12/2026
+  ms.date: 11/07/2026
   ms.custom: build-2025
 landingContent:
   - title: About Azure Functions
@@ -75,6 +75,8 @@ landingContent:
             url: functions-create-ai-enabled-apps.md
       - linkListType: reference
         links:
+          - text: Hosted skills
+            url: functions-hosted-skills.md
           - text: MCP bindings
             url: functions-bindings-mcp.md
   - title: Develop functions
