@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/01/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a tool publisher, I want to deploy my tool resource to Microsoft Discovery so that agents and investigations can use it.
 ---
@@ -30,7 +30,7 @@ This article shows you how to:
 
 ## Step 1: Convert the tool definition YAML to JSON
 
-The Discovery resource provider stores the tool definition as a JSON document on the resource. You author the definition in YAML for readability, then convert it to JSON before uploading.
+The Discovery resource provider stores the tool definition as a JSON document on the resource. You author the definition in YAML for readability, then convert it to JSON before uploading. Conversion changes the serialization format; it doesn't validate the deployed tool contract or test the container. First complete the [local definition checks](how-to-create-tool-definition.md#step-4-validate-the-tool-definition).
 
 # [PowerShell](#tab/powershell)
 
@@ -45,7 +45,7 @@ $yaml | ConvertTo-Json -Depth 20 | Set-Content ./tool.json
 # [Python](#tab/python)
 
 ```bash
-pip install pyyaml
+python -m pip install pyyaml
 ```
 
 Save the following script as `convert-tool.py`. It accepts the input YAML path and the output JSON path as command-line arguments:
@@ -109,7 +109,7 @@ You can create the Discovery tool resource by using the Azure portal, the REST A
    | **Resource group** | An existing resource group, or select **Create new**. Use the same resource group as your workspace for simpler management. |
    | **Name** | A unique name for the tool resource. Use lowercase letters, numbers, and hyphens. |
    | **Region** | An Azure region that supports Microsoft Discovery (East US, East US 2, Sweden Central, or UK South). |
-   | **Definition content file** | The JSON file produced in [Step 1](#step-1-convert-the-tool-definition-yaml-to-json). Select the folder icon and upload `my-tool.json`. |
+   | **Definition content file** | The JSON file produced in [Step 1](#step-1-convert-the-tool-definition-yaml-to-json). Select the folder icon and upload `tool.json`. |
    | **Definition content version** | Any string that identifies the version of the definition (for example, `1.0.0`, `2026-05-01`, or a git commits SHA). Increment this value each time you upload a new definition so that consumers can detect updates. |
    | **Environment variables** | Optional. Upload the JSON file from [Step 2](#step-2-optional-prepare-an-environment-variables-file). Leave blank if your container doesn't need runtime configuration. |
 
@@ -122,7 +122,7 @@ After deployment completes, the tool appears in the Discovery tool catalog and c
 
 # [REST API](#tab/rest)
 
-Send a `PUT` request to the tools resource endpoint. All examples use API version `2026-06-01`.
+Send a `PUT` request to the tools resource endpoint. All examples use API version `2026-06-01`. The [stable tool resource contract](/azure/templates/microsoft.discovery/2026-06-01/tools) uses `properties.version` for the resource's definition version.
 
 ### Request
 
@@ -150,7 +150,7 @@ Authorization: Bearer <access-token>
   },
   "properties": {
     "definitionContent": { },
-    "definitionContentVersion": "1.0.0",
+    "version": "1.0.0",
     "environmentVariables": {
       "MODEL_ENDPOINT": "https://contoso-models.openai.azure.com/",
       "MAX_BATCH_SIZE": "32"
@@ -161,26 +161,28 @@ Authorization: Bearer <access-token>
 
 | Property | Required | Description |
 |---|---|---|
-| `properties.definitionContent` | Yes | The JSON object produced in [Step 1](#step-1-convert-the-tool-definition-yaml-to-json). Inline the contents of `my-tool.json` here. |
-| `properties.definitionContentVersion` | Yes | An arbitrary string that identifies this version of the definition (for example, `1.0.0`). Increment when the definition changes. |
+| `properties.definitionContent` | Yes | The JSON object produced in [Step 1](#step-1-convert-the-tool-definition-yaml-to-json). Inline the contents of `tool.json` here. |
+| `properties.version` | Yes | An arbitrary string that identifies this version of the definition (for example, `1.0.0`). Increment when the definition changes. |
 | `properties.environmentVariables` | No | A flat map of string keys to string values passed to the tool's container at runtime. Omit if not needed. |
 
 ### Example with Azure CLI
 
+This Bash example includes the optional `my-tool.env.json` file from step 2. If you don't use that file, omit both `--slurpfile env my-tool.env.json` and the `environmentVariables` property.
+
 ```bash
 SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 RG=my-discovery-rg
-TOOL=my-analysis-tool
+TOOL=molecular-groups
 
 # Build the request body from the converted definition and the env file
 jq -n \
-  --slurpfile def my-tool.json \
+  --slurpfile def tool.json \
   --slurpfile env my-tool.env.json \
   '{
      location: "swedencentral",
      properties: {
        definitionContent: $def[0],
-       definitionContentVersion: "1.0.0",
+       version: "1.0.0",
        environmentVariables: $env[0]
      }
    }' > tool-body.json
@@ -192,24 +194,25 @@ az rest --method PUT \
 
 ### Response
 
-A successful create returns `201 Created` (or `200 OK` when updating an existing tool) with the resource representation:
+A successful create returns `201 Created` (or `200 OK` when updating an existing tool) with the resource representation. Definition contents are omitted from this example:
 
 ```json
 {
-  "id": "/subscriptions/.../providers/Microsoft.Discovery/tools/my-analysis-tool",
-  "name": "my-analysis-tool",
+  "id": "/subscriptions/.../resourceGroups/my-discovery-rg/providers/Microsoft.Discovery/tools/molecular-groups",
+  "name": "molecular-groups",
   "type": "Microsoft.Discovery/tools",
   "location": "swedencentral",
   "properties": {
     "provisioningState": "Succeeded",
-    "definitionContentVersion": "1.0.0"
+    "definitionContent": {},
+    "version": "1.0.0"
   }
 }
 ```
 
 # [Discovery Studio](#tab/studio)
 
-Create the tool resource directly in your project without switching to the Azure portal. The subscription, resource group, and region come from the current project.
+Create the tool resource from your project's Studio interface without switching to the Azure portal. Studio uses the project's subscription, resource group, and region to create the resource-group-level tool; the tool isn't an ARM child of the project.
 
 1. Sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) and open your project.
 1. In the **Discovery** tab, select **AI Capabilities**, and then select **Tools**.
@@ -248,11 +251,11 @@ You can also verify the deployment by using the Azure CLI:
 az resource show \
   --ids "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Discovery/tools/<toolName>" \
   --api-version 2026-06-01 \
-  --query "{name:name, state:properties.provisioningState, version:properties.definitionContentVersion}" \
+  --query "{name:name, state:properties.provisioningState, version:properties.version}" \
   -o table
 ```
 
-The `provisioningState` should be `Succeeded`. The tool is now available to add to projects within workspaces that have access to the resource group.
+The `provisioningState` should be `Succeeded`. Creating this resource doesn't automatically add it to every project or grant access to it. In each project that needs the tool, add the existing tool through **AI Capabilities** > **Tools** and ensure the invoking identities have the required permissions.
 
 ## Update an existing tool
 
@@ -263,7 +266,7 @@ To publish a new version of a tool, repeat [Step 1](#step-1-convert-the-tool-def
 | Symptom | Likely cause | Resolution |
 |---|---|---|
 | `InvalidDefinitionContent` error during create | The uploaded JSON doesn't match the tool definition schema. | Re-validate the YAML with the tool definition reference and reconvert. See [Create a tool definition](how-to-create-tool-definition.md). |
-| `ImagePullBackOff` when the tool runs | The Discovery managed identity lacks **AcrPull** on the registry, or the image reference is wrong. | Verify the image reference in the YAML and that the workspace UAMI has **AcrPull** on the ACR. |
+| `ImagePullBackOff` when the tool runs | The image reference, registry permissions, or network access are incorrect. | Verify the repository and tag, the supercomputer's **kubelet UAMI** image-pull permissions, and the network and DNS path. See [Supercomputer registry access](how-to-configure-container-registry.md#supercomputer-access), including ABAC role differences. |
 | Environment variables aren't visible in the container | The file wasn't valid JSON or wasn't uploaded. | Confirm the file is a flat `{ "KEY": "value" }` JSON object and re-create the resource. |
 | `RoleAssignmentNotFound` when creating the resource | Missing RBAC on the resource group. | Assign **Contributor** or **Microsoft Discovery Platform Administrator (Preview)** at the resource group scope. |
 

@@ -2,22 +2,22 @@
 title: Execute failover and reprotect operations in Recovery Orchestration Plan in Resiliency
 description: Learn how to execute failover, reprotect resources, and run on-demand readiness checks in Azure Recovery Orchestration Plan.
 ms.topic: how-to
-ms.date: 06/02/2026
+ms.date: 10/26/2026
 ms.service: resiliency
 author: shsangal
 ms.author: shsangal
 # Customer intent: "As a cloud administrator, I want to execute failover and reprotect operations using a Recovery Orchestration Plan so that I can recover my application during a zonal outage."
 ---
 
-# Execute failover and reprotect operation by using Recovery Orchestration Plan (preview)
+# Execute failover and reprotect operations by using a Recovery Orchestration Plan
 
-This article describes how to execute failover, reprotect resources after failover, and run on-demand readiness checks in your Recovery Orchestration Plan (preview).
+This article describes how to execute failover, reprotect resources after failover, and run on-demand readiness checks in your Recovery Orchestration Plan.
 
 ## Prerequisites
 
 Before you execute failover and reprotect operations, review the following prerequisites:
 
-- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
+- [Enroll the service group in a usage plan](infrastructure-resiliency-manager-pricing.md#enroll-a-service-group-in-a-usage-plan). The usage plan identifies the Azure subscription to charge for the service group's usage of paid capabilities. Usage plans don't have tiers. For charge eligibility and hourly proration, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md#when-a-service-group-is-billed).
 - Check if a **Recovery Orchestration Plan** is in **Ready** or **Warning** status.
 - Verify that at least one resource included in the plan has no **Needs Attention** status.
 - Ensure that the Azure Resilience Management Recovery Contributor or Azure Resilience Management Recovery Administrator role is assigned.
@@ -105,4 +105,4 @@ After the readiness check completes, to review any new **Needs Attention** items
 
 ## Related content
 
-- [Create and configure a Recovery Orchestration Plan (preview)](recovery-orchestration-plan-create-configure.md).
+- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md).

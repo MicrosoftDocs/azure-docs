@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/24/2026
+ms.date: 11/10/2026
 ---
 
 # Configure a container registry for Microsoft Discovery
@@ -38,13 +38,15 @@ Every tool that runs on a Discovery supercomputer is pulled from a container reg
 
 Choose an approved registry location and network access path for publishers and supercomputer nodes. Keep the registry near its consumers where practical. Private access requires the virtual network and subnet plan from the prerequisites.
 
-The following Azure built-in roles are needed at various points in the registry lifecycle:
+The following Azure built-in roles apply to a registry in **RBAC Registry Permissions** mode:
 
 | Role | Purpose |
 |------|---------|
 | Contributor | Create and configure the registry |
 | AcrPush | Push images to the registry (tool publishers and CI pipelines) |
 | AcrPull | Pull images from the registry (supercomputer managed identity) |
+
+For **RBAC Registry + ABAC Repository Permissions** mode, grant **Container Registry Repository Writer** to publishers and **Container Registry Repository Reader** to the supercomputer's kubelet identity. Scope repository access with ABAC conditions as needed. Listing all repositories also requires **Container Registry Repository Catalog Lister**. Registry management permissions alone don't grant image push or pull access in this mode.
 
 ## Choosing an ACR SKU
 
@@ -89,7 +91,7 @@ A private DNS zone (`privatelink.azurecr.io`) linked to your virtual network is 
    - **Subscription**: select your subscription.
    - **Resource group**: select the resource group for your Discovery resources.
    - **Registry name**: enter a globally unique name (5–50 alphanumeric characters).
-   - **Location**: select the same region as your Discovery workspace.
+   - **Location**: select an approved region near the supercomputer workloads that pull the images.
    - **SKU**: select the approved tier; **Premium** is required for private endpoints.
 1. On the **Networking** tab, configure public access:
    - Select **All networks** to keep public access enabled.
@@ -112,7 +114,7 @@ The following steps show how to create a registry and optionally configure netwo
 SUBSCRIPTION_ID="<your-subscription-id>"
 RESOURCE_GROUP="<your-resource-group>"
 ACR_NAME="<globally-unique-registry-name>"
-LOCATION="eastus"   # Use the same region as your Discovery workspace
+LOCATION="eastus"   # Use an approved region near the image consumers
 SKU="<approved-sku>" # Basic | Standard | Premium
 ```
 
@@ -201,16 +203,17 @@ az acr show --name $ACR_NAME --resource-group $RESOURCE_GROUP \
 
 ### Supercomputer access
 
-The Discovery supercomputer uses a "Kubelet User Assigned Managed Identity (UAMI)" to pull images from ACR autonomously on your behalf. Assign the **AcrPull** role on the registry to the supercomputer's UAMI:
+The Discovery supercomputer uses its **kubelet user-assigned managed identity (UAMI)** to pull images from ACR. Grant registry image-pull permissions to that identity, which can differ from the workspace identity.
 
-These examples assume **RBAC Registry Permissions** mode. For an ABAC-enabled registry, use supported repository roles instead; **AcrPull** and **AcrPush** aren't substitutes for repository-scoped permissions. See [ACR role assignment modes](/azure/container-registry/container-registry-rbac-built-in-roles-overview).
+This role-assignment example assumes **RBAC Registry Permissions** mode. For an ABAC-enabled registry, use the repository roles described in [Plan registry access](#plan-registry-access); **AcrPull** and **AcrPush** aren't honored in that mode. See [ACR role assignment modes](/azure/container-registry/container-registry-rbac-built-in-roles-overview).
 
 ```azurecli
 UAMI_PRINCIPAL_ID="<supercomputer-kubelet-uami-principal-id>"
 ACR_RESOURCE_ID=$(az acr show --name $ACR_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
 
 az role assignment create \
-  --assignee $UAMI_PRINCIPAL_ID \
+  --assignee-object-id "$UAMI_PRINCIPAL_ID" \
+  --assignee-principal-type ServicePrincipal \
   --role AcrPull \
   --scope $ACR_RESOURCE_ID
 ```

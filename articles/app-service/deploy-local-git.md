@@ -53,7 +53,7 @@ You can create and configure a Git-enabled app, or configure local Git deploymen
 - To create a new web app configured for local Git deployment, run [az webapp create](/cli/azure/webapp#az-webapp-create) with the `--deployment-local-git` option. For example:
 
   ```azurecli
-  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myApp --runtime "NODE:24-lts" --deployment-local-git
+  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myApp --runtime "NODE:26" --deployment-local-git
   ```
 
 - To configure local Git deployment for an already-existing app, run [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git). For example:

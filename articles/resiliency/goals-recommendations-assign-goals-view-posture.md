@@ -1,16 +1,16 @@
 ---
 title: Assign goals and view resilience posture in Infrastructure Resiliency Manager
-description: Learn how to set up prerequisites, assign resilience goals, view posture, exclude or attest resources, and rediscover resources in Infrastructure Resiliency Manager (preview).
+description: Learn how to set up prerequisites, assign resilience goals, view posture, exclude or attest resources, and rediscover resources in Infrastructure Resiliency Manager.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 10/12/2026
+ms.date: 10/26/2026
 ms.topic: how-to
 ms.service: resiliency
 #customer intent: As a cloud administrator, I want to assign resilience goals and view posture so that I can track and manage the zone resilience of my service group resources.
 ---
 
-# Assign goals and view resilience posture in Infrastructure Resiliency Manager (preview)
+# Assign goals and view resilience posture in Infrastructure Resiliency Manager
 
 This article describes how to assign resilience goals to a service group, view your resilience posture, and manage resource evaluation. It covers key concepts, supported scenarios, and how to exclude or manually attest resources to improve the accuracy of your resilience posture and receive more targeted recommendations.
 
@@ -21,13 +21,13 @@ This article describes how to assign resilience goals to a service group, view y
 - **Service Group Contributor** (or alternately, **Azure Resilience Management Goals Contributor**) access to the service group for assigning goals. See the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations) for role requirements per scenario.
 
 > [!NOTE]
-> You don't need a usage plan to assign goals, view resilience posture, or review recommendations. A usage plan is required only for advanced capabilities such as Zone Down Drills and Recovery Orchestration Plans.
+> You don't need a usage plan to assign goals, view resilience posture, or review recommendations at no additional cost. A usage plan is required for paid advanced capabilities such as Zone Down Drills and Recovery Orchestration Plans. If a service group with assigned goals is enrolled in a valid usage plan, it's billed even without drills or recovery plans. To retain only the free capabilities without these charges, remove the service group's usage-plan enrollment. See [Billing and pricing](infrastructure-resiliency-manager-pricing.md).
 
 ## Supported scenario
 
 You can assign goals to service groups with up to **500** resources.
 
-[Learn more about the supported scenarios, limitations, and Azure role-based access control (RBAC) roles for goals and recommendations (preview)](goals-recommendations-support-matrix.md).
+[Learn more about the supported scenarios, limitations, and Azure role-based access control (RBAC) roles for goals and recommendations](goals-recommendations-support-matrix.md).
 
 ## Assign goals to a service group
 
@@ -114,7 +114,7 @@ Over time, there might be changes to your service group, such as resources being
 ## Important considerations
 
 - The current release of Infrastructure Resiliency Manager supports only zone resilience goals.
-- Infrastructure Resiliency Manager is free to use during the preview period.
+- You can access goals, posture, and recommendations at no extra cost without a usage plan. You pay for a service group with assigned goals only if you enroll it in a valid usage plan. For details, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md).
 - Enabling zone resilience for a specific service (for example, PostgreSQL) might incur more charges based on that service's own pricing.
 - Newly added resources aren't automatically refreshed after goal assignment. [Rediscovery](#rediscover-resources) is required to include them. 
 - By default, all supported resource types are included in the goal evaluation.
@@ -129,7 +129,7 @@ Limit rediscovery permissions to specific users, and ensure these users have acc
 
 ## Supported resource types and solutions
 
-To understand the supported resource types and the zone resilience solutions that the system detects, see the [Goals and recommendations support matrix (preview)](goals-recommendations-support-matrix.md).
+To understand the supported resource types and the zone resilience solutions that the system detects, see the [Goals and recommendations support matrix](goals-recommendations-support-matrix.md).
 
 ## Data handling and security
 

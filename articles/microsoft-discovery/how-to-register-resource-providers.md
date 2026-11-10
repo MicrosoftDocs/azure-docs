@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/24/2026
+ms.date: 11/10/2026
 ---
 
 # Register Microsoft Discovery resource providers
@@ -27,7 +27,7 @@ An Azure resource provider is a set of REST operations that enable functionality
 Resource types in Microsoft Discovery follow the format `Microsoft.Discovery/{resource-type}`, for example:
 
 - `Microsoft.Discovery/workspaces`
-- `Microsoft.Discovery/storages`
+- `Microsoft.Discovery/storageContainers`
 - `Microsoft.Discovery/supercomputers`
 - `Microsoft.Discovery/bookshelves`
 

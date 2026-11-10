@@ -6,7 +6,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: overview
-ms.date: 11/09/2026
+ms.date: 11/10/2026
 ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to understand how Azure Device Registry groups define and refresh device membership so that I can target devices reliably with jobs and software updates.
 ---
@@ -110,6 +110,8 @@ Manage groups programmatically with the [Groups REST API](/rest/api/deviceregist
 
 In the ADR namespace navigation, under Fleet, select Groups (preview). The list shows each group's name, member count, description, provisioning state, and last-updated time.
 
+:::image type="content" source="media/groups/groups-list.png" alt-text="Screenshot of the Groups list with sample group names, member counts, and group-management commands." lightbox="media/groups/groups-list.png":::
+
 Select a group to open its Overview page. Expand Essentials to see its display name, description, member count, and last-updated time. Select Definition to open the Group definition pane and view the read-only query filter. Use this filter to confirm which devices the group targets.
 
 The member list previews up to 10 devices and shows the total member count. For example, a group with 50 members shows "Previewing 10 of 50 members." The preview includes device status, manufacturer, model, provisioning state, and last-updated time. Treat it as a spot check, not a complete listing of a large group.
@@ -121,6 +123,10 @@ From the groups list or the group detail view, you can take the following action
 - **Edit** a group's display name and description from the detail view. The resource name and query filter don't change.
 - **Refresh** a group's cached membership from the detail view, subject to the refresh limits described in [Cached membership and refresh](#cached-membership-and-refresh). Refresh on the groups list reloads the list; it doesn't recalculate membership.
 - **Delete** a group from the list or detail view. You confirm the deletion by entering the group name.
+
+When you create a group, enter its membership criteria on the **Query filter** step.
+
+:::image type="content" source="media/groups/groups-query-filter.png" alt-text="Screenshot of the Query filter step with a filter that selects Fabrikam devices with model VX900." lightbox="media/groups/groups-query-filter.png":::
 
 ## Relationship to jobs and software updates
 
