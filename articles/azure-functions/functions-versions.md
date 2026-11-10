@@ -111,17 +111,13 @@ Make the following updates to function apps to locally change the targeted versi
 Visual Studio creates Azure Functions projects that target runtime version 4.x. The project settings determine the runtime used for debugging and publishing. The following properties in the *.csproj* file define the target framework and Functions runtime version:
 
 ```xml
-<TargetFramework>net8.0</TargetFramework>
+<TargetFramework>YOUR_TARGET_FRAMEWORK</TargetFramework>
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-If you're using the [isolated worker model](dotnet-isolated-process-guide.md), you can choose, `net9.0`, `net8.0`, or `net48` as the target framework. You can also choose to use [preview support](./dotnet-isolated-process-guide.md#preview-net-versions) for `net10.0`. If you're using the [in-process model](./functions-dotnet-class-library.md), you can choose `net8.0` or `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.4.0`. .NET 10 isn't supported by the in-process model; if you are on the in-process model and wish to use .NET 10, [migrate your app to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
+Replace `YOUR_TARGET_FRAMEWORK` with the target framework moniker for a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions). For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
 
-.NET 6 was previously supported on the isolated worker model and the in-process model, but it reached the end of official support on [November 12, 2024][dotnet-policy].
-
-.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
-
-[dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
+If you're using the [in-process model](./functions-dotnet-class-library.md), choose a target framework [supported by that model](functions-dotnet-class-library.md#supported-versions) and include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.4.0`. To use the broader set of .NET versions supported by the isolated worker model, [migrate your app to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
 
 ### Visual Studio Code and Azure Functions Core Tools
 

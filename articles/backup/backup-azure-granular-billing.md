@@ -55,6 +55,8 @@ The steps are the same for both vault types, except for the navigation to the **
 
 1. On the **Cost Management Granularity** pane, select a [granularity option](#available-billing-granularity-levels).
 
+1. If you selected **Tag level** and want to group costs under a custom parent resource instead of the default `ms-resource-parent` tag, go to the vault's **Tags** pane, add a tag with key `cm-resource-parent` and value set to the target resource's full ARM resource ID, and select **Save**. The default parent-tag grouping requires no manual tagging, so you can skip this step.
+
 1. Select **Update** to save the setting.
 
 # [Backup vault](#tab/backup-vault)
@@ -66,6 +68,8 @@ The steps are the same for both vault types, except for the navigation to the **
 1. On the **Properties** pane, for **Cost Management Granularity**, select **Update**.
 
 1. On the **Cost Management Granularity** pane, select a [granularity option](#available-billing-granularity-levels).
+
+1. If you selected **Tag level** and want to group costs under a custom parent resource instead of the default `ms-resource-parent` tag, go to the vault's **Tags** pane, add a tag with key `cm-resource-parent` and value set to the target resource's full ARM resource ID, and select **Save**. The default parent-tag grouping requires no manual tagging, so you can skip this step.
 
 1. Select **Update** to save the setting.
 
@@ -79,7 +83,7 @@ The following table lists the granularity levels and the value that you pass to 
 
 | Granularity level (portal) | Value | Behavior |
 | --- | --- | --- |
-| Vault level (default) | VaultLevel | All backups in the vault roll up to a single line item per vault. |
+| Vault level (default) | VaultLevel | Backup costs are aggregated per vault for each applicable billing meter. |
 | Protected item level | ProtectedItemLevel | Shows backup costs for each protected item. |
 | Tag level | ProtectedItemWithParentTag | Aggregates backup costs by a parent tag, so you can view spend at the resource level. |
 
@@ -360,7 +364,7 @@ To use a custom tag, follow these steps:
 Backup vaults use the same `-CostManagementGranularity` parameter. Two differences apply compared to a Recovery Services vault:
 
 - Creating a Backup vault requires a storage setting object, which you build with [`New-AzDataProtectionBackupVaultStorageSettingObject`](/powershell/module/az.dataprotection/new-azdataprotectionbackupvaultstoragesettingobject).
-- The returned Backup vault object exposes the setting under `Property` (singular), not `Properties`.
+- The returned Backup vault object exposes the setting as the top-level `CostManagementSettingGranularityLevel` property.
 
 ### Set the granularity when you create a Backup vault
 
@@ -415,7 +419,7 @@ ProtectedItemLevel
 
 To view the current granularity setting, run the following cmdlet:
 
-`Get-AzDataProtectionBackupVault` requires no new parameter. The setting appears on the returned vault's Property object, following the same pattern as other vault settings such as `SoftDeleteState`.
+`Get-AzDataProtectionBackupVault` doesn't require a new parameter. The setting appears on the returned vault's top-level `CostManagementSettingGranularityLevel` property, following the same pattern as other vault settings such as `SoftDeleteState`.
 
 ```azurepowershell-interactive
 $vault = Get-AzDataProtectionBackupVault `
@@ -529,7 +533,7 @@ The following table lists the granularity levels and the value that you pass to 
 
 | Granularity level (portal) | Value | Behavior |
 | --- | --- | --- |
-| Vault level (default) | VaultLevel | All backups in the vault roll up to a single line item per vault. |
+| Vault level (default) | VaultLevel | Backup costs are aggregated per vault for each applicable billing meter. |
 | Protected item level | ProtectedItemLevel | Shows backup costs for each protected item. |
 | Tag level | ProtectedItemWithParentTag | Aggregates backup costs by a parent tag, so you can view spend at the resource level. |
 
@@ -541,6 +545,7 @@ Before you configure granular billing by using the Azure CLI, ensure that you me
 - Review the [`az backup vault`](/cli/azure/backup/vault) and [`az dataprotection backup-vault`](/cli/azure/dataprotection/backup-vault) command references.
 - Verify that you have write access on the vault, such as the Backup Contributor or Contributor role.
 - For the custom tag scenario, verify that you have permission to add tags to the vault and read access to the parent resource whose ARM resource ID you use.
+- The `--cost-management-granularity` option requires Azure CLI version 2.89.0 or later for Recovery Services vaults, and `dataprotection` extension version 1.13.0 or later for Backup vaults.
 
 ## Set up the Azure CLI for granular billing configuration
 
@@ -558,8 +563,8 @@ To set up the Azure CLI, run the following commands:
 
     ```output
     {
-      "azure-cli": "2.65.0",
-      "azure-cli-core": "2.65.0",
+      "azure-cli": "2.89.0",
+      "azure-cli-core": "2.89.0",
       "azure-cli-telemetry": "1.1.0",
       "extensions": {}
     }
@@ -582,7 +587,7 @@ To set up the Azure CLI, run the following commands:
     ```output
     Name             Version
     ---------------  ---------
-    dataprotection   1.5.1
+    dataprotection   1.13.0
     ```
 
 4. Confirm that the granularity option is available in your installed Azure CLI version. The option appears in the help output of the command:
@@ -598,6 +603,20 @@ To set up the Azure CLI, run the following commands:
         Use this parameter to configure cost management settings for the vault.
         By default, the property is "VaultLevel" for the vault.
         Allowed values: ProtectedItemLevel, ProtectedItemWithParentTag, VaultLevel.
+    ```
+
+    To confirm the option is available for Backup vaults, run the following command instead:
+
+    ```azurecli-interactive
+    az dataprotection backup-vault update --help
+    ```
+
+    Example output:
+
+    ```output
+    --cost-management-granularity
+        Settings for cost management granularity level for a vault.
+        Accepted values: ProtectedItemLevel, ProtectedItemWithParentTag, VaultLevel
     ```
 
 5. Sign in to your Azure account:

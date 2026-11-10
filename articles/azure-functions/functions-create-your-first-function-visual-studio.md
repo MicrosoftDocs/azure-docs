@@ -13,7 +13,9 @@ ai-usage: ai-assisted
 
 Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](how-to-create-function-vs-code.md?pivot=programming-language-csharp) of this article.
 
-By default, this article shows you how to create C# functions that run on .NET 8 in an [isolated worker process](dotnet-isolated-process-guide.md). Function apps that run in an isolated worker process are supported on all versions of .NET that are supported by Functions. For more information, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
+This article shows you how to create C# functions that target a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).
+
+Install the .NET SDK for your target version and update your Visual Studio Azure Functions tools and templates. For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
 
 In this article, you learn how to:
 
@@ -50,7 +52,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
      
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | **.NET 8.0 Isolated (Long Term Support)** | Your functions run on .NET 8 in an isolated worker process. | 
+    | **Functions worker** | A supported .NET version using the isolated worker model | Your functions run in an [isolated worker process](dotnet-isolated-process-guide.md). |
     | **Function** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
@@ -128,7 +130,7 @@ You created Azure resources to complete this quickstart. You could be billed for
 
 In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP trigger function.
 
-To learn more about working with C# functions that run in an isolated worker process, see the [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated worker process.
+To learn more about working with C# functions that run in an isolated worker process, see the [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](dotnet-isolated-process-guide.md#supported-versions) to see other versions of supported .NET versions in an isolated worker process.
 
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]

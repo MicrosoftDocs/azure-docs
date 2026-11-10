@@ -23,7 +23,7 @@ Enrollments in Device Provisioning Service (DPS) reference certificate policies 
 Before you begin, ensure you have the required setup and permissions so you can create an intermediate CA and sign it with an external CA.
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Device Registry namespace. For setup steps, see [Get started with Azure Device Registry](device-registry/get-started-azure-device-registry.md).
+- An existing Device Registry namespace. For setup steps, see [Get started with Azure Device Registry for Azure IoT Hub](device-registry/get-started-azure-device-registry.md).
 - Permission to create and manage certificate policies in this Azure Device Registry namespace, such as the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) role. If you don't have access, ask your Azure administrator to assign you this role on the namespace.
 
 # [Azure portal](#tab/portal)

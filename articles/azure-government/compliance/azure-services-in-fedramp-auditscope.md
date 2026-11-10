@@ -271,7 +271,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 
 **&ast;** FedRAMP High and DoD SRG Impact Level 2 authorization for Microsoft Entra ID applies to Microsoft Entra External ID. To learn more about Entra External ID, refer to the documentation [here](/entra/)
 
-**&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
+**&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use [Azure Databricks FedRAMP](/azure/databricks/security/privacy/fedramp-high-azure.md).
 
 **&ast;&ast;&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box, Azure Stack Edge and Azure Local) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Data Box pod and disk service, which are the online software components supporting your Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
 

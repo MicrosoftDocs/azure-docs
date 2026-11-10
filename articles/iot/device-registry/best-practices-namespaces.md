@@ -6,7 +6,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: best-practice
-ms.date: 04/15/2026
+ms.date: 11/09/2026
 ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to understand how to design my namespace structure so that I can organize devices and assets effectively and avoid rework later.
 ---
@@ -26,7 +26,7 @@ Namespaces are a feature of Azure Device Registry, which works with both Azure I
 
 | Feature | Azure IoT Operations | Azure IoT Hub |
 |---|---|---|
-| Namespaces | GA | Preview |
+| Namespaces | GA | GA |
 
 ## Namespace planning
 

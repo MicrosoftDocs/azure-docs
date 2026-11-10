@@ -9,6 +9,10 @@ ms.author: v-mallicka
 ---
 # About SQL Server Backup in Azure VMs
 
+Azure Backup provides stream-based and snapshot-based backup solutions for SQL Server running on Azure virtual machines (VMs). Stream-based backups protect SQL Server databases by streaming backup data to a Recovery Services vault. Snapshot-based backups protect selected databases at the SQL Server instance level by using disk snapshots, along with log backups for point-in-time recovery. This article describes the backup solutions, their capabilities, and how they differ.
+
+## Stream-based backup for SQL Server databases in Azure VMs
+
 [Azure Backup](backup-overview.md) offers a stream-based, specialized solution to back up SQL Server running in Azure Virtual Machines (VMs). This solution aligns with Azure Backup's benefits of zero-infrastructure backup, long-term retention, and central management. It additionally provides the following advantages specifically for SQL Server:
 
 - Workload aware backups that support all backup types - full, differential, and log
@@ -16,17 +20,11 @@ ms.author: v-mallicka
 - Point-in-time recovery up to a second
 - Individual-database-levels backup and restore
 
->[!NOTE]
->Azure Backup now provides snapshot-based backup for SQL Server instances in Azure VMs, which is currently in preview. Snapshot-based backups allow you to protect large databases with improved performance and achieve faster restores from the instant recovery tier. To know the latest product enhancements and feature updates in Azure, see [Microsoft Azure Updates](https://azure.microsoft.com/updates?id=564668).
+For more information about the supported backup and restore scenarios, see the [support matrix](sql-support-matrix.md#scenario-support). To learn more, see [frequently asked questions for Azure backup for SQL Server running on VMs](faq-backup-sql-server.yml).
 
-To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
-
-## Snapshot backup for SQL Instances in Azure VM (preview)
+## Snapshot-based backup for SQL instances in Azure VMs
 
 Azure Backup provides a snapshot‑based SQL backup solution that improves performance for large databases. You can use disk snapshots for fast restores and frequent log backups to minimize data loss, helping you achieve lower Recovery Time Objective (RTO) and improved Recovery Point Objective (RPO).
-
->[!Note]
->Snapshot Backup for SQL Server instances is available in preview. Snapshot‑based backups allow you to protect large databases with improved performance and achieve faster restores from the instant recovery tier.
 
 Snapshot backups provide the following benefits while backing up large databases:
 
@@ -40,9 +38,9 @@ Snapshot backups provide the following benefits while backing up large databases
 
 - **Low RPO**: Combines log backups with snapshots to achieve a lower RPO and enable point-in-time restores.
 
-Learn about the supported scenarios and limitations for SQL backup using snapshots in the [support matrix](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview). To back up SQL Server instance snapshot in Azure VM using the Azure portal, see [this article](back-up-sql-server-instance-snapshot.md).
+Learn about the supported scenarios and limitations for SQL backup using snapshots in the [support matrix](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios). To back up SQL Server instance snapshot in Azure VM using the Azure portal, see [this article](back-up-sql-server-instance-snapshot.md).
 
-## Backup process for SQL Server database
+## Stream-based backup process for SQL Server databases
 
 This solution uses the SQL native APIs to take backups of your SQL databases.
 
@@ -56,7 +54,7 @@ This solution uses the SQL native APIs to take backups of your SQL databases.
 
   ![SQL Backup architecture](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
-## Backup process for SQL Server instance snapshots
+## Snapshot-based backup process for SQL Server instances
 
 Azure Backup uses managed-disk incremental snapshots to protect SQL databases in Azure VMs. The backup policy controls snapshot creation, retention, and logs backup behavior to enable fast restores and point-in-time recovery.
 
@@ -72,7 +70,7 @@ The backup and restore flow outlines a logical, end-to-end sequence of operation
 
 - Streams log backups at the database level to the vault. During restore, the service restores the snapshot to an alternate VM and applies log backups to achieve point-in-time recovery.
 
-[Learn how to back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
+[Learn how to back up SQL Server instance snapshot in Azure VM using Azure portal](back-up-sql-server-instance-snapshot.md).
 
 ## Prerequisites for SQL Server backup
 
@@ -214,9 +212,9 @@ Backup of SQL in Azure VM snapshot incurs the following charges:
 
 * [Configure simultaneous backups](manage-monitor-sql-database-backup.md#configure-simultaneous-backups).
 * [Back up SQL Server databases running on an Azure VM](backup-sql-server-database-azure-vms.md).
-* [Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
+* [Back up SQL Server instance snapshot in Azure VM using Azure portal](back-up-sql-server-instance-snapshot.md).
 * [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
-* [Manage and monitor SQL Server database and instance snapshot (preview) backups](manage-monitor-sql-database-backup.md).
+* [Manage and monitor SQL Server database and instance snapshot backups](manage-monitor-sql-database-backup.md).
 
 ## Related content
 

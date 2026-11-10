@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 10/15/2026
+ms.date: 11/03/2026
 ms.author: allensu
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This knowledge will allow me to design connectivity correctly and understand future scalability options and limitations.
 ---
@@ -56,6 +56,8 @@ Network traffic between peered virtual networks is private. Traffic between the 
 Microsoft recently introduced an added flexibility on top of virtual network peering - '**Subnet peering**'.
  
 It's an added flexibility built on top of virtual network peering, where you get an option to choose specific subnets that need to be peered across virtual networks. You can specify or enter the list of subnets across the virtual networks that you want to peer. In contrast, in regular virtual network peering, the entire address space and subnets across the virtual networks get peered. For more information, see [How to configure Subnet Peering](how-to-configure-subnet-peering.md).
+
+Azure virtual networks support peering over IPv6 address space only (in public preview). For more information, see [Configure IPv6-only virtual network peering](configure-ipv6-only-vnet-peering.md).
 
 ## Connectivity
 

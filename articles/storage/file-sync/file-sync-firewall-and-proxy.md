@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 11/09/2026
 ms.author: kendownie
 # Customer intent: As an IT admin, I want to configure proxy and firewall settings for Azure File Sync, so that I can ensure secure and reliable connectivity between on-premises servers and Azure cloud services.
 ---
@@ -32,6 +32,8 @@ Azure File Sync acts as an orchestration service between your Windows Server, yo
 ## Required ports for Azure File Sync
 
 Azure File Sync moves file data and metadata exclusively over HTTPS and requires port 443 to be open outbound. As a result, all traffic is encrypted.
+
+Certificate validation traffic is separate from file data and metadata. To build and validate the TLS certificate chain, the server also needs outbound access on ports 80 and 443 to the Microsoft PKI endpoints listed in [Azure File Sync firewall settings](#azure-file-sync-firewall-settings). These endpoints provide certificate revocation lists (CRLs), Online Certificate Status Protocol (OCSP) responses, and intermediate certificates. Some of them use HTTP, so a firewall rule that allows only port 443 blocks them.
 
 ## Networks and special connections to Azure
 
@@ -135,7 +137,7 @@ The following table describes the required domains for communication:
 | **Microsoft Entra ID** (registration UI) | `https://secure.aadcdn.microsoftonline-p.com` | `https://secure.aadcdn.microsoftonline-p.com`<br>(same as public cloud endpoint URL) |
 | **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us |
-| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/` | `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/` |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/`<br>`http://oneocsp.microsoft.com`<br>`http://cacerts.digicert.com/` | `https://www.microsoft.com/pki/mscorp/cps`<br>`http://crl.microsoft.com/pki/mscorp/crl/`<br>`http://mscrl.microsoft.com/pki/mscorp/crl/`<br>`http://ocsp.msocsp.com`<br>`http://ocsp.digicert.com/`<br>`http://crl3.digicert.com/`<br>`http://oneocsp.microsoft.com`<br>`http://cacerts.digicert.com/` |
 | **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com |
 
 The following table describes what each endpoint is used for:
@@ -148,7 +150,7 @@ The following table describes what each endpoint is used for:
 | **Microsoft Entra ID** (registration UI) | Accessed by the Active Directory authentication library that the Azure File Sync server registration UI uses to sign in the administrator. |
 | **Azure Storage** | The server performs data movement more efficiently by communicating directly with the Azure file share in the storage account, using a SAS key that allows only targeted file share access. |
 | **Azure File Sync** | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region for direct and efficient sync communication. |
-| **Microsoft PKI** | Downloads intermediate certificates required to communicate with the Azure File Sync service and Azure file share. The OCSP URL checks certificate status. |
+| **Microsoft PKI** | Downloads intermediate certificates and certificate revocation lists (CRLs), and checks certificate status by using the Online Certificate Status Protocol (OCSP). The server uses these endpoints to build and validate the TLS certificate chain when it communicates with the Azure File Sync service and Azure file share. These endpoints use ports 80 and 443. |
 | **Microsoft Update** | Downloads Azure File Sync agent updates. |
 
 > [!IMPORTANT]
@@ -227,6 +229,9 @@ The following table lists endpoints for Azure File Sync in Microsoft Azure opera
 ### Allow list for Azure File Sync IP addresses
 
 Azure File Sync supports the use of [service tags](../../virtual-network/service-tags-overview.md), which represent a group of IP address prefixes for a given Azure service. You can use service tags to create firewall rules that enable communication with the Azure File Sync service. The service tag for Azure File Sync is `StorageSyncService`.
+
+> [!NOTE]
+> In addition to the service tag IP address ranges, allow outbound access on ports 80 and 443 to the Microsoft PKI endpoints listed in [Azure File Sync firewall settings](#azure-file-sync-firewall-settings). The server uses these endpoints to validate certificates.
 
 If you're using Azure File Sync within Azure, you can use name of service tag directly in your network security group to allow traffic. To learn more about how to do this, see [Network security groups](../../virtual-network/network-security-groups-overview.md).
 

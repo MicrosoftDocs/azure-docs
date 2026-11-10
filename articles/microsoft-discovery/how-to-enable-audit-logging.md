@@ -5,7 +5,7 @@ author: anzaman
 ms.author: alzam
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 11/08/2026
 
 #CustomerIntent: As a Discovery platform administrator, I want to enable audit logging for Microsoft Discovery resources so that I can export logs to a storage account or Log Analytics workspace for compliance, auditing, and long-term retention.
 ---
@@ -51,6 +51,8 @@ Set-AzContext -SubscriptionId "<subscription-id>"
 ## Configure the log category
 
 Before you create a diagnostic setting, define which log categories to collect. You can export all available log categories or audit logs only.
+
+Check the categories and category groups exposed by the selected resource in **Diagnostic settings** before choosing a group. Only enable `allLogs` or `audit` when that group is available. Resource diagnostic settings are separate from the subscription-level settings used to [export activity logs](how-to-view-activity-logs.md#export-activity-logs-for-long-term-retention).
 
 ### [All logs](#tab/all-logs)
 
@@ -182,7 +184,7 @@ A successful response returns the diagnostic setting name, the configured destin
 To control how long audit logs are retained, use the following approaches based on your destination:
 
 - **Storage account** - Configure a [lifecycle management policy](/azure/storage/blobs/lifecycle-management-overview) on the destination storage account to automatically expire or archive log blobs.
-- **Log Analytics workspace** - Configure the [data retention settings](/azure/azure-monitor/logs/data-retention-configure) on the Log Analytics workspace to set the retention period for ingested tables.
+- **Log Analytics workspace** - Configure [table retention settings](/azure/azure-monitor/logs/data-retention-configure) for the ingested tables. Workspace default analytics retention doesn't override an existing table-specific setting, and Basic and Auxiliary tables use total retention.
 
 ## Related content
 

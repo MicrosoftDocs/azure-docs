@@ -11,11 +11,13 @@ ms.author: v-mallicka
 
 # Restore SQL Server databases in Azure VMs with REST API
 
-This article explains how to restore a SQL server database in Azure VM from a restore point created by [Azure Backup](./backup-overview.md) using the REST API.
+This article explains how to restore a SQL server database in an Azure VM from a restore point created by [Azure Backup](./backup-overview.md) by using the RcEST API.
 
 By the end of this article, you'll learn how to perform the following operations using REST API:
 
 - View the restore points for a backed-up SQL database.
+- Query snapshot recovery points and point-in-time recovery ranges for SQL databases and instances.
+- Retrieve the databases and data directory paths included in a recovery point.
 - Restore a full SQL database.
 
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
@@ -164,6 +166,199 @@ X-Powered-By: ASP.NET
 ```
 
 The recovery point is identified with the `{name}` field in the response above.
+
+### Query snapshot and streaming recovery points
+
+For snapshot-protected SQL instances and databases, use API version `2024-01-31-preview` for the following recovery-point queries. Replace the URI placeholders with the vault details and the container and protected item names returned by [listing protected items](manage-azure-sql-vm-rest-api.md#list-protected-sql-instances-and-databases). URL-encode the filter expression when sending the request.
+
+Use `restorePointQueryType` to select recovery-point types:
+
+| Value | Recovery points returned |
+| --- | --- |
+| `FullDifferentialAndSnapshot` | Full, differential, and snapshot recovery points for a database. |
+| `Snapshot` | Snapshot recovery points for a database or instance. |
+| `FullAndDifferential` | Streaming full and differential recovery points for a database. |
+| `Log` | Log recovery time ranges for a database. |
+
+#### List full, differential, and snapshot recovery points
+
+Use the database protected item name, such as `SQLDataBase;mssqlserver;testdb`:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints?api-version=2024-01-31-preview&$filter=restorePointQueryType eq 'FullDifferentialAndSnapshot'
+```
+
+#### List snapshot recovery points
+
+For a database, use its database protected item name:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints?api-version=2024-01-31-preview&$filter=restorePointQueryType eq 'Snapshot'
+```
+
+For an instance, use its instance protected item name, such as `SQLInstance;mssqlserver`:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{instanceProtectedItemName}/recoveryPoints?api-version=2024-01-31-preview&$filter=restorePointQueryType eq 'Snapshot'
+```
+
+#### List streaming full and differential recovery points
+
+You can also specify a time window and include soft-deleted recovery points:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints?api-version=2024-01-31-preview&$filter=startDate eq '2024-02-15 05:12:12 PM' and endDate eq '2024-02-22 05:12:12 PM' and restorePointQueryType eq 'FullAndDifferential' and includeSoftDeletedRP eq 'true'
+```
+
+Replace the sample dates with your required time window. The `value` array contains recovery points with properties such as `recoveryPointTimeInUTC`, `type`, and `recoveryPointTierDetails`. Retention information can appear in `recoveryPointProperties`, including `expiryTime`, `ruleName`, and `isSoftDeleted`.
+
+### Query log recovery ranges for point-in-time restore
+
+To list log recovery ranges for a database, use the following request:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints?api-version=2024-01-31-preview&$filter=restorePointQueryType eq 'Log'
+```
+
+The response includes a `DefaultRangeRecoveryPoint` item. The following example shows selected response fields:
+
+```json
+{
+  "value": [
+    {
+      "name": "DefaultRangeRecoveryPoint",
+      "properties": {
+        "objectType": "AzureWorkloadSQLPointInTimeRecoveryPoint",
+        "timeRanges": [
+          {
+            "startTime": "2024-02-07T17:12:13.2853054Z",
+            "endTime": "2024-02-22T15:30:13Z"
+          }
+        ],
+        "type": "Log"
+      }
+    }
+  ]
+}
+```
+
+Select a restore time within the returned ranges.
+
+#### Query database log ranges by recovery mode
+
+For streaming-based recovery, specify `recoveryMode eq 'WorkloadRecovery'`:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints?api-version=2024-01-31-preview&$filter=restorePointQueryType eq 'Log' and recoveryMode eq 'WorkloadRecovery'
+```
+
+For snapshot-based recovery, specify `recoveryMode eq 'SnapshotAttachAndRecover'`:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints?api-version=2024-01-31-preview&$filter=restorePointQueryType eq 'Log' and recoveryMode eq 'SnapshotAttachAndRecover'
+```
+
+Both queries return the log recovery-range response format shown earlier.
+
+#### Query database log ranges for an instance restore
+
+For instance point-in-time restore, first select an instance snapshot recovery point and [retrieve its included databases](#get-databases-and-disk-paths-in-an-instance-snapshot). For each included database, query its log ranges with the selected base snapshot details:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints?api-version=2024-01-31-preview&$filter=restorePointQueryType eq 'Log' and recoveryMode eq 'SnapshotAttachAndRecover' and baseSnapshotRPId eq '{baseSnapshotRPId}' and baseRPDatasourceId eq '{baseRPDatasourceId}'
+```
+
+- `{baseSnapshotRPId}`: The `name` of the selected instance snapshot recovery point.
+- `{baseRPDatasourceId}`: The `protectedItemDataSourceId` of the **instance** protected item, not the child database's datasource ID.
+- `{databaseProtectedItemName}`: The protected item name of the child database being queried.
+
+### Get databases and disk paths in an instance snapshot
+
+Get the selected instance recovery point to retrieve its included databases and disk paths. Use the same metadata when preparing an instance snapshot restore or instance point-in-time restore:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{instanceProtectedItemName}/recoveryPoints/{snapshotRecoveryPointId}?api-version=2024-01-31-preview
+```
+
+`{snapshotRecoveryPointId}` is the recovery point's `name`. The following example shows selected response fields:
+
+```json
+{
+  "name": "2265756871711897922",
+  "properties": {
+    "objectType": "AzureWorkloadSQLRecoveryPoint",
+    "extendedInfo": {
+      "dataDirectoryTimeInUTC": "2024-03-13T08:03:25Z",
+      "dataDirectoryPaths": [
+        {
+          "type": "DiskDrives",
+          "path": "F:\\"
+        },
+        {
+          "type": "DiskDrives",
+          "path": "G:\\"
+        }
+      ],
+      "includedDatabases": [
+        {
+          "datasourceId": "2265838378698362078",
+          "datasourceName": "MSSQLSERVER;user1"
+        }
+      ],
+      "snapshotRecoveryPointInfo": {}
+    },
+    "recoveryPointTimeInUTC": "2024-03-13T08:03:25Z",
+    "type": "SnapshotFull",
+    "recoveryPointTierDetails": [
+      {
+        "type": "InstantRP",
+        "status": "Valid"
+      }
+    ]
+  }
+}
+```
+
+`extendedInfo.includedDatabases` identifies the databases captured in the selected snapshot. `extendedInfo.dataDirectoryPaths` identifies the disk paths available for advanced restore configuration.
+
+### Get database paths for advanced restore configuration
+
+For a database streaming or snapshot recovery point, retrieve the recovery point details:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints/{recoveryPointId}?api-version=2023-02-01
+```
+
+Inspect `properties.extendedInfo.dataDirectoryPaths` for data and log file paths and logical names. For example:
+
+```json
+{
+  "dataDirectoryTimeInUTC": "2024-03-04T18:03:35Z",
+  "dataDirectoryPaths": [
+    {
+      "type": "Data",
+      "path": "F:\\DATA\\TestDB1.mdf",
+      "logicalName": "TestDB1"
+    },
+    {
+      "type": "Log",
+      "path": "F:\\LOG\\TestDB1_log.ldf",
+      "logicalName": "TestDB1_log"
+    }
+  ],
+  "snapshotRecoveryPointInfo": {}
+}
+```
+
+For database point-in-time restore, request extended information when listing log recovery ranges. The following example uses snapshot-based recovery:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{databaseProtectedItemName}/recoveryPoints?api-version=2023-02-01&$filter=startDate eq '2024-02-06 07:50:56 AM' and endDate eq '2024-03-07 07:23:05 AM' and extendedInfo eq 'true' and restorePointQueryType eq 'Log' and recoveryMode eq 'SnapshotAttachAndRecover'
+```
+
+Replace the sample dates with the required query window. The response contains the log recovery ranges and `properties.extendedInfo`, including `dataDirectoryTimeInUTC`, `dataDirectoryPaths`, and `snapshotRecoveryPointInfo`.
+
+The preceding queries retrieve recovery points and restore configuration metadata. The following section describes the existing streaming database restore request.
 
 ### Database recovery using REST API
 
@@ -489,6 +684,253 @@ Sample request body to restore the disks of a VM to the secondary region is as f
       }
   }
 ```
+
+### Perform point-in-time cross-region restore for a SQL instance protected by a snapshot policy
+
+Use this flow to restore the databases included in a SQL instance snapshot and replay their log backups to a common point in time in the secondary region.
+
+> [!IMPORTANT]
+> The selected point in time must be covered by the log range of every database that you want to recover from the instance snapshot. Request the access token for the SQL instance protected item and the selected concrete snapshot recovery point.
+
+#### Discover the instance snapshot and log ranges
+
+1. List the recovery points for the SQL instance protected item.
+
+    ```http
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{sourceVaultName}/backupFabrics/Azure/protectionContainers/{sourceContainerName}/protectedItems/SQLInstance%3Bmssqlserver/recoveryPoints?api-version=2023-01-15
+    ```
+
+    Select a recovery point whose response contains all of the following values:
+
+    - `properties.type` is `SnapshotFull`.
+    - `properties.crossRegionRestoreState` is `Supported`.
+    - `properties.recoveryPointTierDetails` contains a `HardenedRP` entry whose status is `Valid`.
+
+1. Get the selected recovery point to retrieve its authoritative extended information.
+
+    ```http
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{sourceVaultName}/backupFabrics/Azure/protectionContainers/{sourceContainerName}/protectedItems/SQLInstance%3Bmssqlserver/recoveryPoints/{instanceSnapshotRecoveryPointId}?api-version=2023-01-15
+    ```
+
+    Use `properties.extendedInfo.includedDatabases` to identify the child databases included in the snapshot. The response also contains the source disk paths and snapshot metadata required for restore.
+
+1. Get the SQL instance protected item and save `properties.protectedItemDataSourceId`.
+
+    ```http
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{sourceVaultName}/backupFabrics/Azure/protectionContainers/{sourceContainerName}/protectedItems/SQLInstance%3Bmssqlserver?api-version=2023-01-15
+    ```
+
+1. For each included database, list the log range associated with the selected instance snapshot.
+
+    ```http
+    GET "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{sourceVaultName}/backupFabrics/Azure/protectionContainers/{sourceContainerName}/protectedItems/SQLDataBase%3Bmssqlserver%3B{databaseName}/recoveryPoints?api-version=2023-01-15&$filter=restorePointQueryType eq 'Log' and recoveryMode eq 'SnapshotAttachAndRecover' and baseSnapshotRPId eq '{instanceSnapshotRecoveryPointId}' and baseRPDatasourceId eq '{instanceProtectedItemDataSourceId}'"
+    ```
+
+    The response contains a `DefaultRangeRecoveryPoint`. Choose a UTC `pointInTime` that falls inside the returned `properties.timeRanges` for every database being restored.
+
+#### Get the access token for the instance snapshot
+
+Fetch the Microsoft Entra properties for the secondary region.
+
+```http
+GET "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{secondaryRegion}/backupAadProperties?api-version=2023-01-15&$filter=backupManagementType eq 'AzureWorkload'"
+```
+
+Pass the returned `properties` object in the request body when you request an access token for the SQL instance and selected snapshot recovery point.
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{sourceVaultName}/backupFabrics/Azure/protectionContainers/{sourceContainerName}/protectedItems/SQLInstance%3Bmssqlserver/recoveryPoints/{instanceSnapshotRecoveryPointId}/accessToken?api-version=2023-01-15
+```
+
+```json
+{
+  "properties": {
+    "tenantId": "<tenant-id>",
+    "audience": "<audience-returned-by-the-service>",
+    "servicePrincipalObjectId": "<service-principal-object-id>",
+    "identityVersion": 1
+  }
+}
+```
+
+#### Trigger the SQL instance point-in-time restore
+
+Use `AzureWorkloadSQLPointInTimeRestoreRequest` with `SnapshotAttachAndRecover`. Copy the complete `properties` object from the access-token response into `crossRegionRestoreAccessDetails`.
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{secondaryRegion}/backupCrossRegionRestore?api-version=2023-01-15
+```
+
+```json
+{
+  "crossRegionRestoreAccessDetails": {
+    "objectType": "WorkloadCrrAccessToken",
+    "accessTokenString": "<access-token-string>",
+    "recoveryPointId": "<instance-snapshot-recovery-point-id>",
+    "datasourceType": "SQLInstance",
+    "datasourceName": "mssqlserver"
+  },
+  "restoreRequest": {
+    "objectType": "AzureWorkloadSQLPointInTimeRestoreRequest",
+    "shouldUseAlternateTargetLocation": true,
+    "recoveryMode": "SnapshotAttachAndRecover",
+    "isNonRecoverable": false,
+    "recoveryType": "AlternateLocation",
+    "sourceResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{sourceVmResourceGroup}/providers/Microsoft.Compute/virtualMachines/{sourceVmName}",
+    "targetVirtualMachineId": "/subscriptions/{subscriptionId}/resourceGroups/{targetVmResourceGroup}/providers/Microsoft.Compute/virtualMachines/{targetVmName}",
+    "targetResourceGroupName": "{targetVmResourceGroup}",
+    "pointInTime": "2026-08-09T17:18:23.500Z",
+    "alternateDirectoryPaths": [
+      {
+        "mappingType": "DiskDrives",
+        "sourcePath": "F:\\",
+        "targetPath": "J:\\"
+      },
+      {
+        "mappingType": "DiskDrives",
+        "sourcePath": "G:\\",
+        "targetPath": "K:\\"
+      }
+    ],
+    "targetInfo": {
+      "containerId": "/subscriptions/{subscriptionId}/resourceGroups/{targetVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{targetVaultName}/backupFabrics/Azure/protectionContainers/{targetContainerName}",
+      "overwriteOption": "FailOnConflict",
+      "databaseName": "MSSQLSERVER/*_{databaseNameSuffix}"
+    },
+    "userAssignedManagedIdentityDetails": {
+      "identityArmId": "/subscriptions/{subscriptionId}/resourceGroups/{identityResourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}",
+      "userAssignedIdentityProperties": {
+        "clientId": "<managed-identity-client-id>",
+        "principalId": "<managed-identity-principal-id>"
+      }
+    }
+  }
+}
+```
+
+The abbreviated `crossRegionRestoreAccessDetails` object above shows the fields that identify the instance scenario. In the actual request, copy every property returned by the access-token API, including `tokenExtendedInformation` when it is present.
+
+### Perform cross-region log restore for a child database protected by a snapshot policy
+
+Use this flow to restore one child database to a selected point in time when the database is protected as part of a SQL instance snapshot policy.
+
+> [!IMPORTANT]
+> For a child-database log restore, request the access token on the child `SQLDataBase` protected item and `DefaultRangeRecoveryPoint`. Don't request the token on the parent SQL instance recovery point.
+
+#### Discover the child database log range
+
+List log recovery points for the child database protected item.
+
+```http
+GET "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{sourceVaultName}/backupFabrics/Azure/protectionContainers/{sourceContainerName}/protectedItems/SQLDataBase%3Bmssqlserver%3B{databaseName}/recoveryPoints?api-version=2023-01-15&$filter=restorePointQueryType eq 'Log'"
+```
+
+The response contains a `DefaultRangeRecoveryPoint` with one or more UTC ranges:
+
+```json
+{
+  "value": [
+    {
+      "name": "DefaultRangeRecoveryPoint",
+      "properties": {
+        "objectType": "AzureWorkloadSQLPointInTimeRecoveryPoint",
+        "timeRanges": [
+          {
+            "startTime": "2026-07-26T19:25:29.9811766Z",
+            "endTime": "2026-08-10T18:31:23Z"
+          }
+        ],
+        "type": "Log"
+      }
+    }
+  ]
+}
+```
+
+Choose a UTC `pointInTime` inside one of the returned ranges.
+
+#### Get the access token for the child database log range
+
+Fetch the Microsoft Entra properties for the secondary region by using the Azure workload filter shown in the SQL instance section. Pass the returned `properties` object when requesting the child database access token.
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{sourceVaultName}/backupFabrics/Azure/protectionContainers/{sourceContainerName}/protectedItems/SQLDataBase%3Bmssqlserver%3B{databaseName}/recoveryPoints/DefaultRangeRecoveryPoint/accessToken?api-version=2023-01-15
+```
+
+The returned access-token properties identify the selected child database with values such as:
+
+```json
+{
+  "properties": {
+    "protectableObjectUniqueName": "MSSQLSERVER/{databaseName}",
+    "protectableObjectFriendlyName": "{databaseName}",
+    "objectType": "WorkloadCrrAccessToken",
+    "accessTokenString": "<access-token-string>",
+    "recoveryPointId": "DefaultRangeRecoveryPoint",
+    "datasourceType": "SQLDataBase",
+    "datasourceName": "{databaseName}"
+  }
+}
+```
+
+#### Trigger the child database log restore
+
+Use `AzureWorkloadSQLPointInTimeRestoreRequest` with `SnapshotAttachAndRecover`. The target database name must use the `MSSQLSERVER/{targetDatabaseName}` logical path format.
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{secondaryRegion}/backupCrossRegionRestore?api-version=2023-01-15
+```
+
+```json
+{
+  "crossRegionRestoreAccessDetails": {
+    "objectType": "WorkloadCrrAccessToken",
+    "accessTokenString": "<access-token-string>",
+    "recoveryPointId": "DefaultRangeRecoveryPoint",
+    "datasourceType": "SQLDataBase",
+    "datasourceName": "{databaseName}"
+  },
+  "restoreRequest": {
+    "objectType": "AzureWorkloadSQLPointInTimeRestoreRequest",
+    "shouldUseAlternateTargetLocation": true,
+    "recoveryMode": "SnapshotAttachAndRecover",
+    "isNonRecoverable": false,
+    "recoveryType": "AlternateLocation",
+    "sourceResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{sourceVmResourceGroup}/providers/Microsoft.Compute/virtualMachines/{sourceVmName}",
+    "targetVirtualMachineId": "/subscriptions/{subscriptionId}/resourceGroups/{targetVmResourceGroup}/providers/Microsoft.Compute/virtualMachines/{targetVmName}",
+    "targetResourceGroupName": "{targetVmResourceGroup}",
+    "pointInTime": "2026-08-03T06:58:26Z",
+    "alternateDirectoryPaths": [
+      {
+        "mappingType": "DiskDrives",
+        "sourcePath": "F:\\",
+        "targetPath": "J:\\"
+      },
+      {
+        "mappingType": "DiskDrives",
+        "sourcePath": "G:\\",
+        "targetPath": "K:\\"
+      }
+    ],
+    "targetInfo": {
+      "containerId": "/subscriptions/{subscriptionId}/resourceGroups/{targetVaultResourceGroup}/providers/Microsoft.RecoveryServices/vaults/{targetVaultName}/backupFabrics/Azure/protectionContainers/{targetContainerName}",
+      "overwriteOption": "FailOnConflict",
+      "databaseName": "MSSQLSERVER/{targetDatabaseName}"
+    },
+    "userAssignedManagedIdentityDetails": {
+      "identityArmId": "/subscriptions/{subscriptionId}/resourceGroups/{identityResourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}",
+      "userAssignedIdentityProperties": {
+        "clientId": "<managed-identity-client-id>",
+        "principalId": "<managed-identity-principal-id>"
+      }
+    }
+  }
+}
+```
+
+As with the instance request, copy the complete access-token `properties` object into `crossRegionRestoreAccessDetails`. Treat `accessTokenString` and `tokenExtendedInformation` as secrets and don't write them to logs or include them in shared artifacts.
+
+For both point-in-time scenarios, the trigger is asynchronous. Follow the `Azure-AsyncOperation`, `Location`, and `Retry-After` response headers, and verify the terminal status of the resulting Recovery Services vault job before treating the restore as successful.
 
 ## Next steps
 

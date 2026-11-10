@@ -37,11 +37,7 @@ No action is required to keep using an existing hub without ADR integration. ADR
 
 ### What regions support IoT Hub with ADR and certificate management?
 
-Regional availability depends on the feature and resource configuration. Confirm support for ADR linking and certificate management in your selected region before deploying.
-
-<!-- REVIEW BLOCKER: Replace this general guidance with approved region coverage
-or an authoritative reference. The current ADR prerequisites and What's New
-region section don't provide a confirmed availability list. -->
+See [Supported regions](iot-hub-what-is-new.md#supported-regions) for IoT Hub with ADR and certificate management. That section also identifies the smaller set of regions available for the MQTT v5 connection profile in preview.
 
 ### What is the pricing model for IoT Hub with ADR and certificate management?
 

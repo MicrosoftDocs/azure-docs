@@ -1,22 +1,20 @@
 ---
 title: Disable or Enable a Device in Azure Device Registry
 titleSuffix: Azure IoT Hub
-description: Disable or enable a device in Azure Device Registry so you can pause or resume device activity in Azure IoT Hub preview deployments.
+description: Disable or enable a device in Azure Device Registry so you can pause or resume device activity in Azure IoT Hub deployments.
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
 ai-usage: ai-generated
-ms.date: 04/14/2026
+ms.date: 11/09/2026
 #Customer intent: As an IoT Hub administrator, I want to disable or enable a device in Azure Device Registry so I can control when a device can participate in production operations.
 ---
 
-# Disable or enable a device in Azure Device Registry (preview)
+# Disable or enable a device in Azure Device Registry
 
 Use Azure Device Registry to disable a device when you need to stop device activity without deleting the device resource. Enable the device again when you're ready to return it to service.
-
-[!INCLUDE [iot-hub-public-preview-banner](../../iot-hub/includes/public-preview-banner.md)]
 
 Disabling a device might interrupt active operations, data collection, or dependent workflows. Before you enable a device, confirm that its configuration, security settings, and operational readiness meet your production requirements.
 
@@ -25,7 +23,7 @@ Disabling a device might interrupt active operations, data collection, or depend
 Before you begin, make sure that you have the required resources and permissions.
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing IoT Hub Gen2 deployment linked to a Device Registry namespace. For setup steps, see [Get started with Azure Device Registry](get-started-azure-device-registry.md).
+- An existing IoT Hub Gen2 deployment linked to a Device Registry namespace. For setup steps, see [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md).
 - At least one device in your Device Registry namespace.
 - The [Azure Device Registry Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#azure-device-registry-contributor) role on the Device Registry namespace.
 
@@ -104,7 +102,7 @@ DEVICE_ID="<device-id>"
 
 ## Disable a device
 
-Run this preview command to disable a device in Device Registry when you need to pause device activity.
+Run this command to disable a device in Device Registry when you need to pause device activity.
 
 ```azurecli
 az iot adr ns device update \
@@ -116,7 +114,7 @@ az iot adr ns device update \
 
 ## Enable a device
 
-Run this preview command to enable a device in Device Registry after you verify that it's ready to return to service.
+Run this command to enable a device in Device Registry after you verify that it's ready to return to service.
 
 ```azurecli
 az iot adr ns device update \
@@ -143,7 +141,7 @@ Verify that the returned device status matches the change that you made.
 
 ## Related content
 
-- [Integration with Azure Device Registry (preview)](../../iot-hub/iot-hub-device-registry-overview.md)
-- [Get started with Azure Device Registry](get-started-azure-device-registry.md)
+- [Integration with Azure Device Registry](../../iot-hub/iot-hub-device-registry-overview.md)
+- [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md)
 - [Certificate revocation and policy management](../concepts-certificate-policy-management.md)
-- [Key concepts for certificate management (preview)](../iot-certificate-management-concepts.md)
+- [Key concepts for certificate management](../iot-certificate-management-concepts.md)

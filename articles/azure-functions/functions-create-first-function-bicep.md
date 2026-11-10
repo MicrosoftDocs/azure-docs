@@ -3,7 +3,7 @@ title: Create your function app resources in Azure using Bicep
 description: Create and deploy to Azure a simple HTTP triggered serverless function using Bicep.
 author: ggailey777
 ms.author: glenga
-ms.date: 03/17/2025
+ms.date: 10/30/2026
 ms.topic: quickstart
 ms.service: azure-functions
 zone_pivot_groups: programming-languages-set-functions-no-go
@@ -42,6 +42,10 @@ This deployment file creates these Azure resources needed by a function app that
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 
+    ::: zone pivot="programming-language-javascript,programming-language-typescript"
+    In **main.bicep**, add `'24'` to the `@allowed` list for the `functionAppRuntimeVersion` parameter. The following commands use Node.js 24.
+    ::: zone-end
+
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     ### [Azure CLI](#tab/azure-cli)
@@ -60,7 +64,7 @@ This deployment file creates these Azure resources needed by a function app that
     ::: zone pivot="programming-language-javascript,programming-language-typescript"  
     ```azurecli
     az group create --name exampleRG --location <SUPPORTED_REGION>
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=node functionAppRuntimeVersion=20
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=node functionAppRuntimeVersion=24
     ```
     ::: zone-end  
     ::: zone pivot="programming-language-python"  
@@ -92,7 +96,7 @@ This deployment file creates these Azure resources needed by a function app that
     ::: zone pivot="programming-language-javascript,programming-language-typescript" 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location <SUPPORTED_REGION>
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "node" -functionAppRuntimeVersion "20"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "node" -functionAppRuntimeVersion "24"
     ``` 
     ::: zone-end  
     ::: zone pivot="programming-language-python"  
@@ -143,4 +147,3 @@ Get-AzResource -ResourceGroupName exampleRG
 ## Next steps
 
 [!INCLUDE [functions-quickstarts-infra-next-steps](../../includes/functions-quickstarts-infra-next-steps.md)]
-
