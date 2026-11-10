@@ -132,8 +132,7 @@ The system property names vary based on the endpoint to which the messages are b
 The message body, schema reference, and destination envelope are separate
 concepts. A route's schema reference doesn't automatically validate or transform
 its messages. An endpoint's payload format can change where a consumer finds
-the original value. See [Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md)
-for schema references, device-type context, and preview output formats.
+the original value. For schema references, device-type context, and preview output formats, see [Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md).
 
 For the device payload format, IoT Hub delivers a routed device-to-cloud message
 in three parts:

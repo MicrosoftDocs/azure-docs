@@ -32,32 +32,32 @@ must be supported by observations; tool access doesn't guarantee a root cause.
   least-privilege permissions. Review the
   [shared server controls](/azure/developer/azure-mcp-server/tools/).
 - Collect the hub resource ID, resource group, device ID, destination, and
-  investigation start/end times in UTC.
+  investigation start and end times in UTC.
 - Ensure that relevant diagnostic logs were collected before the incident.
   Enabling collection later doesn't recover earlier uncollected data.
 
-Don't disable confirmation controls or request keys, connection strings or private
-certificates for a routine investigation. A prompt saying "read only" is not a
+Don't disable confirmation controls or request keys, connection strings, or private
+certificates for a routine investigation. A prompt saying "read only" isn't a
 substitute for server configuration and Azure authorization.
 
 ## Confirm the available tools
 
 The [IoT Hub MCP reference](/azure/developer/azure-mcp-server/tools/azure-iot-hub)
 provides tool documentation. Check your installed version and tool discovery
-before using the operations below.
+before using the following operations.
 
 | Tool | Command | Returned evidence and limits |
 | --- | --- | --- |
-| Get IoT Hub | `azmcp iothub hub get` | Hub ID, name, location, resource group, subscription, SKU, capacity, state, and hostname, including configured message-routing endpoints and their target resource details. This doesn't prove delivery or application receipt. |
+| Get IoT Hub | `azmcp iothub hub get` | Hub ID, name, location, resource group, subscription, SKU, capacity, state, and hostname, including configured message-routing endpoints and their target resource details. This information doesn't prove delivery or application receipt. |
 | List IoT Hub devices | `azmcp iothub device list` | Device identity metadata without authentication secrets. `--max-count` defaults to 100 and has a maximum of 100. `truncated=true` indicates that more devices exist than this call returned. |
 | Show IoT Hub device | `azmcp iothub device show` | Identity metadata for one device, excluding authentication secrets. A registered identity doesn't prove an active connection. |
 | Get IoT Hub device statistics | `azmcp iothub device stats` | Aggregate counts of enabled, disabled, and total registered devices. Enabled devices aren't necessarily connected. |
 | Get IoT Hub device twin | `azmcp iothub device twin get` | Device twin tags and desired/reported properties. These aren't proof of current connectivity or telemetry delivery. |
 | Run IoT Hub query | `azmcp iothub query run` | Results from a raw IoT Hub SQL query or structured filters compiled into a query. The tool pages internally to return the full matching set, or a partial set with an error if the `--max-count` cap is reached. |
 | Get IoT Hub routing endpoint health | `azmcp iothub routing endpoint-health` | The current IoT Hub-reported health snapshot for one or all custom endpoints: status, last known error, and last send/success timestamps. It doesn't query metrics, apply a time window, or infer health. |
-| Get IoT Hub routing endpoint diagnostics | `azmcp iothub routing endpoint-diagnostics` | Time-windowed IoT Hub delivery and latency metrics, current target-resource existence, and native Azure Monitor destination metrics for Event Hubs, Service Bus, Blob Storage, or Cosmos DB. Evidence is reported as returned by the services. |
+| Get IoT Hub routing endpoint diagnostics | `azmcp iothub routing endpoint-diagnostics` | Time-windowed IoT Hub delivery and latency metrics, current target-resource existence, and native Azure Monitor destination metrics for Event Hubs, Service Bus, Blob Storage, or Cosmos DB. Reports the evidence returned by the services. |
 
-Device list has a default and maximum count of 100. Check `truncated` before
+The device list has a default and maximum count of 100. Check `truncated` before
 interpreting the returned list. Absence from a truncated result isn't proof that
 a device doesn't exist.
 
@@ -88,7 +88,7 @@ retrieve credentials. Report any missing permissions or unavailable tools.
 ```
 
 Check the returned resource ID and hostname before continuing. A similarly named
-hub in another subscription is not evidence about the affected workload.
+hub in another subscription isn't evidence about the affected workload.
 
 If you list devices, specify a bounded count and inspect truncation. Use
 `azmcp iothub device show` for an exact-device check when available. Use device
@@ -97,7 +97,7 @@ statistics for aggregate registry counts rather than counting a truncated list.
 ### 2. Gather ingress and routing evidence
 
 Use the [Azure Monitor tools](/azure/developer/azure-mcp-server/tools/azure-monitor)
-to discover relevant workspaces/tables and query the hub's data in the selected
+to discover relevant workspaces and tables, and query the hub's data in the selected
 window. Inspect available metric definitions and supported dimensions.
 
 ```text
@@ -108,7 +108,7 @@ for each observation. Distinguish missing data from a zero result.
 ```
 
 Use [routing and throttling guidance](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together)
-to interpret the evidence. Unsupported metrics or operations must not be used
+to interpret the evidence. Don't use unsupported metrics or operations
 to diagnose a profile that doesn't implement them.
 
 Use `azmcp iothub hub get` to inspect configured routing endpoints and their
@@ -133,22 +133,16 @@ If these tools aren't available in your installed version, follow
 
 ### 3. Inspect the destination
 
-Choose the tools appropriate to the configured endpoint:
+Choose the tools that work best for the configured endpoint:
 
 - Routing endpoint diagnostics provides native destination metrics for Event
   Hubs, Service Bus, Blob Storage, and Cosmos DB. Don't assume that this
   destination-metric coverage includes Microsoft Fabric Eventstreams.
-- [Event Hubs tools](/azure/developer/azure-mcp-server/tools/azure-event-hubs)
-  can inspect destination resources and consumer groups.
-- [Service Bus tools](/azure/developer/azure-mcp-server/tools/azure-service-bus)
-  can retrieve queue, topic and subscription runtime information.
-- For other destinations, use their supported diagnostic tools and the receiving
-  application's evidence. Don't assume that a connector for one destination
-  can inspect another.
+- [Event Hubs tools](/azure/developer/azure-mcp-server/tools/azure-event-hubs) can inspect destination resources and consumer groups.
+- [Service Bus tools](/azure/developer/azure-mcp-server/tools/azure-service-bus) can retrieve queue, topic, and subscription runtime information.
+- For other destinations, use their supported diagnostic tools and the receiving application's evidence. Don't assume that a connector for one destination can inspect another.
 
-Confirm the endpoint identity, permissions and consumer configuration. Destination
-health or message counts alone don't prove that a particular test message arrived
-or was processed.
+Confirm the endpoint identity, permissions, and consumer configuration. Destination health or message counts alone don't prove that a particular test message arrived or was processed.
 
 ### 4. Separate observations from the diagnosis
 
@@ -159,9 +153,7 @@ Ask for a summary that distinguishes:
 1. Alternative explanations and missing observations.
 1. A proposed next action and its expected verification result.
 
-MCP tools can't reconstruct missing device logs or diagnostic data that was never
-collected. A registered identity doesn't prove an active device connection, and
-a successful publish doesn't prove downstream delivery.
+MCP tools can't reconstruct missing device logs or diagnostic data that was never collected. A registered identity doesn't prove an active device connection, and a successful publish doesn't prove downstream delivery.
 
 ## Investigate a throttling issue
 
@@ -262,20 +254,20 @@ use the supported registry-specific tools for that record.
 ## Approve remediation separately
 
 Don't allow an investigation prompt to silently create diagnostic settings,
-change routes, increase capacity, rotate credentials or delete resources.
-Review the exact resource, proposed change, permissions and cost implications
+change routes, increase capacity, rotate credentials, or delete resources.
+Review the exact resource, proposed change, permissions, and cost implications
 before approving any write operation.
 
 After an approved change, generate a new, uniquely identified test message and
 verify the full path with the device and receiving application. A successful
-configuration update is not the final success criterion.
+configuration update isn't the final success criterion.
 
 ## Escalate with evidence
 
 For [Azure support](../iot/iot-support-help.md), collect the resource ID, UTC
 window, affected operation, redacted errors, relevant metrics/logs, and the MCP
 server/client versions. State which tools were unavailable or denied.
-Remove credentials, message secrets and unnecessary device/customer data from
+Remove credentials, message secrets, and unnecessary device or customer data from
 diagnostic attachments.
 
 ## Related content

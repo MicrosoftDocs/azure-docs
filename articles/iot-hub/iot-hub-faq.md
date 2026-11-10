@@ -100,7 +100,7 @@ DPS is required for the initial provisioning and managed certificate issuance fl
 
 ### How do MQTT v5 devices obtain and renew operational certificates?
 
-Configure an ADR issuing certificate authority and policy, and reference them in the DPS enrollment. The device authenticates to DPS with a SAS or X.509 onboarding credential and submits a certificate signing request (CSR) to obtain an operational X.509 certificate. For renewal, it uses its valid onboarding credential and submits a fresh CSR through DPS. Certificate management directly through the MQTT v5 hub isn't supported; DPS issuance and renewal remain supported.
+Set up an ADR issuing certificate authority and policy, and reference them in the DPS enrollment. The device authenticates to DPS by using a SAS or X.509 onboarding credential and sends a certificate signing request (CSR) to get an operational X.509 certificate. For renewal, the device uses its valid onboarding credential and sends a new CSR through DPS. The MQTT v5 hub doesn't support direct certificate management. DPS issuance and renewal are still supported.
 
 A device with a suitable existing X.509 certificate can also provision without requesting a new certificate and use that certificate for hub authentication. See [DPS onboarding and certificates](mqtt-v5-tls-requirements.md#device-provisioning-service-dps-onboarding-and-certificates).
 
@@ -110,7 +110,7 @@ A device with a suitable existing X.509 certificate can also provision without r
 
 ### Can I enable the MQTT v5 connection profile on an existing Standard hub?
 
-No. In this preview, select the MQTT v5 connection profile when creating a new hub. An existing classic-profile hub can't be converted in place. See [Set up an MQTT v5 hub](mqtt-v5-cloud-setup.md).
+No. In this preview, select the MQTT v5 connection profile when creating a new hub. You can't convert an existing classic-profile hub in place. See [Set up an MQTT v5 hub](mqtt-v5-cloud-setup.md).
 
 <a id="what-is-the-mqtt-v5-connection-profile"></a>
 
@@ -154,7 +154,7 @@ Devices can publish to customer-defined topics that match the configured topic t
 
 ### Can my backend continue reading telemetry from the built-in endpoint?
 
-Not for telemetry sent to an MQTT v5 hub. This profile doesn't provide the built-in `messages/events` destination, and fallback routing is disabled. Configure a supported destination and an explicit, enabled all-messages route with condition `true`, then configure your backend to consume from that destination. You can add selective routes for specific messages. The all-messages route is a normal route, not a fallback route. See [Route messages to destinations](mqtt-v5-route-messages.md).
+Not for telemetry sent to an MQTT v5 hub. This profile doesn't provide the built-in `messages/events` destination, and it disables fallback routing. Configure a supported destination and an explicit, enabled all-messages route with condition `true`, then configure your backend to consume from that destination. You can add selective routes for specific messages. The all-messages route is a normal route, not a fallback route. See [Route messages to destinations](mqtt-v5-route-messages.md).
 
 ## Scale, telemetry, and troubleshooting
 

@@ -65,7 +65,7 @@ The endpoint's **Message format** maps to `messagePayloadFormat` in ARM and
 
 | Selection | API value | Payload behavior |
 | --- | --- | --- |
-| Device format | `None` | Preserves the original device payload; destination-specific encoding, envelopes and batching still apply. |
+| Device format | `None` | Preserves the original device payload; destination-specific encoding, envelopes, and batching still apply. |
 | Standardized | `DOObservationV1` | Wraps the original JSON value in the Digital Operations observation v1 format, identified by `com.do.telemetry.observation.v1`. |
 
 For the standardized format, publish a valid UTF-8 body containing one JSON value.
@@ -114,7 +114,7 @@ The identifier `com.do.telemetry.observation.v1` describes that structure,
 while the route schema reference describes the original temperature payload.
 
 Fabric uses a CloudEvents representation for routed messages. The CloudEvents
-context identifies the event, its source, and its subject; the selected message
+context identifies the event, its source, and its subject. The selected message
 format determines how its data is represented. Preserve both the payload and
 its associated metadata when defining Eventstream transformations and
 downstream tables.

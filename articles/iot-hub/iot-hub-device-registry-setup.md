@@ -65,14 +65,14 @@ the required system-assigned managed identities and role assignments.
 
 ## Enable ADR on an existing Standard hub
 
-1. In the Azure portal, open **Azure Device Registry > Get started** and select
+1. In the Azure portal, open **Azure Device Registry** > **Get started** and select
    **Start setup**. To use an existing namespace, open its **Get started** tab.
 1. On **ADR namespace**, choose the namespace and confirm its subscription,
-   resource group, and region. Select the region containing the existing
-   resources. When starting from an existing namespace, these values are fixed.
+   resource group, and region. Select the region that contains the existing
+   resources. When you start from an existing namespace, these values are fixed.
 1. On **Connectivity**, select **Use existing resources**. Choose **Existing DPS
    linked to IoT Hub instances** or **Existing IoT Hub instances**, as appropriate.
-   Under **Choose a linked setup**, select the intended resources.
+   Under **Choose a linked setup**, select the resources you want.
 1. On **Capabilities**, choose whether to enable certificate management. Review
    [Configure optional certificate management](#configure-optional-certificate-management)
    before continuing.
@@ -100,7 +100,7 @@ IoT Hub tree still contain earlier preview/pricing guidance and need alignment. 
 
 ## Create a new ADR-enabled hub
 
-For a new Standard hub using the classic connection profile:
+For a new Standard hub that uses the classic connection profile, follow these steps:
 
 1. In the Azure portal, open **Azure Device Registry > Get started** and select
    **Start setup**, or start from an existing namespace's **Get started** tab.
@@ -126,7 +126,7 @@ profile's resource, routing, and certificate requirements.
 
 ## Configure optional certificate management
 
-Choose the certificate-management option on **Capabilities** before submitting
+Choose the certificate management option on **Capabilities** before submitting
 either guided setup path. The current guided setup enables **Certificate
 management** by default, so review the selection even when you're only planning
 to link resources.
@@ -160,8 +160,8 @@ directly through the hub. Follow the profile's
 [DPS certificate issuance and renewal guidance](mqtt-v5-tls-requirements.md#operational-certificate-management);
 those flows are unchanged.
 
-<!-- REVIEW BLOCKER: Verify the GA certificate-management default and selection
-controls, resources/policy created by guided setup, and the ADR-only setup path. -->
+<!-- REVIEW BLOCKER: Verify the GA certificate management default and selection
+controls, resources and policy created by guided setup, and the ADR-only setup path. -->
 
 ## Verify the result
 
