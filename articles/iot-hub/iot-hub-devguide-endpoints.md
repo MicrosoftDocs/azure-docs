@@ -1,8 +1,8 @@
 ---
 title: Understand Azure IoT Hub endpoints
 description: This article provides information about IoT Hub device-facing and service-facing endpoints.
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/26/2026
@@ -22,7 +22,7 @@ You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's *
 
 `{your iot hub name}.azure-devices.net`
 
-## TLS 1.3-enabled endpoints (preview)
+## TLS 1.3-enabled endpoints
 
 Azure IoT Hub provides additional endpoints to support TLS 1.3 with enhanced security requirements. These endpoints are available alongside the existing endpoint to allow gradual and non-disruptive adoption.
 
@@ -32,11 +32,11 @@ The new endpoints are additive, not a replacement, and enable customers to adopt
 
 ### Endpoint types
 
-| Endpoint type     | Hostname                              | Protocol support                |
-|------------------|----------------------------------------|--------------------------------|
-| Classic          | `<hub>.azure-devices.net`              | TLS 1.2 (existing behavior)    |
-| Device endpoint (preview)  | `<hub>.device.azure-devices.net`       | TLS 1.2 (restricted) + TLS 1.3 |
-| Service endpoint (preview) | `<hub>.service.azure-devices.net`      | TLS 1.2 (restricted) + TLS 1.3 |
+| Endpoint type | Hostname | Protocol support |
+| --- | --- | --- |
+| Classic | `<hub>.azure-devices.net` | TLS 1.2 (existing behavior) |
+| Device endpoint | `<hub>.device.azure-devices.net` | TLS 1.2 (restricted) + TLS 1.3 |
+| Service endpoint | `<hub>.service.azure-devices.net` | TLS 1.2 (restricted) + TLS 1.3 |
 
 ### Key considerations
 

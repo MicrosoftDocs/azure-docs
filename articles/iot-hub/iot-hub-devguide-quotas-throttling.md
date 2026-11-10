@@ -2,8 +2,8 @@
 title: Understand Azure IoT Hub quotas and throttling
 titleSuffix: Azure IoT Hub
 description: This article provides a description of the quotas that apply to IoT Hub and the expected throttling behavior.
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/21/2025
@@ -112,7 +112,7 @@ Don't treat one million identities as a universal maximum for every Standard
 hub configuration. Before provisioning a larger fleet, verify the identity
 capacity available to your hub and any required capacity approval.
 
-If you need to grow beyond five million, contact Azure support for a capacity
+If you need to grow beyond one million, contact Azure support for a capacity
 assessment before relying on that capacity. A support request isn't automatic
 approval or a guarantee of capacity in a particular region. Adding hub units
 doesn't establish an unlimited device-identity entitlement.

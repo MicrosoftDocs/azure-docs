@@ -1,11 +1,11 @@
 ---
 title: Monitoring data reference for Azure IoT Hub
 description: This article contains important reference material you need when you monitor the Azure IoT Hub service.
-ms.date: 07/30/2024
+ms.date: 11/10/2026
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 ---
 
@@ -26,9 +26,54 @@ The following table lists the metrics available for the Microsoft.Devices/IoTHub
 
 ### Investigate routing and throttling together
 
+Use **Number of throttled requests** (`throttledRequests`) with its
+**Throttle Type** (`ThrottleType`) dimension to identify which operations are
+being throttled. Filter or split this metric by throttle type, then correlate
+the results with routing and destination evidence over the same UTC window.
+The dimension identifies the operation category, not a routing destination or
+an error code.
+
+The metric and its **Throttle Type** dimension are available for both
+classic-profile IoT hubs and hubs using the MQTT v5 connection profile.
+
+| Metric property | Value |
+| --- | --- |
+| API name | `throttledRequests` |
+| Display name | Number of throttled requests |
+| Unit | Count |
+| Default aggregation | Total |
+| Supported aggregations | Average, Minimum, Maximum, Total |
+| Dimension API name | `ThrottleType` |
+| Dimension display name | Throttle Type |
+
+Use **Total** to investigate the number of throttled requests during the selected
+window. The metric includes supported request-throttling failures, not only
+telemetry ingress throttling. Successfully delayed requests aren't counted
+merely because they waited for capacity.
+
+The reported operation categories include:
+
+| `ThrottleType` value | Operation category |
+| --- | --- |
+| `DeviceEvent` | Device-to-cloud telemetry sends |
+| `C2DSend`, `C2DReceive` | Cloud-to-device message sends and receives |
+| `Crud` | Device identity registry operations |
+| `AmqpLinkOpen`, `MqttConnect` | AMQP link opens and MQTT connection attempts |
+| `JobCrud` | Job management operations |
+| `FileUpload`, `FileUploadCompletion` | File upload requests and completion notifications |
+| `TwinGet`, `TwinWrite` | Twin reads and writes |
+| `TwinDeviceMethod` | Direct method invocations |
+| `Query` | Queries |
+| `DeviceStreams` | Device stream requests |
+| `CredentialManagement` | Credential management operations |
+
+Each hub reports throttle types for the operations supported by its connection
+profile.
+
 Use the metric's API name, unit, supported aggregation and dimensions rather
 than inferring behavior from its display name. The following signals already
-appear in this reference and answer different questions:
+appear in this reference and provide complementary evidence; they aren't a list
+of new metrics for this release:
 
 | Metric API name | Unit | Investigation |
 | --- | --- | --- |
@@ -36,10 +81,6 @@ appear in this reference and answer different questions:
 | `RoutingDeliveries` | Count | What delivery outcomes are reported for the selected destination and routing source? |
 | `RoutingDataSizeInBytesDelivered` | Bytes | How much routed data is delivered? Don't equate routed bytes with a count of unique device messages. |
 | `RoutingDeliveryLatency` | Milliseconds | Is delivery latency increasing for the relevant endpoint or source? Don't sum latency samples. |
-
-<!-- REVIEW BLOCKER: Reconcile this table with the approved new routing/throttling
-metric inventory, including any additional names, release status, exact dimensions
-and aggregations. Existing catalog entries are not proof of MQTT v5 applicability. -->
 
 Discover the definitions for the actual hub before configuring a query or alert:
 

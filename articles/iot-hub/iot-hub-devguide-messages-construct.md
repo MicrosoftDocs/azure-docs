@@ -2,12 +2,12 @@
 title: Understand message format
 titleSuffix: Azure IoT Hub
 description: This article describes the format and expected content of IoT Hub messages for cloud-to-device and device-to-cloud messages.
-author: sethmanheim
+author: Usha-Rathnavel
 
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/06/2026
-ms.author: sethm
+ms.author: usrathna
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 

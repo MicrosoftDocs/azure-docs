@@ -1,13 +1,13 @@
 ---
 title: What's New in Azure IoT Hub?
 titleSuffix: Azure IoT Hub
-description: This article explains the new features and improvements in Azure IoT Hub.
-author: sethmanheim
-ms.author: sethm
+description: Explore Azure IoT Hub updates for device management, MQTT v5 messaging, telemetry integration, and troubleshooting.
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 11/07/2026
+ms.date: 11/10/2026
 ms.custom: references_regions
 ai-usage: ai-assisted
 
@@ -17,104 +17,109 @@ ai-usage: ai-assisted
 
 # What's new in Azure IoT Hub?
 
-Azure IoT Hub updates help you manage existing fleets, deliver contextualized
-telemetry to downstream applications, and investigate operational problems.
-Availability is specific to each feature; a generally available feature doesn't
-make every connection profile or related preview feature generally available.
+Explore the latest Azure IoT Hub capabilities for managing device fleets,
+connecting telemetry to analytics and agents, and troubleshooting your solution.
+The following sections highlight generally available features, preview
+capabilities, and new operational guidance.
 
 ## Generally available capabilities
 
 ### Link new or existing Standard hubs to Azure Device Registry
 
-Azure Device Registry (ADR) linking is generally available for Standard IoT hubs.
-You can enable ADR integration on an eligible existing Standard hub rather than
-recreating the hub. ADR namespaces provide a common management foundation for
-connected services and devices.
-
-Linking an existing hub to ADR doesn't convert it to the MQTT v5 connection
-profile. Review eligibility, permissions and the permanent-link warning before
-starting. See [Enable ADR integration](iot-hub-device-registry-setup.md).
+Azure Device Registry (ADR) linking is now generally available for Standard IoT
+hubs. You can link a new Standard hub to an ADR namespace during setup or
+connect an eligible existing Standard hub without recreating it. ADR provides
+a common management foundation for devices across linked services.
+Group devices from multiple hubs in a shared namespace and manage their Azure
+Resource Manager representations using Azure role-based access control.
+Learn how to [enable ADR integration](iot-hub-device-registry-setup.md).
 
 ### Manage operational X.509 certificates
 
-Certificate management through IoT Hub is generally available for Standard hubs,
-except hubs with the MQTT v5 connection profile. It manages operational
-certificates used for hub connections, not the onboarding credential used to
-authenticate to Device Provisioning Service (DPS).
-
-Devices using the MQTT v5 connection profile can still obtain and renew
-ADR-issued operational certificates through DPS. Management directly through
-the MQTT v5 hub isn't supported. Existing MQTT v5 DPS flows are unchanged.
-
-See [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md).
+Certificate management through IoT Hub is now generally available for Standard
+hubs, except hubs using the MQTT v5 connection profile. Use Azure Device Registry
+to issue and manage operational X.509 certificates for device connections.
+Capabilities include certificate issuance, renewal, and revocation, with
+certificate policies to control validity periods and managed certificate
+authorities to establish trust.
+Learn about [certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md).
 
 ### Route telemetry to Microsoft Fabric eventstreams
 
-The Microsoft Fabric Real-Time Intelligence Eventstream routing endpoint is
-generally available. Route IoT Hub messages into an eventstream for downstream
-processing and analytics, using Microsoft Entra ID authentication.
-
-The endpoint's availability is separate from preview message-schema and
-payload-format capabilities. See
-[Microsoft Fabric Eventstreams as a routing endpoint](iot-hub-devguide-endpoints.md#microsoft-fabric-eventstreams-as-a-routing-endpoint).
+The Microsoft Fabric Real-Time Intelligence eventstream routing endpoint is now
+generally available. Route device telemetry directly into a Fabric eventstream
+to connect your IoT solution with real-time processing and analytics.
+The endpoint supports managed-identity authentication through Microsoft Entra ID
+and delivers telemetry with device identity and event context in a CloudEvents
+representation.
+Learn how to [route telemetry to Microsoft Fabric](iot-hub-devguide-endpoints.md#microsoft-fabric-eventstreams-as-a-routing-endpoint).
 
 ### Use TLS 1.3
 
-TLS 1.3 support is generally available. TLS support and device application
-protocol support are different: adding TLS 1.3 doesn't enable MQTT v5 on a
-classic-profile hub or change its authentication requirements.
-
-TLS 1.2 remains supported. Review client compatibility and endpoint requirements
-in [TLS support](iot-hub-tls-support.md).
+TLS 1.3 support is now generally available, giving compatible clients a newer
+transport security option for connecting to IoT Hub. TLS 1.2 remains supported.
+Compatible clients can negotiate TLS 1.3 to encrypt data in transit and
+authenticate the IoT Hub server during connection establishment.
+Learn about [TLS support and client requirements](iot-hub-tls-support.md).
 
 ## Preview capabilities
 
 ### Azure IoT Hub with the MQTT v5 connection profile
 
-Create a new hub with the MQTT v5 connection profile to evaluate MQTT v5 device
-messaging and customer-defined publish topics. This profile has its own supported
-SDKs, authentication requirements, routing behavior and capability boundaries.
-
+The MQTT v5 connection profile is available in preview. Create a new hub to
+evaluate MQTT v5 device messaging and customer-defined publish topics for your
+IoT applications.
+Supported capabilities include device twins, direct methods, and telemetry
+routing based on custom topics and MQTT v5 user properties. Build device
+applications with the unified Azure IoT SDKs for .NET and C.
 See the [MQTT v5 overview](mqtt-v5-overview.md) and
 [supported capabilities](mqtt-v5-capabilities.md).
 
 ### Message schema and message payload formats
 
-Associate telemetry with schema context and select the message payload format
-used by a routing endpoint. These preview capabilities help downstream consumers
-interpret telemetry consistently.
-
-A schema reference, a device type reference, and an endpoint's output format
-serve different purposes. A schema reference doesn't automatically validate,
-transform, or make arbitrary data ready for an agent.
-
+Message schema and message payload formats are available in preview. Associate
+telemetry with a schema reference and choose the payload format used by a routing
+endpoint to help downstream applications interpret device data consistently.
+These capabilities provide context and structure for analytics and agent
+workflows.
+Schema references describe the original payload contract. Endpoint format
+options let you preserve the device payload or wrap it in a standardized
+observation format.
 See [Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md).
 
-## Operational guidance
+## Plan and troubleshoot your deployment
 
-- [Plan increased device-identity capacity](iot-hub-devguide-quotas-throttling.md#plan-device-identity-capacity-and-request-an-increase),
-  including support requests for fleets above five million.
-- [Interpret routing and throttling metrics](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together).
-- [Troubleshoot with Azure MCP Server](iot-hub-troubleshoot-mcp.md), using the
-  tools available in your installed version and permissions.
+Updated guidance helps you scale your fleet and investigate issues across your
+IoT solution:
+
+- **Plan larger fleets.** Review device-identity capacity and deployment
+  requirements for fleets of up to five million devices in
+  [capacity planning guidance](iot-hub-devguide-quotas-throttling.md#plan-device-identity-capacity-and-request-an-increase).
+- **Monitor message delivery.** Use
+  [routing and throttling metrics](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together)
+  to investigate ingress throttling, delivery outcomes, and latency.
+- **Investigate with Azure MCP Server.** Combine IoT Hub, monitoring, and
+  destination tools to gather evidence for
+  [end-to-end troubleshooting](iot-hub-troubleshoot-mcp.md).
 
 ## Supported regions
 
-Check the current region and resource eligibility requirements for each feature.
-For ADR linking, use the requirements in
-[Get started with Azure Device Registry](../iot/device-registry/get-started-azure-device-registry.md#prerequisites).
-Don't apply an ADR or MQTT v5 region list to every IoT Hub capability.
+Regional availability varies by feature. Confirm support for the capabilities
+you plan to use in your selected region before deploying.
 
-## Get started with ADR and certificate management
+<!-- REVIEW BLOCKER: Add approved feature-specific region availability or an
+authoritative reference before publication. The canonical ADR prerequisites
+currently link back to this section; linking there would create a circular
+reference. Keep this heading for existing incoming links. -->
 
-Choose a new or existing eligible Standard hub, review the linking prerequisites,
-and follow [Enable ADR integration](iot-hub-device-registry-setup.md).
-Certificate management is optional and requires its own DPS and certificate
-configuration; linking a hub doesn't automatically replace device credentials.
+## Get started
+
+To start using ADR with a new or existing Standard hub, follow
+[Enable ADR integration](iot-hub-device-registry-setup.md). To evaluate MQTT v5,
+start with the [MQTT v5 getting-started guide](mqtt-v5-get-started.md).
 
 Review [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
-and the pricing of ADR, DPS and your routing destinations. Don't assume that an
-earlier preview pricing offer applies to a generally available capability.
+along with pricing for the other Azure services used by your solution.
 
 ## Related content
 
