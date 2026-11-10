@@ -4,7 +4,7 @@ description: Discussion of how Apache Ambari is used in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: concept-article
 author: yeturis
-ms.author: sairamyeturi1
+ms.author: sairamyeturi
 ms.date: 06/15/2024
 ---
 
