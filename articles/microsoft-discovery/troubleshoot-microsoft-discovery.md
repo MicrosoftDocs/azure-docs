@@ -297,7 +297,7 @@ For a network configuration that uses a public IP address, the supercomputer dep
 
 ## Knowledge base creation fails validation
 
-A `400` response from the classic knowledge-base version endpoint can identify an invalid version or name. A browser chunked-encoding error alone doesn't identify the validation failure; inspect the response and operation logs. Also confirm that the bookshelf has finished provisioning.
+A `400` response from the classic knowledge-base version endpoint can identify an invalid version or name. A browser chunked-encoding error alone doesn't identify the validation failure; inspect the response and operation logs. Also confirm that the bookshelf's `provisioningState` is `Succeeded`.
 
 ### Solution: Use a valid name and version, and wait for provisioning
 
