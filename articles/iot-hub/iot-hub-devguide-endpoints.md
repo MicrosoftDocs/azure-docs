@@ -98,7 +98,7 @@ IoT Hub supports the following Azure services as custom endpoints:
 * Service Bus queues
 * Service Bus topics
 * Cosmos DB
-* Microsoft Fabric Eventstreams (preview)
+* Microsoft Fabric Eventstreams
    
 For the limits on endpoints per hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
@@ -165,18 +165,13 @@ You can configure the synthetic partition key value by specifying a template in 
 > [!CAUTION]
 > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
-### Microsoft Fabric event streams as a routing endpoint
+### Microsoft Fabric eventstreams as a routing endpoint
 
 You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabric/real-time-intelligence/event-streams/overview) by creating a new Fabric evenstream endpoint for your IoT Hub. This integration brings IoT Hub telemetry directly into Fabric Real-Time Intelligence for downstream processing and analytics.
 
-To route messages to a Fabric eventstream, create a route in IoT Hub and add a Fabric eventstream endpoint. Select the Fabric workspace and eventstream that you want to route data to.
+To route messages to a Fabric eventstream, create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source.
 
-When you create a Fabric eventstream endpoint, a [new custom endpoint source tile](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/add-source-custom-app?pivots=basic-features) is created in the selected eventstream for IoT Hub to route messages to.
-
-> [!NOTE] 
-> A Fabric eventstream supports up to 11 combined qualifying sources and destinations. This limit includes custom endpoint sources. If creating the endpoint would exceed this limit, endpoint creation is blocked until you select a different Fabric eventstream.
-
-To ensure that your IoT hub can send messages to your Fabric eventstream, verify that Microsoft Entra ID authentication is configured correctly for your Fabric workspace. For more information, see [Connect to Eventstream using Microsoft Entra ID authentication](/fabric/real-time-intelligence/event-streams/custom-endpoint-entra-id-auth).
+In your Microsoft Fabric workspace, select the custom endpoint source tile you want to connect to on your published Eventstream. If a custom endpoint source tile doesn't exist on your Eventstream, [create a new custom endpoint source tile](/fabric/real-time-intelligence/event-streams/add-source-custom-app?pivots=basic-features). Once the source tile is selected, go to the **Details** pane. Select **Event Hub** as the **Protocol**. Select **Entra ID Authentication** and access the connection details. To ensure Entra ID Authentication is set up correctly for your Fabric workspace, see [Connect to Eventstream using Microsoft Entra ID authentication](/fabric/real-time-intelligence/event-streams/custom-endpoint-entra-id-auth).
 
 #### Authentication
 
@@ -184,9 +179,18 @@ The Fabric Eventstream endpoint supports Microsoft Entra ID authentication only.
 
 #### Message schema
 
-Messages routed to a Fabric Eventstream endpoint conform to the [CloudEvents](https://cloudevents.io/) schema, which differs from the schema used by other routing endpoints such as Event Hubs. Device identity and event metadata are preserved in the CloudEvents envelope. For IoT hubs that use Azure Device Registry (ADR), the event payload includes ADR identifiers. For a comparison with the default routed-message schema, see [message schema at routing endpoints](iot-hub-devguide-messages-construct.md#message-schema-at-routing-endpoints).
+Messages routed to a Fabric Eventstream endpoint are delivered using [CloudEvents](https://cloudevents.io/) 1.0 binary content mode over AMQP, which differs from the schema used by other routing endpoints such as Event Hubs. Device identity and event metadata are preserved in the CloudEvents envelope. For IoT hubs that use Azure Device Registry (ADR), the event payload includes ADR identifiers. For a comparison with the default routed-message schema, see [message schema at routing endpoints](iot-hub-devguide-messages-construct.md#message-schema-at-routing-endpoints).
 
-<!-- TODO (WI 599257): Add the full CloudEvents schema, field mappings, and configuration guidance. Pending cleaned-up schema and field-mapping details from the feature team, plus confirmation of any additional Fabric-side configuration. -->
+Following this change, user metadata fields are still present in the message, but will not surface unless an [SQL transform](/fabric/real-time-intelligence/event-streams/process-events-using-sql-code-editor#add-a-sql-operator-to-an-eventstream) is added before data is delivered to the destination in the Fabric Eventstream.
+```sql
+SELECT ,
+GETMETADATAPROPERTYVALUE(
+[<Add name of stream input>],
+'[User]'
+) AS UserProperties
+INTO [<Add name of stream output>]
+FROM [<Add name of stream input>];
+```
 
 #### Enrichment property restrictions
 
