@@ -74,7 +74,7 @@ az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --nam
 
 ### Supercomputer (virtual network injected)
 
-Create the supercomputer first so it can be referenced by the workspace. The compute cluster uses your virtual network subnets. The following request doesn't enable a private supercomputer management plane. If you require one, configure `UserDefinedRouting`, a separate delegated management subnet, the creation-time `discovery.enableprivatecluster=true` tag, and the required Private Link service subnet policies before creation. See [Private supercomputer](how-to-configure-supercomputer-network-security.md#private-supercomputer). These settings are separate from workspace and bookshelf client API privacy.
+Create the supercomputer first so you can reference it in the workspace. The compute cluster uses your virtual network subnets. The following request doesn't enable a private supercomputer management plane. If you need one, configure `UserDefinedRouting`, a separate delegated management subnet, the creation-time `discovery.enableprivatecluster=true` tag, and the required Private Link service subnet policies before creation. See [Private supercomputer](how-to-configure-supercomputer-network-security.md#private-supercomputer). These settings are separate from workspace and bookshelf client API privacy.
 
 > [!NOTE]
 > Setting `properties.managementSubnetId` on the Supercomputer to a subnet delegated to `Microsoft.ContainerService/managedClusters` (for example, `sc-mgmt` in the preceding section) enables **AKS API-Server VNet Integration**: kubelet on the nodes reaches the API server over a private ILB in that subnet, so the node-to-control-plane data path stays inside the virtual network. For more information, see [Management subnet ID requirements](how-to-configure-network-security.md#management-subnet-id-requirements).
@@ -152,7 +152,7 @@ az rest --method PUT \
 
 Create private endpoints for workspace, bookshelf, and blob storage data-plane access, then configure private DNS zones. For detailed steps including CLI, PowerShell, and portal instructions, see [Create private endpoints for data-plane access](how-to-configure-network-security.md#create-private-endpoints-for-data-plane-access).
 
-After verifying the workspace and bookshelf private paths, [disable public network access](how-to-configure-network-security.md#disable-public-network-access-optional) on both resources. Creating a private endpoint alone doesn't block their public APIs.
+After you verify the workspace and bookshelf private paths, [disable public network access](how-to-configure-network-security.md#disable-public-network-access-optional) on both resources. Creating a private endpoint alone doesn't block their public APIs.
 
 ## Step 4: Add network-hardened customer blob storage
 
@@ -229,7 +229,7 @@ After deploying all resources and creating private endpoints, verify that DNS re
 
 ## How traffic flows end to end
 
-The following table describes the configured private data paths. Outbound platform and tool dependencies must still be permitted separately.
+The following table describes the configured private data paths. Permit outbound platform and tool dependencies separately.
 
 | Traffic path | Source | Network mechanism | Public internet? |
 |-------------|--------|-------------------|-----------------|
@@ -247,7 +247,7 @@ The following table describes the configured private data paths. Outbound platfo
 
 For the configured private paths, workloads resolve the target FQDN through private DNS to a private IP address and connect through the corresponding private endpoint. Verify DNS and routing from each workload network; a client private endpoint doesn't by itself configure backend connectivity or outbound dependencies.
 
-For customer storage, assign the UAMI the required storage RBAC role. The workspace, bookshelf, and supercomputer can use the same UAMI when it's configured for each resource. Managed identity authentication avoids storage keys, but doesn't grant network connectivity: each workload must also be able to resolve and reach the storage private endpoint.
+For customer storage, assign the UAMI the required storage RBAC role. The workspace, bookshelf, and supercomputer can use the same UAMI when you configure it for each resource. Managed identity authentication avoids storage keys but doesn't grant network connectivity: each workload must also be able to resolve and reach the storage private endpoint.
 
 ## Security summary
 

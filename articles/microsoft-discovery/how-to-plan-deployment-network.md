@@ -79,7 +79,7 @@ Record both workspace fields; they control different access paths.
 
 The tool defaults are `publicNetworkAccess=Enabled` and `networkIsolation=true`; review them explicitly rather than accepting them as an organizational recommendation.
 
-These are onboarding defaults, not a universal ARM default for public network access. Backend network hardening doesn't make the client APIs private. For private workspace API access, plan an approved client private endpoint, DNS resolution and routing from the runner and clients, and `publicNetworkAccess=Disabled`. Workbench `networkIsolation` is independent of that API control.
+These defaults apply to the onboarding tool. The ARM contract doesn't declare a universal default for public network access. Backend network hardening doesn't make the client APIs private. For private workspace API access, plan an approved client private endpoint, DNS resolution and routing from the runner and clients, and `publicNetworkAccess=Disabled`. Workbench `networkIsolation` is independent of that API control.
 
 If you also require a private supercomputer management plane, plan it before creation. It requires `UserDefinedRouting`, a separate delegated management subnet, the creation-time `discovery.enableprivatecluster=true` tag, and the Private Link service subnet-policy configuration described in [Private supercomputer](how-to-configure-supercomputer-network-security.md#private-supercomputer). Client API private endpoints don't enable it.
 

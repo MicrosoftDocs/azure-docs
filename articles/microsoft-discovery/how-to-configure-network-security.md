@@ -24,7 +24,7 @@ This article walks you through the prerequisites for network hardening and how t
   - Workspace services
 
 > [!IMPORTANT]
-> Delegated workspace, agent, and bookshelf search subnets must be dedicated to their respective Container Apps environments. Keep subnet ranges nonoverlapping within your VNet and plan the separate supercomputer system-node, workload-node, and management subnets. Client private endpoints must use an undelegated subnet.
+> Dedicate each delegated workspace, agent, and bookshelf search subnet to a single Container Apps environment. Keep subnet ranges nonoverlapping within your VNet and plan the separate supercomputer system-node, workload-node, and management subnets. Client private endpoints must use an undelegated subnet.
 
 ## Assign the NSP Perimeter Joiner role
 
@@ -442,7 +442,7 @@ resource sc 'Microsoft.Discovery/supercomputers@2026-06-01' = {
 
 ## Disable public network access (optional)
 
-After verifying the private path, set `publicNetworkAccess` to `Disabled` to enforce private-endpoint-only access to your workspace data-plane. Backend network hardening and creating a client private endpoint don't disable the public API.
+After verifying the private path, set `publicNetworkAccess` to `Disabled` to enforce private-endpoint-only access to your workspace data plane. Backend network hardening and creating a client private endpoint don't disable the public API.
 
 ```azurecli
 az rest --method PATCH \
