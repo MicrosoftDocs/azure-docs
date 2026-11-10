@@ -3,7 +3,7 @@ title: Set up GitHub connector (OAuth or PAT) in Azure SRE Agent
 description: Configure the GitHub connector for github.com using OAuth or PAT authentication to enable issue, PR, and workflow operations.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: dchelupati
@@ -13,7 +13,7 @@ ms.ai-usage: ai-assisted
 
 # Set up GitHub connector (OAuth or PAT) in Azure SRE Agent
 
-Use the GitHub connector to connect `github.com` to your agent for managing issues, pull requests, and workflows. Configure the connector through **Builder > Connectors** in the portal.
+Use the GitHub connector to connect `github.com` to your agent for managing issues, pull requests, and workflows. Configure the connector through **Build + setup > Extensions > Connectors** in the portal.
 
 > [!NOTE]
 > This tutorial covers the GitHub Connector for issue, PR, and workflow operations. For code context during investigations, see [Connect source code](connect-source-code.md). For GitHub Enterprise Cloud, see [Connect GitHub Enterprise Cloud](connect-github-enterprise-cloud.md).
@@ -27,7 +27,7 @@ Use the GitHub connector to connect `github.com` to your agent for managing issu
 ## Open the GitHub connector setup
 
 1. Open your agent in the portal.
-1. Go to **Builder > Connectors**.
+1. Go to **Build + setup > Extensions > Connectors**.
 1. Select **Add connector**.
 1. Select **GitHub OAuth connector**.
 

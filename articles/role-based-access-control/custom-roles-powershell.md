@@ -269,7 +269,7 @@ PS C:\> Get-AzSubscription -SubscriptionName Production3
 
 Name     : Production3
 Id       : 22222222-2222-2222-2222-222222222222
-TenantId : 99999999-9999-9999-9999-999999999999
+TenantId : aaaabbbb-0000-cccc-1111-dddd2222eeee
 State    : Enabled
 
 PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
@@ -304,7 +304,7 @@ PS C:\> Get-AzManagementGroup
 Id          : /providers/Microsoft.Management/managementGroups/marketing-group
 Type        : /providers/Microsoft.Management/managementGroups
 Name        : marketing-group
-TenantId    : 99999999-9999-9999-9999-999999999999
+TenantId    : aaaabbbb-0000-cccc-1111-dddd2222eeee
 DisplayName : Marketing group
 
 PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"

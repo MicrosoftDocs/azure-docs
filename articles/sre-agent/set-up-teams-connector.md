@@ -3,7 +3,7 @@ title: Set Up the Teams Connector in Azure SRE Agent
 description: Connect your Azure SRE Agent to a Microsoft Teams channel so it can post updates, reply to conversation threads, and read channel messages.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 07/17/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -48,7 +48,7 @@ Before you begin, make sure you have the following resources and access:
 Open the connector configuration page in the SRE Agent portal.
 
 1. Open your agent in the [Azure SRE Agent portal](https://sre.azure.com).
-1. In the left sidebar, expand **Builder**.
+1. In the left sidebar, select **Build + setup**, and then expand **Extensions**.
 1. Select **Connectors**.
 
 ## Step 2: Add a Teams connector

@@ -24,10 +24,10 @@ Existing function apps keep their selected managed Linux image until you change 
 
 | Language version | Debian Bullseye value | Newer distribution | Newer image value |
 | --- | --- | --- | --- |
-| Python 3.11 | `Python\|3.11\|2.0` | Debian Bookworm | `Python\|3.11\|3.0` |
-| Java 8 | `Java\|8\|2.0` | Ubuntu Noble | `Java\|8\|4.0` |
-| Java 11 | `Java\|11\|2.0` | Ubuntu Noble | `Java\|11\|4.0` |
-| Java 17 | `Java\|17\|2.0` | Ubuntu Noble | `Java\|17\|4.0` |
+| Python 3.11 | <code>Python&#124;3.11&#124;2.0</code> | Debian Bookworm | <code>Python&#124;3.11&#124;3.0</code> |
+| Java 8 | <code>Java&#124;8&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;8&#124;4.0</code> |
+| Java 11 | <code>Java&#124;11&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;11&#124;4.0</code> |
+| Java 17 | <code>Java&#124;17&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;17&#124;4.0</code> |
 
 For instructions to test and change the managed image, see [Update the managed Linux image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image). For apps on the Linux Consumption plan, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux).
 

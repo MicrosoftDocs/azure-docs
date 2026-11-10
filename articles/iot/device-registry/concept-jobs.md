@@ -36,12 +36,12 @@ The target group and the software update that a job references must already exis
 
 ## Supported job types
 
-This preview supports two software update job types:
+This preview supports two software update job types. A software update targets a group of registered devices. An onboarding update applies across a namespace as compatible devices check for updates before registration.
 
 | Job type | Target | Description |
 |---|---|---|
 | Software update | An Azure Device Registry group | Applies a software update to every compatible device in the target group. |
-| Onboarding update | An Azure Device Registry namespace | Applies a software update to compatible devices when they check for updates during onboarding, before they register and start operating. Such devices initially connect to the update endpoint rather than to IoT Hub. |
+| Onboarding update | An Azure Device Registry namespace | Applies a software update when a compatible device checks for updates during onboarding, before it registers and begins normal operation. Such devices initially connect to the update endpoint rather than to IoT Hub. No group selection is required.|
 
 ## Execution model
 
@@ -49,16 +49,8 @@ This preview supports two software update job types:
 - In this preview, you can start each job definition once. A continuous software update rollout can remain active after it starts and continue processing eligible devices.
 - You can end a running job. After a job ends, it doesn't apply the update to more devices.
 - Job definition states are: `Ready`, `Failed`, and `Creating`.
-- Job run states: `Scheduled`, `Running`, `Canceled`, and `Failed`.
-- Individual device states within a job are: `Succeeded`, `Failed`, and `In progress`.
-
-### Dynamic rollouts
-
-A software update job remains active and continues progressing as devices transition to the target version. The rollout automatically includes:
-
-- Devices that are offline during the initial rollout when they reconnect.
-- Devices that are added to the target group.
-- Devices that become eligible for the update.
+- Job run states: `Scheduled`, `Active`, `Canceled`, and `Failed`.
+- Individual device states within a job are: `Succeeded`, `Failed`, `Canceled`, and `In progress`.
 
 ### Retry
 
@@ -73,7 +65,7 @@ Both the Azure portal and Azure CLI support managing and monitoring jobs. Monito
 
 ## Limits
 
-- The initial limit is 50 concurrent job definitions and 50 concurrent job executions.
+- The current limit is 50 concurrent `Scheduled` and `Active` job runs.
 
 ## Related content
 

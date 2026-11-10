@@ -14,7 +14,7 @@ ms.author: anfdocs
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume I/OPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
 
 >[!IMPORTANT]
->These metrics are for the Flexible, Standard, Premium, and Ultra services levels. For Elastic zone-redundant storage, see [Metrics for Azure NetApp Files' Elastic zone-redundant storage](elastic-metrics.md).
+>These metrics are for the Flexible, Standard, Premium, and Ultra service levels. <!-- For Elastic zone-redundant storage, see [Metrics for Azure NetApp Files' Elastic zone-redundant storage](elastic-metrics.md). -->
 
 ## Definitions 
 

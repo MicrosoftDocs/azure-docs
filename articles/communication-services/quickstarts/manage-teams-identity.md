@@ -32,6 +32,7 @@ In this quickstart, you'll build a .NET console application to authenticate a Mi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Azure Communication Services resource and connection string. For more information, see [Create an Azure Communication Services resource](./create-communication-resource.md).
 - A Microsoft Entra instance with users that have a Teams license.  For more information, see [Teams License requirements](./eligible-teams-licenses.md).
+- If the Teams-licensed identity is a resource account used for a shared meeting device, Microsoft Teams Rooms licensing requirements apply. For more information, see [Microsoft Teams Rooms licenses](/microsoftteams/rooms/rooms-licensing).
 
 ## Introduction
 

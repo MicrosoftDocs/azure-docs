@@ -47,7 +47,7 @@ What gets deployed:
 - Four  [enclaves](./what-enclave.md)
 - Four  [workloads](./what-workload.md)
 - Five  [community endpoints](./what-community-endpoint.md)
-- Two  [enclave endpoint](./what-enclave-endpoint.md)
+- Two  [enclave endpoints](./what-enclave-endpoint.md)
 - 15  [enclave connections](./what-enclave-connection.md)
 - One  [transit hub](./what-transit-hub.md)
 
@@ -74,7 +74,7 @@ What gets deployed:
 - Eight  [enclaves](./what-enclave.md)
 - Eight  [workloads](./what-workload.md)
 - Five  [community endpoints](./what-community-endpoint.md)
-- 11 [enclave endpoint](./what-enclave-endpoint.md)
+- 11 [enclave endpoints](./what-enclave-endpoint.md)
 - 39 [enclave connections](./what-enclave-connection.md)
 - One  [transit hub](./what-transit-hub.md)
 

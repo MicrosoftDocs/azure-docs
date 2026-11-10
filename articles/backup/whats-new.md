@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 10/22/2026
+ms.date: 11/09/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -20,7 +20,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- November 2026
+  - [Snapshot backup for SQL instances in Azure VMs is now generally available](#snapshot-backup-for-sql-instances-in-azure-vms-is-now-generally-available)
+  - [Vaulted backup support for Azure Cosmos DB is now generally available](#vaulted-backup-support-for-azure-cosmos-db-is-now-generally-available)
 - October 2026
+  - [Selective disk restore for Azure VMs (preview)](#selective-disk-restore-for-azure-vms-preview)
+  - [Cross-tenant restore for Azure Backup (preview)](#cross-tenant-restore-for-azure-backup-preview)
+  - [Granular billing for Azure Backup is now generally available](#granular-billing-for-azure-backup-is-now-generally-available)
   - [Item-level recovery support for Premium SSD v2 and Ultra disks](#item-level-recovery-support-for-premium-ssd-v2-and-ultra-disks)
   - [Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)](#vaulted-backup-support-for-azure-postgresql-flexible-server-and-elastic-cluster-v2-preview)
 - September 2026
@@ -35,7 +41,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - June 2026
   - [Container limit for ADLS backup has been increased from 100 to 1000](/azure/backup/azure-data-lake-storage-backup-overview)
 - May 2026
-  - [Snapshot backup for SQL Instances in Azure VM (preview)](#snapshot-backup-for-sql-instances-in-azure-vm-preview)
+  - [Snapshot backup for SQL Instances in Azure VM available in preview](#snapshot-backup-for-sql-instances-in-azure-vm-preview)
   - [Vaulted backup support for Azure Cosmos DB (preview)](#vaulted-backup-support-for-azure-cosmos-db-preview)
   - [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
 - April 2026
@@ -85,9 +91,58 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+## Snapshot backup for SQL instances in Azure VMs is now generally available
+
+Azure Backup now provides snapshot-based backups for SQL Server instances in Azure VMs. Disk-based snapshots and frequent log backups help improve restore times and reduce data loss for large SQL databases.
+
+Key features include:
+
+- **Instance-level snapshots**: Back up multiple databases together and restore the entire instance or individual databases.
+- **Minimal impact on the source server**: Capture application-consistent snapshots with only a few seconds of database quiesce time.
+- **Incremental snapshots**: Optimize snapshot storage costs.
+- **Faster restores and point-in-time recovery**: Restore from snapshots and apply frequent log backups.
+
+For more information, see the [Azure backup for SQL Server on VMs overview](backup-azure-sql-database.md#snapshot-based-backup-for-sql-instances-in-azure-vms).
+
+## Vaulted backup support for Azure Cosmos DB is now generally available
+
+Azure Backup allows you to use policy-based vaulted backups to protect your Azure Cosmos DB accounts in a Backup vault.
+
+Key features include: 
+
+- Data resiliency: Store backups in isolated, off-site storage account with geo-redundant storage (GRS) and encryption.
+- Cyber resiliency: Protect backup data against ransomware and accidental deletion with [role-based access control (RBAC)](backup-rbac-rs-vault.md), [soft delete](secure-by-default.md), and [WORM immutability](backup-azure-immutable-vault-concept.md).
+- Compliance: Retain backup data for up to 10 years to meet compliance requirements.
+- Recovery: Use incremental backups with a 1-day recovery point objective (RPO), Cross Region Restore (CRR), and item-level restore (ILR).
+
+For more information, see [About Azure Cosmos DB vaulted backup](backup-azure-cosmos-db-overview.md).
+
+## Selective disk restore for Azure VMs (preview)
+
+Azure Backup now supports selective disk restore for Azure virtual machines (preview). You can choose which disks to restore from a recovery point without enabling selective disk backup. This capability lets you recover only the disks you need instead of restoring all the backed-up disks.
+
+Selective disk restore supports creating a new VM (alternate-location restore), replacing selected disks on an existing VM (original-location restore), and restoring selected disks without creating a VM. The OS disk is required when you create a new VM, but you can exclude it when replacing existing disks or restoring as disks. Use **Restore VM (Preview)** in the Azure portal to select disks and track the restore through **Backup jobs**.
+
+For more information, see [Selective disk restore](selective-disk-backup-restore.md#selective-disk-restore).
+
+## Cross-tenant restore for Azure Backup (preview)
+
+Azure Backup now supports cross-tenant restore, which you can use to restore vaulted backup data from a source tenant to a target tenant after you map the source and target vaults. Use it to recover from scenarios such as tenant lockout, ransomware attacks, tenant consolidation, and cross-tenant disaster recovery. A Resource Guard in the target tenant protects the mapping operation.
+
+Cross-tenant restore supports Recovery Services vault workloads (Azure VMs, Azure Files, SQL Server in Azure VM, SAP HANA in Azure VM, and SAP ASE in Azure VM) in all Azure public regions. It also supports Backup vault workloads (Azure Database for PostgreSQL - Flexible Server, Azure Blobs, Azure Cosmos DB, Azure Data Lake Storage, and AKS) in select regions. Cross-tenant restore supports alternate location restore only.
+
+For more information, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md).
+## Granular billing for Azure Backup is now generally available
+
+Granular billing now supports both [Recovery Services vaults](backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md). You can view backup costs at a custom granularity level to simplify chargeback and cost reporting across teams, applications, and cost centers.
+
+You can configure granular billing by using the Azure portal, Azure PowerShell, or Azure CLI.
+
+For more information, see [Configure granular billing in Azure Backup](backup-azure-granular-billing.md).
+
 ## Item-level recovery support for Premium SSD v2 and Ultra disks
 
-Azure Backup now supports item-level recovery (ILR) for Azure virtual machines using Premium SSD v2 and Ultra disks with 512-byte or 4-KB logical sector sizes. You can recover individual files and folders without restoring an entire disk or virtual machine. ILR supports Azure VMs on Windows and Linux running Ubuntu, RHEL, Debian, Oracle Linux, SLES, or openSUSE, including VMs with mixed disk types. 
+Azure Backup now supports item-level recovery (ILR) for Azure virtual machines using Premium SSD v2 and Ultra disks with 512-byte or 4-KB logical sector sizes. You can recover individual files and folders without restoring an entire disk or virtual machine. ILR supports Azure VMs on Windows and Linux running Ubuntu, RHEL, Debian, Oracle Linux, SLES, or openSUSE, including VMs with mixed disk types.
 
 You can generate a file-recovery executable or script through the Azure portal, CLI, or PowerShell, then run it on a compatible machine to access the recovery point, selectively browse, and copy individual files or folders. The generated script can be run only by an administrator in elevated mode and doesn't need any input from an external source except a password, with a 12-hour auto-disconnection and session timeout policy by default. This experience is in parity with the existing ILR workflow for Standard HDD, Standard SSD, and Premium SSD v1 disks, bringing parity across all Azure managed disk SKUs. This functionality improves the recovery time when only specific files or folders need to be restored from Premium SSD v2 or Ultra disks.
 
@@ -168,7 +223,7 @@ This feature includes:
 - **Improved Recovery Time Objective (RTO)**: Performs faster restores from snapshots retained within the user subscription. This capability also provides secure, long‑term retention in the Recovery Services vault.
 - **Low Recovery Point Objective (RPO)**: Applies frequent log backups (every 15 minutes) to snapshots during restore for point in time recovery.
 
-For more information, see [Back up SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview).
+For more information, see [Back up SQL Server instance snapshots](backup-azure-sql-database.md#snapshot-based-backup-for-sql-instances-in-azure-vms).
 
 ## Vaulted backup support for Azure Cosmos DB (preview)
 

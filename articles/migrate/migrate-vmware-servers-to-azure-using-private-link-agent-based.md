@@ -99,7 +99,7 @@ Now, select machines for replication and migration.
     > [!Note]
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
-   Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
+   Next, follow the instructions to [perform migrations](tutorial-migrate-vmware-agent.md#track-and-migrate-replicating-servers).
 
 ### Grant access permissions to the Recovery Services vault
 
@@ -149,6 +149,6 @@ After you've created the private endpoint, use the dropdown list in **Replicate*
 Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the replication appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](troubleshoot-network-connectivity.md#verify-dns-resolution)
 
 ## Next steps
-- [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
-- Complete the [migration process](tutorial-migrate-vmware.md#complete-the-migration). 
-- Review the [post-migration best practices](tutorial-migrate-vmware.md#post-migration-best-practices)
+- [Migrate VMs](tutorial-migrate-vmware-agent.md#track-and-migrate-replicating-servers)
+- Complete the [migration process](tutorial-migrate-vmware-agent.md#track-and-migrate-replicating-servers). 
+- Review the [post-migration best practices](tutorial-migrate-vmware-agent.md#post-migration-best-practices)

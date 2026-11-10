@@ -4,7 +4,7 @@ description: Learn how to build Akri connectors for Azure IoT Operations using t
 author: dominicbetts 
 ms.author: dobett 
 ms.topic: how-to
-ms.date: 12/08/2025
+ms.date: 09/10/2026
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 # CustomerIntent: As a developer, I want to understand how to use the VS Code extension to build and deploy custom Akri connectors.
@@ -24,6 +24,8 @@ The extension enables you to create connectors by using the following programmin
 
 - .NET
 - Rust
+
+To understand how a custom Akri connector works in Rust code against the connector SDK, see [Understand custom Akri connector development with Rust](concept-akri-connector-development-rust.md).
 
 ## Prerequisites
 
@@ -70,7 +72,7 @@ To deploy and use your connector with an Azure IoT Operations instance, you also
 
 # [.NET](#tab/dotnet)
 
-In this example, you create an HTTP/REST connector using the C# language, build a docker image, and then run the connector application by using the VS Code extension:
+In this example, you create an HTTP/REST connector by using C#, build a Docker image, and then run the connector application by using the VS Code extension:
 
 1. Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **C#** as the language, enter a name for the connector like `MyConnector`, and select **PollingTelemetryConnector** as the connector type.
 

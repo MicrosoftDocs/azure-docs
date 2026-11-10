@@ -1,17 +1,17 @@
 ---
-title: Secure your Azure Files
+title: Secure your Azure file shares
 description: Learn how to secure classic and Microsoft.FileShares file shares with network controls, authentication, encryption, recovery, monitoring, and governance.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-file-storage
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 10/03/2026
+ms.date: 10/22/2026
 ai-usage: ai-assisted
 # Customer intent: As an administrator using Azure Files, I want to implement file-share-specific security best practices.
 ---
 
-# Secure your Azure Files
+# Secure your Azure file shares
 
 This article provides security guidance for Azure Files, including classic file shares created with Microsoft.Storage and file shares created with Microsoft.FileShares. It covers the resources that hold your shares, client access, data protection, and operational controls.
 
@@ -25,7 +25,7 @@ Security controls depend on the resource provider and protocol. For a comparison
 ## Network security
 
 ### Inbound access and outbound filtering
-- **Limit inbound access to the clients that need it**: Both resource providers support private endpoints and service endpoints with virtual network restrictions. Access to NFS Azure file shares requires one of these paths. Classic SMB and FileREST clients can also use public endpoints with IP address rules. For configuration steps, see [Configure network endpoints for Azure file shares](storage-files-networking-endpoints.md).
+- **Limit inbound access to the clients that need it**: Both resource providers support private endpoints and service endpoints with virtual network restrictions. Access to NFS Azure file shares requires one of these paths. Classic SMB and FileREST clients can also use public endpoints with IP address rules. For classic file shares, a [standard service endpoint](storage-files-networking-overview.md#standard-service-endpoints) lets one IP address rule allow many subnets for SMB, NFS, and FileREST. For configuration steps, see [Configure network endpoints for Azure file shares](storage-files-networking-endpoints.md).
 
 - **Disable public access when it isn't needed**: Public endpoints can be used securely with network access controls, authentication, and encryption appropriate to the protocol. Keep public access enabled when your workloads require it and your security model permits it, including for connections through service endpoints. Creating a private endpoint doesn't automatically disable public access. For classic shares, review any trusted service or resource instance exceptions that can remain effective after public access is disabled. For more information, see [Restrict public endpoint access](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
@@ -33,7 +33,7 @@ Security controls depend on the resource provider and protocol. For a comparison
 
 - **Optional filtering for service endpoint traffic**: When clients use service endpoints to access classic file shares, you can optionally apply a service endpoint policy to their subnet. The policy limits which storage accounts those clients can access through service endpoints, where traffic bypasses Azure Firewall and network virtual appliances. It applies only to service endpoint traffic and doesn't filter private endpoint traffic or other outbound paths. The destination's network rules and authorization requirements still apply. Microsoft.FileShares doesn't currently support these policies. Clients in a subnet with a policy must use a private endpoint to access Microsoft.FileShares shares. For more information, see [Service endpoint policies](storage-files-networking-overview.md#restrict-outbound-access-with-service-endpoint-policies).
 
-- **Check protocol support before using a network security perimeter**: For classic shares, perimeter support differs by protocol and authentication method. In Enforced mode, a perimeter denies NFS access through the public endpoint, including service endpoint traffic. Private endpoint traffic is outside perimeter enforcement. Check the restrictions for Azure Backup and Azure File Sync before applying a perimeter. For more information, see [Network security perimeter for Azure Files](files-network-security-perimeter.md).
+- **Check protocol support before using a network security perimeter**: Network security perimeters are available only for classic file shares. For classic shares, perimeter support differs by protocol and authentication method. In Enforced mode, SMB and NFS clients in Azure virtual networks must connect through a private endpoint, or through a standard service endpoint with an inbound access rule for its IP address. The perimeter denies SMB and NFS traffic through service endpoints that don't have an assigned IP address. SMB and NFS don't support resource-to-resource access between perimeter members or subscription-based access rules. Private endpoint traffic is outside perimeter enforcement. Check the restrictions for Azure Backup and Azure File Sync before applying a perimeter. For more information, see [Network security perimeter](storage-files-networking-overview.md#network-security-perimeter).
 
 ### SMB protocol hardening
 
@@ -93,14 +93,14 @@ FileREST data access is available for classic shares. Microsoft.FileShares doesn
 
 - **Limit SAS permissions and lifetime**: When a supported tool requires a shared access signature (SAS), restrict its scope, permissions, and validity period, and require HTTPS. Protect the SAS as a credential. SAS tokens aren't used to mount shares over SMB or NFS. For more information, see [Shared access signatures](../common/storage-sas-overview.md?toc=/azure/storage/files/toc.json).
 
-- **Require HTTPS for FileREST**: HTTPS protects REST requests in transit. SMB channel encryption and NFS TLS tunneling are separate from the HTTPS requirement. For configuration steps, see [Require secure transfer](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
+- **Require HTTPS for FileREST**: HTTPS protects REST requests in transit. SMB channel encryption and NFS TLS tunneling are separate from the HTTPS requirement. For configuration steps, see [FileREST encryption in transit](files-encryption-in-transit.md#filerest).
 
 ## Data protection
 - **Understand encryption at rest**: Both resource providers encrypt file data at rest with Microsoft-managed keys by default. Encryption at rest protects stored data; it doesn't prevent authorized clients from reading or changing files.
 
 - **Use customer-managed keys when required**: Classic shares support customer-managed keys in Azure Key Vault or Managed HSM. Microsoft.FileShares doesn't currently support customer-managed keys. Protect the key store, plan key rotation, and understand that loss of key access can make the data unavailable. For more information, see [Customer-managed keys for Azure Files](customer-managed-keys.md).
 
-- **Evaluate infrastructure encryption for applicable classic deployments**: Classic storage accounts can have an additional encryption layer when required by your compliance policy. This option is selected at account creation and can't be changed afterward. For supported account types, see [Infrastructure encryption](../common/infrastructure-encryption-enable.md?toc=/azure/storage/files/toc.json).
+- **Evaluate infrastructure encryption for applicable classic deployments**: Classic storage accounts can have an additional encryption layer when required by your compliance policy. This option is selected at account creation and can't be changed afterward. For more information, see [Infrastructure encryption](files-encryption-at-rest.md#infrastructure-encryption).
 
 - **Use resource locks to protect management operations**: A **CanNotDelete** lock on the appropriate Azure resource or parent scope can prevent deletion through Azure Resource Manager. Locks don't prevent clients from modifying or deleting file data. For classic shares, they also don't prevent deletion through FileREST data-plane APIs. For lock behavior and operational effects, see [Lock Azure resources](../../azure-resource-manager/management/lock-resources.md).
 

@@ -1,6 +1,6 @@
 ---
 description: This article describes a scenario for using Azure Cloud Shell in a private virtual network.
-ms.date: 10/23/2024
+ms.date: 10/28/2026
 ms.topic: concept-article
 title: Use Cloud Shell in an Azure virtual network
 ---
@@ -31,6 +31,19 @@ Deploying Cloud Shell in a private virtual network offers these benefits:
 - Virtual network isolation requires you to use [Azure Relay][02], which is a paid service. In the
   Cloud Shell scenario, one hybrid connection is used for each administrator while they're using
   Cloud Shell. The connection is automatically closed when the Cloud Shell session ends.
+
+## Supported regions
+
+To use Cloud Shell in a virtual network, your virtual network must be in one of the following
+regions. Your Cloud Shell session runs in the same region as the virtual network.
+
+| Area | Regions |
+| --- | --- |
+| Americas | Brazil South, Canada Central, Canada East, Central US, East US, East US 2, Mexico Central, North Central US, South Central US, West Central US, West US, West US 2, West US 3 |
+| Europe | France Central, Germany West Central, North Europe, Norway East, Spain Central, Sweden Central, Switzerland North, UK South, UK West, West Europe |
+| Asia Pacific | Australia Central, Australia East, Australia Southeast, Central India, East Asia, Japan East, Japan West, Jio India West, Korea Central, Korea South, South India, Southeast Asia, West India |
+| Middle East and Africa | Qatar Central, South Africa North, UAE North |
+| Azure Government | US Gov Arizona, US Gov Texas, US Gov Virginia |
 
 ## Architecture
 

@@ -93,7 +93,7 @@ Data Lake Storage adds a hierarchical namespace and POSIX-like access control li
 ## Related security articles
 
 - [Secure your Azure Storage account](../common/secure-storage.md) - Cross-cutting Azure Storage security guidance.
-- [Secure your Azure Files](../files/secure-files.md) - File share security.
+- [Secure your Azure file shares](../files/secure-files.md) - File share security.
 - [Secure your Azure Queue Storage](../queues/secure-queues.md) - Queue-specific security.
 - [Secure your Azure Table Storage](../tables/secure-tables.md) - Table-specific security.
 

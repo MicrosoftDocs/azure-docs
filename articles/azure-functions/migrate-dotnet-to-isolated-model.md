@@ -49,8 +49,10 @@ $AppInfo
 
 When migrating to the isolated worker model, choose your target based on whether your function app and its dependencies can run on .NET (formerly .NET Core):
 
-- If your app and its dependencies can run on .NET, target .NET 10.
-- If your app depends on libraries or APIs available only in .NET Framework, target .NET Framework 4.8.
+- If your app and its dependencies can run on .NET, choose a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).
+- If your app depends on libraries or APIs available only in .NET Framework, choose a [supported .NET Framework version](dotnet-isolated-process-guide.md#supported-versions).
+
+The examples in this guide use concrete target frameworks to illustrate migration. For your selected version's project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package), and apply the remaining isolated worker migration steps in this guide.
 
 ## Prepare for migration
 
@@ -67,7 +69,7 @@ To migrate the application:
 This section outlines the various changes that you need to make to your local project to move it to the isolated worker model. Some of the steps change based on your target version of .NET. Use the tabs to select the instructions that match your desired version.
 
 > [!TIP]
-> If you're moving to .NET 10, the [.NET Upgrade Assistant] can automatically make many of the changes mentioned in the following sections.
+> The [.NET Upgrade Assistant] can help automate migration. Check the tool's supported target versions before you begin.
 
 First, convert the project file and update your dependencies. As you do, you see build errors for the project. In subsequent steps, you'll make the corresponding changes to remove these errors.
 

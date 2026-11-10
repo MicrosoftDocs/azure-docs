@@ -2,13 +2,13 @@
 title: Configure your Bicep environment
 description: Learn how to configure your environment for Bicep file deployments.
 ms.topic: article
-ms.date: 06/26/2026
+ms.date: 10/30/2026
 ms.custom: devx-track-bicep
 ---
 
 # Configure your Bicep environment
 
-Bicep supports an optional configuration file named _bicepconfig.json_. Within this file, you can add values that customize your Bicep development experience. This file is merged with the [default configuration file](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json). For more information, see [Understand the merge process](#understand-the-merge-process). To customize a configuration, create a configuration file in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing _bicepconfig.json_ files, Bicep uses the configuration from the nearest one. For more information, see [Understand the file resolution process](#understand-the-file-resolution-process).
+Bicep supports an optional configuration file named _bicepconfig.json_. Within this file, you can add values that customize your Bicep development experience. This file is merged with the [default configuration file](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json). For more information, see [Understand the merge process](#understand-the-merge-process). To customize a configuration, create a configuration file in the same directory or a parent directory of your Bicep files, or pass a configuration file path with `--config` when running Bicep CLI commands. If there are multiple parent directories containing _bicepconfig.json_ files, Bicep uses the configuration from the nearest one. For more information, see [Understand the file resolution process](#understand-the-file-resolution-process).
 
 To configure Bicep extension settings, see [Visual Studio Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
@@ -123,6 +123,48 @@ In the context of a Bicep file invoking multiple modules, each module undergoes 
 
 In the absence of a _bicepconfig.json_ file in the `A` and `B` folders, all three Bicep files are compiled using the _bicepconfig.json_ found in the `root` folder. If _bicepconfig.json_ isn't present in any of the folders, the compilation defaults to using the [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
 
+## Configure compiler version requirements
+
+Use `bicep.version` in `bicepconfig.json` to declare an exact compiler version or an allowed range. Bicep checks the running compiler against this requirement; the setting doesn't itself install or switch versions.
+
+For supported syntax, examples, CLI and editor behavior, and troubleshooting, see [Configure Bicep compiler version requirements](bicep-config-version.md).
+
+### Specify a configuration file in the Bicep CLI
+
+Starting in Bicep CLI v0.49, you can pass `--config <path>` to Bicep CLI commands to use a specific configuration file instead of automatic _bicepconfig.json_ discovery. This option is useful when you need environment-specific settings (such as separate module registries for test and production) or a central configuration in a CI/CD pipeline.
+
+`<path>` can be an absolute or relative local file path with any file name. When you specify `--config`, Bicep uses that file for every source file loaded during the command—including the entrypoint file, referenced local modules, and the `using` target of a `.bicepparam` file. Any _bicepconfig.json_ files in the directory hierarchy are ignored unless the specified configuration file inherits from them with `extends`.
+
+The following example uses _bicepconfig.prod.json_ to extend a base _bicepconfig.json_ file and override a module registry alias for a production build:
+
+```json
+{
+  "extends": "./bicepconfig.json",
+  "moduleAliases": {
+    "br": {
+      "shared": {
+        "registry": "contosoprodregistry.azurecr.io",
+        "modulePath": "bicep/modules"
+      }
+    }
+  }
+}
+```
+
+Run `bicep build` or `bicep lint` with `--config` to apply the configuration file:
+
+```bicepcli
+bicep build ./main.bicep --config ./bicepconfig.prod.json
+bicep lint ./services/api/main.bicep --config ./eng/common/bicepconfig.json
+```
+
+When using `--config`, keep these behaviors in mind:
+
+- **Supported commands**: `build`, `build-params`, `lint`, `format`, `publish`, `publish-extension`, `restore`, `generate-params`, `snapshot`, `test`, `deploy`, `what-if`, `teardown`, `local-deploy`, `console`, and `docs generate`.
+- **Missing file error**: If the file at `<path>` doesn't exist, the command fails immediately with `Could not find configuration file "<path>".` instead of falling back to directory discovery.
+- **Editor behavior**: The `--config` option applies only to Bicep CLI commands. The Bicep extension for Visual Studio Code continues to use automatic _bicepconfig.json_ discovery.
+- **Azure CLI**: `az bicep` commands such as `az bicep build` don't support `--config` yet. Use [`az bicep run`](/cli/azure/bicep#az-bicep-run) (Azure CLI 2.88.0 or later) to pass the command directly to the Bicep CLI, for example `az bicep run --command "build main.bicep --config ./bicepconfig.prod.json"`. The Bicep CLI that Azure CLI uses must be v0.49 or later. To update it, run `az bicep upgrade`.
+
 ## Configure Bicep modules
 
 When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. You can also configure cloud profile and  credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
@@ -154,4 +196,3 @@ See [Experimental Features](https://aka.ms/bicep/experimental-features) for more
 
 - Learn how to add [module settings](bicep-config-modules.md) and [linter settings](bicep-config-linter.md) in the Bicep config file.
 - Learn about the [Bicep linter](linter.md).
-

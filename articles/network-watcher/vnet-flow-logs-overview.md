@@ -2,8 +2,8 @@
 title: Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher virtual network flow logs and how to use them to record your virtual network's traffic. 
-author: halkazwini
-ms.author: halkazwini
+author: srijanch
+ms.author: srijanch
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/10/2026
@@ -91,25 +91,30 @@ Virtual network flow logs have the following properties:
   - `flows`: Collection of flows. This property has multiple entries for access control lists (ACLs):
     - `aclID`: Identifier of the resource that's evaluating traffic, either a network security group or Virtual Network Manager. For traffic that's denied because of encryption, this value is `unspecified`.
     - `flowGroups`: Collection of flow records at a rule level:
-      - `rule`: Name of the rule that allowed or denied the traffic. For traffic that's denied because of encryption, this value is `unspecified`.
-      - `flowTuples`: String that contains multiple properties for the flow tuple in a comma-separated format:
-        - `Time Stamp`: Time stamp of when the flow occurred, in UNIX epoch format.
-        - `Source IP`: Source IP address.
-        - `Destination IP`: Destination IP address.
-        - `Source port`: Source port.
-        - `Destination port`: Destination port.
-        - `Protocol`: Layer 4 protocol of the flow, expressed in IANA assigned values.
-        - `Flow direction`: Direction of the traffic flow. Valid values are `I` for inbound and `O` for outbound.
-        - `Flow state`: State of the flow. Possible states are:
-          - `B`: Begin, when a flow is created. No statistics are provided.
-          - `C`: Continuing for an ongoing flow. Statistics are provided at five-minute intervals.
-          - `E`: End, when a flow is terminated. Statistics are provided.
-          - `D`: Deny, when a flow is denied.
-        - `Flow encryption`: Encryption state of the flow. The table after this list describes the possible values.
-        - `Packets sent`: Total number of packets sent from the source to the destination since the last update.
-        - `Bytes sent`: Total number of packet bytes sent from the source to the destination since the last update. Packet bytes include the packet header and payload.
-        - `Packets received`: Total number of packets sent from the destination to the source since the last update.
-        - `Bytes received`: Total number of packet bytes sent from the destination to the source since the last update. Packet bytes include the packet header and payload.
+    - `rule`: Name of the rule that allowed or denied the traffic. For traffic that's denied because of encryption, this value is `unspecified`.
+    - `flowTuples`: String that contains multiple properties for the flow tuple in a comma-separated format:
+
+    | Field | Description | Version 2 | Version 5 |
+    | --- | --- | :---: | :---: |
+    | Time stamp | Time stamp of when the flow occurred, in UNIX epoch format. | ✅ | ✅ |
+    | Source IP | Source IP address. | ✅ | ✅ |
+    | Destination IP | Destination IP address. | ✅ | ✅ |
+    | Source port | Source port. | ✅ | ✅ |
+    | Destination port | Destination port. | ✅ | ✅ |
+    | Protocol | Layer 4 protocol of the flow, expressed in IANA assigned values. | ✅ | ✅ |
+    | Flow direction | Direction of the traffic flow. Valid values are `I` for inbound and `O` for outbound. | ✅ | ✅ |
+    | Flow state | State of the flow. Possible states are `B` (Begin), `C` (Continuing), `E` (End), and `D` (Deny). | ✅ | ✅ |
+    | Flow encryption | Encryption state of the flow. The table after this list describes the possible values. | ✅ | ✅ |
+    | Packets sent | Total number of packets sent from the source to the destination since the last update. | ✅ | ✅ |
+    | Bytes sent | Total number of packet bytes sent from the source to the destination since the last update. Packet bytes include the packet header and payload. | ✅ | ✅ |
+    | Packets received | Total number of packets sent from the destination to the source since the last update. | ✅ | ✅ |
+    | Bytes received | Total number of packet bytes sent from the destination to the source since the last update. Packet bytes include the packet header and payload. | ✅ | ✅ |
+    | PLS Link Identifier | Identifies the Private Endpoint-to-Private Link Service connection associated with the traffic flow. |  | ✅ |
+    | Source NAT IP | Source IP address assigned by PLS SNAT for the traffic flow. |  | ✅ |
+    | Source NAT Port | Source port assigned by PLS SNAT for the traffic flow. |  | ✅ |
+
+> [!NOTE]
+> Flow log version 5 must be supported in the region and subscription where you enable the feature. Currently, version 5 is supported in West Central US (WCUS), East Asia, and Canary regions. If the capability is in preview in your environment, validate the final public schema and regional availability before using it in production automation.
 
 `Flow encryption` has the following possible encryption statuses:
 
@@ -129,6 +134,13 @@ Traffic in your virtual networks is unencrypted (`NX`) by default. For encrypted
 ## Sample log record
 
 In the following example of virtual network flow logs, multiple records follow the property list described earlier.
+
+> [!NOTE]
+> Use the published version 5 field-order specification when you build parsers. Don't infer tuple positions from this abbreviated example. Treat the tuple as versioned data and branch parsing logic on flowLogVersion.
+
+---
+
+# [**Version 2**](#tab/version2)
 
 ```json
 {
@@ -196,6 +208,76 @@ In the following example of virtual network flow logs, multiple records follow t
 
 ```
 
+# [**Version 5**](#tab/version5)
+
+
+```json
+{
+  "records": [
+    {
+      "time": "2022-09-14T09:00:52.5625085Z",
+      "flowLogVersion": 5,
+      "flowLogGUID": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
+      "macAddress": "112233445566",
+      "category": "FlowLogFlowEvent",
+      "flowLogResourceID": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
+      "targetResourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
+      "operationName": "FlowLogFlowEvent",
+      "flowRecords": {
+        "flows": [
+          {
+            "aclID": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+            "flowGroups": [
+              {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flowTuples": [
+                  "1663146003599,10.0.0.6,192.0.2.180,23956,443,6,O,B,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663146003606,10.0.0.6,192.0.2.180,23956,443,6,O,E,NX,3,767,2,1580,822134362,10.26.252.5,4890",
+                  "1663146003637,10.0.0.6,203.0.113.17,22730,443,6,O,B,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663146003640,10.0.0.6,203.0.113.17,22730,443,6,O,E,NX,3,705,4,4569,822134362,10.26.252.5,4890",
+                  "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,B,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,E,NX,3,705,4,4569,822134362,10.26.252.5,4890",
+                  "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,B,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,E,NX,2,134,1,108,822134362,10.26.252.5,4890",
+                  "1663146017343,10.0.0.6,198.51.100.84,36776,443,6,O,B,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663146022793,10.0.0.6,198.51.100.84,36776,443,6,O,E,NX,22,2217,33,32466,822134362,10.26.252.5,4890"
+                ]
+              }
+            ]
+          },
+          {
+            "aclID": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+            "flowGroups": [
+              {
+                "rule": "BlockHighRiskTCPPortsFromInternet",
+                "flowTuples": [
+                  "1663145998065,101.33.218.153,10.0.0.6,55188,22,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663146005503,192.241.200.164,10.0.0.6,35276,119,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890"
+                ]
+              },
+              {
+                "rule": "Internet",
+                "flowTuples": [
+                  "1663145989563,192.0.2.10,10.0.0.6,50557,44357,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663145989679,203.0.113.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663145989709,203.0.113.5,10.0.0.6,51961,65515,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663145990049,198.51.100.51,10.0.0.6,40497,40129,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663145990145,203.0.113.81,10.0.0.6,62797,30472,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663145990175,203.0.113.5,10.0.0.6,51961,28184,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890",
+                  "1663146015545,192.0.2.10,10.0.0.6,50557,31244,6,I,D,NX,0,0,0,0,822134362,10.26.252.5,4890"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+---
+
 ## Log tuple and bandwidth calculation
 
 :::image type="content" source="media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table that shows the format of a virtual network flow log."lightbox="media/vnet-flow-logs-overview/vnet-flow-log-format.png"
@@ -220,6 +302,19 @@ In some scenarios, traffic associated with you application or workload may appea
 
 No. Platform rules do not change your traffic behavior, connectivity, security posture, or performance. They only affect how certain network flows are represented in flow logs. Platform rule entries are provided for informational purposes. Excluding them from analysis does not impact how traffic is handled. If traffic appears under a platform rule and does not align with the scenarios described above, the behavior can be investigated further. In such cases, reaching out through Azure support channels is recommended so the flow logs can be reviewed in detail.
 
+## Private Link Service support
+
+Today, the source address that's visible at the backend is commonly the Private Link Service (PLS) source network address translation (SNAT) address. Although this translated address is required for dataplane delivery, it can make it difficult to identify the original client and Private Endpoint connection that initiated the flow. Flow log version 5 adds Network Address Translation (NAT) and Private Link context to virtual network flow logs so service providers can trace connections from the original client, through the Private Endpoint and PLS translation layer, to the backend workload. By using this addition, the record keeps the backend flow details and adds context that identifies the original source, the translated PLS address information, and the Private Link connection identifier used for correlation.
+
+Use PLS flow log enrichment when you operate or support a service that is exposed through Private Link Service and need end-to-end source visibility. The enriched fields help distinguish the original client identity from the translated PLS identity, which is especially useful in environments with overlapping address spaces, multiple Private Endpoints, or shared backend infrastructure.
+- Troubleshoot connectivity by following the path from client to Private Endpoint, PLS, and backend.
+- Correlate backend traffic with the Private Endpoint connection that sent it.
+- Retain both original and translated endpoint context for investigations and support cases.
+- Improve downstream analytics by parsing versioned flow records that contain PLS-specific context.
+
+> [!NOTE]
+> Support for provisioning flow log version 5 by using Azure PowerShell was introduced in Az PowerShell version 16.4.0.
+
 ## Considerations for virtual network flow logs
 
 ### Storage account
@@ -234,10 +329,6 @@ No. Platform rules do not change your traffic behavior, connectivity, security p
 ### ExpressRoute gateway traffic
 
 Outbound flows from virtual machines (VMs) to ExpressRoute circuit aren't recorded if flow logging is enabled on the ExpressRoute gateway subnet. Such flows must be recorded at the subnet or NIC of the VM. Traffic also bypasses the ExpressRoute gateway when [FastPath](../expressroute/about-fastpath.md) is enabled and isn't recorded if flow logging is enabled on the ExpressRoute gateway subnet.
-
-### Private endpoint traffic
-
-Traffic can't be recorded at the private endpoint itself. You can capture traffic to a private endpoint at the source VM. The traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. You can use `PrivateEndpointResourceId` field to identify traffic flowing to a private endpoint. For more information, see [Traffic analytics schema](traffic-analytics-schema.md?tabs=vnet#traffic-analytics-schema).
 
 ### Incompatible services
 

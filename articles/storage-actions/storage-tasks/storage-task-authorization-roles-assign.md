@@ -7,7 +7,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: reference
-ms.date: 05/05/2025
+ms.date: 10/22/2026
 ms.author: normesta
 
 ---
@@ -18,7 +18,7 @@ This article describes the least privileged built-in Azure roles or RBAC actions
 
 ## Permission to manage storage task assignments
 
-To create an assignment, your identity must be assigned either the **Storage Actions Task Assignment Contributor** as built-in role or a custom role that contains the following RBAC actions:
+To create a task assignment and to stop in-progress runs, your identity must be assigned either the **Storage Actions Task Assignment Contributor** as built-in role or a custom role that contains the following RBAC actions:
 
 - Microsoft.Authorization/roleAssignments/write
 - Microsoft.Authorization/roleAssignments/delete
@@ -32,11 +32,11 @@ To create an assignment, your identity must be assigned either the **Storage Act
 
 To learn how to create a custom role, see [Azure custom roles](../../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
-## Permission for a task to perform operations
+## Permissions for a task to perform operations
 
-As you create an assignment, you must choose an Azure built-in or custom role that has the permission necessary to perform the specified operations on the target storage account or storage account container. That role is assigned to the managed identity of the storage task. You can choose only roles that are assigned to your user identity. 
+As you create an assignment, choose an Azure built-in or custom role that has the permission necessary to perform the specified operations on the target storage account or storage account container. Assign that role to the managed identity of the storage task. You can choose only roles that are assigned to your user identity. 
 
-The recommended built-in role is **Storage Actions Blob Data Operator**. This is a purpose-built role for the Storage Actions managed identity. It grants exactly the data-plane permissions required to execute all operations supported by Storage Actions today — including tier changes, tags, expiry, delete, undelete, immutability, and legal hold - without granting broader access to your data.
+The recommended built-in role is **Storage Actions Blob Data Operator**. This role is purpose-built for the common data management conditions and operations that Storage Actions performs. It grants the minimum set of data-plane permissions required to access blob properties and execute operations supported by Storage Actions including setting blob index tags, expiry, immutability policies or legal hold, changing blob tiers, and deleting and undeleting blobs.
 
 The **Storage Actions Blob Data Operator** role grants the following permissions:
 
@@ -54,10 +54,10 @@ The **Storage Actions Blob Data Operator** role grants the following permissions
 > [!TIP]  
 > **Storage Actions Blob Data Operator** is the recommended role for the storage task's managed identity. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role also covers all operations performed by Storage Actions and remains supported, but it grants broader permissions than Storage Actions requires. Prefer **Storage Actions Blob Data Operator** for new assignments.
 
-If you prefer to use a custom role for the storage task's managed identity, you must make sure that your role contains the RBAC actions necessary to perform the operations defined in the task. The following table maps each Storage Actions operation to the RBAC actions a custom role must include.
+If you prefer to use a custom role for the storage task's managed identity, ensure that your role contains the RBAC actions necessary to perform the operations defined in the task. The following table maps each Storage Actions operation to the RBAC actions a custom role must include.
 
 > [!NOTE]  
-> For most customers, the **Storage Actions Blob Data Operator** built-in role described above is the simplest path and is preferred. The per-operation table below is intended for organizations that need to compose a tighter custom role than the built-in role provides.
+> For most customers, the **Storage Actions Blob Data Operator** built-in role described earlier is the simplest path and is preferred. The per-operation table below is intended for organizations that need to compose a tighter custom role than the built-in role provides.
 
 | Permission | RBAC actions for a custom role |
 | --- | --- |

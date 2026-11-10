@@ -22,6 +22,30 @@
     - name: Send telemetry using CLI
       href: quickstart-send-telemetry-cli.md
       displayName: Azure CLI
+- name: IoT Hub with MQTT v5 (preview)
+  items:
+    - name: Overview
+      href: mqtt-v5-overview.md
+    - name: Supported capabilities
+      href: mqtt-v5-capabilities.md
+    - name: Compare connectivity options
+      href: compare-iot-hub-connectivity.md
+    - name: Get started
+      href: mqtt-v5-get-started.md
+    - name: Set up cloud resources
+      href: mqtt-v5-cloud-setup.md
+    - name: Configure custom topics
+      href: mqtt-v5-custom-topics.md
+    - name: Route messages to destinations
+      href: mqtt-v5-route-messages.md
+    - name: Develop with the unified SDKs
+      href: develop-unified-iot-sdks.md
+    - name: Connect a device
+      href: mqtt-v5-device-setup.md
+    - name: TLS and X.509 requirements
+      href: mqtt-v5-tls-requirements.md
+    - name: Monitor and troubleshoot
+      href: mqtt-v5-monitor-troubleshoot.md
 - name: Plan and scale your IoT Hub
   items:
     - name: Choose the right IoT Hub tier
@@ -117,6 +141,8 @@
   items:
     - name: Create and read IoT Hub messages
       href: iot-hub-devguide-messages-construct.md
+    - name: Prepare telemetry for agents and analytics
+      href: iot-hub-agent-ready-data.md
     - name: Understand non-telemetry event schemas
       href: iot-hub-non-telemetry-event-schema.md
       displayName: lifecycle, state events, twin change events
@@ -289,6 +315,8 @@
       displayName: disaster recovery, failback, failover, geo-redundancy
 - name: Troubleshoot
   items:
+    - name: Investigate with Azure MCP Server
+      href: iot-hub-troubleshoot-mcp.md
     - name: Troubleshoot device connectivity
       href: iot-hub-troubleshoot-connectivity.md
     - name: Troubleshoot message routing
@@ -411,7 +439,7 @@
           href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
           displayName: samples, azure-iot-samples-python
         - name: iOS Platform
-          href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+          href: https://github.com/Azure-Samples/azure-iot-samples-ios
           displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
     - name: Terraform modules
       items:

@@ -50,7 +50,7 @@ Messages are protected at rest and in transit by the account's encryption and TL
 
 - [Secure your Azure Storage account](../common/secure-storage.md) - Cross-cutting Azure Storage security guidance.
 - [Secure your Azure Blob Storage](../blobs/secure-blobs.md) - Blob-specific security.
-- [Secure your Azure Files](../files/secure-files.md) - File share security.
+- [Secure your Azure file shares](../files/secure-files.md) - File share security.
 - [Secure your Azure Table Storage](../tables/secure-tables.md) - Table-specific security.
 
 ## Next steps

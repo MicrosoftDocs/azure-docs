@@ -3,7 +3,7 @@ title: 'Troubleshoot Java applications on AKS with Azure SRE Agent'
 description: Use Azure Performance Diagnostics Tool for Java to diagnose JVM performance issues in Azure Kubernetes Service.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 05/01/2026
+ms.date: 10/28/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -105,9 +105,9 @@ If your team wants a dedicated diagnostics workflow, create a custom sub-agent t
 
 ### Configure the sub-agent
 
-1. In Azure SRE Agent, open **Sub-Agent Builder**.
-2. Select **Create New Sub-Agent**.
-3. Add the configuration for the tools and handoff behavior that you want.
+1. In Azure SRE Agent, open **Build + setup** > **Workflows** > **Agent Canvas**.
+2. Select **Create** > **Custom Agent**.
+3. Configure the instructions, skills, and tools that you want.
 
 Example configuration:
 

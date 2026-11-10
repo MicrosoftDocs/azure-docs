@@ -3,7 +3,7 @@ title: Configure secure networking for a Microsoft Discovery Supercomputer
 description: Learn how to set up secure networking for a Microsoft Discovery Supercomputer, including virtual network, subnets, and egress controls.
 ms.service: azure
 ms.topic: how-to
-ms.date: 08/18/2026
+ms.date: 10/24/2026
 ms.author: oshenton
 author: oshenton
 ms.custom: networking
@@ -15,6 +15,8 @@ By default, supercomputer instances have unrestricted outbound internet access, 
 This article explains how to set up secure networking for a Microsoft Discovery Supercomputer so that its nodepools and management plane run within your virtual network with controlled egress.
 
 ## Prerequisites
+
+For onboarding automation, first [plan the network mode and egress](how-to-plan-deployment-network.md). The tool's `managedcluster` role identifies the undelegated system-node `aksSubnet`; it isn't the separately delegated UDR management subnet (`spare` in the tool configuration). Keep these subnet IDs distinct.
 
 To control egress traffic from a supercomputer instance, you need a virtual network with user defined routing configured, and an egress point that can allowlist IPs and FQDNs, such as [Azure Firewall](/azure/firewall/overview).
 When user defined routing is enabled, traffic between the management plane and the workload nodepools must reside within your virtual network. To support this, you must create a subnet delegated to `Microsoft.ContainerService/managedClusters`, as well as the existing subnet for nodepools.
@@ -31,6 +33,8 @@ az feature register --namespace Microsoft.ContainerService --name EnableServiceT
 ---
 
 ## Enable connectivity to platform services
+
+A default/static [Stage 3 readiness report](how-to-validate-deployment-readiness.md) inspects configuration; it doesn't prove successful outbound traffic. Verify DNS, TCP/TLS, routing, firewall rules, SNAT, and image downloads from the required compute-subnet paths before provisioning.
 
 After setting up your virtual network with user defined routing, you must configure certain allowlisting rules to ensure that your Microsoft Discovery Supercomputer instance continues to function. Configure these rules before you create the Supercomputer resource to ensure successful creation.
 

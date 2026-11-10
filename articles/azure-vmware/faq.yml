@@ -82,8 +82,8 @@ sections:
       - question: What are my renewal options if my Azure VMware Solution license-included RI expires before August 30, 2027?
         answer: You must renew into an available Azure VMware Solution VCF BYOL RI or choose another valid option. Azure VMware Solution license-included RIs are no longer available. 
 
-      - question: Can I exchange the value of an Azure VMware Solution RI for reservations of other Azure services?
-        answer: Yes, Azure VMware Solution RIs can be exchanged for other Azure VMware Solution RIs, Azure VM RIs, or Nutanix on Azure RIs. Refer to the reservation exchange guidance for details. [Learn More](../cost-management-billing/reservations/reservation-exchange-policy-changes.md)
+      - question: Can I exchange my Azure VMware Solution RI for another eligible Azure compute reservation?
+        answer: Yes, Eligible compute reservations can be exchanged across eligible services within the compute reservation family, subject to current Azure reservation rules and the replacement purchase requirements. The exchange applies remaining monetary value rather than performing a one-for-one resource conversion. Starting October 20, 2026, Azure VMware Solution RI exchange eligibility expanded beyond Azure compute services to include Managed Disks, Backup, and Azure NetApp Files. [Learn More](../cost-management-billing/reservations/reservation-exchange-policy-changes.md)
 
   - name: Support
     questions:

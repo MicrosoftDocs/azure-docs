@@ -303,6 +303,9 @@ The feature is easy to set up, but that doesn't mean your experience is problem 
 
 When an App Service is integrated with a virtual network, a Service Association Link (SAL) is created. If the App Service is deleted without properly disconnecting the virtual network, the SAL might remain orphaned, preventing subnet deletion or updates.
 
+> [!TIP]
+> If an orphaned `AppServiceLink` association blocks subnet deletion, see [Troubleshoot subnet deletion and modification failures](/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-cannot-delete-modify-subnet#service-association-links) to identify the association and other blocking resources. Then use the following methods to remove the orphaned App Service association.
+
 #### Method 1: Purging orphaned Service Association Links (SAL)
 
 First, try to delete the orphan SAL using the following Azure CLI command. Replace the placeholders for `SUBSCRIPTION-ID`, `LOCATION`, and `SUBNET-RESOURCE-ID`. The location in the URI must match the location of the virtual network/subnet. You must have at a minimum the permissions associated with the [Network Contributor](../role-based-access-control/built-in-roles/networking.md#network-contributor) role on the subnet to execute this command.

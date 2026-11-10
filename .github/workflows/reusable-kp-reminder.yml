@@ -1,0 +1,159 @@
+# Supporting workflow for author reminders; reviewer automation is paused.
+# The caller validates labels and completes status cleanup before calling this.
+name: KP - Add reminder
+
+on:
+  workflow_call:
+    inputs:
+      inactivity-days:
+        description: Number of elapsed Redmond weekday days before sending a reminder
+        type: number
+        required: true
+      operations-per-run:
+        description: Positive whole-number operation budget for this reminder invocation
+        type: number
+        required: true
+      event-label:
+        description: Label required for a PR to participate in the rollout
+        type: string
+        required: true
+      rollout-branch-prefix:
+        description: Target branch prefix required for a reminder
+        type: string
+        required: true
+      reminder-due-label:
+        description: Bot-owned label recording business-day reminder eligibility
+        type: string
+        required: true
+      author-reminder-label:
+        description: Label recording an author inactivity reminder
+        type: string
+        required: true
+      exempt-label:
+        description: Label excluding a PR from routine reminders
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  # actions/stale v11 restores and replaces its processing-progress cache.
+  actions: write
+  # GitHub PRs are a type of issue. actions/stale discovers them through the
+  # Issues API, so read access is required even when issue reminders are disabled.
+  issues: read
+  pull-requests: write
+
+jobs:
+  send-reminders:
+    name: Send author reminders
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      EVENT_LABEL: ${{ inputs.event-label }}
+      ROLLOUT_BRANCH_PREFIX: ${{ inputs.rollout-branch-prefix }}
+      REMINDER_DUE_LABEL: ${{ inputs.reminder-due-label }}
+      INACTIVITY_DAYS: ${{ inputs.inactivity-days }}
+      AUTHOR_REMINDER_LABEL: ${{ inputs.author-reminder-label }}
+      EXEMPT_LABEL: ${{ inputs.exempt-label }}
+      AUTHOR_REMINDER_MESSAGE: |-
+        ### Knowledge Partnership - Author action needed
+
+        <br>
+
+        Thanks for your work on this pull request. Comments may need your attention, or your branch may need to be synced with its target branch. Please check the latest comments and validation results and update the PR as needed. If anything is unclear, let us know in the PR, and we will help identify the best next step.
+
+        **Need help?** Visit [Knowledge Partnership support](https://aka.ms/kp-support).
+
+    steps:
+      - name: Validate reminder settings
+        env:
+          OPERATIONS_PER_RUN: ${{ inputs.operations-per-run }}
+        shell: bash
+        run: |
+          if [[ ! "$OPERATIONS_PER_RUN" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::operations-per-run must be a positive whole number."
+            exit 1
+          fi
+
+      # Only the trusted scan revision is checked out, never a contributor PR.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+
+      - name: Reconcile business-day reminder eligibility
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const {reconcile} = require('./.github/scripts/kp-business-clock.cjs');
+            await reconcile({github, context, core});
+
+      - name: Check out the pinned stale action
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: actions/stale
+          ref: 4391f3da665fdf50b6810c1a66712fb9ba21aa93
+          path: .kp-stale-action
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /action.yml
+            /package.json
+            /dist/
+
+      - name: Isolate KP reminder progress
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const {createHash} = require('node:crypto');
+          const root = '.kp-stale-action/';
+          const expected = {
+            'action.yml': '42c2129639c5e66ee659a85f3ab6bc67a05f46f1691f9fc1d2575035e30d06f4',
+            'package.json': 'f97133fb86d6112b7f32ce81089227eff4b89a79a8b8942b2e8d12dc91975e25',
+            'dist/index.js': 'b82d1121447dd601777e30e806db7d052bffddc35ef33bd3695fa10a3ddec34b'
+          };
+          for (const [file, hash] of Object.entries(expected)) {
+            const actual = createHash('sha256').update(fs.readFileSync(root + file)).digest('hex');
+            if (actual !== hash) throw new Error('Unexpected pinned stale content: ' + file);
+          }
+          const file = root + 'dist/index.js';
+          const original = fs.readFileSync(file, 'utf8');
+          const old = "const CACHE_KEY = '_state';";
+          if (original.split(old).length !== 2) throw new Error('Unexpected stale cache-key contract');
+          const posting = "async _markStale(issue, staleMessage, staleLabel, skipMessage) {\n        const issueLogger = new IssueLogger(issue);";
+          if (original.split(posting).length !== 2) throw new Error('Unexpected stale posting contract');
+          const marker = "const markedStaleOn = creationDate || issue.updated_at;";
+          const cleanup = "(issueHasUpdateSinceStale || issueHasCommentsSinceStale) &&";
+          if (original.split(marker).length !== 2 || original.split(cleanup).length !== 2) {
+            throw new Error('Unexpected stale cleanup contract');
+          }
+          fs.writeFileSync(file, original.replace(old, "const CACHE_KEY = 'kp-author-reminders-v1';")
+            .replace(marker, marker + "\n        if (!issue.isPullRequest) return;\n        let kpActivitySinceMarker;\n        try {\n            const loadClock = __WEBPACK_EXTERNAL_createRequire(import.meta.url);\n            const {hasActivitySince} = loadClock(loadClock('node:path').join(\n                process.env.GITHUB_WORKSPACE, '.github/scripts/kp-business-clock.cjs'));\n            kpActivitySinceMarker = await hasActivitySince({\n                github: this.client, context: github_context, number: issue.number, since: creationDate,\n                core: {info: message => issueLogger.info(message)}\n            });\n        } catch (error) {\n            process.exitCode = 1;\n            throw error;\n        }\n        if (kpActivitySinceMarker === null) return;\n")
+            .replace(cleanup, "kpActivitySinceMarker &&")
+            .replace(posting, posting + "\n        try {\n            const load = __WEBPACK_EXTERNAL_createRequire(import.meta.url);\n            const {canPost} = load(load('node:path').join(\n                process.env.GITHUB_WORKSPACE, '.github/scripts/kp-business-clock.cjs'));\n            if (!await canPost({\n                github: this.client, context: github_context, number: issue.number,\n                core: {info: message => issueLogger.info(message)}\n            })) return;\n        } catch (error) {\n            process.exitCode = 1;\n            throw error;\n        }\n"));
+          NODE
+
+      # Existing markers must reach stock cleanup even after due is removed.
+      - name: Remind authors to address outstanding comments
+        uses: ./.kp-stale-action
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-pr-labels: ${{ env.EVENT_LABEL }}
+          any-of-pr-labels: ${{ format('{0},{1}', env.REMINDER_DUE_LABEL, env.AUTHOR_REMINDER_LABEL) }}
+          exempt-pr-labels: ${{ env.EXEMPT_LABEL }}
+          stale-pr-label: ${{ env.AUTHOR_REMINDER_LABEL }}
+          exempt-draft-pr: true
+          days-before-issue-stale: -1
+          days-before-issue-close: -1
+          days-before-pr-stale: 0
+          days-before-pr-close: -1
+          days-before-close: -1
+          delete-branch: false
+          remove-pr-stale-when-updated: true
+          stale-pr-message: ${{ env.AUTHOR_REMINDER_MESSAGE }}
+          debug-only: false
+          operations-per-run: ${{ inputs.operations-per-run }}
+          enable-statistics: true

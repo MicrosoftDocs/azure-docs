@@ -2,9 +2,9 @@
 author: hhunter-ms
 title: "Export Orchestration History with Durable Task Scheduler (Preview)"
 titleSuffix: Durable Task
-description: Learn about exporting Durable Task Scheduler orchestration histories to Azure Blob Storage with the .NET SDK and the Go SDK beta.
+description: Learn about exporting Durable Task Scheduler orchestration histories to Azure Blob Storage with the .NET SDK, Java SDK, and Go SDK beta.
 ms.topic: feature-guide
-ms.date: 10/12/2026
+ms.date: 10/28/2026
 ms.author: torosent
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
@@ -16,9 +16,11 @@ ms.devlang: csharp
 The orchestration history export feature lets your app extract execution histories for terminal orchestration instances (completed, failed, or terminated status) from [Durable Task Scheduler](durable-task-scheduler.md) and write them to Azure Blob Storage. Use this feature for auditing, compliance, analytics, and long-term archival of orchestration data outside of the scheduler.
 
 > [!NOTE]
-> Orchestration history export is in preview. The examples in this article use the [Durable Task .NET SDK](../sdks/durable-task-overview.md) and its `Microsoft.DurableTask.ExportHistory` package. The [Go SDK beta](../sdks/durable-task-go.md) also supports history export with its own Go APIs.
+> Orchestration history export is in preview. The examples in this article use the [Durable Task .NET SDK](../sdks/durable-task-overview.md) and its `Microsoft.DurableTask.ExportHistory` package. The standalone Java SDK and [Go SDK beta](../sdks/durable-task-go.md) also support history export with their own APIs.
 
-For Go, see the [Go SDK export history sample](https://github.com/microsoft/durabletask-go/tree/main/samples/exporthistory), which creates export jobs and downloads the exported JSON and JSONL histories. Use an isolated, Go-only task hub and export destination. The .NET registration and environment variables in this article don't apply to Go.
+For Java, add `com.microsoft:durabletask-exporthistory:1.10.0-preview.1` alongside the client and Azure Managed packages. See the [Java SDK history export sample](https://github.com/microsoft/durabletask-java/blob/main/samples/src/main/java/io/durabletask/samples/HistoryExportSample.java) for worker and client registration, batch jobs, and progress tracking. Local development requires emulator version 0.4.22 or later. This support doesn't apply to Durable Functions Java apps.
+
+For Go, see the [Go SDK export history sample](https://github.com/microsoft/durabletask-go/tree/main/samples/exporthistory), which creates export jobs and downloads the exported JSON and JSONL histories. Use an isolated, Go-only task hub and export destination. The .NET registration and environment variables in this article don't apply to Java or Go.
 
 > [!TIP]
 > A complete, runnable reference sample is available at [ExportHistoryWebApp](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/dotnet/ExportHistoryWebApp). We recommend using it as a reference as you follow this guide.
@@ -308,4 +310,5 @@ az storage blob list \
 ## Next steps
 
 - [Durable Task .NET SDK export history sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/dotnet/ExportHistoryWebApp)
+- [Durable Task Java SDK history export sample](https://github.com/microsoft/durabletask-java/blob/main/samples/src/main/java/io/durabletask/samples/HistoryExportSample.java)
 - [Create an app with the Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md)

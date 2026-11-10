@@ -5,7 +5,7 @@ author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: concept-article
-ms.date: 08/17/2026
+ms.date: 11/08/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand how projects and shared sessions work in Microsoft Discovery so that I can organize my scientific research effectively.
 ---
@@ -16,7 +16,7 @@ Microsoft Discovery organizes scientific research through two key concepts: **pr
 
 ## Projects
 
-A project is the organizational unit within a Microsoft Discovery workspace where you bring together agents, tools, knowledge bases, storage containers, and shared sessions into a single, access-controlled boundary. Every research activity in Microsoft Discovery happens within the context of a project.
+A project is the organizational unit within a Microsoft Discovery workspace for agents, shared sessions, and related research tasks. It references shared tools, knowledge bases, and storage containers, but the project doesn't own those resources. Project access and access to shared resources are separate authorization boundaries.
 
 ### Resources a project contains and uses
 
@@ -33,8 +33,8 @@ Projects contain project-owned resources and reference shared resources:
 
 Projects exist within a [workspace](quickstart-infrastructure.md#4-create-a-workspace), which provides the shared infrastructure layer:
 
-- **Workspace** provides the networking, supercomputers, managed identities, and chat model deployments that all projects in the workspace share.
-- **Projects** consume workspace-level resources while maintaining their own isolated set of agents, shared sessions, and data.
+- **Workspace** provides workspace networking, managed identities, and chat model deployments, and references supercomputers used by its projects.
+- **Projects** use this infrastructure while maintaining their own agents, shared sessions, and tasks. Access to referenced storage and knowledge resources is controlled separately.
 
 This separation allows platform administrators to manage infrastructure at the workspace level while scientists work independently within their projects.
 
@@ -59,6 +59,8 @@ For step-by-step instructions, see [Create a project](quickstart-infrastructure.
 
 A shared session is a research session within a project where you interact with agents through natural language conversations. Shared sessions are the primary interface for conducting AI-powered scientific research and collaboration in Microsoft Discovery.
 
+The interface uses *shared session* for this research experience. APIs and authorization descriptions also use resource names such as *investigation* and *conversation*. Preserve those names when working with the corresponding API; they aren't interchangeable resource identifiers.
+
 ### How shared sessions work
 
 Within a shared session, you can:
@@ -76,7 +78,7 @@ You create shared sessions from the **Discovery** tab within your project in Dis
 
 ## How projects and shared sessions fit in the platform
 
-The following hierarchy shows how projects and shared sessions relate to other Microsoft Discovery resources:
+The following diagram distinguishes resource-group-level resources from workspace children. The agents and shared sessions beneath a project represent project-owned data-plane resources, not additional ARM resource types.
 
 ```
 Subscription
@@ -91,7 +93,7 @@ Subscription
     └── Workspace
         ├── Chat Model Deployments (shared across projects)
         └── Project
-            ├── Agents (prompt and workflow)
+            ├── Agents (prompt)
             │   └── References to approved tools and knowledge bases
             └── Shared Sessions
                 └── Conversations with agents
@@ -99,7 +101,7 @@ Subscription
 
 ## Best practices
 
-- **One project per research initiative** — Scope each project to a distinct research initiative or team. This keeps agents, knowledge bases, and data isolated and manageable.
+- **One project per research initiative** — Scope each project to a distinct research initiative or team. Assign project roles and companion resource roles separately; referencing a shared storage container or knowledge base doesn't make its data project-isolated.
 - **Use descriptive shared session names** — Since shared sessions track the evolution of a research question, use names that reflect the research objective (for example, `Aspirin Synthesis` or `Molecule Screening`).
 - **Leverage workspace-level resources** — Chat model deployments and supercomputers are shared at the workspace level. You don't need to create them for each project.
 - **Plan your agent structure first** — Before creating shared sessions, set up the agents your research requires. You can create agents individually or use the default Discovery agent provided with every project.
@@ -112,4 +114,4 @@ Subscription
 - [Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md)
 - [Microsoft Discovery agents](concept-discovery-agent.md)
 - [Agent types in Microsoft Discovery](concept-discovery-agent-types.md)
-- [Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases.md)
+- [Bookshelves and knowledge bases](concept-bookshelf-knowledge-bases.md)

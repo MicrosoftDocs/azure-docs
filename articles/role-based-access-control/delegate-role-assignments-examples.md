@@ -207,7 +207,7 @@ New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $rol
 
 ## Example: Constrain roles and specific groups
 
-This condition allows a delegate to only add or remove role assignments for the [Backup Contributor](built-in-roles.md#backup-contributor) or [Backup Reader](built-in-roles.md#backup-reader) roles. Also, the delegate can only assign these roles to specific groups named Marketing (28c35fea-2099-4cf5-8ad9-473547bc9423) or Sales (86951b8b-723a-407b-a74a-1bca3f0c95d0).
+This condition allows a delegate to only add or remove role assignments for the [Backup Contributor](built-in-roles.md#backup-contributor) or [Backup Reader](built-in-roles.md#backup-reader) roles. Also, the delegate can only assign these roles to specific groups named Marketing (aaaaaaaa-bbbb-cccc-1111-222222222222) or Sales (bbbbbbbb-cccc-dddd-2222-333333333333).
 
 You must add this condition to any role assignments for the delegate that include the following actions.
 
@@ -276,7 +276,7 @@ To target both the add and remove role assignment actions, notice that you must 
  (
   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {5e467623-bb1f-42f4-a55d-6e525e11384b, a795c7a0-d4a2-40c1-ae25-d81f01202912}
   AND
-  @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {28c35fea-2099-4cf5-8ad9-473547bc9423, 86951b8b-723a-407b-a74a-1bca3f0c95d0}
+  @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {aaaaaaaa-bbbb-cccc-1111-222222222222, bbbbbbbb-cccc-dddd-2222-333333333333}
  )
 )
 AND
@@ -288,7 +288,7 @@ AND
  (
   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {5e467623-bb1f-42f4-a55d-6e525e11384b, a795c7a0-d4a2-40c1-ae25-d81f01202912}
   AND
-  @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {28c35fea-2099-4cf5-8ad9-473547bc9423, 86951b8b-723a-407b-a74a-1bca3f0c95d0}
+  @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {aaaaaaaa-bbbb-cccc-1111-222222222222, bbbbbbbb-cccc-dddd-2222-333333333333}
  )
 )
 ```
@@ -301,7 +301,7 @@ Here's how to add this condition using Azure PowerShell.
 $roleDefinitionId = "f58310d9-a9f6-439a-9e8d-f62e7b41a168"
 $principalId = "<principalId>"
 $scope = "/subscriptions/<subscriptionId>"
-$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {5e467623-bb1f-42f4-a55d-6e525e11384b, a795c7a0-d4a2-40c1-ae25-d81f01202912} AND @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {28c35fea-2099-4cf5-8ad9-473547bc9423, 86951b8b-723a-407b-a74a-1bca3f0c95d0})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {5e467623-bb1f-42f4-a55d-6e525e11384b, a795c7a0-d4a2-40c1-ae25-d81f01202912} AND @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {28c35fea-2099-4cf5-8ad9-473547bc9423, 86951b8b-723a-407b-a74a-1bca3f0c95d0}))"
+$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {5e467623-bb1f-42f4-a55d-6e525e11384b, a795c7a0-d4a2-40c1-ae25-d81f01202912} AND @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {aaaaaaaa-bbbb-cccc-1111-222222222222, bbbbbbbb-cccc-dddd-2222-333333333333})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {5e467623-bb1f-42f4-a55d-6e525e11384b, a795c7a0-d4a2-40c1-ae25-d81f01202912} AND @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {aaaaaaaa-bbbb-cccc-1111-222222222222, bbbbbbbb-cccc-dddd-2222-333333333333}))"
 $conditionVersion = "2.0"
 New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $roleDefinitionId -Condition $condition -ConditionVersion $conditionVersion
 ```
@@ -310,7 +310,7 @@ New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $rol
 
 ## Example: Constrain virtual machine management
 
-This condition allows a delegate to only add or remove role assignments for the [Virtual Machine Administrator Login](built-in-roles.md#virtual-machine-administrator-login) or [Virtual Machine User Login](built-in-roles.md#virtual-machine-user-login) roles. Also, the delegate can only assign these roles to a specific user named Dara (ea585310-c95c-4a68-af22-49af4363bbb1).
+This condition allows a delegate to only add or remove role assignments for the [Virtual Machine Administrator Login](built-in-roles.md#virtual-machine-administrator-login) or [Virtual Machine User Login](built-in-roles.md#virtual-machine-user-login) roles. Also, the delegate can only assign these roles to a specific user named Dara (cccccccc-dddd-eeee-3333-444444444444).
 
 This condition is useful when you want to allow a delegate to assign a virtual machine login role to themselves for a virtual machine they've just created.
 
@@ -381,7 +381,7 @@ To target both the add and remove role assignment actions, notice that you must 
  (
   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52}
   AND
-  @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {ea585310-c95c-4a68-af22-49af4363bbb1}
+  @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {cccccccc-dddd-eeee-3333-444444444444}
  )
 )
 AND
@@ -393,7 +393,7 @@ AND
  (
   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52}
   AND
-  @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {ea585310-c95c-4a68-af22-49af4363bbb1}
+  @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {cccccccc-dddd-eeee-3333-444444444444}
  )
 )
 ```
@@ -406,7 +406,7 @@ Here's how to add this condition using Azure PowerShell.
 $roleDefinitionId = "f58310d9-a9f6-439a-9e8d-f62e7b41a168"
 $principalId = "<principalId>"
 $scope = "/subscriptions/<subscriptionId>"
-$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52} AND @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {ea585310-c95c-4a68-af22-49af4363bbb1})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52} AND @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {ea585310-c95c-4a68-af22-49af4363bbb1}))"
+$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52} AND @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {cccccccc-dddd-eeee-3333-444444444444})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52} AND @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {cccccccc-dddd-eeee-3333-444444444444}))"
 $conditionVersion = "2.0"
 New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $roleDefinitionId -Condition $condition -ConditionVersion $conditionVersion
 ```
@@ -415,7 +415,7 @@ New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $rol
 
 ## Example: Constrain AKS cluster management
 
-This condition allows a delegate to only add or remove role assignments for the [Azure Kubernetes Service RBAC Admin](built-in-roles.md#azure-kubernetes-service-rbac-admin), [Azure Kubernetes Service RBAC Cluster Admin](built-in-roles.md#azure-kubernetes-service-rbac-cluster-admin), [Azure Kubernetes Service RBAC Reader](built-in-roles.md#azure-kubernetes-service-rbac-reader), or [Azure Kubernetes Service RBAC Writer](built-in-roles.md#azure-kubernetes-service-rbac-writer) roles. Also, the delegate can only assign these roles to a specific user named Dara (ea585310-c95c-4a68-af22-49af4363bbb1).
+This condition allows a delegate to only add or remove role assignments for the [Azure Kubernetes Service RBAC Admin](built-in-roles.md#azure-kubernetes-service-rbac-admin), [Azure Kubernetes Service RBAC Cluster Admin](built-in-roles.md#azure-kubernetes-service-rbac-cluster-admin), [Azure Kubernetes Service RBAC Reader](built-in-roles.md#azure-kubernetes-service-rbac-reader), or [Azure Kubernetes Service RBAC Writer](built-in-roles.md#azure-kubernetes-service-rbac-writer) roles. Also, the delegate can only assign these roles to a specific user named Dara (cccccccc-dddd-eeee-3333-444444444444).
 
 This condition is useful when you want to allow a delegate to assign Azure Kubernetes Service (AKS) cluster data plane authorization roles to themselves for a cluster they've just created.
 
@@ -486,7 +486,7 @@ To target both the add and remove role assignment actions, notice that you must 
  (
   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {3498e952-d568-435e-9b2c-8d77e338d7f7, b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b, 7f6c6a51-bcf8-42ba-9220-52d62157d7db, a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb}
   AND
-  @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {ea585310-c95c-4a68-af22-49af4363bbb1}
+  @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {cccccccc-dddd-eeee-3333-444444444444}
  )
 )
 AND
@@ -498,7 +498,7 @@ AND
  (
   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {3498e952-d568-435e-9b2c-8d77e338d7f7, b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b, 7f6c6a51-bcf8-42ba-9220-52d62157d7db, a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb}
   AND
-  @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {ea585310-c95c-4a68-af22-49af4363bbb1}
+  @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {cccccccc-dddd-eeee-3333-444444444444}
  )
 )
 ```
@@ -511,7 +511,7 @@ Here's how to add this condition using Azure PowerShell.
 $roleDefinitionId = "f58310d9-a9f6-439a-9e8d-f62e7b41a168"
 $principalId = "<principalId>"
 $scope = "/subscriptions/<subscriptionId>"
-$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {3498e952-d568-435e-9b2c-8d77e338d7f7, b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b, 7f6c6a51-bcf8-42ba-9220-52d62157d7db, a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb} AND @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {ea585310-c95c-4a68-af22-49af4363bbb1})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {3498e952-d568-435e-9b2c-8d77e338d7f7, b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b, 7f6c6a51-bcf8-42ba-9220-52d62157d7db, a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb} AND @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {ea585310-c95c-4a68-af22-49af4363bbb1}))"
+$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {3498e952-d568-435e-9b2c-8d77e338d7f7, b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b, 7f6c6a51-bcf8-42ba-9220-52d62157d7db, a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb} AND @Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {cccccccc-dddd-eeee-3333-444444444444})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {3498e952-d568-435e-9b2c-8d77e338d7f7, b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b, 7f6c6a51-bcf8-42ba-9220-52d62157d7db, a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb} AND @Resource[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {cccccccc-dddd-eeee-3333-444444444444}))"
 $conditionVersion = "2.0"
 New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $roleDefinitionId -Condition $condition -ConditionVersion $conditionVersion
 ```

@@ -7,13 +7,13 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
 # View savings plan cost and usage details
 
-Enhanced data for savings plan costs and usage is available for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) usage in Cost management. This article helps you:
+Cost Management provides enhanced savings plan cost and usage data for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. This article helps you to:
 
 - Get savings plan purchase data
 - Know which subscription, resource group or resource used the savings plan
@@ -23,13 +23,13 @@ Enhanced data for savings plan costs and usage is available for Enterprise Agree
 
 ## Savings plan charges in Azure cost data
 
-In Cost Management, cost details provide savings plan cost in two separate data sets: _Actual Cost_ and _Amortized Cost_. How these two datasets differ:
+In Cost Management, cost details provide savings plan costs in two separate datasets: _Actual Cost_ and _Amortized Cost_. The following sections explain how the datasets differ:
 
-**Actual Cost** - Provides data to reconcile with your monthly bill. The data has savings plan purchase costs and savings plan application details. With the data, you can know which subscription or resource group, or resource received the savings plan discount on a particular day. The EffectivePrice for the usage that receives the savings plan discount is zero.
+**Actual Cost** - Provides data to reconcile with your monthly bill, including savings plan purchase costs and benefit application details. You can identify which subscription, resource group, or resource received the savings plan discount on a particular day. The EffectivePrice for usage that receives the savings plan discount is zero.
 
-**Amortized Cost** - The dataset is like the Actual Cost dataset except that the EffectivePrice for the usage that gets savings plan discount is the prorated cost of the savings plan (instead of being zero). It helps you know the monetary value of savings plan consumption by a subscription, resource group or a resource, and can help you charge back for the savings plan utilization internally. The dataset also has unused hours in the savings plan that have been charged for the hourly commitment amount. The dataset doesn't have savings plan purchase records.
+**Amortized Cost** - This dataset is like the Actual Cost dataset, except that the EffectivePrice for usage that receives a savings plan discount is the prorated cost of the savings plan instead of zero. It shows the monetary value of savings plan consumption by a subscription, resource group, or resource, which can help you charge back costs internally. The dataset also includes unused savings plan hours charged at the hourly commitment amount. It doesn't include savings plan purchase records.
 
-The following fields in the Azure cost data that are relevant to savings plan scenarios.
+The following fields in Azure cost data are relevant to savings plan scenarios.
 
 - `BenefitId` and `BenefitName` - These are their own fields in the data and correspond to the Savings Plan ID and Savings Plan name associated with your purchase.
 - `PricingModel` - The field will be `SavingsPlan` for purchase and usage cost records that are relevant to a Savings Plan.
@@ -38,7 +38,7 @@ The following fields in the Azure cost data that are relevant to savings plan sc
 - `Term` – The period associated with your savings plan purchase.
 
 
-Comparison of two data sets:
+The following table compares the two datasets:
 
 | **Data** | **Actual Cost data set** | **Amortized Cost data set** |
 | --- | --- | --- |
@@ -49,9 +49,9 @@ Comparison of two data sets:
 
 ## Get Azure consumption and savings plan cost data using API
 
-You can get the data using the API or download it from Azure portal. Call the [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation)to get the new data. For details about terminology, see [usage terms](../understand/understand-usage.md). For more information about how to call the Cost Details API, see [Get cost data on demand](../automate/get-small-usage-datasets-on-demand.md).
+You can get the data by using the API or download it from the Azure portal. Call the [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) to get the data. For details about terminology, see [usage terms](../understand/understand-usage.md). For more information about calling the Cost Details API, see [Get cost data on demand](../automate/get-small-usage-datasets-on-demand.md).
 
-Information in the following table about metrics and filters can help solve for common savings plan problems.
+The following table describes metrics and filters that can help solve common savings plan problems.
 
 | Type of API data | API call action |
 | --- | --- |
@@ -103,7 +103,7 @@ Savings plan purchase costs are available in Actual Cost data. Filter for `Charg
 
 ### Get underutilized savings plan quantity and costs
 
-Get Amortized Cost data and filter for `ChargeType` = `UnusedSavingsPlan` and `PricingModel` = `SavingsPlan`. You get the daily unused savings plan quantity and the cost. You can filter the data for a Savings Plan or Savings Plan order using `BenefitId` and `ProductOrderId` fields, respectively. If a Savings Plan was 100% utilized, the record has a quantity of 0.
+Get Amortized Cost data and filter by `ChargeType` = `UnusedSavingsPlan` and `PricingModel` = `SavingsPlan`. The results show the daily unused savings plan quantity and cost. Filter the data for a savings plan or savings plan order by using the `BenefitId` and `ProductOrderId` fields, respectively. If a savings plan was 100% utilized, the record has a quantity of 0.
 
 ### Amortize savings plan costs
 
@@ -111,7 +111,7 @@ Get Amortized Cost data and filter for a savings plan order using `ProductOrderI
 
 ### Chargeback for a savings plan
 
-You can charge back savings plan use to other organizations by subscription, resource groups, or tags. Amortized cost data provides monetary value of a savings plan's utilization at the following data types:
+You can charge back savings plan costs to other organizations by subscription, resource group, or tag. Amortized cost data provides the monetary value of savings plan utilization at the following levels:
 
 - Resources (such as a VM)
 - Resource group
@@ -136,7 +136,7 @@ To determine the savings percentage from the discounted price:
 1. Subtract `PayGPrice` from `Cost` to get the savings from the savings plan against discounts.
 1. Divide `Cost` by `PayGPrice` and then divide by 100 to get the discount percentage applied, per line item.
 
-Keep in mind that if you have an underutilized savings plan, the `UnusedSavingsPlan` entry for `ChargeType` becomes a factor to consider. When you have a fully utilized savings plan, you receive the maximum savings possible. Any `UnusedSavingsPlan` quantity reduces savings.
+If you have an underutilized savings plan, include the `UnusedSavingsPlan` entries for `ChargeType` in your calculations. A fully utilized savings plan provides the maximum savings possible. Any unused commitment reduces savings.
 
 ### Savings plan purchases and amortization in cost analysis
 

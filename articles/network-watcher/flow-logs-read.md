@@ -328,7 +328,7 @@ The results of this value are shown in the following example:
 			"time": "2017-06-16T20:59:43.7340000Z",
 			"systemId": "abcdef01-2345-6789-0abc-def012345678",
 			"category": "NetworkSecurityGroupFlowEvent",
-			"resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYNSG",
+			"resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYNSG",
 			"operationName": "NetworkSecurityGroupFlowEvents",
 			"properties": {
 				"Version": 1,

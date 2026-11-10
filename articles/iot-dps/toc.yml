@@ -233,7 +233,7 @@ items:
     - name: Python
       href: https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples
     - name: iOS Platform
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+      href: https://github.com/Azure-Samples/azure-iot-samples-ios
   - name: Terraform modules
     items:
     - name: DPS instance resource

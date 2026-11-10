@@ -433,6 +433,8 @@ spec:
       interval: 1m
 ```
 
+For help with configuration refresh issues, see [Troubleshooting](./enable-dynamic-configuration-azure-kubernetes-service.md#troubleshooting) and [FAQ](./enable-dynamic-configuration-azure-kubernetes-service.md#faq).
+
 ### Snapshot reference
 
 A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike adding a snapshot selector, which requires code changes and/or restarts to switch to a new snapshot.

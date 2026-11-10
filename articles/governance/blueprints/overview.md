@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 09/07/2023
+ms.date: 10/30/2026
 ms.topic: overview
 ---
 # What is Azure Blueprints (Preview)?
@@ -222,7 +222,7 @@ on Channel 9.
 ## Azure Blueprints retirement
 
 Azure Blueprints (Preview) is being retired on **January 31, 2027**, with a phased retirement
-beginning July 31, 2026. Migrate your blueprint definitions and assignments to
+that began July 31, 2026. Migrate your blueprint definitions and assignments to
 [Azure Deployment Stacks](../../azure-resource-manager/bicep/deployment-stacks.md) (recommended) and
 [template specs](../../azure-resource-manager/bicep/template-specs.md) before the retirement date.
 For the phased timeline, impact, and migration guidance, see:

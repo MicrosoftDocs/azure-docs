@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: concept-article
-ms.date: 08/17/2026
+ms.date: 10/24/2026
 ---
 
 # Role assignments in Microsoft Discovery
@@ -302,6 +302,8 @@ The storage container roles don't grant access to the underlying blob contents. 
 
 ## Roles required by persona
 
+For onboarding automation, distinguish these target-user personas from the identity executing each stage. Planning and default readiness checks use subscription Reader; landing-zone preparation requires separate elevated authority. See [Onboarding permissions by stage](reference-deployment-permissions.md). Activate PIM-eligible roles before the operation that needs them; eligibility alone doesn't grant active access.
+
 The following table summarizes the recommended role combinations for each user persona. Roles can be assigned at the subscription or resource group scope. You can add more roles as your requirements grow.
 
 > [!TIP]
@@ -453,6 +455,6 @@ The script validates the executor's permissions, supports both subscription and 
 - [Configure project-level access](how-to-configure-project-rbac.md)
 - [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md)
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
-- [Resource provider registration in Microsoft Discovery](concept-resource-provider-registration.md)
+- [Resource provider registration in Microsoft Discovery](how-to-register-resource-providers.md)
 - [Azure RBAC documentation](../role-based-access-control/overview.md)
 - [Azure built-in roles](../role-based-access-control/built-in-roles.md)

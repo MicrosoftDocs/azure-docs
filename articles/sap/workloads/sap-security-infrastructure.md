@@ -220,7 +220,7 @@ Defender for Cloud can monitor Trusted Launch. For more information, see [Micros
 
 You can encrypt Network File Share (NFS) traffic in Azure Files to help protect against packet tracing and other threats. For more information, see:
 
-- [Encryption in transit for NFS Azure file shares](/azure/storage/files/encryption-in-transit-for-nfs-shares?tabs=Ubuntu)
+- [Encryption in transit for NFS Azure file shares](../../storage/files/files-encryption-in-transit.md#nfs)
 - [Azure Files NFS encryption in transit for SAP on Azure systems](/azure/sap/workloads/sap-azure-files-nfs-encryption-in-transit-guide?tabs=SUSE)
 
 For SMB, Azure Files supports encryption in transit by default. For more information, see [SMB file shares in Azure Files](/azure/storage/files/files-smb-protocol?tabs=azure-portal#security).

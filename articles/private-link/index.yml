@@ -77,9 +77,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Private endpoint connectivity
-            url: troubleshoot-private-endpoint-connectivity.md
+            url: /troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems
           - text: Private link service connectivity 
-            url: troubleshoot-private-link-connectivity.md
+            url: /troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems
 
   # Card
   - title: Related network foundations services 

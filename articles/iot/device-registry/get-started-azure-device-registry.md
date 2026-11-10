@@ -1,26 +1,23 @@
 ---
-title: Get started with Azure Device Registry (preview)
+title: Get started with Azure Device Registry for Azure IoT Hub
 titleSuffix: Azure Device Registry
-description: Set up an Azure Device Registry namespace by using the guided setup in the Azure portal, or by connecting services to a namespace individually.
+description: Set up an Azure Device Registry namespace for Azure IoT Hub by using the guided setup in the Azure portal, or by connecting services to a namespace individually.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: how-to
-ms.date: 10/05/2026
+ms.date: 11/09/2026
 ai-usage: ai-assisted
 
 #Customer intent: As an IoT solution architect, I want to set up an Azure Device Registry namespace with either guided setup or by connecting services individually so that I can deploy or connect the resources required for my IoT devices.
 ---
 
-# Get started with Azure Device Registry (preview)
+# Get started with Azure Device Registry for Azure IoT Hub
 
 This article describes how to set up an [Azure Device Registry](overview-device-registry.md) namespace and connect the IoT Hub instances and Device Provisioning Service (DPS) instances it depends on. You can create new resources, connect an existing DPS instance and its linked IoT Hub instances, or connect existing IoT Hub instances to a new DPS instance.
 
 > [!IMPORTANT]
-> Azure Device Registry integration with Azure IoT Hub is in public preview and isn't recommended for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-> [!IMPORTANT]
-> Azure Device Registry, including certificate management, is free during preview. The IoT Hub and Device Provisioning Service (DPS) instances that you use with it are billed at their standard rates. For details, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+> Azure Device Registry bills for device and asset resources, certificate authorities, and certificate issuance and renewal. The IoT Hub and Device Provisioning Service (DPS) instances that you use with it are billed at their standard rates. Groups, jobs, and software updates aren't billed during preview. For IoT Hub rates, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Prerequisites
 
@@ -122,7 +119,7 @@ Select **Submit**. After setup finishes, the guided setup opens the namespace, w
 
 ## Connect services individually
 
-If you want full control over each resource, connect services to a namespace one at a time instead of using the guided setup. Connect a DPS instance first, then one or more IoT Hub instances, and then an optional software update instance. This method produces the same connected result as the guided setup.
+If you want full control over each resource, connect services to a namespace one at a time instead of using the guided setup. Connect a DPS instance first, then one or more IoT Hub instances. You can then optionally set up a root certificate authority (CA) and connect a software update instance. This method produces the same connected result as the guided setup.
 
 ### 1. Create or open a namespace
 
@@ -147,6 +144,7 @@ LOCATION="<region>"
 NS="<namespace-name>"
 DPS="<dps-name>"
 HUB="<iot-hub-name>"
+ROOT_CA="<root-ca-name>"
 SU="<software-update-instance-name>"
 ```
 
@@ -175,6 +173,7 @@ $LOCATION = "<region>"
 $NS = "<namespace-name>"
 $DPS = "<dps-name>"
 $HUB = "<iot-hub-name>"
+$ROOT_CA = "<root-ca-name>"
 $SU = "<software-update-instance-name>"
 ```
 
@@ -292,7 +291,52 @@ To connect more IoT Hub instances, repeat these steps with a different IoT Hub i
 
 ---
 
-### 4. Connect software updates (optional)
+### 4. Set up a root certificate authority (optional)
+
+# [Azure portal](#tab/azure-portal)
+
+1. In your namespace, under **Security**, select **Certificate Authorities**.
+1. Select **Create** > **Root Certificate Authority**. This option is disabled if the namespace already has a root CA.
+1. Enter a name for the root CA that's 3-63 characters long, and then select **Create**.
+1. Wait for provisioning to finish. Confirm that the root CA appears on the **Certificate Authorities** page.
+
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+Use the root CA name, namespace, and resource group variables from step 1.
+
+1. Create the root CA in the namespace:
+
+   ```azurecli
+   az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
+   ```
+
+1. Verify that provisioning succeeded and review the root CA certificate information:
+
+   ```azurecli
+   az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
+   ```
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Use the root CA name, namespace, and resource group variables from step 1.
+
+1. Create the root CA in the namespace:
+
+   ```powershell
+   az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
+   ```
+
+1. Verify that provisioning succeeded and review the root CA certificate information:
+
+   ```powershell
+   az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
+   ```
+
+---
+
+To issue device certificates, you also need an intermediate CA and a certificate policy. For instructions, see [Set up a managed root and intermediate CA](../how-to-create-policy.md).
+
+### 5. Connect software updates (optional)
 
 # [Azure portal](#tab/azure-portal)
 
@@ -336,7 +380,7 @@ Only one software update instance can connect to a namespace.
 
 ---
 
-### 5. Verify the connected resources
+### 6. Verify the connected resources
 
 # [Azure portal](#tab/azure-portal)
 
@@ -397,6 +441,7 @@ For example, if the namespace name is `contoso-devices`, the guided setup sugges
 | Azure Device Registry namespace | `<namespace-name>` | `contoso-devices` |
 | IoT Hub instance | `<namespace-name>-hub-<number>` | `contoso-devices-hub-1` |
 | Device Provisioning Service | `<namespace-name>-provisioning` | `contoso-devices-provisioning` |
+| Root certificate authority | `<namespace-name>-root-ca` | `contoso-devices-root-ca` |
 | Software update instance | `<namespace-name>-su` | `contoso-devices-su` |
 
 ## Manage connected resources

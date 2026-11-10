@@ -46,7 +46,7 @@ Durable Task Scheduler works with both [Durable Functions](../durable-functions/
 
 ## Architecture
 
-For all Durable Task Scheduler orchestration frameworks, you can create scheduler instances of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers) using Azure Resource Manager. Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
+For all Durable Task Scheduler orchestration frameworks, you can create scheduler instances of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers) by using Azure Resource Manager. Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
 
 - Dispatching orchestrator, activity, and entity work items
 - Storing and querying history at scale with minimal latency
@@ -69,18 +69,18 @@ The Durable Task Scheduler runs in Azure as a separate resource from your app. T
     Separating the scheduler from the app reduces the risk of cascading failures and improves overall reliability in your connected apps. 
 
 - **Independent scaling**  
-    The scheduler resource can be scaled independently of the app for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, which is helpful for organizations with multiple teams or projects.
+    You can scale the scheduler resource independently of the app for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, which is helpful for organizations with multiple teams or projects.
 
 - **Improved support experience**  
     The Durable Task Scheduler is a managed service, providing streamlined support and diagnostics for issues regarding the underlying infrastructure.
 
 ### App connectivity
 
-Your apps connect to the scheduler resource via a gRPC connection, secured using TLS and authenticated by the app's identity. The endpoint address is in a format similar to `{scheduler-name}.{region}.durabletask.io`. For example, `myscheduler-123.westus2.durabletask.io`. 
+Your apps connect to the scheduler resource via a gRPC connection, secured by using TLS and authenticated by the app's identity. The endpoint address is in a format similar to `{scheduler-name}.{region}.durabletask.io`. For example, `myscheduler-123.westus2.durabletask.io`.
 
-For scenarios that require private connectivity, you can use [private endpoints](./durable-task-scheduler-private-endpoints.md) to route traffic to the scheduler over a private link within your virtual network instead of the public internet.
+For scenarios that require private connectivity, use [private endpoints](./durable-task-scheduler-private-endpoints.md) to route traffic to the scheduler over a private link within your virtual network instead of the public internet.
 
-Work items are streamed from the scheduler to the app using a push model, improving end-to-end latency and removing the need for polling. Your apps can process multiple work items in parallel and send responses back to the scheduler when the corresponding orchestration, activity, or entity task is complete.
+The scheduler streams work items to the app by using a push model, which improves end-to-end latency and removes the need for polling. Your apps can process multiple work items in parallel and send responses back to the scheduler when the corresponding orchestration, activity, or entity task is complete.
 
 ### State management
 
@@ -96,13 +96,13 @@ When you implement one of the Durable Task Scheduler orchestration frameworks, y
 
 ### Durable Task Scheduler dashboard
 
-When a scheduler resource is created, a corresponding dashboard is provided out-of-the-box. The dashboard provides an overview of all orchestrations and entity instances and allows you to:
+When you create a scheduler resource, you get a corresponding dashboard. The dashboard provides an overview of all orchestrations and entity instances and allows you to:
 - Quickly filter by different criteria. 
-- Gather data about an orchestration instance, such as status, duration, input/output, etc. 
+- Gather data about an orchestration instance, such as status, duration, input/output, and more.
 - Drill into an instance to get data about sub-orchestrations and activities.
 - Perform management operations, such as pausing, terminating, or restarting an orchestration instance. 
 
-Access to the dashboard is secured by [identity and role-based access controls](./durable-task-scheduler-identity.md). 
+[Identity and role-based access controls](./durable-task-scheduler-identity.md) secure access to the dashboard.
 
 For more information, see [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
 
@@ -112,9 +112,9 @@ State is durably persisted in a *task hub*. A [task hub](../common/durable-task-
 - Is a logical container for orchestration and entity instances.
 - Provides a way to partition the state store. 
 
-With one scheduler instance, you can create multiple task hubs that can be used by different apps. Each task hub gets its own [monitoring dashboard](./durable-task-scheduler-dashboard.md). To access a task hub, [the caller's identity *must* have the required role-based access control (RBAC) permissions](./durable-task-scheduler-identity.md). 
+With one scheduler instance, you can create multiple task hubs that different apps can use. Each task hub gets its own [monitoring dashboard](./durable-task-scheduler-dashboard.md). To access a task hub, [the caller's identity *must* have the required role-based access control (RBAC) permissions](./durable-task-scheduler-identity.md).
 
-Creating multiple task hubs isolates different workloads that can be managed independently. For example, you can:
+Creating multiple task hubs isolates different workloads that you can manage independently. For example, you can:
 - Create a task hub for each environment (dev, test, prod).
 - Create task hubs for different teams within your organization. 
 - Share the same scheduler instance across multiple apps. 
@@ -124,16 +124,20 @@ Scheduler sharing is a great way to optimize cost when multiple teams have scena
 > [!NOTE]
 > Although you can create multiple task hubs in one scheduler instance, they share the same resources. If one task hub is heavily loaded, it can affect the performance of other task hubs on the same scheduler.
 
+### Task queues (preview)
+
+Task queues group orchestration and activity work within a task hub and optionally control the rate at which the scheduler delivers that work to workers. Select a queue by setting the `DTS_TaskQueue` tag when scheduling work. For setup, SDK examples, and worker requirements, see [Use task queues in Durable Task Scheduler](./durable-task-scheduler-task-queues.md).
+
 ### Emulator for local development
 
-The Durable Task Scheduler emulator is a lightweight version of the scheduler backend that runs locally in a Docker container. With it, you can:
+The Durable Task Scheduler emulator is a lightweight version of the scheduler backend that runs locally in a Docker container. By using it, you can:
 - Develop and test your app without deploying to Azure.
 - Monitor and manage your orchestrations and entities just like you would in Azure.
 
 For setup instructions, see [Run the Durable Task Scheduler emulator](./develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator).
 
 > [!NOTE]
-> The emulator internally stores orchestration and entity state in local memory, so it isn't suitable for production use.
+> The emulator stores orchestration and entity state in local memory, so it isn't suitable for production use.
 
 ### Autopurge retention policies
 
@@ -141,22 +145,22 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 
 ## Limitations and considerations
 
-- **Scheduler quota:** 
+- **Scheduler limits:**
 
-    You're limited in how many schedulers you can create depending on your billing SKU.
-     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) schedulers are limited to **25** per region per subscription. 
+    Scheduler limits depend on your billing SKU.
+     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) there's no limit on the number of schedulers per subscription.
      - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) schedulers are limited to **10** per region per subscription. 
 
-    For more scheduler quota, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+    You can't increase the Consumption SKU scheduler limit.
 
-- **Task hub quota:**
+- **Task hub limits:**
 
     You're limited in how many task hubs you can use depending on your billing SKU. 
 
-     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) task hubs are limited to **25** per region per subscription. 
-     - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) task hubs are limited to **five** per scheduler. 
+     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) task hubs are limited to **25** per scheduler. 
+     - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) task hubs are limited to **5** per scheduler. 
 
-    You can't increase these task hub quotas.
+    You can't increase these task hub limits.
 
 - **Max payload size:** 
 
@@ -182,7 +186,7 @@ Stale orchestration data should be purged periodically to ensure efficient stora
   
   Orchestration instance IDs are limited to a maximum length of 100 characters.
 
-  * Allowed characters: Printable ASCII only (letters, numbers, symbols like -, _, ., etc. Characters 0x20 through 0x7E)
+  * Allowed characters: Printable ASCII only (letters, numbers, symbols like -, _, ., and other characters in the range 0x20 through 0x7E)
   * Minimum length: 1 character (cannot be empty)
   * Instance IDs starting with @ are reserved for entities
 

@@ -1,6 +1,10 @@
 
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
++ The [.NET SDK](https://dotnet.microsoft.com/download) for a [supported .NET version using the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions).
+
+  Update Core Tools and its templates to support your target version. For project SDK and worker package requirements, see [Core SDK and package](../articles/azure-functions/dotnet-isolated-process-guide.md#core-sdk-and-package).
+
+  If you use an Azure Developer CLI template, install the SDK that matches the template's target framework.
 
 + [Azurite storage emulator](../articles/storage/common/storage-install-azurite.md?tabs=npm#install-azurite) 
 ::: zone-end  

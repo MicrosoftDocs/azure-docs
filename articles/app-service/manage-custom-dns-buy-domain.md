@@ -212,6 +212,54 @@ After you purchase the App Service domain, you can update the domain contact inf
     > [!NOTE]
     > If you have privacy protection disabled and update name or organization information, an email verification is sent to the email address on file for confirmation. Additionally, if you update your email address, a verification email is sent first to the previous email on file for confirmation. After that's complete, another email is sent to the new email on file for confirmation. The contact information won't update until after you confirm via email.
 
+### Troubleshooting contact verification issues
+
+1. **Identify contact verification symptoms.**
+
+   If contact verification isn't completed, your domain might enter a **Parked** state and stop serving your app. A pending `ContactChangeVerification` request can require confirmation from both the original and new contact email addresses before the contact information is updated.
+
+   For an email address change, the verification email is sent first to the original address on file. After you confirm that request, a separate verification email is sent to the new address. Access to the new mailbox alone isn't sufficient to complete this process. If confirmation from either address is missing, the contact change remains incomplete.
+
+   When investigating, note whether the domain stopped serving your app after a contact update and whether either verification email was received and confirmed. A **Parked** state alone doesn't establish the cause. Check for an outstanding contact verification request before treating the issue as an app configuration or DNS problem. Record the domain state and any pending verification details for your support request.
+
+1. **Investigate missing verification emails and delivery errors.**
+
+   If a verification email doesn't arrive, determine whether the affected mailbox is the original contact address or the new address. For an email address change, confirmation from the original address is required before verification proceeds to the new address. A missing message at the new address might therefore indicate that the original confirmation is still pending, rather than a delivery failure.
+
+   When a nondelivery report is available, use its error code and diagnostic details to investigate. The following examples cover connection failures and other email delivery issues that can prevent verification messages from arriving. This list isn't exhaustive, and the exact error text varies by email provider.
+
+   | **Example error or status code** | **What it indicates** | **Suggested action** |
+   | --- | --- | --- |
+   | `550 5.4.316 Message expired, connection refused` | Delivery attempts encountered a refused connection, and the message expired before delivery succeeded. | Ask your email administrator to investigate the receiving mail server's availability and connection restrictions. |
+   | `450 4.4.316 Connection refused` | A connection to the destination mail server couldn't be established during a delivery attempt. | Ask your email administrator to investigate connectivity and whether the receiving server is accepting mail. |
+   | `5.1.1` (invalid recipient or mailbox not found) | The destination server doesn't recognize the recipient address. | Check the contact address for spelling errors and confirm that the mailbox exists. If the original address is no longer accessible, follow the guidance in the next item. |
+   | `5.2.2` (mailbox full) | The destination mailbox has exceeded its storage limit. | Free up mailbox space or ask your email administrator to address the mailbox quota. |
+   | `4.4.7` (delivery time expired) | The message couldn't be delivered within the allowed retry period. | Ask your email administrator to investigate mail server availability, routing, and the other diagnostic details in the report. |
+   | `5.7.1` (delivery not authorized or message refused) | The destination server rejected the message because of a security or mail policy restriction. | Ask your email administrator to review the rejection details and applicable mail filtering rules. |
+
+   A connection-refused error alone doesn't establish that an address is incorrect or that a mailbox no longer exists. Use the complete nondelivery report, rather than only the short error message, to identify the cause.
+
+   Even if no delivery error is visible, check both contact mailboxes:
+
+   - Verify that you can sign in to each mailbox and receive messages.
+   - Check junk email folders. Ask your email administrator to check quarantine, filtering rules, and available mail delivery logs for the verification message.
+   - Look for domain registration messages from GoDaddy sent from a `@secureserver.net` email account. Have your email administrator review any filtering of these messages according to your organization's security policies.
+   - Record the affected recipient address, the date and time of the delivery attempt, and any complete error messages. Include these details when contacting Azure Support.
+
+   The absence of a nondelivery report doesn't confirm that a verification email reached the inbox. Resolving email delivery also doesn't complete verification by itself: you must confirm the required messages at both addresses. If you can't access the original address, continue to the next item.
+
+1. **Understand self-service limitations when the original email is inaccessible.**
+
+   If you no longer have access to the original email address, you can't complete the contact change through self-service in the Azure portal. Submitting a new email address doesn't bypass the required confirmation from the original address.
+
+   This condition creates a verification dependency: the address that you want to replace must first receive and approve the change. Editing the contact information again doesn't remove that requirement. Similarly, access to the Azure subscription or the App Service domain resource doesn't substitute for confirmation through the registered contact email address.
+
+   If the original mailbox is still managed by your organization, work with your email administrator to determine whether access or mail delivery can be restored. If the mailbox can't be recovered, or the address belongs to an email domain that you no longer control, proceed to Azure Support rather than relying on repeated contact updates. Explain that the original address is inaccessible and that the required confirmation can't be completed. Azure Support can guide you through the ownership verification needed to proceed.
+
+1. **Contact Azure Support with proof of domain ownership.**
+
+   To resolve this issue, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Include the domain name, the pending verification status, and any email delivery errors. Provide proof of domain ownership as requested by Azure Support so they can help you complete the required ICANN contact verification and restore the domain.
+
 ## Disable privacy protection
 
 > [!IMPORTANT]

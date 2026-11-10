@@ -5,7 +5,7 @@ author: nsannala
 ms.author: nsannala
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 09/25/2026
+ms.date: 10/29/2026
 ms.custom: template-how-to-pattern
 ---
 
@@ -13,12 +13,9 @@ ms.custom: template-how-to-pattern
 
 This article shows you how to connect Analytics Consumption Zone (ACZ) data to Snowflake. ACZ writes Azure Data Manager for Energy data to Azure Data Lake Storage Gen2 in Delta Lake format. Snowflake Delta Direct exposes the Delta data as a read-only Apache Iceberg table without copying the source data into Snowflake.
 
-> [!NOTE]
-> During the preview, ACZ is available only on Developer tier instances and requires the use of allow lists. Follow the guidance in [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md), and contact your Microsoft representative.
-
 ## Prerequisites
 
-- An Azure subscription with an Azure Data Manager for Energy (Developer tier) instance that has ACZ enabled.
+- An Azure subscription with an Azure Data Manager for Energy (Developer or Standard tier) instance that has ACZ enabled.
 - An ACZ instance in `ACTIVE` status with `historicalSnapshotStatus` set to `COMPLETED`.
 - An Azure Data Lake Storage Gen2 account that contains the ACZ Delta Lake data.
 - Permission to grant an Azure role at the storage account scope.
@@ -54,7 +51,7 @@ CREATE OR REPLACE EXTERNAL VOLUME acz_delta_volume
       (
         NAME = 'acz-storage-location'
         STORAGE_PROVIDER = 'AZURE'
-        STORAGE_BASE_URL = 'azure://<storage-account>.dfs.core.windows.net/<container>/<acz-id>/'
+        STORAGE_BASE_URL = 'azure://<storage-account>.dfs.core.windows.net/<container>/<folder-path><acz-id>/'
         AZURE_TENANT_ID = '<tenant-id>'
       )
     )
@@ -64,8 +61,9 @@ CREATE OR REPLACE EXTERNAL VOLUME acz_delta_volume
 Replace the placeholders:
 
 - `<storage-account>`: Name of the Data Lake Storage Gen2 account that contains the ACZ data.
-- `<container>`: Container that you selected when you created the ACZ instance.
-- `<acz-id>`: ACZ output folder, such as `acz-8a0aa7433085`.
+- `<container>`: The first segment of the `basePath` that you specified when you created the ACZ instance. If you didn't specify a `basePath`, the container name is your ACZ ID.
+- `<folder-path>`: Any remaining `basePath` segments, each followed by a slash (for example, `workbench/`). Leave it empty if your `basePath` has only one segment or if you didn't specify a `basePath`.
+- `<acz-id>`: Your ACZ ID, the `aczId` value from the Create or List ACZ API response (for example, `acz-8a0aa7433085`).
 - `<tenant-id>`: Microsoft Entra tenant ID for the storage account.
 
 Use the `azure://` prefix in `STORAGE_BASE_URL`. The `ALLOW_WRITES = FALSE` setting keeps the connection read-only and must match the Azure role that you assign in the next step.
@@ -136,9 +134,9 @@ CREATE OR REPLACE ICEBERG TABLE osdu_catalog
   AUTO_REFRESH = TRUE;
 ```
 
-`BASE_LOCATION` is relative to the `STORAGE_BASE_URL` in the external volume. It must point to a single Delta table directory that contains a `_delta_log` subfolder. For example, if the external volume points to the `<acz-id>/` folder, use `osducatalog/` for the ACZ catalog table.
+`BASE_LOCATION` is relative to the `STORAGE_BASE_URL` in the external volume. It must point to a single Delta table folder that contains a `_delta_log` subfolder. For example, if the external volume points to the `<acz-id>/` folder, use `osducatalog/` for the ACZ catalog table.
 
-To expose another ACZ dataset, create another Iceberg table and set `BASE_LOCATION` to that dataset's Delta table directory.
+To expose another ACZ dataset, create another Iceberg table and set `BASE_LOCATION` to that dataset's Delta table folder. Wellbore DDMS folders contain Parquet and JSON files, not Delta tables, so you can't expose them through a Delta catalog integration.
 
 ## Step 5: Query the ACZ data
 
@@ -180,8 +178,8 @@ ALTER ICEBERG TABLE acz_data.osdu.osdu_catalog REFRESH;
 ### Delta log isn't found
 
 - Confirm that `BASE_LOCATION` is relative to the external volume's `STORAGE_BASE_URL`.
-- Confirm that the target directory contains `_delta_log` and Parquet data files.
-- Point each Iceberg table to one Delta table directory, not to a parent directory that contains multiple Delta tables.
+- Confirm that the target folder contains `_delta_log` and Parquet data files.
+- Point each Iceberg table to one Delta table folder, not to a parent folder that contains multiple Delta tables.
 
 ### New ACZ data isn't visible
 
@@ -191,7 +189,10 @@ ALTER ICEBERG TABLE acz_data.osdu.osdu_catalog REFRESH;
 
 ## Related content
 
-- [Connect Analytics Consumption Zone to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
-- [Connect Analytics Consumption Zone data to Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
+- [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
+- [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
+- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)
 - [Snowflake: Create an Iceberg table from Delta files](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-delta)

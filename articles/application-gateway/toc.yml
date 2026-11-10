@@ -51,6 +51,8 @@
       href: configuration-http-settings.md
   - name: Routing
     items:
+    - name: Advanced Routing Rules
+      href: advanced-rules.md
     - name: Multi-site hosting
       href: multiple-site-overview.md
     - name: URL routing
@@ -115,6 +117,8 @@
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Deploy
   items:
+  - name: Advanced Routing Rules
+    href: configure-advanced-routing-rule.md
   - name: Host multiple sites
     href: create-multiple-sites-portal.md
   - name: Route by URL
@@ -333,6 +337,8 @@
     href: application-gateway-probe-overview.md
   - name: Backend health
     href: application-gateway-backend-health.md
+  - name: Gateway health
+    href: health-dashboard.md     
   - name: Diagnostic logs
     href: application-gateway-diagnostics.md
   - name: Metrics

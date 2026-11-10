@@ -1,5 +1,5 @@
 ---
-title: Certificate revocation (preview)
+title: Certificate revocation
 titleSuffix: Azure Device Registry
 description: Learn about certificate revocation and policy management, and how to revoke certificates and delete policies and credentials in Azure Device Registry for IoT Hub.
 author: sethmanheim
@@ -12,11 +12,9 @@ ms.date: 08/31/2026
 #Customer intent: As an IoT Hub administrator or security team member, I want to understand and perform certificate revocation and policy management operations, so that I can protect production devices and manage certificate lifecycles safely.
 ---
 
-# Certificate revocation (preview)
+# Certificate revocation
 
 Certificate management in Azure Device Registry enables you to issue, manage, and revoke X.509 certificates throughout their lifecycle. This article explains the key concepts related to revoking intermediate certificate authorities (CAs) and device certificates. These operations are part of a coordinated lifecycle management strategy that helps you maintain your security posture when certificates expire, devices are decommissioned, or business requirements change.
-
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## Prerequisites
 
@@ -25,7 +23,8 @@ Before you begin, make sure you have:
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A configured intermediate certificate authority Azure Device Registry namespace. For setup steps, see [Set up a root and intermediate CA](how-to-create-policy.md).
 - Device Provisioning Service (DPS) configured for devices that use operational certificate issuance and rotation.
-- The [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role assigned on the Azure Device Registry namespace. This role grants full access to manage certificates. If you don't have this role assigned, contact your Azure administrator.
+- Permission to revoke intermediate certificate authorities in this Azure Device Registry namespace, such as the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) role. If you don't have access, ask your Azure administrator to assign you this role on the namespace.
+- Permission to revoke device certificates in this Azure Device Registry namespace, such as the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) or [Azure Device Registry Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role. If you don't have access, ask your Azure administrator to assign you one of these roles on the namespace.
 
 ## Revoking device certificates
 
@@ -122,11 +121,12 @@ For an intermediate CA that is issued by an external CA, you can't revoke the CA
 
 ## Set variables
 
-Optionally, define shared variables so you can reuse the same values across all commands and reduce input errors.
+The following examples use Bash syntax. Optionally, define shared variables for the commands in this article. If you don't set these variables, replace each variable reference in the commands with its value.
 
 ```azurecli
 RG_NAME="<resource-group>"
 NS_NAME="<adr-namespace>"
+SUBSCRIPTION_ID="<subscription-id>"
 ```
 
 ## Revoke certificates for a device by using Azure CLI
@@ -137,9 +137,9 @@ Run this command to revoke certificates for a device in Azure Device Registry.
 az iot adr ns device auth revoke-certs \
   --name "<authentication-profile-name>" \
   --device-name "<registry-device-name>" \
-  --ns "<namespace-name>" \
-  --resource-group "<resource-group-name>" \
-  --subscription "<subscription-id>" \
+  --ns "$NS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
   --yes
 ```
 
@@ -148,10 +148,10 @@ If you're unsure of the name of your device's authentication profile name, run t
 
 ```azurecli
 az iot adr ns device auth list \
-  --device-name "<device-name>" \
-  --ns "<namespace-name>" \
-  --resource-group "<resource-group-name>" \
-  --subscription "<subscription-id>" \
+  --device-name "<registry-device-name>" \
+  --ns "$NS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
   --query "[].name" \
   --output tsv
 ```
@@ -163,9 +163,9 @@ Run this command to revoke and rotate an intermediate certificate authority that
 ```azurecli
 az iot adr ns ca revoke \
   --name "<intermediate-ca-name>" \
-  --ns "<namespace-name>" \
-  --resource-group "<resource-group-name>" \
-  --subscription "<subscription-id>" \
+  --ns "$NS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
   --yes
 ```
 
@@ -174,7 +174,7 @@ az iot adr ns ca revoke \
 ## Related content
 
 - [Key concepts for certificate management](iot-certificate-management-concepts.md)
-- [What is certificate management (preview)?](iot-certificate-management-overview.md)
+- [Certificate management in Azure Device Registry](iot-certificate-management-overview.md)
 
 - [Authenticate devices with X.509 CA certificates](../iot-hub/authenticate-authorize-x509.md)
 - [Azure role-based access control (RBAC) for IoT Hub](../iot-hub/authenticate-authorize-azure-ad.md)

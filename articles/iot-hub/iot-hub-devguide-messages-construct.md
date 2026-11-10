@@ -2,12 +2,12 @@
 title: Understand message format
 titleSuffix: Azure IoT Hub
 description: This article describes the format and expected content of IoT Hub messages for cloud-to-device and device-to-cloud messages.
-author: sethmanheim
+author: Usha-Rathnavel
 
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/06/2026
-ms.author: sethm
+ms.author: usrathna
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -129,7 +129,13 @@ The system property names vary based on the endpoint to which the messages are b
 
 ## Message schema at routing endpoints
 
-When IoT Hub routes a device-to-cloud message to a custom endpoint, it delivers the message in three parts:
+The message body, schema reference, and destination envelope are separate
+concepts. A route's schema reference doesn't automatically validate or transform
+its messages. An endpoint's payload format can change where a consumer finds
+the original value. For schema references, device-type context, and preview output formats, see [Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md).
+
+For the device payload format, IoT Hub delivers a routed device-to-cloud message
+in three parts:
 
 * **Body**: The message body is delivered as-is (not base64 encoded) to Event Hubs, Service Bus queues, and Service Bus topics. For Azure Storage and Azure Cosmos DB, encoding depends on the message content type and content encoding system properties. For more information, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
 

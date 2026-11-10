@@ -83,7 +83,7 @@ The response to this request looks like the following example. The role values i
 {
   "value": [
     {
-      "id": "91907508-04fe-4349-91b5-b872f3055a95",
+      "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
       "type": "email",
       "roles": [
         {
@@ -93,7 +93,7 @@ The response to this request looks like the following example. The role values i
       "email": "user1@contoso.com"
     },
     {
-      "id": "dc1c916b-a652-49ea-b128-7c465a54c759",
+      "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
       "type": "email",
       "roles": [
         {
@@ -103,7 +103,7 @@ The response to this request looks like the following example. The role values i
       "email": "user2@contoso.com"
     },
     {
-      "id": "3ab9375e-d2d9-42da-b419-6ae86a938321",
+      "id": "cccccccc-2222-3333-4444-dddddddddddd",
       "type": "email",
       "roles": [
         {
@@ -113,7 +113,7 @@ The response to this request looks like the following example. The role values i
       "email": "user3@contoso.com"
     },
     {
-      "id": "fc5a250b-83fb-433d-892c-e0a144f68c2b",
+      "id": "dddddddd-3333-4444-5555-eeeeeeeeeeee",
       "type": "email",
       "roles": [
         {
@@ -131,18 +131,18 @@ The response to this request looks like the following example. The role values i
 Use the following request to retrieve details of an individual user from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/users/dc1c916b-a652-49ea-b128-7c465a54c759?api-version=2022-07-31
+GET https://{your app subdomain}.azureiotcentral.com/api/users/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example. The role value identifies the role ID the user is associated with:
 
 ```json
 {
-  "id": "dc1c916b-a652-49ea-b128-7c465a54c759",
+  "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "type": "email",
   "roles": [
     {
-      "role": "ae2c9854-393b-4f97-8c42-479d70ce626e"
+      "role": "ca310b8d-2f4a-44e0-a36e-957c202cd8d4"
     }
   ],
   "email": "user2@contoso.com"

@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: overview
-ms.date: 08/19/2026
+ms.date: 10/30/2026
 
 # Customer intent: As a security analyst, I want to understand how rate limiting works in Azure Web Application Firewall on Application Gateway so that I can configure effective rules to mitigate anomalous traffic and maintain application availability.
 ---
@@ -39,16 +39,16 @@ The following three *GroupByVariables* are currently available:
 
 ## Rate limiting details
 
-The Web Application Firewall policy counts and tracks the configured rate limit thresholds independently for each endpoint it's attached to. For example, a single WAF policy attached to five different listeners maintains independent counters and threshold enforcement for each of the listeners.
+The Web Application Firewall policy counts and tracks the configured rate limit thresholds independently for each association. For example, a single WAF policy associated with three application gateways maintains separate counters and threshold enforcement for each gateway. Similarly, a single WAF policy associated with five different listeners maintains separate counters and threshold enforcement for each listener.
 
 The rate limit thresholds aren't always enforced exactly as defined, so don't use rate limiting for fine-grain control of application traffic. Instead, use it to mitigate anomalous rates of traffic and to maintain application availability.
 
 The sliding window algorithm blocks all matching traffic for the first window in which the threshold is exceeded, and then throttles traffic in future windows. Use caution when defining thresholds when configuring wide-matching rules with either *GeoLocation* or *None* as the *GroupByVariables*. Incorrectly configured thresholds could lead to frequent short outages for matching traffic.
 
 > [!NOTE]
-> Each Application Gateway v2 instance maintains its own rate-limit counter. When multiple instances are active, they distribute incoming requests among themselves, and the rate-limit threshold applies independently to each instance.
+> Each counter covers all matching traffic for its association, so scaling out the application gateway doesn't divide the threshold.
 >
-> For example, consider a threshold of 400 requests per client IP per minute. If two instances receive 270 and 230 requests from the same client IP, neither instance reaches the threshold. The WAF allows the requests even though the combined request count exceeds 400. Therefore, when multiple instances are active, don't treat the configured threshold as a strict gateway-wide limit.
+> For example, consider a threshold of 400 requests per client IP address per minute. A client that sends 500 matching requests within one minute exceeds the threshold, no matter how far the gateway has scaled out.
 
 ## Next step
 

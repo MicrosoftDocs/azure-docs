@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 11/02/2026
 ms.author: shaas
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
@@ -130,17 +130,16 @@ Blob: folderA/folderB/file3.txt
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
-## List blobs in Apache Arrow format (preview)
+## List blobs in Apache Arrow format
 
-> [!IMPORTANT]
-> Listing blobs in Apache Arrow format is currently in **PREVIEW**. This scenario requires a **beta (preview) version** of the Azure Storage client module for Go (for example, `github.com/Azure/azure-sdk-for-go/sdk/storage/azblob` **v1.8.1-beta.1** or later preview release). Preview features are provided without a service-level agreement and aren't recommended for production workloads. Some features might not be supported, or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+To list blobs in Apache Arrow format, use version **v1.8.1** or later of the [github.com/Azure/azure-sdk-for-go/sdk/storage/azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1) module.
 
-This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The Go SDK decodes Apache Arrow behind the scenes and still returns the same `BlobItem` values. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
+This feature uses the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The Go SDK decodes Apache Arrow behind the scenes and still returns the same `BlobItem` values. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
 
 > [!WARNING]
 > Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
 
-To request Apache Arrow-formatted results, set the `ResponseFormat` field of [ListBlobsFlatOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1-beta.1/container#ListBlobsFlatOptions) to [StorageResponseFormatArrow](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1-beta.1/container#StorageResponseFormat), then pass the options to [NewListBlobsFlatPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1-beta.1#Client.NewListBlobsFlatPager). When using Apache Arrow output, you can also set the `StartFrom` and `EndBefore` fields to control the range of paths returned.
+To request Apache Arrow-formatted results, set the `ResponseFormat` field of [ListBlobsFlatOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1/container#ListBlobsFlatOptions) to [StorageResponseFormatArrow](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1/container#StorageResponseFormat), then pass the options to [NewListBlobsFlatPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1#Client.NewListBlobsFlatPager). When using Apache Arrow output, you can also set the `StartFrom` and `EndBefore` fields to control the range of paths returned.
 
 The following example lists the blobs in a container and requests the results in Apache Arrow format:
 
@@ -170,11 +169,11 @@ for pager.More() {
 
 ## Resources
 
-To learn more about how to list blobs using the Azure Blob Storage client module for Go, see the following resources.
+To learn more about how to list blobs by using the Azure Blob Storage client module for Go, see the following resources.
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/list-blobs/list_blobs.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/list-blobs/list_blobs.go) from this article (GitHub).
 
 ### REST API operations
 

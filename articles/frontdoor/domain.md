@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/09/2026
+ms.date: 10/19/2026
 ---
 
 # Domains in Azure Front Door
@@ -90,6 +90,8 @@ Azure Front Door supports using HTTPS with your own domains, and offloads transp
 
 For more information on how Azure Front Door works with TLS, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
+In addition to selecting a certificate, you can configure a domain's [TLS policy](tls-policy.md) for protocol versions and cipher suites and its [TLS key exchange policy](tls-key-exchange-policy.md) for classical and hybrid post-quantum supported groups. These policies control client-to-Front Door TLS negotiation, not certificate issuance or renewal. Hybrid post-quantum key exchange requires TLS 1.3. The domain's key exchange policy doesn't configure the separate Front Door-to-origin connection.
+
 ### Azure Front Door-managed TLS certificates
 
 Azure Front Door can automatically manage TLS certificates for subdomains and apex domains. When you use managed certificates, you don't need to create keys or certificate signing requests, and you don't need to upload, store, or install the certificates. Additionally, Azure Front Door can automatically rotate (renew) managed certificates without any human intervention. This process avoids downtime caused by a failure to renew your TLS certificates in time.
@@ -137,7 +139,7 @@ To use your certificate with Azure Front Door, it must meet the following requir
 
 - **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
 - **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
-- **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
+- **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. This certificate requirement is separate from the elliptic-curve groups supported for [TLS key exchange](tls-key-exchange-policy.md).
 - **File (content) type:** You must upload your certificate to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
 
 #### Import a certificate to Azure Key Vault

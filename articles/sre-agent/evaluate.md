@@ -3,7 +3,7 @@ title: Evaluate Azure SRE Agent
 description: Learn how new customers can evaluate Azure SRE Agent with a 30-day trial that waives always-on charges.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 09/03/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -79,11 +79,11 @@ Then work down this list. If you only do one thing, do the first one.
 
 The trial period begins the day you create your first Azure SRE Agent and concludes 30 days after that day. When the trial period ends, standard Azure SRE Agent pricing applies automatically and always-on charges begin. There's no second confirmation step. If the agent still exists after 30 days, it starts accruing the fixed charge.
 
-If you decide not to continue, delete the agent before the trial ends. Deleting is the only way to stop always-on charges. Stopping an agent halts active usage, but the always-on charge continues. To delete an agent, open it in the SRE Agent portal, go to **Settings** > **Basics**, and in **Delete SRE Agent** select **Delete**. For a comparison of stopping and deleting, see [Cost optimization tips](./pricing-billing.md#cost-optimization-tips).
+If you decide not to continue, delete the agent before the trial ends. Deleting is the only way to stop always-on charges. Stopping an agent halts active usage, but the always-on charge continues. To delete an agent, open it in the SRE Agent portal, go to **Settings** > **General**, and in **Delete SRE Agent** select **Delete**. For a comparison of stopping and deleting, see [Cost optimization tips](./pricing-billing.md#cost-optimization-tips).
 
 While the trial is active, a banner in the SRE Agent portal shows the time remaining. The banner disappears when the trial period ends.
 
-You can track your active usage at any time in the SRE Agent portal under **Settings** > **Agent consumption**.
+You can track your active usage at any time in the SRE Agent portal under **Build + setup** > **Monitor** > **Agent consumption**.
 
 ## Terms and conditions
 

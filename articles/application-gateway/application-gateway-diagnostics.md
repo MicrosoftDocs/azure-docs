@@ -138,13 +138,13 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
    - Performance log (available only for the v1 SKU)
    - Firewall log
 
-1. To start collecting data, select **Turn on diagnostics**.
+1. To start collecting data, configure diagnostics and choose **Resource specific** for destination tables.
 
-   :::image type="content" source="media/application-gateway-diagnostics/turning-on-diagnostics.png" alt-text="Screenshot of turning on diagnostics.":::
+   :::image type="content" source="media/application-gateway-diagnostics/resource-specific.png" alt-text="Screenshot showing resource-specific destination table selection in diagnostic settings.":::
 
-1. The **Diagnostics settings** page provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the diagnostic logs.
+1. Note the Application Gateway resource ID from the gateway properties page while configuring diagnostics.
 
-   :::image type="content" source="media/application-gateway-diagnostics/starting-configuration-process.png" alt-text="Screenshot of starting the configuration process.":::
+   :::image type="content" source="media/application-gateway-diagnostics/application-gateway-endpoint-id.png" alt-text="Screenshot showing the Application Gateway resource ID in the properties page.":::
 
 1. Type a name for the settings, confirm the settings, and select **Save**.
 

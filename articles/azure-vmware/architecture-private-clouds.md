@@ -3,7 +3,7 @@ title: Architecture for Private Clouds and Clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined datacenters and VMware vSphere clusters. 
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 8/14/2025
+ms.date: 11/2/2026
 ms.custom: engagement-fy23, references_regions
 # Customer intent: As a cloud architect, I want to understand the capabilities and architecture of private clouds and VMware clusters within Azure, so that I can effectively design and manage scalable deployments aligned with my organization's needs.
 ---
@@ -46,87 +46,6 @@ Each Azure VMware Solution architectural component has the following function:
 ## Hosts
 
 [!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
-
-## Azure region availability zone to host type mapping table
-
-When you plan your Azure VMware Solution design, use the following table to understand what host types are available in each physical availability zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
-
->[!IMPORTANT]
-> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store.
-
-The capability for Azure VMware Solution stretched clusters to deploy resources in multiple availability zones (Multi-AZ) is also tagged in the following table. The customer quota for Azure VMware Solution is assigned by Azure region. You can't specify the availability zone during private cloud provisioning. An autoselection algorithm is used to balance deployments across the Azure region.
-
-If you have a particular availability zone to which you want to deploy, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft. Request a "special placement policy" for your subscription, Azure region, availability zone, and host type. This policy remains in place until you request it to be removed or changed.
-
-Host types marked in bold type are of limited availability because of customer consumption and might not be available upon request. Use the AV64 host type when AV36, AV36P, or AV52 host types are limited.
-
-AV64 host types are available per availability zone. The following table lists the Azure regions that support this host type. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven fault domains are needed, respectively. The fault domain count for each Azure region is listed in the column labeled **AV64 fault domains supported**.
-
-| Azure region | Availability zone | Host type   | Multi-AZ SDDC | AV64 fault domains supported |
-| :---         | :---:             | :---: | :---:         | :---:           |
-| Australia East | AZ01 | AV36P, AV64 | Yes | 7 |
-| Australia East | AZ02 | AV36, AV64| Yes | 7 |
-| Australia East | AZ03 | AV36P, AV64 | Yes | 7 |
-| Australia Southeast | AZ01 | AV36 | No | N/A |
-| Brazil South | AZ02 | AV36, AV64 | No | 7 |
-| Canada Central | AZ02 | AV36, **AV36P**, AV64 | No | 7 |
-| Canada East | N/A | AV36, **AV64** | No | 7 |
-| Central India | AZ03 | **AV36P**, AV48, AV64 | No | 7 |
-| Central US | AZ01 | **AV36P**, AV64 | No | 7 |
-| Central US | AZ02 | AV36, AV64 | No | 7 |
-| Central US | AZ03 | AV36P, AV64 | No | 7 |
-| East Asia | AZ01 | AV36, AV64 | No | 7 |
-| East Asia | AZ02 | AV36P | No | N/A |
-| East US | AZ01 | **AV36P**, AV64 | Yes | 7 |
-| East US | AZ02 | AV36P, AV64 | Yes | 7 |
-| East US | AZ03 | AV36, **AV36P**, AV64 | Yes | 7 |
-| East US 2 | AZ01 | **AV36**, AV64 | No | 7 |
-| East US 2 | AZ02 | AV36P, AV52, **AV64** | No | 7 |
-| East US 2 | AZ03 | **AV36P**, **AV64** | No | 7 |
-| France Central | AZ01 | AV36, AV64 | No | 7 |
-| Germany West Central | AZ01 | AV36P, AV64 | Yes | 7 |
-| Germany West Central | AZ02 | **AV36**, AV48, AV64 | Yes | 7 |
-| Germany West Central | AZ03 | AV36, **AV36P**, AV48, AV64 | Yes | 7 |
-| Italy North | AZ03 | AV36P, AV64 | No | 7 |
-| Japan East | AZ02 | **AV36**, **AV36P**, AV64 | No | 7 |
-| Japan East | AZ03 | AV36P, AV48 | No | N/A |
-| Japan West | AZ01 | **AV36**, AV64 | No | 7 |
-| Japan West | AZ02 | AV36P | No | N/A |
-| Korea Central | AZ02 | AV48 | No | N/A |
-| Korea Central | AZ03 | AV48 | No | N/A |
-| North Central US | AZ01 | AV36, AV64 | No | 7 |
-| North Central US | AZ02 | **AV36P**, AV64 | No | 7 |
-| North Europe | AZ02 | **AV36**, AV64 | No | 7 |
-| Qatar Central | AZ03 | **AV36P** (AV64 Planned Q4 2025) | No | N/A (7 Planned Q4 2025) |
-| South Africa North | AZ01 | AV48, AV64 | No | 7 |
-| South Africa North | AZ03 | AV36, AV64 | No | 7 |
-| South Central US | AZ01 | AV36, AV64 | No | 7 |
-| South Central US | AZ02 | AV36, AV36P, AV52, AV64 | No | 7 |
-| Southeast Asia | AZ01 | AV36P | No | N/A |
-| Southeast Asia | AZ02 | AV36 | No | N/A |
-| Spain Central | AZ01 | AV48 | No | N/A |
-| Spain Central | AZ03 | AV48 | No | N/A |
-| Sweden Central | AZ01 | AV36, AV64 | No | 7 |
-| Sweden Central | AZ03 | AV48 | No | N/A |
-| Switzerland North | AZ01 | **AV36**, AV64 | No | 7 |
-| Switzerland North | AZ03 | AV36P, AV64 | No | 7 |
-| Switzerland West | AZ01 | **AV36**, AV64 | No | 7 |
-| UAE North | AZ02 | AV48 | No | N/A |
-| UAE North | AZ03 | AV36P, AV64 | No | 7 |
-| UK South | AZ01 | AV36, AV36P, AV52, AV64 | Yes | 7 |
-| UK South | AZ02 | AV36, AV64 | Yes | 7 |
-| UK South | AZ03 | AV36P, **AV64** | Yes | 7 |
-| UK West | AZ01 | **AV36**, AV64 | No | 7 |
-| West Europe | AZ01 | **AV36**, AV36P, AV52, AV64 | Yes | 7 |
-| West Europe | AZ02 | **AV36**, AV64 | Yes | 7 |
-| West Europe | AZ03 | AV36P, AV64 | Yes | 7 |
-| West US | AZ01 | AV36, AV36P, AV64 | No | 7 |
-| West US 2 | AZ01 | AV36, AV64 | No | 7 |
-| West US 2 | AZ02 | **AV36P**, AV64 | No | 7 |
-| West US 2 | AZ03 | AV48 | No | N/A |
-| West US 3 | AZ01 | AV36P, AV64 | No | 7 |
-| US Gov Arizona | AZ02 | AV36P, AV48 | No | N/A |
-| US Gov Virginia | AZ03 | AV36, AV48 | No | N/A |
 
 ## Clusters
 

@@ -3,7 +3,7 @@ title: Azure Functions Node.js developer reference
 description: Develop Azure Functions using JavaScript and TypeScript with the @azure/functions npm package, including programming models, triggers, bindings, and best practices.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: how-to
-ms.date: 07/15/2026
+ms.date: 11/09/2026
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
 ms.custom:
@@ -38,7 +38,9 @@ Azure Functions for Node.js supports two programming model versions. **New proje
 | Function registration | Code-centric (`app.http()`, `app.timer()`) | File-based (`function.json`) |
 | File structure | Flexible | Fixed (one folder per function) |
 | Functions runtime version | 4.25+ | 4.x |
-| Node.js versions | 24.x, 22.x | 24.x, 22.x |
+| Node.js versions | 26.x (Preview, Linux only), 24.x, 22.x | 26.x (Preview, Linux only), 24.x, 22.x |
+
+Use Node.js 24 for new production apps. Node.js 26 is available in preview only on Linux and isn't supported on Windows.
 
 ::: zone pivot="nodejs-model-v4"  
 In the Node.js v4 programming model, you register functions by importing the `app` object from `@azure/functions` and calling trigger-specific methods. The functions are defined directly in your code with a flexible file structure. Every function has a single *trigger* that starts its execution and can also have *bindings*, which are declarative connections to other services for reading input data or writing output data. For more information, see [Triggers and bindings](#triggers-and-bindings).
@@ -690,7 +692,7 @@ This section covers local development, debugging techniques, and testing strateg
 #### Local development setup
 
 **Prerequisites:**
-- [Node.js](https://nodejs.org/) version 18.x or 20.x
+- [Node.js](https://nodejs.org/) version 24.x. For other supported versions, see [Node.js versions](#programming-model).
 - [Azure Functions Core Tools](functions-run-local.md) v4.x
 - [Azure CLI](/cli/azure/install-azure-cli) (optional)
 
@@ -820,7 +822,7 @@ az functionapp deployment source config-zip \
 **Application settings in Azure:**
 
 Configure environment variables for production:
-- `WEBSITE_NODE_DEFAULT_VERSION`: Set to `~18` or `~20`.
+- `WEBSITE_NODE_DEFAULT_VERSION`: Set to `~24` for Windows apps.
 - `FUNCTIONS_WORKER_RUNTIME`: Set to `node`.
 - Connection strings and API keys as secure app settings.
 - `NODE_ENV`: Set to `production`.
@@ -2329,6 +2331,8 @@ The way that you upgrade your Node.js version depends on the OS on which your fu
 
 When it runs on Windows, set the Node.js version by using the [`WEBSITE_NODE_DEFAULT_VERSION`](./functions-app-settings.md#website_node_default_version) application setting. Update this setting either by using the Azure CLI or in the Azure portal.
 
+Node.js 24 is the latest supported Node.js version on Windows. The Node.js 26 preview is available only on Linux.
+
 #### [Linux](#tab/linux)
 
 When the function app runs on Linux, the [linuxFxVersion](./functions-app-settings.md#linuxfxversion) site setting determines the Node.js version. You can update this setting by using Azure CLI.
@@ -2344,11 +2348,11 @@ Before upgrading your Node.js version, make sure your function app is running on
 Run the Azure CLI [`az functionapp config appsettings set`](/cli/azure/functionapp/config#az-functionapp-config-appsettings-set) command to update the Node.js version for your function app running on Windows:
 
 ```azurecli-interactive
-az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~22 \
+az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~24 \
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-This command sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) to the supported LTS version `~22`.
+This command sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) to the supported LTS version `~24`.
 
 #### [Azure portal](#tab/azure-portal/windows)
 
@@ -2358,14 +2362,17 @@ Use the following steps to change the Node.js version:
 
 #### [Azure CLI](#tab/azure-cli/linux)
 
-Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
+Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux in a Premium or Dedicated plan:
 
 ```azurecli-interactive
-az functionapp config set --linux-fx-version "node|22" --name "<FUNCTION_APP_NAME>" \
+az functionapp config set --linux-fx-version "node|24" --name "<FUNCTION_APP_NAME>" \
  --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
-This command sets the base image of the Linux function app to Node.js version 22.
+This command sets the base image of the Linux function app to Node.js version 24.
+
+> [!NOTE]
+> Node.js 22 is the last version supported on the Linux Consumption plan. To use Node.js 24 or 26 (Preview), first [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).
 
 #### [Azure portal](#tab/azure-portal/linux)
 
@@ -2896,6 +2903,4 @@ For more information, see the following resources:
 - [Best practices for Azure Functions](functions-best-practices.md)
 - [Azure Functions developer reference](functions-reference.md)
 - [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-
-
 

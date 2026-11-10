@@ -3,7 +3,7 @@ title: Configure network security for Microsoft Discovery workspaces
 description: Learn how to assign NSP roles, configure subnets, create private endpoints, and configure DNS for Microsoft Discovery workspaces.
 ms.service: azure
 ms.topic: how-to
-ms.date: 08/05/2026
+ms.date: 10/24/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -17,7 +17,7 @@ This article walks you through the prerequisites for network hardening and how t
 
 - An Azure subscription with the **Microsoft.Discovery** resource provider registered.
 - Azure CLI 2.50+ or Azure PowerShell 10.0+.
-- **Owner** or **Contributor** role on the subscription (required for custom role and role assignment creation).
+- Permission to create the required network resources, plus custom-role and role-assignment authority at the appropriate scopes. Contributor alone can't create role definitions or assignments. For automated subscription preparation, see [Stage 2 permissions](reference-deployment-permissions.md#stage-2-landing-zone-preparation).
 - A virtual network with dedicated subnets for:
   - Agent workloads
   - Private endpoints
@@ -28,7 +28,7 @@ This article walks you through the prerequisites for network hardening and how t
 
 ## Assign the NSP Perimeter Joiner role
 
-The Discovery control plane needs permission on your subscription to create NSP inbound access rules. Create a custom role and assign it to the **Discovery control-plane service App** service principal.
+The Discovery control plane needs permission to associate managed resources with its Network Security Perimeter. Create the custom role and assign it to the **Discovery control-plane service App** service principal, together with subscription Reader. The join role doesn't grant arbitrary perimeter or access-rule administration. [Onboarding Stage 2](how-to-prepare-landing-zone.md) automates this preparation.
 
 ### Verify the service principal
 
@@ -59,7 +59,7 @@ Create a file named `nsp-perimeter-joiner-role.json`. Replace `<your-subscriptio
 ```json
 {
   "Name": "Discovery NSP Perimeter Joiner",
-  "Description": "Allows the Microsoft Discovery control plane to create NSP inbound access rules for network-hardened workspaces.",
+  "Description": "Allows the Microsoft Discovery control plane to associate managed resources with its network security perimeter.",
   "Actions": [
     "Microsoft.Network/networkSecurityPerimeters/joinPerimeterRule/action",
     "Microsoft.Network/locations/networkSecurityPerimeterOperationStatuses/read"
@@ -140,6 +140,8 @@ New-AzRoleAssignment `
 ---
 
 ### Verify the role assignment
+
+Also assign the built-in **Reader** role to the same Discovery service principal at subscription scope, using your selected assignment method. Verify both assignments; assigning only the custom join role doesn't provide the subscription reads the service needs.
 
 ```azurecli
 az role assignment list \
@@ -521,4 +523,3 @@ If DNS queries return a public IP instead of your private endpoint IP:
 - [Network security for Microsoft Discovery](concept-network-security.md) - Understand the architecture, supported resource types, and limitations.
 - [End-to-end network-hardened deployment](how-to-deploy-network-hardened-stack.md)
 - [What is Azure Private Link?](/azure/private-link/private-link-overview)
-

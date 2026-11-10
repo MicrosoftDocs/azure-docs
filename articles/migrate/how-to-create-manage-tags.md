@@ -42,7 +42,7 @@ Use the environment value to classify workloads as Prod, Dev, Test, or UAT. Sett
 
 | Value | Effect on downstream analysis |
 |---|---|
-| **Prod** | The workload is right‑sized to General Purpose and Memory Optimized VM series using standard pricing. It's prioritized first during wave planning and is the **default** when no value is specified. |
+| **Prod** | The workload is right‑sized to General Purpose and Memory Optimized VM series using standard pricing. This value is the **default** environment when you don't specify a value. Environment classification informs [wave grouping and sequencing](wave-plan-overview.md#planning-conditions). |
 | **Dev** | The workload is assessed for burstable targets (B‑series), in addition to **General Purpose** and **Memory Optimized** VM series. Azure costs are estimated using **Dev/Test discount pricing**. Software license costs are excluded from the ROI calculation in the business case. |
 | **Test** | Same assessment and pricing behavior as Dev. |
 | **UAT** | Same assessment and pricing behavior as Dev. |

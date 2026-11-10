@@ -72,7 +72,7 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyProjFolder --worker-runtime dotnet-isolated 
 ```
 
-By default, this command creates a project that runs in-process with the Functions host on the current [Long-Term Support (LTS) version of .NET Core]. You can use the `--target-framework` option to target a specific supported version of .NET, including .NET Framework. For more information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
+This command creates a project that runs in an isolated worker process. Use `--target-framework <TARGET_FRAMEWORK>` to select the target framework moniker for a [supported .NET version](dotnet-isolated-process-guide.md#supported-versions), including .NET Framework. Update Core Tools and its templates to support your target version. For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package). For all options, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
 
 ### [In-process model](#tab/in-process)
 

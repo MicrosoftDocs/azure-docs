@@ -5586,10 +5586,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4019264]: https://support.microsoft.com/kb/4019264
 [4014545]: https://support.microsoft.com/kb/4014545
 [4014508]: https://support.microsoft.com/kb/4014508
-[4014511]: https://support.microsoft.com/kb/4014511
-[4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
 [4019215]: https://support.microsoft.com/kb/4019215
@@ -5606,7 +5603,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4010323]: https://support.microsoft.com/kb/4010323
 [4012864]: https://support.microsoft.com/kb/4012864
 [4014565]: https://support.microsoft.com/kb/4014565
-[4014559]: https://support.microsoft.com/kb/4014559
 [4015549]: https://support.microsoft.com/kb/4015549
 [4019990]: https://support.microsoft.com/kb/4019990
 [4014563]: https://support.microsoft.com/kb/4014563
@@ -5640,7 +5636,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4014566]: https://support.microsoft.com/kb/4014566
 [4014552]: https://support.microsoft.com/kb/4014552
 [4014573]: https://support.microsoft.com/kb/4014573
-[4014558]: https://support.microsoft.com/kb/4014558
 [4015217]: https://support.microsoft.com/kb/4015217
 [4015193]: https://support.microsoft.com/kb/4015193
 [4012215]: https://support.microsoft.com/kb/4012215
@@ -5671,7 +5666,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3205651]: https://support.microsoft.com/kb/3205651
 [3199709]: https://support.microsoft.com/kb/3199709
 [3207328]: https://support.microsoft.com/kb/3207328
-[3205640]: https://support.microsoft.com/kb/3205640
 [3197868]: https://support.microsoft.com/kb/3197868
 [3197877]: https://support.microsoft.com/kb/3197877
 [3197874]: https://support.microsoft.com/kb/3197874
@@ -5739,7 +5733,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3170005]: https://support.microsoft.com/kb/3170005
 [3170050]: https://support.microsoft.com/kb/3170050
 [3171481]: https://support.microsoft.com/kb/3171481
-[3170048]: https://support.microsoft.com/kb/3170048
 [3171910]: https://support.microsoft.com/kb/3171910
 [3177404]: https://support.microsoft.com/kb/3177404
 [3162835]: https://support.microsoft.com/kb/3162835
@@ -5783,7 +5776,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3154846]: https://support.microsoft.com/kb/3154846
 [3155520]: https://support.microsoft.com/kb/3155520
 [3158222]: https://support.microsoft.com/kb/3158222
-[3156757]: https://support.microsoft.com/kb/3156757
 [3155784]: https://support.microsoft.com/kb/3155784
 [3148851]: https://support.microsoft.com/kb/3148851
 [3133977]: https://support.microsoft.com/kb/3133977
@@ -5817,11 +5809,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3134228]: https://support.microsoft.com/kb/3134228
 [3136041]: https://support.microsoft.com/kb/3136041
 [3136082]: https://support.microsoft.com/kb/3136082
-[3137893]: https://support.microsoft.com/kb/3137893
 [3133043]: https://support.microsoft.com/kb/3133043
 [3109853]: https://support.microsoft.com/kb/3109853
-[3089662]: https://support.microsoft.com/kb/3089662
-[3104507]: https://support.microsoft.com/kb/3104507
 [3104503]: https://support.microsoft.com/kb/3104503
 
 [3124903]: https://support.microsoft.com/kb/3124903
@@ -5942,7 +5931,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3049563]:https://support.microsoft.com/kb/3049563
 [3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
-[3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
 [3057191]:https://support.microsoft.com/kb/3057191
 [3050514]:https://support.microsoft.com/kb/3050514
@@ -5957,7 +5945,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3049576]:https://support.microsoft.com/kb/3049576
 [3046482]:https://support.microsoft.com/kb/3046482
 [3045711]:https://support.microsoft.com/kb/3045711
-[3048010]:https://support.microsoft.com/kb/3048010
 [3047234]:https://support.microsoft.com/kb/3047234
 [3045755]:https://support.microsoft.com/kb/3045755
 [3030377]:https://support.microsoft.com/kb/3030377

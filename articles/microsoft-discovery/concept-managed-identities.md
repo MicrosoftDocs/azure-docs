@@ -5,7 +5,7 @@ author: umamm
 ms.author: umamm
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/17/2026
+ms.date: 10/24/2026
 ---
 
 # Managed identities in Microsoft Discovery
@@ -64,6 +64,8 @@ A bookshelf references your UAMI through its `workloadIdentities` property. Disc
 
 ## Required role assignments
 
+In the [onboarding-tool path](how-to-set-up-deployment-tool.md#identify-or-create-the-initial-dependencies), create the UAMI before Stage 1; the tool doesn't create it. Stage 2 prepares its assignments after the dependencies exist. These are workload permissions, not the signed-in operator's stage permissions or human PIM eligibility.
+
 You must assign the following built-in roles to your UAMI *before* you create Discovery resources. Assign these roles at the *resource group* scope.
 
 | Role | Role definition ID | Purpose |
@@ -71,6 +73,8 @@ You must assign the following built-in roles to your UAMI *before* you create Di
 | Microsoft Discovery Platform Contributor (preview) | `01288891-85ee-45a7-b367-9db3b752fc65` | Manage Discovery resources, such as workspaces, projects, agents, and tools. |
 | Storage Blob Data Contributor | `ba92f5b4-2d11-453d-a403-e96b0029c9fe` | Read and write blobs in Azure Storage accounts. |
 | AcrPull | `7f951dda-4ed3-4680-a7ca-43fe172d538d` | Pull container images from Container Registry. |
+
+The supercomputer cluster identity also needs **Network Contributor** on the referenced network resources to operate cluster networking. The onboarding tool targets its VNet for this role. Confirm coverage when the VNet is in a separate resource group; the three roles above alone don't establish network access. See [Configure managed identities](how-to-configure-managed-identity.md#additional-roles-for-specific-scenarios).
 
 For other roles that are needed in specialized scenarios, see [Configure managed identities](how-to-configure-managed-identity.md#additional-roles-for-specific-scenarios).
 
@@ -169,6 +173,6 @@ For guidance on choosing between shared and separate identities, see [Managed id
 
 - For step-by-step instructions on how to create a UAMI and assign roles, see [Configure managed identities for Microsoft Discovery](how-to-configure-managed-identity.md).
 - For built-in Discovery roles and persona-based assignment guidance, see [Role assignments in Microsoft Discovery](concept-role-assignments.md).
-- For Storage account requirements, including identity access, see [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md).
+- For Storage account requirements, including identity access, see [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md).
 - For end-to-end setup, including UAMI creation, see [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md).
 - For Azure platform documentation on managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).

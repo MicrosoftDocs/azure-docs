@@ -37,7 +37,9 @@ This example shows how to generate embeddings for a raw text string.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57":::
 
-This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
+This example shows how to generate embeddings for a file that is accessible to the function.
+
+Set `OPENAI_EMBEDDINGS_FILE_PATH_ROOT` and pass a path relative to that folder.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="63-78":::
 
@@ -47,7 +49,9 @@ This example shows how to generate embeddings for a raw text string.
 
 :::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="26-53":::
 
-This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
+This example shows how to generate embeddings for a file that is accessible to the function.
+
+Set `OPENAI_EMBEDDINGS_FILE_PATH_ROOT` and pass a path relative to that folder.
 
 :::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="59-86":::
 
@@ -66,7 +70,9 @@ This example shows how to generate embeddings for a raw text string.
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
-This example shows how to generate embeddings for a raw text string.
+This example shows how to generate embeddings for a file that is accessible to the function.
+
+Set `OPENAI_EMBEDDINGS_FILE_PATH_ROOT` and pass a path relative to that folder.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
@@ -108,7 +114,7 @@ Apply the `EmbeddingsInput` attribute to define an embeddings input binding, whi
 | **EmbeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **MaxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **MaxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **InputType** | _Optional_. Gets the type of the input. |
+| **InputType** | _Optional_. The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](#restrict-file-and-url-inputs). |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -124,7 +130,7 @@ The `EmbeddingsInput` annotation enables you to define an embeddings input bindi
 | **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **inputType** |  _Optional_. Gets the type of the input. |
+| **inputType** | _Optional_. The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](#restrict-file-and-url-inputs). |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -140,7 +146,7 @@ During the preview, define the input binding as a `generic_input_binding` bindin
 | **embeddings_model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **max_overlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **input_type** | Gets the type of the input. |
+| **input_type** | The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](#restrict-file-and-url-inputs). |
 
 
 ::: zone-end
@@ -159,7 +165,7 @@ The binding supports these configuration properties that you set in the function
 | **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **inputType** | _Optional_. Gets the type of the input. |
+| **inputType** | _Optional_. The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](#restrict-file-and-url-inputs). |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -174,7 +180,7 @@ The binding supports these properties, which are defined in your code:
 | **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **inputType** | _Optional_. Gets the type of the input. |
+| **inputType** | _Optional_. The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](#restrict-file-and-url-inputs). |
 
 ::: zone-end  
 
@@ -185,6 +191,18 @@ See the [Example section](#example) for complete examples.
 Changing the default embeddings `model` changes the way that embeddings are stored in the vector database. Changing the default model can cause the lookups to start misbehaving when they don't match the rest of the data that was previously ingested into the vector database. The default model for embeddings is `text-embedding-ada-002`.
 
 When calculating the maximum character length for input chunks, consider that the maximum input tokens allowed for second-generation input embedding models like `text-embedding-ada-002` is `8191`. A single token is approximately four characters in length (in English), which translates to roughly 32,000 (English) characters of input that can fit into a single chunk.
+
+### Restrict file and URL inputs
+
+Use these application settings to restrict the sources that the binding can read. These settings don't affect `RawText` inputs.
+
+| Application setting | Input type | Description |
+| --- | --- | --- |
+| `OPENAI_EMBEDDINGS_FILE_PATH_ROOT` | `FilePath` | Restricts file inputs to a configured directory. Pass paths relative to that directory. Absolute paths, paths outside the directory, and symbolic links or reparse points are rejected. |
+| `OPENAI_EMBEDDINGS_URL_ALLOWED_ORIGINS` | `Url` | Restricts URL inputs to a comma-separated list of HTTPS origins, such as `https://contoso.com,https://docs.contoso.com`. Each origin includes the scheme, host, and optional port, but no path, query, or fragment. Redirects are rejected. |
+
+> [!IMPORTANT]
+> When `inputType` is `FilePath` or `Url` and the input comes from request or trigger data, set `OPENAI_EMBEDDINGS_FILE_PATH_ROOT` or `OPENAI_EMBEDDINGS_URL_ALLOWED_ORIGINS` in your function app's [application settings](functions-how-to-use-azure-function-app-settings.md#settings), respectively. Otherwise the binding reads any file the app can read, or fetches any HTTPS URL.
 
 [!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
 

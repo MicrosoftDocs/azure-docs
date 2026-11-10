@@ -76,7 +76,7 @@ Some tools don't support migrations of VMs with vTPM. Check the documentation of
 
 ## More information
 
-[Securing Virtual Machines with Virtual Trusted Platform Module](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0/configuring-virtual-machine-hardwarevsphere-vm-admin/securing-virtual-machines-with-virtual-trusted-platform-modulevsphere-vm-admin.html)
+[Securing Virtual Machines with Virtual Trusted Platform Module](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-security/securing-virtual-machines-with-virtual-trusted-platform-module.html)
 
 [What Is a Virtual Trusted Platform Module](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-security-8-0/securing-virtual-machines-with-virtual-trusted-platform-module/vtpm-overview.html)
 

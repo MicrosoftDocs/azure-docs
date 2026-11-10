@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 07/14/2026
+ms.date: 08/10/2026
 ---
 
 # Parameters in Bicep
@@ -208,6 +208,10 @@ See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 ### Secure parameters
 
 You can mark string or object parameters as secure. When a parameter is decorated with `@secure()`, Azure Resource Manager treats the parameter value as sensitive, preventing it from being logged or displayed in deployment history, Azure portal, or command-line outputs.
+
+Redaction applies to the secure value itself. It doesn't apply to a value that a Bicep file transforms or derives from the secure value, such as a reversed string, substring, re-encoded value, or concatenated value. Avoid placing secrets in expressions that transform them when the result might appear in an error message.
+
+Secure parameters reduce the risk of exposing secrets, but they don't make every value derived from a secret safe to disclose. Don't include secrets in resource names, error-prone configuration strings, outputs, tags, or other values that might be returned by a resource provider. When you troubleshoot a failed deployment, treat error messages as potentially sensitive and review them before sharing them.
 
 ```bicep
 @secure()

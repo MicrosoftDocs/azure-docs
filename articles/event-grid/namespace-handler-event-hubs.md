@@ -44,7 +44,7 @@ Here are the properties you receive in the header of an event or message sent to
           "destination": {
             "endpointType": "EventHub",
             "properties": {
-              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
+              "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
             }
           }
         }
@@ -70,7 +70,7 @@ Here are the properties you receive in the header of an event or message sent to
           "destination": {
             "endpointType": "EventHub",
             "properties": {
-              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
+              "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
             }
           }
         }
@@ -96,7 +96,7 @@ Here are the properties you receive in the header of an event or message sent to
           "destination": {
             "endpointType": "EventHub",
             "properties": {
-              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
+              "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
             }
           }
         },
@@ -108,7 +108,7 @@ Here are the properties you receive in the header of an event or message sent to
           "deadLetterDestination": {
             "endpointType": "StorageBlob",
             "properties": {
-              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
+              "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
               "blobContainerName": "{blob-container-name}"
             }
           }
@@ -134,7 +134,7 @@ Here are the properties you receive in the header of an event or message sent to
           "destination": {
             "endpointType": "EventHub",
             "properties": {
-              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}",
+              "resourceId": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}",
               "deliveryAttributeMappings": [
                 {
                   "name": "somestaticname",

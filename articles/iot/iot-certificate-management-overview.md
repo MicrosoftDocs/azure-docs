@@ -1,5 +1,5 @@
 ---
-title: What is certificate management (preview)?
+title: Certificate management in Azure Device Registry
 titleSuffix: Azure Device Registry
 description: This article discusses the basic concepts of how certificate management in Azure IoT Hub helps users manage device certificates.
 author: sethmanheim
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 #Customer intent: As a developer new to IoT, I want to understand what certificate management is and how it can help me manage my IoT device certificates.
 ---
 
-# What is certificate management (preview) in Azure Device Registry?
+# Certificate management in Azure Device Registry
 
 Certificate Management in **Azure Device Registry (ADR)** simplifies the issuance and lifecycle management of X.509 certificates, enabling IoT devices to establish and maintain secure, certificate-based identities. You can create and manage certificate authorities (CAs), issue device certificates, and establish trust with Azure IoT services. Instead of managing your own PKI environment, certificate authorities are automatically provisioned within a private cloud PKI dedicated to your namespace, providing an isolated, hardware-backed trust boundary.
 
@@ -85,4 +85,3 @@ For the latest information about limits and quotas for certificate management in
 - [Certificate issuance in Azure Device Registry](concept-certificate-issuance.md)
 
 - [Certificate revocation in Azure Device Registry](concepts-certificate-policy-management.md)
-

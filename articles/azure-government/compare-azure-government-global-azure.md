@@ -3,8 +3,6 @@ title: Compare Azure Government and global Azure
 description: Describes the feature differences between Azure Government and the global (public) Azure.
 ms.service: azure-government
 ms.topic: article
-author: EliotSeattle
-ms.author: eliotgra
 recommendations: false
 ms.date: 08/21/2025
 ms.custom:

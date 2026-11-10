@@ -1,32 +1,41 @@
 ---
 title: Create Azure Virtual Desktop workloads
-description: Create Azure Virtual Desktop workloads within Azure Enclave.
+description: Plan Azure Enclave workloads and network connectivity for Azure Virtual Desktop session hosts.
 author: jadean-msft
 ms.author: jadean
-ms.topic: overview
-ms.date: 9/30/2025
+ms.service: azure-enclave
+ai-usage: ai-assisted
+ms.topic: how-to
+ms.date: 10/16/2026
 ---
 
 # Create Azure Virtual Desktop workloads
 
-When you create an [Admin VM](./deploy-admin-vm-service-catalog.md) in your enclave all resources and hosts within your enclave are reachable through the Admin VM.
+Use this guide to plan an Azure Virtual Desktop (AVD) session-host workload and its network connectivity in Azure Enclave. For end-to-end AVD deployment steps, including host pools and session hosts, see [Deploy an Azure Virtual Desktop workload in Azure Enclave](./2-3-deploy-virtual-desktop-workload.md). This article focuses on associating the workload resource group and configuring the enclave network path; it doesn't replace the AVD deployment instructions.
 
-For certain enclave owners, the default access pattern surrounding the Admin VM might not satisfy your requirements for various reasons. For example, enclave owners might have requirements that disallow the Azure Bastion service. 
+An [Admin VM](./deploy-admin-vm-service-catalog.md) is a virtual machine configured to allow administrators to make changes from within the isolated enclave network. Its reachability to other resources depends on the configured network routes and security controls.
 
-Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure service for secure remote connections using private IP addresses. This is expected behavior for Azure Enclave. However, should enclave owners require an alternative connection method, they can manually deploy a set of Virtual Machines (called Session Hosts in [Azure Virtual Desktop](https://aka.ms/avd)) to access your Enclave. This can be done using native Azure cloud networking resources and Azure Enclave.
+Where Azure Bastion is enabled for an enclave, it can provide secure connections to virtual machines by using private IP addresses. If your organization requires another access pattern, you can configure AVD session hosts as an alternative entry point. AVD connectivity still depends on the routes, network security groups, firewall rules, and Enclave endpoint rules in your design.
 
 ## Prerequisites
 
-Create a [community](./what-community.md) and [Enclave](./what-enclave.md).
+Before you begin:
 
-### Create Azure Virtual Desktop through Azure portal into an Azure Enclave workload
-1. [Create a workload](./create-workload-portal.md) with any specified name (for example, `wl-avd-mgmt-pool`).
-1. [Deploy Azure Virtual Desktop resources](/azure/virtual-desktop/deploy-azure-virtual-desktop) to the workload resource group (for example, `wl-avd-mgmt-pool`).
-   - Create the Azure Virtual Desktop resources using the [Virtual Machine template in the service catalog](./deploy-virtual-machine-service-catalog.md).
-   - Alternatively, follow the [Azure Virtual Desktop deployment instructions](/azure/virtual-desktop/deploy-azure-virtual-desktop) to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the workload resource group (for example, `wl-avd-mgmt-pool`).
-1. [Create community endpoint](./create-community-endpoint-portal.md) for necessary URL networking information.
-1. [Create enclave endpoint](./create-enclave-endpoint-portal.md) for necessary IP/CIDR/port/protocol rule networking information.
-1. [Create the enclave connection](./create-enclave-connection-portal.md) so that you can access the Azure Virtual Desktop service in Azure from specified enclaves.
+- Create a [community](./what-community.md) and an [enclave](./what-enclave.md).
+- Review the AVD deployment requirements and network destinations for your chosen identity and deployment configuration.
+- Decide which resource group will contain the AVD resources and ensure you have permission to create or associate it with a workload.
+
+## Create and associate the workload resource group
+
+1. [Create a workload](./create-workload-portal.md) in the enclave. Use a workload name such as `wl-avd-management`.
+1. During workload creation, create or add a workload resource group for your AVD resources. For example, use `wl-rg-avd-sessionhosts` for the workload resource group name. For details, see [Create a workload resource group](./create-workload-portal.md#add-workload-resource-groups).
+1. Deploy the AVD components by following [Azure Virtual Desktop deployment guidance](/azure/virtual-desktop/deploy-azure-virtual-desktop). For each deployment step that targets a resource group, use the workload resource group you created (for example, `wl-rg-avd-sessionhosts`). If you follow the [Deploy an Azure Virtual Desktop workload in Azure Enclave](./2-3-deploy-virtual-desktop-workload.md) instructions, review the prerequisites and parameters.
+
+## Configure network connectivity
+
+1. [Create a community endpoint](./create-community-endpoint-portal.md) with rules for the AVD destinations required by your deployment. Check that the selected endpoint rule types and community firewall SKU support those destinations.
+1. [Create an enclave endpoint](./create-enclave-endpoint-portal.md) for the required destinations in the enclave. Configure the destination IP addresses or CIDR ranges, ports, and protocols needed by your design.
+1. [Create an enclave connection](./create-enclave-connection-portal.md) to establish the configured network path between the enclave and community. Creating the connection alone doesn't guarantee AVD connectivity; validate that the endpoint rules and other network controls allow the required traffic.
 
 ## References
 - [What is an enclave?](./what-enclave.md)

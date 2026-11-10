@@ -123,6 +123,78 @@ X-Powered-By: ASP.NET
 }
 ```
 
+## List protected SQL instances and databases
+
+To list SQL instances and their databases for instance-level snapshot protection, use API version `2024-01-31-preview`. Replace the URI placeholders with your vault details. The following examples show selected response fields.
+
+### List protected SQL instances
+
+Filter protected items by `itemType eq 'SQLInstance'`:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectedItems?api-version=2024-01-31-preview&$filter=backupManagementType eq 'AzureWorkload' and itemType eq 'SQLInstance'
+```
+
+The response contains a `value` array. Each instance includes its protected item name, container name, child databases, and protection status. For example:
+
+```json
+{
+  "value": [
+    {
+      "name": "SQLInstance;mssqlserver",
+      "properties": {
+        "childDBList": ["MSSQLSERVER;testdb", "MSSQLSERVER;testdb1", "MSSQLSERVER;testdb2"],
+        "instanceProtectionReadiness": "Ready",
+        "friendlyName": "mssqlserver",
+        "serverName": "sqlserver-0",
+        "protectedItemType": "AzureVmWorkloadSQLInstance",
+        "backupManagementType": "AzureWorkload",
+        "workloadType": "SQLInstance",
+        "containerName": "VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0",
+        "protectionStatus": "Healthy",
+        "protectionState": "IRPending",
+        "protectedItemDataSourceId": "2265943933205758867"
+      }
+    }
+  ]
+}
+```
+
+Save the returned container and protected item names for subsequent requests. For instance point-in-time recovery queries, also save `protectedItemDataSourceId`.
+
+### List databases protected under an instance
+
+List database protected items in the vault:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectedItems?api-version=2024-01-31-preview&$filter=backupManagementType eq 'AzureWorkload' and itemType eq 'SQLDatabase'
+```
+
+In the returned `value` array, identify databases with `protectionLevel` set to `DatabaseUnderInstance`. Use `parentProtectedItem`, together with the container and server details, to identify the parent instance. A database item's properties can include:
+
+```json
+{
+  "parentProtectedItem": "mssqlserver",
+  "protectionLevel": "DatabaseUnderInstance",
+  "friendlyName": "testdb",
+  "serverName": "sqlserver-0",
+  "parentName": "MSSQLSERVER",
+  "protectedItemType": "AzureVmWorkloadSQLDatabase",
+  "backupManagementType": "AzureWorkload",
+  "workloadType": "SQLDataBase"
+}
+```
+
+### Get a protected SQL instance
+
+To retrieve one instance, use its returned container and protected item names:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2024-01-31-preview
+```
+
+For example, `{protectedItemName}` can be `SQLInstance;mssqlserver`. The response includes `childDBList`, `instanceProtectionReadiness`, and `protectionState`. If the item is scheduled for deferred deletion, inspect `isScheduledForDeferredDelete`, `deferredDeleteTimeInUTC`, and `softDeleteRetentionPeriod` as well.
+
 ## Modify policy
 
 To change the policy that protects the database, use the same format as enabling protection. However, provide the new policy ID in the request body and submit the request. For example, to change the policy of *testVM* from *HourlyLogPolicy* to *ProdPolicy*, provide the *ProdPolicy* ID in the request body.
@@ -139,6 +211,52 @@ To change the policy that protects the database, use the same format as enabling
 ```
 
 The response will follow the same format as mentioned for enabling protection.
+
+### Modify the policy for a snapshot-protected instance
+
+Submit a *PUT* request for the instance protected item and provide the new snapshot policy ID:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2024-01-31-preview
+```
+
+```json
+{
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "workloadType": "SQLInstance",
+    "protectedItemType": "AzureVmWorkloadSQLInstance",
+    "friendlyName": "MSSQLSERVER",
+    "policyId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{newPolicyName}",
+    "childDatabaseNameList": ["model"]
+  }
+}
+```
+
+Replace the placeholders in the JSON body as well as the URI. Use the instance's selected database names in `childDatabaseNameList`.
+
+## Resume backup for a SQL instance
+
+To resume backup, submit a *PUT* request to the instance protected item with the snapshot policy ID. The following example uses an empty `childDatabaseNameList` for the resume operation:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2024-01-31-preview
+```
+
+```json
+{
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "workloadType": "SQLInstance",
+    "protectedItemType": "AzureVmWorkloadSQLInstance",
+    "friendlyName": "MSSQLSERVER",
+    "policyId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/SQLInstanceSnapPolicy",
+    "childDatabaseNameList": []
+  }
+}
+```
+
+Use the instance protected item name, such as `SQLInstance;mssqlserver`, and replace the policy ID placeholders with your vault details. Track the resulting operation and job as described in [Monitor jobs](#monitor-jobs).
 
 ## Stop protection and retain existing data
 
@@ -197,7 +315,7 @@ Body:
 Then, track the resulting operation using the location header or Azure-AsyncOperation header with a *GET* command:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/0000aaaa-11bb-cccc-dd22-eeeeee333333?api-version=2016-12-01
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e?api-version=2016-12-01
 ```
 
 ### Response body
@@ -215,6 +333,31 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
   }
 }
 ```
+
+### Stop protection for a database protected under an instance
+
+For a database protected through an instance snapshot policy, submit a *PUT* request to the **database** protected item, not the instance item:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/Azure/protectionContainers/{containerName}/protectedItems/SQLDatabase;MSSQLSERVER;tdb2?api-version=2024-01-31-preview
+```
+
+Set `protectionState` to `ProtectionStopped` and include the instance snapshot policy ID:
+
+```json
+{
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "workloadType": "SQLDataBase",
+    "friendlyName": "MSSQLSERVER;tdb2",
+    "protectedItemType": "AzureVmWorkloadSQLDatabase",
+    "protectionState": "ProtectionStopped",
+    "policyId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/SQLInstanceSnapPolicy"
+  }
+}
+```
+
+Replace the sample database item name with the name returned for your database and replace the policy ID placeholders. This operation stops protection while retaining existing backup data. Track the asynchronous operation as described earlier in this section.
 
 ## Stop protection and delete backup data
 

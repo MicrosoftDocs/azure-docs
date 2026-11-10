@@ -11,7 +11,7 @@ service: firewall
 
 # Deploy Azure Firewall in dual stack mode (preview)
 
-Azure Firewall and Azure Firewall policy support IPv6. You can configure IPv6 subnets, address spaces, public IPv6 addresses, user-defined routes (UDRs), and network rules to manage IPv6 traffic. You can deploy a firewall in IPv4-only mode or in dual stack mode (IPv4 and IPv6). IPv6-only firewalls aren't supported.
+Azure Firewall and Azure Firewall policy support IPv6. You can configure IPv6 subnets, address spaces, public IPv6 addresses, user-defined routes (UDRs), network and application rules to manage IPv6 traffic. You can deploy a firewall in IPv4-only mode or in dual stack mode (IPv4 and IPv6). IPv6-only firewalls aren't supported.
 
 This article shows you how to upgrade an existing firewall to dual stack mode and deploy a new dual stack firewall.
 
@@ -26,6 +26,7 @@ Azure Firewall's IPv6 support is designed for specific use cases and has certain
 ### Supported scenarios
 
 - **Network rules**: Azure Firewall fully supports IPv6 traffic in network rules. You can create rules to allow or deny IPv6 traffic.
+- **Application rules**: Azure Firewall fully supports IPv6 traffic in application rules. You can create rules to allow or deny IPv6 traffic.
 - **DNS proxy**: Azure Firewall can be configured as a DNS proxy in IPv6 networks.
 
 > [!NOTE]
@@ -35,7 +36,7 @@ Azure Firewall's IPv6 support is designed for specific use cases and has certain
 
 - Classic Azure Firewall isn't supported.
 - Virtual hub (vHub) Firewall isn't supported.
-- Application and DNAT rules aren't supported yet.
+- DNAT rules aren't supported yet.
 - Threat intelligence, IDPS, Explicit Proxy, and IP Groups based scenarios aren't supported.
 - Reverting a dual stack firewall back to IPv4-only mode isn't supported. This temporary limitation will be removed when dual stack support becomes generally available.
 

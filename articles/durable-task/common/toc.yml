@@ -243,6 +243,8 @@ items:
         href: ../scheduler/durable-task-scheduler-auto-purge.md
       - name: Add tags to orchestrations and activities
         href: ../scheduler/durable-task-scheduler-tags.md
+      - name: Task queues (preview)
+        href: ../scheduler/durable-task-scheduler-task-queues.md
     - name: Secure
       items:
       - name: Identity-based access
@@ -251,6 +253,10 @@ items:
         href: ../scheduler/durable-task-scheduler-customer-managed-keys.md
       - name: Private endpoints
         href: ../scheduler/durable-task-scheduler-private-endpoints.md
+    - name: Disaster recovery overview
+      href: ../scheduler/disaster-recovery.md
+    - name: Configure disaster recovery
+      href: ../scheduler/disaster-recovery-configure.md
     - name: Monitor
       items:
       - name: Monitoring dashboard

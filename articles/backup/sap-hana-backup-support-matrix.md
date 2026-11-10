@@ -2,7 +2,7 @@
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: reference
-ms.date: 09/16/2026
+ms.date: 10/09/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -35,6 +35,7 @@ Linux distributions listed below shouldn't be in an End-of-Life (EOL) state by t
 | **Backup types**           | Full, Differential, Incremental and Log backups, Snapshots (Standard policy: Generally Available; Enhanced policy: Preview) |                                      |
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
 | **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](sap-hana-database-restore.md#cross-subscription-restore). |          |
+| **Cross Tenant Restore (preview)** | Supported for vaulted recovery points through alternate location restore. [Learn more](cross-tenant-restore-overview.md). | HANA instance restore isn't supported. |
 | **Number of full backups per day**     |   One scheduled backup.  <br><br>   Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.  |
 | **HANA deployments** | HANA System Replication (HSR) - Streaming Backup,  Instance snapshot backup(Preview with Enhanced policy) <br><br> HANA Scale-out system - Streaming backup (Preview) |           |
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |

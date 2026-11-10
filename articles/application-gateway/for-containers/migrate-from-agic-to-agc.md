@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: concept-article
-ms.date: 4/22/2026
+ms.date: 10/27/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to migrate services from Application Gateway Ingress Controller to Application Gateway for Containers, so that I can leverage improved performance, seamless scaling, and modern API compatibility without experiencing downtime during the transition.
 ---
@@ -43,7 +43,7 @@ Prior to migration, it's important to identify any dependencies on Application G
 
 Such dependencies include:
 
-- Private IP
+- Private IP *(now available in public preview — see [Private ingress with Application Gateway for Containers](private-ingress.md))*
 - Ports other than 80 and 443
 
 Here's a summarized list of AGIC annotations and whether Application Gateway for Containers has translated such capabilities to either Gateway or Ingress API.
@@ -62,7 +62,7 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 | [Session Affinity / Sticky Sessions](migrate-from-agic-to-agc.md#session-affinity) | appgw.ingress.kubernetes.io/cookie-based-affinity | [Session affinity in Gateway API](migrate-from-agic-to-agc.md#session-affinity-in-gateway-api) | [Session affinity in Ingress API](migrate-from-agic-to-agc.md#session-affinity-in-ingress-api) |
 | [Request timeout](migrate-from-agic-to-agc.md#request-timeout) | appgw.ingress.kubernetes.io/request-timeout | [RoutePolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.RouteTimeouts) | [IngressBackendSettings](api-specification-kubernetes.md#alb.networking.azure.io/v1.IngressTimeouts) |
 | [Frontend port other than 80 and 443](migrate-from-agic-to-agc.md#frontend-port-override) | appgw.ingress.kubernetes.io/override-frontend-port | Not supported | Not supported |
-| [Private frontend](migrate-from-agic-to-agc.md#private-frontend) | appgw.ingress.kubernetes.io/use-private-ip | Not supported | Not supported |
+| [Private frontend](migrate-from-agic-to-agc.md#private-frontend) | appgw.ingress.kubernetes.io/use-private-ip | [Public preview](private-ingress.md) | [Public preview](private-ingress.md) |
 | [Web Application Firewall (WAF)](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | [Web Application Firewall (WAF)](web-application-firewall.md) | Not supported |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-hostname | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
@@ -294,7 +294,9 @@ AGIC annotation
 
 Application Gateway for Containers implementation
 
-Private IP frontend isn't currently supported by Application Gateway for Containers.
+Private frontend support is available in **public preview** for Application Gateway for Containers. Unlike AGIC's annotation-based private IP assignment, Application Gateway for Containers implements private ingress through Azure Private Link private endpoints, which enables connectivity across virtual networks, subscriptions, and Microsoft Entra tenants.
+
+For configuration details, see [Private ingress with Application Gateway for Containers](private-ingress.md).
 
 ### WAF
 

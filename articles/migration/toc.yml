@@ -12,6 +12,22 @@ items:
       href: ./migrate-from-on-premises-fundamentals.md
     - name: Azure landing zones
       href: ./migrate-from-on-premises-platform-landing-zone.md
+    - name: Workload migration guide
+      items:
+      - name: Introduction
+        href: ./migrate-n-tier-from-on-premises-introduction.md
+      - name: 1. Plan
+        href: ./migrate-n-tier-from-on-premises-1-plan.md
+      - name: 2. Prepare
+        href: ./migrate-n-tier-from-on-premises-2-prepare.md
+      - name: 3. Execute
+        href: ./migrate-n-tier-from-on-premises-3-execute.md
+      - name: 4. Evaluate
+        href: ./migrate-n-tier-from-on-premises-4-evaluate.md
+      - name: 5. Decommission
+        href: ./migrate-n-tier-from-on-premises-5-decommission.md
+      - name: Conclusion
+        href: ./migrate-n-tier-from-on-premises-conclusion.md
   - name: Migrate from AWS
     items:
     - name: Getting started
@@ -82,3 +98,4 @@ items:
         href: /azure/sentinel/migration
       - name: Google Cloud Platform IAM connector for Microsoft Sentinel
         href: /azure/sentinel/connect-google-cloud-platform
+        

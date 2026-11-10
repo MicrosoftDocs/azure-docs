@@ -14,9 +14,11 @@ PowerShell apps aren't supported on Linux before Functions 4.x. This fact means 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 ```azurecli
-az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|8.0"
+az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "<LINUX_FX_VERSION>"
 ```
-If you're migrating to .NET Functions isolated worker process, use `DOTNET-ISOLATED|8.0` for `--linux-fx-version`. 
+Replace `<LINUX_FX_VERSION>` with `DOTNET-ISOLATED|<TARGET_VERSION>` for the isolated worker model, or `DOTNET|<TARGET_VERSION>` for the in-process model. Replace `<TARGET_VERSION>` with the runtime version that matches your project's target framework and is supported by your programming model and hosting plan. For current version requirements and hosting restrictions, see [Supported versions](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions).
+
+When updating a staging slot, append `--slot <SLOT_NAME>` to the command.
 :::zone-end
 ::: zone pivot="programming-language-java"
 ```azurecli

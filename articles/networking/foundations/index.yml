@@ -182,7 +182,7 @@ conceptualContent:
             - url: /azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms
               text: Troubleshooting connectivity problems between Azure VMs
               itemType: reference
-            - url: /azure/private-link/troubleshoot-private-endpoint-connectivity
+            - url: /troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems
               text: Troubleshoot Azure Private Endpoint connectivity problems
               itemType: reference
             - url: /azure/dns/dns-troubleshoot

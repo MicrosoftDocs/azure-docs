@@ -28,7 +28,7 @@ This article assumes that you have already created a route-based VPN gateway tha
 
 * If you don't yet have a VPN gateway, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md), then return to this page to configure the point-to-site VPN gateway settings.
 * To help determine the P2S configuration that you need, see the [VPN client table](#type).
-* If you have a VPN gateway that uses the Basic SKU, understand that the Basic SKU has P2S limitations and doesn't support IKEv2 or RADIUS authentication. For more information, see [About gateway SKUs](about-gateway-skus.md).
+* The Basic SKU supports IKEv2 for P2S connections but doesn't support OpenVPN or RADIUS authentication. For other limitations, see [About gateway SKUs](about-gateway-skus.md).
 
 ## <a name="generatecert"></a>Generate certificates
 
@@ -61,7 +61,7 @@ The tunnel type and the authentication type must correspond to the VPN client so
 [!INCLUDE [Azure VPN Client install link table](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 > [!NOTE]
-> If you don't see tunnel type or authentication type on the **Point-to-site configuration** page, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and re-create the gateway using a different gateway SKU.
+> The Basic SKU supports IKEv2 with certificate authentication, but not the **IKEv2 and OpenVPN(SSL)** combination used in this exercise. If you're using the Basic SKU, select **IKEv2** instead. For existing Basic SKU gateways that use SSTP only, see [SSTP protocol retirement and connections migration](ikev2-openvpn-from-sstp.md).
 
 1. For **Tunnel type**, select the tunnel type that you want to use. For this exercise, from the dropdown, select **IKEv2 and OpenVPN(SSL)**.
 

@@ -18,15 +18,13 @@ The **certificate policy** defines the issuance characteristics of an intermedia
 
 Enrollments in Device Provisioning Service (DPS) reference certificate policies to determine which intermediate CA should issue the certificate and how the certificate is issued.
 
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
-
 ## Prerequisites
 
 Before you begin, ensure you have the required setup and permissions so you can create an intermediate CA and sign it with an external CA.
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md).
-- Permissions to manage policies in the Device Registry namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.
+- An existing Device Registry namespace. For setup steps, see [Get started with Azure Device Registry for Azure IoT Hub](device-registry/get-started-azure-device-registry.md).
+- Permission to create and manage certificate policies in this Azure Device Registry namespace, such as the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) role. If you don't have access, ask your Azure administrator to assign you this role on the namespace.
 
 # [Azure portal](#tab/portal)
 
@@ -80,29 +78,30 @@ Before you begin, ensure you have the required setup and permissions so you can 
 
 ### Set variables
 
-Optionally, define variables for the commands in this article.
+The following examples use Bash syntax. Optionally, define shared variables for the commands in this article. If you don't set these variables, replace each variable reference in the commands with its value.
 
+Set `DPS_NAME` to the name of the existing DPS instance linked to the namespace. Create certificate policies in the same region as their Azure Device Registry namespace.
 
 ```azurecli
 RG_NAME="<resource-group>"
 NS_NAME="<adr-namespace>"
-VALIDITY_DAYS="<validity-in-days>"
+SUBSCRIPTION_ID="<subscription-id>"
+DPS_NAME="<dps-name>"
 ```
 
 ## Create a certificate policy
 
-Create a certificate policy under the intermediate CA. The validity period controls how long device certificates issued by the certificate authority remain valid and must be between 1 and 90 days.
+Create a certificate policy under the intermediate CA. The validity period controls how long device certificates issued by the certificate authority remain valid and must be between 1 and 90 days. Replace `<validity-in-days>` with your chosen number of days.
 
 
 ```azurecli
 az iot adr ns ca policy create \
-  --name "<POLICY_NAME>" \
-  --ca-name "<ICA_NAME>" \
+  --name "<policy-name>" \
+  --ca-name "<ica-name>" \
   --ns "$NS_NAME" \
   --resource-group "$RG_NAME" \
   --subscription "$SUBSCRIPTION_ID" \
-  --location "<LOCATION>" \
-  --validity-days "$VALIDITY_DAYS"
+  --validity-days "<validity-in-days>"
 ```
 
 Verify the certificate policy properties:
@@ -110,8 +109,8 @@ Verify the certificate policy properties:
 
 ```azurecli
 az iot adr ns ca policy show \
-  --name "<POLICY_NAME>" \
-  --ca-name "<ICA_NAME>" \
+  --name "<policy-name>" \
+  --ca-name "<ica-name>" \
   --ns "$NS_NAME" \
   --resource-group "$RG_NAME" \
   --subscription "$SUBSCRIPTION_ID" \
@@ -126,31 +125,31 @@ The following example creates a new enrollment group:
 
 
 ```azurecli
-az iot dps enrollment-group create `
-  --dps-name "<dps_name>" `
-  --resource-group "<resource_group>" `
-  --subscription "<subscription_id>" `
-  --auth-type key `
-  --enrollment-id "<enrollment_group_id>" `
-  --allocation-policy hashed `
-  --adr-namespace "<namespace_name>" `
-  --adr-ca-name "<certificate_authority_name>" `
-  --adr-cert-policy-name "<certificate_policy_name>"
+az iot dps enrollment-group create \
+  --dps-name "$DPS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --auth-type key \
+  --enrollment-id "<enrollment-group-id>" \
+  --allocation-policy hashed \
+  --adr-namespace "$NS_NAME" \
+  --adr-ca-name "<ica-name>" \
+  --adr-cert-policy-name "<policy-name>"
 ```
 
 The following example updates an existing enrollment group:
 
 
 ```azurecli
-az iot dps enrollment-group update `
-  --dps-name "<dps_name>" `
-  --resource-group "<resource_group>" `
-  --subscription "<subscription_id>" `
-  --auth-type key `
-  --enrollment-id "<enrollment_group_id>" `
-  --adr-namespace "<namespace_name>" `
-  --adr-ca-name "<certificate_authority_name>" `
-  --adr-cert-policy-name "<certificate_policy_name>"
+az iot dps enrollment-group update \
+  --dps-name "$DPS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --auth-type key \
+  --enrollment-id "<enrollment-group-id>" \
+  --adr-namespace "$NS_NAME" \
+  --adr-ca-name "<ica-name>" \
+  --adr-cert-policy-name "<policy-name>"
 
 ```
 
@@ -162,8 +161,8 @@ Update the policy to change the validity period for newly issued device certific
 ```azurecli
 
 az iot adr ns ca policy update \
-  --name "<POLICY_NAME>" \
-  --ca-name "<ICA_NAME>" \
+  --name "<policy-name>" \
+  --ca-name "<ica-name>" \
   --ns "$NS_NAME" \
   --resource-group "$RG_NAME" \
   --subscription "$SUBSCRIPTION_ID" \
@@ -176,8 +175,8 @@ Confirm the updated validity period:
 
 ```azurecli
 az iot adr ns ca policy show \
-  --name "<POLICY_NAME>" \
-  --ca-name "<ICA_NAME>" \
+  --name "<policy-name>" \
+  --ca-name "<ica-name>" \
   --ns "$NS_NAME" \
   --resource-group "$RG_NAME" \
   --subscription "$SUBSCRIPTION_ID" \
@@ -188,4 +187,4 @@ az iot adr ns ca policy show \
 
 ## Next steps
 
-[Certificate management overview](iot-certificate-management-overview.md)
+[Certificate management in Azure Device Registry](iot-certificate-management-overview.md)

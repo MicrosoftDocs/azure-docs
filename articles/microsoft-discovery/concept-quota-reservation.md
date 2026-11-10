@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: concept-article
-ms.date: 09/10/2026
+ms.date: 10/24/2026
 
 #CustomerIntent: As a platform administrator, I want to understand quota requirements so that I can prepare my Azure subscription for a successful Microsoft Discovery deployment.
 ---
@@ -20,6 +20,12 @@ The primary quota categories include:
 - **Azure Cosmos DB throughput (RU/s)**: For Discovery workspace and Discovery project resources
 - **Chat completion and text embedding models**: For Azure OpenAI and Azure AI Foundry services
 - **Bookshelf service infrastructure**: For Azure AI Search, Azure Container Apps, Azure SQL DB, and indexing nodepools
+
+Available quota is a subscription entitlement, not a guarantee of regional physical capacity or an Azure capacity reservation. Confirm both quota and SKU/service availability for the selected deployment.
+
+For the [onboarding tool](how-to-create-deployment-configuration.md#complete-networking-storage-and-sizing), default compute planning uses three `Standard_D4s_v6` system nodes (12 vCPUs) and up to three `Standard_D4ds_v6` workload nodes (12 more vCPUs). Stages 1 and 3 derive requirements from live metadata and the configured maximum sizes. Advanced configuration can change these defaults. The workspace model path requires 450,000 GPT-5.4 GlobalStandard TPM across the built-in and validation deployments. Readiness checks account for remaining allocations on resumed deployments.
+
+Subscription Reader covers the usage and model-catalog reads needed by the tool. Cognitive Services Usages Reader alone isn't sufficient. The tool doesn't check Bookshelf AI Search capacity or deploy Bookshelf. The following full optional-capability requirements still apply. A generated request artifact isn't granted quota.
 
 ## Prerequisites
 
@@ -48,7 +54,7 @@ The following table lists sample VM SKU families:
 | **NV-family (GPU)** | Standard_NV6ads_A10_v5, Standard_NV12ads_A10_v5, Standard_NV24ads_A10_v5, Standard_NV36ads_A10_v5, Standard_NV36adms_A10_v5, Standard_NV72ads_A10_v5 | Virtual desktop (VDI), single-precision compute, video encoding, and rendering, remote visualization |
 | **ND-family (GPU)** | Standard_ND40rs_v2 | Large memory compute-intensive workloads, large memory graphics-intensive applications, distributed deep learning |
 
-VM vCPU quota is reserved per subscription. You can check vCPU quota by following the guidance at [Check vCPU quotas](/azure/virtual-machines/quotas?tabs=cli).
+VM vCPU quota is scoped by subscription and region, including total regional and VM-family limits. You can check vCPU quota by following the guidance at [Check vCPU quotas](/azure/virtual-machines/quotas?tabs=cli).
 
 Depending on the resources you plan to create in your subscription, allocate vCPU quotas accordingly. If you need GPU support for your tools, follow the same process with VM SKUs that include GPU support. All supported VM SKUs are listed in the preceding table.
 

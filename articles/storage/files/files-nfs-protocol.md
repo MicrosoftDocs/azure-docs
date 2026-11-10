@@ -58,7 +58,7 @@ The status of items that appear in this table might change over time as support 
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks)|  ✔️  |
-| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=/azure/storage/files/toc.json#grant-access-from-an-internet-ip-range)| ⛔ |
+| [Grant network access to specific IP addresses](storage-files-networking-overview.md#ip-address-rules)| ⛔ |
 | [SSD media tier](storage-files-planning.md#storage-tiers) |  ✔️  |
 | [HDD media tier](storage-files-planning.md#storage-tiers)| ⛔ |
 | [POSIX-permissions](https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions)|  ✔️  |
@@ -94,10 +94,10 @@ NFS Azure file shares protect data through encryption at rest and in transit, an
 
 Azure Files encrypts all data at rest by using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: it encrypts data beneath the file system level. Because encryption happens beneath the Azure file share's file system as data is encoded to disk, you don't need access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
-Both classic file shares and Microsoft.FileShares file shares support TLS encryption in transit through the [AZNFS mount helper](encryption-in-transit-for-nfs-shares.md). You configure encryption requirements at different scopes:
+Both classic file shares and Microsoft.FileShares file shares support TLS encryption in transit through the [AZNFS mount helper](files-encryption-in-transit.md). You configure encryption requirements at different scopes:
 
 - **Microsoft.FileShares**: Encryption in transit is required by default. You configure this requirement on the individual file share. See [Advanced settings when creating a file share](create-file-share.md#advanced).
-- **Classic file shares**: You configure **Require Encryption in Transit for NFS** on the storage account. For new storage accounts created through the Azure portal, this setting is enabled by default. When the setting is **Not selected**, **Secure transfer required** governs NFS encryption behavior. For creation defaults and configuration steps, see [Enforce encryption in transit](encryption-in-transit-for-nfs-shares.md#enforce-encryption-in-transit).
+- **Classic file shares**: You configure **Require Encryption in Transit for NFS** on the storage account. For new storage accounts created through the Azure portal, this setting is enabled by default. When the setting is **Not selected**, **Secure transfer required** governs NFS encryption behavior. For creation defaults and configuration steps, see [Enforce encryption in transit](files-encryption-in-transit.md#enforce-encryption-in-transit).
 
 Azure provides a layer of encryption for all data in transit between Azure datacenters by using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this technology, encryption exists when data is transferred between Azure datacenters.
 

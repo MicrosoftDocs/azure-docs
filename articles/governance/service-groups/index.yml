@@ -36,3 +36,5 @@ landingContent:
             url: ./manage-service-groups.md
           - text: Manage membership at scale
             url: ./manage-membership.md
+          - text: Best practices
+            url: ./best-practices.md

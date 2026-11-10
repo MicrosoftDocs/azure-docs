@@ -6,7 +6,7 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
-ms.date: 09/16/2026
+ms.date: 10/09/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -32,6 +32,7 @@ This article summarizes the scenarios supported and limitations present when you
 | **Backup types** | Full, Differential, and Log backups. | Incremental, archival support is currently not available. |
 | **Restore types** | ALR-Alternate Location Restore, OLR-Original Location Restore (In-Place), Restore as Files.  |  |
 | **Cross Subscription Restore** | Supported via the Azure portal.<br>Cross Subscription Restore to Paired Region. |  Region of Choice isn't supported. |
+| **Cross Tenant Restore (preview)** | Supported for vaulted recovery points through alternate location restore. [Learn more](cross-tenant-restore-overview.md). |  |
 | **Number of full backups per day** | One scheduled backup. <br><br> Three on-demand backups. <br> <br> We recommend not to trigger more than three backups per day. However, to allow user retries for failed attempts, hard limit for on-demand backups is set to nine attempts. |
 | **ASE deployments** | Standalone, Multi SID on Single VM. | HA on Single VM. |
 | **Compression** | You can enable ASE Native compression via the Backup policy and when you take an on-demand Backup/Backup Now. In Preregistration Script, Compression Level is set to **Level 101** for Optimal results. |  |

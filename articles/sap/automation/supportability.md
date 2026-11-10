@@ -31,19 +31,19 @@ automation framework supports. For an overview of the framework, see
 The framework supports the following operating systems and distributions:
 
 - Windows Server 64 bit for the x86-64 platform
-- SUSE Linux 64 bit for the x86-64 platform (12.x and 15.x)
-- Red Hat Linux 64 bit for the x86-64 platform (7.x, 8.x, 9.x, 10.0)
+- SUSE Linux 64-bit for the x86-64 platform (12.x, 15.x, and 16.x)
+- Red Hat Linux 64-bit for the x86-64 platform (7.x, 8.x, 9.x, and 10.x)
 - Oracle Linux 64 bit for the x86-64 platform
 
 The following distributions were tested with the framework:
 
 | Distribution | Versions |
 |--|--|
-| **Red Hat** | **7.9** <br> **8.2** <br> **8.4** <br> **8.6** <br> **8.8** <br> **9.0** <br> **9.2** <br> **9.4** <br> **9.6** <br> **10.0** |
-| **SUSE** | **12 SP4** <br> **15 SP2** <br> **15 SP3** <br> **15 SP4** <br> **15 SP5** <br> **15 SP6** <br> **15 SP7** |
+| **Red Hat** | **7.9** <br> **8.2** <br> **8.4** <br> **8.6** <br> **8.8** <br> **9.0** <br> **9.2** <br> **9.4** <br> **9.6** <br> **10.0**  <br> **10.2** |
+| **SUSE** | **12 SP4** <br> **15 SP2** <br> **15 SP3** <br> **15 SP4** <br> **15 SP5** <br> **15 SP6** <br> **15 SP7**  <br> **16**  <br> **16 SP1** |
 | **Oracle** | **8.2** <br> **8.4** <br> **8.6** <br> **8.8** <br> **8.9** |
-| **Windows Server** | **2016** <br> **2019** <br> **2022** |
-
+| **Windows Server** | **2016** <br> **2019** <br> **2022**  <br> **2025**    |
+    
 ## Supported database back ends
 
 The automation framework supports the following database back ends:

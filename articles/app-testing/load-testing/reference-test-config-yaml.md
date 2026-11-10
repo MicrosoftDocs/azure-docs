@@ -56,7 +56,7 @@ description: Load test website home page
 testPlan: SampleTest.jmx
 testType: JMX
 engineInstances: 1
-subnetId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Network/virtualNetworks/load-testing-vnet/subnets/load-testing
+subnetId: /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/sample-rg/providers/Microsoft.Network/virtualNetworks/load-testing-vnet/subnets/load-testing
 configurationFiles:
   - 'sampledata.csv'
   - 'testfragment.jmx'
@@ -73,7 +73,7 @@ autoStop:
 secrets:
   - name: my-secret
     value: https://akv-contoso.vault.azure.net/secrets/MySecret/abc1234567890def12345
-keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
+keyVaultReferenceIdentity: /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
 ```
 
 ### `failureCriteria` configuration
@@ -131,13 +131,13 @@ failureCriteria:
     - percentage(error) > 50
     - getCustomerDetails: avg(latency) > 200
   serverMetrics:
-    - resourceId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
+    - resourceId: /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
       metricNamespace: Microsoft.Compute/virtualMachines
       metricName: Percentage CPU
       aggregation: Average
       condition: GreaterThan
       value: 80
-    - resourceId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
+    - resourceId: /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
       metricNamespace: Microsoft.Compute/virtualMachines
       metricName: Available Memory
       aggregation: Average
@@ -364,7 +364,7 @@ secrets:
     value: https://akv-contoso.vault.azure.net/secrets/MySecret/abc1234567890def12345
 failureCriteria:
   serverMetrics:
-    - resourceId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
+    - resourceId: /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
       metricNamespace: Microsoft.Compute/virtualMachines
       metricName: Percentage CPU
       aggregation: Average
@@ -373,15 +373,15 @@ failureCriteria:
 referenceIdentities:
   - kind: KeyVault
     type: UserAssigned
-    value: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
+    value: /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
   - kind: Metrics
     type: SystemAssigned
   - kind: Engine
     type: UserAssigned
-    value: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
+    value: /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
   - kind: Engine
     type: UserAssigned
-    value: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity1
+    value: /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity1
 ```
 
 ## Requests JSON file

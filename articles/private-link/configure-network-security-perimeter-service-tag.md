@@ -87,7 +87,9 @@ On the profile page, select **Inbound access rules** and confirm that the new ru
 
 - Service tag-based inbound access rules are currently supported for Azure Key Vault and Azure Monitor resources within a network security perimeter. For the complete list of resource providers supported by network security perimeter, see [Onboarded private link resources](network-security-perimeter-concepts.md#onboarded-private-link-resources).
 - Not all service tags can be used as inbound rules in Network security perimeter. Be careful when using service tags as inbound rules and use the right and applicable tags.
-- Azure Storage currently doesn't support service tags as inbound access rules. While some access scenarios might appear to work when using service tag-based rules, other scenarios might fail or behave inconsistently. To avoid unexpected access issues, don't use service tags to control inbound access to Azure Storage resources. Doing so might result in inconsistent behavior and unreliable connectivity.
+- Azure Storage currently doesn't support service tags as inbound access rules. While some access scenarios might appear to work when using service tag-based rules, other scenarios might fail or behave inconsistently. To avoid unexpected access issues, don't use service tags to control inbound access to Azure Storage resources. Doing so might result in inconsistent behavior and unreliable connectivity. 
+>[!Note]
+> One exception is Azure Storage used for Azure Databricks as noted in the [Configure a firewall for serverless compute access](/azure/databricks/security/network/serverless-network-security/serverless-firewall-config) documentation.
 
 ## Frequently asked questions
 

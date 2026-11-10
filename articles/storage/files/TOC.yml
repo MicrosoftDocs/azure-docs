@@ -125,7 +125,7 @@
     href: glusterfs-migration-guide.md
 - name: Security and networking
   items:
-  - name: Secure your Azure Files
+  - name: Secure your Azure file shares
     href: secure-files.md
   - name: Networking
     items:
@@ -133,60 +133,26 @@
       href: storage-files-networking-overview.md
     - name: Configure Azure Files network endpoints
       href: storage-files-networking-endpoints.md
-    - name: Configure Point-to-Site VPN on Windows
-      href: storage-files-configure-p2s-vpn-windows.md
-    - name: Configure Point-to-Site VPN on Linux
-      href: storage-files-configure-p2s-vpn-linux.md
-    - name: Configure Site-to-Site VPN
-      href: storage-files-configure-s2s-vpn.md
-    - name: Configure firewalls and virtual networks
-      href: ../common/storage-network-security.md?toc=/azure/storage/files/toc.json
-    - name: Require secure transfer
-      href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json
+    - name: Configure point-to-site VPN
+      href: ../../vpn-gateway/point-to-site-certificate-gateway.md?toc=/azure/storage/files/toc.json
+    - name: Configure site-to-site VPN
+      href: ../../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/storage/files/toc.json
+    - name: ExpressRoute overview
+      href: ../../expressroute/expressroute-introduction.md?toc=/azure/storage/files/toc.json
     - name: Configure DNS forwarding for Azure Files
       href: storage-files-networking-dns.md
     - name: Use DFS-N with Azure Files
       href: files-manage-namespaces.md
     - name: Disable SMB 1 on the Windows SMB client
       href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=/azure/storage/files/toc.json
-    - name: Network security perimeter
-      href: files-network-security-perimeter.md
   - name: Encryption
     items:
     - name: Encryption at rest
-      href: ../common/storage-service-encryption.md?toc=/azure/storage/files/toc.json
-    - name: Encryption at rest with customer-managed keys
+      href: files-encryption-at-rest.md
+    - name: Configure encryption at rest with customer-managed keys
       href: customer-managed-keys.md
-    - name: Encryption in transit for NFS shares
-      href: encryption-in-transit-for-nfs-shares.md
-    - name: Manage encryption keys for the storage account
-      items:
-      - name: Check the encryption key model for the account
-        href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/files/toc.json
-      - name: Configure customer-managed keys in Azure Key Vault
-        items:
-        - name: Configure customer-managed keys in the same tenant
-          items:
-          - name: Configure customer-managed keys for a new account
-            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/files/toc.json
-          - name: Configure customer-managed keys for an existing account
-            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/files/toc.json
-        - name: Configure customer-managed keys in a different tenant
-          items:
-          - name: Configure customer-managed keys for a new account
-            href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/files/toc.json
-          - name: Configure customer-managed keys for an existing account
-            href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/files/toc.json
-      - name: Configure customer-managed keys in a managed HSM
-        href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/files/toc.json
-    - name: Enable infrastructure encryption
-      href: ../common/infrastructure-encryption-enable.md?toc=/azure/storage/files/toc.json
-    - name: Manage Transport Layer Security (TLS)
-      items:
-      - name: Enforce minimum TLS version for incoming requests
-        href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/files/toc.json
-      - name: Configure TLS version for a client application
-        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json
+    - name: Encryption in transit
+      href: files-encryption-in-transit.md
   - name: Enable threat protection
     href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/files/toc.json
   - name: Configure root squash (NFS shares)
@@ -406,8 +372,6 @@
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/files/toc.json
   - name: Use Azure independent clouds
     href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
-  - name: Routing preference (StorageV2 only)
-    href: ../common/configure-network-routing-preference.md?toc=/azure/storage/files/toc.json
   - name: Monitoring Files data reference
     href: storage-files-monitoring-reference.md
   - name: Resource Manager template

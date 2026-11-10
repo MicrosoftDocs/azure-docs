@@ -5,7 +5,7 @@ ms.topic: concept-article
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 09/11/2026
+ms.date: 10/31/2026
 # Customer intent: "As a disaster recovery manager, I want to stay informed about the latest updates in Azure Site Recovery features, so that I can ensure optimal protection and monitoring of our critical workloads."
 ---
 
@@ -16,6 +16,20 @@ The Azure Site Recovery service is updated and improved on an ongoing basis. To 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
 
 ## Updates (October 2026)
+
+### Azure Site Recovery for Azure Local
+
+Azure Site Recovery support for Azure Local is now generally available, making enterprise-grade disaster recovery simpler, accessible, easier to set up, and secure than ever before. Customers can protect supported Windows and Linux virtual machines by replicating workloads to Azure, extending their disaster recovery capabilities to the cloud.
+
+With streamlined setup in the Azure portal, customers can validate their recovery plans without disrupting production replication, fail over to Azure during planned or unplanned outages, and return workloads to Azure Local when their on-premises environment is ready. The capability is available in all Azure Local-supported regions.
+
+For more information, see [Tech Community Blog](https://techcommunity.microsoft.com/blog/azurestackblog/azure-site-recovery-for-azure-local-is-now-generally-available/4529925) and the [Official Documentation](/azure/azure-local/manage/azure-site-recovery).
+
+### Enhanced Azure Site Recovery support for Virtual Machine Scale Sets with Flexible orchestration
+
+Enhanced Azure Site Recovery support for virtual machines in Virtual Machine Scale Sets with Flexible orchestration (VMSS Flex) is now generally available. The update improves target configuration and end-to-end recovery workflows, including failover, reprotection, and failback, in the Azure-to-Azure scenario. Site Recovery protects each VM in the scale set as an individual replicated item. Before you enable replication, create the target scale set in the target resource group.
+
+[Learn more](/azure/site-recovery/azure-to-azure-how-to-enable-replication-vmss-flex).
 
 ### Azure Site Recovery support for Azure ARC-enabled Windows VMware/Physical servers
 

@@ -56,6 +56,7 @@ If you don't want to run the base server in Azure, you can run the server on a H
 
 | Operating System | Platform | SKU |
 |:--- | --- |:--- |
+| Windows Server 2025 (MABS V4 UR1 and later) |64 bit |Standard, Datacenter |
 | Windows Server 2022 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials  |
 

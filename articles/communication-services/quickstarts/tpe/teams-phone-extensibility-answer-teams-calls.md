@@ -44,10 +44,10 @@ For more details, follow this guide: [Associate your Azure Communication Service
 
 Send a request to the Microsoft Teams Extension access assignments API to allow receiving calls for the Teams resource account. For more details on how to authenticate the web request, follow this guide: [Authentication](/rest/api/communication/authentication)
 
-The following example shows a request for a Teams Tenant with identifier `87d349ed-44d7-43e1-9a83-5f2406dee5bd` and a Teams resource account oid with identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111`.
+The following example shows a request for a Teams Tenant with identifier `aaaabbbb-0000-cccc-1111-dddd2222eeee` and a Teams resource account oid with identifier `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`.
 
 ```http
-PUT {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5bd/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
+PUT {endpoint}/access/teamsExtension/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/assignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2025-06-30
 
 {
     "principalType" : "teamsResourceAccount"
@@ -65,8 +65,8 @@ HTTP/1.1 201 Created
 Content-type: application/json
 
 {
-    "objectId": "e5b7f628-ea94-4fdc-b3d9-1af1fe231111",
-    "tenantId": "87d349ed-44d7-43e1-9a83-5f2406dee5bd",
+    "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "principalType" : "teamsResourceAccount"
 }
 ```
@@ -76,7 +76,7 @@ Content-type: application/json
 Send a request to the Microsoft Teams Extension access assignments API to delete the entry for your Teams resource account.
 
 ```http
-DELETE {endpoint}/access/teamsExtension/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
+DELETE {endpoint}/access/teamsExtension/assignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2025-06-30
 ```
 
 ### Response
@@ -91,7 +91,7 @@ Content-type: application/json
 To verify that the Teams resource account is no longer linked with the Communication Services resource, you can send a GET request to the Microsoft Teams Extension access assignments API. Verify that its response status code is 404. 
 
 ```http
-GET {endpoint}/access/teamsExtension/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
+GET {endpoint}/access/teamsExtension/assignments/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2025-06-30
 ```
 
 ## Receive and answer incoming calls
@@ -180,7 +180,7 @@ app.MapPost("/api/incomingCall", async (
     },
   },
   "incomingCallContext": "<CALL_CONTEXT VALUE>",
-  "correlationId": "2e0fa6fe-bf3e-4351-9beb-568add4f5315"
+  "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd"
 }
 ```
 

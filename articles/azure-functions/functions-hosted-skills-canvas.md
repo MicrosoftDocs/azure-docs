@@ -123,3 +123,4 @@ Stop the local Functions host in the canvas. If you started Azurite manually, st
 + [Azure Functions hosted skills](functions-hosted-skills.md)
 + [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)
 + [Azure Functions hosted skills reference](functions-hosted-skills-reference.md)
++ [Monitor and troubleshoot hosted skills](functions-hosted-skills-monitor-troubleshoot.md)

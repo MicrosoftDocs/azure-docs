@@ -1,118 +1,104 @@
 ---
-title: Overview of security features
-description: Learn about security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
+title: Overview of security and cyber recovery in Azure Backup
+description: Learn how Azure Backup protects vaulted backup data and supports cyber recovery through security and recovery capabilities.
 ms.topic: overview
-ms.date: 01/30/2026
+ms.date: 11/02/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: As a security manager, I want to understand the security features of Azure Backup, so that I can ensure our backup data is protected against unauthorized access and comply with industry regulations.
+# Customer intent: As a security manager, I want to understand how Azure Backup protects vaulted data and supports recovery, so that I can strengthen backup security and prepare for cyber incidents.
 ---
 
-# Overview of security features in Azure Backup
+# Overview of security and cyber recovery in Azure Backup
 
-One of the most important steps you can take to protect your data is to have a reliable backup infrastructure. But it's just as important to ensure that your data is backed up in a secure fashion, and that your backups are protected at all times. Azure Backup provides security to your backup environment - both when your data is in transit and at rest. This article lists security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
+Azure Backup helps protect vaulted backup data and supports recovery when production environments are compromised. **Logically air-gapped vault** describes an outcome that combines isolation with controls against destructive operations. **Cyber recovery essentials** brings together capabilities that help you assess backup threats and prepare recovery operations. Support varies by vault, workload, and region.
 
-## Management and control of identity and user access
+## Logically air-gapped vault
 
-Storage accounts used by Recovery Services vaults are isolated and can't be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. Azure Backup enables you to control the managed operations through fine-grained access using [Azure role-based access control (Azure RBAC)](./backup-rbac-rs-vault.md). Azure RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
+Azure Backup stores vaulted backup data in a Microsoft-managed Azure subscription and tenant, separate from the production environment where the protected data resides. This logical separation helps keep backup data out of reach of a compromised workload. It isn't a physical or offline air gap, and it doesn't replace controls over identities that can manage the vault.
 
-Azure Backup provides three [built-in roles](../role-based-access-control/built-in-roles.md) to control backup management operations:
+### Data isolation with Azure Backup
 
-* **Backup Contributor**: To create and manage backups, except deleting Recovery Services vault and giving access to others
-* **Backup Operator**: Everything a contributor does except removing backup and managing backup policies
-* **Backup Reader**: permissions to view all backup management operations
+External users and guest workloads don't have direct access to the contents of vaulted backup storage. Azure Backup manages backup operations, including restore, through the vault and its configured access controls.
 
-Learn more about [Azure role-based access control to manage Azure Backup](./backup-rbac-rs-vault.md).
+The foundational Logically air-gapped vault outcome requires multi-user authorization (MUA); soft delete and encryption are on by default, and immutability is optional. Protect vaulted data from destructive deletion by using either always-on soft delete or locked immutability, where supported. These controls have different behaviors and support boundaries.
 
-Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. Learn more about [security controls for Azure Backup](./security-baseline.md).
+### Management and control of identity and user access
 
-## Data isolation with Azure Backup
+Azure role-based access control (Azure RBAC) lets you assign only the permissions users need to manage backup operations. Azure Backup provides three [built-in roles](../role-based-access-control/built-in-roles.md) to help you separate duties:
 
-With Azure Backup, the vaulted backup data is stored in Microsoft-managed Azure subscription and tenant. External users or guests have no direct access to this backup storage or its contents, ensuring the isolation of backup data from the production environment where the data source resides.
+- **Backup Contributor**: Create and manage backups, except for deleting the Recovery Services vault or granting access to others.
+- **Backup Operator**: Perform backup operations except for removing backups and managing backup policies.
+- **Backup Reader**: View backup management operations.
 
-In Azure, all communications and data in transit is securely transferred with *HTTPS* and *TLS 1.2+* protocols. This data remains on the Azure backbone network ensuring reliable and efficient data transmission. The backup data at rest is encrypted by default using *Microsoft-managed keys*. You can also bring your own keys for encryption if you require greater control over the data. To enhance protection, you can use [immutability](backup-azure-immutable-vault-concept.md), which prevents data from being altered or deleted before its retention period.  Azure Backup gives you diverse options such as [soft delete](backup-azure-enhanced-soft-delete-about.md), stop backup and delete data or retain data if you need to stop backups at any time. To protect critical operations, you can add [Multi-User Authorization (MUA)](multi-user-authorization-concept.md) that adds additional layer of protection by using an Azure resource called Azure Resource Guard.
+Learn more about [Azure RBAC for Azure Backup](backup-rbac-rs-vault.md).
 
-This robust approach ensures that even in a compromised environment, existing backups cannot be tampered with or deleted by unauthorized users.
+### Protect backup data from premature deletion
 
-## Internet connectivity not required for Azure VM backup
+Soft delete delays permanent deletion and keeps deleted backup data recoverable during its configured retention period. The default retention period is 14 days and can be extended up to 180 days. The first 14 days of soft-delete retention don't incur an additional charge; longer retention can incur charges. Soft delete doesn't provide indefinite retention. Locked immutability blocks operations that could cause loss of recovery points for the configured retention or immutability duration, and the locked setting can't be reversed. Immutability applies to vaulted data in the vault; it doesn't apply to operational backups for resources such as blobs, files, and disks.
 
-Backup of Azure VMs requires movement of data from your virtual machine's disk to the Recovery Services vault. However, all the required communication and data transfer happens only on the Azure backbone network without needing to access your virtual network. Therefore, backup of Azure VMs placed inside secured networks doesn't require you to allow access to any IPs or FQDNs.
+The enforcement and availability of always-on soft delete vary by vault type, workload, and region. Review [secure-by-default soft delete](secure-by-default.md) and [immutable vault support](backup-azure-immutable-vault-concept.md) before choosing a protection route.
 
-## Private Endpoints for Azure Backup
+### Multi-user authorization
 
-You can now use [Private Endpoints](../private-link/private-endpoint-overview.md) to back up your data securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault, so you don't need to expose your virtual networks to any public IPs. Private Endpoints can be used for backing up and restoring your SQL and SAP HANA databases that run inside your Azure VMs. It can also be used for your on-premises servers using the MARS agent.
+MUA adds an extra authorization layer to critical operations on Recovery Services vaults and Backup vaults. It uses Resource Guard so that a separate authorized user can approve protected operations. MUA helps protect vault settings and backup data from unauthorized changes. It doesn't replace soft delete or immutability. Learn about [MUA using Resource Guard](multi-user-authorization-concept.md).
 
-Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
+### Encryption of data
 
-## Encryption of data
+Azure Backup encrypts backup data at rest by default with Microsoft-managed keys. For supported Recovery Services vault workloads, you can use customer-managed keys stored in Azure Key Vault. Azure Backup protects data in transit with HTTPS and TLS 1.2 or later. Azure Backup also supports backup and restore of Azure VMs with encrypted disks. For details, see [encryption of backup data](backup-encryption.md), [customer-managed keys](encryption-at-rest-with-cmk.md), and [backup and restore of encrypted Azure VMs](backup-azure-vms-encryption.md).
 
-Encryption protects your data and helps you to meet your organizational security and compliance commitments. Data encryption occurs in many stages in Azure Backup:
+## Cyber recovery essentials
 
-* Within Azure, data in transit between Azure storage and the vault is [protected by HTTPS](backup-support-matrix.md#network-traffic-to-azure). This data remains on the Azure backbone network.
+Cyber recovery essentials focuses on preparing to identify suspicious backup recovery points and restore data to a supported recovery destination. Its capability set includes Safe Restore at scale, threat detection, cross-subscription restore, and cross-tenant restore. Each capability has its own support scope. Threat detection and cross-tenant restore are in preview.
 
-* Backup data is automatically encrypted using [platform-managed keys](backup-encryption.md), and you don't need to take any explicit action to enable it. You can also encrypt your backed-up data using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. It applies to all workloads being backed up to your Recovery Services vault.
+### Threat detection in Azure Backup
 
-* Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with [Azure Disk Encryption (ADE)](backup-azure-vms-encryption.md#encryption-support-by-using-ade) and [VMs with CMK encrypted disks](backup-azure-vms-encryption.md#encryption-by-using-customer-managed-keys). For more information, [learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
+Azure Backup threat detection uses security signals from Microsoft Defender for Servers to assess the health of Azure VM backup recovery points. It identifies potentially malicious or ransomware-infected recovery points. It doesn't scan backup data directly. The capability is in preview. Learn about [threat detection for Azure VM backups](threat-detection-overview.md).
 
-* When data is backed up from on-premises servers with the MARS agent, data is encrypted with a passphrase before upload to Azure Backup and decrypted only after it's downloaded from Azure Backup. Read more about [security features to help protect hybrid backups](#security-features-to-help-protect-hybrid-backups).
+### Restore across subscriptions and tenants
 
-## Soft delete
+Cross-subscription restore can help you recover supported Azure VM backups to another subscription in the same tenant. For details and limitations, see [cross-subscription restore](azure-backup-data-protection-best-practices.md#cross-subscription-restore-for-backup-data-recovery).
 
-Azure Backup provides security features to help protect the backup data even after deletion. With soft delete, if you delete the backup of a VM, the backup data is retained for *14 additional days*, allowing the recovery of that backup item with no data loss. The additional *14 days retention of backup data in the "soft delete state* doesn't incur any cost. [Learn more about soft delete](backup-azure-security-feature-cloud.md).
+Cross-tenant restore lets you restore eligible vaulted recovery points to a different tenant after mapping source and target vaults. Scenarios include tenant lockout, ransomware attacks, and tenant consolidation. A Resource Guard in the target tenant protects the mapping operation through MUA. Cross-tenant restore is in preview and supports only documented workloads and regions. Learn about [cross-tenant restore](cross-tenant-restore-overview.md).
 
-Azure Backup has now also enhanced soft delete to further improve chances of recovering data after deletion. [Learn more](#enhanced-soft-delete).
+## Other security controls
 
-## Immutable vaults
+Azure Backup also has built-in security controls to prevent, detect, and respond to security vulnerabilities. Learn about the [Azure security baseline for Backup](/security/benchmark/azure/baselines/backup-security-baseline).
 
-Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the immutable vault setting to make it irreversible that can prevent any malicious actors from disabling immutability and deleting backups. [Learn more about immutable vaults](backup-azure-immutable-vault-concept.md). 
+### Internet connectivity not required for Azure VM backup
 
-## Multi-user authorization
+Azure VM backup traffic uses the Azure backbone network and doesn't require access to your virtual network. You don't need to allow IP addresses or fully qualified domain names for backup of Azure VMs in secured networks.
 
-Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization. [Learn more about multi-user authorization for Azure Backup](multi-user-authorization-concept.md).
+### Private endpoints for Azure Backup
 
-## Enhanced soft delete
+Private endpoints provide private connectivity for supported Recovery Services vault workloads, including SQL Server and SAP HANA in Azure VMs, MARS agent backups, DPM, and supported file recovery. For supported scenarios, see [private endpoints for Azure Backup](backup-azure-private-endpoints-concept.md).
 
-Enhanced soft delete provides you with the ability to recover your data even after it's deleted, accidentally or maliciously. It works by delaying the permanent deletion of data by a specified duration, providing you with an opportunity to retrieve it. You can also make soft delete *always-on* to prevent it from being disabled. [Learn more about enhanced soft delete for Backup](backup-azure-enhanced-soft-delete-about.md).
+### Security features to help protect hybrid backups
 
-## Monitoring and alerts of suspicious activity
+Azure Backup provides security features for hybrid backups, including extra authentication for critical operations, email notifications for critical operations, and MARS backup data encryption with a passphrase before upload. Data is decrypted only after download, and the passphrase isn't transmitted to Azure Backup. For supported hybrid backup configurations that use these security features, deleted backup data is retained for an extra 14 days, and a minimum number of recovery points is maintained to help recover from corruption. Protect the passphrase so you can restore data when needed. Learn about [security features for hybrid backups](backup-azure-security-feature.md).
 
-Azure Backup provides [built-in monitoring and alerting capabilities](./backup-azure-monitoring-built-in-monitor.md) to view and configure actions for events related to Azure Backup. [Backup Reports](./configure-reports.md) serve as a one-stop destination for tracking usage, auditing of backups and restores, and identifying key trends at different levels of granularity. Using Azure Backup's monitoring and reporting tools can alert you to any unauthorized, suspicious, or malicious activity as soon as they occur.
+### Monitoring and alerts of suspicious activity
 
-## Security features to help protect hybrid backups
-
-Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to back up and restore files, folders, and the volume or system state from an on-premises computer to Azure. MARS now provides security features to help protect hybrid backups. These features include:
-
-* An additional layer of authentication is added whenever a critical operation like changing a passphrase is performed. This validation is to ensure that such operations can be performed only by users who have valid Azure credentials. [Learn more about the features that prevent attacks](./backup-azure-security-feature.md#prevent-attacks).
-
-* Deleted backup data is retained for an additional 14 days from the date of deletion. This ensures recoverability of the data within a given time period, so there's no data loss even if an attack happens. Also, a greater number of minimum recovery points are maintained to guard against corrupt data. [Learn more about recovering deleted backup data](./backup-azure-security-feature.md#recover-deleted-backup-data).
-
-* For data backed up using the Microsoft Azure Recovery Services (MARS) agent, a passphrase is used to ensure data is encrypted before upload to Azure Backup and decrypted only after download from Azure Backup. The passphrase details are only available to the user who created the passphrase and the agent that's configured with it. Nothing is transmitted or shared with the service. This ensures complete security of your data, as any data that's exposed inadvertently (such as a man-in-the-middle attack on the network) is unusable without the passphrase, and the passphrase isn't sent over the network.
+Azure Backup provides built-in monitoring and alerts for backup operations. Use [Backup reports](configure-reports.md) to track backup and restore activity and identify trends. For more monitoring options, see [monitoring and reporting for Azure Backup](monitoring-and-alerts-overview.md).
 
 ## Security posture and security levels
 
-Azure Backup provides security features at the vault level to safeguard backup data stored in it. These security measures encompass the settings associated with the Azure Backup solution for the vaults, and the protected data sources contained in the vaults.
+Azure Backup security levels summarize security settings applied to protected items. Use them to identify configuration gaps across your backup environment.
 
-Security levels for Azure Backup vaults are categorized as follows:
+| Security level | Description | Requirements |
+|---|---|---|
+| Excellent | Backups are protected against accidental deletion and ransomware attacks. | Immutability or soft delete is enabled and irreversible (locked or always-on), and MUA is enabled on the vault. |
+| Good | Existing backups are protected against accidental deletion and have better recovery options. | Immutability is locked or soft delete is enabled. |
+| Fair | Critical backup operations have an extra layer of protection. | MUA is enabled on the vault. |
+| Poor | Basic protection against accidental deletion only. | Advanced protection capabilities aren't enabled, or only reversible capabilities are enabled. |
 
-- **Excellent (Maximum)**: This level represents the highest security, which ensures comprehensive protection. You can achieve this when all backup data is protected from accidental deletions and defends from ransomware attacks. To achieve this high level of security, the following conditions must be met:
+Learn how to [review security levels across protected items](../resiliency/security-levels-concept.md).
 
-  - [Immutability](backup-azure-immutable-vault-concept.md) or [soft-delete](backup-azure-security-feature-cloud.md) vault setting must be enabled and irreversible (locked/always-on).
-  - [Multi-user authorization (MUA)](multi-user-authorization-concept.md) must be enabled on the vault.
+### Compliance with standardized security requirements
 
-- **Good (Adequate)**: This signifies a robust security level, which ensures dependable data protection. It shields existing backups from unintended removal and enhances the potential for data recovery. To attain this level of security, you must enable either immutability with a lock or soft-delete.
-
-- **Fair (Minimum/Average)**: This represents a basic level of security, appropriate for standard protection requirements. Essential backup operations benefit from an extra layer of protection. To attain minimal security, you must enable Multi-user Authorization (MUA) on the vault.
-
-- **Poor (Bad/None)**: This indicates a deficiency in security measures, which is less suitable for data protection. In this level, neither advanced protective features nor solely reversible capabilities are in place. The None level security gives protection primarily from accidental deletions only.
-
-You can [view and manage the security levels across all datasources in their respective vaults through Resiliency](../resiliency/security-levels-concept.md).
-
-## Compliance with standardized security requirements
-
-To help organizations comply with national/regional and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
+Azure Backup provides service controls, certifications, and attestations that can help you assess applicable national, regional, and industry-specific requirements. Review [Azure compliance offerings](compliance-offerings.md) for details.
 
 ## Next steps
 
-* [Security features to help protect cloud workloads that use Azure Backup](backup-azure-security-feature-cloud.md).
-* [Security features to help protect hybrid backups that use Azure Backup](backup-azure-security-feature.md).
-* [Azure Policy Regulatory Compliance controls for Azure Backup](security-controls-policy.md).
+* [Secure by default with soft delete for Azure Backup](secure-by-default.md)
+* [Security features to help protect hybrid backups that use Azure Backup](backup-azure-security-feature.md)
+* [Azure Policy regulatory compliance controls for Azure Backup](security-controls-policy.md)

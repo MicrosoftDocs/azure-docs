@@ -1,5 +1,14 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: yuanqu72
+- id: app-configuration-telemetry-aspnet-core
+  title: ASP.NET Core feature flag telemetry
+  prompt: Choose a telemetry integration
+  pivots:
+  - id: app-configuration-telemetry-opentelemetry
+    title: Open Telemetry
+  - id: app-configuration-telemetry-appinsights
+    title: App Insights
 # Owner: v-mallicka
 - id: backup-client-portal-cli
   title: Clients

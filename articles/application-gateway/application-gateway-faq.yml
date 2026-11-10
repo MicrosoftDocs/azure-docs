@@ -6,7 +6,7 @@ metadata:
   author: mbender-ms
   ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 05/27/2026
+  ms.date: 08/29/2026
   ms.author: mbender
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -385,6 +385,23 @@ sections:
           az network application-gateway start -g MyResourceGroup -n MyAppGateway
           ```
 
+  - name: Configuration - Advanced Routing Rule
+    questions:
+      - question: What is Advanced Routing Rule?
+        answer: |
+          Advanced Routing Rule is an enhanced rule engine in Azure Application Gateway. It enables intelligent traffic routing based on HTTP request attributes. It provides flexible, condition-based routing decisions.
+
+      - question: Is Advanced Routing Rule available for all Application Gateway SKUs?
+        answer: |
+          Advanced Rules Engine is only available for Application Gateway v2 SKUs (Standard_v2 and WAF_v2).
+
+      - question: What API version is required to use Advanced Routing Rule?
+        answer: |
+          You need API version **2026-01-01** or later to use Advanced Routing Rule.
+
+      - question: Which Listener types are supported with Advanced Routing Rule?
+        answer: |
+          Advanced Routing Rule is supported only with Basic listener type.
 
   - name: 'Configuration: TLS'
     questions:

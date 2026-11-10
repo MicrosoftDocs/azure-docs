@@ -7,20 +7,20 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
 # Calculate EA savings plan cost savings
 
-This article helps Enterprise Agreement (EA) users manually calculate their savings plan savings. In this article, you download your amortized usage and charges file, prepare an Excel worksheet, and then do some calculations to determine your savings. There are several steps involved and we walk you through the process. Although the example process shown in this article uses Excel, you can use the spreadsheet application of your choice.
+This article helps Enterprise Agreement (EA) users manually calculate their savings plan savings. You download your amortized usage and charges file, prepare an Excel worksheet, and then calculate your savings. The following sections guide you through the process. Although the example uses Excel, you can use the spreadsheet application of your choice.
 
 > [!NOTE]
 > The prices shown in this article are for example purposes only.
 
 This article is specific to EA users. 
 
-However, Microsoft Customer Agreement (MCA) users can use similar steps to calculate their savings plan savings through invoices. The MCA amortized usage file doesn't contain UnitPrice (on-demand pricing) for savings plans. You can get unit prices from your [MCA price sheet](download-savings-plan-price-sheet.md#download-mca-price-sheet).
+Microsoft Customer Agreement (MCA) users can use similar steps to calculate their savings plan savings through invoices. The MCA amortized usage file doesn't contain UnitPrice (on-demand pricing) for savings plans. You can get unit prices from your [MCA price sheet](download-savings-plan-price-sheet.md#download-mca-price-sheet).
 
 ## Required permissions
 
@@ -51,8 +51,8 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
 4. In the Create Table window, select **My table has headers**.
 5. In the **benefitName** column, set a filter to clear **Blanks**.  
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/savings-plan-name-clear-blanks.png" alt-text="Screenshot showing clear Blanks data." lightbox="./media/calculate-ea-savings-plan-savings/savings-plan-name-clear-blanks.png" :::
-6. Find the **ChargeType** column and then to the right of the column name, select the sort and filter symbol (the down arrow).
-7. For the **ChargeType** column, set a filter on it to select only **Usage**. Clear any other selections.  
+6. Find the **ChargeType** column. To the right of the column name, select the sort and filter symbol (the down arrow).
+7. Filter the **ChargeType** column to select only **Usage**. Clear any other selections.
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/charge-type-selection-small.png" alt-text="Screenshot showing ChargeType selection." lightbox="./media/calculate-ea-savings-plan-savings/charge-type-selection.png" :::
 8. To the right of **UnitPrice**, insert a column and label it with a title like **TotalUsedSavings**.
 9. In the first cell under **TotalUsedSavings**, create a formula that calculates _(UnitPrice – EffectivePrice) \* Quantity_.  
@@ -62,7 +62,7 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/total-used-savings-summed.png" alt-text="Screenshot showing the summed values." lightbox="./media/calculate-ea-savings-plan-savings/total-used-savings-summed.png" :::
 12. Somewhere under your data, create a cell named _TotalUsedSavingsValue_. Next to it, copy the **TotalUsed** cell and paste it as **Values**. This step is important because the next step will change the applied filter and affect the summed total.  
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/paste-value-used.png" alt-text="Screenshot showing pasting the TotalUsedSavings cell as Values." lightbox="./media/calculate-ea-savings-plan-savings/paste-value-used.png" :::
-13. For the **ChargeType** column, set a filter on it to select only **UnusedSavingsPlan**. Clear any other selections.
+13. Filter the **ChargeType** column to select only **UnusedSavingsPlan**. Clear any other selections.
 14. To the right of the **TotalUsedSavings** column, insert a column and label it with a title like **TotalUnused**.
 15. In the first cell under **TotalUnused**, create a formula that calculates _EffectivePrice \* Quantity_.  
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/total-unused-formula.png" alt-text="Screenshot showing the TotalUnused formula." lightbox="./media/calculate-ea-savings-plan-savings/total-unused-formula.png" :::
@@ -77,7 +77,7 @@ If you see a negative savings value, then you're likely to have unused savings p
 
 Using the preceding steps, you can repeat the process for any number of months. Doing so allows you to see your savings over a longer period.
 
-Instead of downloading usage files, one per month, you can get all your usage data for a specific date range using exports from Cost Management and output the data to Azure Storage. Doing so allows you to see your savings over a longer period. For more information about creating an export, see [Create and manage exported data](../costs/tutorial-improved-exports.md).
+Instead of downloading one usage file per month, you can use Cost Management exports to get all your usage data for a specific date range and save it to Azure Storage. This approach lets you see your savings over a longer period. For more information about creating an export, see [Create and manage exported data](../costs/tutorial-improved-exports.md).
 
 ## Next steps
 

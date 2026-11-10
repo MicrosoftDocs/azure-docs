@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.reviewer: joeolerich
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 09/02/2026
+ms.date: 10/22/2026
 ---
 
 # What is client fingerprint matching for Azure Front Door?
@@ -166,6 +166,14 @@ If you aren't confident enough to block a fingerprint outright, you can issue a 
   "action": "JSChallenge"
 }
 ```
+
+### Rate limit every fingerprint (preview)
+
+> [!IMPORTANT]
+> Grouping rate limit rules by JA4 fingerprint is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+The previous examples act on fingerprints that you already identified. A rate limit rule grouped by JA4 fingerprint caps every fingerprint automatically, including ones you haven't seen yet. Requests count toward the threshold for their fingerprint regardless of the client IP address they come from, so a botnet that rotates through thousands of IP addresses with one client stack is still limited. For an example rule and guidance on sizing the threshold, see [Group rate limit traffic (preview)](waf-front-door-rate-limit.md#group-rate-limit-traffic-preview).
 
 ## Considerations
 

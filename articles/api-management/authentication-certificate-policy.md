@@ -63,7 +63,7 @@ ms.date: 08/18/2026
 ### Client certificate identified by thumbprint
 
 ```xml
-<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
+<authentication-certificate thumbprint="AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00" />
 ```
 
 ### Client certificate set in the policy rather than retrieved from the built-in certificate store

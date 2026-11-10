@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="450" viewBox="0 0 1100 450" role="img" aria-labelledby="title desc">
+  <title id="title">Route invalid messages to a dead-letter queue</title>
+  <desc id="desc">Inside the DataflowGraph, a source feeds a type branch and then a value branch. Both false paths feed a rejection concatenate and a map that preserves the payload and adds MQTT metadata. The true path uses a map to select the validated topic. A final concatenate feeds one dynamic-topic destination. Outside the graph, factory/validated receives accepted readings and factory/dead-letter feeds an MQTT 5 consumer that provides durable storage.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1100" height="450" fill="#fff"/>
+  <rect x="12" y="15" width="833" height="420" rx="12" fill="#f8fafc" stroke="#365d7e" stroke-width="1.5"/>
+  <text x="30" y="48" font-family="sans-serif" font-size="20" font-weight="bold" fill="#172b3a">DataflowGraph</text>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 168 135 H 200"/>
+    <path d="M 330 135 H 365"/>
+    <path d="M 495 135 H 530"/>
+    <path d="M 670 135 H 705"/>
+    <path d="M 265 170 V 270"/>
+    <path d="M 430 170 V 220 H 295 V 270"/>
+    <path d="M 340 310 H 395"/>
+    <path d="M 635 310 H 685 V 135 H 705"/>
+    <path d="M 755 170 V 270"/>
+    <path d="M 830 290 H 853 V 135 H 865"/>
+    <path d="M 830 320 H 865"/>
+    <path d="M 972 345 V 370"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="28" y="100" width="140" height="70" rx="8" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="200" y="100" width="130" height="70" rx="8" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="365" y="100" width="130" height="70" rx="8" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="530" y="100" width="140" height="70" rx="8" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="705" y="100" width="100" height="70" rx="8" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="200" y="270" width="140" height="80" rx="8" fill="#fff3e6" stroke="#995b20"/>
+    <rect x="395" y="270" width="240" height="80" rx="8" fill="#fff3e6" stroke="#995b20"/>
+    <rect x="705" y="270" width="125" height="80" rx="8" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="865" y="105" width="215" height="60" rx="8" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="865" y="290" width="215" height="55" rx="8" fill="#fff3e6" stroke="#995b20"/>
+    <rect x="865" y="370" width="215" height="60" rx="8" fill="#f0eafa" stroke="#68518a"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="98" y="127" font-weight="bold">Source</text>
+    <text x="98" y="151" font-size="13">factory/readings</text>
+    <text x="265" y="127" font-weight="bold">Branch</text>
+    <text x="265" y="151">Types?</text>
+    <text x="430" y="127" font-weight="bold">Branch</text>
+    <text x="430" y="151">Values?</text>
+    <text x="600" y="127" font-weight="bold">Map</text>
+    <text x="600" y="151">validated topic</text>
+    <text x="755" y="127" font-weight="bold">Merge</text>
+    <text x="755" y="151" font-size="13">Concatenate</text>
+    <text x="270" y="302" font-weight="bold">Reject merge</text>
+    <text x="270" y="329">Concatenate</text>
+    <text x="515" y="293" font-weight="bold">Map metadata</text>
+    <text x="515" y="316" font-size="14">originalTopic + rejectionReason</text>
+    <text x="515" y="338" font-size="14">Preserve payload; set topic</text>
+    <text x="767" y="293" font-weight="bold">Destination</text>
+    <text x="767" y="316" font-size="13">factory/</text>
+    <text x="767" y="338" font-size="13">${outputTopic}</text>
+    <text x="972" y="141">factory/validated</text>
+    <text x="972" y="324">factory/dead-letter</text>
+    <text x="972" y="394" font-weight="bold">MQTT 5 consumer</text>
+    <text x="972" y="417">Durable store</text>
+    <text x="347" y="121" font-size="13">true</text>
+    <text x="512" y="121" font-size="13">true</text>
+    <text x="242" y="204" font-size="13">false</text>
+    <text x="453" y="204" font-size="13">false</text>
+  </g>
+</svg>

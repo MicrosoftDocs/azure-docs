@@ -270,6 +270,7 @@ The workflow uses the local DTS emulator. Use the dashboard at `http://localhost
 ## Related content
 
 + [Dynamic workflows overview](functions-hosted-skills-dynamic-workflows.md)
++ [Monitor and troubleshoot hosted skills](functions-hosted-skills-monitor-troubleshoot.md)
 + [Workflow incident triage sample](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/workflow-incident-triage)
 + [Workflow subagents sample](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/workflow-subagents-preview)
 + [Develop with Durable Task Scheduler](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)

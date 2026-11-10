@@ -15,7 +15,7 @@ ms.custom:
 
 ## v1.0.46 (December 2022)
 
-- Initial public preview release of Container apps extension
+- Initial public preview release of Container Apps extension
 
 ## v1.0.47 (January 2023)
 
@@ -44,8 +44,8 @@ ms.custom:
 - New versioning number format
 - Upgrade of Dapr to 1.10.4
 - Maintain scale of Envoy after deployments of new revisions
-- Change to when default startup probes are added to a container, if developer doesn't define both startup and readiness probes, then default startup probes are added
-- Adds CONTAINER_APP_REPLICA_NAME environment variable to custom containers
+- Change to when default startup probes are added to a container. If you don't define both startup and readiness probes, the system adds default startup probes.
+- Adds `CONTAINER_APP_REPLICA_NAME` environment variable to custom containers
 - Improvement in performance when multiple revisions are stopped
 
 ## v1.12.8 (June 2023)
@@ -54,7 +54,7 @@ ms.custom:
 - Support for container registries exposed on custom port
 - Enable activate/deactivate revision when a container app is stopped
 - Fix Revisions List not returning init containers
-- Default "allow headers" added for cors policy
+- Default "allow headers" added for CORS policy
 
 ## v1.12.9 (July 2023)
 
@@ -70,28 +70,28 @@ ms.custom:
 
 ## v1.23.5 (December 2023)
 
-- Update Envoy to 1.27.2, KEDA to v2.10.0, EasyAuth to 1.6.20, and Dapr to 1.11
-- Set Envoy to max TLS 1.3
-- Fix to resolve crashes in Log Processor pods
-- Fix to image pull secret retrieval issues
-- Update placement of Envoy to distribute across available nodes where possible
-- When container apps fail to provision as a result of revision conflicts, set the provisioning state to failed
+- Updated Envoy to 1.27.2, KEDA to v2.10.0, EasyAuth to 1.6.20, and Dapr to 1.11.
+- Set Envoy to use a maximum of TLS 1.3.
+- Fixed crashes in Log Processor pods.
+- Fixed image pull secret retrieval issues.
+- Updated placement of Envoy to distribute across available nodes where possible.
+- Set the provisioning state to failed when container apps fail to provision due to revision conflicts.
 
 ## v1.30.6 (January 2024)
 
-- Update KEDA to v2.12, Envoy SC image to v1.0.4, and Dapr image to v1.11.6
-- Added default response time-out for Envoy routes to 1,800 seconds
-- Changed Fluent bit default log level to warn
-- Delay deletion of job pods to ensure log emission
-- Fixed issue for job pod deletion for failed job executions
-- Ensure jobs in a suspended state deletes failed pods
-- Update to not resolve HTTPOptions for TCP applications
-- Allow applications to listen on HTTP or HTTPS
-- Add ability to suspend jobs
-- Fixed issue where KEDA scaler was failing to create job after stopped job execution
-- Add startingDeadlineSeconds to Container App Job if there's a cluster reboot
-- Removed heavy logging in Envoy access log server
-- Updated Monitoring Configuration version for Azure Container Apps on Azure Arc enabled Kubernetes
+- Updated KEDA to v2.12, Envoy SC image to v1.0.4, and Dapr image to v1.11.6.
+- Added default response timeout for Envoy routes to 1,800 seconds.
+- Changed Fluent Bit default log level to `warn`.
+- Enabled delay-deletion of job pods to ensure log emission.
+- Fixed job pod deletion for failed job executions.
+- Ensure jobs in a suspended state delete failed pods.
+- Updated to not resolve `HTTPOptions` for TCP applications.
+- Allow applications to listen on HTTP or HTTPS.
+- Added ability to suspend jobs.
+- Fixed issue where KEDA scaler failed to create job after stopped job execution.
+- Added `startingDeadlineSeconds` to Container App Job if there's a cluster reboot.
+- Removed heavy logging in Envoy access log server.
+- Updated Monitoring Configuration version for Azure Container Apps on Azure Arc enabled Kubernetes.
 
 ## v1.36.15 (April 2024)
 
@@ -121,16 +121,16 @@ ms.custom:
 
 ## v1.37.7 (October 2024)
 
-- Resolved issue with MDM Init container which caused container to crash in event it couldn't be pulled
-- Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcement-introducing-the-logic-apps-hybrid-deployment-model-public-preview/4271568)
+- Fixed issue with MDM Init container that caused container to crash if it couldn't be pulled.
+- Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcement-introducing-the-logic-apps-hybrid-deployment-model-public-preview/4271568).
 
 ## v1.37.8 (March 2025)
 
-- Resolved issue with SMB storage's read-only attribute which wasn't setting correctly
-- Resolved issue with cleanup hook
-- Added support for health probes for Logic Apps
-- Added support for JWT authentication for sync trigger
-- Added User Event for when system namespace is the same as the app namespace
+- Fixed issue with SMB storage's read-only attribute that didn't set correctly.
+- Fixed issue with cleanup hook.
+- Added support for health probes for Logic Apps.
+- Added support for JWT authentication for sync trigger.
+- Added user event for when system namespace is the same as the app namespace.
 
 ## v1.47.62 (September 2025)
 
@@ -222,4 +222,28 @@ ms.custom:
 - Added `containerName` for CPU/memory autoscaling.
 - Increased localproxy sidecar readiness probe failure threshold.
 - Improved lifecycle and history management for labels mode.
-- Prevented creation of new revisions or replicasets when only the `TargetLabel` changes.
+- Prevented creation of new revisions or replica sets when only the `TargetLabel` changes.
+
+## v1.51.5 (Nov 2026)
+
+- Upgrade Dapr to `1.16.4-msft.15`. 
+- Upgrade Keda to `2.20.2-msft.4`. 
+- Update Easy Auth to `1.14.4.0`. 
+- Upgrade Envoy sidecar to `1.0.27-m`, including the Brotli vulnerability fix. 
+- Add Kubernetes native-sidecar support for Daprd. 
+- Improve control-plane rolling-upgrade stability and HA embedded-etcd startup. 
+- Add sidecar SSRF protection and subscription hot reload so deleted subscriptions are dropped at runtime.
+- Refresh Envoy on Arc when the Dapr trust bundle changes, refresh Application Insights telemetry configuration, and add subscription heartbeat telemetry. 
+- Manage the Cosmos DB external scaler in the ACA data plane for connection-string-authenticated scaling; restrict ingress to same-namespace KEDA operator pods. 
+- Enable Logic App data-plane behavior for `autoApp` alongside `workflowapp`. 
+- Support scale rules without secret references. 
+- Forward Broker and StorageProxy credential metadata to workflow-trigger scaling. 
+- Update the external KEDA scaler image to remediate Brotli and eMudhra vulnerabilities. 
+- Improve controller/webhook readiness, conflict retries, content-hash-based reconciliation, and healthy-revision promotion. 
+- Harden job-execution ownership checks, expose ownership in execution responses, add execution deletion and chronological pagination, and improve job cleanup and Arc heartbeat/billing filtering.
+- Migrate Azure Files NFS mounts to PV/PVC with deletion guards, clean up dynamically created SMB storage classes, and restore material storage-secret rotation. 
+- Tolerate pre-existing broken registries when validating application updates. 
+- Improve availability with revision PDBs and unhealthy system-pod eviction. 
+- Fix traffic-weight reconciliation, rapid stop/start route races, redirect-IP startup conflicts, and route cleanup.
+- Add CA certificate bundles to runtime images. 
+- Isolate localproxy DNS lookup from customer changes to resolver/hosts files. 

@@ -94,7 +94,7 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 --- | ---
 **MABS on an Azure VM** |  MABS v4 and later: Windows 2022 Datacenter, Windows 2019 Datacenter <br><br> MABS v3, UR1 and UR2: Windows 2019 Datacenter, Windows 2016 Datacenter <br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
 **DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later<br/><br/> Windows operating system as [required by System Center](/system-center/dpm/prepare-environment-for-dpm#dpm-server).<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
-**MABS on-premises** |  MABS v4 and later: Windows Server 2022 or Windows Server 2019 <br><br> MABS v3, UR1 and UR2: Windows Server 2019 and Windows Server 2016
+**MABS on-premises** |  MABS v4 UR1 and later: Windows Server 2025 <br><br> MABS v4 and later: Windows Server 2022 or Windows Server 2019 <br><br> MABS v3, UR1 and UR2: Windows Server 2019 and Windows Server 2016
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later.
 
 >[!NOTE]

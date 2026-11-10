@@ -8,20 +8,22 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: concept-article
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ---
 
 # Savings plan recommendations
 
-Savings plan purchase recommendations are provided through [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), the savings plan purchase experience in [Azure portal](https://portal.azure.com/), and through the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
+You can get savings plan purchase recommendations through [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), the savings plan purchase experience in the [Azure portal](https://portal.azure.com/), and the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
+
+This article covers recommendations for both compute and database savings plans.
 
 ## How savings plan recommendations are generated
 
-The goal of our savings plan recommendation is to help you make the most cost-effective commitment. Savings plan recommendations are generated using your actual on-demand usage and costs (including any negotiated on-demand discounts).
+The goal of the savings plan recommendations is to help you make the most cost-effective commitment. The recommendation system generates savings plan recommendations using your actual on-demand usage and costs, including any negotiated on-demand discounts.
 
-We start by looking at your hourly and total on-demand usage costs incurred from savings plan-eligible resources in the last 7, 30, and 60 days. We determine what the optimal savings plan commitment would be for each of these hours - we apply the appropriate savings plan discounts to all your savings plan-eligible usage in each hour. We consider each one of these commitments a candidate for a savings plan recommendation. We then run hundreds of simulations using each of these candidates to determine what your total cost would be if you purchased a savings plan equal to the candidate.
+The recommendation system starts by looking at your hourly and total on-demand usage costs for savings plan-eligible resources over the last 7, 30, and 60 days. It determines the optimal savings plan commitment for each hour by applying the appropriate savings plan discounts to all your savings plan-eligible usage in that hour. Each of these commitments is a candidate for a savings plan recommendation. The recommendation system runs hundreds of simulations using these candidates to determine what your total cost would be if you purchased a savings plan with each candidate commitment amount.
 
-The goal of these simulations is to compare each candidate's total cost ((hourly commitment * 24 hours * # of days in simulation period) + total on-demand cost incurred during the simulation period) to the actual total on-demand costs. Only candidates that result in net savings are eligible for consideration as actual recommendations. We take up to 10 of the best recommendations and present them to you. For each recommendation, we also calculate the percentage of your compute usage costs are now covered by this savings plan, and any other previously purchased reservations or savings plan. The recommendations with the greatest savings for one year and three years are the highlighted options.
+These simulations compare each candidate's total cost with your actual total on-demand costs. The simulated total cost is calculated as (hourly commitment * 24 hours * number of days in the simulation period) + remaining on-demand charges for usage not covered by the simulated savings plan. Only candidates that result in net savings are considered for recommendations. The recommendation system presents up to 10 of the best recommendations. For each recommendation, it also calculates the percentage of your eligible usage costs that the recommended savings plan and any previously purchased reservations or savings plans would cover. The recommendations with the greatest savings for the one-year and three-year terms are highlighted. If the recommendation system doesn't present recommendations for a combination of scope and term, it couldn't calculate a savings plan commitment that would result in cost savings for that combination. This condition is most likely because there are too many hours in which most of the commitment would go unused.
 
 Here's a video that explains how savings plan recommendations are generated.
 
@@ -29,45 +31,46 @@ Here's a video that explains how savings plan recommendations are generated.
 >[!VIDEO https://www.youtube.com/embed/4HV9GT9kX6A]
 
 
-To account for scenarios where there were significant reductions in your usage, including recently decommissioned services, we run more simulations using only the last three days of usage. The lower recommendation (between the 3- and 30-day recommendations) is provided to you - even in situations where the 30-day recommendation might appear to provide greater savings. We do this to ensure that stale data doesn't cause us to inadvertently recommend overcommitment.
+To account for significant reductions in your usage, such as those caused by recently decommissioned services, the recommendation system runs additional simulations using only the last three days of usage. It presents the lower of the 3-day and 30-day commitment recommendations, even when the 30-day recommendation might appear to provide greater savings. This approach helps prevent outdated usage data from leading to a recommendation that overcommits you.
 
-Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 7 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
+Some compute and database products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, wait at least seven days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
 
 Keep the following points in mind:
 
 - Recommendations are refreshed several times a day.
-- The savings plan recommendation for a specific scope is reduced on the same day that you purchase a savings plan for that scope. However, updates to recommendations for other scopes can take up to 25 days.
-    - For example, if you purchase based on shared scope recommendations, the single subscription scope recommendations can take up to 25 days to adjust down.
+- After you purchase a savings plan, recommendations for the purchase scope and other scopes can take up to seven days to reflect the purchase.
+    - For example, if you purchase based on shared scope recommendations, the recommendations for individual subscription scopes can take up to seven days to decrease.
 
 ## Recommendations in Azure Advisor
 
-Azure Advisor surfaces 1- and 3-year savings plan recommendations for each billing subscription. Keep the following points in mind:
+Azure Advisor provides one-year and three-year savings plan recommendations for each billing subscription. Keep the following points in mind:
 
 - If you want to see recommendations for shared and resource group scopes, navigate to the savings plan purchase experience in the Azure portal.
-- Recommendations in Advisor currently only consider your last 30 days of usage.
-- If you recently purchased a savings plan or reserved instance, it may take up to five days for the purchases to affect your recommendations in Advisor and the Azure portal.
+- Recommendations in Advisor currently consider only your last 30 days of usage.
+- If you recently purchased a savings plan or reservation, it might take up to seven days for the purchase to affect your recommendations in Advisor and the Azure portal.
 
-## Recommendations in Azure portal
+## Recommendations in the Azure portal
 
-Azure portal presents up to 10 savings plan commitment recommendations for each savings plan term and benefit scope. Each recommendation includes the commitment amount, the estimated savings percentage (off your current pay-as-you-go costs), and the percentage of your compute usage costs that would be covered by this savings plan, as well as any other previously purchased savings plans and reservations.
+The Azure portal presents up to 10 savings plan commitment recommendations for each savings plan term and benefit scope. Each recommendation includes the commitment amount, the estimated savings percentage compared with your current pay-as-you-go costs, and the percentage of your eligible usage costs that the recommended savings plan and previously purchased savings plans and reservations would cover.
 
-By default, the recommendations are for the entire billing scope (billing profile for MCA and enrollment account for EA). You can also view separate management group, subscription, and resource group-level recommendations by changing benefit application to one of those levels.
+By default, the recommendations are for the entire billing scope (billing profile for a Microsoft Customer Agreement (MCA) and enrollment for an Enterprise Agreement (EA)). You can also view separate management group, subscription, and resource group-level recommendations by changing benefit application to one of those levels.
 
-Currently, all savings plan recommendations in the Azure portal are based on a 30-day look back period.
+Currently, all savings plan recommendations in the Azure portal are based on a 30-day lookback period.
 
-Recommendations are term-specific, so you see the one-year or three-year recommendations at each level by toggling the term options.
+Recommendations are term-specific. To view one-year or three-year recommendations at each scope level, select the corresponding term option.
 
-The highlighted recommendation is projected to result in the greatest savings. The other values allow you to see how increasing or decreasing your commitment could affect both your savings. They also show how much of your total compute usage cost would be covered by savings plans or reservation commitments. When the commitment amount is increased, your savings might decline because you have lower utilization each hour. If you lower the commitment, your savings could also be reduced. In this case, although you have greater utilization, there are more hours where your savings plan doesn't fully cover your usage. Usage beyond your hourly commitment is charged at the more expensive pay-as-you-go rates.
+The highlighted recommendation is projected to result in the greatest savings. The other recommendations show how increasing or decreasing your commitment could affect your savings. They also show the portion of your total eligible usage costs that savings plans or reservation commitments would cover. If you increase the commitment amount, your savings might decline because you use a smaller percentage of your commitment each hour. If you lower the commitment, your savings could also decrease. In this case, although you use a greater percentage of your commitment, there are more hours in which your savings plan doesn't fully cover your usage. Usage beyond your hourly commitment is charged at the higher pay-as-you-go rates.
+
 
 ## Recommendations API
 
 For more information about retrieving savings plan commitment recommendations, see the savings plan [Benefit Recommendations API](/rest/api/cost-management/benefit-recommendations).
 
-## Reservation trade in recommendations
+## Reservation trade-in recommendations
 
-When you [trade-in](reservation-trade-in.md) one or more reservations for a savings plan, you're shifting the balance of your previous commitments to a new savings plan commitment. For example, if you have a one-year reservation with a value of $500, and halfway through the term you look to trade it for a savings plan, you will still have an outstanding commitment of about $250. The minimum hourly commitment must be at least equal to the outstanding amount divided by (24 * the term length in days).
+When you [trade in](reservation-trade-in.md) one or more reservations for a savings plan, you transfer the remaining balance of your previous commitments to a new savings plan commitment. For example, if you have a one-year reservation with a value of $500 and trade it in halfway through the term, you still have an outstanding commitment of about $250. The minimum hourly commitment equals the outstanding amount divided by (24 * the new savings plan term length in days).
 
-As part of the trade in, the outstanding commitment is automatically included in your new savings plan. We do it by dividing the outstanding commitment by the number of hours in the term of the new savings plan. For example, 24 times the term length in days. And by making the value the minimum hourly commitment you can make as part of the trade-in. Using the previous example, the $250 amount would be converted into an hourly commitment of about $0.029 for a new one-year savings plan. If you're trading multiple reservations, the total outstanding commitment is used. You can choose to increase the value, but you can't decrease it.
+As part of the trade-in, the outstanding commitment is automatically included in your new savings plan. The minimum hourly commitment equals the outstanding commitment divided by the number of hours in the new savings plan term. In the previous example, the $250 amount would be converted into an hourly commitment of about $0.029 for a new one-year savings plan. If you're trading in multiple reservations, the total outstanding commitment is used. You can choose a higher hourly commitment, but you can't choose one below this minimum.
 
 The minimum value doesn't necessarily represent the hourly commitment necessary to cover the resources that were covered by the exchanged reservation. If you want to cover those resources, you most likely need to increase the hourly commitment. To determine the appropriate hourly commitment, see [Determine savings plan commitment needed to replace your reservation](reservation-trade-in.md#determine-savings-plan-commitment-needed-to-replace-your-reservation).
 

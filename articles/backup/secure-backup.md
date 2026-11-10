@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-backup
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 09/28/2026
+ms.date: 11/02/2026
 ai-usage: ai-generated
 ---
 
@@ -20,12 +20,11 @@ This article provides security recommendations to help protect your Azure Backup
 
 ## Service-specific security
 
-Azure Backup stores vaulted backup data in a Microsoft-managed subscription and tenant, isolated from the production environment where the source data resides. This isolation creates a logical air gap that keeps backups out of reach of a compromised production environment. Layer the following Azure Backup-specific controls to make backup data resistant to tampering and malicious deletion.
+Azure Backup stores vaulted backup data in a Microsoft-managed subscription and tenant, separate from the production environment where the source data resides. This separation contributes to the Logically air-gapped vault outcome, but it doesn't replace controls over identities that can manage the vault. For this outcome, MUA is required; soft delete and encryption are on by default, and immutability is optional. Protect vaulted data from premature deletion by using either always-on soft delete or locked immutability, where supported.
 
 - **Enable multiuser authorization (MUA) with Resource Guard**: Require separate Resource Guard authorization before critical operations such as disabling soft delete, stopping backups with data deletion, or reducing retention can proceed. For more information, see [Multiuser authorization using Resource Guard](multi-user-authorization-concept.md).
     - **Create the Resource Guard in a separate subscription or tenant**: Ensure that no single backup administrator has both vault permissions and the Resource Guard permissions needed to authorize destructive operations. For more information, see [Multiuser authorization using Resource Guard](multi-user-authorization-concept.md).
-- **Enable and lock immutable vaults**: Prevent backup data from being modified or deleted during its policy-based retention period, or during a specific immutability duration for Recovery Services vaults, then lock immutability to make the setting irreversible. For more information, see [Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
-- **Extend soft-delete retention for higher-risk vaults**: Retain deleted backup data for 14 to 180 days so that you can recover it after accidental or malicious deletion. Don't disable soft delete in Backup vault regions where the portal still allows it. For more information, see [Secure by default with soft delete for Azure Backup](secure-by-default.md).
+- **Use always-on soft delete or locked immutability for deletion protection**: Soft delete keeps deleted backup data recoverable for its configured retention period, which ranges from 14 to 180 days; it doesn't provide indefinite retention. Locked immutability blocks destructive operations for the configured retention or immutability duration and can't be reversed. Support varies by vault, workload, and region. For more information, see [secure-by-default soft delete](secure-by-default.md) and [immutable vaults](backup-azure-immutable-vault-concept.md).
 
 ## Network security
 
@@ -68,10 +67,11 @@ Enforce and audit a consistent backup security configuration across your subscri
 
 ## Backup and recovery
 
-Ensure that the backups themselves survive regional outages and remain recoverable when you need them.
+Business continuity and disaster recovery (DR) planning helps you maintain service through regional outages and other disruptions. Cyber recovery essentials adds preparation for cyber incidents: identify supported recovery destinations, test restore procedures, and review results against your organization's recovery objectives. Cross-subscription restore and cross-tenant restore can provide alternative destinations for supported workloads; check each feature's limitations before relying on it.
 
 - **Configure geo-redundant storage for vaults**: Set vault storage redundancy to geo-redundant storage (GRS) so that backup data is replicated to the Azure paired region and survives a regional outage. For more information, see [Set storage redundancy](backup-create-recovery-services-vault.md#set-storage-redundancy).
 - **Enable Cross Region Restore**: Turn on Cross Region Restore (CRR) so that you can restore backup data from the secondary region on demand for drills, audits, or outages, without waiting for Microsoft to declare a disaster. For more information, see [Set Cross Region Restore](backup-create-recovery-services-vault.md#set-cross-region-restore).
+- **Prepare for recovery across subscriptions or tenants**: Use [cross-subscription restore](azure-backup-data-protection-best-practices.md#cross-subscription-restore-for-backup-data-recovery) for supported Azure VM scenarios in another subscription in the same tenant. [Cross-tenant restore](cross-tenant-restore-overview.md) is in preview and supports only documented workloads and regions. Regional redundancy and restore support DR planning, but don't by themselves establish cyber recovery readiness.
 
 ## Related content
 

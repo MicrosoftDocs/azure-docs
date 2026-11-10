@@ -22,7 +22,7 @@ The Azure Native Integration for Datadog lets you deploy, configure, and manage 
 
 Microsoft and [Datadog](https://www.datadoghq.com/) developed this service and manage it together.
 
-You can find Datadog in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
+You can find Datadog in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://marketplace.microsoft.com/product/datadog1591740804488.dd_liftr_v3_decoupled).
 
 For Azure Native Datadog, the supported Azure deployment region is **West US 2**.
 
@@ -123,7 +123,7 @@ Before you create a Datadog resource, you need an active Datadog subscription in
 
 To subscribe:
 
-1. Open the [Datadog offer in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview), or sign in to the [Azure portal](https://portal.azure.com/), search the global search bar for **Marketplace**, and search for **Datadog – An Azure Native ISV Service**.
+1. Open the [Datadog offer in Azure Marketplace](https://marketplace.microsoft.com/product/datadog1591740804488.dd_liftr_v3_decoupled), or sign in to the [Azure portal](https://portal.azure.com/), search the global search bar for **Marketplace**, and search for **Datadog – An Azure Native ISV Service**.
 1. Choose a plan (or a [private offer](/marketplace/private-offers-in-azure-marketplace) if your account has one) and select **Subscribe**. Marketplace-billed Datadog usage counts toward your organization's [Microsoft Azure Consumption Commitment (MACC)](/marketplace/azure-consumption-commitment-benefit), where applicable.
 
 After you subscribe, the create-resource pane opens. See [Create a Datadog resource](create.md) for the full setup flow.

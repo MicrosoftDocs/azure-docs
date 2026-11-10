@@ -200,7 +200,7 @@ Tasks show as Complete and results mention file outputs, but you see access erro
 
 If any of these is missing, you'll see an error when clicking file links, even though the files were created successfully.
 
-**How to fix**: Contact your administrator with the storage account name (visible in the storage container properties) and ask them to verify all three items. See [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md) for the full configuration requirements.
+**How to fix**: Contact your administrator with the storage account name (visible in the storage container properties) and ask them to verify all three items. For the full configuration requirements, see [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md).
 
 > [!NOTE]
 > Shared sessions continue to work correctly regardless of your file access. Agents can read and write files, cognition can validate file content, and task results capture the text output. The access issue only affects your ability to view files directly.
