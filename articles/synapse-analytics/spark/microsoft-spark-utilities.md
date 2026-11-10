@@ -582,6 +582,12 @@ mssparkutils.fs.rm('file path', True) # Set the last parameter as True to remove
 
 ## Notebook utilities
 
+For notebook parameter names, start with an ASCII letter (`A`-`Z` or `a`-`z`) or underscore (`_`).
+Use only ASCII letters, digits (`0`-`9`), and underscores for the remaining characters.
+For example, use `customer_id` or `_run_date` instead of `customer id`, `customer-id`, `customer.id`, or `café`.
+Match each name exactly in the notebook's parameter cell and the arguments passed to `mssparkutils.notebook.run()` or `runMultiple()`, or configured in a pipeline Notebook activity.
+This naming guidance applies to parameter names, not parameter values. It doesn't change how existing notebook runs execute.
+
 :::zone pivot = "programming-language-csharp"
 
 Not supported.
