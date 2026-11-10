@@ -3,7 +3,7 @@ title: End-to-end network-hardened deployment for Microsoft Discovery
 description: Learn how to deploy a Microsoft Discovery stack with private data-plane access for workspaces, bookshelves, and customer storage while planning outbound dependencies.
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/24/2026
+ms.date: 11/09/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -80,7 +80,7 @@ Create the supercomputer first so it can be referenced by the workspace. The com
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{scName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{scName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": {
@@ -98,7 +98,7 @@ Add a nodepool after the supercomputer is provisioned:
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{scName}/nodepools/{nodepoolName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{scName}/nodepools/{nodepoolName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": { "vmSize": "Standard_D16s_v5", "minNodeCount": 0, "maxNodeCount": 3, "scaleSetPriority": "Regular" }
@@ -109,7 +109,7 @@ az rest --method PUT \
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/bookshelves/{bsName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/bookshelves/{bsName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": {
@@ -126,7 +126,7 @@ Create the workspace after the supercomputer so you can include `supercomputerId
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{wsName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{wsName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": {
@@ -197,7 +197,7 @@ Create a Discovery storage container resource that references your blob storage:
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/storageContainers/{scName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/storageContainers/{scName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": {

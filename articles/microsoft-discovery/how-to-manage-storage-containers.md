@@ -3,7 +3,7 @@ title: Manage storage containers in Microsoft Discovery
 description: Learn how to create, list, and manage storage containers and storage assets in a Microsoft Discovery workspace for data ingestion and output.
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/17/2026
+ms.date: 11/09/2026
 ms.author: umamm
 author: umamm
 ---
@@ -37,7 +37,7 @@ A storage container points to a storage backend and specifies the storage kind. 
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}?api-version=2026-06-01" \
   --body '{
     "location": "{location}",
     "properties": {
@@ -66,7 +66,7 @@ Retrieve all storage containers in a resource group.
 
 ```azurecli
 az rest --method GET \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers?api-version=2026-06-01" \
   --query "value[].{name:name, kind:properties.storageStore.kind, storageAccount:properties.storageStore.storageAccountId, state:properties.provisioningState}" \
   -o table
 ```
@@ -77,7 +77,7 @@ Retrieve details for a specific storage container.
 
 ```azurecli
 az rest --method GET \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}?api-version=2026-02-01-preview"
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}?api-version=2026-06-01"
 ```
 
 ## Manage storage assets
@@ -88,7 +88,7 @@ Storage assets are child resources of a storage container. Each asset points to 
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets/{assetName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets/{assetName}?api-version=2026-06-01" \
   --body '{
     "location": "{location}",
     "properties": {
@@ -103,7 +103,7 @@ Replace `{assetName}` with a descriptive name for the asset, `{location}` with t
 
 ```azurecli
 az rest --method GET \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets?api-version=2026-06-01" \
   --query "value[].{name:name, path:properties.path, state:properties.provisioningState}" \
   -o table
 ```
@@ -112,14 +112,14 @@ az rest --method GET \
 
 ```azurecli
 az rest --method GET \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets/{assetName}?api-version=2026-02-01-preview"
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets/{assetName}?api-version=2026-06-01"
 ```
 
 ### Delete a storage asset
 
 ```azurecli
 az rest --method DELETE \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets/{assetName}?api-version=2026-02-01-preview"
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets/{assetName}?api-version=2026-06-01"
 ```
 
 > [!IMPORTANT]
@@ -132,11 +132,11 @@ Before deleting a storage container, delete all storage assets within it first.
 ```azurecli
 # Step 1: Delete all storage assets in the container
 az rest --method DELETE \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets/{assetName}?api-version=2026-02-01-preview"
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}/storageAssets/{assetName}?api-version=2026-06-01"
 
 # Step 2: Delete the storage container
 az rest --method DELETE \
-  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}?api-version=2026-02-01-preview"
+  --uri "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/storageContainers/{containerName}?api-version=2026-06-01"
 ```
 
 > [!IMPORTANT]
