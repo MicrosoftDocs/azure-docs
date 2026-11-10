@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: troubleshooting-general
-ms.date: 11/09/2026
+ms.date: 11/10/2026
 
 #customer intent: As a Discovery platform administrator or developer, I want to troubleshoot common Microsoft Discovery problems so that I can restore a working deployment and run investigations.
 
@@ -30,7 +30,9 @@ Work through these steps first. They identify the cause of most problems and pro
 
 ### Capture the correlation ID and read the operation history
 
-Get the correlation ID for the failed operation and read the control-plane operations. The summary error is often generic, but the operation history shows the first operation that actually failed. See [Get operation correlation ID from Activity Log](how-to-get-correlation-id.md).
+For an Azure Resource Manager operation, capture the correlation ID and inspect the deployment operation history and Activity Log for the failing operation. See [Get operation correlation ID from Activity Log](how-to-get-correlation-id.md).
+
+For a workspace data-plane request or tool run, capture the response, timestamp, and available request, conversation, or run identifiers, then query the relevant application logs. An ARM correlation ID doesn't necessarily identify the application request, and the Activity Log isn't a record of all data-plane activity. See [Access resource logs](how-to-access-resource-logs.md).
 
 ### Check the resource provisioning state
 
@@ -54,8 +56,9 @@ These workarounds can restore service quickly. For a permanent fix, use the caus
 
 ### Retry a transient failure
 
-1. If an operation fails with an `InternalServerError`, a gateway timeout, or other kind of timeout, wait a few minutes.
-1. Check the operation history for a terminal failure before you retry. Don't delete partially created resources unless the resource-specific guidance requires recreation.
+1. If an operation returns an `InternalServerError` or a timeout, check its outcome and resource state before retrying. The response alone doesn't establish a transient failure.
+1. Retry only when the operation supports safe retries and the evidence indicates a temporary failure. Use bounded backoff and honor `Retry-After` when returned. Don't delete partially created resources unless the resource-specific guidance requires recreation.
+1. If the failure persists or the cause isn't clear, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) with the response, timestamp, and relevant identifiers.
 
 ### Pin a job to a known-good node pool
 
@@ -135,14 +138,15 @@ The Activity Log shows failures during managed cluster provisioning because the 
 
 ## Supercomputer jobs terminate unexpectedly
 
-AKS node OS upgrades can evict or kill running jobs and pods, so a subset of long-running jobs terminate, sometimes without surfaced logs. Node or GPU driver health issues can also cause a "node became not ready" failure.
+Check the job and node events before assigning a cause. Discovery uses a Pod Disruption Budget (PDB) that can block voluntary eviction of an active tool during an AKS node-pool upgrade. A PDB doesn't prevent involuntary disruptions such as hardware failure, node loss, or resource exhaustion. See [Supercomputer AKS upgrades](concept-supercomputer-aks-upgrades.md#how-microsoft-discovery-protects-running-tools).
 
-### Solution: Use a resilient release and pin the node pool
+<a id="solution-use-a-resilient-release-and-pin-the-node-pool"></a>
 
-1. Confirm you're on a release with job and node resiliency improvements.
-1. Set the correct `nodePoolId` in the project preference.
-1. If a node or GPU node pool is unhealthy, ensure the latest node image and recreate the node pool.
-1. Review the affected run in the supercomputer logs. See [Debug task execution](how-to-debug-task-execution.md).
+### Solution: Inspect the run and verify the node pool
+
+1. Review the affected run and job and node events in the [supercomputer logs](how-to-query-supercomputer-logs.md).
+1. Verify the `nodePoolId` in the project preference identifies the intended pool. Selecting a pool doesn't repair unhealthy nodes or guarantee scheduling capacity.
+1. If a node or GPU node pool is unhealthy, collect its state and events and contact your administrator or Microsoft Support for a supported recovery procedure. Don't modify the backing AKS resources directly. See [Debug task execution](how-to-debug-task-execution.md).
 
 ## Supercomputer nodes never reach the Ready state
 
@@ -152,9 +156,9 @@ Nodes provision at the infrastructure layer but never join the cluster, and the 
 
 1. Check that nodes can resolve `mcr.microsoft.com` and `management.azure.com`, and that DNS responses return along the same path as the query.
 1. Compare outbound rules with the [supercomputer network requirements](how-to-plan-supercomputer-network-security-groups.md) and [AKS outbound rules](/azure/aks/outbound-rules-control-egress). Check container image and OS package endpoints, including dependencies covered by Azure Front Door service tags.
-1. Verify node subnets can reach the management subnet on ports 443 and 4443. Check rules on the management subnet's network security group, not only the node subnets.
+1. For `UserDefinedRouting`, verify node subnets can reach the management subnet on ports 443 and 4443. Check rules on the management subnet's network security group, not only the node subnets.
 1. Inspect [virtual network flow logs](/azure/network-watcher/vnet-flow-logs-overview) during the provisioning window. A denied flow identifies the matching rule. If there are no deny records, check effective routes and the egress appliance for drops, asymmetric paths, and source network address translation port exhaustion.
-1. Confirm the management subnet exists, is delegated to `Microsoft.ContainerService/managedClusters`, and isn't shared with another service.
+1. Verify subnet delegations against the [onboarding validation checks](how-to-validate-deployment-readiness.md). For `UserDefinedRouting`, the management subnet requires `Microsoft.ContainerService/managedClusters` delegation; the system-node and node-pool subnets must remain undelegated.
 1. Check subnet IP availability, VM quota and SKU availability, Azure Policy denials, managed identity permissions, and role assignment failures.
 1. Inspect the virtual machine scale set instance and extension provisioning state for the specific failure.
 
@@ -164,28 +168,25 @@ Flow logs have three limitations:
 - A capture only covers the lifecycle events observed. Bootstrap, upgrade, and failover rules might have no matches in a steady-state capture. Don't remove a rule solely because it matched nothing.
 - Flow logs are aggregated, not real time. Allow several collection intervals before concluding a flow didn't occur.
 
-After you fix the cause, use the supported recovery path before recreating resources. Reconcile the cluster, then repair or reimage affected instances. Recreate a node pool only if instances remain in a terminal failed state, accounting for workload evacuation and system node pool constraints.
+Configuration checks don't prove packet-level connectivity or available compute capacity. Correlate them with the provisioning error and observed network traffic. After correcting a confirmed customer-managed configuration problem, use a supported Discovery recovery procedure with your administrator or Microsoft Support. Don't reconcile the backing AKS cluster, reimage instances, or change resources in the managed resource group directly.
 
 ## A node pool fails to delete
 
-Node pool deletion returns `InternalServerError` with the target `internalMetadata`, and the backing AKS cluster shows a `Failed` or `Deallocated` state.
+If node pool deletion returns `InternalServerError` with the target `internalMetadata`, inspect the deletion operation and the backing AKS cluster state. A `Failed` or `Deallocated` cluster is useful diagnostic evidence, but the error alone doesn't establish the cause or a customer-run repair.
 
-### Solution: Reconcile the backing cluster before retrying deletion
+<a id="solution-reconcile-the-backing-cluster-before-retrying-deletion"></a>
 
-1. Check the cluster in the supercomputer's managed resource group.
+### Solution: Collect cluster state and use supported recovery
+
+1. Check the cluster in the supercomputer's managed resource group. This command is read-only; replace the placeholders with the actual resource names.
 
    ```azurecli
-   az aks show --resource-group mrg-dscmp-<supercomputer>-<suffix> --name aks-dscmp-<suffix> \
+   az aks show --resource-group "{managedResourceGroup}" --name "{aksClusterName}" \
      --query "{provisioningState:provisioningState, powerState:powerState.code}"
    ```
 
-1. Reconcile the cluster.
-
-   ```azurecli
-   az aks update --resource-group mrg-dscmp-<supercomputer>-<suffix> --name aks-dscmp-<suffix> --yes
-   ```
-
-1. When `provisioningState` returns `Succeeded`, retry node pool deletion. A direct node pool reprovision doesn't clear this state. See [Delete Microsoft Discovery resources](how-to-delete-discovery-resources.md).
+1. Collect the failed deletion response, timestamp, ARM correlation ID, and cluster state for Microsoft Support. Don't run `az aks update` or modify the backing resources in the managed resource group as a repair.
+1. Retry deletion through Discovery only after the supported recovery procedure indicates it's safe. See [Delete Microsoft Discovery resources](how-to-delete-discovery-resources.md).
 
 ## Tool runs fail because resources aren't allowlisted
 
@@ -221,14 +222,16 @@ Private DNS isn't resolving the workspace data-plane host from inside the virtua
 
 ### Solution: Fix private DNS resolution
 
-1. Verify the private DNS zone `privatelink.workspace.discovery.azure.com` and A-records for the data-plane host exist.
+1. Read the private endpoint's DNS configuration and verify the required zone and A-records for the actual workspace data-plane host.
 1. Confirm the private endpoint is approved and linked to the correct virtual network and subnet.
 1. Confirm the private DNS zone is linked to the client virtual network and the private endpoint has the correct DNS zone group. With custom DNS, check forwarding to Azure DNS (`168.63.129.16`) through the appropriate Azure-connected DNS path. See [Configure private DNS](how-to-configure-network-security.md#configure-private-dns).
 1. Validate resolution from a host inside the virtual network:
 
    ```bash
-   nslookup <workspace-host>.workspace.discovery.azure.com
+   nslookup "{workspaceDataPlaneHostname}"
    ```
+
+   Replace `{workspaceDataPlaneHostname}` with the host from the workspace data-plane endpoint. Confirm the result matches the private endpoint's IP address. Successful DNS resolution alone doesn't prove API connectivity.
 
 1. Apply the same checks to a bring-your-own Cosmos DB private endpoint when project creation depends on it. See [Network security for Microsoft Discovery](concept-network-security.md).
 
@@ -294,12 +297,12 @@ For a network configuration that uses a public IP address, the supercomputer dep
 
 ## Knowledge base creation fails validation
 
-The data plane rejects an invalid version string or bookshelf name. This rejection surfaces as a chunked-encoding or 400 error on the version request. A bookshelf that's still deploying shows `provisioningState` as `Accepted` rather than `Succeeded`.
+A `400` response from the classic knowledge-base version endpoint can identify an invalid version or name. A browser chunked-encoding error alone doesn't identify the validation failure; inspect the response and operation logs. Also confirm that the bookshelf has finished provisioning.
 
 ### Solution: Use a valid name and version, and wait for provisioning
 
-1. Use a simple integer version number, such as `1`, instead of a longer string such as `1.0`.
-1. Ensure the bookshelf name uses lowercase letters and dashes only.
+1. For the classic knowledge-base version endpoint with API version `2026-02-01-preview`, use a `versionName` of 1-24 ASCII letters, digits, or hyphens. For example, `1` is valid, but `1.0` isn't. These constraints don't define the contract for other API versions.
+1. Check the bookshelf and knowledge base names against the constraints for the API or Studio experience you're using.
 1. Wait for `provisioningState` to reach `Succeeded` before you continue. See [Index a bookshelf knowledge base](how-to-index-bookshelf-knowledgebase.md).
 
 ## Bookshelf indexing fails or silently drops documents
@@ -315,13 +318,13 @@ Indexing can fail on a very large single document or from a transient database t
 
 ## Project or agent creation fails with a 500 error
 
-Agent creation in the backing Foundry resource returns a 500 error, often because the project managed identity is missing a Foundry role or because a bring-your-own Cosmos DB private endpoint can't be reached.
+A 500 response during project or agent creation doesn't identify a cause by itself. Check the project identity's Foundry permissions and, if you use bring-your-own Cosmos DB, its private endpoint and DNS configuration. Use the response and logs to determine whether either check relates to the failure.
 
 ### Solution: Verify Foundry roles and Cosmos DB connectivity
 
 1. Verify the Foundry User role is assigned to the project managed identity.
 1. Validate the bring-your-own Cosmos DB private endpoint connectivity and DNS.
-1. If project deletion is blocked for a project already in a failed state, use platform cleanup actions, and then redeploy. See [Agent creation](how-to-agent-creation.md).
+1. If the error persists or a failed project can't be deleted through Discovery, contact Microsoft Support with the response, timestamp, and available request identifiers. Don't modify backing managed resources as a cleanup action. See [Agent creation](how-to-agent-creation.md).
 
 ## Tool execution fails with an invalid message id
 
@@ -372,7 +375,7 @@ For an ABAC-enabled registry, use supported repository roles instead. AcrPull is
 For `ManagedIdentityNotFound` or `LinkedAuthorizationFailed` errors:
 
 1. Verify the UAMI exists: `az identity show --name {name} --resource-group {rg}`.
-1. Verify the identity resource ID in the request and that the UAMI is in the same region as the workspace.
+1. Verify the identity resource ID and its required placement for your deployment. For cross-region deployments, follow the workload-region placement in [Deploy across regions](how-to-deploy-across-regions.md).
 1. Confirm the caller has **Reader** access to the identity resource.
 
 See [Configure a user-assigned managed identity](how-to-configure-managed-identity.md).
@@ -427,7 +430,7 @@ Use the [project role verification commands](how-to-configure-project-rbac.md#ve
 
 If Azure reports that `.../storageAccounts/{name}` wasn't found, verify `storageAccountId` is the full ARM ID of an existing storage account. Create the storage account before the Discovery storage container.
 
-For a storage container stuck in provisioning, first confirm the workspace is `Succeeded`. Resolve workspace failures before creating storage containers. After correcting the cause, re-PUT the storage container with the same request body to retry provisioning. See [Manage storage containers](how-to-manage-storage-containers.md).
+For provisioning failures, inspect the storage container operation, backend access, identity permissions, and network path. Storage containers are resource-group-level resources, not workspace children; don't infer their provisioning requirements from workspace state alone. Use [Get a storage container](how-to-manage-storage-containers.md#get-a-storage-container) to inspect the resource. If the operation remains stuck and doesn't identify a correctable configuration problem, contact Microsoft Support before retrying or recreating it.
 
 For blob permission failures, use [Storage access denied](#storage-access-denied).
 
@@ -550,7 +553,7 @@ See [View activity logs](how-to-view-activity-logs.md) for access and export ins
 
 If you [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request), collect the following information so support can investigate quickly:
 
-- The correlation ID and the deployment operation list for the failed operation.
+- For ARM failures, the correlation ID and deployment operation list; for application failures, the response, timestamp, and available request, conversation, or run identifiers.
 - The Activity Log entries and relevant supercomputer, workspace, or bookshelf logs.
 - The role assignments on the deploying identity or project managed identity.
 - The region, API version, and Toolbox or template version.
