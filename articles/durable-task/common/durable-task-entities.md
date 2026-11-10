@@ -4,7 +4,7 @@ description: "Discover what durable entities are and how to use them to manage s
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 11/10/2026
+ms.date: 10/12/2026
 ai-usage: ai-assisted
 ms.author: azfuncdf
 ms.devlang: csharp
@@ -67,8 +67,6 @@ Entity functions and related features are available in [Durable Functions 2.0](.
 Entities act like small services that communicate by using messages. Each entity has a unique identity and, if needed, internal state. Entities run operations when prompted. An operation might update state, call external services, or wait for a response. Entities communicate with other entities, orchestrations, and clients through messages that the runtime sends through reliable queues.
 
 To prevent conflicts, a single entity runs operations serially, one after another.
-
-Serialization coordinates operations on that entity, not arbitrary writers to an external database or service. For external business data, use service-side concurrency controls such as the reservation protocol described in [Coordinate changes to external business data](durable-task-orchestrations.md#coordinate-changes-to-external-business-data).
 
 > [!NOTE]
 > When you invoke an entity, it processes the payload to completion, then schedules a new execution that activates when new input arrives. As a result, your entity execution logs might show an extra execution after each invocation. That's expected.
@@ -1352,8 +1350,6 @@ Durable Functions doesn't support Go. To see Go examples, select **Durable Task 
 ## Entity coordination
 
 Sometimes you need to coordinate operations across multiple entities. For example, in a banking application, entities can represent individual bank accounts. When you transfer funds from one account to another, you need to make sure the source account has enough funds. You also need to update both accounts as one consistent operation.
-
-Where supported by your language and runtime, entity locks coordinate operations on the locked entities. They don't lock external database rows or prevent other services from changing inventory, and they don't provide cross-service transaction isolation.
 
 ### Example: Transfer funds
 

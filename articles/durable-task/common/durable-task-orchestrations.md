@@ -100,7 +100,7 @@ This issue is separate from [at-least-once activity execution](programming-model
 An application-owned reservation protocol can use the sequence `ValidateOrder` → `ReserveStock` → `ObtainQuote` → `ConfirmReservation`:
 
 1. **ValidateOrder:** Validate the order's inputs and business rules. Validation alone doesn't hold inventory.
-1. **ReserveStock:** Ask the inventory service to atomically check availability and reserve stock. The service returns a reservation ID and expiry time.
+1. **ReserveStock:** Ask the inventory service to atomically check availability **and** reserve stock. The service returns a reservation ID and expiry time.
 1. **ObtainQuote:** Obtain a quote associated with that reservation. Define price and quote validity separately; a stock reservation doesn't guarantee a price.
 1. **ConfirmReservation:** Ask the inventory service to atomically validate and consume the unexpired reservation. Reject an expired hold or explicitly start a new reservation attempt and obtain a new quote as required. An expiry check in orchestrator code alone isn't atomic with confirmation.
 
