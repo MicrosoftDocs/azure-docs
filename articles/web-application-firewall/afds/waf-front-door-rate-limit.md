@@ -16,7 +16,7 @@ ms.date: 11/10/2026
 
 Rate limiting helps you detect and block abnormally high levels of traffic to your application. By using Azure Web Application Firewall (WAF) in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that are accidentally misconfigured to send large volumes of requests in a short time period.
 
-By default, a rate limit rule counts requests separately for each socket IP address. On Azure Front Door Premium, you can also [group the count](#group-rate-limit-traffic-preview) by country/region, autonomous system number (ASN), or JA4 client fingerprint, or count all matching requests together. These additional groupings are in preview. For every grouping, counts are kept separately at each Azure Front Door edge location and aren't aggregated globally.
+By default, a rate limit rule counts requests separately for each socket IP address. On Azure Front Door Premium, you can also [group the count](#group-rate-limit-traffic-preview) by country/region, autonomous system number (ASN), or JA4 client fingerprint, or count all matching requests together. These additional groupings are in preview. For every grouping, each Azure Front Door edge location keeps counts separately and doesn't aggregate them globally.
 
 ## How rate limits are counted
 
