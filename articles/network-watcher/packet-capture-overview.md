@@ -49,7 +49,7 @@ To control the size of captured data, use the following options:
 | **Maximum bytes per packet (bytes)** | The number of bytes from each packet. All bytes are captured if left blank. Enter 34 if you only need to capture IPv4 header. |
 | **Time limit per session (seconds)** | Packet capture session time limit. Once the value is reached, the session ends. The default value is 18000 seconds (5 hours). |
 
-If you're using continuous capture (preview), use the following options to control the size of captured data:
+If you're using continuous capture, use the following options to control the size of captured data:
 
 | Property | Description |
 | -------- | ----------- |
