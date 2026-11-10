@@ -22,6 +22,8 @@ You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's *
 
 `{your iot hub name}.azure-devices.net`
 
+<a id="tls-13-enabled-endpoints-preview"></a>
+
 ## TLS 1.3-enabled endpoints
 
 Azure IoT Hub provides additional endpoints to support TLS 1.3 with enhanced security requirements. These endpoints are available alongside the existing endpoint to allow gradual and non-disruptive adoption.
