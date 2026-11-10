@@ -16,9 +16,6 @@ Microsoft Discovery uses a resource-based data model to manage all data exchange
 
 In this article, you learn how to manage data in Discovery conversations, control what outputs you see, and set up tools to work with your data.
 
-> [!NOTE]
-> This article applies to agents that use API version `2026-02-01-preview`.
-
 ## Understand how resources work in a conversation
 
 When you start a conversation with a Discovery agent, you also create a workspace resource context for that conversation. The context tracks every resource that agents and tools produce by using stable resource URIs in the format:

@@ -3,7 +3,7 @@ title: Configure managed identities for Microsoft Discovery
 description: Learn how to create and configure user-assigned managed identities (UAMI) for Microsoft Discovery workspaces, supercomputers, and bookshelves, including the required Azure role assignments.
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/24/2026
+ms.date: 11/09/2026
 ms.author: umamm
 author: umamm
 ms.custom: identity, managed-identity, rbac
@@ -153,7 +153,7 @@ az role assignment list \
 
 # Verify the workspace identity
 az rest --method GET \
-  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-06-01" \
   --query "properties.workspaceIdentity"
 ```
 
@@ -216,7 +216,7 @@ az role assignment create \
 ```azurecli
 # Find the managed resource group name
 az rest --method GET \
-  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-06-01" \
   --query "properties.managedResourceGroup"
 ```
 

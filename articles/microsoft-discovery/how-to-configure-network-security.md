@@ -3,7 +3,7 @@ title: Configure network security for Microsoft Discovery workspaces
 description: Learn how to assign NSP roles, configure subnets, create private endpoints, and configure DNS for Microsoft Discovery workspaces.
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/24/2026
+ms.date: 11/09/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -361,7 +361,7 @@ Check the private endpoint connection status:
 
 ```azurecli
 az rest --method GET \
-  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}/privateEndpointConnections?api-version=2026-02-01-preview"
+  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}/privateEndpointConnections?api-version=2026-06-01"
 ```
 
 The connection should show `status: Approved`.
@@ -376,7 +376,7 @@ nslookup {workspaceName}.workspace.discovery.azure.com
 TOKEN=$(az account get-access-token --resource "https://discovery.azure.com/" --query accessToken -o tsv)
 
 curl -sS -H "Authorization: Bearer $TOKEN" \
-  "https://{workspaceName}.workspace.discovery.azure.com/projects/{projectName}/investigations?api-version=2026-02-01-preview"
+  "https://{workspaceName}.workspace.discovery.azure.com/projects/{projectName}/investigations?api-version=2026-06-01"
 ```
 
 ## Configure outbound internet access
@@ -438,7 +438,7 @@ To enforce private-endpoint-only access and block all public traffic to your wor
 
 ```azurecli
 az rest --method PATCH \
-  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-06-01" \
   --body '{"properties":{"publicNetworkAccess":"Disabled"}}'
 ```
 
@@ -452,12 +452,12 @@ Discovery resources support autoapproval for private endpoints created within th
 ```azurecli
 # Approve a connection
 az rest --method PATCH \
-  --url "https://management.azure.com/{privateEndpointConnectionId}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/{privateEndpointConnectionId}?api-version=2026-06-01" \
   --body '{"properties":{"privateLinkServiceConnectionState":{"status":"Approved","description":"Approved by admin"}}}'
 
 # Reject a connection
 az rest --method PATCH \
-  --url "https://management.azure.com/{privateEndpointConnectionId}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/{privateEndpointConnectionId}?api-version=2026-06-01" \
   --body '{"properties":{"privateLinkServiceConnectionState":{"status":"Rejected","description":"Not authorized"}}}'
 ```
 

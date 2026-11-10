@@ -49,6 +49,8 @@ items:
       items:
         - name: Security baselines overview
           href: ./how-to/assign-security-baselines/overview-page.md
+        - name: Remediate security baselines
+          href: ./how-to/assign-security-baselines/remediate-security-baselines.md
         - name: Specify custom parameters for baseline policy
           href: ./how-to/assign-security-baselines/specify-custom-parameters-for-baseline-policy.md
         - name: Understand the baseline settings parameter format

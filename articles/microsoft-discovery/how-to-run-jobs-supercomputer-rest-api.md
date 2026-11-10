@@ -3,7 +3,7 @@ title: Submit and monitor jobs on Discovery Supercomputer using REST APIs
 description: Learn how to submit, monitor, and cancel compute jobs on the Microsoft Discovery Supercomputer platform using the data-plane REST APIs.
 ms.topic: how-to
 ms.service: azure
-ms.date: 08/11/2026
+ms.date: 11/09/2026
 ms.author: alzam
 author: anzaman
 ---
@@ -40,10 +40,10 @@ Authorization: Bearer <access_token>
 
 ## API version
 
-Include the API version as a query parameter on every request. This article uses API version `2026-02-01-preview`:
+Include the API version as a query parameter on every request. This article uses API version `2026-06-01`:
 
 ```
-?api-version=2026-02-01-preview
+?api-version=2026-06-01
 ```
 
 This version uses the `storageUri` field with `discovery://storageassets/…` URIs for data mounts, and a flat `infraOverrides` schema with top-level `cpu`, `ram`, `gpu`, `replicaCount`, and `imageUri` fields.
@@ -72,7 +72,7 @@ To submit a job, send a `POST` request to the `:run` endpoint with a JSON payloa
 ### Endpoint
 
 ```http
-POST {workspace_url}/tools/projects/{project_name}:run?api-version=2026-02-01-preview
+POST {workspace_url}/tools/projects/{project_name}:run?api-version=2026-06-01
 ```
 
 ### Request body
@@ -147,7 +147,7 @@ TOKEN=$(az account get-access-token \
 
 # Submit job
 curl -X POST \
-  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject:run?api-version=2026-02-01-preview" \
+  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject:run?api-version=2026-06-01" \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -195,14 +195,14 @@ Save the `id` field — this is your **operation ID** used for all subsequent mo
 ### Get status of a specific operation
 
 ```http
-GET {workspace_url}/tools/projects/{project_name}/operations/{operation_id}?api-version=2026-02-01-preview
+GET {workspace_url}/tools/projects/{project_name}/operations/{operation_id}?api-version=2026-06-01
 ```
 
 #### Example
 
 ```bash
 curl -s \
-  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/operations/a1b2c3d4-e5f6-7890-abcd-ef1234567890?api-version=2026-02-01-preview" \
+  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/operations/a1b2c3d4-e5f6-7890-abcd-ef1234567890?api-version=2026-06-01" \
   -H "Authorization: Bearer $TOKEN" | jq .
 ```
 
@@ -254,7 +254,7 @@ def poll_until_complete(
     project_name: str,
     operation_id: str,
     token: str,
-    api_version: str = "2026-02-01-preview",
+    api_version: str = "2026-06-01",
     poll_interval: int = 5,
     timeout: int = 3600,
 ) -> dict:
@@ -297,7 +297,7 @@ Retrieve a list of operations for a project, optionally filtered by status.
 ### Endpoint
 
 ```http
-GET {workspace_url}/tools/projects/{project_name}/operations?api-version=2026-02-01-preview&reverse=true
+GET {workspace_url}/tools/projects/{project_name}/operations?api-version=2026-06-01&reverse=true
 ```
 
 ### Query parameters
@@ -335,7 +335,7 @@ If the response includes a `nextLink` field, fetch the next page by sending a GE
 
 ```bash
 curl -s \
-  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/operations?api-version=2026-02-01-preview&live=true&reverse=true" \
+  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/operations?api-version=2026-06-01&live=true&reverse=true" \
   -H "Authorization: Bearer $TOKEN" | jq '.value[] | {id, status, createdBy, createdAt}'
 ```
 
@@ -346,14 +346,14 @@ To cancel a running or pending job, post to the `:cancel` endpoint.
 ### Endpoint
 
 ```http
-POST {workspace_url}/tools/projects/{project_name}/operations/{operation_id}:cancel?api-version=2026-02-01-preview
+POST {workspace_url}/tools/projects/{project_name}/operations/{operation_id}:cancel?api-version=2026-06-01
 ```
 
 ### Example
 
 ```bash
 curl -X POST \
-  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/operations/a1b2c3d4-e5f6-7890-abcd-ef1234567890:cancel?api-version=2026-02-01-preview" \
+  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/operations/a1b2c3d4-e5f6-7890-abcd-ef1234567890:cancel?api-version=2026-06-01" \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
@@ -368,14 +368,14 @@ Query the current compute usage for your project.
 ### Endpoint
 
 ```http
-GET {workspace_url}/tools/projects/{project_name}/computeUsage?api-version=2026-02-01-preview
+GET {workspace_url}/tools/projects/{project_name}/computeUsage?api-version=2026-06-01
 ```
 
 ### Example
 
 ```bash
 curl -s \
-  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/computeUsage?api-version=2026-02-01-preview" \
+  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/computeUsage?api-version=2026-06-01" \
   -H "Authorization: Bearer $TOKEN" | jq .
 ```
 
@@ -525,7 +525,7 @@ import httpx
 # Configuration
 WORKSPACE_URL = "https://myworkspace.eastus.discovery.azure.com"
 PROJECT_NAME = "myproject"
-API_VERSION = "2026-02-01-preview"
+API_VERSION = "2026-06-01"
 SCOPE = "https://discovery.azure.com/access_as_user"
 
 
