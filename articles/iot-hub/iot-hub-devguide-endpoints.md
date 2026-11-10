@@ -1,8 +1,8 @@
 ---
 title: Understand Azure IoT Hub endpoints
 description: This article provides information about IoT Hub device-facing and service-facing endpoints.
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/26/2026
@@ -22,7 +22,9 @@ You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's *
 
 `{your iot hub name}.azure-devices.net`
 
-## TLS 1.3-enabled endpoints (preview)
+<a id="tls-13-enabled-endpoints-preview"></a>
+
+## TLS 1.3-enabled endpoints
 
 Azure IoT Hub provides additional endpoints to support TLS 1.3 with enhanced security requirements. These endpoints are available alongside the existing endpoint to allow gradual and non-disruptive adoption.
 
@@ -32,11 +34,11 @@ The new endpoints are additive, not a replacement, and enable customers to adopt
 
 ### Endpoint types
 
-| Endpoint type     | Hostname                              | Protocol support                |
-|------------------|----------------------------------------|--------------------------------|
-| Classic          | `<hub>.azure-devices.net`              | TLS 1.2 (existing behavior)    |
-| Device endpoint (preview)  | `<hub>.device.azure-devices.net`       | TLS 1.2 (restricted) + TLS 1.3 |
-| Service endpoint (preview) | `<hub>.service.azure-devices.net`      | TLS 1.2 (restricted) + TLS 1.3 |
+| Endpoint type | Hostname | Protocol support |
+| --- | --- | --- |
+| Classic | `<hub>.azure-devices.net` | TLS 1.2 (existing behavior) |
+| Device endpoint | `<hub>.device.azure-devices.net` | TLS 1.2 (restricted) + TLS 1.3 |
+| Service endpoint | `<hub>.service.azure-devices.net` | TLS 1.2 (restricted) + TLS 1.3 |
 
 ### Key considerations
 
@@ -98,7 +100,7 @@ IoT Hub supports the following Azure services as custom endpoints:
 * Service Bus queues
 * Service Bus topics
 * Cosmos DB
-* Microsoft Fabric Eventstreams (preview)
+* Microsoft Fabric Eventstreams
    
 For the limits on endpoints per hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
@@ -165,12 +167,14 @@ You can configure the synthetic partition key value by specifying a template in 
 > [!CAUTION]
 > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
-### Microsoft Fabric Eventstreams as a routing endpoint (preview)
+<a id="microsoft-fabric-eventstreams-as-a-routing-endpoint-preview"></a>
+
+### Microsoft Fabric Eventstreams as a routing endpoint
 
 You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabric/real-time-intelligence/event-streams/overview) by adding a Fabric Eventstream custom endpoint to your IoT hub. This integration brings IoT Hub telemetry directly into Fabric Real-Time Intelligence for downstream processing and analytics.
 
 > [!NOTE]
-> Routing to Microsoft Fabric Eventstreams is in public preview. This capability applies to both IoT Hub and IoT Hub Gen 2 instances.
+> The Microsoft Fabric Eventstream routing endpoint is generally available. It supports the classic and MQTT v5 connection profiles. The MQTT v5 profile itself remains in preview; endpoint availability doesn't change that status.
 
 To route messages to a Fabric eventstream, create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source.
 
@@ -185,6 +189,10 @@ The Fabric Eventstream endpoint supports Microsoft Entra ID authentication only.
 Messages routed to a Fabric Eventstream endpoint conform to the [CloudEvents](https://cloudevents.io/) schema, which differs from the schema used by other routing endpoints such as Event Hubs. Device identity and event metadata are preserved in the CloudEvents envelope. For IoT hubs that use Azure Device Registry (ADR), the event payload includes ADR identifiers. For a comparison with the default routed-message schema, see [message schema at routing endpoints](iot-hub-devguide-messages-construct.md#message-schema-at-routing-endpoints).
 
 <!-- TODO (WI 599257): Add the full CloudEvents schema, field mappings, and configuration guidance. Pending cleaned-up schema and field-mapping details from the feature team, plus confirmation of any additional Fabric-side configuration. -->
+
+The endpoint's generally available status is separate from preview schema-reference
+and message-payload-format settings. For their distinct roles and consumer
+verification, see [Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md).
 
 #### Enrichment property restrictions
 

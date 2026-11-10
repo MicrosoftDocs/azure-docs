@@ -1,11 +1,11 @@
 ---
 title: Monitoring data reference for Azure IoT Hub
 description: This article contains important reference material you need when you monitor the Azure IoT Hub service.
-ms.date: 07/30/2024
+ms.date: 11/10/2026
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 ---
 
@@ -23,6 +23,89 @@ The following table lists the metrics available for the Microsoft.Devices/IoTHub
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Devices/IoTHubs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-devices-iothubs-metrics-include.md)]
+
+### Investigate routing and throttling together
+
+Use **Number of throttled requests** (`throttledRequests`) with its
+**Throttle Type** (`ThrottleType`) dimension to identify which operations are
+being throttled. Filter or split this metric by throttle type, then correlate
+the results with routing and destination evidence over the same UTC window.
+The dimension identifies the operation category, not a routing destination or
+an error code.
+
+The metric and its **Throttle Type** dimension are available for both
+classic-profile IoT hubs and hubs using the MQTT v5 connection profile.
+
+| Metric property | Value |
+| --- | --- |
+| API name | `throttledRequests` |
+| Display name | Number of throttled requests |
+| Unit | Count |
+| Default aggregation | Total |
+| Supported aggregations | Average, Minimum, Maximum, Total |
+| Dimension API name | `ThrottleType` |
+| Dimension display name | Throttle Type |
+
+Use **Total** to investigate the number of throttled requests during the selected
+window. The metric includes supported request-throttling failures, not only
+telemetry ingress throttling. Successfully delayed requests aren't counted
+merely because they waited for capacity.
+
+The reported operation categories include:
+
+| `ThrottleType` value | Operation category |
+| --- | --- |
+| `DeviceEvent` | Device-to-cloud telemetry sends |
+| `C2DSend`, `C2DReceive` | Cloud-to-device message sends and receives |
+| `Crud` | Device identity registry operations |
+| `AmqpLinkOpen`, `MqttConnect` | AMQP link opens and MQTT connection attempts |
+| `JobCrud` | Job management operations |
+| `FileUpload`, `FileUploadCompletion` | File upload requests and completion notifications |
+| `TwinGet`, `TwinWrite` | Twin reads and writes |
+| `TwinDeviceMethod` | Direct method invocations |
+| `Query` | Queries |
+| `DeviceStreams` | Device stream requests |
+| `CredentialManagement` | Credential management operations |
+
+Each hub reports throttle types for the operations supported by its connection
+profile.
+
+Use the metric's API name, unit, supported aggregation and dimensions rather
+than inferring behavior from its display name. The following signals already
+appear in this reference and provide complementary evidence; they aren't a list
+of new metrics for this release:
+
+| Metric API name | Unit | Investigation |
+| --- | --- | --- |
+| `d2c.telemetry.ingress.sendThrottle` | Count | Are telemetry ingress attempts being throttled? Correlate with device SDK errors and attempted publish rate. |
+| `RoutingDeliveries` | Count | What delivery outcomes are reported for the selected destination and routing source? |
+| `RoutingDataSizeInBytesDelivered` | Bytes | How much routed data is delivered? Don't equate routed bytes with a count of unique device messages. |
+| `RoutingDeliveryLatency` | Milliseconds | Is delivery latency increasing for the relevant endpoint or source? Don't sum latency samples. |
+
+Discover the definitions for the actual hub before configuring a query or alert:
+
+```powershell
+$hubId = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Devices/IotHubs/<hub-name>"
+az monitor metrics list-definitions --resource $hubId --output json
+```
+
+Select dimensions returned for that metric, such as an endpoint or routing source
+where supported. Don't assume every metric supports every dimension in the
+service-wide list. Compare ingress, delivery outcomes and destination observations
+over the same UTC window.
+
+Ingress throttling and a destination delivery failure aren't interchangeable.
+Likewise, a metric aggregated across all endpoints can hide a failure at one
+endpoint. Check the receiving application for a uniquely identified message
+before declaring end-to-end success.
+
+A missing series isn't a zero value. Check support for the operation/profile,
+time range, filters, permissions and ingestion delay. For MQTT v5, use the
+[profile-specific monitoring guidance](mqtt-v5-monitor-troubleshoot.md) rather
+than assuming that the complete general metric catalog applies.
+
+For an evidence-driven investigation with supported tools, see
+[Troubleshoot with Azure MCP Server](iot-hub-troubleshoot-mcp.md).
 
 ### Supported aggregations
 

@@ -141,6 +141,8 @@
   items:
     - name: Create and read IoT Hub messages
       href: iot-hub-devguide-messages-construct.md
+    - name: Prepare telemetry for agents and analytics
+      href: iot-hub-agent-ready-data.md
     - name: Understand non-telemetry event schemas
       href: iot-hub-non-telemetry-event-schema.md
       displayName: lifecycle, state events, twin change events
@@ -313,6 +315,8 @@
       displayName: disaster recovery, failback, failover, geo-redundancy
 - name: Troubleshoot
   items:
+    - name: Investigate with Azure MCP Server
+      href: iot-hub-troubleshoot-mcp.md
     - name: Troubleshoot device connectivity
       href: iot-hub-troubleshoot-connectivity.md
     - name: Troubleshoot message routing

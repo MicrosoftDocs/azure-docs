@@ -1,30 +1,28 @@
 ---
-title: Integration with Azure Device Registry (preview)
+title: Integration with Azure Device Registry
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure Device Registry helps users manage IoT devices.
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 09/22/2026
+ms.date: 11/07/2026
 #Customer intent: As a developer new to IoT, i want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
 ---
 
-# Integration with Azure Device Registry (preview)
+# Integration with Azure Device Registry
 
-This article provides background on Azure Device Registry integration with Azure IoT Hub (preview).
-
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+This article provides background on generally available Azure Device Registry linking for Standard IoT hubs. Linking is supported for new and eligible existing Standard hubs.
 
 ## What is Azure Device Registry?
 
-Azure Device Registry represents industrial assets and IoT devices as Azure Resource Manager resources, extending the Azure management plane to IoT. It provides a consistent experience for deployment, policy enforcement, querying, and control plane operations. Azure Device Registry is generally available for Azure IoT Operations scenarios, while integration with Azure IoT Hub is currently in *preview*.
+Azure Device Registry represents industrial assets and IoT devices as Azure Resource Manager resources, extending the Azure management plane to IoT. It provides a consistent experience for deployment, policy enforcement, querying, and control plane operations.
 
-In the IoT Hub context, Azure Device Registry acts as a unified device registry for managing IoT Hub–connected devices. Each device is represented as an Azure resource, enabling management across multiple IoT Hub instances through Azure Device Registry namespaces. When you [create a new IoT Hub instance](iot-hub-device-registry-setup.md), you can link it to an existing Azure Device Registry namespace or create a new one. The IoT Hub instance uses the linked namespace as a registry for its devices. Multiple IoT Hub instances can share a namespace, supporting collective device management across IoT Hubs.
+In the IoT Hub context, Azure Device Registry provides a management foundation for IoT Hub-connected devices across linked services. You can [link a new or existing eligible Standard hub](iot-hub-device-registry-setup.md) to a new or existing namespace. Multiple IoT Hub instances can share a namespace, supporting collective device management across hubs.
 
 > [!NOTE]
-> Azure Device Registry is already generally available (GA) with [Azure IoT Operations](/azure/iot-operations).
+> ADR linking doesn't change a hub's connection profile or automatically migrate device credentials. The MQTT v5 connection profile remains in preview. Certificate management through Standard IoT Hub is generally available except for MQTT v5-profile hubs; those devices continue to use DPS for supported operational certificate issuance and renewal.
 
 ## Azure Device Registry namespaces
 
@@ -47,7 +45,7 @@ Azure Device Registry offers three built-in roles designed to simplify and secur
 
 ## Limits and quotas
 
-For the latest information about limits and quotas for Azure Device Registry with IoT Hub, see [IoT Hub preview resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits).
+For hub limits and capacity planning, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). Hub identity capacity, namespace resource limits, and provisioning rates are separate constraints.
 
 For Azure subscription and service limits for Azure Device Registry in GA, see [Azure Device Registry limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-registry-limits).
 

@@ -1,13 +1,13 @@
 ---
-title: What's New in Azure IoT Hub? (Preview)
+title: What's New in Azure IoT Hub?
 titleSuffix: Azure IoT Hub
-description: This article explains the new features and improvements in Azure IoT Hub.
-author: sethmanheim
-ms.author: sethm
+description: Explore Azure IoT Hub updates for device management, MQTT v5 messaging, telemetry integration, and troubleshooting.
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 11/09/2026
+ms.date: 11/10/2026
 ms.custom: references_regions
 ai-usage: ai-assisted
 
@@ -15,40 +15,99 @@ ai-usage: ai-assisted
 
 ---
 
-# What's new in Azure IoT Hub? (preview)
+# What's new in Azure IoT Hub?
 
-Starting in November 2025, Azure IoT Hub introduces two new preview features: integration with Azure Device Registry (ADR) and enhanced Microsoft-backed X.509 certificate management. These features help improve security, simplify device management, and streamline operations for IoT deployments. This article provides an overview of both features and describes how to get started.
+Explore the latest Azure IoT Hub capabilities for managing device fleets,
+connecting telemetry to analytics and agents, and troubleshooting your solution.
+The following sections highlight generally available features, preview
+capabilities, and new operational guidance.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+## Generally available capabilities
 
-## Manage your devices in a unified registry with Azure Device Registry
+### Link new or existing Standard hubs to Azure Device Registry
 
-IoT Hub now integrates directly with Azure Device Registry (ADR) to bring a consistent experience across cloud and edge workloads. ADR is a centralized device registry that you can use to manage IoT devices across IoT Hub and IoT Operations instances by using namespaces. You can link your IoT instances to either a new or an existing ADR namespace. Integration of IoT Hub with ADR is essential to leverage the latest enhancements in device provisioning, certificate management, and deeper integration with Azure Resource Manager.
+Azure Device Registry (ADR) linking is now generally available for Standard IoT
+hubs. You can link a new Standard hub to an ADR namespace during setup or
+connect an eligible existing Standard hub without recreating it. ADR provides
+a common management foundation for devices across linked services.
+Group devices from multiple hubs in a shared namespace and manage their Azure
+Resource Manager representations using Azure role-based access control.
+Learn how to [enable ADR integration](iot-hub-device-registry-setup.md).
 
-For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md)
+### Manage operational X.509 certificates
 
-## Manage your X.509 credentials with certificate management
+Certificate management through IoT Hub is now generally available for Standard
+hubs, except hubs using the MQTT v5 connection profile. Use Azure Device Registry
+to issue and manage operational X.509 certificates for device connections.
+Capabilities include certificate issuance, renewal, and revocation, with
+certificate policies to control validity periods and managed certificate
+authorities to establish trust.
+Learn about [certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md).
 
-IoT Hub introduces certificate management for managing device certificates by using Microsoft-managed public key infrastructure (PKI) with X.509 certificates. Certificate management is an optional feature of ADR that enables you to issue and manage X.509 certificates for your IoT devices. It configures a dedicated, cloud-based PKI for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that are provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
+### Route telemetry to Microsoft Fabric eventstreams
 
-These X.509 certificates are strictly operational certificates that the device uses to authenticate with IoT Hub for secure communications, after the device is onboarded with a different credential.  
+The Microsoft Fabric Real-Time Intelligence eventstream routing endpoint is now
+generally available. Route device telemetry directly into a Fabric eventstream
+to connect your IoT solution with real-time processing and analytics.
+The endpoint supports managed-identity authentication through Microsoft Entra ID
+and delivers telemetry with device identity and event context in a CloudEvents
+representation.
+Learn how to [route telemetry to Microsoft Fabric](iot-hub-devguide-endpoints.md#microsoft-fabric-eventstreams-as-a-routing-endpoint).
 
-To use certificate management, devices must be provisioned through the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). 
+### Use TLS 1.3
 
-For more information, see [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md) and [Key concepts for certificate management](../iot/iot-certificate-management-concepts.md).
+TLS 1.3 support is now generally available, giving compatible clients a newer
+transport security option for connecting to IoT Hub. TLS 1.2 remains supported.
+Compatible clients can negotiate TLS 1.3 to encrypt data in transit and
+authenticate the IoT Hub server during connection establishment.
+Learn about [TLS support and client requirements](iot-hub-tls-support.md).
 
-## Understand Device Provisioning Service requirement
+## Preview capabilities
 
-All Azure IoT Hub preview scenarios require the Device Provisioning Service (DPS). You must link your IoT Hub to a DPS instance and provision devices through DPS, whether you use certificate management or not. DPS enables consistent device onboarding, identity assignment, and secure authentication with IoT Hub.
+### Azure IoT Hub with the MQTT v5 connection profile
 
-For more information, see [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml).
+The MQTT v5 connection profile is available in preview. Create a new hub to
+evaluate MQTT v5 device messaging and customer-defined publish topics for your
+IoT applications.
+Supported capabilities include device twins, direct methods, and telemetry
+routing based on custom topics and MQTT v5 user properties. Build device
+applications with the unified Azure IoT SDKs for .NET and C.
+See the [MQTT v5 overview](mqtt-v5-overview.md) and
+[supported capabilities](mqtt-v5-capabilities.md).
+
+### Message schema and message payload formats
+
+Message schema and message payload formats are available in preview. Associate
+telemetry with a schema reference and choose the payload format used by a routing
+endpoint to help downstream applications interpret device data consistently.
+These capabilities provide context and structure for analytics and agent
+workflows.
+Schema references describe the original payload contract. Endpoint format
+options let you preserve the device payload or wrap it in a standardized
+observation format.
+See [Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md).
+
+## Plan and troubleshoot your deployment
+
+Updated guidance helps you scale your fleet and investigate issues across your
+IoT solution:
+
+- **Plan larger fleets.** Review device-identity capacity and deployment
+  requirements for fleets of up to five million devices in
+  [capacity planning guidance](iot-hub-devguide-quotas-throttling.md#plan-device-identity-capacity-and-request-an-increase).
+- **Monitor message delivery.** Use
+  [routing and throttling metrics](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together)
+  to investigate ingress throttling, delivery outcomes, and latency.
+- **Investigate with Azure MCP Server.** Combine IoT Hub, monitoring, and
+  destination tools to gather evidence for
+  [end-to-end troubleshooting](iot-hub-troubleshoot-mcp.md).
 
 ## Supported regions
 
 To use IoT Hub with Azure Device Registry and certificate management, deploy instances of IoT Hub, Azure Device Registry, and Device Provisioning Service in one of the following supported regions. The Azure Device Registry preview capabilities for IoT Hub-connected devices&mdash;groups, jobs, and software updates&mdash;are also available in these regions:
 
 | Azure region |
-|---|
+| --- |
 | Australia East |
 | Central US |
 | East US |
@@ -63,18 +122,14 @@ To use IoT Hub with Azure Device Registry and certificate management, deploy ins
 
 For regional availability of Azure Device Registry with IoT Hub and Azure IoT Operations, see [Azure Device Registry regional availability](../iot/device-registry/overview-device-registry.md#regional-availability).
 
-## Get started with ADR and certificate management
+## Get started
 
-To use these preview features, you must create a new IoT Hub instance with ADR integration. There's currently no upgrade path for existing IoT Hubs. If you're using IoT Hub now, your existing hubs continue to work without interruption. To try the new features, you need to:
+To start using ADR with a new or existing Standard hub, follow
+[Enable ADR integration](iot-hub-device-registry-setup.md). To evaluate MQTT v5,
+start with the [MQTT v5 getting-started guide](mqtt-v5-get-started.md).
 
-1. Create a new ADR namespace or link to an existing one.
-1. Create a new IoT Hub and connect it to your ADR namespace.
-1. If you want to use certificate management, link your IoT Hub to a DPS instance.
-
-For more information, see [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md).
-
-> [!IMPORTANT]
-> Starting in October 2026, Azure Device Registry integration and certificate management remain available at no cost during preview. The IoT Hub and Device Provisioning Service (DPS) instances that you use with these features are billed at their standard rates. For details, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+Review [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
+along with pricing for the other Azure services used by your solution.
 
 ## Related content
 
