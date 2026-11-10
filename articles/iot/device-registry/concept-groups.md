@@ -100,6 +100,12 @@ You can edit a group's display name and description. The resource name and query
 
 Deleting a group removes only the group; its member devices remain. You can't delete a group while it has active or scheduled job runs. Wait for those runs to finish or remove them before deleting the group.
 
+## Manage groups through the REST API
+
+Manage groups programmatically with the [Groups REST API](/rest/api/deviceregistry/groups), using `api-version=2026-11-02-preview`.
+
+`ListMembers` returns each member's ARM resource ID in `members[].id`. Use `CountMembers` to get the group's member count. For paging, see [Limits and preview restrictions](#limits-and-preview-restrictions).
+
 ## Manage groups in the Azure portal (preview)
 
 In the ADR namespace navigation, under Fleet, select Groups (preview). The list shows each group's name, member count, description, provisioning state, and last-updated time.
@@ -121,6 +127,15 @@ From the groups list or the group detail view, you can take the following action
 Groups define which devices to target; [jobs](concept-jobs.md) define the operation to run. In this preview, a group can be the target of one software update job. To create a different software update job for the same group, delete the existing job first.
 
 Onboarding update jobs target an ADR namespace directly, not a group. For more information, see [Jobs concepts (preview)](concept-jobs.md#supported-job-types).
+
+### Group-targeted reports
+
+The preview REST API also uses groups as targets for software update reports:
+
+- `GroupBestUpdatesComplianceReport` describes the best available updates and update compliance for devices in the group.
+- `GroupInstallableUpdatesReport` lists installable updates and the devices they target.
+
+Request a report with the namespace's [`generateReport`](/rest/api/deviceregistry/namespaces/generate-report) operation, specifying the report type and target group. Retrieve the result with [`getLatestReport`](/rest/api/deviceregistry/namespaces/get-latest-report).
 
 ## Limits and preview restrictions
 
