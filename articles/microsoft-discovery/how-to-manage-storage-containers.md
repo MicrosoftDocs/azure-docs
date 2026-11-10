@@ -12,7 +12,7 @@ author: umamm
 
 A storage container is a Discovery resource that creates a reference to an Azure Blob Storage account or Azure NetApp Files volume. Storage containers enable data ingestion, tool output, and agent data access across your Discovery workspace. Each storage container can hold multiple storage assets that point to specific blob paths within the account.
 
-Storage containers are created at resource group scope, not beneath a workspace or project. A project's `storageContainerIds` references these shared resources; it doesn't transfer ownership or grant Blob data permissions. Creating the Discovery reference doesn't create a blob container or copy data. Discovery storage metadata permissions and Blob data permissions are separate. See [Storage container resource hierarchy](concept-storage-containers-assets.md#resource-hierarchy).
+Create storage containers at the resource group scope, not beneath a workspace or project. A project's `storageContainerIds` references these shared resources; it doesn't transfer ownership or grant Blob data permissions. Creating the Discovery reference doesn't create a blob container or copy data. Discovery storage metadata permissions and Blob data permissions are separate. See [Storage container resource hierarchy](concept-storage-containers-assets.md#resource-hierarchy).
 
 The REST examples in this article use API version `2026-06-01` and Azure Blob Storage.
 
