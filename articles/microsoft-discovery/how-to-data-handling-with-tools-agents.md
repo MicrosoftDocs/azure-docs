@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/07/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a researcher or scientist, I want to configure how Microsoft Discovery manages data between agents and tools so that I can design reliable scientific workflows with predictable data handling behavior.
 ---
@@ -39,7 +39,7 @@ Discovery organizes resources into two concepts:
 
 | Concept | Description |
 |---|---|
-| Storage container | A logical storage boundary linked to a project. Tools write outputs into storage containers. Each project has a default storage container, and tool authors can specify alternative containers for outputs. |
+| Storage container | A resource-group-level Discovery resource that registers a storage backend. Projects reference containers through `storageContainerIds`; a reference doesn't transfer ownership or grant Blob data permissions. Tools write outputs to the backing storage. Each project has a default storage container, and tool authors can specify alternative containers for outputs. |
 | Storage asset | A named, user-visible reference to a specific file or directory within a storage container. When an agent shares a resource, the agent creates a storage asset and shows it to you. |
 
 Storage assets are what appear as results in Discovery Studio. Until a resource is promoted to a storage asset and shared, it exists only as intermediate working data.
@@ -231,14 +231,16 @@ Use this approach when a tool is expected to always produce a shareable output. 
 Tool authors configure auto-promotion in the tool definition under `output_mount_configurations`:
 
 ```json
-"output_mount_configurations": [
-  {
-    "mount_path": "/app/outputs",
-    "auto_promote": true,
-    "output_name": "SimulationResults",
-    "output_description": "Validated simulation output files"
-  }
-]
+{
+  "output_mount_configurations": [
+    {
+      "mount_path": "/app/outputs",
+      "auto_promote": true,
+      "output_name": "SimulationResults",
+      "output_description": "Validated simulation output files"
+    }
+  ]
+}
 ```
 
 When the tool finishes running and the platform captures the `/app/outputs` directory, it automatically creates a storage asset and makes it visible. The agent doesn't need to call `ShareResource`.
@@ -260,15 +262,19 @@ Each input mount specifies:
 **Example**:
 
 ```json
-"inputMounts": [
-  {
-    "uri": "discovery://resources/myproject/paths/simulation/run1/results/",
-    "mountPath": "/app/inputs/run1"
-  }
-]
+{
+  "inputMounts": [
+    {
+      "uri": "discovery://resources/myproject/paths/simulation/run1/results/",
+      "mountPath": "/app/inputs/run1"
+    }
+  ]
+}
 ```
 
 After this mount, the tool container can read files from `/app/inputs/run1/`.
+
+`inputMounts`, `outputMounts`, and `discovery://resources/…` describe agent tool calls and the conversation resource context. They aren't the direct REST job request schema. In API version `2026-06-01`, REST job requests use `inputData` and `outputData` arrays. Each mount requires `mountPath` and `storageUri`. The URI references an existing storage asset as `discovery://storageassets/<storageAssetArmId>`, optionally followed by `/paths/<subpath>`. Don't substitute a storage container ID or a conversation resource URI. See [Submit and monitor jobs using REST APIs](how-to-run-jobs-supercomputer-rest-api.md#datamount-object).
 
 > [!IMPORTANT]
 > Provide only absolute paths in `mountPath`. Relative paths aren't supported. If the URI points to a directory, the directory contents are placed at the mount path. If the URI points to a file, the file is placed at the mount path. If you don't specify a path explicitly, the default value for input is `/app/inputs`, and for output mounts, it's `/app/outputs`.
@@ -328,7 +334,7 @@ When an agent invokes a tool with input mounts, the tool call appears in the age
 {
   "input_directory": "/app/inputs",
   "output_directory": "/app/outputs",
-  "nodePool: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-rg/providers/Microsoft.Discovery/supercomputers/contoso-sc/nodepools/nodepool1",
+  "nodePool": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-rg/providers/Microsoft.Discovery/supercomputers/contoso-sc/nodepools/nodepool1",
   "inputMounts": [
     {
       "uri": "discovery://resources/myproject/paths/structures/input.pdb",
@@ -354,7 +360,9 @@ When an agent invokes a tool with input mounts, the tool call appears in the age
 Output mounts tell the platform which directories in the tool container should be captured back into the resource context after the tool finishes. You specify these mount paths as an array of absolute directory paths.
 
 ```json
-"outputMounts": ["/app/outputs", "/app/results"]
+{
+  "outputMounts": ["/app/outputs", "/app/results"]
+}
 ```
 
 After the tool runs, the platform captures these directories and adds them to the resource context with `discovery://` URIs. The agent then calls `GetResourceContext` to discover the new URIs and can share them as needed.
@@ -365,7 +373,9 @@ After the tool runs, the platform captures these directories and adds them to th
 You can optionally specify which storage container should receive the outputs:
 
 ```json
-"outputStorageContainerName": "myproject-results"
+{
+  "outputStorageContainerName": "myproject-results"
+}
 ```
 
 If you omit `outputStorageContainerName`, outputs go to the project's default storage container.
