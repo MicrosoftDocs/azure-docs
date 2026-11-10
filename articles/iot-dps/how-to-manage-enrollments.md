@@ -115,7 +115,7 @@ applies to devices provisioned through that group. You can also configure a
 device type reference on an individual enrollment.
 
 > [!IMPORTANT]
-> Device type references are in preview. You must hand-author the Thing Model and
+> Device type references are in preview. You must author the Thing Model and
 > create or update it in the Schema Registry for your ADR namespace. DPS doesn't
 > generate a Thing Model from a device, its twin, or its telemetry.
 
@@ -125,7 +125,7 @@ instance. Configure the enrollment's allocation settings to use the intended hub
 
 To configure the reference for an enrollment group:
 
-1. Hand-author a WoT Thing Model that describes your device type, including its
+1. Author a WoT Thing Model that describes your device type, including its
    properties, actions, and events. For the model structure, see the
    [W3C Thing Model specification](https://www.w3.org/TR/wot-thing-description11/#thing-model).
 1. Create or update the model in the Schema Registry for your ADR namespace.

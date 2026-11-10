@@ -102,7 +102,7 @@ events. It isn't the device's telemetry payload. Azure IoT Operations also uses
 to describe device interactions. For the model structure, see the
 [W3C Thing Model specification](https://www.w3.org/TR/wot-thing-description11/#thing-model).
 
-You must hand-author the Thing Model and create or update it in the Schema
+You must author the Thing Model and create or update it in the Schema
 Registry for your ADR namespace. Store the model ID in the enrollment's
 **Device type reference** field, not the model JSON. DPS doesn't generate the
 model or infer it from device telemetry.
