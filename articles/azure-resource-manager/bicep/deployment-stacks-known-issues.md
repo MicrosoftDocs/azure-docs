@@ -52,8 +52,9 @@ along with recommended workarounds when available.
   security group but not its security rules, the deny settings don't block adding, changing, or
   deleting security rules in that network security group. Azure CLI and Azure PowerShell apply deny
   settings to child scopes only if you include `--deny-settings-apply-to-child-scopes` (Azure CLI)
-  or `-DenySettingsApplyToChildScopes` (Azure PowerShell) when you create or update the stack. If
-  you use the REST API, set `denySettings.applyToChildScopes` to `true`. For more information, see
+  or `-DenySettingsApplyToChildScopes` (Azure PowerShell) when you create or update the stack. In
+  the REST API, `denySettings.applyToChildScopes` is optional, and the stack uses `false` if you
+  leave it out. Set it to `true` to apply deny settings to child scopes. For more information, see
   [Protect managed resources](./deployment-stacks.md#protect-managed-resources).
 - **A management group-scoped stack can't deploy to another management group.** It can only deploy
   to the management group of the stack itself, or to a child subscription.
