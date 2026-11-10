@@ -186,9 +186,18 @@ The Fabric Eventstream endpoint supports Microsoft Entra ID authentication only.
 
 #### Message schema
 
-Messages routed to a Fabric Eventstream endpoint conform to the [CloudEvents](https://cloudevents.io/) schema, which differs from the schema used by other routing endpoints such as Event Hubs. Device identity and event metadata are preserved in the CloudEvents envelope. For IoT hubs that use Azure Device Registry (ADR), the event payload includes ADR identifiers. For a comparison with the default routed-message schema, see [message schema at routing endpoints](iot-hub-devguide-messages-construct.md#message-schema-at-routing-endpoints).
+Messages routed to a Fabric Eventstream endpoint are delivered using [CloudEvents](https://cloudevents.io/) 1.0 binary content mode over AMQP, which differs from the schema used by other routing endpoints such as Event Hubs. Device identity and event metadata are preserved in the CloudEvents envelope. For IoT hubs that use Azure Device Registry (ADR), the event payload includes ADR identifiers. For a comparison with the default routed-message schema, see [message schema at routing endpoints](iot-hub-devguide-messages-construct.md#message-schema-at-routing-endpoints).
 
-<!-- TODO (WI 599257): Add the full CloudEvents schema, field mappings, and configuration guidance. Pending cleaned-up schema and field-mapping details from the feature team, plus confirmation of any additional Fabric-side configuration. -->
+Following this change, user metadata fields are still present in the message, but will not surface unless an [SQL transform](/fabric/real-time-intelligence/event-streams/process-events-using-sql-code-editor#add-a-sql-operator-to-an-eventstream) is added before data is delivered to the destination in the Fabric Eventstream.
+```sql
+SELECT ,
+GETMETADATAPROPERTYVALUE(
+[<Add name of stream input>],
+'[User]'
+) AS UserProperties
+INTO [<Add name of stream output>]
+FROM [<Add name of stream input>];
+```
 
 The endpoint's generally available status is separate from preview schema-reference
 and message-payload-format settings. For their distinct roles and consumer
