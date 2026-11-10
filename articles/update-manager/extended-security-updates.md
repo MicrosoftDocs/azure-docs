@@ -22,7 +22,7 @@ Extended Security Updates doesn't include new features, customer-requested non-s
 
 ### Azure virtual machines
 
-For Windows Server 2012 and 2012 R2, you get ESUs free of charge and by default for servers hosted in Azure.
+For Windows Server 2012, 2012 R2 and 2016, you get ESUs free of charge and by default for servers hosted in Azure.
 
 ### Azure Arc enabled machines
 
