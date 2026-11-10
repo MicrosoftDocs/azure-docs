@@ -123,7 +123,7 @@ In addition to saving and opening views repeatedly or sharing them with others m
 1. Specify the desired email settings and select **Save**.
     - The **Name** helps you distinguish the different emails setup for the current view. Use it to indicate the audience or the purpose of this specific email.
     - The **Subject** is what people see when they receive the email.
-    - You can include up to 20 recipients. Consider using a distribution list if you have a large audience. To see how the email looks, start by sending it only to yourself. You can update it later.
+    - You can include up to 5 recipients. Consider using a distribution list if you have a large audience. To see how the email looks, start by sending it only to yourself. You can update it later.
     - The **Message** is shown in the email to give people more context about why they're receiving the email. You might want to include what it covers, who requested it, or who to contact to make changes.
     - To share data with people who don't have access to the scope or view, select **Add a CSV download link** to include an unauthenticated link to the data.
     - To allow people with write access to the scope to modify the email configuration settings, clear the **Make this schedule private** option. Doing so allows billing account admins or Cost Management Contributors to edit the alert, in addition to the person who created it. By default, the option is selected, meaning that only the creator of the scheduled alert can see or edit it.
