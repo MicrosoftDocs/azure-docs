@@ -2,9 +2,9 @@
 title: Terminology and glossary for Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This article describes common terminology used with the Device Provisioning Service (DPS) and IoT Hub.
-author: sethmanheim
-ms.author: sethm
-ms.date: 08/07/2025
+author: Usha-Rathnavel
+ms.author: usrathna
+ms.date: 11/10/2026
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
@@ -59,6 +59,7 @@ An enrollment is the record of devices or groups of devices that might register 
 * The optional initial desired configuration
 * The desired IoT hub
 * The desired device ID
+* An optional [device type reference](#device-type-reference-preview) for an IoT hub linked to Azure Device Registry
 
 There are two types of enrollments supported by Device Provisioning Service: enrollment groups and individual enrollments.
 
@@ -87,6 +88,37 @@ Individual enrollments might have the desired IoT hub device ID specified in the
 
 > [!TIP]
 > We recommend using individual enrollments for devices that require unique initial configurations, or for devices that can only authenticate using SAS tokens via TPM attestation.
+
+## Device type reference (preview)
+
+A *device type reference* is an optional model ID on an enrollment group or
+individual enrollment. It associates a device with a W3C Web of Things (WoT)
+Thing Model when DPS provisions or reprovisions the device to an IoT hub linked
+to Azure Device Registry (ADR).
+
+A Thing Model describes a type of device, including its properties, actions, and
+events. It isn't the device's telemetry payload. Azure IoT Operations also uses
+[WoT Thing Models](../iot-operations/develop-edge-apps/overview-iot-operations-development.md)
+to describe device interactions. For the model structure, see the
+[W3C Thing Model specification](https://www.w3.org/TR/wot-thing-description11/#thing-model).
+
+You must hand-author the Thing Model and create or update it in the Schema
+Registry for your ADR namespace. Store the model ID in the enrollment's
+**Device type reference** field, not the model JSON. DPS doesn't generate the
+model or infer it from device telemetry.
+
+During provisioning or reprovisioning, DPS writes the reference to the ADR device
+record. ADR owns this metadata and synchronizes it to the linked IoT hub as
+read-only device metadata. The reference isn't a device twin property or an
+attestation credential.
+
+DPS stores the supplied reference without resolving it in Schema Registry or
+checking that the model exists or matches the device's telemetry. The customer
+is responsible for the model and its reference. This setting doesn't replace
+the enrollment's attestation or allocation settings.
+
+For configuration steps, see
+[Link a device to a WoT Thing Model](how-to-manage-enrollments.md#link-a-device-to-a-wot-thing-model-preview).
 
 ## Attestation mechanism
 

@@ -2,9 +2,9 @@
 title: Manage device enrollments in the Azure portal
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: How to manage group and individual device enrollments for your Device Provisioning Service (DPS) in the Azure portal.
-author: sethmanheim
-ms.author: sethm
-ms.date: 08/11/2025
+author: Usha-Rathnavel
+ms.author: usrathna
+ms.date: 11/10/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 services: iot-dps
@@ -105,6 +105,55 @@ To update an existing enrollment entry:
 1. On the enrollment entry details page, you can update all items, except the security type and credentials.
 
 1. Once completed, select **Save**.
+
+## Link a device to a WoT Thing Model (preview)
+
+Use the optional **Device type reference** setting to associate a device with a
+W3C Web of Things (WoT) Thing Model when DPS provisions the device to an IoT hub
+linked to Azure Device Registry (ADR). For an enrollment group, the reference
+applies to devices provisioned through that group. You can also configure a
+device type reference on an individual enrollment.
+
+> [!IMPORTANT]
+> Device type references are in preview. You must hand-author the Thing Model and
+> create or update it in the Schema Registry for your ADR namespace. DPS doesn't
+> generate a Thing Model from a device, its twin, or its telemetry.
+
+Before you begin, make sure that the target IoT hub is
+[linked to ADR](../iot-hub/iot-hub-device-registry-setup.md) and to your DPS
+instance. Configure the enrollment's allocation settings to use the intended hub.
+
+To configure the reference for an enrollment group:
+
+1. Hand-author a WoT Thing Model that describes your device type, including its
+   properties, actions, and events. For the model structure, see the
+   [W3C Thing Model specification](https://www.w3.org/TR/wot-thing-description11/#thing-model).
+1. Create or update the model in the Schema Registry for your ADR namespace.
+   Copy the model ID that you want to associate with the devices.
+1. In your DPS instance in the Azure portal, select **Manage enrollments** >
+   **Enrollment groups**, and create or open the enrollment group.
+1. Under **Device settings**, enter the model ID in **Device type reference**.
+   This field contains the reference, not the Thing Model JSON.
+1. Save the enrollment group.
+1. Provision the devices through the enrollment group. DPS applies the reference
+   to each device's ADR record during provisioning. ADR synchronizes the
+   reference to the linked IoT hub as read-only device metadata.
+
+For an individual enrollment, configure **Device type reference** in that
+enrollment's **Device settings** instead.
+
+> [!NOTE]
+> DPS stores the reference you provide. It doesn't resolve the reference in Schema
+> Registry, check that the model exists, or validate the model against the device
+> or its telemetry. You are responsible for the model's content and the correct
+> reference. Successful provisioning doesn't establish that the model is valid
+> or that a downstream application can resolve it.
+
+Updating a model in Schema Registry or saving a changed enrollment reference
+doesn't reprovision devices. To apply a changed enrollment reference to an
+already provisioned device, follow the
+[device reprovisioning process](how-to-reprovision.md). DPS applies the reference
+during provisioning or reprovisioning, not as a device twin update.
 
 ## Remove a device enrollment
 
