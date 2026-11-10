@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 10/22/2026
+ms.date: 11/10/2026
 
 # Customer intent: As a web application administrator, I want to implement rate limiting using a web application firewall, so that I can protect my applications from denial-of-service attacks and manage traffic effectively.
 ---
@@ -16,7 +16,7 @@ ms.date: 10/22/2026
 
 Rate limiting helps you detect and block abnormally high levels of traffic to your application. By using Azure Web Application Firewall (WAF) in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that are accidentally misconfigured to send large volumes of requests in a short time period.
 
-By default, a rate limit rule counts requests separately for each socket IP address. On Azure Front Door Premium, you can also [group the count](#group-rate-limit-traffic-preview) by country/region, autonomous system number (ASN), or JA4 client fingerprint, or count all matching requests together. These additional groupings are in preview.
+By default, a rate limit rule counts requests separately for each socket IP address. On Azure Front Door Premium, you can also [group the count](#group-rate-limit-traffic-preview) by country/region, autonomous system number (ASN), or JA4 client fingerprint, or count all matching requests together. These additional groupings are in preview. For every grouping, each Azure Front Door edge location keeps counts separately and doesn't aggregate them globally.
 
 ## How rate limits are counted
 
@@ -24,9 +24,17 @@ The socket IP address is the address of the client that initiated the TCP connec
 
 Unless you choose a different grouping, rate limits are counted per socket IP address. If you have multiple clients that access Azure Front Door from different socket IP addresses, they each have their own rate limits applied. Counting by socket IP address is generally available, and it's how every rate limit rule behaves when no grouping is specified. Azure Front Door terminates TLS before the WAF inspects a request, so requests sent over HTTP and HTTPS are counted the same way.
 
+### Counts are kept per edge location
+
+Azure Front Door receives requests at edge locations, also called points of presence (POPs), around the world. Each edge location keeps its own rate limit counts. Counts aren't shared between edge locations or aggregated globally, so an edge location compares the threshold only with the requests that it receives.
+
+Requests from a single client usually arrive at the same edge location, so a per-IP rule is typically enforced close to its threshold. Traffic for a larger group, such as a country/region, an AS number, a JA4 fingerprint, or all requests that match a rule, often arrives at several edge locations at the same time. For example, consider a rule that groups by country/region with a threshold of 1,000 requests per minute. If requests from one country/region arrive at three edge locations, each edge location allows up to 1,000 of them per minute, so up to about 3,000 requests per minute from that country/region can be allowed in total.
+
+Size thresholds from the traffic that a single edge location receives, not from your application's total traffic. A threshold that's sized from total traffic might never be reached at any one edge location. To measure traffic for each edge location, see [Set thresholds from your own traffic](#set-thresholds-from-your-own-traffic).
+
 ## Configure a rate limit policy
 
-Configure rate limiting by using [custom WAF rules](./waf-front-door-custom-rules.md). When you configure a rate limit rule, specify the *threshold*. The threshold is the number of web requests that are allowed for each group, such as each socket IP address, within a time period of either one minute or five minutes. You also must specify at least one *match condition*, which tells Azure Front Door when to activate the rate limit. You can configure multiple rate limits that apply to different paths within your application.
+Configure rate limiting by using [custom WAF rules](./waf-front-door-custom-rules.md). When you configure a rate limit rule, specify the *threshold*. The threshold is the number of web requests that are allowed for each group, such as each socket IP address, within a time period of either one minute or five minutes. Each edge location applies the threshold to its own count of requests. You also must specify at least one *match condition*, which tells Azure Front Door when to activate the rate limit. You can configure multiple rate limits that apply to different paths within your application.
 
 If you need to apply a rate limit rule to all your requests, consider using a match condition like the following example:
 
@@ -44,7 +52,7 @@ A per-IP rate limit is effective against clients that send a high volume of requ
 
 The group-by setting of a rate limit rule determines how requests are counted:
 
-| Group by | API value | How requests are counted | Status |
+| Group by | API value | How requests are counted at each edge location | Status |
 |---|---|---|---|
 | Socket address (default) | `SocketAddr` | Each socket IP address has its own counter. | Generally available |
 | Country/region | `GeoLocation` | Clients from the same country/region share a counter. | Preview |
@@ -64,8 +72,8 @@ Keep the following in mind when you configure a grouping:
 
 - **JA4 fingerprint:** Use it against distributed attacks that rotate through many IP addresses but reuse the same client software. In HTTP floods, the large majority of attack traffic often comes from a handful of fingerprints. For more information, see [What is client fingerprint matching for Azure Front Door?](client-fingerprint-match-condition.md)
 - **AS number:** Use it to cap traffic from networks your users don't usually come from, such as hosting and cloud providers, without maintaining lists of their IP ranges. For more information, see [What is AS number matching for Azure Front Door?](asn-match-condition.md)
-- **Country/region:** Use it to cap the traffic that any single country/region can send, for example during a flood concentrated in one location.
-- **None:** Use it with narrow match conditions, such as a sign-in page or a list of suspicious user agents, to cap the total request rate to that resource.
+- **Country/region:** Use it to cap the traffic that any single country/region can send to each edge location, for example during a flood concentrated in one country/region.
+- **None:** Use it with narrow match conditions, such as a sign-in page or a list of suspicious user agents, to cap the request rate to that resource at each edge location.
 
 ### Example: Rate limit each JA4 fingerprint
 
@@ -97,9 +105,9 @@ The following rule allows each JA4 fingerprint up to 500 requests in a five-minu
 }
 ```
 
-### Example: Cap the total request rate to a sign-in page
+### Example: Cap the request rate to a sign-in page
 
-The following rule counts all requests to a sign-in path together. When the total exceeds 2,000 requests in a minute, it presents a [JavaScript challenge](../waf-javascript-challenge.md) to requests for that path for the rest of the window. Legitimate browsers pass the challenge, while most scripted clients don't.
+The following rule counts all requests to a sign-in path together at each edge location. When the count at an edge location exceeds 2,000 requests in a minute, that edge location presents a [JavaScript challenge](../waf-javascript-challenge.md) to requests for that path for the rest of the window. Legitimate browsers pass the challenge, while most scripted clients don't.
 
 ```json
 {
@@ -129,22 +137,22 @@ The following rule counts all requests to a sign-in path together. When the tota
 
 ### Set thresholds from your own traffic
 
-A grouped rule needs a threshold above the highest rate any group reaches in normal traffic. Measure that rate over at least a week, so that daily and weekly peaks are represented. The following Log Analytics query shows the peak and 99th percentile request count for each JA4 fingerprint in five-minute windows:
+A grouped rule needs a threshold above the highest rate any group reaches at a single edge location in normal traffic. Measure that rate over at least a week, so that daily and weekly peaks are represented. The following Log Analytics query counts requests separately for each edge location, the same way that rate limits are counted. It shows the peak and 99th percentile request count for each JA4 fingerprint at a single edge location in five-minute windows:
 
 ```kusto
 AzureDiagnostics
 | where Category =~ "FrontDoorAccessLog"
 | where TimeGenerated > ago(7d)
-| summarize Requests = count() by bin(TimeGenerated, 5m), clientJA4FingerPrint_s
+| summarize Requests = count() by bin(TimeGenerated, 5m), pop_s, clientJA4FingerPrint_s
 | summarize P99 = percentile(Requests, 99), Peak = max(Requests) by clientJA4FingerPrint_s
 | order by Peak desc
 ```
 
-To size a country/region grouping, replace `clientJA4FingerPrint_s` with `clientCountry_s`. Match the bin size to the rule's time window.
+In the query, `pop_s` is the edge location that served the request. To size a country/region grouping, replace `clientJA4FingerPrint_s` with `clientCountry_s`. Match the bin size to the rule's time window.
 
 ## Rate limits and Azure Front Door servers
 
-Requests from the same client often arrive at the same Azure Front Door server. In that case, you see requests are blocked as soon as the rate limit is reached for each of the client IP addresses.
+Within an edge location, requests from the same client often arrive at the same Azure Front Door server. In that case, you see requests are blocked as soon as the rate limit is reached for each of the client IP addresses.
 
 It's possible that requests from the same client might arrive at a different Azure Front Door server that doesn't have the rate limit counters updated yet. For example, the client might open a new TCP connection for each request, and each TCP connection could be routed to a different Azure Front Door server. If the threshold is low enough, the first request to the new Azure Front Door server could pass the rate limit check. So, for a low threshold (for example, less than about 200 requests per minute), you might see some requests above the threshold get through.
 
@@ -154,11 +162,12 @@ A few considerations to keep in mind while you determine threshold values and ti
 
 - Setting larger time window sizes (for example, five minutes over one minute) and larger threshold values (for example, 200 over 100) tend to be more accurate in enforcing close to rate limit's thresholds than using the shorter time window sizes and lower threshold values.
 
-- Azure Front Door WAF rate limiting operates on a fixed time period. Once a group exceeds a rate limit threshold, all traffic in that group that matches the rule is blocked for the remainder of the fixed window. With the default grouping, the group is a single socket IP address.
+- Azure Front Door WAF rate limiting operates on a fixed time period. Once a group exceeds a rate limit threshold at an edge location, that edge location blocks all traffic in the group that matches the rule for the remainder of the fixed window. With the default grouping, the group is a single socket IP address.
 
 ## Considerations for grouped rate limits
 
 - **A breach affects every client in the group.** With a country/region, AS number, or JA4 fingerprint grouping, legitimate users who share that country/region, network, or client software are limited along with the attack traffic. With None, all traffic that matches the rule is limited. Size thresholds from normal traffic, deploy new rules with the Log action first, and consider a JavaScript challenge or CAPTCHA action instead of Block.
+- **Each edge location counts separately.** A group's traffic often arrives at several edge locations, and each one allows the group up to the threshold. The total that's allowed across all edge locations can be several times the threshold. For more information, see [Counts are kept per edge location](#counts-are-kept-per-edge-location).
 - **Common fingerprints are shared by many legitimate users.** Popular browsers present the same JA4 fingerprint for very large numbers of users. If attack traffic uses the same fingerprint as your users, a JA4 rule limits both.
 - **Keep a per-IP rule.** Use grouped rules alongside a rate limit rule that counts by socket IP address, not instead of it. A client can change its TLS fingerprint, while IP addresses remain the most expensive attribute for an attacker to change.
 - **Proxies and content delivery networks change what you count.** If clients reach Azure Front Door through another proxy or content delivery network, the socket IP address, the country/region and AS number derived from it, and the JA4 fingerprint all describe that proxy rather than the end user.
