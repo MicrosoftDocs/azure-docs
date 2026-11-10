@@ -102,9 +102,9 @@ Deleting a group removes only the group; its member devices remain. You can't de
 
 ## Manage groups through the REST API
 
-Use the [Groups REST API](/rest/api/deviceregistry/groups) with `api-version=2026-11-02-preview` to manage groups programmatically. Groups aren't included in stable API version `2026-11-01`.
+Manage groups programmatically with the [Groups REST API](/rest/api/deviceregistry/groups), using `api-version=2026-11-02-preview`.
 
-`ListMembers` returns each member's ARM resource ID in `members[].id`, not a complete device record. Use `CountMembers` to get the group's member count. For paging, see [Limits and preview restrictions](#limits-and-preview-restrictions).
+`ListMembers` returns each member's ARM resource ID in `members[].id`. Use `CountMembers` to get the group's member count. For paging, see [Limits and preview restrictions](#limits-and-preview-restrictions).
 
 ## Manage groups in the Azure portal (preview)
 
