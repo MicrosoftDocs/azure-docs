@@ -76,10 +76,10 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ::: zone pivot="platform-linux"
 
-To set your app to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
+To set an existing built-in Linux Node.js app with a nonempty `linuxFxVersion` to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com). For `az webapp config set --runtime`, specify the runtime in colon-separated format, such as `NODE:26`.
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|24-lts"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --runtime "NODE:26"
 ```
 
 This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
