@@ -1,49 +1,49 @@
 ---
 title: Query workspace logs for Microsoft Discovery
-description: Learn how to query application logs for a Microsoft Discovery workspace in the Log Analytics workspace within the Managed Resource Group, including how to use correlation IDs for end-to-end request tracing.
+description: Learn how to query application logs for a Microsoft Discovery workspace in the Log Analytics workspace within the Managed Resource Group and use correlation IDs to investigate related log entries.
 author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a Discovery platform developer or administrator, I want to query workspace logs so that I can trace agent execution, investigate errors, and debug investigation failures.
 ---
 
 # Query workspace logs for Microsoft Discovery
 
-Microsoft Discovery workspace logs capture agent execution traces, tool invocations, workflow steps, and error diagnostics for all investigations run within a workspace. These logs are automatically stored in the `DiscoveryLogs_CL` table in the Log Analytics workspace inside the workspace's Managed Resource Group (MRG).
+Microsoft Discovery workspace logs capture agent execution traces, tool invocations, workflow steps, and error diagnostics for investigations run within a workspace. Microsoft Discovery automatically stores these logs in the `DiscoveryLogs_CL` table in the Log Analytics workspace inside the workspace's Managed Resource Group (MRG).
 
 > [!IMPORTANT]
-> `DiscoveryLogs_CL` is an **Auxiliary** tier table. Each query must target this table only (cross-table joins aren't supported).
+> Check the table's plan and retention settings in the Log Analytics workspace without modifying managed infrastructure. For Basic or Auxiliary tables, use workspace scope and set an explicit time range in the Log Analytics picker or API `timespan`; a KQL time filter doesn't replace it. The available query window depends on the table's plan and configured retention. See [Query Basic and Auxiliary tables](/azure/azure-monitor/logs/basic-logs-query) and [Manage data retention](/azure/azure-monitor/logs/data-retention-configure).
 
-This article explains how to query workspace logs and how to use correlation IDs to trace the end-to-end flow of a specific request.
+This article explains how to query workspace logs and use correlation IDs to find related application log entries for a request.
 
 ## Prerequisites
 
-Before you begin, navigate to the Log Analytics workspace in your workspace's MRG.
+Before you begin, open the Log Analytics workspace in your workspace's MRG and confirm query permissions. See [Access resource logs](how-to-access-resource-logs.md).
 
 ## Query workspace logs
 
 After opening the Logs interface in the workspace's MRG Log Analytics workspace:
 
 1. In the left panel, select the **Tables** tab.
-2. Expand **Custom Logs** and locate **`DiscoveryLogs_CL`**.
-3. Select **Run** next to `DiscoveryLogs_CL` to execute a default query and confirm logs are being ingested.
+2. Expand **Custom Logs** and locate `DiscoveryLogs_CL`.
+3. Run the [View recent logs](#view-recent-logs) query to check whether data is available in the selected time range.
 
-:::image type="content" source="media/how-to-query-workspace-logs/open-log-analytics-table.png" alt-text="Screenshot of the Log Analytics Tables panel with the DiscoveryLogs_CL table selected in the Custom Logs section." lightbox="media/how-to-query-workspace-logs/open-log-analytics-table.png":::
+:::image type="content" source="media/how-to-query-workspace-logs/open-log-analytics-table.png" alt-text="Screenshot of the workspace Logs page with DiscoveryCogLoopLogs_CL and DiscoveryLogs_CL listed under Custom Logs." lightbox="media/how-to-query-workspace-logs/open-log-analytics-table.png":::
 
 ## Log schema
 
-The `DiscoveryLogs_CL` table includes the following fields:
+The examples use the following fields in `DiscoveryLogs_CL`. Expand the table in the **Tables** pane to inspect its columns, then inspect recent rows. Adapt the queries if the available fields or message formats differ.
 
 | Field | Description |
 |---|---|
-| `TimeGenerated` | Timestamp when the log entry was ingested into Log Analytics |
-| `TimeStamp` | Precise timestamp with millisecond resolution representing when the log entry was generated |
+| `TimeGenerated` | Timestamp used by Log Analytics for time filtering |
+| `TimeStamp` | Application-provided timestamp; inspect populated values before relying on its precision |
 | `Message` | Primary log message content |
 | `LogLevel` | Log severity level: `Information`, `Warning`, `Error`, `Critical` |
-| `CorrelationId` | Unique identifier linking all log entries for a specific request |
+| `CorrelationId` | Identifier for related application log entries, when populated |
 
 ## Example queries
 
@@ -51,6 +51,7 @@ The `DiscoveryLogs_CL` table includes the following fields:
 
 ```kql
 DiscoveryLogs_CL
+| order by TimeGenerated desc
 | take 100
 ```
 
@@ -99,6 +100,8 @@ DiscoveryLogs_CL
 
 List recent requests grouped by correlation ID. This query is useful to identify the correlation ID of a specific tool run or investigation response.
 
+Use a `CorrelationId` found in matching application logs. Don't assume that an ARM Activity Log `correlationId` or an API response-header value is interchangeable, or that every component propagates it.
+
 ```kql
 DiscoveryLogs_CL
 | where LogLevel == "Information"
@@ -111,7 +114,7 @@ DiscoveryLogs_CL
 
 ### View all logs for a specific request
 
-Retrieve all log entries for a single request using its correlation ID.
+Retrieve matching log entries for a request within the selected time range using its correlation ID. The results aren't proof that every related operation was logged.
 
 ```kql
 DiscoveryLogs_CL
@@ -122,7 +125,7 @@ DiscoveryLogs_CL
 
 ### Full activity timeline for an investigation
 
-Track all workspace activity for a specific project and investigation, useful when you know the investigation name but not the correlation ID. Replace `<your-project>` and `<your-investigation>` with values from your Discovery session URL.
+Find logged workspace activity for a specific project and investigation, useful when you know the investigation name but not the correlation ID. Replace `<your-project>` and `<your-investigation>` with values from your Discovery session URL.
 
 ```kql
 DiscoveryLogs_CL
@@ -133,7 +136,7 @@ DiscoveryLogs_CL
 
 ### Check the status of a tool response
 
-Track the lifecycle of a specific tool response from initial request through polling to completion. Replace `<DiscoveryResponseId>` with the full response path returned when you submitted the tool run.
+Find logged events for a specific tool response, including submission, polling, and completion when recorded. Confirm the final status in Discovery Studio rather than inferring completion from missing log entries. Replace `<DiscoveryResponseId>` with the full response path returned when you submitted the tool run.
 
 ```kql
 DiscoveryLogs_CL
@@ -142,7 +145,7 @@ DiscoveryLogs_CL
 | order by TimeGenerated asc
 ```
 
-To see all status transitions for a correlation ID:
+To inspect logged status transitions for a correlation ID:
 
 ```kql
 DiscoveryLogs_CL
@@ -240,7 +243,7 @@ DiscoveryLogs_CL
 |---|---|
 | Workspace was recently created and no investigations ran | Run an investigation and generate log entries |
 | Time range is too narrow | Expand the time range to the last 24 hours |
-| Logs are delayed due to ingestion latency | Wait a few seconds and rerun the query |
+| Logs are delayed due to ingestion latency | Allow for ingestion latency and rerun the query. See [Log ingestion latency](concept-observability.md#log-ingestion-latency). |
 
 ### Query timeout or slow performance
 

@@ -7,7 +7,7 @@ metadata:
   ms.author: mukeshdua
   ms.service: azure
   ms.topic: faq
-  ms.date: 09/23/2026
+  ms.date: 11/10/2026
 title: Microsoft Discovery FAQ
 summary: |
   This article answers common questions about Microsoft Discovery. For procedures and specifications that can change over time, the answers link to the relevant source article in the [Microsoft Discovery documentation](https://learn.microsoft.com/en-us/azure/microsoft-discovery/).
@@ -28,7 +28,7 @@ sections:
       Microsoft Discovery Studio is the web-based research environment for Microsoft Discovery. It is used to work with workspaces, projects, agents, shared sessions, knowledge bases, tools, and data. See [What is Microsoft Discovery Studio?](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-studio).
   - question: Is the Discovery Studio portal public or private?
     answer: |
-      The Discovery Studio portal UI is publicly accessible over the internet, similar to the Azure portal, and is secured with Microsoft Entra ID authentication. Backend data isn't exposed through public endpoints. See [What is Microsoft Discovery Studio?](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-studio) and [Network security overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-network-security).
+      The Studio UI is publicly reachable and requires Microsoft Entra authentication. Workspace API access depends separately on `publicNetworkAccess` and configured private endpoints. See [Network security](concept-network-security.md).
   - question: What scenarios are supported by Microsoft Discovery?
     answer: |
       Microsoft Discovery supports scientific and engineering workflows that combine organizational knowledge, data, models, computation, agents, and human review. For representative scenarios, see [Key scenarios](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-key-scenarios).
@@ -62,10 +62,10 @@ sections:
   questions:
   - question: What must be prepared before deploying Microsoft Discovery?
     answer: |
-      Prepare an Azure subscription, register the required resource providers, assign the required roles, reserve required service and model quota, and validate regional and networking requirements. Start with [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/en-us/azure/microsoft-discovery/quickstart-infrastructure), [Resource provider registration](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-resource-provider-registration), and [Quota reservations](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-quota-reservation).
+      Use a subscription enabled for Discovery, register the required providers, and prepare roles, quota, networking, identity, and project storage. Provider registration alone doesn't enable service access. Start with [Deployment planning](concept-deployment-planning.md).
   - question: How do I register the Azure resource providers that Microsoft Discovery needs?
     answer: |
-      Use the supported registration methods described in [Microsoft Discovery resource provider registration](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-resource-provider-registration). The article covers the required permissions and registration through the Azure portal, Azure CLI, Azure PowerShell, and REST API.
+      Follow [Register resource providers](how-to-register-resource-providers.md), or use onboarding Stage 2 for the tool's deployment scope.
   - question: What quota does Microsoft Discovery require?
     answer: |
       Microsoft Discovery requires quota across multiple Azure services, including the models and compute used by the deployment. Requirements depend on the resources you deploy. Review the current requirements in [Quota reservations for Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-quota-reservation).
@@ -82,7 +82,7 @@ sections:
   questions:
   - question: How do I deploy Microsoft Discovery?
     answer: |
-      Follow [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/en-us/azure/microsoft-discovery/quickstart-infrastructure). It is the source of truth for current prerequisites, deployment inputs, and validation steps.
+      Choose portal or Bicep deployment in the [Infrastructure quickstart](quickstart-infrastructure.md), or the staged [Onboarding user guide](how-to-set-up-deployment-tool.md). Compare their automation boundaries in [Deployment planning](concept-deployment-planning.md).
   - question: Can I manage a workspace after it is created?
     answer: |
       Yes. Workspace operations and currently supported configuration changes are documented in [Manage workspaces in Microsoft Discovery](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-manage-workspaces).
@@ -122,13 +122,13 @@ sections:
       Most backend resources use private connectivity controls such as private endpoints, Network Security Perimeter, and virtual network integration. Review the current design in [Network security overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-network-security).
   - question: How do I turn on network isolation for a workspace?
     answer: |
-      Configure network isolation during workspace deployment or update by following [Configure network security](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-network-security). The article is the source of truth for current properties and prerequisites.
+      Workbench `networkIsolation` and workspace API `publicNetworkAccess` are independent. For private-only APIs, configure private endpoints and DNS, then disable public network access. See [Network security](concept-network-security.md).
   - question: What subnets does a hardened deployment need?
     answer: |
       A hardened deployment uses dedicated networking for applicable workspace, agent, private endpoint, Bookshelf, and supercomputer components. Required subnet roles and sizing can change, so use [End-to-end network-hardened deployment](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-deploy-network-hardened-stack) and [Configure network security](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-configure-network-security).
   - question: Do I need to allow inbound access from Microsoft into my environment?
     answer: |
-      No explicit customer-configured inbound access from Microsoft is required for the architecture described in the Discovery network-security guidance. See [Network security overview](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-network-security).
+      Private supercomputer management uses Discovery-managed Private Link. Follow the documented [Private supercomputer prerequisites](how-to-configure-supercomputer-network-security.md#private-supercomputer), not a broad public inbound rule on workload subnets.
   - question: Does Microsoft Discovery support customer-managed keys?
     answer: |
       Yes, for the resources and scenarios documented by the service. See [Configure customer-managed keys](https://learn.microsoft.com/en-us/azure/microsoft-discovery/howto-data-encryption-at-rest) for current scope and prerequisites.
@@ -161,9 +161,9 @@ sections:
   - question: How much autonomy does the Discovery Engine have?
     answer: |
       The level of autonomy depends on how the shared session, tasks, and validation requirements are configured. Researchers remain responsible for setting direction and reviewing results. See [Trust relationship and basic shared session patterns](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-trust-basic-investigation-patterns).
-  - question: How do I run my first agent and investigation?
+  - question: How do I run my first agent and shared session?
     answer: |
-      Follow [Run your first agent and investigation](https://learn.microsoft.com/en-us/azure/microsoft-discovery/quickstart-agents-studio).
+      Follow [Run your first agent and shared session](quickstart-agents-studio.md).
   - question: How do I build a shared session that uses cognition?
     answer: |
       Follow [Build shared sessions with cognition](https://learn.microsoft.com/en-us/azure/microsoft-discovery/how-to-build-investigations-cognition).
@@ -201,10 +201,7 @@ sections:
   - question: What is the difference between Bookshelf and Azure AI Search?
     answer: |
       Bookshelf is designed for graph-based, thematic, and multi-hop reasoning across a curated corpus. Azure AI Search is suited to scalable indexing and precise retrieval. Use the comparison and limits in [Bookshelf and Knowledge Bases](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-bookshelf-knowledge-bases) when selecting an approach.
-  - question: Which retrieval approach should I use?
-    answer: |
-      Use the retrieval approach that matches the question and corpus. Bookshelf is intended for connected, discovery-oriented reasoning, while search indexing is appropriate for targeted retrieval at larger scale. See [Bookshelf and Knowledge Bases](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-bookshelf-knowledge-bases).
-  - question: Can Bookshelf handle a 100-GB corpus directly?
+  - question: How large a corpus can Bookshelf handle directly?
     answer: |
       Bookshelf is intended for a curated corpus rather than indiscriminate ingestion of a very large repository. Review the current size guidance and limitations in [Bookshelf and Knowledge Bases](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-bookshelf-knowledge-bases).
   - question: What document types does Bookshelf support?

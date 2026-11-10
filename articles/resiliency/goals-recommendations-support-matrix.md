@@ -1,6 +1,6 @@
 ---
 title: Infrastructure Resiliency Manager support matrix for goals and recommendations
-description: Learn about the supported scenarios, limitations, and Azure RBAC roles for goals and recommendations in Infrastructure Resiliency Manager (preview).
+description: Learn about the supported scenarios, limitations, and Azure RBAC roles for goals and recommendations in Infrastructure Resiliency Manager.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
@@ -10,9 +10,9 @@ ms.service: resiliency
 #customer intent: As an IT admin, I want to learn which Azure RBAC roles are required for goals and recommendations, so that I can grant the right permissions to my team.
 ---
 
-# Support Matrix for goals and recommendations in Infrastructure Resiliency Manager (preview)
+# Support Matrix for goals and recommendations in Infrastructure Resiliency Manager
 
-This article summarizes the supported scenarios, limitations, and Azure role-based access control (RBAC) roles for goals and recommendations in the Infrastructure Resiliency Manager (preview).
+This article summarizes the supported scenarios, limitations, and Azure role-based access control (RBAC) roles for goals and recommendations in the Infrastructure Resiliency Manager.
 
 ## Supported resource types and detected solutions
 
@@ -139,7 +139,7 @@ Certain resource types are excluded from resiliency service's discovery. When re
 
 ## Related content
 
-- [About goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-about.md).
-- [Assign goals and view resiliency posture in Infrastructure Resiliency Manager (preview)](goals-recommendations-assign-goals-view-posture.md).
-- [Review recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-review-recommendations.md).
-- [Use the Resiliency agent in Infrastructure Resiliency Manager (preview)](goals-recommendations-use-agent.md).
+- [About goals and recommendations in Infrastructure Resiliency Manager](goals-recommendations-about.md).
+- [Assign goals and view resiliency posture in Infrastructure Resiliency Manager](goals-recommendations-assign-goals-view-posture.md).
+- [Review recommendations in Infrastructure Resiliency Manager](goals-recommendations-review-recommendations.md).
+- [Use the Resiliency agent (preview) in Infrastructure Resiliency Manager](goals-recommendations-use-agent.md).

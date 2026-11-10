@@ -21,14 +21,16 @@ Bookmark this page to learn more about the new releases.
 
 - June 2026
 
-  - [Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](#availability-zone-down-drills-in-infrastructure-resiliency-manager-preview)
-  - [Zonal resiliency goals and recommendations for Infrastructure Resiliency Manager (preview)](#zonal-resiliency-goals-and-recommendations-for-infrastructure-resiliency-manager-preview)
-  - [Azure recovery orchestration plan for zonal failover (preview)](#azure-recovery-orchestration-plan-for-zonal-failover-preview)
+  - [Availability Zone Down Drills in Infrastructure Resiliency Manager](#availability-zone-down-drills-in-infrastructure-resiliency-manager)
+  - [Zonal resiliency goals and recommendations for Infrastructure Resiliency Manager](#zonal-resiliency-goals-and-recommendations-for-infrastructure-resiliency-manager)
+  - [Azure recovery orchestration plan for zonal failover](#azure-recovery-orchestration-plan-for-zone-failover)
 
 
-## Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)
+<a id="availability-zone-down-drills-in-infrastructure-resiliency-manager-preview"></a>
 
-Availability Zone Down Drills (preview) is now available in Infrastructure Resiliency Manager. You can simulate availability zone outages for Service Group resources and assess cross-zone resiliency before an actual outage.
+## Availability zone down drills in Infrastructure Resiliency Manager
+
+Availability zone down drills are now available in Infrastructure Resiliency Manager. You can simulate availability zone outages for service group resources and assess cross-zone resiliency before an actual outage.
 
 Key capabilities include:
 
@@ -42,9 +44,11 @@ Key capabilities include:
 
 - **Drill tracking and audit**: Tracks drill execution history with notes, attestation, and run-level status.
 
-For more information, see [Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-about.md).
+For more information, see [Availability Zone Down Drills in Infrastructure Resiliency Manager](availability-zone-down-drills-about.md).
 
-## Zonal resiliency goals and recommendations for Infrastructure Resiliency Manager (preview)
+<a id="zonal-resiliency-goals-and-recommendations-for-infrastructure-resiliency-manager-preview"></a>
+
+## Zonal resiliency goals and recommendations for Infrastructure Resiliency Manager
 
 Infrastructure Resiliency Manager helps you define zonal resiliency goals, track adherence across resources, and assess overall resiliency posture across your environment.
 
@@ -62,13 +66,15 @@ Key capabilities include:
 
 - **Resource exclusion and attestation**: Excludes noncritical resources or attests custom-protected resources.
 
-- **Resiliency agent**: Generates recommendations, creates IaC templates, and validates templates.
+- **Resiliency agent (preview)**: Generates recommendations, creates IaC templates, and validates templates.
 
 - **Resource rediscovery**: Refreshes evaluation when service group membership changes.
 
-For more information, see [Goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-about.md).
+For more information, see [Goals and recommendations in Infrastructure Resiliency Manager](goals-recommendations-about.md).
 
-## Azure recovery orchestration plan for zonal failover (preview)
+<a id="azure-recovery-orchestration-plan-for-zonal-failover-preview"></a>
+
+## Azure recovery orchestration plan for zone failover
 
 Azure Recovery Orchestration Plan enables you to orchestrate application recovery across multiple Azure resources for zonal resiliency. You can create and manage recovery plans to control and automate zonal failover.
 
@@ -84,7 +90,7 @@ Key benefits include:
 
 - **Manual control during failover**: Adds manual action steps that pause execution until you complete required interventions.
 
-For more information, see [Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-about.md).
+For more information, see [Azure Recovery Orchestration Plan](recovery-orchestration-plan-about.md).
 
 ## Related content
 
