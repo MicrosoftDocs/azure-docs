@@ -46,6 +46,6 @@ landingContent:
           - text: Azure in China developer guide
             url: resources-developer-guide.md
           - text: Azure in China FAQ
-            url: resources-faq.md
+            url: resources-faq.yml
           - text: Support for Azure in China
             url: concepts-support.md
