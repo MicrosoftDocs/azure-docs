@@ -134,4 +134,4 @@ The following limits currently apply to groups:
 
 - [Jobs concepts (preview)](concept-jobs.md)
 - [Software updates concepts (preview)](concept-software-updates.md)
-- [Groups REST API reference](/rest/api/deviceregistry/groups?view=rest-deviceregistry-2026-11-02-preview)
+- [Groups REST API reference](/rest/api/deviceregistry/groups)
