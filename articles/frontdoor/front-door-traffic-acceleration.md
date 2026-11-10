@@ -30,6 +30,9 @@ Globally, [Front Door has over 150 edge locations](edge-locations-by-region.md),
 
 Traffic routed to the Azure Front Door edge locations uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic. Anycast allows for user requests to reach the closest edge location in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of [Split TCP](#connect-to-the-front-door-edge-location-split-tcp).
 
+>[!WARNING]
+>AFD Unicast routing determines the appropriate PoP during DNS resolution. When the end user's location isn't available from the request metadata, routing is based on the location of the DNS resolver. This condition means the request might not be routed to the PoP closest to the user.
+
 Front Door organizes its edge locations into primary and fallback *rings*. The outer ring has edge locations that are closer to users, offering lower latencies.  The inner ring has edge locations that can handle the failover for the outer ring edge location in case any issues happen.
 
 The outer ring is the preferred target for all traffic, and the inner ring is designed to handle traffic overflow from the outer ring. Each frontend host or domain served by Front Door gets assigned primary and fallback VIPs (Virtual Internet Protocol addresses), which gets announced by edge locations in both the inner and outer ring.
