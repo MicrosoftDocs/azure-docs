@@ -60,6 +60,7 @@ An enrollment is the record of devices or groups of devices that might register 
 * The desired IoT hub
 * The desired device ID
 * An optional [device type reference](#device-type-reference-preview) for an IoT hub linked to Azure Device Registry
+* An optional [certificate policy](../iot/how-to-create-edit-certificate-policy.md) for issuing operational X.509 certificates through Azure Device Registry
 
 There are two types of enrollments supported by Device Provisioning Service: enrollment groups and individual enrollments.
 
