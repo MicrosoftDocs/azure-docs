@@ -32,7 +32,7 @@ In this article, you learn how to:
 - Migrate up to 500 VMs concurrently using the scale-out appliance.
 
 > [!NOTE]
-> While you can schedule replication for up to 300 VMs on a single appliance and up to 500 VMs using a scale-out appliance, the replication itself is limited by each appliance's capacity to replicate only 56 disks at a time. This means that although the VMs are scheduled concurrently, they will be replicated sequentially based on the appliance's available capacity. All scheduled VMs will eventually be replicated by the same appliance, but not all will start replication immediately.
+> While you can schedule replication for up to 300 VMs on a single appliance and up to 500 VMs by using a scale-out appliance, the replication itself is limited by the appliance's parallel disk capacity. By default, a single appliance replicates up to 52 disks at a time, and a primary appliance with scale-out appliances replicates up to 110 disks at a time. For details, see [Parallel disk replication capacity](troubleshoot-replication-vmware.md#parallel-disk-replication-capacity). This limitation means that although you schedule the VMs concurrently, they replicate sequentially based on the appliance's available capacity. All scheduled VMs are eventually replicated by the same appliance, but not all start replication immediately.
 
 
 ##  Prerequisites
@@ -51,13 +51,13 @@ To learn how to perform the above, review the tutorial on [migrating VMware virt
 
 To add a scale-out appliance, follow the steps mentioned below:
 
-1. In Azure Migrate Project, go to **Execute** > **Migrations**, and select **Start execution**.
+1. In Azure Migrate Project, go to **Manage** > **Server replication**, and select **Start replication**.
 1. In **Specify intent**, select **Servers** or **Virtual Machines (VM)** under **What do you want to migrate**. Under **Where do you want to migrate to**, select **Azure VM**.
 1. In **How will you select workloads**, select one of the following options under **Azure migrate appliance sources**:
      - From all inventory to manually select servers
      - From an assessment to use an existing assessment
 1. In **Discovery method**, select the appliance that matches your source environment (VMware vSphere in this case). Under **Migration mode**, select **Agentless migration**.
-1. In **Scale-out Appliance**, select **Set up scale-out appliance** to start the set up for the scale-out appliance.
+1. In **Scale-out Appliance**, select **Set up scale-out appliance** to start the setup for the scale-out appliance.
 
 ### Generate the Azure Migrate project key
 
