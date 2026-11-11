@@ -107,7 +107,7 @@ Client applications can call the unified model API using any OpenAI-compatible S
 The following example uses the Python OpenAI SDK and passes an API Management subscription key in the header for authentication. The request body specifies a client-facing model alias configured in API Management, for example, `gpt` or `claude-sonnet`.:
 
 [!IMPORTANT]
-> The Python OpenAI SDK sends the `api_key` value as `Authorization: Bearer <api_key>`, not in the API Management subscription-key header. To use this example with an API Management subscription key, enable bearer subscription-key recognition for the API by setting `properties.subscriptionKeyParameterNames.bearer` to `enabled`. Recognition is disabled by default. See [Use a subscription key in the Authorization header](api-management-subscriptions.md#use-a-subscription-key-in-the-authorization-header).
+> The Python OpenAI SDK sends the `api_key` value as `Authorization: Bearer <api_key>`. It doesn't send the `api_key` in the API Management subscription-key header. To use this example with an API Management subscription key, enable bearer subscription-key recognition for the API by setting `properties.subscriptionKeyParameterNames.bearer` to `enabled`. Recognition is disabled by default. For more information, see [Use a subscription key in the Authorization header](api-management-subscriptions.md#use-a-subscription-key-in-the-authorization-header).
 
 This subscription key authenticates the client to API Management. It isn't a model provider API key or an OAuth access token. Configure API Management's credentials or managed identity for each backend separately.
 
