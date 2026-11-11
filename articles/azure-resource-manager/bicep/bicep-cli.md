@@ -698,6 +698,8 @@ The `restore` command doesn't refresh the cache if a module is already cached. T
 
 ## snapshot
 
+For a practical walkthrough of creating baselines, testing refactors, and validating snapshots in CI, see [Test Bicep changes with snapshots](./snapshots.md).
+
 By using Bicep CLI v0.41.2 or newer, you can use the `snapshot` command to create a normalized, deterministic representation of a Bicep deployment from a `.bicepparam` file. You can compare this snapshot with later snapshots to understand what changes a refactor would cause, without deploying anything to Azure. This command is particularly useful for:
 
 * **Visual Diffs**: Seeing exactly how a refactor (like moving code into a module) changes the underlying resource definitions.
@@ -793,9 +795,10 @@ To simulate a real deployment environment, you can pass the following flags:
 | :--- | :--- | :--- |
 | `--subscription-id` | Replaces the value returned by `subscription().subscriptionId` | `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` |
 | `--resource-group` | Replaces the value returned by `resourceGroup().name` | `my-production-rg` |
-| `--location` | Sets the default location for `deployment().location` | `westeurope` |
+| `--location` | Supplies `resourceGroup().location` when used with `--resource-group`, or `deployment().location` for deployments above resource-group scope | `westeurope` |
 | `--tenant-id` | Replaces the value returned by `tenant().tenantId` | `72f988bf-86f1-41af-91ab-2d7cd011db47` |
-| `--management-group` | Replaces the value returned by `managementGroup().name` | `my-corp-mg` |
+| `--management-group-id` | Replaces the value returned by `managementGroup().name` | `my-corp-mg` |
+| `--deployment-name` | Replaces the value returned by `deployment().name` | `snapshot-test` |
 
 #### [Bicep CLI](#tab/bicep-cli)
 

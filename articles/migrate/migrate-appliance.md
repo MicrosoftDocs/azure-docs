@@ -79,7 +79,7 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Hyper-V -  VHD (Zip file) (11.4 GB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24      |
+    | Hyper-V -  VHD (Zip file) (7.5 GB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | 16FF6D77A1FBAB3CC12C1E3CB3A3DB182E50C63BCA81618A30C123AB30F870C7      |
 
     - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
