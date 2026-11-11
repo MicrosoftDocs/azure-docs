@@ -32,7 +32,7 @@ connect an eligible existing Standard hub without recreating it. ADR provides
 a common management foundation for devices across linked services.
 Group devices from multiple hubs in a shared namespace and manage their Azure
 Resource Manager representations using Azure role-based access control.
-Learn how to [enable ADR integration](iot-hub-device-registry-setup.md).
+Learn how to [enable ADR integration](../iot/device-registry/get-started-azure-device-registry.md).
 
 ### Manage operational X.509 certificates
 
@@ -125,7 +125,7 @@ For regional availability of Azure Device Registry with IoT Hub and Azure IoT Op
 ## Get started
 
 To start using ADR with a new or existing Standard hub, follow
-[Enable ADR integration](iot-hub-device-registry-setup.md). To evaluate MQTT v5,
+[Enable ADR integration](../iot/device-registry/get-started-azure-device-registry.md). To evaluate MQTT v5,
 start with the [MQTT v5 getting-started guide](mqtt-v5-get-started.md).
 
 Review [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
@@ -137,4 +137,4 @@ along with pricing for the other Azure services used by your solution.
 - [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
 - [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md)
 - [Key concepts for certificate management](../iot/iot-certificate-management-concepts.md)
-- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
+- [Get started with Azure Device Registry for Azure IoT Hub](../iot/device-registry/get-started-azure-device-registry.md)

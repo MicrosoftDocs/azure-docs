@@ -52,7 +52,7 @@ Yes. You can link an eligible existing Standard hub to an ADR namespace without 
 > [!WARNING]
 > Connecting an existing IoT Hub or DPS instance to an ADR namespace is permanent and can't be reversed. The setup workflow warns that linking can cause downtime for existing management services. Review the impact on your applications and plan the change before proceeding.
 
-See [Enable ADR integration](iot-hub-device-registry-setup.md).
+See [Enable ADR integration](../iot/device-registry/get-started-azure-device-registry.md).
 
 <a id="can-i-use-namespaces-and-azure-device-registry-in-my-existing-hubs"></a>
 
@@ -74,7 +74,7 @@ Yes. Certificate management is optional. You can use ADR to manage devices acros
 
 ### Can I unlink a hub after enabling ADR?
 
-No. Linking an IoT hub or DPS instance to an ADR namespace is permanent. Review resource eligibility, permissions, and management-application impact before confirming the link. See [Enable ADR integration](iot-hub-device-registry-setup.md).
+No. Linking an IoT hub or DPS instance to an ADR namespace is permanent. Review resource eligibility, permissions, and management-application impact before confirming the link. See [Enable ADR integration](../iot/device-registry/get-started-azure-device-registry.md).
 
 ## Certificate management and DPS
 
@@ -189,4 +189,4 @@ Yes. Azure MCP Server includes tools for retrieving hub information and listing 
 - [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
 - [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md)
 - [Key concepts for certificate management](../iot/iot-certificate-management-concepts.md)
-- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
+- [Get started with Azure Device Registry for Azure IoT Hub](../iot/device-registry/get-started-azure-device-registry.md)

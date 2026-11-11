@@ -19,7 +19,7 @@ This article provides background on generally available Azure Device Registry li
 
 Azure Device Registry represents industrial assets and IoT devices as Azure Resource Manager resources, extending the Azure management plane to IoT. It provides a consistent experience for deployment, policy enforcement, querying, and control plane operations.
 
-In the IoT Hub context, Azure Device Registry provides a management foundation for IoT Hub-connected devices across linked services. You can [link a new or existing eligible Standard hub](iot-hub-device-registry-setup.md) to a new or existing namespace. Multiple IoT Hub instances can share a namespace, supporting collective device management across hubs.
+In the IoT Hub context, Azure Device Registry provides a management foundation for IoT Hub-connected devices across linked services. You can [link a new or existing eligible Standard hub](../iot/device-registry/get-started-azure-device-registry.md) to a new or existing namespace. Multiple IoT Hub instances can share a namespace, supporting collective device management across hubs.
 
 > [!NOTE]
 > ADR linking doesn't change a hub's connection profile or automatically migrate device credentials. The MQTT v5 connection profile remains in preview. Certificate management through Standard IoT Hub is generally available except for MQTT v5-profile hubs; those devices continue to use DPS for supported operational certificate issuance and renewal.
@@ -52,7 +52,7 @@ For Azure subscription and service limits for Azure Device Registry in GA, see [
 ## Related content
 
 - [FAQ: What is new in Azure IoT Hub?](iot-hub-faq.md)
-- [Get started with Azure Device Registry and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
+- [Get started with Azure Device Registry for Azure IoT Hub](../iot/device-registry/get-started-azure-device-registry.md)
 - [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md)
 - [Key concepts for certificate management](../iot/iot-certificate-management-concepts.md)
 - [Unified Azure IoT SDKs (preview) for IoT Hub and Azure Device Registry](../iot/device-registry/concept-unified-iot-sdks.md)

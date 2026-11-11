@@ -120,7 +120,7 @@ device type reference on an individual enrollment.
 > generate a Thing Model from a device, its twin, or its telemetry.
 
 Before you begin, make sure that the target IoT hub is
-[linked to ADR](../iot-hub/iot-hub-device-registry-setup.md) and to your DPS
+[linked to ADR](../iot/device-registry/get-started-azure-device-registry.md) and to your DPS
 instance. Configure the enrollment's allocation settings to use the intended hub.
 
 To configure the reference for an enrollment group:

@@ -1679,6 +1679,11 @@
       "source_path_from_root": "/articles/iot-hub/iot-hub-distributed-tracing.md",
       "redirect_url": "/azure/iot-hub/monitor-iot-hub",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-registry-setup.md",
+      "redirect_url": "/azure/iot/device-registry/get-started-azure-device-registry",
+      "redirect_document_id": false
     }
   ]
 }
