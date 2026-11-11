@@ -124,13 +124,14 @@ For most metrics, all aggregation types are valid. For count metrics with a **Un
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 | Dimension Name | Description |
-|:---------------|:------------|
-| EndpointName   | The endpoint name |
-| EndpointType   | `eventHubs`, `serviceBusQueues`, `cosmosDB`, `serviceBusTopics`, `builtin`, or `blobStorage` |
-| EventType      | `Microsoft.Devices.DeviceCreated`, `Microsoft.Devices.DeviceDeleted`, `Microsoft.Devices.DeviceConnected`, `Microsoft.Devices.DeviceDisconnected`, or `Microsoft.Devices.DeviceTelemetry` <br>For more information, see [Event types](iot-hub-event-grid.md#event-types). |
+| :--- | :--- |
+| EndpointName | The endpoint name |
+| EndpointType | `eventHubs`, `serviceBusQueues`, `cosmosDB`, `serviceBusTopics`, `builtin`, or `blobStorage` |
+| EventType | `Microsoft.Devices.DeviceCreated`, `Microsoft.Devices.DeviceDeleted`, `Microsoft.Devices.DeviceConnected`, `Microsoft.Devices.DeviceDisconnected`, or `Microsoft.Devices.DeviceTelemetry` <br>For more information, see [Event types](iot-hub-event-grid.md#event-types). |
 | FailureReasonCategory | One of the following values: `invalid`, `dropped`, `orphaned`, or `null`. |
-| Result         | Either `success` or `failure` |
-| RoutingSource  | `Device Messages`, `Twin Change Events`, `Device Lifecycle Events` |
+| Result | Either `success` or `failure` |
+| RoutingSource | `Device Messages`, `Twin Change Events`, `Device Lifecycle Events` |
+| ThrottleType | The operation category for the `throttledRequests` metric, such as `DeviceEvent`, `MqttConnect`, `TwinGet`, or `TwinWrite`. Available values depend on the operations supported by the hub's connection profile. For the operation categories, see [Investigate routing and throttling together](#investigate-routing-and-throttling-together). |
 
 <a name="device-telemetry-metrics"></a><a name="routing-metrics"></a><a name="device-metrics"></a>
 ### Metrics display name and aggregation
