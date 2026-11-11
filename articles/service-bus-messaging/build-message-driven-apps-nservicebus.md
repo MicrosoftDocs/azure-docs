@@ -13,10 +13,10 @@ ms.custom:
 
 # Build message-driven business applications with NServiceBus and Azure Service Bus
 
-NServiceBus is a commercial messaging framework from Particular Software. It supports Azure Service Bus as a message transport and helps developers focus on business logic by abstracting infrastructure concerns. In this guide, you build a solution that exchanges messages between two services. You also see how NServiceBus automatically retries failing messages and review options for hosting these services in Azure.
+NServiceBus is a commercial messaging framework from Particular Software. It supports Azure Service Bus as the messaging infrastructure (also known as a `transport` in NServiceBus), and helps developers focus on business logic by abstracting infrastructure concerns. In this guide, you build a solution that exchanges messages between two services. You also see how NServiceBus automatically retries failing messages and review options for hosting these services in Azure.
 
 > [!NOTE]
-> The code for this tutorial is available on the [Particular Software Docs web site](https://docs.particular.net/samples/azure-service-bus-netstandard/send-receive-with-nservicebus/?version=asbs_6). This article describes the version of the sample that uses NServiceBus 10 and the Azure Service Bus transport (`NServiceBus.Transport.AzureServiceBus`) version 6.
+> The code for this tutorial is available on the [Particular Software Docs web site](https://docs.particular.net/samples/azure-service-bus-netstandard/send-receive-with-nservicebus/?version=asbs_6). This article describes the version of the sample that uses NServiceBus 10 and the Azure Service Bus messaging infrastructure (`NServiceBus.Transport.AzureServiceBus`) version 6.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ public class Ping : ICommand
 }
 ```
 
-The `Ping` class defines a message that the Sender sends to the Receiver. It's a simple C# class that implements `NServiceBus.ICommand`. This interface signals to the reader and to NServiceBus that the message is a command. There are also other ways to identify messages [without using interfaces](https://docs.particular.net/nservicebus/messaging/conventions).
+The `Ping` class defines a message that the Sender sends to the Receiver. It's a simple C# class that implements `NServiceBus.ICommand`. This interface specifies that the type is a command. There are also other ways to identify messages [without using interfaces](https://docs.particular.net/nservicebus/messaging/conventions).
 
 The other message class in the Shared project is `Pong.cs`:
 
