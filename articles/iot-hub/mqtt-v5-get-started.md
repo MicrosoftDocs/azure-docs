@@ -63,8 +63,10 @@ Complete this stage before running the device application:
 1. Prepare the destination reader.
 1. Enable the diagnostic collection needed for the test.
 
-See [Route telemetry](mqtt-v5-route-messages.md) and
-[Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
+See [Shared routing requirements](iot-hub-devguide-messages-d2c.md#connection-profile-differences).
+For destination-specific requirements, see
+[Custom endpoints for message routing](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
+Set up diagnostics with [Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
 
 A custom topic group doesn't create a route, and a route doesn't grant topic
 publishing permission.
@@ -88,7 +90,8 @@ Follow [Configure a device with the unified SDKs](mqtt-v5-device-setup.md):
 
 MQTT v5 is fixed by the profile. Configure TLS and certificate trust according
 to the device platform; don't disable certificate validation.
-See [TLS and X.509 requirements](mqtt-v5-tls-requirements.md).
+See [IoT Hub endpoints](iot-hub-devguide-endpoints.md#tls-13-enabled-endpoints)
+and [X.509 device authentication](mqtt-v5-device-setup.md#x509-device-authentication).
 
 The initial examples send messages by using the SDK's telemetry API, which publishes
 to an IoT Hub-defined telemetry topic. To publish to your own MQTT topics,
@@ -127,6 +130,6 @@ workspace is shared. Review related role assignments and diagnostic settings.
 ## Next steps
 
 - Add [custom-topic publishing](mqtt-v5-custom-topics.md) and selective routes.
-- Review the [SDK lifecycle and capabilities](develop-unified-iot-sdks.md).
+- Review the [shared SDK lifecycle and capabilities](../iot/device-registry/concept-unified-iot-sdks.md).
 - Set up operational alerts with the [monitoring guide](mqtt-v5-monitor-troubleshoot.md).
 - Use the destination service's documentation to build analytics or dashboards.

@@ -1,22 +1,72 @@
 ---
-title: Capabilities of Azure IoT Hub with the MQTT v5 connection profile
+title: Compare IoT Hub connection profiles and MQTT v5 capabilities
 titleSuffix: Azure IoT Hub
-description: Review the available and unsupported capabilities of Azure IoT Hub with the MQTT v5 connection profile.
+description: Compare classic and MQTT v5 connection profiles, then review supported capabilities and preview limitations for MQTT v5 in Azure IoT Hub.
 author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 10/26/2026
+ms.date: 11/10/2026
 ---
 
-# Capabilities of Azure IoT Hub with the MQTT v5 connection profile
+# Compare IoT Hub connection profiles and MQTT v5 capabilities
 
-This article summarizes the capabilities available in Azure IoT Hub with the
-MQTT v5 connection profile.
+Azure IoT Hub offers a classic connection profile and an MQTT v5 connection
+profile for device connectivity. Select the connection profile when creating
+your hub; you can't change it afterward. Use this article to compare the
+profiles and check the capabilities available in the MQTT v5 preview.
 
 > [!IMPORTANT]
 > Azure IoT Hub with the MQTT v5 connection profile is in preview. Preview capabilities,
 > availability, limits, and behavior might change before general availability.
+
+<a id="capabilities-of-azure-iot-hub-with-the-mqtt-v5-connection-profile"></a>
+<a id="compare-azure-iot-hub-connectivity-options"></a>
+<a id="high-level-comparison"></a>
+
+## Compare connection profiles
+
+| Area | Classic connection profile | MQTT v5 connection profile |
+| --- | --- | --- |
+| Availability | Generally available | Preview |
+| Device protocols | MQTT v3.1.1, AMQP, and HTTPS | MQTT v5 only |
+| Direct device authentication | SAS or X.509 certificates | X.509 certificates only |
+| DPS onboarding attestation | SAS, TPM, or X.509 certificates | SAS or X.509 credentials; SAS requires configured certificate issuance |
+| MQTT topics | IoT Hub-defined operation topics | Custom-topic publishing and documented IoT Hub operation topics; no custom-topic subscriptions |
+| Device identity foundation | IoT Hub identity registry, with optional ADR integration | ADR-enabled identity and management experience |
+| Built-in endpoint and fallback routing | Supported | Neither is supported; configure explicit routes to supported destinations |
+| Device-management features | Availability depends on the [IoT Hub tier](iot-hub-scaling.md) | Telemetry, twins, and direct methods are supported; see [Device identity and management](#device-identity-and-management) for gaps |
+
+A connection profile isn't an endpoint hostname. For hostname selection and
+TLS support for each profile, see
+[IoT Hub endpoints](iot-hub-devguide-endpoints.md#connection-profiles-and-endpoint-selection).
+
+### Choose Azure IoT Hub with the classic connection profile
+
+Choose the classic profile if you require a generally available service
+contract, MQTT v3.1.1, AMQP, HTTPS device messaging, direct SAS device
+authentication, or TPM attestation through DPS.
+
+Also choose it when your solution depends on cloud-to-device messages, jobs,
+automatic configurations, file upload, modules, or IoT Edge, which aren't
+available in the MQTT v5 preview. Check the tier requirements for those features.
+Existing devices can continue using their current protocol and authentication
+implementation without migrating to MQTT v5.
+
+### Choose Azure IoT Hub with the MQTT v5 connection profile
+
+Choose this profile to evaluate MQTT v5 connectivity with X.509 device
+authentication, custom-topic publishing, and routing based on topics and
+user properties. MQTT v5 reason codes provide protocol feedback alongside
+the supported telemetry, twin, direct method, and monitoring capabilities.
+Your solution must be able to accommodate preview changes.
+
+Devices can use an existing X.509 certificate for DPS onboarding and hub
+authentication, or obtain an ADR-issued operational certificate through
+configured DPS issuance. SAS onboarding requires issuance; direct SAS hub
+authentication isn't supported. Operational certificates are renewed through
+DPS, not directly through the MQTT v5 hub. See
+[Device onboarding and certificates](mqtt-v5-device-setup.md#device-provisioning-service-dps-onboarding-and-certificates).
 
 ## Hub and device connectivity
 
@@ -31,12 +81,13 @@ MQTT v5 connection profile.
 | X.509 connectivity authentication | Yes | Devices connect with certificates issued by Microsoft or by a third-party certificate authority. |
 | Direct SAS connectivity authentication | Not supported | SAS tokens, symmetric device keys, and device connection strings can't be used to connect directly to Azure IoT Hub with the MQTT v5 connection profile. |
 | Device onboarding through Device Provisioning Service (DPS) | Yes | Devices can onboard using SAS or X.509 credentials. |
+| TPM attestation through DPS | Not supported | Use SAS or X.509 onboarding credentials for this profile. |
 | SAS onboarding through DPS | Yes | Requires configured certificate issuance. SAS authenticates the device to DPS, which returns an ADR-issued operational X.509 certificate for connecting to the hub. |
 | Certificate issuance during DPS provisioning | Yes | Requires an ADR issuing CA, certificate policy, and a DPS enrollment configured to reference them. The device submits a CSR to obtain an operational X.509 certificate. |
 | Custom MQTT topics | Yes | Devices can publish to customer-defined topic hierarchies. |
 | Custom-topic subscriptions | Not supported | Preview custom-topic operations are publish-only. Consume telemetry through routing destinations. |
 | MQTT v5 reason codes | Yes | Reason codes communicate the outcome of protocol operations. |
-| MQTT v5 user properties | Yes | User properties carry application context and can be used as application properties in routing conditions. See [Topic and user-property filters](mqtt-v5-route-messages.md#filter-by-mqtt-topic-and-user-properties). |
+| MQTT v5 user properties | Yes | User properties carry application context and can be used as application properties in routing conditions. See [Topic and user-property filters](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties). |
 
 ## Device identity and management
 
@@ -51,6 +102,7 @@ MQTT v5 connection profile.
 | Jobs | Not supported | |
 | Automatic device configurations | Not supported | |
 | File upload | Not supported | |
+| Modules | Not supported | |
 | IoT Edge | Not supported | |
 | Device Update integration | Not supported | |
 
@@ -60,8 +112,8 @@ MQTT v5 connection profile.
 
 | Capability | Supported in preview | Notes |
 | --- | --- | --- |
-| Unified Azure IoT SDK for .NET | Yes | Use the [Microsoft.Azure.Iot.Device preview package](https://www.nuget.org/packages/Microsoft.Azure.Iot.Device/2.0.0-preview3). |
-| Unified Azure IoT SDK for C | Yes | Build from the [Unified Azure IoT C SDK source](https://github.com/Azure/azure-iot-sdk/blob/releases/public-preview/c/README.md). See the SDK's build instructions and samples. |
+| Unified Azure IoT SDK for .NET | Yes | Select an MQTT v5-compatible preview package from [Available SDKs](/azure/iot/device-registry/concept-unified-iot-sdks#available-sdks). |
+| Unified Azure IoT SDK for C | Yes | Select an MQTT v5-compatible preview release from [Available SDKs](/azure/iot/device-registry/concept-unified-iot-sdks#available-sdks), then follow that release's build instructions and samples. |
 | Raw MQTT clients | Not supported | The supported device application path for this preview is through the unified Azure IoT SDKs for .NET and C. |
 | Unified Azure IoT SDK for Python | Not supported | |
 | Unified Azure IoT SDK for Java | Not supported | |
@@ -91,7 +143,7 @@ unsupported in this preview.
 | Capability | Supported in preview | Notes |
 | --- | --- | --- |
 | Device-to-cloud telemetry | Yes | |
-| Message routing | Yes | Supports Event Hubs, Storage blob containers, Service Bus queues and topics, Cosmos DB, and Microsoft Fabric eventstreams. Configure and enable an all-messages route with query `true`. See [Supported routing destinations](mqtt-v5-route-messages.md#supported-routing-destinations) for endpoint requirements. |
+| Message routing | Yes | Supports Event Hubs, Storage blob containers, Service Bus queues and topics, Cosmos DB, and Microsoft Fabric eventstreams. Configure and enable an all-messages route with query `true`. See [Supported routing destinations](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing) for endpoint requirements. |
 | Fallback routing | Not supported | Disabled for preview. Use an explicit all-messages route, not a fallback route. |
 | Built-in routing endpoint (`messages/events`) | Not supported | No built-in destination is provided. Customers must configure a route to another supported destination. |
 | Custom topic groups | Yes | Maximum 1 group per hub with up to 10 topic templates. Templates starting with `ih`, `+`, or `#` are rejected; `{deviceId}` is the only supported variable. See [Preview limits and topic template rules](mqtt-v5-custom-topics.md#preview-limits-and-topic-template-rules). |
@@ -111,8 +163,8 @@ unsupported in this preview.
 ## Next steps
 
 - Read [What is Azure IoT Hub with the MQTT v5 connection profile?](mqtt-v5-overview.md).
-- [Compare Azure IoT Hub connectivity options](compare-iot-hub-connectivity.md).
 - [Follow the cloud-to-device setup journey](mqtt-v5-get-started.md).
-- [Develop with the unified Azure IoT SDKs](develop-unified-iot-sdks.md).
-- [Configure routes and destinations](mqtt-v5-route-messages.md).
+- [Develop with the unified Azure IoT SDKs](../iot/device-registry/concept-unified-iot-sdks.md).
+- [Configure routes and destinations](iot-hub-devguide-messages-d2c.md).
 - [Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
+- [Read the MQTT v5 FAQ](iot-hub-faq.md#azure-iot-hub-with-the-mqtt-v5-connection-profile).

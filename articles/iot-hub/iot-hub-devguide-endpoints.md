@@ -5,7 +5,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 05/26/2026
+ms.date: 11/10/2026
 ai-usage: ai-assisted
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
@@ -26,7 +26,7 @@ You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's *
 
 ## TLS 1.3-enabled endpoints
 
-Azure IoT Hub provides additional endpoints to support TLS 1.3 with enhanced security requirements. These endpoints are available alongside the existing endpoint to allow gradual and non-disruptive adoption.
+Azure IoT Hub provides additional endpoints to support TLS 1.3 with enhanced security requirements. For hubs with the classic connection profile, these endpoints are available alongside the existing endpoint to allow gradual and non-disruptive adoption.
 
 There's no planned change to the existing IoT Hub endpoint (`<hub>.azure-devices.net`), commonly referred to as the *classic endpoint*. This endpoint remains fully supported, including for Private Link scenarios, and continues to be the default for existing workloads.
 
@@ -40,11 +40,41 @@ The new endpoints are additive, not a replacement, and enable customers to adopt
 | Device endpoint | `<hub>.device.azure-devices.net` | TLS 1.2 (restricted) + TLS 1.3 |
 | Service endpoint | `<hub>.service.azure-devices.net` | TLS 1.2 (restricted) + TLS 1.3 |
 
+### Connection profiles and endpoint selection
+
+A **connection profile** describes the hub's connectivity configuration. An
+**endpoint** is the hostname that a device or service application connects to.
+Changing the hostname doesn't change the connection profile or enable MQTT v5.
+
+- **Classic connection profile:** The classic endpoint and the TLS 1.3-capable
+  device and service endpoints are generally available. A classic connection
+  profile isn't limited to the classic endpoint.
+- **MQTT v5 connection profile:** The TLS 1.3-capable device and service
+  endpoints are in preview. Device messaging uses MQTT v5, not MQTT v3.1.1,
+  AMQP, or HTTPS. TLS 1.3 availability for classic-profile hubs doesn't change
+  the MQTT v5 preview status.
+
+Use the assigned device endpoint for device connections and the service endpoint
+for backend applications. For a provisioned device, use the endpoint returned
+by Device Provisioning Service (DPS), rather than constructing a hostname.
+When obtaining a service connection string with the preview CLI, select
+`--hostname-type service`; a service connection string isn't a device onboarding
+credential.
+
+MQTT v5 device connections require X.509 authentication. For onboarding credentials,
+certificate issuance and renewal through DPS, and device troubleshooting, see
+[Configure a device](mqtt-v5-device-setup.md#x509-device-authentication).
+
 ### Key considerations
 
 - Existing applications and devices that use the classic endpoint keep working without any changes.
 - New endpoints support TLS 1.3 and enhanced security requirements.
 - Both endpoint models coexist to support gradual migrations with no service disruption.
+- **TLS 1.3-capable** doesn't mean TLS 1.3 is required for every connection.
+  The client and endpoint negotiate a TLS version and cipher suite they both support.
+  TLS versions and device messaging protocol versions are independent.
+- Device and service endpoints require Server Name Indication (SNI). For cipher
+  suites and protocol details, see [IoT Hub TLS support](iot-hub-tls-support.md#tls-13-support-preview).
 
 ## IoT Hub endpoints for development and management
 
@@ -53,6 +83,11 @@ Azure IoT Hub is a multitenant service that exposes its functionality to various
 :::image type="content" source="./media/iot-hub-devguide-endpoints/endpoints.png" alt-text="Diagram showing the list of built-in IoT Hub endpoints." border="false":::
 
 The following list describes the endpoints:
+
+> [!NOTE]
+> The device protocols and messaging operations listed in this section describe
+> the classic connection profile. For MQTT v5 support and limitations, see
+> [MQTT v5 capabilities](mqtt-v5-capabilities.md).
 
 * **Resource provider**: an [Azure Resource Manager](../azure-resource-manager/management/overview.md) interface. This interface enables Azure subscription owners to create and delete IoT hubs, and to update IoT hub properties. IoT Hub properties govern [hub-level shared access policies](./authenticate-authorize-sas.md#access-control-and-permissions), as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The IoT Hub resource provider also enables you to [export device identities](./iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
@@ -105,6 +140,10 @@ IoT Hub supports the following Azure services as custom endpoints:
 For the limits on endpoints per hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ### Built-in endpoint
+
+The built-in endpoint and fallback routing aren't available for the MQTT v5
+connection profile. Configure an explicit route to a supported destination;
+see [Routing connection profile differences](iot-hub-devguide-messages-d2c.md#connection-profile-differences).
 
 You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once you create any route, data stops flowing to the built-in endpoint unless a route is created to that endpoint. Even if you don't create any routes, you must enable a fallback route to route messages to the built-in endpoint. The fallback is enabled by default if you create your hub by using the portal or the CLI.
 

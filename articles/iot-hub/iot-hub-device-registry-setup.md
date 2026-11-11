@@ -157,7 +157,7 @@ Use the detailed guidance to complete and test the device lifecycle:
 
 MQTT v5 devices obtain and renew operational certificates through DPS, not
 directly through the hub. Follow the profile's
-[DPS certificate issuance and renewal guidance](mqtt-v5-tls-requirements.md#operational-certificate-management);
+[DPS certificate issuance and renewal guidance](mqtt-v5-device-setup.md#operational-certificate-management);
 those flows are unchanged.
 
 <!-- REVIEW BLOCKER: Verify the GA certificate management default and selection

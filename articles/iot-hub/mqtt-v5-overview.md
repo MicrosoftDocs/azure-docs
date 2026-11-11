@@ -39,7 +39,7 @@ Consider Azure IoT Hub with the MQTT v5 connection profile when your solution:
 - Benefits from an integrated device identity, state, control, and monitoring experience.
 - Is able to use preview capabilities and accommodate possible changes before general availability.
 
-Use the [capability comparison](compare-iot-hub-connectivity.md) before choosing the profile. Some classic IoT Hub protocols and features aren't available in preview.
+Use the [connection profile comparison](mqtt-v5-capabilities.md#compare-connection-profiles) before choosing the profile. Some classic IoT Hub protocols and features aren't available in preview.
 
 ## Key capabilities
 
@@ -144,10 +144,9 @@ device-side lifecycle client.
 
 ## Next steps
 
-- Review [Capabilities of Azure IoT Hub with the MQTT v5 connection profile](mqtt-v5-capabilities.md).
-- [Compare Azure IoT Hub connectivity options](compare-iot-hub-connectivity.md).
+- [Compare connection profiles and review MQTT v5 capabilities](mqtt-v5-capabilities.md).
 - Follow the [end-to-end setup journey](mqtt-v5-get-started.md).
 - [Set up Azure IoT Hub with the MQTT v5 connection profile](mqtt-v5-cloud-setup.md).
-- [Configure routing and destinations](mqtt-v5-route-messages.md).
+- [Configure routing and destinations](iot-hub-devguide-messages-d2c.md).
 - [Configure a device with the unified SDKs](mqtt-v5-device-setup.md).
 - [Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).

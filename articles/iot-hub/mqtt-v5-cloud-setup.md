@@ -557,7 +557,9 @@ Use the same resource group for this walkthrough.
 Devices authenticate to the hub with X.509 certificates only. Use SAS as an
 onboarding credential for the configured issuance path, not as a direct hub
 connectivity credential. See
-[TLS and X.509 requirements](mqtt-v5-tls-requirements.md).
+[X.509 device authentication](mqtt-v5-device-setup.md#x509-device-authentication).
+For hostnames and TLS requirements, see
+[IoT Hub endpoints](iot-hub-devguide-endpoints.md#tls-13-enabled-endpoints).
 
 ## Configure certificate issuance through DPS
 
@@ -651,5 +653,5 @@ device provisioning and downstream delivery are verified later.
 ## Next steps
 
 - [Configure custom topic groups](mqtt-v5-custom-topics.md).
-- [Configure routes and downstream delivery](mqtt-v5-route-messages.md).
+- [Configure routes and downstream delivery](iot-hub-devguide-messages-d2c.md).
 - [Connect a device and send telemetry](mqtt-v5-device-setup.md).

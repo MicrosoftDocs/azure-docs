@@ -6,7 +6,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 11/10/2026
 ms.custom: ['Role: Cloud Development', devx-track-csharp]
 ---
 
@@ -22,21 +22,51 @@ The IoT Hub defines a common format for all device-to-cloud messaging for intero
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
+## Connection profile differences
+
+The routing model is shared across connection profiles, but available data
+sources, endpoints, and operations depend on the profile. Classic-profile hubs
+support the built-in endpoint and fallback routing. For the MQTT v5 profile
+(preview):
+
+- The built-in `messages/events` endpoint isn't available. Don't use a reader
+  or a Fabric IoT Hub source that depends on that endpoint.
+- Fallback routing isn't supported. Messages that match no enabled route
+  aren't delivered to your configured destinations.
+- Configure explicit, enabled routes to supported destinations. For initial
+  verification, use device telemetry as the source and condition `true` to
+  create an all-messages path. This normal route isn't fallback, and IoT Hub
+  doesn't create it automatically. After testing, retain it only if your
+  application needs that path.
+
+These restrictions don't remove the built-in endpoint or fallback from
+classic-profile hubs. For supported destinations and their requirements, see
+[Custom endpoints for message routing](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
+For MQTT v5 filtering, see
+[Topic and user-property queries](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties).
+Check [MQTT v5 capabilities](mqtt-v5-capabilities.md) before using features
+described for the classic connection profile.
+
 ## Routing endpoints
 
-Each IoT hub has a default routing endpoint called **messages/events** that is compatible with Event Hubs. You also can create custom endpoints that point to other services in your Azure subscription.
+Hubs with the classic connection profile have a default routing endpoint called **messages/events** that is compatible with Event Hubs. You can also create custom endpoints that point to supported Azure services or Microsoft Fabric eventstreams. Hubs with the MQTT v5 connection profile use custom endpoints only.
 
 IoT Hub currently supports the following endpoints for message routing:
 
-* Built-in endpoint
+* Built-in endpoint (classic connection profile only)
 * Storage containers
 * Service Bus queues
 * Service Bus topics
 * Event Hubs
 * Cosmos DB
-* Microsoft Fabric Eventstreams (preview)
+* Microsoft Fabric Eventstreams
 
 For more information about each of these endpoints, see [IoT Hub endpoints](./iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
+
+The Fabric Eventstream endpoint is generally available for both connection
+profiles; the MQTT v5 connection profile remains in preview.
+For preview route schema references and endpoint payload formats, see
+[Prepare telemetry for agents and analytics](iot-hub-agent-ready-data.md).
 
 Each message is routed to all endpoints whose routing queries it matches, which means that a message can be routed to multiple endpoints. However, if a message matches multiple routes that point to the same endpoint, IoT Hub delivers the message to that endpoint only once.
 
@@ -89,6 +119,10 @@ Use the following articles to learn how to read messages from an endpoint.
 
 ## Fallback route
 
+Fallback routing is available for the classic connection profile, but not for the MQTT v5
+connection profile. An explicit route with the condition `true` selects all device
+telemetry. This route isn't a fallback route and you must create it separately.
+
 The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in endpoint (**messages/events**), which is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is enabled, you can enable the fallback route capability. Once any route is created, data stops flowing to the built-in endpoint, unless a route is created to that endpoint. If there are no routes to the built-in endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes are sent to the built-in endpoint. Even if all existing routes are deleted, the fallback route capability must be enabled to receive all data at the built-in endpoint.
 
 You can enable or disable the fallback route in the Azure portal on the **Message routing** page. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for the fallback route.
@@ -135,5 +169,3 @@ IoT Hub provides several metrics related to routing and endpoints to give you an
 You can use the REST API [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get the health status of endpoints.
 
 Use the [troubleshooting guide for routing](troubleshoot-message-routing.md) for more details and support for troubleshooting routing.
-
-

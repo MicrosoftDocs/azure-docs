@@ -6,7 +6,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 10/25/2026
+ms.date: 11/10/2026
 ---
 
 # Monitor and troubleshoot Azure IoT Hub with the MQTT v5 connection profile
@@ -182,7 +182,7 @@ az extension show --name azure-iot --query version --output tsv
 | Linking reports a permission error | Check the caller's role-assignment permission and the service identities and scopes in [hub setup](mqtt-v5-cloud-setup.md#configure-the-linked-resources). |
 | DPS reports no hub with availability `Available` | Inspect the namespace's hub endpoint, link state, availability, and allocation weight. These properties must be configured when you create the link. Don't delete resources as a first troubleshooting step. |
 | Direct DPS hub linking is rejected | Use `az iot adr ns link add` for this profile rather than `az iot dps linked-hub create`. |
-| A routing condition is rejected with a syntax error | Read back the saved condition and check shell quoting. See the PowerShell example in [topic and user-property filters](mqtt-v5-route-messages.md#filter-by-mqtt-topic-and-user-properties). |
+| A routing condition is rejected with a syntax error | Read back the saved condition and check shell quoting. Compare the expression with [Topic and user-property queries](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties). |
 
 ### Inspect a partially completed link
 
@@ -247,7 +247,7 @@ isn't evidence of successful linking. Also check the hub endpoint's
 For a hub configuration update that returns HTTP `412`, use a new GET and
 reapply the intended change to the latest resource. Don't drop the `If-Match`
 header or update only the ETag on an old body. See
-[Apply configuration changes to your MQTT v5 hub through ARM REST](mqtt-v5-route-messages.md#apply-configuration-changes-to-your-mqtt-v5-hub-through-arm-rest).
+[Update an existing IoT hub through ARM REST](mqtt-v5-custom-topics.md#update-an-existing-iot-hub-through-arm-rest).
 
 ## Monitor a test run
 
@@ -294,7 +294,7 @@ when investigating custom-topic behavior.
 A route's **Data schema reference** doesn't validate or transform the payload.
 The endpoint's **Message format** and its transport envelope determine how
 the consumer must locate the original data. For format and enrichment checks,
-see [Verify the Fabric message format and enrichment](mqtt-v5-route-messages.md#verify-the-fabric-message-format-and-enrichment).
+see [Verify actual delivery at the destination](mqtt-v5-device-setup.md#verify-actual-delivery-at-the-destination).
 
 ## Configure actionable alerts
 
@@ -310,6 +310,8 @@ alert configuration methods, see
 
 ## Next steps
 
-- Recheck [routing and destination verification](mqtt-v5-route-messages.md).
-- Review [TLS and certificate troubleshooting](mqtt-v5-tls-requirements.md).
+- Recheck [routing](iot-hub-devguide-messages-d2c.md) and
+  [destination delivery verification](mqtt-v5-device-setup.md#verify-actual-delivery-at-the-destination).
+- Review [IoT Hub endpoints and TLS](iot-hub-devguide-endpoints.md#tls-13-enabled-endpoints)
+  and [device certificate troubleshooting](mqtt-v5-device-setup.md#troubleshoot-a-secure-connection).
 - Use destination-specific analytics guidance once the data pipeline is healthy.

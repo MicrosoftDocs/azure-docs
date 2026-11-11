@@ -102,7 +102,7 @@ DPS is required for the initial provisioning and managed certificate issuance fl
 
 Set up an ADR issuing certificate authority and policy, and reference them in the DPS enrollment. The device authenticates to DPS by using a SAS or X.509 onboarding credential and sends a certificate signing request (CSR) to get an operational X.509 certificate. For renewal, the device uses its valid onboarding credential and sends a new CSR through DPS. The MQTT v5 hub doesn't support direct certificate management. DPS issuance and renewal are still supported.
 
-A device with a suitable existing X.509 certificate can also provision without requesting a new certificate and use that certificate for hub authentication. See [DPS onboarding and certificates](mqtt-v5-tls-requirements.md#device-provisioning-service-dps-onboarding-and-certificates).
+A device with a suitable existing X.509 certificate can also provision without requesting a new certificate and use that certificate for hub authentication. See [DPS onboarding and certificates](mqtt-v5-device-setup.md#device-provisioning-service-dps-onboarding-and-certificates).
 
 <a id="azure-iot-hub-with-the-mqtt-v5-connection-profile"></a>
 
@@ -154,7 +154,7 @@ Devices can publish to customer-defined topics that match the configured topic t
 
 ### Can my backend continue reading telemetry from the built-in endpoint?
 
-Not for telemetry sent to an MQTT v5 hub. This profile doesn't provide the built-in `messages/events` destination, and it disables fallback routing. Configure a supported destination and an explicit, enabled all-messages route with condition `true`, then configure your backend to consume from that destination. You can add selective routes for specific messages. The all-messages route is a normal route, not a fallback route. See [Route messages to destinations](mqtt-v5-route-messages.md).
+Not for telemetry sent to an MQTT v5 hub. This profile doesn't provide the built-in `messages/events` destination, and it disables fallback routing. Configure a supported destination and an explicit, enabled all-messages route with condition `true`, then configure your backend to consume from that destination. You can add selective routes for specific messages. The all-messages route is a normal route, not a fallback route. See [Routing connection profile differences](iot-hub-devguide-messages-d2c.md#connection-profile-differences).
 
 ## Scale, telemetry, and troubleshooting
 

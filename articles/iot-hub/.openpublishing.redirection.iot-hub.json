@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/iot-hub/compare-iot-hub-connectivity.md",
+      "redirect_url": "/azure/iot-hub/mqtt-v5-capabilities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/develop-unified-iot-sdks.md",
+      "redirect_url": "/azure/iot/device-registry/concept-unified-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/mqtt-v5-tls-requirements.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-endpoints#tls-13-enabled-endpoints",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-platform-support.md",
       "redirect_url": "/azure/iot/iot-sdks",
       "redirect_document_id": false

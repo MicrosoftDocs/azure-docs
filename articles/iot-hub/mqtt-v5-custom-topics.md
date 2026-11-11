@@ -29,7 +29,7 @@ destination. Custom-topic subscriptions aren't part of this preview workflow.
 - Identify the device identities that will publish.
 - Decide which downstream applications need each message category.
 - A development environment configured for the unified Azure IoT SDK for .NET
-  or C. See [Develop with unified Azure IoT SDKs](develop-unified-iot-sdks.md).
+  or C. See [Available SDKs](/azure/iot/device-registry/concept-unified-iot-sdks#available-sdks).
 - For CLI commands, complete the
   [preview CLI setup](mqtt-v5-cloud-setup.md?tabs=cli#create-azure-iot-hub-with-the-mqtt-v5-connection-profile) and use the same CLI session.
 
@@ -253,7 +253,7 @@ not a complete resource request or a standalone deployment template.
   `properties` in your ARM template. ARM can configure the group at creation,
   unlike the native CLI creation command.
 - **After creating your MQTT v5 hub:** follow
-  [Apply configuration changes to your MQTT v5 hub through ARM REST](mqtt-v5-route-messages.md#apply-configuration-changes-to-your-mqtt-v5-hub-through-arm-rest).
+  [Update an existing IoT hub through ARM REST](#update-an-existing-iot-hub-through-arm-rest).
   If a group already exists, edit that entry and retain its `topicGroupId`;
   don't append a second group. Otherwise, add the single group shown above.
   Include the full template list you want to retain, up to 10 templates, and
@@ -275,6 +275,70 @@ configuration as well; a topic change must not remove the delivery path.
 
 ---
 
+## Update an existing IoT hub through ARM REST
+
+Use this procedure to apply the custom topic group ARM example to an
+existing MQTT v5 hub. Sign in with `az login` first. This procedure updates
+configuration; it doesn't change the hub's connection profile. The examples
+use API version `2026-10-01-preview` so that the read and update represent
+the configured preview properties.
+
+> [!IMPORTANT]
+> An IoT Hub `PUT` replaces the resource configuration. Don't submit a partial
+> fragment or redeploy a creation-only template. Preserve identities,
+> associations, routes, endpoints, enrichments, custom topic groups, and
+> unrelated settings. Use an API version that represents all configured features.
+
+1. Read the resource with the API version you'll use for the update.
+   `<HUB_RESOURCE_ID>` is the full resource ID, beginning with `/subscriptions/`.
+
+   ```azurecli
+   az rest --method get --uri "https://management.azure.com<HUB_RESOURCE_ID>?api-version=2026-10-01-preview" --output-file "hub-update.json"
+   ```
+
+1. Edit only the settings you intend to change in `hub-update.json`, locating existing
+   entries by name. Restore any omitted or redacted endpoint credentials from
+   secure configuration; never submit masked values or placeholders. Keep
+   this sensitive file out of source control.
+
+1. Put the original GET's ETag in `hub-update.headers.json`:
+
+   ```json
+   {
+     "Content-Type": "application/json",
+     "If-Match": "\"<ETAG_VALUE>\""
+   }
+   ```
+
+   This example adds HTTP quotation marks to an unquoted ETag. If the returned
+   ETag is already quoted, preserve those quotes once. Don't use `*`.
+
+1. Submit the complete resource with the conditional header:
+
+   ```azurecli
+   az rest --method put --uri "https://management.azure.com<HUB_RESOURCE_ID>?api-version=2026-10-01-preview" --headers "@hub-update.headers.json" --body "@hub-update.json" --output none
+   ```
+
+   On HTTP `412`, read the latest resource and reapply your change. Don't
+   update only the ETag on an old body or retry without the condition.
+   Resolve other errors before continuing.
+
+1. Wait for completion and inspect the state:
+
+   ```azurecli
+   az resource wait --ids "<HUB_RESOURCE_ID>" --api-version "2026-10-01-preview" --created --interval 15 --timeout 1800
+   ```
+
+   ```azurecli
+   az rest --method get --uri "https://management.azure.com<HUB_RESOURCE_ID>?api-version=2026-10-01-preview" --query "{state:properties.state,provisioningState:properties.provisioningState}" --output json
+   ```
+
+   Confirm `provisioningState` is `Succeeded` and `state` is `Active`.
+   Read back the changed settings and verify that unrelated configuration
+   is retained. Remove sensitive request files when no longer needed.
+   A successful update doesn't replace a device publishing and
+   destination-receipt test.
+
 ## Verify the configuration
 
 Reopen the group in the portal or read it back by using the CLI or ARM REST commands
@@ -287,7 +351,7 @@ in this article. Confirm that:
 
 ## Next steps
 
-- [Configure routes and downstream delivery](mqtt-v5-route-messages.md).
+- [Configure topic-based routing](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties).
 - [Configure a device and publish messages](mqtt-v5-device-setup.md).
-- [Choose payloads and develop with the SDKs](develop-unified-iot-sdks.md).
+- [Choose a payload and run the SDK examples](mqtt-v5-device-setup.md#choose-a-payload-for-the-first-test).
 - [Monitor routing and troubleshoot delivery](mqtt-v5-monitor-troubleshoot.md).

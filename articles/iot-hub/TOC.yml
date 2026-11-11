@@ -26,26 +26,20 @@
   items:
     - name: Overview
       href: mqtt-v5-overview.md
-    - name: Supported capabilities
+    - name: Capabilities and connection profiles
       href: mqtt-v5-capabilities.md
-    - name: Compare connectivity options
-      href: compare-iot-hub-connectivity.md
     - name: Get started
       href: mqtt-v5-get-started.md
     - name: Set up cloud resources
       href: mqtt-v5-cloud-setup.md
     - name: Configure custom topics
       href: mqtt-v5-custom-topics.md
-    - name: Route messages to destinations
-      href: mqtt-v5-route-messages.md
-    - name: Develop with the unified SDKs
-      href: develop-unified-iot-sdks.md
     - name: Connect a device
       href: mqtt-v5-device-setup.md
-    - name: TLS and X.509 requirements
-      href: mqtt-v5-tls-requirements.md
     - name: Monitor and troubleshoot
       href: mqtt-v5-monitor-troubleshoot.md
+    - name: Frequently asked questions
+      href: iot-hub-faq.md#azure-iot-hub-with-the-mqtt-v5-connection-profile
 - name: Plan and scale your IoT Hub
   items:
     - name: Choose the right IoT Hub tier
@@ -224,6 +218,8 @@
     - name: Choose an IoT Hub SDK
       href: iot-hub-devguide-sdks.md
       displayName: device SDK, service SDK, management SDK, compatibility
+    - name: Unified Azure IoT SDKs
+      href: ../iot/device-registry/concept-unified-iot-sdks.md
     - name: Understand job scheduling
       href: iot-hub-devguide-jobs.md
     - name: Create back-end app to schedule jobs

@@ -58,6 +58,18 @@ that contract belongs in the producer or downstream processing stage. Keep the
 original-payload schema reference distinct from the identifier of a standardized
 observation format.
 
+The reference is optional. In this preview, IoT Hub stores it as a string;
+saving a route doesn't validate it against a registry, and routing doesn't
+dereference it or validate each payload. The reference doesn't change the routing
+query or transform the payload. Route-query testing isn't schema validation or
+a test of the delivered format.
+
+Leave the reference unset if you don't have one. Use a reference that describes
+every message selected by the route. If telemetry and fault messages use
+different schemas, use separate routes with appropriate conditions and references.
+For destinations that emit CloudEvents, the corresponding envelope attribute
+is `dataschema`. Don't assume every destination emits CloudEvents.
+
 ## Select the endpoint's message format
 
 The endpoint's **Message format** maps to `messagePayloadFormat` in ARM and
@@ -113,11 +125,27 @@ reads the temperature from the first observation's `payload.value.temperature`.
 The identifier `com.do.telemetry.observation.v1` describes that structure,
 while the route schema reference describes the original temperature payload.
 
+Standardized output doesn't rename fields, convert units, flatten objects,
+or normalize the inner payload against your schema. Where configured, the
+device's ADR device type reference supplies its semantic type; a route's data
+schema reference doesn't assign a device type. A missing device type reference
+produces null type fields, rather than preventing observation output.
+
+> [!IMPORTANT]
+> Message format belongs to the endpoint, not to an individual route.
+> Changing it affects all routes that target that endpoint. Use separate
+> endpoints if consumers need different formats, and verify the actual output
+> before changing a shared endpoint.
+
 Fabric uses a CloudEvents representation for routed messages. The CloudEvents
 context identifies the event, its source, and its subject. The selected message
 format determines how its data is represented. Preserve both the payload and
 its associated metadata when defining Eventstream transformations and
 downstream tables.
+
+Fabric uses a CloudEvents envelope independently of the message-format choice.
+Selecting Standardized doesn't enable CloudEvents on other endpoint types,
+and the observation array isn't a CloudEvents batch.
 
 See [Routing endpoint formats](iot-hub-devguide-endpoints.md) and
 [Message schema at routing endpoints](iot-hub-devguide-messages-construct.md#message-schema-at-routing-endpoints).
