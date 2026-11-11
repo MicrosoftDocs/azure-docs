@@ -108,14 +108,9 @@ For example, if you buy a single S1 unit, you get a throttle of 100 connections/
 
 ## Plan device-identity capacity and request an increase
 
-Don't treat one million identities as a universal maximum for every Standard
-hub configuration. Before provisioning a larger fleet, verify the identity
-capacity available to your hub and any required capacity approval.
-
-If you need to grow beyond one million, contact Azure support for a capacity
-assessment before relying on that capacity. A support request isn't automatic
-approval or a guarantee of capacity in a particular region. Adding hub units
-doesn't establish an unlimited device-identity entitlement.
+IoT Hub can support up to five million registered devices per instance. If you
+need to grow beyond one million registered devices, contact Azure support to
+configure extended capacity for your hub.
 
 <!-- REVIEW BLOCKER: Confirm the default/tier/unit identity capacity table and
 whether each threshold counts devices alone or devices plus modules. Do not

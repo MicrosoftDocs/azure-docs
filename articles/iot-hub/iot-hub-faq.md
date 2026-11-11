@@ -160,7 +160,7 @@ Not for telemetry sent to an MQTT v5 hub. This profile doesn't provide the built
 
 ### How do I plan a fleet above one million devices?
 
-For fleets of up to five million devices, review the supported hub configuration, identity capacity, and workload requirements before provisioning. Account for device and module counts, concurrent connections, telemetry volume, and routing requirements. If you need capacity beyond one million, contact Azure support for a capacity assessment; an increase is subject to approval. See [Plan device-identity capacity and request an increase](iot-hub-devguide-quotas-throttling.md#plan-device-identity-capacity-and-request-an-increase).
+IoT Hub can support up to five million registered devices per instance. If you need to grow beyond one million registered devices, contact Azure support to configure extended capacity for your hub. Account for device and module counts, concurrent connections, telemetry volume, and routing requirements. See [Plan device-identity capacity and request an increase](iot-hub-devguide-quotas-throttling.md#plan-device-identity-capacity-and-request-an-increase).
 
 ### What are the quotas and limits for IoT Hub with ADR and certificate management?
 
