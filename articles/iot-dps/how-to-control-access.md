@@ -291,7 +291,7 @@ The following table lists the permissions you can use to control access to your 
 | --- | --- |
 | **ServiceConfig** |Grants access to change the service configurations. <br/>This permission is used by backend cloud services. |
 | **EnrollmentRead** |Grants read access to the device enrollments and enrollment groups. <br/>This permission is used by backend cloud services. |
-| **EnrollmentWrite** |Grants write access to the device enrollments and enrollment groups. <br/>This permission is used by backend cloud services. |
+| **EnrollmentWrite** |Grants read and write access to device enrollments and enrollment groups. <br/>Includes EnrollmentRead, RegistrationStatusRead, and RegistrationStatusWrite. <br/>This permission is used by backend cloud services. |
 | **RegistrationStatusRead** |Grants read access to the device registration status. <br/>This permission is used by backend cloud services. |
 | **RegistrationStatusWrite**  |Grants delete access to the device registration status. <br/>This permission is used by backend cloud services. |
 
