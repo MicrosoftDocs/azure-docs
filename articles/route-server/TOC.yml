@@ -19,6 +19,8 @@
   items:
   - name: Peer Route Server with NVA
     href: peer-route-server-with-virtual-appliance.md
+  - name: Configure dual-stack Route Server - PowerShell (preview)
+    href: tutorial-configure-route-server-nva-dual-stack-powershell.md
   - name: Deploy Route Server with DDoS protection
     href: tutorial-protect-route-server-ddos.md
 - name: Concepts
@@ -53,8 +55,16 @@
   items:
   - name: Configure and manage Route Server
     href: configure-route-server.md
+  - name: Enable IPv4/IPv6 dual-stack (preview)
+    href: enable-route-server-dual-stack.md
+  - name: Configure customer-controlled maintenance
+    href: configure-customer-controlled-maintenance.md
+  - name: View effective routes
+    href: view-route-server-effective-routes.md
   - name: Configure route maps
     href: route-maps-how-to.md
+  - name: Configure dual-stack route maps - Portal (preview)
+    href: route-maps-dual-stack-portal.md
   - name: Route maps scenarios
     items:
     - name: Prepend routes
@@ -63,6 +73,8 @@
       href: route-maps-scenario-tag-bgp-communities.md
     - name: Drop inbound routes
       href: route-maps-scenario-drop-inbound-routes.md
+    - name: Apply route maps to an NVA in a spoke
+      href: route-maps-scenario-spoke-network-virtual-appliance.md
 - name: Monitor and troubleshoot
   items:
   - name: Monitor Route Server

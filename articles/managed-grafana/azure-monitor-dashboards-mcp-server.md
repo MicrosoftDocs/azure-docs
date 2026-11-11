@@ -1,11 +1,11 @@
 ---
 title: Connect to the Azure Monitor dashboards with Grafana remote MCP server
-description: Query Azure subscriptions, resources, metrics, logs, traces, and service health from GitHub Copilot through the global Azure Monitor dashboards with Grafana MCP endpoint, without an Azure Managed Grafana instance.
-#customer intent: As a developer, I want to connect my MCP client to the global Azure Monitor dashboards with Grafana MCP endpoint so that I can query my Azure monitoring data without deploying an Azure Managed Grafana instance.
+description: Query Azure monitoring and cost data, inspect health models, and update saved dashboards from GitHub Copilot through the global Azure Monitor dashboards with Grafana MCP endpoint.
+#customer intent: As a developer, I want to connect my MCP client to the global Azure Monitor dashboards with Grafana MCP endpoint so that I can query my Azure monitoring data and work with my dashboards without deploying an Azure Managed Grafana instance.
 author: weng5e
 ms.author: wuweng
 ms.reviewer: wuweng
-ms.date: 10/29/2026
+ms.date: 11/09/2026
 ms.topic: how-to
 ms.service: azure-managed-grafana
 ---
@@ -15,7 +15,7 @@ ms.service: azure-managed-grafana
 > [!TIP]
 > To get started quickly, use [one-click connect in Visual Studio Code](https://aka.ms/join-dashboard-mcp). Confirm the installation and sign in with your Microsoft Entra ID user account.
 
-Azure Monitor dashboards with Grafana provides a global remote Model Context Protocol (MCP) endpoint for querying Azure monitoring data. You don't need to create an Azure Managed Grafana resource, deploy an MCP server, or configure a Grafana data source.
+Azure Monitor dashboards with Grafana provides a global remote Model Context Protocol (MCP) endpoint for querying Azure monitoring and cost data, inspecting health models, and finding, inspecting, or updating saved dashboards. You don't need to create an Azure Managed Grafana resource, deploy an MCP server, or configure a Grafana data source.
 
 Each tool runs as the signed-in Microsoft Entra ID user, in the tenant they signed in to. The user's own Azure permissions determine which subscriptions, resources, and data are accessible.
 
@@ -37,13 +37,25 @@ The connection URL doesn't need a Grafana instance name, subscription ID, resour
 - An MCP client that supports remote HTTP servers, such as Visual Studio Code with GitHub Copilot or GitHub Copilot CLI.
 - A Microsoft Entra ID user account with access to the Azure resources you want to query.
 - Appropriate Azure permissions on the target scopes. Monitoring and log queries require their respective read permissions. Signing in to the MCP server doesn't grant extra access.
+- To update a saved dashboard, write permissions on that dashboard.
+- To query Azure Monitor managed service for Prometheus metrics, a data role on the Azure Monitor workspace, such as **Monitoring Data Reader**. Permission to list a workspace doesn't necessarily grant access to its metrics.
 - For the manual token option, the [Azure CLI](/cli/azure/install-azure-cli) signed in as a **user**.
 
 You don't need to provision an Azure Managed Grafana resource or assign a Grafana role.
 
 ## Available MCP tools
 
-The following tools query Azure data. None of them require a Grafana data source UID.
+The following tools work with Azure data and Azure Monitor dashboards with Grafana. They don't require a manually configured Grafana data source. Prometheus tools accept an Azure Monitor workspace resource ID or the `datasourceUid` value that workspace discovery returns.
+
+### Dashboards
+
+| Tool name | Description |
+|-----------|-------------|
+| `amgmcp_dashboard_search` | Finds saved and built-in dashboards, and returns dashboard UIDs and Azure portal links. |
+| `amgmcp_dashboard_inspect` | Reads dashboard summaries, panels, queries, template variables, or selected JSON properties. Can prepare Azure Monitor Logs and Azure Data Explorer panel queries for execution. |
+| `amgmcp_dashboard_update` | Patches or replaces an existing saved dashboard. Supports validation without saving, and version checks to protect concurrent edits. Can't create dashboards or modify built-in dashboards. |
+
+### Azure monitoring and costs
 
 | Tool name | Description |
 |-----------|-------------|
@@ -56,8 +68,30 @@ The following tools query Azure data. None of them require a Grafana data source
 | `amgmcp_query_activity_log` | Queries management-plane events such as resource updates, deployments, and role-based access control (RBAC) changes. |
 | `amgmcp_query_resource_health` | Queries current resource availability or historical availability transitions. |
 | `amgmcp_query_resource_health_events` | Queries service incidents, planned maintenance, and health advisories. |
+| `amgmcp_cost_analysis` | Analyzes Azure costs by service, region, resource type, resource group, or individual resource. |
 
-Unlike the instance-based [Azure Managed Grafana remote MCP server](./grafana-mcp-server.md), this endpoint doesn't expose Grafana dashboard management, Grafana alert management, or tools for other configured Grafana data sources.
+### Azure Monitor managed service for Prometheus
+
+| Tool name | Description |
+|-----------|-------------|
+| `amgmcp_prometheus_list_workspaces` | Discovers accessible Azure Monitor workspaces and their Prometheus data source UIDs. |
+| `amgmcp_prometheus_list_metric_names` | Lists metric names, with regex filtering and pagination. |
+| `amgmcp_prometheus_list_label_names` | Lists label names for a workspace over an optional time range. |
+| `amgmcp_prometheus_query` | Runs PromQL range or instant queries against an Azure Monitor workspace. |
+
+### Azure Data Explorer (Kusto)
+
+| Tool name | Description |
+|-----------|-------------|
+| `amgmcp_kusto_get_metadata` | Discovers clusters, databases, table schemas, and stored function metadata. |
+| `amgmcp_kusto_query` | Runs KQL against a specified Azure Data Explorer cluster and database as the signed-in user. |
+
+### Azure Monitor health models
+
+| Tool name | Description |
+|-----------|-------------|
+| `amgmcp_health_model_inspect` | Reads a health model's entity graph, health states, signals, and rollup relationships, either currently or at a past time. |
+| `amgmcp_health_model_get_history` | Retrieves an entity's state changes or a signal's evaluations over time, within the service's 30-day retention window. |
 
 ## Connect with GitHub Copilot
 
@@ -167,7 +201,7 @@ Start the server and paste the token into the protected input when prompted. Man
 
 ## Example prompts
 
-After you connect, try these prompts in Copilot Chat or in an interactive GitHub Copilot CLI session. Replace the placeholders with your own subscription, resource, and operation IDs.
+After you connect, try these prompts in Copilot Chat or in an interactive GitHub Copilot CLI session. Replace the placeholders with your own values, such as subscription, resource, operation, and dashboard IDs, an Azure Data Explorer cluster URL and database, and health model entity names.
 
 ```text
 List the Azure subscriptions I can access.
@@ -187,6 +221,20 @@ Show management-plane changes in subscription <subscription-id> over the last da
 Check the current availability of resource <resource-id>.
 
 Show service-health events updated in the last 30 days for subscription <subscription-id>.
+
+Show costs for subscription <subscription-id> over the last 30 days, grouped by resource group, then identify the most expensive individual resources.
+
+Find saved and built-in Kubernetes dashboards, then inspect the panels and queries of dashboard <dashboard-uid>.
+
+Inspect saved dashboard <dashboard-uid> and preview renaming panel <panel-id> to "CPU usage" using validateOnly=true and its current version. Don't save the change.
+
+List Azure Monitor workspaces in subscription <subscription-id>, discover their Prometheus metric and label names, then query up over the last hour for workspace <workspace-resource-id>.
+
+Show the schema of database <database> on Azure Data Explorer cluster <cluster-url>, then summarize row counts in a table using its exact name.
+
+Find Azure Monitor health models in subscription <subscription-id> and inspect health model <health-model-resource-id> to explain which signals are making it unhealthy.
+
+Show the state changes for entity <entity-name> in health model <health-model-resource-id> over the last 24 hours.
 ```
 
 ## Related content

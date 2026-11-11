@@ -1,9 +1,9 @@
 ---
 title: End-to-end network-hardened deployment for Microsoft Discovery
-description: Learn how to deploy a fully network-hardened Microsoft Discovery stack where all traffic stays within your virtual network, including workspace, bookshelf, supercomputer, and customer storage.
+description: Learn how to deploy a Microsoft Discovery stack with private data-plane access for workspaces, bookshelves, and customer storage while planning outbound dependencies.
 ms.service: azure
 ms.topic: how-to
-ms.date: 08/05/2026
+ms.date: 11/10/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -11,7 +11,7 @@ ms.custom: networking, private-link, nsp
 
 # End-to-end network-hardened deployment
 
-This guide walks you through deploying a complete Microsoft Discovery stack where **all traffic stays within your virtual network**. By the end, your workspace data-plane APIs, bookshelf search, supercomputer jobs, and customer blob storage are all accessible exclusively through private endpoints - with zero public internet exposure.
+This guide walks you through deploying a Microsoft Discovery stack with private workspace data-plane, Bookshelf, and customer-storage access. Private data-plane access doesn't eliminate outbound platform dependencies or control-plane access requirements. Plan firewall and FQDN rules and verify the actual network paths before deployment.
 
 ## What you build
 
@@ -19,8 +19,8 @@ This guide walks you through deploying a complete Microsoft Discovery stack wher
 
 | Component | Network protection | Access path |
 |-----------|-------------------|-------------|
-| **Workspace data-plane** | Private endpoint to Azure backbone | `{name}.workspace.discovery.azure.com` resolves to private IP |
-| **Bookshelf data-plane** | Private endpoint to Azure backbone | `{name}.bookshelf.discovery.azure.com` resolves to private IP |
+| **Workspace data-plane** | Private endpoint to Azure backbone | Hostname from `properties.workspaceApiUri` resolves to private IP |
+| **Bookshelf data-plane** | Private endpoint to Azure backbone | Hostname from `properties.bookshelfUri` resolves to private IP |
 | **Managed resources** | Network Security Perimeter (NSP) Enforced + MRG private endpoints | Accessible only to Discovery service components |
 | **Supercomputer / Nodepool** | Virtual network injected | Runs in your virtual network subnet, accesses managed resources through private endpoints |
 | **Customer blob storage** | Private endpoint + no public access + no keys | Accessible only through PE with managed identity RBAC |
@@ -30,6 +30,7 @@ This guide walks you through deploying a complete Microsoft Discovery stack wher
 - An Azure subscription with **Microsoft.Discovery** registered
 - Azure CLI 2.50+
 - A user-assigned managed identity (UAMI)
+- The [Platform Administrator persona permissions](concept-role-assignments.md#roles-required-by-persona) and [required UAMI roles](how-to-configure-managed-identity.md#assign-required-roles)
 - Network hardening prerequisites completed (see [Configure network security](how-to-configure-network-security.md#prerequisites))
 
 ## Step 1: Plan your virtual network
@@ -52,35 +53,35 @@ Create the subnets:
 | `bs-search` | `10.200.4.0/27` | Bookshelf search services |
 | `sc-aks` | `10.200.6.0/24` | Supercomputer cluster |
 | `sc-nodepool` | `10.200.5.0/24` | Supercomputer nodepool |
-| `sc-mgmt` *(optional)* | `10.200.7.0/28` | Supercomputer AKS API server (VNet Integration). Only needed if you set `properties.managementSubnetId` on the Supercomputer. `/28` is the floor. Delegate to `Microsoft.ContainerService/managedClusters`. |
+| `sc-mgmt` *(optional for LoadBalancer)* | `10.200.7.0/28` | Supercomputer AKS API server VNet integration. Required for `UserDefinedRouting` and private supercomputers. `/28` is the floor. Delegate to `Microsoft.ContainerService/managedClusters`. |
 | `pe-storage` | `10.200.11.0/27` | Customer blob storage PE |
 
 ```azurecli
-az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name agent-ws --address-prefixes 10.200.1.0/27
-az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name workspace-ws --address-prefixes 10.200.2.0/24
+az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name agent-ws --address-prefixes 10.200.1.0/27 --delegations Microsoft.App/environments
+az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name workspace-ws --address-prefixes 10.200.2.0/24 --delegations Microsoft.App/environments
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name pe-ws --address-prefixes 10.200.3.0/27
-az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name bs-search --address-prefixes 10.200.4.0/27
+az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name bs-search --address-prefixes 10.200.4.0/27 --delegations Microsoft.App/environments
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name sc-aks --address-prefixes 10.200.6.0/24
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name sc-nodepool --address-prefixes 10.200.5.0/24
-az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name sc-mgmt --address-prefixes 10.200.7.0/28   # optional — only if using API-Server VNet Integration
+az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name sc-mgmt --address-prefixes 10.200.7.0/28 --delegations Microsoft.ContainerService/managedClusters
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name pe-storage --address-prefixes 10.200.11.0/27
 ```
 
 > [!IMPORTANT]
-> All subnets must be in the same virtual network so managed resources, supercomputer, and storage can communicate privately through VNet-injected endpoints and private endpoints.
+> This example uses one virtual network and the same `{region}` for Discovery resources and workload infrastructure. For separate control-plane and workload regions, follow [Deploy across regions](how-to-deploy-across-regions.md). Keep the VNet, subnets, and managed workload resources together in the target workload region; don't place the workload network in the home region merely because the Discovery resource is there.
 
 ## Step 2: Create the Discovery resource stack
 
 ### Supercomputer (virtual network injected)
 
-Create the supercomputer first so it can be referenced by the workspace. The compute cluster is injected directly into your virtual network subnet. Workload traffic stays private.
+Create the supercomputer first so you can reference it in the workspace. The compute cluster uses your virtual network subnets. The following request doesn't enable a private supercomputer management plane. If you need one, configure `UserDefinedRouting`, a separate delegated management subnet, the creation-time `discovery.enableprivatecluster=true` tag, and the required Private Link service subnet policies before creation. See [Private supercomputer](how-to-configure-supercomputer-network-security.md#private-supercomputer). These settings are separate from workspace and bookshelf client API privacy.
 
 > [!NOTE]
 > Setting `properties.managementSubnetId` on the Supercomputer to a subnet delegated to `Microsoft.ContainerService/managedClusters` (for example, `sc-mgmt` in the preceding section) enables **AKS API-Server VNet Integration**: kubelet on the nodes reaches the API server over a private ILB in that subnet, so the node-to-control-plane data path stays inside the virtual network. For more information, see [Management subnet ID requirements](how-to-configure-network-security.md#management-subnet-id-requirements).
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{scName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{scName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": {
@@ -98,10 +99,16 @@ Add a nodepool after the supercomputer is provisioned:
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{scName}/nodepools/{nodepoolName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{scName}/nodepools/{nodepoolName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
-    "properties": { "vmSize": "Standard_D16s_v5", "minNodeCount": 0, "maxNodeCount": 3, "scaleSetPriority": "Regular" }
+    "properties": {
+      "subnetId": "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/sc-nodepool",
+      "vmSize": "Standard_D16s_v5",
+      "minNodeCount": 0,
+      "maxNodeCount": 3,
+      "scaleSetPriority": "Regular"
+    }
   }'
 ```
 
@@ -109,7 +116,7 @@ az rest --method PUT \
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/bookshelves/{bsName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/bookshelves/{bsName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": {
@@ -126,7 +133,7 @@ Create the workspace after the supercomputer so you can include `supercomputerId
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{wsName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{wsName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": {
@@ -144,6 +151,8 @@ az rest --method PUT \
 ## Step 3: Create private endpoints and configure DNS
 
 Create private endpoints for workspace, bookshelf, and blob storage data-plane access, then configure private DNS zones. For detailed steps including CLI, PowerShell, and portal instructions, see [Create private endpoints for data-plane access](how-to-configure-network-security.md#create-private-endpoints-for-data-plane-access).
+
+After you verify the workspace and bookshelf private paths, [disable public network access](how-to-configure-network-security.md#disable-public-network-access-optional) on both resources. Creating a private endpoint alone doesn't block their public APIs.
 
 ## Step 4: Add network-hardened customer blob storage
 
@@ -191,13 +200,15 @@ az network private-endpoint create \
   --group-id dfs --connection-name pe-dfs-conn
 ```
 
+Configure the [storage private DNS zones and VNet links](/azure/storage/common/storage-private-endpoints#dns-changes-for-private-endpoints) for each endpoint you created. Verify that the client and workload networks resolve the storage endpoints to their private IP addresses.
+
 ### Register the storage with Discovery
 
 Create a Discovery storage container resource that references your blob storage:
 
 ```azurecli
 az rest --method PUT \
-  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/storageContainers/{scName}?api-version=2026-02-01-preview" \
+  --uri "https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/storageContainers/{scName}?api-version=2026-06-01" \
   --body '{
     "location": "{region}",
     "properties": {
@@ -210,7 +221,7 @@ az rest --method PUT \
 ```
 
 > [!TIP]
-> The same UAMI used for the workspace can access the blob storage through RBAC — no storage keys are needed. All access flows through the private endpoint within your virtual network.
+> Configure [project storage CORS and user permissions](how-to-configure-project-storage.md#cors-configuration) before researchers open outputs in Studio. Their browsers also need private connectivity to storage.
 
 ## Step 5: Verify end-to-end network hardening
 
@@ -218,7 +229,7 @@ After deploying all resources and creating private endpoints, verify that DNS re
 
 ## How traffic flows end to end
 
-The following table shows how each traffic path stays within your virtual network:
+The following table describes the configured private data paths. Permit outbound platform and tool dependencies separately.
 
 | Traffic path | Source | Network mechanism | Public internet? |
 |-------------|--------|-------------------|-----------------|
@@ -234,24 +245,16 @@ The following table shows how each traffic path stays within your virtual networ
 
 ### How Discovery resources access managed and customer data
 
-All Discovery resources (workspace, bookshelf, supercomputer) access their managed resources and customer data **entirely through your virtual network**:
+For the configured private paths, workloads resolve the target FQDN through private DNS to a private IP address and connect through the corresponding private endpoint. Verify DNS and routing from each workload network; a client private endpoint doesn't by itself configure backend connectivity or outbound dependencies.
 
-1. The workload resolves the target FQDN through private DNS to a private IP address.
-2. Traffic flows through private endpoints within your virtual network — never over the public internet.
-3. Authentication uses managed identity (UAMI) with RBAC for customer resources — no storage keys or shared secrets.
-
-> [!TIP]
-> By using the same UAMI across workspace, bookshelf, and supercomputer — and assigning it `Storage Blob Data Contributor` on your storage account — all three components can access customer data through the same private endpoint path with zero keys and zero public access.
-
-> [!IMPORTANT]
-> After verifying connectivity, consider [disabling public network access](how-to-configure-network-security.md#disable-public-network-access-optional) on your workspace and bookshelf to ensure that only private endpoint traffic is accepted.
+For customer storage, assign the UAMI the required storage RBAC role. The workspace, bookshelf, and supercomputer can use the same UAMI when you configure it for each resource. Managed identity authentication avoids storage keys but doesn't grant network connectivity: each workload must also be able to resolve and reach the storage private endpoint.
 
 ## Security summary
 
 When you complete this deployment, you have:
 
-- **Zero public endpoints** - all managed resources have `publicNetworkAccess: Disabled` or `SecuredByPerimeter`
-- **Zero internet traversal** - all data-plane traffic stays on Azure backbone through Private Link
+- **Private client data paths** - workspace, Bookshelf, and storage APIs use approved private endpoints and DNS, with their public network access disabled.
+- **Explicit outbound connectivity** - allow the dependencies required by the platform and your tools; private inbound access doesn't eliminate egress.
 - **Defense in depth** - NSP (network perimeter) + PE (private connectivity) + virtual network injection (compute isolation) + RBAC (identity-based access)
 
 ## Next steps

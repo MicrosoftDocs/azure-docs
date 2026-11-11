@@ -3,16 +3,17 @@ title: Get Started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 03/23/2026
-zone_pivot_groups: programming-languages-set-functions-full
+ms.date: 11/07/2026
+zone_pivot_groups: functions-get-started-implementation-options
 ---
 
 # Get started with Azure Functions
 
 Azure Functions lets you implement your system's logic as event-driven, readily available blocks of code. These code blocks are called functions. This article helps you find the most useful Azure Functions content quickly. For more general information about Azure Functions, see the [Introduction to Azure Functions](./functions-overview.md).
 
-Choose your preferred development language at the top of the article. 
+Choose a programming language or hosted skills at the top of the article.
 
+::: zone pivot="programming-language-csharp,programming-language-go,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript,programming-language-other"
 ## Create your first function
 
 Complete a quickstart article to create and deploy your first functions in less than five minutes. 
@@ -24,6 +25,7 @@ You can create your first function by using one of the following tools:
 + [Command line](./how-to-create-function-azure-cli.md)
 
 + [Visual Studio Code](./how-to-create-function-vs-code.md)
+::: zone-end
 ::: zone pivot="programming-language-csharp"  
 + [Visual Studio](./functions-create-your-first-function-visual-studio.md)
 ::: zone-end
@@ -45,6 +47,17 @@ Besides the natively supported programming languages, you can use [custom handle
 Get started with Go on Azure Functions:
 
 + [Command line quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go)
+::: zone-end
+::: zone pivot="hosted-skills"
+## Create your first hosted skill
+
+Use [Azure Functions hosted skills](functions-hosted-skills.md) to build event-driven AI apps. Define instructions in Markdown and add tools and Python code when you need more control.
+
+Choose a quickstart to create your first hosted skill:
+
++ [Azure Developer CLI (azd)](scenario-hosted-skills.md)
++ [Canvas](functions-hosted-skills-canvas.md)
++ [AI coding assistant](functions-hosted-skills-ai-coding-assistant.md)
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript" 
 ## Review end-to-end samples
@@ -89,6 +102,10 @@ These sites let you browse existing functions reference projects and samples in 
 
 ## Scenarios
 
+::: zone pivot="hosted-skills"
+For examples that combine events, AI reasoning, and business systems, see [Hosted skills scenarios](functions-hosted-skills-scenarios.md).
+::: zone-end
+
 Here are some common scenarios to help you get started: 
 
 + [Process file uploads](functions-scenarios.md#process-file-uploads)
@@ -100,6 +117,7 @@ Here are some common scenarios to help you get started:
 + [Respond to database changes](functions-scenarios.md#respond-to-database-changes)
 + [Create reliable message systems](functions-scenarios.md#create-reliable-message-systems)
 
+::: zone pivot="programming-language-csharp,programming-language-go,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript,programming-language-other"
 ## Explore an interactive tutorial
 
 Complete one of the following interactive training modules to learn more about Functions:
@@ -108,6 +126,7 @@ Complete one of the following interactive training modules to learn more about F
 + [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
 To learn even more, see the [full listing of interactive tutorials](/training/browse/?expanded=azure&products=azure-functions).
+::: zone-end
  
 ## Related content
 
@@ -134,6 +153,13 @@ Learn more about developing functions using Rust and other languages by reviewin
 ::: zone-end
 ::: zone pivot="programming-language-go"  
 Learn more about developing functions by reviewing the [Go developer reference](./functions-reference-go.md) guide. 
+::: zone-end
+::: zone pivot="hosted-skills"
+Learn more about hosted skills:
+
++ [What are hosted skills?](functions-hosted-skills.md)
++ [Hosted skills developer guide](functions-hosted-skills-developer-guide.md)
++ [Dynamic workflows overview](functions-hosted-skills-dynamic-workflows.md)
 ::: zone-end
 
 You might also be interested in these articles:

@@ -46,6 +46,8 @@ items:
       href: job-definition-create.md
     - name: Migrate from on-premises SMB to Azure Files (agentless)
       href: agentless-on-premises-files-migration.md
+    - name: Migrate from on-premises NFS to Azure Files and Blob Storage (agentless)
+      href: agentless-on-premises-nfs-migration.md
     - name: Migrate from on-premises S3-compatible storage to Azure Blob Storage
       href: on-premises-s3-compatible-migration.md
     - name: Migrate from on-premises to Azure over private networks

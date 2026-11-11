@@ -8,6 +8,9 @@ items:
       - name: Azure IoT Operations versions, support, and licensing
         href: overview-support.md
         displayName: supported environments, generally available, GA, preview, regions
+      - name: Azure IoT Operations in Azure Government (preview)
+        href: overview-azure-government.md
+        displayName: Azure Government, US Government, preview  
       - name: Quickstart
         items:
           - name: Run Azure IoT Operations in Codespaces
@@ -128,6 +131,29 @@ items:
               - name: Data persistence
                 href: manage-mqtt-broker/howto-broker-persistence.md
                 displayName: MQTT, broker, persistence, retained messages, subscriber queue, state store, disk
+          - name: Manage MCP (preview)
+            items:
+              - name: What is Azure IoT Operations MCP?
+                href: manage-model-context-protocol/overview-mcp.md
+                displayName: AI, agent, Model Context Protocol, tools
+              - name: Deploy MCP
+                href: manage-model-context-protocol/howto-deploy-mcp.md
+                displayName: AI, Azure IoT Operations MCP, Bicep, deployment
+              - name: Install Kubernetes MCP
+                href: manage-model-context-protocol/howto-deploy-kubernetes-mcp.md
+                displayName: k8s, Helm, tools, RBAC, NetworkPolicy
+              - name: Configure MCP authorization
+                href: manage-model-context-protocol/howto-configure-mcp-authorization.md
+                displayName: AI, authentication, policy, roles, service account token
+              - name: Connect to MCP
+                href: manage-model-context-protocol/howto-connect-ai-agent.md
+                displayName: AI, agent, sample, Foundry Local, Helm, MQTT
+              - name: Expose MCP through Azure Relay
+                href: manage-model-context-protocol/howto-deploy-mcp-relay.md
+                displayName: AI, Relay, remote agent, API Management, Entra, Helm
+              - name: Troubleshoot MCP
+                href: manage-model-context-protocol/troubleshoot-mcp.md
+                displayName: AI, troubleshooting, logs, errors, authentication, TLS
           - name: Manage network
             items:
               - name: Overview
@@ -159,6 +185,9 @@ items:
           - name: Use the operations experience UI
             href: discover-manage-assets/howto-use-operations-experience.md
             displayName: site, instance, device, data points, events, CLI, kubectl, southbound
+          - name: View live data from assets
+            href: discover-manage-assets/howto-view-live-data.md
+            displayName: live data, instance, assets, data points, events, CLI, telemetry, southbound
           - name: Create and manage connector template instances
             href: discover-manage-assets/howto-manage-connector-templates.md
             displayName: IT administrator, connector template, template instance, PVC, persistent volume claim, Akri, runtime configuration, secrets, trust bundle, southbound
@@ -179,6 +208,9 @@ items:
               - name: Configure OPC UA assets and devices
                 href: discover-manage-assets/howto-configure-opc-ua.md
                 displayName: operations, experience, device, data points, events, southbound
+              - name: Configure OPC UA dataset heartbeats
+                href: discover-manage-assets/howto-configure-opc-ua-dataset-heartbeat.md
+                displayName: heartbeat, dataset heartbeat, watchdog, connector liveness, heartbeatDatasource, heartbeatInterval
               - name: Configure OPC UA sessions and high availability
                 href: discover-manage-assets/howto-configure-opc-ua-sessions-high-availability.md
                 displayName: shared endpoint, dedicated session, redundant connector, failover, active passive, high availability
@@ -200,6 +232,12 @@ items:
           - name: Connect to media sources
             href: discover-manage-assets/howto-use-media-connector.md
             displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
+          - name: Configure media storage and retention
+            href: discover-manage-assets/howto-configure-media-connector-storage.md
+            displayName: media, volume, PVC, local storage, shared storage, cloud ingest, retention, cleanup, capacity
+          - name: Use media connector mRPC actions
+            href: discover-manage-assets/howto-use-media-connector-actions.md
+            displayName: media, mRPC, management actions, ExtractClip, Copy, Query, extraction, snapshots, event, cloud ingest
           - name: Connect to ONVIF-compliant cameras
             href: discover-manage-assets/howto-use-onvif-connector.md
             displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
@@ -215,6 +253,9 @@ items:
           - name: Connect to Kafka endpoints
             href: discover-manage-assets/howto-connect-kafka.md
             displayName: southbound, broker, hubs, MQTT, data flow
+          - name: Connect to SQL Server endpoints
+            href: discover-manage-assets/howto-use-sql-server-connector.md
+            displayName: southbound, SQL Server, query, events, database
           - name: Use asset endpoints to manage assets
             href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
             displayName: connector, tags, southbound, asset endpoint profile
@@ -317,8 +358,9 @@ items:
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WebAssembly, graph, transform, custom, developer, deploy
               - name: Common use cases and patterns
-                href: connect-to-cloud/dataflow-patterns/overview-dataflow-patterns.md
                 items:
+                  - name: Overview of common patterns
+                    href: connect-to-cloud/dataflow-patterns/overview-dataflow-patterns.md
                   - name: Add context to readings
                     href: connect-to-cloud/dataflow-patterns/howto-add-context.md
                   - name: Align and correlate records
@@ -351,6 +393,35 @@ items:
           - name: Expressions reference
             href: connect-to-cloud/concept-dataflow-graphs-expressions.md
             displayName: data flow, expression, function, operator, metadata, variable, conversion, date, time, datetime, time stamp, timestamp, epoch
+          - name: Predictive inference (preview)
+            items:
+              - name: What is the inference connector?
+                href: ai/inference-connector/overview-inference-connector.md
+                displayName: AI, machine learning, ML, model, predictive, inference, Foundry Local, Azure Machine Learning
+              - name: Deploy the inference connector
+                href: ai/inference-connector/howto-deploy-inference-connector.md
+                displayName: AI, inference, application, Bicep, Foundry Local, Azure Machine Learning, service account token, trust bundle, persistent volume
+              - name: Send inference requests over MQTT
+                href: ai/inference-connector/howto-inference-connector-mqtt.md
+                displayName: AI, inference, MQTT, topic, correlation, file-based, pub/sub
+              - name: Run inference in a data flow graph
+                href: ai/inference-connector/howto-inference-connector-dataflow-graph.md
+                displayName: AI, inference, data flow, graph, transform, predict
+              - name: Run inference on camera images
+                href: ai/inference-connector/howto-media-connector-inference.md
+                displayName: AI, inference, media connector, camera, snapshot, ExtractClip, trigger, event, YOLO, object detection, defect, data flow graph
+              - name: Call the inference connector from a WASM module
+                href: ai/inference-connector/howto-inference-connector-webassembly-module.md
+                displayName: AI, inference, WASM, WebAssembly, module, Rust, command invoker, predict, data flow graph
+              - name: Troubleshoot the inference connector
+                href: ai/inference-connector/troubleshoot-inference-connector.md
+                displayName: AI, inference, troubleshooting, logs, errors
+              - name: Configuration reference
+                href: ai/inference-connector/reference-inference-connector-configuration.md
+                displayName: AI, inference, settings, model, authentication, runtime
+              - name: Command reference
+                href: ai/inference-connector/reference-inference-connector-commands.md
+                displayName: AI, inference, mRPC, RPC, predict, getModelInfo, command
       - name: Develop edge applications
         items:
           - name: Developer guide
@@ -367,6 +438,12 @@ items:
               - name: Create stateful WASM graphs with the state store
                 href: develop-edge-apps/howto-wasm-state-store.md
                 displayName: data flow, WebAssembly, operators
+              - name: Read and write files with the file store (preview)
+                href: develop-edge-apps/howto-webassembly-file-store.md
+                displayName: data flow, WebAssembly, operators, persistent volume claim, PVC, storage
+              - name: Call services from WASM modules
+                href: develop-edge-apps/howto-webassembly-command-invoker.md
+                displayName: data flow, WebAssembly, mRPC, command invoker, request response, enrichment
               - name: Use schema registry with WASM modules
                 href: develop-edge-apps/howto-wasm-schema-registry.md
                 displayName: data flow, WebAssembly, validation, JSON schema
@@ -503,6 +580,9 @@ items:
               - name: Akri and connectors
                 href: reference/observability-metrics-akri-connectors.md
                 displayName: metrics, observability
+              - name: Inference connector (preview)
+                href: ai/inference-connector/reference-inference-connector-metrics.md
+                displayName: metrics, observability, AI, inference
           - name: MQTT support
             href: reference/mqtt-support.md
             displayName: v5, v3.1.1, protocol

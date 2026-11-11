@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: troubleshooting-known-issue
-ms.date: 09/24/2026
+ms.date: 11/10/2026
 
 #customer intent: As a Microsoft Discovery user or administrator, I want to identify known issues and apply available workarounds.
 
@@ -55,8 +55,7 @@ A region that isn't currently supported for Microsoft Discovery might appear in 
 **Workaround:**
 
 1. Use the current Discovery Toolbox or infrastructure template.
-1. Deploy to a supported production region: **East US**, **Sweden Central**, or **UK South**.
-1. Create the resources for a deployment in the same region.
+1. Create Discovery control-plane resources in a supported production home region: **East US**, **Sweden Central**, or **UK South**.
+1. Confirm that the selected workload region supports the required services, model deployments, and compute capacity. For a same-region deployment, keep workloads in the home region. For a different workload region, follow [Deploy Microsoft Discovery across Azure regions](how-to-deploy-across-regions.md).
 
-For current prerequisites and region guidance, see [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md#prerequisites).
-
+For current prerequisites and region guidance, see [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md#prerequisites). A supported region doesn't guarantee available quota or capacity.

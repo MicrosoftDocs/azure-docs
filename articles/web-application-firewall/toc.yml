@@ -144,6 +144,8 @@ items:
       href: ./afds/http-ddos-ruleset.md
     - name: Configure bot protection
       href: ./afds/waf-front-door-policy-configure-bot-protection.md
+    - name: AI bot ruleset (preview)
+      href: ./afds/ai-bot-ruleset.md
     - name: Custom rules
       items:
       - name: Custom rules overview

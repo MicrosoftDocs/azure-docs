@@ -40,7 +40,9 @@ Make sure to select your preferred development language at the top of the articl
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
++ The [.NET SDK](https://dotnet.microsoft.com/download) for a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).
+
+  Use updated Azure Functions extension and Core Tools versions with templates that support your target version. For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
 
 + [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
 ::: zone-end  
@@ -86,12 +88,14 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |Prompt|Selection|
     |--|--|
     |**Select a language**|Choose `C#`.|
-    |**Select a .NET runtime**|Choose `.NET 8.0 LTS`.|
+    |**Select a .NET runtime**|Choose a supported .NET version using the isolated worker model.|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
     |**Authorization level**|Choose `Function`, which requires an access key to call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
+
+    Verify that the generated project targets your selected .NET version, uses `Azure.Functions.Sdk` as its project SDK, and explicitly references `Microsoft.Azure.Functions.Worker`. For version requirements and an example project file, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
 
     ::: zone-end
     ::: zone pivot="programming-language-java" 

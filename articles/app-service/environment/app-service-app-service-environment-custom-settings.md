@@ -87,6 +87,9 @@ You can also disable TLS 1.0 and TLS 1.1 using the Azure portal by going to the 
 
 ## Change TLS cipher suite order
 
+> [!IMPORTANT]
+> `X25519MLKEM768` is a TLS 1.3 supported group, not a cipher suite. Don't add it to `FrontEndSSLCipherSuiteOrder`. Changing the cipher suite order doesn't enable, disable, prioritize, or require post-quantum key exchange; hybrid negotiation is managed by the platform. Continue to include the required TLS 1.3 AES cipher suites as described in the following section. For more information, see [Post-quantum hybrid key exchange](../overview-tls.md#post-quantum-hybrid-key-exchange) and [TLS supported groups in Windows 11, version 24H2, and later](https://learn.microsoft.com/windows/win32/secauthn/tls-supported-groups-in-windows-11-24h2-and-later).
+
 App Service Environment supports changing the cipher suite from the default. The default set of ciphers is the same set that is used in the multitenant App Service. Changing the cipher suite is only possible with App Service Environment, the single-tenant offering, not the multitenant offering, because changing it affects the entire App Service deployment. There are two cipher suites that are required for an App Service Environment: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 and TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Additionally, you should include the following cipher suites, which are required for TLS 1.3: TLS_AES_256_GCM_SHA384 and TLS_AES_128_GCM_SHA256.
 
 > [!IMPORTANT]

@@ -45,6 +45,9 @@ Front Door's architecture ensures that requests from your end users always reach
 Azure Front Door has edge locations or points of presence (PoPs) worldwide. Every Front Door PoP can serve traffic for any request.
 Traffic routed to the Azure Front Door edge locations uses Unicast for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic. Unicast routing in combination with Azure Front Door's Traffic Manager based load management architecture, allows the request to reach the optimal PoP location directly using the unicast IP. This architecture offers better round-trip times for end users by maximizing the benefits of Split TCP.
 
+>[!WARNING]
+>AFD Unicast routing determines the appropriate PoP during DNS resolution. When the end user's location isn't available from the request metadata, routing is based on the location of the DNS resolver. This condition means the request might not be routed to the PoP closest to the user.
+
 Front Door organizes its edge locations into primary and fallback rings. The outer ring has edge locations that are closer to users, offering lower latencies. The inner ring has edge locations that can handle the failover for the outer ring edge location in case any issues happen.
 The outer ring is the preferred target for all traffic, and the inner ring is designed to handle traffic overflow from the outer ring. Each frontend host or domain served by Front Door gets assigned primary and fallback VIPs (Virtual Internet Protocol addresses), which gets announced by edge locations in both the inner and outer ring.
 Front Door's architecture ensures that requests from your end users always reach the optimal Front Door edge locations. If the preferred Front Door edge location is unhealthy, all traffic automatically moves to the next optimal edge location.

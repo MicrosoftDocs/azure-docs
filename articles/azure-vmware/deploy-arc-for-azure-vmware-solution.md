@@ -44,6 +44,8 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - Validate the regional support before you start the onboarding process. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For details, see [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview#supported-regions).
 - A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter Server.
 - [Support Matrix](/azure/azure-arc/vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere) for using Azure Arc to manage your Azure VMware Solution VMs. 
+- Ensure that you have a [vSphere account with the required privileges](/azure/azure-arc/vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere). During onboarding, this account is provided to the Azure Arc onboarding script and is used to deploy the Azure Arc resource bridge VM.
+
 - [Ensure Azure Arc resource bridge system requirements](/azure/azure-arc/resource-bridge/system-requirements) are met before proceeding with the deployment. 
 - A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter Server.
 - From the Management VM, verify you  have access to [vCenter Server and NSX Manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
@@ -71,7 +73,7 @@ You need the following items to ensure you're set up to begin the onboarding pro
 
 If you want to use a custom DNS, use the following steps: 
 
-  1. Navigate to the DNS page from your Azure VMware Solution private cloud. 
+1. Navigate to the DNS page from your Azure VMware Solution private cloud. 
   2. Under Workload networking, select **DNS**, and identify the default forwarder-zones under the DNS zones tab. 
   3. Edit the forwarder zone to add the custom DNS server IP. When you add the custom DNS as the first IP, it allows requests to be directly forwarded to the first IP and decreases the number of retries. 
 
@@ -136,7 +138,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
    }
 ```
     
-  - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
+- Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
   - `isStatic` is always true. 
   - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One gets created if it doesn't already exist.  
   - `networkCIDRForApplianceVM` is the IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
@@ -202,7 +204,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 
 If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services. This approach requires other parameters to be specified during the onboarding process via the script.
 
-  - `applianceProxyDetails`- Proxy details to be used for the deployment of Arc Appliance in the network.
+- `applianceProxyDetails`- Proxy details to be used for the deployment of Arc Appliance in the network.
   - `managementProxyDetails`- Proxy details to be used on management VM for running of the script. Provide these details only if you want to set or override the existing proxy settings on management VM.
   - `http` - Proxy server address for http requests.
   - `https` - Proxy server address for https requests.
@@ -261,4 +263,5 @@ If you choose to enable the guest management as a separate step or have issues w
 ## Next Steps
 
 - To manage Arc-enabled Azure VMware Solution, see [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
+
 - To remove Arc-enabled  Azure VMware Solution resources from Azure, see [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution.](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)

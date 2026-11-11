@@ -201,8 +201,12 @@
     href: end-to-end-tls.md
   - name: TLS policy
     href: tls-policy.md
+  - name: TLS key exchange policy
+    href: tls-key-exchange-policy.md
   - name: Mutual TLS authentication
     href: mutual-tls.md
+  - name: Authentication policy (preview)
+    href: authentication-policy.md
   - name: Set up managed identity
     href: managed-identity.md
   - name: Protect sensitive data in logs
@@ -239,6 +243,8 @@
     href: standard-premium/websocket.md
   - name: HTTP/2
     href: front-door-http2.md
+  - name: gRPC (preview)
+    href: grpc.md
   - name: Compression
     href: standard-premium/how-to-compression.md
   - name: Blue/Green deployment with Front Door
@@ -433,6 +439,24 @@
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v62.3.0+incompatible/services/cdn/mgmt/2021-06-01/cdn
       - name: JavaScript SDK
         href: /javascript/api/overview/azure/cdn
+      - name: Edge actions
+        items:
+        - name: Azure CLI
+          href: /cli/azure/edge-action
+        - name: Azure PowerShell
+          href: /powershell/module/az.edgeaction/
+        - name: Bicep, ARM, and Terraform AzAPI reference
+          href: /azure/templates/microsoft.cdn/edgeactions?pivots=deployment-language-bicep
+        - name: REST API
+          href: /rest/api/edge-actions/operation-groups
+        - name: Python SDK
+          href: /python/api/overview/azure/mgmt-edgeactions-readme
+        - name: .NET SDK (preview)
+          href: /dotnet/api/overview/azure/resourcemanager.edgeactions-readme?view=azure-dotnet-preview&preserve-view=true
+        - name: Go SDK
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/edgeactions/armedgeactions#section-readme
+        - name: Java SDK
+          href: /java/api/overview/azure/resourcemanager-edgeactions-readme
     - name: Classic
       items:
       - name: Azure CLI
@@ -506,4 +530,3 @@
       href: /shows/Inside-Azure-for-IT/?products=azure-cdn
   - name: Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
-

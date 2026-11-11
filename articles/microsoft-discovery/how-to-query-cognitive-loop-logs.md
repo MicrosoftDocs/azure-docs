@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a Discovery platform developer or administrator, I want to query CogLoop logs so that I can monitor investigation progress, diagnose stalls, and investigate orchestration errors.
 ---
@@ -22,7 +22,7 @@ Microsoft Discovery CogLoop is the AI orchestration engine that drives investiga
 It continuously runs two subloops - **Act** and **Cognition** to plan and execute research tasks on your behalf. CogLoop logs are automatically stored in the `DiscoveryCogLoopLogs_CL` table in the Log Analytics workspace inside the workspace's Managed Resource Group (MRG).
 
 > [!IMPORTANT]
-> `DiscoveryCogLoopLogs_CL` is an **Auxiliary** tier table. Each query must target this table only (cross-table joins aren't supported).
+> Check the table's plan and retention settings in the Log Analytics workspace without modifying managed infrastructure. For Basic or Auxiliary tables, use workspace scope and set an explicit time range in the Log Analytics picker or API `timespan`; a KQL time filter doesn't replace it. The available query window depends on the table's plan and configured retention. See [Query Basic and Auxiliary tables](/azure/azure-monitor/logs/basic-logs-query) and [Manage data retention](/azure/azure-monitor/logs/data-retention-configure).
 
 This article explains how to query CogLoop logs to monitor investigation activity, diagnose stalls, and investigate orchestration errors.
 
@@ -36,40 +36,40 @@ Before writing queries, familiarize yourself with the following identifiers:
 
 | Identifier | Description | Where to find it |
 |---|---|---|
-| `InstanceId` | Unique ID for an investigation's CogLoop instance, in the format `cog:{project}:{investigation}-{shortHash}` | Construct from your project name and investigation name in Discovery Studio, for example, `cog:testworkspace:investigation1-436edc` |
+| `InstanceId` | ID for an investigation's CogLoop instance, such as `cog:{project}:{investigation}-{shortHash}` | Retrieve the full value from logs by using [List all Cognition Engine instances](#list-all-cognition-engine-instances); don't guess the generated suffix. |
 | `ModuleName` | Which subloop generated the log: `Act` or `Cognition` | Extracted from the `Properties` JSON field |
-| `CorrelationId` | W3C trace ID, present on user-triggered operations | Returned in API responses |
+| `CorrelationId` | Identifier for related application log entries, when populated | Read the value from matching log entries; don't assume it matches an Activity Log `correlationId` or an API response-header value. |
 
 ## Query CogLoop logs
 
 After opening the Logs interface in the workspace's MRG Log Analytics workspace:
 
 1. In the left panel, select the **Tables** tab.
-2. Expand **Custom Logs** and locate **`DiscoveryCogLoopLogs_CL`**.
-3. Select **Run** next to `DiscoveryCogLoopLogs_CL` to execute a default query and confirm logs are being ingested.
+2. Expand **Custom Logs** and locate `DiscoveryCogLoopLogs_CL`.
+3. Run the [View recent logs](#view-recent-logs) query to check whether data is available in the selected time range.
 
-:::image type="content" source="media/how-to-query-workspace-logs/open-log-analytics-table.png" alt-text="Screenshot of the Log Analytics Tables panel with the DiscoveryCogLoopLogs_CL table selected in the Custom Logs section." lightbox="media/how-to-query-workspace-logs/open-log-analytics-table.png":::
+:::image type="content" source="media/how-to-query-workspace-logs/open-log-analytics-table.png" alt-text="Screenshot of the workspace Logs page with DiscoveryCogLoopLogs_CL and DiscoveryLogs_CL listed under Custom Logs." lightbox="media/how-to-query-workspace-logs/open-log-analytics-table.png":::
 
 ## Log schema
 
-The `DiscoveryCogLoopLogs_CL` table includes the following key fields:
+The examples use the following fields and properties in `DiscoveryCogLoopLogs_CL`. Expand the table in the **Tables** pane to inspect its columns, then inspect recent rows and `Properties` values. Adapt the queries if the available fields, properties, or message formats differ.
 
 | Field Name | Description |
 |------------|-------------|
-| `TimeGenerated` | Timestamp when the log entry was ingested |
-| `TimeStamp` | A more precise timestamp with millisecond precision representing when the log entry was generated |
+| `TimeGenerated` | Timestamp used by Log Analytics for time filtering |
+| `TimeStamp` | Application-provided timestamp; inspect populated values before relying on its precision |
 | `LogLevel` | Log severity level: `Debug`, `Information`, `Warning`, or `Error` |
 | `Message` | Primary log message content |
 | `Exception` | Full exception details including stack trace (populated on error entries) |
 | `Properties` | JSON object containing structured properties such as `InstanceId`, `ChosenTool`, `ModuleName`, `ClassName`, `MethodName`, and others |
-| `CorrelationId` | Unique identifier for correlating related requests |
-| `TenantId` | Azure tenant identifier |
+| `CorrelationId` | Identifier for related application log entries, when populated |
+| `TenantId` | Workspace ID in the [Azure Monitor standard schema](/azure/azure-monitor/logs/log-standard-columns); verify this custom table's definition before using it as a tenant filter |
 
 ### Key Properties (inside the `Properties` JSON field)
 
 | Property | Description |
 |----------|-------------|
-| `InstanceId` | Cognition Engine instance identifier (format: `cog:<project>:<investigation>`) |
+| `InstanceId` | Cognition Engine instance identifier. Retrieve the full value from logs, including any generated suffix. |
 | `ModuleName` | Reasoning module name (`Cognition` or `Act`) |
 | `ChosenTool` | The tool/function selected by the PickBest decision engine |
 | `ClassName` | Source class name (for example, `CogLoopInstanceManager`, `CosmosDbService`) |
@@ -86,6 +86,7 @@ The `DiscoveryCogLoopLogs_CL` table includes the following key fields:
 
 ```kql
 DiscoveryCogLoopLogs_CL
+| order by TimeGenerated desc
 | take 100
 ```
 
@@ -99,7 +100,7 @@ DiscoveryCogLoopLogs_CL
 
 ### View all errors and warnings
 
-Quick sweep of all CogLoop errors and warnings, useful to confirm whether there were any issues during a specific investigation session.
+Find logged CogLoop errors and warnings in the selected time range. Then, compare them with task status to investigate a session.
 
 ```kql
 DiscoveryCogLoopLogs_CL
@@ -123,17 +124,17 @@ DiscoveryCogLoopLogs_CL
 | render timechart
 ```
 
-> An Error spike pinpoints when an incident started. A simultaneous drop in Information suggests the Cognition Engine is failing before completing reasoning cycles. It shows when things broke, how severe it was, and whether the service has  recovered.
+An error spike identifies a period to investigate. Compare it with task status and other logs before concluding that the service failed or recovered.
 
 ### List All Cognition Engine Instances
 
-Lists every Cognition Engine instance (investigation) managed by the service and classifies their activity into
+Lists Cognition Engine instances (investigations) found in the selected log time range and classifies their recorded activity into
 three operation types.
 
-- **InstanceId** - The investigation identifier (format: cog:`<project>:<investigation>`).
-- **StatusChecks** - Routine polling checks. The service checks all known instances each cycle, so this count is typically similar across instances.
-- **Starts** - How many times the instance was started. Instances with Starts > 0 were actively launched during the time window.
-- **Retrievals** - How many times instance state was fetched for execution. Indicates the Cognition Engine actively engaged with this investigation.
+- **InstanceId** - Full CogLoop instance ID found in the logs, including any generated suffix.
+- **StatusChecks** - Number of matching status-check log entries; compare instances within the same time range.
+- **Starts** - Number of log entries mentioning `StartInstanceAsync`; inspect the entries and task status to confirm startup succeeded.
+- **Retrievals** - Number of log entries mentioning `GetRunningInstanceAsync`; inspect the messages for state retrieval results.
 
 ```kql
 DiscoveryCogLoopLogs_CL
@@ -155,7 +156,7 @@ DiscoveryCogLoopLogs_CL
 | order by Starts desc, Retrievals desc, LastSeen desc
 ```
 
-> The sort order puts instances with real lifecycle activity (starts, retrievals) at the top, so you can quickly distinguish actively running investigations from those just being polled.
+> The sort order puts instances with logged start or retrieval activity at the top. Confirm current status in Discovery Studio rather than treating these counts as proof that an investigation is running.
 
 ### Check whether a specific CogLoop instance is running
 
@@ -171,7 +172,7 @@ DiscoveryCogLoopLogs_CL
 | order by last_checked desc
 ```
 
-A result with a `last_checked` within the past few minutes indicates the instance is actively being polled. No results means CogLoop isn't monitoring the investigation.
+A recent `last_checked` shows that polling was logged. No results can reflect the selected filters, log availability, or ingestion delay; it doesn't prove that CogLoop stopped monitoring the investigation.
 
 ### List all active investigations being monitored
 
@@ -189,7 +190,7 @@ DiscoveryCogLoopLogs_CL
 
 ### Track Instance Startup
 
-Retrieves the full chronological log trail for a specific Cognition Engine instance, showing every event from first appearance through its reasoning cycles Replace `<your-instance-id>` with the target instance (for example, `cog:myproject:inv01-experiment-abc123`).
+Retrieve logged events for a specific Cognition Engine instance in chronological order within the selected time range. Replace `<your-instance-id>` with the full instance ID retrieved from logs.
 
 - **TimeGenerated** - When the event occurred, sorted oldest-first to reconstruct the sequence of events.
 - **LogLevel** - Severity level, useful for spotting where errors or warnings interrupted the instance lifecycle.
@@ -204,11 +205,11 @@ DiscoveryCogLoopLogs_CL
 | order by TimeGenerated asc
 ```
 
-> This query is useful to view a specific investigation's behavior. It lets you trace exactly what the Cognition Engine did, in what order, and where things went wrong.
+> This query helps you review a specific investigation's recorded behavior and identify entries to investigate alongside its current task status.
 
 ### View all activity for a specific investigation
 
-Retrieve the complete CogLoop activity log for one investigation. Replace `cog:<your-project>:<your-investigation>` with the full `InstanceId` prefix, for example, `cog:fabforbook:leukemia-2`.
+Retrieve available CogLoop activity log entries for one investigation within the selected time range. Replace `cog:<your-project>:<your-investigation>` with the `InstanceId` prefix found in your logs.
 
 ```kql
 DiscoveryCogLoopLogs_CL
@@ -249,8 +250,8 @@ DiscoveryCogLoopLogs_CL
 
 If the Cognition Engine repeatedly selects `Cognition-Wait`, it can mean tasks are stalled, all work is already complete, or an internal error is preventing progress.
 
-- **IdlePct** - Percentage of waits where nothing changed. Sustained 100% signals a stuck investigation.
-- **AvgSleepSec** - Short sleeps (30s) mean cognition expects progress soon; long sleeps (300s) mean it has stopped trying.
+- **IdlePct** - Percentage of logged waits marked `NO UPDATE`. Sustained 100% is a reason to check task state, not proof that the investigation is stuck.
+- **AvgSleepSec** - Average logged wait duration. A longer wait doesn't by itself mean that cognition stopped trying.
 - **SampleReason** - The LLM's own explanation
 
 ```kql
@@ -277,7 +278,7 @@ DiscoveryCogLoopLogs_CL
 
 Trace the reasoning steps the Cognition Engine takes before acting. Slow thinking indicates complex deliberation; fast thinking indicates straightforward decisions.
 
-- **TimeGenerated** - When the thinking step completed.
+- **TimeGenerated** - Timestamp of the matching log entry.
 - **ThinkingType** - `FastThinking` or `SlowThinking`, indicating the depth of reasoning applied.
 - **Message** - The full thinking output, including the thought content and reasoning context.
 
@@ -296,7 +297,7 @@ DiscoveryCogLoopLogs_CL
 
 ### Track Task Execution Lifecycle
 
-Retrieves the complete chronological log trail for a specific task, covering its full lifecycle: assignment, agent selection, execution, validation, and completion. Replace `<your-task-id>` with the target task name.
+Retrieve logged events for a specific task in chronological order, including assignment, agent selection, execution, validation, and completion when recorded. Replace `<your-task-id>` with the target task name.
 
 ```kql
 let taskId = "<your-task-id>";
@@ -307,11 +308,11 @@ DiscoveryCogLoopLogs_CL
 | order by TimeGenerated asc
 ```
 
-> This is the primary query for debugging a specific task, it shows exactly how the Cognition Engine handled the task from creation to completion (or failure), making it easy to pinpoint where and why a task stalled or failed.
+> Use these entries to investigate where a task might have stalled or failed. Confirm its current status in Discovery Studio; missing log entries don't establish completion or failure.
 
 ### View Task Validation Results
 
-Lists every task validation event, showing when and how the Cognition Engine evaluated task results. The `Message` field contains the validation outcome: `Complete`, `Incomplete`, `Needs User Attention`, or `Failed`.
+List matching task validation log entries, showing when and how the Cognition Engine evaluated task results. Inspect the `Message` field for validation outcomes such as `Complete`, `Incomplete`, `Needs User Attention`, or `Failed`.
 
 ```kql
 DiscoveryCogLoopLogs_CL
@@ -325,7 +326,7 @@ DiscoveryCogLoopLogs_CL
 
 ### View TaskValidationAgent Lifecycle
 
-Traces the full lifecycle of the TaskValidationAgent from provisioning and upsert through invocation and completion. Shows whether the validation agent was successfully created and is being used by the Cognition Engine.
+Find logged TaskValidationAgent events, including provisioning, upsert, invocation, and completion when recorded. Use these entries to investigate whether the validation agent was created and invoked.
 
 ```kql
 DiscoveryCogLoopLogs_CL
@@ -335,7 +336,7 @@ DiscoveryCogLoopLogs_CL
 | order by TimeGenerated asc
 ```
 
-> If no entries appear, the TaskValidationAgent was never provisioned, tasks will not be validated. If entries show errors during upsert or invocation, check that the required model deployment (e.g., `gpt-5-2`) is available in the workspace.
+If no entries appear, first rule out missing or delayed logs. If entries show upsert or invocation errors, verify the validation agent and the model deployment configured for it. See [Discovery Engine startup checks](how-to-debug-task-execution.md#discovery-engine-wont-start).
 
 ## Error Diagnostics
 
@@ -356,7 +357,7 @@ DiscoveryCogLoopLogs_CL
 Summarize errors by message to identify the most frequent failure modes.
 
 - **ErrorMessage** - The first 80 characters of the error message, used as a grouping key to cluster similar errors together.
-- **ErrorCount** - How many times each error occurred. The highest counts point to the most impactful issue.
+- **ErrorCount** - How many times each error was logged. The highest counts identify the most frequent logged errors, not necessarily those with the greatest impact.
 
 ```kql
 DiscoveryCogLoopLogs_CL
@@ -366,11 +367,11 @@ DiscoveryCogLoopLogs_CL
 | order by ErrorCount desc
 ```
 
-> If one error type vastly outnumbers the rest, start your troubleshooting there, it is likely the root cause. For example, a high count of `JsonException` serialization errors typically cascades into Cosmos DB health failures, polling cycle errors, and tool call failures downstream.
+> Start with frequent error types, then compare their timestamps and instance IDs with related errors before assigning a root cause.
 
 ### Detect Cosmos DB Connectivity Issues
 
-Cosmos DB health failures prevent the Cognition Engine from retrieving instance state and can stall all investigations.
+Cosmos DB health failures can prevent the Cognition Engine from retrieving instance state and stall affected investigations.
 
 ```kql
 DiscoveryCogLoopLogs_CL
@@ -383,10 +384,10 @@ DiscoveryCogLoopLogs_CL
 
 ### Detect Serialization Errors (JsonException)
 
-Isolates JSON serialization errors and groups them by message, including a sample stack trace for each. These errors typically prevent the Cognition Engine from loading instance state from Cosmos DB, blocking all reasoning activity.
+Isolates JSON serialization errors and groups them by message, including a sample stack trace for each. If an instance's state can't be deserialized, its reasoning activity can be blocked.
 
 - **ErrorMessage** - The first 80 characters of the error message, grouping related serialization failures together.
-- **Count** - How many times each serialization error occurred. High counts confirm it's a systemic issue rather than a one-off.
+- **Count** - How many times each serialization error occurred. High counts show recurrence in the selected time range; compare affected instances to assess the scope.
 - **SampleException** - A full exception with stack trace, showing the exact JSON path and property that failed to deserialize (for example, `AuthorRole`).
 
 ```kql
@@ -401,7 +402,7 @@ DiscoveryCogLoopLogs_CL
 | order by Count desc
 ```
 
-> Serialization errors are often the root cause behind cascading failures. When instance state cannot be deserialized, it triggers downstream errors: Cosmos DB health check failures, polling cycle errors, and tool call failures. Use the `SampleException` to identify the specific schema mismatch, this typically happens after a service upgrade that changes model schemas.
+Use `SampleException` to identify the JSON path or property that couldn't be deserialized. Compare related instance and polling errors before assigning a cause; the log pattern alone doesn't establish that a service upgrade caused the failure.
 
 ### Detect Polling Cycle Failures
 
@@ -428,7 +429,7 @@ DiscoveryCogLoopLogs_CL
 | render timechart
 ```
 
-> Use this query during incident investigation to answer three key questions: when did the problem start, is it still happening, and did a fix or restart resolve it. Pair with the [Analyze Error Patterns](#analyze-error-patterns) query to identify what type of error is driving the spike.
+> Use this query to identify periods with logged errors. Pair it with the [Analyze Error Patterns](#analyze-error-patterns) query and current task status; a drop in logged errors alone doesn't prove recovery.
 
 ## Health and Service Status
 
@@ -551,7 +552,7 @@ DiscoveryCogLoopLogs_CL
 |---|---|
 | Workspace was recently created and no investigations have run | Run an investigation to generate log entries |
 | Time range is too narrow | Expand the time range to the last 24 hours |
-| Logs are delayed due to ingestion latency | Wait a few seconds and rerun the query |
+| Logs are delayed due to ingestion latency | Allow for ingestion latency and rerun the query. See [Log ingestion latency](concept-observability.md#log-ingestion-latency). |
 
 ### Investigation appears stuck with no progress
 
@@ -579,7 +580,7 @@ DiscoveryCogLoopLogs_CL
 **Possible Causes:**
 
 - TaskValidationAgent isn't deployed in the workspace
-- Model deployment required for validation (`gpt-5-2`) isn't available
+- The validation agent's configured model deployment isn't available.
 
 **Resolution:**
 

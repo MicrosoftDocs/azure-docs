@@ -182,7 +182,7 @@ For example, a developer or app can run the following Azure PowerShell scripts t
 
 $clientId = "00001111-aaaa-2222-bbbb-3333cccc4444" # Client (application) ID of client application
 $clientSecret = "******" # Retrieve secret of client application in developer portal
-$scopeOfOtherApp = "api://55556666-ffff-7777-aaaa-8888bbbb9999/.default" # Value of Audience in product properties
+$scopeOfOtherApp = "api://aaaabbbb-0000-cccc-1111-dddd2222eeee/.default" # Value of Audience in product properties
 $tenantId = "aaaabbbb-0000-cccc-1111-dddd2222eeee" # Directory (tenant) ID in Microsoft Entra ID
 
 $body = @{
@@ -230,4 +230,3 @@ If you're unable to list applications, or you receive an internal server error w
 
 * [Create and publish a product](api-management-howto-add-products.md)
 * [Authentication and authorization to APIs in API Management](authentication-authorization-overview.md)
-

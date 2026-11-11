@@ -327,6 +327,10 @@ In comparison, global Azure uses `https://iothubs.azure.net` as the audience URI
 
 For more information about authenticating to IoT Hub with Microsoft Entra ID, see [Control access to IoT Hub by using Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md).
 
+### [Azure IoT Operations](../iot-operations/index.yml)
+
+Azure IoT Operations is available in preview in Azure Government. The Azure portal experience for Azure IoT Operations isn't available. Deploy and manage Azure IoT Operations by using the Azure CLI or the operations experience web UI. Preview features of Azure IoT Operations and Azure Device Registry, and features that depend on Azure Container Storage enabled by Azure Arc, aren't available. For supported regions, features, and deployment steps, see [Azure IoT Operations in Azure Government](../iot-operations/overview-azure-government.md).
+
 ## Management and governance
 
 This section outlines variations and considerations when using Management and Governance services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-applications,azure-policy,network-watcher,monitor,traffic-manager,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).

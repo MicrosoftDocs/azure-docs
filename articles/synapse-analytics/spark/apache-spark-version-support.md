@@ -4,7 +4,7 @@ description: Supported versions of Spark, Scala, Python
 author: arali
 ms.author: arali
 ms.reviewer: arali
-ms.date: 09/02/2026
+ms.date: 11/09/2026
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: reference
@@ -25,12 +25,16 @@ The following table lists the runtime name, Apache Spark version, and release da
 
 | Runtime name | Release date | Release stage                | End of support announcement date | End of support effective date |
 | --- | --- |------------------------------| --- | --- |
-| [Azure Synapse Runtime for Apache Spark 3.5](./apache-spark-35-runtime.md) | Oct 13, 2025 | GA; LTS beginning Nov 1, 2027 | Oct 31, 2027 | Oct 31, 2028 |
+| [Azure Synapse Runtime for Apache Spark 3.5](./apache-spark-35-runtime.md) | Oct 13, 2025 | GA | Not announced | Not announced |
 | [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | **deprecated and soon to be disabled** | April 30, 2025| March 31, 2026|
 | [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**deprecated and soon to be disabled**|July 12, 2024| March 31, 2025 
 
 > [!IMPORTANT]
-> Azure Synapse Runtime for Apache Spark 3.5 enters Long Term Support (LTS) on November 1, 2027, for 12 months, extending support through October 31, 2028. We encourage customers to migrate to [Fabric Runtime 2.0](/fabric/data-engineering/runtime-2-0), which is generally available and includes Apache Spark 4.1 and Delta Lake 4.2, with major improvements in performance, stability, and security.
+> Microsoft has not announced the retirement of Azure Synapse Analytics or Synapse Spark 3.5, and there is currently no announced retirement date or required migration deadline.
+>
+> [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is Microsoft's strategic platform for new analytics innovation. Within Fabric, [Fabric Runtime](/fabric/data-engineering/runtime) provides the Apache Spark environment for data engineering and data science workloads, with major improvements in performance, stability, and security. Customers are encouraged to evaluate Fabric, including Fabric Runtime for Spark workloads, for new investments and long-term modernization.
+>
+> This strategic direction does not constitute a retirement announcement for existing Synapse Spark workloads. Any future lifecycle changes affecting Synapse Spark 3.5 will be communicated through official Microsoft channels with appropriate notice and transition guidance.
 
 ## Runtime release stages
 

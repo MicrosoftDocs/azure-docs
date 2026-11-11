@@ -34,6 +34,8 @@ Development resources:
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
+* To deploy in Azure Government, run `az cloud set --name AzureUSGovernment` before you sign in. For other differences, see [Azure IoT Operations in Azure Government](../overview-azure-government.md#deploy-azure-iot-operations).
+
 A cluster host:
 
 * Have an Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md).
@@ -68,9 +70,15 @@ For more information, see [Azure CLI support for advanced MQTT broker configurat
 
 ## Deploy in Azure portal
 
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
+
 ### Basics
 
 [!INCLUDE [deploy-iot-ops-portal-basics](../includes/deploy-iot-ops-portal-basics.md)]
+
+### SKU
+
+[!INCLUDE [deploy-iot-ops-portal-sku](../includes/deploy-iot-ops-portal-sku.md)]
 
 ### Configuration
 
@@ -79,12 +87,13 @@ For more information, see [Azure CLI support for advanced MQTT broker configurat
    | Parameter | Value |
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
+   | **Cluster mode** | *Optional*: If you chose the **Standard** SKU, select either single-node cluster (default) or multi-node cluster. For **Essentials**, single-node cluster is the only option shown and can't be changed. |
    | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to configure [cardinality](../deployment-plan/deployment-planning.md#understand-broker-cardinality) and [memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) settings. To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
    :::image type="content" source="./media/howto-deploy-iot-test-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-test-operations/deploy-configuration.png":::
 
-1. Select **Next: Dependency management**.
+1. Select **Dependency management**.
 
 ### Dependency management
 
@@ -96,7 +105,7 @@ For more information, see [Azure CLI support for advanced MQTT broker configurat
 
    :::image type="content" source="./media/howto-deploy-iot-test-operations/deploy-dependency-management-test.png" alt-text="A screenshot that shows selecting test settings on the third tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-test-operations/deploy-dependency-management-test.png":::
 
-1. Select **Next: Automation**.
+1. Select **Automation**.
 
 ## Run Azure CLI commands
 

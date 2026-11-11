@@ -5,7 +5,7 @@
     "maxInFlightFiles": 200
   },
   "pullRequest": {
-    "title": "[BULK] [DocuTune-Remediation] - Scheduled execution to fix known issues in WAF",
+    "title": "[BULK] [DocuTune-Remediation] - Scheduled SFI fixes",
     "batchSize": 0,
     "maxBatches": 100,
     "body": "",

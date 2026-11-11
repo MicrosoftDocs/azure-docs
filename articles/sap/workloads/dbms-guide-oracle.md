@@ -215,7 +215,7 @@ When you create an LVM, the `-i` option must be used to evenly distribute data a
 Checklist for Oracle ASM:
 
 * All SAP on Oracle on Azure systems run ASM, including Development, Quality Assurance, and Production, for small, medium, and large databases.
-* [ASMLib](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/about-oracle-asm-with-oracle-asmlib.html) is used and not `UDEV` because `UDEV` is required for multiple SANs. This scenario doesn't exist on Azure.
+* [ASMLib](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/about-oracle-asm-with-oracle-asmlib.html) is used and not `UDEV` because `UDEV` is required for multiple SANs. This scenario doesn't exist on Azure.
 * ASM should be configured for **External Redundancy**. Azure Premium SSD storage provides triple redundancy. Azure Premium SSD matches the reliability and integrity of any other storage solution. For optional safety, customers can consider **Normal Redundancy** for the Log disk group.
 * Mirroring redo log files is optional for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626).
 * ASM disk groups are configured as per Variant 1, 2, or 3.
@@ -440,7 +440,7 @@ For Oracle DBAs who aren't familiar with Oracle ASM, see these training material
 - [What is Oracle ASM to Azure IaaS?](https://www.red-gate.com/simple-talk/databases/oracle-databases/what-is-oracle-asm-to-azure-iaas/)
 - [ASM Command-Line Utility (ASMCMD)](https://docs.oracle.com/cd/B19306_01/server.102/b14215/asm_util.htm)
 - [Useful asmcmd commands - DBACLASS](https://dbaclass.com/article/useful-asmcmd-commands-oracle-cluster/)
-- [Installing and Configuring Oracle ASMLIB Software](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-and-configuring-oracle-asmlib-software.html#GUID-79F9D58F-E5BB-45BD-A664-260C0502D876)
+- [Installing and Configuring Oracle ASMLIB Software](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/installing-and-configuring-oracle-asmlib-software.html)
 
 ## Oracle Linux utilities
 

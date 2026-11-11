@@ -8,7 +8,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/08/2026
+ms.date: 11/09/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -53,7 +53,7 @@ Azure provides two primary approaches for managing encryption keys:
 
 **Platform-managed keys (default)** (also sometimes called service-managed keys): Azure automatically handles all aspects of encryption key management, including key generation, storage, rotation, and backup. This approach provides encryption at rest with zero configuration, and Azure enables it by default across Azure services. Platform-managed keys offer the highest level of convenience and require no extra cost or management overhead.
 
-**Customer-managed keys (optional)**: Organizations that require greater control over their encryption keys can choose to manage their own keys by using Azure Key Vault or Azure Key Vault Managed HSM. This approach allows you to control key lifecycles, access policies, and cryptographic operations. Customer-managed keys provide extra control at the cost of increased management responsibility and complexity. For organizations with regulatory or contractual requirements that mandate key material physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management (preview)](/azure/key-vault/managed-hsm/external-key-management-overview), which keeps the key encryption key (KEK) in a customer-operated hardware security module (HSM) entirely outside Azure.
+**Customer-managed keys (optional)**: Organizations that require greater control over their encryption keys can choose to manage their own keys by using Azure Key Vault or Azure Key Vault Managed HSM. This approach allows you to control key lifecycles, access policies, and cryptographic operations. Customer-managed keys provide extra control at the cost of increased management responsibility and complexity. For organizations with regulatory or contractual requirements that mandate key material physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management](/azure/key-vault/managed-hsm/external-key-management-overview), which keeps the key encryption key (KEK) in a customer-operated hardware security module (HSM) entirely outside Azure.
 
 The choice between these approaches depends on your organization's security requirements, compliance needs, and operational preferences. Most organizations can rely on platform-managed keys for strong encryption protection, while organizations with specific regulatory or security requirements might opt for customer-managed keys.
 
@@ -80,7 +80,17 @@ You use more than one encryption key in an encryption at rest implementation. St
 
 Resource providers and application instances store the encrypted DEKs as metadata. Only an entity with access to the KEK can decrypt these DEKs. Azure supports different models of key storage. For more information, see [data encryption models](encryption-models.md).
 
-When services cache DEKs locally for active cryptographic operations, Azure platform security controls protect the cached keys, including [host-level compute isolation](isolation-choices.md) and process-level protections. Cached operational keys are an availability and performance mechanism - the KEK in Key Vault remains the root of trust, and key revocation governs access to encrypted data.
+### Customer-managed key control, caching, and revocation
+
+When services cache DEKs locally for active cryptographic operations, Azure platform security controls protect the cached keys, including [host-level compute isolation](isolation-choices.md) and process-level protections. Cached DEKs are an availability and performance mechanism. The KEK remains the root of trust, and key revocation governs access to encrypted data.
+
+With Azure Key Vault or Azure Key Vault Managed HSM, your organization controls key policies and authorized key use. The following error-handling and caching rules apply to Azure Key Vault Standard, Azure Key Vault Premium, Azure Key Vault Managed HSM, and Azure Key Vault Managed HSM with external keys.
+
+Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses from Key Vault require consuming Azure services to stop using and flush cached DEKs associated with that customer-managed KEK. Flushing cached DEKs can interrupt active data operations. Services need time to bring those operations to a safe stopping point before flushing the keys. Revocation isn't instantaneous, and the time before affected encrypted data becomes inaccessible varies by service. For example, Azure Monitor documents that cluster storage becomes unavailable within one hour of intentional key revocation. For more information, see [Azure Monitor customer-managed keys](/azure/azure-monitor/logs/customer-managed-keys#key-revocation). Check the consuming service's documentation for its revocation behavior. To stop use of a customer-managed key encryption key for encryption at rest, disable the key or revoke access.
+
+During transient failures, such as network timeouts, services might continue operations that use cached DEKs. This behavior doesn't make a failed wrap or unwrap request succeed. Cache use and workload availability depend on the consuming service's implementation.
+
+For more information about Managed HSM's architectural protections, see [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details).
 
 ## Encryption at rest in Microsoft cloud services
 

@@ -6,7 +6,7 @@ ms.author: jovinson
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: how-to
-ms.date: 10/28/2026
+ms.date: 11/05/2026
 ---
 
 # Use Azure role-based access control with the de-identification service
@@ -31,6 +31,20 @@ The de-identification service has the following built-in roles available:
 |DeID Real-time Data User |Execute requests against de-identification API endpoints. |
 |DeID Batch Owner |Create and manage de-identification batch jobs. |
 |DeID Batch Reader |Read-only access to de-identification batch jobs. |
+
+## Storage access for batch jobs
+
+Batch de-identification jobs read and write documents in Azure Storage by using the de-identification service's managed identity, not the identity of the user or application that creates the job. Any security principal that can create jobs (for example, with the **DeID Data Owner** or **DeID Batch Owner** role) can direct the service to read from and write to any storage location that the managed identity can access.
+
+To limit this access, follow the principle of least privilege:
+
+- Assign storage roles to the managed identity at the **container** scope, not at the storage account, resource group, or subscription scope. Grant access only to the containers that hold job input and output.
+- Use **Storage Blob Data Reader** on containers that only hold input documents, and **Storage Blob Data Contributor** only on containers that receive output.
+- Grant the batch roles only to principals who should have the same storage access as the managed identity.
+- If different teams or datasets need different storage access, use a separate de-identification service, each with its own managed identity and role assignments.
+- Restrict write access to input containers. The service processes documents in the source location and writes the results to the target location by using the managed identity's permissions.
+
+For more information, see [Use managed identities](managed-identities.md) and [Configure Azure Storage to de-identify documents](configure-storage.md).
 
 ## Assign a built-in role
 

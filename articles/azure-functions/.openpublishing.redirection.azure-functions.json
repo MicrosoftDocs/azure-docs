@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path": "articles/azure-functions/run-functions-from-deployment-package.md",
+            "source_path_from_root": "/articles/azure-functions/run-functions-from-deployment-package.md",
             "redirect_url": "/azure/azure-functions/deployment-zip-push#run-functions-from-the-deployment-package",
             "redirect_document_id": false
         },

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to configure the destination for a data flow or data flow graph.
@@ -19,7 +19,7 @@ The destination is where a data flow or data flow graph sends processed data. Yo
 This page applies to both [data flows](overview-dataflow.md) and [data flow graphs](concept-dataflow-graphs.md). For data flows, the destination is an operation in the `Dataflow` resource. For data flow graphs, the destination is a `Destination` node in the `DataflowGraph` resource.
 
 > [!IMPORTANT]
-> Data flows support all endpoint types as destinations: MQTT, Kafka, Azure Data Lake Storage, Microsoft Fabric OneLake, Azure Data Explorer, OpenTelemetry, and local storage. Data flow graphs support MQTT, Kafka, and OpenTelemetry destinations only. To send data to a destination other than the local MQTT broker, create a [data flow endpoint](howto-configure-dataflow-endpoint.md). Storage endpoints require a [schema for serialization](./concept-schema-registry.md).
+> Data flows and data flow graphs support all endpoint types as destinations: MQTT, Kafka, Azure Data Lake Storage, Microsoft Fabric OneLake, Azure Data Explorer, OpenTelemetry, and local storage. To send data to a destination other than the local MQTT broker, create a [data flow endpoint](howto-configure-dataflow-endpoint.md). Storage endpoints require a [schema for serialization](#serialize-the-output-with-a-schema).
 
 ## Configure the destination endpoint
 
@@ -238,7 +238,20 @@ For more information and complete examples, see [Route messages to different top
 
 ## Serialize the output with a schema
 
-If you want to serialize the data before sending it to the destination, specify a schema and serialization format. Otherwise, the system serializes the data in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
+MQTT and Kafka destinations use JSON by default. Table-based destinations require an output schema and a serialization format. This requirement applies to both data flows and data flow graphs, including graphs with custom WASM transforms.
+
+First, configure the destination endpoint and its permissions by following the existing endpoint guide. Choose the serialization format for your destination:
+
+| Destination | Serialization format |
+| --- | --- |
+| [Azure Data Lake Storage Gen2](howto-configure-adlsv2-endpoint.md) | Delta or Parquet |
+| [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | Delta for a table with the `Tables` [path type](howto-configure-fabric-endpoint.md#onelake-path-type) |
+| [Azure Data Explorer](howto-configure-adx-endpoint.md) | Parquet |
+| [Local storage](howto-configure-local-storage-endpoint.md) | Parquet |
+
+[Create and upload a Delta schema](concept-schema-registry.md#delta-schema-example) that describes the final transformed message. Use the Delta schema definition format for both Delta and Parquet output. Field names and types must match the fields produced by your transforms or WASM module, not just the original input.
+
+For a data flow, specify the schema in `builtInTransformationSettings`. For a data flow graph, specify it in the destination node's `destinationSettings.outputSchemaSettings`. The graph runtime serializes the processed message before sending it to the endpoint; your WASM module doesn't need to produce Parquet files or a Delta table itself.
 
 > [!IMPORTANT]
 > With Parquet and Delta serialization, the schema and mapping determine whether records are written, dropped, or written with coerced values. A non-nullable field that a mapping doesn't populate causes the whole batch to be dropped, and type mismatches are coerced silently. Before you deploy a storage data flow, review [Storage serialization behavior](concept-schema-registry.md#storage-serialization-behavior).
@@ -248,13 +261,23 @@ If you want to serialize the data before sending it to the destination, specify 
 
 # [Operations experience](#tab/portal)
 
-Specify the schema and serialization format in the data flow endpoint details. The endpoints that support serialization formats are Microsoft Fabric OneLake, Azure Data Lake Storage Gen 2, Azure Data Explorer, and local storage. For example, to serialize the data in Delta format, upload a schema to the schema registry and reference it in the data flow destination endpoint configuration.
+For a data flow graph, use the **Bicep** tab in this section to configure the destination output schema.
+
+For a data flow, specify the schema and serialization format in the data flow endpoint details. The endpoints that support serialization formats are Microsoft Fabric OneLake, Azure Data Lake Storage Gen 2, Azure Data Explorer, and local storage. For example, to serialize the data in Delta format, upload a schema to the schema registry and reference it in the data flow destination configuration.
 
 :::image type="content" source="media/howto-create-dataflow/destination-serialization.png" alt-text="Screenshot using the operations experience to set the data flow destination endpoint serialization.":::
 
 # [Azure CLI](#tab/cli)
 
-After you [upload a schema to the schema registry](concept-schema-registry.md#upload-with-the-azure-cli), reference it in the data flow configuration.
+For a data flow graph with a table-based destination, use the **Bicep** tab in this section to update your graph template, then deploy it with the Azure CLI:
+
+```azurecli
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
+```
+
+Use this deployment method rather than `az iot ops dataflowgraph apply` for table destinations. The latter command's endpoint validation can reject storage endpoints even though the graph API supports them. For the full graph template, see [Create a data flow graph](howto-create-dataflow-graph.md).
+
+For a data flow, after you [upload a schema to the schema registry](concept-schema-registry.md#upload-with-the-azure-cli), reference it in the transformation configuration.
 
 ```json
 {
@@ -267,7 +290,26 @@ After you [upload a schema to the schema registry](concept-schema-registry.md#up
 
 # [Bicep](#tab/bicep)
 
-After you [upload a schema to the schema registry](concept-schema-registry.md#upload-with-the-azure-cli), reference it in the data flow configuration.
+For a data flow graph, use `Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-10-01` and add `outputSchemaSettings` to the destination node. For example, replace the destination node in an [existing graph template](howto-create-dataflow-graph.md) with this node to write Delta output to an ADLS Gen2 container:
+
+```bicep
+{
+  nodeType: 'Destination'
+  name: 'output'
+  destinationSettings: {
+    endpointRef: '<ADLS_ENDPOINT_NAME>'
+    dataDestination: '<CONTAINER_NAME>'
+    outputSchemaSettings: {
+      serializationFormat: 'Delta'
+      schemaRef: 'aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>'
+    }
+  }
+}
+```
+
+Keep the node name unchanged so that the existing node connections still point to it. Set `endpointRef` to your configured endpoint name, `dataDestination` to the [container, table, or folder](#configure-the-data-destination-topic-container-or-table), and `schemaRef` to the uploaded output schema. To write Parquet instead, set `serializationFormat` to `Parquet`.
+
+For a data flow, reference the schema in the transformation configuration:
 
 ```bicep
 builtInTransformationSettings: {
@@ -280,7 +322,22 @@ builtInTransformationSettings: {
 
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
-After you [upload a schema to the schema registry](concept-schema-registry.md#upload-with-the-azure-cli), reference it in the data flow configuration.
+For a data flow graph, add the output schema settings to the destination node in `spec.nodes`:
+
+```yaml
+- nodeType: Destination
+  name: output
+  destinationSettings:
+    endpointRef: <ADLS_ENDPOINT_NAME>
+    dataDestination: <CONTAINER_NAME>
+    outputSchemaSettings:
+      serializationFormat: Delta
+      schemaRef: 'aio-sr://<SCHEMA_NAMESPACE>/<SCHEMA>:<VERSION>'
+```
+
+Keep the node name unchanged so that the existing node connections still point to it. Use `Parquet` instead of `Delta` for Parquet output.
+
+For a data flow, after you [upload a schema to the schema registry](concept-schema-registry.md#upload-with-the-azure-cli), reference it in the transformation configuration:
 
 ```yaml
 builtInTransformationSettings:

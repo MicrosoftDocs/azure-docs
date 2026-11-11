@@ -1,13 +1,14 @@
 ---
-title: Application Gateway Confidential Compute architecture
+title: Application Gateway Confidential Compute Overview - Preview
 description: Understand the architecture, security model, and data flow of Application Gateway Confidential Compute and how it protects sensitive data while it is being processed by the gateway.
 services: application-gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 10/16/2026
+ms.date: 11/11/2026
 ms.author: jaysoni
 ms.custom: references_regions
+
 #customer intent: As a security architect, I want to understand how Confidential Compute protects data in transit and in-use within Application Gateway, so that I can design secure architectures that meet compliance requirements and protect against insider threats.
 ---
 
@@ -18,7 +19,7 @@ Application Gateway Confidential Compute is a security enhancement for Azure App
 > [!NOTE]
 > Application Gateway Confidential Compute is currently in preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Architecture
+## Overview
 
 Application Gateway Confidential Compute runs the application gateway data plane on confidential computing infrastructure to help protect sensitive data while it processes. Hardware-based security capabilities provide an isolated execution environment for the Application Gateways, helping protect sensitive data while it processes.
 
@@ -30,15 +31,14 @@ Application Gateway on Confidential Compute is a managed offering that uses Trus
 
 ## Comparison between Application Gateway types
 
-| Feature |	Application Gateway	| Application Gateway - Confidential Compute|
+| Feature | Application Gateway | Application Gateway - Confidential Compute|
 |--------|-------------------|---------------------------|
-| Memory protection	| Standard platform protections	| Hardware-based memory encryption |
-| Isolation from the virtualization infrastructure | Standard platform isolation |	Hardware-enforced isolation from the hypervisor, host management code, and other virtual machines|
-| Data in use |	Processed in the standard Application Gateway environment	| Protected by confidential computing hardware while being processed|
+| Memory protection | Standard platform protections | Hardware-based memory encryption |
+| Isolation from the virtualization infrastructure | Standard platform isolation | Hardware-enforced isolation from the hypervisor, host management code, and other virtual machines|
+| Data in use | Processed in the standard Application Gateway environment | Protected by confidential computing hardware while being processed|
 
 > [!NOTE]
 > Confidential Compute doesn't protect against vulnerabilities in the application code itself or against compromised backend servers.
-
 
 ## When to use Application Gateway Confidential Compute
 
@@ -60,8 +60,6 @@ Confidential Application Gateway provides the same Application Gateway capabilit
 * **Connectivity and protocol support**: Use Private Link for private connectivity and TCP/TLS proxy for non-HTTP workloads and centralized TLS termination.
 * **Observability**: Continue to use Azure Monitor for Application Gateway monitoring and diagnostic logs, including Access, Firewall, and Activity logs.
 
-
-
 ## Certificate key and protection
 
 Application Gateway supports integration with Azure Key Vault for TLS certificate and key management. By using Confidential Compute, the confidential computing environment protects sensitive data used during TLS processing. The level and location of private key protection depend on the Key Vault integration used.
@@ -70,26 +68,30 @@ Application Gateway supports integration with Azure Key Vault for TLS certificat
 
 When your application gateway retrieves a TLS certificate from Azure Key Vault, the gateway uses the certificate and its private key for TLS termination. When you enable Confidential Compute, the private key and application data that the gateway processes are protected within the confidential computing environment.
 
-**Data flow:**
+#### Data flow
 
-* Application Gateway Confidential Compute retrieves the TLS certificate PFX from Key Vault.
-* Uses the stored PFX to perform TLS processing.
-* Decrypted application data is processed within the confidential computing environment.
+1. Application Gateway Confidential Compute retrieves the TLS certificate PFX from Key Vault.
+1. Uses the stored PFX to perform TLS processing.
+1. Decrypted application data is processed within the confidential computing environment.
 
-**Protection:** Confidential Compute on the gateway protects the private key and sensitive application data while they're in use within the Application Gateway compute environment.
+#### Protection
+
+Confidential Compute on the gateway protects the private key and sensitive application data while they're in use within the Application Gateway compute environment.
 
 ### Integration with Azure Key Vault Managed HSM (Hardware Security Module)
 
 For scenarios that require the TLS private key to remain outside the Application Gateway compute environment, Managed HSM provides hardware-backed protection for the private key.
 
-**Data flow:**
+#### Data flow
 
-* The private key remains protected by the HSM.
-* The HSM handles private key cryptographic operations.
-* Application Gateway performs TLS processing.  
-* Decrypted application data is processed within the confidential computing environment.
+1. The private key remains protected by the HSM.
+1. The HSM handles private key cryptographic operations.
+1. Application Gateway performs TLS processing.
+1. Decrypted application data is processed within the confidential computing environment.
 
-**Protection:** Managed HSM protects the TLS private key, while Application Gateway Confidential Compute protects sensitive application data during gateway processing.
+#### Protection
+
+Managed HSM protects the TLS private key, while Application Gateway Confidential Compute protects sensitive application data during gateway processing.
 
 ## Configurations
 
@@ -126,7 +128,6 @@ The confidential Application Gateway is available in the following regions:
 * Japan East
 * North Central US
 * South Central US
-* Southeast Asia
 * Sweden Central
 * UAE North
 * UK South
@@ -135,7 +136,7 @@ The confidential Application Gateway is available in the following regions:
 * West US 3
 
 > [!Tip]
-> If you require Confidential Compute support in an Azure region that isn't currently supported, contact Azure Support to discuss your regional requirements.
+> If you need Confidential Compute support in an Azure region that isn't currently supported, contact Azure Support to discuss your regional requirements.
 
 ## Pricing
 
@@ -146,9 +147,3 @@ Application Gateway Confidential Compute is billed as an hourly add-on to the St
 * Confidential Compute charge: An additional hourly charge for the Confidential Compute add-on.
 
 See Application Gateway [pricing](https://azure.microsoft.com/pricing/details/application-gateway) for regional rates.
-
-
-
-
-
-

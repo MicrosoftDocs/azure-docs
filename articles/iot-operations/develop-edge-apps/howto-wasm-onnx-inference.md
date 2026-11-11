@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/02/2026
+ms.date: 10/20/2026
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
@@ -26,9 +26,6 @@ Before you start, make sure you have the following items:
 - An Azure IoT Operations deployment with data flow graphs capability.
 - A container registry like Azure Container Registry and a container registry endpoint configured. To learn more, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 - A development environment set up for WebAssembly module development. For options and detailed environment setup instructions, see [Develop WebAssembly modules](./howto-build-wasm-modules.md).
-
-> [!IMPORTANT]
-> Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Azure Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and local storage aren't supported.
 
 ## Benefits of in-band ONNX inference
 
@@ -269,4 +266,3 @@ Inference in WASM data flow graphs has the following limitations:
 - [Develop WebAssembly modules](./howto-build-wasm-modules.md)
 - [Configure WebAssembly (WASM) graph definitions for data flow graphs and connectors](howto-configure-wasm-graph-definitions.md)
 - [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md)
-

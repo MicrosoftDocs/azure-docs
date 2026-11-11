@@ -105,12 +105,12 @@
     href: key-vault-certs.md
   - name: SSL certificate management
     href: ssl-certificate-management.md
+  - name: Application Gateway Confidential Compute Overview - Preview
+    href: confidential-compute-overview.md
   - name: Keyless TLS and Managed HSM
     href: keyless-tls-overview.md
   - name: FIPS 140 support on V2
     href: fips.md
-  - name: Confidential Compute
-    href: confidential-compute-overview.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: TLS 1.0 and 1.1 retirement
@@ -339,6 +339,8 @@
     href: application-gateway-probe-overview.md
   - name: Backend health
     href: application-gateway-backend-health.md
+  - name: Gateway health
+    href: health-dashboard.md
   - name: Diagnostic logs
     href: application-gateway-diagnostics.md
   - name: Metrics

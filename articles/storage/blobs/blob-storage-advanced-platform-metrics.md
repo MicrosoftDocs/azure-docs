@@ -1,12 +1,12 @@
 ---
-title: Advanced platform metrics for Azure Blob Storage (preview)
+title: Advanced platform metrics for Azure Blob Storage
 description: Learn how to use advanced platform metrics to gain container-level capacity insights for Azure Blob Storage, including per-container storage size and object count.
 recommendations: false
 author: derdanu
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.author: normesta
-ms.date: 03/10/2026
+ms.date: 11/05/2026
 ms.custom:
   - "monitoring"
   - sfi-image-nochange

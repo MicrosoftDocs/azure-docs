@@ -6,7 +6,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: best-practice
-ms.date: 04/15/2026
+ms.date: 11/09/2026
 ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to understand how to design my schema registry structure so that I can manage message schemas effectively and avoid unnecessary duplication.
 ---
@@ -22,11 +22,11 @@ This article helps you decide:
 
 ## Service applicability
 
-Schema registries are currently used only in Azure IoT Operations scenarios, where data flows use schemas to describe, transform, and serialize messages. The schema registry is accessible both at the edge and in the cloud, enabling consistent schema management across your solution.
+Schema registries are generally available for Azure IoT Operations and in preview for Azure IoT Hub. This article provides guidance for Azure IoT Operations, where data flows use schemas to describe messages and configure transformations and serialization.
 
 | Feature | Azure IoT Operations | Azure IoT Hub |
 |---|---|---|
-| Schema registries | GA | Not applicable |
+| Schema registries | GA | Preview |
 
 For more information about schema registries, see [Understand message schemas](../../iot-operations/connect-to-cloud/concept-schema-registry.md).
 

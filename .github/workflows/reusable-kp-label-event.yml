@@ -34,7 +34,7 @@ permissions:
 jobs:
   label-event-prs:
     name: Add the event label to matching open PRs
-    if: github.repository == 'MicrosoftDocs/azure-docs-pr'
+    if: github.event.repository.private == true && github.repository == 'MicrosoftDocs/azure-docs-pr'
     concurrency:
       group: knowledge-partnership-membership-${{ github.event_name == 'pull_request_target' && 'enrollment' || 'scan' }}
       cancel-in-progress: false
@@ -53,7 +53,7 @@ jobs:
     steps:
       - name: Pin trusted default-branch clock helper
         id: trusted-clock-source
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           result-encoding: string
           script: |
@@ -64,7 +64,7 @@ jobs:
             return data.commit.sha;
 
       - name: Check out trusted KP clock helper
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ steps.trusted-clock-source.outputs.result }}
           persist-credentials: false
@@ -88,7 +88,7 @@ jobs:
       # PR events inspect one PR; reusable and manual runs backfill all open PRs.
       # Fresh reads and hourly cleanup recover replaced retarget runs.
       - name: Reconcile current rollout membership
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const {EVENT_LABEL, ROLLOUT_BRANCH_PREFIX, EVENT_NAME, PR_NUMBER} = process.env;
@@ -101,9 +101,10 @@ jobs:
               const eligible = pr.base.ref.startsWith(ROLLOUT_BRANCH_PREFIX);
               if (eligible && !member) {
                 const {initialize} = require(process.env.GITHUB_WORKSPACE + '/.github/scripts/kp-business-clock.cjs');
-                await initialize({github, context, core, pr, eventLabel: EVENT_LABEL, managedLabels: [
+                const result = await initialize({github, context, core, pr, eventLabel: EVENT_LABEL, managedLabels: [
                   process.env.REMINDER_DUE_LABEL, process.env.AUTHOR_REMINDER_LABEL
                 ]});
+                if (result === 'skipped') return;
                 await github.rest.issues.addLabels({
                   ...context.repo, issue_number: pr.number, labels: [EVENT_LABEL]
                 });

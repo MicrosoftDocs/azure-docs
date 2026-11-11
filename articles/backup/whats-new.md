@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 10/30/2026
+ms.date: 11/09/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -21,6 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2026
+  - [Snapshot backup for SQL instances in Azure VMs is now generally available](#snapshot-backup-for-sql-instances-in-azure-vms-is-now-generally-available)
   - [Vaulted backup support for Azure Cosmos DB is now generally available](#vaulted-backup-support-for-azure-cosmos-db-is-now-generally-available)
 - October 2026
   - [Selective disk restore for Azure VMs (preview)](#selective-disk-restore-for-azure-vms-preview)
@@ -40,7 +41,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - June 2026
   - [Container limit for ADLS backup has been increased from 100 to 1000](/azure/backup/azure-data-lake-storage-backup-overview)
 - May 2026
-  - [Snapshot backup for SQL Instances in Azure VM (preview)](#snapshot-backup-for-sql-instances-in-azure-vm-preview)
+  - [Snapshot backup for SQL Instances in Azure VM available in preview](#snapshot-backup-for-sql-instances-in-azure-vm-preview)
   - [Vaulted backup support for Azure Cosmos DB (preview)](#vaulted-backup-support-for-azure-cosmos-db-preview)
   - [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
 - April 2026
@@ -89,6 +90,19 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Snapshot backup for SQL instances in Azure VMs is now generally available
+
+Azure Backup now provides snapshot-based backups for SQL Server instances in Azure VMs. Disk-based snapshots and frequent log backups help improve restore times and reduce data loss for large SQL databases.
+
+Key features include:
+
+- **Instance-level snapshots**: Back up multiple databases together and restore the entire instance or individual databases.
+- **Minimal impact on the source server**: Capture application-consistent snapshots with only a few seconds of database quiesce time.
+- **Incremental snapshots**: Optimize snapshot storage costs.
+- **Faster restores and point-in-time recovery**: Restore from snapshots and apply frequent log backups.
+
+For more information, see the [Azure backup for SQL Server on VMs overview](backup-azure-sql-database.md#snapshot-based-backup-for-sql-instances-in-azure-vms).
 
 ## Vaulted backup support for Azure Cosmos DB is now generally available
 
@@ -209,7 +223,7 @@ This feature includes:
 - **Improved Recovery Time Objective (RTO)**: Performs faster restores from snapshots retained within the user subscription. This capability also provides secure, long‑term retention in the Recovery Services vault.
 - **Low Recovery Point Objective (RPO)**: Applies frequent log backups (every 15 minutes) to snapshots during restore for point in time recovery.
 
-For more information, see [Back up SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview).
+For more information, see [Back up SQL Server instance snapshots](backup-azure-sql-database.md#snapshot-based-backup-for-sql-instances-in-azure-vms).
 
 ## Vaulted backup support for Azure Cosmos DB (preview)
 

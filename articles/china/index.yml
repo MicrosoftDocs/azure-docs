@@ -1,0 +1,51 @@
+### YamlMime:Landing
+
+title: Azure in China Playbook
+summary: This playbook is for Azure customers and partners who are preparing to move workloads from Azure global to Azure in China, and who need to understand the local regulations in China and differences in sovereign cloud infrastructure. The playbook gives you background information, but you should still conduct due diligence on business regulations, and seek independent legal advice where appropriate.
+
+metadata:
+  title: Azure in China Playbook | Microsoft Docs
+  description: This playbook is for Azure customers and partners who are preparing to move workloads from Azure global to Azure in China, and who need to understand the local regulations in China and differences in sovereign cloud infrastructure.
+  ms.topic: landing-page # Required
+  ms.date: 04/28/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Overview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure in China checklist
+            url: overview-checklist.md
+          - text: What is Azure in China?
+            url: overview-operations.md
+          - text: Azure in China datacenter
+            url: overview-datacenter.md
+            
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:          
+          - text: Service availability and roadmaps
+            url: concepts-service-availability.md
+          - text: Remote management for Azure in China
+            url: concepts-management.md
+          - text: Microsoft Azure in China Docs
+            url: https://docs.azure.cn/en-us/
+
+  # Card
+  - title: Resources
+    linkLists:            
+      - linkListType: reference
+        links:
+          - text: Azure in China developer guide
+            url: resources-developer-guide.md
+          - text: Azure in China FAQ
+            url: resources-faq.yml
+          - text: Support for Azure in China
+            url: concepts-support.md

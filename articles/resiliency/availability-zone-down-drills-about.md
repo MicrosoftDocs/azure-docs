@@ -1,19 +1,19 @@
 ---
 title: About Availability Zone Down Drills in Infrastructure Resiliency Manager
-description: Learn about Availability Zone Down Drills in Infrastructure Resiliency Manager (preview) and how it helps you assess cross-zone resiliency for your applications.
+description: Learn about Availability Zone Down Drills in Infrastructure Resiliency Manager and how it helps you assess cross-zone resiliency for your applications.
 ms.topic: overview
-ms.date: 10/12/2026
+ms.date: 10/26/2026
 ms.service: resiliency
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: "As a cloud administrator, I want to understand how Availability Zone Down Drills in Infrastructure Resiliency Manager (preview) can help me simulate zone outages and assess cross-zone resiliency for my applications, so that I can identify and address potential weaknesses in my infrastructure before an actual outage occurs."
+# Customer intent: "As a cloud administrator, I want to understand how Availability Zone Down Drills in Infrastructure Resiliency Manager can help me simulate zone outages and assess cross-zone resiliency for my applications, so that I can identify and address potential weaknesses in my infrastructure before an actual outage occurs."
 ---
 
-# About Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)
+# About Availability Zone Down Drills in Infrastructure Resiliency Manager
 
 Infrastructure Resiliency Manager allows you to assess the resiliency of Service Group resources by simulating zone outages on individual resources. You can evaluate the performance of cross-zone resiliency solutions for your applications and identify resources that require Resiliency improvements to support application continuity.
 
-Availability Zone Down Drills are an advanced capability and require the service group to be enrolled in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
+Availability Zone Down Drills are a paid advanced capability and require the service group to be [enrolled in a usage plan](infrastructure-resiliency-manager-pricing.md#enroll-a-service-group-in-a-usage-plan). The usage plan identifies the Azure subscription to charge for the service group's usage. Usage plans don't have tiers. For charge eligibility and hourly proration, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md#when-a-service-group-is-billed).
 
 The Availability Zone Down Drill templates provide Azure-recommended faults for supported resource types and allow you to override them with custom logic through Azure Runbooks. After fault injection, you can perform failover and reprotection for resources configured with active-passive solutions by using integrated Recovery Plans. You can also measure application downtime during outages. You can also monitor Service Group and resource health in real time during drill execution through integrated metrics.
 
@@ -46,6 +46,6 @@ The following sequence outlines each stage in the drill lifecycle, and the actio
 
 ## Next steps
 
-- [Support matrix for Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-support-matrix.md).
-- [Define Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drill-define.md).
-- [Execute Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drill-execute.md).
+- [Support matrix for Availability Zone Down Drills in Infrastructure Resiliency Manager](availability-zone-down-drills-support-matrix.md).
+- [Define Availability Zone Down Drill in Infrastructure Resiliency Manager](availability-zone-down-drill-define.md).
+- [Execute Availability Zone Down Drill in Infrastructure Resiliency Manager](availability-zone-down-drill-execute.md).

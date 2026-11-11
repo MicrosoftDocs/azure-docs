@@ -2,7 +2,7 @@
 title: Back up Azure Files in the Azure portal
 description: Learn how to use the Azure portal to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 02/17/2026
+ms.date: 11/03/2026
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -21,6 +21,10 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 - Define backup schedules and retention settings.
 - Store backup data in the Recovery Service vault, retaining it for up to **10 years**.
 
+> [!NOTE]
+> Snapshot backup for NFS Azure file shares is currently in private preview. The preview is intended for evaluation with non-production subscriptions. To request access, complete the [preview sign-up form](https://forms.cloud.microsoft/r/DJubyYrkYN).
+>
+> Vaulted backup support for NFS Azure file shares is coming soon and isn't yet available in private preview.
 
 ## Prerequisites
 

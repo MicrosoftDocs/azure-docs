@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 02/27/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 
 ---
@@ -21,9 +21,6 @@ Graph definitions are central to WASM development because they define how your m
 - Basic understanding of YAML syntax
 
 This article focuses on creating and configuring the YAML graph definitions. For information about deploying and testing data flow graphs, see [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md).
-
-> [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported.
 
 > [!IMPORTANT]
 > Currently the only connector that supports graph definitions for custom processing is the HTTP/REST connector.
@@ -256,8 +253,8 @@ To learn more about how to configure data flow graphs, see [Use WebAssembly with
 
 Both graph definitions and WASM modules must be uploaded to a container registry as Open Container Initiative (OCI) artifacts before data flow graphs can reference them:
 
-- Graph definitions are packaged as OCI artifacts with media type `application/vnd.oci.image.config.v1+json`
-- WASM modules are packaged as OCI artifacts containing the compiled WebAssembly binary
+- Graph definitions use config media type `application/vnd.microsoft.aio.graph.v1+yaml` and layer media type `application/yaml`.
+- WASM modules use artifact type `application/vnd.module.wasm.content.layer.v1+wasm` and layer media type `application/wasm`.
 - Use semantic versioning (such as `my-graph:1.0.0`, `temperature-converter:2.1.0`) for proper dependency management
 - Registry support is compatible with Azure Container Registry, Docker Hub, and other OCI-compliant registries
 

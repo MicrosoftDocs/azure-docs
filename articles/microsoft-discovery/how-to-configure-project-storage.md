@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/24/2026
+ms.date: 11/10/2026
 ---
 
 # Configure project storage for Microsoft Discovery
@@ -14,7 +14,7 @@ ms.date: 10/24/2026
 
 Create and configure a customer-owned Azure Blob Storage account for project inputs and outputs. You need project storage even if you don't use Bookshelf.
 
-For the onboarding tool, create the account before Stage 1, and then let [Stage 2 (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md) configure its storage networking and access settings after the network is available. The tool doesn't create the storage account. Review its changes before selecting a shared account.
+For the onboarding tool, create the account before Stage 1, and then let [Stage 2](how-to-prepare-landing-zone.md) configure its storage networking and access settings after the network is available. The tool doesn't create the storage account. Review its changes before selecting a shared account.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ For the onboarding tool, create the account before Stage 1, and then let [Stage 
 
 When you run an investigation in Microsoft Discovery Studio, the platform reads input data from and writes output data to an Azure Blob Storage account that you own and manage in your Azure subscription. This design keeps your research data within your own Azure environment.
 
-In Discovery Studio, the storage account is surfaced through **Storage Containers**: logical groupings that map to Azure Blob Storage containers inside your account. Both input assets (datasets, parameter files) and output assets (results, logs) are stored as blobs within these containers.
+A Discovery **storage container** registers the storage account; it isn't the physical Azure Blob container. Storage assets reference paths in that account. Input datasets and output files remain in Azure Blob Storage.
 
 ## Storage account requirements
 
@@ -104,6 +104,8 @@ az role assignment create \
 
 ## Create a storage account
 
+For a same-region deployment, use the Discovery home region for the storage account. For different control-plane and workload regions, follow [Cross-region resource placement](how-to-deploy-across-regions.md#understand-resource-placement).
+
 ### Azure portal
 
 If you only need the initial account for onboarding Stage 1, create it with the approved restrictive networking settings and complete final access after the VNet exists. The selected-network additions in the following steps apply when those subnets already exist; the private-endpoint alternative uses its own endpoint and DNS procedure.
@@ -111,7 +113,7 @@ If you only need the initial account for onboarding Stage 1, create it with the 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Storage accounts** and select it.
 1. Select **Create**.
-1. On the **Basics** tab, enter the subscription, resource group, name, and region. Select the same region as your Discovery workspace.
+1. On the **Basics** tab, enter the subscription, resource group, name, and approved workload region.
 1. Under **Primary service**, select **Azure Blob Storage**.
 1. Select the **Networking** tab.
 1. Under **Public network access**, select the setting for the approved path: **Enable access from selected virtual networks and IP addresses** for service-endpoint access, or **Disabled** for private-only access.
@@ -141,7 +143,7 @@ After the account is created, complete the following post-creation steps:
 SUBSCRIPTION_ID="<your-subscription-id>"
 RESOURCE_GROUP="<your-resource-group>"
 STORAGE_NAME="<globally-unique-storage-account-name>"
-LOCATION="eastus"   # Use the same region as your Discovery workspace
+LOCATION="<workload-region>"
 VNET_NAME="<your-vnet-name>"
 VNET_RESOURCE_GROUP="<vnet-resource-group>"
 ```
@@ -214,7 +216,7 @@ az role assignment create \
 
 ## Related content
 
-- [Plan Discovery deployment (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md)
+- [Plan Discovery deployment](concept-deployment-planning.md)
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
 - [Virtual networks and subnets in Microsoft Discovery](concept-virtual-networks.md)
 - [Role assignments in Microsoft Discovery](concept-role-assignments.md)

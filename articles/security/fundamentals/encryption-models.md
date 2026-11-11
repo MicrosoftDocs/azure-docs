@@ -3,7 +3,7 @@ title: Data encryption models in Microsoft Azure
 description: Learn how Azure encryption models protect data at rest, including client encryption and server-side encryption by using platform-managed or customer-managed keys.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/08/2026
+ms.date: 11/09/2026
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -87,12 +87,14 @@ For scenarios where organizations have specific requirements to control their en
 
 Some services might store only the root key encryption key (KEK) in Azure Key Vault and store the encrypted data encryption key (DEK) in an internal location closer to the data. In this scenario, you can use the bring your own key (BYOK) model to import keys to Key Vault or generate new keys in Key Vault, and then use them to encrypt the desired resources. While the resource provider performs the encryption and decryption operations, it uses your configured KEK as the root key for all encryption operations.
 
+For common handling of key-operation failures and cached DEKs, see [Customer-managed key control, caching, and revocation](encryption-atrest.md#customer-managed-key-control-caching-and-revocation).
+
 Loss of key encryption keys means loss of data. For this reason, don't delete keys. Always back up keys when you create or rotate them. When a KEK is rotated, the service wraps the data encryption keys with the new key version - the underlying data isn't re-encrypted. Both old and new key versions must remain enabled until all data encryption keys are wrapped with the new key version. To protect against accidental or malicious cryptographic erasure, [Soft-delete and purge protection](/azure/key-vault/general/soft-delete-overview) must be enabled on any vault storing key encryption keys. Instead of deleting a key, set enabled to false on the key encryption key. Use access controls to revoke access to individual users or services in [Azure Key Vault](/azure/key-vault/general/rbac-access-policy) or [Managed HSM](/azure/key-vault/managed-hsm/how-to-secure-access).
 
 > [!WARNING]
 > If you suspect a key is compromised, don't immediately disable or delete it. Disabling or deleting a key takes all dependent services offline, but it doesn't invalidate any copies of the key that were backed up and restored to another vault. Those copies remain fully functional. Instead, rotate to a new key and migrate all dependent services before disabling the compromised key. For the full incident response procedure, see [Backup security considerations](/azure/key-vault/general/backup#security-considerations) and [Key compromise response](/azure/key-vault/keys/secure-keys#key-compromise-response).
 
-For customer-managed key scenarios, use Azure Key Vault Premium tier (HSM-backed) as the minimum for compliance requirements that mandate HSM-protected keys. Use Azure Key Vault Managed HSM for workloads that require key sovereignty or dedicated HSM capacity. For organizations that have regulatory or contractual requirements that mandate key material to physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management (preview)](/azure/key-vault/managed-hsm/external-key-management-overview), which keeps the KEK in a customer-operated HSM entirely outside Azure.
+For customer-managed key scenarios, use Azure Key Vault Premium tier (HSM-backed) as the minimum for compliance requirements that mandate HSM-protected keys. Use Azure Key Vault Managed HSM for workloads that require key sovereignty or dedicated HSM capacity. For organizations that have regulatory or contractual requirements that mandate key material to physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management](/azure/key-vault/managed-hsm/external-key-management-overview), which keeps the KEK in a customer-operated HSM entirely outside Azure.
 
 > [!NOTE]
 > For a list of services that support customer-managed keys in Azure Key Vault and Azure Key Vault Managed HSM, see [Services that support CMKs in Azure Key Vault and Azure Key Vault Managed HSM](encryption-customer-managed-keys-support.md).

@@ -2,7 +2,7 @@
 title: 'Quickstart: Create and deploy Azure Functions resources from Terraform'
 description: In this quickstart article, you create a function app in a Flex Consumption plan, along with the resource group, storage account, and blob storage container required by the app.
 ms.topic: quickstart
-ms.date: 07/22/2025
+ms.date: 10/30/2026
 ms.custom: devx-track-terraform
 ms.service: azure-functions
 #customer intent: As a Terraform user, I want to learn how to create a function app in a Flex Consumption plan along with required storage account and blob storage container used for deployments.
@@ -88,7 +88,7 @@ terraform plan -out main.tfplan -var="runtime_name=java" -var="runtime_version=2
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ```console
-terraform plan -out main.tfplan -var="runtime_name=node" -var="runtime_version=20"
+terraform plan -out main.tfplan -var="runtime_name=node" -var="runtime_version=24"
 ```
 ::: zone-end  
 

@@ -36,7 +36,7 @@ The following data is not collected in the current preview:
 - **Software inventory**: Installed applications, packages, and versions
 - **Web applications**: Information about .NET and Java web apps
 - **Dependencies**: Network connections and service dependencies between servers
-- **Databases**: Information about MySQL and PostgreSQL databases.
+- **Databases**: Information about MySQL and PostgreSQL databases. SQL Server performance metrics aren't collected. SQL Server readiness data comes from the Arc-enabled SQL Server extension.
 
 > [!NOTE]
 > This article describes the data collection capabilities that are currently available data. The documentation will be updated, as new features become available.

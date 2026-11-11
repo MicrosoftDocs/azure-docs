@@ -746,6 +746,9 @@ Review these settings. If any of them exist in the current app, decide whether t
 | Mounted Azure Files shares | `azureStorageAccounts` | Determines if any explicitly mounted file shares exist in your app (Linux-only). |
 | SCM basic auth publishing credentials | `scm.allow` | Determines if the [`scm` publishing site is enabled](../../app-service/configure-basic-auth-disable.md). While not recommended for security, some [publishing methods](../functions-deployment-technologies.md) require it. |
 
+> [!NOTE]
+> There's no post-quantum TLS setting to collect or migrate. `minTlsVersion` controls the minimum accepted TLS protocol version, and `minTlsCipherSuite` controls cipher-suite selection. Neither property controls the TLS supported group used for key exchange. Clients that support TLS 1.3 and the hybrid group can negotiate `X25519MLKEM768` automatically with the platform front end; clients that don't support the group use a supported classical key exchange. For details, see [Post-quantum hybrid key exchange in Azure App Service](../../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
+
 #### [GitHub Copilot](#tab/github-copilot)
 
 Copilot inventories site settings, scale limits, CORS, custom domains, and other configuration. It records unsupported or manually handled items in the assessment. Explicit Azure Files mount metadata is inventory-only for this Windows migration.
@@ -1463,6 +1466,9 @@ To transfer settings:
 ### Apply other app configurations
 
 Find the list of other app configurations from your old app that you [collected during premigration](#collect-application-configurations) and set them in the new app.
+
+> [!NOTE]
+> There's no post-quantum TLS setting to apply. Consumption and Flex Consumption apps both use platform-managed negotiation with compatible clients; migrating certificates or custom domains doesn't change post-quantum key exchange eligibility. Minimum TLS and cipher-suite settings don't control the supported group. For details, see [Post-quantum hybrid key exchange in Azure App Service](../../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
 
 #### [GitHub Copilot](#tab/github-copilot)
 

@@ -1,9 +1,9 @@
 ---
 title: How to manage linked IoT hubs with Device Provisioning Service (DPS)
 description: This article shows how to link and manage IoT hubs with the Device Provisioning Service (DPS).
-author: sethmanheim
-ms.author: sethm
-ms.date: 08/23/2024
+author: meenag16
+ms.author: mgudapati
+ms.date: 11/09/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 services: iot-dps
@@ -27,9 +27,11 @@ After an IoT hub is linked to DPS, it's eligible to participate in allocation. W
 
 The following settings control how DPS uses linked IoT hubs:
 
-* **Connection string**: Sets the IoT Hub connection string that DPS uses to connect to the linked IoT hub. The connection string is based on one of the IoT hub's shared access policies. DPS needs the following permissions on the IoT hub: *RegistryWrite* and *ServiceConnect*. The connection string must be for a shared access policy that has these permissions. To learn more about IoT Hub shared access policies, see  [IoT Hub access control and permissions](../iot-hub/authenticate-authorize-sas.md#access-control-and-permissions).
+* **Authentication type**: Specifies how DPS authenticates to the linked IoT hub. Supported values are `KeyBased` (shared access policy connection string), `SystemAssigned` (system-assigned managed identity), and `UserAssigned` (user-assigned managed identity). In every case, DPS needs the *RegistryWrite* and *ServiceConnect* permissions on the IoT hub.
 
-* **Authentication type**: Controls how DPS authenticates to the linked IoT hub. Supported values are `KeyBased` (connection string), `SystemAssigned` (system-assigned managed identity), and `UserAssigned` (user-assigned managed identity). See [Link an IoT hub by using managed identity](#link-an-iot-hub-by-using-managed-identity-preview).
+    * **Connection string**: Applies only to `KeyBased` authentication. Sets the IoT Hub connection string that DPS uses to connect to the linked IoT hub. The connection string must be for a shared access policy that has the *RegistryWrite* and *ServiceConnect* permissions. To learn more about IoT Hub shared access policies, see [IoT Hub access control and permissions](../iot-hub/authenticate-authorize-sas.md#access-control-and-permissions).
+
+    * **Managed identity**: Applies to `SystemAssigned` and `UserAssigned` authentication. DPS uses its managed identity instead of a connection string, so you don't need a connection string or shared access policy. The identity must have the **IoT Hub Data Contributor** role (or a custom role with the *RegistryWrite* and *ServiceConnect* permissions) on the IoT hub. See [Link an IoT hub by using managed identity](#link-an-iot-hub-by-using-managed-identity-preview).
 
 * **Hostname type**: Sets which IoT Hub endpoint DPS uses when provisioning devices. Use `classic` for the standard endpoint or `device` for the TLS 1.3-capable device endpoint. See [Use TLS 1.3 endpoints for linked hubs](#use-tls-13-endpoints-for-linked-hubs-preview).
 
@@ -98,6 +100,20 @@ Instead of a shared access key connection string, you can link an IoT hub to DPS
 - You must enable the managed identity on your DPS instance before linking.
 - The managed identity must have the **IoT Hub Data Contributor** role (or a custom role with `RegistryWrite` and `ServiceConnect` permissions) on the target IoT hub.
 
+#### [Azure portal](#tab/portal)
+
+To enable a managed identity on your DPS instance by using the Azure portal:
+
+1. On the left menu of your DPS instance, select **Identity**.
+
+1. To use a system-assigned identity, on the **System-assigned** tab, set **Status** to **On** and select **Save**. To use a user-assigned identity, on the **User-assigned** tab, select **Add** and choose the identity.
+
+    :::image type="content" source="media/how-to-manage-linked-iot-hubs/enable-managed-identity.png" alt-text="Screenshot that shows the Identity page of a DPS instance with the system-assigned identity status set to On." lightbox="media/how-to-manage-linked-iot-hubs/enable-managed-identity.png":::
+
+To give the identity access to the IoT hub, assign it the **IoT Hub Data Contributor** role on the IoT hub. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+
+#### [Azure CLI](#tab/cli)
+
 To assign a system-assigned identity to your DPS instance:
 
 ```azurecli
@@ -112,7 +128,27 @@ UAMI_ID=$(az identity show --name <identity-name> --resource-group <resource-gro
 az iot dps identity assign --name <dps-name> --resource-group <resource-group> --user $UAMI_ID
 ```
 
-### Link by using system-assigned managed identity
+---
+
+### Link by using managed identity
+
+#### [Azure portal](#tab/portal)
+
+To link an IoT hub by using a managed identity in the Azure portal:
+
+1. On the left menu of your DPS instance, select **Linked IoT hubs**, and then select **+ Add**.
+
+1. On the **Add link to IoT hub** page, select the subscription and the IoT hub.
+
+1. For **Authentication type**, select **System-assigned managed identity** or **User-assigned managed identity**. If you select a user-assigned identity, select the identity from the **User-assigned managed identity** list. You don't need to choose an access policy.
+
+1. Select **Save**.
+
+:::image type="content" source="media/how-to-manage-linked-iot-hubs/add-link-hostname.png" alt-text="Screenshot that shows the Add link to IoT hub pane with user-assigned managed identity selected as the authentication type." lightbox="media/how-to-manage-linked-iot-hubs/add-link-hostname.png":::
+
+#### [Azure CLI](#tab/cli)
+
+To link by using a system-assigned managed identity:
 
 ```azurecli
 az iot dps linked-hub create \
@@ -122,7 +158,7 @@ az iot dps linked-hub create \
   --authentication-type SystemAssigned
 ```
 
-### Link using user-assigned managed identity
+To link by using a user-assigned managed identity:
 
 ```azurecli
 az iot dps linked-hub create \
@@ -136,6 +172,8 @@ az iot dps linked-hub create \
 > [!NOTE]
 > The `--hostname-type service` option isn't supported for DPS linked-hub operations.
 
+---
+
 ## Use TLS 1.3 endpoints for linked hubs (preview)
 
 When you link an IoT hub to DPS, you can choose which endpoint DPS uses when provisioning devices. By default, new links use the TLS 1.3-capable device endpoint.
@@ -144,6 +182,26 @@ When you link an IoT hub to DPS, you can choose which endpoint DPS uses when pro
 |---------------|----------------------|
 | `classic` | `<hub>.azure-devices.net` |
 | `device` (default for new links) | `<hub>.device.azure-devices.net` |
+
+### [Azure portal](#tab/portal)
+
+To choose the endpoint in the Azure portal:
+
+1. On the left menu of your DPS instance, select **Linked IoT hubs**, and then select **+ Add**.
+
+1. On the **Add link to IoT hub** page, select the subscription and the IoT hub.
+
+1. For **Hostname endpoint**, select the endpoint that DPS uses when it provisions devices to the IoT hub. The default is **Device (TLS 1.3 capable)**. Select **Classic (TLS 1.2 only)** if your devices don't support the requirements of the device endpoint.
+
+1. Choose the **Authentication type**, and then select **Save**.
+
+:::image type="content" source="media/how-to-manage-linked-iot-hubs/add-link-authentication-type.png" alt-text="Screenshot that shows the Add link to IoT hub pane with the Hostname endpoint options and the Authentication type list open." lightbox="media/how-to-manage-linked-iot-hubs/add-link-authentication-type.png":::
+
+The **Linked IoT hubs** page shows the endpoint hostname for each link and the maximum TLS version that it supports.
+
+:::image type="content" source="media/how-to-manage-linked-iot-hubs/linked-hubs-list.png" alt-text="Screenshot that shows the Linked IoT hubs page with a device endpoint link that supports TLS 1.3 and a classic endpoint link that supports TLS 1.2." lightbox="media/how-to-manage-linked-iot-hubs/linked-hubs-list.png":::
+
+### [Azure CLI](#tab/cli)
 
 To specify the endpoint type when linking:
 
@@ -163,9 +221,21 @@ az iot dps linked-hub create \
   --hostname-type classic
 ```
 
+---
+
 ### Migrate a linked hub to the TLS 1.3 endpoint
 
-The `az iot dps linked-hub update` command doesn't support changing `--hostname-type` on an existing link; it's rejected as an unrecognized argument. To move a linked hub to a different endpoint, create a new link with the desired `--hostname-type`, then delete the old link by its full hostname.
+You can't change the endpoint type of an existing link. To move a linked hub to a different endpoint, create a new link with the endpoint that you want, then delete the old link.
+
+#### [Azure portal](#tab/portal)
+
+1. Add a new link that uses **Device (TLS 1.3 capable)** for **Hostname endpoint**, as described earlier in this section.
+
+1. On the **Linked IoT hubs** page, select the old link, for example, the one with the `<hub>.azure-devices.net` hostname. Then select **Delete**.
+
+#### [Azure CLI](#tab/cli)
+
+The `az iot dps linked-hub update` command doesn't support changing `--hostname-type` on an existing link; it's rejected as an unrecognized argument. Create a new link with the desired `--hostname-type`, then delete the old link by its full hostname.
 
 ```azurecli
 # Create a new link that uses the TLS 1.3 device endpoint
@@ -182,8 +252,14 @@ az iot dps linked-hub delete \
   --linked-hub <hub-name>.azure-devices.net
 ```
 
+---
+
 > [!IMPORTANT]
 > If an allocation policy distributes devices across multiple linked hubs that use different endpoint types, ensure all devices support the endpoints they might be assigned to. Devices provisioned to a TLS 1.3 endpoint must support SNI and the required cipher suites. For more information, see [TLS 1.3 support](../iot-hub/iot-hub-tls-support.md#tls-13-support-preview).
+>
+> In the Azure portal, the **IoT hubs** tab of an enrollment shows a warning when the target IoT hubs use different TLS configurations.
+
+:::image type="content" source="media/how-to-manage-linked-iot-hubs/enrollment-target-hubs.png" alt-text="Screenshot that shows the IoT hubs tab of an enrollment with a device endpoint and a classic endpoint selected and a warning about different TLS configurations." lightbox="media/how-to-manage-linked-iot-hubs/enrollment-target-hubs.png":::
 
 ## Update a linked IoT hub
 
@@ -295,7 +371,7 @@ To update symmetric keys for a linked IoT hub in the Azure portal:
 
 ### [Azure CLI](#tab/cli)
 
-To update symmetric keys for a linked IoT hub with Azure CLS:
+To update symmetric keys for a linked IoT hub with Azure CLI:
 
 1. Use the [az iot hub policy renew-key](/cli/azure/iot/hub/policy#az-iot-hub-policy-renew-key) command to swap or regenerate the symmetric keys for the shared access policy on the IoT hub. For example, the following command renews the primary key for the *iothubowner* shared access policy on an IoT hub:
 

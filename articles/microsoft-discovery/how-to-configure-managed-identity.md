@@ -3,7 +3,7 @@ title: Configure managed identities for Microsoft Discovery
 description: Learn how to create and configure user-assigned managed identities (UAMI) for Microsoft Discovery workspaces, supercomputers, and bookshelves, including the required Azure role assignments.
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/24/2026
+ms.date: 11/10/2026
 ms.author: umamm
 author: umamm
 ms.custom: identity, managed-identity, rbac
@@ -50,12 +50,14 @@ Both approaches work with Microsoft Discovery. The quickstart guides use a singl
 az identity create \
   --name "discovery-uami" \
   --resource-group "contoso-discovery-rg" \
-  --location "eastus2"
+  --location "<workload-region>"
 ```
 
 Save the output values - you need `principalId` for role assignments and `id` (the full resource ID) when creating Discovery resources.
 
-For the [onboarding tool (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md), create the identity before Stage 1 and put its full resource `id` in `managedIdentity.id`. Stage 2 assigns its roles; it doesn't create the identity. The runner's permissions, human-user eligibility, and workload assignments are separate requirements.
+Replace `<workload-region>` with the approved region for your supporting resources. For a same-region deployment, use the Discovery home region. For different control-plane and workload regions, review [Cross-region resource placement](how-to-deploy-across-regions.md#understand-resource-placement).
+
+For the [onboarding tool](how-to-create-deployment-configuration.md), create the identity before Stage 1 and put its full resource `id` in `managedIdentity.id`. Stage 2 assigns its roles; it doesn't create the identity. The runner's permissions, human-user eligibility, and workload assignments are separate requirements.
 
 ## Assign required roles
 
@@ -153,7 +155,7 @@ az role assignment list \
 
 # Verify the workspace identity
 az rest --method GET \
-  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-06-01" \
   --query "properties.workspaceIdentity"
 ```
 
@@ -198,12 +200,12 @@ az role assignment create \
 
 **Symptom:** Workspace creation fails with `ManagedIdentityNotFound` or `LinkedAuthorizationFailed`.
 
-**Cause:** The UAMI doesn't exist in the specified region, the resource ID is malformed, or the caller doesn't have permission to read the identity.
+**Cause:** The UAMI resource ID is malformed, the identity doesn't exist at that ID, its placement doesn't match the deployment plan, or the caller can't read or assign it.
 
 **Fix:**
 1. Verify the UAMI exists: `az identity show --name {name} --resource-group {rg}`.
-2. Ensure the UAMI is in the same region as the workspace.
-3. Confirm you have **Reader** access to the identity resource.
+2. Confirm its resource group and region match the approved [resource placement](how-to-deploy-across-regions.md#understand-resource-placement).
+3. Confirm that the caller can read the identity and, if assigning it to a resource, has the required assignment permissions.
 
 ### Chat model deployment fails
 
@@ -216,7 +218,7 @@ az role assignment create \
 ```azurecli
 # Find the managed resource group name
 az rest --method GET \
-  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-06-01" \
   --query "properties.managedResourceGroup"
 ```
 

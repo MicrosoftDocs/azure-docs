@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 11/08/2026
 
 #CustomerIntent: As a Discovery platform administrator or developer, I want to navigate to the Log Analytics workspace in the Managed Resource Group so that I can query application logs for troubleshooting.
 ---
@@ -21,6 +21,7 @@ Microsoft Discovery application logs are stored in a dedicated Log Analytics wor
 
 - An Azure account with access to an active subscription containing Microsoft Discovery resources.
 - **Reader** role (or higher) on the Discovery resource and its associated Managed Resource Group.
+- Permission to query the Log Analytics workspace and its tables, such as **Log Analytics Reader** at the workspace scope. Resource visibility alone doesn't establish query access. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access).
 
 ## Navigate to the Managed Resource Group
 
@@ -65,20 +66,23 @@ You're now in the Log Analytics Logs interface for that Discovery resource.
 To see the log tables available for the resource:
 
 1. In the left panel of the Logs interface, select the **Tables** tab.
-2. Expand the **Custom Logs** section.
-3. The custom log tables for Microsoft Discovery appear here, for example `DiscoveryLogs_CL`, `KubeEvents_CL`, or `DiscoveryBookshelfLogs_CL`.
+2. Search for the table name, or expand **Custom Logs** for Discovery custom tables such as `DiscoveryLogs_CL`, `KubeEvents_CL`, or `DiscoveryBookshelfLogs_CL`.
+3. For bookshelf AI Search diagnostics, look for `AzureDiagnostics` rather than `DiscoveryLogs_CL`. It isn't a Discovery custom table.
 
 > [!TIP]
 > You can select any table name to run a default query that fetches the most recent entries, which is useful for quickly confirming that logs are being ingested.
 
 ## Adjust the time range
 
-By default, the Logs interface queries the last 24 hours. You can change the time range using the selector at the top of the query editor, or by adding a `where TimeGenerated` filter directly in your KQL query:
+Set the time range by using the selector at the top of the query editor. You can further filter rows by using `where TimeGenerated` in your KQL query. For Basic or Auxiliary tables, the query requires an explicit time range in the picker or API `timespan`; a KQL time filter doesn't replace it. See [Query Basic and Auxiliary tables](/azure/azure-monitor/logs/basic-logs-query).
 
 ```kql
-| where TimeGenerated > ago(1h)   // Last 1 hour
-| where TimeGenerated > ago(7d)   // Last 7 days
+DiscoveryLogs_CL
+| where TimeGenerated > ago(1h)
+| order by TimeGenerated desc
 ```
+
+Replace `ago(1h)` with `ago(7d)` to filter to the last seven days, within the selected query time range and available table retention.
 
 ## Next steps
 

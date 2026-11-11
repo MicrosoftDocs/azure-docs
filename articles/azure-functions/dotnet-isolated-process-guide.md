@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 09/14/2026
+ms.date: 11/10/2026
 recommendations: false
 ms.custom:
   - template-concept
@@ -65,7 +65,9 @@ To build and run your .NET functions in an isolated worker process, you need:
 - [Microsoft.Azure.Functions.Worker], which provides the worker runtime.
 - A build SDK that generates function metadata and prepares the project for deployment.
 
-For projects that target a supported version of .NET or .NET Framework, use `Azure.Functions.Sdk` as the project SDK. The following example shows the basic project configuration:
+For projects that target a supported version of .NET or .NET Framework, use `Azure.Functions.Sdk` as the project SDK. Projects that target .NET 11 require `Azure.Functions.Sdk` version 1.0.1 or later. See [.NET 11](#net-11) for project configuration and tooling guidance.
+
+The following example shows the basic project configuration for .NET 10:
 
 ```xml
 <Project Sdk="Azure.Functions.Sdk/1.0.0">
@@ -100,14 +102,55 @@ You must explicitly reference `Microsoft.Azure.Functions.Worker`. Keeping this r
 
 `Azure.Functions.Sdk` automatically provides the underlying .NET SDK, sets `AzureFunctionsVersion` to `v4`, adds the source generators and analyzers used for function metadata, and integrates with Functions tooling so that [`dotnet run`](/dotnet/core/tools/dotnet-run) starts the Functions host when [Azure Functions Core Tools](./functions-run-local.md) is installed.
 
-The minimum worker and build SDK versions depend on your target .NET version:
+For .NET 11, use `Azure.Functions.Sdk` version 1.0.1 or later. We recommend `Microsoft.Azure.Functions.Worker` version 2.50.0 or later, the same baseline as .NET 10. The following table lists this recommendation for .NET 11 and minimum worker and build SDK versions for earlier target frameworks:
 
 | .NET version | `Microsoft.Azure.Functions.Worker` | Build SDK |
 | --- | --- | --- |
+| .NET 11 | 2.50.0 or later | `Azure.Functions.Sdk` 1.0.1 or later |
 | .NET 10 | 2.50.0 or later | `Azure.Functions.Sdk` 1.0.0 or later |
 | .NET 9 | 2.0.0 or later | `Azure.Functions.Sdk` 1.0.0 or later |
 | .NET 8 | 1.16.0 or later | `Azure.Functions.Sdk` 1.0.0 or later |
 | .NET Framework | 1.16.0 or later | `Azure.Functions.Sdk` 1.0.0 or later |
+
+### .NET 11
+
+.NET 11 is available in the isolated worker model on Azure Functions runtime version 4.x. The in-process model doesn't support .NET 11.
+
+Install the [.NET 11 SDK](https://dotnet.microsoft.com/download/dotnet/11.0) and update your Azure Functions development tools and templates before creating a .NET 11 project. The updated templates use `Azure.Functions.Sdk` and retain an explicit `Microsoft.Azure.Functions.Worker` package reference.
+
+With the updated Azure Functions Core Tools, run the following command to create a .NET 11 isolated worker project:
+
+```console
+func init --worker-runtime dotnet-isolated --target-framework net11.0
+```
+
+The following example shows a generated project file. SDK and package versions can differ depending on your installed template version and are updated as new releases become available.
+
+```xml
+<Project Sdk="Azure.Functions.Sdk/1.0.1">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.OpenTelemetry" Version="1.2.0" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.15.3" />
+    <PackageReference Include="Azure.Monitor.OpenTelemetry.Exporter" Version="1.7.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.1.1" />
+  </ItemGroup>
+</Project>
+```
+
+The SDK and package versions shown are the versions used by this template example, not minimum version requirements for every app. Use the latest compatible stable releases that meet the requirements for your target framework. The example includes OpenTelemetry and ASP.NET Core HTTP integration packages; your app's extension and telemetry dependencies depend on its features and configuration.
+
+For an existing project, change the project SDK to `Azure.Functions.Sdk/1.0.1` and the target framework to `net11.0`. Keep an explicit `Microsoft.Azure.Functions.Worker` package reference and the trigger and binding extension packages your app uses. `Azure.Functions.Sdk` replaces `Microsoft.NET.Sdk` in the `Project` element and the `Microsoft.Azure.Functions.Worker.Sdk` package reference; it doesn't replace the worker runtime package.
+
+Follow [Migrate to Azure.Functions.Sdk](#migrate-to-azurefunctionssdk) for the other project file changes. The build SDK migration itself doesn't require application code changes, but you should review dependency compatibility and test your app when upgrading its target framework to .NET 11. When you deploy, also configure the function app in Azure to use the .NET 11 isolated worker stack.
+
+> [!NOTE]
+> Linux Consumption doesn't support .NET 10 or later. To upgrade a Linux Consumption app to .NET 11, first [migrate to Flex Consumption](migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux).
 
 ### Migrate to Azure.Functions.Sdk
 
@@ -1514,7 +1557,7 @@ Keep these considerations in mind when using Functions with preview versions of 
 + During a preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause your function app to fail when deployed. To address this, you can specify the version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). 
 
     1. Run the `dotnet --list-sdks` command and note the preview version you're currently using during local development. 
-    1. Run the `dotnet new globaljson --sdk-version <SDK_VERSION> --force` command, where `<SDK_VERSION>` is the version you're using locally. For example, `dotnet new globaljson --sdk-version dotnet-sdk-10.0.100-preview.5.25277.114 --force` causes the system to use the .NET 10 Preview 5 SDK when building your project.
+    1. Run the `dotnet new globaljson --sdk-version <SDK_VERSION> --force` command, where `<SDK_VERSION>` is the version you're using locally.
 
 > [!NOTE] 
 > Because of the just-in-time loading of preview frameworks, function apps running on Windows can experience increased cold start times when compared against earlier GA versions.
