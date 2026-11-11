@@ -61,7 +61,7 @@ The ExpressRoute gateway advertises one or more *Address Space* of the Azure vir
 
 ### How many prefixes can be advertised from a virtual network to on-premises on ExpressRoute private peering?
 
-There's a maximum of 1000 IPv4 prefixes advertised on a single ExpressRoute connection, or through virtual networking peering using gateway transit. For example, if you have 999 address spaces on a single virtual network connected to an ExpressRoute circuit, all 999 prefixes gets advertised to on-premises. Alternatively, if you have a virtual network enabled to allow gateway transit with 1 address space and 500 spoke virtual network enabled using the "Allow Remote Gateway" option, the virtual network deployed with the gateway advertises 501 prefixes to on-premises.
+There's a maximum of 1000 IPv4 prefixes advertised on a single ExpressRoute connection, or through virtual networking peering using gateway transit. For example, if you have 999 address spaces on a single virtual network connected to an ExpressRoute circuit, all 999 prefixes get advertised to on-premises. Alternatively, if you have a virtual network enabled to allow gateway transit with 1 address space and 500 spoke virtual network enabled using the "Allow Remote Gateway" option, the virtual network deployed with the gateway advertises 501 prefixes to on-premises.
 
 If you're using a dual-stack circuit, there's a maximum of 100 IPv6 prefixes on a single ExpressRoute connection, or through virtual network peering using gateway transit. This limit is in addition to the limits described previously.
 
@@ -86,7 +86,7 @@ ExpressRoute supports up to 11,000 routes, covering virtual network address spac
 
 To make this change in the Azure portal:
 
-1. GNavigate to the Advisor resource, and select the "Performance" pillar.
+1. Navigate to the Advisor resource, and select the "Performance" pillar.
 2. Select the recommendation for "Max prefix reached for ExpressRoute Gateway."
 3. Select the Gateway with this recommendation.
 4. In the Gateway resource, select the "Virtual network" to which the Gateway is attached.
@@ -95,7 +95,7 @@ To make this change in the Azure portal:
 
 ### Can routes from the on-premises network get filtered?
 
-The only way to filter or include routes is on the on-premises edge router. User-defined routes can be added in the VNet to affect specific routing, but is only static and not part of the BGP advertisement.
+The only way to filter or include routes is on the on-premises edge router. User-defined routes can be added in the VNet to affect specific routing, but they are static only and not part of the BGP advertisement.
 
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
 
@@ -166,7 +166,7 @@ Supported bandwidth offers:
 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps
 
 > [!NOTE]
-> ExpressRoute supports redundant pair of cross connection. If you exceed the configured bandwidth of your ExpressRoute circuit in a cross connection, your traffic would be subjected to rate limiting within that cross connection.
+> ExpressRoute supports a redundant pair of cross connection. If you exceed the configured bandwidth of your ExpressRoute circuit in a cross connection, your traffic would be subjected to rate limiting within that cross connection.
 >
 
 ### What's the maximum MTU supported?
@@ -372,7 +372,7 @@ An ExpressRoute gateway is fundamentally a multi-homed device with one NIC tappi
 
 ### What is the connectivity scope for different ExpressRoute circuit SKUs?
 
-The following diagram shows the connectivity scope of different ExpressRoute circuit SKUs. In this example, your on-premises network is connected to an ExpressRoute peering site in London. With a Local SKU ExpressRoute circuit, you can connect to resources in Azure regions in the same metro as the peering site. In this case, your on-premises network can access UK South Azure resources over ExpressRoute. For more information, see [What is ExpressRoute Local?](#what-is-expressroute-local) When you configure a Standard SKU ExpressRoute circuit, connectivity to Azure resources expand to all Azure regions in a geopolitical area. As explained in the diagram, your on-premises can connect to resources in West Europe and France Central. To allow your on-premises network to access resources globally across all Azure regions, you need to configure an ExpressRoute premium SKU circuit. For more information, see [What is ExpressRoute premium?](#what-is-expressroute-premium)
+The following diagram shows the connectivity scope of different ExpressRoute circuit SKUs. In this example, your on-premises network is connected to an ExpressRoute peering site in London. With a Local SKU ExpressRoute circuit, you can connect to resources in Azure regions in the same metro as the peering site. In this case, your on-premises network can access UK South Azure resources over ExpressRoute. For more information, see [What is ExpressRoute Local?](#what-is-expressroute-local) When you configure a Standard SKU ExpressRoute circuit, connectivity to Azure resources expands to all Azure regions in a geopolitical area. As explained in the diagram, your on-premises can connect to resources in West Europe and France Central. To allow your on-premises network to access resources globally across all Azure regions, you need to configure an ExpressRoute premium SKU circuit. For more information, see [What is ExpressRoute premium?](#what-is-expressroute-premium)
 
 :::image type="content" source="./media/expressroute-faqs/sku-scope.png" alt-text="Diagram of connectivity scope for different ExpressRoute circuit SKUs.":::
 
@@ -383,7 +383,7 @@ When the limit is reached, new routes don't get programmed on FastPath, and inst
 All other limits for the ExpressRoute gateway, the ExpressRoute circuit, and the virtual network still apply.
 
 ### Can I use Azure Firewall with FastPath?
-Yes. To support traffic traversing from on-premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
+Yes. To support traffic traversing from on-premises to Azure workloads via Azure Firewall, it should be deployed in the same VNet as the ExpressRoute Gateway, and a UDR has to be configured on the Gateway Subnet.
 
 ### How do I enable FastPath for Virtual WAN?
 
@@ -397,7 +397,7 @@ For Virtual WAN-specific eligibility and supported scenarios, see [ExpressRoute 
 
 ExpressRoute premium is a collection of the following features:
 
-* Increased routing table limit from 4000 routes to 10,000 routes for private peering.
+* Increased routing table limit from 4,000 routes to 10,000 routes for private peering.
 * Increased number of VNets and ExpressRoute Global Reach connections that can be enabled on an ExpressRoute circuit (default is 10). For more information, see the [ExpressRoute Limits](#limits) table.
 * Connectivity to Microsoft 365
 * Global connectivity over the Microsoft core network. You can now link a VNet in one geopolitical region with an ExpressRoute circuit in another region.<br>
@@ -443,7 +443,7 @@ ExpressRoute Local might not be available for an ExpressRoute Location. For peer
 
 ### What are the benefits of ExpressRoute Local?
 
-While you need to pay egress data transfer for your Standard or Premium ExpressRoute circuit, you don't pay egress data transfer separately for your ExpressRoute Local circuit. In other words, the price of ExpressRoute Local includes data transfer fees. ExpressRoute Local is an economical solution if you have massive amount of data to transfer and want to have your data over a private connection to an ExpressRoute peering location near your desired Azure regions. 
+While you need to pay egress data transfer for your Standard or Premium ExpressRoute circuit, you don't pay egress data transfer separately for your ExpressRoute Local circuit. In other words, the price of ExpressRoute Local includes data transfer fees. ExpressRoute Local is an economical solution if you have a massive amount of data to transfer and want to have your data over a private connection to an ExpressRoute peering location near your desired Azure regions. 
 
 ### What features are available and what aren't on ExpressRoute Local?
 
@@ -566,7 +566,7 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 
 ### How should I incorporate ExpressRoute Traffic Collector into my disaster recovery plan?
 
-You can associate a single ExpressRoute Circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It is recommended that you associate your ExpressRoute Circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
+You can associate a single ExpressRoute Circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure regions within a given geo-political region. It is recommended that you associate your ExpressRoute Circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
 
 ### Will my ExpressRoute Circuit experience any downtime while configuring ExpressRoute Traffic Collector?
 
