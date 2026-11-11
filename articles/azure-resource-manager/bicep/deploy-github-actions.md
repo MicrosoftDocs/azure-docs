@@ -142,10 +142,10 @@ The following examples deploy to the existing `exampleRG` resource group and use
         steps:
 
           # Checkout code
-        - uses: actions/checkout@main
+        - uses: actions/checkout@v7
 
           # Log into Azure
-        - uses: azure/login@v2
+        - uses: azure/login@v3
           with:
             client-id: ${{ secrets.AZURE_CLIENT_ID }}
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
