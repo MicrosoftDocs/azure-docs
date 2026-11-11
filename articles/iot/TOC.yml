@@ -57,7 +57,7 @@ items:
             href: concepts-certificate-policy-management.md
   - name: Manage your device fleet
     items:
-    - name: Disable or enable a device (preview)
+    - name: Disable or enable a device
       href: device-registry/how-to-disable-enable-device.md
     - name: Groups concepts (preview)
       href: device-registry/concept-groups.md
