@@ -2,7 +2,7 @@
 title: Availability zone down drills support matrix for Infrastructure Resiliency Manager
 description: Provides a summary regional availability, supported scenarios, and limitations for availability zone down drills in Infrastructure Resiliency Manager.
 ms.topic: reference
-ms.date: 10/12/2026
+ms.date: 11/10/2026
 ms.service: resiliency
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -10,15 +10,20 @@ ms.author: v-mallicka
 
 ---
 
-# Support matrix for Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)
+# Support matrix for Availability Zone Down Drills in Infrastructure Resiliency Manager
 
-This article summarizes the regional availability, supported scenarios, and limitations for Availability Zone Down Drill in Infrastructure Resiliency Manager (preview).
+This article summarizes the regional availability, supported scenarios, and limitations for Availability Zone Down Drill in Infrastructure Resiliency Manager.
 
-Availability Zone Down Drills require the service group to be enrolled in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
+Availability Zone Down Drills are a paid advanced capability and require the service group to be [enrolled in a usage plan](infrastructure-resiliency-manager-pricing.md#enroll-a-service-group-in-a-usage-plan). The usage plan identifies the Azure subscription to charge for the service group's usage. Usage plans don't have tiers. For charge eligibility and hourly proration, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md#when-a-service-group-is-billed).
 
 ## Supported regions
 
 Availability Zone Down Drills in Resiliency support all Azure regions that have availability zones, except Sovereign Clouds. 
+
+Availability Zone Down faults supported in Resiliency are powered by Azure Chaos Studio. Hence Chaos Studio Workspace resource that is created as part of Resiliency Drill creation workflow will be in one of the [regions supported by Azure Chaos Studio workspaces](/azure/chaos-studio/chaos-studio-region-availability#regional-availability-of-chaos-studio-workspaces). 
+
+ >[!NOTE]
+ > Irrespective of the region in which the Chaos Studio Workspace is created, fault injections can be done against resources in any Azure region. 
 
 ## Supported resource types and native faults
 
@@ -32,11 +37,13 @@ The following table lists the resource types that support native Zone Down fault
 | Azure Database for PostgreSQL flexible servers | Triggers forced failover to switch the server's active zone. |
 | Azure Database for MySQL flexible servers | Triggers forced failover to switch the server's active zone. |
 | Azure SQL Database | Triggers forced failover to switch the server's active zone. |
+| Azure SQL Managed Instance | Triggers forced failover to switch the active zone. |
 | Azure Load Balancer | Disables readiness probes in the selected zone by using admin override. |
 | Azure Cache for Redis | Restarts the primary node of the cache. |
 | App Service | Stops App Service instances in a single zone. |
+| Network Security Group (NSG) | Apply NSG rule to simulate outage for any Azure service. Examples are outages of Application Gateway, Public IP Address, Firewall, NAT Gateway, API Management, Key Vault, HDInsight Clusters, Bastion Hosts, Service Fabric Clusters etc. |
 
-The preview release supports Service Groups containing up to 500 resources.
+Resiliency Manager Drills supports Service Groups containing up to 500 resources.
 
 > [!Tip]
 > For unsupported resource types, use custom scripts powered by Azure Runbooks to define fault logic.
@@ -48,10 +55,10 @@ The following table lists the minimum roles required for drill operations:
 
 | **Scope** | **Role** | **Purpose** |
 | --- | --- | --- |
-| Service Group | SG Drill Contributor | Create, update, and execute drills. |
+| Service Group | Azure Resilience Management Drills Administrator | Create, update, and execute drills. |
 | Service Group | Recovery Plan Contributor | Create and execute Recovery Plans. |
-| Subscription (Chaos Workspace) | Drill Assets Contributor | Manage the subscription associated with Automation account and Chaos Workspace. |
-| Individual resources | Drill Resource Fault Contributor | Manage the target resources for fault injection. |
+| Subscription (Chaos Workspace) | Azure Resilience Management Drills Assets Administrator | Manage the subscription associated with Chaos Workspace and Azure Automation account. |
+| Individual resources | Reader | View the target resources in the Service Group for fault injection. |
 | Subscription (Monitoring) | Log Analytics Contributor + Monitoring Contributor + User Access Administrator | Create monitoring infrastructure (Log Analytics workspace, DCE, DCR) and assign roles. |
 
 ## Applicable resource providers
@@ -66,5 +73,5 @@ Register the following resource providers in the relevant subscriptions:
 
 ## Next steps
 
-- [Define Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drill-define.md).
-- [Execute Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drill-execute.md).
+- [Define Availability Zone Down Drill in Infrastructure Resiliency Manager](availability-zone-down-drill-define.md).
+- [Execute Availability Zone Down Drill in Infrastructure Resiliency Manager](availability-zone-down-drill-execute.md).

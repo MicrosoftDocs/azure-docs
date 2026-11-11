@@ -55,9 +55,15 @@ Once the vault and policy are created, there are three critical points that you 
 
 You need to assign a few permissions via RBAC to the vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Azure portal or CLI. To assign related permissions, see the [prerequisites to configure backup of managed disks](./backup-managed-disks-ps.md#assign-permissions).
 
+The identity that creates or updates the backup instance needs read permission on the source disk (`Microsoft.Compute/disks/read`), such as through the **Reader** role on that disk. This permission is separate from the permissions assigned to the Backup vault's managed identity.
+
+If the source disk is in an AKS node resource group, access to the AKS cluster alone isn't sufficient. The calling identity needs read permission on the disk, either directly or inherited from its node resource group. A role assignment on the entire resource group isn't required if the identity's existing permissions cover the disk.
+
+If configuration fails with `LinkedAuthorizationFailed` or `LinkedInvalidPropertyId`, see [Troubleshoot backup configuration requests](backup-azure-backup-vault-troubleshoot.md#backup-configuration-request-errors).
+
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, prepare the request to configure backup. The following is the request body to configure backup for an Azure Disk. The Azure Resource Manager ID (ARM ID) of the Azure Disk and its details are mentioned in the `datasourceinfo` section and the policy information is present in the `policyinfo` section where the snapshot resource group is provided as one of the policy parameters.
+After you set the relevant permissions for the vault and the disk, and configure the vault and policy, prepare the request to configure backup. The following request body configures backup for an Azure Disk. Set `dataSourceInfo.resourceID` to the full Azure Resource Manager (ARM) ID of the source disk. The policy information is in the `policyInfo` section, which includes the snapshot resource group as one of the policy parameters.
 
 ```json
 {

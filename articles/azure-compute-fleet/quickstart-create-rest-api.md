@@ -5,7 +5,7 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
 ms.service: azure-compute-fleet
-ms.date: 07/20/2026
+ms.date: 09/09/2026
 ms.reviewer: wwilliams
 ms.custom: devx-track-arm-template, build-2024
 # Customer intent: "As a cloud engineer, I want to create an Azure Compute Fleet using an ARM template, so that I can automate the deployment and management of scalable virtual machine resources."
@@ -264,16 +264,16 @@ These resources are defined in the template:
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
 
 
-## Create a fleet in Launch mode (Preview)
+## Create a fleet in Launch mode
 
-To create a fleet in [Launch mode (Preview)](launch-mode.md), set `mode` to `Launch` in the fleet `properties` and use the `2026-04-01-preview` API version. In Launch mode, the fleet provisions the VMs and then hands off control; the fleet object self-deletes a few hours later while the VMs persist.
+To create a fleet in [Launch mode](launch-mode.md), set `mode` to `Launch` in the fleet `properties` and use the `2026-08-01` API version. In Launch mode, the fleet provisions the VMs and then hands off control; the fleet object self-deletes a few hours later while the VMs persist.
 
-The following snippet shows the Launch mode additions to the `Microsoft.AzureFleet/fleets` resource. The `vmNamePrefix` property gives the provisioned VMs orchestrator-friendly names and requires the `2026-04-01-preview` API version.
+The following snippet shows the Launch mode additions to the `Microsoft.AzureFleet/fleets` resource. The `vmNamePrefix` property gives the provisioned VMs orchestrator-friendly names and requires the `2026-08-01` API version.
 
 ```json
 {
     "type": "Microsoft.AzureFleet/fleets",
-    "apiVersion": "2026-04-01-preview",
+    "apiVersion": "2026-08-01",
     "name": "[toLower(parameters('fleetName'))]",
     "location": "[parameters('location')]",
     "zones": [ "1", "2", "3" ],
@@ -306,9 +306,6 @@ The following snippet shows the Launch mode additions to the `Microsoft.AzureFle
 ```
 
 In Launch mode, don't set the `spotPriorityProfile.maintain` preference - it applies only to Managed mode. Because provisioning is asynchronous, use the [List VMs API](launch-mode.md#retrieve-and-monitor-vms) to retrieve the VM resource IDs and monitor provisioning status after the deployment is submitted.
-
-> [!IMPORTANT]
-> Launch mode for Azure Compute Fleet is currently in preview. For more information, see [Launch mode for Azure Compute Fleet (Preview)](launch-mode.md).
 
 ## Clean up resources
 

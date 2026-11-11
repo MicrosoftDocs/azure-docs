@@ -76,13 +76,10 @@ The following table shows locations by service provider. If you want to view ava
 | **`Chunghwa Telecom`** |&check; |&check; | Taipei<br/>Taipei2 |
 | **[`Cinia`](https://www.cinia.fi/)** |&check; |&check; | Amsterdam2<br/>Stockholm |
 | **[`Cirion Technologies`](https://lp.ciriontechnologies.com/cloud-connect-lp-latam?c_campaign=HOTSITE&c_tactic=&c_subtactic=&utm_source=SOLUCIONES-CTA&utm_medium=Organic&utm_content=&utm_term=&utm_campaign=HOTSITE-ESP)** | &check; | &check; | Queretaro<br/>Rio De Janeiro<br/>Santiago |
-| **`Claro`** |&check; |&check; | Miami |
+| **[`Claro`](https://www.usclaro.com/)** |&check; |&check; | Miami |
 | **`Cloudflare`** |&check; |&check; | Los Angeles |
 | **[`Cogent (T-Mobile)`](https://www.t-mobile.com/business/solutions/networking/cloud-networking)** |&check; |&check; | Amsterdam<br/>Chicago<br/>Seattle<br/>Silicon Valley<br/>Washington DC<br/> |
 | **[`Cologix`](https://cologix.com/connectivity/cloud/cloud-connect/microsoft-azure/)** |&check; |&check; | Chicago<br/>Dallas<br/>Minneapolis<br/>Montreal<br/>Toronto<br/>Vancouver<br/>Washington DC |
-| **[`Claro`](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |&check; |&check; | Miami |
-| **`Cloudflare`** |&check; |&check; | Los Angeles |
-| **[`Cologix`](https://cologix.com/connectivity/cloud/cloud-connect/microsoft-azure/)** | &check; | &check; | Chicago<br/>Dallas<br/>Minneapolis<br/>Montreal<br/>Toronto<br/>Vancouver<br/>Washington DC |
 | **[`Colt`](https://www.colt.net/product/direct-connect/azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Berlin<br/>Chicago<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong SAR<br/>London<br/>London2<br/>Madrid Metro<br/>Marseille<br/>Milan<br/>Munich<br/>Newport<br/>Osaka<br/>Paris<br/>Paris2<br/>Seoul<br/>Silicon Valley<br/>Singapore Metro<br/>Singapore2<br/>Tokyo<br/>Tokyo2<br/>Washington DC<br/>Zurich<br/>Zurich Metro |
 | **[`Conova`](https://www.conova.com/)** |&check; |&check; | Vienna<br/>Vienna2 |
 | **[`Console Connect (PCCW Global Limited)`](https://consoleconnect.com/clouds/#azureRegions)** | &check; | &check; | Chicago<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Hong Kong SAR<br/>Hong Kong2<br/>Johannesburg<br/>London<br/>Paris<br/>Queretaro<br/>Singapore<br/>Singapore2<br/>Sydney<br/>Tokyo2<br/>Washington DC |
@@ -107,7 +104,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[`Elisa`](https://elisa.fi/)** |&check; |&check; | Stockholm |
 | **[`Embratel`](https://www.embratel.com.br/rede-de-dados/cloud-interconnect)** |&check; |&check; | Sao Paulo |
 | **[`Epsilon Global Communications`](https://epsilontel.com/solutions/cloud-connect/)** | &check; | &check; | Hong Kong2<br/>London2<br/>Singapore<br/>Singapore2<br/>Washington DC |
-| **[`Equinix`](https://www.equinix.com/partners/microsoft-azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Berlin<br/>Canberra2<br/>Chicago<br/>Chicago Metro<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Kuala Lumpur<br/>London<br/>London2<br/>Los Angeles>br/>Los Angeles2<br/>Madrid Metro<br/>Madrid2<br/>Melbourne<br/>Melbourne2<br/>Miami<br/>Milan<br/>Milan Metro<br/>Montreal<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Queretaro<br/>Rio de Janeiro<br/>Santiago<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Warsaw<br/>Washington DC<br/>Zurich<br/>Zurich2 |
+| **[`Equinix`](https://www.equinix.com/partners/microsoft-azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Berlin<br/>Canberra2<br/>Chennai<br/>Chicago<br/>Chicago Metro<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Kuala Lumpur<br/>London<br/>London2<br/>Los Angeles<br/>Los Angeles2<br/>Madrid Metro<br/>Madrid2<br/>Melbourne<br/>Melbourne2<br/>Miami<br/>Milan<br/>Milan Metro<br/>Montreal<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Queretaro<br/>Rio de Janeiro<br/>Santiago<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Warsaw<br/>Washington DC<br/>Zurich<br/>Zurich2 |
 | **`Etisalat UAE`** |&check; |&check; | Abu Dhabi<br/>Dubai |
 | **[`euNetworks`](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>London<br/>Paris |
 | **[`Eurofiber`](https://eurofiber.nl/microsoft-azure/)** | &check; | &check; | Brussels<br/>Brussels2 |
@@ -154,11 +151,11 @@ The following table shows locations by service provider. If you want to view ava
 | **`LG CNS`** | &check; | &check; | Busan<br/>Seoul |
 | **`Lightpath`** | &check; | &check; | Chicago<br/>Miami<br/>New York<br/>New York<br/>Washington DC |
 | **[`Lightstorm`](https://polarin.lightstorm.net/)** | &check; | &check; | Chennai<br/>Dubai2<br/>Mumbai<br/>Pune<br/>Singapore |
-| **[`Liquid Intelligent Technologies`](https://liquidcloud.africa/connect/)** | &check; | &check; | Cape Town<br/>Johannesburg |
+| **[`Liquid Intelligent Technologies`](https://liquidcloud.africa/connect/)** | &check; | &check; | Cape Town<br/>Johannesburg<br/>Johannesburg2 |
 | **[`LGUplus`](http://www.uplus.co.kr/)** |&check; |&check; | Seoul<br/>Seoul2 |
 | **[`Marlink`](https://www.marlink.com/)** | &check; | &check; | London2<br/>Madrid |
 | **[`MCM Telecom`](https://www.mcmtelecom.com/alianza-microsoft)** | &check; | &check; | Dallas<br/>Queretaro (Mexico)|
-| **[`Megaport`](https://www.megaport.com/services/microsoft-expressroute/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Auckland<br/>Chicago<br/>Chicago Metro<br/>Chicago2<br/>Dallas<br/>Dallas Metro<br/>Denver<br/>Dubai2<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Madrid Metro<br/>Melbourne<br/>Miami<br/>Milan<br/>Milan Metro<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>New York Metro<br/>Omaha<br/>Osaka<br/>Oslo<br/>Paris<br/>Paris2<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro<br/>San Antonio<br/>Sao Paulo<br/>Sao Paulo2<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC Metro<br/>Washington DC2<br/>Zurich |
+| **[`Megaport`](https://www.megaport.com/services/microsoft-expressroute/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Auckland<br/>Chennai<br/>Chennai2<br/>Chicago<br/>Chicago Metro<br/>Chicago2<br/>Dallas<br/>Dallas Metro<br/>Denver<br/>Dubai2<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Hyderabad<br/>Hyderabad2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Madrid Metro<br/>Melbourne<br/>Miami<br/>Milan<br/>Milan Metro<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>New York Metro<br/>Omaha<br/>Osaka<br/>Oslo<br/>Paris<br/>Paris2<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro<br/>San Antonio<br/>Sao Paulo<br/>Sao Paulo2<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC Metro<br/>Washington DC2<br/>Zurich |
 | **[`Momentum Telecom`](https://gomomentum.com/)** | &check; | &check; | Atlanta<br/>Atlanta2<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dallas2<br/>Denver<br/>London<br/>Los Angeles<br/>Madrid<br/>Miami<br/>New York<br/>Seattle<br/>Silicon Valley<br/>Silicon Valley2<br/>Washington DC<br/>Washington DC2 |
 | **`MODMC`** | &check; | &check; | Atlanta<br/>Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[`MTN`](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** | &check; | &check; | London |
@@ -170,7 +167,7 @@ The following table shows locations by service provider. If you want to view ava
 | --- | --- | --- | --- |
 | **[`National Telecom`](https://www.ntplc.co.th/en/enterprise/products-and-services/fixedbroadband/nt-direct-cloud-connect)** | &check; | &check; | Bangkok |
 | **`NEC`** | &check; | &check; | Tokyo3 |
-| **[`NETSG`](https://www.netsg.co/dc-cloud/cloud-and-dc-interconnect/)** | &check; | &check; | Melbourne<br/>Sydney2 |
+| **[`NETSG`](https://www.netsg.co/au/connectivity/cloud-connect)** | &check; | &check; | Melbourne<br/>Sydney2 |
 | **[`Next Generation Data`](https://vantage-dc-cardiff.co.uk/)** | &check; | &check; | Newport(Wales) |
 | **[`NEXTDC`](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** | &check; | &check; | Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
 | **[`next layer GmbH`](https://www.nextlayer.at/)** |&check; |&check; | Vienna<br/>Vienna2<br/>Frankfurt<br/>Frankfurt2 |
@@ -187,7 +184,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[`NTT SmartConnect`](https://cloud.nttsmc.com/cxc/azure.html)** |&check; |&check; | Osaka |
 | **[`Ooredoo Cloud Connect`](https://www.ooredoo.qa/web/en/business/local-connectivity/multi-cloud/)** |&check; |&check; | Doha<br/>Doha2<br/>London2<br/>Marseille |
 | **[`Optus`](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** |&check; |&check; | Melbourne<br/>Sydney |
-| **[`Orange`](https://www.orange-business.com/en/products/business-vpn-galerie)** |&check; |&check; | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin2<br/>Frankfurt<br/>Hong Kong SAR<br/>Johannesburg<br/>London<br/>London2<br/>Melbourne<br/>Mumbai2<br/>Osaka<br/>Paris<br/>Paris2<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Warsaw<br/>Washington DC |
+| **[`Orange`](https://www.orange-business.com/en/products/business-vpn-galerie)** |&check; |&check; | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Dallas<br/>Dammam<br/>Dubai2<br/>Dublin2<br/>Frankfurt<br/>Hong Kong SAR<br/>Johannesburg<br/>London<br/>London2<br/>Melbourne<br/>Mumbai2<br/>Osaka<br/>Paris<br/>Paris2<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Warsaw<br/>Washington DC |
 | **[`Orange Poland`](https://www.orange.pl/duze-firmy/rozwiazania-chmurowe)** | &check; | &check; | Warsaw |
 | **[`Orixcom`](https://www.orixcom.com/solutions/azure-expressroute)** | &check; | &check; | Dubai2 |
 | **`Pacific Northwest Gigapop`** | &check; | &check; | Seattle |
@@ -442,7 +439,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | --- | --- |
 | **[`Altogee`](https://altogee.be/diensten/express-route/)** | Europe |
 | **[`Avanade Inc.`](https://www.avanade.com/)** | Asia<br/>Europe<br/>North America<br/>South America |
-| **[`Bright Skies GmbH`](https://www.rackspace.com/bright-skies)** | Europe |
+| **[`Bright Skies GmbH`](https://www.crunchbase.com/organization/bright-skies-gmbh)** | Europe |
 | **[`Optus`](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Australia |
 | **[`Equinix Professional Services`](https://www.equinix.com/services/consulting/)** | North America |
 | **[`New Era`](https://www.neweratech.com/us/)** | North America |

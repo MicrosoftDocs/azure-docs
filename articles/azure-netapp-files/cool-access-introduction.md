@@ -72,7 +72,7 @@ For existing volumes in capacity pools where cool access was enabled prior to th
 | Premium | Quota in TiB * 36 MiB/s |  Quota in TiB * 64 MiB/s 
 | Ultra | Quota in TiB * 68 MiB/s |  Quota in TiB * 128 MiB/s 
 
-For example, a 10-TiB volume on the Premium service regularly delivers throughput of 640 MiB/s (10 TiB * 64 MiB/s). With cool access enabled regardless of the amount of data tiered, throughput is 360 MiB/s (10 TiB * 36 MiB/s).
+For example, a 10 TiB volume on the Premium service regularly delivers throughput of 640 MiB/s (10 TiB * 64 MiB/s). For regular volumes, when you enable cool access, throughput is 360 MiB/s (10 TiB * 36 MiB/s) regardless of how much data is tiered. Throughput remains at 360 MiB/s even if you later disable cool access. For large volumes, if you disable cool access, throughput reverts to 640 MiB/s (10 TiB * 64 MiB/s).
 
 > [!NOTE]
 > You should create a new capacity pool and move the old volumes to the new capacity pools to use the updated QoS limit. 
@@ -80,58 +80,6 @@ For example, a 10-TiB volume on the Premium service regularly delivers throughpu
 With either throughput calculation, increasing the volume quota increases the throughput limit because throughput scales linearly with the provisioned capacity.
 
 The cool access throughput for Premium and Ultra service levels feature is supported in all Azure NetApp Files-enabled regions.
-
-### Supported regions for cool access throughput for premium and ultra service levels feature
-
-* Australia Central
-* Australia Central 2
-* Australia East
-* Australia Southeast
-* Brazil South
-* Brazil Southeast
-* Canada Central
-* Canada East
-* Central India
-* Central US
-* East Asia
-* East US
-* East US 2
-* France Central
-* Germany North 
-* Germany West Central
-* Israel Central
-* Italy North
-* Japan East
-* Japan West
-* Korea Central
-* Korea South
-* Malaysia West
-* New Zealand North 
-* North Central US
-* North Europe
-* Norway East
-* Norway West
-* Qatar Central
-* South Africa North
-* South India
-* South Central US
-* Southeast Asia
-* Spain Central
-* Sweden Central
-* Switzerland North
-* Switzerland West
-* UAE Central
-* UAE North
-* UK South
-* UK West
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia 
-* West Europe
-* West US
-* West US 2
-* West US 3
-
 
 ## Billing 
 

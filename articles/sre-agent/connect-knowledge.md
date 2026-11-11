@@ -3,7 +3,7 @@ title: Connect knowledge in Azure SRE Agent
 description: Give your agent access to runbooks, documentation, source code, and web content so it can investigate incidents with the context your team already has.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -16,7 +16,7 @@ ms.custom: knowledge, knowledge-base, upload, documents, repositories, web-pages
 Azure SRE Agent is more effective when it can use the same context your team uses to troubleshoot systems. Connect runbooks, documentation, web pages, and repositories so your agent can reference them during investigations instead of starting from scratch.
 
 > [!TIP]
-> - Use **Builder > Knowledge base** to manage files, web pages, and repositories in one place.
+> - Use **Build + setup > Context > Knowledge sources** to manage files and web pages. Manage repositories separately in **Build + setup > Context > Code access**.
 > - Indexed knowledge is automatically available during investigations and chat.
 > - You can upload documents directly, attach files in chat, or connect repositories for source-aware analysis.
 > - The most useful knowledge sources are the ones your team already depends on, such as runbooks, architecture notes, troubleshooting guides, and source code.
@@ -34,7 +34,7 @@ When you connect that knowledge, your agent can:
 
 ## Manage knowledge in the knowledge base
 
-Use **Builder > Knowledge base** to manage your agent's knowledge sources.
+Use **Build + setup > Context > Knowledge sources** to manage your agent's knowledge sources.
 
 The page shows each source with its:
 
@@ -49,7 +49,7 @@ Three source types are available:
 |---|---|---|
 | **Files** | Runbooks, troubleshooting guides, architecture documents, and reference material | Upload through the portal or ask the agent to save a document during chat |
 | **Web pages** | External documentation, internal wiki URLs, and status pages | Add the page URL so the agent can index the content |
-| **Repositories** | Source code, deployment files, and infrastructure definitions | Connect GitHub or Azure DevOps repositories |
+| **Repositories** | Source code, deployment files, and infrastructure definitions | Connect repositories in **Build + setup > Context > Code access** |
 
 ## Check indexing status and freshness
 
@@ -134,4 +134,3 @@ Use the source type that matches the kind of context you need:
 | A screenshot, log, or file for one active investigation | [Share files in chat](file-attachments.md) |
 | A GitHub or Azure DevOps repository | [Connect source code](connect-source-code.md) |
 | External systems such as Datadog or Splunk | [MCP connectors](mcp-connectors.md) |
-

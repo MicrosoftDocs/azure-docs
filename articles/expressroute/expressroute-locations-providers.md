@@ -71,8 +71,8 @@ The following table shows connectivity locations and the service providers for e
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia Central | &check; | `CDC`<br/>`Telstra Corporation` |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia Central 2 | &check; | `CDC`<br/>`Equinix` |
 | **Cape Town** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | South Africa West | &check; | `BCX`<br/>`Internet Solutions - Cloud Connect`<br/>`Liquid Telecom`<br/>`MTN Global Connect`<br/>`Teraco`<br/>`Vodacom` |
-| **Chennai** | Tata Communications | 2 | South India | &check; | `BSNL`<br/>`DE-CIX`<br/>`Global CloudXchange (GCX)`<br/>`Lightstorm`<br/>`NTT Communications India Network Services Pvt Ltd`<br/>`Reliance JIO`<br/>`SIFY`<br/>`Tata Communications`<br/>`VodafoneIdea` |
-| **Chennai2** | Airtel | 2 | South India | &check; | `Airtel` |
+| **Chennai** | Tata Communications | 2 | South India | &check; | `BSNL`<br/>`DE-CIX`<br/>`Equinix`<br/>`Global CloudXchange (GCX)`<br/>`Lightstorm`<br/>`Megaport`<br/>`NTT Communications India Network Services Pvt Ltd`<br/>`Reliance JIO`<br/>`SIFY`<br/>`Tata Communications`<br/>`VodafoneIdea` |
+| **Chennai2** | Airtel | 2 | South India | &check; | `Airtel`<br/>`Megaport` |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | North Central US | &check; | `Aryaka Networks`<br/>`AT&T Dynamic Exchange`<br/>`AT&T NetBond`<br/>`British Telecom`<br/>`Lumen (CenturyLink Cloud Connect)`<br/>`Cogent`<br/>`Cologix`<br/>`Colt`<br/>`Console Connect (PCCW Global Limited)`<br/>`Comcast`<br/>`Coresite`<br/>`Equinix`<br/>`InterCloud`<br/>`Internet2`<br/>`Lumen (Level 3 Communications)`<br/>`Lightpath`<br/>`IPC`<br/>`Megaport`<br/>`Momentum Telecom`<br/>`PacketFabric`<br/>`Tata Communications`<br/>`Arelion (Telia Carrier)`<br/>`Verizon`<br/>`Vodafone`<br/>`Zayo` |
 | **Chicago2** | [CoreSite CH1](https://www.coresite.com/data-center/ch1-chicago-il) | 1 | North Central US | &check; | `Lumen (CenturyLink Cloud Connect)`<br/>`CoreSite`<br/>`DE-CIX`<br/>`Megaport`<br/>`Momentum Telecom` |
 | **Copenhagen** | [Digital Realty(Interxion) CPH1](https://www.digitalrealty.com/data-centers/emea/copenhagen/cph1) | 1 | Denmark East | &check; | `DE-CIX`<br/>`GlobalConnect`<br/>`Interxion (Digital Realty)` |
@@ -84,11 +84,13 @@ The following table shows connectivity locations and the service providers for e
 |--|--|--|--|--|--|
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/)<br/>[Equinix DA6](https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/dallas-data-centers/da6) | 1 | &cross; | &check; | `Aryaka Networks`<br/>`AT&T Connectivity Plus`<br/>`AT&T Dynamic Exchange`<br/>`AT&T NetBond`<br/>`BICS`<br/>`Cologix`<br/>`Cox Business Cloud Port`<br/>`Equinix`<br/>`Flo Networks`<br/>`GTT`<br/>`Intercloud`<br/>`Internet2`<br/>`Lumen (Level 3 Communications)`<br/>`MCM Telecom`<br/>`Megaport`<br/>`Momentum Telecom`<br/>`Orange`<br/>`PacketFabric`<br/>`Telmex Uninet`<br/>`Arelion (Telia Carrier)`<br/>`Telefonica`<br/>`Verizon`<br/>`Vodafone`<br/>`Zayo` |
 | **Dallas2** | [Digital Realty DFW10](https://www.digitalrealty.com/data-centers/americas/dallas/dfw10) | 1 | &cross; | &check; | `Digital Realty`<br/>`Momentum Telecom` |
+| **Dammam** | [center3 DDC352](https://center3.com/services) | 3 | Saudi Arabia East | &check; | `Orange` |
+| **Dammam2** | [MIS Al Anwar](https://www.mis.com.sa/services/data-center/) | 3 | Saudi Arabia East | &check; |  |
 | **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | West Central US | &check; | `Lumen (CenturyLink Cloud Connect)`<br/>`CoreSite`<br/>`Megaport`<br/>`Momentum Telecom`<br/>`PacketFabric`<br/>`Zayo` |
 | **Doha** | [MEEZA MV2](https://www.meeza.net/services/data-centre-services/) | 3 | Qatar Central | &check; | `Ooredoo Cloud Connect`<br/>`Vodafone` |
 | **Doha2** | [Ooredoo](https://www.ooredoo.qa/) | 3 | Qatar Central | &check; | `DE-CIX`<br/>`Ooredoo Cloud Connect` |
 | **Dubai** | [PCCS](http://www.pacificcontrols.net/cloudservices/) | 3 | UAE North | &check; | `Etisalat UAE` |
-| **Dubai2** | [du datamena](https://datamena.com) | 3 | UAE North | &cross; | `DE-CIX`<br/>`du datamena`<br/>`Equinix`<br/>`GBI`<br/>`Lightstorm`<br/>`Megaport`<br/>`Orange`<br/>`Orixcom` |
+| **Dubai2** | [du datamena](https://www.du.ae/business) | 3 | UAE North | &cross; | `DE-CIX`<br/>`du datamena`<br/>`Equinix`<br/>`GBI`<br/>`Lightstorm`<br/>`Megaport`<br/>`Orange`<br/>`Orixcom` |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | &check; | `Lumen (CenturyLink Cloud Connect)`<br/>`Colt`<br/>`Console Connect (PCCW Global Limited)`<br/>`Deutsche Telekom AG`<br/>`eir`<br/>`Equinix`<br/>`GEANT`<br/>`euNetworks`<br/>`Interxion (Digital Realty)`<br/>`Megaport`<br/>`Zayo` |
 | **Dublin2** | [Digital Realty(Interxion) DUB2](https://www.digitalrealty.com/data-centers/emea/dublin/dub2) | 1 | North Europe | &check; | `InterCloud`<br/>`Interxion (Digital Realty)`<br/>`KPN`<br/>`Megaport`<br/>`NL-IX`<br/>`Orange` |
 | **Frankfurt** | [Digital Realty(Interxion) FRA11](https://www.digitalrealty.com/data-centers/emea/frankfurt/fra11) | 1 | Germany West Central | &check; | `AT&T NetBond`<br/>`British Telecom`<br/>`Lumen (CenturyLink Cloud Connect)`<br/>`China Unicom Global`<br/>`Colt`<br/>`Console Connect (PCCW Global Limited)`<br/>`DE-CIX`<br/>`Deutsche Telekom AG`<br/>`Equinix`<br/>`euNetworks`<br/>`GBI`<br/>`GEANT`<br/>`InterCloud`<br/>`Interxion (Digital Realty)`<br/>`Megaport`<br/>`next layer GmbH`<br/>`NTT Global DataCenters EMEA`<br/>`Orange`<br/>`Arelion (Telia Carrier)`<br/>`T-Systems`<br/>`Verizon`<br/>`Zayo`<br/>`Zenlayer` |
@@ -96,6 +98,8 @@ The following table shows connectivity locations and the service providers for e
 | **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | &check; | `Colt`<br/>`Equinix`<br/>`InterCloud`<br/>`Megaport`<br/>`Swisscom` |
 | **Hong Kong SAR** | [Equinix HK1](https://www.equinix.com/data-centers/asia-pacific-colocation/china-colocation/hong-kong-data-centers/hk1) | 2 | East Asia | &check; | `Aryaka Networks`<br/>`British Telecom`<br/>`Lumen (CenturyLink Cloud Connect)`<br/>`Chief Telecom`<br/>`China Telecom Global`<br/>`China Unicom Global`<br/>`Colt`<br/>`Console Connect (PCCW Global Limited)`<br/>`Equinix`<br/>`InterCloud`<br/>`Megaport`<br/>`NTT DOCOMO BUSINESS`<br/>`Orange`<br/>`Tata Communications`<br/>`Arelion (Telia Carrier)`<br/>`Telefonica`<br/>`Verizon`<br/>`Zayo`<br/>`Zenlayer` |
 | **Hong Kong SAR2** | [iAdvantage MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | East Asia | &check; | `China Mobile International`<br/>`China Telecom Global`<br/>`Console Connect (PCCW Global Limited)`<br/>`Deutsche Telekom AG`<br/>`Digital Realty`<br/>`Epsilon Global Communications`<br/>`Equinix`<br/>`iAdvantage`<br/>`Megaport`<br/>`SingTel`<br/>`Vodafone`<br/>`Zenlayer` |
+| **Hyderabad** | [STTGlobal HYD1](https://www.sttgdc.com/in-en/locations/hyderabad) | 3 | India South Central | &check; | `Megaport` |
+| **Hyderabad2** | [Sify](https://www.sifytechnologies.com/data-center/hyderabad-data-center/) | 3 | India South Central | &check; | `Megaport` |
 
 #### [J-M](#tab/j-m)
 
@@ -104,9 +108,10 @@ The following table shows connectivity locations and the service providers for e
 | **Jakarta** | NeutraDC HDC | 2 | Indonesia Central | &check; | `DCI Indonesia`<br/>`DE-CIX`<br/>`NTT DOCOMO BUSINESS - Flexible Interconnect (NTT Communications - Flexible Interconnect)`<br/>`NTT Indonesia`<br/>`Telin`<br/>`XL Axiata`<br/>`Zenlayer` |
 | **Jakarta2** | NTT Global Data Center Indonesia | 2 | Indonesia Central | &check; | `DCI Indonesia`<br/>`DE-CIX`<br/>`Equinix`<br/>`NTT Indonesia`<br/>`Telin`<br/>`XL Axiata`<br/>`Zenlayer` |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | South Africa North | &check; | `BCX`<br/>`British Telecom`<br/>`Console Connect (PCCW Global Limited)`<br/>`Digital Realty`<br/>`Internet Solutions - Cloud Connect`<br/>`Liquid Telecom`<br/>`MTN Business`<br/>`MTN Global Connect`<br/>`Orange`<br/>`Teraco`<br/>`Vodacom` |
-| **Johannesburg2** | [Africa Data Centres JHB1](https://www.africadatacentres.com/midrand/) | 3 | South Africa North | &check; |  |
+| **Johannesburg2** | [Africa Data Centres JHB1](https://www.africadatacentres.com/midrand/) | 3 | South Africa North | &check; | `Liquid Telecom` |
 | **Kuala Lumpur** | [TIME dotCom Menara AIMS](https://www.time.com.my/for-enterprise/cloud) | 2 | Malaysia West | &check; | `DE-CIX`<br/>`Equinix`<br/>`TIME dotCom`<br/>`Zenlayer` |
 | **Kuala Lumpur2** | Telekom Malaysia Bhd | 2 | Malaysia West | &check; | `TIME dotCom`<br/>`Zenlayer` |
+| **Lagos** | [RackCentre LGS2](https://rack-centre.com/lagos-data-centre-campus-expansion/) | 3 | &cross; | &check; | `Liquid Telecom` |
 | **Las Vegas** | [Switch LV](https://www.switch.com/las-vegas) | 1 | &cross; | &check; | `Lumen (CenturyLink Cloud Connect)`<br/>`Megaport`<br/>`PacketFabric`<br/>`Zayo` |
 | **London** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | UK South | &check; | `AT&T NetBond`<br/>`Bezeq International`<br/>`British Telecom`<br/>`CenturyLink`<br/>`Colt`<br/>`Console Connect (PCCW Global Limited)`<br/>`Digital Realty<br/Equinix`<br/>`euNetworks`<br/>`Intelsat`<br/>`InterCloud`<br/>`Internet Solutions - Cloud Connect`<br/>`Interxion (Digital Realty)`<br/>`Jisc`<br/>`Lumen (Level 3 Communications)`<br/>`Megaport`<br/>`Momentum Telecom`<br/>`MTN`<br/>`NTT DOCOMO BUSINESS`<br/>`Orange`<br/>`PacketFabric`<br/>`Tata Communications`<br/>`Telefonica`<br/>`Telehouse - KDDI`<br/>`Telenor`<br/>`Arelion (Telia Carrier)`<br/>`Verizon`<br/>`Vodafone`<br/>`Vorboss`<br/>`Zayo` |
 | **London2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | UK South | &check; | `BICS`<br/>`British Telecom`<br/>`Lumen (CenturyLink Cloud Connect)`<br/>`Colt`<br/>`Equinix`<br/>`Epsilon Global Communications`<br/>`GTT`<br/>`Interxion (Digital Realty)`<br/>`IX Reach`<br/>`JISC`<br/>`Marlink`<br/>`Megaport`<br/>`NTT Global DataCenters EMEA`<br/>`Ooredoo Cloud Connect`<br/>`Orange`<br/>`SES`<br/>`Sohonet`<br/>`Tata Communications`<br/>`Telehouse - KDDI`<br/>`Vodafone`<br/>`Vorboss Limited`<br/>`Zayo` |
@@ -123,7 +128,7 @@ The following table shows connectivity locations and the service providers for e
 | **Milan2** | [DATA4](https://www.data4group.com/it/data-center-a-milano-italia/) | 1 | Italy North | &check; | `Retelit` |
 | **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) and [Cologix MIN3](https://www.cologix.com/data-centers/minneapolis/min3/) | 1 | &cross; | &check; | `Lumen (CenturyLink Cloud Connect)`<br/>`Cologix`<br/>`Megaport`<br/>`Zayo` |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/)<br/>[Cologix MTL7](https://cologix.com/data-centers/montreal/mtl7/) | 1 | &cross; | &check; | `Bell Canada`<br/>`Lumen (CenturyLink Cloud Connect)`<br/>`Cologix`<br/>`Equinix`<br/>`Fibrenoire`<br/>`Megaport`<br/>`RISQ`<br/>`Telus`<br/>`Zayo` |
-| **Mumbai** | Tata Communications | 2 | West India | &check; | `BSNL`<br/>`British Telecom`<br/>`DE-CIX`<br/>`Global CloudXchange (GCX)`<br/>`InterCloud`<br/>`Lightstorm`<br/>`NTT Communications India Network Services Pvt Ltd`<br/>`Reliance Jio`<br/>`Tata Communications`<br/>`Verizon`<br/>`Zenlayer` |
+| **Mumbai** | Tata Communications | 2 | West India | &check; | `BSNL`<br/>`British Telecom`<br/>`DE-CIX`<br/>`Global CloudXchange (GCX)`<br/>`InterCloud`<br/>`Lightstorm`<br/>`Megaport`<br/>`NTT Communications India Network Services Pvt Ltd`<br/>`Reliance Jio`<br/>`Tata Communications`<br/>`Verizon`<br/>`Zenlayer` |
 | **Mumbai2** | Airtel | 2 | West India | &check; | `Airtel`<br/>`Equinix`<br/>`Sify`<br/>`Orange`<br/>`Vodafone Idea` |
 | **Munich** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | &cross; | &check; | `Colt`<br/>`DE-CIX`<br/>`Megaport` |
 
@@ -144,7 +149,7 @@ The following table shows connectivity locations and the service providers for e
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | &check; | `Ziply Fiber` |
 | **Pune** | [STT GDC Pune DC1](https://www.sttgdc.com/in-en/locations/pune) | 2 | Central India | &check; | `Airtel`<br/>`Lightstorm`<br/>`SIFY`<br/>`Tata Communications` |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada East | &check; | `Bell Canada`<br/>`Fibrenoire`<br/>`Megaport`<br/>`RISQ`<br/>`Telus` |
-| **Queretaro (Mexico)** | [KIO Networks QR01](https://www.kio.tech/) | 4 | Mexico Central | &check; | `Axtel`<br/>`Cirion Technologies`<br/>`C3ntro`<br/>`Console Connect (PCCW Global Limited)`<br/>`DE-CIX`<br/>`Equinix`<br/>`Flo Networks`<br/>`KIO`<br/>`MCM Telecom`<br/>`Megaport`<br/>`Transtelco` |
+| **Queretaro (Mexico)** | [KIO Networks QR01](https://www.kio.tech/) | 4 | Mexico Central | &check; | `Axtel`<br/>`Cirion Technologies`<br/>`C3ntro`<br/>`Console Connect (PCCW Global Limited)`<br/>`DE-CIX`<br/>`Equinix`<br/>`Flo Networks`<br/>`KIO`<br/>`MCM Telecom`<br/>`Megaport`<br/>`Neutrona Networks`<br/>`Transtelco` |
 | **Quincy** | Sabey Datacenter - Building A | 1 | West US 2 | &check; | `Ziply Fiber` |
 
 
@@ -232,7 +237,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
   * [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)
-  * [Equinix Cloud Exchange](https://www.equinix.com/resources/videos/cloud-exchange-overview)
+  * [Equinix Fabric](https://www.equinix.com/partners/microsoft-azure)
   * [Digital Realty(Interxion)](https://www.digitalrealty.com/)
   * [NextDC](https://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)

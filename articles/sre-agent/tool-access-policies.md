@@ -3,7 +3,7 @@ title: Tool access policies in Azure SRE Agent
 description: Control which tools your agent can use with allow, ask, and deny rules, scoped globally, per custom agent, or per conversation.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -117,7 +117,7 @@ Your agent has several controls that determine whether a tool call proceeds. The
 
 ### Global policies
 
-Set via **Settings > Permissions** in the portal, or via the API:
+Set via **Build + setup > Extensions > Tools > Advanced permissions** in the portal, or via the API:
 
 ```bash
 curl -X PUT "https://<agent>/api/v2/agent/settings/global" \

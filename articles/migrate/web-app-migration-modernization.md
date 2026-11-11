@@ -14,7 +14,7 @@ ms.date: 08/28/2026
 
 Web app migration and modernization is the process of moving existing applications from on-premises or legacy environments to the cloud. It also involves upgrading apps to use modern frameworks, architectures, and services, enabling improved scalability, performance, and security. This approach helps organizations optimize costs and deliver faster, more reliable experiences.
 
-Explore articles that explain how to migrate and modernize ASP.NET and Java web applications to Azure Kubernetes Service and Azure App Service.
+Explore articles that explain how to migrate and modernize ASP.NET and Java web applications to Azure Kubernetes Service, Azure App Service, and Azure Container Apps.
 
 ## Migrate to Azure Kubernetes Service
 
@@ -34,6 +34,12 @@ Migrate your applications to Azure App Service for a fully managed platform that
 - Upgrade ASP.NET apps to modern code on App Service. [Learn more](tutorial-modernize-asp-net-appservice-code.md).
 
 - Migrate infrastructure-dependent .NET Framework apps to [Managed Instance on Azure App Service](../app-service/overview-managed-instance.md), which supports Windows operating system customization, configuration scripts, registry adapters, and storage mounts.
+
+## Migrate to Azure Container Apps
+
+Migrate Java web applications to Azure Container Apps for a serverless container platform with managed ingress, revisions, and scaling.
+
+- **Containerize Java web apps and migrate to Azure Container Apps**: Prepare and containerize an existing Java web app, build the image in Azure Container Registry, and deploy it to Azure Container Apps. [Learn more](tutorial-app-containerization-java-container-apps.md).
 
 ## Migrate web apps using GitHub Copilot
 

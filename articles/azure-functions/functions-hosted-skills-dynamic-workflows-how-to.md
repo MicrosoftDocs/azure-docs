@@ -2,7 +2,7 @@
 title: Create and run dynamic workflows with Azure Functions hosted skills
 description: "Enable dynamic workflows for Azure Functions hosted skills, create workflow-safe tools, run a workflow locally, and use the Durable Task Scheduler emulator."
 ms.topic: how-to
-ms.date: 09/02/2026
+ms.date: 11/07/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.collection:
@@ -20,8 +20,8 @@ In this article, you enable [dynamic workflows](functions-hosted-skills-dynamic-
 
 Before you begin, you need:
 
-+ An existing [Azure Functions hosted skills](functions-hosted-skills.md) project that uses Python and has `main.agent.md`. If you don't have one, see [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md).
-+ The `azurefunctions-agents-runtime` package in `requirements.txt`.
++ An existing [Azure Functions hosted skills](functions-hosted-skills.md) project that uses Python and has an `.agent.md` file. If you don't have one, see [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md).
++ The `azurefunctions-agents-runtime` package, version 0.1.0b17 or later, in `requirements.txt`.
 + [Azure Functions Core Tools](functions-run-local.md).
 + A model provider configured for the hosted skills runtime.
 
@@ -66,7 +66,7 @@ When you set `workflows.enabled` to `true`, the runtime adds the workflow-manage
 
 Dynamic workflows must only call tools that meet these requirements:
 
-+ Run synchronously (not async).
++ Use `def` or `async def`.
 + Accept a single `dict` argument.
 + Return a JSON-serializable value.
 + Be [idempotent](functions-idempotent.md), because a worker failure can cause the tool to run more than once.
@@ -121,9 +121,13 @@ def summarize_findings(args: dict[str, Any]) -> dict[str, Any]:
     }
 ```
 
+To set retry and timeout policies, use the `retry` and `timeout` arguments on `@workflow_tool`. Each argument overrides the matching `execution` field in the generated plan. Raise `WorkflowRetryableError` for transient failures that can be retried. For an example, see the [retry, timeout, and continuation sample](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/workflow-retry-policy).
+
+Retry policies allow up to five attempts, including the first attempt. Per-attempt timeouts range from 1 second to 10 minutes. A synchronous handler can continue running after its timeout.
+
 ## Understand the workflow plan
 
-The model authors the plan that gets passed to `start_workflow`. The following simplified plan gathers logs and metrics in parallel, waits 30 seconds, and then summarizes the results:
+The model authors the plan that gets passed to `fhs_start_workflow`. The following simplified plan gathers logs and metrics in parallel, waits 30 seconds, and then summarizes the results:
 
 ```json
 {
@@ -270,6 +274,7 @@ The workflow uses the local DTS emulator. Use the dashboard at `http://localhost
 ## Related content
 
 + [Dynamic workflows overview](functions-hosted-skills-dynamic-workflows.md)
++ [Monitor and troubleshoot hosted skills](functions-hosted-skills-monitor-troubleshoot.md)
 + [Workflow incident triage sample](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/workflow-incident-triage)
 + [Workflow subagents sample](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/workflow-subagents-preview)
 + [Develop with Durable Task Scheduler](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)

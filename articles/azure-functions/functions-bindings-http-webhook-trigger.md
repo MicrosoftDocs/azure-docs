@@ -1025,6 +1025,9 @@ You can programmatically access the `invoke_URL_template` by using the Azure Res
 You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](node-http-stream.md?pivots=nodejs-model-v4).   
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
+> [!NOTE]
+> The default Python HTTP model (`azure.functions.HttpRequest`) does not support chunked request bodies without a `Content-Length` header. Use HTTP streams when clients send chunked request bodies.
+
 ### HTTP streams
 
 HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory.

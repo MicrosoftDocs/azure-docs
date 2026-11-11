@@ -191,13 +191,6 @@ If the Target AKS cluster for restore is different from the original cluster, th
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureKubernetesService --restore-location $region --source-datastore OperationalStore --recovery-point-id $recoverypointid --restore-configuration restoreconfig.json --target-resource-id /subscriptions/$subscriptionId/resourceGroups/$aksclusterresourcegroup/providers/Microsoft.ContainerService/managedClusters/$targetakscluster >restorerequestobject.json
 
 ```
-If the target cluster is in secondary region then use the flag `--use-secondary-region`.
-
-```azurecli
-az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureKubernetesService --restore-location $region --source-datastore OperationalStore --recovery-point-id $recoverypointid --restore-configuration restoreconfig.json --target-resource-id /subscriptions/$subscriptionId/resourceGroups/$aksclusterresourcegroup/providers/Microsoft.ContainerService/managedClusters/$targetakscluster --use-secondary-region true >restorerequestobject.json
-
-```
-
 
 >[!Note]
 > In case you have picked a recovery point from vault tier with `--source-datastore` as VaultStore then provide a storage account and snapshot resource group in restore configuration.

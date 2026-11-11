@@ -2,7 +2,7 @@
 title: Support matrix for Azure Data Lake Storage Vaulted Backup
 description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage.
 ms.topic: reference
-ms.date: 11/18/2025
+ms.date: 10/09/2026
 ms.custom:
   - references_regions
   - engagement-fy24
@@ -59,6 +59,7 @@ Azure Data Lake Storage protection has the following supported scenarios:
 - Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs.
 - `$web` container can't be restored as `$web` on the target. Use the **renameTo** option and restore it with a different container name.
 - Cross-subscription backup is supported.
+- Cross-tenant restore (preview) is supported in select regions. For more information, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md#region-availability).
 
 ### Unsupported scenarios and considerations for Azure Data Lake Storage protection
 

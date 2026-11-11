@@ -154,7 +154,7 @@ Cross-region redundancy plus validated failover procedures provide regional resi
 For security guidance specific to each Azure Storage data service, see:
 
 - [Secure your Azure Blob Storage](../blobs/secure-blobs.md) - Blob-specific security, including Azure Data Lake Storage, immutability, versioning, and anonymous access.
-- [Secure your Azure Files](../files/secure-files.md) - File share identity-based authentication, SMB/NFS protocol security, and share-level access control.
+- [Secure your Azure file shares](../files/secure-files.md) - File share identity-based authentication, SMB/NFS protocol security, and share-level access control.
 - [Secure your Azure Queue Storage](../queues/secure-queues.md) - Queue-specific authorization and monitoring.
 - [Secure your Azure Table Storage](../tables/secure-tables.md) - Table-specific authorization and Cosmos DB Table API considerations.
 

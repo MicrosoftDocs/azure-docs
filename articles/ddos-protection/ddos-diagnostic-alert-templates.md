@@ -19,6 +19,9 @@ In this tutorial, you learn how to:
 
 DDoS Protection diagnostic logging alerts provide visibility into DDoS attacks and mitigation actions. You can configure alerts for all DDoS protected public IP addresses that you have enabled diagnostic logging on.
 
+> [!WARNING]
+> If your alert queries reference `DDoSMitigationReports` fields, you need to rebuild them against `DDoSMitigationFlowLogs` once that log category is retired (starting ~mid-August 2026). See [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports) for the migration mapping.
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.

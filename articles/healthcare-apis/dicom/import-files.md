@@ -1,17 +1,17 @@
 ---
-title: Import DICOM files into the DICOM service
-description: Learn how to import DICOM files by using bulk import in Azure Health Data Services.
+title: Import DICOM Files into the DICOM Service
+description: Learn how to import DICOM files by using bulk import in Azure Health Data Services. Enable bulk import and upload images to the DICOM service quickly.
 author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: quickstart
-ms.date: 10/05/2023
+ms.date: 10/14/2026
 ms.author: buchvarun
 ---
 
 # Import DICOM files (preview)
 
-Bulk import is a quick way to add data to the DICOM&reg; service. Importing DICOM files with the bulk import capability enables:
+Bulk import is a quick way to import DICOM files into the DICOM&reg; service in Azure Health Data Services. This article shows you how to enable bulk import and upload DICOM files. Importing DICOM files by using the bulk import capability enables:
 
 - **Backup and migration**. For example, your organization might have many DICOM instances stored in local or on-premises systems, which you want to back up or migrate to the cloud for better security, scalability, and availability. Rather than uploading the data one by one, use bulk import to transfer the data faster and more efficiently.
 
@@ -34,7 +34,7 @@ Before you perform a bulk import, you need to enable a system-assigned managed i
 
 4. Choose **Save**.
 
-:::image type="content" source="media/configure-customer-managed-keys/system-assigned-managed-identity.png" alt-text="Screenshot showing the system assigned managed identity toggle on the Identity page." lightbox="media/configure-customer-managed-keys/system-assigned-managed-identity.png":::
+:::image type="content" source="media/configure-customer-managed-keys/system-assigned-managed-identity.png" alt-text="Screenshot of the system-assigned managed identity status toggle on the Identity page." lightbox="media/configure-customer-managed-keys/system-assigned-managed-identity.png":::
 
 ## Enable bulk import
 
@@ -46,7 +46,7 @@ You need to enable bulk import before you import data.
 
 1. On the **Bulk Import** page, in the **Bulk Import** field, select **Enabled**. Select **Save**.
 
-   :::image type="content" source="media/import-enable.png" alt-text="Screenshot that shows the Bulk Import page with the toggle set to Enabled." lightbox="media/import-enable.png":::
+   :::image type="content" source="media/import-enable.png" alt-text="Screenshot of the Bulk Import page with the Bulk Import toggle set to Enabled." lightbox="media/import-enable.png":::
 
 ### Use an Azure Resource Manager template
 
@@ -71,7 +71,7 @@ Following is an example of how to configure bulk import in an ARM template.
 } 
 ```
 
-## Import data
+## Import DICOM data with bulk import
 
 After you enable bulk import, a resource group is provisioned in your Azure subscription. The name of the resource group begins with the prefix `AHDS_`, followed by the workspace and DICOM service name. For example, for the DICOM service named `mydicom` in the workspace `contoso`, the resource group is named `AHDS_contoso-mydicom`.
 

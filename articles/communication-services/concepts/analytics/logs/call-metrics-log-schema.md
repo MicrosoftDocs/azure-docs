@@ -175,7 +175,7 @@ Here's are two sample rows of the call metrics log:
 
 ```json
 "properties": {
-  "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+  "TenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "TimeGenerated": "2025-02-03T05:17:39.1840000Z",
   "OperationName": "CallingMetrics",
   "OperationVersion": "1.0-dev",
@@ -213,7 +213,7 @@ Here's are two sample rows of the call metrics log:
 
 ```json
 "properties": {
-  "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+  "TenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "TimeGenerated": "2025-02-03T05:17:39.1840000Z",
   "OperationName": "CallingMetrics",
   "OperationVersion": "1.0-dev",

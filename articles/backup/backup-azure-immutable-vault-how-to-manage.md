@@ -3,7 +3,7 @@ title: How to manage Azure Backup Immutable vault operations
 description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 09/09/2026
+ms.date: 10/26/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24, ignite-2024
@@ -71,7 +71,7 @@ To enable Immutable vault for a Backup vault, follow these steps:
 
    At this point, immutability of the vault is reversible, and it can be disabled, if needed.
 
-1. For Backup vaults, immutability is enabled based on the backup policy retention. Time-based immutability, or **Enable for specific duration**, is currently supported only for Recovery Services vaults.
+1. For Backup vaults, you can choose **Enable for specific duration** only in supported regions. In other regions, Backup vault immutability follows the backup policy retention. For the supported regions and Recovery Services vault availability, see the [support matrix](backup-azure-immutable-vault-concept.md#support-matrix).
 
 1. Once you enable immutability, the option to lock the immutability for the vault appears.
 

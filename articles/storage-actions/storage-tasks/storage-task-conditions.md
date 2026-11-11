@@ -7,20 +7,20 @@ author: normesta
 
 ms.service: azure-storage-actions
 ms.topic: concept-article
-ms.date: 05/05/2025
+ms.date: 10/30/2026
 ms.author: normesta
 
 ---
 
 # Storage task conditions
 
-A storage task contains a set of conditions and operations. This article describes the JSON format of a condition.  Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the properties and operators that you can use to compose the clauses of a condition.
+A storage task specifies the conditions to evaluate and operations to perform on blobs. This article describes the JSON format of a condition. This format is important if you plan to create a storage task by using a tool other than the Azure portal, such as Azure PowerShell or Azure CLI. This article also lists the properties and operators that you can use in the clauses of a condition.
 
 This article focuses on **conditions**. To learn more about **operations**, see [Storage task operations](storage-task-operations.md).
 
 ## Condition format
 
-A condition a collection of one or more _clauses_. Each clause contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the **operator** always appears first followed by the **property**, and then the **value**. The following image shows how each element is positioned in the expression.
+A condition is a logical predicate that consists of one or more _clauses_. Each clause contains a _blob property_, _a logical operator_, and a _value_. When the storage task runs, it evaluates the blob property against the value by using the comparison operator. In the JSON format, the **operator** always appears first followed by the **property**, and then the **value**. The following image shows how each element is positioned in the expression.
 
 > [!div class="mx-imgBorder"]
 > ![Diagram that shows the format of a simple condition with an operator, property, and value.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-basic.png)
@@ -41,7 +41,7 @@ You can also apply a _not_ operator before the operator in a condition clause. T
 }
 ```
 
-For a complete list of operator and property names, see the [Supported operators](#supported-operators) and [Supported properties](#supported-properties) section of this article.
+For the complete list of operators and property names, see the [Supported operators](#supported-operators) and [Supported properties](#supported-properties) sections of this article.
 
 ### Multiple clauses in a condition
 
@@ -85,7 +85,7 @@ You can apply a _not_ operator to a group to test for the opposite result of a g
 
 ## Code view in the Azure portal
 
-The visual editor available in the Azure portal, can generate the JSON of a condition for you. You can define your conditions by using the editor, and then obtain the JSON expression by opening **Code** tab. This approach can be useful when creating complicated sets of conditions as JSON expressions can become large, unwieldy, and difficult to create by hand. The following image shows the **Code** tab in the visual editor.
+Use the visual editor in the Azure portal to generate the JSON for a condition, and then access the JSON expression by selecting the **Code** tab. This approach is useful when composing complex conditions because JSON expressions can become large, unwieldy, and difficult to create by hand. This approach also allows you to use the condition preview feature in the portal for interactive validation of the condition against your data. The following image shows the **Code** tab in the visual editor.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the condition JSON as it appears in the Code tab of the visual designer.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-code-tab.png)
@@ -94,11 +94,11 @@ To learn more about the visual editor, see [Define storage task conditions and o
 
 ## Condition preview
 
-You can view a list of blobs that would be impacted by the conditions that you've defined. That way, you can find issues and optimize conditions before applying them to production data. A preview doesn't make changes to the objects in a target storage account so it's safe to apply to test against production data.
+The _preview condition_ feature enables you to validate the condition against blobs in your test storage account and view whether they meet or don't meet the conditions you defined. You can find issues and optimize conditions before applying them to production data. The preview doesn't make any changes to objects in a target storage account, so it's safe to test against your data.
 
-While condition preview is available in PowerShell, Azure CLI, and SDK environments, the easiest way to preview the effect of conditions is by using the **Preview Conditions** window in the Azure portal. You can open this window was you define conditions and as you assign storage tasks.
+While condition preview is available in PowerShell, Azure CLI, and SDK environments, the easiest way to preview the effect of conditions is by using the **Preview Conditions** window in the Azure portal. You can open this window when you define conditions and as you assign storage tasks.
 
-To preview the effect of conditions, you must specify a target subscription, storage account, and container. Because a can only show up to 5,000 blobs, you can also specify a prefix to narrow the list.
+To preview the effect of conditions, you must specify a target subscription, storage account, and container. Because a preview can only show up to 5,000 blobs, you can also specify a prefix to narrow the list.
 
 > [!NOTE]
 > You can't use wildcard characters in the blob prefix.
@@ -108,7 +108,7 @@ The following image shows an example of a preview result in the Azure portal.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of storage task preview window in the Azure portal.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-preview.png)
 
-The preview result appears in a table that shows objects which meet the condition along with objects that didn't meet the condition. You can sort by field that appears in the table.
+The preview result appears in a table of all objects in the selected container with the result of the condition evaluation and their property values that were used to evaluate the condition. You can sort by any field that appears in the table.
 
 If conditions refer to properties that don't exist in the target storage account, an error appears. For example, blob index tags aren't available for accounts that have a hierarchical namespace. If a clause in a condition refers to blob index tags, a validation error appears.
 
@@ -127,9 +127,9 @@ The following table shows the properties that you can use to compose each clause
 | Name                           |                           |                |                  |
 | Tags.Value[Name]               |                           |                |                  |
 
-<sup>1</sup>    Allowed values are `Hot`, `Cool`, `Cold` or `Archive`.
+<sup>1</sup>    Allowed values are `Hot`, `Cool`, `Cold`, or `Archive`.
 
-<sup>2</sup>    Allowed values are `BlockBlob`, `PageBlob`, or `AppendBlob`
+<sup>2</sup>    Allowed values are `BlockBlob`, `PageBlob`, or `AppendBlob`.
 
 <sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Reference a value from object metadata](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
 
@@ -137,18 +137,22 @@ The following table shows the properties that you can use to compose each clause
 
 The following table shows the operators that you can use in a clause to evaluate the value of each type of property.
 
-| String | Date and time | Numeric | Boolean |
-|---|---|---|---|
-| contains | equals |equals | equals |
-| empty | greater | greater |  |
-| endsWith | greaterOrEquals |greaterOrEquals ||
-| equals | less | less ||
-| matches<sup>4</sup> | lessOrEquals | lessOrEquals ||
-| startsWith | | ||
+| String (case-insensitive) | String (case-sensitive) | Date and time | Numeric | Boolean |
+|---|---|---|---|---|
+| `contains` | `contains_cs` | `equals` | `equals` | `equals` |
+| `empty`<sup>5</sup> | | `greater` | `greater` | |
+| `endsWith` | `endsWith_cs` | `greaterOrEquals` | `greaterOrEquals` | |
+| `equals` | `equals_cs` | `less` | `less` | |
+| `matches`<sup>4</sup> | `matches_cs`<sup>4</sup> | `lessOrEquals` | `lessOrEquals` | |
+| `startsWith` | `startsWith_cs` | | | |
 
-<sup>4</sup>    The `matches` operator is not supported for `Metadata.Value[Name]` and `Tags.Value[Name]` properties.
+<sup>4</sup>    The `matches` and `matches_cs` operators aren't supported for `Metadata.Value[Name]` and `Tags.Value[Name]` properties.
 
-The **not** operator is a special operator that you can position before any of the operators that appear in this table to give the opposite result of conditional clause, also called the negative result.
+<sup>5</sup>    The `empty` operator tests whether a value is empty. Case sensitivity doesn't apply, and there's no `empty_cs` operator.
+
+The **not** operator is a special operator that you can position before any of the operators that appear in this table to invert the result of a conditional clause, also called the negative result.
+
+String operators with the suffix `_cs` are case-sensitive. For example, `endsWith(Name, '.CSV')` matches both `report.CSV` and `report.csv`, while `endsWith_cs(Name, '.CSV')` matches only `report.CSV`.
 
 ## See also
 

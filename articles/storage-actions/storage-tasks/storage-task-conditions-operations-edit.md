@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.topic: how-to
 ms.author: normesta
-ms.date: 05/05/2025
+ms.date: 10/29/2026
 ms.custom:
   - build-2023-metadata-update
   - sfi-image-nochange
@@ -14,17 +14,22 @@ ms.custom:
 
 # Define storage task conditions and operations
 
-You can use a visual editor to define the conditions and operations of a storage task.
+Use the visual editor to define the conditions and operations of a storage task.
 
-An _operation_ is an action taken on each object that meets the conditions defined in the task. A _condition_ contains one or more conditional _clauses_. Each clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
+An _operation_ is an action performed on each object that meets the conditions defined in the task. A _condition_ is a logical predicate consisting of one or more _clauses_ that filters the objects on which the operation is performed. Each clause compares a blob or container property to a value. To execute an operation defined in the storage task, each object must meet the condition defined.
+
+> [!IMPORTANT]
+> Saving changes to an existing storage task also updates the definition used by its [associated task assignments](storage-task-assignment.md#updates-to-the-storage-task-definition). Review existing task assignments before making any changes and [preview the updated conditions](#preview-the-effect-of-conditions) before saving. If you add an operation, verify that the task's managed identity has the [required permissions](storage-task-authorization-roles-assign.md#permissions-for-a-task-to-perform-operations) on each target.
 
 ## Define conditions
 
-Define a condition by adding clauses. A clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
+Define a condition by adding clauses. A clause defines the relationship between a property and a value. To execute an operation defined in the storage task, each object must meet the terms of that relationship.
+
+For string operations, use the case-insensitive or case-sensitive variant depending on the data you want to target.
 
 ## [Portal](#tab/azure-portal)
 
-Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Conditions**.
+Navigate to the storage task in the Azure portal. Under **Storage task management**, select **Conditions**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions button and the Conditions editor.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
@@ -33,14 +38,14 @@ The **Visual builder** tab of the **Conditions** pane appears.
 
 ### Add and remove clauses
 
-To add a clause, select **Add new clause**, and to remove a clause, select the delete icon(:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
+Select **Add new clause** to add a clause. To remove a clause, select the delete icon(:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/conditions-delete-icon.png":::).
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Add new clause button and three clauses that were added to the list of clauses.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-add-conditions.png)
 
 ### Specify the terms of a clause
 
-To define a clause, choose a property, specify a value for that property, and then choose an operator that relates them together.
+Define a clause by choosing a property, specifying a value for that property, and then choosing an operator that relates them together.
 
 #### Choose a property
 
@@ -53,7 +58,7 @@ The following example selects the **Blob name** property.
 
 #### Choose a value and operator
 
-In the **Property value** box, enter a value and in the **Operator** drop-down list, choose an operator. See [Supported Operators](storage-task-conditions.md#supported-operators).
+In the **Property value** box, enter a value. In the **Operator** drop-down list, choose an operator. See [Supported Operators](storage-task-conditions.md#supported-operators).
 
 The following example specifies a value of `.log` along with the **Ends with** operator. This condition allows the operation defined in this storage task to execute only on blobs that have a `.log` file extension.
 
@@ -62,16 +67,22 @@ The following example specifies a value of `.log` along with the **Ends with** o
 
 ## [PowerShell](#tab/azure-powershell)
 
-Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
+Define a _condition_ by using JSON. A condition is a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
 
 ```powershell
 $conditions = "[[endsWith(Name, '.docx')]]"
 ```
-To learn more about the structure of conditions and a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md).
+To match only the files with an uppercase `.DOCX` extension, use the case-sensitive version of the operator.
+
+```powershell
+$conditions = "[[endsWith_cs(Name, '.DOCX')]]"
+```
+
+To learn more about the structure of conditions and to see a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md).
 
 ## [Azure CLI](#tab/azure-cli)
 
-Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is endsWith. This clause allows operations only on Microsoft Word documents.  To learn more about the structure of conditions and a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md). 
+Define a _condition_ by using JSON. A condition is a logical expression that consists of one or more clauses. Each clause contains a property, a value, and a comparison operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. To learn more about the structure of conditions and to see a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md).   
 
 ```azurecli
 conditionclause="[[endsWith(Name,'/.docx'/)]]"
@@ -79,13 +90,18 @@ conditionclause="[[endsWith(Name,'/.docx'/)]]"
 > [!TIP]
 > Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
 
+To match only the files with an uppercase `.DOCX` extension, use the case-sensitive version of the operator.
+
+```azurecli
+conditionsclause="[[endsWith_cs(Name, '.DOCX')]]"
+```
 ---
 
 #### Use a wildcard in string values
 
 You can use the `*` and `?` wildcard characters in the value of a string property. The `*` character represents zero or more characters while a `?` character represents exactly one character.
 
-For example, if you want your clause to evaluate to true only for blobs that are Word documents, you would use the string `*.docx`. However, if you want only documents are named with a single character such as `1.docx` or `2.docx`, then you would use the string `?.docx`.  
+For example, if you want your clause to evaluate to true only for blobs that are Word documents, use the string `*.docx`. However, if you want to target documents varying by a single character such as `test_a.docx` or `test_b.docx`, use the string `test_?.docx`.  
 
 You can use the `*` or `?` anywhere in a string. You can escape these characters by adding a `\` just before the character.
 
@@ -119,17 +135,17 @@ conditionclause="[[and(endsWith(Name, '/.docx'/),equals(utcNow,dateTimeAdd(Creat
 ```
 ---
 
-This condition tests whether a blob was created earlier than a certain time duration relative to now (the current date and time). For example, if the value retrieved from the `retainFor` tag is five minutes, then this condition checks if the blob was created more than 5 minutes ago.
+This condition tests whether a blob was created earlier than a certain time duration relative to now (the current date and time). For example, if the value retrieved from the `retainFor` tag is five minutes, then this condition checks if the blob was created more than five minutes ago.
 
-If the key isn't present for an evaluated object, then the condition evaluates to false. If the key value is a string that doesn't conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard, then an error is reported in the execution report.
+If the key isn't present for an evaluated object, the condition evaluates to false. If the key value is a string that doesn't conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard, an error is reported in the execution report.
 
 #### Apply And / Or to a clause
 
-You add **And** or **Or** to a clause. Specify **And** if you want to target objects that meet the criteria in both the current clause and the previous clause of the condition. Specify **Or** to target objects that meet the criterion in either the current clause or the previous clause.
+Add **And** or **Or** to a clause. Specify **And** if you want to target objects that meet the criteria in both the current clause and the previous clause of the condition. Specify **Or** to target objects that meet the criterion in either the current clause or the previous clause.
 
 #### [Portal](#tab/azure-portal)
 
-The following example shows clauses that use **And**. In this example, the storage task targets objects that have a `.log` extension and which have a tag named `Archive-Status` set to `Ready`.
+The following example shows clauses that use **And**. In this example, the storage task targets objects that have a `.log` extension and that have a tag named `Archive-Status` set to `Ready`.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of clauses that use the AND operators.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-and-operator.png)
@@ -156,13 +172,13 @@ For more information, see [Multiple clauses in a condition](storage-task-conditi
 
 ### Change the order of clauses
 
-You can arrange clauses in an order that you believe will improve the performance of a task run. For example, instead of first testing all blobs in an account against a name filter, you might elevate a clause that targets a specific container. That small adjustment can prevent the task from performing unnecessary evaluations.
+Arrange clauses in an order that you believe improves the performance of a task run. For example, instead of first testing all blobs in an account against a name filter, elevate a clause that targets a specific container. This adjustment prevents the task from performing unnecessary evaluations.
 
 The following example reverses the order of the clauses shown in the previous example. This condition evaluates the index tag clause first and then the blob name clause.
 
 ### [Portal](#tab/azure-portal)
 
-First, select the clause. Then, select **Move clause up** or **Move clause down** to change its position in the list.
+Select the clause. Then, select **Move clause up** or **Move clause down** to change its position in the list.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of clause appearing in a new position in the list.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-move-clause-up.png)
@@ -187,7 +203,7 @@ conditionclause="[[and(equals(Tags.Value[Archive-Status],'/Ready'/),endsWith(Nam
 
 Grouped clauses operate as a single unit separate from the rest of the clauses. Grouping clauses is similar to putting parentheses around a mathematical equation or logic expression. The **And** or **Or** operator for the first clause in the group applies to the whole group.
 
-The following example shows two conditions grouped together. In this example, the operation executes if a blob has the `.log` extension and either a tag named `Archive-Status` is set to the value of `Ready` or the file hasn't been accessed in 120 days.
+The following example shows two conditions grouped together. In this example, the operation executes if a blob has the `.log` extension and either a tag named `Archive-Status` is set to the value of `Ready` or the file wasn't accessed in 120 days.
 
 ### [Portal](#tab/azure-portal)
 
@@ -220,11 +236,11 @@ For more information, see [Groups of conditions](storage-task-conditions.md#grou
 
 ## Preview the effect of conditions
 
-You can view a list of blobs that would be impacted by the conditions that you've defined. 
+You can view a list of blobs that the conditions you defined affect. 
 
 In the conditions editor, select **Preview conditions**.
 
-In the **Preview Conditions**, you can specify a target subscription, storage account, and container. Because a can only show up to 5,000 blobs, you can also specify a prefix to narrow the list.
+In **Preview Conditions**, specify a target subscription, storage account, and container. Because a can only show up to 5,000 blobs, you can also specify a prefix to narrow the list.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions page.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions.png)
@@ -237,7 +253,7 @@ An operation is an action taken on each object that meets the conditions defined
 
 ### Add and remove operations
 
-To add an operation, select **Add new operation**, and to remove an operation, select the delete icon(:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
+To add an operation, select **Add new operation**. To remove an operation, select the delete icon(:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/conditions-delete-icon.png":::). The delete icon appears next to the operation.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Add new operation button and three operations that were added to the list of operations.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-add-operations.png)
@@ -284,7 +300,7 @@ The following example sets the `Archive-Status` tag to the value `Archived`.
     -OnSuccess continue
    ```
 
-3. Combine operations together by using a comma separator
+3. Combine operations together by using a comma separator.
 
    ```powershell
    $operation = $policyoperation,$tagoperation
@@ -292,12 +308,12 @@ The following example sets the `Archive-Status` tag to the value `Archived`.
 
 ## [Azure CLI](#tab/azure-cli)
 
-These operations are expressed in shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
+Express these operations in shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
 
 1. Define each operation. The following example defines an operation that sets an immutability policy, and an operation that sets a blob index tag in the metadata of a Word document.
 
    ```azurecli
-   policyoperation="{name:'SetBlobImmutabilityPolicy',parameters:{untilDate:'2024-10-20T22:30:40',mode:'locked'},onSuccess:'continue',onFailure:'break'}"
+   policyoperation="{name:'SetBlobImmutibilityPolicy',parameters:{untilDate:'2024-10-20T22:30:40',mode:'locked'},onSuccess:'continue',onFailure:'break'}"
    tagoperation="{name:'SetBlobTags',parameters:{'tagsetImmutabilityUpdatedBy':'StorageTaskQuickstart'},onSuccess:'continue',onFailure:'break'}"
    ```
 2. Combine operations together by using a comma separator.
@@ -313,7 +329,7 @@ To learn more about the structure of operations and to find a complete list of o
 
 You can arrange operations in any order.
 
-In this example, the existing order makes sense. Blobs are first archived and the tags are set. It wouldn't make sense to set the tag before changing the tier just in case the attempt to change the tier of a blob didn't succeed. If the set blob tag operation appeared first in the list, you might consider moving that operation beneath the set blob tier operation.
+In this example, the existing order makes sense. First, the blobs are archived and then the tags are set. It wouldn't make sense to set the tag before changing the tier because the attempt to change the tier of a blob might not succeed. If the set blob tag operation appears first in the list, consider moving that operation after the set blob tier operation.
 
 ### [Portal](#tab/azure-portal)
 
@@ -321,7 +337,7 @@ To move an operation, select the checkbox that appears beside it. Then, select *
 
 ### [PowerShell](#tab/azure-powershell)
 
-To move an operation, just change the order in which operations appear in the JSON-formatted string. 
+To move an operation, change the order in which operations appear in the JSON-formatted string. 
 
    ```powershell
    $operation = $tagoperation,$policyoperation,
@@ -329,7 +345,7 @@ To move an operation, just change the order in which operations appear in the JS
 
 ### [Azure CLI](#tab/azure-cli)
 
-To move an operation, just change the order in which operations appear in the string. 
+To move an operation, change the order in which operations appear in the string. 
 
    ```azurecli
    operations="'${tagoperation}','${policyoperation}'"

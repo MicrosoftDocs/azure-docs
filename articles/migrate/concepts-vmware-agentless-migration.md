@@ -100,17 +100,13 @@ The Azure Migrate appliance compresses data and encrypts it before uploading it.
 
 ## Tracking  migrations
 
-Execution progress is shown in **Execution stage** and **Execution status**:
-
-**Execution stage**: Preparation, Testing, or Completion.
-   
-- Preparation: Servers that are enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress. After initial replication is complete, the servers move to the Testing stage.
-  
-- Testing: Servers for which initial replication is complete, and delta replication is in progress will move to the Testing phase. You can choose to run test migrations on a test virtual network before the actual migration (recommended). Ensure that you clean up test migrations after validation.
-  
-- Completion: Servers for which Test Migrations are completed or skipped will move to this stage. You can perform final migrations (cut over) for these servers. After migration finishes, ensure that you select Complete Migration from the same drop-down menu to clean up resources and shut down the source virtual machines.
-
-**Execution status**: In progress, In error, Action pending, or Completed. Click on the status hyperlink to view the details in the drill-down menu.
+1. In Azure Migrate project, go to **Manage** > **Server replication**.
+2. The following columns show the replication and migration status of your servers for which you initiated replication:
+    - **Replication status**: Displays the current state of replication for the server. Learn more about [replication states](concepts-vmware-agentless-migration.md#replication-states).
+    - **Replication health**: Indicates whether replication is Healthy, Warning, or Critical.
+    - **Last sync**: Shows when the latest replication data was synchronized to Azure.
+    - **Test migration status**: Indicates the current or most recent test migration status for the replicating server or shows as **Pending**.
+    - **Migration status**: Displays the current or most recent migration status for the replicating server or shows as **Ready to migrate** if the initial replication is completed.
 
 ## Replication states
 
@@ -186,9 +182,9 @@ Whenever you trigger a migration operation, the on-demand replication cycle for 
 
 The following constraints help ensure that you don't exceed the IOPS limits on the storage area networks:
 
-- Each Azure Migrate appliance supports the replication of 52 disks in parallel.
-- Each ESXi host supports 8 disks. Every ESXi host has a 32-MB NFC buffer. So, you can schedule 8 disks on the host. (Each disk takes up 4 MB of buffer for incident response and disaster recovery.)
-- Each datastore can have a maximum of 15 disk snapshots. The only exception is when more than 15 disks are attached to a VM.
+- Each Azure Migrate appliance supports the replication of 52 disks in parallel. A primary appliance with scale-out appliances supports up to 110 disks in parallel.
+- Each ESXi host supports 8 disks. Every ESXi host has a 32-MB NFC buffer. You can schedule 8 disks on the host (each disk takes up 4 MB of buffer for incident response and disaster recovery). If the default 32 MB NFC buffer is insufficient, you can increase it to improve replication performance. Ensure the same buffer size is configured on both the ESXi host and the appliance, as mismatched values can negatively affect replication performance. For more information, see [Increase NFC Buffer](troubleshoot-replication-vmware.md#remediation).
+- By default, Azure Migrate schedules up to 15 of its own disk snapshots per datastore at a time. This limit is configurable. For details, see [Datastore snapshot capacity](troubleshoot-replication-vmware.md#datastore-snapshot-capacity).
 
 ## Scale-out replication
 

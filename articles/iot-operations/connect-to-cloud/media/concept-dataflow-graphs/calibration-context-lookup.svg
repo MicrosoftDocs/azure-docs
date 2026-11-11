@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="230" viewBox="0 0 900 230" role="img" aria-labelledby="title desc">
+  <title id="title">Add calibration context to a reading</title>
+  <desc id="desc">A reading for line-1 with value 20 enters a built-in map transform. A dashed context-lookup arrow supplies offset 2 from the state store for line-1. The map adds the offset and emits a reading with correctedValue 22. The graph reads the state store; it does not update calibration.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/>
+    </marker>
+  </defs>
+  <rect width="900" height="230" fill="#fff"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 230 160 H 340"/>
+    <path d="M 560 160 H 670"/>
+    <path d="M 450 80 V 120" stroke-dasharray="6 4"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="120" width="210" height="80" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="340" y="120" width="220" height="80" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="670" y="120" width="210" height="80" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="340" y="15" width="220" height="65" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="125" y="151"><tspan x="125" font-weight="bold">Reading: line-1</tspan><tspan x="125" dy="26">value: 20</tspan></text>
+    <text x="450" y="151"><tspan x="450" font-weight="bold">BUILT-IN map</tspan><tspan x="450" dy="26">20 + 2</tspan></text>
+    <text x="775" y="151"><tspan x="775" font-weight="bold">Enriched reading</tspan><tspan x="775" dy="26">correctedValue: 22</tspan></text>
+    <text x="450" y="41"><tspan x="450" font-weight="bold">State store: line-1</tspan><tspan x="450" dy="24">offset: 2</tspan></text>
+    <text x="535" y="105" font-size="14">Context lookup</text>
+  </g>
+</svg>

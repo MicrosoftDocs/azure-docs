@@ -16,7 +16,7 @@ ms.custom: sfi-image-nochange
 Learn how to run your application in Azure confidential computing by using [Fortanix Confidential Computing Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.em_managed?tab=Overview) and [Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
 
 
-Fortanix is a third-party software vendor that provides products and services that work with the Azure infrastructure. There are other third-party providers that offer similar confidential computing services for Azure.
+> Fortanix is a third-party software vendor that provides products and services that work with the Azure infrastructure. Other third-party providers offer similar confidential computing services for Azure.
 
 > [!Note]
 > Some of the products referenced in this document aren't provided by Microsoft. Microsoft is providing this information only as a convenience. References to these non-Microsoft products doesn't imply endorsement by Microsoft.
@@ -42,7 +42,7 @@ For Fortanix support, join the [Fortanix Slack community](https://fortanix.com/c
 
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-account-latest.png" alt-text="Screenshot that shows how to create an account.":::
 
-1. After your account is created, click **SELECT ACCOUNT** to select the newly created account. Click **GO TO ACCOUNT** to enter the account and start enrolling the compute nodes and creating applications.
+1. After your account is created, select **SELECT ACCOUNT** to select the newly created account. Select **GO TO ACCOUNT** to enter the account and start enrolling the compute nodes and creating applications.
 1. If you disabled the attestation for compute nodes, you would see a warning in the Fortanix CCM dashboard **“Test-only deployment: Compute nodes can be enrolled into Fortanix CCM without attesting to Intel’s IAS attestation service”**.
 
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/test-only-deployment.png" alt-text="Screenshot that shows test only deployment.":::
@@ -213,4 +213,4 @@ In this quickstart, you used Fortanix tooling to convert your application image 
 
 To learn more about Azure's confidential computing offerings, see [Azure confidential computing overview](overview.md).
 
-Learn how to complete similar tasks using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview) and [Scone](https://sconedocs.github.io).
+Learn how to complete similar tasks by using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna1646713490052.anjuna_cc_saas?tab=Overview).

@@ -62,7 +62,7 @@ Identity and access management for Azure DDoS Protection controls who can create
 
 Data protection for Azure DDoS Protection covers securing the telemetry, mitigation logs, and flow data that the service generates during attack detection and mitigation.
 
-- **Secure Log Analytics workspaces that receive DDoS data**: DDoS diagnostic logs, mitigation flow logs, and mitigation reports can contain source IP addresses, port information, and protocol details. Restrict access to the Log Analytics workspace that receives this data using workspace-level RBAC. For more information, see [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access).
+- **Secure Log Analytics workspaces that receive DDoS data**: DDoS diagnostic logs, mitigation flow logs, and mitigation reports can contain source IP addresses, port information, and protocol details. Restrict access to the Log Analytics workspace that receives this data by using workspace-level RBAC. The `DDoSMitigationReports` category is being retired starting ~mid-August 2026; see [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports) for migration guidance. For more information, see [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access).
 
 - **Encrypt diagnostic log storage**: If you archive DDoS diagnostic logs to an Azure Storage account, enable storage encryption with customer-managed keys for full control over the encryption lifecycle. By default, Azure Storage encrypts data at rest with Microsoft-managed keys, but customer-managed keys provide additional control. For more information, see [Azure Storage encryption](../storage/common/storage-service-encryption.md).
 
@@ -74,7 +74,7 @@ Data protection for Azure DDoS Protection covers securing the telemetry, mitigat
 
 Logging and monitoring for Azure DDoS Protection ensures that you have visibility into attack events, mitigation actions, and traffic baselines, enabling rapid detection and response.
 
-- **Enable diagnostic settings on all protected public IPs**: Configure diagnostic settings to send DDoSProtectionNotifications, DDoSMitigationFlowLogs, and DDoSMitigationReports to a Log Analytics workspace. These logs provide critical details about attack timing, traffic volume, attack vectors, and mitigation effectiveness. For more information, see [View and configure DDoS diagnostic logging](ddos-view-diagnostic-logs.md).
+- **Enable diagnostic settings on all protected public IPs**: Configure diagnostic settings to send `DDoSProtectionNotifications`, `DDoSMitigationFlowLogs`, and `DDoSMitigationReports` to a Log Analytics workspace. These logs provide critical details about attack timing, traffic volume, attack vectors, and mitigation effectiveness. `DDoSMitigationReports` is being retired starting ~mid-August 2026; see [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports) for migration guidance. For more information, see [View and configure DDoS diagnostic logging](ddos-view-diagnostic-logs.md).
 
 - **Configure metric alerts for the "Under DDoS attack or not" signal**: Create an Azure Monitor metric alert on the "Under DDoS attack or not" metric for every protected public IP address. This metric transitions to 1 when an attack is detected and triggers immediate notification to your security team. For more information, see [Configure Azure DDoS Protection metric alerts](alerts.md).
 
@@ -84,7 +84,7 @@ Logging and monitoring for Azure DDoS Protection ensures that you have visibilit
 
 - **Stream logs to Microsoft Sentinel for correlation**: Forward DDoS diagnostic logs to Microsoft Sentinel to correlate DDoS attack data with other security events. This helps identify whether a DDoS attack is a diversion tactic covering more targeted intrusions. For more information, see [Monitor Azure DDoS Protection](monitor-ddos-protection.md).
 
-- **Monitor mitigation reports for attack analysis**: Review both incremental (every 5 minutes during an attack) and post-mitigation reports. These reports include attack vectors, traffic statistics, drop reasons, and top source countries and ASNs, which inform defensive tuning and incident response. For more information, see [View and configure DDoS diagnostic logging](ddos-view-diagnostic-logs.md).
+- **Monitor mitigation reports for attack analysis**: Review both incremental (every 5 minutes during an attack) and post-mitigation reports. These reports include attack vectors, traffic statistics, drop reasons, and top source countries/regions and ASNs, which inform defensive tuning and incident response. This log category (`DDoSMitigationReports`) is being retired starting ~mid-August 2026; see [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports) for how to rebuild this analysis from flow logs. For more information, see [View and configure DDoS diagnostic logging](ddos-view-diagnostic-logs.md).
 
 - **Enroll in DDoS Rapid Response for critical workloads**: If you use DDoS Network Protection, engage the DDoS Rapid Response (DRR) team during active attacks for specialized investigation and post-attack analysis. Create a severity A support request when mitigation is ineffective or when an attack causes severe performance degradation. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
 

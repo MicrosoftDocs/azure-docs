@@ -3,7 +3,7 @@ title: Data types in templates
 description: Describes the data types that are available in Azure Resource Manager templates.
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 06/26/2026
+ms.date: 08/10/2026
 ---
 
 # Data types in ARM templates
@@ -165,7 +165,7 @@ Strings are marked with double quotes.
 
 ## Secure strings and objects
 
-Secure string uses the same format as string, and secure object uses the same format as object. When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
+Secure string uses the same format as string, and secure object uses the same format as object. When you set a parameter to a secure string or secure object, the deployment doesn't save the parameter value to the deployment history and doesn't log it. Redaction isn't guaranteed for transformed or derived variants of that value. For the full redaction guidance, see [Secure parameters](parameters.md#secure-parameters). If you set a secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 The following example shows two secure parameters.
 

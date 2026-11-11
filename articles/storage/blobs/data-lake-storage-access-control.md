@@ -343,10 +343,10 @@ You see a GUID if the entry represents a user who no longer exists in Microsoft 
 
 When you define ACLs for service principals, it's important to use the Object ID (OID) of the *service principal* for the app registration that you created. It's important to note that registered apps have a separate service principal in the specific Microsoft Entra tenant. Registered apps have an OID that's visible in the Azure portal, but the *service principal* has another (different) OID.
 Article	
-To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example of obtaining the OID for the service principal that corresponds to an app registration with App ID = 00001111-aaaa-2222-bbbb-3333cccc4444. Run the following command in the Azure CLI:
+To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example of obtaining the OID for the service principal that corresponds to an app registration with App ID = ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0. Run the following command in the Azure CLI:
 
 ```azurecli
-az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 --query objectId
+az ad sp show --id ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0 --query objectId
 ```
 
 The command displays the OID.
@@ -367,7 +367,7 @@ The Azure Storage REST API contains an operation named [Set Container ACL](/rest
 - [POSIX 1003.1 2008](https://standards.ieee.org/wp-content/uploads/import/documents/interpretations/1003.1-2008_interp.pdf)
 - [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 - [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-- [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
+- [POSIX ACL on Ubuntu](https://manpages.ubuntu.com/manpages/focal/man5/acl.5.html)
 
 ## See also
 

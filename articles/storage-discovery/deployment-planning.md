@@ -7,6 +7,8 @@ ms.service: azure-storage-discovery
 ms.topic: overview
 ms.date: 10/09/2025
 ms.author: fauhse
+modified_by: pthippeswamy
+modified_time: 10/16/2026
 ---
 
 # Planning for an Azure Storage Discovery deployment
@@ -22,13 +24,14 @@ Discovery currently doesn't work for [Azure Files](../storage/files/storage-file
 
 ## Deployment basics
 
-Your Azure Storage resources (like storage accounts) experience no transactions or performance impact when analyzing them with Azure Storage Discovery.
-
 Deploying the service means deploying and configuring a *Storage Discovery workspace resource* into a resource group in one of your subscriptions.
-The Discovery service works to compute and store insights about your Azure Blob Storage estate. These computed insights are stored in the region of the workspace you created. Other than the Storage Discovery workspace, no other infrastructure needs to be deployed.
+The Discovery service works to compute and store insights about your Azure Blob Storage estate. Other than the Storage Discovery workspace, no other infrastructure needs to be deployed.
 
 The workspace can be configured to aggregate insights across any subscriptions in the Azure tenant the workspace is deployed in.
-To generate insights about Azure Storage resources, such as storage accounts, you need to be a member of the RBAC (Role Based Access Control) Reader role for every storage resource.
+To generate insights about Azure Storage, you need to be a member of the RBAC (Role Based Access Control) Reader role for every subscription, resource group, or the tenant you include in the workspace root configuration.
+
+> [!NOTE]
+> The **Capacity details** report provides advanced capacity insights in preview. It's an optional feature for Standard workspaces and requires additional access checks. Review the [prerequisites for advanced capacity insights](#prerequisites-for-advanced-capacity-insights) before you enable it.
 
 > [!IMPORTANT]
 > To get accurate insights, you need to configure your workspace for resources you have permissions to.<br> The [permissions section](#permissions) in this article has important details you should review.
@@ -72,7 +75,7 @@ It's important that you familiarize yourself with the available resource tags on
 
 ## Select an Azure region for your deployment
 
-When you deploy a Storage Discovery workspace, you need to choose a region. The region you select determines where the computed insights about your Azure Storage resources are stored. You can still capture insights for Azure Storage resources that are located in other regions. A general best practice is to choose the region for your workspace according to metadata residency requirements that apply to you and in closer proximity to your location. Visualizing your insights from a workspace closer to you can have a slight performance advantage.
+When you deploy a Storage Discovery workspace, you need to choose a region. Discovery workspace captures insights for Azure Storage resources that are located in other regions.
 
 Storage Discovery workspaces can be created in the following regions:
 
@@ -80,10 +83,16 @@ Storage Discovery workspaces can be created in the following regions:
 
 A Storage Discovery workspace can cover storage accounts located in any public cloud region. If a new Azure public cloud region becomes available, there may be a delay until storage resources from this new region get covered by the Storage Discovery service.
 
+## Regional availability for advanced capacity insights
+
+The following availability limits apply to the **Capacity details** feature, not to Storage Discovery as a whole.
+
+[!INCLUDE [advanced-capacity-insights-regional-availability](includes/advanced-capacity-insights-regional-availability.md)]
+
 ## Permissions
 
 Permissions are managed via the familiar Azure [Role Based Access Control](../role-based-access-control/overview.md) (RBAC).
-This sections covers:
+This section covers:
 * Permission to the storage resources you want to get insights for from the Discovery service.
 * Permission considerations for a workspace resource.
 
@@ -93,18 +102,39 @@ This sections covers:
 
 ### Permission considerations for a workspace resource
 
-The Azure Storage Discovery workspace stores the computed insights for your storage estate. You can access reports in the Azure portal, or use these insights via the Azure Copilot. In order to access insights stored in a workspace, a user must have at least the RBAC role *Reader* on the workspace. *Contributor* and *Owner* role assignments also work. You can provide insights-access to another user by assigning them one of the three previously listed roles on the workspace.
+The Azure Storage Discovery workspace generates insights about your storage estate. You can access those insights through reports in the Azure portal, or use these insights through the Azure Copilot. To access insights stored in a workspace, a user must have at least the RBAC role *Reader* on the workspace. *Contributor* and *Owner* role assignments also work. You can provide insights access to another user by assigning them one of the three previously listed roles on the workspace.
 
 
-|Scenario |Minimal RBAC role assignments needed                                             |
-|:--------|--------------------------------------------------------------------------------:|
-|Register a resource provider namespace with a subscription|	Subscription: `Contributor`	|
-|Deploy a Storage Discovery workspace <br>*([Resource provider namespace already registered](#resource-provider-namespace))*|	Resource group: `Contributor` |
-|Share the Storage Discovery insights with another person | Storage Discovery workspace: `Owner`|
-|Enable a person to make changes to the workspace configuration| Storage Discovery workspace: `Contributor`|
+| Scenario | Minimal RBAC role assignments needed |
+|---|---|
+| Register a resource provider namespace with a subscription | Subscription: `Contributor` |
+| Deploy a Storage Discovery workspace<br>*([Resource provider namespace already registered](#resource-provider-namespace))* | Resource group: `Contributor`<br>WorkspaceRoots entries (subscription/resource group/tenant): `Microsoft.Storage/storageAccounts/read` |
+| Share the Storage Discovery insights with another person | Storage Discovery workspace: `Contributor` or `Owner` |
+| Enable advanced capacity insights | Storage Discovery workspace: `Contributor` or `Owner`<br>WorkspaceRoots entries (subscription/resource group/tenant): [Advanced capacity access permissions](#prerequisites-for-advanced-capacity-insights) |
+| Enable a person to make changes to the workspace configuration | Storage Discovery workspace: `Contributor` |
 
 > [!CAUTION]
 > When you provide other users access to a workspace, you're disclosing all insights of the workspace. Other users might not be privileged to know about the existence of the Azure resources or insights about the data they store. Providing access to a workspace doesn't provide access to an individual storage account, resource group, or subscription. Individual resources remain governed by RBAC.
+
+## Prerequisites for advanced capacity insights
+
+Before you enable advanced capacity insights, ensure that you have:
+
+- An existing Azure Storage Discovery workspace on the **Standard** pricing plan. Advanced capacity insights aren't available with the Free plan.
+- **Contributor** or **Owner** role on the workspace. You also need this role to add, edit, or delete configured prefixes.
+- The following permissions on each tenant, subscription, or resource group included in the workspace roots:
+
+```text
+Microsoft.Storage/storageAccounts/read
+Microsoft.Storage/storageAccounts/blobServices/containers/read
+Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read
+```
+
+Advanced capacity insights are optional. Creating a Standard workspace or upgrading to the Standard plan doesn't enable them automatically. During preview, enable them after workspace creation by following [Enable advanced capacity insights](create-workspace.md#enable-advanced-capacity-insights).
+
+Advanced capacity insights don't incur a separate feature charge. Standard plan charges still apply based on the storage resources and objects analyzed by the workspace. For details, see [Azure Storage Discovery pricing](pricing.md).
+
+Before you enable the feature, review the [preview coverage limits](analyze-blob-capacity-details.md#preview-coverage) for storage accounts, containers, and configured prefixes.
 
 ## Next steps
 

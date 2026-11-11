@@ -1,16 +1,16 @@
 ---
-title: Transparency frequently asked questions for Azure Copilot Resiliency Agent
+title: Transparency frequently asked questions for Azure Copilot Resiliency Agent (preview)
 description: Learn how Azure Copilot Resiliency Agent works, what it can and can't do, and how to review and validate AI-generated output.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 10/12/2026
+ms.date: 11/09/2026
 ms.topic: faq
 ms.service: resiliency
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Transparency frequently asked questions for Azure Copilot Resiliency Agent
+# Transparency frequently asked questions for Azure Copilot Resiliency Agent (preview)
 
 Use this FAQ to understand the capabilities, intended uses, limitations, reliability expectations, data access, and responsible use of Azure Copilot Resiliency Agent.
 
@@ -18,10 +18,11 @@ Use this FAQ to understand the capabilities, intended uses, limitations, reliabi
 
 Azure Copilot Resiliency Agent is an AI-assisted Azure capability that helps you plan, assess, and improve the resilience of Azure applications. In the current public preview, the agent focuses on zone resilience.
 
-The agent supports two experiences:
+The agent provides an AI-assisted interface to Infrastructure Resiliency Manager tasks across three journeys:
 
 - **Start Resilient** helps you design zone-resilient applications and generate resilient infrastructure-as-code templates before deployment.
 - **Get Resilient** helps you evaluate existing resources and service groups, identify resilience gaps, set goals, and remediate supported resources.
+- **Stay Resilient** helps you reassess applications and prepare drills and recovery orchestration plans for validation and recovery through the portal.
 
 For an overview and example prompts, see [Use Azure Copilot Resiliency Agent](goals-recommendations-use-agent.md).
 
@@ -29,7 +30,8 @@ For an overview and example prompts, see [Use Azure Copilot Resiliency Agent](go
 
 The agent can:
 
-- Analyze a natural-language description of an application architecture.
+- Analyze an application described in natural language, an uploaded architecture diagram, or existing IaC templates.
+- Discover application resources and relationships within a subscription or resource group and propose boundaries for review before creating service groups.
 - Assess the zone resilience of an Azure resource or service group.
 - Identify prerequisites and blockers for enabling zone resilience.
 - Create service groups and manage their membership.
@@ -38,7 +40,18 @@ The agent can:
 - Enable zone resilience directly for supported resource types after user confirmation.
 - Provide step-by-step guidance for resources that require migration or redeployment.
 - Generate enablement scripts in PowerShell, Azure CLI, Bicep, Terraform, and Azure Resource Manager template formats.
-- Generate Bicep templates for new, zone-resilient deployments.
+- Generate Bicep, ARM JSON, or Terraform templates for new, zone-resilient deployments.
+- Assess service-group readiness and help configure recovery plans and zone-down drills.
+
+## Can I use Azure Copilot Resiliency Agent in GitHub Copilot?
+
+Yes. You can use a focused set of Azure Copilot Resiliency Agent capabilities in limited preview through the **Azure Resiliency Agent** plugin for GitHub Copilot in Visual Studio Code and GitHub Copilot CLI.
+
+The plugin connects to the same hosted Azure Resiliency Agent used by Azure Copilot. It supports Azure resiliency guidance, application architecture assessment, generation of resilient Bicep, ARM JSON, or Terraform, and review of existing infrastructure-as-code files.
+
+When a workflow needs local files, the agent displays each file and asks for approval before sharing it. You send only files that you approve to Azure Resiliency Agent for that request.
+
+For prerequisites, installation options, supported workflows, and example prompts, see [Use Azure Resiliency Agent in GitHub Copilot](https://aka.ms/AzureResiliencyAgentInGithubCopilot).
 
 ## What is the intended use of Azure Copilot Resiliency Agent?
 
@@ -49,6 +62,7 @@ Cloud administrators, infrastructure teams, developers, and site reliability eng
 - Identify and prioritize resilience gaps.
 - Plan and implement resilience improvements.
 - Track service-group compliance with zone resilience goals.
+- Prepare drills and recovery orchestration plans, then validate readiness through portal workflows.
 
 The agent isn't intended to replace architecture reviews, testing, organizational change controls, or human judgment.
 
@@ -59,8 +73,9 @@ Depending on the workflow, outputs can include:
 - Conversational explanations.
 - Zone resilience goals and posture reports.
 - Prioritized recommendations and proposed actions.
-- Bicep templates for new deployments.
+- Bicep, ARM JSON, or Terraform templates for new deployments.
 - PowerShell, Azure CLI, Bicep, Terraform, or Azure Resource Manager templates for remediation.
+- Readiness assessments downloadable as Markdown. These reports aren't saved in the service, and comparison with previous reports isn't supported.
 
 Treat these outputs as assistive guidance rather than authoritative instructions.
 
@@ -86,8 +101,10 @@ Consider the following limitations when you use Azure Copilot Resiliency Agent:
 - **Zone resilience scope:** The public preview focuses on zone resilience. It isn't a complete assessment of disaster recovery, backup, cyber recovery, regional resilience, or incident orchestration.
 - **Resource and region support:** Some resources, configurations, and regions aren't supported.
 - **Available Azure context:** Results depend on resource metadata from Azure Resource Manager APIs and Azure Resource Graph. Missing, stale, or incomplete metadata can affect assessments and recommendations.
-- **Permissions:** The agent can use only the resources and metadata available through the signed-in user's permissions. Missing permissions can lead to incomplete or unsuccessful results.
+- **Permissions:** Management operations depend on the signed-in user's permissions. Automatic application discovery also requires the discovery agent's system-assigned managed identity to have Reader access on the discovery scope. Missing permissions can lead to incomplete or unsuccessful results.
 - **Large service groups:** Operations can take longer for service groups with many resources or complex dependencies.
+- **Application discovery:** Proposed boundaries require review and might not match your application definition. Discovery doesn't determine recovery dependencies or recovery order.
+- **Recovery and validation:** The agent doesn't execute drills, failover, or reprotect operations. It doesn't enable protection solutions or create runbooks, SLIs, or Azure Monitor health models. Use existing runbooks and observability configurations when preparing drills and plans.
 - **Generated output:** Reports, recommendations, scripts, templates, and proposed actions can be incomplete or inaccurate.
 - **Language:** The agent is primarily designed and evaluated for English-language interactions. Results for unsupported or mixed-language prompts might be less reliable.
 
@@ -116,7 +133,7 @@ Follow the best practices in the following list while using the agent:
 
 ## What data does the agent access?
 
-The agent uses text that you enter and structured Azure context available within your permissions. This context can include:
+The agent uses text that you enter, architecture diagrams or IaC templates that you provide, and structured Azure context available through the permissions for the workflow. Automatic application discovery reads its scope through the discovery agent's system-assigned managed identity. Azure context can include:
 
 - Azure resource metadata and configuration details.
 - Resource relationships.

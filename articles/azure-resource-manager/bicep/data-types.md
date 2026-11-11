@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 01/27/2026
+ms.date: 08/10/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -171,7 +171,7 @@ Bicep supports an integer literal type that refers to a specific value that's an
 output foo 1 = 1
 ```
 
-You can declare an integer literal type either inline, as shown in the preceding example, or in a [`type` statement](./user-defined-data-types.md).  
+You can declare an integer literal type either inline, as shown in the preceding example, or in a [`type` statement](./user-defined-data-types.md).
 
 ```bicep
 type oneType = 1
@@ -474,7 +474,7 @@ The parameter value is validated based on the discriminated property value. For 
 The union type has some limitations:
 
 - Union types must be reducible to a single Azure Resource Manager type. The following definition is invalid:
-  
+
   ```bicep
   type foo = 'a' | 1
   ```
@@ -498,7 +498,7 @@ output optionalValue int? = null
 
 Secure strings use the same format as string, and secure objects use the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
 
-When you set a parameter (or an output) to a secure string or secure object, the value of the parameter (or the output) isn't saved to the deployment history or logged. However, when using the `--debug` flag during deployment, secure values are logged in clear text. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
+When you set a parameter (or an output) to a secure string or secure object, the value of the parameter (or the output) isn't saved to the deployment history or logged. Redaction isn't guaranteed for transformed or derived variants of that value. When using the `--debug` flag during deployment, secure values are logged in clear text. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets. For the full redaction guidance, see [Secure parameters](./parameters.md#secure-parameters).
 
 The following example shows two secure parameters:
 
@@ -516,22 +516,22 @@ For more information, see [Secure parameters](./parameters.md#secure-parameters)
 
 In Bicep, you can assign a value of one type (source type) to another type (target type). The following table shows which source type (listed horizontally) you can or can't assign to which target type (listed vertically). In the table, _X_ means assignable, an empty space means not assignable, and _?_ means only if the types are compatible.
 
-| Types | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | Named resource | Named module | `scope` |
-|-|-|-|-|-|-|-|-|-|-|-|-|-|
-| `any`          |X| |X|X|X|X|X|X|X|X|X|X|
-| `error`        | | | | | | | | | | | | |
-| `string`       |X| |X| | | | | | | | | |
-| `number`       |X| | |X|X| | | | | | | |
-| `int`          |X| | | |X| | | | | | | |
-| `bool`         |X| | | | |X| | | | | | |
-| `null`         |X| | | | | |X| | | | | |
-| `object`       |X| | | | | | |X| | | | |
-| `array`        |X| | | | | | | |X| | | |
-| `resource`     |X| | | | | | | | |X| | |
-| `module`       |X| | | | | | | | | |X| |
-| `scope`        | | | | | | | | | | | |?|
-| Named resource |X| | | | | | |?| |?| | |
-| Named module   |X| | | | | | |?| | |?| |
+|     Types      | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | Named resource | Named module | `scope` |
+| -------------- | ----- | ------- | -------- | -------- | ----- | ------ | ------ | -------- | ------- | -------------- | ------------ | ------- |
+| `any`          | X     |         | X        | X        | X     | X      | X      | X        | X       | X              | X            | X       |
+| `error`        |       |         |          |          |       |        |        |          |         |                |              |         |
+| `string`       | X     |         | X        |          |       |        |        |          |         |                |              |         |
+| `number`       | X     |         |          | X        | X     |        |        |          |         |                |              |         |
+| `int`          | X     |         |          |          | X     |        |        |          |         |                |              |         |
+| `bool`         | X     |         |          |          |       | X      |        |          |         |                |              |         |
+| `null`         | X     |         |          |          |       |        | X      |          |         |                |              |         |
+| `object`       | X     |         |          |          |       |        |        | X        |         |                |              |         |
+| `array`        | X     |         |          |          |       |        |        |          | X       |                |              |         |
+| `resource`     | X     |         |          |          |       |        |        |          |         | X              |              |         |
+| `module`       | X     |         |          |          |       |        |        |          |         |                | X            |         |
+| `scope`        |       |         |          |          |       |        |        |          |         |                |              | ?       |
+| Named resource | X     |         |          |          |       |        |        | ?        |         | ?              |              |         |
+| Named module   | X     |         |          |          |       |        |        | ?        |         |                | ?            |         |
 
 ## Next steps
 

@@ -1,28 +1,31 @@
 ---
-title: Define Zone Down Drill in Infrastructure Resiliency Manager (preview)
-description: Learn how to define and execute a Zone Down Drill in Infrastructure Resiliency Manager (preview). Configure Chaos Workspaces, manage identities, design faults, and verify Service Group readiness.
+title: Define Zone Down Drill in Infrastructure Resiliency Manager
+description: Learn how to define and execute a Zone Down Drill in Infrastructure Resiliency Manager. Configure Chaos Workspaces, manage identities, design faults, and verify Service Group readiness.
 #customer intent: As a site reliability engineer, I want to define and execute a Zone Down Drill so that I can validate my service group's resiliency to zonal failures.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 09/28/2026
+ms.date: 11/10/2026
 ms.topic: how-to
 ms.service: resiliency
 ---
 
-# Define a zone down drill in Infrastructure Resiliency Manager (preview)
+# Define a zone down drill in Infrastructure Resiliency Manager
 
-This article describes how to define a zone down drill (preview) in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resilience. It also covers configuring Chaos Workspaces ([Azure Chaos Studio Workspaces](/azure/chaos-studio/chaos-studio-workspaces-overview)), managing identities, designing faults, and verifying service group readiness for zone failures.
+This article describes how to define a zone down drill in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resilience. It also covers configuring Chaos Workspaces ([Azure Chaos Studio Workspaces](/azure/chaos-studio/chaos-studio-workspaces-overview)), managing identities, designing faults, and verifying service group readiness for zone failures.
 
 ## Prerequisites
 
 Before you define a zone down drill, ensure that you review the following prerequisites:
 
 - Verify that your existing service group has the required resources.
-- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available.
+- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing for advanced capabilities.
 - Set up an Azure role-based access control (RBAC) permissions. See the [Support Matrix](availability-zone-down-drills-support-matrix.md#required-roles-and-permissions).
 - Set up a recovery plan for your service group.
 - Register the `Microsoft.Chaos`, `Microsoft.Insights`, `Microsoft.OperationalInsights`, and `Microsoft.Automation` resource provider namespaces in the subscription where the Chaos Workspace gets created.
+
+> [!NOTE]
+> Starting December 1, 2026, Azure Infrastructure Resiliency Manager will charge for service groups that are onboarded and associated with a usage plan. Goals and recommendations are available for free without associating the service group with a usage plan. Advanced capabilities, such as drills and recovery plans, require a usage plan. For more information, see [Infrastructure Resiliency Manager pricing](https://azure.microsoft.com/products/infrastructure-resiliency-manager#pricing).
 
 ## Register the resource provider namespaces
 
@@ -31,8 +34,8 @@ The resource provider namespaces allow you to enable drill design, execution, mo
 To register a resource provider namespace, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Subscriptions** and select the subscription where you want to register the resource providers.
-1. On the **Subscriptions** pane, select **Settings** > **Resource providers**.
-1. On the **Resource providers** pane, search the resource provider namespace (for example **Microsoft.Chaos**), select it from the list, and select **Register**.
+2. On the **Subscriptions** pane, select **Settings** > **Resource providers**.
+3. On the **Resource providers** pane, search the resource provider namespace (for example **Microsoft.Chaos**), select it from the list, and select **Register**.
 
 The registration process takes about 15-20 minutes.
 
@@ -44,23 +47,23 @@ To define an Availability Zone Down simulation drill, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Service groups** and select the service group for which you want to define the drill.
 
-1. On the **selected service group** pane, select **Resiliency** > **Drills**.
+2. On the **selected service group** pane, select **Resiliency** > **Drills**.
 
    :::image type="content" source="./media/availability-zone-down-drill-define/create-drill-instance.png" alt-text="Screenshot that shows how to start creating a drill instance." lightbox="./media/availability-zone-down-drill-define/create-drill-instance.png":::
 
-1. On the **Drills** pane, select **+ Create drill**.
+3. On the **Drills** pane, select **+ Create drill**.
 
-1. On the **Create Availability Zone Down Drill** pane, on the **Basics** tab, enter a name for the drill instance. Select the **Subscription** and **Region** to associate with the Chaos Workspace and Log Analytics Workspace.
+4. On the **Create Availability Zone Down Drill** pane, on the **Basics** tab, enter a name for the drill instance. Select the **Subscription** and **Region** to associate with the Chaos Workspace and Log Analytics Workspace.
 
    The subscription or region of the Availability Zone Down Drill  might differ from the Service Group’s subscription or region.
 
-1. On the **Permissions** tab, select **System-assigned identity** or **User-assigned identity** that allows you to securely fetch Service Group resources, execute Recovery Plans, and manage metrics.
+5. On the **Permissions** tab, select **System-assigned identity** or **User-assigned identity** that allows you to securely fetch Service Group resources, execute Recovery Plans, and manage metrics.
 
    You can use the same identity for fault injection or select a different one.
 
    :::image type="content" source="./media/availability-zone-down-drill-define/assign-permission.png" alt-text="Screenshot that shows how to assign permission for the drill instance." lightbox="./media/availability-zone-down-drill-define/assign-permission.png":::
 
-1. On the **Review + create** tab, review the configuration, and select **Create** to confirm creation of the drill instance.
+6. On the **Review + create** tab, review the configuration, and select **Create** to confirm creation of the drill instance.
 
 >[!NOTE]
 >You can associate each service group with a single drill instance.
@@ -73,7 +76,7 @@ To review and configure resources for the drill, follow these steps:
 
 1. On the **selected service group** pane, select **Resiliency** > **Drills**.
 
-1.  On the **Drills** pane, select the drill instance you created.
+2.  On the **Drills** pane, select the drill instance you created.
 
 ### Review drill role assignment status
 
@@ -81,9 +84,9 @@ To review drill role assignment status, follow these steps:
 
 1. On the **selected drill instance** pane, select **Settings** > **Identity and permissions**.
 
-1. On the **Identity and permissions** pane, under **Role assignment status**, select **View details**.
+2. On the **Identity and permissions** pane, under **Role assignment status**, select **View details**.
 
-1. On the **Drill role assignment** pane, review the list of identities and their corresponding role assignment status.
+3. On the **Drill role assignment** pane, review the list of identities and their corresponding role assignment status.
 
 >[!NOTE]
 >If there are errors in Drills Role Assignment status,  reassess the status by selecting **Assess role assignment readiness**.
@@ -104,15 +107,18 @@ To include resources in the drill, follow these steps:
 
    :::image type="content" source="./media/availability-zone-down-drill-define/view-drill-details.png" alt-text="Screenshot that shows how to view drill details." lightbox="./media/availability-zone-down-drill-define/view-drill-details.png":::
 
-1. On the **Drill scope** pane, on the **Resiliency solutions** tab, under **Resources excluded from drill**, select **View details**.
-1. On the **View details and include resources** pane, to add an excluded resource, select the resource from the list, and select **Include resources**.
+2. On the **Drill scope** pane, on the **Resiliency solutions** tab, under **Resources excluded from drill**, select **View details**.
+3. On the **View details and include resources** pane, to add an excluded resource, select the resource from the list, and select **Include resources**.
 
-### Review the metrics
+### Review the monitoring setup
 
-To review the metrics for drill execution, follow these steps:
+To review the monitoring setup for drill execution, follow these steps:
 
 1. On the **selected drill instance** pane, select **Settings** > **Monitoring**.
-1. On the **Monitoring** pane, review the list of resources and their corresponding metrics readiness status for drill execution.
+2. On the **Monitoring** pane, review the Azure Health Model (AHM) that you want to use for monitoring the health of the Azure resources during the drill and Service level indicators (SLIs) for Availability and Latency that you want to measure during the drill. 
+
+>[!NOTE]
+> One of either a Service level indicator (SLI) or Azure health model (AHM) selection is mandatory for drill execution.
 
 
 ## Design faults for supported and unsupported resources
@@ -120,11 +126,11 @@ To review the metrics for drill execution, follow these steps:
 To design faults for supported and unsupported resources in the drill, follow these steps:
 
 1. On the **selected drill instance** pane, select **Settings** > **Drills scope**.
-1. On the **Drills scope** pane, on the **Fault designer** tab, select a resource from the list and select **Edit fault** to review or modify the corresponding fault design status of resources.
+2. On the **Drills scope** pane, on the **Fault designer** tab, select a resource from the list and select **Edit fault** to review or modify the corresponding fault design status of resources.
 
    :::image type="content" source="./media/availability-zone-down-drill-define/edit-fault.png" alt-text="Screenshot that shows how to edit fault details." lightbox="./media/availability-zone-down-drill-define/edit-fault.png":::
 
-1. For unsupported resource type fault details configuration, on the **Fault details** pane, define custom fault logic using Azure Runbooks and select **Save**.
+3. For unsupported resource type fault details configuration, on the **Fault details** pane, define custom fault logic using Azure Runbooks and select **Save**.
 
    If you use custom faults via runbooks, include the following mandatory parameters to pass to the runbook:
 
@@ -132,7 +138,7 @@ To design faults for supported and unsupported resources in the drill, follow th
    - **Duration**
    - **`FaultLocation`** (**zone** for now) 
 
-1. To complete the role assignment, on the **Fault designer** tab, select a resource type from the list and select **Include and prepare for fault injection** or **Exclude from fault injection**.
+4. To complete the role assignment, on the **Fault designer** tab, select a resource type from the list and select **Include and prepare for fault injection** or **Exclude from fault injection**.
 
 All resources appear in the **Needs Attention** status by default. To troubleshoot readiness issues, select **Needs Attention** corresponding to each resource. You can set the Fault duration for the fault injection time configuration (default time is 10 minutes).
 
@@ -144,12 +150,12 @@ To review and fix configuration drifts, follow these steps:
 
 1. On the **selected drill instance** pane, select **Overview** > **Resync and check readiness**.
 
-1. If the **Drill execution readiness** status shows **Not Ready**, select the status and view the errors flagged.
+2. If the **Drill execution readiness** status shows **Not Ready**, select the status and view the errors flagged.
 
-1. On the **Drill execution readiness state** pane, fix the errors shown and rerun a readiness check. The status changes to **Ready**.
+3. On the **Drill execution readiness state** pane, fix the errors shown and rerun a readiness check. The status changes to **Ready**.
 
 Refresh the drill instance after every edit operation.
 
 ## Next step
 
-[Execute Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drill-execute.md).
+[Execute Availability Zone Down Drill in Infrastructure Resiliency Manager](availability-zone-down-drill-execute.md).

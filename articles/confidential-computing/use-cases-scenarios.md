@@ -1,32 +1,32 @@
 ---
 title: Common Azure Confidential Computing Scenarios and Use Cases
-description: Understand how to use confidential computing in your scenario.
+description: Explore common Azure confidential computing scenarios and map them to practical design goals.
 services: virtual-machines
 author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: overview
-ms.date: 11/04/2021
+ms.date: 06/30/2026
 ms.author: wwilliams
 # Customer intent: As a cloud architect, I want to implement confidential computing in my applications, so that I can ensure data privacy and security while meeting regulatory compliance amidst multiparty collaboration and sensitive data processing needs.
 ---
 # Confidential computing use cases
 
-When you use confidential computing technologies, you can harden your virtualized environment from the host, the hypervisor, the host admin, and even your own virtual machine (VM) admin. Depending on your threat model, you can use various technologies to:
+Confidential computing helps protect workloads from the host, hypervisor, host administrators, and other privileged actors. Depending on your threat model, use it to:
 
-- **Prevent unauthorized access.** Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
-- **Meet regulatory compliance.** Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational IP.
-- **Ensure secure and untrusted collaboration.** Tackle industrywide work-scale problems by combining data across organizations, even competitors, to unlock broad data analytics and deeper insights.
-- **Isolate processing.** Offer a new wave of products that remove liability on private data with blind processing. The service provider can't retrieve user data.
+- **Prevent unauthorized access.** Process sensitive data in the cloud with hardware-backed protection for data in use.
+- **Meet regulatory requirements.** Migrate sensitive workloads while maintaining control over data access and handling.
+- **Enable low-trust collaboration.** Analyze data across organizations without exposing participant data to one another.
+- **Isolate sensitive processing.** Run workloads where service operators can't read customer data.
 
 ## Confidential computing scenarios
 
-Confidential computing can apply to various scenarios for protecting data in regulated industries like government, financial services, and healthcare institutes.
+Confidential computing applies to many scenarios in regulated industries, including government, financial services, and healthcare.
 
-For example, preventing access to sensitive data helps to protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data might contain biometric data that's used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
+For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data might contain biometric data that's used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
 
 ![Screenshot that shows use cases for Azure confidential computing, including government, financial services, and healthcare scenarios.](media/use-cases-scenarios/use-cases.png)
 
-This article provides an overview of several common scenarios. The recommendations in this article serve as a starting point as you develop your application by using confidential computing services and frameworks.
+This article highlights common scenarios and can be used as a starting point for architecture decisions.
 
 After you read this article, you can answer the following questions:
 
@@ -35,19 +35,15 @@ After you read this article, you can answer the following questions:
 
 ## Secure multiparty computation
 
-Business transactions and project collaboration require sharing information among multiple parties. Often, the data that's shared is confidential. The data might be personal information, financial records, medical records, or private citizen data.
-
-Public and private organizations require their data to be protected from unauthorized access. Sometimes these organizations also want to protect data from computing infrastructure operators or engineers, security architects, business consultants, and data scientists.
-
 For example, the use of machine learning for healthcare services has grown significantly through access to larger datasets and imagery of patients captured by medical devices. Disease diagnosis and drug development benefit from multiple data sources. Hospitals and health institutes can collaborate by sharing their patient medical records with a centralized Trusted Execution Environment (TEE).
 
-Machine learning services that run in the TEE aggregate and analyze data. This aggregated data analysis can provide higher prediction accuracy because of training models that are based on consolidated datasets. With confidential computing, hospitals can minimize the risk of compromising the privacy of their patients.
+Machine learning services that run in the TEE aggregate and analyze data. This aggregated data analysis can provide higher prediction accuracy because of training models that are based on consolidated datasets. By using confidential computing, hospitals can minimize the risk of compromising the privacy of their patients.
 
-Azure confidential computing lets you process data from multiple sources without exposing the input data to other parties. This type of secure computation enables scenarios such as anti-money laundering, fraud detection, and secure analysis of healthcare data.
+Azure confidential computing lets you process data from multiple sources without exposing raw input to other participants. This capability supports anti-money laundering, fraud detection, and healthcare analytics.
 
-Multiple sources can upload their data to one enclave in a VM. One party tells the enclave to perform computation or processing on the data. None of the parties (not even the one executing the analysis) can see another party's data that was uploaded into the enclave.
+Multiple parties can upload data to one enclave in a VM. An authorized party triggers the computation, but no participant can view another participant's raw data.
 
-In secure multiparty computing, encrypted data goes into the enclave. The enclave decrypts the data by using a key, performs analysis, gets a result, and sends back an encrypted result that a party can decrypt with the designated key.
+In secure multiparty computing, encrypted data enters the enclave, is processed inside the TEE, and returns as encrypted output for authorized recipients.
 
 ### Anti-money laundering
 
@@ -95,7 +91,7 @@ In this use case, Azure confidential computing technologies are used with Azure 
 
 ## Manufacturing: IP protection
 
-Manufacturing organizations protect the IP around their manufacturing processes and technologies. Often manufacturing is outsourced to non-Microsoft parties that deal with physical production processes. These companies could be considered hostile environments where there are active threats to steal that IP.
+Manufacturing organizations protect the intellectual property (IP) around their manufacturing processes and technologies. Often, organizations outsource manufacturing to non-Microsoft parties that deal with physical production processes. These companies could be considered hostile environments where active threats exist to steal that IP.
 
 In this example, Tailspin Toys is developing a new toy line. The specific dimensions and innovative designs of its toys are proprietary. The company wants to keep the designs safe but also be flexible about which company it chooses to physically produce its prototypes.
 
@@ -149,6 +145,6 @@ Secrets that are being transferred never exist outside an HSM in plaintext form.
 
 ## Secure blockchain
 
-A blockchain network is a decentralized network of nodes. These nodes are run and maintained by operators or validators who want to ensure integrity and reach consensus on the state of the network. The nodes are replicas of ledgers and are used to track blockchain transactions. Each node has a full copy of the transaction history, which helps ensure integrity and availability in a distributed network.
+A blockchain network is a decentralized network of nodes. Operators or validators run and maintain these nodes to ensure integrity and reach consensus on the state of the network. The nodes are replicas of ledgers and track blockchain transactions. Each node has a full copy of the transaction history, which helps ensure integrity and availability in a distributed network.
 
-Blockchain technologies built on top of confidential computing can use hardware-based privacy to enable data confidentiality and secure computations. In some cases, the entire ledger is encrypted to safeguard data access. Sometimes the transaction can occur within a compute module inside the enclave within the node.
+Blockchain technologies built on top of confidential computing can use hardware-based privacy to enable data confidentiality and secure computations. In some cases, the entire ledger is encrypted to safeguard data access. Sometimes the transaction occurs within a compute module inside the enclave within the node.

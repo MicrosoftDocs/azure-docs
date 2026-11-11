@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 08/17/2026
+ms.date: 10/24/2026
 # Customer intent: As a platform administrator, I want to assign all the Azure roles a Microsoft Discovery persona requires in one step, so that scientists and platform admins can start using the platform without hitting permission errors at runtime.
 ---
 
@@ -19,6 +19,8 @@ To make this process a single, repeatable, idempotent step, the Microsoft Discov
 > Run this script **before** users try to access Microsoft Discovery. Most permission-related support cases come from one or more persona roles being missing or assigned at the wrong scope.
 
 ## When to use this script
+
+This standalone utility creates permanent persona-role assignments. If you use the onboarding tool with `customer-jit-managed`, follow its [Stage 2 eligibility and activation workflow](how-to-prepare-landing-zone.md#activate-and-verify-access) instead. Don't use permanent assignments to bypass customer policy. This utility's Az-module and PowerShell prerequisites below differ from the onboarding tool's PowerShell 7/Azure CLI requirements.
 
 Use the script when you need to:
 

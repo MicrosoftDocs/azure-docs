@@ -85,6 +85,8 @@ items:
       items:
         - name: Manage users
           href: how-to-manage-users.md
+        - name: Manage permissions with Microsoft Entra ID groups
+          href: how-to-manage-microsoft-entra-id-groups.md
         - name: Manage ACLs
           href: how-to-manage-acls.md
         - name: Manage legal tags
@@ -117,6 +119,8 @@ items:
           href: how-to-integrate-osdu-service-logs-with-azure-monitor.md
     - name: Security
       items:
+        - name: Analytics consumption zone entitlements export (preview)
+          href: concepts-analytics-consumption-zone-entitlements.md
         - name: Set up Private Links
           href: how-to-set-up-private-links.md
         - name: Set up Customer managed encryption keys (CMEK)

@@ -638,18 +638,26 @@
         href: python-memory-profiler-reference.md
 - name: AI
   items: 
+  - name: Azure Functions skills for coding agents
+    displayName: AI, coding agents, GitHub Copilot, Claude Code, Codex CLI, skills
+    href: functions-skills.md
   - name: Create AI-enabled functions
     displayName: OpenAI, agent, agentic, tools, trigger
     href: functions-create-ai-enabled-apps.md
-  - name: Agent bindings in Python
-    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, Durable Functions, hybrid workflows
-    href: functions-agent-bindings.md
-  - name: Agent binding with Microsoft Agent Framework
-    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, HTTP, quickstart
-    href: functions-agent-bindings-agent-framework.md
-  - name: Agent binding with Durable Functions
-    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, Durable Functions, orchestration, quickstart
-    href: functions-agent-bindings-agent-framework-durable.md
+  - name: Agent bindings
+    items:
+    - name: Overview
+      displayName: AI, agent, agentic, Microsoft Agent Framework, GitHub Copilot SDK, Python, Durable Functions, hybrid workflows
+      href: functions-agent-bindings.md
+    - name: Microsoft Agent Framework quickstart
+      displayName: AI, agent, agentic, Microsoft Agent Framework, Python, HTTP, quickstart
+      href: functions-agent-bindings-agent-framework.md
+    - name: GitHub Copilot SDK quickstart
+      displayName: AI, agent, agentic, GitHub Copilot SDK, Python, HTTP, quickstart
+      href: functions-agent-bindings-copilot-sdk.md
+    - name: Durable Functions quickstart
+      displayName: AI, agent, agentic, Microsoft Agent Framework, Python, Durable Functions, orchestration, quickstart
+      href: functions-agent-bindings-agent-framework-durable.md
   - name: Custom remote MCP servers 
     items:  
     - name: MCP extension quickstart
@@ -671,18 +679,48 @@
       href: register-mcp-server-api-center.md
   - name: Hosted skills
     items:
-    - name: Overview
+    - name: What are hosted skills?
       displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
       href: functions-hosted-skills.md
-    - name: Canvas quickstart
-      displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
-      href: functions-hosted-skills-canvas.md
-    - name: Dynamic workflows overview
-      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
-      href: functions-hosted-skills-dynamic-workflows.md
-    - name: Dynamic workflows quickstart
-      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
-      href: functions-hosted-skills-dynamic-workflows-how-to.md
+    - name: Scenarios
+      displayName: AI, hosted skills, events, connectors, workflows, messages, schedules, files
+      href: functions-hosted-skills-scenarios.md
+    - name: Quickstarts
+      items:
+      - name: Azure Developer CLI
+        displayName: AI, agent, agentic, hosted skills, azd, timer, email, connector, MCP, Foundry
+        href: scenario-hosted-skills.md
+      - name: Canvas
+        displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
+        href: functions-hosted-skills-canvas.md
+      - name: AI coding assistant
+        displayName: AI, hosted skills, Azure Functions skills, azure-functions-skills, GitHub Copilot, Claude Code, Codex CLI
+        href: functions-hosted-skills-ai-coding-assistant.md
+      # Planned: Portal quickstart; steps and owner to be confirmed.
+    - name: Developer guide
+      displayName: AI, agent, hosted skills, Markdown, triggers, tools, MCP, skills
+      href: functions-hosted-skills-developer-guide.md
+    - name: Features
+      items:
+      - name: Dynamic workflows overview
+        displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
+        href: functions-hosted-skills-dynamic-workflows.md
+      - name: Create and manage dynamic workflows
+        displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
+        href: functions-hosted-skills-dynamic-workflows-how-to.md
+      - name: Hosted Skill bindings
+        displayName: AI, agent, hosted skills, binding, Python, hybrid workflows, HostedSkill
+        href: functions-hosted-skills-bindings.md
+      - name: Migrate an existing workflow
+        displayName: hosted skills, migration, automation, coding agents, GitHub Copilot, Claude Code, Codex
+        href: functions-hosted-skills-migrate.md
+      - name: Evaluate hosted skills
+        displayName: AI, agent, hosted skills, evaluation, Vally, graders, testing
+        href: functions-hosted-skills-evaluation.md
+    # Planned: Samples; article and owner to be confirmed.
+    - name: Monitor and troubleshoot
+      displayName: hosted skills, Application Insights, KQL, tokens, latency, connectors, diagnostics
+      href: functions-hosted-skills-monitor-troubleshoot.md
     - name: Reference
       displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
       href: functions-hosted-skills-reference.md
@@ -724,6 +762,44 @@
       href: /azure/operational-excellence/relocation-functions?toc=%2Fazure%2Fazure-functions%2Ftoc.json
 - name: Reference
   items:
+  - name: Azure Functions skills
+    items:
+    - name: Reference overview
+      href: functions-skills-reference/index.md
+    - name: Best practices
+      href: functions-skills-reference/azure-functions-best-practices.md
+    - name: Common references
+      href: functions-skills-reference/azure-functions-common.md
+    - name: Connector creation
+      href: functions-skills-reference/azure-functions-connector-create.md
+    - name: Connector MCP tools
+      href: functions-skills-reference/azure-functions-connector-mcp.md
+    - name: Connector validation
+      href: functions-skills-reference/azure-functions-connector-validate.md
+    - name: Create
+      href: functions-skills-reference/azure-functions-create.md
+    - name: Deploy
+      href: functions-skills-reference/azure-functions-deploy.md
+    - name: Diagnostics
+      href: functions-skills-reference/azure-functions-diagnostics.md
+    - name: Project diagnostics
+      href: functions-skills-reference/azure-functions-doctor.md
+    - name: Feedback
+      href: functions-skills-reference/azure-functions-feedback.md
+    - name: Health status
+      href: functions-skills-reference/azure-functions-health-status.md
+    - name: Help
+      href: functions-skills-reference/azure-functions-help.md
+    - name: Hosted-skills authoring
+      href: functions-skills-reference/azure-functions-hosted-skills.md
+    - name: Hosted-skills migration
+      href: functions-skills-reference/azure-functions-hosted-skills-migrate.md
+    - name: Inventory
+      href: functions-skills-reference/azure-functions-inventory.md
+    - name: Setup
+      href: functions-skills-reference/azure-functions-setup.md
+    - name: Update
+      href: functions-skills-reference/azure-functions-update.md
   - name: API references
     items:
     - name: ARM template
@@ -978,6 +1054,14 @@
       - name: Output
         displayName: Kafka
         href: functions-bindings-kafka-output.md
+    - name: Managed connectors
+      items:
+      - name: Overview
+        displayName: Connector Extension, Connector Namespace, Managed Connectors
+        href: functions-bindings-connector.md
+      - name: Trigger (Preview)
+        displayName: Connector Trigger, Connector Namespace, Office 365, SharePoint Online
+        href: functions-bindings-connector-trigger.md
     - name: MCP
       items:
       - name: Overview

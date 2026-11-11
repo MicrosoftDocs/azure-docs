@@ -30,6 +30,9 @@ This table describes how you can collect data to monitor your service, and what 
 
 Azure DDoS Protection offers in-depth insights and visualizations of attack patterns through DDoS Attack Analytics. It provides customers with comprehensive visibility into attack traffic and mitigation actions via reports and flow logs. During a DDoS attack, detailed metrics are available through Azure Monitor, which also allows alert configurations based on these metrics.
 
+> [!NOTE]
+> Upcoming changes to the diagnostic log schema (starting ~mid-August 2026) retire `DDoSMitigationReports` and add new fields to `DDoSMitigationFlowLogs`. For the full migration guidance, see [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports).
+
 You can view and configure Azure DDoS protection telemetry.
 
 Telemetry for an attack is provided through Azure Monitor in real time. While [mitigation triggers](#view-ddos-mitigation-policies) for TCP SYN, TCP & UDP are available during peace-time, other telemetry is available only when a public IP address has been under mitigation.

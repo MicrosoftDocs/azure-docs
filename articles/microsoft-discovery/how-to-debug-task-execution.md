@@ -5,7 +5,7 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a researcher or scientist, I want to diagnose and fix problems with task execution so that my shared session can make progress.
 ---
@@ -19,13 +19,16 @@ When tasks in your shared session aren't progressing as expected, this guide hel
 - Agent or tool errors
 - Cognition behavior that seems unexpected
 
+> [!IMPORTANT]
+> Before manually changing task statuses, stop the Discovery Engine and check for agent or tool executions that are still active. Don't assume that stopping cognition cancels them; confirm their status before resetting or resubmitting work to avoid duplicate execution.
+
 ## Tasks stuck in New status
 
 A task stays in New state. Common causes:
 
 ### Unmet dependencies
 
-The task depends on another task that isn't in a terminal status.
+The task has an unresolved dependency. Check both the dependency's status and whether its result provides the input this task needs; a terminal status doesn't necessarily indicate success.
 
 **How to check**: Open the task and review the **Depends on** field. Check the status of each dependency.
 
@@ -75,12 +78,12 @@ Before assuming a task is stuck, consider what's happening:
 
 ### The agent's response is stalled
 
-If a task has been Executing for more than 15 minutes with no tool activity, the underlying model response might be stuck.
+If a task remains Executing without new tool activity, investigate the current run. Elapsed time alone doesn't identify the cause.
 
-**How to check**: Look at the task's execution history for the current run. If the response shows "in progress" with no new output for an extended period, the response is likely stalled at the model layer.
+**How to check**: Review the task's execution history, the current agent response, and any tool-run status or errors. Missing or delayed logs don't prove that work stopped or didn't run.
 
 **How to fix**:
-- Stop and restart the Discovery Engine. This causes cognition to reassess all tasks and retry the stalled one.
+- Check the current agent execution and model error details before retrying. Don't rely on restarting the Discovery Engine to cancel or retry an execution; confirm its current state before resubmitting.
 - If the problem persists, check whether the model deployment in your workspace is healthy.
 
 ### Tool execution failed
@@ -93,10 +96,12 @@ The agent called a tool, but the tool returned an error.
 
 | Error | Likely cause | Fix |
 |-------|-------------|-----|
-| "Tool execution failed" with no logs | Supercomputer node couldn't start (VM SKU restricted, quota exceeded) | Check your node pool configuration and VM SKU availability |
+| "Tool execution failed" with no logs | Insufficient evidence to identify the failing stage | Check the tool-run status, node pool provisioning, quota, and available errors. Missing logs don't prove the tool didn't run |
 | Connection time out to external API | Network restrictions on the supercomputer subnet | Verify that the required endpoints are accessible from the node pool. See [Manage Supercomputer and Node pools](how-to-manage-supercomputers.md) |
-| Authentication error (403) | Missing role assignment for the workspace or supercomputer identity | Verify that the managed identity has the required roles on storage accounts, container registries, and other resources |
+| Access denied (403) | Missing role assignment or a network access restriction | Check the error details, the calling identity's required roles, and the target resource's network rules |
 | Container image pull failure | ACR not accessible from supercomputer, or image doesn't exist | Check ACR network rules and verify the image is pushed |
+
+For failures involving service-managed infrastructure, collect the operation and correlation IDs and [request support](troubleshoot-microsoft-discovery.md#advanced-troubleshooting-and-data-collection). Don't attempt repairs to resources in service-managed resource groups.
 
 ## Tasks cycling between Executing and Incomplete
 
@@ -188,22 +193,22 @@ Cognition might decompose broad objectives into more subtasks than necessary.
 
 Tasks show as Complete and results mention file outputs, but you see access errors when clicking file links.
 
-**Why this happens**: Agents create files using the platform's managed identity. When you view files in VS Code, the browser uses **your** identity to access blob storage directly. These are two separate access paths.
+**Why this happens**: Platform-mediated file access uses the managed identity configured for the workspace or tool workload. When you view files in VS Code, the browser uses **your** identity to access blob storage directly. These are two separate access paths.
 
 **Three things must be in place for you to view files:**
 
 | Check | What's needed | Who fixes it |
 |-------|--------------|-------------|
-| **Network** | Your IP (or VPN) must be allowed by the storage account firewall | Administrator |
-| **CORS** | Storage account must allow requests from `vscode.dev` and `*.vscode-cdn.net` | Administrator |
-| **Permissions** | Your account needs **Storage Blob Data Reader** on the storage account | Administrator |
+| **Network** | Your browser needs an approved route to the blob endpoint, through selected public networks or a private endpoint with working DNS | Administrator |
+| **CORS** | Blob service CORS must allow the Studio and integrated VS Code origins. See [CORS configuration](how-to-configure-project-storage.md#cors-configuration) | Administrator |
+| **Permissions** | Your account needs **Storage Blob Data Reader** at the backing blob container or storage account, plus Discovery storage container permissions to inspect asset metadata. Discovery metadata roles don't grant direct blob-data access | Administrator |
 
-If any of these is missing, you'll see an error when clicking file links, even though the files were created successfully.
+If any of these is missing, you can see an error when opening file links even if the files were created successfully. Check the asset metadata and backing blob to confirm that the output exists.
 
-**How to fix**: Contact your administrator with the storage account name (visible in the storage container properties) and ask them to verify all three items. See [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md) for the full configuration requirements.
+**How to fix**: Contact your administrator with the storage account name (visible in the storage container properties) and ask them to verify all three items. For the full configuration requirements, see [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md).
 
 > [!NOTE]
-> Shared sessions continue to work correctly regardless of your file access. Agents can read and write files, cognition can validate file content, and task results capture the text output. The access issue only affects your ability to view files directly.
+> Browser file access and agent storage access use separate identities and network paths. A browser access error doesn't by itself indicate agent execution failed, but it also doesn't prove the platform's storage access is healthy. Diagnose each path separately.
 
 ## Checking shared session health
 

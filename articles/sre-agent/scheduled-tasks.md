@@ -3,7 +3,7 @@ title: Schedule tasks with Azure SRE Agent
 description: Learn how to use scheduled tasks in SRE Agent to automate monitoring, enforce security, and validate recovery.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 04/24/2026
+ms.date: 10/28/2026
 ms.author: cshoe
 ms.reviewer: cshoe
 ms.service: azure-sre-agent
@@ -30,7 +30,7 @@ Your agent runs tasks on a schedule you define. Describe what you want done in n
 
 This process isn't a cron job running a script. Your agent uses its [connectors](connectors.md), [tools](tools.md), [knowledge](memory.md), and [memory](memory.md) to understand context. It notices that error rates are trending up 15% day-over-day even though they haven't reached the alerting threshold. It catches that storage usage will reach quota in three days at the current growth rate. It connects yesterday's deployment to today's exceptions.
 
-Select **Scheduled tasks** in the left sidebar to manage all your tasks.
+Select **Automation** in the left sidebar, and then select the **Scheduled tasks** type filter to manage your tasks. To create one, select **Create** > **Scheduled task**.
 
 ## What makes this different
 
@@ -59,24 +59,18 @@ Unlike cron jobs, your agent understands natural language. Instead of writing sc
 
 <!-- Screenshot placeholder -->
 
-The dashboard displays three key metrics at the top:
-
-| Metric | Description |
-|--------|-------------|
-| **Active tasks** | Tasks currently enabled and running on schedule |
-| **Total tasks** | All tasks including paused and completed |
-| **Total runs** | Completed executions across all tasks |
+The **Automation** page combines scheduled tasks and HTTP triggers. Use the **Scheduled tasks** type filter, **Search by name**, and **Status** filter to find a task. For aggregate execution metrics, go to **Operations hub** > **Automation**.
 
 The task list shows each task with sortable columns:
 
 | Column | Description |
 |--------|-------------|
 | **Name** | Task identifier that you select to view execution history |
-| **Task status** | On, Off, Ended, or Failed |
-| **Schedule** | Human-readable format (for example, "Daily at 8:00 AM") |
+| **Status** | On, Off, Ended, or Failed |
+| **Type** | Scheduled task |
+| **Details** | Human-readable schedule (for example, "Daily at 8:00 AM") |
 | **Created by** | User who created the task |
 | **Last run** | Most recent execution time |
-| **Next run** | Upcoming scheduled execution |
 | **Completed runs** | Total successful executions |
 
 ## Editing a task
@@ -87,8 +81,8 @@ Modify any scheduled task directly by changing the schedule, updating instructio
 
 | Method | Steps |
 |--------|-------|
-| **Toolbar** | Select a task checkbox, and then select **Edit task** in the toolbar. |
-| **Row menu** | Select **⋯** on any task row, and then select **Edit task**. |
+| **Toolbar** | Select a task checkbox in **Automation**, and then select **Edit** in the toolbar. |
+| **Row menu** | Select **⋯** on any task row, and then select **Edit**. |
 | **Execution view** | Select a task name to open execution history, and then select **Edit task**. |
 
 <!-- Screenshot placeholder -->
@@ -97,7 +91,7 @@ The edit dialog opens with all current values prepopulated. Change any combinati
 
 - **Task name** and **instructions**: Update what the agent does.
 - **Schedule**: Change frequency, time, or switch to a custom cron expression.
-- **Response custom agent**: Reassign to a different custom agent.
+- **Response subagent**: Reassign to a different custom agent.
 - **Date range**: Adjust start date or set a new end date.
 - **Message grouping for updates**: Switch between same thread or new threads per run.
 - **Set a run limit**: Add, change, or remove the maximum execution count.

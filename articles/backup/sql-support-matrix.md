@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure Virtual Machines (VMs) 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 04/06/2026
+ms.date: 10/09/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -10,9 +10,9 @@ ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to understand the support matrix for SQL Server Backup in Azure VMs so that I can ensure compliance with the system requirements and optimize my backup strategy for our SQL Server environments.
 ---
 
-# Support matrix for SQL Server database and instance snapshot (preview) backups in Azure VMs
+# Support matrix for SQL Server database and instance snapshot backups in Azure VMs
 
-You can use Azure Backup to back up SQL Server databases and [SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview) in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup and SQL Server instance snapshot backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
+You can use Azure Backup to back up SQL Server databases and [SQL Server instance snapshots](backup-azure-sql-database.md#snapshot-based-backup-for-sql-instances-in-azure-vms) in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup and SQL Server instance snapshot backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Scenario support
 
@@ -22,12 +22,13 @@ The following table summarizes the support for different scenarios for SQL Serve
 --- | ---
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
 **Supported regions** | Azure Backup for SQL Server databases is available in all regions, except France South (FRS).
-**Supported operating systems** | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 (all versions), Windows Server 2008 R2 SP1 <br/><br/> Other configuration is required for Windows Server 2008 and 2008 R2. Learn how to [set VM permission](backup-azure-sql-database.md#set-vm-permissions). <br><br> Linux isn't currently supported. 
-**Supported SQL Server versions** | SQL Server 2025, SQL Server 2022, SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](/lifecycle/products/sql-server-2017), SQL Server 2016, and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012. <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.<br><br>Limited support is available for SQL Server versions that are currently in "End of life", "Extended Security Updates" or any other limited support phases.
+**Supported operating systems** |  Windows Server 2016 (and higher) <br/><br/> Other configuration is required for Windows Server 2008 and 2008 R2. Learn how to [set VM permission](backup-azure-sql-database.md#set-vm-permissions). <br><br> Linux isn't currently supported. 
+**Supported SQL Server versions** | SQL Server 2016 (and higher) as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack) <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.<br><br>Limited support is available for SQL Server versions that are currently in "End of life", "Extended Security Updates" or any other limited support phases.
 **Supported .NET versions** | .NET Framework 4.6.2 or later installed on the VM
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md). <br><br>  Note that the SQL databases that are part of a AlwaysOn AG and are synced from SQL Managed Instance aren't supported.
 **Cross Region Restore** | Supported for databases protected as a standalone instance and/or as part of a SQL availability group. [Learn more](restore-sql-database-azure-vm.md#cross-region-restore).
 **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](restore-sql-database-azure-vm.md#cross-subscription-restore).
+**Cross Tenant Restore (preview)** | Supported for vaulted recovery points through alternate location restore. SQL instance restore and archive-tier recovery points aren't supported. [Learn more](cross-tenant-restore-overview.md).
 
 
 [!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
@@ -61,30 +62,29 @@ _*The database size limit depends on the data transfer rate that we support and 
 * Back up of databases with extensions in their names aren’t supported because the IIS server performs the [file extension request filtering](/iis/configuration/system.webserver/security/requestfiltering/fileextensions). However, note that Microsoft allowlisted `.ad`, `.cs`, and `.master` that can be used in the database names. Learn more about the [database naming guidelines for Azure Backup](backup-sql-server-database-azure-vms.md#database-naming-guidelines-for-azure-backup).
 * FIPS encryption is currently not supported with SQL backup workloads.
 
-## SQL Server instance snapshot backups supported scenarios (preview)
+## SQL Server instance snapshot backups supported scenarios
 
 
 The following table summarizes the supported and unsupported scenarios for snapshot backup of SQL Server instances running on Azure virtual machines.
 
 | **Scenarios** | **Supported** | **Unsupported** |
 |----|----|----|
-| Supported Regions | Australia Central, Australia Central 2, Australia east, Canada Central, Canada East, Central US, East US2, East US, North Central US, North Europe, South Central US, UK South, West Central US, West US, West US2, West Europe, Newzealand North. | All other regions and clouds |
+| Supported regions | All regions except France Central (FRC) | France Central (FRC) |
 | SQL Server versions | SQL Server 2016 (and higher) running on Windows Server 2016 (and higher). |  |
 | Backup types for snapshot | Snapshot Full (with or without Log backup), Snapshot-copy-only-full (Adhoc backups at database level) |  |
 | Backup configuration | Standalone instance and Always on AG |  |
 | Storage hardware/configurations |  | Premium SSD V2, Ultradisk, Write-accelerated disks, Ephemeral OS disks, and shared disks. |
-| Encryptions | ADE, TDE, and other SQL encryptions |    |
-| SQL compression |  | Not supported |
-| Restore process | Alternate location recovery (ALR) that supports restore to a different target VM from the original one. | Original Location Restore (OLR), Cross region restore, Cross subscription restore |
-| Supported clients | Azure portal, PowerShell | CLI |
-| Vault-based features | Immutability, Private Endpoints (via Proxy) |     |
+| Encryptions | ADE, TDE, customer-managed keys (CMK), and other SQL encryptions |  |
+| SQL compression | Supported on log backups |  |
+| Restore process | Alternate location recovery (ALR) to a different target VM, original location restore (OLR), cross-subscription restore, cross-vault restore, and cross-region restore |  |
+| Supported clients | Azure portal, PowerShell, CLI |  |
+| Vault-based features | Immutability, private endpoints (via proxy), and customer-managed keys (CMK) |  |
 | Database type |  | Snapshot backups of system databases |
 | Database size | Maximum 35 TB database |  |
 | Database selection during instance snapshot | Up to 12 user databases |      |
-| Protection mode within a SQL instance | Protects all selected databases using only snapshot-based protection. | Mixed protection modes (some databases using snapshot and others using streaming) |
-
->[!NOTE]
->Integration with the **Resiliency** experience is currently not supported for snapshot backup of SQL Server instances (preview).
+| Partial backup and restore | Supported |  |
+| Protection mode within a SQL instance | Databases within a single instance can use snapshot-based or streaming protection. Databases can be switched between snapshot-based and streaming protection. |  |
+| Monitoring, health updates, and Resiliency center | Supported |  |
 
 ## Backup throughput performance for SQL streaming backup
 
@@ -105,6 +105,6 @@ Azure Backup supports a consistent data transfer rate of 350 MBps for full and d
 
 - [Back up a SQL Server database running on an Azure VM](backup-azure-sql-database.md).
 - [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
-- [Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
+- [Back up SQL Server instance snapshot in Azure VM using Azure portal](back-up-sql-server-instance-snapshot.md).
 - [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
 - [Manage backed up SQL Server databases](manage-monitor-sql-database-backup.md).

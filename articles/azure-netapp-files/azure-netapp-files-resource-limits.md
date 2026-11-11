@@ -76,6 +76,9 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
+
+<!--
+
 # [Elastic](#tab/elastic)
 
 The following table describes resource limits for the Elastic zone-redundant service level of Azure NetApp Files:
@@ -92,6 +95,8 @@ The following table describes resource limits for the Elastic zone-redundant ser
 | Maximum number of snapshots per volume | 255 | No | 
 | Maximum number of export policy rules per volume | 5 | No | 
 | Maximum number of quota rules per volume | 1,000| No | 
+
+-->
 
 <!-- maxfiles -->
 <!-- file, throughput, regional capacity per subscription, number of IPs / VNet, backups per day, backups, snapshots, |  # of CRR/CZR DP volumes, # volumes per subscription --> 

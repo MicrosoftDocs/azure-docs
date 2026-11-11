@@ -1,42 +1,37 @@
 ---
 title: Defense in depth
-description: Azure Enclave Defense in depth.
+description: Learn how to review identity, governance, network, and monitoring controls for Azure Enclave.
 author: jadean-msft
 ms.author: jadean
-ms.topic: overview
+ai-usage: ai-assisted
+ms.topic: concept-article
 ms.service: azure-enclave
-ms.date: 9/30/2025
+ms.date: 10/20/2026
 ---
 
-# Azure Enclave Defense in depth
+# Defense in depth for Azure Enclave
 
-Azure Enclave provides defense-in-depth through multiple layers of boundary protections and guardrails to protect and safeguard your data. 
+Defense in depth uses multiple safeguards so that a single control isn't the only protection for your environment. This article describes areas to review when planning security for Azure Enclave. The controls that apply to a deployment depend on its configuration, environment, and the API version used.
 
 [ ![Diagram showing the layers of Defense-in-depth for Azure Enclave.](./media/defense-depth-architecture.svg) ](./media/defense-depth-architecture.svg#lightbox)
 
-1. [**Role-based access control (RBAC)**](https://aka.ms/azure-rbac) - Standard access management system for all Azure resources. Security principals are sourced in Microsoft Entra ID (for example community owner or enclave owner).  ​
-1. [**Azure Policy**](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring) - Policy engine to enforce organizational standards and to assess compliance at-scale. Azure Policy evaluates Azure Resource Manager (ARM) requests and resources against business rules known as policy definitions. Policies are assigned at the workload resource group and enclave managed resource group scopes. They are also used to control which Azure Services can be deployed and which enclave Virtual Network a workload can be deployed.
-1. [**Azure Virtual Wide Area Network**](/azure/virtual-wan/virtual-wan-about) - Software defined wide-area-network for managing security, routing, and connectivity. Virtual WAN implementation has a secured hub protected by Azure Firewall.
-1. [**Azure Firewall**](/azure/firewall/overview) - A cloud-native, intelligent network firewall security service that offers top-tier threat protection for network traffic entering and leaving the community and for internal traffic flows between enclaves within the community.
-1. [**Azure Virtual Network**](/azure/virtual-network/virtual-networks-overview) - Software defined network for hosting private Azure resources. In enclaves, workloads use private IP addresses; flows are forced through the community Azure Firewall. Only enclave owners can create or modify their enclave's Virtual Network. Contains subnets for further networking granularity.​
-1. [**Network Security Groups**](/azure/virtual-network/network-security-groups-overview) - OSI layer 3&4 network security service to filter traffic to and from Azure resources in an Azure virtual network. This is supplemental to control provided by OS firewall and the community Azure Firewall. All flows are logged through NSG Flows Logs.
-1. [**Workloads**](./what-workload.md) - Combination of cloud services and installed software hosted inside of a virtual network. Because the services are either deployed in a Virtual Network or linked to a Virtual Network, flows are controlled by the Azure Firewall through central Azure Virtual WAN. ​
-  > [!NOTE]
-  > 
-  > Virtual Network integration is only one pattern of isolating platform resources. You can further isolate your workloads through other Identity and Access Management solutions such as Microsoft Entra ID and Attribute-based Access Control.
-1. **Secrets, Logging, and Monitoring** - Enclave-specific secret store (Key Vault) and Log Analytics Workspace. Although these services are platform services, they're only accessible from within the enclave virtual network (firewall + private endpoint).​ Azure Enclave managed and customer workload resources automatically log [diagnostics settings](/azure/azure-monitor/essentials/diagnostic-settings) data and [Azure Activity](https://aka.ms/activity-log) logging. When a community owner creates a new enclave, they can choose a destination for this logging data (enclave Log Analytics Workspace, community Log Analytics Workspace, or both).
+## Identity and governance
 
-## Layered Security
-Multi-layer protections provided by Azure Enclave include:
+- Use [Azure role-based access control (Azure RBAC)](https://aka.ms/azure-rbac) to review who can access resources and what actions their roles allow. Check role assignments at the scopes relevant to your resources.
+- Review [Azure Policy assignments and compliance](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring) for the resource groups and resources in your deployment. The applicable assignments depend on the configuration and API version.
 
-- **Physical security**: Microsoft enforces strict security measures to ensure the Azure data centers are protected and secured. This is true both for Air-Gapped and Commercial cloud environments.
+## Network controls
 
-- **Virtual Network Isolation**: Next-level zero-trust networking that leverages and combines the power of Azure Virtual WAN, Firewall, Policy, Role Based Access Controls (RBAC), Network Watcher, Monitor, Microsoft Sentinel, Defender, and others to ensure that you know where your data is and who is accessing it at all times.
+- Azure Enclave networking can involve [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about), [Azure Firewall](/azure/firewall/overview), [virtual networks](/azure/virtual-network/virtual-networks-overview), and [network security groups](/azure/virtual-network/network-security-groups-overview). Review the routes and rules configured for your environment; don't assume that every traffic path uses the same controls.
+- Check that network rules allow required traffic and deny traffic that isn't needed. Validate the effective routes and security rules for each workload and connection.
+- Review [workloads](./what-workload.md), endpoints, and connections to understand which resource groups and network paths are configured for each application.
 
-- **Virtual Connection Management**: All connections, internal or external, are governed by strict, user-defined rules to prevent unwarranted access.
+## Monitoring and diagnostics
 
-- **Azure Policy Enforcement**: Ensure your environments remain secure through build-in policies at the community, Enclave, and workload levels to audit and/or enforce consistency and compliance across your environment.
+Diagnostic and flow-log settings vary by Mission API version. In `2025-11-01-preview`, `enclaveDefaultSettings.diagnosticDestination` uses `CommunityOnly`, `EnclaveOnly`, or `Both`. The `2026-03-01-preview` and `2026-04-01` schemas retain that property and add `monitoringSettings`, which models `diagnosticDestinations` separately from `flowLogDestination`. The newer destination objects include `destinationType` values such as `CommunityWorkspace`, `EnclaveWorkspace`, and `CustomWorkspace`. Check the API version and configuration used by your deployment before relying on a destination or expecting logs to be sent.
 
-- **Mandatory Access Control** - Access to Azure Enclave resources is controlled through built-in RBAC roles that can be assigned at any scope from subscription, resource group, down to individual resources
+The API fields describe available configuration; they don't by themselves establish that diagnostics or Activity Logs are enabled or delivered automatically. Review the [Azure Monitor diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) and [Azure Activity Log](https://aka.ms/activity-log) guidance for the services you use.
 
-- **Mandatory Observability**: The Azure Enclave service consolidates the full power of Azure's built-in logging, alerting, and auditing features through integration with Microsoft Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
+## Review your security layers
+
+Periodically review role assignments, policy compliance, network paths, and configured diagnostic destinations. Test that users and workloads can perform required operations and that access outside those requirements is restricted. For additional guidance, see [Azure Enclave best practices](./best-practices.md) and the [shared responsibility model](./shared-responsibility-model.md).

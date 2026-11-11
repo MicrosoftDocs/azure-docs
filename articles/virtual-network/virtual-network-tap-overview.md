@@ -92,7 +92,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 |**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
 |**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
 ||[FortiGate VM](https://marketplace.microsoft.com/en-us/search/products?search=FortiGate%20VM&page=1)|
-|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
+|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/products/cloud-suite)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
 |**Extrahop**|[Reveal(x)](https://www.extrahop.com/resources/datasheets/extrahop-revealx)|
 |**Progress**|[Flowmon](https://www.progress.com/blogs/azure-vtap)|

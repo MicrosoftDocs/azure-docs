@@ -3,7 +3,7 @@ title: "Tutorial: Create a skill in Azure SRE Agent"
 description: Build a custom skill with instructions, tools, and supporting files that your agent uses automatically when relevant.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 09/21/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -41,9 +41,9 @@ Open Agent Canvas, where you create and manage skills.
 
 1. Open the [SRE Agent portal](https://sre.azure.com).
 1. Select your agent.
-1. Select **Builder** in the left navigation.
+1. Select **Build + setup**, and then expand **Workflows** in the left navigation.
 1. Select **Agent Canvas**.
-1. Select **+ Create skill**.
+1. Open the **Create** dropdown, and then select **Skill**.
 
 The skill creation dialog opens with a two-column layout. Form fields on one side and a code editor on the other showing `SKILL.md`.
 
@@ -138,7 +138,7 @@ The main agent can use skills by default, so you can test them directly in chat 
 
 Use a new chat thread to verify that the agent activates your skill.
 
-1. Select **New chat thread** in the sidebar.
+1. Select **New chat** in the sidebar.
 1. Type a prompt that should trigger your skill. For example: "We're seeing high CPU on our container app, can you investigate?"
 1. Verify the agent activates the skill and follows the procedures you defined.
 

@@ -3,7 +3,7 @@ title: "Tutorial: Run a Deep Investigation in Azure SRE Agent"
 description: Learn how to use deep investigation for structured, hypothesis-driven analysis from chat and from incident response plans.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.custom: deep-investigation, hypothesis, root-cause, investigation, incident-response-plan
@@ -136,7 +136,7 @@ For incidents that warrant thorough analysis automatically (such as production o
 
 ### Navigate to response plans
 
-Go to **Builder** > **Incident response plans** in the portal sidebar.
+Go to **Incidents** > **Triggers & response plans** in the portal sidebar.
 
 ### Create or edit a response plan
 

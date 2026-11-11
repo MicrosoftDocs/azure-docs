@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 10/01/2026
+ms.date: 11/10/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -25,6 +25,8 @@ In this quickstart, you set up your Microsoft Discovery environment so that you 
 
 Both paths provision the same core resources: networking, identity, storage, a supercomputer with a node pool, a workspace with a chat model deployment, a storage container, and a project.
 
+The [onboarding tool](how-to-set-up-deployment-tool.md) provides a separate scripts-based deployment path. Its stages and configuration don't replace the portal or Bicep steps in this quickstart.
+
 Select the tab that matches your preferred experience under [Deploy Microsoft Discovery infrastructure](#deploy-microsoft-discovery-infrastructure).
 
 ## Prerequisites
@@ -39,7 +41,7 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
     > [!TIP]
     > To assign the full **Platform Administrator** persona role set in a single, idempotent command, use the open-source `Set-DiscoveryRoleAssignments.ps1` PowerShell script. See [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md). This method is the recommended path for onboarding multiple users.
 
-- **Register the required resource providers** in your subscription. For more information, see [Resource provider registration](concept-resource-provider-registration.md). To register `Microsoft.Discovery`:
+- **Register the required resource providers** in your subscription. For more information, see [Resource provider registration](how-to-register-resource-providers.md). To register `Microsoft.Discovery`:
    1. Sign in to the [Azure portal](https://portal.azure.com).
    1. Navigate to **Subscriptions** and select your subscription.
    1. In the left-hand menu, select **Resource Providers**.
@@ -55,7 +57,7 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
 - An existing **resource group**, or permissions to [create a new one](../azure-resource-manager/management/manage-resource-groups-portal.md). Creating a resource group requires **Contributor** role on the subscription.
 
 > [!IMPORTANT]
-> Microsoft Discovery resources are supported in three production regions: **East US**, **Sweden Central**, and **UK South**. Create all resources for a single deployment in the same region, subscription, and resource group for simplicity.
+> The current Bicep template accepts **East US**, **Sweden Central**, and **UK South** as home regions. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
 
 > [!NOTE]
 > You can associate a virtual network with only one Microsoft Discovery workspace. If you need multiple workspaces, create a separate virtual network and subnets for each one.
@@ -64,7 +66,7 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
 > If you deploy the networking resources into a separate resource group from your other Discovery resources, make sure you assign yourself the appropriate permissions on the virtual network's resource group so that the supercomputer resource deploys successfully. The permissions to consider are **Network Contributor** and **Microsoft Discovery Platform Administrator (Preview)**. If you use the Bicep template, update it to create the virtual network in that separate resource group.
 
 > [!TIP]
-> You can deploy Discovery resources with complete network isolation. When `networkIsolation` is enabled, all resources are shielded within the private network and are reachable only through the private endpoint and Network Security Perimeter (NSP). You can still reach the workspace over the public network through Discovery Studio and the REST API. To lock down access to your private network only, disable public network access for your workspace and create private endpoints for the workspace resources. For guidance, see [Configure network security for Microsoft Discovery workspaces](how-to-configure-network-security.md?tabs=azure-cli#create-private-endpoints-for-data-plane-access).
+> Workbench isolation, backend network hardening, and workspace data-plane access are separate controls. Setting the Workbench `NetworkIsolation` tag to `true` doesn't disable public workspace API access. To require private workspace data-plane access, configure private endpoints and DNS, and set `publicNetworkAccess` to `Disabled`. For guidance, see [Configure network security for Microsoft Discovery workspaces](how-to-configure-network-security.md?tabs=azure-cli#create-private-endpoints-for-data-plane-access).
 
 ## Deploy Microsoft Discovery infrastructure
 
@@ -109,7 +111,7 @@ Assign the following built-in roles to users at the desired scope (subscription 
 1. On the **Members** tab, ensure **Assign access to** is set to **User, group, or service principal**.
 1. Select **+ Select members**, choose the members to assign this permission to, then select **Next**.
    :::image type="content" source="media/quickstart-infrastructure-portal/assign-role-members.jpg" alt-text="Screenshot showing the Members tab for adding role assignment members." lightbox="media/quickstart-infrastructure-portal/assign-role-members.jpg":::
-1. On the **Conditions** tab, select **Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)**, then select **Next**.
+1. If the role supports an assignment condition, configure it according to your organization's access policy. Otherwise, continue to the next tab.
 1. On the **Assignment Type** tab, select the configuration that best suits your organization, then select **Next**.
 1. On the **Review + assign** tab, verify the information, and select **Review + assign**.
 
@@ -153,11 +155,13 @@ You can create different UAMIs each with their own required permissions for spec
 
 #### d. Assign Azure Role Based Access Control (RBAC) roles to UAMI
 
-Assign the following built-in roles to the new User Assigned Managed Identity at Resource Group level:
+Assign the following built-in roles to the new User Assigned Managed Identity at resource group scope:
 
 - Microsoft Discovery Platform Contributor (Preview)
 - Storage Blob Data Contributor
 - ACRPull
+
+Also assign **Network Contributor** on the referenced virtual network. If the network is in a separate resource group, use that virtual network's scope rather than the platform resource group's scope.
 
 1. Navigate to **Subscriptions** and select your subscription.
 1. Select the **resource group** that you're using for this exercise.
@@ -194,7 +198,7 @@ To store input and output data for your investigations, create an Azure blob sto
 1. Select **Review + create**, then select **Create**.
 
 > [!NOTE]
-> To view and download output files, your client or browser needs network access to the blob storage. You can allow public internet access by opening public access to all networks. You can also allow your client's public IP address in the storage networking and firewall settings. Alternatively, configure private access via Azure VPN or ExpressRoute.
+> To view and download output files, your browser needs its own permitted path to blob storage. Use an approved client-IP rule for selected public access, or private connectivity through a private endpoint, VPN, or ExpressRoute. Don't open storage to all networks merely to resolve an output-access error.
 
 ##### Create a blob container
 
@@ -270,9 +274,9 @@ A workspace is a collaborative environment where teams manage large-scale scient
 1. On the **Tags** tab, add tags as needed. (Optional) To enable **GitHub Copilot** and configure workspace access, add the following tags. For details, see [Use GitHub Copilot in Microsoft Discovery](how-to-copilot.md).
    - `discovery.workbench.enableGhcpAiFeatures` set to `true` — Enables GitHub Copilot and AI features for the workspace.
    - `discovery.workbench.enableExtensions` set to `true` — Enables the VS Code Extension Marketplace in the preview experience.
-   - `NetworkIsolation` set to `false` — Enables public access to the preview experience (workbench) and other managed resource group (MRG) resources. If you keep network isolation enabled (default), you need to be connected on a VPN or ExpressRoute to the virtual network where the workspace is deployed to access over private network.
+   - `NetworkIsolation` set to `false` — Enables authenticated public access to the preview Workbench experience. It doesn't disable backend hardening or change workspace data-plane `publicNetworkAccess`. If you keep Workbench isolation enabled (default), you need VPN or ExpressRoute connectivity to the workspace VNet.
    > [!TIP]
-   > You can deploy Discovery resources with complete network isolation. When `networkIsolation` is enabled, all resources are shielded within the private network and are reachable only through the private endpoint and Network Security Perimeter (NSP). You can still reach the workspace over the public network through Discovery Studio and the REST API. To lock down access to your private network only, disable public network access for your workspace and create private endpoints for the workspace resources. For guidance, see [Configure network security for Microsoft Discovery workspaces](how-to-configure-network-security.md?tabs=azure-cli#create-private-endpoints-for-data-plane-access).
+   > Workbench isolation doesn't require clients to use private workspace APIs. To enforce private data-plane access, configure the private endpoint and DNS before disabling `publicNetworkAccess`. See [Configure network security](how-to-configure-network-security.md?tabs=azure-cli#create-private-endpoints-for-data-plane-access).
 
    > [!NOTE]
    > Tags are immutable for Microsoft Discovery resource types, including workspaces, supercomputers, node pools, and bookshelves. After a resource is created, you can't add, change, or remove its tags. Any tag modification, including adding a tag, requires redeploying the resource.
@@ -299,7 +303,7 @@ Repeat this process for all users who require access to agents and workflows in 
 
 ### 6. Create Chat Model Deployment
 
-Chat model deployments provision foundational language models such as GPT-5.4 for use within the Microsoft Discovery Workspace. Agents created within projects can use these chat model deployments.
+Chat model deployments provision foundational language models such as GPT-5.4 for use within the Microsoft Discovery Workspace. Agents created within projects can use these chat model deployments. A chat model deployment is a workspace child resource, separate from the project you create in [step 9](#9-create-a-project).
 
 1. Go to the overview page of Microsoft Discovery workspace, created in the previous step. 
 1. Under the **Settings** tab on left navigation pane, select **Chat Model Deployments**.
@@ -311,9 +315,9 @@ Chat model deployments provision foundational language models such as GPT-5.4 fo
    :::image type="content" source="media/quickstart-infrastructure-portal/create-chat-model.jpg" alt-text="Screenshot of the Chat Model Deployment creation page." lightbox="media/quickstart-infrastructure-portal/create-chat-model.jpg":::
 
 > [!IMPORTANT]
-> To use Discovery Engine and tasks within your sessions, you must use this specific deployment with name `gpt-5-4` and model name `gpt-5.4`. However, you can have additional chat model deployments for use with agents.
+> This quickstart and the linked Bicep template use the deployment name `gpt-5-4` and model name `gpt-5.4`. Confirm the model and required quota in your chosen region before deployment. You can have additional chat model deployments for use with agents.
 
-You can provide access to users via [Role Based Access Control (RBAC)](../role-based-access-control/quickstart-assign-role-user-portal.md) at the resource group level. **Microsoft Discovery Administrator (Preview)** role is required to create projects within a workspace.
+Use [Azure role-based access control (Azure RBAC)](../role-based-access-control/quickstart-assign-role-user-portal.md) to grant the required access. For this quickstart, use **Microsoft Discovery Platform Administrator (Preview)** at the workspace or an inherited scope to create projects. A project-only role doesn't permit project creation, and subscription-level **Contributor** alone doesn't grant Discovery data-plane access. For research users, see [Configure project-level access](how-to-configure-project-rbac.md).
 
 ### 7. Sign in to Microsoft Discovery Studio
 
@@ -349,7 +353,7 @@ Storage containers store both input and output data as storage assets. Both inpu
 
 ### 9. Create a project
 
-Projects help you organize and manage scientific investigations within a workspace. Each project defines the functional boundary for access to your agents, tools, and storage containers. Within a project, you can run experiments, analyze data, apply AI models, and track research progress in a collaborative environment.
+Projects help you organize and manage scientific investigations within a workspace. Each project defines the access boundary for its agents, investigations, shared sessions, and tasks. Tools, chat model deployments, storage containers, and Bookshelf resources remain separately scoped; a project role alone doesn't grant direct access to those shared resources. Within a project, you can run experiments, analyze data, apply AI models, and track research progress in a collaborative environment. For the access model, see [Project-level access control](concept-project-rbac.md).
 
 > [!IMPORTANT]
 > Your project name must be all lowercase and no more than 12 characters long. Also, ensure you refresh the page before you create a project.
@@ -385,7 +389,11 @@ Use Bicep to deploy the prerequisite infrastructure for Microsoft Discovery. The
 
 This quickstart uses a Bicep file from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.discovery/discovery-infra-deployment).
 
-In this quickstart, you deploy the full Microsoft Discovery stack into *Sweden Central*. The deployment creates a virtual network with a *10.0.0.0/16* address space and five subnets for supercomputer node pools, AKS, workspace, private endpoints, and agents. The deployment provisions a *Standard_LRS* storage account with CORS rules enabled for Discovery Studio and VS Code. It creates a user-assigned managed identity with *Storage Blob Data Contributor*, *Discovery Platform Contributor*, and *AcrPull* role assignments. The core Discovery resources include a supercomputer with a *Standard_D4s_v6* node pool (scaling from *0* to *3* nodes), a workspace with a chat model deployment, a storage container, and a project.
+The commands in this quickstart deploy into *Sweden Central*. Review the current template's parameters before deployment. It creates a virtual network with a *10.0.0.0/16* address space and seven subnets for supercomputer node pools, AKS system nodes, workspace services, private endpoints, agents, search services, and AKS management. A NAT gateway provides explicit outbound connectivity. The storage account defaults to *Standard_GRS* and includes CORS rules for Discovery Studio and VS Code. The template creates a UAMI and its supporting role assignments, a supercomputer with a *Standard_D4s_v6* node pool scaling from *0* to *3* nodes, a workspace with a `gpt-5-4` chat model deployment, a storage container, and a project.
+
+Unlike the selected-network storage setup in the portal steps, the current template sets the storage account's network default action to `Allow`. Review this setting against your organization's network policy before deployment.
+
+The `location` parameter selects the Discovery home region. The optional `overridemrgregion` parameter selects the workload region and defaults to `location`. For different regions, review [Cross-region deployment](how-to-deploy-across-regions.md) and confirm workload capacity and connectivity.
 
 > [!NOTE]
 > **Enable the unified Workbench (preview).** The unified Workbench, which includes GitHub Copilot and AI features, is in preview. To enable it, deploy your workspace with the tags `discovery.workbench.enableGhcpAiFeatures: true` and `discovery.workbench.enableExtensions: true`. How you access the Workbench depends on the workspace's `networkIsolation` setting:
@@ -402,7 +410,8 @@ In this quickstart, you deploy the full Microsoft Discovery stack into *Sweden C
 
 The Bicep file defines multiple Azure resources:
 
-- **Microsoft.Network/virtualNetworks** - Virtual network with five subnets for supercomputer node pool, AKS, workspace, private endpoint, and agent workloads.
+- **Microsoft.Network/virtualNetworks** - Virtual network with seven subnets for the configured workload and management functions.
+- **Microsoft.Network/natGateways** and **Microsoft.Network/publicIPAddresses** - Explicit outbound connectivity for the configured workload subnets.
 - **Microsoft.ManagedIdentity/userAssignedIdentities** - User-assigned managed identity for supercomputer and workspace authentication.
 - **Microsoft.Storage/storageAccounts** - Azure Blob Storage account with CORS rules for Discovery Studio and VS Code integrations.
 - **Microsoft.Authorization/roleAssignments** - Storage Blob Data Contributor, Discovery Platform Contributor, and AcrPull role assignments for the managed identity.
@@ -453,7 +462,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ### Clean up resources
 
-When you no longer need the resources, use the Azure portal, Azure CLI, or Azure PowerShell to delete all the resources in the resource group.
+When you no longer need the resources, follow [Delete Discovery resources](how-to-delete-discovery-resources.md) and its dependency order. Delete `exampleRG` only if it's dedicated to this exercise and you have approval to remove every resource and any stored data in it. Don't directly delete Discovery-managed resource groups.
 
 **Azure CLI**
 

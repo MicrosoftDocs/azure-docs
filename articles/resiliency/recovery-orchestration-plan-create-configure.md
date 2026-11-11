@@ -2,21 +2,24 @@
 title: Create and configure a Recovery Orchestration Plan in Resiliency
 description: Learn how to create and configure a Recovery Orchestration Plan for zone resilience in Azure, including resource protection, groups, and group actions.
 ms.topic: how-to
-ms.date: 10/12/2026
+ms.date: 10/26/2026
 ms.service: resiliency
 author: shsangal
 ms.author: shsangal
 # Customer intent: "As a cloud administrator, I want to create and configure a Recovery Orchestration Plan so that I can orchestrate zone failover across multiple resources in my application."
 ---
 
-# Create and configure a recovery orchestration plan (preview)
+# Create and configure a recovery orchestration plan
 
-This article describes how to create a recovery orchestration plan (preview) within a service group. It also covers how to configure resource protection, define recovery groups, and add group actions to automate failover operations.
+This article describes how to create a recovery orchestration plan within a service group. It also covers how to configure resource protection, define recovery groups, and add group actions to automate failover operations.
 
 ## Prerequisites
 
-- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
+- Enroll the service group in a usage plan. The usage plan identifies the Azure subscription to use for billing for advanced capabilities. Usage plans don't have tiers.
 - Assign either the **Azure Resilience Management Recovery Contributor** or **Azure Resilience Management Recovery Administrator** role.
+
+> [!NOTE]
+> Starting December 1, 2026, Azure Infrastructure Resiliency Manager will charge for service groups that are onboarded and associated with a usage plan. Goals and recommendations are available for free without associating the service group with a usage plan. Advanced capabilities, such as drills and recovery plans, require a usage plan. For more information, see [Infrastructure Resiliency Manager pricing](https://azure.microsoft.com/products/infrastructure-resiliency-manager#pricing).
 
 ## Create a recovery orchestration plan
 
@@ -144,5 +147,5 @@ To update the plan, follow these steps:
 
 ## Related content
 
-- [Execute failover and reprotect operations (preview)](recovery-orchestration-plan-execute.md).
-- [Support matrix for Recovery Orchestration Plan (preview)](recovery-orchestration-plan-support-matrix.md).
+- [Execute failover and reprotect operations](recovery-orchestration-plan-execute.md).
+- [Support matrix for Recovery Orchestration Plan](recovery-orchestration-plan-support-matrix.md).

@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: how-to
-ms.date: 03/17/2026
+ms.date: 10/22/2026
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -23,6 +23,12 @@ Azure Backup provides the capability to restore [Azure virtual machines (VMs) an
 >
 
 ![File folder recovery workflow](./media/backup-azure-restore-files-from-vm/file-recovery-1.png)
+
+## Supported disks and recovery scope
+
+Item-level recovery (ILR) supports Standard HDD, Standard SSD, Premium SSD v1, Premium SSD v2, and Ultra disks. For Premium SSD v2 and Ultra disks, both 512-byte and 4-KB logical sector sizes are supported. ILR also supports recovery points from VMs with mixed disk types, exposing all eligible disks so you can recover individual files and folders without restoring an entire VM or disk.
+
+ILR for Premium SSD v2 and Ultra disks supports Windows and Linux VMs running Ubuntu, RHEL, Debian, Oracle Linux, SLES, or openSUSE. The machine used to run the recovery script must meet the [machine requirements](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [OS requirements](#step-3-os-requirements-to-successfully-run-the-script), and [access requirements](#step-4-access-requirements-to-successfully-run-the-script). 
 
 ## Step 1: Generate and download script to browse and recover files
 

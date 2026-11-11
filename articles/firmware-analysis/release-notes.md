@@ -4,7 +4,7 @@ author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
 ms.topic: concept-article
-ms.date: 09/21/2026
+ms.date: 10/28/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -12,15 +12,33 @@ ms.subservice: azure-firmware-analysis
 # What's new in firmware analysis
 
 This article lists new features and feature enhancements in the firmware analysis service.
-Get notified about when to revisit this page for updates by copying and pasting this URL into your RSS feed reader:
+To get notified about updates, copy and paste this URL into your RSS feed reader:
 
 > `https://learn.microsoft.com/api/search/rss?search=%22What%27s+new+in+firmware+analysis%22&locale=en-us`
+
+## October 30, 2026
+
+- **Latest CVEs feature (preview)**: Firmware analysis now lets you compare updated CVE results with the original results for a firmware image. The **Latest scan** view highlights newly identified CVEs, severity changes, and additions to the CISA Known Exploited Vulnerabilities (KEV) catalog to help prioritize vulnerability review.
+
+  Latest scan uses the image's existing software bill of materials (SBOM) without repeating the full firmware analysis. It doesn't identify additional components, and the original scan results remain available for comparison.
+  
+- **Azure Device Registry integration updates (preview)**: Firmware analysis results now appear in device and asset overviews in Azure Device Registry, helping you assess firmware security posture and prioritize vulnerability remediation across your fleet. You can also access the full firmware analysis report directly from Azure Device Registry to investigate findings in more detail. To learn more, visit [Firmware analysis integration with Azure Device Registry](firmware-analysis-integration-with-azure-device-registry.md).
+
+- **SBOM component expansion**: Firmware analysis now supports detection of 19 more SBOM components: freeradius, gdb, gnu cpio, gnu gettext runtime, gnu inetutils, grep, grub, grub2, gzip, haserl, igmpproxy, iputils, isc dhclient, jq, kbd, keepalived, libdbus, libfuse, and libidn2. This expansion further improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
+
+- **Unsafe function calls analysis (preview) MIPS architecture support**: Unsafe function calls analysis now supports analyzing ELF user-space executables built for MIPS32, including big- and little-endian architectures.
+
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on October 22, 2026, to incorporate newer CVE data.
+
+- **Fixed periodic analysis failures for images with large number of files**: Fixed an internal issue with task queuing which could cause analysis failures for firmware images with a large number of files.
+
+- **Fixed unsafe function calls issue**: Fixed an issue that caused some unsafe function calls to be omitted from analysis results.
 
 ## October 5, 2026
 
 - **SBOM component expansion**: Firmware analysis now supports detection of 21 more SBOM components: wireless-tools, procps-ng, xz-utils, liblzma, portmap, libjpeg / libjpeg-turbo, apparmor, asterisk, atftp, avahi, autoipd, binutils, bird, boa, cifs-utils, cryptsetup, cups, davfs2, dhcpcd, dmidecode, dpkg, file. This expansion further improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
 
-- **Updated CVE database**: Firmware analysis's CVE database was refreshed on September 23rd, 2026 to incorporate newer CVE data.
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on September 23, 2026, to incorporate newer CVE data.
 
 ## September 21, 2026
 
@@ -28,13 +46,13 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
   Results are security-review signals and don't establish that an executable is vulnerable. Static or stripped binaries, unsupported architectures, and Linux kernel modules might not produce results. To receive unsafe function call analysis, upload again firmware images analyzed before this feature became available. For more information, see [Understand unsafe function call data in firmware analysis](understand-unsafe-function-calls.md).
 
-- **Azure Device Registry integration namespace grouping**: ADR data in firmware analysis now groups device results based on ADR name space's and enables improved navigation cross integration.
+- **Azure Device Registry integration namespace grouping**: ADR data in firmware analysis now groups device results based on ADR name space and enables improved navigation cross integration.
 
 ## July 28, 2026
 
 - **SBOM component expansion**: Firmware analysis now supports detection of 20 more SBOM components: bridge-utils, conntrack-tools, ebtables, eeprog, ethtool, exfat, hdparm, i2c-tools, ipset, libcap, lspci, mtd-utils, procps, rngd, rngtest, setserial, strace, zip, zipcloak, and zipnote. This expansion further improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
 
-- **Updated CVE database**: Firmware analysis's CVE database was refreshed on July 17, 2026 to incorporate newer CVE data, including added coverage for nano and protobuf-c.
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on July 17, 2026, to incorporate newer CVE data, including added coverage for nano and protobuf-c.
 
 - **Fixed strace version detection**: Corrected the strace version detection regex, ensuring vulnerabilities are accurately identified and reported.
 
@@ -42,7 +60,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 ## July 7, 2026
 
-- **SBOM component expansion**: Firmware analysis now supports detection of four additional SBOM components: nano, libarchive, protobuf-c, and jansson. This expansion improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
+- **SBOM component expansion**: Firmware analysis now supports detection of four more SBOM components: nano, libarchive, protobuf-c, and jansson. This expansion improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
 
 - **Fixed extraction crash on large tarball entries**: Resolved a crash (ValueError overflow) during firmware extraction when device files exceed USTAR field limits. This fix improves the reliability of analysis results.
 
@@ -53,7 +71,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 ## May 2026
 
-- **SBOM component expansion**: Firmware analysis now supports detection of five additional SBOM components: iperf3, libxml2, json-c, chrony, and iproute2. This expands SBOM coverage across firmware images and improves visibility into potential vulnerabilities.
+- **SBOM component expansion**: Firmware analysis now supports detection of five more SBOM components: iperf3, libxml2, json-c, chrony, and iproute2. This expansion expands SBOM coverage across firmware images and improves visibility into potential vulnerabilities.
 
 
 ## April 2026
@@ -135,7 +153,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
     - SBOM: detection of OpenSSL component, version detection, and CVE association when version is detected
     - CVE Weaknesses: derived from detected SBOM components
-    - Binary hardening: detection of NX/DEP supported for UEFI firmware. You may see other results from non-UEFI executables if they are intermixed with the UEFI image in the binary.
+    - Binary hardening: detection of NX/DEP supported for UEFI firmware. You might see other results from non-UEFI executables if they are intermixed with the UEFI image in the binary.
     - Extractor paths for UEFI firmware now include the UEFI module name, in addition to GUID based identifiers, to improve clarity when reviewing results.
 
     For more information on UEFI firmware analysis support, see [UEFI firmware analysis capabilities](unified-extensible-firmware-interface-firmware-analysis.md).
@@ -161,9 +179,9 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 - **Page size picker**: Added the ability for users to change the number of analysis results displayed per page, providing more flexibility when reviewing large sets of findings.
 
-- **CSV filenames**: Updated the naming convention for CSV downloads. Filenames now include Vendor / Model / Version of the firmware for easier identification and organization.
+- **CSV filenames**: Updated the naming convention for CSV downloads. Filenames now include vendor, model, and version of the firmware for easier identification and organization.
 
-- **CVE support**: Expanded support for newly disclosed CVEs across multiple libraries, including Apache, OpenSSL, Nginx, Samba, and others. This ensures broader coverage and improved vulnerability detection.
+- **CVE support**: Expanded support for newly disclosed CVEs across multiple libraries, including Apache, OpenSSL, Nginx, Samba, and others. This expansion ensures broader coverage and improved vulnerability detection.
 
 - **Cramfs extraction fix**: Resolved issues with Cramfs filesystem extraction, improving reliability and accuracy of analysis results.
 
@@ -180,7 +198,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 - **Updated GA SDKs and CLI**: The Azure CLI, PowerShell module, and SDKs for firmware analysis are updated and are GA. Quickstarts and samples now reflect the latest commands and parameters.
 
-- **Terraform and Bicep support**: New Quickstarts are available for deploying firmware analysis workspaces using Terraform and Bicep templates.
+- **Terraform and Bicep support**: New quickstarts are available for deploying firmware analysis workspaces using Terraform and Bicep templates.
 
 - **Improved OpenSSL detection**: Enhancements to OpenSSL version identification improve accuracy and reduce false negatives in analysis results.
 
@@ -195,17 +213,17 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 - **Standalone and embedded experiences**: Firmware analysis now exists as a standalone service in Azure and continues to exist as a blade within Defender for IoT. You can easily reach firmware analysis by searching for "firmware analysis" in the Azure portal search bar.
 
-- **Free SKU for Public Preview**: Firmware analysis is now in Public Preview as a standalone offering. While in Public Preview, all features and functionality are free of charge, and we look forward to gathering your feedback. In GA, we'll provide more details on capacity limits and licensing.
+- **Free SKU for Public Preview**: Firmware analysis is now in Public Preview as a standalone offering. While in Public Preview, you pay nothing for all features and functionality. The team looks forward to gathering your feedback. In GA, the team provides more details on capacity limits and licensing.
 
 - **Faster analysis**: Firmware analysis service now can extract, analyze, and produce results up to 30% faster. This improvement means that the time it takes from when you upload your firmware image to when the image is in the Ready state to review results is reduced by up to 30%.
 
 - **New UI with multiple workspaces per resource group**: You can now create and manage multiple workspaces for resource groups, which helps you organize your firmware images better.
 
-- **Support for <1GB pre-extraction and <70GB fully extracted**: You can analyze images up to 1GB before it iss extracted, and up to 70GB fully extracted. The analysis won't complete if the expanded image is greater than 70GB.
+- **Support for <1 GB pre-extraction and <70 GB fully extracted**: You can analyze images up to 1 GB before it is extracted, and up to 70 GB fully extracted. The analysis doesn't complete if the expanded image is greater than 70 GB.
 
-- **Azure Monitor tab in firmware analysis**: For each of your workspaces, you can now use Azure Monitor to track the latency of firmware analysis (how long the analysis took) and any failures or errors that occurred during analysis. To access Azure Monitor for firmware analysis, search for "firmware analysis workspaces" in the Azure portal search bar, then navigate to your workspace, and expand the "Monitoring" tab to access "Metrics." With Azure Monitor, you can visualize your data with graphs, scatter plots, histograms, and more.
+- **Azure Monitor tab in firmware analysis**: For each of your workspaces, you can now use Azure Monitor to track the latency of firmware analysis (how long the analysis took) and any failures or errors that occurred during analysis. To access Azure Monitor for firmware analysis, search for "firmware analysis workspaces" in the Azure portal search bar, then navigate to your workspace, and expand the "Monitoring" tab to access "Metrics." By using Azure Monitor, you can visualize your data with graphs, scatter plots, histograms, and more.
 
-    :::image type="content" source="media/whats-new-firmware-analysis/azure-monitor.png" alt-text="Screenshot that shows the new Azure Monitor capability." lightbox="media/whats-new-firmware-analysis/azure-monitor.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/azure-monitor.png" alt-text="Screenshot of the new Azure Monitor capability." lightbox="media/whats-new-firmware-analysis/azure-monitor.png":::
 
 ## October 2024
 
@@ -229,33 +247,33 @@ Get notified about when to revisit this page for updates by copying and pasting 
 - **Azure CLI and PowerShell commands**: Automate your workflow of analyzing firmware images by using the [Firmware analysis Azure CLI](/cli/azure/service-page/firmware%20analysis) or the [Firmware analysis PowerShell commands](/powershell/module/az.firmwareanalysis).
 - **User choice in resource group**: Pick your own resource group or create a new resource group during the onboarding process.
 
-    :::image type="content" source="media/whats-new-firmware-analysis/pick-resource-group.png" alt-text="Screenshot that shows resource group picker while onboarding." lightbox="media/whats-new-firmware-analysis/pick-resource-group.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/pick-resource-group.png" alt-text="Screenshot of the resource group picker while onboarding." lightbox="media/whats-new-firmware-analysis/pick-resource-group.png":::
 
 - **New UI format with Firmware inventory**: Subtabs to organize Getting started, Subscription management, and Firmware inventory.
 
-    :::image type="content" source="media/whats-new-firmware-analysis/firmware-inventory-tab.png" alt-text="Screenshot that shows the firmware inventory in the new UI." lightbox="media/whats-new-firmware-analysis/firmware-inventory-tab.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/firmware-inventory-tab.png" alt-text="Screenshot of the firmware inventory in the new UI." lightbox="media/whats-new-firmware-analysis/firmware-inventory-tab.png":::
 
 - **Enhanced documentation**: Updates to [Tutorial: Analyze an IoT/OT firmware image](tutorial-analyze-firmware.md) documentation addressing the new onboarding experience.
 
 ## January 2024
 
-- **PDF report generator**: Addition of a **Download as PDF** capability on the **Overview page** that generates and downloads a PDF report of the firmware analysis results.
+- **PDF report generator**: Added a **Download as PDF** feature on the **Overview page** that generates and downloads a PDF report of the firmware analysis results.
 
-    :::image type="content" source="media/whats-new-firmware-analysis/overview-pdf-download.png" alt-text="Screenshot that shows the new Download as PDF button." lightbox="media/whats-new-firmware-analysis/overview-pdf-download.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/overview-pdf-download.png" alt-text="Screenshot of the new Download as PDF button." lightbox="media/whats-new-firmware-analysis/overview-pdf-download.png":::
 
 - **Reduced analysis time**: Analysis time is shorter by 30-80%, depending on image size.
 
 - **CODESYS libraries detection**: Firmware analysis now detects the use of CODESYS libraries, which Microsoft recently identified as having high-severity vulnerabilities. These vulnerabilities can be exploited for attacks such as remote code execution (RCE) or denial of service (DoS). For more information, see [Multiple high severity vulnerabilities in CODESYS V3 SDK could lead to RCE or DoS](https://www.microsoft.com/en-us/security/blog/2023/08/10/multiple-high-severity-vulnerabilities-in-codesys-v3-sdk-could-lead-to-rce-or-dos/).
 
-- **Enhanced documentation**: Addition of documentation addressing the following concepts:
+- **Enhanced documentation**: Added documentation addressing the following concepts:
     - [Azure role-based access control for firmware analysis](firmware-analysis-rbac.md), which explains roles and permissions needed to upload firmware images and share analysis results, and an explanation of how the **FirmwareAnalysisRG** resource group works
-    - [Frequently asked questions](firmware-analysis-FAQ.md)
+    - [Frequently asked questions](firmware-analysis-faq.md)
 
 - **Improved filtering for each report**: Each subtab report now includes more fine-grained filtering capabilities.
 
-- **Firmware metadata**: Addition of a collapsible tab with firmware metadata that's available on each page.
+- **Firmware metadata**: Added a collapsible tab with firmware metadata that's available on each page.
 
-    :::image type="content" source="media/whats-new-firmware-analysis/overview-firmware-metadata.png" alt-text="Screenshot that shows the new metadata tab in the Overview page." lightbox="media/whats-new-firmware-analysis/overview-firmware-metadata.png":::
+    :::image type="content" source="media/whats-new-firmware-analysis/overview-firmware-metadata.png" alt-text="Screenshot of the new metadata tab in the Overview page." lightbox="media/whats-new-firmware-analysis/overview-firmware-metadata.png":::
 
 - **Improved version detection**: Improved version detection of the following libraries:
     - pcre
@@ -275,8 +293,8 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 ## July 2023
 
-Microsoft Defender for IoT firmware analysis is now available in public preview. Defender for IoT can analyze your device firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain. 
+Microsoft Defender for IoT firmware analysis is now in public preview. Defender for IoT analyzes your device firmware for common weaknesses and vulnerabilities, and provides insights into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain. 
 
 For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
 
-:::image type="content" source="media/whats-new-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image." lightbox="media/whats-new-firmware-analysis/overview.png":::
+:::image type="content" source="media/whats-new-firmware-analysis/overview.png" alt-text="Screenshot of the view results button for a detailed analysis of the firmware image." lightbox="media/whats-new-firmware-analysis/overview.png":::

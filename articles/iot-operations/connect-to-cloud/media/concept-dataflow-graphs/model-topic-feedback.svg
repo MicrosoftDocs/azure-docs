@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="400" viewBox="0 0 1100 400" role="img" aria-labelledby="title desc">
+  <title id="title">Deliver an approved model through MQTT, then predict</title>
+  <desc id="desc">An approved envelope enters the first graph, where built-in filter and map transforms publish the model on factory/model-updates. The second graph activates that version in a custom predictor without a prediction. A later reading on factory/readings produces weight 203 using version 8 on factory/predictions-from-updates. Only predictions reach the output.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1100" height="400" fill="#fff"/>
+  <g stroke="#687d8f" stroke-width="1.5" fill="#f8fafc">
+    <rect x="320" y="25" width="355" height="150" rx="12"/>
+    <rect x="320" y="225" width="355" height="150" rx="12"/>
+  </g>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 270 110 H 340"/>
+    <path d="M 655 110 H 725"/>
+    <path d="M 902 150 V 195 H 497 V 275"/>
+    <path d="M 270 310 H 340"/>
+    <path d="M 655 310 H 725"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="65" width="250" height="90" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="340" y="65" width="315" height="90" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="725" y="65" width="355" height="85" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="20" y="275" width="250" height="80" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="340" y="275" width="315" height="80" rx="10" fill="#f1eafa" stroke="#69518c"/>
+    <rect x="725" y="275" width="355" height="80" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="497" y="49" font-weight="bold">Graph 1: deliver model</text>
+    <text x="145" y="89"><tspan x="145" font-weight="bold">Approved envelope</tspan><tspan x="145" dy="26">factory/approved-envelopes</tspan><tspan x="145" dy="26">From external approval</tspan></text>
+    <text x="497" y="89"><tspan x="497" font-weight="bold">Built-in filter + map</tspan><tspan x="497" dy="26">Keep approved; extract model</tspan><tspan x="497" dy="26">Set destination topic</tspan></text>
+    <text x="902" y="100"><tspan x="902" font-weight="bold">factory/model-updates</tspan><tspan x="902" dy="26">Model version: 8</tspan></text>
+    <text x="680" y="215">Activate before sending the next reading</text>
+    <text x="497" y="249" font-weight="bold">Graph 2: predict</text>
+    <text x="145" y="304"><tspan x="145" font-weight="bold">New reading</tspan><tspan x="145" dy="26">factory/readings</tspan></text>
+    <text x="497" y="300"><tspan x="497" font-weight="bold">Custom predictor</tspan><tspan x="497" dy="24">Update: activate; reading: predict</tspan><tspan x="497" dy="24">Only predictions pass</tspan></text>
+    <text x="902" y="297"><tspan x="902" font-weight="bold">Prediction: 203, version: 8</tspan><tspan x="902" dy="24">factory/predictions-from-updates</tspan><tspan x="902" dy="24">Updates produce no prediction</tspan></text>
+  </g>
+</svg>

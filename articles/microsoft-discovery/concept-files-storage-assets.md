@@ -5,7 +5,7 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: concept-article
-ms.date: 05/29/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand how files are handled in Microsoft Discovery so that I can design shared sessions that produce and use file outputs effectively.
 ---
@@ -29,7 +29,7 @@ Agents don't interact with Azure Blob Storage directly. Instead, they use a set 
 When an agent calls **WriteResource**, the platform uploads the content to blob storage, creates a storage asset (an Azure Resource Manager resource), and adds the file to the task's data context so other tools can find it. The file also appears in the task result as a `storageAssetId`.
 
 > [!IMPORTANT]
-> Agents access blob storage through the platform's managed identity, not your identity. This means agents can create files that **you can't view** unless your administrator has granted you access. To view output files in VS Code, you need **Storage Blob Data Reader** (or Contributor) on the storage account, and your network must be able to reach the storage endpoint. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md) for the required configuration.
+> Platform-mediated file access uses the managed identity configured for the workspace or tool workload, not your browser identity. Agents can therefore create files that **you can't view** unless your administrator grants you access. To view output files in VS Code, you need **Storage Blob Data Reader** or **Storage Blob Data Contributor** on the backing blob container or storage account, and your network must be able to reach the storage endpoint. Discovery storage metadata roles don't grant direct blob-data access. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md) for the required configuration.
 
 ## Supported file types
 
@@ -71,6 +71,8 @@ Two concepts are central to how files work in Microsoft Discovery:
 
 Files are addressed using `discovery://` URIs. Agents see URIs like `discovery://resources/my-container/paths/writes/report.md` and pass them to **PreviewResource** to read content. The platform handles the translation from these virtual URIs to physical blob storage paths.
 
+Direct REST tool-run requests in API version `2026-06-01` use a different URI format. Each `inputData` or `outputData` mount has a `storageUri` that references an existing storage asset: `discovery://storageassets/<storageAssetArmId>`, optionally followed by `/paths/<subpath>`. Use the storage asset's ARM resource ID, not the storage container's ID or the conversation resource URI. See [DataMount object](how-to-run-jobs-supercomputer-rest-api.md#datamount-object).
+
 ## How files move between tasks
 
 Understanding file visibility is important when you design multi-task shared sessions. Files reach a downstream task through two inheritance paths plus the task's own state.
@@ -82,7 +84,7 @@ When a task starts, its agent can see:
 - Files explicitly listed in the task's own `storageAssetIds` (set when the task was created or updated).
 - Files from the task's own previous execution runs (stored in `taskResult.storageAssetIds`).
 - **Parent-chain inheritance.** A subtask inherits the storage assets attached to its parent's `storageAssetIds`. Inputs you attach to a root task flow down to every subtask under it, transitively.
-- **Dependency-graph inheritance.** A task with `dependsOn=[A]` inherits the outputs from A's `taskResult.StorageAssetIds`. Inheritance is transitive: if A → B → C, then C sees both B's and A's outputs. Duplicates are deduplicated.
+- **Dependency-graph inheritance.** A task with `dependsOn=[A]` inherits the outputs from A's `taskResult.storageAssetIds`. Inheritance is transitive: if A → B → C, then C sees both B's and A's outputs. Duplicates are deduplicated.
 
 Every inherited file is recorded in execution history under the `inheritedStorageAssets` action, with a breakdown of `parentStorageAssetCount` and `dependencyStorageAssetCount` so you can audit where each file came from.
 
@@ -116,7 +118,7 @@ Root Task
 - Task A's agent writes `findings.csv`. Task B's agent writes `analysis.md`.
 - Task C's agent **inherits** `findings.csv` from A and `analysis.md` from B because C depends on both. Both files appear in C's data context, and C's agent can read them with **PreviewResource**.
 - Task D has no `dependsOn` edge to A or B, so D's agent **doesn't** see `findings.csv` or `analysis.md`. Siblings without an explicit dependency don't share outputs.
-- After all tasks complete, the root task's `storageAssetIds` contains every output (`findings.csv`, `analysis.md`, `report.md`, `notes.md`) through upward propagation, regardless of inheritance edges.
+- After all tasks complete, the root task's `taskResult.storageAssetIds` contains every output (`findings.csv`, `analysis.md`, `report.md`, `notes.md`) through upward propagation, regardless of inheritance edges.
 
 Including key findings in the **task result text** is still good practice — cognition uses that text when building context for downstream tasks, and it surfaces conclusions even when an agent doesn't open every inherited file. But it's no longer the only way to share information; `dependsOn` is the supported mechanism for propagating files.
 

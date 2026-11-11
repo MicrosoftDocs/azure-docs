@@ -120,6 +120,7 @@ Some OWASP rules are superseded by Microsoft-authored replacements. The original
 |[MS-ThreatIntel-SQLI](?tabs=drs22#drs99031-22)|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
 |[MS-ThreatIntel-CVEs](?tabs=drs22#drs99001-22)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 |[MS-ThreatIntel-XSS](?tabs=drs22#drs99032-22)|MS-ThreatIntel-XSS|Protect against XSS attacks|
+|[MS-ThreatIntel-Response-CVEs](?tabs=drs22#drs99006-22)|MS-ThreatIntel-Response-CVEs|Protect against CVE attacks using HTTP response inspection|
 
 ### DRS 2.1
 
@@ -151,6 +152,7 @@ For more information, see [Tuning Web Application Firewall (WAF) for Azure Front
 |[MS-ThreatIntel-AppSec](?tabs=drs21#drs9903-21)|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
 |[MS-ThreatIntel-SQLI](?tabs=drs21#drs99031-21)|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
 |[MS-ThreatIntel-CVEs](?tabs=drs21#drs99001-21)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
+|[MS-ThreatIntel-Response-CVEs](?tabs=drs21#drs99006-21)|MS-ThreatIntel-Response-CVEs|Protect against CVE attacks using HTTP response inspection|
 
 #### Disabled rules
 
@@ -197,6 +199,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |[MS-ThreatIntel-AppSec](?tabs=drs20#drs9903-20)|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
 |[MS-ThreatIntel-SQLI](?tabs=drs20#drs99031-20)|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
 |[MS-ThreatIntel-CVEs](?tabs=drs20#drs99001-20)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
+|[MS-ThreatIntel-Response-CVEs](?tabs=drs20#drs99006-20)|MS-ThreatIntel-Response-CVEs|Protect against CVE attacks using HTTP response inspection|
 
 ### DRS 1.1
 |Rule group|ruleGroupName|Description|
@@ -547,6 +550,12 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99032002|Critical - 5|2|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link (replacing rule #931130)|
 
 
+### <a name="drs99006-22"></a> MS-ThreatIntel-Response-CVEs
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99006001|N/A|1|This rule doesn't block traffic. When you set its action to "Block on Anomaly," it removes the PHP session cookie from the HTTP response. [CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618) and [CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619)|
+
+
 > [!NOTE]
 > - When you review your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*. This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](#anomaly-scoring-mode).
 >
@@ -817,6 +826,12 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001017|Critical - 5|2|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 |99001019|Critical - 5|2|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
 
+
+### <a name="drs99006-21"></a> MS-ThreatIntel-Response-CVEs
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99006001|N/A|1|This rule doesn't block traffic. When you set its action to "Block on Anomaly," it removes the PHP session cookie from the HTTP response. [CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618) and [CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619)|
+
 > [!NOTE]
 > When you review your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
 >
@@ -1068,6 +1083,12 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
 |99001017|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 |99001019|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
+
+
+### <a name="drs99006-20"></a> MS-ThreatIntel-Response-CVEs
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99006001|N/A|1|This rule doesn't block traffic. When you set its action to "Block on Anomaly," it removes the PHP session cookie from the HTTP response. [CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618) and [CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619)|
 
 > [!NOTE]
 > When you review your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.

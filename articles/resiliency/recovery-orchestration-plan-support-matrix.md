@@ -1,19 +1,19 @@
 ---
 title: Support matrix for Azure Recovery Orchestration Plan
-description: Learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview).
+description: Learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure.
 ms.topic: overview
 ms.service: resiliency
-ms.date: 10/12/2026
+ms.date: 10/26/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-#customer intent: As an IT admin, I want to learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview), so that I can effectively utilize the service for my disaster recovery needs.
+#customer intent: As an IT admin, I want to learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure, so that I can effectively utilize the service for my disaster recovery needs.
 ---
 
-# Support matrix for Azure Recovery Orchestration Plan (preview)
+# Support matrix for Azure Recovery Orchestration Plan
 
-This article summarizes the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview).
+This article summarizes the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure.
 
-Recovery Orchestration Plans require the service group to be enrolled in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available.
+Recovery Orchestration Plans are a paid advanced capability and require the service group to be [enrolled in a usage plan](infrastructure-resiliency-manager-pricing.md#enroll-a-service-group-in-a-usage-plan). The usage plan identifies the Azure subscription to charge for the service group's usage. For charge eligibility and hourly proration, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md#when-a-service-group-is-billed).
 
 ## Supported protection solutions
 
@@ -83,6 +83,6 @@ The following table lists the supported scope for Azure Recovery Orchestration
 
 ## Related content
 
-- [About Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-about.md).
-- [Create and configure a Recovery Orchestration Plan (preview)](recovery-orchestration-plan-create-configure.md).
-- [Execute failover and reprotect operations (preview)](recovery-orchestration-plan-execute.md).
+- [About Azure Recovery Orchestration Plan](recovery-orchestration-plan-about.md).
+- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md).
+- [Execute failover and reprotect operations](recovery-orchestration-plan-execute.md).

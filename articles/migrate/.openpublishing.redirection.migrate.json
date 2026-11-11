@@ -1,6 +1,31 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/migrate/automatic-wave-planning-architecture.md",
+            "redirect_url": "/azure/migrate/wave-plan-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/overview.md",
+            "redirect_url": "/azure/migrate/wave-plan-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/how-to-plan-create-waves.md",
+            "redirect_url": "/azure/migrate/how-to-configure-wave-plan",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/how-to-complete-wave-plan.md",
+            "redirect_url": "/azure/migrate/how-to-configure-wave-plan#next-steps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/how-to-execute-track-waves.md",
+            "redirect_url": "/azure/migrate/how-to-configure-wave-plan#next-steps",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/migrate/migrate-architecture.md",
             "redirect_url": "agent-based-migration-architecture?context=/azure/migrate/context/migrate-context",
             "redirect_document_id": false
@@ -374,11 +399,6 @@
             "source_path_from_root": "/articles/migrate/contoso-migration-overview.md",
             "redirect_url": "/azure/cloud-adoption-framework/migrate/",
             "redirect_document_id": false
-        },
-		{
-     		"source_path_from_root": "/articles/migrate/tutorial-app-containerization-java-container-apps.md",
-     		"redirect_url": "/azure/migrate/index",
-      		"redirect_document_id": false,
-		}
+        }
     ]
 }

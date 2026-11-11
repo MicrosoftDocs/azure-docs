@@ -57,6 +57,10 @@ However, App Service Environment v3 is a dedicated environment. Even though it c
 |End-to-end TLS encryption for inbound calls|Supported |Supported on Premium App Service plans and existing Standard App Service deployments. For configuration details, see [End-to-end TLS encryption](../overview-tls.md#end-to-end-tls-encryption). |
 |Changing TLS cipher suite order|[Supported](app-service-app-service-environment-custom-settings.md#change-tls-cipher-suite-order)|[Supported with the minimum TLS cipher suite feature](../../app-service/configure-ssl-bindings.md#enforce-tls-versions)|
 
+### Post-quantum TLS 1.3 hybrid key exchange
+
+In both App Service Environment v3 and public multitenant App Service, hybrid key exchange is managed by the platform on the client-to-front-end TLS connection. Compatible TLS 1.3 clients can negotiate `X25519MLKEM768` with the front end; other clients continue to use a supported classical key exchange. Cipher-suite controls don't control TLS supported groups or require post-quantum key exchange. For more information, see [Post-quantum hybrid key exchange](../overview-tls.md#post-quantum-hybrid-key-exchange).
+
 ## Networking
 
 |Feature  |App Service Environment v3  |App Service public multitenant  |

@@ -3,7 +3,7 @@ title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 06/26/2026
+ms.date: 08/10/2026
 ---
 
 # Parameters in ARM templates
@@ -59,6 +59,10 @@ When you deploy a template via the Azure portal, camel-cased parameter names are
 ## Secure parameters
 
 You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
+
+Redaction applies to the secure value itself. It isn't guaranteed to apply to a value that a template transforms or derives from the secure value, such as a reversed string, substring, re-encoded value, or concatenated value. Avoid placing secrets in expressions that transform them when the result might appear in an error message.
+
+Secure parameters reduce the risk of exposing secrets, but they don't make every value derived from a secret safe to disclose. Don't include secrets in resource names, error-prone configuration strings, outputs, tags, or other values that might be returned by a resource provider. When you troubleshoot a failed deployment, treat error messages as potentially sensitive and review them before sharing them.
 
 ```json
 "parameters": {

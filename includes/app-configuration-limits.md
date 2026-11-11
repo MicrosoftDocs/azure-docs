@@ -24,6 +24,7 @@ ms.author: jgao
 | Storage for Standard tier | 1 GB | There is no limit on the number of keys and labels as long as their total size is below the storage limit. |
 | Storage for Premium tier | 4 GB | There is no limit on the number of keys and labels as long as their total size is below the storage limit. |
 | Keys and values | 10 KB  | For a single key-value item, including all metadata. |
+| Length for key, label, feature flag name, tag name, and tag value | 256 characters each | Applies to each field individually. For key-value based feature flags, the reserved prefix counts toward the key length limit. The default key may need to be shortened to accommodate longer key-value based feature flag names. |
 | Snapshots storage for Free tier | 10 MB | Snapshots storage is extra and in addition to "Storage for Free Tier". Storage for both archived and active snapshots is counted towards this limit. |
 | Snapshots storage for Developer tier | 500 MB | Snapshots storage is extra and in addition to "Storage for Free Tier". Storage for both archived and active snapshots is counted towards this limit. |
 | Snapshots storage for Standard tier | 1 GB | Snapshots storage is extra and in addition to "Storage for Standard Tier". Storage for both archived and active snapshots is counted towards this limit. |

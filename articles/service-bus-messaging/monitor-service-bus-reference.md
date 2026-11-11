@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 10/19/2026
+ms.date: 11/10/2026
 ms.custom: horz-monitor
 ms.topic: reference
 author: EldertGrootenboer
@@ -27,6 +27,9 @@ The following table lists the metrics available for the Microsoft.ServiceBus/Nam
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
 [!INCLUDE [Microsoft.ServiceBus/Namespaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-servicebus-namespaces-metrics-include.md)]
+
+> [!NOTE]
+> `ReplicationLagCount` tracks pending replication work, including changes to messages and their state. For details about steady-state replication and initial synchronization, see [Geo-Replication metrics](#geo-replication-metrics).
 
 The following sections provide more detailed descriptions for metrics presented in the previous section.
 
@@ -119,8 +122,12 @@ The following metrics are *geo-replication* metrics:
 
 | Metric | Description |
 |:-------|:------------|
-| Replication Lag Duration | The offset in seconds between the latest action on the primary and the secondary regions. |
-| Replication Lag Count | The offset in number of operations between the latest action on the primary and the secondary regions. |
+| Replication Lag Duration | The time-based distance, in seconds, represented by outstanding replication work between the primary and secondary regions. |
+| Replication Lag Count | The number of pending updates to replicate from the primary to the secondary region, including changes to messages and their state. |
+
+During initial synchronization or rebuilding, `ReplicationLagDuration` represents estimated catch-up time.
+
+Use `ReplicationLagDuration` for time-based alerts and `ReplicationLagCount` as a supporting indicator of replication work. Since `ReplicationLagCount` relies on internal state changes whose implementation may change, it is not recommended for alerting. For monitoring and alert guidance, see [Monitoring data replication](service-bus-geo-replication.md#monitoring-data-replication).
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 

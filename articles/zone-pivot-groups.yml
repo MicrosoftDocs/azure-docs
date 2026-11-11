@@ -1,5 +1,14 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: yuanqu72
+- id: app-configuration-telemetry-aspnet-core
+  title: ASP.NET Core feature flag telemetry
+  prompt: Choose a telemetry integration
+  pivots:
+  - id: app-configuration-telemetry-opentelemetry
+    title: Open Telemetry
+  - id: app-configuration-telemetry-appinsights
+    title: App Insights
 # Owner: v-mallicka
 - id: backup-client-portal-cli
   title: Clients
@@ -266,6 +275,28 @@ groups:
     title: TypeScript
   - id: programming-language-other
     title: Other (Rust)
+- id: functions-get-started-implementation-options
+  title: Implementation options
+  prompt: Choose a programming language or hosted skills
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-other
+    title: Other (Rust)
+  - id: hosted-skills
+    title: Hosted skills
 - id: programming-languages-set-functions-full-no-go
   title: Programming languages
   prompt: Choose a programming language

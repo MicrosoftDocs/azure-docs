@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Alarm hysteresis</title>
+  <desc id="desc">Starting normal, a reading of 80 at 0.1 seconds starts a wait. A clock event at 1.1 seconds raises the alarm. Later, readings of 69 at 1.6 seconds and 70 at 2.1 seconds clear it. A reading of 75 preserves the established state. This is a behavior summary, not a graph node map.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1200" height="380" fill="#fff"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 320 185 H 365"/>
+    <path d="M 825 185 H 870"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="70" width="300" height="235" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="375" y="70" width="450" height="235" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="880" y="70" width="300" height="235" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="20" fill="#172b3a">
+    <text x="20" y="38" font-size="26" font-weight="bold">Alarm hysteresis</text>
+    <text x="40" y="105" font-weight="bold">Readings + clock</text>
+    <text x="40" y="150">0.1 s: reading 80</text>
+    <text x="40" y="185">1.1 s: clock event</text>
+    <text x="40" y="235">1.6 s: reading 69</text>
+    <text x="40" y="270">2.1 s: reading 70</text>
+    <text x="395" y="105" font-weight="bold">Wait before changing the alarm</text>
+    <text x="395" y="150">Raise: 80 or above for 1 second</text>
+    <text x="395" y="185">The clock event completes the wait.</text>
+    <text x="395" y="235">Clear: 70 or below for 0.5 seconds</text>
+    <text x="395" y="270">The next low reading completes it.</text>
+    <text x="900" y="105" font-weight="bold">Alarm updates</text>
+    <text x="900" y="175" font-size="28">1.1 s: active</text>
+    <text x="900" y="255" font-size="28">2.1 s: cleared</text>
+    <text x="20" y="345">75 leaves the established state unchanged. A reading older than 1.5 seconds can't complete a pending change.</text>
+  </g>
+</svg>

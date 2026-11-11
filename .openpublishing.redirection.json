@@ -1,6 +1,106 @@
 {
   "redirections": [
     {
+      "source_path": "articles/partner-solutions/astronomer/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/astronomer/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/astronomer/faq.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/astronomer/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/astronomer/index.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/astronomer/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/astronomer/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/astronomer/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/astronomer/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/astronomer/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/astronomer/tools.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/astronomer/tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/microsoft-discovery/concept-resource-naming.md",
+      "redirect_url": "/azure/microsoft-discovery/reference-resource-naming",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/microsoft-discovery/concept-azure-container-registry.md",
+      "redirect_url": "/azure/microsoft-discovery/how-to-configure-container-registry",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/microsoft-discovery/concept-resource-provider-registration.md",
+      "redirect_url": "/azure/microsoft-discovery/how-to-register-resource-providers",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/microsoft-discovery/concept-storage-account.md",
+      "redirect_url": "/azure/microsoft-discovery/how-to-configure-project-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/ai-gateway/get-started.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-policy-tool-threat.md",
+      "redirect_url": "/azure/ai-gateway/policy-tool-threat",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/ai-gateway/ai-gateway-policy-tool-threat.md",
+      "redirect_url": "/azure/ai-gateway/policy-tool-threat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-resource.md",
+      "redirect_url": "/azure/ai-gateway/ai-gateway-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-overview.md",
+      "redirect_url": "/azure/ai-gateway/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/quickstart-ai-gateway-create.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-setup.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-manage-models-tools.md",
+      "redirect_url": "/azure/ai-gateway/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-govern-secure-assets.md",
+      "redirect_url": "/azure/ai-gateway/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/ai-gateway-configure-private-networking.md",
+      "redirect_url": "/azure/ai-gateway/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
       "redirect_document_id": false

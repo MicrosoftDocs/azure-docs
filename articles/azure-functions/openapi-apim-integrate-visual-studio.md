@@ -44,13 +44,13 @@ The Azure Functions project template in Visual Studio creates a project that you
 
     ### [Isolated worker model](#tab/isolated-process)
 
-    **.NET 8.0 Isolated (Long Term Support)**: Your C# functions run in the isolated worker model, which is recommended. For more information, see the [isolated worker model guide](dotnet-isolated-process-guide.md).
+    **A supported .NET version using the isolated worker model**: Your C# functions run in the isolated worker model, which is recommended. For version requirements, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
     ### [In-process](#tab/in-process)
 
     [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-    **.NET 8.0 (Long Term Support)**: Your C# functions run in the [in-process model](functions-dotnet-class-library.md), which will be retired. To learn more, see the [in-process model guide](functions-dotnet-class-library.md).
+    **A supported .NET version using the in-process model**: Your C# functions run in the [in-process model](functions-dotnet-class-library.md), which will be retired. For this model's version requirements, see the [in-process model guide](functions-dotnet-class-library.md#supported-versions).
 
     ---
 

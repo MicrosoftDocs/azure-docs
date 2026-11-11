@@ -4,7 +4,7 @@ description: Learn how to troubleshoot Apache Kafka & Apache Flink on Confluent 
 ms.author: praveenrajap
 author: praveenrajap
 ms.topic: concept-article
-ms.date: 09/19/2025
+ms.date: 11/03/2026
 # customerIntent: As a developer, I want to troubleshoot an error or get an answer to questions I have about using Apache Kafka & Apache Flink on Confluent Cloud.
 ---
 
@@ -86,6 +86,14 @@ If you can't see the list of connectors, make sure that you're assigned the Owne
 
 1. If you recently created a connector and it isn't in the list of connectors, select **Refresh**.
 1. If your Confluent connector still doesn't appear in the list of connectors, contact [Confluent support](https://support.confluent.io).
+
+## Can't view or create topics on a cluster with private networking
+
+If your Confluent Cloud cluster is configured with private networking (such as Azure Private Link or virtual network peering), viewing, creating, or deleting topics from the Azure portal fails with a `Name or service not known` or cluster reachability error.
+
+Topic management operations use the cluster's Kafka REST endpoint, which is accessible only from within your connected private network. Organization, environment, and cluster-level views in the Azure portal aren't affected.
+
+To manage topics on a privately networked cluster, use the [Confluent Cloud console](https://confluent.cloud) or Confluent CLI from a machine inside your private network that has DNS and network connectivity to the cluster's private endpoint. For more information, see [Use Azure Private Link with Confluent Cloud](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html).
 
 ## Related content
 

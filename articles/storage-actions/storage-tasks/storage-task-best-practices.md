@@ -7,29 +7,39 @@ author: normesta
 
 ms.service: azure-storage-actions
 ms.topic: best-practice
-ms.date: 09/15/2025
+ms.date: 10/30/2026
 ms.author: normesta
 
 ---
 
 # Best practices for using storage tasks
 
-This article provides you with best practice guidelines for using storage tasks.
+This article provides best practice guidelines for using storage tasks.
 
 ## Composition
 
-Design conditions that can apply to multiple storage accounts. Consider enabling blob soft delete before using delete operations in your conditions, and carefully review the impact of condition groupings. This section describes each of these recommendations.
+Design conditions that apply to multiple storage accounts. Consider enabling blob soft delete before using delete operations in your conditions, and carefully review the impact of condition groupings. This section describes each of these recommendations.
 
-### Define a single storage task condition that can be applied to multiple storage accounts simultaneously
+### Define storage task conditions to enable reuse across multiple storage accounts
 
-By making conditions reusable, you'll eliminate the need to create individual storage task conditions for each storage account and simplifies the management of a large number of storage accounts. 
+By making conditions reusable, you eliminate the need to create individual storage task conditions for each storage account. Fewer task definitions simplify the management of a large number of storage accounts. 
 
-To utilize this feature, create one storage task condition to scan blobs across your storage accounts and assign it to each account. This can be accomplished by adding multiple storage task assignments for a single storage task in the Azure portal using the **Assignments** menu option of a storage task.
+Create storage task conditions that work across multiple blob containers and storage accounts. Parametrize values through container metadata, blob metadata, or blob index tags instead of hard-coding them into your conditions. For example, if you have different blob containers that each have different retention durations for their data with respect to a blob's creation time, set the retention duration for each container as a container metadata value. Create a single storage task that uses this container metadata value in the condition for any container, instead of creating separate tasks for each container with a fixed value.
+
+Set the container metadata on any blob container across multiple storage accounts and create multiple storage task assignments by using the **Assignments** menu option of a storage task in the Azure portal.
+
+Similarly, you can customize processing of individual blobs by using a single storage task by using blob metadata or blob index tags to set the custom duration or date values for each blob.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows the location of the assignments option.](../media/storage-tasks/storage-task-best-practices/assignments-option.png)
 
-After all these task assignments are enabled, the storage task execution will operate on the blobs in their respective accounts concurrently, thus enabling horizontal scaling.
+When you enable these task assignments, the storage task execution operates on the blobs in their respective accounts concurrently, thus enabling horizontal scaling.
+
+### Validate edits to tasks with existing task assignments for all applicable storage account types
+
+Changes that you make to an existing storage task are [automatically propagated to its associated task assignments](storage-task-assignment.md#updates-to-the-storage-task-definition). If you introduce a dependency on a new feature in your edit, the associated task assignments can become invalid if the feature isn't supported on that storage account. For example, if an edit to a task condition introduces a clause that depends on blob versioning, any existing task assignments on storage accounts with hierarchical namespace (HNS) can become invalid because they don't support blob versions.
+
+To avoid such disruption, validate any edits to task assignments on all applicable storage account types.
 
 ### Consider enabling blob soft delete in a storage account before using the delete operation
 
@@ -95,7 +105,7 @@ For single-run task assignments, if a parallel task is already in progress, the 
 
 ### Workarounds for scale limits
 
-Storage Actions have defined scale limits. See [Scale limits](storage-task-known-issues.md#scale-limits).
+Storage Actions has defined scale limits. See [Resource limits](storage-task-known-issues.md#resource-limits).
 
 To optimize the management of scale limits, consider implementing the following workarounds:
 
@@ -126,19 +136,17 @@ Periodically monitor storage task executions and avoid deleting the report conta
 
 ### Monitor tasks periodically
 
-You should periodically monitor the storage task execution to ensure that tasks are running as expected. Review task reports, metrics, monitoring dashboards. Check for any errors, and verify that the tasks are completing within the expected timeframes.
+The charts on the `Overview` page of the Storage Actions portal summarize the execution of task assignments. Monitor this page regularly to ensure that tasks are running as expected. Use the filter or click on the respective tiles to analyze any anomalies or failures, and examine the execution reports.
 
 ### Ensure the result report container isn't deleted 
 
-Storage Actions generate detailed reports in CSV format which are written into the result reporting container configured during task assignment. These reports provide insights into the task execution operations where each row line in the CSV file includes information about the operations performed, the status of each operation, and any errors encountered. It's important to make sure that the result reporting container that is configured during task assignment isn't deleted from the storage account during the task execution. If the result reporting container is deleted during the task run, the task execution can fail. 
-
-Storage Actions generate detailed reports in CSV format, which are written into the result reporting container that is configured during task assignment. These reports provide insights into task execution operations, with each row in the CSV file including information about the operations performed, the status of each operation, and any errors encountered. It's important to ensure that the result reporting container isn't deleted from the storage account during task execution. If the result reporting container is deleted during the task run, the task execution can fail.
+Storage Actions generate detailed reports in CSV format, which are written into the reports container configured during task assignment. These reports provide insights into operations performed during a task execution, with each row in the CSV file including information about the operations performed, the status of each operation, and any errors encountered. Ensure that the reports container isn't deleted from the storage account while the task assignment is enabled. If the result reporting container is deleted during the task run, the task execution can fail.
 
 ## Storage Actions lifecycle
 
-### Managing tasks using a central library subscription
+### Consolidate your task definitions in a resource group or subscription
 
-To efficiently manage your tasks and task assignments, Consider using a central subscription to contain a library of storage tasks. This approach allows you to assign these tasks to numerous storage accounts across different subscriptions and regions simultaneously, without having to configure them individually for each region or subscription. By centralizing your task management, you can streamline the process, reduce administrative overhead, and ensure consistency in task execution across your entire Azure environment.
+To efficiently manage related Storage Actions tasks, consider using a single resource group or subscription as a repository for your task resources. This approach allows you to create tasks and reuse them on numerous storage accounts across different subscriptions and regions, without duplication. By centralizing your task management, you can streamline data management policies, ensure consistency in task execution, and reduce administrative overhead.
 
 ## See also
 

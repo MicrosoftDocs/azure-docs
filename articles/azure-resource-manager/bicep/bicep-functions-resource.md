@@ -5,7 +5,7 @@ ms.topic: reference
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 08/06/2026
+ms.date: 10/26/2026
 ---
 
 # Resource functions for Bicep
@@ -155,6 +155,104 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2025-03-01'
 ---
 
 Built-in policy definitions are tenant level resources. For an example of deploying a built-in policy definition, see [tenantResourceId](#tenantresourceid).
+
+## getRoleAssignmentName
+
+`getRoleAssignmentName(inputs)`
+
+Returns a deterministic GUID to use as the name of an Azure role assignment, based on the assignment scope, Microsoft Entra principal ID, and role definition ID.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputs | Yes | object | An object containing the `scope`, `principalId`, and `roleDefinitionId` properties described in the following table. |
+
+The `inputs` object has these required properties:
+
+| Property | Type | Description |
+|:--- |:--- |:--- |
+| scope | string | The resource ID of the scope at which the role assignment is created. Use a resource, resource group, subscription, or management group ID, or `/` for tenant scope. |
+| principalId | string | The Microsoft Entra object ID of the user, group, or service principal to assign the role to. Must be a valid GUID. For a managed identity, use its principal ID, not its Azure resource ID or client ID. |
+| roleDefinitionId | string | A fully qualified `Microsoft.Authorization/roleDefinitions` resource ID. A role definition GUID alone isn't valid. |
+
+### Return value
+
+A string containing the deterministic role assignment GUID. The same normalized inputs produce the same name.
+
+### Remarks
+
+The function normalizes its inputs before generating the GUID:
+
+- Converts the scope to lowercase and removes trailing slashes.
+- Normalizes the principal ID GUID to lowercase.
+- Extracts the final segment of the role definition resource ID and normalizes that GUID to lowercase.
+
+For a scope without trailing slashes and GUIDs in their standard hyphenated format, the result is equivalent to the following expression:
+
+```bicep
+guid(
+  toLower(scope),
+  toLower(principalId),
+  toLower(split(roleDefinitionId, '/')[^1]))
+```
+
+Consequently, differences in input casing don't change the generated name. Subscription-, management-group-, and tenant-scoped role definition resource IDs with the same role definition GUID also produce the same name for the same scope and principal.
+
+Use the same scope, principal ID, and role definition ID in the role assignment resource as you pass to this function. The function generates a name; it doesn't create a role assignment or look up an existing assignment.
+
+When you use the result as a resource name, the inputs must be available at the start of the deployment. For example, you can't directly use the `principalId` property of a managed identity created in the same Bicep file. To use this function in that case, create the role assignment in a module and pass the identity's principal ID as a module parameter.
+
+> [!IMPORTANT]
+> The generated name can differ from names created with an existing `guid()` expression or another naming convention. Don't change the name of an existing role assignment without planning the migration. Azure role assignment names are immutable, and deploying the same scope, principal, and role under a different name can fail with `RoleAssignmentExists`. Keep the existing name, or delete the old assignment before deploying the replacement.
+
+### Examples
+
+The following example generates a name for a role assignment at resource group scope:
+
+```bicep
+output roleAssignmentName string = getRoleAssignmentName({
+  scope: '/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myRg'
+  principalId: '22222222-2222-2222-2222-222222222222'
+  roleDefinitionId: '/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/33333333-3333-3333-3333-333333333333'
+})
+```
+
+The output is `eec47c62-a9a9-54dd-b8d8-f9e2839fab35`.
+
+The following example grants a service principal the **Storage Blob Data Reader** role on an existing storage account. The `scope` property of the resource takes the storage account's symbolic name, while the function's `scope` input takes its resource ID.
+
+```bicep
+param storageAccountName string
+param principalId string
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
+  name: storageAccountName
+}
+
+resource blobReaderRole 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
+  scope: subscription()
+  name: '2a2b9908-6ea1-4ae2-8e65-a410df84e7d1'
+}
+
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: storageAccount
+  name: getRoleAssignmentName({
+    scope: storageAccount.id
+    principalId: principalId
+    roleDefinitionId: blobReaderRole.id
+  })
+  properties: {
+    roleDefinitionId: blobReaderRole.id
+    principalId: principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
+
+For more information, see [Use Bicep to create Azure RBAC resources](scenarios-rbac.md).
 
 ## getSecret
 
@@ -864,7 +962,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions)
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId | Yes | string | The ID of the Azure subscription, such as `12345678-1234-1234-1234-1234567890ab`. |
+| subscriptionId | Yes | string | The ID of the Azure subscription, such as `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`. |
 | location | Yes | string | The Azure region that supports availability zones, such as `westus2`. |
 | physicalZone | Yes | string | The physical availability zone identifier (for example, a data center-specific identifier like `westus2-az1`). |
 
@@ -886,7 +984,7 @@ A string representing the logical availability zone (for example, `1`, `2`, or `
 The following example retrieves the logical zone for a physical zone in West US 2 for a specific subscription:
 
 ```bicep
-param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param subscriptionId string = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 param physicalZone string = 'westus2-az1'
 
 output logicalZone string = toLogicalZone(subscriptionId, 'westus2', physicalZone)
@@ -901,7 +999,7 @@ Expected output:
 The following example uses `toLogicalZone` to configure a virtual machine with the correct logical zone:
 
 ```bicep
-param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param subscriptionId string = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 param physicalZone string = 'westus2-az1'
 param location string = 'westus2'
 
@@ -937,7 +1035,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions)
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId | Yes | string | The ID of the Azure subscription, such as `12345678-1234-1234-1234-1234567890ab`. |
+| subscriptionId | Yes | string | The ID of the Azure subscription, such as `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`. |
 | location | Yes | string | The Azure region that supports availability zones, such as `westus2`. |
 | physicalZones | Yes | array | An array of physical zone names to convert to logical zones (for example, a data center-specific identifier like `westus2-az1`, `westus2-az2`, ...). |
 
@@ -954,7 +1052,7 @@ The `toLogicalZones` function maps physical zone names to their logical zone equ
 The following example retrieves the logical zones for a list of physical zones in West US 2 for a specific subscription:
 
 ```bicep
-param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param subscriptionId string = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 param physicalZones array = ['westus2-az1', 'westus2-az2', 'westus2-az3']
 
 output logicalZones array = toLogicalZones(subscriptionId, 'westus2', physicalZones)
@@ -978,7 +1076,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions)
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId | Yes | string | The ID of the Azure subscription, such as `12345678-1234-1234-1234-1234567890ab`. |
+| subscriptionId | Yes | string | The ID of the Azure subscription, such as `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`. |
 | location | Yes | string | The Azure region that supports availability zones, such as `westus2`. |
 | logicalZone | Yes | string | The logical availability zone, such as `1`, `2`, or `3`. |
 
@@ -1000,7 +1098,7 @@ A string representing the physical availability zone identifier, such as `westus
 The following example retrieves the physical zone for a logical zone in West US 2 for a specific subscription:
 
 ```bicep
-param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param subscriptionId string = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 param logicalZone string = '1'
 
 output physicalZone string = toPhysicalZone(subscriptionId, 'westus2', logicalZone)
@@ -1015,7 +1113,7 @@ Expected output (assuming logical zone `1` maps to `westus2-az1`):
 The following example uses `toPhysicalZone` to log the physical zone for a virtual machine deployment:
 
 ```bicep
-param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param subscriptionId string = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 param logicalZone string = '1'
 param location string = 'westus2'
 
@@ -1051,7 +1149,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions)
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId | Yes | string | The ID of the Azure subscription, such as `12345678-1234-1234-1234-1234567890ab`. |
+| subscriptionId | Yes | string | The ID of the Azure subscription, such as `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`. |
 | location | Yes | string | The Azure region that supports availability zones, such as `westus2`. |
 | logicalZone | Yes | string[] | The logical availability zones (for example, `1`, `2`, or `3`) to convert to physical zones. |
 
@@ -1068,7 +1166,7 @@ The `toPhysicalZones` function maps logical zone names to their physical zone eq
 The following example retrieves the physical zones for a list of logical zones in West US 2 for a specific subscription:
 
 ```bicep
-param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param subscriptionId string = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 param logicalZones array = ['1', '2', '3']
 
 output physicalZones array = toPhysicalZones(subscriptionId, 'westus2', logicalZones)

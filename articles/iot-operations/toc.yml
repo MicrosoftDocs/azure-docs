@@ -283,6 +283,18 @@ items:
               - name: Create a data flow graph
                 href: connect-to-cloud/howto-create-dataflow-graph.md
                 displayName: deploy, pipeline, source, destination
+              - name: Stateful processing patterns
+                items:
+                  - name: Report meaningful value changes
+                    href: connect-to-cloud/dataflow-patterns/howto-report-value-changes.md
+                  - name: Alarm hysteresis
+                    href: connect-to-cloud/dataflow-patterns/howto-stabilize-alarms.md
+                  - name: Detect offline sensors
+                    href: connect-to-cloud/dataflow-patterns/howto-detect-offline-sensors.md
+                  - name: Keep running totals
+                    href: connect-to-cloud/dataflow-patterns/howto-keep-running-totals.md
+                  - name: Reduce noise with an exponential moving average
+                    href: connect-to-cloud/dataflow-patterns/howto-smooth-each-reading.md
               - name: Transform data with map
                 href: connect-to-cloud/howto-dataflow-graphs-map.md
                 displayName: data flow, graph, rename, restructure, wildcard, copy, compute
@@ -304,6 +316,29 @@ items:
               - name: Use WASM transforms
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WebAssembly, graph, transform, custom, developer, deploy
+              - name: Common use cases and patterns
+                href: connect-to-cloud/dataflow-patterns/overview-dataflow-patterns.md
+                items:
+                  - name: Add context to readings
+                    href: connect-to-cloud/dataflow-patterns/howto-add-context.md
+                  - name: Align and correlate records
+                    href: connect-to-cloud/dataflow-patterns/howto-align-correlate.md
+                  - name: Noise reduction
+                    href: connect-to-cloud/dataflow-patterns/howto-reduce-noise.md
+                  - name: Route readings by severity
+                    href: connect-to-cloud/dataflow-patterns/howto-route-by-severity.md
+                  - name: Route more than two message kinds
+                    href: connect-to-cloud/dataflow-patterns/howto-route-message-kinds.md
+                  - name: Route invalid messages to a dead-letter queue
+                    href: connect-to-cloud/dataflow-patterns/howto-route-invalid-messages.md
+                  - name: Model prediction and updates
+                    items:
+                      - name: Calculate a prediction with known coefficients
+                        href: connect-to-cloud/dataflow-patterns/howto-predict-known-coefficients.md
+                      - name: Fit and activate an approved model
+                        href: connect-to-cloud/dataflow-patterns/howto-adapt-models.md
+                      - name: Deliver approved model updates through MQTT
+                        href: connect-to-cloud/dataflow-patterns/howto-deliver-model-updates.md
           - name: Destination
             href: connect-to-cloud/howto-configure-dataflow-destination.md
             displayName: data flow, MQTT, Kafka, topic, container, table, dynamic
@@ -364,6 +399,9 @@ items:
               - name: Create a custom Akri connector with .NET
                 href: develop-edge-apps/howto-develop-akri-connectors.md
                 displayName: VS Code, template, develop
+              - name: Understand custom Akri connector development with Rust
+                href: develop-edge-apps/concept-akri-connector-development-rust.md
+                displayName: Rust, SDK, BaseConnector, develop
               - name: Build Akri connectors with VS Code extension
                 href: develop-edge-apps/howto-build-akri-connectors-vscode.md
                 displayName: develop
