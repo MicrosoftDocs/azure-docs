@@ -115,9 +115,9 @@ The resource group stores metadata about resources. When you specify a location 
 
 Routing [control plane operations](./control-plane-and-data-plane.md) that target resources in the resource group through the resource group's location helps the resource group remain in a consistent state. When you select a resource group location, select a location close to where your control operations originate - typically the location closest to you. This routing requirement applies only to ARM control plane operations (such as creating, updating, or deleting resources via the Azure Resource Manager API). It doesn't affect data plane requests sent directly to your resource endpoints, such as HTTP requests to a web app or read/write operations to a storage account.
 
-Most Resource Manager regions have a designated backup region. If a resource group's region has a backup region and is temporarily unavailable, Resource Manager automatically reroutes ARM control plane requests to the backup region. This failover is transparent - you use the same API endpoints without any changes. A backup region can serve more than one primary region, and Resource Manager backup assignments might differ from Azure region pairs.
+Resource Manager can use availability zones, a backup region, or both to provide resilience for request processing. In regions where Resource Manager uses availability zones, it can reroute request processing away from an affected zone. Many Azure regions also have a designated Resource Manager backup region. If a resource group's region has a backup region and is temporarily unavailable, Resource Manager automatically reroutes request processing to the backup region. This failover is transparent. You use the same API endpoints without any changes. A backup region can serve more than one primary region, and Resource Manager backup assignments can differ from Azure region pairs.
 
-A small number of regions don't have a suitable backup region. Resource Manager uses availability zones for resilience to zone failures in these regions, but doesn't provide cross-region failover. During a region-wide failure, affected management operations might remain unavailable until the region recovers.
+The successful completion of an operation also depends on the backing store used by the management feature or resource type and on the target resource provider. Some Resource Manager backing stores replicate control-plane metadata across regions, but cross-region replication behavior varies. Operations that depend on a backing store without cross-region replication might remain unavailable until the backing store or source region recovers.
 
 Resource Manager failover covers only ARM control plane operations routed through the resource group. It doesn't cover data plane access to the resources themselves. If the region where a resource is deployed is also unavailable, data plane access to that resource is affected regardless of where its resource group is located. To reduce the impact of regional outages, locate your resources and resource group in the same region. See the [Azure Resource Graph table and resource type reference](../../governance/resource-graph/reference/supported-tables-resources.md#resources) list to view the resources and metadata that Resource Manager manages.
 
@@ -127,15 +127,17 @@ For guidance on building reliable solutions in Azure, see the [Azure service rel
 
 ## Resiliency of Resource Manager
 
-Resource Manager is designed for resiliency and availability. Resource Manager and control plane operations (requests sent to `management.azure.com`) in the REST API:
+Resource Manager is designed for resiliency and availability. Resource Manager request processing and control plane operations, including REST API requests sent to `management.azure.com`:
 
-* Distribute across regions. Most Resource Manager regions have a designated backup region. If a resource group's region is unavailable, Resource Manager can reroute control plane requests to its backup region. A small number of regions don't have a cross-region backup.
+* Distribute across regions. Many Azure regions have a designated Resource Manager backup region. If a resource group's region has a backup region and becomes unavailable, Resource Manager can reroute request processing to the backup region.
 
-* Distribute across availability zones in locations that have multiple availability zones. If one availability zone becomes unavailable, Resource Manager can route control plane requests through infrastructure in another availability zone.
+* Use availability zones for resilience in many Azure regions. If a zone becomes unavailable in one of these regions, Resource Manager can reroute request processing to another zone or region. Some regions use both availability zones and a backup region.
 
 * Do not depend on one logical datacenter.
 
 * Are not taken down for maintenance activities.
+
+Resource Manager stores control-plane metadata in multiple backing stores. Depending on the management feature or resource type, a store might replicate metadata across availability zones, regions, or both. 
 
 This resiliency applies to the Resource Manager portion of a control plane operation. After Resource Manager forwards a request, the operation also depends on the target resource provider and resource.
 
