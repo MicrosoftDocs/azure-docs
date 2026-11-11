@@ -13,7 +13,6 @@ ms.custom:
 ---
 
 # Release notes for Azure File Sync
-
 This article provides the release notes for Azure File Sync. Major releases of Azure File Sync include service and agent improvements, such as version 22.0.0.0. Minor releases typically include agent improvements, such as version 22.3.0.0.
 
 ## Supported versions
@@ -22,6 +21,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| v23.2 Release - [KB5072940](https://support.microsoft.com/kb/5072940) |23.2.0.0| November 10, 2026 | Supported - Security Update|
 | v23.1 Release - [KB5072939](https://support.microsoft.com/kb/5072939) |23.1.0.0| September 1, 2026 | Supported |
 | v22.4 Release - [KB5104852](https://support.microsoft.com/topic/e0e7c277-cf1b-4c65-b0b2-4f697d260bf0) |22.4.0.0| June 22, 2026 | Supported |
 | v22.3 Release - [KB5087090](https://support.microsoft.com/topic/e56f2bc6-30f3-42b6-93b3-a89429cdb88c) |22.3.0.0| April 17, 2026 | Supported |
@@ -58,6 +58,15 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Version 23.2.0.0 (Security Update)
+
+The following release notes are for Azure File Sync version 23.2.0.0 (released November 11, 2026). This release contains a security update for servers that have v23.1 agent version installed. These notes are in addition to the release notes listed for version 23.1.0.0.
+
+### Improvements and fixed issues
+
+Fixes an issue in the Azure File Sync event manifest recovery script that incorrectly granted all users access to the StorageSyncAgent folder. This update also corrects permissions on existing servers, if needed. For more information about this vulnerability, see [CVE-2026-118288](https://msrc.microsoft.com/update-guide/advisory/CVE-2026-118288). Note: The affected permissions are introduced only when running `FixAfsEventsCorruption.ps1` or the cmdlet `Debug-StorageSyncServer -FixAfsEventsCorruption` is explicitly run on demand, and not during normal, automatic agent operation. Most users don't run this script or cmdlet and hence aren't impacted.
+
 
 ## Version 23.1.0.0
 

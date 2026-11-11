@@ -6,19 +6,13 @@
     href: resiliency-overview.md
   - name: What's new
     href: resiliency-whats-new.md  
-  - name: Infrastructure Resiliency Manager
-    items:
-    - name: Overview
-      href: infrastructure-resiliency-manager-overview.md
-    - name: Goals and recommendations
-      href: goals-recommendations-about.md
-    - name: Availability Zone Down Drills
-      href: availability-zone-down-drills-about.md
-    - name: Recovery orchestration plan
-      href: recovery-orchestration-plan-about.md
+  - name: Infrastructure Resiliency Manager overview
+    href: infrastructure-resiliency-manager-overview.md
   expanded: true
 - name: Quickstart
   items:
+  - name: Get Resilient with Infrastructure Resiliency Manager
+    href: quickstart-infrastructure-resiliency-manager.md
   - name: Understand the protection estate
     href: quick-understand-protection-estate.md
 - name: Tutorials
@@ -45,28 +39,72 @@
     href: tutorial-reporting-for-data-insights.md
   - name: Govern and view compliance
     href: tutorial-govern-monitor-compliance.md
-  - name: Manage the Business Continuity and Disaster Recovery estate using Copilot
+  - name: Manage data resiliency using Resiliency Agent (preview)
     href: tutorial-manage-data-using-copilot.md
 - name: Concepts
   items:
   - name: Resiliency support matrix
     href: resiliency-support-matrix.md
-  - name: Infrastructure Resiliency Manager support matrices
+  - name: Infrastructure Resiliency Manager
     items:
-    - name: Availability zone down drills
-      href: availability-zone-down-drills-support-matrix.md
-    - name: Goals and recommendations
-      href: goals-recommendations-support-matrix.md  
-    - name: Recovery orchestration plan
-      href: recovery-orchestration-plan-support-matrix.md
+    - name: Get Resilient - Goals and recommendations
+      href: goals-recommendations-about.md
+    - name: Stay Resilient - Availability Zone Down Drills
+      href: availability-zone-down-drills-about.md
+    - name: Stay Resilient - Recovery orchestration
+      href: recovery-orchestration-plan-about.md
+    - name: Billing and pricing
+      href: infrastructure-resiliency-manager-pricing.md
+    - name: Support matrices
+      items:
+      - name: Goals and recommendations
+        href: goals-recommendations-support-matrix.md
+      - name: Availability zone down drills
+        href: availability-zone-down-drills-support-matrix.md
+      - name: Recovery orchestration plan
+        href: recovery-orchestration-plan-support-matrix.md
+    - name: Resiliency Agent transparency FAQ (preview)
+      href: resiliency-agent-transparency.md
   - name: Security levels
     href: security-levels-concept.md
-  - name: Frequently asked questions
-    href: resiliency-agent-transparency.md
   - name: Protect Azure Elastic SAN via Azure Backup (preview)
     href: ../backup/azure-elastic-storage-area-network-backup-overview.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      
 - name: How-to guides
   items:
+  - name: Infrastructure Resiliency Manager
+    items:
+    - name: Start Resilient
+      items:
+      - name: Design resilient applications with Resiliency Agent (preview)
+        href: goals-recommendations-use-agent.md#start-resilient-for-new-applications
+      - name: Generate and review IaC in GitHub Copilot (limited preview)
+        href: /azure/copilot/resiliency-agent#use-azure-resiliency-agent-in-github-copilot-limited-preview
+    - name: Get Resilient
+      items:
+      - name: View resilience posture at scale
+        href: goals-recommendations-review-recommendations.md#resource-level-view
+      - name: Discover application resources and dependencies (preview)
+        href: goals-recommendations-use-agent.md#discover-application-resources-and-dependencies-preview
+      - name: Create service groups, assign goals, and view posture
+        href: goals-recommendations-assign-goals-view-posture.md
+      - name: Review recommendations
+        href: goals-recommendations-review-recommendations.md
+      - name: Assess and improve workloads with Resiliency Agent (preview)
+        href: goals-recommendations-use-agent.md#get-resilient-for-existing-applications
+    - name: Stay Resilient
+      items:
+      - name: Assess and prepare recovery readiness with Resiliency Agent (preview)
+        href: goals-recommendations-use-agent.md#stay-resilient-for-ongoing-validation-and-recovery-readiness
+      - name: Define a zone-down drill
+        href: availability-zone-down-drill-define.md
+      - name: Execute a zone-down drill
+        href: availability-zone-down-drill-execute.md
+      - name: Create and configure a recovery plan
+        href: recovery-orchestration-plan-create-configure.md
+      - name: Execute failover and reprotect
+        href: recovery-orchestration-plan-execute.md
+    - name: Use Resiliency Agent across your journey (preview)
+      href: goals-recommendations-use-agent.md
   - name: Vaults
     items:
     - name: Create 
@@ -86,26 +124,4 @@
     - name: Restore
       href: ../backup/azure-elastic-storage-area-network-backup-restore.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json  
     - name: Manage
-      href: ../backup/azure-elastic-storage-area-network-backup-manage.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      
-  - name: Infrastructure Resiliency Manager
-    items:
-    - name: Define and execute Zone Down Drill
-      items:
-      - name: Define
-        href: availability-zone-down-drill-define.md    
-      - name: Execute
-        href: availability-zone-down-drill-execute.md    
-    - name: Assign and use Goals and recommendations
-      items:
-      - name: Assign goals and view resilience posture
-        href: goals-recommendations-assign-goals-view-posture.md
-      - name: Review recommendations
-        href: goals-recommendations-review-recommendations.md
-      - name: Use the Resiliency agent
-        href: goals-recommendations-use-agent.md
-    - name: Configure and execute Recovery orchestration plan
-      items:
-      - name: Create and configure
-        href: recovery-orchestration-plan-create-configure.md
-      - name: Execute
-        href: recovery-orchestration-plan-execute.md
+      href: ../backup/azure-elastic-storage-area-network-backup-manage.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json

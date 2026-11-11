@@ -3,7 +3,7 @@ title: What is Resiliency?
 description: Resiliency is a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure that enables you to manage your protection estate across solutions and environments.
 ms.topic: overview
 ms.service: resiliency
-ms.date: 10/20/2026
+ms.date: 11/09/2026
 ms.custom:
   - mvc
   - ignite-2023
@@ -24,7 +24,7 @@ This section lists the key resiliency capabilities and how they help you protect
 
 | Capability area | What it helps you do |
 |---|---|
-| Infrastructure Resiliency | Prepare for and recover from infrastructure outages using zone resiliency capabilities. |
+| Infrastructure Resiliency | Start Resilient by designing for resilience, Get Resilient by improving existing workloads, and Stay Resilient by validating recovery readiness. |
 | Data Resiliency | Meet backup, recovery, and disaster recovery objectives across workloads and environments. |
 | Cyber Recovery | Protect backups from ransomware and recover business-critical applications at scale. |
 | Unified Monitoring | Monitor jobs, alerts, reports, and protection status from a single experience. |
@@ -38,7 +38,7 @@ A single table with Resiliency pillar, Purpose, and Key capabilities column prov
 
 | Resiliency pillar | Purpose | Key capabilities |
 |---|---|---|
-| Infrastructure Resiliency | Protect applications from infrastructure outages and improve availability. | - [Availability Zone Down Drills](availability-zone-down-drills-about.md)<br>- [Zonal Resiliency Goals and Recommendations](goals-recommendations-about.md)<br>- [Azure Recovery Orchestration Plan](recovery-orchestration-plan-about.md) |
+| Infrastructure Resiliency | Use management and AI-assisted experiences to start, get, and stay resilient. | - [Start Resilient: Design applications and generate resilient IaC](infrastructure-resiliency-manager-overview.md#start-resilient)<br>- [Get Resilient: Discover applications, assess posture, and address recommendations](infrastructure-resiliency-manager-overview.md#get-resilient)<br>- [Stay Resilient: Validate with drills and prepare recovery orchestration](infrastructure-resiliency-manager-overview.md#stay-resilient) |
 | Data Resiliency | Help ensure business continuity through centralized backup and disaster recovery management. | - Backup and replication<br>- Protection policy management<br>- Protection health and operations monitoring<br>- Resiliency configuration review across environments |
 | Cyber Recovery | Strengthen protection against ransomware and other cyber threats. | - [Immutability](../backup/backup-azure-immutable-vault-concept.md)<br>- [Soft delete](../backup/secure-by-default.md)<br>- [Multiuser authorization](../backup/multi-user-authorization-concept.md)<br>- [Private endpoints](../backup/backup-azure-private-endpoints-concept.md)<br>- [Customer-managed keys (CMK)](../backup/azure-backup-data-protection-best-practices.md#encryption-of-backup-data)<br>- [Threat detection for Azure VMs](../backup/threat-detection-overview.md) |
 
@@ -58,6 +58,8 @@ Some of the key benefits you get with Resiliency include:
 ## What can I manage with Resiliency? 
 
 Resiliency in Azure allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises. Learn about the [supported scenarios and limitations](resiliency-support-matrix.md).
+
+For infrastructure resilience, [Infrastructure Resiliency Manager](infrastructure-resiliency-manager-overview.md) brings together management workflows in the Azure portal and AI-assisted workflows through Resiliency Agent (preview). Choose the interface for your task: design a new workload, discover and improve an existing application, or prepare and validate recovery. A focused set of design and IaC capabilities is also available in [GitHub Copilot (limited preview)](/azure/copilot/resiliency-agent#use-azure-resiliency-agent-in-github-copilot-limited-preview).
 
 
 ## Get started

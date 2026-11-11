@@ -2,11 +2,11 @@
  title: Azure IoT Hub TLS support
  description: Learn about using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
- author: sethmanheim
+ author: meenag16
  ms.service: azure-iot-hub
  ms.topic: how-to
- ms.date: 05/26/2026
- ms.author: sethm
+ ms.date: 11/09/2026
+ ms.author: mgudapati
  ms.custom: references_regions
 ---
 
@@ -22,7 +22,8 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 
 > [!IMPORTANT]
 >  It's important to distinguish between **TLS 1.2 support** and **TLS 1.2 enforcement**. All IoT Hubs support TLS 1.2, meaning that IoT Hubs can handle connections using the TLS 1.2 protocol. On the other hand, TLS 1.2 enforcement ensures that IoT Hub **only** accepts connections using TLS 1.2 or higher. When TLS 1.2 enforcement is enabled, the service also enforces the use of [strong cipher suites](#cipher-suites).
-> > Currently, TLS 1.2 enforcement is supported only in public cloud regions.
+> 
+> Currently, TLS 1.2 enforcement is supported only in public cloud regions.
 > 
 > To find out the version of TLS your IoT Hub devices are running, refer to [TLS 1.0 and 1.1 end of support guide](#check-tls-versions-and-cipher-suites-for-iot-hub-devices).
 
@@ -279,6 +280,22 @@ The new endpoints have stricter requirements than the classic endpoint:
 
 ### Use the new endpoints
 
+#### [Azure portal](#tab/portal)
+
+To view the endpoints and get connection strings for them in the Azure portal:
+
+1. Go to your IoT hub in the [Azure portal](https://portal.azure.com).
+
+1. On the **Overview** tab, the **Essentials** section shows the **Service hostname** and **Device hostname** for your hub.
+
+    :::image type="content" source="media/iot-hub-tls-support/tls-13-hub-endpoints.png" alt-text="Screenshot that shows the service hostname and device hostname in the Overview page of an IoT hub." lightbox="media/iot-hub-tls-support/tls-13-hub-endpoints.png":::
+
+1. To get a connection string, on the left menu, select **Security settings** > **Shared access policies**, and then select a policy. The policy pane lists connection strings for the **Device endpoint**, **Service endpoint**, and **Classic endpoint**.
+
+    :::image type="content" source="media/iot-hub-tls-support/tls-13-connection-strings.png" alt-text="Screenshot that shows the connection strings for the device, service, and classic endpoints in a shared access policy." lightbox="media/iot-hub-tls-support/tls-13-connection-strings.png":::
+
+#### [Azure CLI](#tab/cli)
+
 To retrieve connection strings for the new endpoints, use the `--hostname-type` parameter:
 
 ```azurecli
@@ -306,6 +323,8 @@ az iot hub show --name <hub-name> --resource-group <resource-group> \
 
 > [!NOTE]
 > The `service` hostname type isn't valid for device or module connection strings. Use `device` or `classic` for device-side connections.
+
+---
 
 ### Migrate to the TLS 1.3 endpoints
 

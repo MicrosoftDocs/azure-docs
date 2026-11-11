@@ -685,30 +685,42 @@
     - name: Scenarios
       displayName: AI, hosted skills, events, connectors, workflows, messages, schedules, files
       href: functions-hosted-skills-scenarios.md
-    - name: Canvas quickstart
-      displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
-      href: functions-hosted-skills-canvas.md
+    - name: Quickstarts
+      items:
+      - name: Azure Developer CLI
+        displayName: AI, agent, agentic, hosted skills, azd, timer, email, connector, MCP, Foundry
+        href: scenario-hosted-skills.md
+      - name: Canvas
+        displayName: AI, agent, agentic, hosted skills, GitHub Copilot, canvas, local development
+        href: functions-hosted-skills-canvas.md
+      - name: AI coding assistant
+        displayName: AI, hosted skills, Azure Functions skills, azure-functions-skills, GitHub Copilot, Claude Code, Codex CLI
+        href: functions-hosted-skills-ai-coding-assistant.md
+      # Planned: Portal quickstart; steps and owner to be confirmed.
     - name: Developer guide
       displayName: AI, agent, hosted skills, Markdown, triggers, tools, MCP, skills
       href: functions-hosted-skills-developer-guide.md
-    - name: Migrate an existing workflow
-      displayName: hosted skills, migration, automation, coding agents, GitHub Copilot, Claude Code, Codex
-      href: functions-hosted-skills-migrate.md
-    - name: Hosted Skill bindings in Python
-      displayName: AI, agent, hosted skills, binding, Python, hybrid workflows, HostedSkill
-      href: functions-hosted-skills-bindings.md
-    - name: Dynamic workflows overview
-      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
-      href: functions-hosted-skills-dynamic-workflows.md
-    - name: Dynamic workflows quickstart
-      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
-      href: functions-hosted-skills-dynamic-workflows-how-to.md
+    - name: Features
+      items:
+      - name: Dynamic workflows overview
+        displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
+        href: functions-hosted-skills-dynamic-workflows.md
+      - name: Create and manage dynamic workflows
+        displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
+        href: functions-hosted-skills-dynamic-workflows-how-to.md
+      - name: Hosted Skill bindings
+        displayName: AI, agent, hosted skills, binding, Python, hybrid workflows, HostedSkill
+        href: functions-hosted-skills-bindings.md
+      - name: Migrate an existing workflow
+        displayName: hosted skills, migration, automation, coding agents, GitHub Copilot, Claude Code, Codex
+        href: functions-hosted-skills-migrate.md
+      - name: Evaluate hosted skills
+        displayName: AI, agent, hosted skills, evaluation, Vally, graders, testing
+        href: functions-hosted-skills-evaluation.md
+    # Planned: Samples; article and owner to be confirmed.
     - name: Monitor and troubleshoot
       displayName: hosted skills, Application Insights, KQL, tokens, latency, connectors, diagnostics
       href: functions-hosted-skills-monitor-troubleshoot.md
-    - name: Evaluate hosted skills
-      displayName: AI, agent, hosted skills, evaluation, Vally, graders, testing
-      href: functions-hosted-skills-evaluation.md
     - name: Reference
       displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
       href: functions-hosted-skills-reference.md

@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/28/2026
+ms.date: 11/10/2026
 # Customer intent: As a platform administrator, I want readiness reports and subnet connectivity evidence so that I can detect preparation gaps before provisioning.
 ---
 
@@ -51,11 +51,13 @@ Check the `results` and profile information in each report instead of inferring 
 
 | Check type | Evidence provided | What it doesn't establish |
 | --- | --- | --- |
-| Configuration checks | Subnet sizing and delegation, configured NSG rules and routes, DNS-zone links, private-endpoint metadata, resource state, compute and model quota. | Packet-level connectivity, available physical capacity, or every external approval. |
+| Configuration checks | Subnet sizing and delegation, configured NSG rules and routes, private-endpoint approval and DNS metadata, resource state, compute and model quota. | Private DNS-zone existence or VNet links, packet-level connectivity, available physical capacity, or every external approval. |
 | Effective-network actions, when a usable NIC exists | Azure-calculated effective NSG rules, effective routes, and Network Watcher next hop. | Successful DNS and TLS exchanges or image downloads. These actions also need additional permissions. |
 | Independent in-network tests | Actual observed reachability from an approved test location. | Coverage of subnets and endpoints that weren't tested. |
 
-The checked-out `stage3-validation/dependency-spec.json` defines profile-specific dependencies. In the [reviewed tool revision](how-to-set-up-deployment-tool.md#obtain-the-complete-tool), the supercomputer profile also lists workspace-related subnet roles and doesn't list `spare`, the tool's UDR management-subnet role. Don't assume that running both profiles checks that separate subnet. Inspect its delegation and topology against [management subnet requirements](how-to-configure-supercomputer-network-security.md#managementsubnetid-required); Stage 4 also performs its own topology preflight.
+The checked-out `stage3-validation/dependency-spec.json` defines profile-specific dependencies. Stage 3 doesn't check private DNS-zone existence or VNet links. Stage 2 prepares DNS for tool-provisioned networks and verifies the blob-zone link when configuring a customer-owned storage private endpoint. With `byo-existing`, Stage 2 skips network-template provisioning, so prepare that zone and VNet link beforehand. The platform creates resource-prefixed private DNS zones in its managed resource groups during Stage 4; those zones aren't prerequisites for Stage 3.
+
+The supercomputer profile also lists workspace-related subnet roles and doesn't list `spare`, the tool's UDR management-subnet role. Don't assume that running both profiles checks that separate subnet. Inspect its delegation and topology against [management subnet requirements](how-to-configure-supercomputer-network-security.md#managementsubnetid-required); Stage 4 also performs its own topology preflight.
 
 Review Warn, Skip, and Waived entries even when the overall verdict is `GO`. An unavailable effective-network check isn't a successful connectivity test. Unreadable required quota checks can fail the stage.
 

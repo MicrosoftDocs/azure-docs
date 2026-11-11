@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 03/25/2026
+ms.date: 11/10/2026
 ---
 
 # Configure customer-managed keys for Microsoft Discovery resources
@@ -14,6 +14,8 @@ This article shows how to configure customer-managed keys (CMK) for supported Mi
 
 For background on encryption at rest and the difference between Microsoft-managed keys and customer-managed keys, see [Data encryption at rest in Microsoft Discovery](concept-data-encryption-at-rest.md).
 
+The Azure CLI examples in this article use Bash syntax.
+
 ## Prerequisites
 
 Before you begin, make sure you have:
@@ -21,7 +23,7 @@ Before you begin, make sure you have:
 - An Azure subscription enabled for Microsoft Discovery.
 - Permissions to create or update Azure Key Vault, managed identity, Log Analytics, and Microsoft Discovery resources.
 - A supported Microsoft Discovery resource plan. Customer-managed keys are supported for Bookshelf, Supercomputer, and Workspace resources.
-- All related resources deployed in the same Azure region.
+- A same-region deployment for the procedure in this article.
 
 > [!IMPORTANT]
 > Customer-managed keys are a create-time setting for Microsoft Discovery resources. After a Bookshelf, Supercomputer, or Workspace resource is created, you can't switch that resource between Microsoft-managed keys and customer-managed keys.
@@ -357,7 +359,7 @@ AzureDiagnostics
 | order by TimeGenerated desc
 ```
 
-If the query returns no results over an appropriate observation period, you can proceed to disable the old key version.
+An empty query result isn't sufficient proof that the old key is unused. Confirm each dependent resource's key configuration and successful operation with the new version before disabling the old version.
 
 ### Disable the old key version
 

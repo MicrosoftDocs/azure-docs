@@ -476,6 +476,9 @@ items:
             href: key-vault-parameter.md
       - name: Validate file
         items:
+          - name: Test with snapshots
+            displayName: snapshot, testing, refactoring, regression
+            href: snapshots.md
           - name: Linter
             displayName: ttk
             href: linter.md

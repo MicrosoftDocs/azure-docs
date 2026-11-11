@@ -1,20 +1,20 @@
 ---
 title: About Azure Recovery Orchestration Plan
-description: Learn about Azure Recovery Orchestration Plan (preview) and how it can help you orchestrate recovery across multiple resources within an application for zone resilience in Azure.
+description: Learn about Azure Recovery Orchestration Plan and how it can help you orchestrate recovery across multiple resources within an application for zone resilience in Azure.
 ms.topic: overview
 ms.service: resiliency
-ms.date: 10/12/2026
+ms.date: 10/26/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to understand how Azure Recovery Orchestration Plan can help me orchestrate recovery across multiple resources within an application for zone resilience."
 ---
 
 
-# About Azure Recovery Orchestration Plan (preview)
+# About Azure Recovery Orchestration Plan
 
 Azure Recovery Orchestration Plan performs efficient and seamless recovery by orchestrating recovery across multiple resources within an application for zone resilience. The capability integrates with Azure Service Groups to provide application-level recovery orchestration.
 
-Recovery Orchestration Plans are an advanced capability and require the service group to be enrolled in a usage plan. The usage plan identifies the Azure subscription to use for billing when pricing for advanced capabilities takes effect once they're generally available. Usage plans don't have tiers.
+Recovery Orchestration Plans are a paid advanced capability and require the service group to be [enrolled in a usage plan](infrastructure-resiliency-manager-pricing.md#enroll-a-service-group-in-a-usage-plan). The usage plan identifies the Azure subscription to charge for the service group's usage. Usage plans don't have tiers. For charge eligibility and hourly proration, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md#when-a-service-group-is-billed).
 
 ## Key benefits of Azure Recovery Orchestration Plan
 
@@ -97,6 +97,6 @@ To create and manage a Recovery Plan, you need one of the following roles:
 
 ## Related content
 
-- [Support matrix for Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-support-matrix.md).
-- [Create and configure a Recovery Orchestration Plan (preview)](recovery-orchestration-plan-create-configure.md).
-- [Execute failover and reprotect operations (preview)](recovery-orchestration-plan-execute.md).
+- [Support matrix for Azure Recovery Orchestration Plan](recovery-orchestration-plan-support-matrix.md).
+- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md).
+- [Execute failover and reprotect operations](recovery-orchestration-plan-execute.md).

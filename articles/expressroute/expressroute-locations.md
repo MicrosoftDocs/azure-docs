@@ -76,13 +76,10 @@ The following table shows locations by service provider. If you want to view ava
 | **`Chunghwa Telecom`** |&check; |&check; | Taipei<br/>Taipei2 |
 | **[`Cinia`](https://www.cinia.fi/)** |&check; |&check; | Amsterdam2<br/>Stockholm |
 | **[`Cirion Technologies`](https://lp.ciriontechnologies.com/cloud-connect-lp-latam?c_campaign=HOTSITE&c_tactic=&c_subtactic=&utm_source=SOLUCIONES-CTA&utm_medium=Organic&utm_content=&utm_term=&utm_campaign=HOTSITE-ESP)** | &check; | &check; | Queretaro<br/>Rio De Janeiro<br/>Santiago |
-| **`Claro`** |&check; |&check; | Miami |
+| **[`Claro`](https://www.usclaro.com/)** |&check; |&check; | Miami |
 | **`Cloudflare`** |&check; |&check; | Los Angeles |
 | **[`Cogent (T-Mobile)`](https://www.t-mobile.com/business/solutions/networking/cloud-networking)** |&check; |&check; | Amsterdam<br/>Chicago<br/>Seattle<br/>Silicon Valley<br/>Washington DC<br/> |
 | **[`Cologix`](https://cologix.com/connectivity/cloud/cloud-connect/microsoft-azure/)** |&check; |&check; | Chicago<br/>Dallas<br/>Minneapolis<br/>Montreal<br/>Toronto<br/>Vancouver<br/>Washington DC |
-| **[`Claro`](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |&check; |&check; | Miami |
-| **`Cloudflare`** |&check; |&check; | Los Angeles |
-| **[`Cologix`](https://cologix.com/connectivity/cloud/cloud-connect/microsoft-azure/)** | &check; | &check; | Chicago<br/>Dallas<br/>Minneapolis<br/>Montreal<br/>Toronto<br/>Vancouver<br/>Washington DC |
 | **[`Colt`](https://www.colt.net/product/direct-connect/azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Berlin<br/>Chicago<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong SAR<br/>London<br/>London2<br/>Madrid Metro<br/>Marseille<br/>Milan<br/>Munich<br/>Newport<br/>Osaka<br/>Paris<br/>Paris2<br/>Seoul<br/>Silicon Valley<br/>Singapore Metro<br/>Singapore2<br/>Tokyo<br/>Tokyo2<br/>Washington DC<br/>Zurich<br/>Zurich Metro |
 | **[`Conova`](https://www.conova.com/)** |&check; |&check; | Vienna<br/>Vienna2 |
 | **[`Console Connect (PCCW Global Limited)`](https://consoleconnect.com/clouds/#azureRegions)** | &check; | &check; | Chicago<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Hong Kong SAR<br/>Hong Kong2<br/>Johannesburg<br/>London<br/>Paris<br/>Queretaro<br/>Singapore<br/>Singapore2<br/>Sydney<br/>Tokyo2<br/>Washington DC |
@@ -442,7 +439,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | --- | --- |
 | **[`Altogee`](https://altogee.be/diensten/express-route/)** | Europe |
 | **[`Avanade Inc.`](https://www.avanade.com/)** | Asia<br/>Europe<br/>North America<br/>South America |
-| **[`Bright Skies GmbH`](https://www.rackspace.com/bright-skies)** | Europe |
+| **[`Bright Skies GmbH`](https://www.crunchbase.com/organization/bright-skies-gmbh)** | Europe |
 | **[`Optus`](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Australia |
 | **[`Equinix Professional Services`](https://www.equinix.com/services/consulting/)** | North America |
 | **[`New Era`](https://www.neweratech.com/us/)** | North America |

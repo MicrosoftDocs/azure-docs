@@ -4,37 +4,38 @@ description: Learn how Microsoft Discovery supports business continuity across A
 author: anzaman
 ms.author: alzam
 ms.service: azure
-ms.date: 08/04/2026
+ms.date: 11/10/2026
 ms.topic: concept-article
 ---
 
 # Business continuity and disaster recovery for Microsoft Discovery
 
-The Microsoft Discovery service uses a highly available, multiregion architecture to provide resilience against infrastructure and regional failures. It deploys all critical service components redundantly across multiple Azure regions, so it doesn't have single points of failure. You can maintain service availability during a regional outage.
+Microsoft Discovery regional deployments operate independently. Business continuity during a regional outage requires a prepared secondary environment and a failover procedure.
 
-If an Azure region becomes unavailable, you can keep working by accessing a secondary Microsoft Discovery deployment hosted in another Azure region. The service stays operational because it independently deploys compute, networking, and platform components in each region. You can redirect traffic to the secondary deployment, so customer operations continue while the primary region is unavailable.
-
-Microsoft Discovery doesn't automatically replicate customer state between regional deployments. Each deployment operates independently unless you implement replication for your own stateful resources. As a result, investigation history, chat history, uploaded artifacts, and other persisted customer data that you create in the primary region aren't available in the secondary region.
+Microsoft Discovery doesn't automatically replicate customer state between deployments. Investigation history, chat history, uploaded artifacts, and other persisted customer data from the primary region aren't automatically available in the secondary deployment.
 
 ## Recommended BCDR process
 
-To enable business continuity during a regional outage, take the following steps:
+To plan for business continuity during a regional outage, take the following steps:
 
-1. **Have a secondary environment** available in a separate Azure region. The secondary deployment should mirror the primary deployment, including all Microsoft Discovery infrastructure, agents, tools, models, configurations, and any required integrations. For deployment instructions, see [**Quickstart: Deploy Microsoft Discovery infrastructure**](https://learn.microsoft.com/azure/microsoft-discovery/quickstart-infrastructure?tabs=portal).
+1. **Have a secondary environment** available in a separate supported Azure region. Verify regional capacity and availability for the infrastructure, agents, tools, models, and integrations that the secondary deployment needs. Reproduce the primary deployment's required configuration. For deployment instructions, see [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md).
 
-    To support disaster recovery, [configure object replication](https://learn.microsoft.com/azure/storage/blobs/object-replication-overview) between the primary Azure Storage account and the Azure Storage account for the secondary deployment so that input and output files are available regardless of which region is active. Similarly, you can share a single Azure Container Registry (ACR) between both environments, but you should [configure it with geo-replication](https://learn.microsoft.com/azure/container-registry/container-registry-geo-replication) to ensure that tool container images are available in each deployment region.
+    Evaluate [object replication](/azure/storage/blobs/object-replication-overview) for supported block blobs between customer-managed primary and secondary Azure Storage accounts. If both environments share an Azure Container Registry (ACR), evaluate [geo-replication](/azure/container-registry/container-registry-geo-replication), which requires the Premium tier. Blob object replication and ACR geo-replication are asynchronous; verify that required files and images have reached the secondary environment.
 
 1. **Keep the secondary environment synchronized** with the primary environment by ensuring that configuration changes, agent definitions, tools, and application updates are deployed consistently to both regions.
-1. **Establish an operational failover procedure.** During a regional outage, instruct users to access the Microsoft Discovery instance hosted in the secondary region. The service continues to operate from the secondary deployment, so users can keep creating new investigations and performing new work.
-1. **Understand the data limitations.** Unless you replicate customer-managed stateful resources, historical investigation data, chat history, uploaded files, and other persisted state from the primary region aren't available in the secondary deployment during the outage. Any new data you create while operating in the secondary region stays in that region unless you implement replication or synchronization mechanisms. Input and output files are preserved if a single GRS blob storage is used for the primary and secondary environments.
-4. **Protect customer data** by enabling appropriate Azure replication capabilities for all stateful resources. Geo-replication helps ensure that customer data is preserved during a regional outage and can be recovered when the primary region becomes available again.
+1. **Establish an operational failover procedure.** During an outage, direct users to the secondary deployment and verify that its tools, models, and integrations are available.
+1. **Understand the data limitations.** Plan for investigation history, chat history, and other persisted data that isn't automatically replicated. Data created in the secondary region stays there unless you synchronize it. Don't assume file replication also restores service-managed history.
+1. **Protect customer data** by choosing replication and recovery settings for customer-managed stateful resources according to your recovery objectives.
+
+> [!IMPORTANT]
+> Geo-redundant storage (GRS) replicates asynchronously and can lose recent writes. Secondary reads and writes require completed failover; RA-GRS allows secondary reads before failover, but not writes. See [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 ## Recommended resources for geo-replication
 
-Evaluate geo-replication for the following Azure resources used by your Microsoft Discovery deployment. This approach ensures that no data is lost during an outage and all data is available once the primary region is back up.
+Evaluate resource-specific replication and recovery options:
 
-- **Azure Blob Storage** – Enable Object replication for block blobs as appropriate for recovery objectives.
-- **Azure Container Registry (ACR)** – Configure geo-replication to ensure container images are available in all deployment regions.
-- **Azure Key Vault** – Use Azure Key Vault backup and restore procedures or deploy regionally redundant Key Vaults as part of the disaster recovery strategy, ensuring that secrets, certificates, and keys required by the secondary deployment remain available.
+- **Azure Blob Storage:** Configure object replication for supported block blobs according to your recovery objectives.
+- **Azure Container Registry (ACR):** Configure geo-replication for the regions where tool container images are needed.
+- **Azure Key Vault:** Plan how the secondary deployment will access required secrets, certificates, and keys. You can restore Key Vault object backups only within the same Azure subscription and geography. See [Azure Key Vault backup and restore](/azure/key-vault/general/backup).
 
-By deploying Microsoft Discovery across multiple Azure regions and implementing geo-replication for all customer-managed stateful resources, your organization can achieve a resilient disaster recovery solution that maintains service availability while minimizing data loss during regional outages.
+Test failover and data recovery against your recovery objectives.

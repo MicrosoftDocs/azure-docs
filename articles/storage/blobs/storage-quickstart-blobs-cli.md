@@ -32,7 +32,7 @@ Azure CLI commands for data operations against Blob storage support the `--auth-
 
 Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Microsoft Entra credentials for authorization.
 
-To begin, sign-in to to your Azure account with the [az login](/cli/azure/reference-index#az-login).
+To begin, sign in to your Azure account with the [az login](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login

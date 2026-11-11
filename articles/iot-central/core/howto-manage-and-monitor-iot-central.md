@@ -15,7 +15,7 @@ ms.topic: how-to
 
 You can use the [Azure portal](https://portal.azure.com), [Azure CLI](/cli/azure/), or [Azure PowerShell](/powershell/azure/) to manage and monitor IoT Central applications.
 
-If you prefer to use a language such as JavaScript, Python, C#, Ruby, or Go to create, update, list, and delete Azure IoT Central applications, see the [Azure IoT Central ARM SDK samples](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) repository.
+If you prefer to use a language such as JavaScript, Python, C#, Ruby, or Go to create, update, list, and delete Azure IoT Central applications, see the [Azure IoT Central ARM SDK samples](https://github.com/Azure-Samples/azure-iot-central-arm-sdk-samples) repository.
 
 To learn how to create an IoT Central application, see [Create an IoT Central application](howto-create-iot-central-application.md).
 

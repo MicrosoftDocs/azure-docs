@@ -149,7 +149,7 @@ Moving to Azure changes how teams design for reliability. Microsoft provides res
 
 Include the workload owner and representatives from the operations, platform, networking, identity, security, and database or data teams. Involve procurement or finance teams when costs, purchases, licenses, or contracts could affect the schedule. Include the owners of the source facility and its contracts so the migration plan accounts for shared assets, notice periods, retention, and final exit authority.
 
-## Preplanning prerequisites
+## Prerequisites
 
 Before you plan the migration, ensure that you have the following prerequisites in place:
 

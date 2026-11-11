@@ -275,6 +275,28 @@ groups:
     title: TypeScript
   - id: programming-language-other
     title: Other (Rust)
+- id: functions-get-started-implementation-options
+  title: Implementation options
+  prompt: Choose a programming language or hosted skills
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-other
+    title: Other (Rust)
+  - id: hosted-skills
+    title: Hosted skills
 - id: programming-languages-set-functions-full-no-go
   title: Programming languages
   prompt: Choose a programming language
