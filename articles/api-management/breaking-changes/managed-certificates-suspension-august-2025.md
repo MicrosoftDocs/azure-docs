@@ -5,7 +5,7 @@ services: api-management
 ms.service: azure-api-management
 ms.topic: reference
 ai-usage: ai-assisted
-ms.date: 11/09/2026
+ms.date: 11/02/2026
 ---
 
 # Creation of managed certificates temporarily suspended for custom domains (August 2025 - November 2026)

@@ -5,7 +5,7 @@ services: api-management
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 12/09/2025
+ms.date: 11/10/2026
 ms.custom: engagement-fy23
 ---
 
@@ -112,6 +112,16 @@ Subscribers can use an API Management subscription key in two ways:
 
 > [!NOTE]
 > When included in a request header or query parameter, the subscription key is by default passed to the backend and might be exposed in backend monitoring logs or other systems. If this data is sensitive, you can configure a policy at the end of the `inbound` section to remove the subscription key header ([`set-header`](set-header-policy.md)) or query parameter ([`set-query-parameter`](set-query-parameter-policy.md)).  
+
+### Use a subscription key in the Authorization header
+
+To accept subscription keys from clients that send `Authorization: Bearer <subscription-key>`, set `properties.subscriptionKeyParameterNames.bearer` to `enabled` on the API. The accepted values are `enabled` and `disabled`; the default is `disabled`. This setting applies to each API separately and doesn't replace the configured subscription-key header or query parameter.
+
+API Management checks the configured subscription-key header first, then the configured query parameter, then the legacy `key` query parameter if legacy fallback is enabled. It checks the Authorization bearer value only when none of those sources supplies a key and bearer recognition is enabled. An invalid key from a higher-priority source doesn't cause API Management to retry with the bearer value.
+
+The bearer value is matched against API Management subscription keys. Enabling this option doesn't perform OAuth or JWT validation. Use the configured subscription-key header when the Authorization header needs to carry a separate access token.
+
+For an example that supplies a subscription key through the Python OpenAI SDK's `api_key` argument, see [Call a unified model API from a client application](unified-model-api.md#call-the-api-from-a-client-application).
 
 ## Enable or disable subscription requirement for API or product access
 

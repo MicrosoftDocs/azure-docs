@@ -105,6 +105,8 @@
     href: key-vault-certs.md
   - name: SSL certificate management
     href: ssl-certificate-management.md
+  - name: Application Gateway Confidential Compute Overview - Preview
+    href: confidential-compute-overview.md
   - name: Keyless TLS and Managed HSM
     href: keyless-tls-overview.md
   - name: FIPS 140 support on V2
@@ -338,7 +340,7 @@
   - name: Backend health
     href: application-gateway-backend-health.md
   - name: Gateway health
-    href: health-dashboard.md     
+    href: health-dashboard.md
   - name: Diagnostic logs
     href: application-gateway-diagnostics.md
   - name: Metrics
