@@ -95,7 +95,7 @@ sections:
       - question: |
            Can I trigger an on-demand full backup for an AKS cluster?
         answer: | 
-           You can trigger an on-demand backup for an AKS cluster. However, you can't manually specify whether the backup is full or incremental. The backup engine automatically determines the backup type based on the existing backup state, particularly for PVCs
+           You can trigger an on-demand backup for an AKS cluster. However, you can't manually specify whether the backup is full or incremental. The backup engine automatically determines the backup type based on the existing backup state, particularly for PVCs.
            
       - question: |
            What are the types of Persistent Volumes that are supported by Azure Backup for AKS?
