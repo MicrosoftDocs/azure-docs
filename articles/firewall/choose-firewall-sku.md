@@ -49,7 +49,6 @@ Compare the features of the three Azure Firewall versions:
 
 
 ## Flow chart
-
 Use the following flow chart to determine the best Azure Firewall version for your needs.
 
 <!-- Art Library Source# ConceptArt-0-000-011 -->

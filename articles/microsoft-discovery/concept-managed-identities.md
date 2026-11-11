@@ -1,11 +1,11 @@
 ---
-title: Managed Identities in Microsoft Discovery
+title: Managed identities in Microsoft Discovery
 description: Understand how Microsoft Discovery uses user-assigned managed identities (UAMIs) for authentication across workspaces, supercomputers, and bookshelves.
 author: umamm
 ms.author: umamm
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/17/2026
+ms.date: 11/10/2026
 ---
 
 # Managed identities in Microsoft Discovery
@@ -20,7 +20,7 @@ Discovery requires user-assigned (not system-assigned) managed identities for th
 |--------|------------|
 | Customer ownership | You create, manage, and control the lifecycle of the identity in your own subscription. |
 | Shared across resources | You can reuse a single UAMI across a workspace, supercomputer, and storage operations, which reduces management overhead. |
-| E-provisioned role assignments | You assign roles before resource creation so that Discovery has the permissions that it needs from the start. |
+| Preprovisioned role assignments | You assign roles before resource creation so that Discovery has the permissions that it needs from the start. |
 | Immutable binding | The workspace identity and supercomputer cluster identity are bound at creation time and can't be changed later, which ensures a consistent security posture. You can update the supercomputer's kubelet and workload identities after creation. |
 
 > [!IMPORTANT]
@@ -64,6 +64,8 @@ A bookshelf references your UAMI through its `workloadIdentities` property. Disc
 
 ## Required role assignments
 
+In the [onboarding-tool path](how-to-set-up-deployment-tool.md#identify-or-create-the-initial-dependencies), create the UAMI before Stage 1; the tool doesn't create it. Stage 2 prepares its assignments after the dependencies exist. These are workload permissions, not the signed-in operator's stage permissions or human PIM eligibility.
+
 You must assign the following built-in roles to your UAMI *before* you create Discovery resources. Assign these roles at the *resource group* scope.
 
 | Role | Role definition ID | Purpose |
@@ -72,11 +74,13 @@ You must assign the following built-in roles to your UAMI *before* you create Di
 | Storage Blob Data Contributor | `ba92f5b4-2d11-453d-a403-e96b0029c9fe` | Read and write blobs in Azure Storage accounts. |
 | AcrPull | `7f951dda-4ed3-4680-a7ca-43fe172d538d` | Pull container images from Container Registry. |
 
+The supercomputer cluster identity also needs **Network Contributor** on the referenced network resources to operate cluster networking. The onboarding tool targets its VNet for this role. Confirm coverage when the VNet is in a separate resource group; the three roles above alone don't establish network access. See [Configure managed identities](how-to-configure-managed-identity.md#additional-roles-for-specific-scenarios).
+
 For other roles that are needed in specialized scenarios, see [Configure managed identities](how-to-configure-managed-identity.md#additional-roles-for-specific-scenarios).
 
 ## End-to-end identity flow across Discovery resources
 
-When you deploy a complete Discovery stack, the platform creates three MRGs (workspace, bookshelf, and supercomputer). Each MRG contains Azure resources that the service manages.
+When you deploy a workspace, bookshelf, and supercomputer, the platform creates an MRG for each resource. Bookshelf is optional and isn't deployed by the onboarding tool. Each MRG contains Azure resources that the service manages.
 
 ### What the service manages automatically
 
@@ -86,7 +90,7 @@ When you create a workspace, bookshelf, or supercomputer, Discovery automaticall
 - Assigns Managed Identity Operator on your UAMI so that the service can use it for MRG deployments.
 - Creates a system-managed identity inside each workspace and bookshelf MRG for internal resource-to-resource authentication (Azure Container Apps, Foundry, SQL).
 
-You don't need to create or manage any of these identities or role assignments. They're fully lifecycle managed by the service.
+The service manages these internal identities and assignments. Don't modify them as a routine workaround for an access error. Your customer-owned UAMI and its assignments remain your responsibility.
 
 ### What you're responsible for
 
@@ -160,7 +164,7 @@ For guidance on choosing between shared and separate identities, see [Managed id
 
 ## Limitations
 
-- The UAMI must be in the *same region* as the Discovery resource that uses it.
+- For a same-region deployment, create the UAMI in the selected region. For a cross-region deployment, place customer-managed identities with the supporting workload resources as described in [Cross-region resource placement](how-to-deploy-across-regions.md#understand-resource-placement).
 - The workspace identity and supercomputer cluster identity can't be changed after resource creation. You must delete and re-create the resource. You can update the supercomputer's kubelet and workload identities via `PATCH`.
 - Role assignment propagation can take up to 10 minutes. Create role assignments before you create Discovery resources.
 - Discovery requires the Managed Identity Operator role on your UAMI. If this role assignment fails during resource creation (for example, because of Azure Policy restrictions), the workspace provisioning fails.
@@ -169,6 +173,6 @@ For guidance on choosing between shared and separate identities, see [Managed id
 
 - For step-by-step instructions on how to create a UAMI and assign roles, see [Configure managed identities for Microsoft Discovery](how-to-configure-managed-identity.md).
 - For built-in Discovery roles and persona-based assignment guidance, see [Role assignments in Microsoft Discovery](concept-role-assignments.md).
-- For Storage account requirements, including identity access, see [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md).
+- For Storage account requirements, including identity access, see [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md).
 - For end-to-end setup, including UAMI creation, see [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md).
 - For Azure platform documentation on managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).

@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/12/2026
+ms.date: 10/19/2026
 ms.custom:
   - build-2025
 ---
@@ -162,6 +162,7 @@ To disable origin authentication without interrupting access to your origin:
     :::image type="content" source="media/managed-identity/rules-engine.png" alt-text="Screenshot of the rule for sending the client token to origin via a different header.":::
 
 - Azure Front Door includes the access token in the `Authorization` header for health probes and end-user traffic requests.
+- If you combine origin authentication with [an authentication policy (public preview)](authentication-policy.md) in Front Door Premium, configure client JWT validation to use `Proxy-Authorization`. Clients must send the token with the `Bearer` authentication scheme, for example, `Proxy-Authorization: Bearer <token>`. This configuration avoids using `Authorization` for both the client token and the origin authentication token.
 - Use separate managed identities for origin authentication and Azure Front Door access to Azure Key Vault.
 
 ## Related content

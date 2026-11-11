@@ -218,18 +218,18 @@ Follow these steps to create an alert for high server latency (average).
 
 1. In the **Select a resource** pane, expand the storage account, check the **file** resource, and select **Apply**.
 
-1. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Success Server Latency** metric.
+1. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Success Server Latency** metric.
 
-1. Select the **Dimension values** drop-down and select the file shares that you want to alert on.
+1. Select the **Dimension values** drop-down and select the file shares that you want to alert on.
 
    > [!NOTE]
-   > To alert on the overall latency experience, leave **Dimension values** unchecked. To alert on the latency of specific transactions, select the API Name in the drop-down list. For example, selecting the Read and Write API names with the equal operator only displays latency for data transactions. Selecting the Read and Write API name with the not equal operator only displays latency for metadata transactions.
+   > To alert on the overall latency experience, leave **Dimension values** unchecked. To alert on the latency of specific transactions, select the API Name in the drop-down list. For example, selecting the Read and Write API names with the equal operator only displays latency for data transactions. Selecting the Read and Write API name with the not equal operator only displays latency for metadata transactions.
 
-1. Define the **Alert logic** by selecting either Static or Dynamic. For Static, select **Average** Aggregation, **Greater than** Operator, and Threshold value. For Dynamic, select **Average** Aggregation, **Greater than** Operator, and **Threshold Sensitivity**. If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart displays the calculated thresholds based on recent data. Use the Dynamic logic with Medium threshold sensitivity and adjust as needed. To learn more, see [Understanding dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds#understand-dynamic-thresholds-charts).
+1. Define the **Alert logic** by selecting either Static or Dynamic. For Static, select **Average** Aggregation, **Greater than** Operator, and Threshold value. For Dynamic, select **Average** Aggregation, **Greater than** Operator, and **Threshold Sensitivity**. If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart displays the calculated thresholds based on recent data. Use the Dynamic logic with Medium threshold sensitivity and adjust as needed. To learn more, see [Understanding dynamic thresholds](/azure/azure-monitor/alerts/alerts-dynamic-thresholds#understand-dynamic-thresholds-charts).
 
 1. Define the lookback period and frequency of evaluation.
 
-1. Select the **Actions** tab to add an action group (email, SMS, and so on) to the alert. Select an existing action group or create a new action group.
+1. Select the **Actions** tab to add an action group (email, SMS, and so on) to the alert. Select an existing action group or create a new action group.
 
 1. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity.
 

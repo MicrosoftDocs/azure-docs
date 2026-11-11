@@ -1,7 +1,7 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 02/27/2026
+ms.date: 10/15/2026
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.author: v-gajeronika
@@ -37,7 +37,7 @@ No. Azure Site Recovery supports On-demand Capacity Reservation only for Azure-t
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?
 
-[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:
 

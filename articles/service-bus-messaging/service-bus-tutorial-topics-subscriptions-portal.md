@@ -14,9 +14,9 @@ ms.custom:
 
 # Tutorial: Update inventory using Azure portal and topics/subscriptions
 
-This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario. It includes publish/subscribe channels using the Azure portal and .NET. An example of this scenario is an inventory assortment update for multiple retail stores. In this scenario, each store, or set of stores, gets messages intended for them to update their assortments. 
+This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario. It includes publish/subscribe channels using the Azure portal and .NET. An example of this scenario is an inventory assortment update for multiple retail stores. In this scenario, each store, or set of stores, gets messages intended for them to update their assortments.
 
-Azure Service Bus is a multiple tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. For an overview, see [What is Service Bus?](service-bus-messaging-overview.md) 
+Azure Service Bus is a multiple tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. For an overview, see [What is Service Bus?](service-bus-messaging-overview.md)
 
 This tutorial shows how to implement this scenario using subscriptions and filters. First, you create a topic with three subscriptions, add some rules and filters, and then send and receive messages from the topic and subscriptions.
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, make sure you have:
 
 - An Azure subscription. To use Azure services, including Azure Service Bus, you need a subscription. You can create a [free account][] before you begin.
-- [Visual Studio 2019](https://www.visualstudio.com/vs) or later.
+- The [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
 
 ## Service Bus topics and subscriptions
 
@@ -50,7 +50,7 @@ Each [subscription to a topic](service-bus-messaging-overview.md#topics) can rec
 
 ## Create filter rules on subscriptions
 
-After you provision the namespace, topics, and subscriptions, and get the connection string to the namespace, you're ready to create filter rules on the subscriptions. After that, send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
+After you provision the namespace, topics, and subscriptions, and get the connection string to the namespace, you're ready to create filter rules on the subscriptions. After that, send and receive messages. You can examine the code in the [.NET topic filters sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
 
 ## Send and receive messages
 
@@ -72,12 +72,12 @@ To run the code, follow these steps:
    dotnet build
    ```
 
-1. Navigate to the `BasicSendReceiveTutorialWithFilters\bin\Debug\netcoreapp3.1` folder.
+1. Navigate to the `BasicSendReceiveTutorialWithFilters\bin\Debug\net8.0` folder.
 
 1. To run the program, enter the following command. Be sure to replace `myConnectionString` with your value  and `myTopicName` with the name of the topic you created:
 
    ```shell
-   dotnet --roll-forward Major BasicSendReceiveTutorialWithFilters.dll -ConnectionString "myConnectionString" -TopicName "myTopicName"
+   dotnet BasicSendReceiveTutorialWithFilters.dll -ConnectionString "myConnectionString" -TopicName "myTopicName"
    ``` 
 
 1. Follow the instructions in the console to select filter creation first. Part of creating filters is to remove the default filters. When you use PowerShell or CLI, you don't need to remove the default filter. If you use code to create filters, first remove the default filter. The console commands 1 and 3 help you manage the filters on the subscriptions you previously created:
@@ -100,8 +100,8 @@ To run the code, follow these steps:
 
 When no longer needed, follow these steps to clean up resources.
 
-1. Navigate to your namespace in the Azure portal. 
-1. On the **Service Bus Namespace** page, select **Delete** from the command bar to delete the namespace and resources (queues, topics, and subscriptions) in it. 
+1. Navigate to your namespace in the Azure portal.
+1. On the **Service Bus Namespace** page, select **Delete** from the command bar to delete the namespace and resources (queues, topics, and subscriptions) in it.
 
 ## Understand the sample code
 
@@ -333,7 +333,7 @@ private async Task SendItems(ServiceBusClient client, string store)
 
 ### Receive messages
 
-Messages are again received by using a task list, and the code uses batching. You can send and receive using batching, but this example only shows how to batch receive. In reality, you wouldn't break out of the loop, but keep looping and set a higher time span, such as one minute. The receive call to the broker is kept open for this amount of time. If messages arrive, they're returned immediately. A new receive call is issued. 
+Messages are again received by using a task list, and the code uses batching. You can send and receive using batching, but this example only shows how to batch receive. In reality, you wouldn't break out of the loop, but keep looping and set a higher time span, such as one minute. The receive call to the broker is kept open for this amount of time. If messages arrive, they're returned immediately. A new receive call is issued.
 
 This concept is called *long polling*. Using the receive pump, which you can see in several samples in the repository, is a more typical option. For more information, see [Use Azure portal to create a Service Bus namespace and a queue](service-bus-quickstart-portal.md).
 
@@ -415,7 +415,7 @@ In this tutorial, you provisioned resources using the Azure portal, then sent an
 > - Send the messages and verify they arrived in the expected subscriptions
 > - Receive messages from the subscriptions
 
-For more examples of sending and receiving messages, see [Service Bus samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
+For more examples of sending and receiving messages, see [Service Bus .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 Advance to the next tutorial to learn more about using the publish/subscribe capabilities of Service Bus.
 

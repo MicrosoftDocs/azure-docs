@@ -4,6 +4,22 @@
   items:
   - name: What is Resource Manager?
     href: overview.md
+- name: Azure Resource Manager MCP server (preview)
+  items:
+  - name: Overview
+    href: azure-resource-manager-mcp-overview.md
+  - name: Quickstart - Get started
+    href: azure-resource-manager-mcp-quickstart.md
+  - name: Configure an MCP client
+    href: azure-resource-manager-mcp-other-clients.md
+  - name: Tools reference
+    href: azure-resource-manager-mcp-tools.md
+  - name: Skills (experimental)
+    href: azure-resource-manager-mcp-skills.md
+  - name: Security and governance
+    href: azure-resource-manager-mcp-governance.md
+  - name: Troubleshoot
+    href: azure-resource-manager-mcp-troubleshoot.md
 - name: Concepts
   items:
   - name: Subscription and service limits

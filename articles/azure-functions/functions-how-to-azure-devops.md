@@ -82,17 +82,17 @@ The following language-specific pipelines can be used for building apps.
 
 #### [C\#](#tab/csharp)
 
-You can use the following sample to create a YAML file to build a .NET app:
+You can use the following sample to create a YAML file to build a .NET app. Replace `<DOTNET_SDK_VERSION>` with an SDK version compatible with your project's target framework. For current version requirements, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
 ```yaml
 pool:
   vmImage: 'windows-latest'
 steps:
   - task: UseDotNet@2
-    displayName: 'Install .NET 8.0 SDK'
+    displayName: 'Install .NET SDK'
     inputs:
       packageType: 'sdk'
-      version: '8.0.x'
+      version: '<DOTNET_SDK_VERSION>'
       installationPath: $(Agent.ToolsDirectory)/dotnet
   - script: |
       dotnet restore
@@ -249,7 +249,7 @@ The following language-specific pipelines can be used for building apps.
 
 #### [C\#](#tab/csharp)
 
-You can use the following sample to create a YAML file to build a .NET app. 
+You can use the following sample to create a YAML file to build a .NET app. Replace `<DOTNET_SDK_VERSION>` with an SDK version compatible with your project's target framework. For current version requirements, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
 If you see errors when building your app, verify that the version of .NET that you use matches your Azure Functions version. For more information, see [Azure Functions runtime versions overview](functions-versions.md). 
 
@@ -258,10 +258,10 @@ pool:
   vmImage: 'windows-latest'
 steps:
   - task: UseDotNet@2
-    displayName: 'Install .NET 8.0 SDK'
+    displayName: 'Install .NET SDK'
     inputs:
       packageType: 'sdk'
-      version: '8.0.x'
+      version: '<DOTNET_SDK_VERSION>'
       installationPath: $(Agent.ToolsDirectory)/dotnet
   - script: |
       dotnet restore
@@ -509,7 +509,7 @@ When deploying a containerized function app, the deployment task you use depends
 
 You can use the [Azure Container Apps Deploy](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1) task (`AzureContainerApps`) to deploy a function app image to an Azure Container App instance that is optimized for Azure Functions. 
 
-This code deploys the base image for a .NET 8 isolated process model function app:
+This code deploys the base image for a .NET function app that uses the isolated worker model. Replace `<BASE_IMAGE_TAG>` with a published [base image tag](container-concepts.md#maintaining-custom-containers) for a supported runtime version that matches your project's target framework. For .NET 11, use `4-dotnet-isolated11.0-chiseled`; the tag without `-chiseled` isn't published:
 
 ```yaml
 trigger:
@@ -522,7 +522,7 @@ steps:
 - task: AzureContainerApps@1
   inputs:
     azureSubscription: <Name of your Azure subscription>
-    imageToDeploy: 'mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0'
+    imageToDeploy: 'mcr.microsoft.com/azure-functions/dotnet-isolated:<BASE_IMAGE_TAG>'
     containerAppName: <Name of your container app>
     resourceGroup: <Name of the resource group>
 ```

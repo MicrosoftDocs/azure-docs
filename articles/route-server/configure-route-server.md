@@ -54,7 +54,7 @@ In this section, you learn how to add a BGP peering between your route server an
 
 1. Go to the route server that you want to peer with an NVA.
 
-1. under **Settings**, select **Peers**. 
+1. Under **Settings**, select **Peers**. 
 
 1. Select **+ Add** to add a new peer.
 
@@ -255,7 +255,7 @@ In this section, you learn how to view the configuration details of a BGP peer, 
 
 1. Go to the route server that you want to peer with an NVA.
 
-1. under **Settings**, select **Peers**. 
+1. Under **Settings**, select **Peers**. 
 
 1. In the list of peers, you can see the name, ASN, IP address, and provisioning state of any of the configured peers.
 
@@ -383,7 +383,7 @@ In this section, you learn how to delete an existing BGP peering between your ro
 
 1. Go to the route server that you want to delete its NVA peering.
 
-1. under **Settings**, select **Peers**. 
+1. Under **Settings**, select **Peers**. 
 
 1. Select the ellipses **...** next to the peer that you want to delete, and then select **Delete**.
 
@@ -466,3 +466,4 @@ az network routeserver delete --name 'myRouteServer' --resource-group 'myResourc
 - [Create Azure Route Server using the Azure portal](quickstart-create-route-server-portal.md)
 - [Configure BGP peering between Azure Route Server and network virtual appliances](peer-route-server-with-virtual-appliance.md)
 - [Monitor Azure Route Server](monitor-route-server.md)
+- [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md)

@@ -208,6 +208,10 @@ To use an NSG with your application gateway, you need to create or retain some e
 
 The rules in this section apply to standard Application Gateway deployments, which don't have Network Isolation enabled. If your application gateway uses a private deployment, see [Network security group rules for private deployments](#network-security-group-rules-for-private-deployments) instead.
 
+#### VM health monitoring traffic
+
+Application gateways use TCP ports 65502 and 54321, and UDP port 12345, for Azure platform health monitoring and operations. Ensure that NSGs, firewall policies, and other network controls don't block this traffic. These ports are reserved for Azure platform operations and aren't used for application traffic.
+
 #### Inbound rules
 
 **Client traffic**: Allow incoming traffic from the expected clients (as source IP or IP range), and for the destination as your application gateway's entire subnet IP prefix and inbound access ports. For example, if you have listeners configured for ports 80 and 443, you must allow these ports. You can also set this rule to `Any`.
@@ -216,7 +220,9 @@ The rules in this section apply to standard Application Gateway deployments, whi
 | --- | --- | --- | --- | --- | --- |
 | `<as per need>` | Any | `<Subnet IP Prefix>` | `<listener ports>` | TCP | Allow |
 
-After you configure *active public and private listeners* (with rules) *with the same port number*, your application gateway changes the **Destination** of all inbound flows to the frontend IPs of your gateway. This change occurs even for listeners that aren't sharing any port. You must include your gateway's frontend public and private IP addresses in the **Destination** of the inbound rule when you use the same port configuration.
+Sharing a frontend port between public and private HTTP and HTTPS listeners is supported only for IPv4 listeners on Application Gateway v2. A public IPv6 listener and a private IPv6 listener must use different frontend ports.
+
+After you configure active public and private IPv4 listeners with routing rules that use the same frontend port on Application Gateway v2, your application gateway changes the **Destination** of all inbound flows to the frontend IPs of your gateway. This change occurs even for listeners that aren't sharing any port. You must include your gateway's frontend public and private IP addresses in the **Destination** of the inbound rule when you use the same port configuration.
 
 | Source | Source ports | Destination | Destination ports | Protocol | Access |
 | --- | --- | --- | --- | --- | --- |

@@ -1,8 +1,8 @@
 ---
 title: Manage Network Watcher Agent VM Extension
 description: Learn about the Network Watcher Agent virtual machine extension and how to install, update, and uninstall it on Windows and Linux virtual machines.
-author: halkazwini
-ms.author: halkazwini
+author: srijanch
+ms.author: rathinaman
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 09/14/2026
@@ -115,7 +115,7 @@ You can install the Network Watcher Agent extension for Linux on the following L
 <sup>3</sup> [Extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) for Red Hat Enterprise Linux 6.X ended on [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 
 > [!NOTE]
-> Internet Control Message Protocol (ICMP) monitoring isn't currently supported in the Network Watcher Agent on Oracle Linux due to known kernel-level limitations specific to the distro.
+> Starting with Network Watcher Agent version 1.4.4064.1, Internet Control Message Protocol (ICMP) monitoring is supported on the Oracle Linux versions available in Azure Marketplace.
 
 ::: zone-end
 

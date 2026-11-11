@@ -84,6 +84,8 @@ For k3s clusters on Kubernetes, you can update an existing cluster. To enable an
 
 Secrets management for Azure IoT Operations uses the Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. The Secret Store extension requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
+
 To set up secrets management:
 
 1. [Create an Azure Key Vault](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to store secrets, and [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) by assigning the `Key Vault Secrets Officer` role. Ensure that your key vault uses **Azure role-based access control** as its permission model. To check this setting in the Azure portal, select your key vault and then select **Settings** > **Access configuration**.

@@ -70,7 +70,7 @@ Consider the example network illustrated in the following diagram. In the exampl
 
 :::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png" alt-text="Diagram of small to medium size on-premises network considerations.":::
 
-By default, if you advertise routes identically over all the ExpressRoute paths, Azure load-balances on-premises bound traffic across a maximum of 4 ExpressRoute circuits using Equal-cost multi-path (ECMP) routing.
+By default, when identical routes with the same BGP attributes are advertised across multiple ExpressRoute paths, Azure load-balances on-premises-bound traffic across up to 16 ExpressRoute circuits using equal-cost multipath (ECMP) routing.
 
 However, with geo-redundant ExpressRoute circuits, you need to consider different network performance across different network paths, particularly network latency. To get more consistent network performance during normal operation, you might want to prefer the ExpressRoute circuit that offers the minimal latency.
 

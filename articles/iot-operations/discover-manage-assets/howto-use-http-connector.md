@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 05/28/2026
+ms.date: 10/12/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from HTTP/REST endpoints.
@@ -95,9 +95,9 @@ To configure the connector for HTTP/REST, first create a device that defines the
 Run the following commands:
 
 ```azurecli
-az iot ops ns device create -n rest-http-connector-cli -g {your resource group name} --instance {your instance name} 
+az iot ops ns device create -n http-connector -g {your resource group name} --instance {your instance name} 
 
-az iot ops ns device endpoint inbound add rest --device rest-http-connector-cli -g {your resource group name} -i {your instance name}  --name rest-http-connector-0 --endpoint-address "https://rest-http-connector-0"
+az iot ops ns device endpoint inbound add rest --device http-connector -g {your resource group name} -i {your instance name}  --name http-connector-0 --endpoint-address "https://rest-http-connector-0"
 ```
 
 To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
@@ -220,9 +220,9 @@ A dataset defines where the connector sends the data it collects from a collecti
 Run the following commands:
 
 ```azurecli
-az iot ops ns asset rest create --name myrestasset --instance {your instance name} -g {your resource group name} --device rest-http-connector-cli --endpoint rest-http-connector-0
+az iot ops ns asset rest create --name myrestasset --instance {your instance name} -g {your resource group name} --device http-connector --endpoint http-connector-0
 
-az iot ops ns asset rest dataset add --asset myrestasset --instance {your instance name} -g {your resource group name} --name weatherdata --data-source "/api/weather" --dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600 --sampling-int 30000
+az iot ops ns asset rest dataset add --asset myrestasset --instance {your instance name} -g {your resource group name} --name weatherdata --data-source "/api/weather" --dest topic="azure-iot-operations/data/env" retain=Never qos=Qos1 ttl=3600 --sampling-int 30000
 ```
 
 For more information, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).
@@ -273,7 +273,7 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
           {
             target: 'Mqtt'
             configuration: {
-              topic: 'azure-iot-operations/data/erp'
+              topic: 'azure-iot-operations/data/env'
               qos: 'Qos1'
               retain: 'Never'
               ttl: 3600

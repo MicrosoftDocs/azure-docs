@@ -33,14 +33,45 @@ This tutorial guides you through deploying a ASP.NET Core chatbot application in
     az login
     ```
 
-1. Open the terminal in the Codespace and run the following commands:
+1. Open the terminal in the Codespace. Set names for the resource group, plan, and globally unique web app, and choose an Azure region. Create a Linux App Service plan with the P3MV3 SKU and a .NET 8 web app:
 
     ```azurecli
     cd use_sidecar_extension/dotnetapp
-    az webapp up --sku P3MV3 --os-type linux
+    RESOURCE_GROUP="<group-name>"
+    LOCATION="<azure-region>"
+    APPSERVICE_NAME="<globally-unique-app-name>"
+    PLAN_NAME="$APPSERVICE_NAME-plan"
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    az appservice plan create \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --name $PLAN_NAME \
+      --sku P3MV3 \
+      --is-linux
+    az webapp create \
+      --resource-group $RESOURCE_GROUP \
+      --plan $PLAN_NAME \
+      --name $APPSERVICE_NAME \
+      --runtime "DOTNETCORE:8.0"
     ```
 
-This startup command is a common setup for deploying ASP.NET Core applications to Azure App Service. For more information, see [Quickstart: Deploy an ASP.NET web app](quickstart-dotnetcore.md).
+1. Build and package the sample. ZIP the contents of the publish directory:
+
+    ```azurecli
+    dotnet publish dotnetfashionassistant.csproj --configuration Release --output publish
+    (cd publish && zip -r ../app.zip .)
+    ```
+
+1. Deploy the package.
+
+    ```azurecli
+    az webapp deploy \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --src-path app.zip
+    ```
+
+For more information, see [Quickstart: Deploy an ASP.NET web app](quickstart-dotnetcore.md).
 
 [!INCLUDE [phi-4-extension-create-test](includes/tutorial-ai-slm/phi-4-extension-create-test.md)]
 

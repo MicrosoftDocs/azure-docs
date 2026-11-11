@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/17/2026
+ms.date: 11/04/2026
 ms.author: primittal
 ---
 
@@ -49,6 +49,8 @@ For example, suppose you expect to consume 2,000,000 GitHub AI Credits. Assuming
 > Pre-purchase plan discounts don't combine with other discounts you might have. If you have additional discounts, the pre-purchase plan discount is applied independently, which may result in a lower effective discount rate than the listed tier percentage. Factor in your existing discounts when estimating savings.
 
 ## Purchase GitHub AI Credits commit units
+
+You can pay for GitHub AI Credits pre-purchase plans with Azure Prepayment. These plans count toward your Microsoft Azure Consumption Commitment (MACC).
 
 Purchase GitHub AI Credits pre-purchase plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 
 

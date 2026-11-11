@@ -8,7 +8,7 @@ ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/28/2024
+ms.date: 11/02/2026
 
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
@@ -136,19 +136,18 @@ Folder /folder2/sub1/
 ```
 
 > [!NOTE]
-> Blob snapshots can't be listed in a hierarchical listing operation.
+> You can't list blob snapshots in a hierarchical listing operation.
 
-## List blobs in Apache Arrow format (preview)
+## List blobs in Apache Arrow format
 
-> [!IMPORTANT]
-> Listing blobs in Apache Arrow format is currently in **PREVIEW**. This scenario requires a **beta (preview) version** of the Azure Blob Storage client library for JavaScript (for example, `@azure/storage-blob` **12.34.0-beta.1** or later preview release). Preview features are provided without a service-level agreement and aren't recommended for production workloads. Some features might not be supported, or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+To list blobs in Apache Arrow format, use version **12.34.0** or later of the [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob/v/12.34.0) package.
 
 This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The JavaScript SDK decodes Apache Arrow behind the scenes and still returns the same blob item objects. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
 
 > [!WARNING]
 > Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
 
-To request Apache Arrow-formatted results, set the `responseFormat` property of the listing options to `StorageResponseFormat.Arrow`, then pass the options to [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-preview&preserve-view=true#@azure-storage-blob-containerclient-listblobsflat). Import the `StorageResponseFormat` enum from `@azure/storage-blob`.
+To request Apache Arrow-formatted results, set the `responseFormat` property of the listing options to `StorageResponseFormat.Arrow`, and then pass the options to [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat). Import the `StorageResponseFormat` constant from `@azure/storage-blob`.
 
 The following example lists the blobs in a container and requests the results in Apache Arrow format:
 

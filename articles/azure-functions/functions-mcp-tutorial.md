@@ -98,7 +98,7 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     |Prompt|Selection|
     |--|--|
     |**Select a project type**|Choose `C#`.|
-    |**Select a .NET runtime**|Choose `.NET 8.0 LTS`.|
+    |**Select a .NET runtime**|Choose a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).|
     |**Select a template for your project's first function**|Choose `MCP Tool trigger`.|
     |**Provide a function name**|Type `McpTrigger`.|
     |**Provide a namespace** | Type `My.Functions`. |

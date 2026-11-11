@@ -235,7 +235,7 @@ For more CLI commands, go to [az network private-endpoint-connection](/cli/azure
 
 ---
 
-If you have issues with a private endpoint, check the following guide: [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
+If you have issues with a private endpoint, check the following guide: [Troubleshoot Azure Private Endpoint connectivity problems](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems).
 
 ## Next step
 

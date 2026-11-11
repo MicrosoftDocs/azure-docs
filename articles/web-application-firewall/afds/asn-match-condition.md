@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.reviewer: joeolerich
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 09/02/2026
+ms.date: 10/22/2026
 ---
 
 # What is AS number matching for Azure Front Door?
@@ -105,7 +105,7 @@ The following rule blocks any request to `/admin` that doesn't come from an appr
 
 ### Rate limit traffic from a network more aggressively
 
-You can combine an ASN condition with a rate limit rule to apply a tighter threshold to networks you don't fully trust, without blocking them outright. The following rule allows 100 requests per minute from the listed AS numbers and blocks the rest of that traffic for the remainder of the window.
+You can combine an ASN condition with a rate limit rule to apply a tighter threshold to networks you don't fully trust, without blocking them outright. The following rule allows each client IP address on the listed networks up to 100 requests per minute, and blocks that client's matching requests for the remainder of the window.
 
 ```json
 {
@@ -130,6 +130,42 @@ You can combine an ASN condition with a rate limit rule to apply a tighter thres
 ```
 
 For more information about thresholds and time windows, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
+
+### Rate limit each network as a whole (preview)
+
+> [!IMPORTANT]
+> Grouping rate limit rules by AS number is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+The previous example counts requests separately for each client IP address. To count all requests from a network against one threshold, group the rate limit rule by AS number. The grouping uses the socket IP address to determine each client's network. You don't need to list AS numbers in advance: every network that sends matching traffic gets its own counter. The following rule allows each network up to 5,000 requests per minute to paths that contain `/api/`:
+
+```json
+{
+  "name": "RateLimitPerNetwork",
+  "priority": 35,
+  "ruleType": "RateLimitRule",
+  "rateLimitDurationInMinutes": 1,
+  "rateLimitThreshold": 5000,
+  "groupBy": [
+    {
+      "variableName": "Asn"
+    }
+  ],
+  "matchConditions": [
+    {
+      "matchVariable": "RequestUri",
+      "operator": "Contains",
+      "negateCondition": false,
+      "matchValue": [
+        "/api/"
+      ]
+    }
+  ],
+  "action": "Block"
+}
+```
+
+A large internet service provider can carry many of your legitimate users, so size the threshold from the busiest networks in your normal traffic, and deploy the rule with the `Log` action first. For more information, see [Group rate limit traffic (preview)](waf-front-door-rate-limit.md#group-rate-limit-traffic-preview).
 
 ### Challenge traffic from a network instead of blocking it
 

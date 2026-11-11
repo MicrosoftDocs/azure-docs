@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/31/2026
+ms.date: 10/19/2026
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -30,7 +30,7 @@ Azure Front Door offloads the TLS sessions at the edge and decrypts client reque
 
 ## Supported TLS versions
 
-Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. All Azure Front Door profiles created after September 2019 use TLS 1.2 as the default minimum with TLS 1.3 enabled. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
+Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. All Azure Front Door profiles created after September 2019 use TLS 1.2 as the default minimum with TLS 1.3 enabled. Azure Front Door Premium supports [mutual TLS (mTLS) authentication](mutual-tls.md) for client-to-Front Door connections. Azure Front Door Standard and classic don't support client mTLS. Azure Front Door doesn't support mTLS on connections from Front Door to origins.
 
 > [!IMPORTANT]
 > TLS 1.0 and 1.1 aren't supported. 
@@ -39,9 +39,26 @@ For Azure Front Door Standard and Premium, you can configure a predefined TLS po
 
 For Azure Front Door classic and Microsoft CDN classic, you can configure the minimum TLS version in Azure Front Door in the custom domain HTTPS settings by using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). For a minimum TLS version 1.2, the negotiation process attempts to establish TLS 1.3 and then TLS 1.2. When Azure Front Door initiates TLS traffic to the origin, it attempts to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.2 and TLS 1.3. If you want to customize the cipher suite, [migrate Front Door classic](/azure/frontdoor/tier-migration) and [Microsoft CDN classic](/azure/cdn/tier-migration?toc=/azure/frontdoor/TOC.json) to Azure Front Door standard and premium.
 
+::: zone pivot="front-door-classic"
+
 > [!NOTE]
 > - Clients with TLS 1.3 enabled must support one of the Microsoft SDL compliant EC Curves, including Secp384r1, Secp256r1, and Secp521, to successfully make requests with Azure Front Door using TLS 1.3.
 > - Use one of these curves as the preferred curve during requests to avoid increased TLS handshake latency, which might result from multiple round trips to negotiate the supported EC curve.
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+## TLS key exchange
+
+Configure a custom domain's [TLS key exchange policy](tls-key-exchange-policy.md) to control the supported groups for client-to-Front Door connections. The client must support at least one group in the selected policy. Hybrid post-quantum groups require TLS 1.3; TLS 1.2 connections use a compatible classical group.
+
+> [!IMPORTANT]
+> The domain's key exchange policy controls the client-to-Front Door TLS connection. Front Door terminates that connection at the edge and establishes a separate connection to the origin. Selecting hybrid post-quantum groups in the domain's policy doesn't configure key exchange on the Front Door-to-origin connection.
+
+The key exchange policy is separate from the TLS protocol and cipher-suite policy and from the domain's certificate configuration.
+
+::: zone-end
 
 ## Supported certificates
 

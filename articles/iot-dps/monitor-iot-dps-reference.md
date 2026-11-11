@@ -125,7 +125,7 @@ The following JSON is an example of a successful add (`Upsert`) individual enrol
     "OperationVersion": "October2021",
     "Resource": "MYEXAMPLEDPS",
     "ResourceGroup": "MYRESOURCEGROUP",
-    "ResourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DEVICES/PROVISIONINGSERVICES/MYEXAMPLEDPS",
+    "ResourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DEVICES/PROVISIONINGSERVICES/MYEXAMPLEDPS",
     "ResourceProvider": "MICROSOFT.DEVICES",
     "ResourceType": "PROVISIONINGSERVICES",
     "ResultDescription": "",

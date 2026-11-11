@@ -2,7 +2,7 @@
 title: Tutorial to review web apps for migration
 description: Learn how to review assessment for web apps in Azure Migrate
 author: ankitsurkar06
-ms.author: ankitsurkar
+ms.author: nikitabajaj
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.service: azure-migrate

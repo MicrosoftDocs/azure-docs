@@ -197,7 +197,7 @@ Principals              : {
 ExcludePrincipals       : {
                           DisplayName:  User1
                           ObjectType:   User
-                          ObjectId:     675986ff-5b6a-448c-9a22-fd2a65100221
+                          ObjectId:     aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
                           }
 IsSystemProtected       : True
 
@@ -218,7 +218,7 @@ Principals              : {
 ExcludePrincipals       : {
                           DisplayName:  User1
                           ObjectType:   User
-                          ObjectId:     675986ff-5b6a-448c-9a22-fd2a65100221
+                          ObjectId:     aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
                           }
 IsSystemProtected       : True
 ```

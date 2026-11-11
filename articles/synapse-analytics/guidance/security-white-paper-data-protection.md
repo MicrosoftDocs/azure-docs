@@ -22,7 +22,7 @@ Once the data discovery process is complete, it provides classification recommen
 
 Azure Synapse provides two options for data discovery and classification:
 
-- [Data Discovery & Classification](/azure/azure-sql/database/data-discovery-and-classification-overview), which is built into Azure Synapse and dedicated SQL pool (formerly SQL DW).
+- [Data Discovery & Classification](../sql/data-discovery-and-classification-overview.md), which is built into Azure Synapse and dedicated SQL pool (formerly SQL DW).
 - [Microsoft Purview](https://azure.microsoft.com/services/purview/), which is a unified data governance solution that helps manage and govern on-premises, multicloud, and software-as-a-service (SaaS) data. It can automate data discovery, lineage identification, and data classification. By producing a unified map of data assets and their relationships, it makes data easily discoverable.
 
 > [!NOTE]

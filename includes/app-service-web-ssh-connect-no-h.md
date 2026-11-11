@@ -5,15 +5,15 @@ services: app-service
 author: cephalin
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 03/29/2019
+ms.date: 10/08/2026
 ms.author: cephalin
 ms.custom: "include file"
 ---
 
-If you want to open a direct SSH session with your container, your app should be running.
+Your app and its container must be running before you open a browser session.
 
-Use the [az webapp ssh](/cli/azure/webapp#az-webapp-ssh) command.
+In the [Azure portal](https://portal.azure.com), open your App Service app. Under **Development Tools**, select **SSH**, and then select **Go**. Sign in with your Azure account if prompted.
 
-If you're not authenticated, you need to authenticate with your Azure subscription to connect. When you're authenticated, you see an in-browser shell where you can run commands inside your container.
+The session opens in your browser, where you can run commands inside the app container.
 
 ![SSH connection](./media/app-service-web-ssh-connect-no-h/app-service-linux-ssh-connection.png)

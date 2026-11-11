@@ -5,7 +5,7 @@ services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
-ms.date: 06/01/2026
+ms.date: 10/05/2026
 ms.author: allensu
 # Customer intent: "As a DNS administrator, I want to use alias records in Azure DNS, so that I can dynamically reference Azure resources and prevent dangling DNS records while ensuring quick updates to DNS entries when underlying resources change."
 ---
@@ -30,7 +30,7 @@ In the following example, an alias named **vm1** is added that points to the pub
    <br><img src="./media/dns-alias/add-record-set.png" alt="A screenshot showing how to add an alias record set." width="50%">
 
 > [!TIP]
-> For new Traffic Manager-backed DNS configurations, consider using [Traffic Manager Linked Records](dns-traffic-manager-linked-records.md) instead of alias records. Traffic Manager Linked Records return endpoint IP addresses directly to clients without an intermediate CNAME hop and provide stronger endpoint type enforcement through [Strictly Typed Profiles](../traffic-manager/traffic-manager-strictly-typed-profiles.md). Both features are currently in PREVIEW.
+> For new Traffic Manager-backed DNS configurations, consider using [Traffic Manager Linked Records](dns-traffic-manager-linked-records.md) instead of alias records. Traffic Manager Linked Records return endpoint IP addresses directly to clients without an intermediate CNAME hop and provide stronger endpoint type enforcement through [Strictly Typed Profiles](../traffic-manager/traffic-manager-strictly-typed-profiles.md).
 
 ## Capabilities
 

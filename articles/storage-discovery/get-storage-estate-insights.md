@@ -6,6 +6,8 @@ ms.author: fauhse
 ms.service: azure-storage-discovery
 ms.topic: tutorial
 ms.date: 10/09/2025
+modified_by: pthippeswamy
+modified_time: 10/16/2026
 ---
 
 # Tutorial: Get started with Azure Storage Discovery to unlock insights about your Azure Storage estate
@@ -17,6 +19,7 @@ In this tutorial, you:
 > [!div class="checklist"]
 > * Deploy a Storage Discovery workspace.
 > * Configure the workspace to observe a portion of the data estate that's interesting to you.
+> * Enable advanced capacity insights for Blob Storage on a Standard workspace.
 > * Use reports and Azure Copilot to dive into insights about your storage resources and the data they contain.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
@@ -28,6 +31,8 @@ For Storage Discovery to be a useful service to you, you need to have access to 
 You need at least the permissions on storage resources that come with the Role Based Access Control (RBAC) role assignment `Reader`. More permissions that come with roles like `Contributor` or `Owner` are also OK. You can [learn more about permissions](deployment-planning.md#permissions-to-your-storage-resources) in the planning guide. 
 
 This tutorial uses the Azure portal for all steps.
+
+To follow the advanced capacity insights portion of this tutorial, review the [additional prerequisites and permissions](deployment-planning.md#prerequisites-for-advanced-capacity-insights) and confirm that your storage accounts are in a [supported region](deployment-planning.md#regional-availability-for-advanced-capacity-insights).
 
 ## Deploy a Storage Discovery workspace
 
@@ -55,6 +60,7 @@ Choose the **Subscription** and **Resource group** in which to create the discov
 | `Pricing plan` | Storage Discovery pricing plan.<sup>2</sup>                       |
 
 <sup>1</sup> For information on regions covered, see [Storage Discovery workspace regions](deployment-planning.md). 
+
 <sup>2</sup> For information on Storage Discovery pricing plan, see [Understand Storage Discovery Pricing](pricing.md).
 
 Stay on this page for the next step.
@@ -119,6 +125,17 @@ Then complete the workspace creation wizard by stepping through the remaining pa
 > [!NOTE]
 > In Azure, tag names (keys) are case-insensitive for operations. Tag values are case-sensitive.
 
+## Enable advanced capacity insights
+
+After deployment, you can opt in to advanced capacity insights on a Standard workspace. During preview, this option isn't available in the workspace creation wizard.
+
+1. Follow [Enable advanced capacity insights](create-workspace.md#enable-advanced-capacity-insights) to enable **Capacity details** and complete the additional access checks.
+1. Allow up to 48 hours for the initial advanced insights to populate. Review the [preview coverage limits](analyze-blob-capacity-details.md#preview-coverage) to understand which accounts, containers, and prefixes are included.
+1. Follow [Open and filter the report](analyze-blob-capacity-details.md#open-and-filter-the-report) to view **Capacity details** for the scope you created.
+1. Use [Analyze Blob capacity details](analyze-blob-capacity-details.md) to investigate tiering, retention, storage composition, and growth. To analyze data below the container level, [configure Blob prefixes for analysis](configure-blob-storage-prefixes.md).
+
+If you don't enable this optional feature, continue to the other Storage Discovery reports in the next section.
+
 ## Access your insights
 
 To continue with this tutorial, you need to allow time for the Storage Discovery service to aggregate all the insights about your storage resources. Insight aggregation often completes within a few hours but can also take more than a day.
@@ -142,8 +159,9 @@ In this section, you learn how to access prebuilt reports in the Azure portal fo
 
 Azure Storage Discovery reports organize insights into distinct categories that help you understand and manage your Azure Storage estate:
 
-- **Capacity**: Includes insights for size and count (blobs, containers, subscriptions, regions, and resource groups count) for each scope.
-- **Activity** Includes metrics for transactions, ingress, and egress to understand how your storage is accessed and utilized.
+- **Capacity overview**: Shows size and count totals for each scope, including blobs, containers, subscriptions, regions, and resource groups.
+- **Capacity details**: Shows how Blob Storage data is tiered, retained, distributed, and changing after you [enable advanced capacity insights](#enable-advanced-capacity-insights).
+- **Activity**: Includes metrics for transactions, ingress, and egress to understand how your storage is accessed and utilized.
 - **Errors**: Highlights failed operations and error codes to help identify patterns of issues.
 - **Configurations**: Surfaces configuration patterns across your storage accounts.
 - **Security**: Provides visibility into access controls and encryption settings.
@@ -151,7 +169,7 @@ Azure Storage Discovery reports organize insights into distinct categories that 
 
 :::image source="media/insights/workspace-reports.png" alt-text="Screenshot of Reports."  lightbox="media/insights/workspace-reports.png":::
 
-`Capacity`, `Activity`, and `Errors` reports use interactive charts to present data in a unified format, making it easier to explore trends, derive insights, and take action to optimize your storage estate.
+The `Capacity overview`, `Capacity details`, `Activity`, and `Errors` reports use interactive charts to present data in a unified format, making it easier to explore trends, derive insights, and take action to optimize your storage estate.
 
 Storage Discovery reports include top-level filters that help you focus on specific aspects of your storage estate. These filters apply across all reports and charts, allowing you to tailor the insights to your business context.
 
@@ -175,7 +193,7 @@ Asking Azure Copilot enables you to pivot data in ways that aren't available in 
 
 Select the `Copilot` button in the top navigation bar of the Azure portal.
 
-:::image type="content" source="media/get-storage-estate-insights/copilot-start.png" alt-text="Azure portal screenshot with Copilot chat open and showing useful Discovery sample prompts.":::
+:::image type="content" source="media/get-storage-estate-insights/copilot-start.png" alt-text="Azure portal screenshot with Copilot chat open and showing useful Discovery sample prompts." lightbox="media/get-storage-estate-insights/copilot-start.png":::
 
 When you ask Azure Copilot a question, the answer must always come in the context of a Discovery workspace and a scope.
 Copilot asks you to select both before responding with the chart or table that illustrates the insight you requested.
@@ -194,6 +212,8 @@ If you no longer need your Discovery workspace, there are two ways to clean up y
 - Remove your Discovery resource. 
 
 To stop being billed for your workspace, you can select the `Free` pricing plan for your workspace.
+
+Changing to the Free plan also makes advanced capacity insights unavailable. To stop only advanced capacity insights while keeping the Standard plan, see [Disable advanced capacity insights](create-workspace.md#disable-advanced-capacity-insights).
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Navigate to your Discovery workspace resource.

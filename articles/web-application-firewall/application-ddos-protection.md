@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 08/13/2026
+ms.date: 10/22/2026
 ---
 
 # Application (layer 7) DDoS protection
@@ -153,10 +153,20 @@ At a minimum, create a rate limit rule that blocks a high rate of requests from 
 
 ### Azure Front Door
 
-- Rate limits apply per **socket IP address**, which is the address of the client that opens the TCP connection to Azure Front Door and might be a proxy rather than the end user.
+- By default, rate limits apply per **socket IP address**, which is the address of the client that opens the TCP connection to Azure Front Door and might be a proxy rather than the end user. On Azure Front Door Premium, you can choose a different **group by** variable for each rule (preview):
+
+  | Group by | Use it when |
+  |---|---|
+  | `SocketAddr` (default) | Normal case with independent counters per socket IP address |
+  | `GeoLocation` | You want to cap traffic per country/region during a geographically concentrated flood |
+  | `Asn` | You want to cap traffic per network, such as a hosting provider that a botnet runs on |
+  | `Ja4` | A distributed attack rotates through many IP addresses but reuses the same client software |
+  | `None` | A single shared counter for a narrowly matched pattern, such as a sign-in page |
+
+  The `GeoLocation` and `Asn` groupings use the socket IP address. For more information, see [Group rate limit traffic (preview)](./afds/waf-front-door-rate-limit.md#group-rate-limit-traffic-preview).
 - Thresholds are evaluated over a **fixed window** of one or five minutes. Once the threshold is breached, Azure Front Door blocks all traffic that matches the rule for the remainder of the window. Use the **five-minute window** for HTTP flood mitigation: an attacker blocked in the first minute stays blocked for the remaining four.
 - Larger windows with the smallest acceptable threshold are the most effective anti-DDoS configuration. Larger windows and larger threshold values also enforce closer to the configured threshold. At very low thresholds (under roughly 200 requests per minute), some requests above the threshold can get through, because requests from one client can land on Front Door servers whose counters aren't refreshed yet.
-- Rate limit rules support only **Log** and **Block** actions; **Allow** isn't supported.
+- Rate limit rules don't support the **Allow** action. Besides **Log** and **Block**, you can use **JavaScript challenge** or **CAPTCHA**, so that clients over the threshold are challenged instead of blocked.
 - Apply a rule to all traffic by matching on a `Host` header with a length greater than 0 because every valid request to Azure Front Door has one.
 
 
@@ -211,7 +221,7 @@ Then group the results into tiers and set a threshold for each:
 How you implement the tiers depends on the platform:
 
 - **Application Gateway WAF v2** - use `GroupByVariable: GeoLocation` (or `GeoLocationXFFHeader` behind a CDN or proxy) so all traffic from one geography shares a counter, and create one rate limit rule per tier with its own threshold. Because a breach acts against every client in that geography, size these thresholds conservatively and validate them in Log action first: an incorrectly configured wide-matching geo rule can cause frequent short outages for legitimate traffic.
-- **Azure Front Door** - counters are per socket IP address, so build the tiers with **geo-match conditions** instead: one rate limit rule per tier, matched on the relevant countries, each with its own threshold. Every client in a long-tail geography then gets a much lower ceiling than clients in your primary markets, without one client's behavior affecting the others.
+- **Azure Front Door** - by default, counters are per socket IP address, so build the tiers with **geo-match conditions**: one rate limit rule per tier, matched on the relevant countries or regions, each with its own per-client threshold. Every client in a long-tail geography then gets a much lower ceiling than clients in your primary markets, without one client's behavior affecting the others. On Azure Front Door Premium, you can also group a tier's rule by `GeoLocation` (preview) so that all traffic from each country/region shares one counter, as on Application Gateway. The same caution applies: size these thresholds conservatively and validate them with the Log action first.
 
 A few practices that keep this maintainable:
 
@@ -251,7 +261,7 @@ Create custom WAF rules to block or rate limit HTTP and HTTPS attacks that have 
 - **Geo-location**: Block traffic from outside your service region, or redirect it to a static page.
 - **Client IP address (CIDR)** and **IP restriction** lists for addresses and ranges you identified as malicious.
 - **AS Number (ASN)**: Mitigate floods sourced from a hosting provider or transit network that your legitimate users don't originate from, without enumerating IP ranges.
-- **Client fingerprint (JA4)**: Match on the **JA4 fingerprint**, a hash derived from the client's TLS handshake and HTTP characteristics. Because attack tooling and botnet clients produce a consistent fingerprint regardless of the IP address they send from, JA4 is one of the most durable signatures available during a distributed attack: rotating through thousands of source IP addresses doesn't change the fingerprint, and blocking or rate limiting on it takes out the whole botnet with one rule. Verify the fingerprint against your peace-time logs before you enforce on it. Popular browsers and common SDKs share fingerprints across enormous numbers of legitimate users, so an unvalidated JA4 block can be extremely broad. Deploy in **Log** action first, confirm the fingerprint appears only in attack traffic, then switch to Block or a rate limit rule.
+- **Client fingerprint (JA4)**: Match on the **JA4 fingerprint**, a hash derived from the client's TLS handshake and HTTP characteristics. Because attack tooling and botnet clients produce a consistent fingerprint regardless of the IP address they send from, JA4 is one of the most durable signatures available during a distributed attack: rotating through thousands of source IP addresses doesn't change the fingerprint, and blocking or rate limiting on it takes out the whole botnet with one rule. Verify the fingerprint against your peace-time logs before you enforce on it. Popular browsers and common SDKs share fingerprints across enormous numbers of legitimate users, so an unvalidated JA4 block can be extremely broad. Deploy in **Log** action first, confirm the fingerprint appears only in attack traffic, then switch to Block or a rate limit rule. On Azure Front Door Premium, a rate limit rule grouped by `Ja4` (preview) caps every fingerprint automatically, without you having to identify the attack fingerprint first.
 - **Combine JA4 with other conditions** for surgical mitigation during an incident. For example, rate limit rather than block a specific JA4 fingerprint *and* an ASN you don't serve users from, or a JA4 fingerprint *and* a request URI.
 - **Service tag** and **size constraints** on request components.
 

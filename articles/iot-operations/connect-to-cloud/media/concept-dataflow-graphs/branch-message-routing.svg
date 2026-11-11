@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="370" viewBox="0 0 1100 370" role="img" aria-labelledby="title desc">
+  <title id="title">Route more than two message kinds</title>
+  <desc id="desc">A built-in branch sends speed messages to the speed path. Its false output enters a second built-in branch that sends temperature messages to the temperature path. All remaining messages, including humidity and unknown or missing kinds, use the remaining path. Built-in concatenate forwards each message to one output stream, not a joined record.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#365d7e"/></marker>
+  </defs>
+  <rect width="1100" height="370" fill="#fff"/>
+  <g fill="none" stroke="#365d7e" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M 120 70 H 160"/>
+    <path d="M 320 70 H 550"/>
+    <path d="M 240 105 V 235 H 340"/>
+    <path d="M 500 235 H 525 V 190 H 550"/>
+    <path d="M 420 270 V 310 H 550"/>
+    <path d="M 730 70 H 755 V 175 H 790"/>
+    <path d="M 730 190 H 790"/>
+    <path d="M 730 310 H 755 V 205 H 790"/>
+    <path d="M 920 190 H 960"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="35" width="100" height="70" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="160" y="35" width="160" height="70" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="340" y="200" width="160" height="70" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="550" y="35" width="180" height="70" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="550" y="155" width="180" height="70" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="550" y="275" width="180" height="70" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+    <rect x="790" y="135" width="130" height="110" rx="10" fill="#e7f3e8" stroke="#2e6943"/>
+    <rect x="960" y="135" width="120" height="110" rx="10" fill="#eef5fc" stroke="#365d7e"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#172b3a" text-anchor="middle">
+    <text x="70" y="64"><tspan x="70" font-weight="bold">Mixed</tspan><tspan x="70" dy="24">messages</tspan></text>
+    <text x="240" y="64"><tspan x="240" font-weight="bold">BUILT-IN branch</tspan><tspan x="240" dy="24">Speed?</tspan></text>
+    <text x="420" y="229"><tspan x="420" font-weight="bold">BUILT-IN branch</tspan><tspan x="420" dy="24">Temperature?</tspan></text>
+    <text x="640" y="76" font-weight="bold">Speed path</text>
+    <text x="640" y="196" font-weight="bold">Temperature path</text>
+    <text x="640" y="304"><tspan x="640" font-weight="bold">Remaining path</tspan><tspan x="640" dy="24">Humidity + unknown</tspan></text>
+    <text x="855" y="170"><tspan x="855" font-weight="bold">BUILT-IN</tspan><tspan x="855" dy="25">concatenate</tspan><tspan x="855" dy="25">Not a join</tspan></text>
+    <text x="1020" y="170"><tspan x="1020" font-weight="bold">One stream</tspan><tspan x="1020" dy="25">Individual</tspan><tspan x="1020" dy="25">messages</tspan></text>
+    <text x="400" y="58">true</text>
+    <text x="285" y="223">false</text>
+    <text x="520" y="177">true</text>
+    <text x="475" y="298">false</text>
+  </g>
+</svg>

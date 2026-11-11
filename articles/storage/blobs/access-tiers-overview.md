@@ -24,7 +24,7 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
 > [!NOTE]
-> Setting the access tier is only allowed on Block Blobs. They are not supported for Append and Page Blobs.
+> You can set the access tier only on block blobs, including versions and snapshots. Tier changes aren't supported for append and page blobs.
 
 ## Online access tiers
 
@@ -188,7 +188,7 @@ Changing the account access tier results in tier change charges for all blobs th
 
 ### Changing a blob's access tier
 
-Keep in mind the following billing impacts when changing a blob's tier:
+Keep in mind the following billing impacts when changing the access tier of a blob (including versions and snapshots):
 
 - When a blob is uploaded or moved between tiers, it's charged at the corresponding rate immediately upon upload or tier change.
 - When a blob is moved to a cooler tier, the operation is billed as a write operation (per 10,000) to the destination tier. An additional data write (per GB) charge applies when moving blobs to a cooler tier within a legacy Blob Storage account.
@@ -226,6 +226,10 @@ The cold tier requires the following minimum versions of REST, SDKs, and tools
 ## Next steps
 
 - [Set a blob's access tier](access-tiers-online-manage.md)
+
 - [Archive a blob](archive-blob.md)
+
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+
 - [Best practices for using blob access tiers](access-tiers-best-practices.md)
+

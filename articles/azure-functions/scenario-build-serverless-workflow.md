@@ -25,7 +25,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 
 + [Azurite storage emulator](../storage/common/storage-install-azurite.md?tabs=npm#install-azurite)
 ::: zone pivot="programming-language-csharp"
-+ [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
++ The [.NET SDK](https://dotnet.microsoft.com/download) that matches your template's target framework. Use a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).
 ::: zone-end
 ::: zone pivot="programming-language-python"
 + [Python 3.12](https://www.python.org/downloads/)

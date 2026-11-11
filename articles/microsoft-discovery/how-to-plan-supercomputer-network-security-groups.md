@@ -24,6 +24,7 @@ The rules here are a starting point, not a complete egress policy. Many supercom
 - A Microsoft Discovery Supercomputer that uses `UserDefinedRouting`. To set up this configuration, see [Configure secure networking for a Microsoft Discovery Supercomputer](how-to-configure-supercomputer-network-security.md).
 - An egress point that can allow list IP addresses and FQDNs, such as [Azure Firewall](/azure/firewall/overview).
 - Permissions to create and modify network security groups and their rules.
+- Ensure that the **Discovery control-plane service App** (Discovery first-party service principal) has the **Reader** role at the subscription level.
 
 ## Plan rule order and priority
 

@@ -119,7 +119,7 @@ Serverless SQL pool offers mechanisms to secure access to your data.
 
 ### Microsoft Entra integration and multifactor authentication
 
-Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Microsoft Entra integration](/azure/azure-sql/database/authentication-aad-configure). This capability simplifies permission management and enhances security. Microsoft Entra ID supports [multifactor authentication](/azure/azure-sql/database/authentication-mfa-ssms-configure) (MFA) to increase data and application security while supporting a single sign-on process.
+Serverless SQL pool enables you to centrally manage identities of database users and other Microsoft services with [Microsoft Entra integration](authentication-aad-configure.md). This capability simplifies permission management and enhances security. Microsoft Entra ID supports [multifactor authentication](/azure/azure-sql/database/authentication-mfa-ssms-configure) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 

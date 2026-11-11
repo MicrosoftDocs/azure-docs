@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 10/30/2025
+ms.date: 10/27/2026
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -28,7 +28,7 @@ You need to be aware of several requirements and considerations before using Azu
 
 * There can be a delay of up to five minutes in displaying a backup after the backup is actually completed.
 
-* For volumes larger than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
+* It can take multiple hours to transfer all the data from the backup media. Volumes larger than 10 TiB can take several hours to transfer. Total data transfer time is proportional to the size of the backup.
 
 * The Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots to the Azure storage. Hourly backups aren't currently supported.
 
@@ -52,7 +52,9 @@ You need to be aware of several requirements and considerations before using Azu
 
 * To use Azure NetApp Files backup with large volumes, you must be [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature).  
 
-* If the volume reaches its maximum quota, backup creation might fail when significant amounts of data are changed. If the backup fails, increase the size of the volume then wait for the next scheduled backup. 
+* If the volume reaches its maximum quota, backup creation might fail when significant amounts of data are changed. If the backup fails, increase the size of the volume then wait for the next scheduled backup.
+
+* Once backups are no longer needed, because eg. they have expired the agreed retention time, you can delete the backups from the backup list. Deleting backup may take considerable time especially for backups of large (>10 TiB) sizes. During backup deletion it is not possible to add new backups.
 
 ## Next steps
 

@@ -13,7 +13,6 @@ ms.custom:
 ---
 
 # Release notes for Azure File Sync
-
 This article provides the release notes for Azure File Sync. Major releases of Azure File Sync include service and agent improvements, such as version 22.0.0.0. Minor releases typically include agent improvements, such as version 22.3.0.0.
 
 ## Supported versions
@@ -22,14 +21,14 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| v23.2 Release - [KB5072940](https://support.microsoft.com/kb/5072940) |23.2.0.0| November 10, 2026 | Supported - Security Update|
 | v23.1 Release - [KB5072939](https://support.microsoft.com/kb/5072939) |23.1.0.0| September 1, 2026 | Supported |
 | v22.4 Release - [KB5104852](https://support.microsoft.com/topic/e0e7c277-cf1b-4c65-b0b2-4f697d260bf0) |22.4.0.0| June 22, 2026 | Supported |
 | v22.3 Release - [KB5087090](https://support.microsoft.com/topic/e56f2bc6-30f3-42b6-93b3-a89429cdb88c) |22.3.0.0| April 17, 2026 | Supported |
 | v22 Release - [KB5056967](https://support.microsoft.com/topic/ded35c33-ff9c-4716-8a8d-a080d1bc067b)|22.0.0.0| December 10, 2025| Supported |
 | v21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
 | v21.1 Release - [KB5063486](https://support.microsoft.com/topic/e0016f74-573d-492c-8bf7-c3be1e380836) |21.1.0.0 | August 11, 2025 | Supported - Security Update |
-| v20.1 Release - [KB5056953](https://support.microsoft.com/topic/6a558f5d-005d-4111-9ebd-21e5dd652d77) |20.1.0.0 | August 11, 2025 | Supported - Security Update - Agent version will expire on Oct 29,2026 |
-| v20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported - Agent version expires on Oct 29, 2026|
+
 
 ## Unsupported versions
 
@@ -37,6 +36,7 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V20 Release | 20.0.0.0 - 20.1.0.0 | N/A | Not supported - Agent versions expired on October 29, 2026 |
 | V19 Release | 19.0.0.0 - 19.2.0.0 | N/A | Not Supported - Agent versions expired on June 19, 2026 |
 | V18 Release | 18.0.0.0 - 18.3.0.0 | N/A | Not Supported - Agent versions expired on June 19, 2026 |
 | V17 Release | 17.0.0.0 - 17.2.0.0 | N/A | Not Supported - Agent versions expired on June 9, 2025 |
@@ -58,6 +58,15 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Version 23.2.0.0 (Security Update)
+
+The following release notes are for Azure File Sync version 23.2.0.0 (released November 11, 2026). This release contains a security update for servers that have v23.1 agent version installed. These notes are in addition to the release notes listed for version 23.1.0.0.
+
+### Improvements and fixed issues
+
+Fixes an issue in the Azure File Sync event manifest recovery script that incorrectly granted all users access to the StorageSyncAgent folder. This update also corrects permissions on existing servers, if needed. For more information about this vulnerability, see [CVE-2026-118288](https://msrc.microsoft.com/update-guide/advisory/CVE-2026-118288). Note: The affected permissions are introduced only when running `FixAfsEventsCorruption.ps1` or the cmdlet `Debug-StorageSyncServer -FixAfsEventsCorruption` is explicitly run on demand, and not during normal, automatic agent operation. Most users don't run this script or cmdlet and hence aren't impacted.
+
 
 ## Version 23.1.0.0
 
@@ -493,196 +502,4 @@ The following items don't sync, but the rest of the system continues to operate 
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
 
-## Version 19.2.0.0 (Security Update)
-The following release notes are for Azure File Sync version 19.2.0.0 (released June 11, 2024). This release contains a security update for servers that have v18 agent version installed. These notes are in addition to the release notes listed for version 19.1.0.0.
-
-### Improvements and issues that are fixed
-Fixes an issue that might allow improper access control in Azure File Sync that allows an authorized attacker to elevate privileges locally. This is a security-only update. For more information about this vulnerability, see [CVE-2025-53729](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-53729).
-
-## Version 19.1.0.0
-The following release notes are for Azure File Sync version 19.1.0.0 (released September 3, 2024). This release contains improvements for the Azure File Sync service and agent.
-
-### Improvements and issues that are fixed
-**Faster server provisioning and improved disaster recovery for Azure File Sync server endpoints.**
-
-We have reduced the time it takes for the new server endpoint to be ready to use. Prior to the v19 release, when a new server endpoint is provisioned, it could take hours and sometime days for the server to be ready to use. With our latest improvements, we've substantially shortened this duration, ensuring a faster setup process.
-
-The improvement applies to the following scenarios, when the server endpoint location is empty (no files or directories):
-- Creating the first server endpoint of new sync topology after data is copied to the Azure File Share.
-- Adding a new empty server endpoint to an existing sync topology.
-
-This improvement will be gradually enabled in all regions within the next month. Once the improvement is enabled in your region, you will see a Provisioning steps tab in the portal after server endpoint creation which allows you to easily determine when the server endpoint is ready for use. For more information, see [Create an Azure File Sync server endpoint](file-sync-server-endpoint-create.md#provisioning-steps) documentation.
-
-**Preview: Managed Identities support for Azure File Sync service and servers**  
-Azure File Sync support for managed identities eliminates the need for shared keys as a method of authentication by utilizing a system-assigned managed identity provided by Microsoft Entra ID.
-
-When you enable this configuration, the system-assigned managed identities will be used for the following scenarios:
-- Storage Sync Service authentication to Azure file share
-- Registered server authentication to Azure file share
-- Registered server authentication to Storage Sync Service
-
-For more information, see: [How to use managed identities with Azure File Sync (preview)](file-sync-managed-identities.md).
-
-**Sync performance improvements**  
-Sync performance has significantly improved for file share migrations and when metadata-only is changed (for example, ACL changes). Performance numbers will be posted when they are available.
-
-**Support for Windows Server 2025**  
-The Azure File Sync agent is now supported on Windows Server 2025 (build 26100).
-
-**Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
-
-### Evaluation tool
-Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
-
-### Agent installation and server configuration
-For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
-
-- The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
-- The agent installation package must be installed with elevated (admin) permissions.
-- The agent isn't supported on Nano Server deployment option.
-- The agent is supported only on Windows Server 2016, Windows Server 2019, Windows Server 2022 and Windows Server 2025.
-- The Azure File Sync agent installation package is specific to the operating system version. If you're upgrading a server to a newer version of Windows Server, you must first uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it will lead to orphaned tiered files on existing server endpoints.*** Then, upgrade the operating system to the new version. After the upgrade is complete, install the Azure File Sync agent that matches the new Windows Server version such as 2016, 2019, 2022, or 2025. After installing the agent on the upgraded server, the Azure portal should reflect the correct server status within 30 minutes.
-- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
-- The agent uses TLS 1.2 or 1.3 (Windows Server 2022 or newer) by default and TLS 1.0 and 1.1 are not supported.
-- Server registration using the [Register-AzStorageSyncServer](/powershell/module/az.storagesync/register-azstoragesyncserver) and ServerRegistration.exe require .NET Framework 4.7.2. or higher
-- The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. If the SVI directory is compressed, the Storage Sync Agent (FileSyncSvc) service will fail to start.
-- Agent installation can fail with error **0x80c84111** if required Windows security updates are missing. To prevent this issue, make sure the following updates are installed based on your server version:
-  - Windows Server 2016 [Microsoft Update Catalog](https://catalog.update.microsoft.com/Search.aspx?q=cumulative%20windows%20server%202016) (latest cumulative update)
-  - Windows Server 2019 [Microsoft Update Catalog](https://catalog.update.microsoft.com/Search.aspx?q=cumulative%20windows%20server%202019) (latest cumulative update)
-  - Cumulative updates are released monthly. To deploy the latest update, users can either use Windows Update or manually download it from the [Microsoft Update Catalog](https://catalog.update.microsoft.com). If installing manually, users should review the associated KB article to ensure all prerequisites are met.​ ​​If the Windows Updates aren't installed prior to installing the Azure File Sync agent, the Storage Sync Agent service (FileSyncSvc) will fail to start. To learn more, see the [Azure File Sync troubleshooting documentation](/troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot). 
-
-### Interoperability
-
-- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).
-- File Server Resource Manager (FSRM) file screens can cause endless sync failures when files are blocked because of the file screen.
-- Running sysprep on a server that has the Azure File Sync agent installed isn't supported and can lead to unexpected results. The Azure File Sync agent should be installed after deploying the server image and completing sysprep mini-setup.
-
-### Sync limitations
-The following items don't sync, but the rest of the system continues to operate normally:
-
-- Azure File Sync supports all characters that are supported by the [NTFS file system](/windows/win32/fileio/naming-a-file) except invalid surrogate pairs. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for more information.
-- Paths that are longer than 2,048 characters.
-- The system access control list (SACL) portion of a security descriptor that's used for auditing.
-- Extended attributes.
-- Alternate data streams.
-- Reparse points.
-- Hard links.
-- Compression (if it's set on a server file) isn't preserved when changes sync to that file from other endpoints.
-- Any file that's encrypted with EFS (or other user mode encryption) that prevents the service from reading the data.
-
-> [!NOTE]
-> Azure File Sync always encrypts data in transit. Data is always encrypted at rest in Azure.
-
-### Server endpoint
-- A server endpoint can be created only on an NTFS volume. ReFS, FAT, FAT32, and other file systems aren't currently supported by Azure File Sync.
-- Cloud tiering isn't supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
-- Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
-- A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
-- Don't store an OS or application paging file within a server endpoint location.
-
-### Cloud endpoint
-- Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, use the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet to manually initiate the detection of changes in the Azure file share.
-- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Microsoft Entra (formerly Azure AD) tenant. After moving the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#troubleshoot-rbac)).
-
-> [!NOTE]
-> When creating the cloud endpoint, the storage sync service and storage account must be in the same Microsoft Entra ID tenant. After you create the cloud endpoint, you can move the storage sync service and storage account to different Microsoft Entra ID tenants.
-
-### Cloud tiering
-- If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
-- When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
-
-## Version 18.3.0.0 (Security Update)
-The following release notes are for Azure File Sync version 18.1.0.0 (released June 11, 2024). This release contains a security update for servers that have v18 agent version installed. These notes are in addition to the release notes listed for versions 18.0.0.0, 18.1.0.0, and 18.2.0.0.
-
-### Improvements and issues that are fixed
-Fixes an issue that might allow improper access control in Azure File Sync that allows an authorized attacker to elevate privileges locally. This is a security-only update. For more information about this vulnerability, see [CVE-2025-53729](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-53729).
-
-## Version 18.2.0.0
-The following release notes are for Azure File Sync version 18.2.0.0 (released July 9, 2024). This release contains improvements for the Azure File Sync agent. These notes are in addition to the release notes listed for version 18.0.0.0 and 18.1.0.0.
-
-### Improvements and issues that are fixed
-- Rollup update for Azure File Sync agent [v18](#version-18000) and [v18.1](#version-18100-security-update) releases.
-- This release also includes sync reliability improvements.
-
-## Version 18.1.0.0 (Security Update)
-The following release notes are for Azure File Sync version 18.1.0.0 (released June 11, 2024). This release contains a security update for servers that have v18 agent version installed. These notes are in addition to the release notes listed for version 18.0.0.0.
-
-### Improvements and issues that are fixed
-Fixes an issue that might allow unauthorized users to delete files in locations they don’t have access. This is a security-only update. For more information about this vulnerability, see [CVE-2024-35253](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-35253).
-
-## Version 18.0.0.0
-The following release notes are for Azure File Sync version 18.0.0.0 (released May 8, 2024). This release contains improvements for the Azure File Sync service and agent.
-
-### Improvements and issues that are fixed
-**Faster server provisioning and improved disaster recovery for Azure File Sync server endpoints**
-We're reducing the time it takes for the new server endpoint to be ready to use. When a new server endpoint is provisioned, it could take hours and sometime days for the server to be ready to use. With our latest improvements, we've substantially shortened this duration for a more efficient setup process.
-
-The improvement applies to the following scenarios, when the server endpoint location is empty (no files or directories):
-- Creating the first server endpoint of new sync topology after data is copied to the Azure File Share.
-- Adding a new empty server endpoint to an existing sync topology.
-
-How to get started: Sign up for the public preview [here](https://forms.office.com/r/gCLr1PDZKL).
-
-**Sync performance improvements**  
-Sync upload performance has improved, and performance numbers will be posted when they are available. This improvement will mainly benefit file share migrations (initial upload) and high churn events on the server in which a large number of files need to be uploaded, for example ACL changes.
-
-**Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
-
-### Evaluation tool
-Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
-
-### Agent installation and server configuration
-For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
-
-- The agent installation package must be installed with elevated (admin) permissions.
-- The agent isn't supported on Nano Server deployment option.
-- The agent is supported only on Windows Server 2019, Windows Server 2016 and Windows Server 2022.
-- The Azure File Sync agent installation package is specific to the operating system version. If you're upgrading a server to a newer version of Windows Server, you must first uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it will lead to orphaned tiered files on existing server endpoints.*** Then, upgrade the operating system to the new version. After the upgrade is complete, install the Azure File Sync agent that matches the new Windows Server version such as 2016, 2019, 2022, or 2025. After installing the agent on the upgraded server, the Azure portal should reflect the correct server status within 30 minutes.
-- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
-- The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
-- All supported Azure File Sync agent versions use TLS 1.2 by default and TLS 1.0 and 1.1 are not supported. Starting with v18 agent version TLS 1.3 will be supported for Windows Server 2022.
-- Agent installation can fail with error **0x80c84111** if required Windows security updates are missing. To prevent this issue, make sure the following updates are installed based on your server version:
-  - Windows Server 2016 [Microsoft Update Catalog](https://catalog.update.microsoft.com/Search.aspx?q=cumulative%20windows%20server%202016) (latest cumulative update)
-  - Windows Server 2019 [Microsoft Update Catalog](https://catalog.update.microsoft.com/Search.aspx?q=cumulative%20windows%20server%202019) (latest cumulative update)
-  - Cumulative updates are released monthly. To deploy the latest update, users can either use Windows Update or manually download it from the [Microsoft Update Catalog](https://catalog.update.microsoft.com). If installing manually, users should review the associated KB article to ensure all prerequisites are met.​ ​​If the Windows Updates aren't installed prior to installing the Azure File Sync agent, the Storage Sync Agent service (FileSyncSvc) will fail to start. To learn more, see the [Azure File Sync troubleshooting documentation](/troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot). 
-
-
-### Interoperability
-- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).
-- File Server Resource Manager (FSRM) file screens can cause endless sync failures when files are blocked because of the file screen.
-- Running sysprep on a server that has the Azure File Sync agent installed isn't supported and can lead to unexpected results. The Azure File Sync agent should be installed after deploying the server image and completing sysprep mini-setup.
-
-### Sync limitations
-The following items don't sync, but the rest of the system continues to operate normally:
-
-- Azure File Sync v17 agent and later supports all characters that are supported by the [NTFS file system](/windows/win32/fileio/naming-a-file) except invalid surrogate pairs. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for more information.
-- Paths that are longer than 2,048 characters.
-- The system access control list (SACL) portion of a security descriptor that's used for auditing.
-- Extended attributes.
-- Alternate data streams.
-- Reparse points.
-- Hard links.
-- Compression (if it's set on a server file) isn't preserved when changes sync to that file from other endpoints.
-- Any file that's encrypted with EFS (or other user mode encryption) that prevents the service from reading the data.
-
-> [!NOTE]
-> Azure File Sync always encrypts data in transit. Data is always encrypted at rest in Azure.
-
-### Server endpoint
-- A server endpoint can be created only on an NTFS volume. ReFS, FAT, FAT32, and other file systems aren't currently supported by Azure File Sync.
-- Cloud tiering isn't supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
-- Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
-- A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
-- Don't store an OS or application paging file within a server endpoint location.
-
-### Cloud endpoint
-- Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, use the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet to manually initiate the detection of changes in the Azure file share.
-- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Microsoft Entra (formerly Azure AD) tenant. After moving the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#troubleshoot-rbac)).
-
-> [!NOTE]
-> When creating the cloud endpoint, the storage sync service and storage account must be in the same Microsoft Entra tenant. After you create the cloud endpoint, you can move the storage sync service and storage account to different Microsoft Entra tenants.
-
-### Cloud tiering
-- If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
-- When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
 

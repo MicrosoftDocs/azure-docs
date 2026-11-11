@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart
-ms.date: 06/03/2026
+ms.date: 10/28/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -35,6 +35,8 @@ In this quickstart, you use a Bicep file to configure your Azure IoT Operations 
 Have an instance of Azure IoT Operations deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
 
 Unless otherwise noted, you can run the console commands in this quickstart in either a Bash or PowerShell environment.
+
+To use Azure Government, run `az cloud set --name AzureUSGovernment` before you sign in. For other differences, see [Azure IoT Operations in Azure Government](../overview-azure-government.md).
 
 ## What problem will we solve?
 
@@ -131,6 +133,8 @@ The Bicep file configured the following resources:
 
 To view the device, asset, and data flow, go to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
+In Azure Government, use [https://portal.iotoperations.azure.us](https://portal.iotoperations.azure.us) and sign in with your Azure Government account.
+
 :::image type="content" source="media/quickstart-configure/instance-list.png" alt-text="Screenshot in the operations experience showing unassigned instances.":::
 
 Before continuing, make sure all the resources are in the **Available** state. It may take several minutes for the resources to be created and show as available in the UI.
@@ -169,6 +173,14 @@ If messages are flowing, you can use the **Data Explorer** to view the messages:
 
 > [!TIP]
 > You may need to assign yourself to the **Azure Event Hubs Data Receiver** role for the Event Hubs namespace to view the messages.
+
+You can also check for incoming messages from the Azure CLI, which works in both global Azure and Azure Government:
+
+```azurecli
+az monitor metrics list --resource $(az eventhubs namespace list --resource-group $RESOURCE_GROUP --query [0].id -o tsv) --metric IncomingMessages --interval PT1M --offset 15m --output table
+```
+
+In Azure Government, open the Event Hubs namespace in the [Azure Government portal](https://portal.azure.us). The Azure portal experience for Azure IoT Operations isn't available in Azure Government, but the Event Hubs namespace is a regular Azure resource.
 
 ## How did we solve the problem?
 

@@ -3,7 +3,7 @@ title: Support Requirements for Azure Site Recovery Replication Appliance
 description: This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 ms.service: azure-site-recovery
 ms.topic: faq
-ms.date: 09/21/2026
+ms.date: 10/15/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a VMware administrator, I want to deploy the Azure Site Recovery replication appliance so that I can ensure effective disaster recovery of my virtual machines to Azure."
@@ -35,7 +35,7 @@ Number of disks | 2, including the OS disk (80 GB) and a data disk (620 GB)
 
 ### Software requirements
 
-[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 Component | Requirement
 --- | ---

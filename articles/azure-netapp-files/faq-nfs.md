@@ -48,15 +48,23 @@ The common symptoms are:
 
 ## What happens if LDAP signing is required but I don't enable LDAP signing for the Azure NetApp Files Active Directory connection?
 
-If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. 
+If you don't enable LDAP signing for the Azure NetApp Files Active Directory connection and the initial LDAP connection fails because LDAP signing is required, Azure NetApp Files retries the connection with LDAP signing enabled. This fallback behavior requires PTR records for the applicable Active Directory domain controllers.
 
-For environments that use Windows Server 2025 domain controllers, enabling LDAP signing on the Active Directory connection remains the recommended configuration. Enabling LDAP signing avoids relying on the fallback behavior.
+For environments that use Windows Server 2025 domain controllers, enable LDAP signing on the Azure NetApp Files Active Directory connection.
 
-PTR records are required for the Active Directory domain controllers for the LDAP signing fallback mechanism to function.
+> [!IMPORTANT] 
+> If you use Windows Server 2016, Windows Server 2019, Windows Server 2022, or Windows Server 2025 domain controllers with Azure NetApp Files, don't install Windows updates KB5126655 or KB5126651 at this time. Installing either update prevents Azure NetApp Files from using the LDAP signing fallback mechanism and can cause new SMB volume creation to fail when LDAP signing isn't enabled on the Active Directory connection. If either update is already installed, signing becomes immediately required and must be checked in the Active Directory connector. For more details, contact Microsoft Support for assistance.
 
 ## How do I enable root squashing?
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
+
+## What are the mount-rootonly and nfs-rootonly settings in Azure NetApp Files?
+
+| Setting | Azure NetApp Files behavior | Customer action |
+| - | - | - |
+| `mount-rootonly` | Enabled by default. Mount requests from non-privileged client ports are rejected. | None required. |
+| `nfs-rootonly` | Disabled, consistent with the ONTAP default. Enabling it could disrupt workloads that use high-numbered ephemeral ports for NFS traffic, such as Oracle dNFS and some Kubernetes or container scenarios. | You can't enable `nfs-rootonly` through an Azure NetApp Files control-plane setting. Making it configurable requires a feature request. |
 
 ## Can I use the same file path for multiple volumes?
 

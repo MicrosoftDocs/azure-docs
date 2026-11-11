@@ -1,6 +1,6 @@
 ---
 title: About Azure confidential VMs
-description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
+description: Learn how Azure confidential VMs protect data in use, encryption keys, and workload integrity.
 author: iamwilliew
 ms.author: mmcrey
 ms.reviewer: mattmcinnes
@@ -8,65 +8,64 @@ ms.service: azure-confidential-computing
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 11/14/2023
+ms.date: 06/30/2026
 # Customer intent: "As a cloud architect, I want to deploy Azure confidential VMs, so that I can ensure strong security and confidentiality for sensitive applications during cloud migrations without modifying existing code."
 ---
 
 # About Azure confidential VMs 
 
-Azure confidential VMs offer strong security and confidentiality for tenants. They create a hardware-enforced boundary between your application and the virtualization stack. You can use them for cloud migrations without modifying your code, and the platform ensures your VM’s state remains protected.
+Azure confidential VMs provide strong protection for sensitive workloads. They create a hardware-enforced boundary between your workload and the virtualization stack, so you can migrate many applications without code changes while keeping VM state protected.
 
 > [!IMPORTANT]
-> Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
+> Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no extra cost.
 
 ## Microsoft Mechanics
 
 > [!VIDEO https://www.youtube.com/embed/mkCSGGNtwmc]
 
-## Confidential VMs Benefits
+## Confidential VMs benefits
 
-- Robust hardware-based isolation between virtual machines, hypervisor, and host management code.
-- Customizable attestation policies to ensure the host's compliance before deployment.
-- Cloud-based Confidential OS disk encryption before the first boot.
-- VM encryption keys that the platform or the customer (optionally) owns and manages.
-- Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
-- Dedicated virtual [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) instance for attestation and protection of keys and secrets in the virtual machine.
-- Secure boot capability similar to [Trusted launch for Azure VMs](/azure/virtual-machines/trusted-launch)
+- Hardware-based isolation between virtual machines, hypervisor, and host management code.
+- Configurable attestation policies that validate platform compliance before workload start.
+- Confidential OS disk encryption before first boot.
+- Optional platform-managed or customer-managed encryption keys.
+- Secure key release cryptographically bound to successful attestation.
+- Dedicated virtual [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) for key and secret protection.
+- Secure Boot support, similar to [Trusted launch for Azure VMs](/azure/virtual-machines/trusted-launch).
 
 ## Confidential OS disk encryption
 
 Azure confidential VMs offer a new and enhanced disk encryption scheme. This scheme protects all critical partitions of the disk. It also binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
 
-If the compute platform is missing critical settings for your VM's isolation, [Azure Attestation](/azure/attestation/) will not attest to the platform's health during boot, and will instead prevent the VM from starting. This scenario happens if you haven't enabled SEV-SNP, for example.
+If required isolation settings are missing, [Azure Attestation](/azure/attestation/) can't attest platform health during boot, and the VM can't start. This condition can happen, for example, if SEV-SNP isn't enabled.
 
-Confidential OS disk encryption is optional, as this process can lengthen the initial VM creation time. You can choose between:
+Confidential OS disk encryption is optional because it can increase initial VM creation time. You can choose:
 
-- A confidential VM with Confidential OS disk encryption that uses platform-managed keys (PMK) or a customer-managed key (CMK).
-
+- A confidential VM with Confidential OS disk encryption using platform-managed keys (PMK) or customer-managed keys (CMK).
 - A confidential VM without Confidential OS disk encryption.
 
 
 
 > [!NOTE]
-> Confidential OS disk encryption setting can't be changed after VM deployment
+> You can't change Confidential OS disk encryption settings after deployment.
 
-For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default when confidential OS disk encryption is selected.
+For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default when you select confidential OS disk encryption.
 
-With Secure Boot, trusted publishers must sign OS boot components (including the boot loader, kernel, and kernel drivers). All compatible confidential VM images support Secure Boot.
+By using Secure Boot, trusted publishers must sign OS boot components (including the boot loader, kernel, and kernel drivers). All compatible confidential VM images support Secure Boot.
 
 ## Confidential temp disk encryption
 
-You can also extend the protection of confidential disk encryption to the temp disk. We enable this by leveraging an in-VM symmetric key encryption technology, after the disk is attached to the CVM.
+You can also extend the protection of confidential disk encryption to the temp disk. This protection uses in-VM symmetric key encryption technology after the disk is attached to the CVM.
 
-The temp disk provides fast, local, and short-term storage for applications and processes. It is intended to only store data such as page files, log files, cached data, and other types of temporary data. Temp disks on CVMs contain the page file, also known as swap file, that can contain sensitive data. Without encryption, data on these disks may be accessible to the host. After enabling this feature, data on the temp disks is no longer exposed to the host.
+The temp disk provides fast, local, and short-term storage for applications and processes. It's intended to only store data such as page files, log files, cached data, and other types of temporary data. Temp disks on CVMs contain the page file, also known as swap file, that can contain sensitive data. Without encryption, data on these disks may be accessible to the host. After enabling this feature, data on the temp disks is no longer exposed to the host.
 
-This feature can be enabled through an opt-in process. To learn more, read [the documentation](https://aka.ms/CVM-tdisk-encrypt).
+Enable this feature through an opt-in process. To learn more, see [the documentation](https://aka.ms/CVM-tdisk-encrypt).
 
 ### Encryption pricing differences
 
 Azure confidential VMs use both the OS disk and a small encrypted virtual machine guest state (VMGS) disk of several megabytes. The VMGS disk contains the security state of the VM's components. Some components include the vTPM and UEFI bootloader. The small VMGS disk might incur a monthly storage cost.
 
-From March 30 2026, encrypted OS disks will incur higher costs. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Starting March 30, 2026, encrypted OS disks have higher costs. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Attestation and TPM
 
@@ -77,7 +76,7 @@ Azure confidential VMs boot only after successful attestation of the platform's 
 - Platform firmware measurements
 - OS measurements
 
-You can initialize an attestation request inside of a confidential VM to verify that your confidential VMs are running a hardware instance with either AMD SEV-SNP, or Intel TDX enabled processors. For more information, see [Azure confidential VM guest attestation](https://aka.ms/CVMattestation).
+You can initialize an attestation request inside a confidential VM to verify that your confidential VMs are running a hardware instance with either AMD SEV-SNP or Intel TDX enabled processors. For more information, see [Azure confidential VM guest attestation](https://aka.ms/CVMattestation).
 
 Azure confidential VMs feature a virtual TPM (vTPM) for Azure VMs. The vTPM is a virtualized version of a hardware TPM, and complies with the TPM 2.0 spec. You can use a vTPM as a dedicated, secure vault for keys and measurements. Confidential VMs have their own dedicated vTPM instance, which runs in a secure environment outside the reach of any VM. 
 
@@ -89,14 +88,14 @@ The following limitations exist for confidential VMs. For frequently asked quest
 
 Confidential VMs support the following VM sizes:
 
-- General Purpose without local disk: DCasv5-series, DCasv6-series DCesv6-series
-- General Purpose with local disk: DCadsv5-series, DCadsv6-series DCedsv6-series
-- Memory Optimized without local disk: ECasv5-series, ECasv6-series ECesv6-series
-- Memory Optimized with local disk: ECadsv5-series, ECadsv6-series ECedsv6-series
+- General Purpose without local disk: DCasv5-series, DCasv6-series, DCesv6-series
+- General Purpose with local disk: DCadsv5-series, DCadsv6-series, DCedsv6-series
+- Memory Optimized without local disk: ECasv5-series, ECasv6-series, ECesv6-series
+- Memory Optimized with local disk: ECadsv5-series, ECadsv6-series, ECedsv6-series
 - NVIDIA H100 Tensor Core GPU powered NCCadsH100v5-series
 
 ### OS support
-OS images for confidential VMs must meet specific security requirements. These qualified images are designed to support an optional confidential OS disk encryption and ensure isolation from the underlying cloud infrastructure. Meeting these requirements helps protect sensitive data and maintain system integrity.
+OS images for confidential VMs must meet specific security requirements. These qualified images support an optional confidential OS disk encryption and ensure isolation from the underlying cloud infrastructure. Meeting these requirements helps protect sensitive data and maintain system integrity.
 
 Confidential VMs support the following OS options:
 
@@ -136,12 +135,12 @@ Confidential VMs *don't support*:
 - [Live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview)
 - [Screenshots under boot diagnostics](/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
 - [Dynamic memory](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
-- Confidential disk encryption is only supported for disks that are smaller than 128 GB. For larger disks, it is recommended to opt for Premium SSDs, particularly for disks exceeding 32 GB.
-- Auto keyrotation is not supported, only [offline key rotation](/azure/confidential-computing/key-rotation-offline#change-customer-managed-key) is supported. 
+- Confidential disk encryption only supports disks that are smaller than 128 GB. For larger disks, choose Premium SSDs, particularly for disks that exceed 32 GB.
+- Auto key rotation isn't supported. Only [offline key rotation](/azure/confidential-computing/key-rotation-offline#change-customer-managed-key) is supported.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)
 
-For more information see our [Confidential VM FAQ](confidential-vm-faq.yml).
+For more information, see the [Confidential VM FAQ](confidential-vm-faq.yml).

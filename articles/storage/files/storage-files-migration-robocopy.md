@@ -4,7 +4,7 @@ description: Learn how to move or migrate files to an SMB Azure file share using
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/19/2025
+ms.date: 10/28/2026
 ms.author: kendownie
 # Customer intent: As an IT administrator, I want to migrate files to Azure file shares using RoboCopy, so that I can ensure data integrity and minimize downtime during the transition to cloud storage.
 ---
@@ -74,7 +74,7 @@ To correctly interpret the results, review the file status in the command output
 In both cases, RoboCopy might report byte counts as though data was transferred. This behavior can lead to confusion when validating copy operations.
 
 > [!IMPORTANT]
-> We recommend using a Windows Server 2022 or newer. When using a Windows Server 2019, ensure at the latest patch level or at least [OS update KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f) is installed. It contains important fixes for certain Robocopy scenarios.
+> If possible, use Windows Server 2022 or later. If you use Windows Server 2019, install the latest cumulative update or at least [OS update KB5005102](https://support.microsoft.com/help/5005102), which contains important fixes for certain Robocopy scenarios.
 
 > [!TIP]
 > [Check out the Troubleshooting section](#troubleshoot-and-optimize) if RoboCopy is impacting your production environment, reports lots of errors, or isn't progressing as fast as expected.

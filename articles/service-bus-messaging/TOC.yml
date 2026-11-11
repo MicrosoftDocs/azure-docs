@@ -249,6 +249,16 @@
         href: service-bus-amqp-request-response.md
       - name: AMQP errors
         href: service-bus-amqp-troubleshoot.md
+    - name: REST and HTTP
+      items:
+      - name: REST APIs and client libraries
+        href: service-bus-rest-overview.md
+      - name: Namespace addressing
+        href: service-bus-rest-namespace-access.md
+      - name: HTTP message headers and properties
+        href: service-bus-rest-message-properties.md
+      - name: Send a message with Microsoft Entra ID authentication
+        href: service-bus-rest-send-entra-token-how-to.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Test locally with Service Bus emulator
@@ -340,7 +350,7 @@
       href: service-bus-resource-manager-exceptions.md
     - name: Service Bus exceptions 
       href: service-bus-messaging-exceptions-latest.md
-    - name: Service Bus exceptions (deprecated)
+    - name: Service Bus exceptions (retired libraries)
       href: service-bus-messaging-exceptions.md
 - name: Reference
   items:
@@ -349,22 +359,22 @@
   - name: .NET
     items:
     - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus
-      href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md
     - name: Migrate from WindowsAzure.ServiceBus to Azure.Messaging.ServiceBus
       href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md
     - name: Azure.Messaging.ServiceBus (.NET Standard - latest)
       href: /dotnet/api/azure.messaging.servicebus
-    - name: Microsoft.Azure.ServiceBus (.NET Standard - legacy)
+    - name: Microsoft.Azure.ServiceBus (retired)
       href: /dotnet/api/microsoft.azure.servicebus
-    - name: Microsoft.ServiceBus.Messaging (.NET Framework - legacy)
+    - name: WindowsAzure.ServiceBus messaging APIs (retired)
       href: /dotnet/api/microsoft.servicebus.messaging
   - name: Java
     items:
     - name: Migrate from azure-servicebus to azure-messaging-servicebus
-      href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
+      href: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
       href: /java/api/com.azure.messaging.servicebus
-    - name: azure-servicebus (legacy)
+    - name: azure-servicebus (retired)
       href: /java/api/com.microsoft.azure.servicebus
   - name: Spring
     items:

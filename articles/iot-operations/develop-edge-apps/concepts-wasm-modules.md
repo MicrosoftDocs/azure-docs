@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 06/02/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 ---
 
@@ -447,6 +447,41 @@ metrics.record_to_histogram("processing_duration", HistogramValue_F64(duration_m
 
 ---
 
+### File store (preview)
+
+Read and write whole files backed by cluster storage without granting general filesystem access:
+
+```rust
+use wasm_graph_sdk::file_store;
+
+let bytes = file_store::get("model-input", "frame-0042.png")?;
+file_store::set("results", "frame-0042.json", &result_bytes)?;
+```
+
+The graph grants each store a directory on a persistent volume claim and a read-only or read/write permission. Use this API when the data an operator needs is too large for a message payload, within the [current file size limits](./howto-webassembly-file-store.md#current-file-size-limits). Reads and writes have different limits: reading a file doesn't guarantee that the module can write it back. To learn more, see [Read and write files from WASM data flow graphs with the file store (preview)](./howto-webassembly-file-store.md).
+
+### Command invoker (mRPC)
+
+Call a request-response service over MQTT and use the reply while processing a message:
+
+```rust
+use wasm_graph_sdk::command_invoker::{self, CommandRequest, FormatIndicator, SerializedPayload};
+
+let response = command_invoker::invoke(&CommandRequest {
+    topic: "services/value/getvalue".to_string(),
+    command_name: "GetValue".to_string(),
+    payload: SerializedPayload {
+        payload: request_bytes,
+        content_type: "application/json".to_string(),
+        format_indicator: FormatIndicator::Utf8EncodedCharacterData,
+    },
+    custom_user_data: vec![],
+    timeout_secs: 3,
+});
+```
+
+Use this API for remote enrichment, lookups, and routing decisions. To learn more, see [Call services from WASM data flow graphs with the command invoker](./howto-webassembly-command-invoker.md).
+
 ## ONNX inference
 
 To embed and run small ONNX models inside your modules for in-band inference, see [Run ONNX inference in WebAssembly data flow graphs](./howto-wasm-onnx-inference.md).
@@ -520,7 +555,9 @@ variant data-model {
 
 - [Build WASM modules for data flows](howto-build-wasm-modules.md)
 - [Create stateful WASM graphs with the state store](howto-wasm-state-store.md)
+- [Call services from WASM data flow graphs with the command invoker](howto-webassembly-command-invoker.md)
 - [Use schema registry with WASM modules](howto-wasm-schema-registry.md)
+- [Read and write files from WASM data flow graphs with the file store (preview)](howto-webassembly-file-store.md)
 - [Debug WASM modules](howto-debug-wasm-modules.md)
 - [Test WASM modules](howto-test-wasm-modules.md)
 - [Configure graph definitions](howto-configure-wasm-graph-definitions.md)

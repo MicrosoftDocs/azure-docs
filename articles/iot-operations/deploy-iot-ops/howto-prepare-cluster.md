@@ -83,13 +83,16 @@ To prepare an Azure Arc-enabled OpenShift cluster, you need:
 
 - A Red Hat OpenShift cluster, version 4.20 or later.
 
-- The [OpenShift CLI (`oc`)](https://docs.openshift.com/container-platform/latest/cli_reference/openshift_cli/getting-started-cli.html) installed on your development machine, signed in to your cluster with an account that has the `cluster-admin` role. Granting security context constraints requires `cluster-admin`.
+- The [OpenShift CLI (`oc`)](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/cli_tools/openshift-cli-oc) installed on your development machine, signed in to your cluster with an account that has the `cluster-admin` role. Granting security context constraints requires `cluster-admin`.
 
 - Hardware that meets the system requirements:
   - [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
   - [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 ---
+
+> [!TIP]
+> To prepare a cluster in Azure Government, see [Azure IoT Operations in Azure Government](../overview-azure-government.md#deploy-azure-iot-operations) for the differences with Azure public cloud.
 
 [!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
@@ -323,7 +326,7 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 To prepare an OpenShift cluster, you need a single-node or multi-node OpenShift cluster, version
 4.20 or later.
 
-OpenShift enforces [security context constraints (SCCs)](https://docs.openshift.com/container-platform/latest/authentication/managing-security-context-constraints.html), which control the privileges that pods can request. By default, OpenShift assigns each project a UID range and admits pods under the `restricted-v2` constraint. Some Azure IoT Operations components request fixed user IDs outside that range, so you grant additional constraints before you deploy.
+OpenShift enforces [security context constraints (SCCs)](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/authentication_and_authorization/managing-pod-security-policies), which control the privileges that pods can request. By default, OpenShift assigns each project a UID range and admits pods under the `restricted-v2` constraint. Some Azure IoT Operations components request fixed user IDs outside that range, so you grant additional constraints before you deploy.
 
 ### Grant security context constraints
 
@@ -448,6 +451,8 @@ When you deploy Azure IoT Operations to this cluster, include the following opti
 ---
 
 ## Configure Azure Container Storage enabled by Azure Arc
+
+[!INCLUDE [azure-government-acsa-note](../includes/azure-government-container-storage-note.md)]
 
 Features such as data flow local storage endpoints and the media connector optionally use [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/overview) to synchronize local data to the cloud. ACSA isn't installed as part of Azure IoT Operations, so you must install it separately.
 

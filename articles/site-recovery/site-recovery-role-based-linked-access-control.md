@@ -48,7 +48,9 @@ When you replicate a virtual machine by using Azure Site Recovery or perform oth
 |  | Microsoft.Network/virtualNetworks/read | Target Virtual Network |
 |  | Microsoft.Network/virtualNetworks/write | Target Virtual Network |
 |  | Microsoft.Network/networkSecurityGroups/read | Target Network Security Group |
-|  | Microsoft.Network/networkInterfaces/read | Target Resource Group | 
+|  | Microsoft.Network/networkInterfaces/read | Target Resource Group |
+|  | Microsoft.Network/loadBalancers/read | Target Load Balancer |
+|  | Microsoft.Network/publicIPAddresses/read | Target Public IP Address |
 |  | Microsoft.Storage/storageAccounts/read | Cache Storage Account, Target Boot Diagnostics Storage Account |
 |  | Microsoft.Storage/storageAccounts/write | Cache Storage Account |
 |  | Microsoft.KeyVault/vaults/deploy/action | Target Key Vault |
@@ -60,6 +62,7 @@ When you replicate a virtual machine by using Azure Site Recovery or perform oth
 |  | Microsoft.Storage/storageAccounts/read| Cache Storage Account | 
 | Failover, Test Failover | Microsoft.Network/virtualNetworks/read | Target Virtual Network | Site Recovery Operator, Reader |
 |  | Microsoft.Compute/capacityReservationGroups/read | Target Capacity reservation group |
+| Create and Update Recovery Plans | Microsoft.Automation/automationAccounts/read | Automation accounts selected in plan configuration | Site Recovery Contributor, Reader | 
 
 Consider using the preceding recommended roles or other relevant least privilege [built-in roles](../role-based-access-control/built-in-roles.md) or create a custom role with the required permissions.
 

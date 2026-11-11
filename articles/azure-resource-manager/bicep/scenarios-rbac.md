@@ -3,7 +3,7 @@ title: Use Bicep to create Azure role-based access control (Azure RBAC) resource
 description: Learn how to use Bicep to create role assignments and definitions.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 10/26/2026
 ---
 
 # Use Bicep to create Azure role-based access control (Azure RBAC) resources 
@@ -40,7 +40,11 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
 
 resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   scope: storageAccount
-  name: guid(storageAccount.id, principalId, roleDefinitionResourceId)
+  name: getRoleAssignmentName({
+    scope: storageAccount.id
+    principalId: principalId
+    roleDefinitionId: roleDefinitionResourceId
+  })
   properties: {
     roleDefinitionId: roleDefinitionResourceId
     principalId: principalId
@@ -58,7 +62,11 @@ param principalId string
 targetScope = 'subscription'
 
 resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(subscription().id, principalId, roleDefinitionResourceId)
+  name: getRoleAssignmentName({
+    scope: subscription().id
+    principalId: principalId
+    roleDefinitionId: roleDefinitionResourceId
+  })
   properties: {
     roleDefinitionId: roleDefinitionResourceId
     principalId: principalId
@@ -78,11 +86,20 @@ A role assignment's resource name must be a globally unique identifier (GUID).
 
 Role assignment resource names must be unique within the Microsoft Entra tenant, even if the scope is narrower.
 
-For your Bicep deployment to be repeatable, it's important for the name to be deterministic; i.e., use the same name every time you deploy. It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. It's a good idea to use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
+For your Bicep deployment to be repeatable, it's important for the name to be deterministic; that is, use the same name every time you deploy. For new role assignments, use the [getRoleAssignmentName() function](bicep-functions-resource.md#getroleassignmentname) to create a deterministic GUID from the scope, principal ID, and fully qualified role definition ID:
 
 ```bicep
-name: guid(subscription().id, principalId, roleDefinitionResourceId)
+name: getRoleAssignmentName({
+  scope: subscription().id
+  principalId: principalId
+  roleDefinitionId: roleDefinitionResourceId
+})
 ```
+
+The function normalizes input casing, removes trailing slashes from the scope, and uses only the role definition GUID from the role definition resource ID. Pass the Microsoft Entra object ID as `principalId`, not an Azure resource ID.
+
+> [!IMPORTANT]
+> Keep the names of existing role assignments when updating your Bicep files. Switching from `guid()` or another naming convention to `getRoleAssignmentName()` can generate a different name for the same assignment and cause a `RoleAssignmentExists` error. To adopt the new name, delete the old assignment before deploying its replacement.
 
 ### Role definition ID
 
@@ -100,7 +117,11 @@ resource contributorRoleDefinition 'Microsoft.Authorization/roleDefinitions@2022
 }
 
 resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(resourceGroup().id, principalId, contributorRoleDefinition.id)
+  name: getRoleAssignmentName({
+    scope: resourceGroup().id
+    principalId: principalId
+    roleDefinitionId: contributorRoleDefinition.id
+  })
   properties: {
     roleDefinitionId: contributorRoleDefinition.id
     principalId: principalId
@@ -119,6 +140,8 @@ The `principalType` property specifies whether the principal is a user, a group,
 > It's important to set the `principalType` property when you create a role assignment in Bicep. Otherwise, you might get intermittent deployment errors, especially when you work with service principals and managed identities.
 
 The following example shows how to create a user-assigned managed identity and a role assignment:
+
+This example retains `guid()` with the identity's resource ID because the identity's principal ID isn't available at the start of the deployment, when the role assignment name must be calculated. To use `getRoleAssignmentName()` instead, create the role assignment in a module and pass `managedIdentity.properties.principalId` as a module parameter.
 
 ```bicep
 param location string = resourceGroup().location

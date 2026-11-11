@@ -146,6 +146,9 @@ items:
   - name: Business Continuity Center
     tocHref: /azure/business-continuity-center/
     topicHref: /azure/business-continuity-center/index
+  - name: Azure in China Playbook
+    tocHref: /azure/china/
+    topicHref: /azure/china/
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
@@ -174,14 +177,14 @@ items:
     items:
     - name: Durable Functions
       tocHref: /azure/durable-task/durable-functions/
-      topicHref: /azure/durable-task/durable-functions/index
+      topicHref: /azure/durable-task/durable-functions/durable-functions-overview
   - name: Durable Task
     tocHref: /azure/durable-task/common/
     topicHref: /azure/durable-task/index
     items:
     - name: Durable Functions
       tocHref: /azure/durable-task/durable-functions/
-      topicHref: /azure/durable-task/durable-functions/index
+      topicHref: /azure/durable-task/durable-functions/durable-functions-overview
   - name: Azure Australia
     tocHref: /azure/azure-australia/
     topicHref: /azure/azure-australia/

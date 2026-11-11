@@ -302,6 +302,15 @@ cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service ngin
 
 This command replaces the default NGINX configuration file with a file named `default` in your repository root, and it restarts NGINX.
 
+> [!NOTE]
+> Use line feed (LF) rather than carriage return and line feed (CRLF) line endings in startup shell scripts, especially scripts you create or package on Windows. If CRLF causes a shell failure, the intended NGINX document-root command might not run. Add this rule to your application's `.gitattributes`:
+>
+> ```gitattributes
+> *.sh text eol=lf
+> ```
+>
+> This rule doesn't automatically convert deployed files. Save scripts with LF before packaging and redeploying. After deployment, check startup logs and verify that the expected endpoint returns the intended content.
+
 ::: zone-end
 
 ## Detect an HTTPS session

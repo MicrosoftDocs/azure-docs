@@ -125,7 +125,7 @@ The following section contains NVA provider-specific instructions on configuring
 
 |Partner| Instructions|
 |--|--|
-|checkpoint|[Check Point documentation](https://aka.ms/ckptDNAT)|
+|checkpoint|[Check Point documentation](https://sc1.checkpoint.com/documents/Cloud_Firewall/Azure/VWAN/deploying_new_cgns_nva/step-9-configure-ingress-traffic.html)|
 |fortinet-sdwan-and-ngfw| [Fortinet SD-WAN and NGFW documentation](https://aka.ms/fortinethybriddnat)|
 |fortinet-ngfw| [Fortinet NGFW documentation](https://aka.ms/fortinetngfwdnat) |
 

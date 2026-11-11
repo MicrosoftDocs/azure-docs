@@ -122,11 +122,12 @@ For an intermediate CA that is issued by an external CA, you can't revoke the CA
 
 ## Set variables
 
-Optionally, define shared variables so you can reuse the same values across all commands and reduce input errors.
+The following examples use Bash syntax. Optionally, define shared variables for the commands in this article. If you don't set these variables, replace each variable reference in the commands with its value.
 
 ```azurecli
 RG_NAME="<resource-group>"
 NS_NAME="<adr-namespace>"
+SUBSCRIPTION_ID="<subscription-id>"
 ```
 
 ## Revoke certificates for a device by using Azure CLI
@@ -137,9 +138,9 @@ Run this command to revoke certificates for a device in Azure Device Registry.
 az iot adr ns device auth revoke-certs \
   --name "<authentication-profile-name>" \
   --device-name "<registry-device-name>" \
-  --ns "<namespace-name>" \
-  --resource-group "<resource-group-name>" \
-  --subscription "<subscription-id>" \
+  --ns "$NS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
   --yes
 ```
 
@@ -148,10 +149,10 @@ If you're unsure of the name of your device's authentication profile name, run t
 
 ```azurecli
 az iot adr ns device auth list \
-  --device-name "<device-name>" \
-  --ns "<namespace-name>" \
-  --resource-group "<resource-group-name>" \
-  --subscription "<subscription-id>" \
+  --device-name "<registry-device-name>" \
+  --ns "$NS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
   --query "[].name" \
   --output tsv
 ```
@@ -163,9 +164,9 @@ Run this command to revoke and rotate an intermediate certificate authority that
 ```azurecli
 az iot adr ns ca revoke \
   --name "<intermediate-ca-name>" \
-  --ns "<namespace-name>" \
-  --resource-group "<resource-group-name>" \
-  --subscription "<subscription-id>" \
+  --ns "$NS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
   --yes
 ```
 

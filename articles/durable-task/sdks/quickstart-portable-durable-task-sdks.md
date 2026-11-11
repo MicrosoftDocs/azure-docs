@@ -7,8 +7,9 @@ description: Create orchestrations using Durable Task SDKs and the Durable Task 
 ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-task-sdks
-ms.date: 05/26/2026
-zone_pivot_groups: df-languages
+ms.date: 10/12/2026
+ai-usage: ai-assisted
+zone_pivot_groups: durable-task-sdk-languages
 ms.custom:
   - build-2025
 ---
@@ -24,16 +25,16 @@ By the end of this quickstart, you'll have a working orchestration that fans out
 [!INCLUDE [preview-sample-limitations](../scheduler/includes/preview-sample-limitations.md)]
 
 > [!NOTE]
-> PowerShell support for the Durable Task SDKs is in preview. For a full quickstart experience, select a different language tab above (C#, Python, Java, or JavaScript).
+> PowerShell support for the Durable Task SDKs is in preview. For a full quickstart experience, select a different language tab above (C#, Python, Java, JavaScript, or Go).
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java,javascript"
+::: zone pivot="csharp,python,java,javascript,go"
 
 > [!div class="checklist"]
 >
 > - Set up and run the Durable Task Scheduler emulator for local development. 
-> - Run the worker and client projects.
+> - Run the worker and client.
 > - Review orchestration status and history via the Durable Task Scheduler dashboard.
 
 ## Prerequisites
@@ -75,11 +76,27 @@ Before you begin:
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java,javascript"
+::: zone pivot="go"
+
+- Install [Go 1.25 or later](https://go.dev/dl/).
+- Install [Docker](https://www.docker.com/products/docker-desktop/) or a compatible container runtime.
+
+> [!NOTE]
+> The Go SDK is in beta. This quickstart uses `github.com/microsoft/durabletask-go@v1.0.0-beta3` and creates a new self-hosted Go app. You don't need an Azure subscription or sample repository checkout.
+
+::: zone-end
+
+::: zone pivot="csharp,python,java,javascript,go"
 
 ## Set up the Durable Task Scheduler emulator
 
-The emulator simulates the Durable Task Scheduler and a task hub inside a Docker container, making it ideal for local development. The sample code connects to the emulator by default when no environment variables are set.
+The emulator simulates the Durable Task Scheduler and a task hub inside a Docker container, making it ideal for local development.
+
+::: zone-end
+
+::: zone pivot="csharp,python,java,javascript"
+
+The sample code connects to the emulator by default when no environment variables are set.
 
 ::: zone-end
 
@@ -188,7 +205,36 @@ Since the example code automatically uses the default emulator settings, you don
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java,javascript"
+::: zone pivot="go"
+
+1. Start a dedicated emulator. Bind the ports to loopback to keep the unauthenticated emulator local to your machine.
+
+   ```bash
+   docker run --name go-dts-emulator -d \
+     -p 127.0.0.1:8080:8080 -p 127.0.0.1:8082:8082 \
+     mcr.microsoft.com/dts/dts-emulator:latest
+   ```
+
+   Wait for the dashboard at <http://localhost:8082> to become available. If another emulator already uses these ports, use that emulator or stop it before starting a second one.
+
+1. Configure the connection in the terminal where you'll run the Go app.
+
+   ```bash
+   export DTS_CONNECTION_STRING="Endpoint=http://localhost:8080;TaskHub=default;Authentication=None"
+   ```
+
+1. Create a Go module and install the SDK.
+
+   ```bash
+   mkdir durable-task-go-quickstart
+   cd durable-task-go-quickstart
+   go mod init example.com/durable-task-go-quickstart
+   go get github.com/microsoft/durabletask-go@v1.0.0-beta3
+   ```
+
+::: zone-end
+
+::: zone pivot="csharp,python,java,javascript,go"
 
 ## Run the quickstart
 
@@ -500,9 +546,181 @@ Result: {"totalItems":10,"sum":385,"average":38.5,"results":[...]}
 
 ::: zone-end
 
+::: zone pivot="go"
+
+Save the following complete program as `main.go` in `durable-task-go-quickstart`:
+
+```go
+package main
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"os"
+	"time"
+
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/client"
+	"github.com/microsoft/durabletask-go/durabletaskscheduler"
+	"github.com/microsoft/durabletask-go/task"
+)
+
+type summary struct {
+	TotalItems int     `json:"total_items"`
+	Sum        int64   `json:"sum"`
+	Average    float64 `json:"average"`
+}
+
+func fanOutFanIn(ctx *task.OrchestrationContext) (any, error) {
+	var items []int64
+	if err := ctx.GetInput(&items); err != nil {
+		return nil, err
+	}
+	if len(items) > 100 {
+		return nil, fmt.Errorf("batch contains more than 100 items")
+	}
+
+	pending := make([]task.Task, len(items))
+	for i, item := range items {
+		pending[i] = ctx.CallActivity("ProcessWorkItem", task.WithActivityInput(item))
+	}
+	if err := ctx.WhenAll(pending...); err != nil {
+		return nil, fmt.Errorf("process batch: %w", err)
+	}
+
+	result := summary{TotalItems: len(items)}
+	for _, work := range pending {
+		var squared int64
+		if err := work.Await(&squared); err != nil {
+			return nil, err
+		}
+		result.Sum += squared
+	}
+	if result.TotalItems != 0 {
+		result.Average = float64(result.Sum) / float64(result.TotalItems)
+	}
+	return result, nil
+}
+
+func processWorkItem(ctx task.ActivityContext) (any, error) {
+	var item int64
+	if err := ctx.GetInput(&item); err != nil {
+		return nil, err
+	}
+	if item < -1_000_000 || item > 1_000_000 {
+		return nil, fmt.Errorf("item %d exceeds the sample's safe arithmetic range", item)
+	}
+	return item * item, nil
+}
+
+func run(ctx context.Context) (err error) {
+	options, err := durabletaskscheduler.NewOptionsFromConnectionString(
+		os.Getenv("DTS_CONNECTION_STRING"))
+	if err != nil {
+		return err
+	}
+
+	registry := task.NewTaskRegistry()
+	if err := registry.AddOrchestratorN("FanOutFanIn", fanOutFanIn); err != nil {
+		return err
+	}
+	if err := registry.AddActivityN("ProcessWorkItem", processWorkItem); err != nil {
+		return err
+	}
+
+	logger := api.DefaultLogger()
+	durableClient, err := durabletaskscheduler.NewClient(ctx, options, logger)
+	if err != nil {
+		return err
+	}
+	defer func() {
+		err = errors.Join(err, durableClient.Close())
+	}()
+
+	worker, err := durabletaskscheduler.NewWorker(
+		options, registry, logger, client.WithAutoWorkItemFilters())
+	if err != nil {
+		return err
+	}
+	if err := worker.Start(ctx); err != nil {
+		return err
+	}
+	defer func() {
+		shutdownCtx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+		defer cancel()
+		err = errors.Join(err, worker.Shutdown(shutdownCtx))
+	}()
+
+	id, err := durableClient.ScheduleNewOrchestration(
+		ctx, "FanOutFanIn",
+		api.WithInput([]int64{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}))
+	if err != nil {
+		return err
+	}
+	metadata, err := durableClient.WaitForOrchestrationCompletion(
+		ctx, id, api.WithFetchPayloads(true))
+	if err != nil {
+		return err
+	}
+	if metadata.RuntimeStatus != api.RUNTIME_STATUS_COMPLETED {
+		return fmt.Errorf("orchestration ended with %s: %+v",
+			metadata.RuntimeStatus, metadata.FailureDetails)
+	}
+	var result summary
+	if err := metadata.ReadOutput(&result); err != nil {
+		return err
+	}
+	fmt.Printf("Instance: %s\nStatus: %s\n", id, metadata.RuntimeStatus)
+	fmt.Printf("Items: %d\nSum: %d\nAverage: %.1f\n",
+		result.TotalItems, result.Sum, result.Average)
+	return nil
+}
+
+func main() {
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
+	defer cancel()
+	if err := run(ctx); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+}
+```
+
+Run the program:
+
+```bash
+go mod tidy
+go run .
+```
+
+Run `go mod tidy` after saving the code so Go records the SDK's transitive dependencies and checksums.
+
+The worker and client run in the same process. The worker drains and the client closes when the demonstration finishes. The instance remains in the emulator so you can inspect its history.
+
+### Understanding the output
+
+The program squares the numbers 1 through 10 in parallel and aggregates the results. The instance ID varies, but the final values are:
+
+```output
+Instance: <generated-instance-id>
+Status: ORCHESTRATION_STATUS_COMPLETED
+Items: 10
+Sum: 385
+Average: 38.5
+```
+
+A connection, activity, decoding, or shutdown error produces a nonzero exit status. A terminal workflow failure isn't treated as successful completion.
+
+::: zone-end
+
 ::: zone pivot="csharp,python,java,javascript"
 
 Now that you've run the project locally, learn how to [deploy to Azure hosted in Azure Container Apps](#next-steps).
+
+::: zone-end
+
+::: zone pivot="csharp,python,java,javascript,go"
 
 ## View orchestration status and history
 
@@ -542,7 +760,7 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java,javascript"
+::: zone pivot="csharp,python,java,javascript,go"
 
 ## Understanding the code structure
 
@@ -946,7 +1164,21 @@ await client.stop();
 
 ::: zone-end
 
+::: zone pivot="go"
+
+`fanOutFanIn` schedules every activity before waiting. `ctx.WhenAll` waits for the whole batch, including remaining tasks when one fails. `Await` then decodes each activity result. This approach provides durable concurrency; the orchestrator doesn't create native goroutines.
+
+`processWorkItem` runs outside the orchestrator and can perform ordinary Go I/O. This sample uses arithmetic instead and bounds the input to avoid overflow. The orchestrator also bounds the batch size.
+
+`run` registers the task names, creates separate client and worker connections, starts the worker, and schedules one instance. It requests output payloads, checks `RuntimeStatus`, and reads typed output. Its deferred shutdown uses a fresh context so cleanup can still run after the main timeout.
+
+For other workflow patterns and beta limitations, see [Develop with the Durable Task SDK for Go](durable-task-go.md).
+
+::: zone-end
+
 ## Clean up resources
+
+::: zone pivot="csharp,python,java,javascript,powershell"
 
 Stop the emulator container when you're done:
 
@@ -954,9 +1186,32 @@ Stop the emulator container when you're done:
 docker stop dtsemulator && docker rm dtsemulator
 ```
 
+::: zone-end
+
+::: zone pivot="go"
+
+If you started `go-dts-emulator` for this quickstart, stop and remove it:
+
+```bash
+docker stop go-dts-emulator && docker rm go-dts-emulator
+```
+
+::: zone-end
+
 ## Next steps
+
+::: zone pivot="csharp,python,java,javascript,powershell"
 
 Now that you've run the sample locally using the Durable Task Scheduler emulator, try creating a scheduler and task hub resource and deploying to Azure Container Apps.
 
 > [!div class="nextstepaction"]
 > [Deploy Durable Task Scheduler hosted on Azure Container Apps to Azure](./quickstart-container-apps-durable-task-sdk.md)
+
+::: zone-end
+
+::: zone pivot="go"
+
+> [!div class="nextstepaction"]
+> [Develop with the Durable Task SDK for Go](durable-task-go.md)
+
+::: zone-end

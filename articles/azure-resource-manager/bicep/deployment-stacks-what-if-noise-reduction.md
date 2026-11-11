@@ -3,7 +3,7 @@ title: Noise reduction in deployment stack what-if results
 description: Learn how deployment stacks filter noise out of what-if results by comparing each evaluation against a baseline recorded at deploy time.
 ms.topic: concept-article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 10/06/2026
+ms.date: 11/04/2026
 ---
 
 # Noise reduction in deployment stack what-if results
@@ -106,7 +106,7 @@ New-AzResourceGroupDeploymentStackWhatIfResult `
 
 The `actionOnUnmanage` and deny settings values affect the result, because they change how the stack manages your resources. For example, if you remove a resource from your file and set `actionOnUnmanage` to delete resources, what-if reports that resource as deleted rather than detached. Running what-if doesn't change any deployed resources. It creates only the what-if result resource that stores the output.
 
-To run what-if against a stack, you need permission to read the stack and the resources it manages, and permission to create the what-if result, which is the `Microsoft.Resources/deploymentStacksWhatIfResults/write` action.
+To run what-if against a stack, you need permission to read the stack and the resources it manages, and permission to create the what-if result, which is the `Microsoft.Resources/deploymentStacksWhatIfResults/write` action. If the what-if request uses deny settings, you also need the `Microsoft.Resources/deploymentStacks/manageDenySetting/action` action.
 
 ## Report a property that should be filtered
 

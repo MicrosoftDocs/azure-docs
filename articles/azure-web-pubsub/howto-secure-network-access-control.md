@@ -200,6 +200,17 @@ resource webpubsub 'Microsoft.SignalRService/WebPubSub@2024-08-01-preview' = {
 -----
 
 
+## Exceptions
+
+The following APIs are always accessible by design. The preceding network access control doesn't apply to them.
+
+- `/status`
+- `/api/health`
+- `/api/v1/health`
+
+These APIs can be used for health probe purposes.
+
+
 ## Next steps
 
 Learn more about [Azure Private Link](../private-link/private-link-overview.md).

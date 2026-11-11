@@ -123,7 +123,7 @@ Web PubSub chat runs on Web PubSub's **reliable** WebSocket connection. If the c
 
 ## Roles and permissions
 
-Web PubSub chat allows you to control who can do what through roles and permissions. A *permission* is a single action, and a *role* is a named set of permissions. 
+Web PubSub chat allows you to control who can do what through roles and permissions. A *permission* is a single action, and a *role* is a named set of permissions.
 
 For the full permission lists, the built-in roles, and how to assign or customize them, see
 [Configure roles and permissions](chat-howto-roles-permissions.md).

@@ -7,7 +7,7 @@ ms.service: azure-iot-operations
 ms.subservice: azure-opcua-connector
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 07/27/2026
+ms.date: 10/23/2026
 
 
 #CustomerIntent: As an OT user, I want to configure my Azure IoT Operations environment so that I can control my OPC UA server. I also want to see a sample application that lets me do this.
@@ -21,6 +21,7 @@ This article describes:
 
 - The different ways you can write data to your OPC UA server.
 - The different ways you can read data from your OPC UA server.
+- How to keep requests pending during transient connection failures by using stateful execution.
 - How to find the sample application that demonstrates these scenarios.
 
 ## Sample asset definitions
@@ -273,12 +274,13 @@ The message must include the required [metadata](https://github.com/Azure/iot-op
 
 ### Call a method by using a management group
 
-The example asset called `management-actions-asset` has an action called `Switch` in the management group `managementGroup`. To switch the boiler on or off, call this action. The action type is `Call`.
+The example asset named `management-actions-asset` has an action named `Switch` in the management group `managementGroup`. To turn the boiler on or off, call this action. The action type is `Call`.
 
-An action always has the following properties:
+For a method call, the management group's `dataSource` maps to the OPC UA [objectId](https://reference.opcfoundation.org/Core/Part4/v104/docs/5.11.2.2). It distinguishes methods defined for multiple objects.
+
+The action has the following properties:
 
 - `name`: Name of the action in a management group.
-- `dataSource`: Maps to the `objectId` in [OPC UA](https://reference.opcfoundation.org/Core/Part4/v104/docs/5.11.2.2). Distinguishes methods defined for multiple objects.
 - `targetUri`: Maps to the `methodId` in [OPC UA](https://reference.opcfoundation.org/Core/Part4/v104/docs/5.11.2.2). References the method to call.
 - `actionType`: The type of action. For methods, this property is always `Call`.
 
@@ -298,19 +300,19 @@ When you publish a message to the topic `azure-iot-operations/asset-operations/<
 
 The message must include the required [metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
 
-### Explicit write using a management group
+### Explicit write by using a management group
 
 Use explicit writes to write to data points that aren't part of a dataset. Compared to a dataset write, the differences are:
 
 - You must explicitly configure the data points.
-- Value changes aren't transmitted as part of the telemetry. Therefore, the client must rely on the MQTT RPC response.
+- The telemetry doesn't include value changes. Therefore, the client must rely on the MQTT RPC response.
 
 The example asset called `management-actions-asset` has an action called `explicit-write` in the management group `managementGroup` that you can set. The action type is `Write`. 
 
 An action always has the following properties:
 
 - `name`: Name of the action in a management group.
-- `targetUri`: The `nodeId` of the node to write to.
+- `targetUri`: The node ID or [relative browse path](#address-nodes-by-using-browse-paths) of the node to write to.
 - `actionType`: The type of action. For explicit writes, this property is always `Write`.
 
 When you publish a message to the topic `azure-iot-operations/asset-operations/<asset name>/<management group name>/<action name>` that includes a value for `explicit-write`, the commander service writes to the target URI. For example, to set the target temperature for the boiler, publish a message with the following payload to the topic `azure-iot-operations/asset-operations/management-actions-asset/managementGroup/explicit-write`:
@@ -360,7 +362,7 @@ A sub-path write addresses each target by its relative browse path from the root
 ```
 
 > [!TIP]
-> The previous example shows a single relative browse path and value. You can include multiple relative browse paths and values in the same message to write to multiple nodes at once. 
+> The preceding example shows a single relative browse path and value. You can include multiple relative browse paths and values in the same message to write to multiple nodes at once. 
 
 The commander service accepts only relative paths that stay within the subtree. It rejects absolute node IDs and paths that leave the subtree, returning `BadInvalidArgument`. As with other write actions, the response is empty on full success. Otherwise, the response reports each failed path with its OPC UA status:
 
@@ -376,7 +378,7 @@ The message must include the required [metadata](https://github.com/Azure/iot-op
 
 Typically, to read data from an OPC UA server, you create a dataset that includes data points that map to the nodes you want to read. You then configure the dataset to send values as telemetry, such as by publishing to an MQTT topic.
 
-However, in some scenarios, you might want to read from an OPC UA node that's not included in a dataset or do a one-off read of dataset.
+However, in some scenarios, you might want to read from an OPC UA node that you didn't include in a dataset or do a one-time read of a dataset.
 
 The `opc-ua-commander` service in the Azure IoT Operations cluster connects to your OPC UA server and performs read operations on your behalf. The `opc-ua-commander` service uses the [RPC protocol](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md) over MQTT to receive read requests and send responses. The message must include the required system and user [message metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
 
@@ -385,7 +387,7 @@ The `opc-ua-commander` service in the Azure IoT Operations cluster connects to y
 
 The commander service can perform the following types of read operations:
 
-### Explicit read using a management group
+### Explicit read by using a management group
 
 Use *explicit reads* to read data points that aren't part of a dataset. Compared to a standard dataset read, the differences are:
 
@@ -397,7 +399,7 @@ The example asset called `management-actions-asset` has an action called `explic
 An action always has the following properties:
 
 - `name`: Name of the action in a management group.
-- `targetUri`: The `nodeId` of the node to read from.
+- `targetUri`: The node ID or [relative browse path](#address-nodes-by-using-browse-paths) of the node to read from.
 - `actionType`: The type of action. For explicit reads, this property is always `Read`.
 
 When you publish a message to the topic `azure-iot-operations/asset-operations/<asset name>/<management group name>/<action name>`, the commander service reads from the target URI. For example, to read the target temperature for the boiler, publish a message with the following payload to the topic `azure-iot-operations/asset-operations/management-actions-asset/managementGroup/explicit-read`:
@@ -406,7 +408,7 @@ When you publish a message to the topic `azure-iot-operations/asset-operations/<
 {}
 ```
 
-After the commander executes the action, its response is a JSON representation of the OPC UA read response.
+After the commander executes the action, it returns a JSON representation of the OPC UA read response.
 
 The message must include the required [metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
 
@@ -445,6 +447,106 @@ When you publish an empty message, `{}`, to the topic `azure-iot-operations/asse
 The message must include the required [metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
 
 The response to a successfully executed request is a message that contains all the current node values from the dataset.
+
+## Configure stateful execution
+
+By default, the commander service doesn't keep requests pending through an OPC UA connection failure or reconnection. Starting with Azure IoT Operations release 2610, you can enable *stateful execution* to let an MQTT RPC request wait through these transient interruptions, within the request's execution time budget.
+
+Stateful execution supports dataset reads and writes, and management group read, write, and method call actions. It also supports custom topics and sub-path reads and writes.
+
+### Enable stateful execution for a dataset or action
+
+Set `statefulExecution` to `true` in the relevant configuration field on the namespaced asset. These fields contain JSON strings:
+
+| Configuration field | Applies to | Default behavior |
+| --- | --- | --- |
+| `datasetConfiguration` | Read and write requests for the dataset | Disabled unless explicitly enabled on the dataset. |
+| `managementGroupConfiguration` | Actions in the management group | Disabled unless enabled on the group or an individual action. |
+| `actionConfiguration` | An individual action | Inherits the group's setting unless the action explicitly overrides it. |
+
+The asset-wide `defaultDatasetsConfiguration` and `defaultManagementGroupsConfiguration` fields don't supply defaults for stateful execution. You can't override the setting on an individual data point.
+
+The following example enables stateful execution for the `temperatures` dataset and the `controls` management group. The `readTarget` action inherits the group's setting, while `writeTargetOnce` explicitly disables stateful execution:
+
+```yaml
+apiVersion: namespaces.deviceregistry.microsoft.com/v1
+kind: Asset
+metadata:
+  name: boiler
+  namespace: azure-iot-operations
+spec:
+  enabled: true
+  deviceRef:
+    deviceName: boiler-device
+    endpointName: opcua
+  datasets:
+    - name: temperatures
+      datasetConfiguration: '{"statefulExecution":true}'
+      dataPoints:
+        - name: target
+          dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=6217"
+  managementGroups:
+    - name: controls
+      managementGroupConfiguration: '{"statefulExecution":true}'
+      actions:
+        - name: readTarget
+          actionType: Read
+          targetUri: "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=6217"
+        - name: writeTargetOnce
+          actionType: Write
+          targetUri: "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=6217"
+          actionConfiguration: '{"statefulExecution":false}'
+```
+
+The `statefulExecution` value must be a JSON boolean (`true` or `false`), not `null`, a string, or a number. If the configuration contains malformed JSON or an invalid value, the commander service rejects it, logs a configuration error, and reports the asset health reason `OpcUaCommanderAssetInvalidConfiguration`. An invalid update doesn't replace the active services.
+
+When you update the setting, new requests use the updated configuration. Requests that were already accepted keep their original execution policy. Stopping or replacing the service cancels pending requests.
+
+### Monitor stateful requests
+
+Use the following metrics to monitor stateful execution:
+
+| Metric | Meaning |
+| --- | --- |
+| `aio.opc.commander.request.retry.count` | Number of extra attempts made before dispatching an OPC UA operation. |
+| `aio.opc.commander.request.stateful.count` | One final outcome for each request with stateful execution enabled. |
+
+Neither metric includes request identities as metric dimensions. For timing and expiration errors, see [Well-known application error codes](#well-known-application-error-codes).
+
+## Address nodes by using browse paths
+
+Use relative browse paths when the server's node IDs can change. For the definition, see [OPC UA Part 4, section 5.9.4.1](https://reference.opcfoundation.org/specs/OPC-10000-4/5.9.4.1) from the OPC Foundation. For dataset reads and writes, set the dataset's `dataSource` to a stable starting node. Set each data point's `dataSource` to its relative path:
+
+```bicep
+datasets: [
+  {
+    name: 'boiler-data'
+    dataSource: 'nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=5'
+    dataPoints: [
+      {
+        name: 'CurrentTemperature'
+        dataSource: '/4:Boiler &#2/2:ParameterSet/4:CurrentTemperature'
+      }
+    ]
+  }
+]
+```
+
+Dataset read/write payloads still use data point names as JSON keys.
+
+For a single-node management action, set the management group's `dataSource` to the starting node and `targetUri` to a relative path:
+
+```yaml
+managementGroups:
+  - name: boiler-management
+    dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=5"
+    actions:
+      - name: SetTargetTemperature
+        actionType: Write
+        targetUri: "/4:Boiler &#2/2:ParameterSet/4:TargetTemperature"
+```
+
+Browse paths don't change the request or response payload format. Unlike a [sub-path action](#sub-path-write-using-a-management-group), a relative `targetUri` selects one node.
 
 ## Endpoint operations
 
@@ -528,8 +630,12 @@ The response [message metadata](https://github.com/Azure/iot-operations-sdks/blo
 | `NoActionName` | The request doesn't include an action name in the topic. |
 | `UnknownAction` | The action name doesn't exist in the management group of the asset. |
 | `CustomTopicExecutorExists` | The action uses a custom topic, but the request targets the default topic instead. |
+| `StatefulExecutionInvalidTiming` | A request with stateful execution enabled has no decoded timestamp or uses unsupported timing or expiration settings. No OPC UA operation was invoked. |
+| `StatefulExecutionExpired` | The request's execution time budget was exhausted. If the operation was already dispatched to the OPC UA server, the server might still have performed it. |
 | `Bad...` (an OPC UA status name) | The OPC UA server, or the commander service's prevalidation, rejected the request or a node. See [OPC UA status codes](#opc-ua-status-codes). |
 | A diagnostic message | An unexpected condition. The string describes the reason, such as a lost OPC UA session. |
+
+The stateful execution errors apply to requests with [stateful execution enabled](#configure-stateful-execution). Malformed protocol headers that the SDK rejects before they reach the commander service still produce SDK protocol errors. Enabling stateful execution doesn't change how other application errors are reported in the metadata or payload.
 
 ### Results for each data point in the response payload
 

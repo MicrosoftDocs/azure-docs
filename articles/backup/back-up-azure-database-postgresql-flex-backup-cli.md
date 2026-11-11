@@ -84,6 +84,8 @@ Check the [permissions](backup-azure-database-postgresql-flex-overview.md#permis
 
 ### Prepare the backup configuration request
 
+The identity running the commands needs read permission on the source PostgreSQL flexible server, such as through the **Reader** role on that server. This permission is separate from the permissions assigned to the Backup vault's managed identity.
+
 Once all the relevant permissions are set, configure the backup by running the following commands:
 
 1. Prepare the relevant request by using the relevant vault, policy, PostgreSQL – Flexible server database using the [`az dataprotection backup-instance initialize`](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az-dataprotection-backup-instance-initialize) command.

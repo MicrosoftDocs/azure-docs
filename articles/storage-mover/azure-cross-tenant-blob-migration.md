@@ -48,6 +48,9 @@ The Azure Blob container-to-container cross-tenant transfer feature has the foll
 
 For cross-tenant migration, both endpoints must explicitly enable cross-tenant transfer and allow the partner storage account. You create the project, job definition, and job run in the source Storage Mover resource. Don't create a second job in the target tenant.
 
+> [!NOTE]
+> Migrations between Storage Accounts with secure endpoints are supported. To allow the Storage Mover service to work with secured storage accounts, enable Trusted Microsoft services to access your Storage Account within the Storage Account Networking resource settings. For more information, see [Trusted Azure services for Azure Storage network security](../storage/common/storage-network-security-trusted-azure-services.md#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant).
+
 ## Cross-tenant migration flow
 
 This section illustrates the relationships between the Azure resources used in a cross-tenant migration, and the associated migration workflow.

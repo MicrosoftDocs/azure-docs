@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/16/2026
+ms.date: 11/10/2026
 ai-usage: ai-assisted
 ---
 
@@ -48,6 +48,8 @@ Network security for Azure Front Door focuses on protecting applications at the 
 
 Identity and access management for Azure Front Door focuses on using Microsoft Entra identities instead of secrets and limiting who can change edge routing, WAF, certificate, and origin settings.
 
+- **Evaluate client JWT validation at the edge (public preview)**: On Front Door Premium, an authentication policy validates Microsoft Entra ID tokens before requests reach the origin. Configure the policy on your Premium profile in the [Azure portal](https://portal.azure.com). Review the public-preview notice and terms before use. Clients must use the `Bearer` authentication scheme in the configured `Authorization` or `Proxy-Authorization` header. Use **Block** to reject requests that don't meet the policy requirements; **Log** doesn't block them. For more information, see [Validate JSON Web Tokens with an authentication policy (preview)](authentication-policy.md).
+
 - **Enable managed identities for service access**: Use system-assigned or user-assigned managed identities so Azure Front Door can access Azure resources such as Key Vault without stored credentials. For more information, see [Use managed identities in Azure Front Door](managed-identity.md).
 
 - **Use managed identities for origin authentication (preview)**: For supported non-Private Link origins, configure Azure Front Door origin authentication with managed identities so Front Door can obtain Microsoft Entra tokens and authenticate to protected backend resources. This capability is in preview; validate that preview features meet your production requirements before adopting. For more information, see [Use managed identities to authenticate to origins](origin-authentication-with-managed-identities.md).
@@ -66,7 +68,9 @@ Data protection for Azure Front Door focuses on encrypting traffic, protecting c
 
 - **Configure current TLS policies**: Use the newest predefined TLS policy or a custom TLS policy that meets your security requirements for minimum protocol versions and cipher suites. For more information, see [Azure Front Door TLS policy](tls-policy.md).
 
-- **Don't rely on Front Door for client certificate authentication**: Front Door Standard and Premium don't currently support client or mutual authentication (mTLS). If your workload requires mTLS, implement that control at an origin or alternate ingress layer and validate the complete request path. For more information, see [Azure Front Door TLS policy](tls-policy.md).
+- **Choose compatible TLS key exchange groups**: Configure a custom domain's key exchange policy separately from its protocol and cipher-suite policy. Start with **Standard** and test client compatibility before restricting groups. Hybrid post-quantum groups require TLS 1.3. The domain's policy controls key establishment on client-to-Front Door connections, not the separate origin connection. For more information, see [TLS key exchange policy](tls-key-exchange-policy.md).
+
+- **Use client certificate authentication where required**: Azure Front Door Premium supports mutual TLS (mTLS) authentication for client-to-Front Door connections. Configure the appropriate client certificate validation mode and trusted CA certificates for your workload, and restrict origin access to prevent clients from bypassing Front Door. Azure Front Door Standard doesn't support client mTLS. For more information, see [Mutual TLS authentication in Azure Front Door](mutual-tls.md).
 
 - **Manage certificates in Azure Key Vault**: Store customer-managed TLS certificates in Key Vault, use a managed identity for access, enable automatic certificate renewal where applicable, and protect the vault with soft-delete and purge protection. For more information, see [Configure HTTPS on an Azure Front Door custom domain](standard-premium/how-to-configure-https-custom-domain.md) and [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
 

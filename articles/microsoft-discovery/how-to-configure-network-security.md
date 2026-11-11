@@ -3,7 +3,7 @@ title: Configure network security for Microsoft Discovery workspaces
 description: Learn how to assign NSP roles, configure subnets, create private endpoints, and configure DNS for Microsoft Discovery workspaces.
 ms.service: azure
 ms.topic: how-to
-ms.date: 08/05/2026
+ms.date: 11/10/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -11,24 +11,24 @@ ms.custom: networking, private-link, nsp
 
 # Configure network security for Microsoft Discovery workspaces
 
-This article walks you through the prerequisites for network hardening and how to create private endpoints for Microsoft Discovery workspaces and bookshelves. Network hardening is enabled by default - the Discovery control plane automatically deploys Network Security Perimeters, private endpoints, and virtual network injection for managed resources. For an overview of what these features are and why they matter, see [Network security for Microsoft Discovery](concept-network-security.md).
+This article walks you through the prerequisites for network hardening and how to create private endpoints for Microsoft Discovery workspaces and bookshelves. Backend network hardening uses Network Security Perimeters, managed-resource private endpoints, and virtual network injection. These backend protections don't make client API access private: configure client private endpoints, DNS, and `publicNetworkAccess` separately. For an overview, see [Network security for Microsoft Discovery](concept-network-security.md).
 
 ## Prerequisites
 
 - An Azure subscription with the **Microsoft.Discovery** resource provider registered.
 - Azure CLI 2.50+ or Azure PowerShell 10.0+.
-- **Owner** or **Contributor** role on the subscription (required for custom role and role assignment creation).
+- Permission to create the required network resources, plus custom-role and role-assignment authority at the appropriate scopes. Contributor alone can't create role definitions or assignments. For automated subscription preparation, see [Stage 2 permissions](reference-deployment-permissions.md#stage-2-landing-zone-preparation).
 - A virtual network with dedicated subnets for:
   - Agent workloads
   - Private endpoints
   - Workspace services
 
 > [!IMPORTANT]
-> Each Discovery resource (workspace, bookshelf, supercomputer) requires its own unique, non-overlapping subnets. Subnets can't be shared across different Discovery resource instances. Plan your virtual network address space accordingly when deploying multiple resources.
+> Dedicate each delegated workspace, agent, and bookshelf search subnet to a single Container Apps environment. Keep subnet ranges nonoverlapping within your VNet and plan the separate supercomputer system-node, workload-node, and management subnets. Client private endpoints must use an undelegated subnet.
 
 ## Assign the NSP Perimeter Joiner role
 
-The Discovery control plane needs permission on your subscription to create NSP inbound access rules. Create a custom role and assign it to the **Discovery control-plane service App** service principal.
+The Discovery control plane needs permission to associate managed resources with its Network Security Perimeter. Create the custom role and assign it to the **Discovery control-plane service App** service principal, together with subscription Reader. The join role doesn't grant arbitrary perimeter or access-rule administration. [Onboarding Stage 2](how-to-prepare-landing-zone.md) automates this preparation.
 
 ### Verify the service principal
 
@@ -59,7 +59,7 @@ Create a file named `nsp-perimeter-joiner-role.json`. Replace `<your-subscriptio
 ```json
 {
   "Name": "Discovery NSP Perimeter Joiner",
-  "Description": "Allows the Microsoft Discovery control plane to create NSP inbound access rules for network-hardened workspaces.",
+  "Description": "Allows the Microsoft Discovery control plane to associate managed resources with its network security perimeter.",
   "Actions": [
     "Microsoft.Network/networkSecurityPerimeters/joinPerimeterRule/action",
     "Microsoft.Network/locations/networkSecurityPerimeterOperationStatuses/read"
@@ -104,7 +104,7 @@ New-AzRoleDefinition -InputFile "nsp-perimeter-joiner-role.json"
 
 ---
 
-### Assign the role to the Discovery Control Plane
+### Assign the role to the Discovery control plane
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -141,6 +141,8 @@ New-AzRoleAssignment `
 
 ### Verify the role assignment
 
+Also assign the built-in **Reader** role to the same Discovery service principal at subscription scope, using your selected assignment method. Verify both assignments; assigning only the custom join role doesn't provide the subscription reads the service needs.
+
 ```azurecli
 az role assignment list \
   --assignee "92c174ac-8e41-4815-a1b7-d81b19ab03ce" \
@@ -159,7 +161,7 @@ Discovery NSP Perimeter Joiner     /subscriptions/<your-subscription-id>
 
 ### Assign Reader to the Discovery service principal
 
-The Discovery data-plane service app also requires **Reader** access at subscription level to enumerate resources and validate network configurations:
+The same Discovery control-plane service principal also requires **Reader** access at subscription level to enumerate resources and validate network configurations:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -202,7 +204,7 @@ Workspaces and bookshelves require dedicated subnets for their managed resources
 | **Bookshelf** | `searchSubnet`, `privateEndpointSubnet` | `Microsoft.App/environments` on search subnet |
 
 > [!IMPORTANT]
-> **Subnets can't be reused across workspaces or bookshelves.** Each workspace and each bookshelf requires its own unique, non-overlapping subnets. This is an Azure Container Apps (ACA) restriction - each delegated subnet can only be associated with a single Container Apps Environment. Plan your virtual network address space accordingly when deploying multiple resources.
+> **Delegated subnets can't be reused across Container Apps environments.** Each workspace, agent, and bookshelf search environment needs its own delegated subnet. This restriction doesn't require a separate undelegated private-endpoint subnet for every endpoint. The [network-hardened deployment](how-to-deploy-network-hardened-stack.md#step-1-plan-your-virtual-network) shows a shared workspace and bookshelf private-endpoint subnet.
 
 ## Create private endpoints for data-plane access
 
@@ -307,7 +309,7 @@ az network private-endpoint dns-zone-group create \
 ```
 
 > [!IMPORTANT]
-> If you don't create the private DNS zone and link it to your virtual network, clients continue to use the public path even when a private endpoint exists. DNS resolution determines the traffic path.
+> Configure the private DNS zone and VNet link, with DNS forwarding where needed, so clients resolve the API hostname to the private endpoint IP. Creating a private endpoint alone doesn't configure every client's DNS or block the public path.
 
 #### Bookshelf private endpoint
 
@@ -359,7 +361,7 @@ Check the private endpoint connection status:
 
 ```azurecli
 az rest --method GET \
-  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}/privateEndpointConnections?api-version=2026-02-01-preview"
+  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}/privateEndpointConnections?api-version=2026-06-01"
 ```
 
 The connection should show `status: Approved`.
@@ -367,19 +369,27 @@ The connection should show `status: Approved`.
 From a VM or compute resource within the same virtual network, verify DNS resolution and API connectivity:
 
 ```bash
-# Verify DNS resolves to a private IP (10.x.x.x)
-nslookup {workspaceName}.workspace.discovery.azure.com
+# Get the actual data-plane endpoint from the provisioned workspace
+WORKSPACE_URL=$(az rest --method GET \
+  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-06-01" \
+  --query properties.workspaceApiUri -o tsv)
+WORKSPACE_URL=${WORKSPACE_URL%/}
+WORKSPACE_HOST=${WORKSPACE_URL#https://}
+WORKSPACE_HOST=${WORKSPACE_HOST%%/*}
+
+# Verify DNS resolves to the private endpoint IP
+nslookup "$WORKSPACE_HOST"
 
 # Test API connectivity
 TOKEN=$(az account get-access-token --resource "https://discovery.azure.com/" --query accessToken -o tsv)
 
 curl -sS -H "Authorization: Bearer $TOKEN" \
-  "https://{workspaceName}.workspace.discovery.azure.com/projects/{projectName}/investigations?api-version=2026-02-01-preview"
+  "$WORKSPACE_URL/projects/{projectName}/investigations?api-version=2026-06-01"
 ```
 
 ## Configure outbound internet access
 
-Discovery-delegated subnets don't have a default outbound route to the internet. You provide the egress path by using Azure Firewall, NAT gateway, or your own NVA. When you set `outboundType = UserDefinedRouting` on a Microsoft Discovery supercomputer, you must also provide a dedicated management subnet for the AKS API server's internal load balancer.
+Plan outbound connectivity separately from inbound private access. For a supercomputer using `UserDefinedRouting`, provide routes to Azure Firewall or another supported NVA and a dedicated management subnet for AKS API server VNet integration. A NAT Gateway public IP isn't an NVA next hop. For dependencies, private-cluster requirements, and routing steps, see [Configure supercomputer networking](how-to-configure-supercomputer-network-security.md).
 
 ### Management subnet ID requirements
 
@@ -398,7 +408,7 @@ Discovery-delegated subnets don't have a default outbound route to the internet.
 |---|---|
 | Subnet delegation | `Microsoft.ContainerService/managedClusters` (required) |
 | Minimum size | `/28` (16 addresses) |
-| Location | Same virtual network as your supercomputer's `aksSubnet` (control plane) and `supercomputerNodepoolSubnet` (node pools) |
+| Location | Same virtual network as your supercomputer's system-node subnet (`properties.subnetId`) and nodepool subnets |
 | Address space | Must not overlap the AKS overlay pod CIDR (default `10.244.0.0/16`) |
 | Reuse | Dedicated per supercomputer. Don't share with other supercomputers, workspaces, or bookshelves. |
 | Mutability | Immutable after supercomputer create |
@@ -432,13 +442,15 @@ resource sc 'Microsoft.Discovery/supercomputers@2026-06-01' = {
 
 ## Disable public network access (optional)
 
-To enforce private-endpoint-only access and block all public traffic to your workspace data-plane:
+After verifying the private path, set `publicNetworkAccess` to `Disabled` to enforce private-endpoint-only access to your workspace data plane. Backend network hardening and creating a client private endpoint don't disable the public API.
 
 ```azurecli
 az rest --method PATCH \
-  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{workspaceName}?api-version=2026-06-01" \
   --body '{"properties":{"publicNetworkAccess":"Disabled"}}'
 ```
+
+For a bookshelf, use `bookshelves/{bookshelfName}` instead of `workspaces/{workspaceName}` in the resource URL and set the same property. The ARM contract supports `Enabled` and `Disabled` but doesn't declare a universal default. The onboarding tool defaults workspace `publicNetworkAccess` to `Enabled` and Workbench `networkIsolation` to `true`; these are independent controls. See [Plan workspace and client access](how-to-plan-deployment-network.md#plan-workspace-and-client-access).
 
 > [!NOTE]
 > When `publicNetworkAccess` is set to `Disabled`, only traffic through private endpoints is allowed. Public internet requests receive a 403 Forbidden response. See [Network security concepts](concept-network-security.md#how-private-endpoints-route-data-plane-traffic) for the full access matrix.
@@ -450,12 +462,12 @@ Discovery resources support autoapproval for private endpoints created within th
 ```azurecli
 # Approve a connection
 az rest --method PATCH \
-  --url "https://management.azure.com/{privateEndpointConnectionId}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/{privateEndpointConnectionId}?api-version=2026-06-01" \
   --body '{"properties":{"privateLinkServiceConnectionState":{"status":"Approved","description":"Approved by admin"}}}'
 
 # Reject a connection
 az rest --method PATCH \
-  --url "https://management.azure.com/{privateEndpointConnectionId}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/{privateEndpointConnectionId}?api-version=2026-06-01" \
   --body '{"properties":{"privateLinkServiceConnectionState":{"status":"Rejected","description":"Not authorized"}}}'
 ```
 
@@ -484,7 +496,7 @@ Then retry the role assignment.
 
 | Error | Likely cause | Resolution |
 |-------|-------------|-----------|
-| 504 Gateway Timeout | Backend temporarily unavailable | Check if the public path also fails. If both fail, the service may be temporarily unavailable. |
+| 504 Gateway Timeout | Backend temporarily unavailable or an incomplete private access path | Verify private DNS and endpoint approval, check service health, and collect the correlation ID. Don't enable public access merely to compare paths. |
 | 401 Unauthorized | Token audience mismatch or missing RBAC | Verify the token is for `https://discovery.azure.com/` and you have the required role on the resource. |
 | DNS resolves to public IP | Private DNS zone not linked to virtual network | Create the DNS zone and virtual network link as described in [Configure private DNS](#configure-private-dns). |
 
@@ -521,4 +533,3 @@ If DNS queries return a public IP instead of your private endpoint IP:
 - [Network security for Microsoft Discovery](concept-network-security.md) - Understand the architecture, supported resource types, and limitations.
 - [End-to-end network-hardened deployment](how-to-deploy-network-hardened-stack.md)
 - [What is Azure Private Link?](/azure/private-link/private-link-overview)
-

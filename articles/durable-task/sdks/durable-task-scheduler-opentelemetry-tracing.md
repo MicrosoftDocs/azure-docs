@@ -3,7 +3,7 @@ author: hhunter-ms
 title: "OpenTelemetry Distributed Tracing with Durable Task Scheduler"
 description: Enable OpenTelemetry distributed tracing to visualize orchestration flows in Durable Functions and Durable Task SDKs with Durable Task Scheduler. Get started now.
 ms.topic: how-to
-ms.date: 05/01/2026
+ms.date: 10/12/2026
 ms.author: azfuncdf
 ms.service: durable-task
 ms.subservice: durable-task-sdks
@@ -16,6 +16,13 @@ zone_pivot_groups: azure-durable-approach
 Distributed tracing provides end-to-end visibility into orchestration execution. When you enable OpenTelemetry with [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), each orchestration, activity, and sub-orchestration produces linked spans that show timing, ordering, and errors across the entire workflow. You can export these traces to any OpenTelemetry-compatible backend, like [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview), [Jaeger](https://www.jaegertracing.io/), or [Zipkin](https://zipkin.io/).
 
 [Durable Functions](../common/what-is-durable-task.md) and the standalone [Durable Task SDKs](../sdks/durable-task-overview.md) both support OpenTelemetry distributed tracing when using Durable Task Scheduler as the backend.
+
+::: zone pivot="durable-task-sdks"
+
+> [!NOTE]
+> In the Go SDK beta, Durable Task Scheduler creates the durable orchestration, activity, and timer spans. The Go SDK propagates their trace context to activities, and your application creates its own spans through OpenTelemetry. To see the scheduler's spans in your tracing backend, configure the scheduler's tracing support separately. For provider and exporter setup, see the [Go SDK distributed tracing sample](https://github.com/microsoft/durabletask-go/tree/main/samples/distributedtracing).
+
+::: zone-end
 
 ## How it works
 
@@ -68,6 +75,12 @@ You don't need to add custom instrumentation to your orchestrator or activity co
 - [Java 21](/java/openjdk/download) or later.
 - The `durabletask-client` and `durabletask-azuremanaged` Maven dependencies.
 - The `opentelemetry-api`, `opentelemetry-sdk`, and `opentelemetry-exporter-otlp` dependencies.
+
+# [Go](#tab/go)
+
+- Go 1.25 or later and the [Durable Task SDK for Go](durable-task-go.md).
+- The OpenTelemetry Go API, SDK, and an exporter appropriate for your backend.
+- Start with the [Go SDK distributed tracing sample](https://github.com/microsoft/durabletask-go/tree/main/samples/distributedtracing), rather than the .NET activity-source registration in this article.
 
 ---
 
@@ -374,6 +387,10 @@ Tracer tracer = openTelemetry.getTracer("durable-worker");
 
 The `buildAndRegisterGlobal()` call registers the OpenTelemetry SDK globally. The Durable Task SDK uses `GlobalOpenTelemetry.getTracer("Microsoft.DurableTask")` internally, so it picks up this configuration automatically and creates spans for orchestrations and activities.
 
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](durable-task-go.md).
+
 ---
 
 ::: zone-end
@@ -538,6 +555,10 @@ AzureMonitorTraceExporter azureExporter = new AzureMonitorTraceExporter(
     new AzureMonitorExporterOptions()
         .connectionString(System.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING")));
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](durable-task-go.md).
 
 ---
 

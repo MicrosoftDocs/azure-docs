@@ -5,9 +5,8 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 06/25/2026
+ms.date: 10/08/2026
 ms.author: duau
-ms.custom: references_regions
 # Customer intent: As a network security administrator, I want to understand Azure DDoS Protection custom policy, so that I can decide when to set protocol-specific detection thresholds instead of relying on adaptive auto-tuning.
 ---
 
@@ -47,24 +46,17 @@ Because a custom threshold replaces adaptive tuning for that protocol, base your
 During public preview, Azure DDoS Protection custom policy supports:
 
 - Standard Load Balancer frontend IP configurations.
-- Inbound detection thresholds for TCP, UDP, and TCP SYN traffic, set in packets per second (50,000 to 2,000,000).
+- Inbound detection thresholds set in packets per second, with the following protocol-specific ranges:
+
+  - TCP: 50,000 to 2,000,000.
+  - UDP: 20,000 to 200,000.
+  - TCP SYN: 1,000 to 100,000.
 - Management through the Azure portal, Azure CLI, Azure Resource Manager (ARM) templates, and the REST API.
 
 Current limitations:
 
 - Support is limited to Standard Load Balancer frontend IP configurations.
 - Detection thresholds apply to inbound traffic only.
-- Not all regions are enabled for this feature yet. If you try to create a custom policy in one of the following regions, the request fails with a `RegionNotEnabledForFeature` error:
-
-  - Sweden South
-  - Southeast US
-  - Indonesia Central
-  - Chile Central
-  - Austria East
-  - Southeast US 3
-  - Malaysia West
-  - Belgium Central
-  - Israel Northwest
 
 As with all preview features, functionality and supported scenarios might change before general availability.
 

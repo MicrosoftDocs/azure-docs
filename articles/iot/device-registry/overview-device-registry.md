@@ -1,132 +1,104 @@
 ---
 title: Manage IoT Devices and Assets as Azure Resources
 titleSuffix: Azure Device Registry
-description: Learn how Azure Device Registry provides a unified control plane that represents your IoT devices and assets as Azure resources across Azure IoT services.
+description: Learn how Azure Device Registry represents assets and devices as Azure resources, manages them across your digital estate, and provides device management features.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: overview
-ms.date: 09/16/2026
+ms.date: 11/09/2026
 ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to understand what Azure Device Registry is and how it works across Azure IoT services so that I can manage my devices and assets through the Azure control plane.
 ---
 
 # What is Azure Device Registry?
 
-Azure Device Registry is a unified registry that represents your IoT devices and assets as Azure Resource Manager resources. By projecting devices and assets into the Azure control plane, Azure Device Registry gives you a consistent way to deploy, govern, query, and secure them by using the same tools you already use for other Azure resources.
+Azure Device Registry (ADR) helps you manage assets and devices across your digital estate. It works with Azure IoT Hub and Azure IoT Operations to provide three capabilities:
 
-Azure Device Registry works with both Azure IoT Operations and Azure IoT Hub (integration with Azure IoT Hub is currently in preview), so you can manage devices and assets across your edge and cloud solutions through a single, uniform interface.
+- **Represent assets and devices as Azure resources.** Use familiar Azure tools to organize resources, control access, and audit changes.
+- **Manage across your digital estate.** Query and manage assets and devices across linked IoT hubs and Azure IoT Operations instances, rather than managing each instance separately.
+- **Manage devices throughout their lifecycle.** Use [certificate management](../iot-certificate-management-overview.md), [groups (preview)](concept-groups.md), [jobs (preview)](concept-jobs.md), and [software updates (preview)](concept-software-updates.md) for IoT Hub-connected devices.
 
-Azure Device Registry is the common Azure control plane for your IoT estate. The core resource model&mdash;namespaces, devices, and assets&mdash;is generally available for Azure IoT Operations and in preview for Azure IoT Hub. Building on this shared model, Azure Device Registry adds schema registries and management actions for Azure IoT Operations, and preview capabilities for IoT Hub-connected devices that include certificate management, groups, jobs, and software updates.
+ADR is generally available for Azure IoT Operations. ADR integration with IoT Hub, including these device management features, is in preview.
 
-## Azure Device Registry as the control plane
+## Assets and devices as Azure resources
 
-Traditionally, you manage IoT devices through service-specific data planes that are separate from the Azure management plane. Azure Device Registry closes that gap by representing each device and asset as an Azure Resource Manager resource with its own resource ID. This approach extends the Azure control plane to your IoT estate and provides:
+ADR represents each registered asset and device as an Azure Resource Manager resource with its own resource ID. Use role-based access control (RBAC) to manage access, tags to organize resources, Azure Policy to govern supported resource properties, and Azure Activity Log to audit management operations.
 
-- **Unified governance**: Apply role-based access control (RBAC), tags, resource groups, and Azure Policy to devices and assets the same way you do for other Azure resources.
-- **At-scale querying**: Use Azure Resource Graph to query devices and assets across services, subscriptions, and regions.
-- **Consistent operations**: Perform metadata updates, auditing, and lifecycle management through a single interface instead of per-service tools.
+Devices and assets describe different parts of your solution:
 
-Because devices and assets are Azure Resource Manager resources, they participate in the standard Azure deployment, policy enforcement, and logging experiences.
+- **Devices** identify devices registered through linked IoT hubs. In Azure IoT Operations, a device resource defines connection information, such as the endpoint of an OPC UA server.
+- **Assets** define the data and interactions associated with physical equipment or logical entities in Azure IoT Operations, such as an oven's temperature measurements and management actions.
 
-## Azure Device Registry capabilities
+ADR provides the management plane. Azure IoT Hub and Azure IoT Operations handle device connectivity and messaging. In Azure IoT Operations, registered device and asset configuration is synchronized between ADR and Kubernetes custom resources. See [Asset and device management](../../iot-operations/discover-manage-assets/overview-manage-assets.md).
 
-Azure Device Registry organizes and manages your IoT estate through the following capabilities. Namespaces, devices, and assets form the shared foundation across Azure IoT services. Schema registries and management actions apply to Azure IoT Operations, and certificate management, groups, jobs, and software updates apply to IoT Hub-connected devices. Capabilities are generally available unless marked as preview.
+## Management across your digital estate
+
+ADR brings assets and devices from multiple service instances into a shared inventory. Use Azure Resource Graph to find resources across namespaces, subscriptions, and regions. Use Azure Resource Manager APIs and tools to deploy and update them.
 
 ### Namespaces
 
-A *namespace* is a management and organizational boundary for devices and assets in Azure Device Registry. Every device and asset belongs to exactly one namespace. A namespace groups related devices and assets, establishes a security boundary, and supports management at scale through RBAC, tags, and policies.
+A namespace is the management and access-control boundary for related devices and assets. Each Azure IoT Operations instance or linked IoT hub uses one namespace. Multiple instances or hubs can share a namespace for common management.
 
-Each Azure IoT Operations instance or Azure IoT Hub maps to a single namespace, and multiple instances or hubs can share one namespace for broader management scenarios. To learn more, see [What is an Azure Device Registry namespace?](concept-namespaces.md) For guidance on planning namespaces, see [Best practices for Azure Device Registry namespaces](best-practices-namespaces.md).
-
-### Devices and assets
-
-Azure Device Registry represents both *devices* and *assets* as Azure Resource Manager resources:
-
-- **Devices** are the IoT devices connected to your solution, such as the devices that Azure IoT Hub manages or the devices connected through Azure IoT Operations.
-- **Assets** are the physical or logical items in your environment, such as OPC UA servers or industrial equipment connected through Azure IoT Operations.
-
-When you represent devices and assets as Azure Resource Manager resources, you can govern, tag, and audit them consistently through the Azure control plane.
+Each device and asset belongs to one namespace, and you can't move it directly to another. Plan this boundary before creating resources. See [Namespace concepts](concept-namespaces.md) and [Namespace best practices](best-practices-namespaces.md).
 
 ### Schema registries
 
-A *schema registry* is a feature of Azure Device Registry that stores the definitions of messages coming from edge assets. Schema registries support Azure IoT Operations scenarios, where data flows use schemas to describe, transform, and serialize messages. For guidance on planning schema registries, see [Best practices for Azure Device Registry schema registries](best-practices-schema-registries.md).
+A schema registry stores message definitions. In Azure IoT Operations, data flows use schemas to describe messages and configure transformations and serialization. Schema registries are also in preview for IoT Hub. For Azure IoT Operations planning guidance, see [Schema registry best practices](best-practices-schema-registries.md).
+
+## Device management features
+
+ADR provides [certificate management](../iot-certificate-management-overview.md) and fleet-scale update capabilities for IoT Hub-connected devices, and management actions for Azure IoT Operations assets. Availability differs by service, as shown in [Service applicability](#service-applicability).
 
 ### Certificate management
 
-Certificate management is a feature of Azure Device Registry that enables you to issue, renew, and revoke X.509 certificates for your IoT Hub-connected devices through a Microsoft-backed certificate authority. By managing certificates through Azure Device Registry, you can handle the full certificate lifecycle for IoT Hub-connected devices from the Azure control plane. Certificate management for IoT Hub-connected devices is currently in preview. For more information, see [What is certificate management in Azure Device Registry?](../iot-certificate-management-overview.md)
+[Certificate management](../iot-certificate-management-overview.md) for IoT Hub-connected devices is in preview. Manage certificate authorities (CAs), certificate policies, and revocation through ADR. Device Provisioning Service (DPS) and IoT Hub device workflows handle issuance and renewal of operational X.509 certificates.
 
-### Groups, jobs, and software updates
+ADR manages operational certificates, not the onboarding credentials that establish a device's initial identity. An ADR-managed intermediate CA can chain to a Microsoft-managed namespace root or your organization's external root CA. Learn more in [Certificate management concepts](../iot-certificate-management-overview.md).
 
-Azure Device Registry provides groups, jobs, and software updates so that you can operate on IoT Hub-connected devices at fleet scale. These capabilities are currently in preview:
+### Groups (preview), jobs (preview), and software updates (preview)
 
-- **Groups** organize IoT Hub-connected devices into query-defined sets that you target with fleet-scale operations. For more information, see [Groups concepts (preview)](concept-groups.md).
-- **Jobs** run namespace-wide operations, such as software updates, against a group of devices that can span multiple Azure IoT Hub instances. For more information, see [Jobs concepts (preview)](concept-jobs.md).
-- **Software updates** let you import updates and deploy them over the air to devices by using software update jobs and onboarding update jobs. For more information, see [Software updates concepts (preview)](concept-software-updates.md).
+[Groups (preview)](concept-groups.md), [jobs (preview)](concept-jobs.md), and [software updates (preview)](concept-software-updates.md) let you target IoT Hub-connected devices across linked hubs in the same namespace:
+
+- **[Groups (preview)](concept-groups.md)** define sets of devices by a query filter. Membership is cached and updated when refreshed.
+- **[Jobs (preview)](concept-jobs.md)** define and schedule update operations. Software update jobs (preview) target a group; onboarding update jobs (preview) target the namespace.
+- **[Software updates (preview)](concept-software-updates.md)** let you import updates and deliver them over the air to compatible devices through these operations. Devices use the update client in the unified Azure IoT SDKs.
 
 For production software update workloads, use [Device Update for IoT Hub](../../iot-hub-device-update/understand-device-update.md), which is generally available.
 
 ### Management actions
 
-Management actions let you invoke operations on the southbound assets connected to your Azure IoT Operations instance, such as calling methods and reading or writing values. Each Azure Device Registry namespace can map to an Azure Event Grid instance, which provides consistent routing for these operations. You can invoke management actions from the edge by using MQTT, or from the cloud by using Azure Resource Manager APIs, Bicep files, and templates. For more information, see [Enable and run management actions](../../iot-operations/discover-manage-assets/howto-use-management-actions.md).
+Management actions let you call methods or read and write values on Azure IoT Operations assets through supported connectors. Invoke actions through Azure Resource Manager APIs or locally through MQTT. Requests initiated through Azure Resource Manager use Azure Event Grid for routing. See [Enable and run management actions](../../iot-operations/discover-manage-assets/howto-use-management-actions.md).
 
 ## Service applicability
 
-Azure Device Registry is generally available (GA) for Azure IoT Operations scenarios. Integration with Azure IoT Hub is currently in preview. The following table summarizes the current applicability:
+Availability depends on the connected service:
 
 | Feature | Azure IoT Operations | Azure IoT Hub |
 |---|---|---|
-| Azure Device Registry | GA | Preview |
-| Namespaces | GA | Preview |
-| Schema registries | GA | Not applicable |
-| Certificate management | Not applicable | Preview |
-| Groups | Not applicable | Preview |
-| Jobs | Not applicable | Preview |
-| Software updates | Not applicable | Preview |
+| Namespaces and devices | Generally available | Preview |
+| Assets | Generally available | Not applicable |
+| Schema registries | Generally available | Preview |
+| Management actions | Generally available | Not applicable |
+| [Certificate management](../iot-certificate-management-overview.md) | Not applicable | Preview |
+| [Groups (preview)](concept-groups.md) | Not applicable | Preview |
+| [Jobs (preview)](concept-jobs.md) | Not applicable | Preview |
+| [Software updates (preview)](concept-software-updates.md) | Not applicable | Preview |
 
-The preview features are currently available in the following Azure regions:
+Azure Device Registry integration with IoT Hub is available in preview in these regions:
 
 - Australia East
-- Japan East
 - Central US
+- Japan East
 - UK South
 
 > [!IMPORTANT]
 > Azure Device Registry integration with Azure IoT Hub is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## How Azure Device Registry works with Azure IoT services
-
-Azure Device Registry provides a common control plane that spans multiple Azure IoT services. The following diagram shows how Azure Device Registry sits between the Azure management plane and the underlying IoT services.
-
-<!-- Mermaid source (render with mmdc to regenerate the SVG):
-graph TB
-    MP["Azure management plane\n(RBAC, Azure Policy, Resource Graph)"]
-    ADR["Azure Device Registry\nunified control plane"]
-    AIO["Azure IoT Operations\nedge devices and assets (GA)"]
-    Hub["Azure IoT Hub\ncloud-connected devices (preview)"]
-    MP --\> ADR
-    ADR --\> AIO
-    ADR --\> Hub
--->
-
-:::image type="content" source="./media/overview-device-registry/azure-device-registry-architecture.svg" alt-text="Diagram showing Azure Device Registry as the unified control plane between the Azure management plane and Azure IoT Operations and Azure IoT Hub.":::
-
-### Azure IoT Operations
-
-In Azure IoT Operations, Azure Device Registry is generally available and manages the devices and assets connected at the edge. Azure Device Registry represents assets discovered and onboarded through Azure IoT Operations, where you can manage them alongside your other Azure resources. For more information, see [What is asset and device management in Azure IoT Operations?](../../iot-operations/discover-manage-assets/overview-manage-assets.md).
-
-### Azure IoT Hub
-
-In Azure IoT Hub, Azure Device Registry integration is in preview. Azure Device Registry represents each Azure IoT Hub device as an Azure Resource Manager resource, which enables management across multiple Azure IoT Hub instances through shared namespaces. Azure Device Registry provides certificate management for IoT Hub-connected devices, enabling you to issue, renew, and revoke X.509 device certificates from the Azure control plane. For more information, see [Integration with Azure Device Registry (preview)](../../iot-hub/iot-hub-device-registry-overview.md) and [What is certificate management in Azure Device Registry?](../iot-certificate-management-overview.md).
-
-For IoT Hub-connected devices, Azure Device Registry software updates uses groups and jobs to deploy updates over the air to many devices at once, across all the IoT hubs linked to a namespace. These capabilities are currently in preview. For more information, see [Software updates concepts (preview)](concept-software-updates.md).
-
 ## Related content
 
-- [Get started with Azure Device Registry (preview)](get-started-azure-device-registry.md)
-- [Best practices for Azure Device Registry namespaces](best-practices-namespaces.md)
-- [Best practices for Azure Device Registry schema registries](best-practices-schema-registries.md)
+- [Get started with Azure Device Registry for IoT Hub (preview)](get-started-azure-device-registry.md)
+- [Deploy Azure IoT Operations](../../iot-operations/deploy-iot-ops/howto-deploy-iot-operations.md)
 - [Integration with Azure Device Registry (preview) - Azure IoT Hub](../../iot-hub/iot-hub-device-registry-overview.md)
-- [What is certificate management in Azure Device Registry?](../iot-certificate-management-overview.md)
-- [What is asset and device management in Azure IoT Operations?](../../iot-operations/discover-manage-assets/overview-manage-assets.md)
+- [Azure Device Registry limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-registry-limits)

@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 07/11/2025
+ms.date: 10/09/2026
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -85,6 +85,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - The protection of  a container that is part of any object replication isn't supported, either as a source or destination. Attempting to back up such a container will result in backup failure.
 - Containers with **legal hold** enabled aren't supported.
 - If your storage account is large or contains huge number of versions, the first backup can take multiple days to complete. 
+- Cross-tenant restore (preview) is supported in select regions. For more information, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md#region-availability).
  
 
 ---

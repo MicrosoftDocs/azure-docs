@@ -7,17 +7,17 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
 # Buy a savings plan
 
-Savings plans help you save money by committing to an hourly spend for one-year or three-year plans for Microsoft Cloud resources. 
+Savings plans help you save money by committing to a fixed hourly spend on eligible Microsoft Cloud resources for a one-year or three-year term.
 
 You can pay for savings plans with monthly payments. Unlike an upfront purchase, where you pay the full amount, the monthly payment option divides the total cost of the savings plan into 12 or 36 equal payments. The total cost of upfront and monthly savings plans is the same.
 
-If a savings plan is purchased by using a Microsoft Customer Agreement, your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
+If you purchase a savings plan through a Microsoft Customer Agreement, your monthly payment amount might vary depending on the current month's market exchange rate for your local currency.
 
 Before you enter a commitment to buy a savings plan, review the following sections to prepare for your purchase.
 
@@ -43,7 +43,7 @@ After you buy a savings plan, you can [change the savings plan scope](manage-sav
     - **Savings plan**: Compute or database.
     - **Apply to any eligible resource**: Scope of resources that are eligible for savings plan benefits. For more information, see [Savings plan scopes](scope-savings-plan.md).
     - **Term length**: One year or three years.
-    - **Hourly commitment in USD**: Either select a recommended value from dropdown or enter a customer commitment maount. Each recommendation includes:
+    - **Hourly commitment in USD**: Select a recommended value from the dropdown list or enter a custom commitment amount. Each recommendation includes:
         - The hourly commitment.
         - The potential savings percentage compared to on-demand costs for the commitment.
         - The percentage of the selected scope's resource usage that is covered by the new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
@@ -61,7 +61,7 @@ You can buy savings plans by using Azure role-based access control (RBAC) permis
 
 #### Purchase by using billing permissions
 
-Permission needed to purchase varies by the type of account that you have:
+The permissions needed to purchase a savings plan vary by account type:
 
 - **Enterprise Agreement**: You must be an Enterprise Agreement admin with write permissions.
 - **Microsoft Customer Agreement**: You must be a billing profile contributor or higher.
@@ -71,14 +71,14 @@ The `billingScopeId` property in the request body must use the `/providers/Micro
 
 
 ## View savings plan purchases and payments
-To learn more about viewing savings plan purchases and payments, visit [View savings plan purchases](view-transactions.md#view-savings-plan-purchases-in-the-azure-portal) and [View payments made](view-transactions.md#view-payments-made), respectively.
+To learn more about viewing savings plan purchases and payments, see [View savings plan purchases](view-transactions.md#view-savings-plan-purchases-in-the-azure-portal) and [View payments made](view-transactions.md#view-payments-made), respectively.
 
 ## Cancellations, exchanges, and trade-ins
 Unlike reservations, you can't cancel or exchange savings plans. You can trade in select reservations for a savings plan. To learn more, visit [Reservation trade-in](reservation-trade-in.md).
 
 ## Need help?
 
-If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about savings plan.
+If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Currently, Microsoft provides expert support for savings plans only in English.
 
 ## Related content
 

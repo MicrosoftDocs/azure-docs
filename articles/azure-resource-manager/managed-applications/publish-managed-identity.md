@@ -391,7 +391,7 @@ This section describes how to create a managed identity and assign a role as par
       "name": "sleepScript",
       "location": "[resourceGroup().location]",
       "properties": {
-        "azPowerShellVersion": "2.0",
+        "azPowerShellVersion": "16.2",
         "scriptContent": "Start-Sleep -Seconds 30",
         "timeout": "PT1H",
         "cleanupPreference": "OnSuccess",

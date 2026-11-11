@@ -2,8 +2,8 @@
 description: >
   This article provides instructions for troubleshooting a private virtual network deployment of
   Azure Cloud Shell.
-ms.contributor: jahelmic
-ms.date: 10/23/2024
+ms.contributor: mbifeld
+ms.date: 11/09/2026
 ms.topic: troubleshooting
 title: Troubleshoot Azure Cloud Shell in a private virtual network
 ---
@@ -48,30 +48,39 @@ To see all resource providers, and the registration status for your subscription
 
 ## Verify Azure Container Instance Service role assignments
 
-The **Azure Container Instance Service** application needs specific permissions for the **Relay**
-and **Network Profile** resources. Use the following steps to see the resources and the role
-permissions for your subscription:
+The **Azure Container Instance Service** service principal needs the `Network Contributor` role on
+the virtual network's container subnet, and the `Contributor` role on the **Relay** namespace.
+
+### Verify virtual network permissions
+
+Verify the permissions by using the following steps:
 
 1. Go to the **Settings** section of left menu of your subscription page.
 1. Select **Resource groups**.
 1. Select the resource group you provided in the prerequisites for the deployment.
-1. In the **Essentials** section of the **Overview**, select the **Show hidden types** checkbox.
-   This checkbox allows you to see all the resources created by the deployment.
-
-   [![Screenshot showing all the resources in your resource group.][ss02a]][ss02x]
-
-1. Select the network profile resource with the type of `microsoft.network/networkprofile`. The name
-   should be `aci-networkProfile-<location>` where `<location>` is the location of the resource
-   group.
-1. On network profile page, select **Access control (IAM)** in the left menu.
+1. Select the virtual network used by your Cloud Shell deployment.
+1. On the virtual network page, select **Access control (IAM)** in the left menu.
 1. Then select **Role assignments** from the top menu bar.
 1. In the search box, enter `container`.
-1. Verify that **Azure Container Instance Service** has the `Network Contributor` role.
+1. Verify that **Azure Container Instance Service** has the `Network Contributor` role at
+   **This resource** scope or an inherited scope that applies to the container subnet.
 
-   [![Screenshot showing the network profiles role assignments.][ss03a]][ss03x]
+If you scope the role assignment to only the container subnet, it doesn't appear in the Azure portal.
+Use Azure CLI or Azure PowerShell to verify the assignment at the subnet scope instead.
 
-1. From the Resources page, select the relay namespace resource with the type of `Relay`. The name
-   should be the name of the relay namespace you provided in the deployment template.
+If the role is missing, follow [Assign the necessary role][04] to add it. Creating the assignment
+requires `Microsoft.Authorization/roleAssignments/write` access on the virtual network or subnet.
+The `Owner`, `User Access Administrator`, and `Role Based Access Control Administrator` roles
+include this permission.
+
+Also verify that the container subnet is delegated to
+`Microsoft.ContainerInstance/containerGroups`. For instructions, see
+[Add or remove subnet delegation][05].
+
+### Verify Relay permissions
+
+1. Return to the resource group and select the relay namespace resource with the type of `Relay`.
+   The name should be the name of the relay namespace you provided in the deployment template.
 1. On relay page, select **Access control (IAM)**, then select **Role assignments** from the top
    menu bar.
 1. In the search box, enter `container`.
@@ -79,15 +88,7 @@ permissions for your subscription:
 
    [![Screenshot showing the network relay role assignments.][ss04a]][ss04x]
 
-## When all else fails
-
-Verify the configurations described in this article. If you continue receive an error message when
-you try to use your deployment of Cloud Shell, you have two options:
-
-1. Redeploy Cloud Shell for a private virtual network
-1. Open a support ticket
-
-### Redeploy Cloud Shell for a private virtual network
+## When all else fails, redeploy Cloud Shell for a private virtual network
 
 Before you redeploy Cloud Shell, you must delete the existing deployment. In the prerequisites for
 the deployment, you provided a resource group and a virtual network. If you created these resources
@@ -96,8 +97,6 @@ resources, then you shouldn't delete them.
 
 The following list provides a description of the resources created by the deployment:
 
-- A **microsoft.network/networkprofiles** resource named `aci-networkProfile-<location>` where
-  `<location>` is the location of the resource group.
 - A **Private endpoint** resource named `cloudshellRelayEndpoint`.
 - A **Network Interface** resource named `cloudshellRelayEndpoint.nic.<UUID>` where `<UUID>` is a
   unique identifier added to the name.
@@ -109,6 +108,10 @@ The following list provides a description of the resources created by the deploy
 - A **Relay** resource with the name of the relay namespace you provided in the deployment template.
 - A **Storage account** resource with the name you provided in the deployment template.
 
+Older deployments might also contain a **microsoft.network/networkprofiles** resource named
+`aci-networkProfile-<location>`, where `<location>` is the location of the resource group. Network
+profiles are no longer required for Cloud Shell in a virtual network.
+
 After you remove the resources, you can redeploy Cloud Shell by following the steps in the
 [Deploy Azure Cloud Shell in a virtual network using quickstart templates][03] article.
 
@@ -116,7 +119,7 @@ You can find these resources by viewing the resource group in the Azure portal.
 
 [![Screenshot of resources created by the deployment.][ss02a]][ss02x]
 
-### Open a support ticket
+## Open a support ticket
 
 If you want to open a support ticket, you can do so from the Azure portal. Be sure to capture any
 error messages, including the **Correlation Id** and **Activity Id** values. Don't change any
@@ -135,13 +138,13 @@ Follow these steps to open a support ticket:
 [01]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
 [02]: https://portal.azure.com/
 [03]: deployment.md
+[04]: migrate-container-permissions.md#how-to-assign-the-necessary-role
+[05]: /azure/virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service
 
 [ss01a]: media/troubleshooting/resource-provider.png
 [ss01x]: media/troubleshooting/resource-provider.png#lightbox
 [ss02a]: media/troubleshooting/show-resource-group.png
 [ss02x]: media/troubleshooting/show-resource-group.png#lightbox
-[ss03a]: media/troubleshooting/network-profile-role.png
-[ss03x]: media/troubleshooting/network-profile-role.png#lightbox
 [ss04a]: media/troubleshooting/relay-namespace-role.png
 [ss04x]: media/troubleshooting/relay-namespace-role.png#lightbox
 [ss05a]: media/troubleshooting/create-support-ticket.png

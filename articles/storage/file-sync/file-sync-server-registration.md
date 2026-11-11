@@ -4,7 +4,7 @@ description: Learn how to register and unregister a Windows Server with an Azure
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/20/2026
+ms.date: 11/04/2026
 ms.author: kendownie
 ms.custom: sfi-image-nochange
 # Customer intent: "As a systems administrator, I want to register or unregister one or more Windows Servers with Azure File Sync, so that I can ensure seamless integration of on-premises file shares with cloud storage for better data accessibility and reliability."
@@ -76,7 +76,7 @@ Before you can use a server as a server endpoint in an Azure File Sync *sync gro
 
 ### Register the server
 
-Register the server by using the server registration UI or Azure PowerShell.
+Register the server by using the server registration UI or Azure PowerShell. If your server is Azure Arc-enabled, you can also register it from the Azure Arc machine page. See [Install and register from the Azure File Sync page on an Arc-enabled server (preview)](file-sync-deployment-guide.md#install-and-register-from-the-azure-file-sync-page-on-an-arc-enabled-server-preview).
 
 # [Server registration UI](#tab/azure-portal)
 

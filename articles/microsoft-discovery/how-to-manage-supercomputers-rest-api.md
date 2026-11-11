@@ -1,17 +1,17 @@
 ---
-title: 	How to manage Microsoft Discovery Supercomputers using REST API
-description: Learn how to set up Azure Discovery Supercomputer infrastructure and configure node pools to run high-performance computing tasks using the REST API.
+title: Manage Microsoft Discovery supercomputers by using REST APIs
+description: Learn how to create and manage Microsoft Discovery supercomputers and node pools using the control-plane REST API.
 author: anzaman
 ms.author: alzam
 ms.service: azure
 ms.topic: how-to
-ms.date: 05/01/2026
+ms.date: 11/10/2026
 ms.custom: references_regions
 ---
 
-# How to run tasks on Supercomputers using the REST API
+# Manage Microsoft Discovery supercomputers by using REST APIs
 
-This article walks you through the end-to-end process of preparing Azure Discovery Supercomputer infrastructure and running compute tasks on it by using the REST API. You learn how to create a Supercomputer, add GPU-accelerated node pools, monitor provisioning, scale your compute, and clean up resources when you're finished.
+This article explains how to prepare Microsoft Discovery Supercomputer infrastructure by using the control-plane REST API. You create a supercomputer, add node pools, monitor provisioning, scale compute, and clean up resources. To submit and monitor tool runs after provisioning, see [Submit and monitor jobs using REST APIs](how-to-run-jobs-supercomputer-rest-api.md).
 
 Azure Discovery Supercomputers provide dedicated, cloud-hosted high-performance computing (HPC) infrastructure for running workloads such as AI model training, scientific simulations, and large-scale data processing. Node pools are the compute building blocks that run your tasks — each pool defines the VM size, scaling limits, and priority of the underlying virtual machine scale set.
 
@@ -41,7 +41,7 @@ Supercomputers are currently available in the following Azure regions:
 
 ### API version
 
-All examples in this article use API version `2026-02-01-preview`.
+All examples in this article use API version `2026-06-01`.
 
 ### Authentication
 
@@ -66,7 +66,7 @@ A Supercomputer is the top-level resource that provides the managed AKS-backed c
 ### Request
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-02-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-06-01
 Content-Type: application/json
 Authorization: Bearer <access-token>
 ```
@@ -118,7 +118,7 @@ Authorization: Bearer <access-token>
 
 ```bash
 az rest --method PUT \
-  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-06-01" \
   --body @supercomputer-create.json
 ```
 
@@ -131,12 +131,13 @@ Supercomputer creation is a long-running operation. Poll the resource until `pro
 ```bash
 while true; do
   STATE=$(az rest --method GET \
-    --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-02-01-preview" \
-    --query "properties.provisioningState" -o tsv)
+    --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-06-01" \
+    --query "properties.provisioningState" -o tsv) || exit 1
   echo "Provisioning state: ${STATE}"
-  if [ "${STATE}" = "Succeeded" ] || [ "${STATE}" = "Failed" ] || [ "${STATE}" = "Canceled" ]; then
-    break
-  fi
+  case "${STATE}" in
+    Succeeded) break ;;
+    Failed|Canceled) echo "Supercomputer provisioning did not succeed." >&2; exit 1 ;;
+  esac
   sleep 30
 done
 ```
@@ -161,7 +162,7 @@ Node pools define the compute capacity for running your tasks. Each node pool sp
 ### Request
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-02-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-06-01
 Content-Type: application/json
 Authorization: Bearer <access-token>
 ```
@@ -202,7 +203,7 @@ Authorization: Bearer <access-token>
 | `properties.vmSize` | Yes | — | The VM size for compute nodes. |
 | `properties.maxNodeCount` | Yes | — | Maximum number of nodes the pool can scale to (minimum: 1). |
 | `properties.minNodeCount` | No | `0` | Minimum number of nodes. Set to `0` for scale-to-zero behavior. |
-| `properties.subnetId` | No | — | The subnet for this node pool. Must have connectivity to the system subnet. |
+| `properties.subnetId` | Yes | — | The subnet for this node pool. Must have connectivity to the system subnet. |
 | `properties.scaleSetPriority` | No | `Regular` | `Regular` for on-demand VMs or `Spot` for cost-optimized, interruptible VMs. |
 
 ### Response
@@ -245,7 +246,7 @@ Authorization: Bearer <access-token>
 
 ```bash
 az rest --method PUT \
-  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-06-01" \
   --body @nodepool-create.json
 ```
 
@@ -258,12 +259,13 @@ Poll the node pool resource until it reaches a terminal state, the same way you 
 ```bash
 while true; do
   STATE=$(az rest --method GET \
-    --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-02-01-preview" \
-    --query "properties.provisioningState" -o tsv)
+    --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-06-01" \
+    --query "properties.provisioningState" -o tsv) || exit 1
   echo "Node pool state: ${STATE}"
-  if [ "${STATE}" = "Succeeded" ] || [ "${STATE}" = "Failed" ] || [ "${STATE}" = "Canceled" ]; then
-    break
-  fi
+  case "${STATE}" in
+    Succeeded) break ;;
+    Failed|Canceled) echo "Node pool provisioning did not succeed." >&2; exit 1 ;;
+  esac
   sleep 30
 done
 ```
@@ -279,7 +281,7 @@ If your tasks need to access Azure resources (such as Storage accounts or Key Va
 ### Request
 
 ```http
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-02-01-preview
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-06-01
 Content-Type: application/json
 Authorization: Bearer <access-token>
 ```
@@ -324,12 +326,12 @@ After the update completes, the workload identity's `principalId` and `clientId`
 
 ## Step 6: Scale your node pool
 
-You can update a node pool to adjust scaling limits — for example, to increase capacity before a large job or scale to zero after tasks complete.
+You can update a node pool's scaling limits, such as increasing its maximum capacity or allowing it to scale to zero when idle. Use the job API to cancel a job. Changing node count limits isn't a cancellation request.
 
 ### Request
 
 ```http
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-02-01-preview
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-06-01
 Content-Type: application/json
 Authorization: Bearer <access-token>
 ```
@@ -350,16 +352,18 @@ Authorization: Bearer <access-token>
 {
   "properties": {
     "minNodeCount": 0,
-    "maxNodeCount": 0
+    "maxNodeCount": 4
   }
 }
 ```
+
+You must set `maxNodeCount` to at least `1`. A minimum of `0` permits scale-to-zero behavior when the pool is idle while preserving capacity to run future jobs.
 
 ### Azure CLI equivalent
 
 ```bash
 az rest --method PATCH \
-  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-02-01-preview" \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-06-01" \
   --body '{"properties": {"maxNodeCount": 16}}'
 ```
 
@@ -370,28 +374,28 @@ az rest --method PATCH \
 ### Get Supercomputer status
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-02-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-06-01
 Authorization: Bearer <access-token>
 ```
 
 ### List node pools on a Supercomputer
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools?api-version=2026-02-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools?api-version=2026-06-01
 Authorization: Bearer <access-token>
 ```
 
 ### List all Supercomputers in a resource group
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers?api-version=2026-02-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers?api-version=2026-06-01
 Authorization: Bearer <access-token>
 ```
 
 ### List all Supercomputers in a subscription
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Discovery/supercomputers?api-version=2026-02-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Discovery/supercomputers?api-version=2026-06-01
 Authorization: Bearer <access-token>
 ```
 
@@ -407,7 +411,7 @@ When your tasks are finished, delete the node pools first and then the Supercomp
 ### Delete a node pool
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-02-01-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}/nodePools/{nodePoolName}?api-version=2026-06-01
 Authorization: Bearer <access-token>
 ```
 
@@ -416,7 +420,7 @@ Authorization: Bearer <access-token>
 ### Delete the Supercomputer
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-02-01-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Discovery/supercomputers/{supercomputerName}?api-version=2026-06-01
 Authorization: Bearer <access-token>
 ```
 
@@ -429,7 +433,7 @@ Authorization: Bearer <access-token>
 
 ## End-to-end example
 
-This script walks through the full lifecycle: create a Supercomputer, add a GPU node pool, verify readiness, run a hypothetical task, then clean up.
+This script creates a Supercomputer and GPU node pool, verifies readiness, and cleans up the infrastructure. It doesn't submit a compute task.
 
 ### Set variables
 
@@ -438,7 +442,7 @@ SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
 RESOURCE_GROUP="rg-discovery-prod"
 SC_NAME="sc-ml-eastus"
 NODEPOOL_NAME="gpu-a100"
-API_VERSION="2026-02-01-preview"
+API_VERSION="2026-06-01"
 SC_URL="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.Discovery/supercomputers/${SC_NAME}"
 NP_URL="${SC_URL}/nodePools/${NODEPOOL_NAME}"
 ```
@@ -472,9 +476,12 @@ az rest --method PUT \
 ```bash
 while true; do
   STATE=$(az rest --method GET --url "${SC_URL}?api-version=${API_VERSION}" \
-    --query "properties.provisioningState" -o tsv)
+    --query "properties.provisioningState" -o tsv) || exit 1
   echo "Supercomputer state: ${STATE}"
-  [ "${STATE}" = "Succeeded" ] || [ "${STATE}" = "Failed" ] || [ "${STATE}" = "Canceled" ] && break
+  case "${STATE}" in
+    Succeeded) break ;;
+    Failed|Canceled) echo "Supercomputer provisioning did not succeed." >&2; exit 1 ;;
+  esac
   sleep 30
 done
 ```
@@ -502,9 +509,12 @@ az rest --method PUT \
 ```bash
 while true; do
   STATE=$(az rest --method GET --url "${NP_URL}?api-version=${API_VERSION}" \
-    --query "properties.provisioningState" -o tsv)
+    --query "properties.provisioningState" -o tsv) || exit 1
   echo "Node pool state: ${STATE}"
-  [ "${STATE}" = "Succeeded" ] || [ "${STATE}" = "Failed" ] || [ "${STATE}" = "Canceled" ] && break
+  case "${STATE}" in
+    Succeeded) break ;;
+    Failed|Canceled) echo "Node pool provisioning did not succeed." >&2; exit 1 ;;
+  esac
   sleep 30
 done
 ```
@@ -563,5 +573,5 @@ All API operations return standard Azure Resource Manager error responses on fai
 
 ## Related content
 
-- [Supercomputers REST API reference](/rest/api/discovery/supercomputers?view=rest-discovery-2026-02-01-preview)
-- [Node Pools REST API reference](/rest/api/discovery/node-pools?view=rest-discovery-2026-02-01-preview)
+- [Supercomputers REST API reference](/rest/api/discovery/supercomputers?view=rest-discovery-2026-06-01&preserve-view=true)
+- [Node Pools REST API reference](/rest/api/discovery/node-pools?view=rest-discovery-2026-06-01&preserve-view=true)

@@ -4,7 +4,7 @@ description: Learn how Azure Service Bus premium tier provides dedicated resourc
 #customer intent: As a solutions architect, I want to understand the differences between Service Bus Premium and Standard tiers so that I can choose the right tier for my application
 ms.topic: concept-article
 ms.custom: devx-track-extended-java
-ms.date: 07/27/2026
+ms.date: 10/06/2026
 author: spelluru
 ms.author: spelluru
 ai-usage: ai-assisted
@@ -106,14 +106,12 @@ Azure Service Bus premium tier namespaces support the ability to send large mess
 Here are some considerations when sending large messages on Azure Service Bus:
 
 - Supported on Azure Service Bus premium tier namespaces only.
-- Supported only when using the Advanced Message Queuing Protocol (AMQP) protocol. Not supported when using SBMP or HTTP protocols, in the premium tier, the maximum message size for SBMP and HTTP protocols is 1 MB.
+- Use the Advanced Message Queuing Protocol (AMQP) to send messages larger than 1 MB. HTTP supports a maximum message size of 1 MB in the Premium tier.
 - Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
 - Sending large messages result in decreased throughput and increased latency.
 - While 100-MB message payloads are supported, keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
 - The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
 - Batching isn't supported.
-
-[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
 ### Enable large messages support for a new queue or topic
 
@@ -152,9 +150,9 @@ For more information, see [Partitioning in Service Bus](service-bus-partitioning
 
 ## High availability in Service Bus
 
-Azure Service Bus spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service continues to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. A premium namespace can have two or more messaging units and these messaging units are spread across multiple **failure domains** within a datacenter, supporting an **all-active Service Bus cluster model**. 
+Azure Service Bus spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service continues to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. A premium namespace can have two or more messaging units and these messaging units are spread across multiple **failure domains** within a datacenter, supporting an **all-active Service Bus cluster model**.
 
-For a Service Bus namespace, the outage risk is further spread across three physically separated facilities **availability zones**, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of a datacenter. The all-active Azure Service Bus cluster model within a failure domain along with the availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against. 
+For a Service Bus namespace, the outage risk is further spread across three physically separated facilities **availability zones**, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of a datacenter. The all-active Azure Service Bus cluster model within a failure domain along with the availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against.
 
 Furthermore, the **Geo-Replication** feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes). The Geo-Replication feature ensures that the metadata and data of a namespace are continuously replicated from a primary region to one or more secondary regions.
 
@@ -179,4 +177,3 @@ The standard tier supports only JMS 1.1 subset focused on queues. For more infor
 - [Azure Service Bus Geo-disaster recovery](service-bus-geo-replication.md)
 - [Partitioning in Service Bus](service-bus-partitioning.md)
 - [Encrypting Azure Service Bus data at rest](configure-customer-managed-key.md)
-

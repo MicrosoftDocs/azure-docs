@@ -120,9 +120,9 @@ items:
       href: quick-create-multiple-ip-terraform.md
     - name: ARM template
       href: quick-create-multiple-ip-template.md
-  - name: Deploy with Availability zones
+  - name: Deploy with zone redundancy
     items:
-    - name: Deploy with Availability Zones
+    - name: Platform-managed zone allocation
       href: deploy-availability-zone-powershell.md
     - name: Bicep
       href: deploy-bicep.md

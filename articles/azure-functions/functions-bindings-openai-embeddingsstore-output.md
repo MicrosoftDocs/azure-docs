@@ -88,7 +88,7 @@ Apply the `EmbeddingsStoreOutput` attribute to define an embeddings store output
 | **EmbeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **MaxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **MaxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **InputType** | _Optional_. Gets the type of the input. |
+| **InputType** | _Optional_. The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](functions-bindings-openai-embeddings-input.md#restrict-file-and-url-inputs). |
 | **StoreConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **Collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
@@ -106,7 +106,7 @@ The `EmbeddingsStoreOutput` annotation enables you to define an embeddings store
 | **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **inputType** |  _Optional_. Gets the type of the input. |
+| **inputType** | _Optional_. The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](functions-bindings-openai-embeddings-input.md#restrict-file-and-url-inputs). |
 | **storeConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
@@ -124,7 +124,7 @@ During the preview, define the output binding as a `generic_output_binding` bind
 | **embeddings_model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **max_overlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **input_type** | Gets the type of the input. |
+| **input_type** | The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](functions-bindings-openai-embeddings-input.md#restrict-file-and-url-inputs). |
 | **store_connection_name** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
@@ -144,7 +144,7 @@ The binding supports these configuration properties that you set in the function
 | **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **inputType** | _Optional_. Gets the type of the input. |
+| **inputType** | _Optional_. The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](functions-bindings-openai-embeddings-input.md#restrict-file-and-url-inputs). |
 | **storeConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
@@ -161,7 +161,7 @@ The binding supports these properties, which are defined in your code:
 | **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
-| **inputType** | _Optional_. Gets the type of the input. |
+| **inputType** | _Optional_. The type of the input: `RawText`, `FilePath`, or `Url`. For `FilePath` and `Url`, see [Restrict file and URL inputs](functions-bindings-openai-embeddings-input.md#restrict-file-and-url-inputs). |
 | **storeConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
@@ -170,6 +170,10 @@ The binding supports these properties, which are defined in your code:
 ## Usage
 
 See the [Example section](#example) for complete examples.
+
+### Restrict file and URL inputs
+
+The embeddings store output binding uses the same file and URL input processing as the embeddings input binding. When inputs come from request or trigger data, including the URLs in the ingestion examples, set `OPENAI_EMBEDDINGS_FILE_PATH_ROOT` for `FilePath` inputs or `OPENAI_EMBEDDINGS_URL_ALLOWED_ORIGINS` for `Url` inputs. For configuration details, see [Restrict file and URL inputs](functions-bindings-openai-embeddings-input.md#restrict-file-and-url-inputs).
 
 [!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
 

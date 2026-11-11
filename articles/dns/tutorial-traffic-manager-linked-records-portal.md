@@ -6,7 +6,7 @@ services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
-ms.date: 06/01/2026
+ms.date: 10/05/2026
 ms.author: allensu
 ms.custom:
   - template-tutorial
@@ -16,9 +16,6 @@ ms.custom:
 # Tutorial: Create a Traffic Manager Linked Record using the Azure portal
 
 In this tutorial, you create a **Traffic Manager Linked Record** in Azure DNS. A Traffic Manager Linked Record connects a DNS record set directly to an Azure Traffic Manager profile. When a client queries this record, Azure DNS resolves the Traffic Manager profile internally and returns endpoint IP addresses directly—no intermediate CNAME hop to `trafficmanager.net` is required.
-
-> [!IMPORTANT]
-> Traffic Manager Linked Records is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This approach is the recommended way to associate DNS records with Traffic Manager profiles. For a comparison with alias records, see [Traffic Manager Linked Records overview](dns-traffic-manager-linked-records.md).
 
@@ -226,7 +223,7 @@ Now create the Traffic Manager Linked Record in your DNS zone.
     |---------|-------|
     | Name | Leave empty to create a record at the zone apex, or enter a subdomain name such as *www*. |
     | Type | Select **A**. |
-    | Enable Traffic Management (Preview) | Select the checkbox. |
+    | Enable Traffic Management | Select the checkbox. |
     | Choose a subscription | Select the subscription that contains your Traffic Manager profile. |
     | Traffic Manager Profile | Select **tm-profile** from the dropdown. |
 

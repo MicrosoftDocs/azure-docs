@@ -91,7 +91,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |clientPort     | Originating port for the request.       |
 |httpMethod     | HTTP method used by the request.       |
 |requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
+|RequestQuery     | Query string portion of the request URI.       |
+|transactionId    | Unique ID used to correlate a request across access and firewall logs.       |
 |UserAgent     | User agent from the HTTP request header.        |
 |httpStatus     | HTTP status code returned to the client from Application Gateway.       |
 |httpVersion     | HTTP version of the request.        |
@@ -113,7 +114,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e&SERVER-STATUS=404",
+        "requestQuery": "id=123",
+        "transactionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
         "userAgent": "-",
         "httpStatus": 404,
         "httpVersion": "HTTP/1.0",
@@ -126,6 +128,9 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
+> [!NOTE]
+> Use `transactionId` as the primary request correlation field. You might still see legacy request query parameters such as `X-AzureApplicationGateway-LOG-ID` in older logs. For the current source-of-truth schema, see [AGWAccessLogs table reference](/azure/azure-monitor/reference/tables/agwaccesslogs) and [Application Gateway monitoring data reference](../../application-gateway/monitor-application-gateway-reference.md#resource-logs).
+
 For Application Gateway and WAF v2, the logs show a little more information:
 
 |Value  |Description  |
@@ -148,6 +153,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response from the backend server.|
 |host| Address listed in the host header of the request.|
+|transactionId| Unique ID used to correlate a request across access and firewall logs. |
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -173,6 +179,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
         "serverStatus": "200",
         "serverResponseLatency": "0.023",
         "host": "www.contoso.com",
+        "transactionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
     }
 }
 ```
@@ -369,4 +376,3 @@ We have published a Resource Manager template that installs and runs the popular
 * Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 * [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi) blog post.
-

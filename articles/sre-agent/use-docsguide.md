@@ -3,7 +3,7 @@ title: "Tutorial: Use DocsGuide in Azure SRE Agent"
 description: Learn how to ask your Azure SRE Agent questions about its features and get accurate answers from official documentation.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -38,7 +38,7 @@ Before you begin, make sure you have the following resources:
 Start by going to the agent portal and opening a conversation.
 
 1. Go to [sre.azure.com](https://sre.azure.com) and select your agent.
-1. The chat interface opens with a **New thread** view and an input field.
+1. The chat interface opens with a **New chat** view and an input field.
 
 <!-- Replace the source path with the actual hosted screenshot showing the agent chat interface with the "New thread" view. -->
 :::image type="content" source="media/use-docsguide/docsguide-chat-ready.png" alt-text="Screenshot of the agent chat interface showing the New thread view with the chat input ready." lightbox="media/use-docsguide/docsguide-chat-ready.png":::
@@ -77,7 +77,7 @@ Type the following question:
 How do I connect PagerDuty to my agent?
 ```
 
-**Checkpoint:** The response includes specific setup steps. Navigate to **Settings** > **Incident platform**, enter an API key, enable the quickstart response plan which is sourced from the official PagerDuty tutorial documentation.
+**Checkpoint:** The response includes specific setup steps. Go to **Incidents** > **Connect an incident platform**, select **PagerDuty**, and follow the connection wizard. Then configure a response plan under **Incidents** > **Triggers & response plans**.
 
 ## Ask a feature question
 

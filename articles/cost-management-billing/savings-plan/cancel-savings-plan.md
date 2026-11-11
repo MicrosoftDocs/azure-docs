@@ -8,7 +8,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: concept-article
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ---
 
 # Savings plan cancellation policies
@@ -17,7 +17,7 @@ All savings plan purchases are final. After you buy a savings plan, you can't ca
 
 ## Savings plans and reservations
 
-While you cannot cancel or exchange a savings plan, you can trade in select reservations for a new savings plan. For more information about reservation trade-ins, see [Self-service trade-in for savings plans](reservation-trade-in.md).
+Although you can't cancel or exchange a savings plan, you can trade in eligible reservations for a new savings plan. For more information about reservation trade-ins, see [Self-service trade-in for savings plans](reservation-trade-in.md).
 
 ## Related content
 

@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: faq
-  ms.date: 08/21/2026
+  ms.date: 11/02/2026
 title: Azure Front Door frequently asked questions (FAQ) 
 summary : |
   This article provides answers to the most frequently asked questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -110,11 +110,11 @@ sections:
       - question: |
           How does Azure Front Door support HTTP/2?
         answer:  |
-          Azure Front Door supports HTTP/2 protocol for client connections. However, the backend pool communication uses HTTP/1.1 protocol. HTTP/2 support is on by default.
+          Azure Front Door supports HTTP/2 for client connections by default. Routes without gRPC enabled use HTTP/1.1 for communication to origins. During the public preview, gRPC-enabled routes in Front Door Standard and Premium use HTTPS and HTTP/2 on both connections. For more information, see [gRPC support in Azure Front Door (preview)](grpc.md).
       - question: |
           Does Azure Front Door support gRPC?
         answer:  |
-          No. Currently, Azure Front Door only supports HTTP/1.1 from the edge to the origin. For gRPC to work, HTTP/2 is required.
+          Yes. Azure Front Door Standard and Premium support native gRPC in public preview. Enable gRPC on the route and every origin in its origin group. HTTPS and HTTP/2 are required from the client to Front Door and from Front Door to the origin. For configuration and preview limitations, see [gRPC support in Azure Front Door (preview)](grpc.md).
       - question: |
           Does Azure Front Door support HTTP to HTTPS redirection?
         answer: |
@@ -156,6 +156,13 @@ sections:
           Does Azure Front Door support managed identity with Azure Event Hubs?
         answer: |
           No. Azure Front Door doesn't currently support managed identity integration with Azure Event Hubs.
+
+      - question: |
+          Can Azure Front Door validate client JWTs at the edge?
+        answer: |
+          Yes. The authentication policy feature is available in public preview on Front Door Premium to validate Microsoft Entra ID JSON Web Tokens (JWTs) before requests reach the origin. This preview is provided without a service-level agreement and isn't recommended for production workloads. Clients must use the Bearer authentication scheme in the header configured in the policy, for example, `Authorization: Bearer <token>` or `Proxy-Authorization: Bearer <token>`.
+
+          Use Block mode to reject requests that don't meet the policy requirements, or Log mode to record validation results without blocking requests. Configure client-to-Front Door authentication separately from origin authentication. If you also use managed identity for origin authentication, use `Proxy-Authorization` for the client token and reserve `Authorization` for the origin authentication token. For preview terms and configuration guidance, see [Validate JSON Web Tokens with an authentication policy (preview)](authentication-policy.md).
 
       - question: |
           Does Azure Front Door support custom error pages?
@@ -308,6 +315,17 @@ sections:
 
           You can choose to use TLS 1.2 or 1.3 with Azure Front Door. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
           
+      - question: |
+          Can I configure TLS key exchange methods, including post-quantum methods?
+        answer: |
+          Yes. Azure Front Door Standard and Premium support a TLS key exchange policy for custom domains. Choose Standard, Enhanced, or Custom to control supported classical and hybrid post-quantum groups separately from protocol versions and cipher suites.
+
+          Standard is the default key exchange policy for new and existing profiles. Default Front Door domains always use Standard and don't support policy customization.
+
+          Hybrid post-quantum key exchange requires TLS 1.3 and a compatible client. The domain's key exchange policy controls client-to-Front Door connections, not the separate Front Door-to-origin connection. If you permit TLS 1.2, include at least one classical group in a custom policy.
+
+          For supported groups, defaults, and compatibility considerations, see [TLS key exchange policy](tls-key-exchange-policy.md).
+
   - name: Certificate Management and DigiCert DCV Workflow Deprecation
     questions:
 

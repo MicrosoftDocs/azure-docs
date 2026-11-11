@@ -7,7 +7,7 @@ ms.custom:
   - devx-track-bicep
   - devx-track-arm-template
   - build-2025
-ms.date: 06/26/2026
+ms.date: 10/29/2026
 ---
 
 # Bicep core diagnostics
@@ -424,6 +424,8 @@ You can suppress Bicep diagnostic codes by using `disable-next-line` and `disabl
 | <a id='BCP449' />BCP449 | Error | The 'brfs' module reference scheme is for internal use only. Use a 'br/:' reference with a configured 'mapToFilePath' alias instead. |
 | <a id='BCP450' />BCP450 | Error | Configuration file isn't found. Feature "{featureName}" requires a configuration file. |
 | <a id='BCP451' />BCP451 | Error | The OCI artifact module alias "{aliasName}" has an invalid "mapToFilePath" path "{path}": {reason} |
+| <a id='BCP456' />[BCP456](./diagnostics/bcp456.md) | Error in CLI; Warning in language server | The installed Bicep CLI version "{runningVersion}" doesn't  satisfy the version constraint "{constraint}" specified by the "bicep.version" property in the Bicep configuration "{configFile}". |
+| <a id='BCP457' />[BCP457](./diagnostics/bcp457.md) | Warning | The installed Bicep CLI version "{runningVersion}" couldn't be parsed, so the "bicep.version" constraint "{constraint}" specified by the Bicep configuration "{configFile}" couldn't be checked. |
 
 ## Next steps
 

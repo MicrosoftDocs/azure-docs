@@ -2,7 +2,7 @@
 title: MCP tool trigger for Azure Functions
 description: Learn how you can use a trigger endpoint to expose functions as model context protocol (MCP) server tools in Azure Functions.
 ms.topic: reference
-ms.date: 08/29/2025
+ms.date: 10/12/2026
 ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
@@ -571,7 +571,3 @@ For more information, see [Examples](#example).
 ## host.json settings
 
 The host.json file contains settings that control MCP trigger behaviors. See the [host.json settings](functions-bindings-mcp.md#hostjson-settings) section for details about available settings.
-
-## Related articles
-
-[Azure OpenAI extension for Azure Functions](functions-bindings-openai.md)

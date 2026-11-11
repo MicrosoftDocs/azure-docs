@@ -361,6 +361,10 @@ After the certificate renews in your key vault, App Service automatically syncs 
 
 ## Frequently asked questions
 
+### Do I need a post-quantum certificate to use post-quantum TLS key exchange?
+
+No. `X25519MLKEM768` combines classical and post-quantum key exchange to establish TLS keys. The certificate authenticates your app through a separate part of the TLS handshake. Hybrid key exchange supports custom domains when a compatible TLS 1.3 client and the App Service front end negotiate the group. It doesn't introduce post-quantum certificate signatures or require a post-quantum certificate. Existing certificate requirements, validation, and binding workflows remain unchanged. For more information, see [Post-quantum hybrid key exchange](overview-tls.md#post-quantum-hybrid-key-exchange).
+
 ### How can I automate the process of adding a bring-your-own certificate to an app?
 
 - [Azure CLI: Bind a custom TLS/SSL certificate to a web app](scripts/cli-configure-ssl-certificate.md)

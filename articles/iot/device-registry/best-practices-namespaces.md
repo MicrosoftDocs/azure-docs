@@ -6,14 +6,14 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: best-practice
-ms.date: 04/15/2026
+ms.date: 11/09/2026
 ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to understand how to design my namespace structure so that I can organize devices and assets effectively and avoid rework later.
 ---
 
 # Best practices for Azure Device Registry namespaces
 
-[Azure Device Registry](../../iot-operations/discover-manage-assets/overview-manage-assets.md) uses [namespaces](concept-namespaces.md) to organize devices and assets. Because namespaces act as long-lived organizational boundaries, it's important to plan them before you deploy.
+[Azure Device Registry](overview-device-registry.md) uses [namespaces](concept-namespaces.md) to organize devices and assets. Because namespaces act as long-lived organizational boundaries, it's important to plan them before you deploy.
 
 This article helps you decide:
 
@@ -34,7 +34,7 @@ A namespace is a management and organizational boundary for devices and assets i
 
 ### Cardinality rules
 
-- Each Azure IoT Operations instance or IoT Hub maps to exactly one namespace.
+- Each Azure IoT Operations instance or linked IoT hub uses one namespace.
 - Multiple Azure IoT Operations instances or IoT Hubs can share the same namespace.
 
 Think of a namespace like an Azure Storage account or an Event Grid namespace: it's a parent resource within a resource group that has its own managed identity and service-specific configuration. Multiple child resources belong to one parent, and you plan parent boundaries around organizational, operational, or governance requirements. Apply the same principle to Azure Device Registry namespaces.
@@ -56,7 +56,7 @@ Create a new namespace when you need a distinct organizational or governance bou
 Reuse an existing namespace when the devices and assets logically belong together, for example:
 
 - **Multiple Azure IoT Operations instances at the same site.** If you run two Azure IoT Operations instances in the same factory, those instances can share a single namespace. Devices and assets are visible across both instances.
-- **Mixed connectivity patterns.** A site that uses both Azure IoT Operations (edge-connected) and IoT Hub (cloud-connected) can share a namespace so that all devices appear in a unified registry.
+- **Shared management across services.** A site that uses both Azure IoT Operations and linked IoT hubs can share a namespace for a unified device inventory.
 - **Scaling out within one business boundary.** Adding more devices or instances within an existing organizational boundary doesn't require a new namespace.
 
 ### Namespace design examples
@@ -70,13 +70,15 @@ Reuse an existing namespace when the devices and assets logically belong togethe
 
 ## Planning constraints and limits
 
-The following limits affect namespace design. For the full list, see [Azure Device Registry limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-device-registry-limits).
+The following limits apply to namespaces and Azure IoT Operations devices and assets. For the full list, see [Azure Device Registry limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-device-registry-limits).
 
 | Resource | Limit |
 |---|---|
 | Namespaces per subscription | 100 |
 | Devices per namespace | 10,000 |
 | Assets per namespace | 10,000 |
+
+For linked IoT hubs, see [IoT Hub with ADR integration (preview) limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-with-adr-integration-preview-limits), including devices per hub and hubs per namespace.
 
 If your solution approaches these limits, consider whether your namespace design is too fine-grained (too many namespaces, each with few devices) or too coarse (one namespace that exceeds the device limit).
 

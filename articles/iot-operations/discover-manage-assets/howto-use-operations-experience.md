@@ -27,7 +27,9 @@ To learn how to use the operations experience to manage assets and devices, see:
 - [Configure the media connector](howto-use-media-connector.md)
 - [Configure the connector for HTTP/REST](howto-use-http-connector.md)
 - [Configure the connector for SSE](howto-use-sse-connector.md)
+- [Configure the connector for SQL Server](howto-use-sql-server-connector.md)
 - [Configure the connector for MQTT](howto-use-mqtt-connector.md)
+
 To learn how to use the operations experience to manage data flows, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
 ## Prerequisites
@@ -38,7 +40,7 @@ To learn how to use the operations experience to manage data flows, see [Process
 
 ## Sign in
 
-To sign in to the operations experience, go to the [operations experience](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
+To sign in to the operations experience, go to the [operations experience](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials. In Azure Government, use [https://portal.iotoperations.azure.us](https://portal.iotoperations.azure.us). For more information, see [Azure IoT Operations in Azure Government](../overview-azure-government.md#operations-experience).
 
 ## Select your site
 
@@ -80,6 +82,7 @@ To enable you to copy settings between Azure Iot Operations instances, the opera
 
 - Data points and events for OPC UA endpoints (CSV)
 - Data points and events for SSE endpoints (CSV)
+- Data points and events for SQL Server endpoints (CSV)
 - Data points for HTTP endpoints (CSV)
 - Events and actions for ONVIF endpoints (CSV)
 - Stream definitions for media endpoints (CSV)
@@ -111,5 +114,6 @@ To view activity logs as the resource level, select the resource that you want t
 - [Media connector overview](howto-use-media-connector.md)
 - [Connector for HTTP/REST overview](howto-use-http-connector.md)
 - [Connector for SSE](howto-use-sse-connector.md)
+- [Connector for SQL Server](howto-use-sql-server-connector.md)
 - [Connector for MQTT](howto-use-mqtt-connector.md)
 - [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md)

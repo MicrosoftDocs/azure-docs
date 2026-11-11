@@ -61,13 +61,9 @@ This section answers questions about Azure NetApp Files Standard network feature
 
 All new Azure NetApp Files volumes will use Standard network features by default. Basic network features will no longer be an option. Existing volumes are unaffected, and no customer action is required. 
 
-### What actions are required from the customer? 
+### Will moving existing volumes to Standard network features affect connectivity?
 
-No Action is required from the customer.  
-
-### Will my existing Azure NetApp Files volumes be impacted? 
-
-No. Existing volumes using Basic network features aren't impacted and will continue to operate normally. 
+Moving to Standard network features doesn't change your volumes or data. However, Standard network features apply network security groups (NSGs) and user-defined routes (UDRs)/custom route tables on the Azure NetApp Files delegated subnet, while Basic network features don't. If your subnet already has such rules, they take effect after the move and can change connectivity — for example, blocking a required port or routing Azure NetApp Files traffic through a firewall or network virtual appliance. If you have no NSGs or UDRs on the delegated subnet, no change in behavior is expected. If you do, review them before the change to confirm that required traffic (such as NFS, SMB, DNS, and Active Directory) is allowed and routed as expected. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
 ### Can I still create new volumes using Basic network features? 
 

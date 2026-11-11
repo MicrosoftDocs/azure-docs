@@ -1,22 +1,19 @@
 ---
-title: Mutual TLS authentication (Preview)
+title: Mutual TLS authentication
 titleSuffix: Azure Front Door
-description: Learn how to implement and configure mutual TLS (mTLS) authentication in Azure Front Door Premium to verify client identity, validate certificates, and secure bidirectional communication between clients and origins.
+description: Learn how to configure mutual TLS (mTLS) authentication in Azure Front Door Premium to authenticate clients at the edge using client certificates and trusted certificate authorities.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 08/11/2026
+ms.date: 10/22/2026
 ---
 
-# Mutual TLS authentication in Azure Front Door (preview)
+# Mutual TLS authentication in Azure Front Door
 
 **Applies to:** :heavy_check_mark: Front Door Premium
 
-> [!IMPORTANT]
-> Mutual TLS in Azure Front Door is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Mutual TLS (mTLS) authentication, or client authentication, ensures that the traffic is secure and trusted in both directions between a client and server. By using mutual TLS, you can configure Azure Front Door to verify client identity by presenting a valid client certificate. Mutual TLS authentication is useful for scenarios where you need to securely identify and manage the clients to target resources, such as business-to-business (B2B) applications, Internet of Things (IoT) applications, banking apps, VPNs, enterprise networks, and more.
+Mutual TLS (mTLS) authentication, also known as client certificate authentication, is generally available in Azure Front Door Premium. You can configure Azure Front Door to require client certificates and validate them at the edge before forwarding requests to an origin. Mutual TLS authentication is useful for scenarios where you need to securely identify and manage the clients to target resources, such as business-to-business (B2B) applications, Internet of Things (IoT) applications, banking apps, VPNs, enterprise networks, and more.
 
 You can use mutual TLS along with other authorizations and authentication methods supported by Azure Front Door.
 
@@ -59,6 +56,12 @@ You can also configure optional validations, such as:
 
 > [!NOTE]
 > Wildcard domain isn't supported on Azure Front Door Allowed Domain list. If the client certificate has wildcard domain in their SAN/CN, one level of subdomain in the Azure Front Door allowed list is a match, the validation succeeds.
+
+### Trusted CA configuration and client certificate chains
+
+To validate client certificates at the edge, configure a trusted root certificate authority (CA) certificate through Azure Key Vault and associate it with your Front Door custom domain. You can upload only the trusted root CA certificate; intermediate CA certificates aren't required in the uploaded CA configuration.
+
+When only the root CA certificate is configured, clients must present their client certificate and all required intermediate CA certificates during the TLS handshake. Azure Front Door builds the certificate chain at request time and validates it against the configured trusted root CA.
 
 ## Certificate revocation check
 
@@ -104,7 +107,7 @@ Transition to using private CAs, which can continue to issue certificates with t
 
 - Add access control to your origin to validate the request is coming from a valid Front Door. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md?pivots=front-door-standard-premium).
 
-- CA Certificate Management: Upload a root and up to three intermediates (PEM, <25 KB) through Azure Key Vault. No autorotation, but dual CA support enables seamless rollover.
+- CA Certificate Management: Upload a trusted root CA certificate, optionally with up to three intermediate CA certificates (PEM, <25 KB), through Azure Key Vault. When you upload only the root CA certificate, clients must supply all required intermediate CA certificates during the TLS handshake. For more information, see [Trusted CA configuration and client certificate chains](#trusted-ca-configuration-and-client-certificate-chains). No autorotation, but dual CA support enables seamless rollover.
 
 - Azure Front Door performs Extended Key Usage (EKU) checks on client certificates to ensure they're intended for client authentication, which is an important security measure. However, due to industry changes, public Certificate Authorities (CAs) will soon stop issuing client authentication certificates with the required EKU. Transition to using private CAs, which can continue to issue certificates with the correct EKU for mTLS scenarios on Azure Front Door, ensuring uninterrupted and secure client authentication.
 
@@ -134,7 +137,7 @@ The solution exposes the following metrics:
 
 ## Configuration quota limit
 
-- The client CA certificate chain can include a root and up to three intermediates.
+- The uploaded CA configuration can contain a root CA certificate alone, or a root CA certificate and up to three intermediate CA certificates.
 
 - CA certificates must be PEM-encoded and under 25 KB.
 
@@ -151,6 +154,8 @@ The solution exposes the following metrics:
 1. Under **Security**, select **Mutual TLS CA certificates**. You see a list of your existing mTLS certificate chains if you uploaded any in the past.
 
 1. Select **+ Add**. You see Key Vault and Secret objects you have access to. Select the ones you want to use as public key part of mTLS handshake.  
+
+    The selected secret can contain only the trusted root CA certificate. In this configuration, clients must present their client certificate and all required intermediate CA certificates during the TLS handshake. For more information, see [Trusted CA configuration and client certificate chains](#trusted-ca-configuration-and-client-certificate-chains).
 
 1. Under **Settings**, select **Front Door manager**. You see the list of your endpoints.
 
@@ -216,4 +221,3 @@ For more diagnostic information, pass the header `X-Azure-DebugInfo:1` with the 
 
 - [TLS encryption with Azure Front Door](end-to-end-tls.md?pivots=front-door-standard-premium)
 - [Azure Front Door TLS policy](./tls-policy.md)
-

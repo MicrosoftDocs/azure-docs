@@ -198,14 +198,14 @@ The following example shows the schema of a FleetGateCreated modified event:
 ```json
   {
     "source": "/subscriptions/{subscription-id}",
-    "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/9i567df1-jh3a-281j-8eb8-123ac2el0t60",
+    "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "type": "Microsoft.ResourceNotifications.AksResources.FleetGateCreated",
     "time": "2025-09-09T01:10:58.4955907Z",
     "id": "m7m4mf0x-740g-4c2d-a0ab-a4r8h4uuf018",
     "data": {
       "resourceInfo": {
-        "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/9i567df1-jh3a-281j-8eb8-123ac2el0t60",
-        "name": "9i567df1-jh3a-281j-8eb8-123ac2el0t60",
+        "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+        "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
         "type": "Microsoft.ContainerService/fleets/gates",
         "properties": {
           "displayName": "before-stage",
@@ -237,11 +237,11 @@ The following example shows the schema of a FleetGateCreated modified event:
 {
   "id": "m7m4mf0x-740g-4c2d-a0ab-a4r8h4uuf018",
   "topic": "/subscriptions/{subscription-id}",
-  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/9i567df1-jh3a-281j-8eb8-123ac2el0t60",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
   "data": {
     "resourceInfo": {
-      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/9i567df1-jh3a-281j-8eb8-123ac2el0t60",
-      "name": "9i567df1-jh3a-281j-8eb8-123ac2el0t60",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+      "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
       "type": "Microsoft.ContainerService/fleets/gates",
       "properties": {
         "displayName": "before-stage",
@@ -281,14 +281,14 @@ The following example shows the schema of a FleetGateUpdated event:
 ```json
   {
     "source": "/subscriptions/{subscription-id}",
-    "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/1k90uy67-e375-4xv6-z220-5197ekk1aka4",
+    "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
     "type": "Microsoft.ResourceNotifications.AksResources.FleetGateUpdated",
     "time": "2025-09-09T01:12:25.8924289Z",
     "id": "a9f8d51g-c114-4565-buee-5q1jb6fb0b08",
     "data": {
       "resourceInfo": {
-        "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/1k90uy67-e375-4xv6-z220-5197ekk1aka4",
-        "name": "1k90uy67-e375-4xv6-z220-5197ekk1aka4",
+        "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
+        "name": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
         "type": "Microsoft.ContainerService/fleets/gates",
         "properties": {
           "displayName": "before group",
@@ -321,11 +321,11 @@ The following example shows the schema of a FleetGateUpdated event:
 {
   "id": "a9f8d51g-c114-4565-buee-5q1jb6fb0b08",
   "topic": "/subscriptions/{subscription-id}",
-  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/1k90uy67-e375-4xv6-z220-5197ekk1aka4",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
   "data": {
     "resourceInfo": {
-      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/1k90uy67-e375-4xv6-z220-5197ekk1aka4",
-      "name": "1k90uy67-e375-4xv6-z220-5197ekk1aka4",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.ContainerService/fleets/{fleet-name}/gates/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
+      "name": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
       "type": "Microsoft.ContainerService/fleets/gates",
       "properties": {
         "displayName": "before group",

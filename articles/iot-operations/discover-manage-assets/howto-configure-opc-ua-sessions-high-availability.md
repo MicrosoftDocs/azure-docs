@@ -24,7 +24,7 @@ High availability for the connector for OPC UA is available starting with Azure 
 This article shows you how to:
 
 - Choose between dedicated and shared OPC UA sessions.
-- Enable high availability for an OPC UA inbound endpoint.
+- Enable high availability for an OPC UA inbound endpoint and configure when failover occurs.
 - Plan connector capacity and OPC UA server sessions.
 - Verify failover by using health information and metrics.
 
@@ -32,7 +32,7 @@ For the basic device, endpoint, and asset configuration workflow, see [Configure
 
 ## Prerequisites
 
-[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+[!INCLUDE [prerequisite-deployed-instance-standard](../includes/prerequisite-deployed-instance-standard.md)]
 
 - Your Azure IoT Operations instance has the connector for OPC UA enabled.
 - A namespaced device with an OPC UA inbound endpoint. To create one, see [Create a device](howto-configure-opc-ua.md#create-a-device).
@@ -169,6 +169,39 @@ As described in [Choose a session and availability mode](#choose-a-session-and-a
 
 > [!IMPORTANT]
 > The `highAvailability` setting is supported only on namespaced device inbound endpoints. If you add the setting to a legacy `AssetEndpointProfile` resource, the connector ignores it.
+
+### Configure immediate handover
+
+By default, the active connector tries to reconnect to the OPC UA server when a session fails. Starting with Azure IoT Operations release 2610, you can configure it to hand leadership to the passive instance instead, as soon as a session failure triggers reconnection.
+
+To enable immediate handover, set `highAvailabilityImmediateHandover` to `true` in the inbound endpoint's `additionalConfiguration`, alongside `highAvailability`:
+
+```bicep
+additionalConfiguration: string({
+  highAvailability: true
+  highAvailabilityImmediateHandover: true
+})
+```
+
+The `highAvailabilityImmediateHandover` setting is `false` by default. If `highAvailability` isn't `true`, the connector logs a warning and ignores the immediate handover setting.
+
+By default, one failed session keep-alive triggers reconnection and immediate handover. To tolerate transient failures before handing over, set `session.keepAliveFailureThreshold` to the number of consecutive failed keep-alives to allow. For example, the following configuration triggers handover after two consecutive failures:
+
+```bicep
+additionalConfiguration: string({
+  highAvailability: true
+  highAvailabilityImmediateHandover: true
+  session: {
+    keepAliveFailureThreshold: 2
+  }
+})
+```
+
+The `keepAliveFailureThreshold` setting defaults to `1`. A successful keep-alive resets the failure count. Only the active instance initiates handover, and only when the session transitions from being ready to reconnecting. Further errors during the same reconnection attempt don't trigger additional handovers.
+
+Immediate handover also supports shared sessions. The connector persists session state once per shared client. During activation, it restores or transfers that state once per endpoint and makes it available to all assets that use the endpoint.
+
+Immediate handover can improve responsiveness to session failures, but even a transient server interruption can cause the active connector pod to be replaced. Size monitored-item queues to cover the handover interval, as described in [Plan connector and server capacity](#plan-connector-and-server-capacity). For the recovery steps after handover, see [Understand failover behavior](#understand-failover-behavior).
 
 ## Plan connector and server capacity
 

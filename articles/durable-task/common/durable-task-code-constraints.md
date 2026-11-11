@@ -3,7 +3,8 @@ title: Durable orchestrator code constraints
 description: Orchestration replay and code constraints for Azure Durable Functions and Durable Task SDKs.
 author: cgillum
 ms.topic: reference
-ms.date: 08/24/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 ms.service: durable-task
 zone_pivot_groups: azure-durable-approach
@@ -623,6 +624,20 @@ The Durable Task Framework runs orchestrator code on a single thread and can't i
 
 > [!NOTE]
 > The Durable Task Framework attempts to detect accidental use of nonorchestrator threads in orchestrators. If it finds a violation, the framework throws a **NonDeterministicOrchestrationException** exception. However, this detection behavior won't catch all violations, and you shouldn't depend on it.
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+### Go orchestrators
+
+Go orchestrators replay just like orchestrators in the other SDKs. Don't use native goroutines, native channels, `select`, `sync.WaitGroup`, `time.Sleep`, or ordinary blocking synchronization to coordinate durable work. Use `ctx.CallActivity`, `ctx.WhenAll`, `ctx.WhenAny`, or the SDK's durable coroutine and selection APIs instead.
+
+Read time from `ctx.CurrentTimeUtc`, not `time.Now`. Don't iterate over Go maps to schedule tasks: map iteration order is nondeterministic. Use a slice with a stable order, or sort map keys before scheduling. Read environment variables and perform I/O in activities or application startup code, not in the orchestrator.
+
+Use `ctx.Logger()` for replay-aware logs. Check errors from input decoding, awaited tasks, and `SetCustomStatusValue`. The Go SDK includes the [`orchestratorvet` analyzer](https://github.com/microsoft/durabletask-go/tree/main/cmd/orchestratorvet) to help detect replay hazards, but static analysis doesn't replace integration tests with Durable Task Scheduler.
+
+See [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md) for deterministic workflow examples and runtime testing.
 
 ::: zone-end
 

@@ -52,7 +52,7 @@ A protection group associates Azure resources with a backup plan and runs schedu
 1. Review the resources that the service will protect, and then select **Create**.
 
 > [!NOTE]
-> The preview currently supports protection and recovery for Azure virtual machines only. Support for additional workloads is planned in future releases, including Azure Kubernetes Service (AKS).
+> Commvault Cloud currently supports protection and recovery for Azure virtual machines only. Support for additional workloads is planned in future releases, including Azure Kubernetes Service (AKS).
 >
 > A newly created group initially shows the protection status as **To Be Protected** before the first scheduled backup finishes.
 

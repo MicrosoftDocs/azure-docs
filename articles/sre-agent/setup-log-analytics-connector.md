@@ -3,7 +3,7 @@ title: "Tutorial: Connect to Log Analytics & Application Insights in Azure SRE A
 description: Set up Log Analytics and Application Insights connectors so your agent can query your workspaces directly with fewer tokens.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 07/17/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -23,7 +23,7 @@ For background on why you'd add a connector when built-in observability already 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Add a Log Analytics connector in the Builder
+> - Add a Log Analytics connector in **Build + setup** > **Extensions** > **Connectors**
 > - Select a workspace from the auto-discovered list
 > - Verify the connection by querying logs in chat
 
@@ -36,7 +36,7 @@ You don't need to configure subscription scope or resource group access separate
 
 ## Add the connector
 
-1. Go to **Builder** > **Connectors**.
+1. Go to **Build + setup** > **Extensions** > **Connectors**.
 1. Select **Add connector**.
 1. Select **Log Analytics Workspace** (or **Application Insights** for App Insights resources).
 
@@ -64,8 +64,8 @@ After you select a workspace, a hint shows which resource groups receive RBAC ro
 ## Save and verify
 
 1. Select **Add**. The agent assigns the required RBAC roles to its managed identity and creates the connection.
-1. Confirm the connector appears in **Builder** > **Connectors** with a **Connected** status.
-1. Go to **Chat** and test the connection:
+1. Confirm the connector appears in **Build + setup** > **Extensions** > **Connectors** with a **Connected** status.
+1. Return to the main navigation with **Back**, select **New chat**, and test the connection:
 
 ```text
 What tables are available in my Log Analytics workspace?

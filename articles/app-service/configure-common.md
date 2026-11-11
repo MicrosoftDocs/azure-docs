@@ -4,7 +4,7 @@ description: Learn how to configure common settings for an Azure App Service app
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
-ms.date: 04/13/2026
+ms.date: 11/06/2026
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
@@ -462,6 +462,9 @@ Here, you can configure some common settings for the app. Some settings require 
   - **HTTPS Only**: Enable if you want to redirect all HTTP traffic to HTTPS.
   - **Minimum TLS version**: Select the minimum TLS encryption version that your app requires.
 
+    > [!NOTE]
+    > [Post-quantum hybrid key exchange](overview-tls.md#post-quantum-hybrid-key-exchange) is managed by the platform and has no app-level setting. Setting the minimum TLS version to 1.3 doesn't require the hybrid group `X25519MLKEM768`. Neither the minimum TLS version nor the minimum cipher-suite setting enables, disables, or requires this group.
+
 - **Debugging**: Enable remote debugging for [ASP.NET](/visualstudio/debugger/remote-debugging-azure-app-service#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: Require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
 
@@ -475,6 +478,8 @@ You can set many of the common configurable options by using [az webapp config s
 az webapp config set --resource-group <group-name> --name <app-name>  --use-32bit-worker-process [true|false] --web-sockets-enabled [true|false] --always-on [true|false]--http20-enabled --auto-heal-enabled [true|false] --remote-debugging-enabled [true|false] --number-of-workers
 ```
 
+For a Windows app, set `--use-32bit-worker-process false` to use a 64-bit (x64) process. This setting doesn't increase the tier's resource quotas.
+
 To show the existing settings, use the [az webapp config show](/cli/azure/webapp/config#az-webapp-config-show) command.
 
 # [Azure PowerShell](#tab/ps)
@@ -484,6 +489,8 @@ You can set many of the common configurable options by using [Set-AzWebApp](/pow
 ```azurecli-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -Use32BitWorkerProcess [$True|$False] -WebSocketsEnabled [$True|$False] -AlwaysOn [$True|$False] -NumberOfWorkers
 ```
+
+For a Windows app, set `-Use32BitWorkerProcess $False` to use a 64-bit (x64) process. This setting doesn't increase the tier's resource quotas.
 
 To show the existing settings, use the [Get-AzWebApp](/powershell/module/az.websites/get-azwebapp) command.
 

@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 09/21/2026
+ms.date: 10/15/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom: engagement-fy23, linux-related-content
@@ -44,7 +44,7 @@ The replication appliance is an on-premises machine that runs Site Recovery comp
 - For VMware VMs, you can create the replication appliance by downloading an OVF template to create a VMware VM.
 - For physical servers, you can set up the replication appliance manually by running a PowerShell script.
 
-[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 **Component** | **Requirements**
 --- |---
@@ -82,6 +82,8 @@ Azure Virtual Machines as Physical | Failover of virtual machines with Marketpla
 
 ### For Windows
 
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
+
 > [!NOTE]
 > Ensure that at least 600 MB of free space is available in the installation folder on the on-premises and Azure machines.
 
@@ -93,7 +95,6 @@ Windows Server 2019 | Supported.
 Windows Server 2016 64-bit | Supported for Server Core, Server with Desktop Experience.
 Windows 11, Windows 10, Windows 8.1, Windows 8 | Only 64-bit system is supported. 32-bit system isn't supported.
 Windows 7 with SP1 64-bit | Supported.
-
 
 ### For Linux
 

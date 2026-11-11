@@ -227,7 +227,7 @@ Programmatically, list them with the List Blobs operation and `include=deleted` 
 
 - **I can't recover a deleted container with blob soft delete:** Blob soft delete protects individual blobs, not containers. If a container was deleted, its blobs can't be restored through blob soft delete. Container recovery requires container soft delete to have been enabled beforehand. See [Container soft delete](soft-delete-container-enable.md).
 
-- **I need to disable soft delete at scale after enabling too broadly:** Reference [Enable soft delete for containers](https://github.com/MicrosoftDocs/articles/storage/blobs/soft-delete-container-enable.md) for instructions on disabling soft delete using various tools. 
+- **I need to disable soft delete at scale after enabling too broadly:** Reference [Enable soft delete for containers](soft-delete-container-enable.md) for instructions on disabling soft delete using various tools. 
 
 - **I set my retention period too long and want my blobs to be permanently deleted sooner:** In order to permanently delete blobs that have already been soft deleted, undelete the soft deleted blobs, turn off the blob soft delete feature, and redelete the blobs. 
 

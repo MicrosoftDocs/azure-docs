@@ -44,6 +44,7 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 ## Limitations
 
 * Only v2 SKU supports a frontend with both IPv4 and IPv6 addresses
+* A public IPv6 listener and a private IPv6 listener can't share a frontend port. Configure them with different frontend ports.
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)

@@ -4,7 +4,8 @@ description: "Learn how to implement the function chaining pattern to execute a 
 author: hhunter-ms
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 04/22/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: hannahhunter
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
@@ -20,13 +21,13 @@ zone_pivot_groups: azure-durable-approach
 
 Function chaining is a pattern where you run a sequence of functions in order. It's common to pass the output of one function to the input of the next. This article describes the chaining sequence you build when you complete the Durable Functions quickstart ([C#](../durable-functions/durable-functions-isolated-create-first-csharp.md), [JavaScript](../durable-functions/quickstart-js-vscode.md), [TypeScript](../durable-functions/quickstart-ts-vscode.md), [Python](../durable-functions/quickstart-python-vscode.md), [PowerShell](../durable-functions/quickstart-powershell-vscode.md), or [Java](../durable-functions/quickstart-java.md)). Learn more in [Durable Functions overview](what-is-durable-task.md).
 
-[!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
+[!INCLUDE [durable-functions-sample-prerequisites](../includes/durable-functions-sample-prerequisites.md)]
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-Function chaining is a pattern where you run a sequence of activities in order. It's common to pass the output of one activity to the input of the next. This article describes the chaining sequence for the Durable Task SDKs for .NET, JavaScript, Python, and Java.
+Function chaining is a pattern where you run a sequence of activities in order. It's common to pass the output of one activity to the input of the next. This article describes the chaining sequence for the Durable Task SDKs for .NET, JavaScript, Python, Java, and Go (beta).
 
 ::: zone-end
 
@@ -46,7 +47,7 @@ This article describes these functions in the sample app:
 
 This article describes these components in the sample app:
 
-* `GreetingOrchestration`, `greetingOrchestrator`, `function_chaining_orchestrator`, or `ActivityChaining`: An orchestrator that calls multiple activities in sequence. It stores each output and records the results.
+* `GreetingOrchestration`, `greetingOrchestrator`, `function_chaining_orchestrator`, `ActivityChaining`, or `greetingOrchestration`: An orchestrator that calls multiple activities in sequence. It stores each output and records the results.
 * Activity functions: Activities that process input and return results. Each activity performs a simple transformation on the input.
 * Client: A client app that starts an instance of the orchestrator and waits for the result.
 
@@ -208,6 +209,10 @@ The orchestrator calls `SayHello` three times in sequence with different paramet
 
 Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -299,7 +304,7 @@ All Python orchestrators are generator functions that use `yield` to call activi
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -334,6 +339,38 @@ DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorker
 ```
 
 In Java, orchestrators are defined using `TaskOrchestrationFactory`. The context's `callActivity` method schedules activity execution, and `await()` waits for the result. The code calls three activities in sequence, passing each activity's output to the next.
+
+# [Go](#tab/go)
+
+Add this orchestrator and the activities in the next section to your Go app. Register it as `Greeting` and register the activities as `SayHello`, `ProcessGreeting`, and `FinalizeResponse`.
+
+```go
+package main
+
+import "github.com/microsoft/durabletask-go/task"
+
+func greetingOrchestration(ctx *task.OrchestrationContext) (any, error) {
+	var name string
+	if err := ctx.GetInput(&name); err != nil {
+		return nil, err
+	}
+	var greeting string
+	if err := ctx.CallActivity("SayHello", task.WithActivityInput(name)).Await(&greeting); err != nil {
+		return nil, err
+	}
+	var processed string
+	if err := ctx.CallActivity("ProcessGreeting", task.WithActivityInput(greeting)).Await(&processed); err != nil {
+		return nil, err
+	}
+	var response string
+	if err := ctx.CallActivity("FinalizeResponse", task.WithActivityInput(processed)).Await(&response); err != nil {
+		return nil, err
+	}
+	return response, nil
+}
+```
+
+`CallActivity` schedules durable work, and `Await` waits for its result. Each activity receives the previous activity's output. See the [Go SDK guide](../sdks/durable-task-go.md) for worker and client setup.
 
 ---
 
@@ -460,6 +497,10 @@ Unlike the orchestrator function, an activity function needs no special setup. T
 
 Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -559,7 +600,7 @@ Unlike orchestrators, activities can perform I/O operations like HTTP calls, dat
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -607,6 +648,46 @@ import com.microsoft.durabletask.TaskActivityFactory;
 ```
 
 Register each activity with the worker builder by using `addActivity`. Activities can perform I/O operations and return results to the orchestrator.
+
+# [Go](#tab/go)
+
+Save these functions in a separate Go file in the same package as `greetingOrchestration`:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func sayHello(ctx task.ActivityContext) (any, error) {
+	var name string
+	if err := ctx.GetInput(&name); err != nil {
+		return nil, err
+	}
+	return fmt.Sprintf("Hello %s!", name), nil
+}
+
+func processGreeting(ctx task.ActivityContext) (any, error) {
+	var greeting string
+	if err := ctx.GetInput(&greeting); err != nil {
+		return nil, err
+	}
+	return greeting + " How are you today?", nil
+}
+
+func finalizeResponse(ctx task.ActivityContext) (any, error) {
+	var response string
+	if err := ctx.GetInput(&response); err != nil {
+		return nil, err
+	}
+	return response + " I hope you're doing well!", nil
+}
+```
+
+Activities can perform ordinary Go I/O. Their input and return values are serialized by the SDK.
 
 ---
 
@@ -748,6 +829,11 @@ public HttpResponseMessage startOrchestration(
 To interact with orchestrators, add a `DurableClientInput` binding. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
 
 Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -840,7 +926,7 @@ The `DurableTaskSchedulerClient` connects to the Durable Task Scheduler. Use `sc
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -874,6 +960,43 @@ System.out.println("Orchestration completed with result: " + result.readOutputAs
 ```
 
 Create the `DurableTaskClient` by using a connection string. Use `scheduleNewOrchestrationInstance` to start an orchestration and `waitForInstanceCompletion` to wait for completion.
+
+# [Go](#tab/go)
+
+With the worker running and `Greeting` registered, use a client created by `durabletaskscheduler.NewClient`:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/durabletaskscheduler"
+)
+
+func runGreeting(ctx context.Context, durableClient *durabletaskscheduler.Client, name string) (string, error) {
+	id, err := durableClient.ScheduleNewOrchestration(ctx, "Greeting", api.WithInput(name))
+	if err != nil {
+		return "", err
+	}
+	metadata, err := durableClient.WaitForOrchestrationCompletion(ctx, id, api.WithFetchPayloads(true))
+	if err != nil {
+		return "", err
+	}
+	if metadata.RuntimeStatus != api.RUNTIME_STATUS_COMPLETED {
+		return "", fmt.Errorf("greeting ended with %s: %+v", metadata.RuntimeStatus, metadata.FailureDetails)
+	}
+	var result string
+	if err := metadata.ReadOutput(&result); err != nil {
+		return "", err
+	}
+	return result, nil
+}
+```
+
+For worker startup and connection cleanup, follow the [Go quickstart](../sdks/quickstart-portable-durable-task-sdks.md?pivots=go).
 
 ---
 

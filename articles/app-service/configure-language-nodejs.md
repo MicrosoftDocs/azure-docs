@@ -5,7 +5,7 @@ ms.custom: devx-track-js, devx-track-azurecli, linux-related-content
 ms.devlang: javascript
 # ms.devlang: javascript, devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/29/2025
+ms.date: 11/06/2026
 author: msangapu-msft
 ms.author: msangapu
 zone_pivot_groups: app-service-platform-windows-linux
@@ -56,6 +56,8 @@ az webapp list-runtimes --os linux | grep NODE
 
 ::: zone pivot="platform-windows"  
 
+Node.js 24 and Node.js 26 require 64-bit (x64) processes. Before using these versions, [set the app's platform to 64-bit](configure-common.md#configure-general-settings).
+
 To set your app to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
 
 ```azurecli-interactive
@@ -74,10 +76,10 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ::: zone pivot="platform-linux"
 
-To set your app to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
+To set an existing built-in Linux Node.js app with a nonempty `linuxFxVersion` to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com). For `az webapp config set --runtime`, specify the runtime in colon-separated format, such as `NODE:26`.
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|24-lts"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --runtime "NODE:26"
 ```
 
 This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
@@ -388,7 +390,7 @@ If you deploy your files by using Git or by using ZIP deployment [with build aut
 
 The generated *web.config* file is tailored to the detected start script. For other deployment methods, add the *web.config* file manually. Make sure the file is formatted properly.
 
-If you use [ZIP deployment](deploy-zip.md) (via Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy). It's not enabled by default. [`az webapp up`](/cli/azure/webapp#az-webapp-up) uses ZIP deployment with build automation enabled.
+If you use [ZIP deployment](deploy-zip.md) (via Visual Studio Code or [`az webapp deploy`](/cli/azure/webapp#az-webapp-deploy), for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy). It's not enabled by default.
 
 ::: zone-end
 

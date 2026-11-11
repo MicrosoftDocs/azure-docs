@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: concept-article
-ms.date: 08/27/2026
+ms.date: 11/04/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
@@ -84,6 +84,17 @@ The following table describes Azure IoT Operations deployment and management tas
 | Onboard a cluster to Azure Arc | [Kubernetes Cluster - Azure Arc Onboarding role](/azure/role-based-access-control/built-in-roles/containers#kubernetes-cluster---azure-arc-onboarding) | Arc-enabled clusters are required to deploy Azure IoT Operations. |
 | Manage deployment of Azure resource bridge| [Azure Resource Bridge Deployment role](/azure/role-based-access-control/built-in-roles/hybrid-multicloud#azure-resource-bridge-deployment-role) | Required to deploy Azure IoT Operations. |
 | Provide permissions to deployment| [Azure Arc Enabled Kubernetes Cluster User role](/azure/role-based-access-control/built-in-roles/containers#azure-arc-enabled-kubernetes-cluster-user-role) | Required to grant permission of deployment to the Azure Arc-enabled Kubernetes cluster. |
+| Read Azure Device Registry asynchronous-operation status | [Reader role](/azure/role-based-access-control/built-in-roles/general#reader) at subscription scope, or equivalent permission | Assign to operations experience users to check completion of management actions and resource operations. |
+
+The operations experience reads Azure Device Registry asynchronous-operation status at subscription scope. The signed-in user needs `Microsoft.DeviceRegistry/locations/asyncOperationStatuses/read` at the scope of the subscription that contains the Azure Device Registry resources. Contributor access to the resource group doesn't grant this permission. The Reader role at subscription scope grants this access, but also grants control-plane read access to all resources in the subscription. No additional assignment is needed if an existing role grants the polling permission at this scope.
+
+The following table summarizes permissions for the signed-in operations experience user:
+
+| Principal | Required role | Scope | Purpose |
+| --------- | ------------- | ----- | ------- |
+| Operations experience user | [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor) | Azure IoT Operations resource group | Create and manage Azure IoT Operations and Azure Device Registry resources. |
+| Operations experience user | [Key Vault Secrets Officer](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer), only for secret management | Key vault used by the instance | Create or access device credential secrets. |
+| Operations experience user | [Reader](/azure/role-based-access-control/built-in-roles/general#reader) or equivalent existing permission | Subscription that contains the Azure Device Registry resources | Read asynchronous-operation status for resource operations and management actions. |
 
 > [!TIP]
 > You must enable resource sync on the Azure IoT Operations instance to use the automatic asset discovery capabilities of the Akri services. To learn more, see [What is OPC UA asset discovery?](../discover-manage-assets/overview-akri.md)
@@ -107,7 +118,7 @@ Azure IoT Operations offers two built-in roles designed to simplify and secure a
 
 #### Azure IoT Operations Administrator role
 
-The Azure IoT Operations Administrator role provides comprehensive permissions to manage and operate all Azure IoT Operations components. Assign this role to users who need full access to use Azure IoT Operations resources. To support deployment and ongoing management of Azure IoT Operations, users require additional permissions. If a user only needs to use Azure IoT Operations, you can assign the Administrator role alone.
+The Azure IoT Operations Administrator role provides comprehensive permissions to manage and operate all Azure IoT Operations components. Assign this role to users who need full access to use Azure IoT Operations resources. To support deployment and ongoing management of Azure IoT Operations, users require additional permissions. Operations experience users also need the subscription-scoped polling permission described in [Required permissions](#required-permissions).
 
 When assigning this built-in role, you need to ensure that the following roles are also assigned to the user:
 
@@ -170,11 +181,13 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
   | `global.prod.microsoftmetrics.com` | Required for usage telemetry and error reporting metrics sent from the cluster to Microsoft (Geneva Metrics). This is the primary MetricsExtension endpoint. If this endpoint is blocked, Microsoft loses visibility into service health and usage on the cluster. |
   | `*.prod.microsoftmetrics.com` | Wildcard covering all Geneva Metrics stamp-specific endpoints. Customers who prefer a narrower allowlist can use `global.prod.microsoftmetrics.com` instead. |
 
+* For Azure Government endpoints, see [Azure IoT Operations in Azure Government > Network requirements](../overview-azure-government.md#network-requirements).
+
 If you're deploying to a cluster in a regulated, network-restricted, or disconnected environment, follow the steps in [Mirror deployment images to a private registry](../secure-iot-ops/howto-mirror-images-private-registry.md) to make the required deployment images available in your environment.
 
 ## Data residency
 
-Azure Resource Manager lets you manage and control your Azure IoT Operations instance in your Kubernetes cluster from the cloud using the Azure portal or Azure CLI. While you must deploy the Azure Resource Manager resources for Azure IoT Operations to a [currently supported region](../overview-support.md#supported-regions), you choose where your operational workloads and data physically reside. The Azure IoT Operations runtime and compute remain on your premises and under your control.​
+Azure Resource Manager lets you manage and control your Azure IoT Operations instance in your Kubernetes cluster from the cloud using the Azure portal or Azure CLI. While you must deploy the Azure Resource Manager resources for Azure IoT Operations to a [currently supported region](../overview-support.md#supported-regions), you choose where your operational workloads and data physically reside. The Azure IoT Operations runtime and compute remain on your premises and under your control.​ In Azure Government, Azure IoT Operations resources and their data flow destinations stay within Azure Government regions.
 
 ​This architecture ensures the following characteristics of the deployment:​
 

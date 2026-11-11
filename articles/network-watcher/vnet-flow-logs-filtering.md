@@ -1,5 +1,5 @@
 ---
-title: Filter Virtual Network Flow Logs (Preview)
+title: Filter Virtual Network Flow Logs 
 titleSuffix: Azure Network Watcher
 description: Learn how to apply filtering in Azure Network Watcher virtual network flow logs to capture specific traffic based on flow state, actions, IP ranges, ports, protocols, and more.
 author: halkazwini
@@ -9,15 +9,11 @@ ms.topic: how-to
 ms.date: 03/24/2026
 ---
 
-# Filter virtual network flow logs (preview)
+# Filter virtual network flow logs 
 
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
 In this article, you learn about virtual network flow logs filtering capability. The filtering capability provides users with options to record traffic within a virtual network (intra-VNet traffic) or with two or more virtual networks (inter-VNet traffic). It also helps users identify CIDR range-based traffic, inbound outbound traffic, internet traffic, and allowed/denied traffic. 
-
-> [!IMPORTANT]
-> Virtual network flow logs filtering is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Supported fields
 

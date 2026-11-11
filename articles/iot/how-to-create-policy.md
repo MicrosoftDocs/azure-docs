@@ -35,16 +35,6 @@ Use the Azure portal or Azure CLI to create root and intermediate certificate au
 
 ### Create a root CA
 
-#### Option 1: Create a root CA for a new namespace
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Azure Device Registry**.
-1. Select **Namespaces**, and then select **Create** to create a new namespace. Check the box to let Azure create a Microsoft-managed root CA by default, or leave it unchecked if you plan to bring your own external root CA.
-
-   :::image type="content" source="media/how-to-create-policy/create-namespace.png" alt-text="Screenshot of portal page showing create namespace." lightbox="media/how-to-create-policy/create-namespace.png":::
-   
-#### Option 2: Create a root CA for an existing namespace
-
 1. In the **Namespaces** list, select your namespace.
 1. Under **Security**, select **Certificate Authorities**.
 1. Select **Create**. **Root Certificate Authority** is disabled if the namespace already has one root CA by default.
@@ -61,6 +51,8 @@ Use the Azure portal or Azure CLI to create root and intermediate certificate au
 1. Select **Intermediate Certificate Authority.** 
 
 1. Select **Use this namespace's Root CA**, enter a name for the intermediate CA, and then select **Create**.
+After you create an intermediate CA, you must create a certificate policy before you can issue device certificates. For instructions, see [Create or edit a certificate policy](how-to-create-edit-certificate-policy.md).
+
 # [Azure CLI](#tab/cli)
 
 ### Prepare the Azure CLI
@@ -71,11 +63,14 @@ Use the Azure portal or Azure CLI to create root and intermediate certificate au
 
 ### Set variables
 
-Optionally, define variables for the commands in this article.
+The following examples use Bash syntax. Optionally, define shared variables for the commands in this article. If you don't set these variables, replace each variable reference in the commands with its value.
+
+You must create certificate authorities in the same region as their Azure Device Registry namespace.
 
 ```azurecli
 RG_NAME="<resource-group>"
 NS_NAME="<adr-namespace>"
+SUBSCRIPTION_ID="<subscription-id>"
 ```
 
 ### Create the root CA
@@ -83,13 +78,13 @@ NS_NAME="<adr-namespace>"
 Run the following command to enable certificate management and provision a root CA for the namespace:
 
 ```azurecli
-az iot adr ns ca create --name "<root-ca-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id> --location <region> --type Root
+az iot adr ns ca create --name "<root-ca-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription "$SUBSCRIPTION_ID" --type Root
 ```
 
 Verify that provisioning succeeded and review the root CA certificate information:
 
 ```azurecli
-az iot adr ns ca show --name "<root-ca-name>" --namespace "$NS_NAME" --resource-group "$RG_NAME"
+az iot adr ns ca show --name "<root-ca-name>" --namespace "$NS_NAME" --resource-group "$RG_NAME" --subscription "$SUBSCRIPTION_ID"
 ```
 
 ### Create an intermediate CA
@@ -97,15 +92,18 @@ az iot adr ns ca show --name "<root-ca-name>" --namespace "$NS_NAME" --resource-
 Create an intermediate certificate authority that's issued by the namespace root CA.
 
 ```azurecli
-az iot adr ns ca create --name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id> --location <location> --type ICA --issuer-type Microsoft --issuer-ca-name "<root-ca-name>"
+az iot adr ns ca create --name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription "$SUBSCRIPTION_ID" --type ICA --issuer-type Microsoft --issuer-ca-name "<root-ca-name>"
 
 ```
 
 Verify that the intermediate certificate authority properties match the values that you specified:
 
+
 ```azurecli
-az iot adr ns ca show --ca-name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription <subscription_id>
+az iot adr ns ca show --ca-name "<ica-name>" --ns "$NS_NAME" --resource-group "$RG_NAME" --subscription "$SUBSCRIPTION_ID"
 ```
+
+After you create an intermediate CA, you must create a certificate policy before you can issue device certificates. For instructions, see [Create or edit a certificate policy](how-to-create-edit-certificate-policy.md).
 
 ---
 

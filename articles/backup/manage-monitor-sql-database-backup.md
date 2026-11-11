@@ -1,5 +1,5 @@
 ---
-title: Manage and monitor SQL Server database and instance snapshot (preview) on an Azure VM
+title: Manage and monitor SQL Server database and instance snapshot backups on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
 ms.date: 04/06/2026
@@ -9,16 +9,13 @@ ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to manage and monitor SQL Server databases on Azure VMs, so that I can ensure reliable backups and recoveries while maintaining optimal performance and reducing downtime."
 ---
 
-# Manage and monitor SQL Server database and instance snapshot (preview) backups 
+# Manage and monitor SQL Server database and instance snapshot backups
 
-This article describes common tasks for managing and monitoring SQL Server databases running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by using the Azure portal. Azure Backup allows you to manage both SQL database backups and [SQL instance snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
+This article describes common tasks for managing and monitoring SQL Server databases running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by using the Azure portal. Azure Backup allows you to manage both SQL database backups and [SQL instance snapshot backups](backup-azure-sql-database.md#snapshot-based-backup-for-sql-instances-in-azure-vms). You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you didn't configure backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
-
->[!NOTE]
->SQL Server instance snapshot backup management isn't supported with [Resiliency](../resiliency/resiliency-overview.md). [Learn more about the supported and unsupported scenarios for SQL Server instance snapshot backup (preview)](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
 
 ## Configure simultaneous backups
 
@@ -80,7 +77,7 @@ To configure simultaneous backups, follow these steps:
 
 ## View backup items for SQL database and SQL Server instance
 
-After you configure snapshot backup for a SQL Server instance (preview), Azure Backup shows the backup items in the Azure portal. Azure creates one backup item for the protected SQL instance, which you use for instance-level actions. These items appear under **SQL Server in Azure VM (Snapshot backup)**.
+After you configure snapshot backup for a SQL Server instance, Azure Backup shows the backup items in the Azure portal. Azure creates one backup item for the protected SQL instance, which you use for instance-level actions. These items appear under **SQL Server in Azure VM (Snapshot backup)**.
 
 Azure also creates a separate backup item for each protected database in the instance. You use these items to perform database-level actions, such as restoring a database. These items appear under **SQL database in Azure VM** with backup type as **Snapshot backup**.
 
@@ -88,7 +85,7 @@ To view the database backup items, follow these steps:
 
 1. On the **Recovery Services vault** and select **Protected items** > **Backup items**.
 
-1. On the **Backup items** pane, select the required datasource type - **SQL Database in Azure VM** or **SQL Server in Azure VM (Snapshot backup) (Preview)**.
+1. On the **Backup items** pane, select the datasource type you want - **SQL Database in Azure VM** or **SQL Server in Azure VM (Snapshot backup)**.
 
    :::image type="content" source="media/manage-monitor-sql-database-backup/sql-backup-items-overview.png" alt-text="Screenshot that shows the Backup items pane in Azure portal, with the datasources." lightbox="media/manage-monitor-sql-database-backup/sql-backup-items-overview.png":::
 
@@ -98,7 +95,7 @@ To view the database backup items, follow these steps:
 
      :::image type="content" source="media/manage-monitor-sql-database-backup/sql-database-backup-items.png" alt-text="Screenshot that shows the list of SQL database backup items." lightbox="media/manage-monitor-sql-database-backup/sql-database-backup-items.png":::
 
-   - **SQL Server in Azure VM (Snapshot) (Preview)**: Shows the list of all available instance‑level snapshots.
+   - **SQL Server in Azure VM (Snapshot)**: Shows the list of all available instance‑level snapshots.
 
      :::image type="content" source="media/manage-monitor-sql-database-backup/sql-instance-backup-items.png" alt-text="Screenshot that shows the list of SQL instance backup items." lightbox="media/manage-monitor-sql-database-backup/sql-instance-backup-items.png":::
 
@@ -114,7 +111,7 @@ Azure Backup shows all scheduled and on-demand operations under **Jobs** in **Re
 
 For more information on Monitoring scenarios, see [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
-### Monitor backup jobs for SQL Server instance snapshot backup (preview)
+### Monitor backup jobs for SQL Server instance snapshot backup
 
 To monitor SQL in Azure VM backups, go to the **Recovery Services vault**, and select **Monitoring** > **Backup Jobs**.
 
@@ -188,7 +185,7 @@ For more information about the delete data option, see the following FAQs:
 - [If I delete a database from an autoprotected instance, what happens to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
 - [If I do stop backup operation of an autoprotected database what happens to its behavior?](faq-backup-sql-server.yml#if-i-ve-changed-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 
-### Stop protection for SQL instance snapshot backup (preview)
+### Stop protection for SQL instance snapshot backup
 
 You can stop and resume snapshot backups at both the database and instance levels. You access the Stop backup and Resume backup options from the backup item details.
 
@@ -199,8 +196,8 @@ You can stop and resume snapshot backups at both the database and instance level
 To stop backup for SQL Server instance in Azure VM, follow these steps:
 
 1. On the **Recovery Services vault**, select **Protected items** > **Backup items**.
-1. On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup)(Preview)**.
-1. On the **Backup Items (SQL Server in Azure VM (Snapshot backup)(Preview))** pane, select **View details** corresponding to the database instance for which you want to stop protection.
+1. On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup)**.
+1. On the **Backup Items (SQL Server in Azure VM (Snapshot backup))** pane, select **View details** corresponding to the database instance for which you want to stop protection.
 1. On the selected database instance pane, select **Stop backup**.
 1. On the **Stop Backup** pane, for **Stop backup level**, select **Retain backup data** or **Delete backup data**.
 
@@ -212,15 +209,46 @@ To stop backup for SQL Server instance in Azure VM, follow these steps:
 
 ## Resume protection for a SQL database and SQL Server instance
 
-When you stop protection for the SQL database or SQL Server instance (preview), if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backup data, you can't resume protection.
+When you stop protection for the SQL database or SQL Server instance, if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backup data, you can't resume protection.
 
-To resume protection for a SQL database or SQL Server instance, follow these steps:
+To resume protection for a SQL database through streaming policy , follow these steps:
 
 1. Open the backup item and select **Resume backup**.
 
-    ![Select Resume backup to resume database protection](./media/backup-azure-sql-database/resume-backup-button.png)
-
 2. On the **Backup policy** menu, select a policy, and select **Save**.
+
+To resume protection for a SQL database through snapshot policy , resume protection of the SQL server instance first and then add protection for intended database, following these steps:
+
+1. On the **Recovery Services vault**, select **Protected items** > **Backup items**.
+1. On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup)**.
+1. On the **Backup Items (SQL Server in Azure VM (Snapshot backup))** pane, select **View details** corresponding to the database instance for which you want to resume protection.
+1. On the selected database instance pane, select **Resume backup** and complete the validation and resume flow.
+1. Once the instance protection is resumed, select the instance from the list of backup items.
+1. Select the **+ Add new database** button and complete the database resume backup process by choosing the database(s) for which the backup is stopped.
+
+
+## Move from streaming protection to snapshot protection
+
+To move a SQL database from streaming protection to snapshot protection, first stop the existing protection while retaining the backup data. Then, configure snapshot protection for the SQL instance and add protection for the database.
+
+1. Open the database backup item that's currently protected by a streaming policy, and select **Stop backup**.
+1. For **Stop backup level**, select **Retain backup data**, provide the required reason, and select **Stop backup**.
+
+   > [!NOTE]
+   > Retaining the backup data preserves the existing restore points. Selecting **Delete backup data** is a destructive operation.
+
+1. Confirm that protection for the database is stopped.
+
+1. From the Recovery Services vault, go to the **Overview** tab and select **+Backup**.
+1. Select **SQL Server in Azure VM (Snapshot backup)**.
+1. Select **Configure backup**. Create or select a snapshot backup policy, choose the SQL instance, and complete the configuration.
+
+   > [!IMPORTANT]
+   > The retention settings in the snapshot policy also apply to the retained restore points created by the earlier streaming policy. Review and set the long-term retention policies accordingly. The Differential backup policy applies to the earlier streaming restore points.
+
+1. Choose the SQL instance that you want to protect under the **SQL Instances or AlwaysOn AGs** tab. You can select only the instance for protection and also protect other unprotected databases within the instance.
+1. After the instance protection configuration succeeds, go to the **Backup Items** tab under **Protected items** and select **SQL Server in Azure VM (Snapshot backup)**.
+1. Select the SQL instance from the list and protect the database through the snapshot policy by selecting the **+ Add new database** button. Select the database that was earlier protected through the streaming policy from the list of databases and complete the protection configuration.
 
 ## Run an on-demand backup for SQL Server database
 
@@ -291,9 +319,9 @@ You can fix the policy version for all the impacted items in one click:
 
   ![Fix inconsistent policy](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
-## Modify a backup policy for SQL Server instance snapshot backup (preview)
+## Modify a backup policy for SQL Server instance snapshot backup
 
-When you modify retention settings for SQL Server instance snapshot backup (preview), the changes apply to all existing and future recovery points. However, any new retention category (weekly, monthly, or yearly) that you add to an existing policy applies only to future recovery points.
+When you modify retention settings for SQL Server instance snapshot backup, the changes apply to all existing and future recovery points. However, if you add a new retention category (weekly, monthly, or yearly) to an existing policy, it applies only to future recovery points.
 
 To modify an existing SQL instance snapshot backup policy, follow these steps:
 
@@ -309,13 +337,13 @@ To modify an existing SQL instance snapshot backup policy, follow these steps:
 
 3.  On the **Modify policy** pane, do the required changes, and select **Update**.
 
-### Change a backup policy for SQL Server instance snapshot backup (preview)
+### Change a backup policy for SQL Server instance snapshot backup
 
-To change the policy associated with a backup item for SQL Server instance snapshot backup (preview), follow these steps:
+To change the policy associated with a backup item for SQL Server instance snapshot backup, follow these steps:
 
 1.  Go to the **Recovery Services vault** and select **Protected items** > **Backup items**.
 
-2.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.
+2.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup)**.
 
 3.  On the **Backup Items** pane, for the required backup instance for which you want to change policy, select **View details**.
 
@@ -357,7 +385,7 @@ Sometimes, the workload extension on the VM may become impacted for one reason o
 
 Use this option with caution. When triggered on a VM with an already healthy extension, this operation causes the extension to get restarted. This operation might cause all the in-progress jobs to fail. Check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
 
-## Modify backup snapshot operations for SQL Server instances in Azure VM (preview)
+## Modify backup snapshot operations for SQL Server instances in Azure VM
 
 Azure Backup allows you to add or remove databases from SQL instance snapshot backup configuration.
 
@@ -365,7 +393,7 @@ To add or remove databases from the backed-up SQL instance, follow these steps:
 
 1.  Go to the **Recovery Services vault**, and select **Protected items** > **Backup items**.
 
-2.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.
+2.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup)**.
 
 3.  On the **Backup Items** pane, for the required backup instance where you want to add or remove the database, select **View details**.
 

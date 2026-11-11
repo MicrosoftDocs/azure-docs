@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 04/30/2026
+ms.date: 10/19/2026
 ms.custom: sfi-image-nochange
 
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
@@ -21,6 +21,8 @@ When you use Azure Front Door for application delivery, a custom domain lets you
 By default, when you create an Azure Front Door Standard or Premium profile and endpoint, the endpoint host is a subdomain of `azurefd.net`. For example, the URL might look like `https://contoso-frontend-mdjf2jfgjf82mnzx.z01.azurefd.net/activeusers.htm`.
 
 To make your URLs more user-friendly and branded, Azure Front Door allows you to associate a custom domain. You can deliver your content by using a custom domain in the URL, such as `https://www.contoso.com/photo.png`, instead of the default Azure Front Door domain.
+
+For client TLS connections, configure the custom domain's [TLS policy](../tls-policy.md) for protocol versions and cipher suites and its [TLS key exchange policy](../tls-key-exchange-policy.md) for supported key exchange groups. **Standard** is the default key exchange policy for new and existing profiles. Custom domains use **Standard** unless you select another policy. The default Front Door domain always uses **Standard**; you can't customize its key exchange policy.
 
 ## Prerequisites
 

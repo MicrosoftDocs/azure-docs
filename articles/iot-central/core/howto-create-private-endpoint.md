@@ -233,7 +233,7 @@ DNS configuration can be overwritten if you create or delete multiple private en
 
 ### Other troubleshooting tips
 
-If after trying all these checks you're still experiencing an issue, try the [private endpoint troubleshooting guide](../../private-link/troubleshoot-private-endpoint-connectivity.md).
+If after trying all these checks you're still experiencing an issue, try the [private endpoint troubleshooting guide](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems).
 
 If all the checks are successful and your devices still can't establish a connection to IoT Central, contact the corporate security team responsible for firewalls and networking in general. Potential reasons for failure include:
 

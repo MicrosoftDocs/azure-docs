@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 02/11/2026
+ms.date: 10/20/2026
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
 ms.service: azure-iot-operations
@@ -52,7 +52,19 @@ kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-ope
 pod/mqtt-client created
 ```
 
-After the pod is running, use `kubectl exec` to run commands inside the pod.
+Wait for the pod to start:
+
+```bash
+kubectl wait --for=condition=Ready pod/mqtt-client -n azure-iot-operations --timeout=180s
+```
+
+The pod installs its MQTT clients at startup, so it can be `Running` and `Ready` before the client commands are available. Check the installation logs:
+
+```bash
+kubectl logs mqtt-client -n azure-iot-operations
+```
+
+Wait until the logs show that package installation completed successfully, with an `OK:` summary. If installation fails, resolve the reported error before continuing. Then use `kubectl exec` to run commands inside the pod.
 
 For example, to publish a message to the broker, open a shell inside the pod:
 

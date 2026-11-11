@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: overview
-ms.date: 06/01/2026
+ms.date: 10/05/2026
 ms.author: allensu
 ms.custom: template-overview
 #Customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
@@ -56,9 +56,6 @@ Traffic Manager supports external, non-Azure endpoints, enabling hybrid cloud an
 Combine multiple traffic-routing methods with [nested Traffic Manager profiles](traffic-manager-nested-profiles.md) to create sophisticated and flexible rules that scale to larger, more complex deployments.
 
 ### Link DNS records directly to Traffic Manager
-
-> [!IMPORTANT]
-> Traffic Manager Linked Records is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [Traffic Manager Linked Records](../dns/dns-traffic-manager-linked-records.md) is an Azure DNS feature that connects a DNS record set directly to a Traffic Manager profile. Clients receive endpoint IP addresses directly from DNS—without an intermediate CNAME lookup to `trafficmanager.net`. This means `trafficmanager.net` is never exposed in DNS responses, which simplifies firewall configurations and preserves the DNSSEC chain of trust for signed zones. Endpoint type consistency is enforced through [Strictly Typed Profiles](traffic-manager-strictly-typed-profiles.md).
 

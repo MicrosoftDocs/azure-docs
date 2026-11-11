@@ -24,6 +24,8 @@ By the end, you have a working chat experience backed by Azure Web PubSub.
 
 ## Prerequisites
 
+This tutorial uses JavaScript for the backend and real-time clients. To manage Chat resources or generate client access URLs from a Python or C# backend, see the [Python Chat service SDK](/python/api/overview/azure/messaging-webpubsubchatservice-readme) or [.NET Chat service SDK](/dotnet/api/overview/azure/messaging.webpubsub.chat-readme).
+
 * An Azure subscription
 * Node.js 18 or later
 

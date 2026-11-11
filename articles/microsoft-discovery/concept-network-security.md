@@ -3,7 +3,7 @@ title: Network security for Microsoft Discovery
 description: Understand how Microsoft Discovery uses Network Security Perimeters and private endpoints to protect managed resources and data-plane traffic.
 ms.service: azure
 ms.topic: concept-article
-ms.date: 09/10/2026
+ms.date: 11/10/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -15,20 +15,20 @@ Microsoft Discovery provides two layers of network security to protect your work
 
 | Layer | What it protects | How it works |
 |-------|-----------------|--------------|
-| **Network hardening** | Managed resources like databases, storage, AI services, and other backend services | Network Security Perimeters (NSP) and private endpoints of Managed Resource Groups (MRG) resources restrict access to authorized Discovery components only |
-| **Private endpoints** | Workspace and bookshelf data-plane APIs | Azure Private Link routes API traffic through the Azure backbone, eliminating public internet exposure |
+| **Network hardening** | Managed resources like databases, storage, AI services, and other backend services | Network Security Perimeters (NSPs), managed-resource private endpoints, and delegated subnets provide resource-specific controls |
+| **Client private endpoints** | Workspace and bookshelf data-plane APIs | Azure Private Link provides a private access path. Disable public network access separately to require that path. |
 
-Network hardening is enabled by default for all workspaces and bookshelves managed with the `2026-02-01-preview` API version and later. Private endpoints for data-plane access are optional and can be configured separately.
+Managed-backend hardening and client API access are separate controls. Client private endpoints for workspace and bookshelf data-plane access are configured separately, and creating them doesn't disable public network access.
 
 ## Why network security matters
 
-When you create a Microsoft Discovery workspace or bookshelf, the service provisions managed resources (databases, storage accounts, AI services) on your behalf. Previously, these resources had public endpoints and data-plane API traffic traversed the public internet.
+When you create a Microsoft Discovery workspace or bookshelf, the service provisions managed resources (databases, storage accounts, AI services) on your behalf. Their backend network controls are separate from client data-plane access.
 
-With network hardening enabled by default, all managed resources are now protected automatically. Enabling private endpoints for data-plane access provides extra security:
+Backend hardening and client private endpoints protect different access paths. Configure both according to your deployment requirements:
 
-- **Data protection** - All traffic stays on the Azure backbone network, never traversing the public internet.
-- **Compliance** - Meet regulatory requirements for network hardening and private connectivity.
-- **Reduced attack surface** - Managed resources are accessible only to authorized Discovery service components.
+- **Data protection** - Traffic using correctly configured private endpoints stays on the Azure backbone network.
+- **Compliance planning** - Support requirements for network hardening and private connectivity as part of your broader compliance controls.
+- **Reduced attack surface** - Resource-specific network controls restrict backend access.
 - **Defense in depth** - Combines network perimeters, private endpoints, virtual network injection, and identity-based access control.
 
 ## Before and after comparison
@@ -41,26 +41,26 @@ With network hardening enabled by default, all managed resources are now protect
 
 :::image type="content" source="media/concept-network-security/after-network-isolation.jpg" alt-text="Diagram showing network-hardened deployment with private endpoints where traffic stays on Azure backbone." lightbox="media/concept-network-security/after-network-isolation.jpg":::
 
-| Aspect | Without network hardening | With network hardening (default) |
+| Aspect | Without network hardening | With network hardening |
 |--------|----------------------------------------------|----------------------------------|
-| Managed resources | Public endpoints | Locked behind NSP + private endpoints |
-| Data-plane traffic | Public internet | Azure backbone through Private Link |
+| Managed resources | Public endpoints | Resource-specific NSP, private endpoint, or delegated-subnet controls |
+| Client data-plane traffic | Public endpoint unless a private endpoint is configured | Private Link when a client private endpoint and DNS are configured; public access is controlled separately |
 
 ## How network hardening works
 
-When you create a workspace, the Discovery control plane automatically:
+Backend hardening uses different controls for different resources:
 
-1. **Creates a Network Security Perimeter (NSP)** around the managed resources provisioned for your workspace.
-2. **Deploys private endpoints** for managed resources (databases, storage, AI services) so they communicate over the Azure backbone.
-3. **Configures virtual network injection for workspace services** using delegated subnets, ensuring workspace platform services and agents run within your virtual network.
+- **NSP associations** control network access to associated managed resources.
+- **Managed-resource private endpoints** provide private backend connectivity.
+- **Delegated subnets** support workspace services and agents in your virtual network.
 
-The NSP enforces that only authorized Discovery service components can access the managed resources. No data travels over the public internet between Discovery components.
+These backend controls don't require clients to use a private endpoint for workspace or bookshelf APIs.
 
 ### Required role assignments
 
-To create NSP associations, the Discovery first-party service principal (**Discovery control-plane service App**) needs two role assignments on your subscription:
+For network-hardening preparation, the Discovery first-party service principal (**Discovery control-plane service App**) needs two role assignments on your subscription:
 
-- **Discovery NSP Perimeter Joiner** (custom role) - Allows the service principal to create NSP inbound access rules.
+- **Discovery NSP Perimeter Joiner** (custom role) - Grants the join permissions used by the Discovery control plane during network-hardening preparation. It doesn't grant arbitrary perimeter or access-rule administration.
 - At least **Reader** (built-in role) - Allows the service principal to enumerate subscription resources for network configuration validation. If you already have Owner or Contributor assigned, a separate Reader assignment isn't needed.
 
 For steps to create and assign these roles, see [Configure network security](how-to-configure-network-security.md#assign-the-nsp-perimeter-joiner-role).
@@ -73,12 +73,14 @@ With Azure Private Link, you can access workspace and bookshelf data-plane APIs 
 - A private DNS zone maps the Discovery service FQDN to the private IP.
 - All API traffic from your virtual network resolves to the private endpoint and traverses the Microsoft backbone network.
 
-Without private endpoints, data-plane API calls traverse the public internet. With private endpoints, traffic stays entirely within the Azure backbone.
+Traffic through a correctly configured client private endpoint uses the Azure backbone. Creating that endpoint doesn't disable the resource's public endpoint. Set `publicNetworkAccess` explicitly for each workspace or bookshelf:
 
 | `publicNetworkAccess` value | Via private endpoint | Via public internet |
 |----------------------------|---------------------|-------------------|
-| `Enabled` (default) | Allowed | Allowed |
+| `Enabled` | Allowed | Allowed |
 | `Disabled` | Allowed | 403 Forbidden |
+
+The onboarding tool defaults `workspace.publicNetworkAccess` to `Enabled`. Its `workspace.networkIsolation` setting controls Workbench access independently and defaults to `true`. Review both settings and the browser's separate path to project storage in [Plan workspace and client access](how-to-plan-deployment-network.md#plan-workspace-and-client-access).
 
 ## Supported resource types for private endpoints
 
@@ -91,22 +93,22 @@ Discovery resources support autoapproval for private endpoints created within th
 
 ## Security notes for the NSP Perimeter Joiner role
 
-- **Minimal permission** - This custom role grants only `joinPerimeterRule/action` and `networkSecurityPerimeterOperationStatuses/read` - the narrowest possible permissions for NSP access rule creation.
-- **No data access** - This permission doesn't grant access to read, write, or delete any customer data or resources.
+- **Limited permission** - This custom role grants `joinPerimeterRule/action` and `networkSecurityPerimeterOperationStatuses/read`, but it doesn't grant general access-rule creation or modification permissions.
+- **No data-plane access** - These actions don't grant permission to read, write, or delete customer data.
 - **Subscription scope required** - The permission must be at subscription scope because NSP inbound access rules reference subscriptions as allowed sources.
 
 ## Limitations
 
 - Cross-region private endpoints aren't supported. The private endpoint must be in the same region as the Discovery resource.
 - Each private endpoint connection is scoped to a single workspace or bookshelf resource.
-- Each Discovery resource (workspace, bookshelf, supercomputer) requires its own unique, non-overlapping subnets. Subnets can't be shared across different Discovery resource instances.
-- The supercomputer's AKS API server has a public FQDN. Workload traffic stays within the virtual network, but the Kubernetes API server endpoint is publicly accessible. Private cluster support is planned for a future release.
+- Allocate nonoverlapping address ranges for workspace, agent, and bookshelf search subnets within the VNet, and keep the supercomputer's management and node subnets distinct. Use the delegations and layout in [Subnet requirements](how-to-configure-network-security.md#subnet-requirements-for-workspaces-and-bookshelves).
+- A supercomputer's workload network and management-plane access are separate controls. To remove its public management-plane IP, configure a private supercomputer at creation with `discovery.enableprivatecluster=true`, user-defined routing, and the required management subnet. For prerequisites and limitations, see [Private supercomputer](how-to-configure-supercomputer-network-security.md#private-supercomputer).
 - Managed resources that don't support NSP are protected through virtual network injection or delegated subnets instead.
 - Network hardening is supported in these regions: **East US**, **UK South**, and **Sweden Central**.
 
 ## Next steps
 
 - [Configure network security](how-to-configure-network-security.md) - Assign roles, configure subnets, and create private endpoints.
-- [End-to-end network-hardened deployment](how-to-deploy-network-hardened-stack.md) - Deploy a fully network-isolated Discovery stack.
+- [End-to-end network-hardened deployment](how-to-deploy-network-hardened-stack.md) - Configure private data-plane and storage access while planning required outbound connectivity.
 - [What is Azure Private Link?](/azure/private-link/private-link-overview)
 - [What is a Network Security Perimeter?](/azure/private-link/network-security-perimeter-concepts)

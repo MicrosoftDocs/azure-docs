@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 07/18/2026
+ms.date: 10/08/2026
 ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -387,6 +387,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 The creation wizard puts the MySQL database server behind a private endpoint, so it's accessible only from the virtual network. Because the App Service app is already integrated with the virtual network, the easiest way to run database migrations with your database is directly from within the App Service container.
 
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
+
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the App Service page, in the left menu:
@@ -682,6 +684,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 ## Generate database schema
 
 With the MySQL database protected by the virtual network, the easiest way to run Laravel database migrations is in an SSH session with the Linux container in App Service.
+
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
 
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 

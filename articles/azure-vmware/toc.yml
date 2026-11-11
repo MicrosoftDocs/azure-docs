@@ -1,6 +1,8 @@
 items:
 - name: Azure VMware Solution
   href: index.yml
+- name: VMware Cloud Foundation 9.1
+  href: architecture-vmware-cloud-foundation.md
 - name: Overview
   href: introduction.md
 - name: What's new

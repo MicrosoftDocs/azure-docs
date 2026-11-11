@@ -33,14 +33,50 @@ This tutorial guides you through deploying a Express.js-based chatbot applicatio
     az login
     ```
 
-1. Open the terminal in the Codespace and run the following commands:
+1. Open the terminal in the Codespace. Set names for the resource group, plan, and globally unique web app, and choose an Azure region. Create a Linux App Service plan with the P3MV3 SKU and a Node.js web app:
 
     ```azurecli
     cd use_sidecar_extension/expressapp
-    az webapp up --sku P3MV3
+    RESOURCE_GROUP="<group-name>"
+    LOCATION="<azure-region>"
+    APPSERVICE_NAME="<globally-unique-app-name>"
+    PLAN_NAME="$APPSERVICE_NAME-plan"
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    az appservice plan create \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --name $PLAN_NAME \
+      --sku P3MV3 \
+      --is-linux
+    az webapp create \
+      --resource-group $RESOURCE_GROUP \
+      --plan $PLAN_NAME \
+      --name $APPSERVICE_NAME \
+      --runtime "NODE:24-lts"
+    az webapp config appsettings set \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
     ```
 
-This startup command is a common setup for deploying Express.js applications to Azure App Service. For more information, see [Deploy a Node.js web app in Azure](quickstart-nodejs.md).
+   Build automation installs the sample's dependencies during deployment.
+
+1. Package the app files without *node_modules*.
+
+    ```azurecli
+    zip -r app.zip package.json package-lock.json src views public
+    ```
+
+1. Deploy the package.
+
+    ```azurecli
+    az webapp deploy \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --src-path app.zip
+    ```
+
+For more information, see [Deploy a Node.js web app in Azure](quickstart-nodejs.md).
 
 [!INCLUDE [phi-4-extension-create-test](includes/tutorial-ai-slm/phi-4-extension-create-test.md)]
 

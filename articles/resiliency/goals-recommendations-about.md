@@ -3,15 +3,15 @@ title: About goals and recommendations in Infrastructure Resiliency Manager
 description: Learn about goals and recommendations in Infrastructure Resiliency Manager and how they can help you define, validate, and achieve your applications' resiliency goals in Azure.
 ms.topic: overview
 ms.service: resiliency
-ms.date: 06/02/2026
+ms.date: 10/26/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to understand how goals and recommendations in Infrastructure Resiliency Manager can help me define, validate, and achieve my applications' resiliency goals in Azure."
 ---
 
-# About goals and recommendations in Infrastructure Resiliency Manager (preview)
+# About goals and recommendations in Infrastructure Resiliency Manager
 
-Infrastructure Resiliency Manager (preview) is a self-serve experience that helps you define, validate, and achieve your applications' resiliency goals in Azure. With this experience, you can:
+Infrastructure Resiliency Manager is a self-serve experience that helps you define, validate, and achieve your applications' resiliency goals in Azure. With this experience, you can:
 
 - Set resiliency goals for your applications.
 - Receive detailed recommendations that help meet the goals.
@@ -33,6 +33,8 @@ The Goals and Recommendations capability involves the following scenarios:
 - Act on recommendations by following step-by-step remediation guidance or using the Resiliency agent.
 - View resiliency at scale across all your service groups and resources from a centralized overview.
 
+Assigning goals, viewing resilience posture, and reviewing recommendations are available at no extra cost without a usage plan. A service group with assigned goals is still billed if it's enrolled in a valid usage plan. To retain only the free capabilities without these charges, remove the service group's usage-plan enrollment. For details, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md).
+
 ## Key components for Infrastructure Resiliency Manager
 
  The following table lists the core components you use for Infrastructure Resiliency Manager:
@@ -50,7 +52,7 @@ Azure Advisor provides recommendations across all Well-Architected Framework pil
 
 ## Related content
 
-- [Support Matrix for goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-support-matrix.md).
-- [Assign goals and view resiliency posture in Infrastructure Resiliency Manager (preview)](goals-recommendations-assign-goals-view-posture.md).
-- [Review recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-review-recommendations.md).
-- [Use the Resiliency agent in Infrastructure Resiliency Manager (preview)](goals-recommendations-use-agent.md).
+- [Support Matrix for goals and recommendations in Infrastructure Resiliency Manager](goals-recommendations-support-matrix.md).
+- [Assign goals and view resiliency posture in Infrastructure Resiliency Manager](goals-recommendations-assign-goals-view-posture.md).
+- [Review recommendations in Infrastructure Resiliency Manager](goals-recommendations-review-recommendations.md).
+- [Use the Resiliency agent (preview) in Infrastructure Resiliency Manager](goals-recommendations-use-agent.md).

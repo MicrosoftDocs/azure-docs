@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 06/29/2026
+ms.date: 11/04/2026
 
 ---
 
@@ -41,6 +41,9 @@ Match attributes either exactly or partially by using the following operators:
 - **Contains:** Matches values containing the specified selector.
 
 - **IP Match:** Matches one or more IP addresses.
+
+> [!NOTE]
+> Header names aren't case-sensitive, but match values are. For example, an exception that uses the *Contains* operator with the value `MobileApp` matches the header value `MobileApp/2.0`, but not `mobileapp/2.0`. To match more than one casing, add each casing as a separate value.
 
 ## Set the exception scope
 

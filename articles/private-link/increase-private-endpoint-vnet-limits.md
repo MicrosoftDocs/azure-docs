@@ -33,7 +33,7 @@ For customers using a Hub and Spoke or Mesh topology, determine how many private
 
 
 > [!NOTE]
-> The ARG `mv-expand` operator has a default 128-element per-row cap that silently truncates results in large-scale environments. Adding `limit` up to the VNet Peering limit of 1,000 helps produce a more accurate result. For more information, see [mv-expand operator](https://learn.microsoft.com/kusto/query/mv-expand-operator?view=microsoft-fabric).
+> The ARG `mv-expand` operator has a default 128-element per-row cap that silently truncates results in large-scale environments. Adding `limit` up to the VNet Peering limit of 1,000 helps produce a more accurate result. For more information, see [mv-expand operator](/kusto/query/mv-expand-operator).
 
 
 ```Azure Resource Graph
@@ -178,8 +178,7 @@ $vnet.PrivateEndpointVNetPolicies
 
 | **Limit** | **Description** |
 |---|---|
-| Access to Baremetal subnets from an HSPE enabled peered VNet isn't supported | Connections destined to Azure baremetal subnets won't work  |
-| Feature currently available in all public regions | Mooncake and Azure Gov regions aren't supported at this time |
+| No known limitations at this time |  |
 
 
 ## Next Steps

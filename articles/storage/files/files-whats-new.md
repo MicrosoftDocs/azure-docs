@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/03/2026
+ms.date: 10/27/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -16,6 +16,18 @@ ms.custom:
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2026
+
+### 2026 Quarter 4 (October, November, December)
+
+#### In place provisioned v1 to provisioned v2 storage account upgrade is now in limited public preview 
+
+Organizations can now upgrade their existing provisioned v1 storage accounts to provisioned v2 storage accounts without downtime, enabling access to the latest pricing and feature benefits. To learn more, read the instructions in the [documentation](./modify-file-share.md#change-the-billing-model-of-a-storage-account).
+
+#### File shares using Microsoft.FileShares are now available in 12 additional regions
+
+You can now create file shares using the Microsoft.FileShares resource provider in Central US, West Central US, East US 2, West US 2, Denmark East, Belgium Central, Austria East, New Zealand North, Malaysia West, Chile Central, Indonesia Central, and West US 3. This expansion brings regional availability to 51 regions.
+
+For details, see [Regional availability](./files-management-concepts.md#regional-availability).
 
 ### 2026 quarter 2 (April, May, June)
 
@@ -95,7 +107,7 @@ Windows servers connected through Azure Arc can now install the Azure File Sync 
 
 #### Encryption in Transit (EiT) for NFS file shares is now generally available
 
-With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](encryption-in-transit-for-nfs-shares.md).
+With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](files-encryption-in-transit.md).
 
 #### Metadata caching for SSD SMB file shares is now generally available
 
@@ -137,7 +149,7 @@ When managed identities are configured for an Azure File Sync deployment, system
 -	Registered server authentication to Azure file share 
 -	Registered server authentication to Storage Sync Service
 
-Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](../file-sync/file-sync-managed-identities.md).
+Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](../file-sync/file-sync-managed-identities.md).
 
 #### Azure File Sync v19 release
 
@@ -147,7 +159,7 @@ The Azure File Sync v19 release improves performance, security, and adds support
 - Preview: Managed Identities support for Azure File Sync service and servers
 - Azure File Sync agent support for Windows Server 2025
 
-To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100).
+To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md).
 
 #### Provisioned v2 for HDD file shares
 The provisioned v2 model for Azure Files HDD (standard) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 also enables increased scale and performance, up to 256 TiB, 50,000 IOPS, and 5 GiB/sec of throughput; and per share monitoring.

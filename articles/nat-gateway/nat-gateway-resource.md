@@ -190,6 +190,8 @@ Each SKU of Azure NAT Gateway has bandwidth limits:
 
 * A Standard NAT gateway provides 50 Gbps of throughput, which is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per Standard NAT gateway resource.
 
+* A Standard NAT gateway supports up to 5 million packets per second (PPS) per NAT gateway resource. The PPS limit is aggregated across all traffic processed by the NAT gateway, including outbound traffic and inbound response traffic. Packet processing is rate limited at 2.5 million PPS for outbound traffic and 2.5 million PPS for inbound response traffic.
+
 ## Performance
 
 Standard and StandardV2 NAT gateways each support up to 50,000 concurrent connections per public IP address *to the same destination endpoint* over the internet for TCP and UDP traffic.
@@ -225,6 +227,9 @@ A StandardV2 NAT gateway can process up to 10 million packets per second. A Stan
 * You can't upgrade a Standard NAT gateway to a StandardV2 NAT gateway. To achieve zone resiliency for architectures that use zonal NAT gateways, you must deploy a StandardV2 NAT gateway to replace the Standard SKU NAT gateway.
 
 * You can't use Standard public IPs with a StandardV2 NAT gateway. You must re-IP to new StandardV2 public IPs to use a StandardV2 NAT gateway.
+
+* NAT Gateway doesn't support connection continuity for existing flows when a virtual machine undergoes live migration. Existing connections through the NAT gateway might be disrupted and need to be reestablished after the migration completes.
+
 
 For more known limitations of StandardV2 NAT gateways, see [Azure NAT Gateway SKUs](nat-sku.md).
 

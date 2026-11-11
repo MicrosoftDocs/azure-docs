@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/21/2026
+ms.date: 10/26/2026
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -280,6 +280,10 @@ The system emits consumption units against the provisioned v2 billing meters hou
 
 ### Provisioned v2 migrations
 
+Conversion of existing SSD `FileStorage` storage accounts from provisioned v1 to provisioned v2 is available in limited public preview. You must complete a [survey](https://forms.cloud.microsoft/r/tkjpMwPPvU) to use the preview. The conversion applies to all classic file shares in the storage account and preserves each share's existing provisioned storage, IOPS, and throughput. After conversion, these quantities are billed under the provisioned v2 model.
+
+Conversion is one-way: you can't convert the storage account back to provisioned v1. You must retain the account's existing redundancy configuration during conversion. For prerequisites, preview survey details, and instructions, see [Change the billing model of a storage account](modify-file-share.md#change-the-billing-model-of-a-storage-account).
+
 The process for migrating your SMB Azure file shares from a pay-as-you-go model to the provisioned v2 billing model differs depending on whether you're using Azure File Sync.
 
 - If you're using Azure Files without Azure File Sync, see [Migrate files from one SMB Azure file share to another](migrate-files-between-shares.md).
@@ -419,6 +423,12 @@ Consumption against the provisioned v1 billing meters is emitted hourly in terms
     - 31 day month: 33.0323 units against the **Premium Provisioned** meter.
 - 1,024 units against the **Premium Provisioned** meter if aggregated for a month.
 
+### Convert from provisioned v1 to provisioned v2 (limited public preview)
+
+You can convert an existing SSD `FileStorage` storage account from provisioned v1 to provisioned v2 through a limited public preview that requires completing a survey. The conversion applies to all classic file shares in the storage account. Each share retains its existing provisioned storage, IOPS, and throughput, which are then billed under the provisioned v2 model. After conversion, you can provision these quantities independently instead of increasing storage to obtain more IOPS or throughput.
+
+Conversion is one-way, and you can't change redundancy options during the conversion. Accounts using `Premium_LRS` convert to `PremiumV2_LRS`, and accounts using `Premium_ZRS` convert to `PremiumV2_ZRS`. For prerequisites, preview survey details, and instructions, see [Change the billing model of a storage account](modify-file-share.md#change-the-billing-model-of-a-storage-account).
+
 ## Pay-as-you-go model
 
 In the pay-as-you-go model, you're billed for how much storage you use, not how much you provision. At a high level, you pay a cost for the amount of logical data stored, and you're also charged for transactions based on your usage of that data. Pay-as-you-go billing can be difficult to plan for as part of a budgeting process, because you pay based on end-user consumption. Use the [provisioned v2 model](#provisioned-v2-model) for new classic file share deployments. The pay-as-you-go model is only available for HDD storage.
@@ -470,13 +480,23 @@ Transactions are grouped into five different transaction categories that have di
 
 The following table shows the categorization of each transaction:
 
-| Transaction bucket | Management operations | Data operations |
-|-|-|-|
-| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareAcl`</li><li>`SnapshotShare`</li><li>`RestoreShare`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li><li>`Flush`</li><li>`SetDirectoryProperties`</li></ul> |
-| List transactions | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
-| Read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
-| Other/protocol transactions | <ul><li>`AcquireShareLease`</li><li>`BreakShareLease`</li><li>`ReleaseShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
-| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li><li>`DeleteFile`</li></ul> |  
+| Transaction bucket | Transaction type |
+|-|-|
+| SMB write transactions | <ul><li>`Create`</li><li>`SetInfo`</li><li>`Write`</li><li>`Flush`</li></ul> |
+| FileREST write transactions | <ul><li>`CopyFile`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`RenameFile`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`PutFilePermission`</li><li>`SetDirectoryProperties`</li></ul> |
+| SMB list transactions | *No applicable transactions* |
+| FileREST list transactions | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
+| SMB read transactions | <ul><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li></ul> |
+| FileREST read transactions | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`GetFilePermission`</li></ul> |
+| SMB other/protocol transactions | <ul><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li></ul> |
+| FileREST other/protocol transactions | <ul><li>`AbortCopyFile`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li><li>`GetUserDelegationKey`</li></ul> |
+| SMB delete transactions | *No applicable transactions* |
+| FileREST delete transactions | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li><li>`DeleteFile`</li></ul> |
+| FileREST management write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareAcl`</li><li>`SnapshotShare`</li><li>`RestoreShare`</li></ul> |
+| FileREST management list transactions | <ul><li>`ListShares`</li></ul> |
+| FileREST management read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> |
+| FileREST management other/protocol transactions | <ul><li>`AcquireShareLease`</li><li>`BreakShareLease`</li><li>`ReleaseShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> |
+| FileREST management delete transactions | <ul><li>`DeleteShare`</li></ul> |  
 
 > [!NOTE]
 > NFSv4.1 is only available for SSD file shares that use either the provisioned v2 or provisioned v1 billing models. Transaction buckets don't affect billing for provisioned file shares.

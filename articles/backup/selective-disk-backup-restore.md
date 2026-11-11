@@ -325,19 +325,62 @@ You can configure Azure VM backup with a few select disks. You can also modify a
 
 ## Selective disk restore
 
-Selective disk restore is an added functionality that you get when you enable selective disk backup. With this functionality, you can restore selective disks from all the disks that are backed up in a recovery point. It's more efficient and helps save time in scenarios where you know which of the disks need to be restored:
+Selective disk restore (SDR) lets you choose which disks to restore from the disks available in a recovery point. You don't need to enable selective disk backup to use selective disk restore. You can select disks from a recovery point that contains all the VM's disks or only a subset of them. Disks that weren't backed up in the selected recovery point aren't available for restore.
 
-- The OS disk is included by default in the VM backup and restore and can't be excluded.
-- Selective disk restore is supported only for recovery points that are created after the disk exclusion capability is enabled.
-- Backups with the disk exclude setting turned on support only the **Disk restore** option. The **VM restore** or **Replace existing** restore options aren't supported in this case, and the options during restore become unavailable. If you choose a restore point that contains all disks before you configure disk exclusion during restore, the **VM restore** and **Replace existing** options become available.
+### Supported restore modes
 
-![Screenshot that shows the VM restore and Replace existing options aren't available during the restore operation.](./media/selective-disk-backup-restore/options-not-available.png)
+Selective disk restore supports the following restore modes:
+
+| Restore mode | Restore option in the Azure portal | Can you exclude the OS disk? |
+| --- | --- | --- |
+| Alternate-location restore (ALR): Create a new VM with the selected disks. | **Create new** > **Create new virtual machine** | No. The OS disk must be included to create the VM. |
+| Original-location restore (OLR): Replace selected disks on the existing VM. | **Replace existing** | Yes. You can restore selected data disks without replacing the OS disk. |
+| Restore as disks (RD): Restore the selected disks without creating a VM or replacing existing disks. | **Create new** > **Restore disks** | Yes. You can restore selected data disks without restoring the OS disk. |
+
+### Restore selected disks in the Azure portal
+
+To restore selected disks, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to the **Recovery Services vault** that contains the VM backup.
+1. Under **Protected items**, select **Backup items**, and then select **Azure Virtual Machine**.
+1. For the VM you want to restore, open the ellipsis (**...**) menu and select **Restore VM (Preview)**.
+
+    :::image type="content" source="./media/selective-disk-backup-restore/restore-preview-selection.png" alt-text="Screenshot that highlights Restore VM (Preview) in the ellipsis menu." lightbox="./media/selective-disk-backup-restore/restore-preview-selection.png":::
+
+1. In the **Basics** tab, under **Restore point**, choose **Select**.
+
+    :::image type="content" source="./media/selective-disk-backup-restore/selective-disk-selection-during-restore.png" alt-text="Screenshot that highlights Select under Disks selected and the disk selection list with generic disk names." lightbox="./media/selective-disk-backup-restore/selective-disk-selection-during-restore.png":::
+
+1. Select the recovery point you want to restore, and then select **OK**.
+1. Proceed to the **Restore parameters** step. Select the restore target and restore type according to the [supported restore modes table](#supported-restore-modes), and configure the parameters accordingly.
+1. Proceed to the **Advanced parameters** step. Under **Disk details (Preview)**, select **Select** under **Disks selected**.
+1. On the **Select disks** pane, choose the disks you want to restore, and then select **Save**. For alternate-location restore (ALR), you can't exclude the OS disk. For OLR or RD, you can exclude the OS disk and select only the required data disks.
+1. Proceed to the **Review + restore** step. Review the selected disks and restore settings, and then select **Restore** to trigger the restore.
+1. In the Recovery Services vault, go to the **Backup jobs** page to monitor the restore job to completion. When the restore finishes, open the restore job to view the restored disks under **Restored disk(s)** in **Job details**.
+
+    :::image type="content" source="./media/selective-disk-backup-restore/sdr-backup-job.png" alt-text="Screenshot of restore job details highlighting Restored disk(s), showing data disks 0 and 2 restored from four backed-up disks." lightbox="./media/selective-disk-backup-restore/sdr-backup-job.png":::
+
+1. For **Restore disks**, or **creating a new VM during restore**, that is, an alternate-location restore (ALR) job with a **Partially Succeeded** status (the disks were created, but VM creation failed), use the Azure Resource Manager (ARM) template available through **Create VM Template Blob Uri** in the restore job details to create a new VM from the restored disks. For **Restore disks**, an ARM template isn't generated if you exclude the OS disk. The restore job shows the original disk names under **Restored disk(s)**, not the generated names of the restored disks described in [Restored disk naming](#restored-disk-naming).
+
+> [!NOTE]
+> If a volume or application depends on multiple disks, select all the required disks from the recovery point. Restoring only some dependent disks might leave the volume or application unusable.
+
+### Restored disk naming
+
+Restored disks use the following naming patterns. The final disk names are all lowercase.
+
+- **OS disk**: `{vmPrefix}-OSDisk-{timestamp}`
+- **Data disk**: `{vmPrefix}-DataDisk-{LUN(3-digit)}-{timestamp}`
+
+Where:
+
+- `vmPrefix` is the first 30 alphanumeric characters of the target VM name for ALR, or the source VM name for OLR or RD.
+- `LUN(3-digit)` is the disk's logical unit number (LUN), padded with leading zeros to three digits, such as `003`.
+- `timestamp` is generated by using `DateTime.Now.ToString("yyyyMMdd-HHmmss")`.
 
 ## Limitations
 
 Selective disk backup functionality for the Standard policy isn't supported for classic VMs and encrypted VMs. Azure VMs that are encrypted with Azure Disk Encryption (ADE) by using Azure BitLocker for encryption of Windows VMs and the `dm-crypt` feature for Linux VMs are unsupported. VMs with ADE enabled can use selective disk backup with the Enhanced policy.
-
-The **Create new VM** and **Replace existing** restore options aren't supported for the VM for which the selective disk backup functionality is enabled.
 
 Currently, Azure VM backup doesn't support VMs with shared disks attached to them. Selective disk backup for the Standard policy can't be used in such cases, which exclude the disk and back up the VM. You can use selective disk backup with the Enhanced policy to exclude these disks and configure backup.
 

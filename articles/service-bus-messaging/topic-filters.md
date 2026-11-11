@@ -3,19 +3,19 @@ title: Azure Service Bus Topic Filters Overview
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters.
 #customer intent: As a developer, I want to understand how to use SQL filters in Azure Service Bus so that I can filter messages based on specific conditions.
 ms.topic: how-to
-ms.date: 08/20/2026
+ms.date: 10/30/2026
 ms.custom: sfi-ropc-nochange
 ---
 
 # Topic filters and actions
 
-Subscribers can define which messages they want to receive from a topic. Specify these messages in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contains an **action** that annotates the selected message. 
+Subscribers can define which messages they want to receive from a topic. Specify these messages in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contains an **action** that annotates the selected message.
 
-All rules **without actions** are combined using an `OR` condition and result in a **single message** on the subscription even if you have multiple matching rules. 
+All rules **without actions** are combined using an `OR` condition and result in a **single message** on the subscription even if you have multiple matching rules.
 
-Each rule **with an action** produces a copy of the message. This message has a property called `RuleName` where the value is the name of the matching rule. The action can add or update properties, or delete properties from the original message to produce a message on the subscription. 
+Each rule **with an action** produces a copy of the message. This message has a property called `RuleName` where the value is the name of the matching rule. The action can add or update properties, or delete properties from the original message to produce a message on the subscription.
 
-Consider the following scenario where a subscription has five rules: two rules with actions and the other three without actions. In this example, if you send one message that matches all five rules, you get three messages on the subscription. That's two messages for two rules with actions and one message for three rules without actions. 
+Consider the following scenario where a subscription has five rules: two rules with actions and the other three without actions. In this example, if you send one message that matches all five rules, you get three messages on the subscription. That's two messages for two rules with actions and one message for three rules without actions.
 
 Each newly created topic subscription has an initial default subscription rule. If you don't explicitly specify a filter condition for the rule, the applied filter is the **true** filter that enables all messages to be selected into the subscription. The default rule has no associated annotation action.
 
@@ -97,9 +97,9 @@ A **CorrelationFilter** holds a set of conditions that it matches against one or
 - `MessageId`
 - `ReplyTo`
 - `ReplyToSessionId`
-- `SessionId` 
+- `SessionId`
 - `To`
-- any user-defined properties. 
+- any user-defined properties.
 	 
 A match exists when an arriving message's value for a property is equal to the value specified in the correlation filter. For string expressions, the comparison is case-sensitive. If you specify multiple match properties, the filter combines them as a logical AND condition, meaning for the filter to match, all conditions must match.
 
@@ -112,9 +112,9 @@ await adminClient.CreateSubscriptionAsync(
 		new CreateRuleOptions("HighPriorityRedOrdersRule", new CorrelationRuleFilter() {Subject = "red", CorrelationId = "high"} ));	
 ```
 
-Use the [`CorrelationRuleFilter` constructor that takes a `String` argument](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter.-ctor#azure-messaging-servicebus-administration-correlationrulefilter-ctor(system-string)) to create a correlation filter with a correlation ID. 
+Use the [`CorrelationRuleFilter` constructor that takes a `String` argument](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter.-ctor#azure-messaging-servicebus-administration-correlationrulefilter-ctor(system-string)) to create a correlation filter with a correlation ID.
 
-When you use the [`CorrelationRuleFilter` default constructor](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter.-ctor#azure-messaging-servicebus-administration-correlationrulefilter-ctor), you can assign system properties (`ContentType`, `Label`, `MessageId`, `ReplyTo`, `ReplyToSessionId`, `SessionId`, `To`), and user-defined properties for filtering. To specify user-defined properties for correlation filter, use the property `Properties` of type `IDictionary <string, object>`. Keys for this dictionary are the user-defined properties to look up on messages. Values associated with keys are the values to correlate on. Here’s an example. 
+When you use the [`CorrelationRuleFilter` default constructor](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter.-ctor#azure-messaging-servicebus-administration-correlationrulefilter-ctor), you can assign system properties (`ContentType`, `Label`, `MessageId`, `ReplyTo`, `ReplyToSessionId`, `SessionId`, `To`), and user-defined properties for filtering. To specify user-defined properties for correlation filter, use the property `Properties` of type `IDictionary <string, object>`. Keys for this dictionary are the user-defined properties to look up on messages. Values associated with keys are the values to correlate on. Here’s an example.
 
 ```csharp
 var filter = new CorrelationFilter();
@@ -132,24 +132,23 @@ filter.Properties["prop2"] = "xyz";
 
 Topic runtime properties include the total number of SQL filters and correlation filters across all subscriptions of the topic. The counts include each subscription's default rule until you replace or remove that rule. Use these values to inspect the filter configuration without listing the rules for every subscription.
 
-> [!IMPORTANT]
-> The SDK properties in this section are currently in preview. The beta package versions in the following table introduce the preview properties. Preview APIs can change before they become generally available.
->
-> During preview, filter counts might be unavailable for some namespaces while rollout completes. If a count is unavailable, list the rules for each subscription instead of treating the count as zero.
+If a count is unavailable, list the rules for each subscription instead of treating the count as zero.
 
-| SDK | Preview package version | Topic runtime properties |
-|-----|-------------------------|--------------------------|
-| .NET | `7.21.0-beta.1` | `SqlFilterCount` and `CorrelationFilterCount` |
-| Java | `7.18.0-beta.3` | `getSqlFilterCount()` and `getCorrelationFilterCount()` |
-| JavaScript | `7.10.0-beta.5` | `sqlFilterCount` and `correlationFilterCount` |
-| Go | `1.11.0-beta.1` | `SQLFilterCount` and `CorrelationFilterCount` |
-| Python | `7.15.0b2` | `sql_filter_count` and `correlation_filter_count` |
+The following stable package versions introduce the filter-count properties.
+
+| SDK | Minimum stable package version | Topic runtime properties |
+|-----|--------------------------------|--------------------------|
+| .NET | `7.21.0` | `SqlFilterCount` and `CorrelationFilterCount` |
+| Java | `7.18.0` | `getSqlFilterCount()` and `getCorrelationFilterCount()` |
+| JavaScript | `7.10.0` | `sqlFilterCount` and `correlationFilterCount` |
+| Go | `1.11.0` | `SQLFilterCount` and `CorrelationFilterCount` |
+| Python | `7.15.0` | `sql_filter_count` and `correlation_filter_count` |
 
 
 ## Actions
 By using SQL filter conditions, you can define an action that annotates the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-rule-action.md) that loosely leans on the `SQL UPDATE` statement syntax. The action runs on the message after it matches the condition and before the message is selected into the subscription. The changes to the message properties are private to the message copied into the subscription.
 
-Here's a .NET example that creates a SQL rule with an action to update the quantity when the color is Red. 
+Here's a .NET example that creates a SQL rule with an action to update the quantity when the color is Red.
 
 #### [Passwordless](#tab/passwordless)
 

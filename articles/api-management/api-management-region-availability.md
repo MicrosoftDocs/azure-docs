@@ -5,7 +5,7 @@ services: api-management
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 08/26/2026
+ms.date: 11/11/2026
 ms.custom:
   - references_regions
   - build-2025
@@ -28,41 +28,41 @@ The following table is updated regularly. Capacity availability in Azure regions
 
 | Region | Basic v2 | Standard v2 | Premium v2 | Workspace gateway (Premium) | 
 |-----|:---:|:---:|:---:|:---:|
-| Australia Central | ✅ | ✅ | | |
-| Australia East | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
-| Australia Southeast | ✅ | ✅ | | |
-| Brazil South | ✅ | ✅ | |  |
+| Australia Central | ✅ | ✅ | ✅ | |
+| Australia East | ✅ | ✅ | ✅  | ⚠️ ¹ |
+| Australia Southeast | ✅ | ✅ | ✅ | |
+| Brazil South | ✅ | ✅ | ✅ |  |
 | Canada Central  | ✅ | ✅ | ✅ |  |
-| Canada East  | ✅ | ✅ | |  |
-| Central India  | ✅ | ✅ | |  |
-| Central US  | ✅ | ✅ | ⚠️ ¹ |  |
-| East Asia | ✅ | ✅ | | ✅ |
-| East US  | ✅ | ✅ |  |  |
-| East US 2 | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
-| France Central  | ✅ | ✅ | | ✅ |
-| Germany West Central  | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
-| Italy North | ✅ | ✅ |  |  |
-| Japan East | ✅ | ✅ | | ✅ |
+| Canada East  | ✅ | ✅ | ✅|  |
+| Central India  | ✅ | ✅ | ✅|  |
+| Central US  | ✅ | ✅ | ✅ |  |
+| East Asia | ✅ | ✅ | ✅| ✅ |
+| East US  | ✅ | ✅ | ✅ |  |
+| East US 2 | ✅ | ✅ | ✅| ⚠️ ¹ |
+| France Central  | ✅ | ✅ | ✅| ✅ |
+| Germany West Central  | ✅ | ✅ | ✅ | ⚠️ ¹ |
+| Italy North | ✅ | ✅ | ✅ |  |
+| Japan East | ✅ | ✅ | ✅| ✅ |
 | Korea Central | ✅ | ✅ | ✅ | | 
-| Malaysia West | ✅ | ✅ | | |
-| New Zealand North | ✅ | ✅ | | |
-| North Central US | ✅ | ✅ |  | ✅ |
+| Malaysia West | ✅ | ✅ | ✅| |
+| New Zealand North | ✅ | ✅ | ✅| |
+| North Central US | ✅ | ✅ | ✅ | ✅ |
 | North Europe | ✅ | ✅ |  | ⚠️ ¹ |
 | Norway East | ✅ | ✅ | ✅ | ✅ |
 | South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
-| Southeast Asia | ✅ | ✅ |  |  |
-| Spain Central | ✅ | ✅ |  |  |
-| Sweden Central | ✅ | ✅ | ⚠️ ¹ |  |
-| Switzerland North | ✅ |✅ |  |  |
-| UAE North | ✅ | ✅ | |  |
+| Southeast Asia | ✅ | ✅ |✅|  |
+| Spain Central | ✅ | ✅ | ✅ |  |
+| Sweden Central | ✅ | ✅ | ✅ |  |
+| Switzerland North | ✅ | ✅ |✅|  |
+| UAE North | ✅ | ✅ | ✅|  |
 | UK South | ⚠️ ¹ | ⚠️ ¹ | ⚠️ ¹ | ⚠️ ¹ |
-| UK West | ✅  | ✅ | | |
-| West Europe  | ✅ | ✅ | | ✅ |
+| UK West | ✅  | ✅ | ✅ | |
+| West Europe  | ✅ | ✅ | ✅ | ✅ |
 | West US | ✅ | ✅ |  | ✅ |
-| West US 2 | ✅ | ✅ |  | |
-| West US 3 | ✅ | ✅ |  | |
+| West US 2 | ✅ | ✅ | ✅ | |
+| West US 3 | ✅ | ✅ | ✅ | |
 
 ¹ New instance creation temporarily unavailable. See the capacity limitation note above.
 

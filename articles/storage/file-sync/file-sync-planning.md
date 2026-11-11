@@ -450,7 +450,7 @@ Azure storage accounts contain a switch for requiring encryption in transit. Thi
 
 The primary reason to disable encryption in transit for the storage account is to support a legacy application that communicates directly with Azure file share. Such an application must be run on an older operating system, such as Windows Server 2008 R2 or an older Linux distribution. If the legacy application connects to the Windows Server cache of the file share, changing this setting has no effect.
 
-Enable encryption of data in transit. For more information about encryption in transit, see [Require secure transfer to ensure secure connections](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
+Enable encryption of data in transit. For more information about encryption in transit, see [FileREST encryption in transit](../files/files-encryption-in-transit.md?toc=/azure/storage/file-sync/toc.json#filerest).
 
 > [!NOTE]
 > The Azure File Sync service removed support for TLS 1.0 and 1.1 on August 1, 2020. All supported Azure File Sync agent versions already use TLS 1.2 by default. You might be using an earlier version of TLS if you disabled TLS 1.2 on your server or if you use a proxy.

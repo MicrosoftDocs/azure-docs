@@ -1,13 +1,13 @@
 ---
 title: Create, view, and manage Azure Event Grid namespaces
 description: Learn how to create, view, and manage Azure Event Grid namespaces in the Azure portal, including enabling MQTT and configuring throughput units.
-author: robece
+author: Connected-Seth
 ms.topic: how-to
 ms.custom:
   - build-2023
   - ignite-2023
-ms.author: robece
-ms.date: 08/26/2026
+ms.author: seshanmugam
+ms.date: 10/13/2026
 ai-usage: ai-assisted
 # Customer intent: As an Azure developer or administrator, I want to create, view, and manage an Event Grid namespace so that I can group related messaging resources and manage them as a single unit.
 ---
@@ -26,6 +26,9 @@ This article shows you how to use the Azure portal to create, view, and manage a
 
 Use the following steps to create an Event Grid namespace in the Azure portal.
 
+> [!IMPORTANT]
+> IPv6 dual-stack support for Event Grid namespaces is currently in preview. You can select **Dual stack** when you create a namespace or update an existing IPv4 namespace from **Networking**. Private endpoints aren't supported with dual-stack-enabled namespaces during preview. For more information, see [Configure IPv6 dual-stack support (preview)](namespace-ipv6-dual-stack.md).
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **search box**, enter **Event Grid Namespaces** and select **Event Grid Namespaces** from the results.
 
@@ -43,7 +46,10 @@ Use the following steps to create an Event Grid namespace in the Azure portal.
     1. Select **Next: Networking** at the bottom of the page. 
     
         :::image type="content" source="media/create-view-manage-namespaces/create-namespace-basics-page.png" alt-text="Screenshot showing the Basics tab of Create namespace page.":::        
-1. Follow steps from [Configure IP firewall](configure-firewall.md) or [Configure private endpoints](mqtt-configure-private-endpoints.md) to configure IP firewall or private endpoints for the namespace, and then select **Next: Security** at the bottom of the page.
+1. On the **Networking** page, select **IPv4** or **Dual stack** for **Network protocol preference**. Then, follow the steps in [Configure IP firewall](configure-firewall-namespaces.md) or [Configure private endpoints](configure-private-endpoints-pull.md), and select **Next: Security**.
+
+    > [!WARNING]
+    > Private endpoints aren't supported with dual-stack-enabled namespaces during preview. If you require private endpoint connectivity, keep **Network protocol preference** set to **IPv4**.
 1. On the **Security** page, create a managed identity by following instructions from [Enable managed identity for a namespace](event-grid-namespace-managed-identity.md), and then select **Next: Tags** at the bottom of the page. 
 1. On the **Tags** tab, add tags if you need them. Then, select **Next: Review + create** at the bottom of the page.
 1. On the **Review + create** tab, review your settings, and then select **Create**.
@@ -94,5 +100,6 @@ When you no longer need a namespace, delete it to remove the namespace and all i
 
 ## Related content
 
+- [Configure IPv6 dual-stack support for Azure Event Grid namespaces (preview)](namespace-ipv6-dual-stack.md)
 - [Create, view, and manage namespace topics](create-view-manage-namespace-topics.md)
 - [Publish and subscribe to MQTT messages on an Event Grid namespace with the Azure portal](mqtt-publish-and-subscribe-portal.md)

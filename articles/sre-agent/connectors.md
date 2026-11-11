@@ -3,7 +3,7 @@ title: Connectors in Azure SRE Agent
 description: Use connectors to extend your agent's capabilities to external data sources, collaboration tools, and custom APIs.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/15/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -85,7 +85,7 @@ To set up your first MCP connector, see [Set up MCP connector](mcp-connector.md)
 
 ## Browse and manage connectors
 
-To see your connectors organized into collapsible category groups, go to **Builder** > **Connectors**. On this page, all groups are expanded by default.
+To see your connectors organized into collapsible category groups, go to **Build + setup** > **Extensions** > **Connectors**. On this page, all groups are expanded by default.
 
 | Category | What it includes |
 |----------|-----------------|
@@ -126,7 +126,7 @@ You can assign specific MCP tools to specialized custom agents. A database troub
 
 Assign tools individually in the portal tool picker, or use wildcard patterns (`connection-id/*`) in YAML to add all tools from a server at once. For details on tool assignment and wildcard syntax, see [MCP connectors and tools](mcp-connectors.md#how-tools-reach-your-agents).
 
-In the portal, go to **Builder** > **Custom agent builder**. Create or edit a custom agent, and under **Advanced settings**, select **Choose tools**. The tool picker displays tools grouped by MCP connection. Select the ones your custom agent needs.
+In the portal, go to **Build + setup** > **Workflows** > **Agent Canvas**. Create or edit a custom agent, and under **Tools**, select **Choose tools**. The tool picker displays tools grouped by MCP connection. Select the ones your custom agent needs.
 
 In YAML, list each tool by its full name:
 

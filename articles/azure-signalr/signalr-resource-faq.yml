@@ -50,6 +50,20 @@ sections:
           Yes. See [Transport Configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/advanced-topics/transport-configuration.md) for how to configure.
           
           You can also configure client-side transports as documented in [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration#configure-allowed-transports-1).
+
+      - question: |
+          How do I configure CORS for Azure SignalR Service?
+        answer: |
+          Cross-origin resource sharing (CORS) allows JavaScript running in a browser on another origin to make requests to Azure SignalR Service. In the Azure portal, open your Azure SignalR Service resource and configure **Allowed origins** on the **CORS** page.
+
+          The following origin formats are supported:
+
+          - **Specific origins**: Specify the scheme, host, and optional port, such as `https://www.contoso.com` or `http://localhost:8080`. Don't include a URL path or a trailing slash.
+          - **Wildcard subdomains**: Use a wildcard in the subdomain, such as `https://*.contoso.com`, to allow origins such as `https://app.contoso.com` and `https://chat.contoso.com`.
+          - **All origins**: Use `*` as the only entry in the list. Remove all other entries when using this option. For production applications, prefer specific origins or wildcard subdomains within domains that you control.
+
+          > [!NOTE]
+          > This setting applies to Azure SignalR Service and is separate from CORS configuration on your application server or Azure Function app. If a browser makes cross-origin requests to your application's negotiation endpoint, configure CORS on that endpoint separately. Configuring CORS in ASP.NET Core doesn't configure the allowed origins on Azure SignalR Service.
           
       - question: |
           What is the meaning of metrics like message count or connection count shown in the Azure portal? Which kind of aggregation type should I choose?

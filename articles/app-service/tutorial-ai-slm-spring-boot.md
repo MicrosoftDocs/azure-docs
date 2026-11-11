@@ -33,12 +33,42 @@ This tutorial guides you through deploying a Spring Boot-based chatbot applicati
     az login
     ```
     
-1. Open the terminal in the Codespace and run the following commands:
+1. Open the terminal in the Codespace. Set names for the resource group, plan, and globally unique web app, and choose an Azure region. Create a Linux App Service plan with the P3MV3 SKU and a Java 21 web app:
 
     ```azurecli
     cd use_sidecar_extension/springapp
+    RESOURCE_GROUP="<group-name>"
+    LOCATION="<azure-region>"
+    APPSERVICE_NAME="<globally-unique-app-name>"
+    PLAN_NAME="$APPSERVICE_NAME-plan"
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    az appservice plan create \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --name $PLAN_NAME \
+      --sku P3MV3 \
+      --is-linux
+    az webapp create \
+      --resource-group $RESOURCE_GROUP \
+      --plan $PLAN_NAME \
+      --name $APPSERVICE_NAME \
+      --runtime "JAVA:21-java21"
+    ```
+
+1. Build the sample by using Maven:
+
+    ```azurecli
     ./mvnw clean package
-    az webapp up --sku P3MV3 --runtime "JAVA:21-java21" --os-type linux
+    ```
+
+1. Deploy the resulting Spring Boot JAR:
+
+    ```azurecli
+    az webapp deploy \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --src-path target/demo-0.0.1-SNAPSHOT.jar \
+      --type jar
     ```
 
 [!INCLUDE [phi-4-extension-create-test](includes/tutorial-ai-slm/phi-4-extension-create-test.md)]

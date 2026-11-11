@@ -137,12 +137,10 @@ The easy SKU change method has the following limitations:
 If the easy SKU change method isn't available for your scenario, use the manual migration method described in the next section.
 
 ## Manual migration method
-
 If the easy upgrade method isn't available or suitable for your deployment, you can use the manual migration method. This approach provides more control but requires downtime. Manual migration doesn’t enable SKU changes from Azure Firewall Basic on an existing firewall.
 
 
 ### When to use manual migration
-
 Use manual migration when:
 - Easy upgrade isn't available for your scenario
 - You have Classic firewall rules that need migration

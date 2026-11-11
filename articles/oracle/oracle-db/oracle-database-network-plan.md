@@ -118,6 +118,7 @@ The following table describes required configurations of supported network featu
 |Connecting to ODAA instances via Private Endpoint | No | No |
 |Standard V2 NAT GW support | No | No |
 |Disable BGP route propagation | No | Yes |
+|Support for multiple delegated subnets within the same Vnet | No | No |
 
 > [!NOTE]
 > When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 

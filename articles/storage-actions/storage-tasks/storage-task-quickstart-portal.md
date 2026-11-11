@@ -7,7 +7,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: quickstart
-ms.date: 05/05/2025
+ms.date: 10/30/2026
 ms.author: normesta
 ---
 
@@ -25,13 +25,13 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 - The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is assigned to your user identity in the context of the storage account or resource group.
 
-- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
+- A custom role assigned to your user identity in the context of the resource group that contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles-assign.md#permission-to-manage-storage-task-assignments).
 
 - A blob container with one or more Microsoft Word documents stored in that container.
 
 ## Create a task
 
-1. In the Azure portal, search for _Storage tasks_.
+1. In the Azure portal, search for _Storage Actions_.
 
 2. Under **Services**, select **Storage tasks - Azure Storage Actions**.
 
@@ -43,12 +43,12 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the storage task create button.](../media/storage-tasks/storage-task-create/storage-task-create-button.png)
 
-4. In the **Basics** page, under **Project details**, make sure that the correct subscription is selected. Then, select the same resource group that contains your new storage account.
+4. On **Basics**, under **Project details**, select the subscription and resource group that contain your storage account.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Project details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/project-details-section.png)
 
-5. Under **Instance details**, enter *mystoragetask* for the **Storage task name**, and select any region that is supported by this service.
+5. Under **Instance details**, enter *mystoragetask* for the **Storage task name**, and select any region that the service supports.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Instance details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/instance-details-section.png)
@@ -57,11 +57,11 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 ## Add clauses to a condition
 
-You can specify the conditions of a storage task by making selections in **If** section of the **Visual Builder** tab. Every storage task has at least one condition with one clause in that condition.
+Specify the conditions of a storage task by making selections in the **If** section of the **Visual Builder** tab. Every storage task has at least one condition with one clause in that condition.
 
-1. In the **Select a property** drop-down list of the **If** section, select **Blob name**.
+1. In the **Select a property** list of the **If** section, select **Blob name**.
 
-2. For the **Operator** of that condition, select **Ends with**, and in the **Enter a string** box, enter _.docx_.
+2. For the **Operator** of that condition, select **Ends with**, and in the **Enter a string** box, enter `.docx`.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the clause that filters for blob name.](../media/storage-tasks/storage-task-quickstart-portal/if-condition-blob-name.png)
@@ -70,7 +70,7 @@ You can specify the conditions of a storage task by making selections in **If** 
 
 ## Add operations
 
-You can specify the operations that a storage task performs by making selections in **Then** section of the **Visual Builder** tab. Every storage task has at least one operation to perform when a blob or container meets the specified condition.
+Specify the operations that a storage task performs by making selections in the **Then** section of the **Visual Builder** tab. Every storage task has at least one operation to perform when a blob or container meets the specified condition.
 
 1. In the **Select an operation** drop-down list of the **Then** section, select **Set blob immutability policy**.
 
@@ -81,7 +81,7 @@ You can specify the operations that a storage task performs by making selections
 
 2. Select **Add new operation**, and then in the **Select a operation** drop-down list, select **Set blob tags**.
 
-3. In the **Enter a tag name** box, Enter _ImmutabilityUpdatedBy_, and in the **Enter a tag value** box, enter _StorageTaskQuickstart_. 
+3. In the **Enter a tag name** box, enter _ImmutabilityUpdatedBy_, and in the **Enter a tag value** box, enter _StorageTaskQuickstart_. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Then operation which sets a blob index tag.](../media/storage-tasks/storage-task-quickstart-portal/then-operation-set-blob-tags.png)
@@ -92,13 +92,13 @@ You can specify the operations that a storage task performs by making selections
 
 ## Add an assignment
 
-A storage task _assignment_ specifies a storage account. After you enable the storage task, the conditions and operations of your task will be applied to that storage account. The assignment also contains configuration properties which help you target specific blobs, or specify when and how often the task runs. You can add an assignment for each account you want to target.
+A storage task _assignment_ specifies a storage account on which the task runs. It includes execution configuration settings that help you target specific blobs, and specify when and how often the task runs. Add task assignments for each storage account where you want the task to run.
 
 1. Select **Add assignment**.
 
    The **Add assignment** pane appears.
 
-2. In the **Select scope** section, select your subscription and storage account and name the assignment _mystoragetaskassignment_.
+2. In the **Select scope** section, select your subscription and storage account. Name the assignment _mystoragetaskassignment_.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Select scope section of the assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-select-scope.png)
@@ -108,12 +108,12 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
 
-4. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you're using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
+4. In the **Filter objects** section, select the **Blob prefix** option. In the **Include blob prefixes** box, enter the prefix of the container you're using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, enter `mycontainer/`.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)
 
-   Filters help you narrow the scope of execution. If you want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option instead.
+   Filters help you narrow the scope of execution. If you want the task to evaluate all of the containers and blobs in an account, select the **Do not filter** option instead.
 
 5. In the **Trigger details** section, select **Single run (only once)** and then select the container where you'd like to store the execution reports.
 
@@ -150,18 +150,18 @@ Storage task assignments are disabled by default. Enable assignments from the **
 
 ## View results of the task run
 
-After the task completes running, you can view the results of the run.
+After the task finishes running, you can view the results.
 
 1. With the **Assignments** page still open, select **View task runs**.
 
-   The **Execution tasks** pane appears, and in that pane, a line item which describes the report appears.
+   This step opens the **Execution tasks** pane that displays the finished run and its execution report.
 
 2. Select the **View report** link to download a report.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Execution tasks pane.](../media/storage-tasks/storage-task-quickstart-portal/run-report.png)
 
-   The report appears as a comma-separated list of the container, the blob, and the operation performed along with a status.  You can also view these comma-separated reports in the container that you specified when you configured the assignment.
+   The execution report uses the CSV format and captures each object processed, including the blob container, blob name, the operation performed, and the operation result. You can also view these reports in the container that you specified when you configured the assignment.
 
 ## Next steps
 

@@ -189,7 +189,7 @@ Watch for:
 ## Step 6: Review the results
 
 > [!IMPORTANT]
-> To view output files attached to tasks, you need **Storage Blob Data Reader** on the storage account and network access to the storage endpoint. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md).
+> To view output files attached to tasks, you need **Storage Blob Data Reader** on the storage account and network access to the storage endpoint. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md).
 
 Once all three tasks are Complete:
 

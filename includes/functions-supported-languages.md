@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/21/2026
+ms.date: 11/09/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -43,12 +43,15 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version    | Support level | Expected end-of-support date                                  |
 |----------------------|---------------|---------------------------------------------------------------|
+| .NET 11              | GA            | [See policy][dotnet-policy]                                  |
 | .NET 10              | GA            | [November 14, 2028][dotnet-policy]                            |
 | .NET 9               | GA            | [November 10, 2026][dotnet-policy]<sup>1</sup>                |
 | .NET 8               | GA            | [November 10, 2026][dotnet-policy]                            |
 | .NET Framework 4.8.1 | GA            | See [.NET Framework Support Policy][dotnet-framework-policy]  |
 
 <sup>1</sup> .NET 9 previously had an expected end-of-support date of May 12, 2026. During the .NET 9 service window, the .NET team extended support for STS versions to 24 months, starting with .NET 9. For more information, see [the blog post](https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/).
+
+Projects that target .NET 11 require `Azure.Functions.Sdk` version 1.0.1 or later as the project SDK and an explicit `Microsoft.Azure.Functions.Worker` package reference. For configuration and tooling guidance, see [.NET 11 in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#net-11).
 
 > [!NOTE]
 > .NET 9 is the last .NET version supported for Linux Consumption plan apps. Newer .NET versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
@@ -87,8 +90,11 @@ The following table shows the language versions supported for Node.js function a
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| [Node.js 26](https://endoflife.date/nodejs) | Preview (Linux only) | |
 | [Node.js 24](https://endoflife.date/nodejs) | GA | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
+
+Node.js 26 is available in preview only on Linux. On Windows, use Node.js 24 or Node.js 22.
 
 TypeScript is supported through transpiling to JavaScript. For more information, see [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#programming-model).
 
@@ -115,11 +121,11 @@ The following table shows the language versions supported for Python function ap
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| Python 3.15 | Preview | April 2030 |
 | Python 3.14 | GA | April 2029 |
 | Python 3.13 | GA | October 2029 |
 | Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
-| Python 3.10 | GA | October 2026 |
 
 
 > [!NOTE]
@@ -131,13 +137,13 @@ For more information, see [Azure Functions Python developer guide](../articles/a
 The following table shows the Go versions supported by Azure Functions:
 
 | Supported version | Support level | Expected end-of-support date |
-| ---- | ---- |--- |
-| Go 1.24 or later | Preview | Pending<sup>1</sup> |
+| --- | --- | --- |
+| [Go 1.24 or later](https://go.dev/doc/devel/release#policy) | GA | See the [Go release policy](https://go.dev/doc/devel/release#policy)<sup>1</sup> |
 
-<sup>1</sup> The end-of-support date for Go support is determined when general availability (GA) is declared.
+<sup>1</sup> Each major Go release is supported until two newer major releases are available.
 
 > [!NOTE]
-> Go support is currently available only for function apps hosted in the Flex Consumption plan.
+> Go support is available only for function apps hosted in the Flex Consumption plan.
 
 For more information, see [Azure Functions Go developer reference](../articles/azure-functions/functions-reference-go.md).
 ::: zone-end

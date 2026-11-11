@@ -6,7 +6,7 @@ services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
-ms.date: 06/01/2026
+ms.date: 10/05/2026
 ms.author: allensu
 ms.custom:
   - template-tutorial #Required; leave this attribute/value as-is.
@@ -18,7 +18,7 @@ ms.custom:
 # Tutorial: Create an alias record to support apex domain names with Traffic Manager 
 
 > [!TIP]
-> For new Traffic Manager-backed DNS configurations, consider using [Traffic Manager Linked Records](dns-traffic-manager-linked-records.md) instead. Traffic Manager Linked Records return endpoint IP addresses directly without an intermediate CNAME hop and enforce endpoint type consistency via [Strictly Typed Profiles](../traffic-manager/traffic-manager-strictly-typed-profiles.md). Both features are currently in PREVIEW. This tutorial covers the alias record approach, which remains supported for backward compatibility.
+> For new Traffic Manager-backed DNS configurations, consider using [Traffic Manager Linked Records](dns-traffic-manager-linked-records.md) instead. Traffic Manager Linked Records return endpoint IP addresses directly without an intermediate CNAME hop and enforce endpoint type consistency via [Strictly Typed Profiles](../traffic-manager/traffic-manager-strictly-typed-profiles.md). This tutorial covers the alias record approach, which remains supported for backward compatibility.
 
 You can create an alias record for your apex domain name to reference an Azure Traffic Manager profile. Instead of using a redirecting service, you configure Azure DNS to reference a Traffic Manager profile directly from your zone. 
 

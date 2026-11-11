@@ -3,7 +3,7 @@ title: "Orchestration Versioning: Safe Deployments for Durable Orchestrations"
 description: Learn how to use orchestration versioning for safe deployments with Durable Functions and Durable Task SDKs. Prevent nondeterminism errors and maintain backward compatibility during updates.
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 05/01/2026
+ms.date: 10/12/2026
 author: AnatoliB
 ms.author: azfuncdf
 ms.reviewer: hannahhunter
@@ -28,6 +28,8 @@ Durable Task SDKs support two styles of versioning, which you can use separately
 
 - [Client/context-based conditional versioning](#set-the-default-version)—set a version on the client and branch logic in the orchestrator.
 - [Worker-based versioning](#version-matching)—let the worker decide which orchestration versions it can process.
+
+The Go SDK beta also supports versioned task registrations and worker acceptance policies. Durable Task Scheduler accepts numeric versions, such as `1.0` and `2.0`. For runnable examples of version-aware behavior and routing, see the [Go SDK versioning sample](https://github.com/microsoft/durabletask-go/tree/main/samples/versioning) and the [Go SDK's versioning contract](https://github.com/microsoft/durabletask-go/blob/main/durabletaskscheduler/README.md#worker-routing-and-capabilities).
 
 ::: zone-end
 

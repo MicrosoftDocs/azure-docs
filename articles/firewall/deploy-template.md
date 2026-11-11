@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 12/31/2025
+ms.date: 10/09/2026
 ms.author: duau
 # Customer intent: As a cloud architect, I want to deploy an Azure Firewall using an ARM template, so that I can quickly set up a secure network environment with high availability across multiple zones.
 ---
@@ -14,6 +14,9 @@ ms.author: duau
 # Quickstart: Deploy Azure Firewall with Availability Zones - ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall in three Availability Zones.
+
+> [!NOTE]
+> For new deployments, omit the firewall's `zones` property and let Azure manage backend zone allocation in [ZR compatible regions](deploy-availability-zone-powershell.md#zr-compatible-regions). To use platform-managed allocation, download the template, omit `zones` from the `Microsoft.Network/azureFirewalls` resource, and deploy your modified template. Don't remove zone settings from an existing deployment solely to obtain redundancy; eligible existing firewalls are migrated automatically.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 

@@ -42,7 +42,7 @@ You create a C# function app in an [Elastic Premium plan](./functions-premium-pl
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`. |
     | **Publish** | Code | Choose to publish code files or a Docker container. |
     | **Runtime stack** | .NET | This tutorial uses .NET. |
-    | **Version** | 8 (LTS), Isolated worker model | This tutorial uses .NET 8.0 running in the [isolated worker model](./dotnet-isolated-process-guide.md). |
+    | **Version** | A supported .NET version using the isolated worker model | Select a [supported version](dotnet-isolated-process-guide.md#supported-versions) that matches the sample project's target framework. |
     | **Region** | Preferred region | Choose a [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) near you or near other services that your functions access. |
     | **Operating system** | Windows | This tutorial uses Windows but also works for Linux. |
     | **[Plan](./functions-scale.md)** | Functions Premium | Hosting plan that defines how resources are allocated to your function app. By default, when you select **Premium**, a new App Service plan is created. The default **Sku and size** is **EP1**, where *EP* stands for _elastic premium_. For more information, see the list of [Premium SKUs](./functions-premium-plan.md#available-instance-skus).<br/><br/>When you run JavaScript functions on a Premium plan, choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](./functions-reference-node.md#considerations-for-javascript-functions). |
@@ -258,7 +258,7 @@ For more information about identity-based connections, see [Identity-based conne
     | **Repository** | functions-vnet-tutorial | The repository forked [from here](https://github.com/Azure-Samples/functions-vnet-tutorial). |
     | **Branch** | main | The main branch of the repository you created. |
     | **Runtime stack** | .NET | The sample code is in C#. |
-    | **Version** | .NET 8 Isolated | The runtime version. |
+    | **Version** | A supported .NET version using the isolated worker model | Select the runtime version that matches the sample project's target framework. |
 
 1. Select **Save**.
 

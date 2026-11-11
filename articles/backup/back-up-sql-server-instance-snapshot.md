@@ -1,5 +1,5 @@
 ---
-title: Back up SQL Server instance snapshot in Azure Virtual Machine (VM) using Azure portal (preview)
+title: Back up SQL Server instance snapshot in Azure Virtual Machine (VM) using Azure portal
 description: Learn how to back up SQL Server instances in Azure VMs using snapshot backups.
 #customer intent: As an IT admin, I want to back up SQL Server databases in Azure VMs using snapshot backups so that I can ensure data recovery in case of failure.
 author: AbhishekMallick-MS
@@ -10,14 +10,11 @@ ms.topic: how-to
 ms.service: azure-backup
 ---
 
-# Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)
+# Back up SQL Server instance snapshot in Azure VM using Azure portal
 
-This article describes how to back up [SQL Server instances in Azure VMs using snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
+This article describes how to back up [SQL Server instances in Azure VMs using snapshot backups](backup-azure-sql-database.md#snapshot-based-backup-for-sql-instances-in-azure-vms). It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
 
-[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview)](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
-
->[!NOTE]
->Integration with the **Resiliency** experience is currently not supported for snapshot backup of SQL Server instances (preview).
+[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios).
 
 ## Prerequisites
 
@@ -54,7 +51,7 @@ To create a new backup policy directly in the vault before configuring backup, f
 
 1.  On the **Backup policies** pane, select **+ Add** to create a new policy.
 
-1.  On the **Select policy type** pane, select **Policy type** as **SQL Server in Azure VM (Snapshot backup) (preview)**.  
+1.  On the **Select policy type** pane, select **Policy type** as **SQL Server in Azure VM (Snapshot backup)**.
       
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/select-policy-type-sql-server.png" alt-text="Screenshot that shows policy type selection in Azure Recovery Services vault for SQL Server in Azure VM (Snapshot backup)." lightbox="./media/back-up-sql-server-instance-snapshot/select-policy-type-sql-server.png":::
 
@@ -97,7 +94,7 @@ To discover unprotected SQL Server instance in a subscription, follow these step
 
 1.  Go to the **Recovery Services vault**, and select **+ Backup**.
 
-2.  On the **Backup Goal** pane, for **What do you want to backup**, select **SQL Server in Azure VM (Snapshot backup) (preview)**.  
+2.  On the **Backup Goal** pane, for **What do you want to backup**, select **SQL Server in Azure VM (Snapshot backup)**.
       
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-vm-snapshot-backup.png" alt-text="Screenshot that shows the datasource selection for backup." lightbox="./media/back-up-sql-server-instance-snapshot/sql-vm-snapshot-backup.png":::
 
@@ -135,15 +132,29 @@ When the SQL Server instance discovery is complete, configure backup for the ins
     
 1.  Select **Enable Backup** to finish the backup configuration.
 
+## Add snapshot protection when databases are already protected with streaming backup
+
+If some databases in a SQL instance are already protected with streaming backup and you want to protect other databases with snapshot backup, you don't need to change the existing streaming protection. Configure snapshot protection separately for the required databases.
+
+1. On the **Recovery Services vault**, select **+Backup**.
+
+1. For the backup workload, select **SQL Server in Azure VM (Snapshot backup)**, and then select **Configure Backup**.
+
+1. Select or create a snapshot backup policy and choose the SQL instance and databases that you want to protect with snapshot backup.
+
+> [!NOTE]
+> Existing databases protected with streaming backup continue with their protection based on the streaming backup policy. The snapshot backup policy is configured separately for the databases you select for snapshot protection.
+
+
 ## Run an on-demand backup of SQL instance
 
 To run an on-demand backup at the SQL instance level, follow these steps:
 
 1.  Go to the **Recovery Services vault** and select **Protected items** \> **Backup items**.
 
-1.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.
+1.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup)**.
 
-1.  On the **Backup Items (SQL Server in Azure VM (Snapshot backup) (Preview))** pane, for the required backup instance, select **View details**.
+1.  On the **Backup Items (SQL Server in Azure VM (Snapshot backup))** pane, for the required backup instance, select **View details**.
 
 1.  On the selected backup instance pane, select **Backup now**.
 
@@ -157,5 +168,5 @@ If you need to back up individual SQL databases, Azure Backup supports on-demand
 
 ## Next steps
 
-- [Restore SQL Server instance or database in Azure VM from snapshot backup by using Azure portal(preview)](back-up-sql-server-instance-snapshot-restore.md).
-- [Manage and monitor SQL Server database and instance snapshot (preview) backups](manage-monitor-sql-database-backup.md).
+- [Restore SQL Server instance or database in Azure VM from snapshot backup by using Azure portal](back-up-sql-server-instance-snapshot-restore.md).
+- [Manage and monitor SQL Server database and instance snapshot backups](manage-monitor-sql-database-backup.md).

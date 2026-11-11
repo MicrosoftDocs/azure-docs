@@ -215,6 +215,16 @@ items:
         href: ./samples/guest-configuration-baseline-windows.md
       - name: Windows security 2025 baseline
         href: ./samples/guest-configuration-baseline-windows-server-2025.md  
+      - name: DISA STIG Benchmarks for Linux Workloads
+        items:
+        - name: Overview
+          href: samples/guest-configuration-baseline-stig-linux.md
+        - name: Oracle Linux
+          href: samples/stig-linux/oracle-ado.md
+        - name: Red Hat Enterprise Linux
+          href: samples/stig-linux/rhel-ado.md
+        - name: Ubuntu
+          href: samples/stig-linux/ubuntu-ado.md
 - name: Concepts
   items:
   - name: Definition structure

@@ -18,9 +18,6 @@ ms.service: azure-communication-services
 
 The Azure Communication Services communication monitoring tool enables developers to inspect the state of the `Call` to debug or monitor their solution. For developers building an Azure Communication Services solution, they might need visibility for debugging into general call information such as the `Call ID` or advanced states, such as did a user facing diagnostic fire. The communication monitoring tool provides developers this information and more. It can be easily added to any JavaScript (Web) solution by downloading the npm package `@azure/communication-monitoring`.
 
->[!NOTE]
->Find the open-source repository for the tool [here](https://github.com/Azure/communication-monitoring).
-
 ## Capabilities
 
 The Communication Monitoring tool provides developers three categories of information that can be used for debugging purposes:

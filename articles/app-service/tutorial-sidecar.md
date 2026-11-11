@@ -64,16 +64,40 @@ First you create the resources that the tutorial uses. They're used for this par
     
 ## 2. Create a web app
 
-In this step, you deploy a template ASP.NET Core application. Back in the [Azure Cloud Shell](https://shell.azure.com), run the following commands. Replace `<app-name>` with a unique app name.
+In this step, you deploy a template ASP.NET Core application. Run the following commands in [Azure Cloud Shell](https://shell.azure.com). Replace `<app-name>` with a globally unique app name and `eastus` with your preferred region.
 
-```dotnetcli
-cd ~
-dotnet new webapp -n MyFirstAzureWebApp --framework net8.0
-cd MyFirstAzureWebApp
-az webapp up --name <app-name> --os-type linux
-```
+1. Create the sample application:
 
-After a few minutes, this .NET web application is deployed as MyFirstAzureWebApp.dll to a new App Service app.
+    ```dotnetcli
+    cd ~
+    dotnet new webapp -n MyFirstAzureWebApp --framework net8.0
+    cd MyFirstAzureWebApp
+    ```
+
+1. Provision the resource group, Linux App Service plan, and web app:
+
+    ```azurecli
+    az group create --name myWebAppResourceGroup --location eastus
+    az appservice plan create --name myWebAppPlan --resource-group myWebAppResourceGroup --sku P0v3 --is-linux
+    az webapp create --name <app-name> --resource-group myWebAppResourceGroup --plan myWebAppPlan --runtime "DOTNETCORE:8.0"
+    ```
+
+1. Build the application and package the contents of the publish directory:
+
+    ```dotnetcli
+    dotnet publish --configuration Release --output publish
+    cd publish
+    zip -r ../app.zip .
+    cd ..
+    ```
+
+1. Deploy the package.
+
+    ```azurecli
+    az webapp deploy --name <app-name> --resource-group myWebAppResourceGroup --src-path app.zip --type zip
+    ```
+
+After a few minutes, the .NET web application is deployed as *MyFirstAzureWebApp.dll* to the new App Service app.
 
 ## 3. Add a sidecar container
 
@@ -102,16 +126,16 @@ In this section, you add a sidecar container to your Linux app.
 1. In the Cloud Shell, run the following command to add to the web app the user-assigned managed identity that `azd provision` created. Use the value of `<managed-identity-resource-id>` (a very long string) in the `azd provision` output.
 
     ```azurecli-interactive
-    az webapp identity assign --identities <managed-identity-resource-id>
+    az webapp identity assign --resource-group myWebAppResourceGroup --name <app-name> --identities <managed-identity-resource-id>
     ```
 
-    If you run this command inside *~/MyFirstAzureWebApp*, you don't need to add any other parameters because `az webapp up` set defaults already for the resource group and the app name. 
+    Replace `<app-name>` with the name you used when creating the app.
 
 1. Navigate to the [custom deployment](https://portal.azure.com/#create/Microsoft.Template) template in the portal.
 
 1. Select **Build your own template in the editor**.
 
-1. Replace the content in the textbox with the following JSON code and select **Save**. For `<registry-name>` and `<managed-identity-client-id>`, use the output values from `azd provision` earlier. For `<app-name>`, use the app name in `az webapp up earlier`. For `<sidecar-name>`, supply a name for the sidecar container.
+1. Replace the content in the textbox with the following JSON code and select **Save**. For `<registry-name>` and `<managed-identity-client-id>`, use the output values from `azd provision` earlier. For `<app-name>`, use the name you used with `az webapp create`. For `<sidecar-name>`, provide a name for the sidecar container.
 
     ```json
     {
@@ -205,10 +229,10 @@ In this step, you create the instrumentation for your app according to the steps
     EOF
     ```
 
-1. Deploy this file to your app with the following Azure CLI command. If you're still in the *~/MyFirstAzureWebApp* directory, then no other parameters are necessary because `az webapp up` already set defaults for the resource group and the app name.
+1. Deploy this file to your app with the following Azure CLI command. Replace `<app-name>` with the name you used when creating the app.
 
     ```azurecli-interactive
-    az webapp deploy --src-path startup.sh --target-path /home/site/startup.sh --type static
+    az webapp deploy --resource-group myWebAppResourceGroup --name <app-name> --src-path startup.sh --target-path /home/site/startup.sh --type static
     ```
 
     > [!TIP]
@@ -240,7 +264,7 @@ When you no longer need the environment, you can delete the resource groups and 
 
 ```azurecli-interactive
 cd ~/MyFirstAzureWebApp
-az group delete --yes
+az group delete --name myWebAppResourceGroup --yes
 cd ~/app-service-sidecar-tutorial-prereqs
 azd down
 ```

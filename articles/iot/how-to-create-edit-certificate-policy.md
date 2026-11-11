@@ -80,29 +80,30 @@ Before you begin, ensure you have the required setup and permissions so you can 
 
 ### Set variables
 
-Optionally, define variables for the commands in this article.
+The following examples use Bash syntax. Optionally, define shared variables for the commands in this article. If you don't set these variables, replace each variable reference in the commands with its value.
 
+Set `DPS_NAME` to the name of the existing DPS instance linked to the namespace. Create certificate policies in the same region as their Azure Device Registry namespace.
 
 ```azurecli
 RG_NAME="<resource-group>"
 NS_NAME="<adr-namespace>"
-VALIDITY_DAYS="<validity-in-days>"
+SUBSCRIPTION_ID="<subscription-id>"
+DPS_NAME="<dps-name>"
 ```
 
 ## Create a certificate policy
 
-Create a certificate policy under the intermediate CA. The validity period controls how long device certificates issued by the certificate authority remain valid and must be between 1 and 90 days.
+Create a certificate policy under the intermediate CA. The validity period controls how long device certificates issued by the certificate authority remain valid and must be between 1 and 90 days. Replace `<validity-in-days>` with your chosen number of days.
 
 
 ```azurecli
 az iot adr ns ca policy create \
-  --name "<POLICY_NAME>" \
-  --ca-name "<ICA_NAME>" \
+  --name "<policy-name>" \
+  --ca-name "<ica-name>" \
   --ns "$NS_NAME" \
   --resource-group "$RG_NAME" \
   --subscription "$SUBSCRIPTION_ID" \
-  --location "<LOCATION>" \
-  --validity-days "$VALIDITY_DAYS"
+  --validity-days "<validity-in-days>"
 ```
 
 Verify the certificate policy properties:
@@ -110,8 +111,8 @@ Verify the certificate policy properties:
 
 ```azurecli
 az iot adr ns ca policy show \
-  --name "<POLICY_NAME>" \
-  --ca-name "<ICA_NAME>" \
+  --name "<policy-name>" \
+  --ca-name "<ica-name>" \
   --ns "$NS_NAME" \
   --resource-group "$RG_NAME" \
   --subscription "$SUBSCRIPTION_ID" \
@@ -126,31 +127,31 @@ The following example creates a new enrollment group:
 
 
 ```azurecli
-az iot dps enrollment-group create `
-  --dps-name "<dps_name>" `
-  --resource-group "<resource_group>" `
-  --subscription "<subscription_id>" `
-  --auth-type key `
-  --enrollment-id "<enrollment_group_id>" `
-  --allocation-policy hashed `
-  --adr-namespace "<namespace_name>" `
-  --adr-ca-name "<certificate_authority_name>" `
-  --adr-cert-policy-name "<certificate_policy_name>"
+az iot dps enrollment-group create \
+  --dps-name "$DPS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --auth-type key \
+  --enrollment-id "<enrollment-group-id>" \
+  --allocation-policy hashed \
+  --adr-namespace "$NS_NAME" \
+  --adr-ca-name "<ica-name>" \
+  --adr-cert-policy-name "<policy-name>"
 ```
 
 The following example updates an existing enrollment group:
 
 
 ```azurecli
-az iot dps enrollment-group update `
-  --dps-name "<dps_name>" `
-  --resource-group "<resource_group>" `
-  --subscription "<subscription_id>" `
-  --auth-type key `
-  --enrollment-id "<enrollment_group_id>" `
-  --adr-namespace "<namespace_name>" `
-  --adr-ca-name "<certificate_authority_name>" `
-  --adr-cert-policy-name "<certificate_policy_name>"
+az iot dps enrollment-group update \
+  --dps-name "$DPS_NAME" \
+  --resource-group "$RG_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --auth-type key \
+  --enrollment-id "<enrollment-group-id>" \
+  --adr-namespace "$NS_NAME" \
+  --adr-ca-name "<ica-name>" \
+  --adr-cert-policy-name "<policy-name>"
 
 ```
 
@@ -162,8 +163,8 @@ Update the policy to change the validity period for newly issued device certific
 ```azurecli
 
 az iot adr ns ca policy update \
-  --name "<POLICY_NAME>" \
-  --ca-name "<ICA_NAME>" \
+  --name "<policy-name>" \
+  --ca-name "<ica-name>" \
   --ns "$NS_NAME" \
   --resource-group "$RG_NAME" \
   --subscription "$SUBSCRIPTION_ID" \
@@ -176,8 +177,8 @@ Confirm the updated validity period:
 
 ```azurecli
 az iot adr ns ca policy show \
-  --name "<POLICY_NAME>" \
-  --ca-name "<ICA_NAME>" \
+  --name "<policy-name>" \
+  --ca-name "<ica-name>" \
   --ns "$NS_NAME" \
   --resource-group "$RG_NAME" \
   --subscription "$SUBSCRIPTION_ID" \

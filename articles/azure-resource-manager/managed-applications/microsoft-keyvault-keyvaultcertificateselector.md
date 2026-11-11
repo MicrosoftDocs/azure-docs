@@ -43,7 +43,7 @@ The control is updated to display the selected key vault and certificate name.
   "keyVaultId": "/subscriptions/{subscription-id}/resourceGroups/resourcegroup1/providers/Microsoft.KeyVault/vaults/azuretestkeyvault1",
   "certificateName": "certificate1",
   "certificateUrl": "https://azuretestkeyvault1.vault.azure.net/secrets/certificate1/{id}",
-  "certificateThumbprint": "1B721E84DDDD1BB69282B4A54F18C6ADB1C174F2"
+  "certificateThumbprint": "AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00"
 }
 ```
 

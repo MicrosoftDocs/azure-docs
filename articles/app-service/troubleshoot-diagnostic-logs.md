@@ -3,7 +3,7 @@ title: Enable Diagnostic Logs
 description: Learn how to enable diagnostic logs and add instrumentation to your application, along with how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: how-to
-ms.date: 04/23/2026
+ms.date: 10/08/2026
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: devx-track-csharp, ai-video-demo, linux-related-content
@@ -157,6 +157,8 @@ az webapp log tail --name appname --resource-group myResourceGroup --provider ht
 To stream logs in the local console, [install the Azure CLI](/cli/azure/install-azure-cli) and [sign in to your account](/cli/azure/authenticate-azure-cli). After you sign in, follow the [instructions for Cloud Shell](#in-cloud-shell).
 
 ## Access log files
+
+For custom diagnostics in a running Linux app container, the preview `az webapp exec` command submits a detached command. To capture output and verify completion, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Request acceptance doesn't establish success, and redirecting output to a file doesn't automatically add it to App Service log streaming.
 
 If you configure the Azure Storage blobs option for a log type, you need a client tool that works with Azure Storage. For more information, see [Microsoft client tools for working with Azure Storage](../storage/common/storage-explorers.md).
 

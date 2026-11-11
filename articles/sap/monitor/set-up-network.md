@@ -68,7 +68,7 @@ If you have NSG or User-Defined Route rules that block inbound traffic to your S
 | SQL Server                         |  1433  (can be different if you aren't using the default port)     |
 | DB2 Server                         |  25000 (can be different if you aren't using the default port)     |
 | SAP HANA DB                        |  3\<instance number\>13, 3\<instance number\>15                         |
-| SAP NetWeaver                      |  5\<instance number\>13, 5\<instance number\>15                         |
+| SAP NetWeaver                      |  5\<instance number\>13, 5\<instance number\>14                         |
 
 ### Use service tags
 

@@ -220,27 +220,39 @@ The application uses [DefaultAzureCredential](/azure/developer/java/sdk/authenti
 
 Now that your app works locally, let's deploy it to Azure App Service and set up a service connection to Azure OpenAI using managed identity.
 
-1. Create a deployment package with Maven.
+1. Create a Linux App Service plan in the same resource group as your OpenAI resource, and then create a Java 21 web app.
+
+    ```bash
+    az appservice plan create \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --name $APPSERVICE_NAME \
+      --sku P0v3 \
+      --is-linux
+    az webapp create \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --plan $APPSERVICE_NAME \
+      --runtime "JAVA:21-java21"
+    ```
+
+1. Build the deployment package with Maven.
 
     ```bash
     mvn clean package
     ```
 
-1. First, deploy your app to Azure App Service using the Azure CLI command `az webapp up`. This command creates a new web app and deploys your code to it:
+1. Deploy the Spring Boot JAR. 
 
     ```bash
-    az webapp up \
+    az webapp deploy \
       --resource-group $RESOURCE_GROUP \
-      --location $LOCATION \
       --name $APPSERVICE_NAME \
-      --plan $APPSERVICE_NAME \
-      --sku B1 \
-      --runtime "JAVA:21" \
-      --os-type Linux \
-      --track-status false
+      --src-path target/rest-service-0.0.1-SNAPSHOT.jar \
+      --type jar
     ```
 
-   This command might take a few minutes to complete. It creates a new web app in the same resource group as your OpenAI resource.
+   Deployment might take a few minutes to complete.
 
 1. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
 
@@ -262,7 +274,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
 1. Open the deployed web app in the browser. 
 
     ```azurecli
-    az webapp browse
+    az webapp browse --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME
     ```    
 
 1. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.

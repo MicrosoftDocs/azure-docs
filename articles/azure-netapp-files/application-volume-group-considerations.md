@@ -16,7 +16,8 @@ This article describes the requirements and considerations you need to be aware 
 ## Requirements and considerations
 
 * You need to use the [manual QoS capacity pool](manage-manual-qos-capacity-pool.md) functionality.  
-* Application volume group supports Basic and Standard network features. To use features including availability zone volume placement, use [Standard network features](azure-netapp-files-network-topologies.md).
+* Use [Standard network features](azure-netapp-files-network-topologies.md).
+* Volume names created through application volume group must be unique across your Azure subscription.
 * Application volume group supports [availability zone volume placement](replication.md#availability-zones) as the default and recommended method for placement. Using availability zone volume placement mitigates the need for AVset pinning and eliminates the need for proximity placement groups. With support for availability zone volume placement, you only need to select the same availability zone as the database servers. Using availability zone volume placement aligns with the Microsoft recommendation on how to deploy SAP HANA infrastructures to achieve best performance with high-availability, maximum flexibility, and simplified deployment. 
     * If regions don't support availability zones, you can select a regional deployment or choose proximity placement groups (PPG).
 

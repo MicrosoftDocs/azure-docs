@@ -15,9 +15,6 @@ Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manua
 
 This article explains how to configure policy-based backups. For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
 
-[!INCLUDE [Elastic backup preview](includes/elastic-backup-preview.md)]
-
-
 ## About policy-based backups    
 
 Backups are long-running operations. The system schedules backups based on the primary workload (which is given higher priority) and runs backups in the background. Depending on the size of the volume being backed up, a backup can run in background for hours. There's no option to select the start time for backups. The service performs the backups based on the internal scheduling and optimization logic. 

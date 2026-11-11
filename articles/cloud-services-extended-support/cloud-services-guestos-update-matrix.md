@@ -3,13 +3,13 @@ title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: srtiruma
+author: kumarjai
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 09/22/2026
+ms.date: 10/14/2026
 ms.update-cycle: 3650-days
-ms.author: srtiruma
+ms.author: kumarjai
 ms.custom: compute-evergreen
 # Customer intent: As a cloud services administrator, I want to stay updated on the latest Guest OS releases and their compatibility, so that I can plan timely upgrades and ensure my applications remain secure and functional before any deprecation deadlines.
 ---
@@ -39,6 +39,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **October 14, 2026**
+The September 2026 Guest OS released.
 
 ###### **September 16, 2026**
 The August 2026 Guest OS released.
@@ -337,9 +340,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-7.68_202609-01 | October 14, 2026 | Post 7.71 |
 | WA-GUEST-OS-7.67_202608-01 | September 16, 2026 | Post 7.70 |
 | WA-GUEST-OS-7.66_202607-01 | August 13, 2026 | Post 7.69 |
-|  WA-GUEST-OS-7.65_202606-01 | June 29, 2026 | Post 7.68 |
+| ~~WA-GUEST-OS-7.65_202606-01~~ | June 29, 2026 | October 14, 2026 |
 | ~~WA-GUEST-OS-7.64_202605-01~~ | June 16, 2026 | September 16, 2026 |
 | ~~WA-GUEST-OS-7.63_202604-01~~ | May 22, 2026 | August 13, 2026 |
 |~~WA-GUEST-OS-7.62_202603-01~~|  April 14, 2026  | June 29, 2026 |
@@ -409,9 +413,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-6.98_202609-01 | October 14, 2026 | Post 6.101 |
 | WA-GUEST-OS-6.97_202608-01 | September 16, 2026 | Post 6.100 |
 | WA-GUEST-OS-6.96_202607-01 | August 13, 2026 | Post 6.99 |
-|  WA-GUEST-OS-6.95_202606-01 | June 29, 2026 | Post 6.98 |
+| ~~WA-GUEST-OS-6.95_202606-01~~ | June 29, 2026 | October 14, 2026 |
 | ~~WA-GUEST-OS-6.94_202605-01~~ | June 16, 2026 | September 16, 2026 |
 | ~~WA-GUEST-OS-6.93_202604-01~~ | May 22, 2026 | August 13, 2026 |
 |~~WA-GUEST-OS-6.92_202603-01~~| April 14, 2026 | June 29, 2026 |
@@ -515,9 +520,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-5.122_202609-01 | October 14, 2026 | Post 5.125 |
 | WA-GUEST-OS-5.121_202608-01 | September 16, 2026 | Post 5.124 |
 | WA-GUEST-OS-5.120_202607-01 | August 13, 2026 | Post 5.123 |
-|  WA-GUEST-OS-5.119_202606-01 | June 29, 2026 | Post 5.122 |
+| ~~WA-GUEST-OS-5.119_202606-01~~ | June 29, 2026 | October 14, 2026 |
 | ~~WA-GUEST-OS-5.118_202605-01~~ | June 16, 2026 | September 16, 2026 |
 | ~~WA-GUEST-OS-5.117_202604-01~~ | May 22, 2026 | August 13, 2026 |
 |~~WA-GUEST-OS-5.116_202603-01~~|  April 14, 2026 | June 29, 2026 |

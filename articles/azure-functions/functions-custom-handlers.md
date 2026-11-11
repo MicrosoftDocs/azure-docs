@@ -1,7 +1,7 @@
 ---
 title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
-ms.date: 11/12/2025
+ms.date: 10/12/2026
 ms.topic: concept-article
 ms.custom: 
   - sfi-ropc-nochange
@@ -12,7 +12,7 @@ ms.collection:
 # Azure Functions custom handlers
 
 > [!TIP]
-> **Looking for Go?** Go is now supported as a first-class language on Azure Functions (public preview). See the [Go developer reference](functions-reference-go.md) and [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go) to get started.
+> **Looking for Go?** Go is supported as a first-class language on Azure Functions in the Flex Consumption plan. See the [Go developer reference](functions-reference-go.md) and [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go) to get started.
 
 Azure Functions executes your app code by using language-specific handlers. These language-specific handlers allow Functions to support [most key languages](./supported-languages.md) by default. However, you might need to run code in another language or package.
 

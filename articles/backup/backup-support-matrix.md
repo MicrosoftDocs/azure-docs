@@ -89,6 +89,11 @@ The following table lists the supported scenarios for backup of Linux machines:
 
 Azure Backup doesn't support automatic clock adjustment for daylight saving time for Azure VM backups. It doesn't shift the hour of the backup forward or backwards. To ensure the backup runs at the desired time, modify the backup policies manually as required.
 
+If you apply a backup policy while the selected time zone is observing daylight saving time (DST), Azure Backup schedules backup jobs based on the DST-adjusted clock. When DST ends, Azure Backup doesn't automatically detect the change or adjust the schedule, so backup jobs continue to run at the time that was in effect during DST.
+
+For example, you create a backup policy by using the **(UTC+10:00) Canberra, Melbourne, Sydney** time zone and configure VM backup in March. Because Australia observes daylight saving time (AEDT, UTC+11) in March, backup jobs are scheduled based on UTC+11. After DST ends, the policy isn't updated automatically, so backup jobs continue to run based on UTC+11, even though the region has returned to standard time (AEST, UTC+10).
+
+To reschedule backups based on the current time zone offset, open the existing backup policy and select **Update** without changing any policy settings. Azure Backup rechecks the time zone currently in effect and reschedules backup jobs accordingly. For regions that observe DST, repeat this **Update** operation each time DST starts or ends if the policy uses the regional time zone.
 ## Disk deduplication support
 
 Disk deduplication support is as follows:

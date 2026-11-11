@@ -7,8 +7,8 @@ ms.date: 04/15/2026
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
-ms.author: v-rochak2
-author: RochakSingh-blr
+ms.author: pprajapat
+author: preranaprajapat
 ---
 
 # Run Automation runbooks on a Hybrid Runbook Worker
@@ -38,7 +38,7 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 Jobs for Hybrid Runbook Workers run under the local **System** account.
 
 > [!NOTE]
->- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.3.63 or above.
+>- PowerShell 7.6,7.4 and Python 3.10 runbooks are supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.3.63 or above.
 >- PowerShell 5.1, PowerShell 7.1 (preview), Python 2.7, and Python 3.8 runbooks are supported on both extension-based and agent-based Windows Hybrid Runbook Workers. For agent based workers, ensure the Windows Hybrid worker version is 7.3.12960 or above.
 >- PowerShell 7.2 runbook is supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.1.11 or above.
 
@@ -51,6 +51,12 @@ Jobs for Hybrid Runbook Workers run under the local **System** account.
 > 1. In **System variables**, select **New**.
 > 1. Provide **Variable name** and **Variable value**, and then select **OK**.
 > 1. Restart the VM or logout from the current user and login to implement the environment variable changes.
+
+**PowerShell 7.6**
+
+To run PowerShell 7.6 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
+
+After PowerShell 7.6 installation is complete, create an environment variable with Variable name as `powershell_7_6_path` and Variable value as path of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **PowerShell 7.4**
 
@@ -92,7 +98,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 ### Linux Hybrid Worker
 
 > [!NOTE]
->- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
+>- PowerShell 7.6, 7.4, and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
 >- PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 >- PowerShell 7.2 runbook is supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
@@ -103,6 +109,14 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 > 1. Open /etc/environment.
 > 1. Create a new Environment variable by adding VARIABLE_NAME="variable_value" in a new line in /etc/environment (VARIABLE_NAME is the name of the new Environment variable and variable_value represents the value it's to be assigned).
 > 1. Restart the VM or logout from current user and login after saving the changes to /etc/environment to implement environment variable changes.
+
+**PowerShell 7.6**
+
+To run PowerShell 7.6 runbooks on a Linux Hybrid Worker, install the *PowerShell* file on the Hybrid Worker. See [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
+
+After PowerShell 7.6 installation is complete, create an environment variable with **Variable name** as `powershell_7_6_path` and **Variable value** as the path of the executable *PowerShell* file, for example: `powershell_7_6_path="/usr/bin/pwsh"`.
+
+Restart the Hybrid Runbook Worker after you create the environment variable.
 
 **PowerShell 7.4**
 

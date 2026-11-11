@@ -16,6 +16,8 @@
     href: manage-service-groups.md
   - name: Manage membership at scale
     href: manage-membership.md
+  - name: Best practices
+    href: best-practices.md
 - name: Monitoring
   href: monitoring.md
 - name: Samples

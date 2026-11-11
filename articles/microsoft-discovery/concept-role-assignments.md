@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: concept-article
-ms.date: 08/17/2026
+ms.date: 11/10/2026
 ---
 
 # Role assignments in Microsoft Discovery
@@ -132,7 +132,9 @@ Contributors are end users of the platform: trained scientists and researchers w
 | `Microsoft.Resources/subscriptions/resourceGroups/read` | Read resource groups within the scope |
 | `Microsoft.Support/*` | Create support tickets when assistance is required |
 
-**Not actions (explicitly denied):**
+**Not actions (excluded from this role's permissions):**
+
+The `NotActions` setting subtracts permissions from this role's `Actions`; it isn't a deny assignment. Another role can grant an excluded action. Review all effective and inherited assignments when assessing a user's access.
 
 | Not action | Description |
 |------------|-------------|
@@ -302,6 +304,8 @@ The storage container roles don't grant access to the underlying blob contents. 
 
 ## Roles required by persona
 
+For onboarding automation, distinguish these target-user personas from the identity executing each stage. Planning and default readiness checks use subscription Reader; landing-zone preparation requires separate elevated authority. See [Onboarding permissions by stage](reference-deployment-permissions.md). Activate PIM-eligible roles before the operation that needs them; eligibility alone doesn't grant active access.
+
 The following table summarizes the recommended role combinations for each user persona. Roles can be assigned at the subscription or resource group scope. You can add more roles as your requirements grow.
 
 > [!TIP]
@@ -327,8 +331,8 @@ Some workflows require Azure built-in roles beyond the Microsoft Discovery roles
 | Role | Scenario | Recommended scope |
 |------|----------|-------------------|
 | Managed Identity Contributor | Create, read, update, and delete User Assigned Managed Identity (UAMI) resources | Subscription, resource group |
-| Managed Identity Operator | Assign roles to managed identity resources | Subscription, resource group, resource |
-| Storage Account Contributor | Create, read, update, and delete Azure Storage account resources including blob containers | Subscription, resource group, resource |
+| Managed Identity Operator | Read and assign a managed identity to an Azure resource; doesn't grant role-assignment authority | Subscription, resource group, resource |
+| Storage Account Contributor | Manage Azure Storage account configuration and account keys; doesn't grant Microsoft Entra-authorized access to blob contents | Subscription, resource group, resource |
 | Storage Blob Data Contributor | Upload, manage, and delete files within Azure Blob Storage containers | Subscription, resource group, resource |
 | Storage Blob Data Reader | Read files within Azure Blob Storage containers | Subscription, resource group, resource |
 | Network Contributor | Create, read, update, and delete virtual network resources | Subscription, resource group |
@@ -453,6 +457,6 @@ The script validates the executor's permissions, supports both subscription and 
 - [Configure project-level access](how-to-configure-project-rbac.md)
 - [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md)
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
-- [Resource provider registration in Microsoft Discovery](concept-resource-provider-registration.md)
+- [Resource provider registration in Microsoft Discovery](how-to-register-resource-providers.md)
 - [Azure RBAC documentation](../role-based-access-control/overview.md)
 - [Azure built-in roles](../role-based-access-control/built-in-roles.md)

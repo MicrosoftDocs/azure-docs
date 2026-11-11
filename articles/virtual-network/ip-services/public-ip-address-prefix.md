@@ -5,7 +5,7 @@ description: Learn about what an Azure public IP address prefix is and how it ca
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.date: 01/08/2025
+ms.date: 10/14/2026
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
@@ -52,10 +52,10 @@ You can associate the following resources to a static public IP address from a p
 |Virtual machines| Associating public IPs from a prefix to your virtual machines in Azure reduces management overhead when adding IP addresses to an allowlist in the firewall. You can add an entire prefix with a single firewall rule. As you scale with virtual machines in Azure, you can associate IPs from the same prefix saving cost, time, and management overhead.| To associate IPs from a prefix to your virtual machine:</br> 1. [Create a prefix.](manage-public-ip-address-prefix.md)</br> 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md)</br> 3. [Associate the IP to your virtual machine's network interface.](./virtual-network-network-interface-addresses.md#add-ip-addresses)</br> You can also [associate the IPs to a Virtual Machine Scale Set](https://azure.microsoft.com/resources/templates/vmss-with-public-ip-prefix/).  In the event you'll need the public IP address to be available to route internally, the [Public IP Prefix can be added to the VNET](../how-to-multiple-prefixes-subnet.md), and then assigned to the Virtual Machine as an IP address from a subnet that the VM participates in.  
 | Standard load balancers | Associating public IPs from a prefix to your frontend IP configuration or outbound rule of a load balancer ensures simplification of your Azure public IP address space. Simplify your scenario by grooming outbound connections from a range of contiguous IP addresses. | To associate IPs from a prefix to your load balancer:</br> 1. [Create a prefix.](manage-public-ip-address-prefix.md)</br> 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md)</br> 3. When creating the load balancer, select or update the IP created in step 2 above as the frontend IP of your load balancer. |
 | VPN Gateway (AZ SKU), Application Gateway v2, NAT Gateway | You can use a public IP from a prefix for your gateway | To associate an IP from a prefix to your gateway:</br> 1. [Create a prefix.](manage-public-ip-address-prefix.md)</br> 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md)</br> 3. When you deploy the [VPN Gateway](../../vpn-gateway/tutorial-create-gateway-portal.md), [Application Gateway](../../application-gateway/quick-create-portal.md#create-an-application-gateway), or [NAT Gateway](../nat-gateway/quickstart-create-nat-gateway-portal.md), be sure to select the IP you previously gave from the prefix.|
+| v2 NAT Gateway | You can use a v2 public IP from a prefix for your v2 NAT gateway | To associate an IP from a prefix to your v2 NAT gateway:</br> 1. [Create a v2 prefix.](manage-public-ip-address-prefix.md)</br> 2. [Create a v2 IP from the prefix.](manage-public-ip-address-prefix.md)</br> 3. When you deploy the [v2 NAT Gateway](/azure/nat-gateway/quickstart-create-nat-gateway-v2), be sure to select the v2 IP you previously gave from the prefix.|
 
 > [!NOTE]
-> Azure Firewall doesn't support attaching a Public IP Prefix. You must associate individual Standard public IP addresses with the firewall. For more information, see [Manage a public IP address by using Azure Firewall](configure-public-ip-firewall.md).
-| v2 NAT Gateway | You can use a v2 public IP from a prefix for your v2 NAT gateway | To associate an IP from a prefix to your v2 NAT gateway:</br> 1. [Create a v2 prefix.](manage-public-ip-address-prefix.md)</br> 2. [Create a v2 IP from the prefix.](manage-public-ip-address-prefix.md)</br> 3. When you deploy the [v2 NAT Gateway](/azure/nat-gateway/quickstart-create-nat-gateway-v2), be sure to select the v2 IP you previously gave from the prefix.|
+> Azure Firewall doesn't support attaching a public IP prefix itself, but it can use individual Standard SKU public IP addresses provisioned from a public IP prefix. For more information, see [Manage a public IP address by using Azure Firewall](configure-public-ip-firewall.md).
 
 The following resources utilize a public IP address prefix:
 

@@ -3,7 +3,7 @@ title: "Tutorial: Connect an ADO Repository with Managed Identity in Azure SRE A
 description: Connect an Azure DevOps repository to your agent using managed identity authentication.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 04/03/2026
+ms.date: 10/28/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -36,13 +36,13 @@ Before connecting from the agent portal, your managed identity must have access 
 
 **Checkpoint:** The managed identity appears in the ADO Users list with a Basic access level.
 
-## Step 2: Go to Knowledge sources
+## Step 2: Go to Code access
 
 1. Open your agent in the [Azure SRE Agent portal](https://sre.azure.com).
-1. In the left sidebar, expand **Builder**.
-1. Select **Knowledge sources**.
+1. In the left sidebar, select **Build + setup**, and then expand **Context**.
+1. Select **Code access**, and then select the **Azure DevOps** tab.
 
-**Checkpoint:** The Knowledge Sources page loads and shows any existing repository connections.
+**Checkpoint:** The **Code access** page shows existing Azure DevOps repository connections.
 
 ## Step 3: Open the Add Repository dialog
 
@@ -53,6 +53,7 @@ Select **Add repository**.
 ## Step 4: Select Azure DevOps with Managed Identity
 
 1. Select the **Azure DevOps** platform card.
+1. Enter the Azure DevOps **Organization** name on the **Connection** step.
 1. Under **Sign In Methods**, select **Managed Identity**.
 
 **Checkpoint:** The managed identity configuration form appears with an organization field and identity dropdown.
@@ -86,7 +87,7 @@ Select **Next** to proceed to the repository selection step.
 1. Repeat for more repositories.
 1. Select **Save**.
 
-**Checkpoint:** Selected repositories appear in the Knowledge Sources page.
+**Checkpoint:** Selected repositories appear on the **Code access** page.
 
 ## Troubleshooting
 

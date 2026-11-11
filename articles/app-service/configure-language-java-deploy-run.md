@@ -4,7 +4,7 @@ description: Learn how to deploy Tomcat, JBoss EAP, or Java SE apps to run on Az
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: how-to
-ms.date: 09/18/2026
+ms.date: 10/08/2026
 ms.custom:
   - devx-track-java
   - devx-track-azurecli
@@ -595,7 +595,7 @@ See the following sections for details and opportunities to customize (such as t
 
 ### 1. Environment setup phase
 
-- The SSH service is started to enable [secure SSH sessions](configure-linux-open-ssh-session.md) with the container.
+- App Service provides [authenticated container access](configure-linux-open-ssh-session.md) for troubleshooting. You don't need to configure an SSH server or an embedded SSH password in a custom Linux image.
 - The Java runtime keystore is updated with any public and private certificates that are defined in the Azure portal.
     - Public certificates are provided by the platform in the `/var/ssl/certs` directory, and they're loaded to `$JRE_HOME/lib/security/cacerts`.
     - Private certificates are provided by the platform in the `/var/ssl/private` directory, and they're loaded to `$JRE_HOME/lib/security/client.jks`.

@@ -35,6 +35,8 @@ After deployment, you can use the Azure CLI and Azure portal to view and manage 
 
 #### [Azure portal](#tab/portal)
 
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
+
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure IoT Operations**.
 1. Use the filters to view Azure IoT Operations instances based on subscription, resource group, and more.
 
@@ -59,6 +61,8 @@ az iot ops list --resource-group $RESOURCE_GROUP
 ### View instance
 
 #### [Azure portal](#tab/portal)
+
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
 
 You can view your Azure IoT Operations instance in the Azure portal.
 
@@ -111,6 +115,8 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 ### View Azure Device Registry
 
 In the Azure portal, you can view the Azure Device Registry, which is a collection of all the devices and assets that are connected to your Azure IoT Operations instance.
+
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
 
 The Azure Device Registry uses _namespaces_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
 
@@ -200,6 +206,8 @@ az iot ops update --name myinstance -g myresourcegroup --feature opcua.mode=Disa
 
 ### [Azure portal](#tab/portal2)
 
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
+
 1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
 
 1. Select the name of your Azure IoT Operations instance.
@@ -243,8 +251,9 @@ The Azure IoT Operations CLI and Azure portal offer different options for uninst
 > [!IMPORTANT]
 > To clean up your cluster and resource group, first remove Azure IoT Operations from the cluster using the Azure IoT Operations CLI commands in the following section. Then, you can delete the resource group. Deleting the resource group directly leaves orphaned resources on the cluster that may cause subsequent deployments to fail.
 
-
 ### [Azure portal](#tab/portal)
+
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
 
 > [!IMPORTANT]
 > Deleting the Azure IoT Operations instance in the Azure portal doesn't remove the dependencies that were created when you deployed Azure IoT Operations. To remove these dependencies, use the `az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --include-deps` command described in the Azure CLI procedure.

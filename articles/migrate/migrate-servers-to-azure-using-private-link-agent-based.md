@@ -100,7 +100,7 @@ Now, select machines for replication and migration.
     > [!Note]
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
-   Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
+   Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines.md#track-and-migrate-replicating-servers).
 
 ### Grant access permissions to the Recovery Services vault
 
@@ -124,7 +124,6 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 |**Storage account type** | **Role permissions**|
 |--- | ---|
 |Standard type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|
-|Premium type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 1. Go to the replication/cache storage account selected for replication. In the left pane, select **Access control (IAM)**.
 1. Select **+ Add**, and select **Add role assignment**.
@@ -150,7 +149,6 @@ After you've created the private endpoint, use the dropdown list in **Replicate*
 Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the replication appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](./troubleshoot-network-connectivity.md#verify-dns-resolution)
 
 ## Next steps
-- [Migrate VMs](tutorial-migrate-physical-virtual-machines.md#migrate-vms)
-- Complete the [migration process](tutorial-migrate-physical-virtual-machines.md#complete-the-migration). 
+- [Migrate VMs](tutorial-migrate-physical-virtual-machines.md#track-and-migrate-replicating-servers)
 - Review the [post-migration best practices](tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).
 

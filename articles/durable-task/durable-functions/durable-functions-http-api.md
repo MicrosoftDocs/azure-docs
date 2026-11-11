@@ -224,6 +224,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 | Field                 | Data type | Description |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*, *Suspended*. |
+| **`version`** | string | The version assigned when the instance was created. Available with Durable Functions extension 3.16.0 or later. Omitted if the version is null or empty. |
 | **`input`**           | JSON      | The JSON data used to initialize the instance. This field is `null` if the `showInput` query string parameter is set to `false`.|
 | **`customStatus`**    | JSON      | The JSON data used for custom orchestration status. This field is `null` if not set. |
 | **`output`**          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |

@@ -1,22 +1,22 @@
 ---
-title: Tag routes with BGP communities by using route maps for Azure Route Server
+title: Tag routes with BGP communities by using route maps
 description: Learn how to use route maps for Azure Route Server to add BGP community tags to routes so downstream peers can make routing decisions based on route metadata.
 author: duongau
 ms.author: duau
 ms.service: azure-route-server
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 07/20/2026
+ms.date: 10/27/2026
 
 #CustomerIntent: As an Azure administrator, I want to tag routes with BGP communities by using Azure Route Server so that downstream routers, NVAs, and on-premises networks can make routing decisions based on route metadata.
 ---
 
 # Tag routes with BGP communities by using route maps for Azure Route Server
 
-> [!IMPORTANT]
-> Route maps for Azure Route Server is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> [!NOTE]
+> Route maps for Azure Route Server are generally available in the Azure public cloud.
 
-A BGP community is a tag that you attach to a route so that downstream routers, network virtual appliances (NVAs), SD-WAN controllers, and on-premises networks can make routing decisions based on route metadata rather than on prefixes or AS-PATH alone. Common uses include traffic engineering, route classification, route filtering, WAN policy enforcement, and SD-WAN route selection.
+A BGP community is a tag that you attach to a route so that downstream routers, network virtual appliances (NVAs), SD-WAN controllers, and on-premises networks can make routing decisions based on route metadata rather than on prefixes or AS path alone. Common uses include traffic engineering, route classification, route filtering, WAN policy enforcement, and SD-WAN route selection.
 
 This article shows you how to use route maps for Azure Route Server to add a BGP community to matched routes by using the Azure portal. For an overview of route maps, see [About route maps for Azure Route Server](route-maps-about.md).
 
@@ -30,15 +30,9 @@ This article shows you how to use route maps for Azure Route Server to add a BGP
 
 Review the following considerations before you tag routes with BGP communities:
 
-- Custom BGP communities that are associated with a virtual network are restricted to the range 12076:20000 through 12076:49999.
-- When you enable a custom BGP community, the regional BGP community is also advertised automatically unless you filter it by using a route map.
-- BGP communities that are associated with virtual networks are advertised only to ExpressRoute. VPN gateways don't currently advertise BGP communities.
-- BGP communities are treated as a set. Unlike AS-PATH prepending, the order in which you add communities doesn't matter.
+- Route maps add communities to routes that Route Server exchanges with its peers. This feature is separate from the custom BGP community that you can set on a virtual network for ExpressRoute private peering. For that feature, see [Configure custom BGP communities for Azure ExpressRoute private peering](../expressroute/how-to-configure-custom-bgp-communities-portal.md).
+- BGP communities are treated as a set. Unlike AS path prepending, the order in which you add communities doesn't matter.
 - Standard BGP communities are typically transitive unless a routing policy removes them. The receiving network decides whether to preserve, modify, or strip the community.
-
-When you configure a custom BGP community on a virtual network, the Azure portal shows the supported value range, as shown in the following screenshot:
-
-:::image type="content" source="./media/route-maps-scenario-tag-bgp-communities/bgp-community-string.png" alt-text="Screenshot of the BGP community string configuration for a virtual network, showing the supported value range.":::
 
 For the complete list of route maps limitations, see [About route maps: Considerations and limitations](route-maps-about.md#considerations-and-limitations).
 
@@ -48,7 +42,7 @@ In this scenario, a workload subnet uses the prefix 10.0.0.0/16 and Azure Route 
 
 The following table shows the route attributes before and after the route map is applied:
 
-| | Prefix | AS-PATH | Communities |
+| | Prefix | AS path | Communities |
 |---|---|---|---|
 | **Before the route map** | 10.0.0.0/16 | 65515 | None |
 | **After the route map** | 10.0.0.0/16 | 65515 | 3356:70 |
@@ -65,13 +59,15 @@ Configure a route map rule that matches the workload prefix and adds the BGP com
 
 1. In the Azure portal, go to your **Azure Route Server** resource.
 
-1. In the left menu under **Settings**, select **route maps**.
+1. In the left menu under **Routing**, select **Route Maps**.
 
-1. On **route maps**, select **+ Add Route Map**.
+1. On **Route Maps**, select **+ Add Route-map**.
 
-1. On **Create Route Map**, enter a **Name** for the route map, and then select **+ Add rule**.
+1. On **Create Route-map**, enter a **Name** for the route map, and then select **+ Add rule**.
 
-1. On **Create Route Map rule**, enter a **Name** for the rule, and configure the match condition and action by using the following values:
+1. On **Create Route-map rule**, enter a **Name** for the rule, and configure the following settings:
+
+    **Next step**: Select **Continue** if later rules in the route map should also process matched routes. Select **Terminate** if this rule is the last rule that should act on matched routes.
 
     **Match condition**
 
@@ -89,28 +85,28 @@ Configure a route map rule that matches the workload prefix and adds the BGP com
 
     To add multiple communities, enter comma-separated values. Downstream devices evaluate all communities attached to the route.
 
+    :::image type="content" source="./media/route-maps-scenario-tag-bgp-communities/route-map-rule.png" alt-text="Screenshot of the route-map rule page that shows a prefix match condition and a BGP community route modification." lightbox="./media/route-maps-scenario-tag-bgp-communities/route-map-rule.png":::
+
 1. Select **Add** to save the rule to the route map.
 
-1. On **Create Route Map**, select **Save** to save the route map and its rules.
+1. On **Create Route-map**, select **Save** to save the route map and its rules.
 
     It takes a few minutes to save. After the save completes, the **Provisioning state** shows **Succeeded**.
 
     > [!NOTE]
-    > The first time you create a route map on an Azure Route Server, the route server undergoes a one-time upgrade that takes approximately 30 minutes.
-
-:::image type="content" source="./media/route-maps-scenario-tag-bgp-communities/route-map-rule.png" alt-text="Screenshot of the route-map rule page that shows a prefix match condition and a BGP community route modification." lightbox="./media/route-maps-scenario-tag-bgp-communities/route-map-rule.png":::
+    > The first time you create a route map on an Azure Route Server, the route server undergoes a one-time upgrade that can take up to 30 minutes.
 
 ## Apply and verify the route map
 
 1. Apply the route map to the outbound direction of the BGP peering or gateway connection that advertises the workload route. For steps, see [Apply a route map to BGP peerings and gateway connections](route-maps-how-to.md#apply-a-route-map-to-bgp-peerings-and-gateway-connections).
 
-1. Use the **Route Map dashboard** on the route server to confirm that the community is added as expected.
+1. Under **Routing**, select **Route Maps**, and then open **Connections Dashboard**. Select the connection and the outbound direction to confirm that the community is added as expected.
 
 1. Verify the community on the receiving device. Because communities are carried in the route advertisement, you can check the advertised route on a remote or on-premises BGP peer, and the community attribute appears on the route.
 
 ## Example: classify routes per spoke virtual network
 
-You can use different BGP communities to classify routes from different spoke virtual networks, and then let downstream networks apply policy based on the tag. For example, tag routes from each spoke with a community that identifies its purpose or environment:
+You can use different BGP communities to classify routes from different spoke virtual networks, and then let downstream networks apply policy based on the tag. To tag routes per spoke, create a route map for each spoke and apply it to that spoke's virtual network connection. For the association model, see [Apply route maps to an NVA in a spoke virtual network](route-maps-scenario-spoke-network-virtual-appliance.md). For example, tag routes from each spoke with a community that identifies its purpose or environment:
 
 | Community | Meaning |
 |---|---|
@@ -127,7 +123,7 @@ Downstream routers and NVAs can then prefer routes, adjust local preference, adv
 
 Yes. You can attach multiple communities to a route, and downstream devices evaluate them. Communities are treated as a set, so their order doesn't matter.
 
-### Can I change the AS-PATH and the community on the same route?
+### Can I change the AS path and the community on the same route?
 
 Yes. A single route map rule can make multiple changes to a matched route.
 
@@ -141,7 +137,14 @@ Downstream routers can use communities to prefer routes, increase or decrease lo
 
 ### How is community tagging verified?
 
-Check the route on the receiving BGP peer, including a remote or on-premises device, and verify that the community attribute appears on the advertised route. You can also use the **Route Map dashboard** on the route server.
+Check the route on the receiving BGP peer, including a remote or on-premises device, and verify that the community attribute appears on the advertised route. You can also use **Connections Dashboard** on the **Route Maps** page of the route server.
+
+## Clean up resources
+
+If you created the route map only to test this scenario, remove it when you're done:
+
+1. Remove the route map from each connection where you applied it. Set **Outbound Route-map** to **None** for the connection, and then select **Save**. For steps, see [Remove a route map from a connection](route-maps-how-to.md#remove-a-route-map-from-a-connection).
+1. If no other connection uses the route map, delete it. For steps, see [Modify or remove a route map](route-maps-how-to.md#modify-or-remove-a-route-map).
 
 ## Related content
 
@@ -149,4 +152,5 @@ Check the route on the receiving BGP peer, including a remote or on-premises dev
 - [Configure route maps for Azure Route Server](route-maps-how-to.md)
 - [Prepend routes by using route maps](route-maps-scenario-prepend-routes.md)
 - [Drop inbound routes by using route maps](route-maps-scenario-drop-inbound-routes.md)
+- [Apply route maps to an NVA in a spoke virtual network](route-maps-scenario-spoke-network-virtual-appliance.md)
 - [Azure Route Server FAQ](route-server-faq.md)

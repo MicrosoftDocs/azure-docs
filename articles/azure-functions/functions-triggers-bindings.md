@@ -2,7 +2,7 @@
 title: Triggers and Bindings in Azure Functions
 description: Learn how to use triggers and bindings to connect your Azure function to online events and cloud-based services.
 ms.topic: concept-article
-ms.date: 09/10/2026
+ms.date: 10/12/2026
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ai-usage: ai-assisted
@@ -262,13 +262,13 @@ For more information, see [SDK types](./functions-reference-java.md#sdk-types) i
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go supports SDK client injection for triggers that provide Azure SDK clients. During the public preview, Blob Storage triggers can receive an authenticated Azure SDK `*blob.Client` directly in the handler.
+Go supports SDK client injection for triggers that provide Azure SDK clients. Blob Storage triggers can receive an authenticated Azure SDK `*blob.Client` directly in the handler.
 
 | Extension | Types | Support level |
 | ----- | ----- | ----- |
-| [Azure Blob Storage](functions-bindings-storage-blob.md) | `*blob.Client` | Preview |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `*blob.Client` | Generally available |
 
-For more information, see [Extension triggers](functions-reference-go.md#extension-triggers) in the Go developer reference.
+For more information, see [SDK type bindings](functions-reference-go.md#sdk-type-bindings) in the Go developer reference.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

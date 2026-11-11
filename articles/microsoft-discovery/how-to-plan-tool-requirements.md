@@ -14,9 +14,6 @@ ms.date: 08/11/2026
 
 Before containerizing and publishing a tool to Microsoft Discovery, carefully plan the tool's functionality, compute needs, and dependencies. A thorough planning phase reduces issues during containerization and helps ensure your tool works reliably within Discovery investigations.
 
-> [!NOTE]
-> This article applies to tools targeting Microsoft Discovery API version **2026-02-01-preview**.
-
 ## Prerequisites
 
 - Familiarity with the tool or scientific capability you intend to publish

@@ -22,7 +22,7 @@ The Microsoft.FileShares resource provider lets you deploy file shares without c
 
 The Microsoft.FileShares resource provider and management model currently supports only NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations.
 
-The Microsoft.FileShares resource provider only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, Azure provides a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. You can choose to override these recommendations with your own values.
+The Microsoft.FileShares resource provider only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share by using the provisioned v2 model, Azure provides a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. You can choose to override these recommendations with your own values.
 
 The Microsoft.FileShares resource provider only supports locally redundant storage (LRS) and zone-redundant storage (ZRS). It doesn't support geo-redundant storage. See [Azure Files redundancy](./files-redundancy.md) for more information.
 
@@ -34,7 +34,11 @@ For more information on Azure Files management concepts, see [Azure Files manage
 
 This article assumes that you have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-Make sure both Microsoft.FileShares and Microsoft.Storage resource providers are registered for the subscription. The Microsoft.FileShares resource provider is required to create NFS file shares by using the new management model described in this article. To register a resource provider, follow these steps:
+To use Azure PowerShell, [install the Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
+
+To use the Azure CLI, install the `fileshare` extension by running `az extension add --name fileshare`. If you installed the preview extension, `fileshares`, remove it first by running `az extension remove --name fileshares`.
+
+Ensure that both Microsoft.FileShares and Microsoft.Storage resource providers are registered for the subscription. The Microsoft.FileShares resource provider is required to create NFS file shares by using the new management model described in this article. To register a resource provider, follow these steps:
 
 1. Sign in to the Azure portal.
 1. In the search box, enter *subscriptions*.
@@ -112,16 +116,13 @@ Tags are name/value pairs that you use to categorize resources and view consolid
 
 ### Review + create
 
-The final step to create the file share is to select the **Create** button on the **Review + create** tab. This button isn't available until you complete all the required fields.
+Select **Create** on the **Review + create** tab to create the file share. The button becomes available after you complete all the required fields.
 
 # [PowerShell](#tab/powershell)
 
 To create a file share by using PowerShell, run the following commands. Replace the variables with your values. 
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 # To learn more about the parameters for New-AzFileShare, use command 
 # Get-Help New-AzFileShare
 
@@ -152,12 +153,6 @@ New-AzFileShare `
 To create a file share by using Azure CLI, run the following commands. Replace the variables with your values. 
 
 ```bash
-# If you previously installed the preview extension, remove it first:
-# az extension remove --name fileshares
-
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<your-file-share-name>"
 resourceGroup="<your-resource-group-name>"

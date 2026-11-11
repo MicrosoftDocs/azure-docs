@@ -2,7 +2,7 @@
 title: Create and Manage Function Apps in a Flex Consumption Plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.service: azure-functions
-ms.date: 09/08/2026
+ms.date: 10/12/2026
 ms.topic: how-to
 ms.custom:
   - build-2024
@@ -115,10 +115,7 @@ To support your function code, you need to create three resources:
     ::: zone pivot="programming-language-go"
     ```azurecli
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4
-    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
     ```
-
-    The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
     ::: zone-end
     In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default domain name server (DNS) domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
@@ -379,7 +376,6 @@ Choose an appropriately sized subnet for your Flex Consumption apps. The followi
 
 - The subnet can't already be used for private endpoints or service endpoints, and it can't be delegated to other hosting plans or services.
 - You can't share the same subnet between an Azure Container Apps environment and a Flex Consumption app.
-- Subnet names can't contain underscore (`_`) characters, which is a current limitation of the Flex Consumption plan.
 
 #### Subnet sharing
 
@@ -409,10 +405,7 @@ Enable virtual network integration by running the [`az functionapp create`] comm
     ::: zone pivot="programming-language-go"
     ```azurecli
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4 --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
-    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
     ```
-
-    The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
     ```azurecli
@@ -734,10 +727,7 @@ az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --stor
 ::: zone pivot="programming-language-go"
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime go --runtime-version 1.0 --functions-version 4 --flexconsumption-location <REGION> --always-ready-instances http=10
-az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
 ```
-
-The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 
@@ -753,10 +743,7 @@ This example sets the always ready instance count to `2` for a Service Bus trigg
 
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime go --runtime-version 1.0 --functions-version 4 --flexconsumption-location <REGION> --always-ready-instances function:function5=2
-az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
 ```
-
-The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
 ::: zone-end
 
 ### [Azure portal](#tab/azure-portal)
@@ -860,6 +847,9 @@ Enable E2E TLS encryption by setting the `endToEndEncryptionEnabled` site proper
 
 For more information about how E2E TLS encryption protects traffic, see [End-to-end TLS encryption in Azure App Service](../app-service/overview-tls.md#end-to-end-tls-encryption).
 
+> [!NOTE]
+> End-to-end TLS encryption and post-quantum key exchange protect different connection segments. `endToEndEncryptionEnabled` encrypts traffic between the platform front end and function worker; that connection negotiates TLS separately. Post-quantum key exchange applies to key establishment between a compatible client and the front end. This setting doesn't enable, disable, or require post-quantum negotiation. For details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
+
 ## Configure site-scoped certificates
 
 Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL certificates are scoped to your individual function app rather than shared across apps in the same webspace. The following table shows the supported certificate types and how each one is added to your function app:
@@ -871,6 +861,9 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 | [Certificate imported from Key Vault](../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault) | Imported from Azure Key Vault | Private certificate limit |
 | Uploaded private certificate (.pfx) | [Uploaded as a PFX file](#add-a-certificate) | Private certificate limit |
 | Uploaded public certificate (.cer) | [Uploaded as a CER file](#add-a-certificate) | Public certificate limit |
+
+> [!NOTE]
+> Post-quantum TLS key exchange doesn't require a new or post-quantum certificate. Existing certificate requirements still apply. For details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
 
 ### Considerations for site-scoped certificates
 

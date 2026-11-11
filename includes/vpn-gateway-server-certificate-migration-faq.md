@@ -64,6 +64,10 @@ For installation steps, see [How to update point-to-site VPN clients](../article
 
 The new profile doesn't automatically overwrite the existing profile. Follow the installation steps in [Distribute and install the updated profile](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md#distribute-and-install-the-updated-profile) to add the new configuration to the client.
 
+#### Do I need to manually install the G2 root certificate?
+
+If the G2 root certificate isn’t already installed on your client device, install the G2 root certificate included in the updated VPN client package before using the updated P2S VPN profile.
+
 ### Distribution and rollout
 
 #### Who is responsible for distributing the updated profile?

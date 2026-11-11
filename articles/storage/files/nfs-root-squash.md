@@ -183,12 +183,9 @@ For Azure file shares that use the Microsoft.FileShares resource provider, you c
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To change the root squash setting on a file share (Microsoft.FileShares) by using Azure PowerShell, run the following commands. Replace the variables with your values. Allowed values for `-RootSquash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
+To change the root squash setting on a file share (Microsoft.FileShares) by using Azure PowerShell, run the following commands. Replace the variables with your values. Allowed values for `-RootSquash` are `AllSquash`, `NoRootSquash`, and `RootSquash`. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<your-resource-group-name>"
 $shareName = "<your-file-share-name>"
 
@@ -197,12 +194,9 @@ Update-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -R
 
 # [Azure CLI](#tab/azure-cli)
 
-To change the root squash setting on a file share (Microsoft.FileShares) by using Azure CLI, run the following commands. Allowed values for `--root-squash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
+To change the root squash setting on a file share (Microsoft.FileShares) by using Azure CLI, run the following commands. Allowed values for `--root-squash` are `AllSquash`, `NoRootSquash`, and `RootSquash`. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<your-file-share-name>"
 resourceGroup="<your-resource-group-name>"

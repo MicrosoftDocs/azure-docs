@@ -5,7 +5,7 @@ author: seligj95
 ms.author: jordanselig
 ms.service: azure-app-service
 ms.topic: how-to
-ms.date: 08/18/2026
+ms.date: 10/08/2026
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2026
@@ -87,7 +87,7 @@ Use clear, action-oriented `operationId` values (`list_orders`, `create_order`, 
 The platform reads the spec from a file on the app's file system. The default path is `/home/data/.ai/apispec.json`, configurable via [`ApiSpecPath`](#change-where-the-spec-lives). How you get the file there depends on the configuration path you use in [Step 2](#step-2-enable-built-in-mcp):
 
 - **Portal**—upload the JSON or YAML file when you create the MCP server. The portal writes the contents to `ApiSpecPath` for you.
-- **Azure CLI**—deploy the spec with your app (for example, include it in your deployment artifact), or upload it after the fact with [`az webapp deploy`](/cli/azure/webapp#az-webapp-deploy) or [`az webapp ssh`](/cli/azure/webapp#az-webapp-ssh).
+- **Azure CLI**—deploy the spec with your app (for example, include it in your deployment artifact), or upload it after the fact with [`az webapp deploy`](/cli/azure/webapp#az-webapp-deploy).
 - **Bicep**—reference a path your deployment puts on the app.
 
 ## Step 2: Enable built-in MCP

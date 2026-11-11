@@ -2,7 +2,7 @@
 title: Configure Linux Python Apps
 description: Learn how to configure the Python container in which web apps are run by using both the Azure portal and the Azure CLI.
 ms.topic: quickstart
-ms.date: 09/01/2025
+ms.date: 10/08/2026
 ms.reviewer: astay
 ms.author: msangapu
 author: msangapu-msft
@@ -114,7 +114,7 @@ For more information on how App Service runs and builds Python apps in Linux, se
 > [!NOTE]
 > The `PRE_BUILD_SCRIPT_PATH` and `POST_BUILD_SCRIPT_PATH` settings are identical to `PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` and are supported for legacy purposes.
 >
-> A setting named `SCM_DO_BUILD_DURING_DEPLOYMENT`, if it contains `true` or `1`, triggers an Oryx build that happens during deployment. The setting is `true` when you deploy by using Git, the Azure CLI command `az webapp up`, and Visual Studio Code.
+> A setting named `SCM_DO_BUILD_DURING_DEPLOYMENT`, if it contains `true` or `1`, triggers an Oryx build that happens during deployment. Set it to `true` before deploying a source archive with `az webapp deploy`. Git and Visual Studio Code deployments also enable it.
 
 > [!NOTE]
 > Always use relative paths in all pre-build and post-build scripts because the build container in which Oryx runs is different from the runtime container in which the app runs. Never rely on the exact placement of your app project folder within the container (for example, that it's placed under *site/wwwroot*).
@@ -129,7 +129,7 @@ You can redeploy existing web applications to Azure as follows:
 
 1. **Database**. If your app depends on a database, create the necessary resources on Azure as well.
 
-1. **App Service resources**. Create a resource group, App Service plan, and App Service web app to host your application. You can create these resources easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or you can create and deploy resources as shown in the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app with names that are suitable for your application.
+1. **App Service resources**. Create a resource group, App Service plan, and App Service web app to host your application, then [deploy your code](quickstart-python.md?pivots=azure-cli). For a complete example, follow the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app with names that suit your application.
 
 1. **Environment variables**. If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described in [Access environment variables](#access-app-settings-as-environment-variables).
     - Database connections, for example, are often managed via such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#secure-connection-secrets-and-add-secret_key).
@@ -139,7 +139,7 @@ You can redeploy existing web applications to Azure as follows:
 
 1. **Continuous deployment**. Set up continuous deployment from GitHub Actions, Bitbucket, or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or set up continuous deployment from local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
 
-1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container by using SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#generate-database-schema).
+1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, [open an interactive container shell](configure-linux-open-ssh-session.md). The preview `az webapp exec` command also supports [detached execution](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session), which requires separate completion verification. For an example of running Django database migrations interactively, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#generate-database-schema).
     - When using continuous deployment, you can perform those actions by using post-build commands, as described earlier in the [Customize build automation](#customize-build-automation) section.
 
 With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.

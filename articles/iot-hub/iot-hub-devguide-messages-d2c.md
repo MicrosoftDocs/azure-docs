@@ -34,7 +34,7 @@ IoT Hub currently supports the following endpoints for message routing:
 * Service Bus topics
 * Event Hubs
 * Cosmos DB
-* Microsoft Fabric Eventstreams (preview)
+* Microsoft Fabric Eventstreams
 
 For more information about each of these endpoints, see [IoT Hub endpoints](./iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
 
@@ -86,6 +86,8 @@ Use the following articles to learn how to read messages from an endpoint.
 * Read from [Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 
 * Read from [Service Bus topics](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
+* Read from [Fabric Eventstreams](/fabric/real-time-intelligence/event-streams/overview#process-events)
 
 ## Fallback route
 

@@ -56,6 +56,11 @@ In many cases, you can install the client certificate directly on the client com
 * For information about working with certificates, see [Point-to-site: Generate certificates](vpn-gateway-certificates-point-to-site.md).
 * To view an installed client certificate, open **Manage User Certificates**. The client certificate is installed in **Current User\Personal\Certificates**.
 
+> [!NOTE] 
+> If the required root certificate isn't already installed on your client device, install the root certificate included in the VPN client configuration package before using the VPN client profile.
+For example, if you're updating your P2S VPN profile as part of the [gateway root certificate migration](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-about-gateway-certificate-migration)
+ and the G2 root certificate isn't already installed on your client device, install the G2 root certificate included in the updated VPN client package before using the updated P2S VPN profile.
+
 ##### Install the client certificate
 
 Each computer needs a client certificate to authenticate. If the client certificate isn't already installed on the local computer, you can install it by using the following steps:
@@ -323,7 +328,7 @@ macOS clients can connect using the native VPN client (IKEv2 tunnel type) or an 
 If your point-to-site (P2S) VPN gateway is configured to use IKEv2 and certificate authentication, you can connect to your virtual network using the native VPN client that's part of your macOS operating system.
 
 > [!NOTE]
-> Your VPN gateway must be using a SKU other than the **Basic SKU**.
+> The macOS native VPN client supports connections to Basic SKU gateways when the P2S tunnel type includes IKEv2, including **IKEv2 and SSTP (SSL)**. It doesn't support connections to Basic SKU gateways configured to use SSTP only.
 
 #### Workflow
 

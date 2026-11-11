@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/06/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 
 #customer intent: As a solution developer, I want to understand what data flow graphs are and how they process data so that I can decide when to use them instead of standard data flows.
@@ -18,8 +18,7 @@ A *data flow graph* is a configurable pipeline that processes data as it moves t
 
 The `DataflowGraph` Kubernetes custom resource defines a data flow graph. Inside the resource, you wire together sources, transforms, and destinations to build processing pipelines that match your scenario.
 
-> [!IMPORTANT]
-> Data flow graphs currently support only MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported.
+Data flow graphs support MQTT and Kafka sources. Destinations can be MQTT, Kafka, OpenTelemetry, Azure Data Lake Storage Gen2, Microsoft Fabric OneLake, Azure Data Explorer, or local storage. Table-based destinations require an [output schema and serialization format](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 
 ## Data flows vs. data flow graphs
 
@@ -31,9 +30,9 @@ Azure IoT Operations provides two ways to process data in a pipeline:
 | Transform types | Map, filter, enrich | Map, filter, branch, concatenate, window, throttle, enrich |
 | Time-based aggregation | Not available | Window transforms with tumbling windows |
 | Conditional routing | Not available | Branch and concatenate transforms |
-| Endpoint support | All endpoint types | MQTT, Kafka, and OpenTelemetry only |
+| Endpoint support | All endpoint types | All endpoint types |
 
-For new projects that use supported endpoint types, we recommend data flow graphs. Data flows remain fully supported for all scenarios, and they support the full range of endpoint types.
+For new projects, we recommend data flow graphs. Data flows remain fully supported for all scenarios.
 
 ## Available transforms
 
@@ -106,18 +105,15 @@ nodeConnections:
 
 ---
 
-The `schemaRef` value uses the format `aio-sr://<namespace>/<name>:<version>` and points to a schema stored in the [schema registry](concept-schema-registry.md). Because data flow graphs support only MQTT, Kafka, and OpenTelemetry endpoints, the supported serialization format is `Json`.
+The `schemaRef` value uses the format `aio-sr://<namespace>/<name>:<version>` and points to a schema stored in the [schema registry](concept-schema-registry.md). The example uses `Json` for data passed between nodes. To serialize graph output for a table-based destination, configure `destinationSettings.outputSchemaSettings` on the destination node, not on the connection. For instructions, see [Serialize the output with a schema](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 
 The following table summarizes how schema configuration differs between data flows and data flow graphs:
 
 | Aspect | Data flows | Data flow graphs |
 |--------|-----------|-----------------|
-| Schema location | On source (`sourceSettings.schemaRef`) and transformation (`builtInTransformationSettings.schemaRef`) | On node connections (`nodeConnections[].from.schema`) |
-| Supported destination formats | JSON, Parquet, Delta | JSON |
+| Schema location | On source (`sourceSettings.schemaRef`) and transformation (`builtInTransformationSettings.schemaRef`) | On node connections (`nodeConnections[].from.schema`) and destination (`destinationSettings.outputSchemaSettings`) |
+| Supported destination formats | JSON, Parquet, Delta, depending on the endpoint | JSON, Parquet, Delta, depending on the endpoint |
 | Runtime validation | Not supported for source schemas | Optional on node connections through branch and filter transforms |
-
-> [!NOTE]
-> For data flow graphs, JSON is currently the only supported destination format, despite the formats listed in the REST API reference documentation.
 
 For message schema definitions, formats, and how to upload schemas, see [Understand message schemas](concept-schema-registry.md).
 
@@ -155,8 +151,13 @@ Each transform in the pipeline adds processing overhead. Keep these guidelines i
 - **Use multiple transforms when the logic is distinct.** Separate transforms make sense when different processing steps are fundamentally different (filtering vs. mapping vs. aggregating).
 - **Keep related rules together.** A single map transform can handle field renaming, restructuring, computed fields, and metadata transformations all at once.
 
+## Common use cases and patterns
+
+For a pattern chooser and complete examples covering enrichment, correlation, noise reduction, routing, prediction, and model updates, see [Common use cases and patterns](dataflow-patterns/overview-dataflow-patterns.md).
+
 ## Related content
 
+- [Run inference in a data flow graph (preview)](../ai/inference-connector/howto-inference-connector-dataflow-graph.md)
 - [Data flows vs. data flow graphs](overview-dataflow-comparison.md)
 - [Create a data flow graph](howto-create-dataflow-graph.md)
 - [Transform data with map](howto-dataflow-graphs-map.md)

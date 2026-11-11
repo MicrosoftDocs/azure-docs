@@ -3,7 +3,7 @@ title: 'Tutorial: Create Secure N-tier Web App'
 description: Securely deploy your N-tier web app to Azure App Service. Create a virtual network and subnets, private DNS zones, and private endpoints, and configure virtual network integration.
 author: seligj95
 ms.topic: tutorial
-ms.date: 04/15/2026
+ms.date: 10/08/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 ms.custom:
@@ -467,17 +467,17 @@ Now you're ready to check the connections and access to your frontend and backen
 
 ### Establish an SSH session and open a remote shell
 
-Validate the frontend web app is reaching the backend web app over the private link by using SSH to a frontend instance.
+Validate the frontend web app reaches the backend web app over the private link by opening a shell (SSH) to a frontend instance.
 
-1. Establish an SSH session to the web container of your app and open a remote shell in your browser:
+1. With Azure CLI 2.90.0 or later, open a shell in your app container in your local terminal by using the preview `az webapp exec` command:
 
    ```azurecli-interactive
-   az webapp ssh --resource-group $resourceGroupName --name $frontendAppName
+   az webapp exec --resource-group $resourceGroupName --name $frontendAppName
    ```
 
-   For more information, see the [az webapp ssh](/cli/azure/webapp#az-webapp-ssh) command reference.
+   For a browser session instead, open the frontend app in the Azure portal and select **Development Tools** > **SSH** > **Go**. For prerequisites and instance selection, see [Open a container shell (SSH) and run commands](configure-linux-open-ssh-session.md?pivots=container-linux).
 
-1. After the shell opens in your browser, confirm your backend web app is being reached by using the private IP of your backend web app.
+1. In the app container's shell, confirm your backend web app is being reached by using the private IP of your backend web app.
 
    In the following commands, replace the `<placeholder>` parameter values with the information for your own resource.
 
@@ -493,6 +493,8 @@ Validate the frontend web app is reaching the backend web app over the private l
       curl https://<backend-app-name>.azurewebsites.net
       ```
 
+   The following screenshot shows these checks in the browser session:
+
    :::image type="content" source="./media/tutorial-secure-ntier-app/frontend-ssh-validation.png" border="false" alt-text="Screenshot of an SSH session to a frontend instance showing how to validate app connections to the backend.":::
 
    The `nslookup` command should resolve to the private IP address of your backend web app. The private IP address should be an address from your virtual network.
@@ -501,7 +503,7 @@ Validate the frontend web app is reaching the backend web app over the private l
 
    :::image type="content" source="./media/tutorial-secure-ntier-app/backend-app-service-inbound-ip.png" border="false" alt-text="Screenshot that shows the Networking page for a web app in the Azure portal with the inbound IP address highlighted.":::
 
-1. Repeat the same `nslookup` and `curl` commands from another terminal (one that isn't an SSH session on your frontend instances).
+1. Repeat the same `nslookup` and `curl` commands from another terminal (one that isn't a container shell on your frontend instances).
 
    :::image type="content" source="./media/tutorial-secure-ntier-app/frontend-external-terminal.png" border="false" alt-text="Screenshot of an external terminal running the nslookup and curl commands for the backend web app showing access is forbidden.":::
 

@@ -3,7 +3,7 @@ title: Incident Platforms in Azure SRE Agent
 description: Connect an incident platform to your agent so it can receive alerts, investigate issues, and take action automatically.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 06/08/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -103,7 +103,7 @@ You can customize this default plan or create other response plans with differen
 
 ### Track incident value
 
-You can track incident value to learn about how your agent handles incidents over time. In the Azure SRE Agent user interface, you see this information by going to **Monitor** > **Incident metrics**. For more information, see [Track incident value](track-incident-value.md).
+You can track incident value to learn about how your agent handles incidents over time. In the Azure SRE Agent user interface, you see this information by going to **Operations hub** > **Incident Analytics**. For more information, see [Track incident value](track-incident-value.md).
 
 | Metric | What it shows |
 |--------|--------------|
@@ -122,7 +122,7 @@ Incident platforms and connectors work together. Your agent uses both: the incid
 | Comparison | Incident platforms | Connectors |
 |---|---|---|
 | Purpose | Where alerts come from | Data and actions the agent can use |
-| Configured in | Builder → incident platform | Builder → connectors |
+| Configured in | **Incidents** > **Connect an incident platform**, or the platform connection menu for an existing connection | **Build + setup** > **Extensions** > **Connectors** |
 | Direction | Inbound (incidents flow to the agent) | Outbound (the agent reaches out to systems) |
 | Example | PagerDuty sends an alert → the agent investigates | The agent queries Kusto → finds root cause |
 

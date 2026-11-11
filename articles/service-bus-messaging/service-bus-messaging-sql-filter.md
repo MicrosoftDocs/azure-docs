@@ -1,8 +1,11 @@
 ---
 title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
 description: This article provides details about SQL filter grammar. A SQL filter supports a subset of the SQL-92 standard.  
-ms.topic: article
-ms.date: 08/16/2023
+ms.topic: reference
+ms.date: 10/13/2026
+author: EldertGrootenboer
+ms.author: egrootenboer
+ms.service: azure-service-bus
 ---
 
 # Subscription Rule SQL Filter Syntax
@@ -45,7 +48,7 @@ Service Bus Premium also supports the [JMS SQL message selector syntax](https://
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. 
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`.
     - The `sys` value indicates system scope where `<property_name>` is any of the properties on the Service Bus message as described in [Messages, payloads, and serialization](service-bus-messages-payloads.md).
     - The `user` value indicates user scope where `<property_name>` is a key of the custom properties that you can set on the message when sending to Service  Bus.
     - The `user` scope is the default scope if `<scope>` isn't specified.  
@@ -95,6 +98,8 @@ A `<regular_identifier>` can't be a reserved keyword.
 ```  
 "Contoso & Northwind"  
 ```  
+
+For complete filter expressions with spaces, punctuation, and an embedded closing bracket in a property name, see [Filter on message properties with special characters](service-bus-filter-examples.md#filter-on-message-properties-with-special-characters).
   
 ## pattern  
   
@@ -110,6 +115,8 @@ A `<regular_identifier>` can't be a reserved keyword.
 -   `%`:  Any string of zero or more characters.  
   
 -   `_`: Any single character.  
+
+For prefix, suffix, contains, and single-character matching examples, see [Match strings with wildcards](service-bus-filter-examples.md#match-strings-with-wildcards).
   
 ## escape_char  
   
@@ -123,6 +130,8 @@ A `<regular_identifier>` can't be a reserved keyword.
 `<escape_char>` must be an expression that is evaluated as a string of length 1. It's used as an escape character for the LIKE operator.  
   
  For example, `property LIKE 'ABC\%' ESCAPE '\'` matches `ABC%` rather than a string that starts with `ABC`.  
+
+For examples that match literal `%`, `_`, and escape characters, see [Match literal wildcard and escape characters](service-bus-filter-examples.md#match-literal-wildcard-and-escape-characters).
   
 ## constant  
   
@@ -180,6 +189,8 @@ Boolean constants are represented by the keywords **TRUE** or **FALSE**. The val
 ### Remarks  
 
 String constants are enclosed in single quotation marks and include any valid Unicode characters. A single quotation mark embedded in a string constant is represented as two single quotation marks.  
+
+For examples with single quotation marks and other punctuation in string values, see [Filter on string values with special characters](service-bus-filter-examples.md#filter-on-string-values-with-special-characters).
   
 ## function  
   

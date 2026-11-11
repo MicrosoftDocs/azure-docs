@@ -126,7 +126,7 @@ The output shows two managed resources - one storage account and one virtual net
     "resources": "detach"
   },
   "bypassStackOutOfSyncError": null,
-  "correlationId": "63743f58-a251-4d18-8449-4a37b9885aad",
+  "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
   "debugSetting": null,
   "deletedResources": [],
   "denySettings": {
@@ -227,7 +227,7 @@ The output is similar to:
     "resources": "detach"
   },
   "bypassStackOutOfSyncError": null,
-  "correlationId": "63743f58-a251-4d18-8449-4a37b9885aad",
+  "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
   "debugSetting": null,
   "deletedResources": [],
   "denySettings": {

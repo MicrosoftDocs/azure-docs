@@ -39,6 +39,10 @@ For troubleshooting issues related to the Calling SDK, see:
 
 ## Common Teams Phone extensibility issues
 
+### On-behalf-of calls to third-party SIP phones
+
+Teams Phone extensibility doesn't currently support agent-initiated calls to third-party SIP phones on behalf of a Teams resource account. These on-behalf-of (OBO) calls use [dual persona identities](./teams-phone-extensibility-faq.md#what-is-dual-persona-or-multi-persona).
+
 ### Consent blocked due to Microsoft Entra App permission
 
 If you receive the following error:

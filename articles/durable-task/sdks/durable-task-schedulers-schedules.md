@@ -5,7 +5,7 @@ description: Learn how to create, manage, and monitor recurring orchestrations u
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-sdks
-ms.date: 05/01/2026
+ms.date: 10/12/2026
 ms.author: torosent
 ---
 
@@ -14,7 +14,9 @@ ms.author: torosent
 Schedules trigger orchestrations automatically at regular intervals without requiring you to write your own polling or timer logic. Instead of building [eternal orchestrations](../common/durable-task-eternal-orchestrations.md) or external cron jobs, you simply define a schedule. The Durable Task Scheduler handles the rest, executing your orchestration at the specified frequency with built-in pause, resume, and update support.
 
 > [!NOTE]
-> Schedules are currently supported only in the **Durable Task SDK for .NET**. 
+> The examples in this article use the **Durable Task SDK for .NET**. The [Go SDK beta](durable-task-go.md) also supports recurring interval schedules. Its persisted schedule state isn't compatible with other SDKs; use a separate Go-only task hub.
+
+For Go schedule creation and lifecycle management, see the [Go SDK scheduled tasks sample](https://github.com/microsoft/durabletask-go/tree/main/samples/scheduledtasks). The .NET `UseScheduledTasks` registration and `ScheduledTaskClient` APIs described in this article aren't Go APIs.
 
 ## When to use schedules
 

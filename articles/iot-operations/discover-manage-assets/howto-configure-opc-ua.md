@@ -1,12 +1,12 @@
 ---
 title: Configure the connector for OPC UA
-description: Use the operations experience, Azure CLI, or Bicep to configure OPC UA devices, assets, datasets, data points, and events.
+description: Configure OPC UA devices, assets, datasets, data points, events, and advanced data collection for Azure IoT Operations.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-opcua-connector
 ms.topic: how-to
-ms.date: 08/10/2026
+ms.date: 10/29/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an OT user, I want to configure my Azure IoT Operations environment so that data can flow from my OPC UA servers through to the MQTT broker.
@@ -27,12 +27,12 @@ This article describes how to use the operations experience, Azure CLI, and Bice
 
 These assets, data points, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
 
-For endpoint session modes and connector redundancy, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md). For dynamic node resolution, key frames, and event filters, see [Configure advanced OPC UA data collection](howto-configure-opc-ua-advanced-data-collection.md).
+For endpoint session modes and connector redundancy, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md). For data-change and data-quality filters, dynamic node resolution, key frames, event filters, and message metadata options, see [Configure advanced OPC UA data collection](howto-configure-opc-ua-advanced-data-collection.md). To write a counter back to the OPC UA server after dataset or event delivery, see [Configure delivery acknowledgment](howto-configure-opc-ua-advanced-data-collection.md#configure-delivery-acknowledgment).
 
 The connector can use `anonymous`, `username password`, or `X.509certificate` user authentication when it connects to an OPC UA server.
 
 > [!NOTE]
-> This user authentication is separate from the certificate-based application authentication that's used to establish a secure channel between the connector for OPC UA and the OPC UA server. To learn more, see [Understand the OPC UA certificates infrastructure](overview-opc-ua-connector-certificates-management.md).
+> This user authentication is separate from the certificate-based application authentication that establishes a secure channel between the connector for OPC UA and the OPC UA server. To learn more, see [Understand the OPC UA certificates infrastructure](overview-opc-ua-connector-certificates-management.md).
 
 ## Prerequisites
 
@@ -188,10 +188,15 @@ When you create the inbound endpoint, you can also select:
 | Option | Type | Description |
 | ------ | ---- | ----------- |
 | **Auto accept untrusted server certificate** | Yes/No | Automatically accept untrusted server certificates |
-| **Security policy** | Dropdown | Security policy used to establish secure channel with the OPC UA server |
-| **Security mode** | Dropdown | Security mode used to communicate within secure channel with the OPC UA server |
+| **Security policy** | Dropdown | Security policy used to establish a secure channel with the OPC UA server |
+| **Security mode** | Dropdown | Security mode used to communicate within a secure channel with the OPC UA server |
 
 ## Add an asset, dataset, and data points
+
+> [!IMPORTANT]
+> Starting with Azure IoT Operations 2610, optional OPC UA conformance metadata and message diagnostics are disabled by default. This change breaks compatibility with earlier versions. To restore the previous metadata behavior, set `opcUaConformance` and `messageDiagnostics` to `true` in `datasetConfiguration` or `defaultDatasetsConfiguration`. Consumers must also replace the removed `uuid` user property with `aioassetref`. For examples and event-group settings, see [Configure message metadata](howto-configure-opc-ua-advanced-data-collection.md#configure-message-metadata).
+
+Starting with Azure IoT Operations 2610, namespaced assets can filter insignificant data changes and samples that don't have an exact OPC UA `Good` status. The verified authoring surface is Bicep stringified connector configuration. Configure `dataChangeFilter` in `defaultDatasetsConfiguration`, `datasetConfiguration`, or `dataPointConfiguration`. Configure `dataQualityFilterEnabled` in `defaultDatasetsConfiguration` or `datasetConfiguration`. For requirements, behavior, and procedures, see [Filter data changes](howto-configure-opc-ua-advanced-data-collection.md#filter-data-changes) and [Filter data by OPC UA quality](howto-configure-opc-ua-advanced-data-collection.md#filter-data-by-opc-ua-quality).
 
 # [Operations experience](#tab/portal)
 
@@ -244,19 +249,21 @@ A dataset defines where the connector sends the data it collects from a collecti
 > [!TIP]
 > Use the **Manage default settings** option to configure default dataset settings such as publishing interval, sampling interval, and queue size.
 
+To let the OPC UA server monitor connector liveness for a dataset, configure a [dataset heartbeat](howto-configure-opc-ua-dataset-heartbeat.md). Starting with Azure IoT Operations 2610, set `heartbeatDatasource` and `heartbeatInterval` in that dataset's `datasetConfiguration`. The connector writes an incrementing counter to a dedicated readable and writable `Int32` or `UInt32` server variable by using the asset's existing session. These settings apply only to the dataset and aren't inherited from defaults.
+
 ### Add individual data points to a dataset
 
 > [!IMPORTANT]
-> The data point name `_ErrorMessage` is reserved and shouldn't be used.
+> Don't use the reserved data point name `_ErrorMessage`.
 
-Now you can define the data points associated with the dataset. To add OPC UA data points:
+Now, define the data points associated with the dataset. To add OPC UA data points:
 
 1. Select **Add data point**.
 
 1. Enter your data point details:
 
       - Data source. This value is the node ID from the OPC UA server.
-      - Data point name (Optional). This value is the friendly name that you want to use for the data point. If you don't specify a data point name, the node ID is used as the data point name.
+      - Data point name (Optional). This value is the friendly name that you want to use for the data point. If you don't specify a data point name, the node ID becomes the data point name.
       - Sampling interval (milliseconds). You can override the default value for this data point.
       - Queue size. You can override the default value for this data point.
       - Key frame count. By default, key frames are disabled. Use this setting to enable key frames and specify how frequently the connector generates key frames. For more information, see [Configure key frames for state recovery](howto-configure-opc-ua-advanced-data-collection.md#configure-key-frames-for-state-recovery).
@@ -415,9 +422,9 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
 
 ## Configure dataset triggering
 
-Starting with Azure IoT Operations 2607, you can configure one data point to trigger publication of the other sampled data points in the same dataset. Dataset triggering is supported only for assets that reference a namespaced device endpoint. To learn about reporting modes, requirements, and fallback behavior, see [Control dataset publishing with a triggering item](overview-opc-ua-connector.md#).
+Starting with Azure IoT Operations 2607, you can configure one data point to trigger publication of the other sampled data points in the same dataset. Azure IoT Operations supports dataset triggering only for assets that reference a namespaced device endpoint. To learn about reporting modes, requirements, and fallback behavior, see [Control dataset publishing with a triggering item](overview-opc-ua-connector.md#control-dataset-publishing-with-a-triggering-item).
 
-The following examples configure a `telemetry` dataset with `dataPoint-SlowUInt1` as the triggering item. The default `Sampling` reporting mode means that the trigger controls publication but its own value isn't included in the published output.
+The following examples configure a `telemetry` dataset with `dataPoint-SlowUInt1` as the triggering item. The default `Sampling` reporting mode means that the trigger controls publication but the published output doesn't include the trigger's own value.
 
 # [Operations experience](#tab/portal)
 
@@ -518,6 +525,27 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
 
 To include the triggering data point in the published output, change `triggeringItemReportingMode` to `Reporting`. The `triggeringItem` value is case-sensitive and must match exactly one data point name in the same dataset.
 
+### Publish full key frames when the trigger changes
+
+Starting with Azure IoT Operations 2610, set `keyFrameOnTrigger` to `true` to include cached values for all dataset points in each triggered publication. The default is `false`.
+
+In Bicep, update the dataset's stringified `datasetConfiguration`:
+
+```bicep
+datasetConfiguration: string({
+  publishingInterval: 1000
+  samplingInterval: 500
+  triggeringItem: 'dataPoint-SlowUInt1'
+  triggeringItemReportingMode: 'Reporting'
+  keyFrameOnTrigger: true
+  keyFrameCount: 0
+})
+```
+
+The default `triggeringItemReportingMode` is `Sampling`. In `Sampling` mode, changes to the triggering point control dataset publication, but the server doesn't report that point's value to the connector. Use `Reporting` when you also need the triggering data point's value. This setting doesn't publish during unchanged intervals.
+
+Set `keyFrameCount` to `0` to disable scheduled key frames. A positive value keeps its independent scheduled cadence. For consumer-requested snapshots, use the separate [on-demand key frame RPC](howto-configure-opc-ua-advanced-data-collection.md#request-a-key-frame-on-demand).
+
 ### Verify dataset triggering
 
 1. Subscribe to the dataset's destination MQTT topic. For an example, see [Connector for OPC UA message format](overview-opc-ua-connector.md#connector-for-opc-ua-message-format).
@@ -538,6 +566,8 @@ To include the triggering data point in the published output, change `triggering
 
 ## Add events and event groups
 
+Starting with Azure IoT Operations 2610, event groups can opt in to OPC UA conformance metadata and message diagnostics through `eventGroupConfiguration` or the asset's `defaultEventsConfiguration`. Both `opcUaConformance` and `messageDiagnostics` default to `false`. For configuration examples, see [Configure message metadata](howto-configure-opc-ua-advanced-data-collection.md#configure-message-metadata).
+
 # [Operations experience](#tab/portal)
 
 ### Add an event group to an asset
@@ -554,15 +584,15 @@ An event group defines where the connector sends the data it receives from a col
 
 ### Add events to an event group
 
-Now you can define the events associated with the event group. To add OPC UA events:
+Now, define the events associated with the event group. To add OPC UA events:
 
 1. Select **Add event**.
 
 1. Enter your event details:
 
       - Data source. This value is the event notifier from the OPC UA server.
-      - Event name (Optional). This value is the friendly name that you want to use for the event. If you don't specify an event name, the event notifier is used as the event name.
-      - Topic. The MQTT topic that you want the event to be published to.
+      - Event name (Optional). This value is the friendly name that you want to use for the event. If you don't specify an event name, the connector uses the event notifier as the event name.
+      - Topic. The MQTT topic where you want to publish the event.
       - Sampling interval (milliseconds). You can override the default value for this event.
       - Queue size. You can override the default value for this event.
       - Start instance. This value is the starting node for resolving relative browse paths for this event. This field is required if you use relative browse paths in the Data source field. For more information, see [Resolve dynamic nodes by using browse paths](howto-configure-opc-ua-advanced-data-collection.md#resolve-dynamic-nodes-by-using-browse-paths).
@@ -572,7 +602,7 @@ Now you can define the events associated with the event group. To add OPC UA eve
 
 1. Select **Manage default settings** to configure default event settings for the asset. These settings apply to all the OPC UA events that belong to the asset. You can override these settings for each event that you add. Default event settings include:
 
-    - **Publishing interval (milliseconds)**: The rate at which OPC UA server should publish data.
+    - **Publishing interval (milliseconds)**: The rate at which the OPC UA server publishes data.
     - **Queue size**: The depth of the queue to hold the sampling data before publishing it.
 
 # [Azure CLI](#tab/cli)
@@ -690,7 +720,7 @@ To review your Bicep template before deployment, use the `what-if` operation:
 az deployment group what-if --resource-group {your resource group name} --template-file asset.bicep
 ```
 
-This command shows you what changes would be made to your Azure resources without actually deploying them.
+This command shows you what changes it would make to your Azure resources without deploying them.
 
 ---
 
@@ -708,7 +738,7 @@ Find and select the asset you created previously. Use the **Asset details**, **d
 
 :::image type="content" source="media/howto-configure-opc-ua/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the operations experience." lightbox="media/howto-configure-opc-ua/asset-update-property-save.png":::
 
-On the **view data points** tab for a dataset, you can add data points, update existing data points, or remove data points.
+On the **view data points** tab for a dataset, add, update, or remove data points.
 
 To update a data point, select an existing data point and update the data point information. Then select **Update**:
 
@@ -718,7 +748,7 @@ To remove data points, select one or more data points and then select **Remove d
 
 :::image type="content" source="media/howto-configure-opc-ua/asset-remove-data-points.png" alt-text="A screenshot that shows how to delete a data point in the operations experience." lightbox="media/howto-configure-opc-ua/asset-remove-data-points.png":::
 
-You can also add, update, and delete events and properties in the same way.
+In the same way, add, update, and delete events and properties.
 
 When you're finished making changes, select **Save** to save your changes.
 
@@ -735,7 +765,7 @@ az iot ops ns asset query \
 ```
 
 > [!TIP]
-> You can refine the query command to search for assets that match specific criteria. For example, you can search for assets by manufacturer.
+> Refine the query command to search for assets that match specific criteria. For example, search for assets by manufacturer.
 
 To view the details of the thermostat asset, use the following command:
 
@@ -789,7 +819,7 @@ az iot ops ns asset opcua datapoint add \
 
 To delete a data point, use the `az iot ops ns asset opcua datapoint remove` command.
 
-You can manage an asset's event groups by using the `az iot ops ns asset opcua event-group` commands.
+To manage an asset's event groups, use the `az iot ops ns asset opcua event-group` commands.
 
 # [Bicep](#tab/bicep)
 
@@ -913,7 +943,7 @@ To delete individual resources by using Bicep, see [Deployment stacks](/azure/az
 
 ## Configure advanced endpoint behavior
 
-By default, each asset opens a dedicated OPC UA session. You can configure assets to share an endpoint session and enable active and passive connector instances for high availability. To compare these modes and configure endpoint behavior, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
+By default, each asset opens a dedicated OPC UA session. Configure assets to share an endpoint session and enable active and passive connector instances for high availability. To compare these modes and configure endpoint behavior, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
 
 Each inbound endpoint can also monitor whether its OPC UA server is alive. Server heartbeat monitoring is enabled by default and reports the endpoint's health from a dedicated monitoring session. To learn how it works and how to enable or disable it per endpoint, see [Monitor OPC UA server availability with heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md).
 

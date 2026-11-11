@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Container Storage documentation # < 60 chars
-summary: Volume management built natively for containers. # < 160 chars
+summary: Cloud-native persistent storage for Kubernetes, plus management of distributed accelerator for cloud storage on AKS. # < 160 chars
 
 metadata:
   title: Azure Container Storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running production scale stateful container applications.  # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Container Storage provides cloud-native persistent storage for Kubernetes and manages distributed accelerator for cloud storage (preview) for AI. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: azure-container-storage #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: khdownie #Required; your GitHub user alias, with correct capitalization.
   ms.author: kendownie #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/20/2025
+  ms.date: 10/07/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Azure Container Storage?
             url: container-storage-introduction.md
+          - text: What is distributed accelerator for cloud storage? (preview)
+            url: distributed-accelerator-for-cloud-storage-overview.md
 
   # Card (optional)
   - title: How-to
@@ -36,6 +38,8 @@ landingContent:
             url: use-container-storage-with-local-disk.md
           - text: Use Azure Container Storage with Elastic SAN
             url: use-container-storage-with-elastic-san.md
+          - text: Get started with distributed accelerator for cloud storage on AKS (preview)
+            url: distributed-accelerator-for-cloud-storage-quickstart.md
 
   # Card (optional)
   - title: Frequently asked questions

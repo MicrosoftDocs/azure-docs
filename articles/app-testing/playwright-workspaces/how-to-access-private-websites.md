@@ -36,6 +36,7 @@ This article provides step-by-step instructions for setting up a Playwright Work
 - Your Azure account needs the Owner, Contributor, or one of the classic administrator roles.
 - The Entra application with client ID: `847bd4c1-7486-4241-a783-f9bda69241c1` and name `CloudNativeTesting` DP needs the `subnet/join` permission (Network contributor or any role with `subnet/join` permission) on the Azure subscription that hosts the virtual network (or `subnet/join` permission on the virtual network).
 - A virtual network and subnet resource in the same region where you want to deploy your Playwright Workspace resource.
+- The Microsoft.App resource provider must be Registered.
 - The subnet needs to be delegated to `Microsoft.App/environments` and should have a minimum of `/27` (32 addresses) IP range.
 
 ## Create a Playwright Workspace

@@ -5,7 +5,7 @@ description: Learn how insights are presented in Azure Storage Discovery reports
 author: pthippeswamy
 ms.service: azure-storage-discovery
 ms.topic: overview
-ms.date: 08/13/2025
+ms.date: 10/07/2026
 ms.author: fauhse
 ---
 
@@ -13,8 +13,9 @@ ms.author: fauhse
 
 Azure Storage Discovery reports organize insights into distinct categories that help you understand and manage your Azure Blob Storage estate:
 
-- **Capacity**: Includes insights for size and count (blobs, containers, subscriptions, regions, and resource groups count) for each scope.
-- **Activity** Includes metrics for transactions, ingress, and egress to understand how your storage is accessed and utilized.
+- **Capacity overview**: Includes insights for size and count (blobs, containers, subscriptions, regions, and resource groups count) for each scope.
+- **Capacity details (preview)**: Provides advanced insights into access tiers, data recency, object-size distribution, data composition, retention, and storage growth.
+- **Activity**: Includes metrics for transactions, ingress, and egress to understand how your storage is accessed and utilized.
 - **Errors**: Highlights failed operations and error codes to help identify patterns of issues.
 - **Configurations**: Surfaces configuration patterns across your storage accounts.
 - **Security**: Provides visibility into access controls and encryption settings.
@@ -22,7 +23,7 @@ Azure Storage Discovery reports organize insights into distinct categories that 
 
 :::image source="media/insights/workspace-reports.png" alt-text="Screenshot of Reports."  lightbox="media/insights/workspace-reports.png":::
 
-`Capacity`, `Activity`, and `Errors` reports use interactive charts to present data in a unified format, making it easier to explore trends, derive insights, and take action to optimize your storage estate.
+The `Capacity overview`, `Capacity details`, `Activity`, and `Errors` reports use interactive charts to present data in a unified format, making it easier to explore trends, derive insights, and take action to optimize your storage estate.
 
 Storage Discovery reports include top-level filters that help you focus on specific aspects of your storage estate. These filters apply across all reports and charts, allowing you to tailor the insights to your business context.
 
@@ -37,23 +38,23 @@ Each chart also offers other options to drill down or pivot into detailed views 
 - Tags
 
 ## Common information patterns across reports
-Azure Storage Discovery reports - Capacity, Activity, Errors, and Consumption - follow a consistent information pattern that guides users from a high-level overview to actionable insights.
+Azure Storage Discovery reports - Capacity overview, Capacity details, Activity, Errors, and Consumption - follow a consistent information pattern that guides users from a high-level overview to actionable insights.
 
 Each report begins with overview tiles that display aggregate metrics for the selected [scope](management-components.md#scope). These tiles provide a snapshot of the current state of your storage estate. Next, the Trends chart shows how each metric evolves over time, helping you identify shifts and patterns. Finally, the Top items chart lists the specific storage resources that contribute to the metrics, enabling deeper analysis.
 
 This layered structure allows you to start with a broad view and progressively drill down into the details. Each chart supports exploration and decision-making, helping you uncover optimization opportunities or adjust configurations to improve security and compliance.
 
 ## High-level aggregates
-The Capacity, Activity, Errors, and Consumption reports in Azure Storage Discovery provide a high-level overview of the selected scope within your workspace. These reports offer a bird’s-eye view of your storage estate, helping you quickly assess its scale and identify changes over time.
+The Capacity overview, Activity, Errors, and Consumption reports in Azure Storage Discovery provide a high-level overview of the selected scope within your workspace. These reports offer a bird’s-eye view of your storage estate, helping you quickly assess its scale and identify changes over time.
 
 Users who regularly review these reports can monitor the breadth of their storage estate and detect shifts - such as changes in the number of regions included in the scope.
 
 > [!TIP] 
-> The overview tiles display aggregate metrics based on the latest available data. These values remain unchanged when you adjust the time range.
+> The tiles display aggregate metrics based on the latest available data. These values remain unchanged when you adjust the time range.
 
 ## Trends charts
 The Trends chart illustrates how metrics change over time, helping you track usage patterns and shifts in your storage estate.
-Trends charts are available in the Capacity, Activity, Errors, and Consumption reports. For example, in the Capacity report, you can visualize trends for metrics such as:
+Trends charts are available in the Capacity overview, Activity, Errors, and Consumption reports. For example, in the Capacity report, you can visualize trends for metrics such as:
 - Size
 - Storage account count
 - Container count
@@ -62,7 +63,7 @@ Trends charts are available in the Capacity, Activity, Errors, and Consumption r
 These metrics can be grouped by dimensions like region, performance type, and redundancy type.
 
 ## Top items
-The Top items chart in the Capacity, Activity, and Errors reports provide a ranked view of storage resources within your selected scope. Depending on the report, this chart highlights either the largest or smallest contributors to key metrics, helping you identify which resources have the most impact on your storage estate.
+The **Top items** chart in the **Capacity** overview, **Activity**, and **Errors** reports provides a ranked view of storage resources within your selected scope. Depending on the report, this chart highlights either the largest or smallest contributors to key metrics. It helps you identify which resources have the most impact on your storage estate.
 
 > [!IMPORTANT] 
 > The size and count in the _capacity_ report includes soft-deleted blobs, versions, and snapshots by default. For details on how this affects comparisons with other reports, see [Compare with Blob Inventory reports](#compare-with-blob-inventory-reports).
@@ -81,7 +82,7 @@ This visualization provides a quick, intuitive view of regional concentration, h
 
 ## Compare with Blob Inventory reports
 
-The Storage Discovery _capacity_ report includes soft-deleted blobs, blob versions, and snapshots when reporting size and count. [Azure Blob Inventory](/azure/storage/blobs/blob-inventory) can be another source of per storage account insights. Blob inventory rules don't include those items unless explicitly enabled. Be aware of this detail when comparing insights across Storage Dicovery and Blob Inventory.
+The Storage Discovery **capacity** report includes soft-deleted blobs, blob versions, and snapshots when reporting size and count. [Azure Blob Inventory](/azure/storage/blobs/blob-inventory) can be another source of per storage account insights. Blob inventory rules don't include those items unless explicitly enabled. Be aware of this detail when comparing insights across Storage Discovery and Blob Inventory.
 
 To ensure an accurate comparison, configure your inventory rules to include:
 
