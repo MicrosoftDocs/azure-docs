@@ -66,7 +66,7 @@ Certificate management in Azure Device Registry supports two deployment options 
 
 - **Microsoft cloud root CA:** ADR creates and manages an intermediate CA that chains to a unique Microsoft-managed root CA for your namespace. Microsoft manages the lifecycle of both the namespace root CA and the intermediate CA.
 
-- **Bring your own CA:** ADR creates and manages an intermediate CA that is signed by an external CA owned by your organization. Your organization retains ownership and governance of the external CA, while Microsoft manages the intermediate CA and operational certificate issuance workflow. This option is useful when devices must chain to an enterprise PKI or a common corporate trust anchor.
+- **Bring your own CA:** ADR creates and manages an intermediate CA that an external CA owned by your organization signs. Your organization retains ownership and governance of the external CA, while Microsoft manages the intermediate CA and operational certificate issuance workflow. This option is useful when devices must chain to an enterprise PKI or a common corporate trust anchor.
 
 For more information, see [Certificate Authorities in Azure Device Registry](concept-managed-ca-hierarchy.md).
 
