@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 10/22/2026
+ms.date: 11/11/2026
 ---
 
 # Application (layer 7) DDoS protection
@@ -24,7 +24,7 @@ Use the following model when you plan L7 DDoS protection. Each layer catches tra
 | Layer | What it does | Where to configure it |
 |---|---|---|
 | Platform DDoS protection | Absorbs L3/L4 volumetric attacks on the Azure edge and on your origin public IPs | Built in by default on Azure Front Door; requires Azure DDoS Network Protection for Application Gateway public IPs and origin public IPs |
-| Automated L7 mitigation | Learns your normal traffic and throttles offending clients during a surge, with no emergency tuning | HTTP DDoS ruleset (preview) on [Azure Front Door Premium](./afds/http-ddos-ruleset.md) and [Application Gateway WAF v2](./ag/ddos-ruleset.md) |
+| Automated L7 mitigation | Learns your normal traffic and throttles offending clients during a surge, with no emergency tuning | HTTP DDoS ruleset on [Azure Front Door Premium](./afds/http-ddos-ruleset.md) and [Application Gateway WAF v2](./ag/ddos-ruleset.md) |
 | Client verification | Separates humans and legitimate clients from automated attack traffic before blocking | [Bot Manager ruleset](./afds/waf-front-door-policy-configure-bot-protection.md), [JavaScript challenge](waf-javascript-challenge.md), [CAPTCHA](./afds/captcha-challenge.md) |
 | Rate limiting | Caps how many requests any client, geography, or endpoint can send | Rate limit custom rules on Front Door and Application Gateway |
 | Targeted custom rules | Blocks a known attack signature during an incident | Match custom rules (geo, IP, ASN, client fingerprint, header, URI) |
@@ -60,9 +60,9 @@ Practical consequences when you choose or design a deployment:
 
 For more information, see [Azure DDoS Protection overview](../ddos-protection/ddos-protection-overview.md) and [Protect your application gateway with Azure DDoS Network Protection](../ddos-protection/ddos-protection-reference-architectures.md).
 
-## Automated protection with the HTTP DDoS ruleset (preview)
+## Automated protection with the HTTP DDoS ruleset
 
-Static controls such as IP filters, geo-filters, and fixed rate limits often can't keep pace with distributed botnets: the thresholds are guesses, they're always on, and you must retune them as traffic patterns evolve. The HTTP DDoS ruleset is Azure WAF's first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. It's available in preview on **both** Azure Front Door Premium and Application Gateway WAF v2. Once assigned, it continuously baselines normal traffic and, when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
+Static controls such as IP filters, geo-filters, and fixed rate limits often can't keep pace with distributed botnets: the thresholds are guesses, they're always on, and you must retune them as traffic patterns evolve. The HTTP DDoS ruleset is Azure WAF's first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. It's available on **both** Azure Front Door Premium and Application Gateway WAF v2. Once assigned, it continuously baselines normal traffic and, when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
 
 The design is the same on both platforms in the ways that matter most:
 
@@ -98,7 +98,7 @@ Both platforms mitigate through a **penalty box**. When traffic from a client ex
 
 This design matters for how you read your telemetry: only the initial rule hit is logged. Additional blocked requests while the IP address is already in the penalty box aren't logged on Front Door, so log-based counts understate the number of blocked requests. On Application Gateway, use the **Penalty box blocks** metric for the true block count and **Penalty box size** for how many IP addresses are currently penalized.
 
-### Monitoring during preview
+### Monitor the ruleset
 
 When an IP address breaches a threshold, a log entry is recorded with a **Block** action for the HTTP DDoS ruleset and the WAF **Managed Rule Match** metric increments.
 
@@ -126,9 +126,6 @@ Guidance for using exceptions with the DDoS ruleset:
 - Exceptions require the next-generation WAF engine and managed ruleset version **DRS 2.1 or later**.
 
 Use the right tool for the job: **exclusions** skip inspection of one element of a request (a noisy cookie or header) while still inspecting the rest; **exceptions** skip specific rules or rulesets for matching requests; a **custom Allow rule** bypasses everything except the HTTP DDoS ruleset.
-
-> [!IMPORTANT]
-> WAF exceptions and the HTTP DDoS ruleset are in preview on both Azure Front Door and Application Gateway WAF v2. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Challenge before you block
 

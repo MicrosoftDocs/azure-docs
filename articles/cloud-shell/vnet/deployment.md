@@ -131,10 +131,8 @@ you created earlier. You might choose to change the supplied names of the subnet
 defaults.
 
 > [!NOTE]
-> [Azure Container Instances (ACI) network profiles][05] are deprecated. In mid-2026, network
-> profiles will longer be required to deploy Cloud Shell in a virtual network. Existing users may
-> see a one-time guided experience in Cloud Shell to confirm their virtual network configuration and
-> container subnet. No additional customer action is required.
+> [Azure Container Instances (ACI) network profiles][05] are deprecated. Network profiles are no
+> longer required to deploy Cloud Shell in a virtual network for most customers as of October 2026.
 
 The virtual network and the subnets require valid IP address assignments. You need enough addresses
 to support the following resources:
