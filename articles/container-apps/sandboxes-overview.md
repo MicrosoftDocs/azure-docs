@@ -5,7 +5,7 @@ description: Azure Container Apps Sandboxes deliver fast, secure, ephemeral comp
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
-ms.date: 05/26/2026
+ms.date: 11/06/2026
 ms.topic: overview
 ms.service: azure-container-apps
 ---
@@ -21,7 +21,7 @@ Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environme
 
 ## Key characteristics of Container Apps Sandboxes
 
-- **Sub-second startup**: Sandboxes are provisioned from prewarmed pools for near-instant availability.
+- **Sub-second startup**: Sandboxes boot from cached images in under a second, and resume from snapshots even faster.
 
 - **Strong isolation**: Each sandbox runs in its own secure boundary, safe for untrusted code execution.
 
@@ -29,7 +29,7 @@ Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environme
 
 - **Scale-out**: The service bursts to thousands of concurrent sandboxes on demand.
 
-- **OCI container image support**: Use the included public image or bring your own container images as sandbox root filesystems.
+- **OCI container image support**: Use the included platform managed images or bring your own container images as sandbox root filesystems.
 
 - **Suspend and resume**: Snapshot full state including memory and disk, and resume later with sub-second restore times.
 
@@ -57,14 +57,33 @@ Use the following table to select the Container Apps compute type that fits your
 |---|---|---|---|
 | **Apps** | Long-running services, APIs, web apps | Continuous | Stateless (external state stores) |
 | **Jobs** | Run-to-completion tasks, batch processing | Start → run → complete | Stateless |
-| **Dynamic sessions** | Managed code execution, LLM-generated scripts | Managed by session pool | Ephemeral |
 | **Sandboxes** | Programmable isolated compute with lifecycle control | You manage: create, suspend, resume, delete | Stateful (snapshots, volumes) |
+| **Dynamic sessions** | Managed code execution, LLM-generated scripts | Managed by session pool | Ephemeral |
 
-## Key concepts
 
-### Prerequisites
+## Architecture
 
-To create or manage sandboxes, you need the Azure role assignment **Container Apps SandboxGroup Data Owner**. Without this role, you can't perform sandbox operations. Assign this role at the desired scope (Azure Subscription or Azure Resource Group) in the Azure portal or by using the Azure CLI.
+A sandbox group is a regional Azure Resource Manager (ARM) resource that can contain thousands of sandboxes. It provides a shared scope for disk images, snapshots, volumes, secrets, and managed identities.
+
+Each sandbox is an isolated microVM that starts from a disk image or snapshot and can mount persistent data volumes. Sandboxes can be running or stopped. Stopped sandboxes don't incur compute charges, and snapshots can preserve memory and disk state for later restoration or cloning.
+
+Managed ingress and egress proxies outside the sandbox handle network traffic, with VNet integration for outbound access to private resources and private endpoints for inbound access.
+
+### Management planes
+
+Sandboxes use a two-plane architecture:
+
+| Plane | Operations |
+|---|---|
+| **ARM control plane** | Create, update, delete, and list sandbox groups. Manage VNet connections. |
+| **Data plane** | Manage sandboxes, disk images, snapshots, files, volumes, secrets, ports, and egress policies. |
+
+You create and manage sandbox groups through the ARM control plane. All operations on individual sandboxes and their resources go through the ACA Sandboxes data plane, scoped to a specific sandbox group.
+
+
+## Prerequisites
+
+To create or manage sandboxes, you need the Azure role assignment **Container Apps SandboxGroup Data Owner**. Without this role, you can't perform sandbox operations. Assign this role at the sandbox group scope to limit access to that group, or at a parent resource group or subscription scope for broader access. Use the Azure portal or the Azure CLI.
 
 Before running the following command, replace the placeholders surrounded by `<>` with your own values.
 
@@ -72,8 +91,9 @@ Before running the following command, replace the placeholders surrounded by `<>
 az role assignment create \
   --assignee "<USER_EMAIL_OR_OBJECT_ID>" \
   --role "Container Apps SandboxGroup Data Owner" \
-  --scope "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>"
+  --scope "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.App/sandboxGroups/<SANDBOX_GROUP_NAME>"
 ```
+## Key concepts
 
 ### Sandbox groups
 
@@ -91,10 +111,28 @@ You interact with sandboxes by executing commands, managing files, exposing port
 
 Disk images are OCI container images converted for use as sandbox root filesystems. You can use public images or create private images from your own container registries.
 
-You can build disk images from:
+Choose from the following disk image sources:
 
-- **Public images**: Prebuilt images available to all sandbox groups.
-- **Container registry images**: Pull from public or private registries with optional authentication.
+- **Public images**: Prebuilt and maintained by Microsoft, available to all sandbox groups.
+- **Container registry images**: Pull from public or your private registries with optional authentication.
+
+For more information, see [Disk images](https://sandboxes.azure.com/docs/sandboxes/disk-images).
+
+### Egress network control
+
+Azure Container Apps Sandboxes are designed to run untrusted code. An egress proxy outside the sandbox enforces policies that allow or block outbound traffic by host and injects secrets without exposing them to sandbox code. Without a policy, outbound access is unrestricted. For more information, see [Control egress](https://sandboxes.azure.com/docs/sandboxes/sandbox/egress).
+
+#### Virtual network integration
+
+Connect a sandbox group to your Azure virtual network (VNet) through a delegated subnet so sandboxes can reach private endpoints, peered networks, and on-premises resources. Select a group-level VNet connection when you create a sandbox. For more information, see [VNet](https://sandboxes.azure.com/docs/sandboxes/sandbox/vnet).
+
+### Ingress network control
+
+Ingress lets clients access HTTP services running inside a sandbox, such as web apps, APIs, and development previews. Incoming requests to each exposed port's HTTPS URL are routed to the corresponding service inside the sandbox. You can add or remove exposed ports as needed. Each port can allow anonymous access or require Microsoft Entra ID authentication. For more information, see [Expose ports](https://sandboxes.azure.com/docs/sandboxes/sandbox/ports).
+
+#### Private endpoint
+
+Use a private endpoint to reach exposed sandbox ports from a VNet, peered network, or on-premises network through VPN or ExpressRoute. For more information, see [Private Endpoint](https://sandboxes.azure.com/docs/sandboxes/private-endpoints).
 
 ### Snapshots
 
@@ -106,12 +144,15 @@ Snapshots capture the full state of a running sandbox, including memory and disk
 
 ### Volumes
 
-Microsoft manages volumes and provides persistent storage that you can mount into sandboxes. Two volume types are available:
+Volumes provide persistent storage that you can mount into sandboxes. You can use Microsoft-managed storage or bring your own Azure Blob container. Three volume types are available:
 
 | Volume type | Description |
 |---|---|
 | **Azure Blob** | Share data across multiple sandboxes (uploads and downloads, persistent artifacts). Mountable to multiple sandboxes at once. |
+| **Azure Blob BYO** | Mount your own Azure Blob container to one or more sandboxes. |
 | **Data Disk** | High-performance volume for databases, build caches, and large working sets. Mountable to only one sandbox at a time. |
+
+For more information, see [Volumes](https://sandboxes.azure.com/docs/sandboxes/volumes).
 
 ### Lifecycle states
 
@@ -130,53 +171,35 @@ You can configure lifecycle policies for each sandbox:
 - **Suspend Mode**: Choose between memory mode (full snapshot - disk + memory) or disk mode (preserve disk only).
 - **Auto-delete**: Automatically delete sandboxes after a specified number of days after the sandbox is stopped.
 
-## Architecture
-
-Sandboxes use a two-plane architecture:
-
-| Plane | Endpoint | Operations |
-|---|---|---|
-| **ARM control plane** | `management.azure.com` | Create, update, delete, and list sandbox groups. Manage VNet connections. |
-| **Data plane** | `management.azuredevcompute.io` | Manage sandboxes, disk images, snapshots, files, volumes, secrets, ports, and egress policies. |
-
-You create and manage sandbox groups through the ARM control plane. All operations on individual sandboxes and their resources go through the ACA Sandboxes data plane, scoped to a specific sandbox group.
-
 ## Resource tiers
 
-Each sandbox is assigned a resource tier that checks its CPU, memory, and disk allocation.
+Each sandbox is assigned a resource tier that defines its CPU, memory, and disk allocation.
 
 | Tier | CPU | Memory | Disk |
 |---|---|---|---|
-| XS | 0.25 cores | 0.5 GiB | 20 GiB |
-| S | 0.5 cores | 1 GiB | 20 GiB |
+| XS | 0.25 cores | 0.5 GiB | 5 GiB |
+| S | 0.5 cores | 1 GiB | 10 GiB |
 | M (default) | 1 core | 2 GiB | 20 GiB |
 | L | 2 cores | 4 GiB | 40 GiB |
 | XL | 4 cores | 8 GiB | 80 GiB |
 | 2XL | 8 cores | 16 GiB | 160 GiB |
 | 3XL | 16 cores | 32 GiB | 320 GiB |
 
-## Considerations
-
-Consider these points when working with sandboxes:
-
-- **Entra ID required**: Only Microsoft Entra ID accounts can access sandboxes. Personal Microsoft accounts aren't supported.
-- **Networking controls**: You can configure egress policies to control outbound traffic from sandboxes, including domain-based allow or deny rules, CIDR-based network rules, and VNet integration.
-
 ## Sandboxes vs. dynamic sessions
 
-Sandboxes and [dynamic sessions](./sessions.md) both provide isolated compute environments in Container Apps, but they serve different needs.
+For new projects, consider Azure Container Apps Sandboxes instead of [dynamic sessions](./sessions.md), especially when you need programmable control over isolated compute with persistent state. Sandboxes provide on-demand environments for AI agents, with hardware-level isolation, sub-second startup, and suspend and resume. When configured, rule-based egress policies help contain risky or unintended agent actions and limit access to your infrastructure and data.
+
+Dynamic sessions offer a managed execution experience in which a session pool handles allocation and lifecycle. The following table compares the two options.
 
 | | Dynamic sessions | Sandboxes |
 |---|---|---|
 | **Access pattern** | HTTP request routing through a session pool management endpoint | Direct SDK and CLI control over individual sandboxes |
 | **State** | Ephemeral, destroyed after cooldown | Stateful with suspend, resume, and snapshots |
-| **Developer control** | Pool manages allocation and lifecycle | You manage sandbox lifecycle, files, ports, and policies |
-| **Image model** | Code interpreter (built-in) or custom container | Disk images (OCI), snapshots, content packages |
-| **Persistent storage** | Not available | Volumes (Azure Blob, Data Disk) |
-| **Networking** | Basic isolation | Egress policies, VNet integration, port management |
-| **SDKs** | REST API through pool endpoint | Python SDK (`azure-containerapps-sandbox`) and REST API |
-
-Choose dynamic sessions when you need a managed execution experience that abstracts infrastructure. Choose Sandboxes when you need programmable control over isolated compute with state persistence.
+| **Developer control** | Pool manages allocation and lifecycle | You manage sandbox lifecycle, files, network ingress and egress policies, and other properties |
+| **Image model** | Code interpreter (built-in) or custom container | Microsoft-managed or your custom disk images, and snapshots |
+| **Persistent storage** | Not available | Volumes (Azure Blob, Azure Blob BYO, Data Disk) |
+| **Networking** | Basic isolation | Egress policies with credential injection, VNet integration, ingress ports |
+| **SDKs** | REST API through pool endpoint | [Python, TypeScript, and .NET SDKs](https://sandboxes.azure.com/docs/sandboxes) and REST API |
 
 ## Related content
 

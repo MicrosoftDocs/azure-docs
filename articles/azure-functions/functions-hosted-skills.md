@@ -1,8 +1,8 @@
 ---
-title: Azure Functions hosted skills
+title: What are Azure Functions hosted skills?
 description: "Add AI reasoning to your function apps with Azure Functions hosted skills. Define behavior in Markdown, respond to events, and connect to tools and services."
 ms.topic: concept-article
-ms.date: 10/01/2026
+ms.date: 10/19/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -12,7 +12,7 @@ ms.collection:
 #Customer intent: As a developer, I want to understand Azure Functions hosted skills so that I can add AI reasoning to my event-driven function apps.
 ---
 
-# Azure Functions hosted skills
+# What are Azure Functions hosted skills?
 
 Azure Functions hosted skills let you add AI reasoning to your function apps. In an `.agent.md` file, you provide natural-language instructions, a trigger configuration, and optional tool bindings. When an event fires, the runtime calls a model, runs any tools the model requests, and returns a result. You deploy the app like any other function app.
 
@@ -24,6 +24,8 @@ To get started, choose the experience that matches your goal:
 + To provision Azure resources and deploy a complete hosted skills app by
   using the Azure Developer CLI (`azd`), see [Build an event-driven AI app with
   Azure Functions hosted skills](scenario-hosted-skills.md).
++ To convert supported local coding-agent automation, see
+  [Migrate local agent workflows to Azure Functions hosted skills](functions-hosted-skills-migrate.md).
 
 For the most up-to-date and comprehensive runtime documentation, see [Azure Functions Agents Runtime](https://azure.github.io/azure-functions-agents-runtime/).
 
@@ -41,6 +43,8 @@ Use Azure Functions hosted skills when a business event needs AI reasoning befor
 + **Serve a domain-specific MCP tool.** An external agent or agent harness calls a hosted skill through HTTP or MCP. The hosted skill applies AI logic to data in storage or a database and returns a structured response, acting as a smart, domain-specific tool that other AI clients can consume.
 
 Hosted skills are a good fit when you need event-driven triggers, AI reasoning with tools, and the operational features of Azure Functions (managed identity, monitoring, scale-to-zero, and virtual network integration).
+
+For examples that combine events, AI reasoning, and business systems, see [Azure Functions hosted skills scenarios](functions-hosted-skills-scenarios.md).
 
 ## Why use Functions for your AI apps?
 
@@ -63,7 +67,7 @@ Choose the Azure capability that best fits your scenario:
 | Scenario | Option |
 | --- | --- |
 | Expose deterministic functions as tools for another AI client | [Azure Functions MCP extension](functions-create-ai-enabled-apps.md) |
-| Long-running, multi-step orchestration with human-in-the-loop approvals | [Durable Functions](../durable-task/durable-functions/durable-functions-overview.md) |
+| Long-running, multistep orchestration with human-in-the-loop approvals | [Durable Functions](../durable-task/durable-functions/durable-functions-overview.md) |
 | Create and manage AI agents without custom hosting | [Microsoft Foundry](/azure/ai-foundry/agents/overview) or [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) |
 
 ## Project definition
@@ -77,6 +81,9 @@ An Azure Functions hosted skills app is a standard Python v2 function app projec
 | `requirements.txt` | Includes the hosted skills runtime package and any app-specific Python dependencies. |
 
 For more information, see the [Azure Functions developer reference guide for Python apps](./functions-reference-python.md#folder-structure).
+
+> [!IMPORTANT]
+> Azure Functions hosted skills support only HTTP streaming functions. Any other HTTP functions in the same hosted skills app must also use streaming. Combining streaming and non-streaming HTTP functions within the same app isn't supported. For more information, see [HTTP streams in Python](functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1).
 
 ## Hosted skills project files
 
@@ -193,9 +200,13 @@ For the latest configuration details, telemetry fields, and usage guidance, use 
 
 + [Observability in azure-functions-agents-runtime](https://github.com/Azure/azure-functions-agents-runtime/blob/main/docs/observability.md)
 
+For monitoring setup, KQL queries, token usage, latency, and connector checks, see [Monitor and troubleshoot hosted skills](functions-hosted-skills-monitor-troubleshoot.md).
+
 ## Related content
 
++ [Azure Functions hosted skills scenarios](functions-hosted-skills-scenarios.md)
 + [Azure Functions Agents Runtime documentation](https://azure.github.io/azure-functions-agents-runtime/)
++ [Azure Functions hosted skills developer guide](functions-hosted-skills-developer-guide.md)
 + [Azure Functions hosted skills reference](functions-hosted-skills-reference.md)
 + [Build and test a hosted skill with the Azure Functions hosted skills canvas](functions-hosted-skills-canvas.md)
 + [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)

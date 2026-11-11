@@ -1,8 +1,8 @@
 ---
 title: Azure IoT device and service SDKs
 description: A list of the IoT SDKs and libraries. Includes SDKs for device development and SDKs for building service applications.
-author: sethmanheim
-ms.author: sethm
+author: jesusbar
+ms.author: jesusbar
 ms.service: azure-iot-hub
 ms.topic: reference
 ms.date: 09/22/2026
@@ -14,7 +14,8 @@ ai-usage: ai-assisted
 
 This reference lists the Azure SDKs you can use to build IoT solutions, including device, service, and management SDKs for IoT Hub and Device Provisioning Service (DPS), and links to Azure Digital Twins control plane and data plane APIs.
 
-Looking ahead, the [unified Azure IoT SDKs (preview)](../iot/device-registry/concept-unified-iot-sdks.md) bring these device and service capabilities together across IoT Hub and Azure Device Registry.
+> [!NOTE]
+> If your devices use IoT Hub and Device Provisioning Service (DPS) instances that are integrated with Azure Device Registry, see [unified Azure IoT SDKs (preview)](../iot/device-registry/concept-unified-iot-sdks.md). The unified SDKs are separate .NET and C device SDKs that combine provisioning, connectivity, credential management, and device operations in one programming model. For IoT Hub and DPS deployments that aren't integrated with Azure Device Registry, continue to use the device SDKs listed in this article.
 
 ## Device SDKs
 

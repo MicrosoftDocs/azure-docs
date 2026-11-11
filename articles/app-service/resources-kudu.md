@@ -42,6 +42,10 @@ It also provides features like these:
 - Generate [custom deployment scripts](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 - Allow access with a [REST API](https://github.com/projectkudu/kudu/wiki/REST-API).
 
+For Linux Kudu `POST /api/command`, don't assume semicolon-chained commands are implicitly interpreted as shell syntax. Prefer separate requests for diagnostic commands. Don't concatenate untrusted input into command strings; explicitly invoking a shell adds parsing and command-injection risk.
+
+An HTTP success response doesn't establish remote command success. Inspect `Output` and `Error`, and require a valid `ExitCode` of `0` to confirm success.
+
 For Linux apps, Kudu also provides an authenticated proxy for container access without requiring an SSH server or an embedded SSH password in a custom image. The preview `az webapp exec` command opens a shell in the main app container, or in the Kudu container with `--target kudu`. These are separate environments. Detached execution targets only the main app container. For examples and limitations, see [Open a container shell (SSH) and run commands](configure-linux-open-ssh-session.md?pivots=container-linux).
 
 ## RBAC permissions required to access Kudu

@@ -24,7 +24,7 @@ To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overvi
 Before you can view events metrics, ensure you have the following:
 
 - An Azure subscription. If you don't have one, you can create a free account at [https://azure.com/free](https://azure.com/free).
-- An Azure Health Data Services workspace with with at least one event subscription configured to send events to an [Azure Event Hubs](events-deploy-portal.md) instance.
+- An Azure Health Data Services workspace with at least one event subscription configured to send events to an [Azure Event Hubs](events-deploy-portal.md) instance.
 
 ## View events metrics
 

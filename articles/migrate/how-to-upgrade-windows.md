@@ -56,9 +56,7 @@ Windows Server 2019 | Windows Server 2022
 
 To upgrade Windows during the test migration, follow these steps:
 
-1. In your Azure Migrate project, go to **Execute > Migrations**, and select **Start execution**. [Learn more](execute-server-migrations.md#execute-migrations) about how to start execution for servers you want to migrate.
-
-1. In the **Migrations** page, select the windows server for which you want to upgrade OS which is currently in **Testing** stage, select **Testing** drop-down menu and select **Start test migration**.
+1. In the **Server replication** page, select the Windows server for which you want to upgrade OS and select **Test migration**.
 
 1. Select the **Upgrade available** option.
 1. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**.
@@ -70,13 +68,13 @@ To upgrade Windows during the test migration, follow these steps:
 
    You can now use this server with upgraded OS to complete any application testing. The original server continues running on-premises without any impact while you test the newly upgraded server in an isolated environment.   
 
-1. After the test is done, select **Testing** drop-down from server, and then select **Clean up test migration**. This deletes the test VM and any resources associated with it.  
+1. After the test is done, select **Clean up test migration**. This action deletes the test VM and any resources associated with it.  
 
 ## Upgrade Windows OS during migration
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines. To upgrade Windows during the migration, follow these steps:
 
-1.  In the **Migrations** page, select the windows server for which you want to upgrade OS which is currently in **Testing** or **Completion** stage, select **Completion** drop-down menu and select **Migrate**.
+1.  In the **Server replication** page, select the Windows server for which you want to upgrade the OS, and then select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.  
    - By default, Azure Migrate shuts down the on-premises VM to ensure minimum data loss.  
    - If you don't want to shut down the VM, select No.  

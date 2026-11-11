@@ -4,7 +4,7 @@ description: Compare Azure confidential computing offerings across virtual machi
 author: sgallagher
 ms.service: azure-confidential-computing
 ms.topic: overview
-ms.date: 10/27/2026
+ms.date: 11/09/2026
 ms.author: sgallagher
 # Customer intent: As an IT security professional, I want to evaluate Azure's confidential computing offerings, so that I can ensure robust data protection and compliance for sensitive workloads in the cloud.
 ---
@@ -100,7 +100,7 @@ Related security capabilities include:
 
 The portfolio also includes new integrations for migrating and protecting confidential VM workloads:
 
-- **New: Azure Migrate support for confidential VMs (public preview)**: [Migrate on-premises Windows and Linux VMs to Azure confidential VMs](https://techcommunity.microsoft.com/blog/azureinfrastructureblog/migrating-on-prem-windows--linux-vms-to-azure-confidential-virtual-machines-via-/4500898) by using Azure Migrate.
+- **Azure Migrate support for confidential VMs (generally available)**: [Migrate on-premises Windows and Linux VMs to Azure confidential VMs](/azure/migrate/migrate-to-trusted-launch-virtual-machines-with-azure-migrate) by using Azure Migrate.
 - **New: Azure Backup support for confidential VMs (public preview)**: [Back up confidential VMs by using Azure Backup](/azure/backup/confidential-vm-backup) to protect supported OS-disk encrypted confidential VMs with platform-managed or customer-managed keys. Review the product support matrix for supported VM series, regions, and backup and restore capabilities.
 
 ## What's new in Azure confidential computing

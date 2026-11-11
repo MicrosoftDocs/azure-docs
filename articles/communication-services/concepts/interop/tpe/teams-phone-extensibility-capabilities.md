@@ -79,7 +79,8 @@ The following list of capabilities is supported for scenarios where at least one
 | | Provide a statically registered emergency address for Teams Calling Plans, Operator Connect, and Direct Routing for emergency calls | ✔️ | N/A |
 | Roster management  | List call participants | ✔️  | ✔️  |
 | | Adding Teams user honors Teams federation & external access configuration (tenant to tenant federation) | ❌ | ❌ |
-| Recording | Teams convenience and compliance recording | ❌  | ❌  |
+| Recording | Teams convenience and compliance recording with dual persona user | ❌  | ❌  |
+| | Teams convenience and compliance recording on Teams standard client is supported for TPE calls | N/A | N/A |
 | | Azure Communication Services Recording | ✔️ | ✔️ |
 | Conversational AI | Developers can use the Recognize API to build conversational AI experiences in their IVRs or conversational AI bots. Recognize API uses Azure AI Speech models for speech recognition (speech-to-text) | N/A | ✔️ |
 | | Developers can use their custom AI models when using the Recognize API so that industry/organization specific speech recognition can be used for conversational AI experiences. Recognize API would use custom AI Speech models for speech recognition (speech-to-text) | N/A | ✔️  |

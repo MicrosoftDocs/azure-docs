@@ -440,7 +440,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```json
     [
     	{
-    		"uri": "eml:///dataspace('demo/Volve')/resqml20.obj_Grid2dRepresentation(07cb9ebb-299f-469b-9792-e76633a72b89)",
+    		"uri": "eml:///dataspace('demo/Volve')/resqml20.obj_Grid2dRepresentation(aaaabbbb-0000-cccc-1111-dddd2222eeee)",
     		"alternateUris": [],
     		"name": "ConvHugin_Fm_Base",
     		"lastChanged": "2019-01-03T17:11:21.000Z",
@@ -479,11 +479,11 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     
     **Sample Request**
     
-    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/volve`. You want to get details of object type `Grid2dRepresentation` with data object guid `07cb9ebb-299f-469b-9792-e76633a72b89`
+    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/volve`. You want to get details of object type `Grid2dRepresentation` with data object guid `aaaabbbb-0000-cccc-1111-dddd2222eeee`
     
     ```bash
     curl --request GET \
-      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89 \
+      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/aaaabbbb-0000-cccc-1111-dddd2222eeee \
       --header 'Authorization: Bearer ey.....' \
       --header 'data-partition-id: dp1'
     ```
@@ -493,7 +493,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     	{
     		"$type": "resqml20.obj_Grid2dRepresentation",
     		"SchemaVersion": "2.0",
-    		"Uuid": "07cb9ebb-299f-469b-9792-e76633a72b89",
+    		"Uuid": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     		"Citation": {
     			"$type": "eml20.Citation",
     			"Title": "ConvHugin_Fm_Base",
@@ -582,10 +582,10 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```
     **Sample Request**
     
-    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/Volve`. You want to get arrays of object type `Grid2dRepresentation` with data object guid `07cb9ebb-299f-469b-9792-e76633a72b89`
+    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/Volve`. You want to get arrays of object type `Grid2dRepresentation` with data object guid `aaaabbbb-0000-cccc-1111-dddd2222eeee`
     ```bash
     curl --request GET \
-      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/arrays \
+      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/aaaabbbb-0000-cccc-1111-dddd2222eeee/arrays \
       --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```
@@ -595,7 +595,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     	{
     		"uid": {
     			"uri": "eml:///dataspace('demo/Volve')/eml20.obj_EpcExternalPartReference(53395ada-6f93-4bac-b506-d45997ded2a2)",
-    			"pathInResource": "/RESQML/07cb9ebb-299f-469b-9792-e76633a72b89/points_patch0"
+    			"pathInResource": "/RESQML/aaaabbbb-0000-cccc-1111-dddd2222eeee/points_patch0"
     		},
     		"dimensions": [
     			401,
@@ -619,10 +619,10 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```
     **Sample Request**
     
-    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/Volve`. You want to get array with path is resource as `RESQML/07cb9ebb-299f-469b-9792-e76633a72b89/points_patch0` of object type `Grid2dRepresentation` with data object guid `07cb9ebb-299f-469b-9792-e76633a72b89`.
+    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/Volve`. You want to get array with path is resource as `RESQML/aaaabbbb-0000-cccc-1111-dddd2222eeee/points_patch0` of object type `Grid2dRepresentation` with data object guid `aaaabbbb-0000-cccc-1111-dddd2222eeee`.
     ```bash
     curl --request GET \
-      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/arrays/RESQML%2F07cb9ebb-299f-469b-9792-e76633a72b89%2Fpoints_patch0 \
+      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/aaaabbbb-0000-cccc-1111-dddd2222eeee/arrays/RESQML%2Faaaabbbb-0000-cccc-1111-dddd2222eeee%2Fpoints_patch0 \
       --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```
@@ -630,8 +630,8 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```json
     {
     	"uid": {
-    		"uri": "eml:///dataspace('demo/Volve')/resqml20.obj_Grid2dRepresentation(07cb9ebb-299f-469b-9792-e76633a72b89)",
-    		"pathInResource": "RESQML/07cb9ebb-299f-469b-9792-e76633a72b89/points_patch0"
+    		"uri": "eml:///dataspace('demo/Volve')/resqml20.obj_Grid2dRepresentation(aaaabbbb-0000-cccc-1111-dddd2222eeee)",
+    		"pathInResource": "RESQML/aaaabbbb-0000-cccc-1111-dddd2222eeee/points_patch0"
     	},
     	"data": {
     		"data": [
@@ -663,10 +663,10 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```
     **Sample Request**
     
-    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/Volve`. You want to get all the other objects a particular object with guid `07cb9ebb-299f-469b-9792-e76633a72b89` is referencing.
+    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/Volve`. You want to get all the other objects a particular object with guid `aaaabbbb-0000-cccc-1111-dddd2222eeee` is referencing.
     ```bash
     curl --request GET \
-      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/sources \
+      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/aaaabbbb-0000-cccc-1111-dddd2222eeee/sources \
       --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```
@@ -711,10 +711,10 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```
     **Sample Request**
     
-    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/Volve`. You want to get all the other objects that are referencing a particular object with guid `07cb9ebb-299f-469b-9792-e76633a72b89`.
+    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1` and data space name is `demo/Volve`. You want to get all the other objects that are referencing a particular object with guid `aaaabbbb-0000-cccc-1111-dddd2222eeee`.
     ```bash
     curl --request GET \
-      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/targets \
+      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/aaaabbbb-0000-cccc-1111-dddd2222eeee/targets \
       --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```

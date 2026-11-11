@@ -15,6 +15,8 @@ ms.author: v-mallicka
 
 This article describes how to use Azure PowerShell to [back up and recover a SQL database within an Azure VM using Azure Backup](backup-azure-recovery-services-vault-overview.md) in a Recovery Services vault.
 
+For task-specific guidance that also covers SQL Server instance snapshot backups, see [Backup](backup-azure-sql-vm-powershell.md), [Restore](restore-azure-sql-vm-powershell.md), and [Manage](manage-azure-sql-vm-powershell.md) with PowerShell.
+
 ## Prerequisites
 
 Before you back up and restore SQL databases in Azure VMs with PowerShell, ensure that the following prerequisites are met:
@@ -581,7 +583,7 @@ MSSQLSERVER/m... Restore              InProgress           3/17/2019 10:02:45 AM
 Once backup has been enabled for a DB, you can also trigger an on-demand backup for the DB using [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) PowerShell cmdlet. The following example triggers a copy-only-full backup on a SQL DB with compression enabled and the copy-only-full backup should be retained for 60 days.
 
 > [!Note]
-> Copy-only-full backups are ideal for long term retention since they don't have any dependencies on other backup types such as logs. A 'Full' backup is treated as a parent of subsequent log backups and hence it's retention is tied to log retention in policy. Therefore, the customer provided expiry time is honored for copy-only-full backups and not for 'full' backups. A full backup retention time is set automatically for 45 days from the current time. It is also documented [here](manage-monitor-sql-database-backup.md#run-an-on-demand-backup-for-sql-server-database).
+> Copy-only-full backups are ideal for long term retention since they don't have any dependencies on other backup types such as logs. A 'Full' backup is treated as a parent of subsequent log backups and hence its retention is tied to log retention in policy. Therefore, the customer provided expiry time is honored for copy-only-full backups and not for 'full' backups. A full backup retention time is set automatically for 45 days from the current time. It is also documented [here](manage-monitor-sql-database-backup.md#run-an-on-demand-backup-for-sql-server-database).
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $testVault.ID

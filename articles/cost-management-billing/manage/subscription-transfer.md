@@ -1,13 +1,13 @@
 ---
 title: Azure product transfer hub
 description: This article helps you understand the Azure subscription, reservation, and savings plan transfer requirements and support. This article also provides links to other articles for more detailed information.
-author: Nicholak-MS
+author: ChrisLodwig
 ms.author: clodwig
 ms.reviewer: clodwig
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 10/16/2026
+ms.date: 10/30/2026
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
@@ -83,15 +83,15 @@ Currently transfer isn't supported for [Free Trial](https://azure.microsoft.com/
 Dev/Test products aren't shown in the following table. Transfers for Dev/Test products are handled in the same way as other product types. For example, an EA Dev/Test product transfer is handled in the way an EA product transfer.
 
 > [!NOTE]
-> Reservations and savings plans transfer with most supported product transfers. However, there are some transfers where reservations or savings plans won't transfer, as noted in the following table. For transfer with currency change, refer to the Transfer Reservations and Savings Plans with currency change section below.
+> Reservations and savings plans transfer with most supported product transfers. However, there are some transfers where reservations or savings plans won't transfer, as noted in the following table. Read the [currency change considerations](#transfer-reservations-and-savings-plans-with-currency-change) along with the table, even when a row says that transfers are supported.
 
 | Source (current) product agreement type | Destination (future) product agreement type | Notes |
 | --- | --- | --- |
 | EA | MOSP (pay-as-you-go) | • Transfer from an EA enrollment to a MOSP subscription requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
-| EA | MCA-online | • For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation and savings plan transfers with no currency change are supported. <br><br> • If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), refer to the Transfer Reservations and Savings Plans with currency change section below. |
+| EA | MCA-online | • For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation and savings plan transfers with no currency change are supported. <br><br> • If your enrollment transfer (for example, EA to MCA, MCA to MCA) involves a change in pricing currency (for example, EUR to USD), refer to the Transfer Reservations and Savings Plans with currency change section. |
 | EA | EA | • Transferring between EA enrollments requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/).<br><br> •  Reservations and savings plans automatically get transferred during EA to EA transfers, except in transfers with a currency change.<br><br>  •  Transfer within the same enrollment is the same action as changing the account owner. For details, see [Change Azure subscription or account ownership](direct-ea-administration.md#change-azure-subscription-or-account-ownership). |
-| EA | MCA-E | •  Transferring all enrollment products is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md).<br><br>• For details about how to transfer an EA enrollment to a Microsoft Customer Agreement (enterprise), see [Set up your billing account for a Microsoft Customer Agreement](mca-setup-account.md). <br><br> •  If you want to transfer specific products but not all of the products in an enrollment, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <br><br>•  Self-service reservation and savings plan transfers with no currency change are supported. <br><br> • If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), refer to the Transfer Reservations and Savings Plans with currency change section below. |
-| EA | CSP (MCA managed by partner) | • If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), refer to the Transfer Reservations and Savings Plans with currency change section below. <br><br> • Transfers are supported for CSP authorized Direct Bill partners with an Azure Solutions Partner designation or Azure Expert MSP status, and CSP authorized distributors with a Frontier Distributor designation can request to transfer Azure products for their customers that have an Enterprise Agreement (EA). For more information, see [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Product transfers are allowed only for customers that accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program.<br><br> • There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.yml). |
+| EA | MCA-E | •  Transferring all enrollment products is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md).<br><br>• For details about how to transfer an EA enrollment to a Microsoft Customer Agreement (enterprise), see [Set up your billing account for a Microsoft Customer Agreement](mca-setup-account.md). <br><br> •  If you want to transfer specific products but not all of the products in an enrollment, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <br><br>•  Self-service reservation and savings plan transfers with no currency change are supported. <br><br> • If your enrollment transfer (for example, EA to MCA, MCA to MCA) involves a change in pricing currency (for example, EUR to USD), refer to the Transfer Reservations and Savings Plans with currency change section. |
+| EA | CSP (MCA managed by partner) | • If your enrollment transfer (for example, EA to MCA, MCA to MCA) involves a change in pricing currency (for example, EUR to USD), refer to the Transfer Reservations and Savings Plans with currency change section. <br><br> • Transfers are supported for CSP authorized Direct Bill partners with an Azure Solutions Partner designation or Azure Expert MSP status, and CSP authorized distributors with a Frontier Distributor designation can request to transfer Azure products for their customers that have an Enterprise Agreement (EA). For more information, see [Get billing ownership of Azure subscriptions to your MPA account](mpa-request-ownership.md). Product transfers are allowed only for customers that accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program.<br><br> • There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.yml). |
 | MCA-online | MOSP (pay-as-you-go) | •  Microsoft doesn't support the transfer, so you must move resources yourself. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
 | MCA-online | MCA-online | • For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation and savings plan transfers are supported. |
 | MCA-online (Individual billing account) | EA | • Supported. When the identity that originated the Individual billing account is added as an EA account owner and activates the account, all subscriptions on any account that has that user's identity as its backing entity (as opposed to a business) move to the EA.<br><br> **Note:** The conversion is all or nothing and can't be reversed. For details, see [Transfer MCA-Online subscriptions to an Enterprise Agreement](mca-online-ea-transfer.md).<br><br> •  Reservations and savings plans don't necessarily transfer automatically. Because the whole account moves, you can't leave products behind. Review the product behaviors in [Transfer Reservations and Savings Plans with currency change](#transfer-reservations-and-savings-plans-with-currency-change). |
@@ -114,24 +114,50 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 | MOSP (pay-as-you-go) | MCA-E | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported. |
 
 ### Transfer Reservations and Savings Plans with currency change
-Self-service reservation and savings plan transfers with no pricing or billing currency change are supported if the channel and audience permits. In this case, the existing payment plan will continue.
 
-**Reservation**: 
-- Transfer of reservations with only **pricing currency** change is supported. 
-- If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in **billing currency** (e.g. EUR to USD) from billing group, the transfer will proceed. However, if the reservation has monthly or flexible payment plan, the billing plan will be cancelled at next billing cycle. If the reservation has an upfront payment, there will be no impact on the reservation. 
+These currency considerations apply only to transfers supported in the [product transfer support table](#product-transfer-support). The table shows whether the source and destination agreement types and transfer method support the transfer. The following guidance describes currency-related product behavior for those supported transfers; it doesn't determine transfer eligibility.
 
-**Savings Plan**:
-- Savings plan transfers that involve a change in **pricing currency** (e.g. EUR to USD) are permitted only when the transfer is from EA to MCA-E, MCA-online, or CSP (MCA managed by partner), **and** the original pricing currency is non-USD. In these cases, there are two options:
-    - Choose to have all savings plans automatically canceled in the source account and repurchased in the destination account as 1-year plans.
-        - Newly purchased savings plans will have:
-          - A USD-equivalent commitment. For example, assuming a €1:$1.17 exchange rate, a €5/hr. plan will be replaced by a $5.85/hr. plan.
-          - Monthly billing frequency, regardless of the original billing frequency.
-        - Canceled savings plans will result in a prorated refund.
-        - If the original savings plan has a 1-year term, the new plan will provide identical savings.
-        - One-year savings plans provide less savings than 3-year savings plans because of the discount differences between the terms. To retain the 3-year discount, don't proceed with the automatic cancellation option.
-    - If you want to retain the discount level of a 3-year savings plan, contact Azure support immediately for assistance purchasing new 1-year and 3-year savings plans in the destination account and canceling savings plans in the source account.
+Pricing currency is the currency used to price a product commitment. Billing currency is the currency used to bill you. Azure reservations and Savings Plans under MCA are priced in USD. Their billing currency can differ.
 
-- If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in **billing currency** (e.g. EUR to USD) from billing group, the transfer will proceed. If the savings plan has monthly or flexible payment plan, the billing plan will be cancelled at next billing cycle. If the savings plan has an upfront payment, there will be no impact on the savings plan. 
+**Which process are you using?**
+
+- For an EA-to-MCA enrollment migration completed by following [Set up your billing account for a Microsoft Customer Agreement](mca-setup-account.md), use the migration-specific Savings Plan outcomes below. Reservation outcomes are in the general matrix.
+- For an individual product-transfer request or another supported transfer process, use the general matrices only after confirming transfer eligibility. An individual transfer request can't transfer a non-USD-priced Savings Plan; the request displays a warning directing you to contact Azure support. Don't apply the migration-specific Savings Plan outcomes to these processes.
+
+**EA-to-MCA enrollment migration: Savings Plans**
+
+| Original Savings Plan pricing currency | Outcome during the EA-to-MCA enrollment migration |
+|---|---|
+| USD | The Savings Plan transfers to the new MCA billing account and remains active. |
+| Non-USD | The existing Savings Plan can't transfer directly as-is. Use one of these replacement approaches:<br><br>**Automatic replacement:** During the transfer, the existing EA Savings Plan is automatically canceled and replaced with a new one-year Savings Plan. The new plan's commitment is exactly the USD equivalent of the outstanding balance of the original plan, and the new plan is billed monthly.<br><br>**Support-assisted replacement:** With Azure Support assistance, purchase a new MCA Savings Plan with a commitment equal to or greater than the USD equivalent of the outstanding balance of the existing EA plan. Then submit an [Azure Support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to cancel the original EA plan. This option allows you to purchase a new three-year Savings Plan. |
+
+Both replacement Savings Plans are priced in USD and start a new commitment term. The remaining term of the original EA plan doesn't carry over. For more information about the migration process, see [Set up your billing account for a Microsoft Customer Agreement](mca-setup-account.md#savings-plan-transfers-with-a-non-usd-billing-currency).
+
+If automatic replacement creates a new one-year Savings Plan with monthly payments and you want a three-year term, contact [Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) after migration to request cancellation of that new MCA plan and purchase of a new three-year MCA Savings Plan. This is separate from support-assisted replacement of the original EA plan.
+
+**Other supported transfer processes**
+
+**Reservations**
+
+| Pricing currency changes | Billing currency changes | Monthly payment plan | Upfront payment |
+|---|---|---|---|
+| No | No | The reservation continues. | The reservation continues. |
+| Yes | No | The reservation continues. | The reservation continues. |
+| No | Yes | The reservation is canceled at its next scheduled payment. | The reservation continues. |
+| Yes | Yes | The reservation is canceled at its next scheduled payment. | The reservation continues. |
+
+**Savings Plans**
+
+| Pricing currency changes | Billing currency changes | Monthly payment plan | Upfront payment |
+|---|---|---|---|
+| No (Within ASPs Purchased in USD) | No | The Savings Plan continues. | The Savings Plan continues. |
+| Yes (from non-USD to USD) | No | Cancellation is initiated automatically during transfer processing. | Cancellation is initiated automatically during transfer processing. |
+| No (Within ASPs Purchased in USD) | Yes | The Savings Plan is canceled at its next scheduled payment. | The Savings Plan remains active. |
+| Yes (from non-USD to USD) | Yes | Cancellation is initiated automatically during transfer processing. | Cancellation is initiated automatically during transfer processing. |
+
+For an eligible transfer processed by a supported transfer action, a Savings Plan pricing-currency change initiates cancellation automatically during transfer processing; a customer-submitted support request isn't required to initiate this cancellation. This describes when cancellation is initiated, not when it finishes; completion isn't guaranteed to be synchronous. When both currencies change, pricing-currency cancellation behavior takes precedence over billing-currency payment timing. This guidance describes product behavior and doesn't establish transfer eligibility. Canceling a reservation or Savings Plan doesn't by itself mean that the subscription transfer is rejected.
+
+If you can't determine the currency change consequences for your supported transfer, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) before transferring.
 
 ## Perform resource transfers
 
@@ -331,7 +357,7 @@ Azure Marketplace products transfer along with their respective subscriptions. S
 
 ### Azure Reservations transfer
 
-If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations automatically move with the subscriptions.
+Reservation transfer eligibility depends on the source and destination agreement types and any pricing or billing currency change. Check the [product transfer support table](#product-transfer-support) and [currency change considerations](#transfer-reservations-and-savings-plans-with-currency-change). When using a product transfer request to an MCA, [select the reservations to transfer](mca-request-billing-ownership.md#review-and-approve-transfer-request); don't assume that transferring a subscription also transfers every reservation that benefits it.
 
 ### Access to Azure services
 

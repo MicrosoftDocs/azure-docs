@@ -1,0 +1,30 @@
+- name: Azure in China Playbook
+  href: index.yml
+- name: Overview
+  items: 
+  - name: Azure in China checklist
+    href: overview-checklist.md
+  - name: What is Azure in China
+    href: overview-operations.md
+  - name: Azure in China datacenters
+    href: overview-datacenter.md
+  - name: Data sovereignty & China regulations
+    href: overview-sovereignty-and-regulations.md
+  - name: Cross-border connectivity
+    href: overview-connectivity-and-interoperability.md
+- name: Concepts
+  items:
+  - name: Purchase
+    href: concepts-purchase.md
+  - name: Support
+    href: concepts-support.md
+  - name: Service availability and roadmaps
+    href: concepts-service-availability.md
+  - name: Remote management
+    href: concepts-management.md
+- name: Resources
+  items:
+    - name: Azure in China developer guide
+      href: resources-developer-guide.md
+    - name: Azure in China FAQ
+      href: resources-faq.yml

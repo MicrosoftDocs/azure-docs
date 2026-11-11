@@ -78,6 +78,8 @@ You also need these prerequisites to [run and debug your functions locally](#run
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.
 
 + [.NET (CLI)](/dotnet/core/tools/), which is included in the .NET SDK.
+
+  Install the SDK for a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions) and update the Azure Functions extension, Core Tools, and templates to support your target version. For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).

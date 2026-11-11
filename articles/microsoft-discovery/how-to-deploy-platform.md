@@ -85,4 +85,4 @@ For topology failures, missing UAMI roles, outbound AKS failures, and safe recre
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Verify the onboarding deployment (upstream guide)](https://github.com/microsoft/discovery/blob/main/utilities/onboarding-tool/scripts/USER-GUIDE.md)
+> [Verify the onboarding deployment](how-to-verify-deployment.md)

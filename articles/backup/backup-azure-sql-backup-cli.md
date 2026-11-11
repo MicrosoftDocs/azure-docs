@@ -102,7 +102,7 @@ az backup protectable-item list --resource-group SQLResourceGroup \
     --vault-name SQLVault \
     --workload-type SQLDataBase \
 	--backup-management-type AzureWorkload \
-	--protectable-item-type SQLDataBase
+	--protectable-item-type SQLDataBase \
     --output table
 ```
 
@@ -118,7 +118,7 @@ sqldatabase;mssqlserver;msdb        SQLDataBase              MSSQLServer   testS
 
 Now, configure backup for the *sqldatabase;mssqlserver;master* database.
 
-To configure and protect backups on a database, one at a time, use the [az backup protection enable-for-azurewl](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl) command. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) command. For this article, we've used the *testSQLPolicy* policy.
+To configure and protect backups on a database, use the [az backup protection enable-for-azurewl](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl) command. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) command. For this article, we use the *SQLPolicy* policy.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group SQLResourceGroup \
@@ -179,11 +179,11 @@ To trigger an on-demand backup, use the [az backup protection backup-now](/cli/a
 
 ```azurecli-interactive
 az backup protection backup-now --resource-group SQLResourceGroup \
-    --item-name sqldatabase;mssqlserver;master \
+    --item-name "sqldatabase;mssqlserver;master" \
     --vault-name SQLVault \
-    --container-name VMAppContainer;Compute;SQLResourceGroup;testSQLVM \
-    --backup-type Full
-    --retain-until 01-01-2040
+    --container-name "VMAppContainer;Compute;SQLResourceGroup;testSQLVM" \
+    --backup-type Full \
+    --retain-until 01-01-2040 \
     --output table
 ```
 
@@ -196,6 +196,171 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  sqlResourceGroup
 ```
 
 The response provides you the job name. You can use this job name to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) command.
+
+## Configure SQL instance snapshot backup
+
+The following snapshot examples use **PowerShell shell syntax**, including backticks for line continuation and array splatting for common CLI arguments. They aren't Bash scripts. Use an Azure CLI version that exposes the snapshot options shown here, and review the [snapshot support matrix](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios) and [snapshot prerequisites](back-up-sql-server-instance-snapshot.md).
+
+Replace all placeholders before running a command. Run only the intended operation; the examples are separate workflows, not a single script to execute in full.
+
+### Set up snapshot backup variables
+
+Use the subscription and resource group of the **vault**, even if the VM is in another subscription:
+
+```powershell
+$vaultSubscription = "<vault-subscription-id>"
+$vaultRg = "<vault-rg>"
+$vaultName = "<vault-name>"
+$sourceVm = "<source-vm-name>"
+$instanceName = "<instance-name>"
+$snapshotRg = "<snapshot-resource-group-name>"
+$uamiId = "/subscriptions/<subscription-id>/resourceGroups/<identity-rg>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"
+$vaultArgs = @("--subscription", $vaultSubscription, "--resource-group", $vaultRg, "--vault-name", $vaultName)
+
+az backup vault show --subscription $vaultSubscription --resource-group $vaultRg --name $vaultName
+```
+
+### Prepare snapshot policy files
+
+Set `$snapshotRg` to the actual snapshot resource group name. This example uses seven-day daily and log retention, with five-day instant snapshot retention. Daily and log retention must be at least seven days; instant snapshot retention is configured separately.
+
+Read the user-assigned managed identity and create the policy object:
+
+```powershell
+$identityJson = az identity show --ids $uamiId --output json
+if ($LASTEXITCODE -ne 0) { throw "Could not read the managed identity." }
+$identity = $identityJson | ConvertFrom-Json
+$snapshotTime = "2026-10-15T02:00:00Z"
+$policy = @{
+    properties = @{
+        backupManagementType = "AzureWorkload"
+        workLoadType = "SQLInstance"
+        vmWorkloadPolicyType = "SnapshotV2"
+        settings = @{ timeZone = "UTC"; issqlcompression = $false; isCompression = $false }
+        subProtectionPolicy = @(
+            @{
+                policyType = "SnapshotFull"
+                schedulePolicy = @{
+                    schedulePolicyType = "SimpleSchedulePolicy"
+                    scheduleRunFrequency = "Daily"
+                    scheduleRunTimes = @($snapshotTime)
+                }
+                retentionPolicy = @{
+                    retentionPolicyType = "LongTermRetentionPolicy"
+                    dailySchedule = @{
+                        retentionTimes = @($snapshotTime)
+                        retentionDuration = @{ count = 7; durationType = "Days" }
+                    }
+                }
+                snapshotBackupAdditionalDetails = @{
+                    instantRpRetentionRangeInDays = 5
+                    instantRPDetails = $snapshotRg
+                    userAssignedManagedIdentityDetails = @{
+                        identityArmId = $uamiId
+                        identityName = $identity.name
+                        userAssignedIdentityProperties = @{
+                            clientId = $identity.clientId
+                            principalId = $identity.principalId
+                        }
+                    }
+                }
+            },
+            @{
+                policyType = "Log"
+                schedulePolicy = @{
+                    schedulePolicyType = "LogSchedulePolicy"
+                    scheduleFrequencyInMins = 60
+                }
+                retentionPolicy = @{
+                    retentionPolicyType = "SimpleRetentionPolicy"
+                    retentionDuration = @{ count = 7; durationType = "Days" }
+                }
+            }
+        )
+    }
+}
+```
+
+Save the snapshot-and-log policy before removing the log subpolicy to create a separate snapshot-only file:
+
+```powershell
+$policy | ConvertTo-Json -Depth 100 |
+    Set-Content -Encoding utf8 ".\sqlinst-snaplog-policy.json"
+$policy.properties.subProtectionPolicy = @(
+    $policy.properties.subProtectionPolicy | Where-Object policyType -eq "SnapshotFull"
+)
+$policy | ConvertTo-Json -Depth 100 |
+    Set-Content -Encoding utf8 ".\sqlinst-snapshot-policy.json"
+```
+
+### Create snapshot policies
+
+Create the two policies from their respective files. Select the policy appropriate for your protection requirements when enabling backup:
+
+```powershell
+az backup policy create @vaultArgs --name "SqlInst-SnapLog" `
+    --backup-management-type AzureWorkload --workload-type SQLInstance `
+    --policy ".\sqlinst-snaplog-policy.json"
+
+az backup policy create @vaultArgs --name "SqlInst-SnapOnly" `
+    --backup-management-type AzureWorkload --workload-type SQLInstance `
+    --policy ".\sqlinst-snapshot-policy.json"
+
+az backup policy show @vaultArgs --name "SqlInst-SnapLog" --output json
+```
+
+### Register the VM for instance protection
+
+For a VM in another subscription, provide its resource ID and container subscription. The optional `--container-sub-id` alias can replace `--container-subscription-id`:
+
+```powershell
+az backup container register @vaultArgs `
+    --resource-id "/subscriptions/<vm-subscription-id>/resourceGroups/<vm-rg>/providers/Microsoft.Compute/virtualMachines/<vm-name>" `
+    --backup-management-type AzureWorkload --workload-type SQLInstance `
+    --container-subscription-id "<vm-subscription-id>"
+```
+
+### Discover protectable instances
+
+Discovery uses `MSSQL` for SQL components. List the components, filter the instances by server, then retrieve the intended instance:
+
+```powershell
+az backup protectable-item list @vaultArgs --workload-type MSSQL --output json
+az backup protectable-item list @vaultArgs --workload-type MSSQL `
+    --protectable-item-type SQLInstance --server-name $sourceVm --output json
+az backup protectable-item show @vaultArgs --workload-type MSSQL `
+    --protectable-item-type SQLInstance --name $instanceName --server-name $sourceVm --output json
+```
+
+### Enable snapshot protection
+
+Select the snapshot policy and the user databases to protect:
+
+```powershell
+az backup protection enable-for-azurewl @vaultArgs `
+    --policy-name "SqlInst-SnapLog" --workload-type SQLInstance `
+    --protectable-item-type SQLInstance --protectable-item-name $instanceName `
+    --server-name $sourceVm --child-database-names "Testdb1" "Testdb2" "Testdb4"
+```
+
+### Trigger an on-demand snapshot backup
+
+List the registered containers and protected items. Copy their exact native names rather than constructing them:
+
+```powershell
+az backup container list @vaultArgs --backup-management-type AzureWorkload `
+    --query "[].{Name:name,VM:properties.friendlyName}" --output table
+$containerName = "<native-source-container-name>"
+$sourceArgs = $vaultArgs + @("--container-name", $containerName, "--backup-management-type", "AzureWorkload")
+az backup item list @sourceArgs --workload-type SQLInstance --output json
+$instanceItemName = "<native-protected-instance-item-name>"
+$instanceArgs = $sourceArgs + @("--item-name", $instanceItemName, "--workload-type", "SQLInstance")
+
+$retainUntil = (Get-Date).ToUniversalTime().AddDays(45).ToString("dd-MM-yyyy-HH:mm:ss")
+az backup protection backup-now @instanceArgs --backup-type SnapshotFull --retain-until $retainUntil
+```
+
+Use the returned job name with `az backup job show` to monitor progress. For recovery-point and restore commands, see [Restore SQL instance snapshots](backup-azure-sql-restore-cli.md#restore-sql-instance-snapshots).
 
 ## Next steps
 

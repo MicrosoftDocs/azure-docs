@@ -1,0 +1,79 @@
+{
+    "redirections": [
+	{
+	"source_path": "china-get-started-developer-guide.md",
+	"redirect_url": "/azure/china/resources-developer-guide",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-get-started-plan.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-get-started-service-cdn.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-get-started-service-manage-and-connect.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-how-to-manage-performance.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-how-to-refactor.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-how-to-rehost.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-overview-faq.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-overview-operations.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-overview-policies.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-overview-service-hosting.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-overview-trust-cloud.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-resources-partners.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-resources-support.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	},
+	{
+	"source_path": "china-welcome.md",
+	"redirect_url": "/azure/china",
+	"redirect_document_id": false
+	}
+    ]
+}

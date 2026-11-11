@@ -34,7 +34,7 @@ In this task, you set up a scope connection to add a subscription from a target 
 
 ```azurecli
 # Create a scope connection in the network manager in the central management tenant
-az network manager scope-connection create --resource-group "myRG" --network-manager-name "myAVNM" --name "ToTargetManagedTenant" --description "This is a connection to manage resources in the target managed tenant" --resource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" --tenant-id "aaaabbbb-0000-cccc-1111-dddd2222eeee"
+az network manager scope-connection create --resource-group "myRG" --network-manager-name "myAVNM" --name "ToTargetManagedTenant" --description "This is a connection to manage resources in the target managed tenant" --resource-id "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1" --tenant-id "aaaabbbb-0000-cccc-1111-dddd2222eeee"
 ```
 
 ## Create a network manager connection on a subscription in another tenant 
@@ -85,7 +85,7 @@ In this task, you add a cross-tenant virtual network to your network group by us
 
 ```azurecli
 # Create a network group with a static member from the target managed tenant
-az network manager group static-member create --network-group-name "CrossTenantNetworkGroup" --network-manager-name "myAVNM" --resource-group "myAVNMResourceGroup" --static-member-name "targetVnet01" --resource-id="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
+az network manager group static-member create --network-group-name "CrossTenantNetworkGroup" --network-manager-name "myAVNM" --resource-group "myAVNMResourceGroup" --static-member-name "targetVnet01" --resource-id="/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1
 /resourceGroups/myScopeAVNM/providers/Microsoft.Network/virtualNetworks/targetVnet01"
 ```
 ## Delete network manager configurations

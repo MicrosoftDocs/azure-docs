@@ -61,6 +61,7 @@ Azure PostgreSQL flexible server and elastic cluster vaulted backup (v2) support
 - Data in unlogged tables is not preserved and is lost upon restore.
 - The target can be in a different subscription within the same tenant.
 - Cross region restore is supported.
+- Cross-tenant restore (preview) is supported in select regions. For supported regions and limitations, see [Cross-tenant restore for Azure Backup](cross-tenant-restore-overview.md#supported-workloads-and-limitations).
 - Restore operations from backups taken on PostgreSQL versions that are no longer supported are not guaranteed.
 - Restore is supported even after the source datasource has been deleted.
 - A restore job is marked **Successful** only when the entire recovery point has been restored.

@@ -3,7 +3,7 @@ title: Services that support customer-managed keys in Azure
 description: Find services that support customer-managed keys with Azure Key Vault and Azure Key Vault Managed HSM for server-side encryption.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 08/03/2026
+ms.date: 11/09/2026
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 
 # Services that support customer-managed keys in Azure
 
-Customer-managed keys (CMKs) are a key management control model in which you own and manage the key encryption key (KEK) in your own [Azure Key Vault](/azure/key-vault/) or [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/) instance. Azure services use your KEK to wrap and unwrap their data encryption keys through envelope encryption. For HSM-protected keys, use Azure Key Vault Premium tier or Azure Key Vault Managed HSM. For organizations with regulatory or contractual requirements that mandate key material physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management (preview)](/azure/key-vault/managed-hsm/external-key-management-overview). This feature keeps the KEK in a customer-operated HSM entirely outside Azure.
+Customer-managed keys (CMKs) are a key management control model in which you own and manage the key encryption key (KEK) in your own [Azure Key Vault](/azure/key-vault/) or [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/) instance. Azure services use your KEK to wrap and unwrap their data encryption keys through envelope encryption. For HSM-protected keys, use Azure Key Vault Premium tier or Azure Key Vault Managed HSM. For organizations with regulatory or contractual requirements that mandate key material physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management](/azure/key-vault/managed-hsm/external-key-management-overview). This feature keeps the KEK in a customer-operated HSM entirely outside Azure.
 
 The following services support server-side encryption with customer-managed keys. For implementation details, see the service-specific documentation or the service's [Microsoft Cloud Security Benchmark: security baseline](/security/benchmark/azure/security-baselines-overview) (section DP-5).
 

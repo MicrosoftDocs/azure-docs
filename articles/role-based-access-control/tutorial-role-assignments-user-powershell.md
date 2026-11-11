@@ -95,7 +95,7 @@ You use a resource group to show how to assign a role at a resource group scope.
    Location          : westus
    ProvisioningState : Succeeded
    Tags              :
-   ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
+   ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/rbac-tutorial-resource-group
    ```
 
 ## Grant access
@@ -170,7 +170,7 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1
     Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial User
     SignInName         : rbacuser@example.com
@@ -200,7 +200,7 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
     ObjectType         : User
     CanDelegate        : False
     
-    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1
     Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial User
     SignInName         : rbacuser@example.com

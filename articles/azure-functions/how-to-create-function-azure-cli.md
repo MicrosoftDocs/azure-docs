@@ -106,8 +106,10 @@ In Azure Functions, your code project is an app that contains one or more indivi
 1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
  
     ```console
-    func init --worker-runtime dotnet-isolated 
+    func init --worker-runtime dotnet-isolated --target-framework <TARGET_FRAMEWORK>
     ```
+
+    Replace `<TARGET_FRAMEWORK>` with the target framework moniker for a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions). Install the matching .NET SDK and use the same version when you create your function app in Azure. For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
