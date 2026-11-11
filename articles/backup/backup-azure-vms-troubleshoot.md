@@ -40,6 +40,14 @@ This section covers backup operation failure of Azure Virtual machine.
 
 The following are common issues with backup failures on Azure virtual machines.
 
+### Selecting Backup in VM settings opens Enable Backup for a VM that is already protected
+
+**Issue:** Selecting **Backup** in the VM settings opens **Enable Backup**, even though recent successful backup jobs and recovery points are visible in the Recovery Services vault.
+
+**Cause:** This issue can occur when you configure VM backup through Azure Policy, or when you assign the **Virtual Machine Contributor** role or an equivalent custom role only at the VM resource scope. The call that verifies backup status works only at the subscription scope.
+
+**Recommended action:** Open the VM backup item from the Recovery Services vault. Alternatively, assign the **Virtual Machine Contributor** role at the subscription scope. For recommended role and scope combinations, see [Azure role-based access control for Azure Backup](backup-rbac-rs-vault.md).
+
 ### VMRestorePointInternalError - Antivirus configured in the VM is restricting the execution of backup extension
 
 Error code: VMRestorePointInternalError
