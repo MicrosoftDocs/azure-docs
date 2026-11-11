@@ -107,6 +107,9 @@ All assessments evaluate:
 - **Right-sized targets**: Recommended Azure SKUs based on configuration and optionally performance data.
 - **Cost estimates**: Monthly Azure resource costs in the target region.
 
+> [!NOTE] 
+> Right-sized PaaS targets aren't available for Arc-enabled SQL Server resources. Only on-premises sizing is provided.
+
 ## Business case
 
 When you create an Azure Migrate project with Arc resources, two default business cases are automatically generated:
@@ -163,6 +166,9 @@ The Azure Migrate Collector VM extension is an optional component that provides 
 - Disk IOPS (read and write operations)
 - Disk throughput (MB/s read and write)
 - Network utilization
+
+> [!NOTE]
+> The Azure Migrate Collector VM extension doesn't collect SQL Server performance metrics.
 
 ### Installation options
 - **Single server**: Use Azure portal or Azure CLI commands.
