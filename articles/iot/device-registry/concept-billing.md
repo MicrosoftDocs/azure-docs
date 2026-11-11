@@ -36,9 +36,9 @@ Certificate management has two billing components: certificate authorities and c
 
 ### Certificate authorities
 
-You're billed for each certificate authority (CA) and intermediate certificate authority (ICA). Usage is metered hourly.
+You're billed for each root certificate authority (root CA) and intermediate certificate authority (ICA). Usage is metered hourly.
 
-Both CAs and ICAs use the `Microsoft.DeviceRegistry/namespaces/certificateAuthorities` resource type.
+Both root CAs and ICAs use the `Microsoft.DeviceRegistry/namespaces/certificateAuthorities` resource type.
 
 ### Certificate operations
 
