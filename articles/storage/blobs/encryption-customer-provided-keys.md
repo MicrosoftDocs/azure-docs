@@ -63,6 +63,7 @@ The following Blob storage operations support sending customer-provided encrypti
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
 - [Snapshot Blob](/rest/api/storageservices/snapshot-blob)
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier) to hot, cool, or cold
 
 ## Rotate customer-provided keys
 
