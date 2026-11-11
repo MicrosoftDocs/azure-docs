@@ -205,6 +205,8 @@
     href: tls-key-exchange-policy.md
   - name: Mutual TLS authentication
     href: mutual-tls.md
+  - name: Authentication policy (preview)
+    href: authentication-policy.md
   - name: Set up managed identity
     href: managed-identity.md
   - name: Protect sensitive data in logs

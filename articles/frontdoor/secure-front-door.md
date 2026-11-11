@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 10/19/2026
+ms.date: 11/10/2026
 ai-usage: ai-assisted
 ---
 
@@ -47,6 +47,8 @@ Network security for Azure Front Door focuses on protecting applications at the 
 ## Identity and access management
 
 Identity and access management for Azure Front Door focuses on using Microsoft Entra identities instead of secrets and limiting who can change edge routing, WAF, certificate, and origin settings.
+
+- **Evaluate client JWT validation at the edge (public preview)**: On Front Door Premium, an authentication policy validates Microsoft Entra ID tokens before requests reach the origin. Configure the policy on your Premium profile in the [Azure portal](https://portal.azure.com). Review the public-preview notice and terms before use. Clients must use the `Bearer` authentication scheme in the configured `Authorization` or `Proxy-Authorization` header. Use **Block** to reject requests that don't meet the policy requirements; **Log** doesn't block them. For more information, see [Validate JSON Web Tokens with an authentication policy (preview)](authentication-policy.md).
 
 - **Enable managed identities for service access**: Use system-assigned or user-assigned managed identities so Azure Front Door can access Azure resources such as Key Vault without stored credentials. For more information, see [Use managed identities in Azure Front Door](managed-identity.md).
 
