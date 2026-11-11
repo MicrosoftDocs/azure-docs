@@ -80,15 +80,15 @@ You use more than one encryption key in an encryption at rest implementation. St
 
 Resource providers and application instances store the encrypted DEKs as metadata. Only an entity with access to the KEK can decrypt these DEKs. Azure supports different models of key storage. For more information, see [data encryption models](encryption-models.md).
 
-When services cache DEKs locally for active cryptographic operations, Azure platform security controls protect the cached keys, including [host-level compute isolation](isolation-choices.md) and process-level protections. Cached operational keys are an availability and performance mechanism - the KEK in Key Vault remains the root of trust, and key revocation governs access to encrypted data.
-
 ### Customer-managed key control, caching, and revocation
+
+When services cache DEKs locally for active cryptographic operations, Azure platform security controls protect the cached keys, including [host-level compute isolation](isolation-choices.md) and process-level protections. Cached DEKs are an availability and performance mechanism. The KEK remains the root of trust, and key revocation governs access to encrypted data.
 
 With Azure Key Vault or Azure Key Vault Managed HSM, your organization controls key policies and authorized key use. The following error-handling and caching rules apply to Azure Key Vault Standard, Azure Key Vault Premium, Azure Key Vault Managed HSM, and Azure Key Vault Managed HSM with external keys.
 
-Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses from Key Vault require consuming Azure services to stop using and flush cached DEKs associated with that customer-managed KEK. Flushing cached DEKs can interrupt active data operations. Services need time to bring those operations to a safe stopping point before flushing the keys. For most services, affected encrypted data becomes inaccessible within one hour of loss of key access. To stop use of a customer-managed key encryption key for encryption at rest, disable the key or revoke access.
+Any error returned by the key management system causes the requested wrap or unwrap cryptographic operation to fail. HTTP `403` (access denied) or `404` (key not found) responses from Key Vault require consuming Azure services to stop using and flush cached DEKs associated with that customer-managed KEK. Flushing cached DEKs can interrupt active data operations. Services need time to bring those operations to a safe stopping point before flushing the keys. Revocation isn't instantaneous, and the time before affected encrypted data becomes inaccessible varies by service. For example, Azure Monitor documents that cluster storage becomes unavailable within one hour of intentional key revocation. For more information, see [Azure Monitor customer-managed keys](/azure/azure-monitor/logs/customer-managed-keys#key-revocation). Check the consuming service's documentation for its revocation behavior. To stop use of a customer-managed key encryption key for encryption at rest, disable the key or revoke access.
 
-For other errors, services make a best effort to preserve workload availability using cached DEKs.
+During transient failures, such as network timeouts, services might continue operations that use cached DEKs. This behavior doesn't make a failed wrap or unwrap request succeed. Cache use and workload availability depend on the consuming service's implementation.
 
 For more information about Managed HSM's architectural protections, see [Key sovereignty, availability, performance, and scalability in Managed HSM](/azure/key-vault/managed-hsm/managed-hsm-technical-details).
 
