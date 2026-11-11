@@ -39,7 +39,7 @@ New-AzResourceGroup -Name exampleRG -Location westus
 
 Use OpenID Connect (OIDC) to authenticate the workflow to Azure without storing a client secret. Follow [Authenticate to Azure from GitHub Actions by OpenID Connect](/azure/developer/github/connect-from-azure-openid-connect) to configure an identity, grant it the permissions required to deploy to `exampleRG`, and create a federated identity credential for your GitHub repository. Ensure the federated credential matches the branch or environment that runs your workflow.
 
-Follow the principle of least privilege: scope the workflow identity's Azure role-based access control (RBAC) role assignments to the `exampleRG` resource group, rather than the entire subscription. Grant only the roles and permissions required for the deployment operations you use. For more information, see [Azure RBAC best practices](/azure/role-based-access-control/best-practices#only-grant-the-access-users-need).
+Follow the principle of least privilege: scope the workflow identity's Azure role-based access control (RBAC) role assignments to the `exampleRG` resource group, rather than the entire subscription. Grant only the roles and permissions required for the deployment operations you use. The Contributor role on `exampleRG` covers the examples in this quickstart. Contributor can't manage deny settings, so to use deny settings other than `none` with a deployment stack, also assign the [Azure Deployment Stack Owner](deployment-stacks.md#built-in-roles) role. For more information, see [Azure RBAC best practices](/azure/role-based-access-control/best-practices#only-grant-the-access-users-need).
 
 Add the following repository secrets as described in the OIDC guide:
 
@@ -142,10 +142,10 @@ The following examples deploy to the existing `exampleRG` resource group and use
         steps:
 
           # Checkout code
-        - uses: actions/checkout@main
+        - uses: actions/checkout@v7
 
           # Log into Azure
-        - uses: azure/login@v2
+        - uses: azure/login@v3
           with:
             client-id: ${{ secrets.AZURE_CLIENT_ID }}
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -221,6 +221,8 @@ To manage resources as a [deployment stack](deployment-stacks.md), replace the d
 ```
 
 This step creates or updates the `storage-stack` deployment stack. The `detach` setting leaves resources in Azure when you remove them from the template or delete the stack. To delete those resources, set `action-on-unmanage-resources` to `delete`. The `none` deny setting doesn't restrict changes to managed resources outside the stack. For details about resource protection, see [Deny settings](deployment-stacks.md#protect-managed-resources).
+
+To preview a stack update before you apply it, including any resources that would be detached or deleted, set `operation` to `whatIf`. For more information, see [Preview deployment stack changes by using what-if](deployment-stacks-what-if.md).
 
 ## Clean up resources
 
