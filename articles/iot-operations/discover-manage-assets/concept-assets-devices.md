@@ -69,12 +69,12 @@ A device can have multiple inbound endpoints. For example, you might create a de
 Each inbound endpoint has properties like:
 
 - **Address**. The network address of the physical asset or device. For example, the URL of an OPC UA server or the IP address of a camera.
-- **Connector type**. The type of connector that the device uses to connect to the physical asset or device. For example, `opcua`, `onvif`, `media`, `mqtt`, `http`, or `sse`.
+- **Connector type**. The type of connector that the device uses to connect to the physical asset or device. For example, `opcua`, `onvif`, `media`, `mqtt`, `http`, `sse`, or `sql-server`.
 - **Authentication data**. The credentials that the device uses to authenticate to the physical asset or device. For example, a username and password.
 
 ### Connector templates
 
-*Connector templates* define the types of inbound endpoints available to operational technology (OT) users. For example, the Open Network Video Interface Forum (ONVIF) connector template defines the required properties for creating an inbound endpoint that connects to an ONVIF-compliant camera. Other built-in connector templates include OPC UA, media, MQTT, HTTP/REST, and server-sent events (SSE).
+*Connector templates* define the types of inbound endpoints available to operational technology (OT) users. For example, the Open Network Video Interface Forum (ONVIF) connector template defines the required properties for creating an inbound endpoint that connects to an ONVIF-compliant camera. Other built-in connector templates include OPC UA, media, MQTT, HTTP/REST, server-sent events (SSE), and SQL Server.
 
 An IT user adds connector templates in the Azure portal or by using the Azure CLI. After the IT user adds a connector template, an OT user can create devices with inbound endpoints of that type in the operations experience web UI.
 
@@ -95,6 +95,7 @@ The type of inbound endpoint that the asset connects to determines what schema e
 - If the asset connects to a media resource, define streams.
 - If the asset connects to an HTTP/REST endpoint, define datasets.
 - If the asset connects to an SSE endpoint, define datasets and event groups.
+- If the asset connects to a SQL Server endpoint, define datasets and event groups.
 - If the asset connects to an MQTT broker, define datasets.
 
 ### Streams

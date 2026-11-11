@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart
-ms.date: 06/19/2026
+ms.date: 10/28/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange

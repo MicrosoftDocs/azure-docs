@@ -15,27 +15,6 @@ This article lists the current known issues you might encounter when using Azure
 
 For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
 
-## Azure Device Registry issues
-
-This section lists current known issues for the Azure Device Registry.
-
-### ADR namespace asset healthstate resources don't sync from edge to cloud
-
----
-
-Issue ID: 1235
-
----
-
-Log signature: N/A
-
----
-
-Azure Device Registry namespace asset healthstate resources don't synchronize back to the cloud if they were created with an API version older than 2026-04-01. This failure occurs because a required Kubernetes resource annotation is missing.
-
-Workaround: Use the [arc proxy](/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) to connect to your Kubernetes cluster and then run the [remediation script](https://github.com/Azure/azure-iot-operations/tree/main/scripts/known-issues/asset-health-status-reporting) for the shell you're using (PowerShell or bash). The scripts list all outdated namespace assets and request confirmation before they add the missing annotations.
-
-
 ## MQTT broker issues
 
 This section lists current known issues for the MQTT broker.
@@ -80,46 +59,6 @@ Fixed in release 2605 and later
 The connector doesn't receive a notification when device credentials stored in Azure Key Vault are updated. As a result, the connector continues to use the old credentials until it's restarted.
 
 Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
-
-### Akri connectors don't work with registry endpoint resources
-
----
-
-Issue ID: 7710
-
----
-
-Fixed in version 1.2.154 (2512) and later
-
----
-
-Log signature:
-
-```output
-[aio_akri_logs@311 tid="7"] - failed to generate StatefulSet payload for instance rest-connector-template-...
-[aio_akri_logs@311 tid="7"] - reconciliation error for Connector resource... 
-[aio_akri_logs@311 tid="7"] - reconciliation of Connector resource failed...
-```
-
-If you create a `RegistryEndpoint` resource using bicep and reference it in the `ConnectorTemplate` resource then when the Akri operator tries the reconcile the `ConnectorTemplate` it fails with the error shown previously.
-
-Workaround: Don't use `RegistryEndpoint` resources with Akri connectors. Instead, specify the registry information in the `ContainerRegistry` settings in the `ConnectorTemplate` resource.
-
-### Akri error when updating or deleting an Azure IoT Operations instance
-
----
-
-Issue ID: 9347
-
----
-
-Fixed in version 1.2.154 (2512) and later
-
----
-
-Users may encounter an error regarding expired webhook certificates with Akri when deleting/upgrading instances of Azure IoT Operations or performing CRUD operations on Akri resources such as *Connector* and *ConnectorTemplates* instances. 
-
-Workaround: Run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
 
 ## Connector for OPC UA issues
 
@@ -179,51 +118,6 @@ Log signature: N/A
 
 When using secret sync, ensure that secret names are globally unique. If a local secret with the same name exists, connectors might fail to retrieve the intended secret.
 
-### ONVIF asset event destination can only be configured on group or asset level
-
----
-
-Issue ID: 9545
-
----
-
-Fixed in version 1.2.154 (2512) and later
-
----
-
-Log signature similar to:
-
-`No matching event subscription for topic: "tns1:RuleEngine/CellMotionDetector/Motion"`
-
----
-
-Currently, ONVIF asset event destinations are only recognized at the event group or asset level. Configuring destinations at the individual event level results in log entries similar to the example, and no event data is published to the MQTT broker.
-
-Workaround: Configure the event destination at the event group or asset level instead of the individual event level. For example, use `defaultEventsDestinations` at the event group level:
-
-```yaml
-eventGroups:
-  - dataSource: ""
-    events:
-    - dataSource: tns1:RuleEngine/CellMotionDetector/Motion
-      destinations:
-      - configuration:
-          qos: Qos1
-          retain: Never
-          topic: azure-iot-operations/data/motion
-          ttl: 5
-        target: Mqtt
-      name: Motion
-    name: Default
-    defaultEventsDestinations:
-    - configuration:
-        qos: Qos1
-        retain: Never
-        topic: azure-iot-operations/data/motion
-        ttl: 5
-      target: Mqtt
-```
-
 ## Connector for MQTT issues
 
 ### MQTT connector template version mismatch during update
@@ -268,6 +162,16 @@ Starting in release 2605, the MQTT connector can't connect to external MQTT brok
 This section lists current known issues for data flows.
 
 ### Upgrade fails with an ACR registry endpoint audience mismatch
+
+---
+
+Issue ID: 3245
+
+---
+
+Log signature: N/A
+
+---
 
 An Azure IoT Operations upgrade can fail and roll back if a data flow graph uses an Azure Container Registry (ACR) registry endpoint with an explicitly configured Azure Resource Manager (ARM) audience or scope. Earlier documentation examples used the ARM audience, so an existing configuration that worked before the upgrade can be affected.
 
@@ -325,24 +229,6 @@ Log signature: N/A
 Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes](tips-tools.md#manage-components-using-kubernetes-deployment-manifests) is for debugging and testing only, and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
-
-### A data flow profile can't exceed 70 data flows
-
----
-
-Issue ID: 1028
-
----
-
-Log signature:
-
-`exec /bin/main: argument list too long`
-
----
-
-If you create more than 70 data flows for a single data flow profile, deployments fail with the error `exec /bin/main: argument list too long`.
-
-To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
 
 ### Can't use the same graph definition multiple times in a chained graph scenario
 
@@ -411,7 +297,7 @@ Issue ID: 1190
 
 ---
 
-Fixed in version 2607 and later
+Fixed in release 2607 and later
 
 ---
 

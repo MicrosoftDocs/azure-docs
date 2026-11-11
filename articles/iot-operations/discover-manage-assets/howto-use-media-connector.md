@@ -6,10 +6,12 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 07/30/2026
+ms.date: 10/27/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want to configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as an IP video camera.
+ms.custom:
+ - sfi-ropc-nochange
 ---
 
 # Configure the media connector
@@ -50,6 +52,10 @@ This article explains how to use the media connector to perform tasks such as:
 - Send an image snapshot to the MQTT broker.
 - Save a video clip to Azure storage.
 
+For storage roots, persistent volumes, retention, and capacity planning, see [Configure storage and retention for the media connector](howto-configure-media-connector-storage.md).
+
+To query recorded media, extract clips around an event, or copy finished files to cloud ingest, see [Use media connector mRPC management actions](howto-use-media-connector-actions.md).
+
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
@@ -81,7 +87,7 @@ The media connector supports the following `streamconfiguration` task types:
 |-----------|-------------|
 | snapshot-to-mqtt | Captures a snapshot from a media source and publishes it to an MQTT topic. |
 | snapshot-to-fs | Saves a snapshot from a media source to the container file system. |
-| clip-to-fs | Saves a video clip from a media source to the container file system. |
+| clip-to-fs | Saves a video or audio clip from a media source to the container file system. |
 | stream-to-rtsp | Proxies a live video stream from a media source to RTSP endpoints. |
 | stream-to-rtsps | Proxies a live video stream from a media source to RTSPS endpoints. |
 
@@ -93,7 +99,7 @@ Each task type supports different configuration properties in the `streamconfigu
 | format                    | string  | png, bmp, jpg, jpeg, tif, tiff  | jpeg    | yes              | no             | no         | no             | no              |
 | format                    | string  | png, bmp, jpg, jpeg, tif, tiff  | png     | no               | yes            | no         | no             | no              |
 | snapshotsPerSecond        | number  | 0-60.0                          | 1       | yes              | yes            | no         | no             | no              |
-| format                    | string  | avi, mp4, mkv, mjpeg, mpg, mpeg | mkv     | no               | no             | yes        | no             | no              |
+| format                    | string  | mp4, avi, mkv, m2ts, mjpeg, mpeg, flv, wav | mkv     | no               | no             | yes        | no             | no              |
 | duration                  | integer | 1-3600                          | 60      | no               | no             | yes        | no             | no              |
 | mediaServerUsernameRef    | string  | N/A                             | ""      | no               | no             | no         | yes            | yes             |
 | mediaServerPasswordRef    | string  | N/A                             | ""      | no               | no             | no         | yes            | yes             |
@@ -101,11 +107,42 @@ Each task type supports different configuration properties in the `streamconfigu
 
 ## Northbound destinations
 
-The output destination for the media connector depends on the `streamconfiguration` task type. Configure the destination in the asset's `streamconfiguration`:
+The media connector's output destination depends on the `streamconfiguration` task type. Configure the destination in the asset's `streamconfiguration`:
 
 - **`snapshot-to-mqtt`**: Use a destination of type `mqtt` to specify the MQTT topic.
-- **`snapshot-to-fs` and `clip-to-fs`**: Use a destination of type `storage`. Set the `path` field to a fully qualified path. This path must point either to the root of a mounted volume (to enable external access to the saved snapshots and clips) or start with `/tmp`. All other paths on the container result in a permission issue, since they're write protected.
+- **`snapshot-to-fs` and `clip-to-fs`**: Use a destination of type `storage`. Set a nonempty `path` to a relative path for the local recording buffer, or to an absolute path under a configured storage root. See [Filesystem destination paths](#filesystem-destination-paths).
 - **`stream-to-rtsp` and `stream-to-rtsps`**: Set the `path` field to the endpoint address of the northbound media server that you want to proxy the source stream into.
+
+### Filesystem destination paths
+
+For filesystem tasks, the configured path is a prefix, not the final stream directory. The connector appends device, inbound endpoint, asset, and stream identity components:
+
+```text
+Local or local shared:
+{root}/{path}/{device}/{inboundEndpoint}/{asset}/{stream}
+
+Cloud ingest:
+{cloudIngestPath}/{cluster}/{extension}/{path}/{device}/{inboundEndpoint}/{asset}/{stream}
+```
+
+In this layout, `{path}` is the destination prefix relative to the selected storage root.
+
+| Configured `path` | Result |
+| --- | --- |
+| Relative, such as `recordings` | Local buffer under `/tmp/local-storage/recordings`, followed by identity components |
+| Absolute under `/tmp/local-storage` | Local buffer at the specified prefix, followed by identity components |
+| Absolute under `localSharedPath`, such as `/local-shared/archive` | Local shared storage at the specified prefix, followed by identity components |
+| Absolute under `cloudIngestPath`, such as `/data/ingestSubDir/clips` | Cloud-ingest root, cluster and extension identities, destination prefix, then device, endpoint, asset, and stream identities |
+| Any other absolute path | Configuration error; the task doesn't start |
+
+The IT administrator must configure `localSharedPath` or `cloudIngestPath` before you use that tier. Mounting a PVC alone doesn't enable it. Don't use `..` to escape a storage root, an arbitrary path under `/tmp`, or the private staging directory `/tmp/media-connector`.
+
+A filesystem task must resolve to one effective Storage destination. A nonempty stream destination list overrides the asset's `defaultStreamsDestinations`; an empty list inherits the defaults. Always provide a nonempty path, either on the stream or through the asset default. Omitted and empty paths aren't supported.
+
+> [!IMPORTANT]
+> Local snapshots and clips are retained for only 10 minutes by default, even when `/tmp/local-storage` is backed by a PVC. Local shared snapshots and clips default to 30 days. Cloud-ingest lifetime is controlled by the storage provider after publication. Coordinate retention with your IT administrator before relying on stored history. See [Configure retention and cleanup](howto-configure-media-connector-storage.md#configure-retention-and-cleanup).
+
+Final files use timestamp-based names such as `clip_20261009-143000-000000000Z_60s.mkv`. Readers must ignore `temp_` files and handle final files disappearing during retention or cloud ingest. Mount connector-managed media read-only in ordinary consumer pods.
 
 ### Northbound RTSPS endpoint validation and user authentication
 
@@ -168,7 +205,7 @@ To add TLS certificates as secrets in Azure Key Vault and project them into the 
 
 ## Example uses
 
-Example uses of the media connector include:
+The media connector can help you with the following tasks:
 
 - Capture snapshots from a video stream and publish them to an MQTT topic. A subscriber to the MQTT topic can use the captured images for further processing or analysis.
 
@@ -177,7 +214,9 @@ Example uses of the media connector include:
     > [!IMPORTANT]
     > You must install [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-install-edge-volumes) before you use it with the media connector template.
 
-- Proxy a live video stream from a camera to an RTSP/RTSPS endpoint that an operator provides. The operator can configure a media server, which does expose such an endpoint and transcode/transform the stream based on the operators requirements. This media server is not part of the media connector.
+    [!INCLUDE [azure-government-acsa-note](../includes/azure-government-container-storage-note.md)]
+
+- Proxy a live video stream from a camera to an RTSP/RTSPS endpoint that an operator provides. The operator can configure a media server, which does expose such an endpoint and transcode or transform the stream based on the operator's requirements. This media server isn't part of the media connector.
 
 ### Media connector template instance
 
@@ -199,19 +238,19 @@ To configure the media connector, first create a device that defines the connect
 
 1. Add the details of the endpoint for the media connector, including any authentication credentials:
 
-    :::image type="content" source="media/howto-use-media-connector/add-media-connector-endpoint.png" alt-text="Screenshot that shows how to add a media connector endpoint." lightbox="media/howto-use-media-connector/add-media-connector-endpoint.png":::
+    :::image type="content" source="media/howto-use-media-connector/add-media-connector-endpoint.png" alt-text="Screenshot of the form for adding a media connector endpoint." lightbox="media/howto-use-media-connector/add-media-connector-endpoint.png":::
 
     Select **Apply** to save the endpoint.
 
 1. On the **Device details** page, select **Next** to continue.
 
-1. On the **Add custom property** page, you can add any other properties you want to associate with the device. For example, you might add a property to indicate the manufacturer of the camera. Then select **Next** to continue.
+1. On the **Add custom property** page, add any other properties you want to associate with the device. For example, add a property to indicate the manufacturer of the camera. Then select **Next** to continue.
 
 1. On the **Summary** page, review the details of the device and select **Create** to create the asset.
 
-1. After the device is created, you can view it in the **Devices** list:
+1. After the device is created, view it in the **Devices** list:
 
-    :::image type="content" source="media/howto-use-media-connector/media-connector-device-created.png" alt-text="Screenshot that shows the list of devices." lightbox="media/howto-use-media-connector/media-connector-device-created.png":::
+    :::image type="content" source="media/howto-use-media-connector/media-connector-device-created.png" alt-text="Screenshot of the list of devices." lightbox="media/howto-use-media-connector/media-connector-device-created.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -227,7 +266,7 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 
 # [Bicep](#tab/bicep)
 
-Deploy the following Bicep template to create a device with an inbound endpoint for the media connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+Deploy the following Bicep template to create a device with an inbound endpoint for the media connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name:
 
 ```bicep
 param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
@@ -299,13 +338,13 @@ To define an asset that publishes an image snapshot from the media source to the
 
 1. Enter a name for your asset, such as `my-media-source`.
 
-1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
+1. Add any custom properties you want to associate with the asset. For example, add a property to indicate the manufacturer of the camera. Select **Next** to continue.
 
 1. On the **Streams** page, select **Add stream** to add a stream for the asset.
 
 1. Add a name for the stream, such as `mysnapshots`. Set MQTT as the destination and add a name for the MQTT topic to publish to such as `azure-iot-operations/data/snapshots`. Select `snapshot-to-mqtt` as the task type.
 
-    :::image type="content" source="media/howto-use-media-connector/add-snapshot-stream.png" alt-text="Screenshot that shows how to add a snapshot stream that publishes to an MQTT topic." lightbox="media/howto-use-media-connector/add-snapshot-stream.png":::
+    :::image type="content" source="media/howto-use-media-connector/add-snapshot-stream.png" alt-text="Screenshot of the form for adding a snapshot stream that publishes to an MQTT topic." lightbox="media/howto-use-media-connector/add-snapshot-stream.png":::
 
     Select **Add** to save the stream.
 
@@ -402,11 +441,11 @@ mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/
 
 The following screenshot shows an example topic name that receives the published snapshots:
 
-:::image type="content" source="media/howto-use-media-connector/snapshot-topic.png" alt-text="A screenshot that shows the published data in a topic called `azure-iot-operations/data/my-camera/mysnapshots`.":::
+:::image type="content" source="media/howto-use-media-connector/snapshot-topic.png" alt-text="Screenshot of the published data in a topic called azure-iot-operations/data/my-camera/mysnapshots.":::
 
 ## Add a stream to save a video clip
 
-In this section, you add a stream to the asset that saves video clips from the media source to the file system. This section assumes that you configured Azure Container Storage enabled by Azure Arc with a subvolume called `ingestSubDir` and mounted the persistent volume claim to the connector template instance at `/data`. To learn more, see [Configure a persistent volume claim for the media connector](howto-manage-connector-templates.md#configure-a-persistent-volume-claim-for-the-media-connector).
+In this section, you add a stream to the asset that saves video clips from the media source to the file system. This section assumes that you configured Azure Container Storage enabled by Azure Arc with a subvolume whose path is `ingestSubDir`, mounted the persistent volume claim at `/data`, and set `cloudIngestPath` to `/data/ingestSubDir` in the connector template instance. Mounting the PVC alone isn't sufficient. To learn more, see [Configure storage roots and retention](howto-configure-media-connector-storage.md#configure-storage-roots-and-retention).
 
 ### Azure CLI
 
@@ -493,11 +532,23 @@ The following steps assume that you configured a persistent volume claim (PVC) t
 | Storage container | `pvc` |
 | Edge sub volume path | `ingestSubDir` |
 | Connector template mount path | `/data` |
+| Connector `cloudIngestPath` | `/data/ingestSubDir` |
 | Stream path in operations experience | `/data/ingestSubDir/clips` |
 
 > [!IMPORTANT]
-> The mount path must start with the '/' character.
+> The mount path must start with the `/` character.
 
-After the connector captures the clips, it uploads them to the `/clips` folder in your storage container:
+After the connector finalizes the clips, ACSA uploads them to your storage container. Below the configured cloud-ingest root, the connector uses this layout:
 
-:::image type="content" source="media/howto-use-media-connector/captured-streams.png" alt-text="Screenshot that shows the captured streams in Blob storage." lightbox="media/howto-use-media-connector/captured-streams.png":::
+```text
+{cluster}/{extension}/clips/{device}/{inboundEndpoint}/{asset}/clipstream/
+```
+
+For the Azure CLI example, the device is `media-connector-cli`, the inbound endpoint is `media-connector-cli-0`, and the asset is `my-media-source-cli`. For the Bicep example, use the corresponding `-bicep` names. Check the task startup logs or data-operation status for the resolved path, and browse the corresponding hierarchy in your blob container.
+
+## Related content
+
+- [Configure storage and retention for the media connector](howto-configure-media-connector-storage.md)
+- [Use media connector mRPC management actions](howto-use-media-connector-actions.md)
+- [Create and manage connector template instances](howto-manage-connector-templates.md)
+- [Capture media from ONVIF cameras and store in Azure Blob Storage](../end-to-end-tutorials/tutorial-onvif-media-blob-storage.md)

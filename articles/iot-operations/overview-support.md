@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Azure IoT Operations versions, support, and licensing
 
-This article explains the supported versions, environments, and regions for Azure IoT Operations, along with its key dependencies and related resources. Use this guide to ensure compatibility and optimize your deployment. The guide also provides information about licensing for Azure IoT Operations.
+This article explains the supported versions, environments, regions, and SKUs for Azure IoT Operations, along with its key dependencies and related resources. Use this guide to ensure compatibility and optimize your deployment. The guide also provides information about licensing for Azure IoT Operations.
 
 ## Supported versions
 
@@ -41,6 +41,29 @@ Azure IoT Operations supports Arc-enabled clusters in these regions:
 
 This list applies only to the region you use to connect your cluster to Azure Arc. It doesn't limit you from using your preferred Azure region for cloud resources. Azure IoT Operations components and other resources deployed to clusters in these regions connect to cloud resources in different regions.
 
+### Azure Government
+
+Azure IoT Operations is available in preview in the **US Gov Virginia** (`usgovvirginia`) region of Azure Government. For supported features and deployment steps, see [Azure IoT Operations in Azure Government](overview-azure-government.md).
+
+## Supported SKUs
+
+Azure IoT Operations is available in two SKUs, Essentials and Standard. The following table summarizes the differences between them:
+
+| Feature | Essentials | Standard |
+|----------------|------------|----------|
+| Azure IoT Operations version support | Version 1.5.x (2610) and later | All supported versions |
+| Node support | Single-node only | Single-node and multi-node |
+| Connector for OPC UA | Not supported | Supported |
+| Number of Operations Experience users | Maximum 2 | Maximum 5 |
+| Number of Data flow graphs | Maximum 2 | Fully supported |
+| AKRI connectors | Supported | Supported |
+| Pricing | Essentials pricing | Standard pricing |
+| Target scenario | Cost-sensitive, highly distributed edge fleets | Full-featured industrial deployments |
+
+For details on pricing for each SKU, see the [Azure IoT Operations pricing page](https://azure.microsoft.com/pricing/details/iot-operations/).
+
+For complete details on the features and limitations of each SKU, see [Licensing](#licensing).
+
 ## Dependencies
 
 Azure IoT Operations depends on these support services and features:
@@ -61,9 +84,11 @@ Azure IoT Operations depends on these support services and features:
 > [!NOTE]
 > *Azure Container Storage enabled by Azure Arc* is an optional dependency that you must [install](/azure/azure-arc/container-storage/howto-install-edge-volumes) separately. Connectors like the *media connector* and the data flow endpoint *local storage* can use this option to synchronize captured data to cloud storage.
 
+[!INCLUDE [azure-government-acsa-note](includes/azure-government-container-storage-note.md)]
+
 ## Licensing
 
-Azure IoT Operations licensing is covered by the terms stated in the [Microsoft Online Service Agreement (MOSA)](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MOSA). Licensing that's specific to Azure IoT Operations can be found in the *Service Specific Terms* section of the MOSA.
+Azure IoT Operations licensing is covered by the terms stated in the [Microsoft Online Service Agreement (MOSA)](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MOSA). Licensing that's specific to Azure IoT Operations can be found in the *Service Specific Terms* section of the MOSA. To find terms for each SKU, search for Azure IoT Operations Essentials or Azure IoT Operations Standard.
 
 If any of the licensing terms found in these documents block your adoption of Azure IoT Operations in trial, non-production, or production scenarios, contact [azureiotoperationslicensinghelp@microsoft.com](mailto:azureiotoperationslicensinghelp@microsoft.com). Depending on your specific circumstances, there might be solutions to unblock your project.
 

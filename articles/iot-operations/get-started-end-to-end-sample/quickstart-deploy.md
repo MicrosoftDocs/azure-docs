@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 06/03/2026
+ms.date: 10/28/2026
 
 #CustomerIntent: As an OT user, I want to deploy Azure IoT Operations to a Kubernetes cluster so that I can begin building an end-to-end data scenario.
 ---
@@ -40,6 +40,8 @@ Before you begin, prepare the following prerequisites:
 * Visual Studio Code installed on your development machine. For more information, see [Download Visual Studio Code](https://code.visualstudio.com/download).
 
 * **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level.
+
+* To use Azure Government, set the `LOCATION` codespace secret to `usgovvirginia`, and run `az cloud set --name AzureUSGovernment` before you run `az login`. For other differences, see [Azure IoT Operations in Azure Government](../overview-azure-government.md).
 
 [!INCLUDE [prereq-azure-cli-connected-k8s](../includes/prereq-azure-cli-connected-k8s.md)]
 
@@ -212,7 +214,7 @@ az iot ops ns create -n myqsnamespace -g $RESOURCE_GROUP
 
 ## Deploy Azure IoT Operations
 
-In this section, you configure your cluster with the dependencies for your Azure IoT Operations components, then deploy Azure IoT Operations.
+In this section, you configure your cluster with the dependencies for your Azure IoT Operations components, then deploy Azure IoT Operations Standard.
 
 Run the following CLI commands in your Codespaces terminal.
 
@@ -246,6 +248,8 @@ To view the pods on your cluster, run the following command:
 ```console
 kubectl get pods -n azure-iot-operations
 ```
+
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
 
 To view your resources on the Azure portal, use the following steps:
 

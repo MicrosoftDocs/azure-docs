@@ -27,6 +27,8 @@ landingContent:
             url: get-started.md
           - text: Azure Regions and Availability Zones for Nutanix Cloud Clusters
             url: available-regions-skus.md
+          - text: Nutanix Cloud Clusters Partners
+            url: nc2-partners.md
           - text: FAQ
             url: faq.md
             

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 07/22/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand when to use data flows vs. data flow graphs.
@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 
 # Data flows vs. data flow graphs in Azure IoT Operations
 
-Azure IoT Operations provides two ways to process and route data: **data flows** and **data flow graphs**. Both use shared infrastructure, such as endpoints, profiles, and source and destination configuration. However, they differ in pipeline shape, transform capabilities, and endpoint support.
+Azure IoT Operations provides two ways to process and route data: **data flows** and **data flow graphs**. Both use shared infrastructure, such as endpoints, profiles, and source and destination configuration. However, they differ in pipeline shape and transform capabilities.
 
 ## What are data flows?
 
@@ -26,7 +26,7 @@ Data flows are generally available and support all endpoint types.
 
 A [data flow graph](concept-dataflow-graphs.md) is a composable, graph-based pipeline that connects multiple transforms in any topology you define. You can chain, branch, and merge processing steps. Each transform is a prebuilt processing unit, such as map, filter, branch, window, throttle, or enrichment, that you configure with rules. You configure a data flow graph by using the operations experience web UI, the Azure CLI, or Azure Resource Manager templates.
 
-Data flow graphs support MQTT, Kafka, and OpenTelemetry endpoints.
+Data flow graphs support the same source and destination endpoint types as data flows, including table-based destinations such as ADLS Gen2, Microsoft Fabric OneLake, Azure Data Explorer, and local storage.
 
 ## Comparison
 
@@ -37,9 +37,9 @@ Data flow graphs support MQTT, Kafka, and OpenTelemetry endpoints.
 | Branch and merge | Not supported | Branch on conditions, merge with concatenate |
 | Time-based aggregation | Not supported | Tumbling windows with avg, min, max, count |
 | Endpoint support (source) | MQTT, Kafka | MQTT, Kafka |
-| Endpoint support (destination) | MQTT, Kafka, ADLS, Fabric, ADX, local storage, OpenTelemetry | MQTT, Kafka, OpenTelemetry |
+| Endpoint support (destination) | MQTT, Kafka, ADLS, Fabric, ADX, local storage, OpenTelemetry | MQTT, Kafka, ADLS, Fabric, ADX, local storage, OpenTelemetry |
 | Dynamic destination topics | `${inputTopic}` (source topic passthrough) | `$metadata.topic` + `${outputTopic}` (content-based routing) |
-| Schema | On source and transformation | On node connections |
+| Schema | On source and transformation | On node connections and destination output settings |
 | Disk persistence | Supported | Supported |
 
 ## Shared infrastructure
@@ -49,7 +49,7 @@ Data flows and data flow graphs share:
 - **Endpoints**: Both use `DataflowEndpoint` resources to connect to MQTT brokers, Kafka, storage, and other services. See [Prepare endpoints](howto-configure-dataflow-endpoint.md).
 - **Profiles**: Both reference a `DataflowProfile` for scaling and instance configuration. See [Manage data flow profiles](howto-configure-dataflow-profile.md).
 - **Source configuration**: Both support the same source endpoint options (default broker, asset, custom endpoint) and data source (topic) configuration. See [Configure a source](howto-configure-dataflow-source.md).
-- **Destination configuration**: Both support static and dynamic destination topics. See [Configure a destination](howto-configure-dataflow-destination.md).
+- **Destination configuration**: Both support static and dynamic destination topics, and table destinations with an output schema and serialization format. See [Configure a destination](howto-configure-dataflow-destination.md).
 - **Disk persistence**: Both support `requestDiskPersistence` to survive restarts. See [Configure disk persistence](howto-configure-disk-persistence.md).
 
 ## When to use which
@@ -57,7 +57,6 @@ Data flows and data flow graphs share:
 **Use data flows when:**
 
 - You need a simple source-to-destination pipeline with basic transformations.
-- You need to send data to storage endpoints (ADLS, Fabric, ADX, local storage).
 - You want a generally available, production-ready solution.
 
 **Use data flow graphs when:**
@@ -65,9 +64,9 @@ Data flows and data flow graphs share:
 - You need to branch messages to different processing paths based on conditions.
 - You need time-based aggregation (tumbling windows).
 - You need multiple chained transforms in a custom topology.
-- You're working with MQTT, Kafka, or OpenTelemetry endpoints only.
+- You need to send the output of built-in or custom WASM transforms to a table-based destination.
 
-For new projects that use supported endpoint types, use data flow graphs. Data flows remain fully supported for all scenarios, and they support the full range of endpoint types.
+For new projects, use data flow graphs. Data flows remain fully supported for all scenarios.
 
 ## Related content
 

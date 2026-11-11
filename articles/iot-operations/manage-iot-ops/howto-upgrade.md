@@ -48,6 +48,8 @@ If the latest version of the Azure IoT Operations is in preview, see [Upgrade to
 
 ### [Azure portal](#tab/portal)
 
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
+
 If your Azure IoT Operations deployment is eligible for an upgrade, the Azure portal displays an **Upgrade** option. If you don't see the option to upgrade, then your deployment is on the latest version.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Azure IoT Operations instance.

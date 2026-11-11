@@ -8,5 +8,7 @@
     href: architecture.md  
   - name: Get started
     href: get-started.md
+  - name: Nutanix Cloud Clusters on Azure Partners
+    href: nc2-partners.md
   - name: FAQ
     href: faq.md

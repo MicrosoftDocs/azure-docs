@@ -32,6 +32,18 @@ Two terms are used throughout the documentation:
 - **Deployment** — The instance, Arc extensions, custom locations, and all configurable resources (assets, devices, data flows).
 - **Instance** — The parent resource that bundles the services.
 
+## Choose your SKU
+
+Before deploying Azure IoT Operations, select the appropriate SKU based on your expected workload, performance requirements, and budget. The SKU determines the available features and resource limits for your deployment.
+
+- **Azure IoT Operations Essentials** provides a focused set of Azure IoT Operations capabilities for high-volume deployments. It offers a lower-cost option for scenarios that don't require the full functionality available with Azure IoT Operations Standard. Supports single-cluster deployments only. Support for the OPC UA connector isn't included. Available in Azure IoT Operations version 1.5.x (2610) and later.
+
+- **Azure IoT Operations Standard** provides the complete Azure IoT Operations feature set for scenarios that require the full breadth of product capabilities. Supports single-cluster and multi-cluster deployments. Support for the OPC UA connector is included. Available in all supported Azure IoT Operations versions.
+
+You can't change the SKU after deployment. Instead, you need to create a new deployment with the desired SKU and recreate your resources like devices, assets, and dataflows on the new Azure IoT Operations instance.
+
+For detailed information about the differences between the Azure IoT Operations SKUs, see [Azure IoT Operations versions, support, and licensing](../overview-support.md#supported-skus).
+
 ## Choose your cluster topology
 
 Before you deploy, decide whether you need a single-node or multi-node cluster. This decision determines the hardware requirements and the broker cardinality settings.

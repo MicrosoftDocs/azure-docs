@@ -18,6 +18,8 @@ Server heartbeat monitoring lets the connector for OPC UA detect whether an OPC 
 
 Server heartbeat monitoring is available starting with Azure IoT Operations release 2607.
 
+To let the server monitor the connector instead, use a [dataset heartbeat](howto-configure-opc-ua-dataset-heartbeat.md), available starting with Azure IoT Operations 2610. Dataset heartbeats write a counter through the asset's existing session; they don't use the dedicated server-monitoring session described here.
+
 ## How server heartbeat monitoring works
 
 The OPC UA commander opens a dedicated monitoring session to each OPC UA server and subscribes to the server's `CurrentTime` node (`i=2258`). The `CurrentTime` node updates continuously while the server runs, so it's a reliable signal that the server is alive.
@@ -104,6 +106,7 @@ Server heartbeat monitoring is distinct from other connector features that also 
 
 | Feature | What it does | How it differs from server heartbeat monitoring |
 | --- | --- | --- |
+| [Dataset heartbeats](howto-configure-opc-ua-dataset-heartbeat.md) | Writes an incrementing counter to a dedicated server variable per dataset, using the asset's existing session. | Signals connector liveness to the server or other clients, rather than detecting server liveness. |
 | Dataset publishing and triggering | Controls when the connector publishes dataset values from your assets, including the publishing interval and triggering item behavior. | Affects the data that you collect and publish. Server heartbeat monitoring only detects server liveness and reports endpoint health. |
 | [Shared endpoint mode](overview-opc-ua-connector.md#shared-endpoint-mode) | Lets multiple assets share a single OPC UA data session for an endpoint. | Changes how data sessions are shared. Server heartbeat monitoring uses a separate monitoring session and is independent of session sharing. |
 | [High availability](howto-configure-opc-ua-sessions-high-availability.md) | Runs active and passive connector instances so that telemetry survives a connector failure. | Protects against connector failures. Server heartbeat monitoring detects OPC UA server failures. |

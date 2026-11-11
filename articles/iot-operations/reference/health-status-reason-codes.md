@@ -4,7 +4,7 @@ description: Reference guide for health status reason codes used by Azure IoT Op
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
-ms.date: 04/29/2026
+ms.date: 11/05/2026
 ms.topic: reference
 ai-usage: ai-assisted
 ---
@@ -91,6 +91,23 @@ When Azure IoT Operations resources report **Degraded** or **Unavailable** healt
 | `OpcUaConnectorInboundEndpointDisconnected`         | The connector lost its connection to the OPC UA server endpoint.                                            | Check that the OPC UA server is running and reachable from the edge cluster. Verify network connectivity and firewall rules.   |
 | `OpcUaConnectorInboundEndpointInvalidConfiguration` | The endpoint configuration is invalid and the connector cannot establish a connection.                      | Review the endpoint configuration in your device resource. Check the endpoint URL, security mode, and authentication settings. |
 | `OpcUaConnectorCertificateRejected`                 | The OPC UA server rejected the connector's certificate, or the connector rejected the server's certificate. | Ensure that certificates are properly configured and trusted on both the connector and the OPC UA server.                      |
+| `SqlServerAuthenticationFailed` | SQL authentication failed. | Verify the configured username and password, confirm the login is enabled, and ensure SQL authentication is supported by the server. Check that the synced credential secret contains the current credentials. |
+| `SqlServerDatabaseNotFound` | Configured database was not found. | Verify the database name in the dataset or event configuration. Confirm the database exists, is online, and is accessible to the configured SQL account. |
+| `SqlServerUnsupportedAuthentication` | Unsupported authentication mode, such as anonymous or certificate authentication. | Configure username/password authentication. Anonymous and client-certificate authentication aren't supported. |
+| `SqlServerTlsCertificateInvalid` | TLS certificate validation failed. | Verify the server certificate’s validity and hostname, and configure the endpoint’s certificate trust list with the appropriate issuing CA certificates. Ensure the trust-list secret is available on the cluster. |
+| `SqlServerInvalidEndpointType` | Endpoint type is unsupported. | Set the device’s inbound endpoint type to `Microsoft.SqlServer` and associate it with the SQL Server connector. |
+| `SqlServerInvalidConfiguration` | Endpoint or data-operation configuration is invalid. | Validate the endpoint, dataset, or event configuration against the connector’s configuration schema. Check required fields, JSON syntax, and supported timeout and sampling-interval values. |
+| `SqlServerConnectionFailed` | Could not establish a connection. | Verify the endpoint hostname and port, DNS resolution from the connector pod, SQL Server TCP connectivity, and firewall or network-policy rules. Confirm SQL Server is running and accepting connections. |
+| `SqlServerConnectionTimeout` | Connection attempt timed out. | Check network connectivity and server availability or load. If connection establishment legitimately requires more time, increase the endpoint’s `connectionTimeoutSeconds` setting. |
+| `SqlServerTlsHandshakeFailed` | TLS handshake failed. | Inspect the TLS diagnostic message. Verify the server’s TLS configuration, certificate chain, certificate validity, and hostname. Confirm the server and connector support compatible TLS settings. |
+| `SqlServerDriverError` | ODBC driver error. | Inspect the ODBC diagnostic message and verify you're using a supported connector image and version. If the driver can't load or initialize, collect connector logs and contact support. |
+| `SqlServerCredentialReadFailure` | Could not read a mounted credential secret. | Verify the referenced synced secret and its username/password keys exist. Check secret synchronization and that the credential files are mounted and readable by the connector. |
+| `SqlServerQueryTimeout` | Query timed out. | Run the query against the configured database to investigate blocking, execution time, and server load. Optimize the query or reduce its workload. If necessary, increase `queryTimeoutSeconds` for the dataset, event, or endpoint. |
+| `SqlServerBufferTruncated` | Query result exceeded the configured ODBC fetch buffer. | Reduce the size of individual returned column values—for example, omit large columns or intentionally shorten their values in the SQL query. The connector discards the affected query result rather than publishing truncated values. |
+| `SqlServerQueryExecutionFailed` | Query execution failed. | Inspect the SQL diagnostic message. Verify query syntax, database and object names, and the account’s permissions. Run the same query against the same database using the same account to reproduce the failure. |
+| `SqlServerConnectionLost` | Connection was lost. | Check for SQL Server restarts, failovers, network interruptions, and connection resets. The connector attempts to reconnect and retry the query; investigate recurring failures in the connector and server logs. |
+| `SqlServerAllDataOperationsUnavailable` | Endpoint-level aggregate: all tracked data-operation samplers are unavailable. | Inspect the individual dataset and event errors for this endpoint and resolve their underlying failures. This aggregate status indicates that all tracked data-operation samplers are unavailable. |
+| `SampleConnectorSchemaGenerationFailure` | Sample payload schema inference failed; the runtime currently uses this literal, non-SQL-prefixed code. | Inspect connector logs for schema-inference failures and review the query’s returned column names and data types. Simplify the selected columns to isolate the problem. If valid SQL results consistently fail schema inference, collect diagnostics and contact support. |
 
 ## Broker
 
