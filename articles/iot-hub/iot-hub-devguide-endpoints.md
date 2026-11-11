@@ -199,6 +199,9 @@ Messages routed to a Fabric Eventstream endpoint conform to the [CloudEvents](ht
 
 You can create and configure a Fabric Eventstream endpoint by using the Azure CLI and Bicep.
 
+> [!NOTE]
+> **Getting started with Fabric?** Leverage the [Azure IoT Solution Accelerator Workload for Microsoft Fabric Real-Time Intelligence](https://github.com/Azure-Samples/azure-iot-accelerator-workload-for-fabric-rti) for a quickstart on how Azure IoT device data can be turned into real-time analytics, operational monitoring, automated actions, and AI-powered insights by using Fabric Real-Time Intelligence.
+
 <!-- TODO (WI 599257): Add Azure CLI and Bicep examples, and portal screenshots (requires test-environment access). -->
 
 ## Endpoint Health
