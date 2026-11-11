@@ -39,7 +39,7 @@ After you finish either setup method in this article, follow [Next steps](#next-
 - The `Microsoft.DeviceRegistry` and `Microsoft.Devices` resource providers registered in your subscription. If you plan to use software update, also register `Microsoft.DeviceUpdate`. You need subscription-level permission if you register them yourself. For instructions, see [Register a resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - An existing resource group, or permission to create one in your subscription.
 - Permission to create and configure Azure Device Registry namespaces, IoT Hub instances, DPS instances, and managed identities in each resource group you use, plus software update instances if you enable software update. For example, the [Contributor](../../role-based-access-control/built-in-roles/privileged.md#contributor) role on each resource group grants these resource-management permissions. The Owner role also grants them.
-- The privilege to [perform role assignments](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles?branch=main#privileged) within your target scope. Performing role assignments in Azure requires a privileged role, such as Owner or User Access Administrator at the appropriate scope.
+- The privilege to [perform role assignments](../../role-based-access-control/built-in-roles.md#privileged) within your target scope. Performing role assignments in Azure requires a privileged role, such as Owner or User Access Administrator at the appropriate scope.
 - A [supported region](../../iot-hub/iot-hub-what-is-new.md#supported-regions) for Azure Device Registry with IoT Hub. New services use the namespace's region.
 
 > [!WARNING]
