@@ -156,7 +156,7 @@ This version is appropriate when your application doesn't require the new MQTTv5
 Version 2.0.0-preview4 supports MQTTv5-enabled IoT Hubs and includes two API surfaces within the same NuGet package:
 
 - **Unified API surface:** Provides a common programming model across supported MQTT 3.1.1 and MQTT 5.0 IoT Hub connection profiles. The SDK uses the connection profile assigned through DPS to establish the appropriate connection. Features that only MQTTv5-enabled IoT Hubs support, such as twin pushes and direct method probe handling, aren't part of this surface.
-- **MQTTv5-specific API surface:** Exposes capabilities specific to MQTTv5-enabled IoT Hubs that aren't part of the common Unified API surface. This surface connects only to MQTTv5-enabled IoT Hubs and supports only X.509 authentication. In version 2.0.0-preview4, it doesn't support certificate management or custom topics.
+- **MQTTv5-specific API surface:** Exposes capabilities specific to MQTTv5-enabled IoT Hubs that aren't part of the common Unified API surface. This surface connects only to MQTTv5-enabled IoT Hubs and supports only X.509 authentication. In version 2.0.0-preview4, it doesn't support certificate management.
 
 You don't need a separate NuGet package for each API surface.
 
