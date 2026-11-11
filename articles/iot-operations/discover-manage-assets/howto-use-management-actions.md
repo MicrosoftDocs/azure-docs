@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 10/27/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT or OT operator, I want to enable management actions on my Azure IoT Operations instance so that I can invoke operations such as method calls, writes, and reads on southbound assets from the cloud or edge.
@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 # Enable and run management actions
 
-Management actions let you invoke operations on southbound assets connected to your Azure IoT Operations instance. You can call methods, write values, and read values on assets such as OPC UA servers, ONVIF cameras, and MQTT devices. Management actions use Azure Event Grid to route requests and responses between the cloud and the internal MQTT broker. The connector subscribes to a known topic on the internal MQTT broker and then executes the operation on the target asset. You can invoke management actions either locally by using MQTT or from the cloud by using Azure Resource Manager APIs. Cloud-initiated management actions let you use bicep files, ARM templates, and the CLI to send commands and configurations to your assets at scale. 
+Management actions let you invoke operations on southbound assets connected to your Azure IoT Operations instance. You can call methods, write values, and read values on assets such as OPC UA servers, ONVIF cameras, and MQTT devices. Management actions use Azure Event Grid to route requests and responses between the cloud and the internal MQTT broker. The connector subscribes to a known topic on the internal MQTT broker and then executes the operation on the target asset. You can invoke management actions either locally by using MQTT or from the cloud by using Azure Resource Manager APIs. Cloud-initiated management actions let you use Bicep files, ARM templates, and the CLI to send commands and configurations to your assets at scale. 
 
 Key features of management actions include: 
 - **Management groups** that bundle related actions and properties together.
@@ -27,8 +27,8 @@ When you enable management actions, the Azure CLI provisions the infrastructure 
 
 This article explains how to enable management actions, execute actions on assets, and how the message flow works through the system. The management actions CLI commands are protocol-agnostic. The examples in this article use an OPC UA asset, but the same commands work for any protocol that supports management actions.
 
-> ![NOTE] 
-> Cloud-initated management actions are currently only enabled through the CLI. 
+> [!NOTE] 
+> Cloud-initiated management actions are currently only enabled through the CLI. 
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ The following table describes the optional parameters:
 | `--registry-endpoint` | Name of a registry endpoint to use for downloading the WASM data flow graph artifact. Use this flag if you need a non-default container registry. |
 
 > [!TIP]
-> The data flow graph and response data flow may take a few seconds to reconcile after the `enable` command completes. Run `az iot ops mgmt-actions show` to confirm all sub-resources are available before you execute an action.
+> The data flow graph and response data flow might take a few seconds to reconcile after the `enable` command finishes. Run `az iot ops mgmt-actions show` to confirm all sub-resources are available before you execute an action.
 
 ## Verify the management actions configuration
 
@@ -90,7 +90,7 @@ The output shows the current state of the management actions infrastructure, inc
 
 Run an action on an asset that has a management group and action defined. You specify the asset name, management group, action name, and a JSON payload. The following example:
 
-- Uses an asset that was created by the [management actions quickstart](https://github.com/Azure/azure-iot-ops-cli-extension/blob/mgmt_actions_quickstart/scripts/mgmt-actions/README.md) script in the CLI extension repository.
+- Uses an asset that you created by using the [management actions quickstart](https://github.com/Azure/azure-iot-ops-cli-extension/blob/mgmt_actions_quickstart/scripts/mgmt-actions/README.md) script in the CLI extension repository.
 - Invokes the `Switch` action on the `method-call-asset` asset in the `managementGroup` management group, which calls a method on an OPC UA server to switch a boiler on:
 
 ```azurecli
@@ -104,7 +104,7 @@ az iot ops mgmt-actions execute \
 ```
 
 > [!TIP]
-> If an asset reports a request schema in its status object for the target action, by default the CLI validates the request against the schema before sending it. Use `--show-schema` to see the schema if it exists, and `--no-validate` to disable validation.
+> If an asset reports a request schema in its status object for the target action, the CLI by default validates the request against the schema before sending it. Use `--show-schema` to see the schema if it exists, and `--no-validate` to disable validation.
 
 > [!TIP]
 > The `--payload` parameter supports inline JSON or a local file path that contains the JSON payload.
@@ -174,7 +174,7 @@ For details on how the connector interacts with OPC UA servers and the supported
 
 ## Disable management actions
 
-When you no longer need management actions, disable them to tear down the provisioned infrastructure. The disable command removes the data flows, Event Grid topic space, permission bindings, and data flow endpoint:
+When you no longer need management actions, disable them to remove the provisioned infrastructure. The disable command removes the data flows, Event Grid topic space, permission bindings, and data flow endpoint:
 
 ```azurecli
 az iot ops mgmt-actions disable \
@@ -184,6 +184,7 @@ az iot ops mgmt-actions disable \
 
 ## Related content
 
+- [Use media connector mRPC management actions](howto-use-media-connector-actions.md)
 - [Control OPC UA servers](howto-control-opc-ua.md)
 - [Connect to MQTT endpoints](howto-use-mqtt-connector.md)
 - [Connect to ONVIF-compliant cameras](howto-use-onvif-connector.md)

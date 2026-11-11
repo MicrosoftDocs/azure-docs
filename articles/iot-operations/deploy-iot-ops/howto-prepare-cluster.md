@@ -91,6 +91,9 @@ To prepare an Azure Arc-enabled OpenShift cluster, you need:
 
 ---
 
+> [!TIP]
+> To prepare a cluster in Azure Government, see [Azure IoT Operations in Azure Government](../overview-azure-government.md#deploy-azure-iot-operations) for the differences with Azure public cloud.
+
 [!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 ## Create and Arc-enable a cluster
@@ -448,6 +451,8 @@ When you deploy Azure IoT Operations to this cluster, include the following opti
 ---
 
 ## Configure Azure Container Storage enabled by Azure Arc
+
+[!INCLUDE [azure-government-acsa-note](../includes/azure-government-container-storage-note.md)]
 
 Features such as data flow local storage endpoints and the media connector optionally use [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/overview) to synchronize local data to the cloud. ACSA isn't installed as part of Azure IoT Operations, so you must install it separately.
 
