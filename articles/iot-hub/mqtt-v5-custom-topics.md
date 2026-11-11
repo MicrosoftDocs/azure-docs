@@ -349,9 +349,24 @@ in this article. Confirm that:
 - Any templates needed by existing devices remain in the group.
 - The saved configuration meets the preview limits and topic template rules.
 
+## Troubleshoot custom-topic publishing
+
+If publishing is refused, compare the saved templates with the concrete topic
+sent by the device. Publish to a concrete topic rather than a wildcard, use
+the assigned hub device ID, and inspect the SDK acknowledgment or error.
+Topic templates aren't per-device RBAC assignments. Review
+[Publisher identity and preview access control](#publisher-identity-and-preview-access-control).
+
+Topic authorization and routing are separate. If the publish succeeds but
+delivery fails, check the route and destination. If a routing condition is
+rejected, read back the saved condition, check shell quoting, and compare it
+with [Topic and user-property queries](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties).
+For a complete delivery test, see
+[Verify the selective route](mqtt-v5-device-setup.md#verify-the-selective-route).
+
 ## Next steps
 
 - [Configure topic-based routing](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties).
 - [Configure a device and publish messages](mqtt-v5-device-setup.md).
 - [Choose a payload and run the SDK examples](mqtt-v5-device-setup.md#choose-a-payload-for-the-first-test).
-- [Monitor routing and troubleshoot delivery](mqtt-v5-monitor-troubleshoot.md).
+- [Troubleshoot provisioning and delivery](mqtt-v5-device-setup.md#troubleshoot-provisioning-and-delivery).

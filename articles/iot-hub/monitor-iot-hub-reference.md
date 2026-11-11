@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure IoT Hub
 description: This article contains important reference material you need when you monitor the Azure IoT Hub service.
-ms.date: 11/10/2026
+ms.date: 11/11/2026
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: Usha-Rathnavel
@@ -21,6 +21,15 @@ See [Monitor Azure IoT](monitor-iot-hub.md) for details on the data you can coll
 
 The following table lists the metrics available for the Microsoft.Devices/IoTHubs resource type.
 
+> [!IMPORTANT]
+> The resource-type catalog isn't a feature-support matrix for every connection
+> profile. For hubs with the MQTT v5 connection profile, read the profile
+> callouts in this article and check [MQTT v5 capabilities](mqtt-v5-capabilities.md).
+> Built-in endpoint routing, fallback routing, jobs, automatic device
+> configurations, and queued cloud-to-device messages aren't supported in this
+> preview. Their metrics aren't applicable, even if definitions or values appear.
+> Direct methods and twin operations are separate from queued cloud-to-device messages.
+
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Devices/IoTHubs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-devices-iothubs-metrics-include.md)]
 
@@ -35,6 +44,13 @@ an error code.
 
 The metric and its **Throttle Type** dimension are available for both
 classic-profile IoT hubs and hubs using the MQTT v5 connection profile.
+
+> [!NOTE]
+> **MQTT v5:** Select a `ThrottleType` for an operation supported by the
+> connection profile. Correlate the metric with service responses, SDK errors,
+> and resource logs over the same UTC window. A missing series isn't evidence
+> that no throttling occurred, and a request-throttling count isn't a measure
+> of the hub's throughput entitlement.
 
 | Metric property | Value |
 | --- | --- |
@@ -77,8 +93,8 @@ of new metrics for this release:
 
 | Metric API name | Unit | Investigation |
 | --- | --- | --- |
-| `d2c.telemetry.ingress.sendThrottle` | Count | Are telemetry ingress attempts being throttled? Correlate with device SDK errors and attempted publish rate. |
-| `RoutingDeliveries` | Count | What delivery outcomes are reported for the selected destination and routing source? |
+| `d2c.telemetry.ingress.sendThrottle` | Count | Correlate telemetry-throttling signals with SDK errors and attempted publish rate. See [MQTT v5 telemetry interpretation](#mqtt-v5-telemetry-interpretation). |
+| `RoutingDeliveries` | Count | What delivery outcomes are reported for the selected destination and routing source? For MQTT v5 counting caveats, see [MQTT v5 routing interpretation](#mqtt-v5-routing-interpretation). |
 | `RoutingDataSizeInBytesDelivered` | Bytes | How much routed data is delivered? Don't equate routed bytes with a count of unique device messages. |
 | `RoutingDeliveryLatency` | Milliseconds | Is delivery latency increasing for the relevant endpoint or source? Don't sum latency samples. |
 
@@ -101,7 +117,7 @@ before declaring end-to-end success.
 
 A missing series isn't a zero value. Check support for the operation/profile,
 time range, filters, permissions and ingestion delay. For MQTT v5, use the
-[profile-specific monitoring guidance](mqtt-v5-monitor-troubleshoot.md) rather
+[connection-profile considerations](monitor-iot-hub.md#monitoring-the-mqtt-v5-connection-profile) rather
 than assuming that the complete general metric catalog applies.
 
 For an evidence-driven investigation with supported tools, see
@@ -151,6 +167,13 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Cloud to device direct methods metrics:
 
+> [!NOTE]
+> **MQTT v5:** The `c2d.methods.success` and `c2d.methods.failure` counters
+> describe direct-method invocations, not queued cloud-to-device delivery.
+> Correlate them with the service invocation result and the device response.
+> `c2d.methods.requestSize` and `c2d.methods.responseSize` describe sizes in
+> bytes, not invocation counts; use the aggregation exposed for each metric.
+
 | Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Failed direct method invocations | c2d.methods.failure | Count | The count of all failed direct method calls. |
@@ -161,6 +184,13 @@ Cloud to device direct methods metrics:
 For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 Cloud to device twin operations metrics:
+
+> [!NOTE]
+> **MQTT v5:** The `c2d.twin.read.*` and `c2d.twin.update.*` metrics describe
+> service-initiated twin operations. Don't use them to count device-initiated
+> MQTT twin requests. Correlate success and failure counters with the service
+> HTTP response, and verify the resulting twin state separately. The `.size`
+> metrics measure bytes, not the number of operations.
 
 | Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
@@ -191,6 +221,13 @@ Daily quota metrics:
 
 For *Total number of messages used*, only minimum, maximum, and average aggregations are supported. For more information, see [Supported aggregations](#supported-aggregations).
 
+> [!NOTE]
+> **MQTT v5:** Populated `deviceDataUsage` or `deviceDataUsageV2` values don't
+> establish per-operation billing attribution or an invoice amount.
+> `dailyMessageQuotaUsed` is the legacy daily-message quota gauge, not a
+> validation of an MQTT v5 consumption-billing meter. Don't derive MQTT v5
+> billing, throughput entitlements, or supported scale limits from these values.
+
 Device metrics:
 
 | Metric display name | Metric | Unit | Description |
@@ -206,6 +243,15 @@ For *Total devices* and *Connected devices*, only minimum, maximum, and average 
 
 *Total devices* and *Connected devices* aren't exportable via diagnostic settings.
 
+#### MQTT v5 connection and inventory interpretation
+
+| Metric API name | MQTT v5 interpretation |
+| --- | --- |
+| `connect.success` | Inspect the operation and protocol dimensions before treating an aggregate as a device-connect count. Service HTTP activity and device MQTT connection events aren't interchangeable. Correlate the selected series with device SDK session state. |
+| `connectedDeviceCount` | A window average can be fractional when a device is connected for only part of the window. It isn't a fractional device, the current count, or the peak. Inspect the time series and supported aggregation, and correlate with SDK session state. |
+| `totalDeviceCount` | A window average can fall between inventory counts when devices are created or deleted during the interval. Use the registry to verify current inventory; don't interpret the chart summary as an exact current count. |
+| `devices.connectedDevices.allProtocol`, `devices.totalDevices` | These are deprecated variants. Prefer `connectedDeviceCount` and `totalDeviceCount` for new monitoring. Don't transfer aggregation assumptions between the deprecated and current metrics or use a chart-window summary as current inventory. |
+
 Device telemetry metrics:
 
 | Metric display name | Metric | Unit | Description |
@@ -214,9 +260,29 @@ Device telemetry metrics:
 | Telemetry 'message send' attempts | d2c.telemetry.ingress.allProtocol | Count | Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub |
 | Telemetry messages sent | d2c.telemetry.ingress.success | Count | Number of device-to-cloud telemetry messages sent successfully to your IoT hub |
 
+#### MQTT v5 telemetry interpretation
+
+| Metric API name | MQTT v5 callout |
+| --- | --- |
+| `d2c.telemetry.ingress.allProtocol` | Distinguish attempted publishes from accepted publishes and delivered messages. Correlate the metric with the device's attempted publish rate and SDK outcomes rather than using a chart value alone to determine device activity. |
+| `d2c.telemetry.ingress.success` | Ingress success isn't proof of routing or application receipt. Compare publish outcomes, routing results, and independently identified messages at the destination over the same interval. |
+| `d2c.telemetry.ingress.sendThrottle` | Distinguish telemetry-send throttling from authentication, topic authorization, and routing failures. Correlate with SDK responses; don't infer a broker enforcement threshold from a zero count or a successful bounded publishing test. |
+
+For an end-to-end check, see [Monitor a test run](monitor-iot-hub.md#monitor-a-test-run).
+
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 Device to cloud twin operations metrics:
+
+> [!NOTE]
+> **MQTT v5:** Use `d2c.twin.read.success` and `d2c.twin.read.failure` for
+> device-initiated reads, and `d2c.twin.update.success` and
+> `d2c.twin.update.failure` for device-initiated reported-property updates.
+> A failed read can be recorded by the service without a corresponding device
+> error response. Correlate SDK timeouts or missing responses with resource logs;
+> don't assume that no error response means success.
+> `d2c.twin.read.size` and `d2c.twin.update.size` measure bytes, not operation
+> counts. Verify resulting twin state when testing an update.
 
 | Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
@@ -230,6 +296,13 @@ Device to cloud twin operations metrics:
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 Event Grid metrics:
+
+> [!NOTE]
+> **MQTT v5:** `EventGridDeliveries` and `EventGridLatency` describe the separate
+> IoT Hub Event Grid integration, not MQTT broker publishes. Without an applicable
+> event subscription, no data is expected. Don't interpret that absence as
+> missing MQTT v5 telemetry, or infer support for an Event Grid scenario from
+> the metric definition alone.
 
 | Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
@@ -259,6 +332,12 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Routing metrics:
 
+> [!NOTE]
+> **MQTT v5:** Built-in endpoint and fallback routing metrics in the shared
+> table aren't applicable to this profile. Use explicitly configured supported
+> destinations. The following interpretation notes don't change those support
+> boundaries.
+
 | Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Routing Deliveries (preview) | RoutingDeliveries | Count | The routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source. |
@@ -282,9 +361,36 @@ Routing metrics:
 | Routing: telemetry messages incompatible | d2c.telemetry.egress.invalid | Count | The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when IoT Hub attempts to deliver the message to an endpoint and it fails with a nontransient error. Invalid messages aren't retried. This value doesn't include retries. |
 | Routing: telemetry messages orphaned | d2c.telemetry.egress.orphaned | Count | The number of times IoT Hub routing orphans messages because they didn't match any routing query, when fallback route is disabled. |
 
+#### MQTT v5 routing interpretation
+
+| Metric API name | MQTT v5 callout |
+| --- | --- |
+| `d2c.telemetry.egress.success`, `RoutingDeliveries` | Count endpoint delivery outcomes, not unique device publishes. A publish routed to multiple destinations can contribute multiple copies. Split by the available endpoint, source, result, and failure dimensions so that one destination's success doesn't hide another's failure. |
+| `RoutingDeliveryLatency` | Interpret latency for the selected endpoint and routing source. Don't sum latency samples or compare a mixed-destination aggregate with a single endpoint's latency. |
+| `RoutingDataSizeInBytesDelivered` | Measures delivered bytes across the selected delivery paths. Fan-out can increase this value without increasing unique device publishes; don't use it as an ingress-message count or billing amount. |
+| `d2c.telemetry.egress.invalid` | A broker-accepted publish can still be incompatible with a destination. One publish can produce an invalid outcome for each affected endpoint copy. Check destination limits and routing logs rather than classifying this as a broker rejection. |
+| `d2c.telemetry.egress.dropped` | Describes routing drops associated with an endpoint failure, not rejected broker publishes. Inspect endpoint health and destination errors; a failing endpoint doesn't imply that every other destination failed. |
+| `d2c.telemetry.egress.orphaned`, `RoutingDeliveries` with an orphaned failure outcome | Investigate messages that don't match an enabled route. MQTT v5 has no fallback route. Compare saved route conditions with identifiable test messages and independent receipt evidence; don't use an aggregate alone to account for every message. |
+| `d2c.endpoints.egress.eventHubs`, `d2c.endpoints.latency.eventHubs` | Describe delivery to custom Event Hubs endpoints. These aren't MQTT broker ingress metrics or evidence of built-in endpoint support. Correlate with receipt in the configured Event Hubs destination. |
+| `d2c.endpoints.egress.serviceBusQueues`, `d2c.endpoints.latency.serviceBusQueues` | Describe delivery to configured Service Bus queue endpoints. Correlate with the receiving queue; broker acceptance doesn't guarantee compatibility with that queue's configuration. |
+| `d2c.endpoints.egress.serviceBusTopics`, `d2c.endpoints.latency.serviceBusTopics` | Describe delivery to configured Service Bus topic endpoints. Verify receipt through the intended subscription, accounting for its filters; topic delivery isn't proof of application processing. |
+| `d2c.endpoints.egress.storage`, `d2c.endpoints.egress.storage.bytes`, `d2c.endpoints.egress.storage.blobs`, `d2c.endpoints.latency.storage` | Storage metrics reflect committed output, not each intermediate block upload. Allow for batching and commit delay. Distinguish committed message copies, bytes, blob counts, and latency; inspect stored data before declaring delivery complete. |
+
+For exact validation, use a known set of message identifiers and a bounded
+test interval. Account for fan-out and retries when comparing destination
+records with device publishes. Use the destination-specific guidance when
+interpreting delivery to other endpoint types.
+
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 Twin query metrics:
+
+> [!NOTE]
+> **MQTT v5:** `twinQueries.success` and `twinQueries.failure` describe
+> service-side twin query operations, not device MQTT twin GET requests.
+> A successful query can return no matching devices. Inspect the response
+> before interpreting `twinQueries.resultSize`; result bytes aren't a device
+> inventory count.
 
 | Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|

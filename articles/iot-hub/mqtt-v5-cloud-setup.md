@@ -1,22 +1,28 @@
 ---
-title: Set up Azure IoT Hub with the MQTT v5 connection profile
+title: Configure an IoT hub with the MQTT v5 connection profile
 titleSuffix: Azure IoT Hub
 description: Create and configure Azure IoT Hub with the MQTT v5 connection profile and link it to Azure Device Registry and Device Provisioning Service.
 author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 10/25/2026
+ms.date: 11/11/2026
 ms.custom: references_regions
 ---
 
-# Set up Azure IoT Hub with the MQTT v5 connection profile
+# Configure an IoT hub with the MQTT v5 connection profile
+
+<a id="set-up-azure-iot-hub-with-the-mqtt-v5-connection-profile"></a>
 
 Start your solution by creating and configuring an Azure IoT hub and linking
 it to an Azure Device Registry (ADR) namespace and a Device Provisioning Service
 (DPS) instance. These resources establish where devices connect, how they're
 represented, and how they receive their hub assignment. Configure messaging
 destinations before devices start publishing.
+
+This article covers the hub configuration stage. For the complete journey
+through routing, device connection, and delivery verification, see
+[Get started with MQTT v5](mqtt-v5-get-started.md).
 
 > [!IMPORTANT]
 > Azure IoT Hub with the MQTT v5 connection profile is in preview. Review the
@@ -500,7 +506,7 @@ Use the same resource group for this walkthrough.
    This command links DPS first, then the hub, and configures the required
    role assignments. If it only partly completes, inspect the links before
    retrying. Don't rerun the combined `link add` when the DPS link already exists.
-   See [link troubleshooting](mqtt-v5-monitor-troubleshoot.md#troubleshoot-cli-setup).
+   See [link troubleshooting](#troubleshoot-cli-setup).
 
    **Expected result:** The namespace's DPS and hub links both reach
    `Succeeded`, and the hub endpoint is `Available`.
@@ -549,7 +555,7 @@ Use the same resource group for this walkthrough.
    registration ID matches the device's X.509 onboarding identity.
 
 1. **Review diagnostic collection.** Set up the required logs before a test run,
-   using [Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
+   using [Collect and route monitoring data](monitor-iot-hub.md#collect-and-route-monitoring-data).
 
    **Expected result:** Diagnostic collection is configured before the device
    attempts provisioning or sends messages.
@@ -649,6 +655,91 @@ Before proceeding, check each item:
 
 Resource deployment success is the checkpoint for this stage. Successful
 device provisioning and downstream delivery are verified later.
+
+## Troubleshoot CLI setup
+
+Check the CLI version and active extension before changing Azure resources:
+
+```azurecli
+az version
+```
+
+```azurecli
+az extension show --name azure-iot --query version --output tsv
+```
+
+| Symptom | Action |
+| --- | --- |
+| `--connection-profile`, `adr`, or `topic-group` isn't recognized | Verify the preview extension in the current terminal. If using an isolated extension directory, select it again in each new terminal. |
+| An operation reports `InvalidResourceType` for an API version | Check that the extension release and target service environment support the same API version. Repeated resource creation won't resolve an API-version mismatch. |
+| Linking reports a permission error | Check the caller's role-assignment permission and the service identities and scopes in [Configure the linked resources](#configure-the-linked-resources). |
+| DPS reports no hub with availability `Available` | Inspect the namespace's hub endpoint, link state, availability, and allocation weight. These properties must be configured when you create the link. Don't delete resources as a first troubleshooting step. |
+| Direct DPS hub linking is rejected | Use `az iot adr ns link add` for this profile rather than `az iot dps linked-hub create`. |
+
+### Inspect a partially completed link
+
+The combined link command can leave DPS linked to an Azure Device Registry
+(ADR) namespace even if hub linking fails.
+Inspect the actual endpoints rather than rerunning the combined command:
+
+```azurecli
+az iot adr ns link dps list --ns "<ADR_NAMESPACE_NAME>" --resource-group "<RESOURCE_GROUP_NAME>" --output json
+```
+
+```azurecli
+az iot adr ns link hub show --name primary-hub --ns "<ADR_NAMESPACE_NAME>" --resource-group "<RESOURCE_GROUP_NAME>" --output json
+```
+
+If the hub endpoint exists and its linking state is pending, wait for it:
+
+```azurecli
+az iot adr ns link hub wait --name primary-hub --ns "<ADR_NAMESPACE_NAME>" --resource-group "<RESOURCE_GROUP_NAME>"
+```
+
+If that endpoint is in a failed state, first correct the reported permission or
+configuration issue. Then retry the existing endpoint without replacing its
+identity:
+
+```azurecli
+az iot adr ns link hub update --name primary-hub --ns "<ADR_NAMESPACE_NAME>" --resource-group "<RESOURCE_GROUP_NAME>"
+```
+
+If DPS succeeded but the hub endpoint is absent, add only the missing hub link:
+
+```azurecli
+az iot adr ns link hub add --name primary-hub --ns "<ADR_NAMESPACE_NAME>" --resource-group "<RESOURCE_GROUP_NAME>" --hub-id "<HUB_RESOURCE_ID>" --system-assigned-mi --availability Available --allocation-weight 1
+```
+
+Recheck both resources and the namespace after recovery. Don't assume a
+successful DPS link also means the hub is ready.
+
+### Inspect resource and link states through ARM REST
+
+These read-only checks use Azure Resource Manager through `az rest`. They
+don't require the preview IoT extension. Sign in with `az login` and use the
+full resource IDs saved during setup.
+
+```azurecli
+az rest --method get --uri "https://management.azure.com<HUB_RESOURCE_ID>?api-version=2026-10-01-preview" --query "{state:properties.state,provisioningState:properties.provisioningState,namespaceLink:properties.deviceRegistry.linkingProperties.state}" --output json
+```
+
+```azurecli
+az rest --method get --uri "https://management.azure.com<DPS_RESOURCE_ID>?api-version=2026-11-01" --query "{state:properties.state,namespaceLinks:properties.deviceRegistryNamespaces}" --output json
+```
+
+```azurecli
+az rest --method get --uri "https://management.azure.com<ADR_NAMESPACE_RESOURCE_ID>?api-version=2026-11-01" --query "{state:properties.provisioningState,dps:properties.provisioning.endpoints,hubs:properties.messaging.endpoints}" --output json
+```
+
+Check the named namespace endpoints, their target resource IDs, and their
+`linkingState` values. A successful namespace deployment with no endpoints
+isn't evidence of successful linking. Also check the hub endpoint's
+`provisioning.availability` before attempting device provisioning.
+
+For a hub configuration update that returns HTTP `412`, use a new GET and
+reapply the intended change to the latest resource. Don't drop the `If-Match`
+header or update only the ETag on an old body. See
+[Update an existing IoT hub through ARM REST](mqtt-v5-custom-topics.md#update-an-existing-iot-hub-through-arm-rest).
 
 ## Next steps
 

@@ -6,13 +6,82 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 11/11/2026
 ms.custom: ["Role: Cloud Development", "Role: Operations", "Role: Technical Support"]
 ---
 
 # IoT Hub quotas and throttling
 
 This article explains the limits that apply to IoT Hub resources. 
+
+> [!IMPORTANT]
+> IoT Hub with the MQTT v5 connection profile uses throughput units rather than
+> the classic tier/unit capacity model. See
+> [Quotas and throttling for the MQTT v5 connection profile](#quotas-and-throttling-for-the-mqtt-v5-connection-profile).
+> Don't apply the classic daily message quotas, operation-rate tables, or
+> message-size limits elsewhere in this article to that profile. A listed
+> operation doesn't establish MQTT v5 support; check
+> [MQTT v5 capabilities](mqtt-v5-capabilities.md).
+
+## Quotas and throttling for the MQTT v5 connection profile
+
+During preview, this profile supports only **Standard S1** hubs, configured with
+**1 to 25 throughput units (TUs)**. Throughput units determine combined
+device-to-hub and hub-to-device throughput, concurrent connected-device capacity, and
+connection-request capacity.
+
+| Capacity | Per TU (1 TU) | Example: 7 TUs | Maximum: 25 TUs |
+| --- | --- | --- | --- |
+| Combined device-to-hub and hub-to-device traffic: messages per second | 1,000 | 7,000 | 25,000 |
+| Combined device-to-hub and hub-to-device traffic: MB per second | 1 | 7 | 25 |
+| Concurrently connected devices | 10,000 | 70,000 | 250,000 |
+| Connection requests per second | 200 | 1,400 | 5,000 |
+
+Both throughput limits apply: whichever you reach first limits throughput.
+Device-to-hub and hub-to-device traffic share this capacity; these aren't
+separate allowances for each direction. For example, telemetry sent by a
+device and a direct method command delivered by a cloud application to a
+device both count.
+
+The maximum message size is **1 MB**, regardless of the number of TUs.
+
+The number of registered devices can exceed the concurrent connection limit,
+subject to the hub's registered identity capacity. During preview, the MQTT v5
+connection profile supports at most **250,000 concurrently connected devices**
+at 25 TUs; fewer TUs provide a lower concurrent connection limit.
+
+The connection-request limit is a rate, not a count of existing sessions.
+For example, a fleet can remain within its concurrent connection capacity
+while a synchronized reconnect creates excessive connection requests.
+
+For capacity planning and portal steps, see
+[Scale an IoT hub with the MQTT v5 connection profile](iot-hub-scaling.md#scale-an-iot-hub-with-the-mqtt-v5-connection-profile).
+Custom-topic configuration limits are separate from throughput capacity; see
+[Preview limits and topic template rules](mqtt-v5-custom-topics.md#preview-limits-and-topic-template-rules).
+
+### Diagnose throttling and manage retries
+
+Distinguish a capacity constraint from authentication, topic authorization,
+invalid input, or network failures. If publishes succeed but a destination
+receives fewer messages than expected, examine route matching, endpoint health,
+and destination capacity rather than assuming an ingress throttle.
+
+Correlate service responses, SDK errors, metrics, and resource logs over the
+same UTC interval. Use the **Throttle Type** dimension to separate supported
+operation categories. For more information, see
+[Investigate routing and throttling together](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together).
+Don't interpret every failed operation as a signal to increase TUs.
+
+Use the SDK's retry behavior and error classification. For application-managed
+retries of transient failures, use bounded backoff with jitter and an overall
+deadline, following any service-provided retry guidance. Avoid unbounded retry
+loops around an SDK that already retries. Correct authentication and
+configuration errors rather than retrying them indefinitely.
+
+Stagger fleet reconnects and provisioning attempts to avoid synchronized
+bursts. Provisioning has separate
+[DPS quotas and limits](../iot-dps/about-iot-dps.md#quotas-and-limits);
+increasing hub TUs doesn't increase DPS capacity.
 
 ## Tier and unit quotas
 

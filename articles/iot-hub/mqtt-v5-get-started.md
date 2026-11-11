@@ -34,9 +34,11 @@ stage of the journey.
 Use a disposable evaluation environment where possible. Record the resources
 you create so that cleanup doesn't remove shared infrastructure.
 
-## 1. Set up the cloud foundation
+<a id="1-set-up-the-cloud-foundation"></a>
 
-Follow [Set up Azure IoT Hub with the MQTT v5 connection profile](mqtt-v5-cloud-setup.md)
+## 1. Configure an MQTT v5 hub
+
+Follow [Configure an IoT hub with the MQTT v5 connection profile](mqtt-v5-cloud-setup.md)
 to create the hub and configure:
 
 - An IoT hub with the MQTT v5 connection profile selected at creation.
@@ -44,7 +46,7 @@ to create the hub and configure:
 - DPS, linked through the ADR namespace to the intended hub.
 - An enabled X.509 enrollment for the test device.
 
-Use the cloud setup guide for the supported portal, CLI, and ARM steps and
+Use the hub configuration guide for the supported portal, CLI, and ARM steps and
 their prerequisites. Record the DPS ID scope for the device application.
 For onboarding options and credential configuration, see
 [Configure a device with the unified SDKs](mqtt-v5-device-setup.md).
@@ -66,7 +68,7 @@ Complete this stage before running the device application:
 See [Shared routing requirements](iot-hub-devguide-messages-d2c.md#connection-profile-differences).
 For destination-specific requirements, see
 [Custom endpoints for message routing](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
-Set up diagnostics with [Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
+Set up diagnostics with [Collect and route monitoring data](monitor-iot-hub.md#collect-and-route-monitoring-data).
 
 A custom topic group doesn't create a route, and a route doesn't grant topic
 publishing permission.
@@ -112,8 +114,10 @@ A publish acknowledgment or an ingress metric doesn't prove that you
 can read the message downstream. If the message doesn't arrive, check the route, query,
 destination access, and consumer configuration in that order.
 
-To set up diagnostics and follow a stage-by-stage troubleshooting checklist, see
-[Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
+Follow [Monitor a test run](monitor-iot-hub.md#monitor-a-test-run) for shared
+monitoring checkpoints and
+[Troubleshoot provisioning and delivery](mqtt-v5-device-setup.md#troubleshoot-provisioning-and-delivery)
+for MQTT v5-specific failures.
 
 **Checkpoint:** The test message is available to the destination reader and
 you know where to look when the pipeline fails.
@@ -131,5 +135,5 @@ workspace is shared. Review related role assignments and diagnostic settings.
 
 - Add [custom-topic publishing](mqtt-v5-custom-topics.md) and selective routes.
 - Review the [shared SDK lifecycle and capabilities](../iot/device-registry/concept-unified-iot-sdks.md).
-- Set up operational alerts with the [monitoring guide](mqtt-v5-monitor-troubleshoot.md).
+- Set up operational alerts with [Monitor Azure IoT Hub](monitor-iot-hub.md).
 - Use the destination service's documentation to build analytics or dashboards.

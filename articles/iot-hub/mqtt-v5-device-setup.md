@@ -457,6 +457,26 @@ from the selective path; absence from a sampled data preview alone isn't proof.
 Compare the received test IDs in each destination's record. Keep the paths
 separate so that an all-messages copy can't be mistaken for selective delivery.
 
+## Troubleshoot provisioning and delivery
+
+Before testing, [configure diagnostic collection](monitor-iot-hub.md#collect-and-route-monitoring-data).
+Record the UTC interval, assigned device ID, and message identifier, but not
+credentials. To correlate provisioning, connection, ingress, routing, and destination receipt, follow [Monitor a test run](monitor-iot-hub.md#monitor-a-test-run).
+
+| Symptom | First checks |
+| --- | --- |
+| Provisioning fails | Check the DPS ID scope, enrollment state, onboarding credential, and linked hub. Symmetric-key onboarding requires configured DPS certificate issuance and a device certificate signing request; existing X.509 onboarding doesn't require new issuance. For link failures, see [Hub configuration troubleshooting](mqtt-v5-cloud-setup.md#troubleshoot-cli-setup). |
+| TLS or connection fails | Check the assigned device endpoint, device clock, certificate and private key, trusted server roots, and network access. Follow [Troubleshoot a secure connection](#troubleshoot-a-secure-connection). |
+| Custom-topic publish is refused | Check the configured templates, concrete publish topic, assigned hub device ID, and SDK acknowledgment. See [Troubleshoot custom-topic publishing](mqtt-v5-custom-topics.md#troubleshoot-custom-topic-publishing). |
+| Publish succeeds but no data arrives | Check the enabled route, source, query, endpoint access, and destination reader. MQTT v5 hubs have no built-in telemetry endpoint or fallback route. |
+| Some messages don't arrive | Check selective query behavior, content metadata, throttling, and destination health. Use [Verify the selective route](#verify-the-selective-route) to distinguish excluded messages from failed delivery. |
+| Payload arrives but columns are empty | Check the endpoint's message format, destination envelope, and consumer field mapping. For Fabric, inspect CloudEvents data; with standardized output, locate the original JSON under the observation's `payload.value`. |
+| Expected enrichment is missing | Check the enrichment key and value, target endpoint, and received metadata. For Fabric, check its [enrichment naming restrictions](iot-hub-devguide-endpoints.md#enrichment-property-restrictions). Don't look for the enrichment inside the device payload. |
+
+A route's schema reference doesn't validate or transform the payload. For
+schema and format interpretation, see
+[Prepare IoT Hub telemetry for agents and analytics](iot-hub-agent-ready-data.md).
+
 ## Troubleshoot a secure connection
 
 Check the following when a device can't connect:
@@ -480,5 +500,5 @@ for the shared TLS requirements.
 ## Next steps
 
 - [Configure custom topic groups](mqtt-v5-custom-topics.md).
-- [Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
+- [Monitor Azure IoT Hub](monitor-iot-hub.md#monitoring-the-mqtt-v5-connection-profile).
 - Review the [shared SDK capability and lifecycle guide](../iot/device-registry/concept-unified-iot-sdks.md).

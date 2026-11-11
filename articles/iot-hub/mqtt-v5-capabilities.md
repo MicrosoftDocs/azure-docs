@@ -72,7 +72,7 @@ DPS, not directly through the MQTT v5 hub. See
 
 | Capability | Supported in preview | Notes |
 | --- | --- | --- |
-| Create a new hub with the MQTT v5 connection profile | Yes | Select the profile when creating a hub through the Azure portal, preview CLI, or ARM. See [Set up cloud resources](mqtt-v5-cloud-setup.md). |
+| Create a new hub with the MQTT v5 connection profile | Yes | Select the profile when creating a hub through the Azure portal, preview CLI, or ARM. See [Configure an MQTT v5 hub](mqtt-v5-cloud-setup.md). |
 | Enable the profile on an existing IoT hub | Not supported | To use the MQTT v5 connection profile, create a new IoT hub with this profile selected. |
 | MQTT v5 | Yes | The only supported device-connectivity protocol. |
 | MQTT v3.1.1 | Not supported | If your solution requires MQTT v3.1.1, select **Classic** under **Connection profile** when creating the IoT hub. |
@@ -166,5 +166,5 @@ unsupported in this preview.
 - [Follow the cloud-to-device setup journey](mqtt-v5-get-started.md).
 - [Develop with the unified Azure IoT SDKs](../iot/device-registry/concept-unified-iot-sdks.md).
 - [Configure routes and destinations](iot-hub-devguide-messages-d2c.md).
-- [Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
+- [Monitor Azure IoT Hub](monitor-iot-hub.md#monitoring-the-mqtt-v5-connection-profile).
 - [Read the MQTT v5 FAQ](iot-hub-faq.md#azure-iot-hub-with-the-mqtt-v5-connection-profile).

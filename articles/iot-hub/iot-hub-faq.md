@@ -174,11 +174,11 @@ Schema references describe the original telemetry payload, device-type context h
 
 ### Which metrics help investigate routing and throttling?
 
-Use supported ingress, throttling, routing-delivery, and latency metrics for the affected resource and time window. Select the metric's documented dimensions and aggregations, and correlate the results with device errors and destination observations. See [Routing and throttling metrics](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together). For MQTT v5, follow the [profile-specific monitoring guidance](mqtt-v5-monitor-troubleshoot.md): a metric definition alone doesn't establish profile support, and missing data isn't the same as zero.
+Use supported ingress, throttling, routing-delivery, and latency metrics for the affected resource and time window. Select the metric's documented dimensions and aggregations, and correlate the results with device errors and destination observations. See [Routing and throttling metrics](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together). For MQTT v5, follow the [connection-profile considerations](monitor-iot-hub.md#monitoring-the-mqtt-v5-connection-profile): a metric definition alone doesn't establish profile support, and missing data isn't the same as zero.
 
 ### Does a successful publish prove delivery to my application?
 
-No. A publish acknowledgment, route delivery, and application processing are separate checkpoints. Send a uniquely identifiable test message and verify that the receiving application obtains the expected payload and metadata. For MQTT v5, see [Monitor a test run](mqtt-v5-monitor-troubleshoot.md#monitor-a-test-run).
+No. A publish acknowledgment, route delivery, and application processing are separate checkpoints. Send a uniquely identifiable test message and verify that the receiving application obtains the expected payload and metadata. See [Monitor a test run](monitor-iot-hub.md#monitor-a-test-run).
 
 ### Can I investigate IoT Hub problems with MCP tools?
 

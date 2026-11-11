@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/iot-hub/mqtt-v5-monitor-troubleshoot.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub#monitoring-the-mqtt-v5-connection-profile",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/compare-iot-hub-connectivity.md",
       "redirect_url": "/azure/iot-hub/mqtt-v5-capabilities",
       "redirect_document_id": false

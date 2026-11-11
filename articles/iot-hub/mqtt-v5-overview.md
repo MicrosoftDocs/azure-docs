@@ -146,7 +146,7 @@ device-side lifecycle client.
 
 - [Compare connection profiles and review MQTT v5 capabilities](mqtt-v5-capabilities.md).
 - Follow the [end-to-end setup journey](mqtt-v5-get-started.md).
-- [Set up Azure IoT Hub with the MQTT v5 connection profile](mqtt-v5-cloud-setup.md).
+- [Configure an IoT hub with the MQTT v5 connection profile](mqtt-v5-cloud-setup.md).
 - [Configure routing and destinations](iot-hub-devguide-messages-d2c.md).
 - [Configure a device with the unified SDKs](mqtt-v5-device-setup.md).
-- [Monitor and troubleshoot](mqtt-v5-monitor-troubleshoot.md).
+- [Monitor Azure IoT Hub](monitor-iot-hub.md#monitoring-the-mqtt-v5-connection-profile).
