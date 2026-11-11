@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table.
 author: asudbring
 ms.service: azure-virtual-network
-ms.date: 02/05/2026
+ms.date: 11/11/2026
 ms.author: allensu
 ms.topic: tutorial
 ms.custom: 
@@ -971,6 +971,229 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
     Azure sent the traffic directly from **subnet-private** to **subnet-1**. By default, Azure routes traffic directly between subnets.
 
 1. Close the Bastion session.
+
+## Configure ECMP routing (optional)
+
+To extend this tutorial to use multiple network virtual appliances (NVAs), configure equal-cost multipath (ECMP) routing. An ECMP route uses the `VirtualApplianceEcmp` next hop type with between 2 and 64 next hop IP addresses.
+
+This section changes the existing `to-private-subnet` route in `route-table-public` to use two appliances instead of one. The destination remains `10.0.2.0/24`, and the route table remains associated with `subnet-1`. Complete the single-appliance routing tests before you make this change.
+
+For requirements and routing considerations, see [Equal-cost multipath routing for user-defined routes](virtual-networks-udr-overview.md#equal-cost-multipath-routing-for-user-defined-routes).
+
+### Prepare a second appliance
+
+1. Repeat [Create an NVA virtual machine](#create-an-nva-virtual-machine) to deploy a second appliance named `vm-nva-2` in `subnet-dmz` in `vnet-1`, using resource group `test-rg`. Use a unique network interface and SSH key name.
+1. Enable IP forwarding on the second appliance's network interface and [in its operating system](#enable-ip-forwarding-in-the-operating-system), as you did for `vm-nva`.
+1. Confirm that both appliances can forward traffic to `subnet-private` and that their security policies permit the test traffic.
+1. Record each appliance's private IP address. In the Azure portal, open each VM and review its networking settings.
+
+The following examples use `10.0.3.4` and `10.0.3.5`. Replace them with the actual private IP addresses assigned to your appliances. Don't assume that the second appliance receives `10.0.3.5`.
+
+Use an Azure CLI or Az.Network version that supports `VirtualApplianceEcmp` and multiple next hop addresses. The older minimum tool versions in this tutorial don't establish ECMP support. See [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) and [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig).
+
+### Register the ECMP feature
+
+Register `Microsoft.Network/AllowEcmpInRoute` in the subscription that contains `route-table-public`. Feature registration requires the relevant `Microsoft.Features/*` permissions in addition to the permissions required to manage network resources.
+
+Choose the same tool tab for the following registration and configuration steps.
+
+### [Portal](#tab/portal)
+
+Use Azure Cloud Shell in the portal to register the feature:
+
+1. Select **Cloud Shell** in the top navigation and select **PowerShell**. If prompted, complete the Cloud Shell setup.
+1. Select the subscription that contains the tutorial resources and register the feature:
+
+   ```azurepowershell
+   Set-AzContext -SubscriptionId "<subscription-id>" -ErrorAction Stop
+   Register-AzProviderFeature `
+       -ProviderNamespace "Microsoft.Network" `
+       -FeatureName "AllowEcmpInRoute" `
+       -ErrorAction Stop
+   ```
+
+1. Check the feature state:
+
+   ```azurepowershell
+   Get-AzProviderFeature `
+       -ProviderNamespace "Microsoft.Network" `
+       -FeatureName "AllowEcmpInRoute" `
+       -ErrorAction Stop |
+       Select-Object FeatureName, RegistrationState
+   ```
+
+1. Wait until the feature state is `Registered`, then refresh the resource provider registration:
+
+   ```azurepowershell
+   Register-AzResourceProvider -ProviderNamespace "Microsoft.Network" -ErrorAction Stop
+   Get-AzResourceProvider -ProviderNamespace "Microsoft.Network" -ErrorAction Stop |
+       Select-Object ProviderNamespace, RegistrationState
+   ```
+
+   Wait until the provider registration state is `Registered`.
+
+### [PowerShell](#tab/powershell)
+
+If you're using PowerShell locally, sign in with `Connect-AzAccount`. Select the subscription that contains the tutorial resources and register the feature:
+
+```azurepowershell
+Set-AzContext -SubscriptionId "<subscription-id>" -ErrorAction Stop
+Register-AzProviderFeature `
+    -ProviderNamespace "Microsoft.Network" `
+    -FeatureName "AllowEcmpInRoute" `
+    -ErrorAction Stop
+```
+
+Check the feature state:
+
+```azurepowershell
+Get-AzProviderFeature `
+    -ProviderNamespace "Microsoft.Network" `
+    -FeatureName "AllowEcmpInRoute" `
+    -ErrorAction Stop |
+    Select-Object FeatureName, RegistrationState
+```
+
+Wait until the feature state is `Registered`, then refresh the resource provider registration:
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network" -ErrorAction Stop
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Network" -ErrorAction Stop |
+    Select-Object ProviderNamespace, RegistrationState
+```
+
+Wait until the provider registration state is `Registered`.
+
+### [CLI](#tab/cli)
+
+Use Bash for the CLI examples, as in the earlier tutorial steps. If you're using Azure CLI locally, sign in with `az login`. Select the subscription that contains the tutorial resources and register the feature:
+
+```azurecli
+az account set --subscription "<subscription-id>"
+az feature register --namespace Microsoft.Network --name AllowEcmpInRoute
+```
+
+Check the feature state:
+
+```azurecli
+az feature show \
+    --namespace Microsoft.Network \
+    --name AllowEcmpInRoute \
+    --query properties.state \
+    --output tsv
+```
+
+Wait until the feature state is `Registered`, then refresh the resource provider registration:
+
+```azurecli
+az provider register --namespace Microsoft.Network
+az provider show --namespace Microsoft.Network --query registrationState --output tsv
+```
+
+Wait until the provider registration state is `Registered`.
+
+---
+
+Registration can take time. Don't continue while the feature state is `Registering` or `Pending`. If approval is required, follow the service's feature access process. For more information, see [Set up features in an Azure subscription](../azure-resource-manager/management/preview-features.md).
+
+### Change the route to use ECMP
+
+> [!WARNING]
+> Updating this route changes the path for traffic from `subnet-1` to `subnet-private`. Verify both appliances before you continue. Don't add a second route for the same destination prefix.
+
+### [Portal](#tab/portal)
+
+Keep the PowerShell Cloud Shell session open. The following commands update the tutorial's existing route without changing the route table association:
+
+```azurepowershell
+Get-AzRouteTable -ResourceGroupName "test-rg" -Name "route-table-public" -ErrorAction Stop |
+    Set-AzRouteConfig `
+        -Name "to-private-subnet" `
+        -AddressPrefix "10.0.2.0/24" `
+        -NextHopType "VirtualApplianceEcmp" `
+        -NextHopIpAddress @("10.0.3.4", "10.0.3.5") `
+        -ErrorAction Stop |
+    Set-AzRouteTable -ErrorAction Stop
+```
+
+Verify the saved configuration:
+
+```azurepowershell
+Get-AzRouteTable -ResourceGroupName "test-rg" -Name "route-table-public" -ErrorAction Stop |
+    Get-AzRouteConfig -Name "to-private-subnet" -ErrorAction Stop |
+    Select-Object Name, AddressPrefix, NextHopType, NextHopIpAddress, ProvisioningState
+```
+
+In the portal, search for and select **Route tables**, open **route-table-public**, then select **Subnets** under **Settings**. Confirm that **subnet-1** in **vnet-1** is still associated with the route table. No reassociation is required.
+
+This procedure uses the portal's Cloud Shell to configure ECMP; it doesn't require a native ECMP route form.
+
+### [PowerShell](#tab/powershell)
+
+Use `Set-AzRouteConfig` to change the existing route and `Set-AzRouteTable` to save it:
+
+```azurepowershell
+Get-AzRouteTable -ResourceGroupName "test-rg" -Name "route-table-public" -ErrorAction Stop |
+    Set-AzRouteConfig `
+        -Name "to-private-subnet" `
+        -AddressPrefix "10.0.2.0/24" `
+        -NextHopType "VirtualApplianceEcmp" `
+        -NextHopIpAddress @("10.0.3.4", "10.0.3.5") `
+        -ErrorAction Stop |
+    Set-AzRouteTable -ErrorAction Stop
+```
+
+`Set-AzRouteConfig` changes the in-memory route table. `Set-AzRouteTable` persists the change. To create a route object for a new route instead, use [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig).
+
+Retrieve the saved route:
+
+```azurepowershell
+Get-AzRouteTable -ResourceGroupName "test-rg" -Name "route-table-public" -ErrorAction Stop |
+    Get-AzRouteConfig -Name "to-private-subnet" -ErrorAction Stop |
+    Select-Object Name, AddressPrefix, NextHopType, NextHopIpAddress, ProvisioningState
+```
+
+### [CLI](#tab/cli)
+
+Replace the named route with its ECMP configuration. The `create` command uses a create-or-update operation: using the existing name `to-private-subnet` updates that route rather than adding another route. The request supplies the ECMP address list instead of the previous singular next hop address.
+
+```azurecli
+az network route-table route create \
+    --resource-group test-rg \
+    --route-table-name route-table-public \
+    --name to-private-subnet \
+    --address-prefix 10.0.2.0/24 \
+    --next-hop-type VirtualApplianceEcmp \
+    --next-hop "next-hop-ip-addresses=[10.0.3.4,10.0.3.5]"
+```
+
+Retrieve the saved route:
+
+```azurecli
+az network route-table route show \
+    --resource-group test-rg \
+    --route-table-name route-table-public \
+    --name to-private-subnet \
+    --query "{addressPrefix:addressPrefix,nextHopType:nextHopType,nextHop:nextHop,provisioningState:provisioningState}" \
+    --output json
+```
+
+---
+
+Confirm that the saved route has next hop type `VirtualApplianceEcmp`, both appliance addresses, and provisioning state `Succeeded`. Azure PowerShell exposes the list as `NextHopIpAddress`; Azure CLI exposes it as `nextHop.nextHopIpAddresses`.
+
+### Test ECMP routing
+
+1. Review the [effective routes](diagnose-network-routing-problem.md) for the network interface of `vm-public`. Confirm that traffic destined for `10.0.2.0/24` uses the user-defined route.
+1. Repeat the connectivity test from `vm-public` to `vm-private`. The first appliance hop can differ from the earlier single-appliance example.
+1. Generate multiple independent connections and inspect forwarding counters or traffic captures on both appliances. A single `tracepath` result doesn't demonstrate distribution across both next hops.
+1. Confirm that response traffic reaches `vm-public`. The existing reverse route can remain direct between subnets; don't assume that ECMP makes the return path symmetric. For stateful appliances, validate the required return-path design with the appliance vendor.
+
+A `Succeeded` provisioning state confirms that Azure provisioned the route resource. It doesn't confirm appliance health, equal traffic volumes, session-state synchronization, or successful failover.
+
+When you're finished, continue with the tutorial's resource group cleanup. Deploy `vm-nva-2` in `test-rg` so that the same cleanup removes both tutorial appliances. Deleting the resource group doesn't unregister the subscription-level ECMP feature.
+
+## Clean up resources
 
 
 ### [Portal](#tab/portal)
