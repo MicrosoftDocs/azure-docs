@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 05/04/2026
+ms.date: 10/19/2026
 ---
 
 # Comparison between Azure Front Door and Azure Content Delivery Network
@@ -79,6 +79,7 @@ The following table provides a comparison between the Azure Front Door and Azure
 | DDoS protection | &check; | &check; | &check; | &check; |
 | Domain fronting block | &check; | &check; | &check; | &check; |
 | Managed identities for origin authentication | Preview | Preview | | |
+| [JWT validation with an authentication policy](authentication-policy.md) | | Public preview | | |
 | **Analytics and reporting** | | | | |
 | Monitoring metrics | &check; (more metrics than classic) | &check; (more metrics than classic) | &check; | &check; |
 | Advanced analytics/built-in reports | &check; | &check; (includes WAF report) | | |

@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 09/25/2025
+ms.date: 10/19/2026
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -37,6 +37,8 @@ Azure Front Door's features work best when traffic only flows through Front Door
 ::: zone pivot="front-door-standard-premium"
 
 Front Door provides several approaches that you can use to restrict your origin traffic.
+
+On Front Door Premium, you can also use [an authentication policy (public preview)](authentication-policy.md) to validate Microsoft Entra ID JWTs from clients at the edge. Clients must use the `Bearer` authentication scheme in the configured `Authorization` or `Proxy-Authorization` header. Client token validation doesn't replace the origin access restrictions described in this article; without those restrictions, clients might bypass Front Door.
 
 ## Private Link enabled origins
 
