@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 10/30/2026
+ms.date: 11/11/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -459,6 +459,9 @@ Standard SSD LRS or ZRS (`StandardSSD_LRS`, `StandardSSD_ZRS`) | Matches the sou
 Premium SSD v1 LRS or ZRS (`Premium_LRS`, `Premium_ZRS`) | Matches the source redundancy | Matches the source redundancy | ZRS source disks are supported for regional disaster recovery, but not zone-to-zone disaster recovery.
 Premium SSD v2 LRS (`PremiumV2_LRS`) | `Premium_LRS` | `PremiumV2_LRS` | Generally available. Requires High Churn and must be selected when replication is enabled. Host caching isn't supported.
 Ultra Disk LRS (`UltraSSD_LRS`) | `Premium_LRS` | `UltraSSD_LRS` | Requires High Churn. Zone-to-zone disaster recovery and host caching aren't supported.
+
+> [!NOTE]
+> For a Premium SSD v2 or Ultra Disk source with a 4-KiB logical sector size, Site Recovery preserves a 6-MiB VHDX header on the Premium SSD v1 replica disk and aligns the replica capacity to a whole GiB. As a result, the replica disk is typically provisioned 1 GiB larger than the source disk.
 
 Component | Support | Details
 --- | --- | ---
