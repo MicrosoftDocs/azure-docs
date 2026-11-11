@@ -37,6 +37,8 @@
       href: custom-health-probe.md
     - name: Scaling and zone resiliency
       href: scaling-zone-resiliency.md
+    - name: Reliability
+      href: /azure/reliability/reliability-application-gateway-containers?toc=/azure/application-gateway/for-containers/toc.json
     - name: Session affinity
       href: session-affinity.md
   - name: Multi-team shared gateway
