@@ -347,6 +347,7 @@ az network bastion create \
 ```
 
 ---
+
 ## Create an NVA virtual machine
 
 Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using an **Ubuntu 24.04** virtual machine.
@@ -697,7 +698,7 @@ In this section, turn on IP forwarding for the operating system of the **vm-nva*
 
     ```bash
     sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
-sudo sysctl -p
+    sudo sysctl -p
     ```
 
 1. Select **Run**.
