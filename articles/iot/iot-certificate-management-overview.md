@@ -39,12 +39,12 @@ The following features are supported with certificate management for IoT Hub dev
 
 ## Onboarding vs. operational credentials for devices
 
-A credential is an artifact that a device uses to prove its identity, such as an X.509 certificate or symmetric key. In Azure IoT, there are **two types** of device credentials: an **onboarding** credential and an **operational** credential. Onboarding and operational credentials serve different purposes and have different lifecycles:
+A credential is an artifact that a device uses to prove its identity, such as an X.509 certificate or symmetric key. When you use Azure Device Registry with IoT Hub and Device Provisioning Service (DPS), you can separate device credentials for **onboarding** and **operations**. These credentials serve different purposes and have different lifecycles:
 
-- **Onboarding credential:** Provides a durable device identity that is typically provisioned during manufacturing and remains stable throughout the device's lifetime. A device uses this credential to authenticate with [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md) during provisioning. Supported onboarding credential types include X.509 certificates from a third-party certificate authority (CA), symmetric keys, and Trusted Platform Modules (TPM).
+- **Onboarding credential:** Provides a durable device identity that is typically provisioned during manufacturing and remains stable throughout the device's lifetime. A device uses this credential to authenticate with DPS during provisioning. Supported onboarding credential types include X.509 certificates from a third-party certificate authority (CA), symmetric keys, and Trusted Platform Modules (TPM). For more information, see [Attestation mechanism](../iot-dps/concepts-service.md#attestation-mechanism).
 - **Operational credential:** These are X.509 certificates issued by Azure Device Registry, typically short-lived, renewed throughout the device lifecycle, and are used to authenticate to cloud services like IoT Hub. This credential can be revoked without replacing the device's foundational identity, improving security while reducing operational complexity at scale. 
 
-Certificate management in Azure Device Registry supports issuance, renewal, and revocation for device **operational credentials.** It does not issue or manage device **onboarding credentials**. 
+Certificate management in Azure Device Registry supports issuance, renewal, and revocation for device **operational credentials.** It does not issue or manage device **onboarding credentials**.
 
 ## Architecture
 
@@ -62,11 +62,11 @@ Certificate management combines **Azure Device Registry (ADR)**, **Device Provis
 
 ### Certificate authority options
 
-Certificate management in Azure Device Registry supports two types of intermediate certificate authorities:
+Certificate management in Azure Device Registry supports two deployment options for intermediate certificate authorities:
 
-**Microsoft cloud root CA-signed** ADR creates and manages an intermediate CA that chains to a unique Microsoft-managed root CA for your namespace. Microsoft manages the lifecycle of both the namespace root CA and the intermediate CA.
+- **Microsoft cloud root CA:** ADR creates and manages an intermediate CA that chains to a unique Microsoft-managed root CA for your namespace. Microsoft manages the lifecycle of both the namespace root CA and the intermediate CA.
 
-**External CA-signed** ADR creates and manages an intermediate CA that is signed by an external CA owned by your organization. Your organization retains ownership and governance of the external CA, while Microsoft manages the intermediate CA and operational certificate issuance workflow. This option is useful when devices must chain to an enterprise PKI or a common corporate trust anchor.
+- **Bring your own CA:** ADR creates and manages an intermediate CA that is signed by an external CA owned by your organization. Your organization retains ownership and governance of the external CA, while Microsoft manages the intermediate CA and operational certificate issuance workflow. This option is useful when devices must chain to an enterprise PKI or a common corporate trust anchor.
 
 For more information, see [Certificate Authorities in Azure Device Registry](concept-managed-ca-hierarchy.md).
 
