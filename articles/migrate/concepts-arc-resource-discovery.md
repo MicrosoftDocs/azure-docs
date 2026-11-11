@@ -108,7 +108,7 @@ All assessments evaluate:
 - **Cost estimates**: Monthly Azure resource costs in the target region.
 
 > [!NOTE] 
-> Right sized PaaS targets are not available for Arc-enabled SQL Server resources. Only as on-premises sizing is provided.
+> Right-sized PaaS targets aren't available for Arc-enabled SQL Server resources. Only on-premises sizing is provided.
 
 ## Business case
 
@@ -168,7 +168,7 @@ The Azure Migrate Collector VM extension is an optional component that provides 
 - Network utilization
 
 > [!NOTE]
-> SQL Server performance metrics are not collected by Azure Migrate Collector VM extension
+> The Azure Migrate Collector VM extension doesn't collect SQL Server performance metrics.
 
 ### Installation options
 - **Single server**: Use Azure portal or Azure CLI commands.
