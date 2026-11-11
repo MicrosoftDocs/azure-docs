@@ -29,7 +29,6 @@ This article explains the unified SDK architecture, the end-to-end device lifecy
 > [!NOTE]
 > This article applies to devices that use IoT Hub and Device Provisioning Service (DPS) instances that are integrated with Azure Device Registry. The unified SDKs are separate from the existing Azure IoT Hub and DPS device SDKs that aren't integrated with Azure Device Registry, which remain available for applications that depend on their supported capabilities. For IoT Hub and DPS deployments that aren't integrated with Azure Device Registry, continue to use the device SDKs listed in [Azure IoT device and service SDKs](../../iot-hub/iot-sdks.md).
 
-
 ## The unified SDK strategy
 
 The unified Azure IoT SDKs use one shared *connection client* and a set of capability-focused *feature clients*.
