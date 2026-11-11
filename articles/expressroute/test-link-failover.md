@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 09/28/2026
 ---
 
-# Test link failover for Azure ExpressRoute
+# Resiliency Validation: Test link failover (preview)
 
 Use Link Failover to test how an Azure ExpressRoute circuit responds to a link failure before planned maintenance or a disaster recovery exercise. The test disconnects the Border Gateway Protocol (BGP) session on the primary or secondary link you select to simulate an outage. You can then check whether traffic uses the alternate link and identify routing or connectivity gaps.
 
