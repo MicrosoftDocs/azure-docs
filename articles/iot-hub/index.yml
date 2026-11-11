@@ -26,7 +26,7 @@ landingContent:
       - text: Create an IoT hub
         url: create-hub.md
 
- - title: New features in IoT Hub (Preview)
+ - title: New features in IoT Hub
    linkLists:
     - linkListType: overview
       links:
