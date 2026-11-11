@@ -19,7 +19,7 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 ### Azure Site Recovery support for zonal disaster recovery for Ultra disks
 
-Azure Site Recovery now supports zone-to-zone disaster recovery for Azure virtual machines using Ultra disks. This capability enhances recovery strategy for customers using Ultra disks for their performance-intensive, high-IOPS demanding applications running on virtual machines, and protects them from zonal failures and disruptions by replication and recovering the VMs to another zone within the same Azure region.
+Azure Site Recovery now supports zone-to-zone disaster recovery for Azure virtual machines using Ultra disks. This capability enhances recovery strategy for customers using Ultra disks for their performance-intensive, high-IOPS demanding applications running on virtual machines, and protects them from zone failure and disruptions by replicating and recovering the VMs to another zone within the same Azure region.
 
 Previously, customers using Ultra disks couldn't combine their preferred storage option with ASR's zone disaster recovery capabilities. This enhancement improves application resilience against zone failures and also expands Azure Site Recovery's support for modern Azure infrastructure, helping customers confidently protect their most demanding workloads while meeting stringent recovery objectives.
 
