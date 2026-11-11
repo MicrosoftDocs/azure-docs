@@ -158,6 +158,13 @@ sections:
           No. Azure Front Door doesn't currently support managed identity integration with Azure Event Hubs.
 
       - question: |
+          Can Azure Front Door validate client JWTs at the edge?
+        answer: |
+          Yes. The authentication policy feature is available in public preview on Front Door Premium to validate Microsoft Entra ID JSON Web Tokens (JWTs) before requests reach the origin. This preview is provided without a service-level agreement and isn't recommended for production workloads. Clients must use the Bearer authentication scheme in the header configured in the policy, for example, `Authorization: Bearer <token>` or `Proxy-Authorization: Bearer <token>`.
+
+          Use Block mode to reject requests that don't meet the policy requirements, or Log mode to record validation results without blocking requests. Configure client-to-Front Door authentication separately from origin authentication. If you also use managed identity for origin authentication, use `Proxy-Authorization` for the client token and reserve `Authorization` for the origin authentication token. For preview terms and configuration guidance, see [Validate JSON Web Tokens with an authentication policy (preview)](authentication-policy.md).
+
+      - question: |
           Does Azure Front Door support custom error pages?
         answer: |
           No. Azure Front Door doesn't currently support custom error pages.

@@ -117,6 +117,8 @@ Use the following articles to learn how to read messages from an endpoint.
 
 * Read from [Service Bus topics](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
+* Read from [Fabric Eventstreams](/fabric/real-time-intelligence/event-streams/overview#process-events)
+
 ## Fallback route
 
 Fallback routing is available for the classic connection profile, but not for the MQTT v5

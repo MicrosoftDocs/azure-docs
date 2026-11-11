@@ -30,7 +30,7 @@ Azure Front Door offloads the TLS sessions at the edge and decrypts client reque
 
 ## Supported TLS versions
 
-Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. All Azure Front Door profiles created after September 2019 use TLS 1.2 as the default minimum with TLS 1.3 enabled. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
+Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. All Azure Front Door profiles created after September 2019 use TLS 1.2 as the default minimum with TLS 1.3 enabled. Azure Front Door Premium supports [mutual TLS (mTLS) authentication](mutual-tls.md) for client-to-Front Door connections. Azure Front Door Standard and classic don't support client mTLS. Azure Front Door doesn't support mTLS on connections from Front Door to origins.
 
 > [!IMPORTANT]
 > TLS 1.0 and 1.1 aren't supported. 

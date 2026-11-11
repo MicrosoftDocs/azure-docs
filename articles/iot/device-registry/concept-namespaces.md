@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 
 A *namespace* is the management and organizational boundary for devices and assets in [Azure Device Registry](overview-device-registry.md). Every device and asset belongs to exactly one namespace. A namespace groups related devices and assets, establishes a security boundary, and supports management at scale through role-based access control (RBAC), tags, and policies.
 
-Namespaces are the shared foundation that Azure Device Registry uses to organize your IoT estate across services. They work with both Azure IoT Operations and Azure IoT Hub, so you can manage edge-connected and cloud-connected devices through a single, uniform interface.
+Namespaces are the shared foundation that Azure Device Registry uses to organize your IoT inventory across Azure IoT Operations and linked Azure IoT Hub instances.
 
 ## What namespaces are used for
 
@@ -25,14 +25,14 @@ Namespaces provide the following benefits:
 
 - **Organizational grouping.** A namespace groups related devices and assets so that you can manage them as a set. You typically align namespace boundaries with organizational, operational, or governance requirements, such as a site, a business unit, or an environment.
 - **Security boundary.** You apply RBAC at the namespace level, which gives you a clear boundary for controlling who can access a set of devices and assets. Namespaces also help maintain separation between environments, such as development, testing, and production, which reduces the risk of accidental changes across boundaries.
-- **Management at scale.** Because devices and assets are Azure Resource Manager resources within a namespace, you can use resource groups, tags, Azure Policy, logging, and auditing to manage them the same way you manage other Azure resources. You can also use Azure Resource Graph to query devices and assets across namespaces, subscriptions, and regions.
+- **Management at scale.** Use tags to organize devices and assets, Azure Policy to govern supported resource properties, and Azure Activity Log to audit management operations. Use Azure Resource Graph to query devices and assets across namespaces, subscriptions, and regions.
 - **Service-specific configuration.** Certain platform capabilities, such as certificate management policies, are enabled or configured at the namespace level. A namespace acts like a parent resource with its own managed identity and service-specific settings.
 
 ## How namespaces relate to service instances
 
 A namespace is a long-lived boundary, so it's important to understand how namespaces map to Azure IoT Operations instances and Azure IoT Hub instances before you deploy:
 
-- Each Azure IoT Operations instance or Azure IoT Hub maps to exactly one namespace.
+- Each Azure IoT Operations instance or linked IoT hub uses one namespace.
 - Multiple Azure IoT Operations instances or Azure IoT Hub instances can share the same namespace for broader management scenarios.
 
 Sharing a namespace across instances gives you unified visibility. For example, devices and assets connected through different instances at the same site can appear in a single registry.
@@ -44,7 +44,7 @@ For guidance on when to create a new namespace and when to reuse an existing one
 
 ## Namespaces for Azure IoT Operations
 
-For Azure IoT Operations, namespaces are generally available. A namespace organizes the devices and assets that connect at the edge, such as the assets discovered and onboarded through Azure IoT Operations. When you represent these edge devices and assets as Azure Resource Manager resources within a namespace, you can govern, tag, and audit them alongside your other Azure resources.
+For Azure IoT Operations, namespaces are generally available. A namespace organizes the devices and assets discovered and onboarded through Azure IoT Operations. Their Azure Resource Manager representation lets you govern, tag, and audit them alongside your other Azure resources.
 
 Each Azure Device Registry namespace can map to an Azure Event Grid instance, which provides consistent routing for capabilities such as [management actions](../../iot-operations/discover-manage-assets/howto-use-management-actions.md). In Azure IoT Operations, namespaces support scenarios where data flows use schemas to describe, transform, and serialize messages from edge assets.
 
@@ -62,13 +62,15 @@ For more information, see [Integration with Azure Device Registry](../../iot-hub
 
 ## Planning constraints and limits
 
-The following limits affect namespace design. For the full list, see [Azure Device Registry limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-device-registry-limits).
+The following limits apply to namespaces and Azure IoT Operations devices and assets. For the full list, see [Azure Device Registry limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-device-registry-limits).
 
 | Resource | Limit |
 |---|---|
 | Namespaces per subscription | 100 |
 | Devices per namespace | 10,000 |
 | Assets per namespace | 10,000 |
+
+For linked IoT hubs, see [IoT Hub with ADR integration (preview) limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-with-adr-integration-preview-limits), including devices per hub and hubs per namespace.
 
 ## Related content
 

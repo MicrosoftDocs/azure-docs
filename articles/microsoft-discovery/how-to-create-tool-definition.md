@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/14/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a tool publisher, I want to write a tool definition YAML file so that Microsoft Discovery can correctly deploy, configure, and invoke my containerized tool within investigations.
 ---
@@ -14,7 +14,7 @@ ms.date: 10/14/2026
 
 A tool definition is a YAML file that serves as the integration contract between your containerized tool and Microsoft Discovery. It tells the platform where your container image is, what compute resources the tool needs, and how to invoke each operation the tool exposes.
 
-This article explains each section of a tool definition and provides complete examples for the three supported tool types: action-based, code environment, and hybrid.
+This article explains each section of a tool definition and provides action-based and code-environment examples. For a hybrid tool, include both `actions` and `code_environments` backed by the same `infra` section. These are authoring patterns, not separate ARM resource types.
 
 > [!NOTE]
 > This article assumes your container image is already published to Azure Container Registry. See [Publish a tool container image to Azure Container Registry](how-to-publish-tool-to-acr.md).
@@ -22,15 +22,16 @@ This article explains each section of a tool definition and provides complete ex
 ## Prerequisites
 
 - A container image published to Azure Container Registry (ACR).
-- The full ACR image reference for your tool (for example, `myregistry.azurecr.io/my-tool:v1.0.0`).
+- The full ACR image reference for your tool (for example, `myregistry.azurecr.io/molecular-groups:v1.0.0`).
 - The compute resource requirements benchmarked for your tool.
+- For the local syntax check, Python with PyYAML installed (`python -m pip install pyyaml`).
 
 ## Step 1: Create the metadata section
 
 Start your tool definition with the basic metadata. This information appears in the Discovery tool catalog.
 
 ```yaml
-name: my-analysis-tool          # Unique identifier for the tool
+name: molecular-groups         # Unique identifier for the tool
 description: >
   A tool that performs molecular analysis including functional group
   identification and hazard screening. Accepts SMILES, CSV, or JSON input.
@@ -53,10 +54,10 @@ infra:
   - name: worker
     infra_type: container
     image:
-      acr: myregistry.azurecr.io/my-analysis-tool:v1.0.0
+      acr: myregistry.azurecr.io/molecular-groups:v1.0.0
     compute:
       min_resources:
-        cpu: 4          # Cores (integer) or millicores (e.g., 4000m)
+        cpu: 4          # Whole vCPU cores
         ram: 16Gi       # Memory in GiB
         storage: 64Gi   # Scratch storage in GiB
         gpu: 0          # Integer; 0 means no GPU
@@ -107,14 +108,16 @@ actions:
           description: "Directory containing input files (SMILES, CSV, or JSON format)."
         output_directory:
           type: string
-          description: "Directory where analysis results and output files are written."
+          enum: ["/output"]
+          description: "Write results to /output to match the output mount configuration."
         column_name:
           type: string
           description: >
-            For CSV or TSV input files, the name of the column that contains
+            For CSV input files, the name of the column that contains
             SMILES strings. Defaults to 'smiles' if not provided.
         batch_size:
-          type: number
+          type: integer
+          minimum: 1
           description: "Number of molecules to process per batch. Defaults to 100."
         file_pattern:
           type: string
@@ -125,18 +128,18 @@ actions:
     command: >
       python3 /app/entrypoint.py
       --action identify_functional_groups
-      --input {{input_directory}}
-      --output {{output_directory}}
-      {{#if column_name}}--column-name {{column_name}}{{/if}}
+      --input "{{input_directory}}"
+      --output "{{output_directory}}"
+      {{#if column_name}}--column-name "{{column_name}}"{{/if}}
       {{#if batch_size}}--batch-size {{batch_size}}{{/if}}
-      {{#if file_pattern}}--file-pattern {{file_pattern}}{{/if}}
+      {{#if file_pattern}}--file-pattern "{{file_pattern}}"{{/if}}
     environment_variables:
       - name: TOOL_INPUT_DIR
         value: "{{ input_directory }}"
       - name: TOOL_OUTPUT_DIR
         value: "{{ output_directory }}"
     output_mount_configurations:
-      - mount_path: "{{ output_directory }}"
+      - mount_path: /output
         auto_promote: false
         output_name: "FunctionalGroupResults"
         output_description: "Functional group analysis results"
@@ -201,7 +204,7 @@ The optional `timeout_minutes` field sets the maximum execution time for the cod
 A tool that exposes two specific molecular analysis operations:
 
 ```yaml
-name: molecular-groups-analyzer
+name: molecular-groups
 description: >
   Analyzes molecular structures from SMILES input to identify functional groups
   and screen for hazardous chemical groups. Accepts SMILES (.smi), CSV, or JSON
@@ -215,7 +218,7 @@ infra:
   - name: worker
     infra_type: container
     image:
-      acr: myregistry.azurecr.io/molecular-groups-analyzer:v1.0.0
+      acr: myregistry.azurecr.io/molecular-groups:v1.0.0
     compute:
       min_resources:
         cpu: 2
@@ -252,15 +255,16 @@ actions:
           type: string
           description: "Column name for SMILES strings in CSV files. Defaults to 'smiles'."
         batch_size:
-          type: number
+          type: integer
+          minimum: 1
           description: "Molecules per batch. Defaults to 100."
       required:
         - input_directory
         - output_directory
     command: >
       python3 /app/entrypoint.py --action identify_functional_groups
-      --input {{input_directory}} --output {{output_directory}}
-      {{#if column_name}}--column-name {{column_name}}{{/if}}
+      --input "{{input_directory}}" --output "{{output_directory}}"
+      {{#if column_name}}--column-name "{{column_name}}"{{/if}}
       {{#if batch_size}}--batch-size {{batch_size}}{{/if}}
 
   - name: identify_hazardous_groups
@@ -287,15 +291,16 @@ actions:
             explosive_groups, self_reactive_groups, pnnl_hazardous_groups.
             Defaults to 'all'.
         batch_size:
-          type: number
+          type: integer
+          minimum: 1
           description: "Molecules per batch. Defaults to 100."
       required:
         - input_directory
         - output_directory
     command: >
       python3 /app/entrypoint.py --action identify_hazardous_groups
-      --input {{input_directory}} --output {{output_directory}}
-      {{#if categories}}--categories {{categories}}{{/if}}
+      --input "{{input_directory}}" --output "{{output_directory}}"
+      {{#if categories}}--categories "{{categories}}"{{/if}}
       {{#if batch_size}}--batch-size {{batch_size}}{{/if}}
 ```
 
@@ -347,21 +352,37 @@ code_environments:
 
 ## Step 4: Validate the tool definition
 
-Before registering your tool in Discovery, validate the YAML structure:
+Choose the validation scope for your workflow. For deployment, use these local checks on your actual definition. They check YAML syntax and authoring consistency, not service acceptance or container execution.
 
-1. **Syntax check**: Run the YAML through a validator (for example, `python -c "import yaml; yaml.safe_load(open('tool-definition.yaml'))"`) to catch formatting errors.
+The [public catalog schema](https://github.com/microsoft/discovery/blob/main/docs/schemas/tool-definition-schema.json) applies to catalog contributions and requires a `{name}` registry placeholder. It doesn't currently include the published `timeout_minutes` fields. The deployment examples in this article use concrete registry names and timeout fields, so raw catalog validation reports image-pattern and unexpected-property errors. Don't use that schema as a deployment gate for these examples, or remove those fields merely to obtain a passing deployment validation result. A catalog-schema pass also doesn't establish deployed-runtime compliance. For a catalog contribution, follow the catalog's requirements instead.
 
-2. **Command template check**: Manually expand each `command` template with representative parameter values and verify the resulting command matches what your container expects.
+1. Save your complete definition as `tool.yaml`. Use one of the complete examples, or combine the metadata, `infra`, and `actions` or `code_environments` sections from the preceding steps.
 
-3. **Required parameters**: Confirm every parameter referenced in `command` is listed in `input_schema.properties` and that any required ones are in the `required` array.
+2. Check YAML syntax:
 
-4. **Image reference**: Confirm the `image.acr` value matches the exact tag you pushed to ACR.
+   ```bash
+   python -c "import yaml; yaml.safe_load(open('tool.yaml', encoding='utf-8')); print('YAML syntax: OK')"
+   ```
+
+   Success prints:
+
+   ```output
+   YAML syntax: OK
+   ```
+
+   A YAML parsing error returns a nonzero exit code and identifies the line and column to correct. If Python reports `No module named 'yaml'`, install PyYAML in the same Python environment with `python -m pip install pyyaml`. A syntax pass doesn't check required fields, parameter types, or whether the image exists.
+
+3. Manually expand each `command` template with representative values, including optional arguments, paths with spaces, and glob patterns. Compare the resulting arguments with your script's argument parser and test the command in your container. If arguments split incorrectly or the script rejects an option, correct the template or script before registering the tool. For a code environment, substitute a representative script path for `{{scriptName}}`.
+
+4. For each action, confirm that parameters referenced in `command` are listed in `input_schema.properties`, and that required parameters are in its `required` array. Confirm each action or code environment's `infra_node` matches a name in `infra`. Correct missing or mismatched references. The code-environment placeholder `{{scriptName}}` isn't an action input parameter.
+
+5. Confirm each `image.acr` value matches the registry, repository, and tag you published. Replace illustrative image references with your own; parsing YAML doesn't verify registry access or image contents.
 
 ## Step 5: Register the tool in Microsoft Discovery
 
-After validating the definition, register the tool as a resource in your Discovery workspace. You can register a tool through the Azure portal or via the REST API.
+After completing the local checks, register the definition as a resource-group-level `Microsoft.Discovery/tools` resource and make it available to the projects that use it. The tool isn't an ARM child of a workspace or project.
 
-To perform this action, you need to convert the tool definition YAML you created in [Step 3](#step-3a-define-actions-action-based-and-hybrid-tools) to the corresponding JSON and provide that as an input during Discovery Tool resource creation.
+For YAML-to-JSON conversion, resource creation, and verification, see [Deploy a tool to Microsoft Discovery](how-to-deploy-tool-to-discovery.md). Address any errors returned during resource creation. Successful local checks don't guarantee service acceptance, and successful provisioning doesn't verify container startup or tool outputs. Test a representative invocation before relying on the tool in a workflow.
 
 ## Related content
 

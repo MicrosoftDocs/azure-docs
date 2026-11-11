@@ -187,7 +187,7 @@ In the terminal, ensure you're in the *myExpressApp* directory. Replace `<app-na
 ```azurecli
 az group create --name myResourceGroup --location eastus
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku P0v3 --is-linux
-az webapp create --name <app-name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "NODE:24-lts"
+az webapp create --name <app-name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "NODE:26"
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
 

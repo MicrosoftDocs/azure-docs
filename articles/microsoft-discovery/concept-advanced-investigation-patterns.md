@@ -1,111 +1,101 @@
 ---
 title: Advanced shared session patterns in Microsoft Discovery
-description: Learn advanced patterns for structuring shared sessions with the Discovery Engine, including fully deterministic shared sessions, guided exploration, and fully autonomous research.
+description: Learn patterns for structuring shared sessions with the Microsoft Discovery Engine, from predefined task plans to guided exploration and open-ended research.
 author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: concept-article
-ms.date: 05/29/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand advanced ways to structure my shared sessions so that I can match the level of autonomy to the complexity of my research.
 ---
 
 # Advanced shared session patterns
 
-The [trust and basic shared session patterns](concept-trust-basic-investigation-patterns.md) article introduced the spectrum from structured tasks to broad objectives. This article goes deeper into three advanced patterns that represent distinct approaches to working with the [Discovery Engine](concept-discovery-engine.md). Cognition is goal-seeking. It continuously plans, executes, and adapts to drive a shared session toward its research objective. Each pattern represents a different way to balance your control against cognition's autonomy. The right pattern depends on how well you understand the problem upfront.
+Use these patterns to decide which tasks, dependencies, and agent assignments to define before starting the Discovery Engine. For task creation and engine prerequisites, see [Build shared sessions with cognition](how-to-build-investigations-cognition.md).
+
+The [trust and basic shared session patterns](concept-trust-basic-investigation-patterns.md) article introduces the spectrum from structured tasks to broad objectives. Cognition is goal-seeking: it plans and adapts as work progresses. These patterns help you choose how much of the research plan to define yourself.
+
+## Choosing the right pattern
+
+| Pattern | Use when | Define upfront | Leave to cognition |
+| --- | --- | --- | --- |
+| [Deterministic shared session](#pattern-1-deterministic-shared-session) | You have a known protocol and fixed methods | Tasks, agents, dependencies, and per-task validation requirements | Execution, validation, and retries |
+| [Guided exploration](#pattern-2-guided-exploration) | You know the research phases, but not each method | Phase-level parent tasks, phase dependencies, and deliverables | Child tasks and agent selection within each phase |
+| [Autonomous research](#pattern-3-autonomous-research) | You have an objective but no predetermined approach | A root task and outcome requirements | Task decomposition, agent selection, and sequencing |
+
+You can mix patterns: define data preparation tasks explicitly, then leave analysis methods to cognition.
 
 ## Pattern 1: Deterministic shared session
 
-In a deterministic shared session, you define every task, assign specific agents, set up all dependencies, and write detailed validation requirements. Cognition's role is execution, validation, and retry management. You control the *what* and *how*. Cognition handles the *when* and *whether it's good enough*.
+Use this pattern for a known protocol with fixed methods and quality gates.
 
-### When to use this pattern
-
-- You have a known, repeatable protocol (for example, a molecular screening pipeline)
-- You want consistent, reproducible results across shared sessions
-- The agents and tools for each step are well understood
-- Quality gates between steps are critical
+Here, *deterministic* describes the predefined task plan. It doesn't guarantee identical model outputs or execution timing.
 
 ### How to set it up
 
-1. **Create all tasks upfront** with titles, descriptions, and validation requirements.
-2. **Set dependencies** so tasks execute in the correct order. Tasks without dependencies can run in parallel.
-3. **Guide agent selection** for each task by selecting the specific agent to use. Cognition honors the agent selection on user-created tasks. If you leave a task unassigned, cognition selects the agent based on its assessment of capabilities.
-4. **Write detailed validation requirements** for each task. In a deterministic shared session, validation requirements are your quality gates. Be specific about what each step should produce.
+1. Create all tasks before starting the engine.
+2. Assign an available agent with the required tools to each task.
+3. Set dependencies wherever a task needs another task's output.
+4. Specify the method in the description and the expected output in the validation requirements.
 
 ### Example
 
-```
-Parent: "Screen 5 candidate molecules for drug target Y"
+```text
+Parent: "Compare molecular weight and predicted solubility for 5 candidates"
 
   Task 1: "Retrieve molecular structures from PubChem"
-    Agent: blastAgent
     Depends on: (none)
-    Validation: "Structures retrieved for all 5 candidates in FASTA format"
+    Validation: "Structures retrieved for all 5 candidates as SMILES strings"
 
-  Task 2: "Compute binding affinity predictions"
-    Agent: graphormerAgent
+  Task 2: "Compute molecular weights"
     Depends on: Task 1
-    Validation: "Binding affinity predicted for each candidate with target Y"
-               "Results include predicted energy values in kcal/mol"
+    Validation: "Molecular weight computed for each candidate"
+               "Results include values in g/mol and the calculation method"
 
-  Task 3: "Compute ADMET properties"
-    Agent: rdkbasicAgent
+  Task 3: "Predict solubility"
     Depends on: Task 1
-    Validation: "ADMET profile computed for all 5 candidates"
-               "Properties include solubility, toxicity risk, and bioavailability"
+    Validation: "Solubility predicted for all 5 candidates"
+               "Results identify the model, units, and relevant limitations"
 
-  Task 4: "Rank candidates and generate report"
-    Agent: wordAgent
+  Task 4: "Compare candidates and generate report"
     Depends on: Task 2, Task 3
-    Validation: "Ranking considers both binding affinity and ADMET properties"
-               "Report includes a recommendation with supporting rationale"
+    Validation: "Report compares molecular weight and predicted solubility"
+               "Report distinguishes computed values from predictions"
 ```
 
 ### What cognition does in this pattern
 
-Even though you defined the full shared session, cognition still adds value:
-
-- **Validation at each step**: If Task 2 produces results that don't meet your requirements, cognition retries before allowing Task 4 to start. This quality feedback loop is something you wouldn't get from running the same agents manually in sequence.
-- **Error recovery**: If a tool times out or returns an error, cognition can handle retries automatically.
-- **Parallel execution**: Tasks 2 and 3 both depend only on Task 1, so cognition runs them in parallel.
-- **Progress tracking**: You see the full execution history, validation comments, and results for each step.
+Cognition coordinates task execution and evaluates results against your validation requirements. Use the execution history and validation comments to review each step. A dependency controls execution order; it doesn't by itself establish the quality of an upstream result.
 
 ### Considerations
 
 - This pattern requires more upfront work to set up.
-- If you need to change the shared session mid-run, you modify individual tasks rather than having cognition adapt on its own.
-- You can reuse the same task structure across shared sessions that follow the same pattern. Consider building templates for shared sessions you run regularly.
+- Review outcomes before relying on downstream conclusions, especially when an upstream task fails or needs user attention.
+- Reuse a task structure as a starting point for similar work, but review its methods, inputs, agents, and tools for the new session.
 
 ## Pattern 2: Guided exploration
 
-In guided exploration, you define the major phases of your research but leave the details to cognition. You create parent tasks for each phase with broad validation requirements. Cognition decomposes each phase into child tasks, selects agents, and manages execution within the boundaries you set.
-
-### When to use this pattern
-
-- You know the general approach but not the exact steps
-- Different phases of the work require different levels of detail
-- You want cognition to make tactical decisions while you control strategic direction
-- The problem is understood well enough that you can define phases, but the specific methods within each phase should be flexible
+Use this pattern when you know the phases and deliverables, but the methods within each phase can vary.
 
 ### How to set it up
 
-1. **Create parent tasks** for each major phase of your research.
-2. **Write validation requirements at the phase level**, describing what each phase should produce rather than how it should get there.
-3. **Set dependencies between phases** where one phase needs results from another.
-4. **Leave agent selection to cognition** for most tasks. If you have a strong preference for a specific phase, add a comment to the task specifying which agent to use.
-5. **Start the Discovery Engine** and let cognition create child tasks within each phase.
+1. Create a parent task for each phase and define its deliverable.
+2. Set dependencies between phases that share inputs and outputs.
+3. Leave child-task creation and agent selection to cognition.
+4. Review the child tasks. Add guidance to the parent task if the methods or scope need to change.
 
 ### Example
 
-```
-Phase 1: "Identify promising molecular targets for [disease]"
+```text
+Phase 1: "Identify promising candidate compounds for [disease]"
   Depends on: (none)
-  Validation: "At least 3 candidate targets identified"
-             "Each target includes supporting evidence from literature"
+  Validation: "At least 3 candidate compounds identified"
+             "Each candidate includes supporting evidence from literature"
 
 Phase 2: "Characterize binding properties of top candidates"
   Depends on: Phase 1
-  Validation: "Binding properties computed for all candidates from Phase 1"
+  Validation: "Binding properties assessed for all candidates from Phase 1"
              "Analysis includes at least binding affinity and selectivity"
 
 Phase 3: "Recommend lead candidates with rationale"
@@ -116,42 +106,28 @@ Phase 3: "Recommend lead candidates with rationale"
 
 ### What cognition does in this pattern
 
-Cognition takes ownership of the tactical decisions within each phase:
-
-- **Decomposes phases into child tasks** based on what it determines is needed
-- **Selects agents and tools** for each child task
-- **Creates dependencies** between child tasks within a phase when results from one inform another
-- **Validates child task results** against the phase-level requirements you defined
-- **Synthesizes child task results** into the phase-level deliverable
+Cognition breaks down the phase goals into smaller tasks and chooses from the available agents. Review the task tree and validation comments to determine if the work supports the phase-level deliverable.
 
 ### Considerations
 
-- You see child tasks appear that you didn't explicitly create. Review them periodically to verify cognition is headed in the right direction.
-- Phase-level validation requirements need to be specific enough that cognition can evaluate results, but broad enough that different approaches can satisfy them.
-- If cognition's decomposition doesn't match your expectations, add comments to the parent task with guidance. Cognition reads comments and adjusts its approach.
+- Write phase-level requirements that are specific enough to evaluate, while allowing different methods to satisfy them.
+- Review child tasks regularly to ensure exploration stays within your intended scope.
+- Use comments on the parent task to explain a change in direction or a constraint that the child tasks need to follow.
 
 ## Pattern 3: Autonomous research
 
-In autonomous research, you provide a single high-level objective and let cognition handle everything. Cognition decomposes the objective, creates the full task hierarchy, selects agents, manages execution, and synthesizes results. You check in periodically to review progress and provide strategic feedback.
-
-### When to use this pattern
-
-- You're exploring a new problem space without a predetermined approach
-- The research question is broad and could be addressed from multiple angles
-- You want to see what the engine discovers without constraining the approach
-- You're willing to invest time upfront (hours to days) while cognition explores
+Use this pattern for an open-ended objective without predetermined phases or methods. The available agents and tools determine which approaches cognition can pursue.
 
 ### How to set it up
 
-1. **Create a single root task** with a clear but broad objective.
-2. **Write validation requirements** that describe what a successful outcome looks like at the highest level.
-3. **Start the Discovery Engine** and step away.
-4. **Check in periodically** (every few hours) to review the task tree cognition built and the results from completed tasks.
-5. **Provide feedback** through comments on tasks. Add new tasks if you want to steer cognition toward a specific direction.
+1. Create a root task that states the objective, scope, and constraints.
+2. Define the required outcome without prescribing each step.
+3. Start the engine and review its task hierarchy as work progresses.
+4. Use task comments to redirect exploration or add a task for a missing research direction.
 
 ### Example
 
-```
+```text
 Root task: "Investigate the viability of repurposing existing
            antiviral compounds for [new disease target], considering
            binding mechanism, selectivity, and preliminary toxicity"
@@ -164,38 +140,13 @@ Validation: "The shared session covers at least 3 existing antiviral compounds"
 
 ### What cognition does in this pattern
 
-This is where cognition operates with the most autonomy:
-
-- **Plans the research strategy** by decomposing the objective into phases and tasks
-- **Identifies what data and tools you need** and creates tasks to acquire or run them
-- **Makes scientific judgment calls** about which approaches to pursue based on intermediate results
-- **Iterates** when early results suggest a different direction
-- **Aggregates findings** across multiple tasks into a coherent result for the root task
+Cognition uses the root objective, available agents and tools, and intermediate results to plan further work. A broad objective gives it more planning decisions to make; it doesn't add capabilities that aren't available in the project.
 
 ### Considerations
 
-- This pattern requires the most patience. Cognition might explore approaches you wouldn't choose.
-- Results can be surprising. Cognition sometimes identifies connections or approaches that aren't obvious from a human planning perspective.
-- The quality of the root task description and validation requirements strongly influences the quality of the outcome. A vague objective produces vague results.
-- For broad shared sessions, expect cognition to create a significant number of child tasks. This is normal. Review the task tree periodically to remove subtasks that aren't useful.
-- Cognition's reasoning is influenced by the agents and tools available in your project. If the project only has one agent, cognition's options are limited regardless of the objective's breadth.
-
-## Choosing the right pattern
-
-> [!NOTE]
-> All patterns require that your project has agents with the right capabilities for the work. The Discovery Engine orchestrates agents; it doesn't replace them. Without specialized agents and tools, the engine has no more capability than a standalone reasoning model. The patterns differ in who decides which agent handles which task: you or cognition.
-
-| Factor | Deterministic | Guided exploration | Autonomous |
-|--------|--------------|-------------------|------------|
-| **You know the exact steps** | Yes | Partially | No |
-| **Who selects agents** | You assign agents | You guide phases, cognition selects within them | Cognition selects for all tasks |
-| **Upfront setup effort** | High | Medium | Low |
-| **Cognition autonomy** | Low (execute and validate) | Medium (decompose within phases) | High (plan and execute everything) |
-| **Reproducibility** | High | Medium | Lower |
-| **Time to first results** | Depends on shared session length | Moderate | Longer (exploration takes time) |
-| **Best for** | Known protocols, repeatable pipelines | Phased research with known direction | Exploratory, open-ended research |
-
-You can also mix patterns within a single shared session. For example, use a deterministic approach for a well-understood data preparation phase, then switch to guided exploration for the analysis phase where the best approach isn't clear.
+- A vague objective makes it harder to judge whether the research meets your needs. State the scope, constraints, and evidence you expect in the final result.
+- Review the task hierarchy as it grows and redirect unproductive branches through task comments or additional tasks.
+- Evaluate the scientific evidence and limitations yourself. A completed task or a successful validation result doesn't establish that a conclusion is scientifically correct.
 
 ## Related content
 
