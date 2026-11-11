@@ -44,6 +44,7 @@ Akri services enable the connectors that let you connect to different devices an
 - **Connector for ONVIF**: Connects to ONVIF-compliant cameras, ingests event data like motion detection alerts, and lets you use command and control scenarios like pan-tilt-zoom control.
 - **Connector for HTTP/REST**: Connects to HTTP/REST endpoints and ingests telemetry data.
 - **Connector for SSE**: Connects to SSE endpoints and ingests event data.
+- **Connector for SQL Server**: Connects to SQL Server endpoints and queries data.
 
 ## Akri operator
 
@@ -92,4 +93,5 @@ Akri services build on the capabilities of the open-source Akri project and prov
 - [Configure the connector for OPC UA](howto-configure-opc-ua.md)
 - [Configure the connector for HTTP/REST](howto-use-http-connector.md)
 - [Configure the connector for SSE](howto-use-sse-connector.md)
+- [Configure the connector for SQL Server](howto-use-sql-server-connector.md)
 - [Configure the connector for MQTT](howto-use-mqtt-connector.md)

@@ -7,7 +7,7 @@ ms.service: azure-iot-operations
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 08/26/2026
+ms.date: 11/04/2026
 ---
 
 # Troubleshoot Azure IoT Operations
@@ -157,23 +157,23 @@ To troubleshoot and recover a failed lifecycle operation, follow these steps:
 
 1. Verify that the Azure Arc-enabled Kubernetes cluster exists and is connected. Run the following command and check the connectivity status in the output:
 
-  ```azurecli
-  az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME>
-  ```
+   ```azurecli
+   az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME>
+   ```
 
 1. Show the affected device or asset and inspect `properties.provisioningState` and `properties.lastTransitionTime`. A failed resource remains available to view with `provisioningState` set to `Failed` and a populated `lastTransitionTime`.
 
-  To show a device:
+   To show a device:
 
-  ```azurecli
-  az iot ops ns device show --name <DEVICE_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
-  ```
+   ```azurecli
+   az iot ops ns device show --name <DEVICE_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+   ```
 
-  To show an asset:
+   To show an asset:
 
-  ```azurecli
-  az iot ops ns asset show --name <ASSET_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
-  ```
+   ```azurecli
+   az iot ops ns asset show --name <ASSET_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+   ```
 
 1. Restore connectivity to the cluster and confirm that its Azure Arc agent is connected.
 
@@ -199,7 +199,7 @@ az iot ops enable-rsync --k8-bridge-sp-oid $K8_BRIDGE_SP_OID
 
 > [!NOTE]
 > You can manually look up the OID by a signed-in CLI principal that has MS Graph app read permissions. Run the following command to get the OID:
-> 
+>
 > ```bash
 > az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv
 > ```
@@ -256,6 +256,8 @@ To create a suitable Microsoft Entra ID account in your Azure tenant:
 1. Select **Review and assign** to complete setting up the new user.
 
 You can now use the new user account to sign in to the [operations experience](https://iotoperations.azure.com) web UI.
+
+If a resource operation or management action returns `AuthorizationFailed` for `Microsoft.DeviceRegistry/locations/asyncOperationStatuses/read`, the signed-in user lacks permission to read the operation status. The write operation can succeed while the status check fails. The operations experience can then report an authorization or synchronization failure. Resource-group Contributor access doesn't cover this subscription-scoped endpoint. Grant the signed-in user Reader at subscription scope, or confirm that an existing role grants equivalent access. For details, see [Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
 
 ## Troubleshoot data flows
 

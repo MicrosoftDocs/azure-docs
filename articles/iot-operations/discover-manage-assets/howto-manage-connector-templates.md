@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 05/28/2026
+ms.date: 10/27/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT administrator, I want to create and manage connector template instances in my Azure IoT Operations instance so that OT users can use the built-in connectors to connect devices and assets.
@@ -43,7 +43,7 @@ To make a built-in connector available to OT users, create a connector template 
 
 # [Azure portal](#tab/portal)
 
-When you create a connector template instance in the Azure portal, the connector metadata is pre-populated based on the type and version you select. The wizard guides you through the remaining configuration steps, such as adding secrets or storage if your connector requires them.
+When you create a connector template instance in the Azure portal, the portal prepopulates the connector metadata based on the type and version you select. The wizard guides you through the remaining configuration steps, such as adding secrets or storage if your connector requires them.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure IoT Operations instance, select **Connector templates**, and then select **Create connector template**:
 
@@ -67,7 +67,7 @@ When you create a connector template instance in the Azure portal, the connector
 
 # [Azure CLI](#tab/cli)
 
-For Microsoft connectors, the metadata artifact is published to Microsoft Container Registry (MCR):
+For Microsoft connectors, the system publishes the metadata artifact to Microsoft Container Registry (MCR):
 
 | Connector | Metadata artifact |
 |--|--|
@@ -76,8 +76,9 @@ For Microsoft connectors, the metadata artifact is published to Microsoft Contai
 | MQTT | `mcr.microsoft.com/azureiotoperations/akri-connectors/mqtt-metadata:VERSION` |
 | ONVIF | `mcr.microsoft.com/azureiotoperations/akri-connectors/onvif-metadata:VERSION` |
 | SSE | `mcr.microsoft.com/azureiotoperations/akri-connectors/sse-metadata:VERSION` |
+| SQL Server | `mcr.microsoft.com/azureiotoperations/akri-connectors/sqlserver-metadata:VERSION` |
 
-To list available versions for a Microsoft connector, run `curl https://mcr.microsoft.com/v2/azureiotoperations/akri-connectors/TYPE-metadata/tags/list`, where `TYPE` is `rest`, `media`, `mqtt`, `onvif`, or `sse`.
+To list available versions for a Microsoft connector, run `curl https://mcr.microsoft.com/v2/azureiotoperations/akri-connectors/TYPE-metadata/tags/list`, where `TYPE` is `rest`, `media`, `mqtt`, `onvif`, `sse`, or `sqlserver`.
 
 Use the [az iot ops connector template create](/cli/azure/iot/ops/connector/template#az-iot-ops-connector-template-create) command to create a connector template instance. The `--connector-metadata-ref` parameter points to the metadata artifact for the connector type.
 
@@ -109,9 +110,11 @@ An OT user can now use the operations experience web UI to create a device that 
 
 ## Configure a persistent volume claim for the media connector
 
-The media connector can publish snapshots to the MQTT broker and can also save snapshots and video clips to storage. To enable file-based output, the connector template instance must mount a persistent volume claim (PVC) that the connector pod can write to.
+[!INCLUDE [azure-government-acsa-note](../includes/azure-government-container-storage-note.md)]
 
-Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/overview) to transfer captured data to cloud storage destinations such as Azure Blob Storage. To learn how to create a suitable PVC, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes). The same PVC can be shared between pods.
+The media connector can publish snapshots to the MQTT broker and can also save snapshots and video clips to storage. The local recording buffer doesn't require a persistent volume claim (PVC). To persist recordings or share them with another workload, mount a writable PVC. For local shared or cloud-ingest storage, also configure the corresponding storage root.
+
+Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/overview) to transfer captured data to cloud storage destinations such as Azure Blob Storage. To learn how to create a suitable PVC, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes). Consumer pods can mount connector-managed media read-only. Only one active media connector process can write to or clean a given storage tree.
 
 > [!IMPORTANT]
 > Install [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-install-edge-volumes) before you use it with the media connector template. The cloud ingest feature relies on [workload identity federation](../secure-iot-ops/howto-enable-secure-settings.md#enable-the-cluster-for-secure-settings), so your cluster must have secure settings enabled.
@@ -138,6 +141,8 @@ az iot ops connector template create \
 To attach a PVC to an existing template, use [az iot ops connector template update](/cli/azure/iot/ops/connector/template#az-iot-ops-connector-template-update) with the same `--storage-volumes` parameter.
 
 ---
+
+After mounting the PVC, configure `localSharedPath` or `cloudIngestPath` in `additionalConfiguration`. For example, a cloud-ingest PVC mounted at `/data` with an ingest subvolume path of `ingestSubDir` requires `cloudIngestPath: "/data/ingestSubDir"`. Mounting the PVC alone doesn't enable the tier. See [Configure storage and retention for the media connector](howto-configure-media-connector-storage.md) for root configuration, retention defaults, publication limits, and exclusive-writer deployment requirements.
 
 ## Reference runtime secrets
 
@@ -221,7 +226,7 @@ For the full list of parameters, see [az iot ops connector template create](/cli
 
 Use the following commands to inspect and update connector template instances in your Azure IoT Operations instance:
 
-- List all templates:
+- List all templates.
 
   ```azurecli
   az iot ops connector template list \
@@ -230,7 +235,7 @@ Use the following commands to inspect and update connector template instances in
       --output table
   ```
 
-- Show the full configuration of a template, including image, storage, and security settings:
+- Show the full configuration of a template, including image, storage, and security settings.
 
   ```azurecli
   az iot ops connector template show \
@@ -251,7 +256,7 @@ Use the following commands to inspect and update connector template instances in
 
   Major version upgrades require a new template.
 
-- Delete a template. Azure IoT Operations validates whether the template is in use by deployed connectors and prompts for confirmation:
+- Delete a template. Azure IoT Operations validates whether the template is in use by deployed connectors and prompts for confirmation.
 
   ```azurecli
   az iot ops connector template delete \
@@ -266,9 +271,11 @@ In the Azure portal, you can list, view, and delete connector template instances
 
 - [Configure the connector for HTTP/REST](howto-use-http-connector.md)
 - [Configure the media connector](howto-use-media-connector.md)
+- [Configure storage and retention for the media connector](howto-configure-media-connector-storage.md)
 - [Configure the MQTT connector](howto-use-mqtt-connector.md)
 - [Configure the connector for ONVIF-compliant cameras](howto-use-onvif-connector.md)
 - [Configure the connector for SSE endpoints](howto-use-sse-connector.md)
+- [Configure the connector for SQL Server](howto-use-sql-server-connector.md)
 - [Build and deploy custom Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md)
 - [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md)
 - [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md)

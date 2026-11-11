@@ -409,8 +409,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-wit-bindgen = "0.22"
-wasm_graph_sdk = { version = "=1.1.3", registry = "aio-wg" }
+wit-bindgen = "0.38"
+wasm_graph_sdk = { version = "=1.1.8-20260731-main-c31eb62", registry = "aio-wg" }
 serde = { version = "1", default-features = false, features = ["derive"] }
 serde_json = { version = "1", default-features = false, features = ["alloc"] }
 

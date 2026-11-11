@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/24/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to create a data flow graph to process data with transforms like map, filter, and window.
@@ -18,7 +18,7 @@ A data flow graph is a composable processing pipeline that transforms data as it
 
 This article walks through creating a data flow graph step by step. For an overview of data flow graphs and the available transforms, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
-Data flow graphs currently support only MQTT, Kafka, and OpenTelemetry endpoints. They don't support other endpoint types such as Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage.
+Data flow graphs support MQTT and Kafka sources, and MQTT, Kafka, OpenTelemetry, and table-based destinations. To send processed data to storage, see [Send graph output to a table-based destination](#send-graph-output-to-a-table-based-destination).
 
 [!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
 
@@ -592,6 +592,19 @@ Configure the destination as a `Destination` node in your `graph.json` config fi
 ---
 
 For dynamic topic routing based on message content, see [Route messages to different topics](howto-dataflow-graphs-topic-routing.md).
+
+### Send graph output to a table-based destination
+
+You can send the output of the graph in this article to ADLS Gen2, Microsoft Fabric OneLake, Azure Data Explorer, or local storage instead of an MQTT topic:
+
+1. Create or reuse a [destination endpoint](howto-configure-dataflow-endpoint.md) by following its existing setup and permission instructions.
+1. [Upload an output schema](concept-schema-registry.md#upload-a-schema) for the transformed message. The example map copies every input field and adds `temperature_f`, so the schema must include `temperature_f` and every field copied from the input. Use the [Delta schema definition format](concept-schema-registry.md#delta-schema-example) for both Delta and Parquet output.
+1. In the Bicep example, change the graph resource API version to `2026-10-01`. Replace the `output` destination node with the [table destination configuration](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema), setting the endpoint reference, data destination, output schema, and serialization format.
+1. Keep the source, map transform, and node connections unchanged, then redeploy the Bicep template with `az deployment group create`.
+
+The same destination settings apply to graphs with [custom WASM transforms](howto-dataflow-graph-wasm.md). The graph runtime serializes the final message for the destination.
+
+To check the output, publish messages to the same input topic and allow time for the endpoint's configured batch to be written. For ADLS Gen2 or local storage, check the destination container or folder for Parquet files; Delta output also creates a `_delta_log` directory. For Fabric OneLake or Azure Data Explorer, query the destination table and check that its rows contain the transformed fields.
 
 ## Verify the data flow graph is working
 

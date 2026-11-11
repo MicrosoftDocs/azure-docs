@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: reference
-ms.date: 03/30/2026
+ms.date: 11/05/2026
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
 # on the health of my industrial assets and edge environment.
@@ -47,6 +47,28 @@ Akri and the first-party connectors emit observability metrics that you can use 
 | aio_akri_k8s_api_request_duration_seconds | Histogram | Kubernetes API request latency, in seconds, across the operator and the ADR service. | [`operation`](#operation), [`resource_type`](#resource_type), [`status`](#status) |
 | aio_akri_k8s_api_errors_total_count | Counter | Number of ADR service Kubernetes API errors. | |
 | aio_akri_mqtt_connection_errors_total_count | Counter | Number of ADR service MQTT connection and session failures. | [`error_reason`](#error_reason) |
+
+## SQL Server connector metrics
+
+All SQL Server connector metrics include the common dimensions [`instance`](#instance) and [`service`](#service). The dimensions column lists any additional dimensions.
+
+| Metric | Type | Description | Dimensions |
+|-----|-----|-----|-----|
+| aio_sqlserver_connector_errors | Counter | Total connector errors. | `error_category` (values below) |
+| aio_sqlserver_connector_query_duration_ms | Histogram | Elapsed sampling/query duration in milliseconds, recorded on successful samples. | |
+| aio_sqlserver_connector_rows_sampled | Counter | Total rows returned by successful samples. | |
+| aio_sqlserver_connector_payload_size_bytes | Histogram | Serialized payload size in bytes, recorded after successful data forwarding. | |
+| aio_sqlserver_connector_heartbeat | Counter | Liveness tick every 30 seconds. | |
+| aio_sqlserver_connector_permission_advisory | Counter | Advisories for permissions the SQL principal holds but the connector cannot use. Checked when opening a connection, not on every cached-connection sample. | `permission` |
+
+The `error_category` dimension has the following values:
+
+- `endpoint_config_invalid`
+- `dataset_config_invalid`
+- `sampling_failed`
+- `buffer_truncated`
+- `status_report_failed`
+- `otel_export_ended_with_failure`
 
 ## SSE connector metrics
 

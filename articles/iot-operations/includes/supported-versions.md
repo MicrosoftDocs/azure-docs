@@ -14,17 +14,20 @@ Currently, [Azure support](https://azure.microsoft.com/support/plans) is availab
 
 | Version | Type | Current patch <br/>release (YYMM) | Release notes | Current <br/>CLI version |
 |---------|------|---------------|---------------|-------------|
+| 1.6.x   | Preview | 1.6.0-preview.60 (2610) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.6.0-preview.60) | [2.11.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.11.0)   |
+| 1.5.x   | GA | 1.5.45 (2610) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.5.45) | [2.11.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.11.0)   |
 | 1.4.x   | GA | 1.4.112 (2609) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.4.112) | [2.10.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.10.0)   |
 | 1.3.x   | GA | 1.3.137 (2606) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.3.137) | [2.7.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.7.0)   |
-| 1.2.x   | GA | 1.2.189 (2602) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.189) | [2.3.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.3.0)   |
 
 > [!CAUTION]
 > Previous minor versions don't receive any updates such as security patches and bug fixes. Upgrade to the latest version to get the latest security and feature updates.
 
 > [!NOTE]
-> With the release of 1.4.x, the supported versions become **1.4.x, 1.3.x, and 1.2.x**. The **1.0.x** and **1.1.x** series (versions 2411 through 2506) are no longer within the [supported version window](../overview-support.md).
+> Azure Government supports version 1.5.x (2610) and later. See [Azure IoT Operations in Azure Government](../overview-azure-government.md#supported-versions).
 
-To verify your current version, go to the overview page for your Azure IoT Operations instance in the Azure portal or use the Azure IoT Operations CLI [az iot ops instance show](/cli/azure/iot/ops#az-iot-ops-show) command.
+> [!NOTE]
+> With the release of 1.5.x, the supported versions become **1.5.x, 1.4.x, and 1.3.x**. The **1.0.x**, **1.1.x**, and **1.2.x** series (versions 2411 through 2602) are no longer within the [supported version window](../overview-support.md).
+
+To verify your current version, go to the overview page for your Azure IoT Operations instance in the Azure portal or use the Azure IoT Operations CLI [az iot ops instance show](/cli/azure/iot/ops#az-iot-ops-show) command. In Azure Government, use the CLI.
 
 For more information about upgrades between versions, see [Upgrade to a new version](../manage-iot-ops/howto-upgrade.md).
-
