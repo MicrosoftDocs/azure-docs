@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 11/09/2026
+ms.date: 11/11/2026
 ms.custom: template-how-to
 ---
 
@@ -81,11 +81,10 @@ On the profile page, select **Inbound access rules** and confirm that the new ru
 | Traffic works in Transition mode but not in Enforced mode. | Review the network security perimeter access logs and add any missing access rules. |
 
 ## Limitations
-
-- Azure Key Vault, Azure Monitor, Azure AI Search, Azure Event Hubs, and Azure Service Bus resources within a network security perimeter support service tag-based inbound access rules. For the complete list of resource providers supported by network security perimeter, see [Onboarded private link resources](network-security-perimeter-concepts.md#onboarded-private-link-resources).
+- You can configure service tag-based inbound access rules for Azure Key Vault, Azure Monitor, Azure AI Search, Azure Event Hubs, and Azure Service Bus resources associated with a network security perimeter. For the complete list of resource providers supported by network security perimeter, see [Onboarded private link resources](network-security-perimeter-concepts.md#onboarded-private-link-resources).
 - Not all service tags can be used as inbound rules in Network security perimeter. Be careful when using service tags as inbound rules and use the right and applicable tags.
 - Azure Storage currently doesn't support service tags as inbound access rules. While some access scenarios might appear to work when using service tag-based rules, other scenarios might fail or behave inconsistently. To avoid unexpected access issues, don't use service tags to control inbound access to Azure Storage resources. Doing so might result in inconsistent behavior and unreliable connectivity. 
->[!Note]
+> [!NOTE]
 > One exception is Azure Storage used for Azure Databricks as noted in the [Configure a firewall for serverless compute access](/azure/databricks/security/network/serverless-network-security/serverless-firewall-config) documentation.
 
 
