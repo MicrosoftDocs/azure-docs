@@ -361,6 +361,18 @@ sections:
          - Adding the required DNS validation record following step 3 for [domains pending validation](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain#add-a-new-custom-domain)
          - Triggering validation manually using PowerShell or Azure CLI (`RefreshValidation`).
 
+    - question: |
+        Why might Azure Front Door omit an OCSP response during a TLS handshake?
+      answer: |
+        Azure Front Door supports OCSP stapling by default and requires no customer configuration. However, stapling operates on a best-effort basis and isn't guaranteed for every TLS handshake.
+
+        OCSP responses are retrieved asynchronously and cached in each worker process's memory.
+        - A handshake handled before the worker has cached an OCSP response might not include a staple.
+        - Once the response is cached, subsequent handshakes handled by that worker can include it.
+        - Worker restarts clear the in-memory cache, which must then be populated again.
+
+        The cache is worker-specific and isn't shared across the entire edge location. Therefore, repeated connections to the same edge location don't guarantee a stapled response. A missing staple alone doesn't indicate that OCSP stapling is disabled.
+
     
   - name: Billing
     questions:
