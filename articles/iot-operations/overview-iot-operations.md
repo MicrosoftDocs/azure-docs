@@ -116,6 +116,16 @@ To visualize and analyze sensor data and messages from your devices and assets, 
 * [Microsoft Fabric](/fabric/get-started/fabric-trial)
 * [Power BI](https://powerbi.microsoft.com/)
 
+## Azure IoT Operations SKUs
+
+Starting with Azure IoT Operations version 1.5.x (2610), a new SKU of Azure IoT Operations is offered, Azure IoT Operations Essentials. The current offering of Azure IoT Operations is renamed to Azure IoT Operations Standard.
+
+* **Azure IoT Operations Essentials** (New) provides a focused set of Azure IoT Operations capabilities for high-volume deployments. It offers a lower-cost option for scenarios that don't require the full functionality available with Azure IoT Operations Standard.
+
+* **Azure IoT Operations Standard** (Current) provides the complete Azure IoT Operations feature set for scenarios that require the full breadth of product capabilities.
+
+For detailed information about the differences between the Azure IoT Operations SKUs, see [Azure IoT Operations versions, support, and licensing](overview-support.md#supported-skus).
+
 ## Getting started options
 
 There are two quickstart options for getting started with Azure IoT Operations. Choose the approach that best fits your goals:
@@ -142,3 +152,6 @@ Use this approach when you want to:
 - Connect to real devices and signals.
 - Build and test dataflow pipelines against real data.
 - Deploy an instance that persists and that you can evolve into a production deployment.
+
+> [!NOTE]
+> When following steps in documentation, keep in mind that Azure IoT Operations Essentials supports deployment on single-node clusters only and doesn't support the OPC UA connector.

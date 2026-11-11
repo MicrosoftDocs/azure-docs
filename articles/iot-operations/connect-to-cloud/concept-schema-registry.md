@@ -4,7 +4,7 @@ description: Learn how the schema registry stores and manages message schemas fo
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 06/23/2026
+ms.date: 10/20/2026
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 
@@ -24,7 +24,7 @@ Data flows use schemas in three places:
 - **Destination**: Specify an output schema and serialization format when sending data to storage endpoints.
 
 > [!NOTE]
-> For data flow graphs, configure schemas differently. See [Configure schemas on node connections](concept-dataflow-graphs.md#configure-schemas-on-node-connections).
+> For data flow graphs, configure schemas on [node connections](concept-dataflow-graphs.md#configure-schemas-on-node-connections) to supply them to processing nodes. For table destinations, configure a separate output schema in the destination node's `destinationSettings.outputSchemaSettings`. See [Serialize the output with a schema](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 
 ## Schema formats
 
@@ -94,11 +94,11 @@ To reference a schema in your data flow source configuration, use the `schemaRef
 
 ## Configure an output schema
 
-Output schemas control how data is serialized before it reaches the destination. Storage endpoints (ADLS Gen2, Fabric OneLake, Azure Data Explorer, local storage) require a schema and support Parquet and Delta serialization formats. MQTT and Kafka destinations use JSON by default.
+Output schemas control how data is serialized before it reaches the destination. Storage endpoints (ADLS Gen2, Fabric OneLake, Azure Data Explorer, local storage) require a schema and support Parquet or Delta serialization, depending on the endpoint. MQTT and Kafka destinations use JSON by default. These rules apply to both data flows and data flow graphs, including custom WASM transforms.
 
-In the operations experience, when you select a storage destination, the UI applies any transformations to the source schema and generates a Delta schema automatically. The generated schema is stored in the schema registry and referenced by the data flow.
+For data flows in the operations experience, when you select a storage destination, the UI applies any transformations to the source schema and generates a Delta schema automatically. The generated schema is stored in the schema registry and referenced by the data flow.
 
-For Bicep or Kubernetes deployments, specify the schema and serialization format in the transformation settings. For more information, see [Configure a data flow destination](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
+For a `Dataflow` resource, specify the output schema and serialization format in `builtInTransformationSettings`. For a `DataflowGraph` resource, use `destinationSettings.outputSchemaSettings` on the destination node. Use a [Delta schema definition](#delta-schema-example) for both Delta and Parquet output, with fields that match the final transformed message. For configuration examples, supported formats, and deployment instructions, see [Configure a data flow destination](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 
 ### Storage serialization behavior
 

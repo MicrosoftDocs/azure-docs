@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/06/2026
+ms.date: 10/20/2026
 ai-usage: ai-assisted
 
 #customer intent: As a developer, I want to deploy custom WebAssembly transforms in data flow graphs so that I can process data at the edge with logic beyond the built-in transforms.
@@ -40,8 +40,7 @@ A *data flow* is a pipeline that moves and transforms data between endpoints by 
 > [!TIP]
 > For most data processing scenarios, start with the [built-in transforms](concept-dataflow-graphs.md#available-transforms). Use WASM transforms when you need custom business logic, specialized algorithms, or processing that the built-in options don't cover.
 
-> [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported.
+You can send the output of WASM transforms to MQTT, Kafka, OpenTelemetry, or table-based endpoints such as ADLS Gen2, Microsoft Fabric OneLake, Azure Data Explorer, and local storage. For table destinations, [configure an output schema and serialization format](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema) on the destination node.
 
 ### How WASM data flow graphs work
 
@@ -1185,10 +1184,11 @@ Destination nodes define where the graph sends processed data. They connect to d
 
 - Endpoint reference that points to a configured data flow endpoint.
 - Data destination as the specific topic, path, or location for output data.
-- Output schema settings (optional) that define serialization format and schema validation.
+- Output schema settings that define the serialization format and output schema. These settings are required for table-based destinations.
 
-> [!NOTE]
-> Currently, data flow graphs support only MQTT, Kafka, and OpenTelemetry endpoints as data destinations. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
+To send WASM output to a table-based destination, reuse the existing [endpoint setup](howto-configure-dataflow-endpoint.md) and [destination serialization instructions](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema). The output schema must match the fields and types returned by the WASM module. It controls serialization, not automatic validation of arbitrary module payloads.
+
+The graph resource connects the graph definition's sink to the destination endpoint. Changing the endpoint doesn't require rebuilding the WASM module or graph definition, provided the module output matches the destination schema. Keep the destination node name and its connection to the graph unchanged.
 
 # [Operations experience](#tab/portal)
 
@@ -1207,7 +1207,7 @@ The CLI applies the whole graph from one config file, so add this destination no
   "name": "output",
   "destinationSettings": {
     "endpointRef": "default",
-    "dataDestination": "processed-data/temperature",
+    "dataDestination": "processed-data/temperature"
   }
 }
 ```
@@ -1402,6 +1402,7 @@ If you deploy the data flow graph but it doesn't process messages:
 
 ## Related content
 
+- [Call the inference connector from a WASM module (preview)](../ai/inference-connector/howto-inference-connector-webassembly-module.md)
 - [Build WASM modules for data flows](../develop-edge-apps/howto-build-wasm-modules.md) for both IDE and CLI-based development workflows
 - [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md) for graph YAML structure and configuration parameters
 - [Deploy WASM modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md) for registry setup and artifact management

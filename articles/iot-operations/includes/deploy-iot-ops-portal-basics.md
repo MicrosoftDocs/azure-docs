@@ -23,7 +23,6 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
-   | **Deployment version**| Select **1.2 (latest)** version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
-   | **Deployment optional components > OPC UA connector** | Choose to deploy the optional connector for OPC UA component. |
+   | **Deployment version**| Select **1.5 (latest)** or **1.6 (preview)** version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
 
-1. Select **Next: Configuration**.
+1. Select **SKU**.
