@@ -347,7 +347,6 @@ az network bastion create \
 ```
 
 ---
-
 ## Create an NVA virtual machine
 
 Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using an **Ubuntu 24.04** virtual machine.
@@ -698,7 +697,7 @@ In this section, turn on IP forwarding for the operating system of the **vm-nva*
 
     ```bash
     sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
-    sudo sysctl -p
+sudo sysctl -p
     ```
 
 1. Select **Run**.
@@ -991,110 +990,7 @@ The following examples use `10.0.3.4` and `10.0.3.5`. Replace them with the actu
 
 Use an Azure CLI or Az.Network version that supports `VirtualApplianceEcmp` and multiple next hop addresses. The older minimum tool versions in this tutorial don't establish ECMP support. See [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) and [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig).
 
-### Register the ECMP feature
-
-Register `Microsoft.Network/AllowEcmpInRoute` in the subscription that contains `route-table-public`. Feature registration requires the relevant `Microsoft.Features/*` permissions in addition to the permissions required to manage network resources.
-
-Choose the same tool tab for the following registration and configuration steps.
-
-### [Portal](#tab/portal)
-
-Use Azure Cloud Shell in the portal to register the feature:
-
-1. Select **Cloud Shell** in the top navigation and select **PowerShell**. If prompted, complete the Cloud Shell setup.
-1. Select the subscription that contains the tutorial resources and register the feature:
-
-   ```azurepowershell
-   Set-AzContext -SubscriptionId "<subscription-id>" -ErrorAction Stop
-   Register-AzProviderFeature `
-       -ProviderNamespace "Microsoft.Network" `
-       -FeatureName "AllowEcmpInRoute" `
-       -ErrorAction Stop
-   ```
-
-1. Check the feature state:
-
-   ```azurepowershell
-   Get-AzProviderFeature `
-       -ProviderNamespace "Microsoft.Network" `
-       -FeatureName "AllowEcmpInRoute" `
-       -ErrorAction Stop |
-       Select-Object FeatureName, RegistrationState
-   ```
-
-1. Wait until the feature state is `Registered`, then refresh the resource provider registration:
-
-   ```azurepowershell
-   Register-AzResourceProvider -ProviderNamespace "Microsoft.Network" -ErrorAction Stop
-   Get-AzResourceProvider -ProviderNamespace "Microsoft.Network" -ErrorAction Stop |
-       Select-Object ProviderNamespace, RegistrationState
-   ```
-
-   Wait until the provider registration state is `Registered`.
-
-### [PowerShell](#tab/powershell)
-
-If you're using PowerShell locally, sign in with `Connect-AzAccount`. Select the subscription that contains the tutorial resources and register the feature:
-
-```azurepowershell
-Set-AzContext -SubscriptionId "<subscription-id>" -ErrorAction Stop
-Register-AzProviderFeature `
-    -ProviderNamespace "Microsoft.Network" `
-    -FeatureName "AllowEcmpInRoute" `
-    -ErrorAction Stop
-```
-
-Check the feature state:
-
-```azurepowershell
-Get-AzProviderFeature `
-    -ProviderNamespace "Microsoft.Network" `
-    -FeatureName "AllowEcmpInRoute" `
-    -ErrorAction Stop |
-    Select-Object FeatureName, RegistrationState
-```
-
-Wait until the feature state is `Registered`, then refresh the resource provider registration:
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network" -ErrorAction Stop
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Network" -ErrorAction Stop |
-    Select-Object ProviderNamespace, RegistrationState
-```
-
-Wait until the provider registration state is `Registered`.
-
-### [CLI](#tab/cli)
-
-Use Bash for the CLI examples, as in the earlier tutorial steps. If you're using Azure CLI locally, sign in with `az login`. Select the subscription that contains the tutorial resources and register the feature:
-
-```azurecli
-az account set --subscription "<subscription-id>"
-az feature register --namespace Microsoft.Network --name AllowEcmpInRoute
-```
-
-Check the feature state:
-
-```azurecli
-az feature show \
-    --namespace Microsoft.Network \
-    --name AllowEcmpInRoute \
-    --query properties.state \
-    --output tsv
-```
-
-Wait until the feature state is `Registered`, then refresh the resource provider registration:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-az provider show --namespace Microsoft.Network --query registrationState --output tsv
-```
-
-Wait until the provider registration state is `Registered`.
-
----
-
-Registration can take time. Don't continue while the feature state is `Registering` or `Pending`. If approval is required, follow the service's feature access process. For more information, see [Set up features in an Azure subscription](../azure-resource-manager/management/preview-features.md).
+Before you continue, ensure that `Microsoft.Network/AllowEcmpInRoute` is registered in the subscription that contains `route-table-public`. For prerequisites, see [ECMP requirements](virtual-networks-udr-overview.md#requirements).
 
 ### Change the route to use ECMP
 
@@ -1103,7 +999,7 @@ Registration can take time. Don't continue while the feature state is `Registeri
 
 ### [Portal](#tab/portal)
 
-Keep the PowerShell Cloud Shell session open. The following commands update the tutorial's existing route without changing the route table association:
+Open **Cloud Shell** in the Azure portal and select **PowerShell**. The following commands update the tutorial's existing route without changing the route table association:
 
 ```azurepowershell
 Get-AzRouteTable -ResourceGroupName "test-rg" -Name "route-table-public" -ErrorAction Stop |
