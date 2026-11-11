@@ -32,6 +32,8 @@ To learn how to use the operations experience to manage assets and devices, see:
 
 To learn how to use the operations experience to manage data flows, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
+To learn how to use the operations experience to view live data from your assets, see [Configure and view live data](howto-view-live-data.md).
+
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
@@ -117,3 +119,4 @@ To view activity logs as the resource level, select the resource that you want t
 - [Connector for SQL Server](howto-use-sql-server-connector.md)
 - [Connector for MQTT](howto-use-mqtt-connector.md)
 - [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md)
+- [Configure and view live data](howto-view-live-data.md).
