@@ -1,14 +1,14 @@
 ---
 title: Deploy Bicep files by using GitHub Actions
 description: In this quickstart, you learn how to deploy Bicep files by using GitHub Actions.
-ms.topic: how-to
-ms.date: 06/26/2026
+ms.topic: quickstart
+ms.date: 11/10/2026
 ms.custom: github-actions-azure, devx-track-bicep
 ---
 
 # Quickstart: Deploy Bicep files by using GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows. In this quickstart, you use the [GitHub Actions for Azure Resource Manager deployment](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
+[GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows. In this quickstart, you use the [Bicep Deploy action](https://github.com/Azure/bicep-deploy) (`azure/bicep-deploy`), the recommended action for deploying Bicep files, to automate deploying a Bicep file to Azure.
 
 It provides a short introduction to GitHub actions and Bicep files. If you want more detailed steps on setting up the GitHub actions and project, see [Deploy Azure resources by using Bicep and GitHub Actions](/training/paths/bicep-github-actions).
 
@@ -35,15 +35,17 @@ New-AzResourceGroup -Name exampleRG -Location westus
 ```
 ---
 
-## Generate deployment credentials
+## Configure Azure authentication
 
-[!INCLUDE [include](~/reusable-content/github-actions/generate-deployment-credentials.md)]
+Use OpenID Connect (OIDC) to authenticate the workflow to Azure without storing a client secret. Follow [Authenticate to Azure from GitHub Actions by OpenID Connect](/azure/developer/github/connect-from-azure-openid-connect) to configure an identity, grant it the permissions required to deploy to `exampleRG`, and create a federated identity credential for your GitHub repository. Ensure the federated credential matches the branch or environment that runs your workflow.
 
+Follow the principle of least privilege: scope the workflow identity's Azure role-based access control (RBAC) role assignments to the `exampleRG` resource group, rather than the entire subscription. Grant only the roles and permissions required for the deployment operations you use. For more information, see [Azure RBAC best practices](/azure/role-based-access-control/best-practices#only-grant-the-access-users-need).
 
-## Configure the GitHub secrets
+Add the following repository secrets as described in the OIDC guide:
 
-[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
-
+- `AZURE_CLIENT_ID`: The application or user-assigned managed identity client ID.
+- `AZURE_TENANT_ID`: Your Microsoft Entra tenant ID.
+- `AZURE_SUBSCRIPTION_ID`: Your Azure subscription ID.
 
 ## Add a Bicep file
 
@@ -87,7 +89,20 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 
 The Bicep file requires one parameter called **storagePrefix** with 3 to 11 characters.
 
-You can put the file anywhere in the repository. The workflow sample in the next section assumes the Bicep file is named **main.bicep**, and it's stored at the root of your repository.
+You can put the file anywhere in the repository. The examples in this quickstart assume the Bicep file is named **main.bicep**, and it's stored at the root of your repository.
+
+## Add a Bicep parameter file
+
+Add a [Bicep parameter file](parameter-files.md) named **main.bicepparam** at the root of your repository:
+
+```bicep
+using './main.bicep'
+
+param storagePrefix = 'mystore'
+param storageSKU = 'Standard_LRS'
+```
+
+Replace `mystore` with your own storage account name prefix. The `using` statement associates the parameter file with **main.bicep**, so the workflows only need to specify the parameter file.
 
 ## Create workflow
 
@@ -99,13 +114,25 @@ To create a workflow, take the following steps:
 1. Select **New workflow**.
 1. Select **set up a workflow yourself**.
 1. Rename the workflow file if you prefer a different name other than **main.yml**. For example: **deployBicepFile.yml**.
-1. Replace the content of the yml file with the following code:
 
-    # [OpenID Connect](#tab/openid)
+## Deploy Bicep files
+
+The Bicep Deploy action deploys Bicep files and accepts `.bicepparam` files directly, without requiring you to precompile them to JSON ARM templates. It automatically installs the Bicep CLI. To select a specific CLI version, set the `bicep-version` input. The action supports:
+
+- **Standard deployments** at resource group, subscription, management group, and tenant scopes.
+- **[Deployment stacks](deployment-stacks.md)** at resource group, subscription, and management group scopes, with settings to control resource protection and what happens to resources that are no longer managed.
+- **[What-if operations](deploy-what-if.md)** to preview changes before applying them.
+- **Validation** of Bicep templates before deployment.
+
+The following examples deploy to the existing `exampleRG` resource group and use the **main.bicepparam** file you created earlier.
+
+### Deploy a Bicep file
+
+1. Replace the content of the yml file with the following code:
 
     ```yml
     on: [push]
-    name: Azure ARM
+    name: Deploy Bicep file
     permissions:
       id-token: write
       contents: read
@@ -126,67 +153,74 @@ To create a workflow, take the following steps:
 
           # Deploy Bicep file
         - name: deploy
-          uses: azure/arm-deploy@v1
+          uses: azure/bicep-deploy@v2
           with:
-            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-            resourceGroupName: ${{ secrets.AZURE_RG }}
-            template: ./main.bicep
-            parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
-            failOnStdErr: false
+            type: deployment
+            operation: create
+            scope: resourceGroup
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+            resource-group-name: exampleRG
+            parameters-file: ./main.bicepparam
     ```
 
-    # [Service principal](#tab/userlevel)
+    If you used a different resource group name, replace `exampleRG` with that name.
 
-    ```yml
-    name: Deploy Bicep file
-    on: [push]
-    jobs:
-      build-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-
-        - name: Checkout code
-          uses: actions/checkout@main
-
-        - name: Log into Azure
-          uses: azure/login@v2
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-        - name: Deploy Bicep file
-          uses: azure/arm-deploy@v1
-          with:
-            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-            resourceGroupName: ${{ secrets.AZURE_RG }}
-            template: ./main.bicep
-            parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
-            failOnStdErr: false
-    ```
-
-    Replace `mystore` with your own storage account name prefix.
-
-    > [!NOTE]
-    > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
+    For the full list of inputs and examples, see the [Bicep Deploy action reference](https://github.com/Azure/bicep-deploy#inputs).
 
     The first section of the workflow file includes:
 
     - **name**: The name of the workflow.
-    - **on**: The name of the GitHub events that triggers the workflow. The workflow is triggered when there's a push event on the main branch.
-
-    ---
-
-
+    - **on**: The GitHub events that trigger the workflow. This workflow is triggered when there's a push event on any branch.
 
 1. Select **Commit changes**.
 1. Select **Commit directly to the main branch**.
 1. Select **Commit new file** (or **Commit changes**).
 
-Updating either the workflow file or Bicep file triggers the workflow. The workflow starts right after you commit the changes.
+Updating the workflow file, Bicep file, or Bicep parameter file triggers the workflow. The workflow starts right after you commit the changes.
 
-## Check workflow status
+### Check workflow status
 
 1. Select the **Actions** tab. You see a **Create deployBicepFile.yml** workflow listed. It takes 1-2 minutes to run the workflow.
 1. Select the workflow to open it, and verify the `Status` is `Success`.
+
+### Preview changes with what-if
+
+To preview changes without deploying resources, replace the deployment step in the workflow with the following step. Keep the checkout and Azure login steps.
+
+```yml
+- name: Preview changes
+  uses: azure/bicep-deploy@v2
+  with:
+    type: deployment
+    operation: whatIf
+    scope: resourceGroup
+    subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    resource-group-name: exampleRG
+    parameters-file: ./main.bicepparam
+```
+
+Review the what-if results in the workflow logs. To apply the changes, change `operation` back to `create` and run the workflow again. For more information about interpreting the results, see [Preview changes with what-if](deploy-what-if.md).
+
+### Deploy a deployment stack
+
+To manage resources as a [deployment stack](deployment-stacks.md), replace the deployment step with the following step. Keep the checkout and Azure login steps, and use the same **main.bicepparam** file as in your deployment.
+
+```yml
+- name: Deploy stack
+  uses: azure/bicep-deploy@v2
+  with:
+    type: deploymentStack
+    operation: create
+    name: storage-stack
+    scope: resourceGroup
+    subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    resource-group-name: exampleRG
+    parameters-file: ./main.bicepparam
+    action-on-unmanage-resources: detach
+    deny-settings-mode: none
+```
+
+This step creates or updates the `storage-stack` deployment stack. The `detach` setting leaves resources in Azure when you remove them from the template or delete the stack. To delete those resources, set `action-on-unmanage-resources` to `delete`. The `none` deny setting doesn't restrict changes to managed resources outside the stack. For details about resource protection, see [Deny settings](deployment-stacks.md#protect-managed-resources).
 
 ## Clean up resources
 
