@@ -6,10 +6,11 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/31/2026
+ms.date: 11/11/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure and customize traffic routing in an Azure virtual network, so that I can optimize connectivity between my virtual and on-premises resources."
+ai-usage: ai-assisted
 ---
 
 # Azure virtual network traffic routing
@@ -99,6 +100,8 @@ You can specify the following next hop types when you create a UDR:
 
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance. This configuration allows the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a UDR that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
+    * **Virtual appliance ECMP**: Distributes traffic across multiple network virtual appliances by using equal-cost multipath (ECMP) routing. Specify between 2 and 64 next hop IP addresses with the `VirtualApplianceEcmp` next hop type. The subscription must have the `Microsoft.Network/AllowEcmpInRoute` feature registered. For requirements and configuration examples, see [Equal-cost multipath routing for user-defined routes](#equal-cost-multipath-routing-for-user-defined-routes).
+
 * **Virtual network gateway**: User-defined routes with next hop type Virtual Network Gateway allow you to route traffic to a Virtual Network's gateway. A Virtual Network has a single gateway automatically set by the underlying software-defined networking platform based on your deployment. User-defined routes with next hop Virtual Network Gateway are supported only when the Virtual Network's gateway is a **VPN gateway (and not ExpressRoute, RouteServer or Virtual WAN hub router)**.  
    * For Virtual Networks with a VPN Gateway, ExpressRoute Gateway and/or Route Server:
       * If RouteServer is deployed in a virtual network, RouteServer is set as the Virtual Network's gateway.
@@ -118,6 +121,38 @@ You can specify the following next hop types when you create a UDR:
 * **Internet**: Specify the **Internet** option when you want to explicitly route traffic destined to an address prefix to the internet. Or use it if you want traffic destined for Azure services with public IP addresses kept within the Azure backbone network.
 
 You can't specify **Virtual network peering** or `VirtualNetworkServiceEndpoint` as the next hop type in UDRs. Azure creates routes with **Virtual network peering** or `VirtualNetworkServiceEndpoint` next hop types only when you configure a virtual network peering or a service endpoint.
+
+### Equal-cost multipath routing for user-defined routes
+
+Equal-cost multipath (ECMP) routing distributes traffic across multiple network virtual appliances (NVAs) for a single user-defined route. Use the `VirtualApplianceEcmp` next hop type to specify between 2 and 64 next hop IP addresses for the route's destination prefix.
+
+Configure the addresses on one route rather than creating multiple routes with the same destination prefix. The following table compares single-appliance and ECMP route configuration:
+
+| Setting | Single-appliance route | ECMP route |
+| --- | --- | --- |
+| Next hop type | `VirtualAppliance` | `VirtualApplianceEcmp` |
+| Azure CLI address parameter | `--next-hop-ip-address` | `--next-hop` with a `next-hop-ip-addresses` list |
+| Azure PowerShell address parameter | `-NextHopIpAddress` with one address | `-NextHopIpAddress` with an array of 2 to 64 addresses |
+| REST address property | `properties.nextHopIpAddress` | `properties.nextHop.nextHopIpAddresses` |
+
+The REST `nextHop` object is allowed only when `nextHopType` is `VirtualApplianceEcmp`. Don't use the singular Azure CLI parameter `--next-hop-ip-address` for an ECMP route.
+
+#### Requirements
+
+- Register the Azure Feature Exposure Control (AFEC) feature `Microsoft.Network/AllowEcmpInRoute` in each subscription that contains ECMP routes.
+- Ensure that you have permissions to register subscription features and the `Microsoft.Network` resource provider, manage routes, and update the source subnet. Feature registration requires the relevant `Microsoft.Features/*` actions. For more information, see [Required access for feature registration](../azure-resource-manager/management/preview-features.md#required-access).
+- Enable [IP forwarding](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) on each appliance's network interfaces and configure forwarding in the appliance operating system or software.
+- Use an Azure CLI or Az.Network version that supports `VirtualApplianceEcmp`. For command details, see [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) and [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig).
+
+For feature registration and configuration steps using the Azure portal, Azure CLI, or Azure PowerShell, see [Configure ECMP routing in the route table tutorial](tutorial-create-route-table.md#configure-ecmp-routing-optional).
+
+#### ECMP routing considerations
+
+- **Route selection:** Review [how Azure selects routes](#how-azure-selects-routes-for-traffic-routing), including the documented exceptions, when you add the ECMP route.
+- **Forwarding:** Configure forwarding, security policies, and destination reachability on every appliance. Deploy the appliances in a separate subnet from the workloads that route through them to avoid routing loops.
+- **Stateful appliances:** Validate return-path symmetry and session-state requirements with the appliance vendor. Multiple configured next hops don't establish session-state synchronization or a failover guarantee.
+- **Next hop changes:** Keep between 2 and 64 addresses in the ECMP list. Prepare new appliances before you add their addresses, and validate the effect of membership changes on active connections.
+- **Default routes:** Before you use `0.0.0.0/0`, review the [default-route considerations](#default-route).
 
 ### Service tags for user-defined routes
 
@@ -169,6 +204,7 @@ The name displayed and referenced for next hop types is different between the Az
 |Virtual network                 |`VNetLocal`                                       | `VNETLocal` (not available in the classic CLI in classic deployment model mode)|
 |Internet                        |Internet                                        |Internet (not available in the classic CLI in classic deployment model mode)|
 |Virtual appliance               |`VirtualAppliance`                                |`VirtualAppliance`|
+|Virtual appliance ECMP          |`VirtualApplianceEcmp`                            |Not applicable|
 |None                            |None                                            |Null (not available in the classic CLI in classic deployment model mode)|
 |Virtual network peering         |Virtual network peering                                    |Not applicable|
 |Virtual network service endpoint|`VirtualNetworkServiceEndpoint`                   |Not applicable|
