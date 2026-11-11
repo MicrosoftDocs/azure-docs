@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: sethmanheim
 ms.author: sethm
 manager: lizross
-ms.date: 02/26/2026
+ms.date: 11/11/2026
 ms.topic: quickstart
 ms.service: azure-iot-edge
 services: iot-edge
@@ -52,7 +52,7 @@ Make sure your IoT Edge device meets the following requirements:
 
 * System requirements
    * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise)
-   <sub><sup>1</sup> Windows 10 minimum build 17763 with all current cumulative updates installed.</sub>
+   <sub><sup>1</sup> Windows 10 version 1809 (build 17763.1) or later, with all current cumulative updates installed.</sub>
 
 * Hardware requirements
   * Minimum free memory: 1 GB
@@ -110,7 +110,7 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
 Run the following PowerShell commands on the target device where you want to deploy Azure IoT Edge for Linux on Windows. To deploy to a remote target device using PowerShell, use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
 
-1. In an elevated PowerShell session, run the following command to enable Hyper-V. For more information, see [Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+1. In an elevated PowerShell session, run the following command to enable Hyper-V. For more information, see [Install Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
 
    ```powershell
    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All

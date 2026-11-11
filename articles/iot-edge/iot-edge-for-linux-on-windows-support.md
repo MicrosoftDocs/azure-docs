@@ -3,7 +3,7 @@ title: Supported platforms for IoT Edge for Linux on Windows
 description: Learn which operating systems and container engines are supported for Azure IoT Edge for Linux on Windows
 author: sethmanheim
 ms.author: sethm
-ms.date: 04/02/2026
+ms.date: 11/11/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -36,11 +36,11 @@ IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running o
 
 * **Windows Client** 
   * Pro, Enterprise, IoT Enterprise SKUs
-  * Windows 10 - Minimum build 17763 with all current cumulative updates installed
+  * Windows 10 version 1809 (build 17763.1) or later, with all current cumulative updates installed
   * Windows 11
 * **Windows Server**
-  * Windows Server 2019 - Minimum build 17763 with all current cumulative updates installed
   * Windows Server 2022
+  * Windows Server 2025
 
 
 ## Platform support
@@ -94,7 +94,7 @@ A Windows device with the following minimum requirements:
   * Minimum Free Disk Space: 10 GB
 
 * Virtualization support
-  * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+  * On Windows 10 or Windows 11, enable Hyper-V. For more information, see [Install Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
   * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md).
   * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](./nested-virtualization.md).
 

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 03/02/2026
+ms.date: 11/11/2026
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
@@ -14,15 +14,16 @@ A Windows device with the following minimum requirements:
 
 * System requirements
    * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise)
-   * Windows Server 2019<sup>1</sup>/2022  
-   <sub><sup>1</sup> Windows 10 and Windows Server 2019, minimum build 17763, with all current cumulative updates installed.</sub>
+   * Windows Server 2022/2025
+
+   <sub><sup>1</sup> Windows 10 version 1809 (build 17763.1) or later, with all current cumulative updates installed.</sub>
 
 * Hardware requirements
   * Minimum free memory: 1 GB
   * Minimum free disk space: 10 GB
 
 * Virtualization support
-  * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+  * On Windows 10 or Windows 11, enable Hyper-V. For more information, see [Install Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
   * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](../nested-virtualization.md).
   * On a virtual machine, configure nested virtualization. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](../nested-virtualization.md).
 

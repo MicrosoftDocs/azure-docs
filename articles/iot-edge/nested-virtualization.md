@@ -3,7 +3,7 @@ title: Nested virtualization - Azure IoT Edge for Linux on Windows
 description: Learn about how to use nested virtualization in Azure IoT Edge for Linux on Windows and the different deployment options available.
 author: sethmanheim
 ms.author: sethm
-ms.date: 01/22/2025
+ms.date: 11/11/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -15,6 +15,8 @@ services: iot-edge
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 There are three forms of nested virtualization compatible with Azure IoT Edge for Linux on Windows. Users can choose to deploy through a local virtual machine (using Hyper-V hypervisor), VMware Windows virtual machine, or Azure Virtual Machine. This article provides clarity on which option is best for their scenario and provide insight into configuration requirements.
+
+The Windows virtual machine hosting EFLOW must meet the [EFLOW system requirements](./iot-edge-for-linux-on-windows-support.md).
 
 > [!NOTE]
 > Ensure to enable one [networking option](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#networking-options) for nested virtualization. Failing to do so will result in EFLOW installation errors. 
@@ -36,7 +38,7 @@ To set up an Azure IoT Edge for Linux on Windows on a VMware ESXi Windows virtua
 1. Select the Windows virtual machine and then **Edit settings**.
 1. Search for _Hardware virtualization_ and turn on _Expose hardware assisted virtualization to the guest OS_.
 1. Select **Save** and start the virtual machine.
-1. Install Hyper-V hypervisor. If you're using Windows client, make sure you [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). If you're using Windows Server, make sure you [install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server). 
+1. Install Hyper-V hypervisor. If you're using Windows 10 or Windows 11, make sure you [install Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). If you're using Windows Server, make sure you [install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 > [!NOTE]
 > For VMware Windows virtual machines, if you plan to use an **external virtual switch** for the EFLOW virtual machine networking, make sure you enable _Promiscuous mode_. For more information, see [Configuring promiscuous mode on a virtual switch or portgroup](https://kb.vmware.com/s/article/1004099). Failing to do so will result in EFLOW installation errors.

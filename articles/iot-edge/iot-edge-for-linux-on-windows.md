@@ -7,7 +7,7 @@ ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: concept-article
-ms.date: 02/27/2026
+ms.date: 11/11/2026
 ---
 
 # What is Azure IoT Edge for Linux on Windows
@@ -38,8 +38,9 @@ A Windows device with the following minimum requirements:
 
 * System requirements
    * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise)
-   * Windows Server 2019<sup>1</sup>/2022  
-   <sub><sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
+   * Windows Server 2022/2025
+
+   <sub><sup>1</sup> Windows 10 version 1809 (build 17763.1) or later, with all current cumulative updates installed.</sub>
 
 * Hardware requirements
   * Minimum free memory: 1 GB

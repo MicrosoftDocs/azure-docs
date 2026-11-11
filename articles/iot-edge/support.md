@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/16/2026
+ms.date: 11/11/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -61,7 +61,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 | [Ubuntu Server 22.04](https://documentation.ubuntu.com/release-notes/22.04/) | ![Ubuntu Server 22.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 22.04 + ARM64](./media/support/green-check.png) | [June 2027](https://wiki.ubuntu.com/Releases) |
 | [Ubuntu Core <sup>1</sup>](https://snapcraft.io/azure-iot-edge) | ![Ubuntu Core + AMD64](./media/support/green-check.png) |  | ![Ubuntu Core + ARM64](./media/support/green-check.png)  | [April 2027](https://ubuntu.com/about/release-cycle) |
 | [Windows 10/11](iot-edge-for-linux-on-windows.md#prerequisites) | ![Windows 10/11 + AMD64](./media/support/green-check.png) |  | ![Windows 10/11 + ARM64](./media/support/green-check.png) | See [Azure IoT EFLOW](iot-edge-for-linux-on-windows.md#prerequisites) for supported Windows OS versions. |
-| [Windows Server 2019/2022](iot-edge-for-linux-on-windows.md#prerequisites) | ![Windows Server 2019/2022 + AMD64](./media/support/green-check.png) | | | See [Azure IoT EFLOW](iot-edge-for-linux-on-windows.md#prerequisites) for supported Windows OS versions. |
+| [Windows Server 2022/2025](iot-edge-for-linux-on-windows.md#prerequisites) | ![Windows Server 2022/2025 + AMD64](./media/support/green-check.png) | | | See [Azure IoT EFLOW](iot-edge-for-linux-on-windows.md#prerequisites) for supported Windows OS versions. |
 
 <sup>1</sup> Ubuntu Core is fully supported but the automated testing of Snaps currently happens on Ubuntu 22.04 Server LTS. 
 

@@ -3,7 +3,7 @@ title: GPU acceleration for Azure IoT Edge for Linux on Windows
 description: Learn about how to configure your Azure IoT Edge for Linux on Windows virtual machines to use host device GPUs.
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/05/2025
+ms.date: 11/11/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -33,20 +33,20 @@ You must select the appropriate passthrough method during deployment to match th
 
 The GPU acceleration features of Azure IoT Edge for Linux on Windows currently support a select set of GPU hardware. Also, using this feature can require specific versions of Windows.
 
+These requirements are in addition to the [general EFLOW system requirements](./iot-edge-for-linux-on-windows-support.md).
+
 The supported GPUs and required Windows versions are:
 
 | Supported GPUs | GPU Passthrough Type | Supported Windows Versions |
 | --------- | --------------- | -------- |
-| NVIDIA T4, A2 | DDA |  Windows Server 2019 <br> Windows Server 2022 <br> Windows 10/11 (Pro, Enterprise, IoT Enterprise) |
+| NVIDIA T4, A2 | DDA | Windows Server 2022 <br> Windows Server 2025 <br> Windows 10/11 (Pro, Enterprise, IoT Enterprise) |
 | NVIDIA GeForce, Quadro, RTX | GPU-PV | Windows 10/11 (Pro, Enterprise, IoT Enterprise) |
 | Intel iGPU | GPU-PV | Windows 10/11 (Pro, Enterprise, IoT Enterprise) |
 
 > [!IMPORTANT]
 >GPU-PV support can be limited to certain generations of processors or GPU architectures, as determined by the GPU vendor. For more information, see [Intel's iGPU driver documentation](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html) or [NVIDIA's CUDA for WSL Documentation](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#wsl2-system-requirements).
 >
->Windows Server 2019 users must use minimum build 17763 with all current cumulative updates installed.
->
->Windows 10 users must use the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/) build 19044.1620 or higher. After installation, check your build version by running `winver` at the command prompt.
+>GPU acceleration on Windows 10 requires the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/) build 19044.1620 or higher. After installation, check your build version by running `winver` at the command prompt.
 >
 > GPU passthrough isn't supported with nested virtualization, like running EFLOW in a Windows virtual machine.
 
