@@ -138,8 +138,8 @@ The Device Provisioning Service supports the following forms of attestation:
 
 If your DPS instance is linked to an Azure Device Registry namespace, you can optionally use separate credentials for device provisioning and ongoing connections to IoT Hub:
 
-- **Onboarding credential:** The device authenticates with DPS by using the attestation mechanism configured on its enrollment.
-- **Operational certificate:** After DPS authenticates the device by using its onboarding credential, Azure Device Registry issues a short-lived X.509 certificate for ongoing authentication with IoT Hub.
+- **Onboarding credential:** The credential the device uses to authenticate with DPS through the [attestation mechanism](#attestation-mechanism) configured on its enrollment.
+- **Operational certificate:** After DPS authenticates the device, Azure Device Registry issues a short-lived X.509 certificate for ongoing authentication with IoT Hub.
 
 Devices must submit a [certificate signing request (CSR)](#certificate-signing-request) during provisioning to receive an operational certificate. You can manage the lifecycle of these certificates, including renewal and revocation.
 
