@@ -6,7 +6,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 10/26/2026
+ms.date: 11/12/2026
 ---
 
 # Configure custom topic groups for Azure IoT Hub with the MQTT v5 connection profile
@@ -348,6 +348,21 @@ in this article. Confirm that:
 - The topic group contains all intended topic templates.
 - Any templates needed by existing devices remain in the group.
 - The saved configuration meets the preview limits and topic template rules.
+
+## Evaluate custom-topic publishing with the companion samples
+
+The [custom-topic sample scenario](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#3-custom-topic-telemetry-and-routing)
+provides C and .NET publishers and a shared destination verifier. After you
+complete the repository's separate evaluation setup, the device publishes to
+`fleet/vehicles/{assigned-device-id}/telemetry`. A topic-filtered route delivers
+the message to a standalone Azure Event Hubs destination, where the verifier
+checks the test ID, scenario, and language.
+
+The sample uses DPS certificate issuance and an X.509 hub connection. It
+demonstrates publishing and routed delivery, not custom-topic subscriptions.
+Review its prerequisites, billable resource setup, and cleanup instructions.
+Local builds and offline checks have passed; live Azure scenarios and
+clean-machine setup haven't been validated.
 
 ## Troubleshoot custom-topic publishing
 

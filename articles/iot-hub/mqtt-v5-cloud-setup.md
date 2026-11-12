@@ -6,7 +6,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 11/11/2026
+ms.date: 11/12/2026
 ms.custom: references_regions
 ---
 
@@ -55,6 +55,21 @@ the services' managed identities are listed under
 Use a dedicated resource group for evaluation purposes. If you
 use an existing environment, identify any shared resources before changing
 permissions or policies.
+
+## Optional setup script for evaluation
+
+The [companion sample setup instructions](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#1-set-up)
+provide a separate PowerShell-based path for Windows. The
+[setup script](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/blob/main/Setup-MqttV5.ps1)
+creates a new MQTT v5 hub, linked ADR and DPS resources, certificate issuance
+configuration, symmetric-key enrollments, custom topics, and standalone Azure
+Event Hubs destinations and routes.
+
+Use the script for a new evaluation environment, not to reconcile an existing
+deployment or rerun a partially completed manual setup. Read the repository's
+prerequisites, failure behavior, and cleanup instructions before creating
+billable resources. The samples have passed local builds and offline checks;
+live Azure scenarios and clean-machine setup haven't been validated.
 
 ## Supported regions
 

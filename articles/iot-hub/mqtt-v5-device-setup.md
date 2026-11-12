@@ -6,7 +6,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/12/2026
 ---
 
 # Configure a device with the unified Azure IoT SDKs
@@ -16,7 +16,7 @@ to Azure IoT Hub with the MQTT v5 connection profile, and send telemetry.
 Start with a small JSON message and verify it at your downstream destination
 before adding custom topics or more complex payloads.
 
-This article uses Device Provisioning Service (DPS) to provision the device
+The inline examples use Device Provisioning Service (DPS) to provision the device
 with an existing X.509 certificate and get its assigned IoT Hub connection
 details. The device then connects to that hub and publishes telemetry over
 MQTT v5; telemetry doesn't pass through DPS.
@@ -100,7 +100,28 @@ renewal through the MQTT v5 hub isn't supported in this preview.
 
 Check the selected SDK version for the APIs needed for issuance and renewal;
 don't assume that an SDK automatically renews operational certificates.
-The examples in this article don't implement certificate issuance or renewal.
+The inline examples in this article don't implement certificate issuance or renewal.
+
+### Evaluate DPS certificate issuance with the companion samples
+
+For a separate certificate-issuance path, see the
+[C and .NET companion samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview).
+Each device uses an individual-enrollment symmetric key to authenticate to DPS,
+generates a private key and CSR, and requests an operational certificate.
+The subsequent MQTT v5 hub connection uses X.509; the symmetric key is only
+an onboarding credential.
+
+Follow the repository's setup instructions before running its
+[standard telemetry, direct methods, and twins scenario](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#2-standard-telemetry-direct-methods-and-twins).
+The shared verifier checks direct-method responses, desired-to-reported property
+updates, and telemetry receipt at a standalone Event Hubs destination.
+See the [.NET implementation](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/tree/main/device-dotnet)
+and [C build and run instructions](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/tree/main/device-c).
+These samples demonstrate initial issuance, not automatic certificate renewal.
+
+The samples have passed local builds and offline checks, but live Azure scenarios
+and clean-machine setup haven't been validated. Review the repository's
+prerequisites and validation limitations before running them.
 
 ### Certificate trust and rollover
 
