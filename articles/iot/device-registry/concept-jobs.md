@@ -46,9 +46,9 @@ This preview supports two software update job types. A software update targets a
 ## Execution model
 
 - You can run a job on demand or schedule it to run later.
-- In this preview, you can start each job definition once. A continuous software update rollout can remain active after it starts and continue processing eligible devices.
+- You can run a job definition more than once. A continuous software update rollout can remain active after it starts and continue processing eligible devices.
 - You can end a running job. After a job ends, it doesn't apply the update to more devices.
-- Job definition states are: `Ready`, `Failed`, and `Creating`.
+- Job definition provisioning states are: `Accepted`, `Succeeded`, `Failed`, and `Deleting`.
 - Job run states: `Scheduled`, `Active`, `Canceled`, and `Failed`.
 - Individual device states within a job are: `Succeeded`, `Failed`, `Canceled`, and `In progress`.
 

@@ -63,6 +63,8 @@ items:
       href: device-registry/concept-groups.md
     - name: Jobs concepts (preview)
       href: device-registry/concept-jobs.md
+    - name: Define, run, and monitor jobs (preview)
+      href: device-registry/how-to-define-run-monitor-jobs.md
     - name: Software updates concepts (preview)
       href: device-registry/concept-software-updates.md
     - name: Import a software update (preview)
