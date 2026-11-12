@@ -5,10 +5,14 @@ author:  chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 01/21/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 
 # Security overview for Azure Data Share
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 This article provides a security overview of the Azure Data Share service.
 
