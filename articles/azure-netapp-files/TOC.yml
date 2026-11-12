@@ -101,6 +101,8 @@
           href: maxfiles-concept.md
         - name: Understand maximum directory sizes 
           href: directory-sizes-concept.md
+        - name: Understand asynchronous directory deletion
+          href: asynchronous-directory-deletion-concept.md
     - name: Ways to monitor Azure NetApp Files
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
@@ -353,6 +355,8 @@
       items:
       - name: Manage availability zone volume placement
         href: manage-availability-zone-volume-placement.md
+      - name: Configure asynchronous directory deletion
+        href: configure-asynchronous-directory-deletion.md
       - name: Manage NFS volumes
         items:
         - name: Create an NFS volume
@@ -583,6 +587,8 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+    - name: Troubleshoot asynchronous directory deletion
+      href: troubleshoot-asynchronous-directory-deletion.md
     - name: Troubleshoot Microsoft Entra Kerberos authentication 
       href: troubleshoot-entra-kerberos-authentication.md
     - name: Troubleshoot SMB authentication and CIFS password reset failures
