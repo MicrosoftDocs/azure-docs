@@ -102,10 +102,10 @@ Check the selected SDK version for the APIs needed for issuance and renewal;
 don't assume that an SDK automatically renews operational certificates.
 The inline examples in this article don't implement certificate issuance or renewal.
 
-### Evaluate DPS certificate issuance with the companion samples
+### Certificate issuance samples
 
-For a separate certificate-issuance path, see the
-[C and .NET companion samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview).
+For sample code that requests an operational certificate during DPS provisioning,
+see the [C and .NET samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview).
 Each device uses an individual-enrollment symmetric key to authenticate to DPS,
 generates a private key and CSR, and requests an operational certificate.
 The subsequent MQTT v5 hub connection uses X.509; the symmetric key is only
@@ -115,7 +115,7 @@ Follow the repository's setup instructions before running its
 [standard telemetry, direct methods, and twins scenario](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#2-standard-telemetry-direct-methods-and-twins).
 The shared verifier checks direct-method responses, desired-to-reported property
 updates, and telemetry receipt at a standalone Event Hubs destination.
-See the [.NET implementation](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/tree/main/device-dotnet)
+See the [.NET sample](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/tree/main/device-dotnet)
 and [C build and run instructions](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/tree/main/device-c).
 These samples demonstrate initial issuance, not automatic certificate renewal.
 

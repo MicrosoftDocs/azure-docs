@@ -349,11 +349,11 @@ in this article. Confirm that:
 - Any templates needed by existing devices remain in the group.
 - The saved configuration meets the preview limits and topic template rules.
 
-## Evaluate custom-topic publishing with the companion samples
+## Custom-topic publishing samples
 
-The [custom-topic sample scenario](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#3-custom-topic-telemetry-and-routing)
-provides C and .NET publishers and a shared destination verifier. After you
-complete the repository's separate evaluation setup, the device publishes to
+The [custom-topic publishing samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#3-custom-topic-telemetry-and-routing)
+include C and .NET device code and a shared destination verifier. After you
+set up the sample environment, the device publishes to
 `fleet/vehicles/{assigned-device-id}/telemetry`. A topic-filtered route delivers
 the message to a standalone Azure Event Hubs destination, where the verifier
 checks the test ID, scenario, and language.

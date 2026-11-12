@@ -56,14 +56,13 @@ Use a dedicated resource group for evaluation purposes. If you
 use an existing environment, identify any shared resources before changing
 permissions or policies.
 
-## Optional setup script for evaluation
+## Sample setup script
 
-The [companion sample setup instructions](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#1-set-up)
-provide a separate PowerShell-based path for Windows. The
-[setup script](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/blob/main/Setup-MqttV5.ps1)
+This PowerShell [sample script](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/blob/main/Setup-MqttV5.ps1)
 creates a new MQTT v5 hub, linked ADR and DPS resources, certificate issuance
 configuration, symmetric-key enrollments, custom topics, and standalone Azure
-Event Hubs destinations and routes.
+Event Hubs destinations and routes. For instructions to run the script on Windows,
+see [Set up the sample environment](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#1-set-up).
 
 Use the script for a new evaluation environment, not to reconcile an existing
 deployment or rerun a partially completed manual setup. Read the repository's

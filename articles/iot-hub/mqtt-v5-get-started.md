@@ -21,20 +21,19 @@ stage of the journey.
 > Azure IoT Hub with the MQTT v5 connection profile is in preview. Review the
 > [capability matrix](mqtt-v5-capabilities.md) before starting.
 
-## Optional scripted evaluation
+## Sample scripts and code
 
-For a separate PowerShell-based evaluation path on Windows, see the
-[Azure IoT Hub MQTT v5 and ADR preview samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview).
-The repository includes setup scripts, C and .NET device implementations, and a
+The [Azure IoT Hub MQTT v5 and ADR preview samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview)
+repository provides PowerShell setup scripts, C and .NET device code, and a
 verifier that checks message receipt at standalone Azure Event Hubs destinations.
 The standard scenario also checks direct methods and desired-to-reported twin
-property updates.
+property updates. Follow the repository's instructions to run the samples on Windows.
 
 Unlike the existing-certificate walkthrough below, the samples use a symmetric
 key for DPS onboarding and request an operational certificate with a certificate
 signing request (CSR). The device then connects to IoT Hub with X.509.
-Follow the repository's prerequisites and setup instructions as a separate path;
-don't combine its setup script with an environment created by this walkthrough.
+The samples create their own environment. Don't run their setup script against
+an environment created by the walkthrough below.
 
 > [!NOTE]
 > The samples have passed local builds and offline checks, but live Azure
