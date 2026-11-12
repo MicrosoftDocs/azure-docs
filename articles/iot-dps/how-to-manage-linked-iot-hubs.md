@@ -31,10 +31,8 @@ The following settings control how DPS uses linked IoT hubs:
 
     * **Connection string**: Applies only to `KeyBased` authentication. Sets the IoT Hub connection string that DPS uses to connect to the linked IoT hub. The connection string must be for a shared access policy that has the *RegistryWrite* and *ServiceConnect* permissions. To learn more about IoT Hub shared access policies, see [IoT Hub access control and permissions](../iot-hub/authenticate-authorize-sas.md#access-control-and-permissions).
 
-    * **Managed identity**: Applies to `SystemAssigned` and `UserAssigned` authentication. DPS uses its managed identity instead of a connection string, so you don't need a connection string or shared access policy. The identity must have the **IoT Hub Data Contributor** role (or a custom role with the *RegistryWrite* and *ServiceConnect* permissions) on the IoT hub. See [Link an IoT hub by using managed identity](#link-an-iot-hub-by-using-managed-identity-preview).
-
-* **Hostname type**: Sets which IoT Hub endpoint DPS uses when provisioning devices. Use `classic` for the standard endpoint or `device` for the TLS 1.3-capable device endpoint. See [Use TLS 1.3 endpoints for linked hubs](#use-tls-13-endpoints-for-linked-hubs-preview).
-
+    * **Managed identity**: Applies to `SystemAssigned` and `UserAssigned` authentication. DPS uses its managed identity instead of a connection string, so you don't need a connection string or shared access policy. The identity must have the **IoT Hub Data Contributor** role (or a custom role with the *RegistryWrite* and *ServiceConnect* permissions) on the IoT hub.     See [Link an IoT hub by using managed identity](#link-an-iot-hub-by-using-managed-identity).
+* **Hostname type**: Sets which IoT Hub endpoint DPS uses when provisioning devices. Use `classic` for the standard endpoint or `device` for the TLS 1.3-capable device endpoint. See [Use TLS 1.3 endpoints for linked hubs](#use-tls-13-endpoints-for-linked-hubs).
 * **Allocation weight**: Determines the likelihood of an IoT hub being selected when DPS hashes device assignment across a set of IoT hubs. The value can be between one and 1000. The default is one (or **null**). Higher values increase the IoT hub's probability of being selected.
 
 * **Apply allocation policy**: Sets whether the IoT hub participates in allocation policy. The default is **Yes** (true). If set to **No** (false), devices aren't assigned to the IoT hub. The IoT hub can still be selected on an enrollment, but it won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
@@ -85,13 +83,13 @@ For example, the following command links an IoT hub by using a connection string
 az iot dps linked-hub create --dps-name MyExampleDps --resource-group MyResourceGroup --connection-string "HostName=MyExampleHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XNBhoasdfhqRlgGnasdfhivtshcwh4bJwe7c0RIGuWsirW0=" --location westus
 ```
 
-To link by using managed identity or to specify a TLS 1.3 endpoint, see [Link an IoT hub by using managed identity](#link-an-iot-hub-by-using-managed-identity-preview) and [Use TLS 1.3 endpoints for linked hubs](#use-tls-13-endpoints-for-linked-hubs-preview).
+To link by using managed identity or to specify a TLS 1.3 endpoint, see [Link an IoT hub by using managed identity](#link-an-iot-hub-by-using-managed-identity) and [Use TLS 1.3 endpoints for linked hubs](#use-tls-13-endpoints-for-linked-hubs).
 
 ---
 
 DPS also supports linking IoT Hubs using the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
 
-## Link an IoT hub by using managed identity (preview)
+## Link an IoT hub by using managed identity
 
 Instead of a shared access key connection string, you can link an IoT hub to DPS by using a managed identity. DPS supports system-assigned and user-assigned managed identities.
 
@@ -174,7 +172,7 @@ az iot dps linked-hub create \
 
 ---
 
-## Use TLS 1.3 endpoints for linked hubs (preview)
+## Use TLS 1.3 endpoints for linked hubs
 
 When you link an IoT hub to DPS, you can choose which endpoint DPS uses when provisioning devices. By default, new links use the TLS 1.3-capable device endpoint.
 
@@ -255,7 +253,7 @@ az iot dps linked-hub delete \
 ---
 
 > [!IMPORTANT]
-> If an allocation policy distributes devices across multiple linked hubs that use different endpoint types, ensure all devices support the endpoints they might be assigned to. Devices provisioned to a TLS 1.3 endpoint must support SNI and the required cipher suites. For more information, see [TLS 1.3 support](../iot-hub/iot-hub-tls-support.md#tls-13-support-preview).
+> If an allocation policy distributes devices across multiple linked hubs that use different endpoint types, ensure all devices support the endpoints they might be assigned to. Devices provisioned to a TLS 1.3 endpoint must support SNI and the required cipher suites. For more information, see [TLS 1.3 support](../iot-hub/iot-hub-tls-support.md#tls-13-support).
 >
 > In the Azure portal, the **IoT hubs** tab of an enrollment shows a warning when the target IoT hubs use different TLS configurations.
 

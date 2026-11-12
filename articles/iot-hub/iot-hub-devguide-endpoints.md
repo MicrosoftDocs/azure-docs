@@ -74,7 +74,7 @@ certificate issuance and renewal through DPS, and device troubleshooting, see
   The client and endpoint negotiate a TLS version and cipher suite they both support.
   TLS versions and device messaging protocol versions are independent.
 - Device and service endpoints require Server Name Indication (SNI). For cipher
-  suites and protocol details, see [IoT Hub TLS support](iot-hub-tls-support.md#tls-13-support-preview).
+  suites and protocol details, see [IoT Hub TLS support](iot-hub-tls-support.md#tls-13-support).
 
 ## IoT Hub endpoints for development and management
 
