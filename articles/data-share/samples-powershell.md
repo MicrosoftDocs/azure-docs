@@ -2,14 +2,17 @@
 title: Azure PowerShell Samples for Azure Data Share
 description: Learn about Azure PowerShell Sample scripts to help you create and manage data shares in Azure Data Share. 
 ms.service: azure-data-share
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, msecd-doc-authoring-1030
 author: chvukosw
 ms.author: chvukosw
 ms.topic: concept-article
-ms.date: 01/21/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
 ---
 
 # Azure PowerShell samples for Azure Data Share
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Share.
 

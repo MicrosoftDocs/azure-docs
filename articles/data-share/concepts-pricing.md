@@ -5,10 +5,14 @@ author:  chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: concept-article
-ms.date: 01/20/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 
 # Understand Azure Data Share pricing
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 For snapshot-based sharing, Azure Data Share charges for Dataset Snapshot and Snapshot Execution. This article explains how to estimate Dataset Snapshot and Snapshot Execution using snapshot history information. Currently, the data provider is billed for the Dataset Snapshot and Snapshot Execution.
 

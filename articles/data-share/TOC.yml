@@ -7,6 +7,8 @@
     href: overview.md
   - name: Supported data stores
     href: supported-data-stores.md
+  - name: Retirement
+    href: retirement.md
 - name: Quickstarts
   items:
   - name: Share data - Azure portal
