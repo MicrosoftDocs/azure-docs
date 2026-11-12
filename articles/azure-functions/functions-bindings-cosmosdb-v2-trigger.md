@@ -524,6 +524,18 @@ Isolated worker process libraries use [CosmosDBTriggerAttribute](https://github.
 
 ---
 
+### Configure the batch size limit with an app setting
+
+`MaxItemsPerInvocationSetting` requires a release of the Azure Cosmos DB extension 4.x that supports configurable batch sizes.
+
+To change the number of items per invocation without rebuilding your app, set `MaxItemsPerInvocationSetting = "BatchLimit"` on the trigger attribute. Add a `BatchLimit` app setting with a value such as `50`. Use the setting name without `%` delimiters.
+
+A positive `MaxItemsPerInvocation` or a batch size limit from a named app setting overrides the [app-wide default](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4#hostjson-settings).
+
+The function fails to load if you set `MaxItemsPerInvocationSetting` and also specify a positive `MaxItemsPerInvocation`. The function also fails to load if the named app setting is missing or doesn't contain a positive 32-bit integer.
+
+A batch can exceed the limit to keep changes from the same transaction together.
+
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 ## Decorators
