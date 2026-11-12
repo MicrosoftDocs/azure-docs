@@ -24,7 +24,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Review retirement timelines and transition guidance
-            url: https://aka.ms/ADS-Deprecation
+            url: https://aka.ms/ADS-alternatives
 
   # Card (optional)
   - title: About Azure Data Share
