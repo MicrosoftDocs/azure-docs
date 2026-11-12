@@ -119,8 +119,8 @@ See the [.NET sample](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview
 and [C build and run instructions](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview/tree/main/device-c).
 These samples demonstrate initial issuance, not automatic certificate renewal.
 
-The samples have passed local builds and offline checks, but live Azure scenarios
-and clean-machine setup haven't been validated. Review the repository's
+The samples passed local builds and offline checks. Live Azure scenarios
+and clean-machine setup still require validation. Review the repository's
 prerequisites and validation limitations before running them.
 
 ### Certificate trust and rollover

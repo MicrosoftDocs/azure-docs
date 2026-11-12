@@ -29,17 +29,17 @@ verifier that checks message receipt at standalone Azure Event Hubs destinations
 The standard scenario also checks direct methods and desired-to-reported twin
 property updates. Follow the repository's instructions to run the samples on Windows.
 
-Unlike the existing-certificate walkthrough below, the samples use a symmetric
+Unlike the existing-certificate walkthrough in this article, the samples use a symmetric
 key for DPS onboarding and request an operational certificate with a certificate
 signing request (CSR). The device then connects to IoT Hub with X.509.
 The samples create their own environment. Don't run their setup script against
-an environment created by the walkthrough below.
+an environment created by this walkthrough.
 
 > [!NOTE]
-> The samples have passed local builds and offline checks, but live Azure
-> scenarios and clean-machine setup haven't been validated. Confirm access to
+> The samples passed local builds and offline checks. Live Azure
+> scenarios and clean-machine setup still require validation. Confirm access to
 > the required preview CLI extension before starting. The samples create billable
-> resources; review their [requirements](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#requirements)
+> resources. Review their [requirements](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#requirements)
 > and [cleanup instructions](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#cleanup).
 
 ## Prerequisites

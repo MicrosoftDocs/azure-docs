@@ -361,8 +361,8 @@ checks the test ID, scenario, and language.
 The sample uses DPS certificate issuance and an X.509 hub connection. It
 demonstrates publishing and routed delivery, not custom-topic subscriptions.
 Review its prerequisites, billable resource setup, and cleanup instructions.
-Local builds and offline checks have passed; live Azure scenarios and
-clean-machine setup haven't been validated.
+Local builds and offline checks passed. Live Azure scenarios and
+clean-machine setup still require validation.
 
 ## Troubleshoot custom-topic publishing
 

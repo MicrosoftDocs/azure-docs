@@ -67,8 +67,8 @@ see [Set up the sample environment](https://github.com/Azure-Samples/iot-hub-adr
 Use the script for a new evaluation environment, not to reconcile an existing
 deployment or rerun a partially completed manual setup. Read the repository's
 prerequisites, failure behavior, and cleanup instructions before creating
-billable resources. The samples have passed local builds and offline checks;
-live Azure scenarios and clean-machine setup haven't been validated.
+billable resources. The samples passed local builds and offline checks.
+Live Azure scenarios and clean-machine setup still require validation.
 
 ## Supported regions
 
