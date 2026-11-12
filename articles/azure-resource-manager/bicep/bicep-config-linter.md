@@ -152,6 +152,10 @@ The following example shows the rules that you can configure.
           "maxAgeInDays": 730,
           "gracePeriodInDays": 90
         },
+        "use-recent-az-powershell-version": {
+          "level": "warning",
+          "minimumVersion": "11.0"
+        },
         "use-recent-module-versions": {
           "level": "off"
         },
