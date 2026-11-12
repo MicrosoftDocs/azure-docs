@@ -5,9 +5,13 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 01/20/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 # Disaster recovery for Azure Data Share
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 This article explains how to configure a disaster recovery environment for Azure Data Share. Azure data center outages are rare, but can last anywhere from a few minutes to hours. Data Center outages can cause disruption to environments that are relying on data being shared by the data provider. By following the steps detailed in this article, data providers can continue to share data with their data consumers if there's a data center outage for the primary region hosting your data share.
 

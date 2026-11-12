@@ -5,10 +5,14 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 01/20/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 
 # How to configure a dataset mapping for a received share in Azure Data Share
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 This article explains how to configure a dataset mapping for a received share using Azure Data Share. You might want to configure a dataset mapping to specify a target data store where you want to receive data, or if you need to change the target data store.
 

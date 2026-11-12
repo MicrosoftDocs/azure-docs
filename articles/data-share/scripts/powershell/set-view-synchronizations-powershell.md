@@ -5,11 +5,14 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 01/23/2026 
-ms.custom: devx-track-azurepowershell
+ms.date: 10/13/2026
+ms.custom: devx-track-azurepowershell, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Use PowerShell to set Azure Data Share synchronization settings
+
+[!INCLUDE [Azure Data Share retirement notice](../../includes/data-share-retirement.md)]
 
 This PowerShell script sets and gets share synchronization settings.
 
