@@ -117,6 +117,32 @@ In some cases, your VPN client software or operating system might distrust the p
 
 To restore connectivity, install the previous root certificate on your client device. Then, refer to the [troubleshooting documentation](/troubleshoot/azure/vpn-gateway/welcome-vpn-gateway) and watch for a notification from Microsoft with updated profile instructions. If you need assistance, contact [Microsoft Support](https://azure.microsoft.com/support/).
 
+#### The portal shows the G2 migration as complete, but I never started it. What should I do?
+
+If your gateway used the CSES (Cloud Services Extended Support) deployment model and was recently migrated to VMSS (Virtual Machine Scale Sets), the Azure portal might show every phase of the point-to-site profile migration as complete, even though you haven't started it. This is a known portal display issue. Your gateway hasn't been migrated to the G2 root certificate.
+
+To start the migration, run the Prepare step by using Azure PowerShell. Then finish the rest of the migration in the portal:
+1. Sign in to your Azure account:
+```azurepowershell
+Connect-AzAccount
+```
+1. Set the subscription that contains your VPN gateway:
+```azurepowershell
+Set-AzContext -Subscription "<SubscriptionId>"
+```
+1. Run the following commands to trigger the Prepare step:
+```azurepowershell
+$apiVersion = "2024-05-01"
+$baseUri = "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworkGateways/<GatewayName>"
+
+Invoke-AzRestMethod -Method POST `
+  -Path "$baseUri/prepareMigration?api-version=$apiVersion" `
+  -Payload '{"migrationType":"MigrateGatewayForPointToSiteProfile"}'
+```
+1. After the Prepare step finishes, refresh the portal. Go to your VPN gateway, select Configuration > Point-to-site Profile Migration, and finish the remaining steps (Migrate and Commit) as described in [How to migrate a gateway root certificate for P2S gateway](https://learn.microsoft.com/azure/vpn-gateway/how-to-migrate-gateway-root-certificate/)
+
+If the portal still shows the wrong status after the Prepare step finishes, create an Azure support request.
+
 ### Billing
 
 #### Is there any cost associated with this change?
