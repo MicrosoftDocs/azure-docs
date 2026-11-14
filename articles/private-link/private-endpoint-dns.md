@@ -215,7 +215,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
 > | Azure Managed Disks (Microsoft.Compute/diskAccesses) | disks | privatelink.blob.core.windows.net | blob.core.windows.net |
 > | Azure Elastic SAN (Microsoft.ElasticSan/elasticSans) | volumegroup | privatelink.blob.core.windows.net | blob.storage.azure.net |
-> | Azure Files (Microsoft.FileShares/fileShares) | FileShare | privatelink.file.core.windows.net | file.core.windows.net |
+> | Azure Files (Microsoft.FileShares/fileShares) | FileShare | privatelink.file.core.windows.net | file.storage.azure.net |
 
 ### Web
 
