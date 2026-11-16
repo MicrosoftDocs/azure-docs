@@ -246,7 +246,7 @@ After you connect your Azure VMware Solution private cloud to Azure, you can bro
 
 1. On your Azure VMware Solution private cloud, in the left navigation, locate **vCenter Server Inventory**.
 2. Select the resources you want to onboard, and then select **Manage Arc onboarding**.
-3. Select your Azure **Subscription** and **Resource Group**, then select **Arc agent with virtual hardware management** and then provide the Administrator username and password of the VM. For Linux VMs, there's an option to use SSH key-based authentication. 
+3. Select your Azure **Subscription** and **Resource Group**, select **Arc agent with virtual hardware management**, and then provide the Administrator username and password for the VM. For Linux VMs, select the option to use SSH key-based authentication. 
 
    The Arc agent is the [Azure Arc connected machine agent](/azure/azure-arc/servers/agent-overview). For information about the prerequisites for installing the Arc agent, see [Connected Machine agent prerequisites](/azure/azure-arc/servers/prerequisites).
 
