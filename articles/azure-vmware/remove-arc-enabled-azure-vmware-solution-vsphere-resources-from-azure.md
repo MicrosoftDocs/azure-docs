@@ -110,4 +110,4 @@ az rest --method delete --"https://management.azure.com/subscriptions/%3Csubscrp
 ```
 
 
-Once that step is executed, Arc no longer works on the Azure VMware Solution private cloud. When you delete Arc resources from vCenter Server, it doesn't affect the Azure VMware Solution private cloud. 
+After you run this command, Arc stops working on the Azure VMware Solution private cloud. Deleting Arc resources from vCenter Server doesn't affect the Azure VMware Solution private cloud.
