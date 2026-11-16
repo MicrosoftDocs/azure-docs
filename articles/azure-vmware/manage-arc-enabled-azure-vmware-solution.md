@@ -3,7 +3,7 @@ title: Manage Arc-enabled Azure VMware private cloud
 description: Learn how to manage your Arc-enabled Azure VMware private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date:11/16/2026
+ms.date: 11/16/2026
 ms.custom: references_regions, engagement-fy23
 # Customer intent: As a cloud administrator, I want to manage the Arc-enabled Azure VMware private cloud, so that I can ensure the system is secure, well-maintained, and efficiently connected to Azure services.
 ---
@@ -36,7 +36,7 @@ When you update **cloud admin** credentials, use the following steps to upda
 `az connectedvmware vcenter connect --debug --resource-group {resource-group} --name {vcenter-name-in-azure} --location {vcenter-location-in-azure} --custom-location {custom-location-name} --fqdn {vcenter-ip} --port {vcenter-port} --username cloudadmin@vsphere.local --password {vcenter-password}`
     
 > [!NOTE]
-> Customers need to ensure kubeconfig and SSH keys remain available as they're required at the time of upgrade, log collection, and credential update scenarios. 
+> You need to keep the kubeconfig and SSH keys available because they're required during Arc resource bridge upgrade, log collection, and credential update scenarios. 
 
 **Parameters**
 
