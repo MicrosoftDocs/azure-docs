@@ -44,7 +44,7 @@ To cleanly remove all Azure Arc components on your VMs, follow these steps.
 > [!NOTE]
 > Perform **steps 2 and 3** for **all VMs** that have the Arc agent installed.
 
-1. Sign into the virtual machine using administrator or root credentials and run the following command in the shell to disconnect the Arc agent.
+1. Sign in to the virtual machine by using administrator or root credentials. Run the following command in the shell to disconnect the Arc agent:
     1. `azcmagent disconnect --force-local-only`.
 1. Uninstall the `ConnectedMachine agent` from the machine.
 1. Set the **identity** on the VM resource to **none**. 
