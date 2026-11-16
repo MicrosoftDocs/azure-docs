@@ -46,7 +46,7 @@ Required parameters
 
 **Examples**
 
-The following command invokes the set credential for the specified Arc resource bridge resource.
+The following command sets the credential for the specified Arc resource bridge resource.
 
 ` az arcappliance setcredential <provider> --kubeconfig <kubeconfig>`
 
