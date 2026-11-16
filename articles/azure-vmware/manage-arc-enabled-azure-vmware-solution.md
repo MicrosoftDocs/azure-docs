@@ -8,7 +8,6 @@ ms.custom: references_regions, engagement-fy23
 # Customer intent: As a cloud administrator, I want to manage the Arc-enabled Azure VMware private cloud, so that I can ensure the system is secure, well-maintained, and efficiently connected to Azure services.
 ---
 
-
 # Manage Arc-enabled Azure VMware private cloud
 
 In this article, you learn how to update the vSphere credentials on the Arc resource bridge, upgrade the Arc resource bridge, and collect logs from the Arc resource bridge.
