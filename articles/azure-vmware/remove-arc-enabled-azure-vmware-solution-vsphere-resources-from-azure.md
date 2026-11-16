@@ -84,7 +84,7 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
 
 ## Remove VMware vSphere resources from Azure
 
-When you onboard Arc-enabled Azure VMware Solution resources in Azure, a representation is created for them in Azure. To cleanly remove your VMware resources from Azure, you need to remove all of the Azure resource representations you created for your vSphere resources. To remove the Azure resource representations you created, do the following steps: 
+When you onboard Arc-enabled Azure VMware Solution resources in Azure, you create a representation for them in Azure. To cleanly remove your VMware resources from Azure, remove all of the Azure resource representations you created for your vSphere resources. To remove the Azure resource representations you created, follow these steps: 
 
 1. Go to the Azure portal.
 1. Choose **Virtual machines** from Arc-enabled VMware vSphere resources in the private cloud.
