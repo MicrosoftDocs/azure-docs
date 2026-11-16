@@ -20,7 +20,7 @@ In this article, learn how to cleanly remove your VMware vCenter environment fro
 
 To prevent continued billing of Azure management services, before you remove the vSphere environment from Azure Arc, you must first remove the extensions and the Arc agents from all Arc-enabled Azure VMware Solution VMs they were installed. 
 
-When you onboard Arc-enabled Azure VMware Solution VMs to Azure Arc with the Arc agent, the Arc connected machine agent is installed on them. Once the Arc agent is installed, you can install VM extensions on them and use Azure management services like the Azure Update Manager on them. 
+When you onboard Arc-enabled Azure VMware Solution VMs to Azure Arc with the Arc agent, the Arc connected machine agent is installed on them. When the Arc agent is installed, you can install VM extensions on them and use Azure management services like the Azure Update Manager on them. 
 
 To completely offboard a VM from Azure, use the following steps to remove any VM extensions from the virtual machine, disconnect the agent, and uninstall the agent from your virtual machine. It's important to complete each of the three steps to fully remove all related software components from your virtual machines. 
 
