@@ -66,6 +66,19 @@ For CDN Standard from Microsoft (classic): You don't need to delete the classic 
 
 Yes. After migration, make sure to update your DevOps pipeline to reflect the new Front Door Standard or Premium configuration and endpoints. [Learn more](post-migration-dev-ops-experience.md).
 
+## How does Azure Front Door access my Key Vault certificates after migration?
+
+Azure Front Door Standard and Premium use a managed identity to access your certificates in Azure Key Vault. Service principal (app registration) access to Azure Key Vault retires on September 30, 2027.
+
+If you bring your own certificate, migration requires you to enable a managed identity on the new profile and grant it access to your key vault. Assign the **Key Vault Secrets User** role, or grant **Get** and **List** permissions in an access policy. For steps, see [Enable managed identities](migrate-tier.md#enable-managed-identities) and [Grant managed identity access to Azure Key Vault](migrate-tier.md#grant-managed-identity-access-to-azure-key-vault).
+
+If you already migrated and your profile still uses an app registration, switch to a managed identity before **September 30, 2027**. For more information, see [Use managed identities to access Azure Key Vault certificates](managed-identity.md). New certificates added to Standard and Premium profiles already require a managed identity.
+
+After every profile that uses the key vault is on a managed identity, remove the access policy or role assignment for the legacy app registration.
+
+- Azure Front Door (classic): **Microsoft.Azure.Frontdoor** (`ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037`)
+- Azure Front Door Standard and Premium, and Azure CDN Standard from Microsoft (classic): **Microsoft.AzureFrontDoor-Cdn** (`205478c0-bd83-4e1b-a9d6-db63a3e1e1c8`). Don't remove its access until every profile that uses the key vault has switched to a managed identity.
+
 ## Related content
 
 - [Settings mapping between Azure Front Door tiers](tier-mapping.md)
