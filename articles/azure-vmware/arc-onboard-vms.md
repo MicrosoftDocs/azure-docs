@@ -19,31 +19,31 @@ With Arc-enabled VMware vSphere, you can [install the Arc connected machine agen
 - Is able to connect through the firewall to communicate over the internet and these [URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
 - Has VMware tools installed and running.
 - Is powered on and the resource bridge has network connectivity to the vCenter managing the VM.
-- Has the Arc agent installed.
+- Has the [Arc agent](/azure/azure-arc/servers/agent-overview) installed.
 
-## Enable guest management
+## Install Arc agent on the discovered VMs
 
-You need to enable guest management on the VMware VM before you can install an extension. Use the following steps to enable guest management.
+You need to install the Arc agent on the VMware VM before you can install an extension. Use the following steps to install the Arc agent.
 
 1. Navigate to [Azure portal](https://portal.azure.com/).
 1. From the left navigation, locate **vCenter Server Inventory** and choose **Virtual Machines** to view the list of VMs.
-1. Select the VM you want to install the guest management agent on.
-1. Select **Enable guest management** and provide the administrator username and password to enable guest management then select **Apply**.
-1. Locate the VMware vSphere VM you want to check for guest management and install extensions on, and select the name of the VM.
+1. Select the VM you want to install the Arc agent on.
+1. Select **Arc agent with virtual hardware management** and provide the administrator username and password to install Arc agent then select **Onboard**. For Linux VMs, there's an option to use SSH key-based authentication. 
+1. Locate the VMware vSphere VM you want to install extensions on, and select the name of the VM.
 1. Select **Configuration** from the left navigation for a VMware VM.
-1. Verify **Enable guest management** is now checked.
+1. Verify **Arc agent status** is now **Enabled**.
 
-From here more extensions can be installed. See the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
+From the **Extensions** pane in the left navigation, more extensions can be installed. See the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
 
-## Manually integrate an Arc-enabled VM into Azure VMware Solutions
+## Manually integrate an Arc-enabled Server machine into Arc-enabled Azure VMware Solution
 
-When a VM in Azure VMware Solution private cloud is Arc-enabled using a method distinct from the one outlined in this document, the following steps are provided to refresh the integration between the Arc-enabled VMs and Azure VMware Solution.
+When a VM in Azure VMware Solution private cloud is Arc-enabled using a method distinct from the one outlined in this document, the following steps are provided to refresh the integration between the Arc-enabled Server machines and Azure VMware Solution.
 
-These steps change the VM machine type from _Machine – Azure Arc_ to type _Machine – Azure Arc (AVS),_ which has the necessary integrations with Azure VMware Solution. 
+These steps change the VM machine type from _Machine – Azure Arc_ to type _Machine – Azure Arc (AVS),_ which has the necessary integrations with Azure VMware Solution. By doing so, the VM will have the CRUD operational ability from Azure.
 
-There are two ways to refresh the integration between the Arc-enabled VMs and Azure VMware Solution:  
+There are two ways to refresh the integration between the Arc-enabled Server machines and Azure VMware Solution:  
 
-1. In the Azure VMware Solution private cloud, navigate to the vCenter Server inventory and Virtual Machines section within the portal. Locate the virtual machine that requires updating and follow the process to **Enable in Azure**. If the option is grayed out, you must first **Remove from Azure** and then proceed to **Enable in Azure**
+1. In the Azure VMware Solution private cloud, navigate to the vCenter Server inventory and Virtual Machines section within the portal. Locate the virtual machine that requires updating using the **Action needed** mark under **Virtual hardware management** and follow the process to enable CRUD capabilities on the VM. 
 
 2. To update the machine type, run the [**az connectedvmware vm create**](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create&preserve-view=true) Azure CLI command on the VM in Azure VMware Solution. 
 
@@ -53,4 +53,4 @@ az connectedvmware vm create --subscription <subscription-id> --location <Azure 
 
 ## Next Steps
 - To manage Arc-enabled Azure VMware Solution, see [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
-- To remove Arc-enabled  Azure VMware Solution resources from Azure, see [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution.](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)
+- To remove Arc-enabled Azure VMware Solution resources from Azure, see [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution.](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)
