@@ -81,6 +81,8 @@ Currently, two methods authenticate Azure Front Door to access your Key Vault:
 - **Managed identity**: Azure Front Door uses a managed identity to authenticate to your Key Vault. Use this method because it's more secure and doesn't require you to manage credentials. For more information, see [Use managed identities in Azure Front Door](../managed-identity.md). If you're using this method, see [Select the certificate for Azure Front Door to deploy](#select-the-certificate-for-azure-front-door-to-deploy).
 - **App registration**: Azure Front Door uses an app registration to authenticate to your Key Vault. This method is being deprecated and will be retired in the future. For more information, see [Use app registration in Azure Front Door](#register-azure-front-door).
 
+> [!IMPORTANT]
+> App registration (service principal) access to Azure Key Vault retires on **September 30, 2027.** New certificates already require a managed identity. If existing certificates on your profile use an app registration, enable a managed identity and grant it access to your key vault before September 30, 2027, to avoid certificate rotation failures.
 > [!WARNING]
 > - Azure Front Door currently only supports Key Vault in the same subscription. Selecting Key Vault under a different subscription results in a failure.
 > - Azure Front Door doesn't support certificates with elliptic curve cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA also must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
