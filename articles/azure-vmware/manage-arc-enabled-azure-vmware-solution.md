@@ -11,7 +11,7 @@ ms.custom: references_regions, engagement-fy23
 
 # Manage Arc-enabled Azure VMware private cloud
 
-In this article, learn how to update the vSphere credentials on the Arc resource bridge, upgrade the Arc resource bridge, and collect logs from the Arc resource bridge.
+In this article, you learn how to update the vSphere credentials on the Arc resource bridge, upgrade the Arc resource bridge, and collect logs from the Arc resource bridge.
 
 ## Update vSphere credentials on the Arc resource bridge
 
