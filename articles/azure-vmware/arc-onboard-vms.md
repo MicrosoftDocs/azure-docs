@@ -45,7 +45,7 @@ You can refresh the integration between the Arc-enabled Server machines and Azur
 
 1. In the Azure VMware Solution private cloud, go to the vCenter Server inventory and the Virtual Machines section within the portal. Locate the virtual machine that needs updating by looking for the **Action needed** mark under **Virtual hardware management**. Follow the process to enable CRUD capabilities on the VM. 
 
-2. To update the machine type, run the [**az connectedvmware vm create**](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create&preserve-view=true) Azure CLI command on the VM in Azure VMware Solution. 
+2. Run the [**az connectedvmware vm create**](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create&preserve-view=true) Azure CLI command on the VM in Azure VMware Solution to update the machine type. 
 
 ```azurecli
 az connectedvmware vm create --subscription <subscription-id> --location <Azure region of the machine> --resource-group <resource-group-name> --custom-location /providers/microsoft.extendedlocation/customlocations/<custom-location-name> --name <machine-name> --inventory-item /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ConnectedVMwarevSphere/VCenters/<vcenter-name>/InventoryItems/<machine-name>
