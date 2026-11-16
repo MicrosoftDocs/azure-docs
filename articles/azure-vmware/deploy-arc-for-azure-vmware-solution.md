@@ -254,7 +254,7 @@ After you connect your Azure VMware Solution private cloud to Azure, you can bro
 
    The **Onboard** action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly.
 
-Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources. There is no agent installation action for non-virtual machine resources.
+Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources. There's no agent installation action for non-virtual machine resources.
 
 ## Next Steps
 
