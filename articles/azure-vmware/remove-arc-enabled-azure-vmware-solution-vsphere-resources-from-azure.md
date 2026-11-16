@@ -42,7 +42,7 @@ Use the following steps to uninstall extensions from the portal.
 To cleanly remove all Azure Arc components on your VMs, follow these steps. 
 
 > [!NOTE]
-> **Steps 2-3** must be performed for **all VMs** that have the Arc agent installed.
+> Perform **steps 2 and 3** for **all VMs** that have the Arc agent installed.
 
 1. Sign into the virtual machine using administrator or root credentials and run the following command in the shell to disconnect the Arc agent.
     1. `azcmagent disconnect --force-local-only`.
