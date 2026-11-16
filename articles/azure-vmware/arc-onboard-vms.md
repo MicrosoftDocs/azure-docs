@@ -43,7 +43,7 @@ These steps change the VM machine type from _Machine – Azure Arc_ to type _Mac
 
 You can refresh the integration between the Arc-enabled Server machines and Azure VMware Solution by using either of the following methods:  
 
-1. In the Azure VMware Solution private cloud, navigate to the vCenter Server inventory and Virtual Machines section within the portal. Locate the virtual machine that requires updating using the **Action needed** mark under **Virtual hardware management** and follow the process to enable CRUD capabilities on the VM. 
+1. In the Azure VMware Solution private cloud, go to the vCenter Server inventory and the Virtual Machines section within the portal. Locate the virtual machine that needs updating by looking for the **Action needed** mark under **Virtual hardware management**. Follow the process to enable CRUD capabilities on the VM. 
 
 2. To update the machine type, run the [**az connectedvmware vm create**](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create&preserve-view=true) Azure CLI command on the VM in Azure VMware Solution. 
 
