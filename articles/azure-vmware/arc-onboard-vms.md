@@ -33,7 +33,7 @@ You need to install the Arc agent on the VMware VM before you can install an ext
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Arc agent status** is now **Enabled**.
 
-From the **Extensions** pane in the left navigation, more extensions can be installed. See the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
+From the **Extensions** pane in the left navigation, you can install more extensions. See the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.
 
 ## Manually integrate an Arc-enabled Server machine into Arc-enabled Azure VMware Solution
 
