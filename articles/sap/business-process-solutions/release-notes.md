@@ -14,6 +14,16 @@ ms.author: momakhij
 
 The following document outlines the changes to Business Process Solutions. Changes can include bug fixes and updates to existing notebooks, pipelines, and environments. The document is updated with each release of the solution and is intended to keep users informed about the latest updates and breaking changes to the solution.
 
+## Version 1.0.8
+
+- Updated notebooks to emit telemetry logs for number of rows processed and table processing status.
+- Updated pipelines to check for active dataset before processing.
+- Update environment code to handle special fiscal period scenarios.
+
+## Version 1.0.6
+
+- Resolved bugs with ECC view creation and gold lakehouse view creation notebooks.
+
 ## Version 1.0.5
 
 - Updated notebooks and pipelines to emit telemetry logs along with context information.
