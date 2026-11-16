@@ -25,7 +25,7 @@ By using Arc-enabled VMware vSphere, you can [install the Arc connected machine 
 
 You need to install the Arc agent on the VMware VM before you can install an extension. Use the following steps to install the Arc agent.
 
-1. Navigate to [Azure portal](https://portal.azure.com/).
+1. Go to [Azure portal](https://portal.azure.com/).
 1. From the left navigation, locate **vCenter Server Inventory** and choose **Virtual Machines** to view the list of VMs.
 1. Select the VM you want to install the Arc agent on.
 1. Select **Arc agent with virtual hardware management** and provide the administrator username and password to install Arc agent then select **Onboard**. For Linux VMs, there's an option to use SSH key-based authentication. 
