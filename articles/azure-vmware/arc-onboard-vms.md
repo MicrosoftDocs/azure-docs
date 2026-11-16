@@ -16,7 +16,7 @@ In this article, you learn how to onboard and install extensions on discovered v
 By using Arc-enabled VMware vSphere, you can [install the Arc connected machine agent on VMs at scale](/azure/azure-arc/vmware-vsphere/enable-guest-management-at-scale?tabs=azure-portal) and use Azure management services on the VMs which are enabled through specific extensions. There are more requirements for this capability. Before you can install an extension, ensure your target machine meets the following conditions:
 
 - Is running a [supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
-- Is able to connect through the firewall to communicate over the internet and these [URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
+- Can connect through the firewall to communicate over the internet and doesn't block these [URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls).
 - Has VMware tools installed and running.
 - Is powered on and the resource bridge has network connectivity to the vCenter managing the VM.
 - Has the [Arc agent](/azure/azure-arc/servers/agent-overview) installed.
