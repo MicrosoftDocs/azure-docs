@@ -250,7 +250,7 @@ After you connect your Azure VMware Solution private cloud to Azure, you can bro
 
    The Arc agent is the [Azure Arc connected machine agent](/azure/azure-arc/servers/agent-overview). For information about the prerequisites for installing the Arc agent, see [Connected Machine agent prerequisites](/azure/azure-arc/servers/prerequisites).
 
-   Alternatively, you can choose not to install this agent by selecting Virtual hardware management only.
+   Alternatively, you can choose not to install this agent by selecting **Virtual hardware management only**.
 
    The **Onboard** action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly.
 
