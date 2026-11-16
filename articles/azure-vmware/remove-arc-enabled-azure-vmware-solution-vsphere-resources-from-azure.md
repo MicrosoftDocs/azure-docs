@@ -33,7 +33,7 @@ Use the following steps to uninstall extensions from the portal.
 
 1. Sign in to your Azure VMware Solution private cloud. 
 1. Select **Virtual machines** in **Private cloud** from the left navigation under the 'vCenter Server Inventory' page.
-1. Search and select the virtual machine where you have **Guest management** enabled.
+1. Search and select the virtual machine where you have **Arc agent status** column value as **Enabled**.
 1. Select **Extensions**.
 1. Select the extensions and select **Uninstall**.
 
