@@ -41,7 +41,7 @@ When you enable Azure Arc on a VM in Azure VMware Solution private cloud by usin
 
 These steps change the VM machine type from _Machine – Azure Arc_ to type _Machine – Azure Arc (AVS),_ which has the necessary integrations with Azure VMware Solution. By doing so, the VM will have the CRUD operational ability from Azure.
 
-There are two ways to refresh the integration between the Arc-enabled Server machines and Azure VMware Solution:  
+You can refresh the integration between the Arc-enabled Server machines and Azure VMware Solution by using either of the following methods:  
 
 1. In the Azure VMware Solution private cloud, navigate to the vCenter Server inventory and Virtual Machines section within the portal. Locate the virtual machine that requires updating using the **Action needed** mark under **Virtual hardware management** and follow the process to enable CRUD capabilities on the VM. 
 
