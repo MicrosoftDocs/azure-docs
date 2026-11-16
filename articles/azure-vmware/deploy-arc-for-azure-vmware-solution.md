@@ -239,7 +239,7 @@ When Arc appliance is successfully deployed on your private cloud, you can do th
 
 ## Onboard VMware vCenter resources in Azure
 
-Once you connected your Azure VMware Solution private cloud to Azure, you can browse your vCenter Server inventory from the Azure portal. This section guides you how to onboard virtual machines, resource pools, clusters, hosts, datastores, networks, and VM templates in Azure.
+After you connect your Azure VMware Solution private cloud to Azure, you can browse your vCenter Server inventory from the Azure portal. This section guides you through onboarding virtual machines, resource pools, clusters, hosts, datastores, networks, and VM templates in Azure.
 
 > [!NOTE]
 > Onboarding a VMware resource to Azure is a read-only operation on vCenter Server. It doesn't make changes to your resource in vCenter Server.
