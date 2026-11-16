@@ -18,7 +18,7 @@ Arc-enabled Azure VMware Solution allows you to do the following actions:
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
 - Permit developers and application teams to use VM operations on-demand with [Role-based access control](/azure/role-based-access-control/overview).
 - Install the Arc-connected machine agent to [govern, protect, configure, and monitor](/azure/azure-arc/servers/overview#supported-cloud-operations) them.
-- Browse your VMware vSphere resources (vms, templates, networks, and storage) in Azure
+- Browse your VMware vSphere resources (VMs, VM templates, networks, and storage) in Azure
 
 ## Prerequisites
 
