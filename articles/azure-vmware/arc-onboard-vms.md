@@ -37,7 +37,7 @@ From the **Extensions** pane in the left navigation, you can install more extens
 
 ## Manually integrate an Arc-enabled Server machine into Arc-enabled Azure VMware Solution
 
-When a VM in Azure VMware Solution private cloud is Arc-enabled using a method distinct from the one outlined in this document, the following steps are provided to refresh the integration between the Arc-enabled Server machines and Azure VMware Solution.
+When you enable Azure Arc on a VM in Azure VMware Solution private cloud by using a method different from the one described in this document, use the following steps to refresh the integration between the Arc-enabled Server machines and Azure VMware Solution.
 
 These steps change the VM machine type from _Machine – Azure Arc_ to type _Machine – Azure Arc (AVS),_ which has the necessary integrations with Azure VMware Solution. By doing so, the VM will have the CRUD operational ability from Azure.
 
