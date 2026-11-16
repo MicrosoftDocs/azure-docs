@@ -15,7 +15,7 @@ In this article, you learn how to update the vSphere credentials on the Arc reso
 
 ## Update vSphere credentials on the Arc resource bridge
 
-When **cloud admin** credentials are updated, use the following steps to update the credentials in the resource bridge store. 
+When you update **cloud admin** credentials, use the following steps to update the credentials in the resource bridge store. 
 
 1. Sign in to the Management virtual machine (VM) from where the onboard process was performed. Change the directory to **onboarding directory**.
 1. Run the following command:
