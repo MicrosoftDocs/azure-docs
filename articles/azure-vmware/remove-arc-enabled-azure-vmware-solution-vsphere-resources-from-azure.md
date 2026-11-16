@@ -39,7 +39,7 @@ Use the following steps to uninstall extensions from the portal.
 
 ### Offboard VMs from Azure Arc
 
-We recommend you do the following steps to cleanly remove all Azure Arc components on your VMs. 
+To cleanly remove all Azure Arc components on your VMs, follow these steps. 
 
 > [!NOTE]
 > **Steps 2-3** must be performed for **all VMs** that have the Arc agent installed.
