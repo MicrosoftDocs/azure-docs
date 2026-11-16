@@ -1,25 +1,25 @@
 ---
-title: Enable guest management and install extensions on Arc-enabled VMs
-description: Learn how to set up and enable guest management and install extensions on Arc-enabled VMs.
+title: Install Arc agent and extensions on discovered VMs
+description: Learn how to install Arc agent extensions on discovered VMs.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 03/10/2026
+ms.date: 11/16/2026
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
-# Enable guest management and install extensions on Arc-enabled VMs
+# Onboard discovered VMs to Azure Arc and install extensions
 
-In this article, you learn how to enable guest management and install extensions on Arc-enabled virtual machines (VMs) in Azure VMware Solution. Use guest management to manage the guest operating system of your VM, including installing and managing extensions. This feature is available for Arc-enabled VMware VMs in Azure VMware Solution private clouds.
+In this article, you learn how to onboard and install extensions on discovered virtual machines (VMs) in Azure VMware Solution.
 
 ## Prerequisite
 
-With Arc-enabled VMware vSphere, you can [install the Arc connected machine agent on VMs at scale](/azure/azure-arc/vmware-vsphere/enable-guest-management-at-scale?tabs=azure-portal) and use Azure management services on the VMs. There are more requirements for this capability. Before you can install an extension, ensure your target machine meets the following conditions:
+With Arc-enabled VMware vSphere, you can [install the Arc connected machine agent on VMs at scale](/azure/azure-arc/vmware-vsphere/enable-guest-management-at-scale?tabs=azure-portal) and use Azure management services on the VMs which are enabled through specific extensions. There are more requirements for this capability. Before you can install an extension, ensure your target machine meets the following conditions:
 
 - Is running a [supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
 - Is able to connect through the firewall to communicate over the internet and these [URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
 - Has VMware tools installed and running.
-- Is powered on and the resource bridge has network connectivity to the host running the VM.
-- Is Enabled in Azure.
+- Is powered on and the resource bridge has network connectivity to the vCenter managing the VM.
+- Has the Arc agent installed.
 
 ## Enable guest management
 
