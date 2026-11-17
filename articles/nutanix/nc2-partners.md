@@ -11,7 +11,7 @@ ms.service: nutanix-on-azure
 ---
 
 
-# Nutanix Cloud Clusters on Azure partners
+# Approved partners for NC2 on Azure
  
 Nutanix Cloud Clusters on Azure enables customers to extend Nutanix Cloud Platform environments to Microsoft Azure. Customers can work with qualified system integration partners for assessment, planning, migration, modernization, and operational services related to Nutanix Cloud Clusters on Azure.
  
@@ -26,11 +26,11 @@ Partner services are delivered independently between the customer and the select
 Partners can help customers assess, plan, design, and execute their Nutanix Cloud Clusters on Azure migration and modernization initiatives. Their capabilities might include strategy development, workload assessment, architecture design, migration execution, automation, operational readiness, and post-migration optimization.
 Customers should evaluate and select the partner that best aligns with their business objectives, technical requirements, delivery needs, and commercial expectations.
  
-## Approved Nutanix Cloud Clusters on Azure partners
+## Approved partners for NC2 on Azure
  
-[Cognizant for Nutanix on Azure](https://www.cognizant.com/us/en/about-cognizant/partners/nutanix)  
+[Cognizant](https://www.cognizant.com/us/en/about-cognizant/partners/nutanix)  
 
-[Insight for Nutanix on Azure](https://www.insight.com/en_US/shop/partner/microsoft/microsoft-solutions.html?srsltid=AYCX9vLNo5HeAGQrCXPZGl9czh9-Biq3sNDOscVEsPXLukWnJhEJKK1M)
+[Insight](https://www.insight.com/en_US/shop/partner/microsoft/microsoft-solutions.html?srsltid=AYCX9vLNo5HeAGQrCXPZGl9czh9-Biq3sNDOscVEsPXLukWnJhEJKK1M)
  
 Last updated: November 2026 – Updated monthly with the latest information. Visit partner sites for timelines and details. Partners keep their products up to date.
 
