@@ -5,7 +5,7 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 03/17/2026
+ms.date: 10/29/2026
 ms.author: duau
 # Customer intent: As a network security administrator, I want to implement Azure DDoS Protection, so that I can ensure my organization's resources are safeguarded against DDoS attacks through automatic mitigation, real-time monitoring, and tailored protection policies.
 ---
@@ -66,6 +66,12 @@ If the public IP address is under attack, the value for the metric **Under DDoS 
 We recommend configuring an alert on this metric. You'll then be notified when there’s an active DDoS mitigation performed on your public IP address.
 
 For more information, see [Manage Azure DDoS Protection using the Azure portal](manage-ddos-protection.md).
+
+## NAT Gateway StandardV2 protection (preview)
+
+Azure DDoS Protection supports StandardV2 IPv4 and IPv6 public IP addresses associated with NAT Gateway StandardV2. Configure Network Protection on the associated virtual network or IP Protection on an individual public IP address. No NAT gateway-specific DDoS configuration is required. Standard SKU NAT Gateway and custom policies for NAT Gateway aren't supported in this preview.
+
+For subnet, public IP, prefix, and availability requirements, see [DDoS protection for NAT Gateway StandardV2](ddos-protection-nat-gateway-standardv2.md).
 
 ## Web application firewall for resource attacks
 
