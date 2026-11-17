@@ -106,13 +106,15 @@ Files persist in your Microsoft Discovery workspace's managed resource group acr
 
 ### Shared across the project
 
-All users within the same project and workspace can access the following resources:
+The following resources can be shared within a project. Access depends on effective role assignments on the project and each linked resource; project membership alone doesn't grant access to all shared resources:
 
 - Shared sessions (investigations) and their chat history
 - Storage containers and storage assets
 - Foundry agents
 - Tools
 - Knowledge bases
+
+Pair project roles with the required resource roles. See [Project-level access control](concept-project-rbac.md#pair-project-roles-with-resource-roles).
 
 > [!NOTE]
 > You can continue to access shared sessions through the Microsoft Discovery Studio UI alongside GitHub Copilot. Use Copilot as the orchestrator for your Foundry agents to combine the interactive UI experience with AI-powered automation.
