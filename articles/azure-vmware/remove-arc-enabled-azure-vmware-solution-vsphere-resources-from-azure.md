@@ -90,7 +90,7 @@ When you onboard Arc-enabled Azure VMware Solution resources in Azure, you creat
 1. Choose **Virtual machines** from Arc-enabled VMware vSphere resources in the private cloud.
 1. Select all the VMs that have **Virtual hardware management** column value as **Enabled**.
 1. Select **Offboard**. This step starts deployment and removes these resources from Azure. The resources remain in your vCenter Server.
-    1. Repeat steps 2, 3 and 4 for **Resourcespools/clusters/hosts**, **Templates**, **Networks**, and **Datastores**.
+    1. Repeat steps 2, 3, and 4 for **Resource pools/clusters/hosts**, **Templates**, **Networks**, and **Datastores**.
 1. When the deletion completes, select **Overview**.
     1. Note the Custom location and the Azure Arc Resource bridge resources in the Essentials section.
 1. Go to the Custom location resource and select **Delete**.
@@ -102,7 +102,7 @@ At this point, all of your Arc-enabled VMware vSphere resources are removed from
 
 During onboarding, to create a connection between your VMware vCenter and Azure, an Azure Arc resource bridge is deployed into your VMware vSphere environment. As the last step, you must delete the resource bridge VM as well the VM template created during the onboarding.
 
-As a last step, run the following command: 
+As the last step, run the following Azure CLI command: 
 
 
 ```
