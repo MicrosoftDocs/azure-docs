@@ -47,8 +47,6 @@ Geo-redundancy requires an eligible App Service plan and region configuration.  
    | Region | **East Asia** |
    | Pricing plan | Enter a **unique** name for your App Service plan and select **P1v3** pricing plan |
 
-   Select an appropriate Premium v3 or Premium v4 App Service plan SKU for your workload.
-
 1. If the region and selected configuration support zone redundancy, choose whether to enable **Zone redundancy**.
 
    When zone redundancy is enabled, the App Service plan and the apps in the plan are configured to use zone redundancy.
