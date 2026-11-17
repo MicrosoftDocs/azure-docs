@@ -18,10 +18,18 @@ ms.custom:
 > During this preview, Azure supports packet capture insights in the following regions:
 >
 > - East US
-> - UK West
 > - UK South
-> - Germany North
-> - Germany West Central
+> - North Europe
+> - South Central US
+> - Japan East
+> - East US 2
+> - West Europe
+> - Australia East
+> - Central India
+> - Canada Central
+> - West US 2
+> - Southeast Asia
+> - South Africa North
 >
 > You can access the feature through the Azure portal and API.
 >
