@@ -190,6 +190,36 @@ az rest \
 ```
 
 ---
+:::zone-end
+
+:::zone pivot="client-portal"
+
+## Prerequisites
+
+An existing standard AKS cluster with the following traits:
+
+- Must be in a [region where Application Gateway for Containers is available](overview.md#supported-regions).
+- Must use [Azure CNI](/azure/aks/configure-azure-cni) or [Azure CNI Overlay](/azure/aks/concepts-network-azure-cni-overlay) network.
+- Must have the workload identity feature enabled. [Learn how](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) to enable workload identity on an existing AKS cluster.
+- Must be using a [supported AKS Kubernetes version](/azure/aks/supported-kubernetes-versions).
+
+
+> [!IMPORTANT]
+> The Application Gateway for Containers AKS add-on is currently in preview.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Enable for an existing cluster
+
+To enable the Application Gateway for Containers AKS add-on, open the Azure portal, select your cluster, and go to the **Networking** menu > **Ingress profile**. Select **Manage** to enable the add-on. Here, you can register the add-on feature if you haven't already.
+
+:::image type="content" source="media/portal-how-to/agc-enable.png" alt-text="A screenshot of AGC location in Portal Networking overview.":::
+
+
+> [!NOTE]
+> Enabling the add-on via Portal will enable the [managed Gateway API add-on](https://learn.microsoft.com/azure/aks/managed-gateway-api) in addition to the AKS-managed ALB Controller add-on. It will also create [Application Gateway for Containers managed by ALB Controller](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md). To create a BYO deployment or bypass the AGC resource create, consider using CLI or another client.
+
+:::zone-end
+
 
 ### Verify the ALB Controller installation
 
@@ -239,36 +269,6 @@ status:
     status: "True"
     type: Accepted
 ```
-
-:::zone-end
-
-:::zone pivot="client-portal"
-
-## Prerequisites
-
-A standard AKS cluster with the following traits:
-
-- Must be in a [region where Application Gateway for Containers is available](overview.md#supported-regions).
-- Must use [Azure CNI](/azure/aks/configure-azure-cni) or [Azure CNI Overlay](/azure/aks/concepts-network-azure-cni-overlay) network.
-- Must have the workload identity feature enabled. [Learn how](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) to enable workload identity on an existing AKS cluster.
-- Must be using a [supported AKS Kubernetes version](/azure/aks/supported-kubernetes-versions).
-
-
-> [!IMPORTANT]
-> The Application Gateway for Containers AKS add-on is currently in preview.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-### Enable for an existing cluster
-
-To enable the Application Gateway for Containers AKS add-on, open the Azure portal, select your cluster, and go to the **Networking** menu > **Ingress profile**. Select **Manage** to enable the add-on. Here, you can register the add-on feature if you haven't already.
-
-:::image type="content" source="media/portal-how-to/agc-enable.png" alt-text="A screenshot of AGC location in Portal Networking overview.":::
-
-
-> [!NOTE]
-> Enabling the add-on via Portal will enable the managed Gateway API add-on, the AKS-managed ALB Controller add-on and create an AGC resource. To create a BYO deployment or bypass the AGC resource create, consider using CLI or another client.
-
-:::zone-end
 
 #### Validate Add-on Resources in Azure portal
 
