@@ -70,9 +70,9 @@ The following tables provide links to code samples for leveraging web APIs in yo
 
 | Sample                                                                                                                          | Description                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information. |
-| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | This Node.js Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.  |
-| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | This Python Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.    |
+| [.NET Core](https://github.com/azure-samples/functions-connectors-dotnet) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information. |
+| [Node.js](https://github.com/azure-samples/functions-connectors-typescript)   | This Node.js Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.  |
+| [Python](https://github.com/azure-samples/functions-connectors-python)    | This Python Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.    |
 
 
 ### Automated fraud protection services & CAPTCHA

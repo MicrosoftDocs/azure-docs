@@ -51,7 +51,7 @@ An IoT Edge module can send messages to the cloud via the IoT Edge hub that acts
 
 To send device-to-cloud telemetry messages using routes:
 
-* Use the `ModuleClient` class of the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks). Each module has input and output endpoints.  
+* Use the `ModuleClient` class of the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdk). Each module has input and output endpoints.  
 * To send messages on the output endpoint of your module, use a send message method from your `ModuleClient` class. 
 * To send this output endpoint to IoT Hub, set up a route in the `edgeHub` module of your device.
 
@@ -68,12 +68,12 @@ To process messages using routes:
 
 *Twins* are one of the primitives provided by IoT Hub. Twins are JSON documents that store state information including metadata, configuration, and conditions. Each module or device has its own twin.
 
-* To get a module twin using the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks), call the `ModuleClient.getTwin` method.
+* To get a module twin using the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdk), call the `ModuleClient.getTwin` method.
 * To receive a module twin patch using the Azure IoT SDK, implement a callback function and register it by using the `ModuleClient.moduleTwinCallback` method so that your callback function is triggered each time a twin patch comes in.
 
 #### Receive direct methods
 
-To receive a direct method using the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks), implement a callback function and register it by using the `ModuleClient.methodCallback` method so that your callback function is triggered each time that a direct method comes in.
+To receive a direct method using the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdk), implement a callback function and register it by using the `ModuleClient.methodCallback` method so that your callback function is triggered each time that a direct method comes in.
 
 ## Language and architecture support
 

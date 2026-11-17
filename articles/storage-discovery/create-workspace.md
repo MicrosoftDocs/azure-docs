@@ -148,6 +148,10 @@ You can access advanced capacity insights through the **Capacity details** repor
 
 Before you begin, review the [prerequisites and permissions](deployment-planning.md#prerequisites-for-advanced-capacity-insights), [regional availability](deployment-planning.md#regional-availability-for-advanced-capacity-insights), and [preview coverage limits](analyze-blob-capacity-details.md#preview-coverage).
 
+Ensure you have the **Contributor** or **Owner** role on the workspace. On each tenant, subscription, or resource group included in *workspaceRoots*, you also need the built-in [Storage Blob Data Reader](../role-based-access-control/built-in-roles/storage.md#storage-blob-data-reader) role. This role provides the `Microsoft.Storage/storageAccounts/blobServices/containers/read` and `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` permissions. You also need `Microsoft.Storage/storageAccounts/read` permission at each of these scopes, which must be granted separately.
+
+### [Azure portal](#tab/enable-portal)
+
 1. Open the [Azure portal](https://portal.azure.com).
 1. Go to your Storage Discovery workspace.
 1. On the workspace **Overview** page, find **Capacity details** in the **Essentials** section.
@@ -156,7 +160,48 @@ Before you begin, review the [prerequisites and permissions](deployment-planning
 1. Complete the additional access checks.
 1. Review any access-check failures and correct the reported permissions before you try again.
 
-:::image source="media/create-workspace/enable-capacity-details.png" alt-text="Screenshot that shows how to enable capacity details."  lightbox="media/create-workspace/enable-capacity-details.png":::
+:::image source="media/create-workspace/enable-capacity-details.png" alt-text="Screenshot of the enable capacity details."  lightbox="media/create-workspace/enable-capacity-details.png":::
+
+Start access checks to enable capacity details
+
+:::image source="media/create-workspace/access-enable.png" alt-text="Screenshot of the enable capacity details access details."  lightbox="media/create-workspace/access-enable.png":::
+
+### [Azure PowerShell](#tab/enable-powershell)
+
+Install the preview [Az.StorageDiscovery 1.0.1-preview](https://www.powershellgallery.com/packages/Az.StorageDiscovery/1.0.1-preview) module, which adds the `-CapacityDetailStatus` parameter:
+
+```powershell
+Install-Module -Name Az.StorageDiscovery -RequiredVersion 1.0.1-preview -AllowPrerelease -Scope CurrentUser
+```
+
+Enable **Capacity details** on an existing Standard workspace by modifying the variables in the following PowerShell script to include your subscription ID, resource group, and workspace name. Verify that your values are correct, and then run the script in the Azure PowerShell console.
+
+```powershell
+
+# First, set variables for the resources
+$subscriptionId = "<your-subscription-id>"
+$resGroupName   = "myResourceGroup"
+$workSpaceName  = "myStorageDiscoveryWorkspace"
+
+# Next, connect to Azure and select the subscription
+Import-Module -Name Az.StorageDiscovery -RequiredVersion 1.0.1 -ErrorAction Stop
+Connect-AzAccount -ErrorAction Stop
+Set-AzContext -SubscriptionId $subscriptionId -ErrorAction Stop
+
+# Enable capacity details
+Update-AzStorageDiscoveryWorkspace -Name $workSpaceName -ResourceGroupName $resGroupName `
+    -CapacityDetailStatus Enabled -ErrorAction Stop
+
+# Finally, verify that capacity details are enabled
+Get-AzStorageDiscoveryWorkspace -Name $workSpaceName -ResourceGroupName $resGroupName `
+    -ErrorAction Stop |
+    Select-Object Name, Sku, CapacityDetailStatus
+
+```
+
+Confirm that `CapacityDetailStatus` is `Enabled`. If the update fails because of an access check, correct the reported permissions and run the update command again.
+
+---
 
 After you enable this feature, insights can take up to 48 hours to begin populating. To view the results, see [Open and filter the Capacity details report](analyze-blob-capacity-details.md#open-and-filter-the-report).
 

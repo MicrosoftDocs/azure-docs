@@ -2,7 +2,7 @@
 title: Azure Instant Restore Capability
 description: Learn about Azure Instant Restore availability and FAQs for a VM backup stack in an Azure Resource Manager deployment model.
 ms.topic: overview
-ms.date: 04/01/2026
+ms.date: 11/09/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to use Instant Restore for VM backups so that I can significantly reduce restore times and improve recovery performance during data restoration processes.
@@ -41,6 +41,7 @@ A recovery point is created as soon as the snapshot is finished. You can use thi
 * For Premium storage accounts, the snapshots taken for instant recovery points count toward the 10-TB limit of allocated space. For the Enhanced policy, only managed VM backups are supported. The initial snapshot is a full copy of the disks. The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot. When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require disks encrypted by customer-managed keys via Azure Policy.
 * When you perform instant restores for legacy recovery points from VMs that used unmanaged disks, ensure that the storage account that hosts the snapshot/VHD files has public network access or similar enabled. If the necessary network access from the storage account isn't available, then a standard recovery point restore is triggered, which causes a slower restore time.
 * The [Standard policy](backup-instant-restore-capability.md) starts with an incremental backup, which lacks a full recovery point if the original disk is lost. In contrast, the [Enhanced policy](backup-azure-vms-enhanced-policy.md) makes the first backup a full recovery point, which ensures complete recovery and improved data integrity.
+* Instant Restore snapshots have different encryption dependencies from vault-stored backup data. For CMK requirements and direct recovery outside Azure Backup, see [Recovery Services vault encryption scope](encryption-at-rest-with-cmk.md#encryption-scope).
 
 ## Cost impact
 

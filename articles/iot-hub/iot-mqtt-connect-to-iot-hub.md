@@ -105,7 +105,7 @@ The maximum client keep-alive value you can set is `1767 / 1.5 = 1177` seconds. 
 
 ### Migrate a device application from AMQP to MQTT
 
-If you're using the [device SDKs](https://github.com/Azure/azure-iot-sdks), to switch from using AMQP to MQTT requires you to change the protocol parameter in the client initialization.
+If you're using the [device SDKs](https://github.com/Azure/azure-iot-sdk), to switch from using AMQP to MQTT requires you to change the protocol parameter in the client initialization.
 
 When you change from AMQP to MQTT, check the following items:
 
