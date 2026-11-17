@@ -496,7 +496,7 @@ For files that exist but return access errors, use [Can't view output files](how
 
 1. Call `GetResourceContext` to confirm that the resource URI exists in conversation context.
 1. Check whether it is marked as not shared. If so, the agent hasn't called `ShareResource`.
-1. Call `PreviewResource` on the URI to confirm it contains content. A directory entry in `GetResourceContext` isn't an exhaustive file listing; preview its URI and inspect relevant subfolders before concluding that a file is missing. See [Built-in resource management tools](how-to-data-handling-with-tools-agents.md#built-in-resource-management-tools).
+1. Call `PreviewResource` on the URI to confirm it contains content. A directory entry in `GetResourceContext` isn't an exhaustive file listing. Preview its URI and inspect relevant subfolders before concluding that a file is missing. See [Built-in resource management tools](how-to-data-handling-with-tools-agents.md#built-in-resource-management-tools).
 1. If the description is missing, verify `UpdateResourceDetails` was called before `ShareResource`.
 1. If the resource is still absent, use Azure Storage Explorer to check whether the file exists under `discoveryOutputs/{projectName}/{investigationName}/{conversationGuid}/`.
 
