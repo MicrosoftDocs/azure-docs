@@ -168,25 +168,38 @@ When configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an
     Under **Logs > Categories**, select **ANFFileAccess** then set the retention period of the logs. 
 :::image type="content" source="./media/manage-file-access-logs/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
 1. Select one of the destination options for the logs:
-    * Archive to a storage account
-    * Stream to an event hub
-    * Send to Log Analytics workplace
-    * Send to a partner solution
-1. Save the settings.
+    * Archive to a storage account  
+    * Stream to an event hub  
+    * Send to Log Analytics workplace  
+    * Send to a partner solution     
+    
+      >[!NOTE]
+      >If you stream file access logs to an Event Hub with a firewall or private endpoint configured, you must enable **Allow trusted Microsoft services to bypass this firewall** on the Event Hubs namespace. This setting requires the Standard tier or higher.
 
+1. Save the settings.
 
 ## Disable file access logs
 
-1. In the **Volumes** menu, select the volume on which you want to disable file access logs.
-2. Select the **Diagnostic setting** menu from the left-hand pane. 
-3. In the **Diagnostic settings** page, deselect **Audit**. This automatically deselects **ANFFileAccess**.
-4. Select **Save**. 
+To disable file access logs, delete the diagnostic setting that sends the `ANFFileAccess` category. Azure Monitor doesn't let you save a diagnostic setting with no categories selected, so deselecting **Audit** or **ANFFileAccess** alone doesn't work if it's the only category in the setting. 
 
->[!NOTE]
->After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume.
+1. In the **Volumes** menu, select the volume on which you want to disable file access logs. 
+1. Under **Monitoring**, select **Diagnostic settings**. 
+1.. Find the diagnostic setting that includes **ANFFileAccess**, then select **Edit setting**. 
+1. Select **Delete**, then select **Yes** to confirm. 
 
-> [!NOTE]
-> You should use REST APIs to add/delete diagnostic settings to enable/disable file access logs for cache volumes as portal support is not available. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings).
+If the diagnostic setting also collects other log categories or metrics you want to keep, deselect only **ANFFileAccess**, then select **Save**. 
+
+You can also delete the setting with the Azure CLI:   
+
+```azurecli 
+
+az monitor diagnostic-settings delete \
+--name <setting-name> \
+--resource <volume-resource-id> 
+
+``` 
+>[!NOTE] 
+>After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume. 
  
 ## Enable file access logs for cache volumes
 
