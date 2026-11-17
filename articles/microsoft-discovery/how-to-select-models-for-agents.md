@@ -5,14 +5,14 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 09/10/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a researcher or scientist, I want to select the best model for my Discovery agents so that I can balance output quality, cost, and response time.
 ---
 
 # Select models for agents in Microsoft Discovery
 
-Microsoft Discovery is built on [Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). Discovery agents can use all models available in the [Microsoft Foundry model catalog](https://ai.azure.com/catalog/models). Use OpenAI GPT-5.x series models for the best experience with Discovery agents.
+Microsoft Discovery is built on [Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). Discovery agents can use supported models from the [Microsoft Foundry model catalog](https://ai.azure.com/catalog/models). Before deploying a model, verify the supported model names and formats for your target region, as described in the [chat model deployment reference](/azure/templates/microsoft.discovery/workspaces/chatmodeldeployments#chatmodeldeploymentproperties). Use OpenAI GPT-5.x series models for the best experience with Discovery agents.
 
 This article helps you choose the right model for your agents based on task complexity, output quality, cost, and response time. The guidance applies to both Microsoft Discovery and the Discovery app, with more flexibility available in the Discovery app for third-party model endpoints. (The Discovery app is a local experience built on GitHub Copilot.)
 
@@ -20,7 +20,7 @@ This article helps you choose the right model for your agents based on task comp
 
 | Offering | Model guidance | Additional options |
 | --- | --- | --- |
-| Microsoft Discovery | All guidance in this article applies. You deploy models as workspace-level managed resources. | Models are from the [Foundry model catalog](https://ai.azure.com/catalog/models). |
+| Microsoft Discovery | All guidance in this article applies. You deploy models as workspace-level managed resources. | Supported models are from the [Foundry model catalog](https://ai.azure.com/catalog/models); availability depends on the region. |
 | The Discovery app | Same model selection principles apply. | Supports bring-your-own-model (BYOM) endpoints from third-party platforms. |
 
 ## Prerequisites
@@ -85,11 +85,11 @@ Recommended models:
 
 ### Prompt agents for planning and routing
 
-Planning agents generate research plans, make routing decisions, or coordinate other agents. These tasks need consistent, deterministic behavior rather than creative reasoning.
+Planning agents generate research plans, make routing decisions, or coordinate other agents. These tasks need consistent behavior rather than creative reasoning.
 
 Recommended models:
 
-- GPT-5.4. Handles planning and routing reliably. Set temperature to `0` for deterministic behavior.
+- GPT-5.4. Handles planning and routing reliably.
 
 - GPT-5.2-Chat. A cost-effective alternative for lightweight planning tasks that don't require deep reasoning. Chat models respond faster and cost less per token.
 
@@ -157,8 +157,8 @@ You configure model deployments at the workspace level. All agents in a project 
 
 1. Under **Chat model**, select the deployment name that corresponds to the model you want to use (for example, `my-gpt-52-deployment`).
 
-1. Adjust **Temperature** and **Top-P** response controls, based on your use case:
-   - For planning and routing agents, set **Temperature** to `0` for deterministic output.
+1. Check which response controls the selected model supports before adjusting **Temperature** or **Top-P**. GPT-5 reasoning models don't support these parameters; see [Unsupported parameters](/azure/foundry/openai/how-to/reasoning#unsupported-parameters). For models that support temperature:
+   - For planning and routing agents, set **Temperature** to `0` to reduce randomness. This doesn't guarantee deterministic output; see [Azure OpenAI reproducible output](/azure/foundry-classic/openai/how-to/reproducible-output#parameter-details).
    - For research and analysis agents, use **Temperature** between `0.3` and `0.7` for balanced creativity and precision.
    - For exploratory or brainstorming agents, set **Temperature** between `0.7` and `1.0`.
 
@@ -168,7 +168,7 @@ You can deploy multiple models in the same workspace, and assign different deplo
 
 ## Model selection in the Discovery app
 
-The model selection guidance in this article applies equally to the Discovery app. The same principles for matching models to agent use cases, evaluating tradeoffs among quality, cost, and speed, and configuring response controls remain valid.
+The model selection guidance in this article applies equally to the Discovery app. The same principles for matching models to agent use cases and evaluating tradeoffs among quality, cost, and speed remain valid. Response controls depend on the selected model and provider.
 
 ### BYOM
 
@@ -201,7 +201,7 @@ To configure a third-party model endpoint in the Discovery app:
 
 1. Reference the configured endpoint when you create or edit your custom agent.
 
-The same temperature, Top-P, and other response control parameters apply, regardless of the model provider.
+Available response controls, including temperature and Top-P, depend on the model and provider. Check the provider's documentation for supported parameters and values.
 
 ## Related content
 
