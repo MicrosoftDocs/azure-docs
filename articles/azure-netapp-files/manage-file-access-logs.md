@@ -184,7 +184,7 @@ To disable file access logs, delete the diagnostic setting that sends the `ANFFi
 
 1. In the **Volumes** menu, select the volume on which you want to disable file access logs. 
 1. Under **Monitoring**, select **Diagnostic settings**. 
-1.. Find the diagnostic setting that includes **ANFFileAccess**, then select **Edit setting**. 
+1. Find the diagnostic setting that includes **ANFFileAccess**, then select **Edit setting**. 
 1. Select **Delete**, then select **Yes** to confirm. 
 
 If the diagnostic setting also collects other log categories or metrics you want to keep, deselect only **ANFFileAccess**, then select **Save**. 
