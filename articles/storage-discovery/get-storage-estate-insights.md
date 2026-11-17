@@ -129,6 +129,7 @@ Then complete the workspace creation wizard by stepping through the remaining pa
 
 After deployment, you can opt in to advanced capacity insights on a Standard workspace. During preview, this option isn't available in the workspace creation wizard.
 
+1. Ensure you have the built-in [Storage Blob Data Reader](../role-based-access-control/built-in-roles/storage.md#storage-blob-data-reader) role on each tenant, subscription, or resource group included in *workspaceRoots*. This role provides the `Microsoft.Storage/storageAccounts/blobServices/containers/read` and `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` permissions. You also need `Microsoft.Storage/storageAccounts/read` permission at each of these scopes, which must be granted separately.
 1. Follow [Enable advanced capacity insights](create-workspace.md#enable-advanced-capacity-insights) to enable **Capacity details** and complete the additional access checks.
 1. Allow up to 48 hours for the initial advanced insights to populate. Review the [preview coverage limits](analyze-blob-capacity-details.md#preview-coverage) to understand which accounts, containers, and prefixes are included.
 1. Follow [Open and filter the report](analyze-blob-capacity-details.md#open-and-filter-the-report) to view **Capacity details** for the scope you created.

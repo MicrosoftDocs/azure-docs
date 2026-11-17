@@ -130,6 +130,8 @@ Microsoft.Storage/storageAccounts/blobServices/containers/read
 Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read
 ```
 
+The built-in [Storage Blob Data Reader](../role-based-access-control/built-in-roles/storage.md#storage-blob-data-reader) role includes both the `Microsoft.Storage/storageAccounts/blobServices/containers/read` and `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` permissions. It doesn't include `Microsoft.Storage/storageAccounts/read`, which must be granted separately.
+
 Advanced capacity insights are optional. Creating a Standard workspace or upgrading to the Standard plan doesn't enable them automatically. During preview, enable them after workspace creation by following [Enable advanced capacity insights](create-workspace.md#enable-advanced-capacity-insights).
 
 Advanced capacity insights don't incur a separate feature charge. Standard plan charges still apply based on the storage resources and objects analyzed by the workspace. For details, see [Azure Storage Discovery pricing](pricing.md).
