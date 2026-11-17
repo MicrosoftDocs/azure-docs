@@ -6,35 +6,27 @@ ms.author: duau
 ms.service: azure
 ms.custom: references_regions
 ms.topic: overview
-ms.date: 09/11/2026
+ms.date: 11/17/2026
 ---
 
-# What is Azure Multicloud Interconnect Preview?
+# What is Azure Multicloud Interconnect?
 
 Azure Multicloud Interconnect is a managed service that provides private connectivity between Azure and supported cloud service providers. It gives workloads that span more than one cloud a dedicated path that doesn't traverse the public internet.
 
+Azure Multicloud Interconnect with Amazon Web Services (AWS) is generally available. Azure Multicloud Interconnect with Google Cloud is in public preview.
+
+Availability, supported SKUs, bandwidths, pricing, and service commitments can vary by provider. For current support, see [Availability and limits](availability-limits.md). 
+
 > [!IMPORTANT]
-> Azure Multicloud Interconnect is currently in PREVIEW.
+> Azure Multicloud Interconnect is currently in PREVIEW with Google Cloud.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE] 
 > Need support in additional regions? Submit your requirements through the [Multicloud Interconnect Form](https://aka.ms/MCIForm).
 
-During preview, Azure Multicloud Interconnect supports connectivity to Amazon Web Services (AWS). For current provider, region, and bandwidth support, see [Availability and limits](availability-limits.md).
-
 :::image type="complex" source="./media/overview/multicloud-interconnect-architecture.svg" alt-text="Diagram that shows redundant links between partner edge routers and Microsoft enterprise edge routers into Azure workloads." lightbox="./media/overview/multicloud-interconnect-architecture.svg":::
    On the left, a box labeled Customer partner environment represents the cloud service provider. To its right are four boxes labeled Partners Edge, arranged in two dashed groups of two. In the center, a box labeled Azure Multicloud Interconnect contains two dashed groups. The first group pairs Link 1 with Microsoft Enterprise Edge 1, and Link 2 with Microsoft Enterprise Edge 2. The second group pairs Link 3 with Microsoft Enterprise Edge 3, and Link 4 with Microsoft Enterprise Edge 4. Each partner edge router connects across to a Microsoft enterprise edge router over one of the four links. On the right, a box labeled Azure workloads shows the Azure logo above the label Enterprise Core, high-bandwidth edge routers, and receives connections from all four Microsoft enterprise edge routers.
 :::image-end:::
-
-## Preview scope
-
-The initial preview includes:
-
-- Connectivity between Azure and AWS
-- 1-Gbps bandwidth
-- Managed resilient connectivity
-- No Azure Multicloud Interconnect service charge during preview
-- No Azure egress charge during preview
 
 ## Key benefits
 
@@ -76,7 +68,7 @@ Setting up an interconnect moves through four stages, from creating the underlyi
 
 1. **ExpressRoute circuit.** Create an ExpressRoute circuit and select the Azure Multicloud Interconnect port type.
 1. **Interconnect resource.** Create the Azure Multicloud Interconnect resource that provides the private cloud-to-cloud connection.
-1. **Provider setup.** Generate or redeem an activation key and select a supported cloud service provider. During preview, that provider is Amazon Web Services (AWS).
+1. **Provider setup.** Generate or redeem an activation key and select a supported cloud service provider. 
 1. **Connected workloads.** Connect your virtual networks so that applications, data, and AI workloads can communicate across both clouds.
 
 For the full procedure, see [Create an Azure Multicloud Interconnect Preview resource](create-interconnect.md) or [Redeem an Azure Multicloud Interconnect Preview activation key](redeem-activation-key.md).
@@ -87,7 +79,7 @@ For the full procedure, see [Create an Azure Multicloud Interconnect Preview res
 
 ## Activation keys
 
-An activation key ties the Azure side of the interconnect to the cloud service provider side. It authorizes the connection by confirming that the cloud service provider, Azure region, bandwidth, and provider account all match the request before provisioning begins. During preview, the supported provider is Amazon Web Services (AWS).
+An activation key ties the Azure side of the interconnect to the cloud service provider side. It authorizes the connection by confirming that the cloud service provider, Azure region, bandwidth, and provider account all match the request before provisioning begins. 
 
 One side generates the key and the other redeems it, which means you can start the process from either Azure or the provider:
 
