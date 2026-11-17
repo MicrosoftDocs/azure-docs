@@ -5,7 +5,7 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: tutorial
-ms.date: 10/01/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a researcher or scientist, I want to walk through a complete shared session with the Discovery Engine so that I understand the full process before using it for real research.
 ---
@@ -21,7 +21,7 @@ In this tutorial, you create a shared session, set up a small set of tasks, star
 Before starting this tutorial, verify you have:
 - Access to Discovery Studio in your browser
 - A Microsoft Discovery workspace with a project created
-- Project contains default chat model deployment. The Discovery Engine requires this model for task validation. 
+- Your workspace contains the default chat model deployment. The Discovery Engine requires this model for task validation. See [Create chat model deployment](quickstart-infrastructure.md#6-create-chat-model-deployment) for setup instructions.
 
 Create an agent as part of this tutorial. You don't need prior agent setup.
 
