@@ -5,7 +5,7 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 03/17/2026
+ms.date: 10/21/2026
 ms.author: duau
 # Customer intent: "As a network administrator, I want to configure DDoS protection metric alerts through the management portal, so that I can receive timely notifications during an attack to effectively respond and mitigate potential threats."
 ---
@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Configure metrics alerts through Azure Monitor.
 
-DDoS Protection metrics alerts are an important step in alerting your team through Azure portal, email, SMS message, push, or voice notification when an attack is detected.
+DDoS Protection metric alerts can notify your team through the Azure portal, email, SMS message, push, or voice notification when an attack is reported. For eligible protected public IP addresses, [peacetime telemetry (preview)](monitor-ddos-protection.md#peacetime-telemetry-availability-preview) also supports traffic-condition alerts outside attacks. An attack-status alert and a traffic-condition alert serve different purposes.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ DDoS Protection metrics alerts are an important step in alerting your team throu
 
 ## Configure metric alerts through portal
 
-You can configure Azure Monitor to alert you using any available Azure DDoS Protection metrics. This notifies you when there's active mitigation during an attack.
+The following procedure configures an attack-status alert by using **Under DDoS attack or not**. Use this indicator to detect reported attack activity rather than inferring an attack from metric presence or traffic volume.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -55,7 +55,7 @@ You can configure Azure Monitor to alert you using any available Azure DDoS Prot
     | Aggregation type | Leave as default *Maximum*. |
     | Value is | Select **Greater than or equal to**. |
     | Unit | Leave as default *Count*. |
-    | Threshold value | Enter **1**. For the *Under DDoS attack or not metric*, **0** means you're not under attack while **1** means you are under attack. |
+    | Threshold value | Enter **1**. A reported **0** means no attack was reported for that measurement; **1** means an attack was reported. With **Maximum**, a value of **1** can refer to any reported attack measurement in the lookback period. |
     | Check every | Choose how often the alert rule checks if the condition is met. Leave as default *1 minute*. |
     | Lookback period | This is the lookback period, or the time period to look back at each time the data is checked. For example, every 1 minute you are looking at the past 5 minutes. Leave as default *5 minutes*. |
   
@@ -98,10 +98,22 @@ You can configure Azure Monitor to alert you using any available Azure DDoS Prot
 
 1. Select **Review + create** and then select **Create** after validation passes.
 
-Within a few minutes of attack detection, you should receive an email from Azure Monitor metrics that looks similar to the following picture:
+When the alert condition is met and Azure Monitor evaluates it, the configured action group can send an email like the following example. Collection and processing delay, evaluation frequency, and lookback affect notification timing. An attack observed within the lookback period might no longer be active when you read the notification.
     :::image type="content" source="./media/ddos-alerts/ddos-alert.png" alt-text="Screenshot of a DDoS attack Alert after a DDoS attack." lightbox="./media/ddos-alerts/ddos-alert.png":::
 
 You can also learn more about [configuring webhooks](/azure/azure-monitor/alerts/alerts-webhooks?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
+
+## Traffic-condition alerts during peacetime (preview)
+
+For an eligible protected public IP address, use the same alert-rule workflow with a DDoS traffic metric such as **Inbound TCP packets DDoS**, **Maximum** aggregation, and a workload-specific packet-rate threshold. Base the threshold on normal traffic patterns rather than copying an attack-status threshold of **1**.
+
+A traffic-condition alert can fire while **Under DDoS attack or not** reports **0**. The alert threshold doesn't change the DDoS mitigation policy or detection threshold. For viewing and interpretation guidance, see [View peace time traffic telemetry](monitor-ddos-protection.md#view-peace-time-traffic-telemetry).
+
+### Review existing alerts and automation
+
+Review alerts, workbooks, and automation that infer an attack from metric presence, nonzero traffic, or a transition from missing data. Peacetime traffic data doesn't by itself indicate an attack. Keep attack-status checks tied to **Under DDoS attack or not**, and treat missing data separately from a reported **0**.
+
+With **Maximum**, a value of **1** in the five-minute lookback means at least one reported measurement in that period was **1**. It doesn't necessarily describe the attack state at notification time.
 
 ## Clean up resources
 
@@ -117,7 +129,7 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 
 ## Next steps
 
-In this tutorial you learned how to configure metric alerts through Azure portal.
+In this tutorial, you learned how to configure metric alerts through the Azure portal.
 
 To configure diagnostic logging, continue to the next tutorial.
 

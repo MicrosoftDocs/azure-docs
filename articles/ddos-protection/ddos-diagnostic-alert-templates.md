@@ -5,7 +5,7 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 03/17/2026
+ms.date: 10/21/2026
 ms.author: duau
 # Customer intent: "As a network administrator, I want to configure DDoS protection diagnostic logging alerts so that I can receive timely notifications and take action during potential DDoS attacks to protect my resources."
 ---
@@ -21,6 +21,8 @@ DDoS Protection diagnostic logging alerts provide visibility into DDoS attacks a
 
 > [!WARNING]
 > If your alert queries reference `DDoSMitigationReports` fields, you need to rebuild them against `DDoSMitigationFlowLogs` once that log category is retired (starting ~mid-August 2026). See [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports) for the migration mapping.
+
+For eligible protected public IP addresses, [peacetime telemetry (preview)](monitor-ddos-protection.md#peacetime-telemetry-availability-preview) also makes DDoS metrics available outside mitigation. This change doesn't make mitigation-event logs, reports, or protection notifications available during normal operation. To alert on peacetime traffic conditions, use [metric alerts](alerts.md#traffic-condition-alerts-during-peacetime-preview), not these mitigation-log alert templates.
 
 ## Prerequisites
 

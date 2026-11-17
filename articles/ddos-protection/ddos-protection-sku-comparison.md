@@ -42,6 +42,8 @@ The following table shows features and corresponding tiers.
 | WAF discount | Not available | Yes |
 | Price | Per protected IP | Per 100 protected IP addresses |
 
+For the **Metrics and alerts** feature, [peacetime telemetry (preview)](monitor-ddos-protection.md#peacetime-telemetry-availability-preview) extends metric availability for eligible protected public IP addresses. It's enabled automatically for supported resources protected by either DDoS Network Protection or DDoS IP Protection. This tier support doesn't establish preview availability for every region, cloud, or IP version. Free infrastructure protection alone doesn't establish peacetime telemetry eligibility.
+
 > [!NOTE]
 > At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection doesn't store customer data.
 
