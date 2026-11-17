@@ -1,33 +1,29 @@
 ---
 title: Disable or enable a device in Azure Device Registry
 titleSuffix: Azure IoT Hub
-description: Learn how to disable or enable an Azure Device Registry device for Azure IoT Hub by using the Azure portal or Azure CLI.
+description: Disable or enable a device in Azure Device Registry so you can pause or resume device activity in Azure IoT Hub deployments.
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
 ai-usage: ai-generated
-ms.date: 11/10/2026
-#Customer intent: As an IoT Hub administrator, I want to disable or enable a device in Azure Device Registry so I can control its access to IoT Hub without deleting its registry resource.
+ms.date: 11/09/2026
+#Customer intent: As an IoT Hub administrator, I want to disable or enable a device in Azure Device Registry so I can control when a device can participate in production operations.
 ---
 
-# Disable or enable a device in Azure Device Registry (preview)
+# Disable or enable a device in Azure Device Registry
 
 Disable a device in Azure Device Registry (ADR) to block its access to Azure IoT Hub without deleting its registry resource. A disabled device can't send messages or reprovision. Enable the device again when you're ready to allow it to reconnect.
 
-[!INCLUDE [iot-hub-public-preview-banner](../../iot-hub/includes/public-preview-banner.md)]
-
-Disabling a device can interrupt data collection and dependent workflows. Confirm that it's safe to take the device offline before you begin. The change is asynchronous: wait for the operation to succeed before you consider it complete.
-
-Enabling a device doesn't restore revoked certificates. If you also revoked its operational certificates, enable the device first, then reprovision it to obtain a new certificate. For more information, see [Certificate revocation (preview)](../concepts-certificate-policy-management.md#revoking-device-certificates).
+Disabling a device might interrupt active operations, data collection, or dependent workflows. Before you enable a device, confirm that its configuration, security settings, and operational readiness meet your production requirements.
 
 ## Prerequisites
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An IoT hub linked to an ADR namespace. For setup steps, see [Get started with Azure Device Registry for Azure IoT Hub](../../iot-hub/iot-hub-device-registry-setup.md).
-- An existing IoT Hub device in that ADR namespace, represented by a `Microsoft.DeviceRegistry/namespaces/registryDevices` resource.
-- The [Azure Device Registry Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#azure-device-registry-contributor) role, or equivalent permissions, on the ADR namespace.
+- An existing IoT Hub Gen2 deployment linked to a Device Registry namespace. For setup steps, see [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md).
+- At least one device in your Device Registry namespace.
+- The [Azure Device Registry Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#azure-device-registry-contributor) role on the Device Registry namespace.
 
 # [Azure portal](#tab/portal)
 
@@ -119,7 +115,7 @@ DEVICE_NAME="<registry-device-name>"
 
 ## Disable a device
 
-Use [az iot adr ns device update](/cli/azure/iot/adr/ns/device#az-iot-adr-ns-device-update) to set the device's enablement state to `Disabled`:
+Run this command to disable a device in Device Registry when you need to pause device activity.
 
 ```azurecli
 az iot adr ns device update \
@@ -131,7 +127,7 @@ az iot adr ns device update \
 
 ## Enable a device
 
-When the device is ready to reconnect, set its enablement state to `Enabled`:
+Run this command to enable a device in Device Registry after you verify that it's ready to return to service.
 
 ```azurecli
 az iot adr ns device update \
@@ -160,7 +156,7 @@ Verify that `EnablementState` is `Disabled` or `Enabled`, as requested, and that
 
 ## Related content
 
-- [Integration with Azure Device Registry (preview)](../../iot-hub/iot-hub-device-registry-overview.md)
-- [Get started with Azure Device Registry for Azure IoT Hub](../../iot-hub/iot-hub-device-registry-setup.md)
-- [Certificate revocation (preview)](../concepts-certificate-policy-management.md)
-- [Key concepts for certificate management (preview)](../iot-certificate-management-concepts.md)
+- [Integration with Azure Device Registry](../../iot-hub/iot-hub-device-registry-overview.md)
+- [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md)
+- [Certificate revocation and policy management](../concepts-certificate-policy-management.md)
+- [Key concepts for certificate management](../iot-certificate-management-concepts.md)

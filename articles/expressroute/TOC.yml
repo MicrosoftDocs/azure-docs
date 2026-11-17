@@ -145,6 +145,8 @@
   items:
     - name: ExpressRoute Metro
       href: metro.md
+    - name: ExpressRoute Last Mile
+      href: last-mile.md
     - name: ExpressRoute Direct
       items:
         - name: Overview

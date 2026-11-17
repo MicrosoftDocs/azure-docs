@@ -490,6 +490,8 @@ items:
                             href: storage-auth-abac-powershell.md
                           - name: Add role assignment conditions (Azure CLI)
                             href: storage-auth-abac-cli.md
+                      - name: Session-based authentication (preview)
+                        href: session-based-authentication.md
                   - name: Authorize with Shared Key
                     href: /rest/api/storageservices/authorize-with-shared-key?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
                     items:

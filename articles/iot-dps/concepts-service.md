@@ -2,9 +2,9 @@
 title: Terminology and glossary for Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This article describes common terminology used with the Device Provisioning Service (DPS) and IoT Hub.
-author: sethmanheim
-ms.author: sethm
-ms.date: 08/07/2025
+author: Usha-Rathnavel
+ms.author: usrathna
+ms.date: 11/10/2026
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
@@ -59,6 +59,8 @@ An enrollment is the record of devices or groups of devices that might register 
 * The optional initial desired configuration
 * The desired IoT hub
 * The desired device ID
+* An optional [device type reference](#device-type-reference-preview) for an IoT hub linked to Azure Device Registry
+* An optional [certificate policy](#certificate-policies) for issuing operational X.509 certificates through Azure Device Registry
 
 There are two types of enrollments supported by Device Provisioning Service: enrollment groups and individual enrollments.
 
@@ -88,6 +90,37 @@ Individual enrollments might have the desired IoT hub device ID specified in the
 > [!TIP]
 > We recommend using individual enrollments for devices that require unique initial configurations, or for devices that can only authenticate using SAS tokens via TPM attestation.
 
+## Device type reference (preview)
+
+A *device type reference* is an optional model ID on an enrollment group or
+individual enrollment. It associates a device with a W3C Web of Things (WoT)
+Thing Model when DPS provisions or reprovisions the device to an IoT hub linked
+to Azure Device Registry (ADR).
+
+A Thing Model describes a type of device, including its properties, actions, and
+events. It isn't the device's telemetry payload. Azure IoT Operations also uses
+[WoT Thing Models](../iot-operations/develop-edge-apps/overview-iot-operations-development.md)
+to describe device interactions. For the model structure, see the
+[W3C Thing Model specification](https://www.w3.org/TR/wot-thing-description11/#thing-model).
+
+You must author the Thing Model and create or update it in the Schema
+Registry for your ADR namespace. Store the model ID in the enrollment's
+**Device type reference** field, not the model JSON. DPS doesn't generate the
+model or infer it from device telemetry.
+
+During provisioning or reprovisioning, DPS writes the reference to the ADR device
+record. ADR owns this metadata and synchronizes it to the linked IoT hub as
+read-only device metadata. The reference isn't a device twin property or an
+attestation credential.
+
+DPS stores the supplied reference without resolving it in Schema Registry or
+checking that the model exists or matches the device's telemetry. The customer
+is responsible for the model and its reference. This setting doesn't replace
+the enrollment's attestation or allocation settings.
+
+For configuration steps, see
+[Link a device to a WoT Thing Model](how-to-manage-enrollments.md#link-a-device-to-a-wot-thing-model-preview).
+
 ## Attestation mechanism
 
 An attestation mechanism is the method used for confirming a device's identity. The attestation mechanism is configured on an enrollment entry and tells the provisioning service which method to use when verifying the identity of a device during registration.
@@ -100,6 +133,19 @@ The Device Provisioning Service supports the following forms of attestation:
 * **X.509 certificates** based on the standard X.509 certificate authentication flow. For more information, see [X.509 certificate attestation](concepts-x509-attestation.md).
 * **Trusted Platform Module (TPM)** based on a nonce challenge, using the TPM standard for keys to present a signed Shared Access Signature (SAS) token. This doesn't require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/). For more information, see [TPM attestation](concepts-tpm-attestation.md).
 * **Symmetric Key** based on shared access signature (SAS) [SAS tokens](../iot-hub/iot-hub-dev-guide-sas.md#sas-tokens), which include a hashed signature and an embedded expiration. For more information, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+
+## Certificate policies
+
+If your DPS instance is linked to an Azure Device Registry namespace, you can optionally use separate credentials for device provisioning and ongoing connections to IoT Hub:
+
+- **Onboarding credential:** The credential the device uses to authenticate with DPS through the [attestation mechanism](#attestation-mechanism) configured on its enrollment.
+- **Operational certificate:** After DPS authenticates the device, Azure Device Registry issues a short-lived X.509 certificate for ongoing authentication with IoT Hub.
+
+Devices must submit a [certificate signing request (CSR)](#certificate-signing-request) during provisioning to receive an operational certificate. You can manage the lifecycle of these certificates, including renewal and revocation.
+
+To enable this capability, create an intermediate certificate authority and a certificate policy in Azure Device Registry. Then reference the certificate authority and policy on the DPS enrollment.
+
+For more information, see [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md).
 
 ## Hardware security module
 
@@ -128,6 +174,14 @@ The registration ID is used to uniquely identify a device registration with the 
 ## Device ID
 
 The device ID is the ID as it appears in IoT Hub. The desired device ID can be set in the enrollment entry, but it isn't required to be set. Setting the desired device ID is only supported in individual enrollments. If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device. For more information about device IDs in IoT Hub, see [Understand the identity registry in your IoT hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+
+## Certificate signing request
+
+A certificate signing request (CSR) is a digitally signed message that a client, such as an IoT device, generates to request a signed certificate from a certificate authority (CA). The CSR includes the device's public key and identifying information, such as its registration ID. The device signs the CSR with its private key to prove ownership of the key.
+
+A CSR must meet the CA's policy requirements, including supported key algorithms, key sizes, and subject field formats. After the CA verifies and approves the CSR, it issues an X.509 certificate that binds the device's identity to its public key. The device's private key remains on the device.
+
+If you use certificate management in Azure Device Registry, see [Device certificate issuance in Azure Device Registry](../iot/concept-certificate-issuance.md) for CSR requirements and the certificate issuance flow.
 
 ## Operations
 

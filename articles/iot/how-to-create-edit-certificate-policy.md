@@ -18,15 +18,13 @@ The **certificate policy** defines the issuance characteristics of an intermedia
 
 Enrollments in Device Provisioning Service (DPS) reference certificate policies to determine which intermediate CA should issue the certificate and how the certificate is issued.
 
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
-
 ## Prerequisites
 
 Before you begin, ensure you have the required setup and permissions so you can create an intermediate CA and sign it with an external CA.
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md).
-- Permissions to manage policies in the Device Registry namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.
+- An existing Device Registry namespace. For setup steps, see [Get started with Azure Device Registry for Azure IoT Hub](device-registry/get-started-azure-device-registry.md).
+- Permission to create and manage certificate policies in this Azure Device Registry namespace, such as the [Azure Device Registry Administrator](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-administrator) role. If you don't have access, ask your Azure administrator to assign you this role on the namespace.
 
 # [Azure portal](#tab/portal)
 
@@ -189,4 +187,4 @@ az iot adr ns ca policy show \
 
 ## Next steps
 
-[Certificate management overview](iot-certificate-management-overview.md)
+[Certificate management in Azure Device Registry](iot-certificate-management-overview.md)

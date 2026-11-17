@@ -3,7 +3,7 @@ title: Custom agents in Azure SRE Agent
 description: Learn how custom agents provide specialized domain expertise that you invoke on demand through the /agent command.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 11/13/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -203,10 +203,14 @@ For VS Code users, the SRE Agent MCP server extension lets you edit custom agent
 
 For full details, see [Agent playground](agent-playground.md).
 
+## Use subagents in Teams (preview)
+
+In [Teams](teams-integration.md) (preview), `/agent` lists local subagents. Shared-conversation selection requires **SRE Agent Administrator**, even for granted participants; one-to-one selection requires chat access.
+
 ## Related content
 
 | Resource | Description |
 |---|---|
 | [Skills](skills.md) | Reusable procedures and tools for your agent |
 | [Send notifications](send-notifications.md) | Send investigation findings to Teams, Outlook, and more |
-| [Chat from your tools](chat-from-your-tools.md) | Interact with your agent from Teams, webhooks, and more |
+| [Chats](threads.md) | Work with agent threads and chat commands |

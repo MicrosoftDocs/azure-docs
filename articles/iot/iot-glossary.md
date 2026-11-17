@@ -118,11 +118,11 @@ Applies to: IoT Hub
 
 ### Azure Device Registry
 
-This service provides a single centralized registry for devices and assets that are projected as Azure resources into an Azure IoT Operations instance. Azure IoT Hub can also use the Azure Device Registry to store device identities for cloud-connected devices. Azure Device Registry integration with Azure IoT Hub is currently in preview.
+This service provides a single centralized registry for devices and assets that are projected as Azure resources into an Azure IoT Operations instance. Azure IoT Hub can also use the Azure Device Registry to store device identities for cloud-connected devices. Azure Device Registry integration with Azure IoT Hub is generally available.
 
 On first mention in an article, use _Azure Device Registry_. On subsequent mentions, you can use _Device Registry_. Never use an acronym.
 
-Applies to: Azure IoT Operations, Azure IoT Hub (preview)
+Applies to: Azure IoT Operations, Azure IoT Hub
 
 ### Azure Digital Twins
 
@@ -1149,7 +1149,7 @@ Applies to: Azure IoT Operations
 
 ### Namespace
 
-In the context of Azure IoT Operations and Azure IoT Hub (preview), Azure Device Registry uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+In the context of Azure IoT Operations and Azure IoT Hub, Azure Device Registry uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
 
 Casing rules: Always lowercase.
 

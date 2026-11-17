@@ -22,7 +22,7 @@ This article shows you how to import a software update from an Azure Storage con
 ## Prerequisites
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure Device Registry namespace with software updates enabled. To create a namespace and enable software updates, see [Get started with Azure Device Registry](get-started-azure-device-registry.md).
+- An Azure Device Registry namespace with software updates enabled. To create a namespace and enable software updates, see [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md).
 - Permissions to read the update files in your storage account, such as the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles/storage.md#storage-blob-data-contributor) role.
 - Permissions to import software updates to the namespace, such as the [Device Update Content Administrator](../../role-based-access-control/built-in-roles/internet-of-things.md#device-update-content-administrator) role on the software updates instance that's linked to your namespace.
 - An Azure Storage account with a container that holds your update files and an import manifest:

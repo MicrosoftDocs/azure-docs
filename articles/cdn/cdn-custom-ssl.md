@@ -107,7 +107,8 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 > - The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ### Set up managed identity for Azure CDN
-
+> [!IMPORTANT]
+> Service principal (app registration) access to Azure Key Vault retires on September 30, 2027. If your profile uses a service principal to access your key vault, switch to a managed identity before that date to avoid certificate rotation failures.
 Follow the steps in [Configure managed identity for Azure CDN](managed-identity.md) to allow Azure CDN to access your Azure Key Vault account.
 
 ### Select the certificate for Azure CDN to deploy

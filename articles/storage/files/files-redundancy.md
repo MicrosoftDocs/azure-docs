@@ -4,7 +4,7 @@ description: Understand the data redundancy options available for Azure file sha
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 03/09/2026
+ms.date: 11/14/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my organization's needs."
@@ -146,6 +146,9 @@ To fail over a storage account, see [initiate an account failover](../common/sto
 ### Geo-redundancy for SSD file shares
 
 As previously mentioned, geo-redundancy options (GRS and GZRS) aren't supported for SSD file shares. However, you can achieve geo-redundancy in other ways.
+
+> [!NOTE]
+You can now copy and synchronize SMB file shares across storage accounts, Azure regions, and subscriptions within the same tenant by using Azure Storage Mover. This capability enables scheduled, incremental transfers to maintain secondary copies for business continuity. To learn more, read [Get started with Azure Files-to-Azure Files data copy in Azure Storage Mover](../../storage-mover/azure-files-to-azure-files-copy.md).
 
 For Azure File Sync scenarios, you can sync between your Azure file share (your cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure all data is present locally, and provision enough storage on the Azure VM to hold the entire dataset. To ensure changes will replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 

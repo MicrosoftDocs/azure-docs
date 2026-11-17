@@ -273,6 +273,9 @@
         href: benefits/macc/track-consumption-commitment.md
       - name: Manage a Microsoft Azure Consumption Commitment
         href: benefits/macc/manage-consumption-commitment.md
+    - name: Flex Plan
+      href: benefits/flex-plan/toc.yml
+      topicHref: benefits/flex-plan/index.yml
     - name: Manage Conditional Azure Credit Offer
       items:
       - name: Track your Conditional Azure Credit Offer

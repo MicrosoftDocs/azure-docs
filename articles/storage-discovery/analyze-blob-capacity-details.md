@@ -32,6 +32,7 @@ The **Capacity details** report complements **Capacity overview**: the overview 
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Go to your Storage Discovery workspace.
+1. To enable **Capacity details**, ensure you have the **Contributor** or **Owner** role on the workspace and the built-in [Storage Blob Data Reader](../role-based-access-control/built-in-roles/storage.md#storage-blob-data-reader) role on each tenant, subscription, or resource group included in *workspaceRoots*. The Storage Blob Data Reader role provides `Microsoft.Storage/storageAccounts/blobServices/containers/read` and `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` permissions. You also need separately granted `Microsoft.Storage/storageAccounts/read` permission at each of these scopes. For details, see [Prerequisites for advanced capacity insights](deployment-planning.md#prerequisites-for-advanced-capacity-insights).
 1. In the workspace menu, select **Reports**.
 1. Select **Capacity details**.
 1. Select the Discovery scope that you want to analyze.

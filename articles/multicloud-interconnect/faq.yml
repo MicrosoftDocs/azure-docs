@@ -7,7 +7,7 @@ metadata:
   ms.service: azure
   ms.custom: ami-preview-metadata-update
   ms.topic: faq
-  ms.date: 08/25/2026
+  ms.date: 11/16/2026
   #customer intent: As a cloud architect evaluating cross-cloud connectivity, I want quick answers about supported providers, activation keys, and the ExpressRoute relationship so that I can decide whether Azure Multicloud Interconnect fits my workload.
 
 title: Azure Multicloud Interconnect Preview FAQ
@@ -61,7 +61,7 @@ sections:
         answer: |
           Azure Multicloud Interconnect supports 1 Gbps during preview.
 
-          See [Supported bandwidth](availability-limits.md#supported-bandwidth).
+          See [Supported bandwidth by cloud provider](availability-limits.md#supported-cloud-providers).
 
       - question: |
           Is there a service-level agreement during preview?

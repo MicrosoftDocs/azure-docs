@@ -22,7 +22,7 @@ This article helps you decide:
 
 ## Service applicability
 
-Schema registries are generally available for Azure IoT Operations and in preview for Azure IoT Hub. This article provides guidance for Azure IoT Operations, where data flows use schemas to describe messages and configure transformations and serialization.
+Schema registries are generally available for Azure IoT Operations and in preview for Azure IoT Hub. This article provides guidance for Azure IoT Operations scenarios, where data flows use schemas to describe, transform, and serialize messages. The schema registry is accessible both at the edge and in the cloud, enabling consistent schema management across your solution.
 
 | Feature | Azure IoT Operations | Azure IoT Hub |
 |---|---|---|

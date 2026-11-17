@@ -327,6 +327,8 @@ You can configure Azure VM backup with a few select disks. You can also modify a
 
 Selective disk restore (SDR) lets you choose which disks to restore from the disks available in a recovery point. You don't need to enable selective disk backup to use selective disk restore. You can select disks from a recovery point that contains all the VM's disks or only a subset of them. Disks that weren't backed up in the selected recovery point aren't available for restore.
 
+The feature is currently enabled in the following Azure regions: East Asia, West Central US, North Central US, North Europe, Australia East, Southeast Asia, UK South, East US 2, and West US 2.
+
 ### Supported restore modes
 
 Selective disk restore supports the following restore modes:

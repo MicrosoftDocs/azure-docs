@@ -15,10 +15,6 @@ ms.custom:
 
 # EA Billing administration on the Azure portal
 
-> [!NOTE]
-> Starting November 16, 2026, all new Enterprise Agreement billing role assignments must use Work or School accounts (WSA) managed through Microsoft Entra ID. You can't add Personal Microsoft accounts (MSAs) to new role assignments.
-> Users with existing MSA role assignments aren't impacted at this time. However, these users need to transition to a Work or School account (WSA) in a future phase. Microsoft will provide advance notice and guidance before this change takes effect.
-
 This article explains the common tasks that an Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer. Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. This article is applicable for both direct and indirect EA customers.
 
 ## Manage your enrollment
@@ -105,6 +101,21 @@ Microsoft accounts must have an associated ID created at [https://signup.live.co
 Work or school accounts are available to organizations that set up Microsoft Entra ID with federation and where all accounts are on a single tenant. Users can be added with work or school federated user authentication if the company's internal Microsoft Entra ID is federated.
 
 If your organization doesn't use Microsoft Entra ID federation, you can't use your work or school email address. Instead, register or create a new email address and register it as a Microsoft account.
+
+#### Auto-approve Security Administrator subscription requests
+
+During the Security PAYG purchase experience, users with the **Security Administrator** role in Microsoft Entra ID can view eligible EA billing accounts associated with their tenant and request an Azure subscription.
+
+By using the **Auto-approve Security Administrator subscription requests** policy, Enterprise Administrators can choose to control automatic approval:
+
+- **On (default):** Eligible requests are automatically approved. This setting applies to all tenants linked to enrollment accounts under the EA billing account.
+
+- **Off:** Subscription creation requests from Security Administrators require manual approval from the Enterprise Administrator.
+
+> [!NOTE]
+> Manual approval for EA subscription requests is planned for a future update.
+
+When a request is approved, the subscription is created under an eligible enrollment account. The requesting Security Administrator becomes an owner of the subscription and can deploy and manage Azure resources. Charges are billed under the selected EA billing account.
 
 ## Add another enterprise administrator
 

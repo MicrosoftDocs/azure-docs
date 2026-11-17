@@ -5,7 +5,7 @@ author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: article
-ms.date: 10/30/2026
+ms.date: 11/14/2026
 ms.custom: template-concept
 ---
 
@@ -39,6 +39,14 @@ With this release:
 Starting in early November 2026, Azure Data Manager for Energy bills ACZ as an add-on. Charges apply to Azure Data Manager for Energy resources that have ACZ enabled, including resources where ACZ was enabled during the preview. Pricing details will be available on the [Azure Data Manager for Energy pricing page](https://azure.microsoft.com/pricing/details/energy-data-services/).
 
 For more information, see [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md).
+
+## October 2026
+
+### Azure Data Manager for Energy MCP tools - Preview
+
+Azure Data Manager for Energy Model Context Protocol (MCP) tools are now available in preview as part of the Azure MCP Server package. For more information, see [Azure Data Manager for Energy MCP tools](/azure/developer/azure-mcp-server/tools/azure-data-manager-for-energy?tabs=azure-mcp-cli).
+
+To get started, see [Get started with the Azure MCP Server](/azure/developer/azure-mcp-server/get-started).
 
 ## September 2026
 ### Apache Airflow 3 upgrade
