@@ -69,6 +69,9 @@ items:
           - name: Deploy to a production cluster
             href: deploy-iot-ops/howto-deploy-iot-operations.md
             displayName: Kubernetes, Arc-enable, secure settings
+          - name: Deploy using Azure CLI
+            href: deploy-iot-ops/howto-deploy-iot-operations-cli.md
+            displayName: Kubernetes, Arc-enable, init, create, schema registry, preview
           - name: Configure observability
             items:
               - name: Unified health status reporting
