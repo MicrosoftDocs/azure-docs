@@ -319,17 +319,9 @@ N/A
 
 ---
 
-## Configure blob index tags replication (preview)
+## Configure blob index tags replication
 
 Object replication now supports copying index tags from source blobs to destination blobs. You can configure this capability as part of a new or existing replication rule.
-
-> [!IMPORTANT]
-> Tag replication is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-### Prerequisites
-
-The source storage account must be registered for the EnableObjectReplicationTags preview feature before tag replication can be enabled. Register the preview feature in the Azure portal by following the steps in the [Azure Resource Manager preview features](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) documentation.
 
 ### Enable Tags replication
 
