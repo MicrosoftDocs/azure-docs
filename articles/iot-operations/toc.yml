@@ -148,6 +148,9 @@ items:
               - name: Connect to MCP
                 href: manage-model-context-protocol/howto-connect-ai-agent.md
                 displayName: AI, agent, sample, Foundry Local, Helm, MQTT
+              - name: Query MQTT broker metadata
+                href: manage-model-context-protocol/howto-query-broker-metadata.md
+                displayName: AI, tools, MQTT, sessions, subscriptions, queue, retained topics
               - name: Expose MCP through Azure Relay
                 href: manage-model-context-protocol/howto-deploy-mcp-relay.md
                 displayName: AI, Relay, remote agent, API Management, Entra, Helm
