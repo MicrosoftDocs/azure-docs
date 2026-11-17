@@ -4,7 +4,7 @@ description: Azure ExpressRoute Last Mile Preview connects on-premises networks 
 author: steveesp
 ms.author: steveesp
 ms.service: azure
-ms.date: 11/11/2026
+ms.date: 11/17/2026
 ms.topic: overview
 ---
 
@@ -45,11 +45,12 @@ Microsoft and participating providers manage the underlying interconnect infrast
 
 To establish an Azure ExpressRoute Last Mile connection:
 
-1. **Create an ExpressRoute circuit:** Select a supported connectivity provider, peering location, and bandwidth in the Azure portal.
-2. **Configure provider connectivity:** Use the participating provider's management portal to request connectivity to Azure.
-3. **Associate the connection:** Provide the ExpressRoute service key to associate your provider connection with the Azure circuit.
-4. **Complete provisioning:** Azure and the provider coordinate provisioning of the underlying connectivity.
-5. **Connect your virtual networks:** Configure the required ExpressRoute connectivity resources and routing.
+1. **Sign in to Azure Preview portal** Sign in to the Azure Preview Portal for Last Mile at https://aka.ms/LastMilePreviewPortal.
+2. **Create an ExpressRoute circuit:** Select a supported connectivity provider, peering location, and bandwidth in the Azure portal.
+3. **Configure provider connectivity:** Use the participating provider's management portal to request connectivity to Azure.
+4. **Associate the connection:** Provide the ExpressRoute service key to associate your provider connection with the Azure circuit.
+5. **Complete provisioning:** Azure and the provider coordinate provisioning of the underlying connectivity.
+6. **Connect your virtual networks:** Configure the required ExpressRoute connectivity resources and routing.
 
 After provisioning completes, your on-premises network can communicate with Azure resources through the private ExpressRoute connection.
 

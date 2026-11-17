@@ -112,7 +112,27 @@ sections:
       - question: |
           How long does it take for the metrics to load on portal?
         answer: |
-          The metrics should be visible on portal within 5 minutes. If your resource is under attack, other metrics start showing up on portal within 5-7 minutes.
+          Collection, processing, and chart refresh can delay visibility. A one-minute time grain isn't a guarantee that metrics appear within one minute. For eligible protected public IP addresses, peacetime telemetry (preview) makes DDoS traffic metrics available during normal operation as well as during mitigation; an attack isn't required. For viewing and eligibility guidance, see [Monitor Azure DDoS Protection](monitor-ddos-protection.md#view-peace-time-traffic-telemetry).
+
+      - question: |
+          Do I need Log Analytics or diagnostic logging to view peacetime metrics?
+        answer: |
+          No. Viewing platform metrics doesn't require a Log Analytics workspace or diagnostic setting. Exporting supported metrics and collecting resource logs are separate tasks. See [Azure DDoS Protection monitoring data reference](monitor-ddos-protection-reference.md).
+
+      - question: |
+          What should I check if peacetime metrics have no data points?
+        answer: |
+          Check protection and feature eligibility, the public-IP metric scope, permissions, the selected time range, and reporting delay. Don't generate an attack to make data appear. Validate visibility with [ordinary application traffic](monitor-ddos-protection.md#validate-and-test).
+
+      - question: |
+          Does a zero or missing metric value indicate a problem?
+        answer: |
+          Not by itself. Interpret the specific measurement. A reported attack-status value of 0 means no attack was reported for that measurement; 1 means an attack was reported. With Maximum aggregation, a displayed 1 means at least one reported value in that interval was 1, not necessarily that an attack is still active. Missing data means no measurement is available and isn't interchangeable with zero. See [Interpret DDoS metrics](monitor-ddos-protection-reference.md#interpret-ddos-metrics).
+
+      - question: |
+          Does peacetime telemetry add flow logs or mitigation reports outside attacks?
+        answer: |
+          No. Peacetime telemetry changes metric availability, not when mitigation flow logs, reports, or protection notifications are generated. For metric-based traffic alerts outside attacks, see [Configure DDoS Protection metric alerts](alerts.md#traffic-condition-alerts-during-peacetime-preview).
 
       - question: |
           Does the service store customer data?

@@ -5,7 +5,7 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: overview
-ms.date: 07/08/2025
+ms.date: 10/21/2026
 ms.author: duau
 ms.custom: references_regions
 # Customer intent: As a cloud infrastructure manager, I want to implement DDoS protection for my applications, so that I can enhance security and ensure high availability during potential DDoS attacks.
@@ -53,8 +53,8 @@ Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP
     - **Attack analytics:**
 Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](/azure/sentinel/data-connectors-reference#azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
 
-    - **Attack metrics:**
- Summarized metrics from each attack are accessible through Azure Monitor. See [View and configure DDoS protection telemetry](telemetry.md) to learn more.
+    - **Traffic metrics during normal operation and attacks:**
+ For eligible protected public IP addresses, peacetime telemetry (preview) makes existing DDoS traffic metrics available outside mitigation as well as during attacks. Traffic data alone doesn't indicate an attack. For availability and viewing guidance, see [Monitor Azure DDoS Protection](monitor-ddos-protection.md#peacetime-telemetry-availability-preview).
 
     - **Attack alerting:**
  Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal. See [View and configure DDoS protection alerts

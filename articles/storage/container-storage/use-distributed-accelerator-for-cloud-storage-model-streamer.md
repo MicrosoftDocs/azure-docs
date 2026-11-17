@@ -16,7 +16,7 @@ ms.author: fryu
 
 By using distributed accelerator for cloud storage (DACS), this loading path can also reuse model data cached across workloads. vLLM uses Run:ai's Azure backend to load the DACS native client library. Reads retrieve cached data or fetch missing data from Blob Storage.
 
-This article uses Run:ai Model Streamer `0.17.0`, the public `dacs-client==0.1.0` package, and the `v0.1.0` server build. The main procedure installs the dependencies in your workload image. It doesn't require a separate DACS client image or Kubernetes ImageVolume support.
+This article uses Run:ai Model Streamer `0.17.3`, the public `dacs-client==0.1.0` package, and the `v0.1.0` server build. The main procedure installs the dependencies in your workload image. It doesn't require a separate DACS client image or Kubernetes ImageVolume support.
 
 Complete [Get started with distributed accelerator for cloud storage on AKS](distributed-accelerator-for-cloud-storage-quickstart.md) before using this article. To supply the DACS client libraries without rebuilding your workload image, see [Mount DACS client libraries with ImageVolume](#mount-dacs-client-libraries-with-imagevolume).
 
@@ -110,7 +110,7 @@ Resolve dependency conflicts in your workload image before deploying. The `pip c
 1. If your image doesn't already contain compatible Run:ai core and Azure backend packages, add the following instruction to your Dockerfile:
 
    ```dockerfile
-   RUN python3 -m pip install --no-cache-dir "runai-model-streamer[azure]==0.17.0"
+   RUN python3 -m pip install --no-cache-dir "runai-model-streamer[azure]==0.17.3"
    ```
 
 1. Install the public DACS client package, which supplies the native client libraries, in that same Python environment:
@@ -127,7 +127,7 @@ Resolve dependency conflicts in your workload image before deploying. The `pip c
    ```bash
    REGISTRY_NAME="<registry-name>"
    REGISTRY_SERVER="$(az acr show --name "$REGISTRY_NAME" --query loginServer --output tsv)"
-   WORKLOAD_IMAGE="$REGISTRY_SERVER/workload-runai-dacs:0.17.0-0.1.0"
+   WORKLOAD_IMAGE="$REGISTRY_SERVER/workload-runai-dacs:0.17.3-0.1.0"
 
    az acr login --name "$REGISTRY_NAME"
    docker build --platform linux/amd64 -t "$WORKLOAD_IMAGE" .
@@ -187,7 +187,7 @@ Set these four application variables before starting vLLM. They are separate fro
 | `RUNAI_STREAMER_EXPERIMENTAL_AZURE_CACHE_LIB` | Absolute native-library path resolved from your workload image. |
 
 > [!IMPORTANT]
-> Cache discovery isn't optional. A model load can succeed by reading Blob Storage directly when the cache isn't configured. With the Run:ai Azure backend `0.17.0`, also specify the native-library path explicitly instead of relying on automatic discovery.
+> Cache discovery isn't optional. A model load can succeed by reading Blob Storage directly when the cache isn't configured. With the Run:ai Azure backend `0.17.3`, also specify the native-library path explicitly instead of relying on automatic discovery.
 
 Use Run:ai's model URI format, `az://<container>/<model-prefix>`, with the account supplied through `AZURE_STORAGE_ACCOUNT_NAME`. This URI format differs from the native Python client's canonical URI, which includes the account hostname.
 

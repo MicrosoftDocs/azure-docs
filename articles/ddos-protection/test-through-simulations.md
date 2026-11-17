@@ -5,7 +5,7 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 03/17/2026
+ms.date: 10/21/2026
 ms.author: duau
 # Customer intent: As a network security engineer, I want to conduct DDoS protection simulations, so that I can assess and optimize our incident response procedures in the event of an actual DDoS attack.
 ---
@@ -13,6 +13,8 @@ ms.author: duau
 # Tutorial: Azure DDoS Protection simulation testing
 
 It’s a good practice to test your assumptions about how your services respond to an attack by conducting periodic simulations. During testing, validate that your services or applications continue to function as expected and there’s no disruption to the user experience. Identify gaps from both a technology and process standpoint and incorporate them in the DDoS response strategy. We recommend that you perform such tests in staging environments or during nonpeak hours to minimize the impact to the production environment.
+
+If your goal is to validate [peacetime telemetry (preview)](monitor-ddos-protection.md#peacetime-telemetry-availability-preview) for an eligible protected public IP address, use [ordinary application traffic](monitor-ddos-protection.md#validate-and-test). You don't need to simulate an attack to verify peacetime metric visibility. Visibility testing doesn't establish mitigation effectiveness or application health. Attack simulations remain subject to the [Azure DDoS simulation testing policy](#azure-ddos-simulation-testing-policy).
 
 For this tutorial, you'll create a test environment that includes:
 
