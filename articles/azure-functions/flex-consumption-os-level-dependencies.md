@@ -363,18 +363,13 @@ The following Dockerfiles use the layout of the sample JavaScript and TypeScript
 ```dockerfile
 FROM node:24-bookworm-slim AS worker
 
-ARG FUNCTIONS_NODE_WORKER_SHA256=""
+ARG FUNCTIONS_NODE_WORKER_SHA256
 
-ADD https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz \
+ADD --checksum=sha256:${FUNCTIONS_NODE_WORKER_SHA256} \
+    https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz \
     /tmp/worker.tar.gz
 
-RUN if [ -n "$FUNCTIONS_NODE_WORKER_SHA256" ]; then \
-        printf '%s  %s\n' \
-            "$FUNCTIONS_NODE_WORKER_SHA256" \
-            '/tmp/worker.tar.gz' \
-            | sha256sum -c -; \
-    fi \
-    && mkdir -p /opt/functions-worker \
+RUN mkdir -p /opt/functions-worker \
     && tar -xzf /tmp/worker.tar.gz -C /opt/functions-worker \
     && rm /tmp/worker.tar.gz
 
@@ -399,18 +394,13 @@ ENTRYPOINT ["node", "/opt/functions-worker/dist/src/nodejsWorker.js"]
 ```dockerfile
 FROM node:24-bookworm-slim AS worker
 
-ARG FUNCTIONS_NODE_WORKER_SHA256=""
+ARG FUNCTIONS_NODE_WORKER_SHA256
 
-ADD https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz \
+ADD --checksum=sha256:${FUNCTIONS_NODE_WORKER_SHA256} \
+    https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz \
     /tmp/worker.tar.gz
 
-RUN if [ -n "$FUNCTIONS_NODE_WORKER_SHA256" ]; then \
-        printf '%s  %s\n' \
-            "$FUNCTIONS_NODE_WORKER_SHA256" \
-            '/tmp/worker.tar.gz' \
-            | sha256sum -c -; \
-    fi \
-    && mkdir -p /opt/functions-worker \
+RUN mkdir -p /opt/functions-worker \
     && tar -xzf /tmp/worker.tar.gz -C /opt/functions-worker \
     && rm /tmp/worker.tar.gz
 
@@ -440,28 +430,46 @@ ENTRYPOINT ["node", "/opt/functions-worker/dist/src/nodejsWorker.js"]
 From the directory that contains the Dockerfile and application files, build and push the image. This example uses Azure Container Registry and system-assigned identity:
 
 ```azurecli
-az acr login --name <ACR_NAME>
+(
+  set -e
 
-WORKER_URL=https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz
-curl --fail --location "$WORKER_URL" --output /tmp/worker.tar.gz
-FUNCTIONS_NODE_WORKER_SHA256=$(sha256sum /tmp/worker.tar.gz | cut -d ' ' -f 1)
+  az acr login --name <ACR_NAME>
 
-docker build --platform linux/amd64 --progress plain \
-  -f node24.Dockerfile \
-  --build-arg FUNCTIONS_NODE_WORKER_SHA256="$FUNCTIONS_NODE_WORKER_SHA256" \
-  -t <ACR_NAME>.azurecr.io/<REPOSITORY>:node24 .
+  WORKER_URL=https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz
+  WORKER_FILE=azure-functions-nodejs-worker.tar.gz
+  WORKER_DIR=$(mktemp -d)
 
-rm /tmp/worker.tar.gz
+  trap 'rm -f -- "$WORKER_DIR/$WORKER_FILE" "$WORKER_DIR/$WORKER_FILE.sha256"; rmdir -- "$WORKER_DIR"' EXIT
 
-docker push <ACR_NAME>.azurecr.io/<REPOSITORY>:node24
+  curl --fail --location "$WORKER_URL" \
+    --output "$WORKER_DIR/$WORKER_FILE"
+  curl --fail --location "${WORKER_URL}.sha256" \
+    --output "$WORKER_DIR/$WORKER_FILE.sha256"
 
-az functionapp create -g <RESOURCE_GROUP> -n <APP_NAME> -s <STORAGE_ACCOUNT> \
-  --flexconsumption-location <REGION> \
-  --deployment-image <ACR_NAME>.azurecr.io/<REPOSITORY>:node24 \
-  --deployment-image-auth-type SystemAssignedIdentity \
-  --assign-identity [system] --role AcrPull --scope <ACR_RESOURCE_ID>
+  (
+    cd "$WORKER_DIR"
+    sha256sum --check --strict "$WORKER_FILE.sha256"
+  )
 
-az functionapp deployment config show -g <RESOURCE_GROUP> -n <APP_NAME>
+  FUNCTIONS_NODE_WORKER_SHA256=$(
+    sha256sum "$WORKER_DIR/$WORKER_FILE" | cut -d ' ' -f 1
+  )
+
+  docker build --platform linux/amd64 --progress plain \
+    -f node24.Dockerfile \
+    --build-arg FUNCTIONS_NODE_WORKER_SHA256="$FUNCTIONS_NODE_WORKER_SHA256" \
+    -t <ACR_NAME>.azurecr.io/<REPOSITORY>:node24 .
+
+  docker push <ACR_NAME>.azurecr.io/<REPOSITORY>:node24
+
+  az functionapp create -g <RESOURCE_GROUP> -n <APP_NAME> -s <STORAGE_ACCOUNT> \
+    --flexconsumption-location <REGION> \
+    --deployment-image <ACR_NAME>.azurecr.io/<REPOSITORY>:node24 \
+    --deployment-image-auth-type SystemAssignedIdentity \
+    --assign-identity [system] --role AcrPull --scope <ACR_RESOURCE_ID>
+
+  az functionapp deployment config show -g <RESOURCE_GROUP> -n <APP_NAME>
+)
 ```
 
 ::: zone-end
