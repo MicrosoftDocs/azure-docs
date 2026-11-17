@@ -1,11 +1,12 @@
 ---
 title: Start and stop SAP systems, instances, and HANA database
-description: Learn how to start or stop an SAP system, specific instances, and HANA database through the Virtual Instance for SAP solutions resource in Azure Center for SAP solutions.
+description: Learn how to start or stop an SAP system, specific instances, and HANA database through the Virtual Instance for SAP solutions resource in Azure Workload Center for SAP.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 03/25/2026
+ms.date: 11/06/2026
 ms.author: sagarkeswani
+ms.reviewer: mattmcinnes
 author: sagarkeswani
 ms.custom: sfi-image-nochange
 # Customer intent: As an SAP system administrator, I want to start and stop SAP systems, instances, and HANA databases using the Virtual Instance for SAP solutions in Azure, so that I can effectively manage system resources and ensure optimal performance.
@@ -13,7 +14,7 @@ ms.custom: sfi-image-nochange
 
 # Start and stop SAP systems, instances, and HANA database
 
-In this article, you learn to start and stop your SAP systems through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions.
+In this article, you learn to start and stop your SAP systems through the Virtual Instance for SAP solutions (VIS) resource in Azure Workload Center for SAP.
 
 Through the Azure portal, [Azure PowerShell](/powershell/module/az.workloads), [Azure CLI](/cli/azure/workloads/sap-virtual-instance), and [REST API](/rest/api/workloads) interfaces, you can start and stop:
 
@@ -42,7 +43,7 @@ The following scenarios are supported when starting and stopping SAP systems:
 
 ## Prerequisites
 
-- An SAP system that you [created in Azure Center for SAP solutions](prepare-network.md) or [registered with Azure Center for SAP solutions](register-existing-system.md).
+- An SAP system that you [created in Azure Workload Center for SAP](prepare-network.md) or [registered with Azure Workload Center for SAP](register-existing-system.md).
 - Make sure your Azure account has **Azure Center for SAP solutions administrator** or equivalent role access on the VIS resources. To learn more about the granular permissions that govern Start and Stop actions on the VIS, individual SAP instances, and HANA database, see [Manage access with Azure RBAC](manage-with-azure-rbac.md#start-sap-system).
 - For the start operation to work, the underlying virtual machines (VMs) of the SAP instances must be running. This feature starts or stops the SAP application instances, not the VMs that make up the SAP system resources.
 - The `sapstartsrv` service must be running on all VMs related to the SAP system.
@@ -50,7 +51,7 @@ The following scenarios are supported when starting and stopping SAP systems:
 - For HANA database, the stop operation runs only when the cluster maintenance mode is **Disabled**. Similarly, the start operation runs only when the cluster maintenance mode is **Enabled**.
 
 > [!NOTE]
-> When you deploy an SAP system using Azure Center for SAP solutions, the RHEL and SUSE cluster connector for highly available systems is already configured as part of the SAP software installation process.
+> When you deploy an SAP system using Azure Workload Center for SAP, the RHEL and SUSE cluster connector for highly available systems is already configured as part of the SAP software installation process.
 
 ## Stop an SAP system
 
@@ -58,7 +59,7 @@ To stop an SAP system in the VIS resource:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for and select **Azure Center for SAP solutions** in the search bar.
+1. Search for and select **Azure Workload Center for SAP** in the search bar.
 
 1. Select **Virtual Instances for SAP solutions** in the sidebar menu.
 
@@ -84,7 +85,7 @@ To start an SAP system in the VIS resource:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for and select **Azure Center for SAP solutions** in the search bar.
+1. Search for and select **Azure Workload Center for SAP** in the search bar.
 
 1. Select **Virtual Instances for SAP solutions** in the sidebar menu.
 

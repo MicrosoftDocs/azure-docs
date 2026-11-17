@@ -48,7 +48,7 @@ landingContent:
         links:
           - text: Prepare on-premises machines for Azure migration
             url:  /azure/migrate/prepare-for-migration?view=migrate
-          - text: Migrate on-premises workloads using Azure Migrate
+          - text: Migrate on-premises workloads using Azure Catalyst
             url:  /azure/migrate/migrate-services-overview?view=migrate
           - text: Migrate VMware, Hyper-V, and physical servers to Azure
             url:  /azure/site-recovery/migrate-tutorial-on-premises-azure

@@ -293,6 +293,8 @@
           href: expressroute-network-insights.md
         - name: Configure Connection Monitoring for ExpressRoute
           href: how-to-configure-connection-monitor.md
+        - name: Diagnose packet loss with Connection Analyzer (preview)
+          href: connection-analyzer.md
         - name: Configure ExpressRoute Traffic Collector
           href: how-to-configure-traffic-collector.md
         - name: View and configure maintenance alerts

@@ -1,0 +1,40 @@
+### YamlMime:Landing
+
+title: Azure Agent Grid documentation
+summary: Learn how Azure Agent Grid protects AI agents with workload identity, encrypted connectivity, and identity-based policies.
+
+metadata:
+  title: Azure Agent Grid documentation
+  description: Learn how Azure Agent Grid protects AI agents with workload identity, encrypted connectivity, and identity-based policies.
+  # Retain azure until after Ignite and confirmed registration of agent-grid.
+  ms.service: azure
+  ms.topic: landing-page
+  author: asudbring
+  ms.author: allensu
+  ms.date: 11/09/2026
+
+landingContent:
+  - title: Learn about Azure Agent Grid
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Agent Grid?
+            url: overview.md
+
+  - title: Configure agent protection
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Azure Agent Grid in the Azure portal
+            url: configure-agent-grid.md
+
+  - title: Plan your preview deployment
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Review supported compute
+            url: overview.md#supported-compute
+          - text: Check region availability
+            url: overview.md#region-availability
+          - text: Review preview limitations
+            url: overview.md#limitations

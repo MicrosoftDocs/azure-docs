@@ -58,6 +58,9 @@ items:
   - name: Apply MFA self-enforcement through Azure Policy
     displayName: assign, definition, enforce
     href: ./tutorials/mfa-enforcement.md
+  - name: Assign Azure Baseline Security
+    displayName: assign, definition, enforce
+    href: ./tutorials/assign-absm.md
 - name: Samples
   items:
   - name: Index

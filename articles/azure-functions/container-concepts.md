@@ -17,6 +17,8 @@ Functions also supports containerized function app deployments. In a containeriz
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
+Flex Consumption also supports customer-provided container images for apps that need OS-level dependencies. Your image contains the application, one supported language worker, and its dependencies, while Azure supplies and operates the Functions host outside your image. This worker-only container model is different from the complete Function App containers described in this article. For more information, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
+
 ## Container hosting options
 
 > [!TIP]
@@ -26,6 +28,7 @@ You have several options for hosting your containerized function apps in Azure:
 
 | Hosting option | Benefits |
 | --- | --- |  
+| **[Flex Consumption containers](flex-consumption-os-level-dependencies.md)** | Add OS-level dependencies to a Flex Consumption app while Azure continues to supply, operate, and patch the Functions host outside your container image. This option uses a worker-only container model rather than a complete Function App container. |
 | **[Azure Container Apps][Azure Container Apps v2] (Recommended)** | Azure Container Apps hosts and manages your function app containers natively by using the `Microsoft.App` resource provider. Run your functions in a fully managed, serverless Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA. Supports scale-to-zero, serverless pay-for-what-you-use billing, dedicated hardware, and GPUs via workload profiles. You benefit from the same Functions programming model and triggers while gaining the full feature set of Container Apps. _Recommended hosting option for containerized function apps in Azure._ |
 | **[Azure Container Apps][Azure Container Apps] (legacy)** | Azure Functions provides integrated support for deploying containerized function apps to a [Container Apps](../container-apps/overview.md) environment by using the `Microsoft.Web` resource provider. While currently supported, this option is planned for future deprecation. For new workloads, use the recommended Container Apps hosting option instead. |
 | **[Azure Functions]** | You can host your containerized function apps in Azure Functions by running the container in an [Elastic Premium](./functions-premium-plan.md) or an [App Service (Dedicated)](./dedicated-plan.md) plan. Premium plan hosting provides you with the benefits of dynamic scaling. You might want to use Dedicated plan hosting to take advantage of existing unused App Service plan resources. |  

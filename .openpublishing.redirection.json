@@ -8348,6 +8348,11 @@
       "source_path": "articles/dns/private-dns-resiliency.md",
       "redirect_url": "/azure/reliability/reliability-dns-private",
       "redirect_document_id": false
-    }    
+    } ,
+    {
+    "source_path": "articles/virtual-wan/customer-controlled-gateway-maintenance.md",
+    "redirect_url": "/azure/virtual-wan/customer-controlled-maintenance",
+    "redirect_document_id": true 
+}
   ]
 }

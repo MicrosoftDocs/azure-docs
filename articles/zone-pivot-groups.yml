@@ -255,6 +255,19 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+# Owner: mabhar
+- id: programming-languages-flex-worker-images
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-javascript
+    title: Node.js
 - id: programming-languages-set-functions-full
   title: Programming languages
   prompt: Choose a programming language

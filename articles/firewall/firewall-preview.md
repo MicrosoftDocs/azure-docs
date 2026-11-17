@@ -4,7 +4,7 @@ description: Learn about Azure Firewall preview features that are publicly avail
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 08/31/2026
+ms.date: 11/04/2026
 ms.author: duau
 # Customer intent: "As a network administrator, I want to explore and test Azure Firewall preview features, so that I can enhance our security configurations and monitor health more effectively before they reach general availability."
 ---
@@ -32,6 +32,12 @@ The following features are available in preview.
 Azure Firewall now supports IPv6 in preview, enabling you to configure Azure Firewall and Firewall Policy in dual-stack mode for both IPv4 and IPv6 traffic. This preview allows native IPv6 network-rule filtering and DNS Proxy support, helping organizations secure cloud, hybrid, and internal IPv6 traffic as they modernize toward dual-stack architectures. 
 
 For more information, see [Deploy Azure Firewall in dual stack mode](deploy-dual-stack-firewall.md).
+
+### AI Security add-on (preview)
+
+Azure Firewall AI Security is an optional add-on for Azure Firewall Premium. It adds Prompt Threat Protection, Advanced Malware Threat Protection, Advanced Application Threat Protection, network data loss prevention with Microsoft Purview, and Policy Advisor. You enable the add-on on each Premium firewall and configure the protections in the Azure portal.
+
+For more information, see [Azure Firewall AI Security concepts](ai-security-concepts.md).
 
 ## Change tracking (preview)
 

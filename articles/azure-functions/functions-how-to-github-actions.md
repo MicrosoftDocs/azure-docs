@@ -2,7 +2,7 @@
 title: Deploy to Azure Functions by using GitHub Actions
 description: Set up continuous deployment for your Azure Functions app by using GitHub Actions with OpenID Connect (OIDC) authentication.
 ms.topic: how-to
-ms.date: 08/28/2026
+ms.date: 11/09/2026
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
@@ -231,7 +231,7 @@ The best way to manually create a workflow configuration is to start from the of
     :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-container-functionapp-on-azure.yml" range="1-2,9-57":::
 
     > [!IMPORTANT]
-    > For new container-based function app deployments, use the native Azure Container Apps hosting model. See [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions). The `Azure/functions-container-action` shown here deploys container images to existing function app resources in Azure.
+    > The `Azure/functions-container-action` workflow shown here deploys a complete Function App container image to an existing Premium or Dedicated function app. It doesn't deploy the worker-only image used by Flex Consumption. For Flex Consumption container images, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md). For Azure Container Apps, see [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions).
 
     Before you use this YAML file, complete the following steps:
     
@@ -427,7 +427,7 @@ When you use GitHub Actions, the deployment method depends on your hosting plan:
 
 | Hosting plan | Deployment method |
 | ---- | ----- |
-| [Flex Consumption](./flex-consumption-plan.md) | [Package deployment] |
+| [Flex Consumption](./flex-consumption-plan.md) | [Package deployment] for code-package apps; [container image deployment](flex-consumption-os-level-dependencies.md) for container-image apps |
 | [Elastic Premium](./functions-premium-plan.md) | [ZIP deployment] |
 | [Dedicated (App Service)](./dedicated-plan.md) | [ZIP deployment] |
 | [Consumption](./consumption-plan.md) | Windows: [ZIP deployment]<br/>Linux: [external package URL](./functions-deployment-technologies.md#external-package-url)<sup>*</sup> |

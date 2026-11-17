@@ -1,19 +1,20 @@
 ---
 title: Monitor SAP system from the Azure portal
-description: Learn how to monitor the health and status of your SAP system, along with important SAP metrics, using the Azure Center for SAP solutions within the Azure portal.
+description: Learn how to monitor the health and status of your SAP system, along with important SAP metrics, using the Azure Workload Center for SAP within the Azure portal.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 03/30/2026
+ms.date: 11/06/2026
 author: sagarkeswani
 ms.author: sagarkeswani
+ms.reviewer: mattmcinnes
 ms.custom: sfi-image-nochange
 #Customer intent: As a systems administrator, I want to monitor the health and status of my SAP system from the Azure portal so that I can ensure optimal performance and quickly address any issues that arise.
 ---
 
 # Monitor an SAP system from the Azure portal
 
-[Azure Center for SAP solutions](overview.md) lets you deploy and manage SAP systems as a unified workload on Azure. When you run SAP workloads in Azure, you need visibility into system health and infrastructure performance to identify degradation and resolve issues before they affect your business processes.
+By using [Azure Workload Center for SAP](overview.md), you can deploy and manage SAP systems as a unified workload on Azure. When you run SAP workloads in Azure, you need visibility into system health and infrastructure performance to identify degradation and resolve issues before they affect your business processes.
 
 In this article, you check the health and status of your SAP system and its instances, analyze infrastructure metrics such as CPU and IOPS, and configure Azure Monitor for SAP solutions for deeper platform-level monitoring.
 
@@ -26,7 +27,7 @@ In this article, you check the health and status of your SAP system and its inst
 
 ## System health
 
-The *health* of an SAP system within Azure Center for SAP solutions is based on the status of its underlying instances. Health codes also reflect the collective impact of these instances on SAP system performance.
+The *health* of an SAP system within Azure Workload Center for SAP is based on the status of its underlying instances. Health codes also reflect the collective impact of these instances on SAP system performance.
 
 Possible values for health are:
 
@@ -37,7 +38,7 @@ Possible values for health are:
 
 ## System status
 
-The *status* of an SAP system within Azure Center for SAP solutions indicates the current state of the system.
+The *status* of an SAP system within Azure Workload Center for SAP indicates the current state of the system.
 
 Possible values for status are:
 
@@ -95,13 +96,13 @@ To check basic health and status settings:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, enter `SAP on Azure`, and then select **Azure Center for SAP solutions** in the results.
+1. In the search bar, enter `SAP on Azure`, and then select **Azure Workload Center for SAP** in the results.
 
 1. On the service's page, select **Virtual Instances for SAP solutions** in the sidebar menu.
 
 1. On the page for the VIS, review the table of instances. There's an overview of health and status information for each VIS.
 
-   :::image type="content" source="media/monitor-portal/all-vis-statuses.png" lightbox="media/monitor-portal/all-vis-statuses.png" alt-text="Screenshot of the Azure Center for SAP solutions service in the Azure portal, showing a page of all VIS resources with their health and status information.":::
+   :::image type="content" source="media/monitor-portal/all-vis-statuses.png" lightbox="media/monitor-portal/all-vis-statuses.png" alt-text="Screenshot of the Azure Workload Center for SAP service in the Azure portal, showing a page of all VIS resources with their health and status information.":::
 
 1. Select the VIS you want to check.
 
@@ -135,11 +136,11 @@ To see information about SAP application server instances:
 
 ## Monitor SAP infrastructure
 
-Azure Center for SAP solutions enables you to analyze important SAP infrastructure metrics from the Azure portal.
+Azure Workload Center for SAP enables you to analyze important SAP infrastructure metrics from the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, enter `SAP on Azure`, and then select **Azure Center for SAP solutions** in the results.
+1. In the search bar, enter `SAP on Azure`, and then select **Azure Workload Center for SAP** in the results.
 
 1. On the service's page, select **SAP Virtual Instances** in the sidebar menu.
 
@@ -165,7 +166,7 @@ You can also set up or register Azure Monitor for SAP solutions to monitor SAP p
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, enter `SAP on Azure`, and then select **Azure Center for SAP solutions** in the results.
+1. In the search bar, enter `SAP on Azure`, and then select **Azure Workload Center for SAP** in the results.
 
 1. On the service's page, select **SAP Virtual Instances** in the sidebar menu.
 
@@ -242,7 +243,7 @@ If an error appears on a successfully registered or deployed Virtual Instance fo
 
 ### Error: Unable to fetch health and status data from primary SAP Central Services VM
 
-**Possible causes:**
+#### Possible causes
 
 - The SAP Central Services VM might not be running.
 - The monitoring VM extension might not be running, or it might encounter an unexpected failure on the Central Services VM.
@@ -251,7 +252,7 @@ If an error appears on a successfully registered or deployed Virtual Instance fo
 - The `sapstartsrv` process might not be running for the SAP instance or for the SAP host control agent on the primary Central Services VM.
 - The monitoring VM extension couldn't execute the script to fetch health and status information due to policies or restrictions in place on the VM.
 
-**Solution:**
+#### Solution
 
 1. If the SAP Central Services VM isn't running, start the VM and SAP services on the VM. Wait a few minutes and check whether the health and status information appears on the VIS resource.
 1. Go to the SAP Central Services VM in the Azure portal and check whether the status of **Microsoft.Workloads.MonitoringExtension** on the **Extensions + applications** tab shows **Provisioning Succeeded**. If not, create a support ticket.
@@ -262,7 +263,7 @@ If an error appears on a successfully registered or deployed Virtual Instance fo
 
 ### Error: Database status shows unavailable in the Azure portal
 
-**Possible causes:**
+#### Possible causes
 
 The database list wasn't passed to the health and status script arguments. This causes the database status to show as unavailable.
 
@@ -272,12 +273,12 @@ This error can happen in two scenarios:
 
 - You have a multi-database cluster, which also results in this error.
 
-**Solution:**
+#### Solution
 
 Make sure the HANA instance and its database are mapped to the same SID.
 
 ## Related content
 
 - [Get quality checks and insights for your VIS](get-quality-checks-insights.md)
-- [What is Azure Center for SAP solutions?](overview.md)
+- [What is Azure Workload Center for SAP?](overview.md)
 - [What is Azure Monitor for SAP solutions?](/azure/sap/monitor/about-azure-monitor-sap-solutions)

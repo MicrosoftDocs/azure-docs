@@ -12,11 +12,9 @@ ms.date: 08/10/2026
 # Customer intent: As an AI automation and integration developer, I want to create MCP server connectors in connector namespaces to use with agents and Azure services so I can manage my integrations centrally and more effectively.
 ---
 
-# Create MCP server connectors in connector namespaces for agents and Azure integrations (preview)
+# Create MCP server connectors in connector namespaces for agents and Azure integrations
 
-> [!IMPORTANT]
->
-> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions.
+This capability is only available in Azure public regions.
 
 For automation and integration, AI agents need tools that can securely call other services and systems. However, building and maintaining separately managed Model Context Protocol (MCP) servers, defining tools, and managing credentials for each integration adds significant overhead and complexity. Connector Namespace addresses this problem by centrally hosting and managing MCP servers as connectors for you. In a connector namespace resource, you can create an MCP server connector by choosing a prebuilt connector, which provides actions as tools that agents and Azure services can securely call - without needing custom server code or other infrastructure.
 

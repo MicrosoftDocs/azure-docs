@@ -277,6 +277,26 @@ items:
                 href: blob-cli.md
               - name: Convert append and page blobs to block blobs
                 href: convert-append-and-page-blobs-to-block-blobs.md
+          - name: Blob access points
+            items:
+              - name: Overview
+                href: blob-access-points-overview.md
+              - name: Create a blob access point
+                href: blob-access-points-create.md
+              - name: Connect privately (preview)
+                href: blob-access-points-private-connectivity.md
+              - name: Access data
+                href: blob-access-points-access-data.md
+              - name: Manage blob access points
+                href: blob-access-points-manage.md
+              - name: Authorize access
+                href: blob-access-points-authorize.md
+              - name: Data source requirements
+                href: blob-access-points-data-sources.md
+              - name: Limitations and known issues
+                href: blob-access-points-known-issues.md
+              - name: Troubleshoot
+                href: blob-access-points-troubleshoot.md
           - name: Blob inventory
             href: blob-inventory.md
             items:
