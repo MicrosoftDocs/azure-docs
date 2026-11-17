@@ -5,7 +5,7 @@ author: richardpaw
 ms.author: richardpaw
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/01/2026
+ms.date: 11/17/2026
 ---
 
 # Microsoft Discovery Supercomputer
@@ -102,8 +102,8 @@ In this example, AKS nodes receive IPs from the VNet subnet (`10.100.1.0/24`), p
 
 The Supercomputer uses Azure managed identities to interact with other Azure services and to manage VMs.
 
-- **Cluster identity.** A user-assigned managed identity that you assign to the Supercomputer at deployment. The control plane uses this identity to perform cluster operations such as mounting storage and pulling container images from Azure Container Registry (ACR).
-- **Node (kubelet) identity.** A second managed identity, assigned to the node VMs, that grants them access to resources such as ACR for tool images. The kubelet identity can have a narrower scope than the cluster identity, but it must hold the Managed Identity Operator role on the cluster identity. This arrangement allows node VMs to use cluster-identity privileges for specific operations without exposing credentials, maintaining separation between the control plane and the node plane.
+- **Cluster identity.** A user-assigned managed identity that you assign to the Supercomputer at deployment. The control plane uses this identity to manage cluster resources such as networking and load balancers.
+- **Node (kubelet) identity.** A second managed identity, assigned to the node VMs, used to pull tool images from Azure Container Registry (ACR). For a pre-created kubelet identity outside the AKS node resource group, AKS requires the cluster control-plane identity to have the **Managed Identity Operator** role scoped to the kubelet identity. This role permits identity assignment; it doesn't grant the kubelet the cluster identity's resource permissions. See [Pre-created kubelet managed identity](/azure/aks/managed-identity-overview#pre-created-kubelet-managed-identity) and [Discovery identity setup](concept-managed-identities.md#identity-slots-per-resource-type).
 - **Workload identities.** Discovery supports separate identities for the Supercomputer's computation, administration, and management planes. Workload identities allow the tools to use Azure identity management without having to manage secrets. 
 - **Image registry access.** Tool container images are typically stored in ACR or another container registry. The Supercomputer identities require pull access. Configure ACR to trust the Supercomputer's managed identity through Microsoft Entra ID rather than managing Docker credentials directly.
 - **Managed resource group.** Creating a Supercomputer creates a managed resource group in your subscription that holds the underlying Azure resources, such as Virtual Machine Scale Sets. Discovery manages this resource group on your behalf, separate from your other resource groups. Ensure that your subscription has sufficient quota for the VM sizes you plan to use. Deleting the Supercomputer removes the managed resource group.
@@ -124,34 +124,34 @@ The following sequence outlines how the components are deployed and used.
 1. **Monitor and complete jobs.** The control plane monitors running jobs through job queues, logs, and health checks. Users receive status updates through Copilot. When a job finishes, results are written to the designated storage and the container terminates. Idle nodes are deallocated on autoscaling pools.
 1. **Iterate and scale.** Users can review results and dispatch follow-up runs if needed. Node pools scale on demand, and administrators can resize existing pools or add new ones as workloads evolve.
 
-## Integration with Microsoft.Discovery/storages
+## Integration with storage containers and storage assets
 
-Discovery integrates Supercomputer with Azure HPC storage through the `Microsoft.Discovery/storages` resource type. For workloads that require high-performance file storage, Azure NetApp Files is a suitable option.
+In API version `2026-06-01`, Discovery integrates Supercomputer with storage through `Microsoft.Discovery/storageContainers` resources. For workloads that require high-performance file storage, a container can reference an Azure NetApp Files volume through `properties.storageStore` with `kind` set to `AzureNetAppFiles`.
 
-### DataContainers and data assets
+### Storage containers and storage assets
 
-Beyond storage infrastructure, Discovery manages scientific data through DataContainers and data assets. Both are integral to the tool execution pipeline and are defined in Discovery Projects.
+Beyond storage infrastructure, Discovery organizes scientific data through storage containers and storage assets. Both are integral to the tool execution pipeline. Storage containers are resource-group-scoped ARM resources, and storage assets are their children. Projects reference containers through `properties.storageContainerIds`; they aren't the ARM parents of these resources. See [Storage resource hierarchy](concept-storage-containers-assets.md#resource-hierarchy).
 
-#### DataContainers
+#### Storage containers
 
-A DataContainer is a logical data store that abstracts the underlying storage technology and presents a consistent interface to AI agents across Azure Blob Storage, Discovery Storage, and other backends. DataContainers provide:
+A storage container is a logical reference that abstracts the underlying Azure Blob Storage account or Azure NetApp Files volume and presents a consistent interface to AI agents. Storage containers provide:
 
 - **Storage abstraction.** Unified access across storage backends.
-- **Access control.** Credential management for secure access.
+- **Access control.** A reference that consumers use with the required identity permissions and network access, not an automatic grant of storage access.
 - **Integration.** A defined integration point between storage resources and research tools.
 
-DataContainers are represented as `Microsoft.Discovery.DataContainer` resources linked to specific storage accounts or volumes.
+Storage containers are represented as `Microsoft.Discovery/storageContainers` resources linked to specific storage accounts or volumes.
 
-#### Data assets
+#### Storage assets
 
-A data asset represents an individual file, dataset, or collection inside a DataContainer. Data assets provide:
+A storage asset represents a path to a file, dataset, or collection within its parent storage container's backend. Its resource type is `Microsoft.Discovery/storageContainers/storageAssets`. Storage assets provide:
 
 - **Organization.** Grouping by task, job, or project.
 - **Provenance.** A record of data origin and transformations.
 - **Metadata.** Descriptive attributes that improve discoverability.
 - **Tool I/O.** A structured mechanism for tools to consume and produce data.
 
-Data asset metadata describes the contents, format, and relationships of an asset, allowing assets to participate in complex workflows.
+Storage asset metadata describes the contents, format, and relationships of an asset, allowing assets to participate in complex workflows.
 
 
 ## Next step
