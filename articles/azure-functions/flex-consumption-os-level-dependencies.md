@@ -304,7 +304,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
     go build -mod=readonly -trimpath -ldflags="-s -w" -o /out/app .
 
 FROM ubuntu:24.04
-ENV FUNCTIONS_GO_DISABLE_HTTP_PROXY=1
 
 WORKDIR /home/site/wwwroot
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
