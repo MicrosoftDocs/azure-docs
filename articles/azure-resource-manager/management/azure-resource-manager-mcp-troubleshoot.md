@@ -13,7 +13,7 @@ ms.date: 10/19/2026
 
 Use this article to identify where an Azure Resource Manager (ARM) MCP server request failed: client configuration, sign-in, tool selection, or the underlying Azure operation.
 
-For current service-specific issues, see the repository's [troubleshooting guide](https://github.com/Azure/Azure-Resource-Manager-MCP/blob/main/docs/Troubleshooting.md) and [FAQ](https://github.com/Azure/Azure-Resource-Manager-MCP/blob/main/docs/FAQ.md).
+For current service-specific issues, see the repository's [FAQ](https://github.com/Azure/Azure-Resource-Manager-MCP/blob/main/docs/FAQ.md).
 
 ## The server or tools don't appear in your AI agent or harness
 
