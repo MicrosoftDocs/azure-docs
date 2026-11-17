@@ -35,6 +35,14 @@ items:
   items:
   - name: Get started
     href: getting-started.md
+  - name: App Service Builder
+    items:
+    - name: Overview
+      href: app-service-builder-overview.md
+    - name: Get started
+      href: app-service-builder-get-started.md
+    - name: Full documentation
+      href: https://builder.appservice.azure.com/docs/
   - name: .NET
     items: 
     - name: Quickstart
@@ -603,6 +611,14 @@ items:
     href: /azure/reliability/reliability-app-service?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Configure App Service for zone redundancy
     href: configure-zone-redundancy.md
+  - name: Geo-redundancy (preview)
+    items:
+      - name: Overview
+        href: overview-geo-redundancy.md
+      - name: Quickstart - Create geo-redundant applications
+        href: quickstart-geo-redundancy.md
+      - name: Configure and manage geo-redundancy
+        href: configure-geo-redundancy.md
 - name: Samples
   items:
     - name: Azure CLI

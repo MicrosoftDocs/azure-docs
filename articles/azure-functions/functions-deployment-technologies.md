@@ -3,7 +3,7 @@ title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
 ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023, build-2024
 ms.topic: concept-article
-ms.date: 08/28/2026
+ms.date: 11/09/2026
 zone_pivot_groups: functions-hosting-plan
 ---
 
@@ -44,7 +44,7 @@ Each plan has different behaviors. Not all deployment technologies are available
 | Flex Consumption package deployment | Supported | Not supported | Not supported | Not supported | Not supported |
 | ZIP deployment | Not supported | Supported | Supported | Supported | Not supported |
 | External package URL<sup>1</sup> | Not supported | Supported | Supported | Supported | Not supported |
-| Container image (Docker) | Not supported | Linux-only | Linux-only | Linux-only | Supported |
+| Container image (Docker) | [Supported (preview)](flex-consumption-os-level-dependencies.md) | Linux-only | Linux-only | Linux-only | Supported |
 | Source control | Not supported | Windows-only | Supported | Supported | Not supported |
 | Local Git<sup>1</sup> | Not supported | Windows-only | Supported | Supported | Not supported |
 | FTPS<sup>1</sup> | Not supported | Windows-only | Supported | Supported | Not supported |
@@ -145,7 +145,9 @@ The following considerations apply when using remote builds during deployment:
 
 ### Remote build
 
-For Flex Consumption, you request a remote build by passing a remote build parameter when you start deployment. You don't configure remote build by using application settings. For Core Tools and Visual Studio Code, a remote build is always requested when you deploy a Python app. For more information, see [Deployment](flex-consumption-plan.md#deployment).
+For Flex Consumption code-package deployments, you request a remote build by passing a remote build parameter when you start deployment. You don't configure remote build by using application settings. For Core Tools and Visual Studio Code, a remote build is always requested when you deploy a Python app. For more information, see [Deployment](flex-consumption-plan.md#deployment).
+
+Remote build doesn't apply when your Flex Consumption app uses a container image. You build and test the image, push it to a container registry, and then configure the app to use the image. For more information, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 ::: zone-end
 
@@ -205,13 +207,13 @@ The following deployment methods apply to your selected hosting plan. To compare
 
 ### Flex Consumption package deployment
 
-Package deployment is the only code deployment technology supported for apps on a [Flex Consumption plan](./flex-consumption-plan.md). The deployment process stores a ready-to-run .zip package in the app's deployment container, and the function app runs directly from that package.
+Package deployment is the code deployment technology for apps on a [Flex Consumption plan](./flex-consumption-plan.md) that use code packages. The deployment process stores a ready-to-run .zip package in the app's deployment container, and the function app runs directly from that package.
 
 >**How to use it:** Deploy by using the [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure) publish feature, or from the command line by using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). The [Azure DevOps task](functions-how-to-azure-devops.md#deploy-your-app) and [GitHub Action](functions-how-to-github-actions.md) similarly select the correct package deployment behavior when they detect a Flex Consumption app.
 >
 > When you create a Flex Consumption app, you must specify a deployment storage (blob) container as well as an authentication method to it. By default the same storage account as the `AzureWebJobsStorage` connection is used, with a connection string as the authentication method. Thus, your [deployment settings](flex-consumption-how-to.md#configure-deployment-settings) are configured during app create time without any need of application settings.
 
->**When to use it:** Use package deployment for all Flex Consumption code deployments. No other code deployment technology is supported.
+>**When to use it:** Use package deployment when your Flex Consumption app deploys application code as a package. To instead deploy an app by using a container image, see [Flex Consumption container image deployment](#flex-consumption-container-image-deployment).
 
 >**Where app content is stored:** When you create a Flex Consumption function app, you specify a [deployment storage container](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#deployment-sources). The deployment service stores the processed, ready-to-run package in this container. Push deployment tools first send the source package to the app's deployment endpoint; they don't upload directly to the deployment container. To change the storage location, open the **Deployment settings** page in the Azure portal or use the [Azure CLI](flex-consumption-how-to.md#configure-deployment-settings).
 
@@ -219,6 +221,16 @@ The underlying platform API is sometimes identified as `OneDeploy`. Infrastructu
 
 > [!TIP]
 > A **Flex Consumption Deployment** diagnostic tool is available in the Azure portal. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
+
+### Flex Consumption container image deployment
+
+During preview, a Flex Consumption function app can use a customer-provided container image from a container registry. The image contains the function application, one supported language worker, application dependencies, and any required OS-level dependencies. Azure supplies and operates the Functions host outside the image.
+
+> **How to use it:** Build and test the image, push an immutable image version to your chosen container registry, and then create or update the Flex Consumption app to use that image. For the supported image contract and deployment procedure, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
+>
+> **When to use it:** Use a container image when your app requires native libraries, command-line tools, fonts, drivers, or other OS-level dependencies that aren't available through the language package manager.
+>
+> **Where app content is stored:** The function application and its dependencies are stored in the container image. The image remains in your container registry and is pulled when Azure provisions app instances.
 
 ::: zone-end
 

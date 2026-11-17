@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Migrate issues | Microsoft Docs
-description: Provides an overview of known issues in the Azure Migrate service, and troubleshooting tips for common errors.
+title: Troubleshoot Azure Catalyst issues | Microsoft Docs
+description: Provides an overview of known issues in the Azure Catalyst service, and troubleshooting tips for common errors.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.service: azure-migrate
@@ -17,7 +17,7 @@ ms.custom: engagement-fy24
 
 ## How do I create or find a project?
 
-Review the [Azure Migrate project troubleshooting guide](troubleshoot-project.md).
+Review the [Azure Catalyst project troubleshooting guide](troubleshoot-project.md).
 
 ## I can't get the appliance working
 

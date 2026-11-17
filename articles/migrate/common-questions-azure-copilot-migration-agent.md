@@ -1,6 +1,6 @@
 ---
-title: Common Questions About Azure Copilot Migration Agent
-description: Get answers to common questions for Azure Copilot migration agent.
+title: Common Questions About Azure Catalyst agent
+description: Get answers to common questions for Azure Catalyst agent.
 author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain

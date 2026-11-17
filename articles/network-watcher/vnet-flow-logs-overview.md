@@ -290,6 +290,84 @@ Here's an example bandwidth calculation for flow tuples from a TCP conversation 
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1,021 + 52 + 8,005 + 47 = 9,125. The total number of bytes transferred is 588,096 + 29,952 + 4,610,880 + 27,072 = 5,256,000.
 
+## networkInterfaceIP in flow logs
+
+The `networkInterfaceIP` field adds capture-side interface context to virtual network flow-log records. It records the IP address or addresses of the network interface on which a flow was captured. This information helps you identify the resource associated with the captured flow, attribute the record to the correct resource ID, and understand where the traffic was observed along its path.
+
+Use this field to distinguish the network interface at the capture point, including interfaces that use IPv4 or dual-stack addressing. The field can also help you identify intermediate interfaces, including next-hop points, that traffic passes through when you correlate flow-log records across multiple resources.
+
+The `networkInterfaceIP` value is recorded at the flow-log record level.
+
+The following table describes common scenarios for using the field.
+
+| Scenario | How the field helps |
+|---|---|
+| Resource attribution | Helps identify the resource associated with the captured flow and attribute the flow-log record to the correct resource ID. |
+| Capture-point identification | Shows the network-interface address at the point where the flow was captured. |
+| Next-hop tracing | Helps identify intermediate interfaces and next-hop points that traffic passes through when you correlate flow logs across resources. |
+| Dual-stack visibility | Can include both IPv4 and IPv6 addresses when the captured network interface is configured for dual stack. |
+
+### Field schema and examples
+
+`networkInterfaceIP` is a record-level array of IP address strings. This field applies to the enclosing flow-log record and provides capture-interface context for that record. 
+
+| Property | Description |
+|---|---|
+| JSON type | An array of IP address strings. The array can be empty. |
+| Scope | Record level. The value identifies the network interface on which the flow was captured. |
+| IPv4 interface | The array contains the IPv4 address associated with the capture-side network interface. |
+| Dual-stack interface | The array can contain both the IPv4 and IPv6 addresses associated with the capture-side network interface. |
+| Unidentified interface IP | The field contains an empty array (`[]`) when the interface IP address can't be identified. |
+
+The following examples show the field placement and array format in a flow-log record.
+
+
+---
+
+# [**IPv4**](#tab/ipv4)
+
+```json
+{
+  "time": "<timestamp>",
+  "macAddress": "<mac-address>",
+  "networkInterfaceIP": [
+    "10.0.0.4"
+  ],
+  "category": "FlowLogFlowEvent",
+  "flowLogVersion": 4,
+  "flowRecords": {
+    ...
+  }
+}
+```
+
+# [**Dual-stack**](#tab/dualstack)
+
+
+```json
+{
+  "time": "<timestamp>",
+  "macAddress": "<mac-address>",
+  "networkInterfaceIP": [
+    "10.0.0.4",
+    "2001:db8::4"
+  ],
+  "category": "FlowLogFlowEvent",
+  "flowLogVersion": 4,
+  "flowRecords": {
+    ...
+  }
+}
+```
+
+---
+
+Use `FlowCapturedAtResourceIp` in Kusto Query Language (KQL) queries to retrieve flow records associated with a specific captured resource IP address and to perform further analysis on the resulting traffic.
+
+> [!NOTE]
+> The `networkInterfaceIP` value is always an array. The array can contain one IPv4 address, both IPv4 and IPv6 addresses for dual-stack interfaces, or no values when the interface IP address can't be identified.
+> In ingestion schemas and downstream processing, retain the field name as `networkInterfaceIP` and preserve its value as an array. Ensure that downstream consumers support both IPv4 and IPv6 address strings.
+
 ## Platform Rules
 
 #### What is a platform rule in flow logs

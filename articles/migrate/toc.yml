@@ -1,11 +1,11 @@
 items:
-- name: Azure Migrate Documentation
+- name: Azure Catalyst Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Migrate?
+  - name: What is Azure Catalyst?
     href: migrate-services-overview.md
-  - name: What is Azure Copilot Migration Agent?
+  - name: What is Azure Catalyst Agent?
     href: azure-copilot-migration-agent.md
   - name: What's new
     href: whats-new.md
@@ -127,7 +127,7 @@ items:
     href: how-to-review-discovered-inventory.md
   - name: Insights
     href: insights-overview.md
-  - name: Tags in Azure Migrate
+  - name: Tags in Azure Catalyst
     href: resource-tagging.md
   - name: Create and manage tags
     href: how-to-create-manage-tags.md
@@ -347,7 +347,7 @@ items:
     href: discover-and-assess-using-private-endpoints.md
   - name: Migrate servers to Azure using Private Link
     href: migrate-servers-to-azure-using-private-link.md
-  - name: Simplified experience for Azure migrate
+  - name: Simplified experience for Azure Catalyst
     href: simplified-experience-for-azure-migrate.md
   - name: Discovery
     items:
@@ -395,7 +395,7 @@ items:
       href: how-to-upgrade-windows.md
     - name: Automate agent-based migrations using REST API
       href: how-to-automate-vmware-to-azure-migration-rest-api.md
-    - name: Migrate to Trusted Launch or Confidential Virtual Machines with Azure Migrate
+    - name: Migrate to Trusted Launch or Confidential Virtual Machines with Azure Catalyst
       href: migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md
     - name: Scale migration
       items:
@@ -419,13 +419,13 @@ items:
     href: how-to-plan-analyze-migration-with-agent.md
 - name: Troubleshoot
   items:
-  - name: Azure Migrate project
+  - name: Azure Catalyst project
     items:
-    - name: Troubleshoot Azure Migrate projects
+    - name: Troubleshoot Azure Catalyst projects
       href: troubleshoot-project.md
-    - name: Azure Migrate in unsupported regions
+    - name: Azure Catalyst in unsupported regions
       href: azure-migrate-unsupported-regions.md
-    - name: Troubleshoot Azure Migrate
+    - name: Troubleshoot Azure Catalyst
       href: troubleshoot-general.md
   - name: Appliance configuration
     items:
@@ -481,7 +481,7 @@ items:
     href: common-questions-wave-planning.md
   - name: Migration and modernization tool
     href: common-questions-server-migration.md
-  - name: Responsible AI FAQ for Azure Copilot Migration Agent
+  - name: Responsible AI FAQ for Azure Catalyst agent
     href: common-questions-azure-copilot-migration-agent.md
 - name: Reference
   items:
@@ -514,8 +514,8 @@ items:
     href: /answers/topics/azure-migrate.html
   - name: Blog
     href: https://azure.microsoft.com/blog/product/azure-migrate/
-  - name: Azure Migrate
-    href: https://azure.microsoft.com/products/azure-migrate
+  - name: Azure Catalyst
+    href: https://go.microsoft.com/fwlink/?LinkId=2387766
   - name: Azure Roadmap
     href: https://azure.microsoft.com/updates/
   - name: Create an AVS assessment

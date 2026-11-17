@@ -1,20 +1,25 @@
 ---
-title: What's New in Azure Migrate
-description: Learn about what's new and recent updates in the Azure Migrate service.
+title: What's new in Azure Catalyst
+description: Learn about what's new and recent updates in the Azure Catalyst service.
 ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
-ms.date: 05/07/2026
+ms.date: 10/27/2026
 ms.custom: mvc, engagement-fy25
-# Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
+# Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Catalyst, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
 ---
 
-# What's new in Azure Migrate
+# What's new in Azure Catalyst
 
-[Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
+[Azure Catalyst](migrate-services-overview.md) (formerly Azure Migrate) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Catalyst.
+
+## Update (November 2026)
+
+- **Azure Migrate is now Azure Catalyst.** Azure Migrate is evolving into Azure Catalyst, bringing migration into a broader vision for intelligent, agent-powered modernization across infrastructure, applications, and data. Azure Catalyst helps organizations move from understanding their estate to planning and executing modernization on Azure and accelerating their path to AI.
+Your current migration experience and capabilities aren't impacted by this change. Existing projects and workflows continue to work as they do today.
 
 
 ## Update (September 2026)
@@ -485,6 +490,6 @@ If you're using the previous version of Azure Migrate (only assessment of on-pre
 
 ## Related content
 
-- Learn about [Azure Migrate pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
-- Review [frequently asked questions about Azure Migrate](resources-faq.md).
+- Learn about [Azure Catalyst pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
+- Review [frequently asked questions about Azure Catalyst](resources-faq.md).
 - Try tutorials to assess [VMware VMs](./tutorial-assess-vmware-azure-vm.md) and [Hyper-V VMs](tutorial-assess-hyper-v.md).

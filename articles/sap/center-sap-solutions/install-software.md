@@ -1,28 +1,29 @@
 ---
 title: Install SAP software
-description: Learn how to install SAP software on an SAP system that you created using Azure Center for SAP solutions. You can either install the SAP software with  Azure Center for SAP solutions, or install the software outside the service and detect the installed system.
+description: Learn how to install SAP software on an SAP system that you created using Azure Workload Center for SAP. You can either install the SAP software with  Azure Workload Center for SAP, or install the software outside the service and detect the installed system.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 02/02/2026
+ms.date: 11/06/2026
 author: sagarkeswani
 ms.author: sagarkeswani
+ms.reviewer: mattmcinnes
 ms.custom: sfi-ropc-nochange
-#Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
-# Customer intent: As a SAP system administrator, I want to install SAP software using Azure Center for SAP solutions, so that I can set up and manage my SAP infrastructure efficiently.
+#Customer intent: As a developer, I want to install SAP software so that I can use Azure Workload Center for SAP.
+# Customer intent: As a SAP system administrator, I want to install SAP software using Azure Workload Center for SAP, so that I can set up and manage my SAP infrastructure efficiently.
 ---
 
 # Install SAP software
 
 
-After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software. In this how-to guide, you'll learn two ways to install the SAP software for your system. Choose whichever method is appropriate for your use case. You can either:
+After you create infrastructure for your new SAP system by using *Azure Workload Center for SAP*, install the SAP software. In this how-to guide, you learn two ways to install the SAP software for your system. Choose the method that fits your use case. You can either:
 
-- [Install the SAP software through Azure Center for SAP solutions directly using the installation wizard](#install-sap-with-azure-center-for-sap-solutions).
-- [Install the SAP software outside of Azure Center for SAP solutions, then detect the installed system from the service](#install-sap-through-outside-method).
+- [Install the SAP software through Azure Workload Center for SAP directly by using the installation wizard](#install-sap-with-azure-workload-center-for-sap).
+- [Install the SAP software outside of Azure Workload Center for SAP, then detect the installed system from the service](#install-sap-through-outside-method).
 
 ## Prerequisites
 
-Review the prerequisites for your preferred installation method: [through the Azure Center for SAP solutions installation wizard](#prerequisites-for-wizard-installation) or [through an outside method](#prerequisites-for-outside-installation)
+Review the prerequisites for your preferred installation method: [through the Azure Workload Center for SAP installation wizard](#prerequisites-for-wizard-installation) or [through an outside method](#prerequisites-for-outside-installation).
 
 ### Prerequisites for wizard installation
 
@@ -31,7 +32,7 @@ Review the prerequisites for your preferred installation method: [through the Az
 - A user-assigned managed identity with **Storage Blob Data Reader** and **Reader and Data Access** roles on the Storage Account which has the SAP software. 
 - A [network set up for your SAP deployment](prepare-network.md).
 - A deployment of S/4HANA infrastructure.
-- If you are installing an SAP System through Azure Center for SAP solutions, you should have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
+- If you install an SAP system through Azure Workload Center for SAP, have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
 - If you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create a Microsoft Entra app and configure it to access Media Services API](/azure/sap/workloads/high-availability-guide-suse-pacemaker#using-service-principal). 
     - For an example, see the Red Hat documentation for [Creating a Microsoft Entra Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
     - To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal. 
@@ -45,17 +46,17 @@ Review the prerequisites for your preferred installation method: [through the Az
 - An SAP System (and underlying infrastructure resources) that is up and running.
 - Optionally, you can add fully installed application servers to the system before detecting the SAP software; then, the SAP system with additional application servers will also be detected. 
     - If you add additional application servers to this Virtual Instance for SAP solutions after infrastructure deployment, the previously created user-assigned managed identity also needs **Contributor** role access on the subscription or on the resource group under which this new application server exists.
-    - The number of application virtual machines installed should not be less than the number created during the infrastructure deployment phase in Azure Center for SAP solutions. You can still detect additional application servers.
+    - The number of application virtual machines installed should not be less than the number created during the infrastructure deployment phase in Azure Workload Center for SAP. You can still detect additional application servers.
 
 Only the following scenarios are supported for this installation method:
 
-- Infrastructure for S4/HANA was created through Azure Center for SAP solutions. The S4/HANA application was installed outside Azure Center for SAP solutions through a different tool.
-- Only S4/HANA installation done outside Azure Center for SAP solutions can be detected. If you have installed a different SAP Application than S4/HANA, the detection will fail.
-- If you want a fresh installation of S4/HANA software on the infrastructure deployed by Azure Center for SAP solutions, use the wizard installation option instead.
+- Infrastructure for S4/HANA was created through Azure Workload Center for SAP. The S4/HANA application was installed outside Azure Workload Center for SAP through a different tool.
+- Only S4/HANA installation done outside Azure Workload Center for SAP can be detected. If you have installed a different SAP Application than S4/HANA, the detection will fail.
+- If you want a fresh installation of S4/HANA software on the infrastructure deployed by Azure Workload Center for SAP, use the wizard installation option instead.
 
-## Install SAP with Azure Center for SAP solutions
+## Install SAP with Azure Workload Center for SAP
 
-To install the SAP software directly, use the Azure Center for SAP solutions installation wizard.
+To install the SAP software directly, use the Azure Workload Center for SAP installation wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -95,7 +96,7 @@ If you install the SAP software elsewhere, you need to detect the software insta
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has **Contributor** role access to the subscription or resource groups where the SAP system exists.
 
-1. Search for and select **Azure Center for SAP solutions** in the Azure portal's search bar.
+1. Search for and select **Azure Workload Center for SAP** in the Azure portal's search bar.
 
 1. Select **Virtual Instances for SAP solutions**. Then select the Virtual Instance for SAP solutions resource that you want to detect.
 
@@ -161,6 +162,6 @@ If you encounter this problem, follow these steps:
 
 ## Next steps
 
-- [Find SAP and HANA passwords](manage-virtual-instance.md) through Azure Center for SAP solutions
+- [Find SAP and HANA passwords](manage-virtual-instance.md) through Azure Workload Center for SAP.
 - [Monitor SAP system from Azure portal](monitor-portal.md)
 - [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)

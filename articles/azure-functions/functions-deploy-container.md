@@ -1,7 +1,7 @@
 ---
 title: Create your first containerized Azure Functions
 description: Get started by deploying your first function app from a Linux image in a container registry to Azure Functions.
-ms.date: 08/08/2026
+ms.date: 11/09/2026
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions-no-go
@@ -11,10 +11,13 @@ zone_pivot_groups: programming-languages-set-functions-no-go
 
 In this article, you create a function app running in a Linux container and deploy it to Azure Functions. 
 
+> [!IMPORTANT]
+> This quickstart builds and deploys a complete Function App container image to a Premium or Dedicated plan. Flex Consumption uses a worker-only container model and a different Dockerfile and deployment workflow. For Flex Consumption, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
+
 Deploying your function code to Azure Functions in a container requires [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 > [!TIP]
-> For most containerized workloads, host your function apps in Azure Container Apps instead of in a Premium or Dedicated plan. Container Apps provides a fully managed, serverless environment with built-in event-driven scaling, scale-to-zero, and GPU support. To get started, see [Create your first containerized functions on Azure Container Apps](../container-apps/functions-usage.md). 
+> For complete Function App container images that need a fully managed, serverless environment with built-in event-driven scaling, scale-to-zero, and GPU support, consider Azure Container Apps. To get started, see [Create your first containerized functions on Azure Container Apps](../container-apps/functions-usage.md).
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 

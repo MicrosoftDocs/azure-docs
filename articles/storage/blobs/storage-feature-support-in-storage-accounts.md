@@ -4,7 +4,7 @@ description: Determine the level of support for each storage account feature giv
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 05/18/2026
+ms.date: 11/06/2026
 ms.author: normesta
 # Customer intent: As a cloud architect, I want to assess the feature support for different storage account types in Azure, so that I can optimize the configuration for my organization's storage needs and ensure compatibility with enabled capabilities.
 ---
@@ -46,6 +46,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Advanced platform metrics](blob-storage-advanced-platform-metrics.md) | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;  |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Blob access points](blob-access-points-overview.md) | &#x2705; | &#x2705; | &#x2705;<sup>4</sup> | &#x2705;<sup>4</sup> |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
@@ -86,6 +87,8 @@ The following table describes whether a feature is supported in a standard gener
 
 <sup>3</sup>    Storage Analytics metrics is retired. See [Transition to metrics in Azure Monitor](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json).
 
+<sup>4</sup>    Blob access points work through the Blob Storage endpoint. NFS 3.0 and SFTP clients can't access blob access points.
+
 ## Premium block blob accounts
 
 The following table describes whether a feature is supported in a premium block blob account when you enable a hierarchical namespace (HNS), NFS 3.0 protocol, or SFTP.
@@ -99,6 +102,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Advanced platform metrics](blob-storage-advanced-platform-metrics.md) | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705; |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Blob access points](blob-access-points-overview.md) | &#x2705; | &#x2705; | &#x2705;<sup>4</sup> | &#x2705;<sup>4</sup> |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
@@ -137,6 +141,8 @@ The following table describes whether a feature is supported in a premium block 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 
 <sup>3</sup>    Storage Analytics metrics is retired. See [Transition to metrics in Azure Monitor](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json).
+
+<sup>4</sup>    Blob access points work through the Blob Storage endpoint. NFS 3.0 and SFTP clients can't access blob access points.
 
 ## See also
 
