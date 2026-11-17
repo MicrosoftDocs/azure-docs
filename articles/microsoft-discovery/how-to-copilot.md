@@ -5,7 +5,7 @@ author: surajmb
 title: Use GitHub Copilot in Microsoft Discovery
 description: Learn how to enable and use GitHub Copilot within the Microsoft Discovery Studio preview experience for AI-assisted scientific research.
 ms.topic: how-to
-ms.date: 06/05/2026
+ms.date: 11/17/2026
 ---
 
 
@@ -42,6 +42,8 @@ The following tags control feature availability:
 |-----|-------------|---------|
 | `discovery.workbench.enableGhcpAiFeatures` | Enables GitHub Copilot and AI features | `false` |
 | `discovery.workbench.enableExtensions` | Enables the VS Code Extension Marketplace | `false` |
+
+You can update these two feature tags on an existing workspace. Set `NetworkIsolation` when you create the workspace; updating the feature tags doesn't change network isolation.
 
 ### Steps to enable
 
