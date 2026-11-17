@@ -73,6 +73,9 @@ Azure Front Door uses Server Name Indication (SNI) TLS/SSL. To enable HTTPS on a
 
 ### Register Azure Front Door
 
+> [!IMPORTANT]
+> Azure Front Door (classic) uses a service principal to access your key vault and doesn't support managed identities. Service principal access to Azure Key Vault retires on September 30, 2027, but Azure Front Door (classic) retires before that date. To keep using your own certificate, [migrate to Azure Front Door Standard or Premium](tier-migration.md) and use a managed identity.
+
 Register the Azure Front Door service principal in your Microsoft Entra ID by using Azure PowerShell or Azure CLI.
 
 # [**PowerShell**](#tab/powershell)
