@@ -61,7 +61,7 @@ Azure Files supports account failover for HDD file shares configured with geo-re
 GRS and GZRS still carry a [risk of data loss](#anticipate-data-loss-during-failover) because data is copied to the secondary region asynchronously, meaning there's a delay before a write to the primary region is copied to the secondary region. In the event of an outage, write operations to the primary endpoint that haven't yet been copied to the secondary endpoint will be lost. This means a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is the RPO. Azure Files typically has an RPO of 15 minutes or less, although there's currently no SLA on how long it takes to replicate data to the secondary region.
 
 > [!IMPORTANT]
-> GRS/GZRS aren't supported for SSD file shares. However, you can [sync between two Azure file shares](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR) to achieve geographic redundancy.
+> GRS and GZRS aren't supported for SSD file shares. However, you can now copy and synchronize SMB file shares across storage accounts, Azure regions, and subscriptions within the same tenant by using Azure Storage Mover. To learn more, read [Get started with Azure Files-to-Azure Files data copy in Azure Storage Mover](../../storage-mover/azure-files-to-azure-files-copy.md).
 
 ## Design for high availability
 

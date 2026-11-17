@@ -115,6 +115,8 @@ items:
       href: migrate-virtual-machine-extension-reference.md
   - name: Discover using inventory import
     items:
+    - name: Inventory exports import (preview)
+      href: how-to-import-inventory-exports-file-import.md
     - name: CSV import
       href: tutorial-discover-import.md
     - name: RVTools import

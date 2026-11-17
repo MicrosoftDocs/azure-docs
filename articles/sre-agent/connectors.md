@@ -3,7 +3,7 @@ title: Connectors in Azure SRE Agent
 description: Use connectors to extend your agent's capabilities to external data sources, collaboration tools, and custom APIs.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 10/28/2026
+ms.date: 11/13/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -72,6 +72,8 @@ Let your agent communicate findings through the channels your team already uses.
 |-----------|-----------------|
 | Send notification (Teams) | Post findings and updates to Teams channels. |
 | Send email (Outlook) | Email investigation summaries and reports. |
+
+For agent-user chat and native request notifications, see [Teams integration](teams-integration.md) (preview). For scheduled reports and workflow-driven posts, see [notification connector setup](connect-notification-service.md).
 
 ### Custom connectors (MCP servers)
 

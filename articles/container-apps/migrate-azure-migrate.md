@@ -5,7 +5,7 @@ author: deepganguly
 ms.author: deepganguly
 ms.service: azure-container-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 11/09/2026
+ms.date: 11/10/2026
 ms.ai-usage: ai-assisted
 ---
 
@@ -54,7 +54,9 @@ Use an Azure Migrate project to build an inventory of the web apps in the source
 
 In the Azure Migrate project, use **Explore inventory** to review discovered workloads. Select **Web apps** to focus on the web app inventory.
 
-:::image type="content" source="../migrate/media/how-to-review-discovered-inventory/all-inventory.png" alt-text="Screenshot of Azure Migrate discovered inventory with Web apps available under Explore inventory." lightbox="../migrate/media/how-to-review-discovered-inventory/all-inventory.png":::
+When adding discovered workloads to an assessment, filter the workload list by **Web app** and select the apps to assess. The following example shows workload selection, not migration readiness.
+
+:::image type="content" source="media/azure-migrate/discover-web-applications.png" alt-text="Screenshot of the Select workloads pane filtered by Web app, with discovered web applications selected for assessment." lightbox="media/azure-migrate/discover-web-applications.png":::
 
 For guidance on the inventory views, see [Review discovered inventory in Azure Migrate](../migrate/how-to-review-discovered-inventory.md).
 
@@ -69,6 +71,10 @@ Assess the discovered web apps in Azure Migrate to understand migration readines
 1. Configure the applicable assessment settings, including target region, environment, and sizing criteria.
 1. Create the assessment and review readiness, migration warnings, resource recommendations, and available cost estimates.
 
+The **General** tab includes target and pricing settings and assessment criteria, such as sizing criteria and performance history.
+
+:::image type="content" source="media/azure-migrate/create-assessment.png" alt-text="Screenshot of the Create assessment General tab showing target location, pricing settings, sizing criteria, and performance history." lightbox="media/azure-migrate/create-assessment.png":::
+
 Assessment findings identify apps that are ready to move, require changes, or need further investigation. Review the findings together with operating system compatibility, dependencies, and application requirements for Container Apps.
 
 For the assessment workflow and report details, see [Create a web app assessment](../migrate/create-web-app-assessment.md) and [Review a web app assessment](../migrate/review-web-app-assessment.md).
@@ -82,11 +88,19 @@ Use the discovery and assessment results to decide which web apps to migrate to 
 - **Choose the migration approach.** Identify apps that can be containerized with limited changes and apps that require modernization before migration.
 - **Set priorities.** Consider business criticality, technical complexity, dependencies, and acceptable downtime when choosing the initial migration scope.
 
+In the assessment overview, expand **All Web applications to Azure Container Apps** to review target-specific readiness and estimated monthly costs. In the following example, the expanded section shows three apps ready for migration and one app that's not ready, with a cost estimate for the three ready apps. Estimates vary by workload and assessment settings.
+
+:::image type="content" source="media/azure-migrate/assessment-results.png" alt-text="Screenshot of the assessment overview with the Azure Container Apps section expanded to show readiness and estimated monthly costs." lightbox="media/azure-migrate/assessment-results.png":::
+
+Select the **Azure Container Apps** tab to review target-specific assessment details, including app readiness, estimated monthly costs, recommended plans, and migration issues or warnings.
+
+:::image type="content" source="media/azure-migrate/assessment-details.png" alt-text="Screenshot of the Web apps to Azure Container Apps assessment details showing three ready apps, one app that's not ready, estimated monthly costs, migration issues, and per-app recommendations." lightbox="media/azure-migrate/assessment-details.png":::
+
 Where applicable, use an [Azure Migrate business case](../migrate/how-to-build-a-business-case.md) to support the broader investment decision. Review its scope and assumptions rather than treating estimates for other workload configurations as Container Apps cost estimates.
 
 ## Plan migration
 
-After reviewing the assessment and selecting a migration path, use [wave planning in Azure Migrate (preview)](../migrate/wave-plan-overview.md) to organize the assessed applications and workloads into migration batches. Azure Migrate recommends wave assignments and sequencing based on the assessment, application mappings, and available dependency data.
+After reviewing the assessment and selecting a migration path, use [wave planning in Azure Migrate](../migrate/wave-plan-overview.md) to organize the assessed applications and workloads into migration batches. Azure Migrate recommends wave assignments and sequencing based on the assessment, application mappings, and available dependency data.
 
 1. In the Azure Migrate project, open **Plan** > **Wave plan**.
 1. Under **Planning based on assessment**, select the assessment. Under **Selected path**, select the migration path.
@@ -95,13 +109,17 @@ After reviewing the assessment and selecting a migration path, use [wave plannin
 1. Download the plan for review with application owners and stakeholders.
 1. After approval, select **Review and commit waves**, select the approved waves, and commit them.
 
+The following example shows a generated wave plan. Select the assessment and migration path appropriate to the Container Apps migration scope.
+
+:::image type="content" source="../migrate/media/how-to-configure-wave-plan/wave-plan.png" alt-text="Screenshot of the Azure Migrate Wave plan page with assessment and migration path selectors, proposed waves, and actions to configure, download, and commit the plan." lightbox="../migrate/media/how-to-configure-wave-plan/wave-plan.png":::
+
 Committing a wave accepts the plan; it doesn't start migration. Committed waves are available under **Execute** > **Waves**. For the complete workflow, see [Configure a wave plan in Azure Migrate](../migrate/how-to-configure-wave-plan.md).
 
 Use the approved application scope and assessment findings to prepare the handoff to GitHub Copilot app modernization described in the next section.
 
 ## Migrate
 
-Continue the approved migration plan in GitHub Copilot app modernization, using the Azure Migrate assessment findings, application scope, and dependency information as context. The tooling handles application code changes, validation, containerization, and deployment to Azure Container Apps.
+Continue the approved migration plan in [GitHub Copilot app modernization](/azure/developer/github-copilot-app-modernization/overview), using the Azure Migrate assessment findings, application scope, and dependency information as context. The tooling handles application code changes, validation, containerization, and deployment to Azure Container Apps.
 
 Follow the workflow for the application's language:
 

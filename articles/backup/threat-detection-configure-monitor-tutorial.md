@@ -2,7 +2,7 @@
 title: Tutorial - Configure Threat Detection and manage health of Azure VM Backups
 description: Learn how to enable threat detection for Azure VM backups using Azure Backup. The feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 ms.service: azure-backup
-ms.date: 11/20/2025
+ms.date: 11/12/2026
 ms.update-cycle: 1825-days
 ms.topic: tutorial
 author: AbhishekMallick-MS
@@ -16,9 +16,9 @@ ms.reviewer: v-mallicka
 
 This tutorial describes how to enable threat detection for Azure Virtual Machine (VM) backups and manage them using Azure Backup. This feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 
-Azure Backup now uses Microsoft Defender for Cloud (MDC) to provide threat detection for Azure VM backups. By integrating security signals and malware scans from Defender for Servers, Azure Backup automatically assesses the health of restore points during backup creation. This feature helps you quickly identify and respond to suspicious or ransomware-infected backups, ensuring safer recovery options for your VMs. 
+Azure Backup uses Microsoft Defender for Cloud (MDC) alerts to flag potentially affected recovery points and help you assess recovery options for your VMs.
 
-[Learn about Azure Backup threat detection feature and supported scenarios](threat-detection-overview.md).
+For the alert dependency and the distinction between source scanning and scanning backup content, see [How source-scan integration works](threat-detection-overview.md#how-source-scan-integration-works).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Before you enable and manage threat detection for Azure VM backups, ensure the f
 
 ## Enable threat detection for Azure VM backups
 
-You can configure source-scan at-scale at the vault level, which allows Azure Backup to perform Malware scans using Microsoft Defender at the source virtual machine. This capability allows Azure Backup to assess the health of recovery points when snapshots are taken.
+You can configure source-scan integration at scale at the vault level to use Defender for Cloud alerts when assessing recovery points.
 
 You can enable threat detection for Azure VM backups with one of the methods - Resiliency or Vault properties. After the threat detection scan is configured on the vaults, the vault applies scan status to all new restore points created for VM backups.
 
@@ -78,6 +78,17 @@ To enable threat detection for Azure VM backups from the Recovery Services Vault
 1. On the **Threat Detection (Preview)** pane, turn on **Enable source-scan integration**, accept the terms by selecting the checkbox.
 1. Select **Update**.
 
+## Validate source-scan integration
+
+Validate the Defender detection path before checking whether Azure Backup flags recovery points:
+
+1. Confirm that the source VM meets the [Defender for Servers prerequisites](#prerequisites).
+1. For Plan 2 agentless scanning, follow [Test agentless malware scanning alerts](/azure/defender-for-cloud/test-agentless-malware-scanning).
+1. Wait for the test alert to appear for the source VM on the Defender for Cloud **Alerts** page. Agentless scanning is periodic, not real-time. Use the detection timing documented in the Defender test instructions.
+1. After the alert appears, check subsequent recovery points by following [Monitor the health of Azure VM recovery points](#monitor-the-health-of-azure-vm-recovery-points). Expect affected recovery points to show **Suspicious**, subject to the [summary update delay](threat-detection-overview.md#limitations-and-known-issues). The [scan summary](threat-detection-overview.md#summary-statuses) aggregates recovery-point statuses rather than reporting only the latest detection.
+
+For how agentless scanning generates alerts, see [Agentless malware scanning for machines](/azure/defender-for-cloud/agentless-malware-scanning).
+
 ## Monitor the health of Azure VM recovery points
 
 To monitor the health of Azure VM recovery points using Resiliency, follow these steps:
@@ -106,7 +117,7 @@ To monitor the health of Azure VM recovery points using Resiliency, follow these
 
 ## Resolve threats and ensure healthy backups
 
-If a backup recovery point is flagged as **Suspicious**, all subsequent recovery points remain flagged until the related alerts are triaged and resolved.
+If a backup recovery point is flagged as **Suspicious**, all subsequent recovery points remain flagged until the related alerts are triaged and resolved in Defender for Cloud. Removing malware from the live VM alone doesn't resolve this alert dependency.
 
  To resolve the alerts, select the  alert from the **Scan details** pane and go to the Defender portal and perform one of the following actions:
 
@@ -117,15 +128,13 @@ If a backup recovery point is flagged as **Suspicious**, all subsequent recovery
 
 - For alerts managed through third-party incident management tools, resolve them in the Defender for Cloud portal.
 
-After you resolve all alerts and mark them as *resolved* in Microsoft Defender for Cloud, protected items are marked as **No threats reported**.
+After you resolve all related alerts in Microsoft Defender for Cloud, subsequent recovery points can be marked as **No Threats Reported**. Resolving an alert doesn't clean the content of existing backups. Interpret the protected item's summary using the [summary status rules](threat-detection-overview.md#summary-statuses).
 
 ## Related content
 
 - [About security features for Azure Backup](security-overview.md).
 - [About Microsoft Defender for Servers](/azure/defender-for-cloud/defender-for-servers-overview).
 - [About Microsoft Sentinel](/azure/sentinel/sentinel-overview).
-
-
 
 
 

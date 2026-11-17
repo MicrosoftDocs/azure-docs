@@ -38,18 +38,12 @@ items:
       href: azure-maps-authentication.md
     - name: Authentication best practices
       href: authentication-best-practices.md
-    - name: Azure Maps Event Grid integration
-      href: azure-maps-event-grid-integration.md
     - name: Consent management
       href: consent-management.md
     - name: Use private endpoints with Azure Maps
       href: private-endpoints.md
     - name: Azure Services that support managed identities
       href: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
-  - name: Integration
-    items:
-    - name: Azure Maps Event Grid integration
-      href: azure-maps-event-grid-integration.md
   - name: Geography & Coverage
     items:
       - name: Azure Maps geographic scope

@@ -1,7 +1,7 @@
 ---
-title: Get started with Azure Device Registry for Azure IoT Hub (preview)
+title: Get started with Azure Device Registry for Azure IoT Hub
 titleSuffix: Azure Device Registry
-description: Set up an Azure Device Registry namespace for Azure IoT Hub with guided setup in the Azure portal, or link services individually with the portal or Azure CLI.
+description: Set up an Azure Device Registry namespace for Azure IoT Hub by using the guided setup in the Azure portal, or by connecting services to a namespace individually.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to set up an Azure Device Registry namespace with either guided setup or by connecting services individually so that I can deploy or connect the resources required for my IoT devices.
 ---
 
-# Get started with Azure Device Registry for Azure IoT Hub (preview)
+# Get started with Azure Device Registry for Azure IoT Hub
 
 Set up an [Azure Device Registry](overview-device-registry.md) (ADR) namespace with Azure IoT Hub and Device Provisioning Service (DPS). Use the guided setup with new or existing IoT Hub and DPS instances, or connect the instances individually for more control. You can also enable certificate management and the software update feature where supported.
 
@@ -28,10 +28,7 @@ This article covers namespace and service setup, the first stage of connecting a
 After you finish either setup method in this article, follow [Next steps](#next-steps) to continue the remaining stages.
 
 > [!IMPORTANT]
-> Azure Device Registry integration with Azure IoT Hub is in public preview and isn't recommended for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-> [!IMPORTANT]
-> Azure Device Registry, including certificate management, is free during preview. The IoT Hub and Device Provisioning Service (DPS) instances that you use with it are billed at their standard rates. For details, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+> Azure Device Registry bills for device and asset resources, certificate authorities, and certificate issuance and renewal. The IoT Hub and Device Provisioning Service (DPS) instances that you use with it are billed at their standard rates. Groups, jobs, and software updates aren't billed during preview. For IoT Hub rates, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Prerequisites
 
@@ -62,7 +59,7 @@ New IoT Hub instances created through either portal setup method have public net
 
 Use IoT Hub and DPS instances in the namespace's region, and wait for them to finish provisioning before linking them.
 
-Enable a managed identity on both the DPS instance and each IoT Hub instance before linking them. For instructions, see [Enable a managed identity for DPS](../../iot-dps/how-to-manage-linked-iot-hubs.md#link-an-iot-hub-by-using-managed-identity-preview) and [Use managed identities in IoT Hub](../../iot-hub/iot-hub-managed-identity.md). The CLI examples in this article use system-assigned identities.
+Enable a managed identity on both the DPS instance and each IoT Hub instance before linking them. For instructions, see [Enable a managed identity for DPS](../../iot-dps/how-to-manage-linked-iot-hubs.md#link-an-iot-hub-by-using-managed-identity) and [Use managed identities in IoT Hub](../../iot-hub/iot-hub-managed-identity.md). The CLI examples in this article use system-assigned identities.
 
 IoT Hub instances must also have public network access enabled.
 
@@ -164,7 +161,7 @@ Use this path to choose resources individually or add services to an existing na
 The CLI walkthrough creates an S1 IoT Hub instance with the **Classic** connection profile and uses system-assigned managed identities. This profile supports the optional certificate-management and software update steps.
 
 > [!NOTE]
-> For the **MQTT v5 (preview)** connection profile, use the [guided setup](#use-the-guided-setup) or the Azure portal option in [Connect an IoT Hub instance](#3-connect-an-iot-hub-instance). Create a new hub or select existing hubs with that profile; all hubs in the namespace must use the same profile. After linking, go to [Verify the linked resources](#6-verify-the-linked-resources). The root CA and software update steps apply to the **Classic** connection profile.
+> For the **MQTT v5 (preview)** connection profile, use the [guided setup](#use-the-guided-setup) or the Azure portal option in [Connect an IoT Hub instance](#3-connect-an-iot-hub-instance). Create a new hub or select existing hubs with that profile; all hubs in the namespace must use the same profile. After linking, go to [Verify the linked resources](#6-verify-the-connected-resources). The root CA and software update steps apply to the **Classic** connection profile.
 
 The examples use one resource group. If you use existing DPS or IoT Hub instances in other resource groups, use each instance's resource group in its lookup commands and the namespace's resource group in the link commands.
 
@@ -366,7 +363,7 @@ Choose how to connect the IoT Hub instances:
 
 When you connect existing IoT Hub instances, acknowledge that linking them to the namespace is permanent.
 
-Select **Save** and wait for linking to finish. Then [verify the linked DPS and IoT Hub instances](#6-verify-the-linked-resources).
+Select **Save** and wait for linking to finish. Then [verify the linked DPS and IoT Hub instances](#6-verify-the-connected-resources).
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
@@ -428,7 +425,50 @@ To connect more IoT Hub instances, repeat these steps with a different IoT Hub i
 
 ### 4. Set up a root certificate authority (optional)
 
-To match guided setup with certificate management selected, create a Microsoft-issued root CA. Skip creation if the namespace already has one. Certificate management isn't supported for the **MQTT v5 (preview)** connection profile.
+# [Azure portal](#tab/azure-portal)
+
+1. In your namespace, under **Security**, select **Certificate Authorities**.
+1. Select **Create** > **Root Certificate Authority**. This option is disabled if the namespace already has a root CA.
+1. Enter a name for the root CA that's 3-63 characters long, and then select **Create**.
+1. Wait for provisioning to finish. Confirm that the root CA appears on the **Certificate Authorities** page.
+
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+Use the root CA name, namespace, and resource group variables from step 1.
+
+1. Create the root CA in the namespace:
+
+   ```azurecli
+   az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
+   ```
+
+1. Verify that provisioning succeeded and review the root CA certificate information:
+
+   ```azurecli
+   az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
+   ```
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Use the root CA name, namespace, and resource group variables from step 1.
+
+1. Create the root CA in the namespace:
+
+   ```powershell
+   az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
+   ```
+
+1. Verify that provisioning succeeded and review the root CA certificate information:
+
+   ```powershell
+   az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
+   ```
+
+---
+
+To issue device certificates, you also need an intermediate CA and a certificate policy. For instructions, see [Set up a managed root and intermediate CA](../how-to-create-policy.md).
+
+### 5. Connect software updates (optional)
 
 # [Azure portal](#tab/azure-portal)
 
@@ -510,7 +550,7 @@ Only one software update instance can connect to a namespace.
 
 ---
 
-### 6. Verify the linked resources
+### 6. Verify the connected resources
 
 # [Azure portal](#tab/azure-portal)
 

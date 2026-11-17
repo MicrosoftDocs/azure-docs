@@ -7,7 +7,7 @@ ms.author: alittleton
 ms.service: azure-nat-gateway 
 ms.topic: how-to 
 ms.customs: references_regions 
-ms.date: 08/11/2026
+ms.date: 10/29/2026
 
 #customer intent: "As a cloud engineer who uses Azure NAT Gateway, I need guidance on migrating my workloads from the Standard SKU to the StandardV2 SKU so that I can take advantage of zone redundancy with higher throughput." 
 ---
@@ -25,14 +25,16 @@ This article discusses guidance for how to migrate your subnets from a Standard 
 
 We recommend the following steps to prepare for the migration:
 
-* A StandardV2 NAT gateway requires the use of StandardV2 public IPs. Existing Standard public IPs don't work with StandardV2 NAT gateways. Make sure that you can re-IP to StandardV2 public IPs before you create a StandardV2 NAT gateway.
-* Check if you have requirements for allow lists at destination endpoints, because you have to re-IP to StandardV2 public IPs to use a StandardV2 NAT gateway.
+* A StandardV2 NAT gateway requires StandardV2 public IPs. You can't attach an address that still uses the Standard SKU.
+* Review allow lists at destination endpoints before changing your outbound public IPs.
 * Plan for application downtime during the migration. Existing connections with a Standard NAT gateway are affected when you're migrating to a StandardV2 NAT gateway.
 * Confirm which subnets in your virtual network need to be migrated to a StandardV2 NAT gateway.
 
 ## Unsupported scenarios
 
 Before you migrate to a StandardV2 NAT gateway, make sure that your specific scenario is supported. Review the following unsupported scenarios and [known issues](#known-issues) with StandardV2 NAT gateways.
+
+If you plan to use the DDoS Protection preview, use StandardV2 IPv4 or IPv6 public IP addresses or public IP prefixes. Prefixes inherit Network Protection from the associated virtual network; IP Protection requires an eligible individual StandardV2 public IP address. Custom policies for NAT Gateway aren't supported in this DDoS preview. Confirm region and cloud availability separately. For protection requirements, see [DDoS protection for NAT Gateway StandardV2](../ddos-protection/ddos-protection-nat-gateway-standardv2.md).
 
 * You must use StandardV2 public IPs with StandardV2 NAT gateways. Standard public IPs aren't supported.
 

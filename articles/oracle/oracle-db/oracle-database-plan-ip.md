@@ -30,7 +30,7 @@ The Client Subnet has the following IP address requirements:
 
 - 4 IP addresses are needed for each virtual machine. VM clusters have a minimum of 2 virtual machines. Therefore, a VM cluster with 2 virtual machines requires 8 IP addresses in the Client Subnet. Each additional virtual machine added to a VM cluster increases the number of IP addresses needed in the Client Subnet by 4 IPs.
 
-- Each VM cluster requires 3 IP addresses for [Single Client Access Names (SCANs)](https://docs.oracle.com/en/cloud/paas/exadata-cloud/csexa/connect-db-using-net-services.html), regardless of how many virtual machines are present in the VM cluster.
+- Each VM cluster requires 3 IP addresses for [Single Client Access Names (SCANs)](https://docs.oracle.com/iaas/exadatacloud/doc/ecs-connecting-to-service-inst.html), regardless of how many virtual machines are present in the VM cluster.
 
 - 13 IP addresses are reserved for networking services in the Client Subnet, regardless of how many VM clusters are present in the Client Subnet. The 13 addresses are: the first 4 IP addresses, the 9th to 16th IP address, and the last IP address.
 

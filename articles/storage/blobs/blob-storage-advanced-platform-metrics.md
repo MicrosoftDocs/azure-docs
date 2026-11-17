@@ -6,7 +6,7 @@ author: derdanu
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.author: normesta
-ms.date: 11/05/2026
+ms.date: 11/16/2026
 ms.custom:
   - "monitoring"
   - sfi-image-nochange
@@ -44,23 +44,10 @@ Both metrics support the **ContainerName** dimension, which you use to split and
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/).
 - An Azure Storage account with Blob Storage. If you need to create one, see [Create a storage account](/azure/storage/common/storage-account-create).
-- PowerShell 5.1 or later, or Azure CLI installed.
-- Install the **Az.Storage** preview PowerShell module (with admin privileges):
-
-  1. Install the latest PowerShellGet:
-
-     ```powershell
-     Install-Module PowerShellGet -Repository PSGallery -Force
-     ```
-
-  2. Close and reopen the PowerShell console.
-
-  3. Install Az.Storage preview module:
-
-     ```powershell
-     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 9.6.3-preview -AllowClobber -AllowPrerelease -Force
-     ```
-
+- One of the following: 
+  - **Azure portal** (no additional tools required).
+  - **Azure PowerShell** with the `Az.Storage` module installed (latest version recommended).
+  - **Azure CLI** (latest version recommended).
  
 ## Enable advanced platform metrics
 

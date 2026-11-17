@@ -18,9 +18,6 @@ Before you begin, make sure that you have:
 
 ## Overview
 
-> [!NOTE]
-> To create an IoT Hub that is linked to an ADR namespace, you must [use the Azure CLI](/azure/iot-hub/iot-hub-device-registry-setup?pivots=azure-cli#create-an-iot-hub-with-device-registry-integration).
-
 Use the Azure portal to create an IoT hub with Device Registry and certificate management integration.
 
 The setup process in this article includes the following steps:
@@ -126,10 +123,6 @@ Create custom policies within your Device Registry namespace to define how certi
 
 1. Select **Next**, and then select **Review + create**.
 1. To review the policy, select **Credential policies** to see the policy name and validity period.
-
-### Create an IoT hub in the Azure portal
-
-To create an IoT Hub that is linked to an ADR namespace, you must [use the Azure CLI](/azure/iot-hub/iot-hub-device-registry-setup?pivots=azure-cli#create-an-iot-hub-with-device-registry-integration).
 
 ### Assign roles to the Device Registry namespace principal ID on your IoT hub
 

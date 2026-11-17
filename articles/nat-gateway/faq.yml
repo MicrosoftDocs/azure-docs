@@ -4,7 +4,7 @@ metadata:
   description: Answers to common questions about using Azure NAT Gateway.
   ms.topic: faq
   ms.service: azure-nat-gateway
-  ms.date: 08/11/2026
+  ms.date: 10/29/2026
 
 title: Frequently asked questions for Azure NAT Gateway
 summary: |
@@ -189,7 +189,7 @@ sections:
           
       - question: Can public IP addresses with DDoS protection enabled be used with a NAT gateway? 
         answer: |
-          No, a NAT gateway doesn't support public IP addresses with DDoS protection enabled. DDoS protected IPs are generally more critical for inbound traffic, since most DDoS attacks are designed to overwhelm the target's resources by flooding them with a large volume of incoming traffic. For more information on DDoS protected IPs, see [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations).
+          Yes, DDoS Protection support for StandardV2 IPv4 and IPv6 public IP addresses associated with NAT Gateway StandardV2 is in public preview. Standard SKU NAT Gateway doesn't support DDoS-protected public IP addresses. Configure Network Protection on the associated virtual network or IP Protection on an individual public IP address; custom policy for NAT Gateway isn't supported. Network Protection inheritance requires a subnet association. DDoS protection doesn't enable unsolicited inbound connections. For prerequisites and prefix scope, see [DDoS protection for NAT Gateway StandardV2](../ddos-protection/ddos-protection-nat-gateway-standardv2.md).
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |

@@ -163,6 +163,7 @@ You can configure access control on your key vault in two ways:
 
 * Azure Front Door can use a managed identity to access your key vault. You can use this approach when your key vault uses Microsoft Entra authentication. For more information, see [Use managed identities with Azure Front Door Standard/Premium](managed-identity.md).
 * Alternatively, you can grant Azure Front Door's service principal access to your key vault. You can use this approach when you use vault access policies.
+Azure Front Door uses a managed identity to access your key vault. You can grant the managed identity access by using Azure role-based access control or a vault access policy. For more information, see [Use managed identities with Azure Front Door Standard/Premium](managed-identity.md). App registration (service principal) access to Azure Key Vault retires on **September 30, 2027**.
 
 #### Add your custom certificate to Azure Front Door
 

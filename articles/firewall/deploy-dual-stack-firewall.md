@@ -41,7 +41,8 @@ Azure Firewall's IPv6 support is designed for specific use cases and has certain
 - Reverting a dual stack firewall back to IPv4-only mode isn't supported. This temporary limitation will be removed when dual stack support becomes generally available.
 
 > [!NOTE]
-> Existing features compatible with IPv4-only firewall continue to support IPv4 in dual-stack firewall as well. The preceding limitations apply only to IPv6.
+> 1. Existing features compatible with IPv4-only firewall continue to support IPv4 in dual-stack firewall as well. The preceding limitations apply only to IPv6.  
+> 1. In Azure Firewall, FQDNs aren't supported in IPv6 network rules. Use a supported network rule configuration instead.
 
 ## Prerequisites
 

@@ -52,6 +52,31 @@ To learn more about how to estimate costs when running in a Consumption plan, se
 
 The general recommendation is for each function app to have its own Consumption plan. However, if needed, you can assign function apps in the same region to the same Consumption plan. Keep in mind that there's a [limit to the number of function apps that can run in a Consumption plan](functions-scale.md#service-limits). Function apps in the same plan still scale independently of each other.
 
+A Consumption plan is represented in Azure Resource Manager as an App Service plan (`Microsoft.Web/serverfarms`) with the `Y1` SKU and `Dynamic` tier. The resource doesn't represent virtual machines that you reserve or manage. Azure Functions manages the instances and scales function apps based on workload. Apps in the same Consumption plan scale independently.
+
+When you create a Consumption function app with `New-AzFunctionApp -Location`, the cmdlet doesn't take a plan name. Creating a named `Y1` plan separately doesn't, by itself, associate a newly created app with that plan.
+
+To move an **existing** function app to a named `Y1` plan, use Azure CLI or Azure PowerShell. The function app and target plan must be compatible.
+
+Azure CLI:
+
+```azurecli
+az functionapp update \
+  --resource-group <resource-group> \
+  --name <function-app> \
+  --plan <consumption-plan>
+```
+
+Azure PowerShell:
+
+```
+Update-AzFunctionApp `
+  -ResourceGroupName <resource-group> `
+  -Name <function-app> `
+  -PlanName <consumption-plan> `
+  -Force
+```
+
 ## Migrate to Flex Consumption
 
 If you have existing function apps running on the Consumption plan, migrate them to the Flex Consumption plan. The Flex Consumption plan provides faster scaling, reduced cold starts, virtual network integration, and configurable instance sizes. Because the Flex Consumption plan is Linux-only, Windows Consumption plan apps must also migrate to Linux as part of this process. For step-by-step instructions, including Windows-specific guidance, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).

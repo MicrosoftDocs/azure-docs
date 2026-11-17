@@ -22,6 +22,22 @@
     - name: Send telemetry using CLI
       href: quickstart-send-telemetry-cli.md
       displayName: Azure CLI
+- name: IoT Hub with MQTT v5 (preview)
+  items:
+    - name: Overview
+      href: mqtt-v5-overview.md
+    - name: Capabilities and connection profiles
+      href: mqtt-v5-capabilities.md
+    - name: Get started
+      href: mqtt-v5-get-started.md
+    - name: Configure an MQTT v5 hub
+      href: mqtt-v5-cloud-setup.md
+    - name: Configure custom topics
+      href: mqtt-v5-custom-topics.md
+    - name: Connect a device
+      href: mqtt-v5-device-setup.md
+    - name: Frequently asked questions
+      href: iot-hub-faq.md#azure-iot-hub-with-the-mqtt-v5-connection-profile
 - name: Plan and scale your IoT Hub
   items:
     - name: Choose the right IoT Hub tier
@@ -117,6 +133,8 @@
   items:
     - name: Create and read IoT Hub messages
       href: iot-hub-devguide-messages-construct.md
+    - name: Prepare telemetry for agents and analytics
+      href: iot-hub-agent-ready-data.md
     - name: Understand non-telemetry event schemas
       href: iot-hub-non-telemetry-event-schema.md
       displayName: lifecycle, state events, twin change events
@@ -198,6 +216,8 @@
     - name: Choose an IoT Hub SDK
       href: iot-hub-devguide-sdks.md
       displayName: device SDK, service SDK, management SDK, compatibility
+    - name: Unified Azure IoT SDKs
+      href: ../iot/device-registry/concept-unified-iot-sdks.md
     - name: Understand job scheduling
       href: iot-hub-devguide-jobs.md
     - name: Create back-end app to schedule jobs
@@ -289,6 +309,8 @@
       displayName: disaster recovery, failback, failover, geo-redundancy
 - name: Troubleshoot
   items:
+    - name: Investigate with Azure MCP Server
+      href: iot-hub-troubleshoot-mcp.md
     - name: Troubleshoot device connectivity
       href: iot-hub-troubleshoot-connectivity.md
     - name: Troubleshoot message routing

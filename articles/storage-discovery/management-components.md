@@ -93,6 +93,7 @@ To deploy a Discovery Workspace, user must have following access:
 | To deploy Discovery workspace | Contributor access on the subscription or the resource group| 
 | To include the subscription or resource groups in a Discovery workspace as part of *workspaceRoots* | Microsoft.Storage/storageAccounts/read access on the subscription or resource group | 
 | To view Discovery reports | Reader access on the Discovery workspace |
+| To enable advanced capacity insights | **On the Discovery workspace:** Contributor or Owner.<br>**On each tenant, subscription, or resource group included in *workspaceRoots*:** the built-in [Storage Blob Data Reader](../role-based-access-control/built-in-roles/storage.md#storage-blob-data-reader) role, plus separately granted `Microsoft.Storage/storageAccounts/read` permission. Storage Blob Data Reader provides `Microsoft.Storage/storageAccounts/blobServices/containers/read` and `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. |
 
 ## Azure Storage Discovery pricing plans
 

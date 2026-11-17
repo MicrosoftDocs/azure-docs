@@ -4,7 +4,7 @@ description: Learn how Azure SRE Agent handles your data, including how Anthropi
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: concept-article
-ms.date: 10/11/2026
+ms.date: 11/12/2026
 ms.service: azure
 ms.custom: references_regions
 ---
@@ -54,6 +54,10 @@ For the following agent regions, memory and knowledge search indexes might be st
 | West US 2 | North Central US, West US 3, or West US 2 |
 | West US 3 | North Central US or West US 3 |
 | South India | Central India |
+
+## Agent 365 observability
+
+When agent observability is turned on for an agent hosted in Microsoft’s agent development platforms, such as Microsoft Foundry and Microsoft Copilot Studio, the service processes and stores prompts and returned responses in the customer’s sign-up location if that location is Australia, Brazil, Canada, France, Germany, India, Italy, Japan, New Zealand, Norway, Poland, South Africa, South Korea, Sweden, Switzerland, the United Arab Emirates, the United Kingdom, or the United States. For all other sign-up locations, prompts and returned responses are processed and stored in the applicable M365 Macro Region Geographies. Agent and tool identifiers are processed and stored within the EU Data Boundary (EUDB) for eligible EU customers and in the United States for all other customers.
 
 ## Verify the active model provider
 

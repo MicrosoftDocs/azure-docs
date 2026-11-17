@@ -393,6 +393,9 @@ Use PLS flow log enrichment when you operate or support a service that is expose
 > [!NOTE]
 > Support for provisioning flow log version 5 by using Azure PowerShell was introduced in Az PowerShell version 16.4.0.
 
+> [!IMPORTANT]
+> Flow log version 5 Private Link context applies only to Private Link Service (PLS) traffic captured at the backend. Capturing traffic at private endpoint (PE) NICs isn't currently supported.
+
 ## Considerations for virtual network flow logs
 
 ### Storage account

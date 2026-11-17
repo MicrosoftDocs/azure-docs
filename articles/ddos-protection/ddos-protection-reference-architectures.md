@@ -5,7 +5,7 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 03/17/2026
+ms.date: 10/29/2026
 ms.author: duau
 ms.custom: fasttrack-edit, linux-related-content
 # Customer intent: "As a network architect, I want to understand Azure DDoS Protection reference architectures, so that I can effectively design resilient and secure cloud applications against DDoS attacks."
@@ -27,6 +27,7 @@ Supported resources include:
     * Firewall.
     * IaaS based Network Virtual Appliance (NVA). 
     * Load Balancer (Classic & Standard Load Balancers).
+    * NAT Gateway StandardV2, with StandardV2 IPv4 or IPv6 public IP addresses (preview).
     * Service Fabric.
     * VPN Gateway.
 * Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). 
@@ -37,7 +38,7 @@ Unsupported resources include:
 * Azure Virtual WAN.
 * Azure API Management in deployment modes other than the supported modes.
 * PaaS services (multitenant) including Azure App Service Environment for Power Apps.
-* NAT Gateway.
+* Standard SKU NAT Gateway.
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
@@ -145,6 +146,12 @@ In this architecture diagram Azure DDoS IP Protection is enabled on the public I
 > [!NOTE]
 > At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information, see [Azure DDoS Protection overview](ddos-protection-overview.md).
 For more information about hub-and-spoke topology, see [Hub-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli).
+
+## NAT Gateway StandardV2 (preview)
+
+Azure DDoS Protection can protect StandardV2 IPv4 and IPv6 public IP addresses used by Azure NAT Gateway StandardV2. Configure protection on the associated virtual network or individual public IP, not on the NAT gateway. Standard SKU NAT Gateway and custom policies for NAT Gateway aren't supported in this preview.
+
+For the architecture diagram, protection models, subnet and public IP prerequisites, monitoring, and migration guidance, see [Azure DDoS Protection for NAT Gateway StandardV2 (preview)](ddos-protection-nat-gateway-standardv2.md).
 
 ## Next steps
 

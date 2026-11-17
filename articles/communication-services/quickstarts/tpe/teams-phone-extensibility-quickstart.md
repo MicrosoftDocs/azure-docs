@@ -6,7 +6,7 @@ author: radubulboaca
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.topic: tutorial
-ms.date: 09/02/2025
+ms.date: 12/10/2025
 ms.author: radubulboaca
 ms.custom: general_availability
 services: azure-communication-services
@@ -480,6 +480,13 @@ Sample Incoming Call Event with Teams Resource Account Identifier and custom con
   "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd" 
 } 
 ```
+ > [!NOTE]
+ > A Teams Phone Extensibility (TPE) `Microsoft.Communication.IncomingCall` event can include the optional `data.callArrivalDisplayInfo` object with `teamsTenantId` and `destinationPhoneNumber`. Use these properties to improve display and client experiences, such as showing the dialed service number or tenant context.
+ >
+ > Don't use `destinationPhoneNumber` as a stable routing, authorization, or resource-account identity. Phone numbers can be reassigned and aren't available in every call scenario. Continue to use the Teams resource-account identity in `data.to` and your provisioned application configuration for routing and identity decisions.
+ >
+ > For the payload format and omission rules, see [Microsoft.Communication.IncomingCall](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
+
 
 ### CCaaS Developer: How to access media directly
 
