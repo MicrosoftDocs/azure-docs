@@ -31,7 +31,7 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 > [!NOTE]
-> Azure NetApp Files communicates with domain controllers over SMB for domain join, machine account password rotation, and SID and name lookups. For these operations, it negotiates SMB 2.1 or SMB 3.0, and it doesn't negotiate SMB 3.1. If SMB 3.0 or higher is enforced for domain controller communication, the Active Directory machine account setup can fail and SMB volume creation fails. Ensure that your domain controllers allow SMB 2.1 connections from Azure NetApp Files, or don't enforce a minimum SMB version for communication with Azure NetApp Files. For more information, see [SMB FAQs](faq-smb.md#which-smb-versions-does-azure-netapp-files-negotiate-with-domain-controllers).
+> Azure NetApp Files communicates with domain controllers over SMB for domain join, machine account password rotation, and SID and name lookups. For these operations, it negotiates SMB 2.1 or SMB 3.0, and it doesn't negotiate SMB 3.1. If you enforce SMB 3.0 or higher for domain controller communication, the Active Directory machine account setup can fail and SMB volume creation fails. Ensure that your domain controllers allow SMB 2.1 connections from Azure NetApp Files, or don't enforce a minimum SMB version for communication with Azure NetApp Files. For more information, see [SMB FAQs](faq-smb.md#which-smb-versions-does-azure-netapp-files-negotiate-with-domain-controllers).
 
 ## Register the feature
 
