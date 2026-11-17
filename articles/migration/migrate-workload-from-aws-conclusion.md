@@ -38,7 +38,7 @@ To continue improving your environment, review recommendations for post-migratio
 ## Tools and references 
 
 - [Azure for AWS professionals](/azure/architecture/aws-professional/)
-- [Azure Migrate documentation](/azure/migrate/)
+- [Azure Catalyst documentation](/azure/migrate/)
 
 ## Training
 

@@ -4,7 +4,7 @@ description: Learn how Azure Firewall Policy Analytics provides insights and cen
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/28/2026
+ms.date: 11/04/2026
 ms.author: duau
 # Customer intent: "As an IT administrator managing network security, I want to utilize Policy Analytics for Azure Firewall, so that I can optimize and automate firewall rules and policies, reducing the risks of misconfiguration and enhancing the security posture of the organization."
 ---
@@ -34,6 +34,28 @@ For the latest pricing details, see the [Azure Firewall Manager pricing](https:/
 
 > [!NOTE]
 > For the **Rules with low utilization** metric, support currently exists for a time period of 30 days only.
+
+### Policy Advisor
+
+> [!IMPORTANT]
+> Policy Advisor is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Policy Advisor (preview) adds AI-powered findings to Policy Analytics as part of the [Azure Firewall AI Security add-on](ai-security-concepts.md). It analyzes firewall policy configuration and traffic logs to help administrators find what needs attention.
+
+Findings are grouped into anomaly detection, rule hygiene, and traffic analysis. Examples include newly observed allowed or denied flows, traffic surges, and unused, duplicate, shadowed, or overlapping rules. Each finding links to its supporting evidence, such as the affected resource, the related flows or rules, and timestamps.
+
+Policy Advisor runs analysis daily and shows the results of the latest completed analysis. Each analysis compares the most recent 24 hours of activity with an earlier baseline period. Opening the findings doesn't start a new analysis.
+
+Some findings apply to the whole policy, such as duplicate, shadowed, or overlapping rules. Others apply to an individual firewall, such as traffic surges.
+
+Policy Advisor requires:
+
+- Policy Analytics enabled, with a Log Analytics workspace that receives the firewall's logs. See [Enable Policy Analytics](#enable-policy-analytics).
+- A managed identity attached to the firewall policy, with access to that Log Analytics workspace.
+- The AI Security add-on enabled on every firewall associated with the policy. If any associated firewall doesn't have the add-on, Policy Advisor doesn't generate findings for that policy.
+
+Policy Advisor doesn't change firewall policies. A finding isn't proof of an attack or proof that a change is safe. For example, an unused rule might still be required. Review the evidence before you change a policy.
 
 ## Enable Policy Analytics
 

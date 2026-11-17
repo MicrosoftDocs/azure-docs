@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 10/14/2026
+ms.date: 11/04/2026
 ms.author: duau
 # Customer intent: As a network security administrator, I want to understand all Azure Firewall features across different SKUs, so that I can choose the right version and effectively implement network security for our Azure Virtual Network resources.
 ---
@@ -170,6 +170,10 @@ Premium includes all Standard features, plus:
 - **Web category search**: Identify the category of an FQDN or URL using the **Web Category Check** feature
 - **Category change requests**: Request category changes for FQDNs or URLs that should be in different categories
 - **TLS inspection certificate management**: Support for customer-provided CA certificates for TLS inspection
+
+### AI Security add-on (preview)
+
+Azure Firewall Premium supports the optional AI Security add-on, which adds AI-powered protections and policy insights to a Premium deployment. For more information, see [Azure Firewall AI Security concepts](ai-security-concepts.md).
 
 ## Common features across all SKUs
 

@@ -29,6 +29,8 @@ landingContent:
         links:
           - text: Azure Firewall rule processing logic
             url: rule-processing.md
+          - text: Geolocation filtering
+            url: geo-ip-filtering.md
       - linkListType: concept
         links:
           - text: Azure Firewall NAT behaviors
@@ -58,6 +60,24 @@ landingContent:
         links:
           - text: Deploy and configure Azure Firewall Premium
             url: premium-deploy.md
+      - linkListType: concept
+        links:
+          - text: Azure Firewall AI Security concepts
+            url: ai-security-concepts.md
+          - text: Prompt Threat Protection concepts
+            url: prompt-threat-protection.md
+          - text: Policy Advisor
+            url: policy-analytics.md#policy-advisor
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Prompt Threat Protection
+            url: configure-prompt-threat-protection.md
+          - text: Configure Advanced Malware Threat Protection
+            url: configure-malware-protection.md
+          - text: Configure Advanced Application Threat Protection
+            url: configure-application-threat-protection.md
+          - text: Configure network data loss prevention
+            url: configure-network-dlp.md
 
 
   # Card
@@ -75,6 +95,10 @@ landingContent:
         links:
           - text: Deploy Firewall Basic
             url: deploy-firewall-basic-portal-policy.md
+          - text: Deploy Azure Firewall for Containers (preview)
+            url: deploy-firewall-for-containers.md
+          - text: Deploy Azure Firewall for Containers with Azure Resource Manager
+            url: quick-create-containers-template.md
       - linkListType: deploy
         links: 
           - text: Provision and configure Azure Firewall and Application Gateway

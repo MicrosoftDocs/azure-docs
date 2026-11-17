@@ -1,19 +1,20 @@
 ---
 title: Deploy an S/4HANA infrastructure
-description: Learn how to deploy S/4HANA infrastructure with Azure Center for SAP solutions through the Azure portal with High Availability (HA), non-HA, and single-server configurations.
+description: Learn how to deploy S/4HANA infrastructure with Azure Workload Center for SAP through the Azure portal with High Availability (HA), non-HA, and single-server configurations.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 04/22/2026
+ms.date: 11/06/2026
 ms.author: sagarkeswani
+ms.reviewer: mattmcinnes
 author: sagarkeswani
-#Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
-# Customer intent: As an IT administrator, I want to deploy S/4HANA infrastructure options using Azure Center for SAP solutions through the Azure portal, so that I can efficiently manage my SAP workloads in a reliable and scalable environment.
+#Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Workload Center for SAP so that I can manage SAP workloads in the Azure portal.
+# Customer intent: As an IT administrator, I want to deploy S/4HANA infrastructure options using Azure Workload Center for SAP through the Azure portal, so that I can efficiently manage my SAP workloads in a reliable and scalable environment.
 ---
 
-# Deploy S/4HANA infrastructure with Azure Center for SAP solutions
+# Deploy S/4HANA infrastructure with Azure Workload Center for SAP
 
-This article describes how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions*. There are three [deployment options](#deployment-types):
+This article describes how to deploy S/4HANA infrastructure in *Azure Workload Center for SAP*. There are three [deployment options](#deployment-types):
 
 * Distributed with High Availability (HA)
 * Distributed without HA
@@ -27,7 +28,7 @@ This article describes how to deploy S/4HANA infrastructure in *Azure Center for
 
 - An Azure account with **Contributor** [role](/azure/role-based-access-control/role-assignments-portal-subscription-admin) access to the subscriptions and resource groups in which you create the Virtual Instance for SAP solutions (VIS) resource.
 
-- A **User-assigned managed** [identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) that has **Contributor** role access on the subscription, or at least all resource groups (Compute, Network, and Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, provide the following roles to the identity on SAP bits storage account where you would store the SAP Media:
+- A **User-assigned managed** [identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) that has **Contributor** role access on the subscription, or at least all resource groups (Compute, Network, and Storage). If you want to install SAP Software through the Azure Workload Center for SAP, provide the following roles to the identity on SAP bits storage account where you store the SAP Media:
 
   - **Storage Blob Data Reader**
 
@@ -39,7 +40,7 @@ This article describes how to deploy S/4HANA infrastructure in *Azure Center for
 
 - [Review the quotas for your Azure subscription](/azure/quotas/view-quotas). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
 
-- Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the virtual machines (VMs). There are:
+- Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Workload Center for SAP to size your SAP system. If you're not sure, you can also select the virtual machines (VMs). There are:
 
   - A single or cluster of Advanced Business Application Programming SAP Central Services (ASCS) VMs, which make up a single ASCS instance in the VIS.
   - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
@@ -61,7 +62,7 @@ There are three deployment options that you can select for your infrastructure, 
 
 ## Supported software
 
-Azure Center for SAP solutions supports the following SAP software versions: S/4HANA 1909 ISS 00, S/4HANA 2020 ISS 00, S/4HANA 2021 ISS 00, and S/4HANA 2022 ISS 00.
+Azure Workload Center for SAP supports the following SAP software versions: S/4HANA 1909 ISS 00, S/4HANA 2020 ISS 00, S/4HANA 2021 ISS 00, and S/4HANA 2022 ISS 00.
 
 The following operating system (OS) software versions are compatible with these SAP software versions:
 
@@ -85,15 +86,15 @@ The following operating system (OS) software versions are compatible with these 
   $skuName="84sapha-gen2"
   ```
 
-- Azure Center for SAP solutions now supports deployment of SAP system VMs with custom OS images along with Azure Marketplace images. For deployment using custom OS images, follow the steps [here](deploy-s4hana.md#use-a-custom-os-image).
+- Azure Workload Center for SAP now supports deployment of SAP system VMs with custom OS images along with Azure Marketplace images. For deployment using custom OS images, follow the steps in [Use a custom OS image](deploy-s4hana.md#use-a-custom-os-image).
 
 ## Create a deployment
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, enter and select **Azure Center for SAP solutions**.
+1. In the search bar, enter and select **Azure Workload Center for SAP**.
 
-1. On the Azure Center for SAP solutions landing page, select **Create a new SAP system**.
+1. On the Azure Workload Center for SAP landing page, select **Create a new SAP system**.
 
 1. On the **Create Virtual Instance for SAP solutions** page, on the **Basics** tab, fill in the details for your project.
 
@@ -161,7 +162,7 @@ The following operating system (OS) software versions are compatible with these 
 
       You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** creates the storage account with the service default name `<SID><NFS><alphanumeric text>` in the chosen transport resource group. Creating a new transport directory creates a ZRS based replication for zonal deployments and LRS based replication for nonzonal deployments.
 
-      If your region doesn't support ZRS replication deploying a zonal VIS leads to a failure. In such cases, you can deploy a transport fileshare outside Azure Center for SAP Solutions with ZRS replication and then create a zonal VIS where you select **Use an existing SAP transport Directory** to mount the precreated fileshare.
+      If your region doesn't support ZRS replication, deploying a zonal VIS leads to a failure. In such cases, you can deploy a transport file share outside Azure Workload Center for SAP with ZRS replication and then create a zonal VIS where you select **Use an existing SAP transport Directory** to mount the precreated file share.
 
    1. If you choose to **Use an existing SAP transport Directory**, select the preexisting NFS fileshare under **File share name** option. The existing transport fileshare is only mounted on this SID. The selected fileshare shall be in the same region as the SAP system being created. Currently, file shares existing in a different region can't be selected. Provide the associated private endpoint of the  storage account where the selected fileshare exists under **Private Endpoint** option.
 
@@ -171,13 +172,13 @@ The following operating system (OS) software versions are compatible with these 
 
    1. For **SAP FQDN**, provide only the domain name for your system, such as **sap.contoso.com**.
 
-1. Under **User assigned managed identity**, provide the identity which Azure Center for SAP solutions uses to deploy infrastructure.
+1. Under **User assigned managed identity**, provide the identity which Azure Workload Center for SAP uses to deploy infrastructure.
 
    1. For **Managed identity source**, choose if you want the service to create a new managed identity or you can instead use an existing identity. To allow the service to create a managed identity, select the checkbox to consent to the identity creation and the assignment of the Contributor role to all resource groups.
 
    1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop-down menu. If you're selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you're trying to deploy.
 
-      That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group, and Resource Group that has the existing SSHKEY. If you wish to later install the SAP system using Azure Center for SAP Solutions, we also recommend giving the **Storage Blob Data Reader and Reader** and **Data Access roles** on the Storage Account that has the SAP software media.
+      That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group, and Resource Group that has the existing SSHKEY. If you wish to later install the SAP system using Azure Workload Center for SAP, we also recommend giving the **Storage Blob Data Reader and Reader** and **Data Access roles** on the Storage Account that has the SAP software media.
 
 1. Under **Managed resource settings**, choose the network settings for the managed storage account deployed into your subscription. This storage account is required for ACSS to orchestrate the deployment of new SAP system and further power all the SAP management capabilities.
 
@@ -186,11 +187,11 @@ The following operating system (OS) software versions are compatible with these 
    > [!IMPORTANT]
    > To use the secure network access option, you must enable the **Microsoft.Storage** [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) on the Application and Database subnets. You can learn more about storage account network security in [Azure Storage firewall rules](../../storage/common/storage-network-security.md). Private endpoint on managed storage account isn't currently supported in this scenario.
 
-   When you choose to limit network access to specific virtual networks, Azure Center for SAP solutions service accesses this storage account using [**trusted access**](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services) based on the managed identity associated with the VIS resource.
+   When you choose to limit network access to specific virtual networks, Azure Workload Center for SAP service accesses this storage account by using [**trusted access**](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services) based on the managed identity associated with the VIS resource.
 
 1. Select **Next: Virtual machines**.
 
-1. In the **Virtual machines** tab, generate SKU size and total VM count recommendations for each SAP instance from Azure Center for SAP solutions.
+1. In the **Virtual machines** tab, generate SKU size and total VM count recommendations for each SAP instance from Azure Workload Center for SAP.
 
    1. For **Generate Recommendation based on**, under **Get virtual machine recommendations**, select **SAP Application Performance Standard (SAPS)**.
 
@@ -208,7 +209,7 @@ The following operating system (OS) software versions are compatible with these 
 
       The number of VMs for ASCS and Database instances aren't editable. The default number for each is **2**.
 
-      Azure Center for SAP solutions automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure to select a VM SKU. Then, select **View disk configuration**. If there's more than one database server, the layout applies to each server.
+      Azure Workload Center for SAP automatically configures a database disk layout for the deployment. To view the layout for a single database server, select a VM SKU. Then, select **View disk configuration**. If there are multiple database servers, the layout applies to each server.
 
 1. Select **Next: Visualize Architecture**.
 
@@ -234,7 +235,7 @@ The following operating system (OS) software versions are compatible with these 
 
    1. Select **Next: Tags**.
 
-1. Optionally, enter tags to apply to all resources created by the Azure Center for SAP solutions process. These resources include the VIS, ASCS instances, Application Server instances, Database instances, VMs, disks, and NICs.
+1. Optionally, enter tags to apply to all resources created by the Azure Workload Center for SAP process. These resources include the VIS, ASCS instances, Application Server instances, Database instances, VMs, disks, and NICs.
 
 1. Select **Review + Create**.
 
@@ -250,13 +251,13 @@ The following operating system (OS) software versions are compatible with these 
 
 ## Use a Custom OS image
 
-You can use custom images for deployment in Azure Center for SAP Solutions from the [Azure Compute Gallery](/azure/virtual-machines/capture-image-portal#capture-a-vm-in-the-portal).
+You can use custom images for deployment in Azure Workload Center for SAP from the [Azure Compute Gallery](/azure/virtual-machines/capture-image-portal#capture-a-vm-in-the-portal).
 
 ### Custom OS image requirements
 
 - Make sure you meet the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](../../sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [install the SAP software](../../sap/center-sap-solutions/install-software.md#install-sap-software).
 
-- Before you use an image from Azure Marketplace for customization, check the [list of supported OS image](#deployment-types) versions in Azure Center for SAP Solutions. BYOI is supported on the OS version supported by Azure Center for SAP Solutions. Make sure that Azure Center for SAP Solutions has support for the image, or else the deployment fails with the following error:
+- Before you use an image from Azure Marketplace for customization, check the [list of supported OS image](#deployment-types) versions in Azure Workload Center for SAP. BYOI is supported on the OS version supported by Azure Workload Center for SAP. Ensure that Azure Workload Center for SAP supports the image, or else the deployment fails with the following error:
 
   ```error
   The resource ID provided consists of an OS image which is not supported in ACSS. Please ensure that the OS image version is supported in ACSS for a successful installation.
@@ -278,7 +279,7 @@ You can use custom images for deployment in Azure Center for SAP Solutions from 
 
 - Select the **Use a custom image** option during deployment. Choose which image to use for the application and database OS.
 
-- Azure Center for SAP Solutions validates the base operating system version of the custom OS Image is available in the supportability matrix in Azure Center for SAP Solutions. If the versions are unsupported, the deployment fails. To fix this problem, delete the VIS and infrastructure resources from the resource group, then deploy again with a supported image.
+- Azure Workload Center for SAP validates the base operating system version of the custom OS Image is available in the supportability matrix in Azure Workload Center for SAP. If the versions are unsupported, the deployment fails. To fix this problem, delete the VIS and infrastructure resources from the resource group, then deploy again with a supported image.
 
 - Make sure the image version that you're using is [compatible with the SAP software version](#deployment-types).
 

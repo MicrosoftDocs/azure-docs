@@ -1,7 +1,7 @@
 ---
 title: Work with Azure Functions in Containers
 description: Learn how to work with containerized function apps running in Linux containers in an Azure Container Apps environment.
-ms.date: 08/20/2026
+ms.date: 11/09/2026
 ms.topic: how-to
 zone_pivot_groups: functions-container-hosting
 ms.custom:
@@ -27,6 +27,9 @@ This article demonstrates the support that Azure Functions provides for function
 ::: zone-end
 
 Choose the hosting environment for your containerized function app at the top of this article.
+
+> [!IMPORTANT]
+> This article uses a complete Function App container image that includes the Functions host and is intended for Azure Container Apps or an Azure Functions Premium or Dedicated plan. Flex Consumption uses a worker-only container model and a different Dockerfile and deployment workflow. For Flex Consumption, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 If you want to jump right in, the following article shows you how to create your first function in a Linux container and deploy the image from a container registry to a supported Azure hosting service:
 
@@ -204,7 +207,7 @@ The following steps create and deploy an existing containerized function app fro
     | **Pricing plan** | Elastic Premium EP1 | `EP1` is the most affordable plan. You can choose a larger plan if you need to. |
     | **Zone Redundancy** | Disabled | You don't need this feature in a nonproduction app. |
 
-1. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
+1. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insights instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
 
 1. Select **Review + create** to review the app configuration selections.
 
@@ -297,7 +300,7 @@ The new image is deployed to your app based on your new settings.
 
 ## Use Container Apps workload profiles
 
-Workload profiles are feature of Container Apps that let you better control your deployment resources. Azure Functions on Azure Container Apps also supports workload profiles. For more information, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
+Workload profiles are a feature of Container Apps that let you better control your deployment resources. Azure Functions on Azure Container Apps also supports workload profiles. For more information, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
 
 You can also set the amount of CPU and memory resources allocated to your app.
 

@@ -86,6 +86,8 @@
       href: session-monitoring.md
     - name: Configure session recording
       href: session-recording.md
+    - name: RDP/SSH Vision
+      href: rdp-ssh-vision.md
   - name: Platform
     items:
       - name: Configure host scaling

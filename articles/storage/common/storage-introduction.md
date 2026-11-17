@@ -34,6 +34,7 @@ The Azure Storage platform includes the following data services:
 - [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary data. Also includes support for big data analytics through Data Lake Storage.
 - [Azure Files](../files/storage-files-introduction.md): Managed file shares for cloud or on-premises deployments.
 - [Azure Elastic SAN](../elastic-san/elastic-san-introduction.md): A fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN in Azure.
+- [Azure Elastic SAN Next Generation (Preview)](../elastic-san/next-generation-introduction.md): Cloud-native SAN storage with Business Critical and General Purpose quality of service (QoS) tiers for enterprise workloads. Supports independently provisioned capacity and performance, thin provisioning, and autoscaling.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
 - [Azure managed disks](/azure/virtual-machines/managed-disks-overview): Block-level storage volumes for Azure VMs.
@@ -62,6 +63,7 @@ The following table compares Azure Storage services and shows example scenarios 
 | **Azure NetApp Files** | Offers a fully managed, highly available, enterprise-grade NAS service that can handle the most demanding, high-performance, low-latency workloads requiring advanced data management capabilities. | You have a difficult-to-migrate workload such as POSIX-compliant Linux and Windows applications, SAP HANA, databases, high-performance compute (HPC) infrastructure and apps, and enterprise web applications. <br></br> You require support for multiple file-storage protocols in a single service, including NFSv3, NFSv4.1, and SMB3.1.x, enables a wide range of application lift-and-shift scenarios, with no need for code changes. |
 | **Azure Blobs** | Allows unstructured data to be stored and accessed at a massive scale in block blobs.<br/><br/>Also supports [Azure Data Lake Storage](../blobs/data-lake-storage-introduction.md) for enterprise big data analytics solutions. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere.<br/><br/>You want to build an enterprise data lake on Azure and perform big data analytics. |
 | **Azure Elastic SAN** | Azure Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability. | You want large scale storage that is interoperable with multiple types of compute resources (such as SQL, MariaDB, Azure virtual machines, and Azure Kubernetes Services) accessed via the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.|
+| **Azure Elastic SAN Next Generation (Preview)** | Provides centrally managed block storage with Business Critical and General Purpose QoS tiers, shared capacity and performance, thin provisioning, and autoscaling. | You want to migrate on-premises SAN workloads or consolidate enterprise block storage in Azure, select a QoS tier based on workload requirements, and size capacity and performance independently. |
 | **Azure Disks** | Allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to "lift and shift" applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that isn't required to be accessed from outside the virtual machine to which the disk is attached. |
 | **Azure Container Storage**| Azure Container Storage is a volume management, deployment, and orchestration service that integrates with Kubernetes and is built natively for containers. | You want to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. |
 | **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue Storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
@@ -111,6 +113,19 @@ Azure Elastic storage area network (SAN) helps you optimize and integrate your l
 Elastic SAN is designed for large-scale IO-intensive workloads and top-tier databases such as SQL and MariaDB. It supports hosting the workloads on virtual machines or containers such as Azure Kubernetes Service. Elastic SAN volumes are compatible with a wide variety of compute resources through the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol. Other benefits of Elastic SAN include a simplified deployment and management interface. You can manage storage for multiple compute resources from a single interface, and cost optimization.
 
 For more information about Azure Elastic SAN, see [What is Azure Elastic SAN?](../elastic-san/elastic-san-introduction.md)
+
+## Azure Elastic SAN Next Generation (Preview)
+
+Azure Elastic SAN Next Generation provides Business Critical and General Purpose quality of service (QoS) tiers to meet different workload requirements:
+
+- **Business Critical:** Designed for latency-sensitive and mission-critical workloads. Volume groups reserve minimum performance targets to protect workloads from competing demand within the SAN.
+- **General Purpose:** Designed for workloads that use the shared SAN performance pool.
+
+Volumes in Business Critical and General Purpose volume groups connect to Azure virtual machines by using the **Direct Attach** connection type, without requiring iSCSI client configuration. General Purpose volume groups also support the **iSCSI** connection type.
+
+Capacity, IOPS, and throughput are provisioned independently and shared across volumes. Thin provisioning helps reduce capacity overprovisioning, while autoscaling increases SAN capacity as storage needs grow.
+
+Azure Elastic SAN Next Generation is currently in preview. For more information, see [What is Azure Elastic SAN Next Generation?](../elastic-san/next-generation-introduction.md)
 
 ## Azure Container Storage
 

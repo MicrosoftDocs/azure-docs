@@ -1,19 +1,20 @@
 ---
 title: Start or stop SAP systems by using the Azure CLI
-description: Learn how to start or stop an SAP system in Azure Center for SAP solutions by using the Azure CLI.
+description: Learn how to start or stop an SAP system in Azure Workload Center for SAP by using the Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/21/2026
+ms.date: 11/06/2026
 ms.author: kanamudu
+ms.reviewer: mattmcinnes
 author: kalyaninamuduri
 # Customer intent: As an SAP system administrator, I want to start and stop SAP systems by using the Azure CLI so that I can efficiently manage system resources and optimize performance of my applications.
 ---
 
 # Start and stop SAP systems by using the Azure CLI
 
-This article shows you how to start and stop SAP systems through the Virtual Instance for SAP solutions (VIS) resource in [Azure Center for SAP solutions](overview.md) by using the Azure CLI.
+This article shows you how to start and stop SAP systems through the Virtual Instance for SAP solutions (VIS) resource in [Azure Workload Center for SAP](overview.md) by using the Azure CLI.
 
 You can start and stop:
 
@@ -30,7 +31,7 @@ You can start and stop:
 
 ## Prerequisites
 
-- An SAP system that you [created in Azure Center for SAP solutions](prepare-network.md) or [registered with Azure Center for SAP solutions](register-existing-system.md) as a VIS resource.
+- An SAP system that you [created in Azure Workload Center for SAP](prepare-network.md) or [registered with Azure Workload Center for SAP](register-existing-system.md) as a VIS resource.
 - An Azure account with the **Azure Center for SAP solutions administrator** role, or equivalent role access on the VIS resource. For more information about the granular permissions that govern start and stop actions on the VIS, individual SAP instances, and HANA database, see [Start SAP system](manage-with-azure-rbac.md#start-sap-system).
 - The underlying virtual machines (VMs) of the SAP instances must be running. This capability starts or stops the SAP application instances, not the VMs that make up the SAP system resources.
 - The `sapstartsrv` service must be running on all VMs related to the SAP system.

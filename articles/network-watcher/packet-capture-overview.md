@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/24/2026
+ms.date: 11/05/2026
 
 # Customer intent: As an administrator, I want to understand the features and configurations of the packet capture tool in Azure Network Watcher, so that I can effectively diagnose network issues and monitor traffic on my virtual machines.
 ---
@@ -15,12 +15,75 @@ ms.date: 02/24/2026
 
 Azure Network Watcher packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine (VM) or a scale set. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, debugging client-server communications, and more.
 
-Packet capture is an extension that is remotely started through Network Watcher. This capability saves time and eases the burden of running a packet capture manually on the desired virtual machine or virtual machine scale set instances.
+Packet capture supports extension-based and extensionless capture modes through Network Watcher, which saves time and eases the burden of running packet capture manually on virtual machine or virtual machine scale set instances.
 
 You can trigger packet captures through the portal, PowerShell, Azure CLI, or REST API. You can also use virtual machine alerts to trigger packet captures. You can choose to save captured data in the local disk or in Azure storage blob.
 
-> [!IMPORTANT]
-> Packet capture requires the Network Watcher agent VM extension `AzureNetworkWatcherExtension`. For more information, see [Manage Network Watcher Agent VM extension](network-watcher-agent-manage.md).
+## Capture mode
+
+Network Watcher offers two capture modes:
+
+- **Run with extension**
+
+  Installs the Network Watcher extension and is suitable for longer captures. This mode is available for VM, VMSS, and AKS target types.
+
+  Store captures locally on the target VM or in a storage account.
+
+  > [!IMPORTANT]
+  > This packet capture mode requires the Network Watcher agent VM extension `AzureNetworkWatcherExtension`. For more information, see [Manage Network Watcher Agent VM extension](network-watcher-agent-manage.md).
+
+- **Run without extension** (Preview)
+
+  Suitable for shorter captures. This mode is available for VMSS and AKS target types.
+
+  Captures for AKS are currently only at the node level and are supported for AKS Standard Linux and Windows. The maximum supported file size is 1,073,741,824 bytes (1 GB).
+
+  > [!IMPORTANT]
+  > See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Prerequisites for extensionless packet capture
+
+Before you create an extensionless packet capture, ensure your subscription and target resources have the required permissions.
+
+#### Required permissions
+
+In addition to the [Network Watcher packet capture permissions](rbac-permissions.md#packet-capture) on the Network Watcher resource, extensionless packet capture requires the following permissions and resource configuration:
+
+- `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommand/action` permission on the underlying VMSS (AKS nodes)
+- A storage account with `allowSharedKeyAccess=true`
+- Storage account firewall that allows traffic from the VMSS node outbound IP
+- A Network Watcher resource in the AKS cluster region
+
+#### Azure built-in RBAC roles
+
+- Virtual Machine Contributor on VMSS or MC resource group
+- Storage Blob Data Contributor on the storage account
+
+### Comparison table
+
+| Configuration | Setting | AKS with extension | AKS without extension | VMSS with extension | VMSS without extension |
+| --- | --- | --- | --- | --- | --- |
+| **Permissions** | User RBACs | No additional permissions | Required | No additional permissions | Required |
+| **Packet capture storage** | Packet capture storage | Local + storage account | Storage account only| Local + storage account | Storage account only |
+| **Packet capture configuration** | Continuous capture | **✓** | **—** | **✓** | **—** |
+|  | Time limit per session | 5 hours | 60 min | 5 hours | 60 min |
+|  | Max bytes per packet (truncation) | **✓** | **✓** | **✓** | **✓** |
+| **Filtering** | Packet filters (IP / port / protocol) | **✓** | **✓**<sup>1</sup> | **✓** | **✓**<sup>1</sup> |
+
+#### Common errors
+
+| Error | Action to take |
+| --- | --- |
+| **Cannot start packet capture**<br>The selected VM scale set instances already have 25 or more Managed Run Commands in total. Delete some Managed Run Commands so the total is below 25, then start the packet capture again. | This error occurs because of the [managed run command limit](../azure-resource-manager/management/azure-subscription-service-limits.md#managed-run-command-limit). For each affected instance, [list run commands](/cli/azure/vmss/run-command#az-vmss-run-command-list) and then [delete unneeded run commands](/cli/azure/vmss/run-command#az-vmss-run-command-delete), specifying the scale set with `--vmss-name` and the instance with `--instance-id`. Retry the packet capture after clearing the limit. |
+
+Limitations:
+
+- <sup>1</sup> For extensionless captures, AKS Windows port filtering isn't available.
+- You can collect captures on a maximum of 19 instances at a time.
+- For Windows-based AKS Standard clusters, packet capture files are available in ETL format. You can convert ETL to PCAPNG by using [etl2pcapng](https://github.com/microsoft/etl2pcapng).
+
+> [!WARNING]
+> Avoid long-running packet captures on AKS nodes. These captures can increase node memory usage and cause out-of-memory issues.
 
 ## Continuous packet capture
 
@@ -47,7 +110,7 @@ To control the size of captured data, use the following options:
 | Property | Description |
 | -------- | ----------- |
 | **Maximum bytes per packet (bytes)** | The number of bytes from each packet. All bytes are captured if left blank. Enter 34 if you only need to capture IPv4 header. |
-| **Time limit per session (seconds)** | Packet capture session time limit. Once the value is reached, the session ends. The default value is 18000 seconds (5 hours). |
+| **Time limit per session (seconds)** | Packet capture session time limit. Once the value is reached, the session ends. The default value is `18000` seconds (5 hours) for captures with extension. |
 
 If you're using continuous capture (preview), use the following options to control the size of captured data:
 
