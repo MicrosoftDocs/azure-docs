@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/17/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a researcher or deployer, I want to understand responsible AI practices in Microsoft Discovery so that I can use the platform safely and effectively.
 ---
@@ -162,9 +162,9 @@ Discovery provides a reference sample agent in its GitHub repository. This sampl
 
 Discovery uses Microsoft Entra ID authentication and role-based access control (RBAC). Grant only the minimum roles needed for each user or workload. Avoid broad "Owner" or subscription-wide permissions. Use user-assigned managed identities for service-to-service access and periodically review role assignments.
 
-### Maintain private-by-default network posture
+### Configure private data-plane access
 
-Discovery enables Azure Private Link by default and disables public network access for data-plane APIs. Maintain this posture by restricting access to trusted virtual networks (VNets). Use private endpoints, private DNS zones, and network security groups (NSGs) to reduce your attack surface.
+Backend network hardening doesn't make client access to Microsoft Discovery data-plane APIs private. To require private-only access, configure client private endpoints and DNS, then set `publicNetworkAccess` to `Disabled` for each workspace or bookshelf. Use private DNS zones for name resolution and network security groups (NSGs) to restrict access to trusted virtual networks (VNets) and reduce your attack surface. For more information, see [Network security](concept-network-security.md#how-private-endpoints-route-data-plane-traffic).
 
 ### Keep safety controls enabled
 
