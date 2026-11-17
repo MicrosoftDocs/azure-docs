@@ -49,7 +49,7 @@ Each Bookshelf can only contain one Knowledge Base. However, Projects can contai
 
 ### Incremental indexing
 
-Updating documents requires a full knowledge-graph rebuild, not necessarily deleting the knowledge base. For adding or removing documents and reindexing an existing knowledge base, see [Incremental enrichment and reindexing](how-to-index-bookshelf-knowledgebase.md#incremental-enrichment-and-reindexing).
+Updating documents requires a full knowledge-graph rebuild. You don't necessarily need to delete the knowledge base. For adding or removing documents and reindexing an existing knowledge base, see [Incremental enrichment and reindexing](how-to-index-bookshelf-knowledgebase.md#incremental-enrichment-and-reindexing).
 
 > [!NOTE]
 > Incremental graph indexing isn't currently supported.
