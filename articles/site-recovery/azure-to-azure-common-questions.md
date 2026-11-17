@@ -460,6 +460,10 @@ While Site Recovery makes a best effort to ensure that capacity is available in 
 
 Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations use them. No additional configuration is needed.
 
+#### Can I remove a Capacity Reservation Group from a replicating VM?
+
+No, after a Capacity Reservation Group is configured for a replicating VM, it can't be removed from the existing replication configuration. To stop using the Capacity Reservation Group, disable replication and then re-enable replication with the desired target settings.
+
 #### Where is the VM displayed, which is mapped to the reservation group after enabling capacity reservation for VMs in Azure Site Recovery in the target region?
 
 When you enable capacity reservation for VMs in Azure Site Recovery on the target region, the VM maps to the reservation group during replication. Since the target VM is not created until a test failover or actual failover is performed, you can see the mapping under *Recovery Services Vault* > **Compute** > **Capacity Reservation** settings.
