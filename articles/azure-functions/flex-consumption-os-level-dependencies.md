@@ -146,7 +146,7 @@ Don't add `FUNCTIONS_WORKER_RUNTIME` or `FUNCTIONS_EXTENSION_VERSION` to a Flex 
 
 ## Obtain the language worker
 
-Use the supported worker reference documented for your language. The Python and Node.js samples use Microsoft-managed `aka.ms` references that float to the latest supported worker artifact. Their deployment tooling resolves or hashes the current artifact so that a worker update changes the image build input.
+Use the supported worker reference documented for your language. The Python and Node.js samples use Microsoft-managed `aka.ms` references that point to the latest supported worker artifact. Their deployment tooling resolves or hashes the current artifact so that a worker update changes the image build input.
 
 Verify downloaded worker artifacts by using the published SHA-256 checksum. When a floating worker reference advances, rebuild, test, push, and redeploy the image before adopting the updated worker. For a worker supplied through an application dependency, specify the dependency version in the application project.
 
