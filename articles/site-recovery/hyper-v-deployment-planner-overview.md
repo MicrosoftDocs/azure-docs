@@ -106,7 +106,7 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 
 ## Download and extract the deployment planner tool
 
-1.	Download the latest version of the [Azure Site Recovery deployment planner](https://download.microsoft.com/download/7491a137-315d-40ca-9307-f74f913f7e6a/ASRDeploymentPlanner-v3.2.zip).
+1.	Download the latest version of the [Azure Site Recovery deployment planner](https://download.microsoft.com/download/131d184f-7bb4-4659-b580-b5bf6a19c28b/ASRDeploymentPlanner-v3.3.zip).
 The tool is packaged in a .zip folder. The same tool supports both VMware to Azure and Hyper-V to Azure disaster recovery scenarios. You can use this tool for Hyper-V-to secondary site disaster recovery scenario as well but ignore the Azure infrastructure recommendation from the report.
 
 2.	Copy the .zip folder to the Windows Server on which you want to run the tool. You can run the tool on a Windows Server 2012 R2, Windows Server 2016, or Windows Server 2022. The server must have network access to connect to the Hyper-V cluster or Hyper-V host that holds the VMs to profile. We recommend that you use the same hardware configuration for the VM where you run the tool as the Hyper-V server you want to protect. This configuration ensures that the achieved throughput the tool reports matches the actual throughput that Azure Site Recovery can achieve during replication. The throughput calculation depends on available network bandwidth on the server and hardware configuration (CPU, storage, and so forth) of the server. The throughput is calculated from the server where the tool is running to Azure. If the hardware configuration of the server differs from the Hyper-V server, the achieved throughput that the tool reports is inaccurate.
@@ -114,9 +114,9 @@ The tool is packaged in a .zip folder. The same tool supports both VMware to Azu
 3.	Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
-Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.3.zip
+Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v3.3.zip
 
-E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v3.3\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
 
@@ -133,7 +133,7 @@ If you have previous version of the deployment planner, do either of the followi
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
 ## Version history
-The latest Azure Site Recovery Deployment Planner tool version is 3.0.
+The latest Azure Site Recovery Deployment Planner tool version is 3.3.
 Refer to [Azure Site Recovery Deployment Planner Version History](/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
 
 
