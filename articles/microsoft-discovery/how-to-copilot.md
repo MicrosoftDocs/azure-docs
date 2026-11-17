@@ -106,7 +106,7 @@ Files persist in your Microsoft Discovery workspace's managed resource group acr
 
 ### Shared across the project
 
-The following resources can be shared within a project. Access depends on effective role assignments on the project and each linked resource; project membership alone doesn't grant access to all shared resources:
+You can share the following resources within a project. Access depends on effective role assignments on the project and each linked resource. Project membership alone doesn't grant access to all shared resources:
 
 - Shared sessions (investigations) and their chat history
 - Storage containers and storage assets
