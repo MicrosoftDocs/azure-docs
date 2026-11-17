@@ -292,6 +292,12 @@ Error message | Recommended action
 --|--
 Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the following steps and retry the operation:<br/> - [Ensure the MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
 
+#### MaximumDataSourceSizeExceeded
+
+Error message | Recommended action
+--|--
+The backup operation failed because the maximum allowed data source size of 1700 GB was exceeded. Reduce the amount of data included in the backup and retry the operation (0x186E9) | This error may occur during the first backup attempt when the size of the data source is 1.7 TB or larger, even if the data source size is within the supported backup size limit for the operating system. When the MARS agent detects that the data source size is 1.7 TB or larger, it updates its configuration to use the ".vhdx" file extension for VHD files generated during subsequent backup jobs. This initial error is expected behavior, and subsequent backup jobs are expected to succeed.
+
 ### MARS offline seeding using customer-owned disks (Import/Export) is not working
 
 Azure Import/Export now uses Azure Data Box APIs for offline seeding on customer-owned disks. The Azure portal also lists the Import/Export jobs created using the new API under [Azure Data Box jobs](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview) with the Model column as Import/Export.
