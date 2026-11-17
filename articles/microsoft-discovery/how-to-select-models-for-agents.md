@@ -158,7 +158,7 @@ You configure model deployments at the workspace level. All agents in a project 
 1. Under **Chat model**, select the deployment name that corresponds to the model you want to use (for example, `my-gpt-52-deployment`).
 
 1. Check which response controls the selected model supports before adjusting **Temperature** or **Top-P**. GPT-5 reasoning models don't support these parameters; see [Unsupported parameters](/azure/foundry/openai/how-to/reasoning#unsupported-parameters). For models that support temperature:
-   - For planning and routing agents, set **Temperature** to `0` to reduce randomness. This doesn't guarantee deterministic output; see [Azure OpenAI reproducible output](/azure/foundry-classic/openai/how-to/reproducible-output#parameter-details).
+   - For planning and routing agents, set **Temperature** to `0` to reduce randomness. This setting doesn't guarantee deterministic output; see [Azure OpenAI reproducible output](/azure/foundry-classic/openai/how-to/reproducible-output#parameter-details).
    - For research and analysis agents, use **Temperature** between `0.3` and `0.7` for balanced creativity and precision.
    - For exploratory or brainstorming agents, set **Temperature** between `0.7` and `1.0`.
 
