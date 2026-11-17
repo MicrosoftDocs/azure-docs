@@ -3,7 +3,7 @@ title: Chats in Azure SRE Agent
 description: Learn how chats organize conversations with your agent, including chat sources, filtering, search, chat commands, and keyboard shortcuts.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 10/28/2026
+ms.date: 11/13/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -23,13 +23,15 @@ Your agent creates chats from several different sources.
 | **Conversation** | You start a chat in the portal. |
 | **Incident** | An incident from **PagerDuty**, **ServiceNow**, or **Azure Monitor** triggers an investigation. |
 | **Scheduled task** | A [scheduled task](scheduled-tasks.md) runs and creates a chat for its output. |
-| **Teams** | You tag your agent in a Teams channel or direct message. |
+| **Teams** | With the [Teams integration](teams-integration.md) (preview), you message the agent user directly or mention it in an authorized shared conversation. |
 | **Alert** | A webhook or alert triggers your agent. |
 | **Daily report** | Automated daily summary of your agent's activity. |
 | **Best practices** | Security and operational recommendations from your agent. |
 | **Playground** | Test chats created in the [test playground](agent-playground.md). |
 | **Welcome message** | Initial welcome chat when you first access an agent. |
 | **Agent** | The agent proactively creates a chat (for example, for monitoring alerts). |
+
+Teams conversations appear as portal threads. Each channel root post has its own conversation; replies share that thread. Teams [commands and approval cards](teams-integration.md#use-commands) are separate from the portal commands.
 
 ## Chat organization
 

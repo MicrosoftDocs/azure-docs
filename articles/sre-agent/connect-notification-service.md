@@ -3,7 +3,7 @@ title: Connect a Notification Service in Azure SRE Agent
 description: Learn how to connect Office 365 Outlook, Microsoft Teams, Google Gmail, and Yammer/Viva Engage to Azure SRE Agent so your agent can send incident updates with approval.
 author: craigshoemaker
 ms.author: cshoe
-ms.date: 10/28/2026
+ms.date: 11/09/2026
 ms.topic: tutorial
 ms.service: azure-sre-agent
 ai-usage: ai-assisted
@@ -38,6 +38,9 @@ If you haven't set up a connector before, start with [Set up a managed connector
 | Yammer/Viva Engage | Microsoft Viva Engage | Preview | Sign in with OAuth | Post messages to Viva Engage communities |
 
 These notification connectors use a single sign-in. Messages come from the account you authorize, so the agent's messages appear from you or that account.
+
+> [!NOTE]
+> For agent-user chat, use the separate [Teams integration](teams-integration.md) (preview). Setting up a notification connector doesn't enable Teams chat.
 
 ## Step 1: Add the connector
 

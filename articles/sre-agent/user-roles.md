@@ -3,7 +3,7 @@ title: User Roles and Permissions in Azure SRE Agent
 description: Learn how to control who can view, interact with, and administer your agent by using Azure RBAC roles and layered access control.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 08/21/2026
+ms.date: 11/13/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -43,6 +43,19 @@ The user who creates the agent automatically receives the **SRE Agent Administra
 
 > [!NOTE]
 > You can also manage repository and GitHub credential resources through the Azure Resource Manager (ARM) extension paths under `Microsoft.App/agents/{agent}/repositories` and `Microsoft.App/agents/{agent}/githubAuths`. These paths use `extendedAgents` permissions, which the Author role includes. As a result, an operation can succeed through ARM but fail in the portal for an Author. Assign **SRE Agent Standard User** when the user needs the supported portal workflow.
+
+## Roles for Teams conversations (preview)
+
+For agents connected to [Teams](teams-integration.md), authorization depends on the conversation:
+
+| Conversation or action | Access needed |
+|---|---|
+| One-to-one chat | A chat-capable SRE Agent role, such as **SRE Agent Standard User**. Reader and Author roles don't grant chat access. |
+| Shared group, meeting chat, or channel | A conversation grant that covers the participant. It replaces the participant's ARM role check; their own SRE Agent role assignment isn't required for that conversation. |
+| Grant shared-conversation access or assign a subagent to it | **SRE Agent Administrator**. |
+| Approve or authorize a tool call | **SRE Agent Administrator** with approve permission, checked for the person taking the action in the matching conversation. A conversation grant doesn't confer this permission. |
+
+Each participant signs in through a private Teams card with their work account. Chat-capable users can select subagents one-to-one. See [Teams usage](teams-integration.md) for commands, grants, and approvals, or [Teams setup](set-up-teams-integration.md#prerequisites) for setup and disconnect requirements: administrator and agent-resource write access.
 
 ## Who should have which role?
 
