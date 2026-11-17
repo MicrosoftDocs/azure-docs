@@ -5,7 +5,7 @@ author: kaanan
 ms.author: kaanan
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/01/2026
+ms.date: 11/09/2026
 
 #CustomerIntent: As a Discovery platform user, I want to create a Bookshelf resource and index my documents into a knowledge base so that I can use it with a Discovery agent for retrieval-augmented generation queries.
 ---
@@ -111,7 +111,7 @@ The **Networking** tab configures how the Bookshelf data plane endpoint is acces
 The networking tab requires two subnet configurations:
 
 - **Private Endpoint Subnet** — Used for private connectivity to the Bookshelf data plane. Select a virtual network and subnet (for example, *discovery-uksouth-v2* / *default*).
-- **Search Subnet** — Used by the managed AI Search service created in the Bookshelf's managed resource group. The search subnet must be different from the private endpoint subnet (for example, *discovery-uksouth-v2* / *bookshelfsearch*).
+- **Search Subnet** — Used by the managed AI Search service created in the Bookshelf's managed resource group. Use a `/27` subnet or a larger address range. The search subnet must be different from the private endpoint subnet (for example, *discovery-uksouth-v2* / *bookshelfsearch*).
 
 > [!NOTE]
 > Provision a separate search subnet for each Bookshelf. You can't share search subnets across Bookshelf resources.
@@ -381,13 +381,15 @@ After you start indexing, the knowledge base **Status** changes to **Running**. 
 
 # [Discovery Studio](#tab/studio)
 
-Create the bookshelf and its knowledge base together by using the **New Bookshelf** wizard in your project, and then index it—all without switching to the Azure portal.
+Create the bookshelf and its knowledge base together by using the **New Bookshelf** wizard in your project, and then index it.
 
 Prepare your source data and identity before you start the wizard. These prerequisites are the same storage prerequisites used by the Azure portal approach:
 
 - Upload your documents to an Azure Blob Storage container. For details, see **Step 2** in the **Azure portal + Studio** tab.
 - Create a Discovery storage container resource and a storage asset that points to your documents. For details, see **Step 4** in the **Azure portal + Studio** tab.
 - Create a user-assigned managed identity and grant it the **Storage Blob Data Contributor** role on the storage account. For details, see **Step 3** in the **Azure portal + Studio** tab.
+
+Create the private endpoint subnet and a dedicated search subnet before you start the wizard. The wizard selects existing subnets; it doesn't create them. Use a `/27` search subnet or a larger address range.
 
 ## Step 1: Create a bookshelf in Discovery Studio
 
@@ -416,7 +418,7 @@ Prepare your source data and identity before you start the wizard. These prerequ
 
    - **Public network access** — Enable or disable access to the data plane endpoint over the public internet.
    - **Private Endpoint Subnet** — The virtual network and subnet used for private connectivity to the bookshelf data plane.
-   - **Search Subnet** — A separate subnet used by the managed AI Search service. The search subnet must be different from the private endpoint subnet.
+   - **Search Subnet** — A separate subnet used by the managed AI Search service. Use a `/27` subnet or a larger address range. The search subnet must be different from the private endpoint subnet.
 
    Select **Next**.
 

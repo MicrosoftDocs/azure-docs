@@ -45,6 +45,12 @@ If your workload needs fixed, protocol-specific detection thresholds instead of 
 
 Azure DDoS Protection exposes rich telemetry via [Azure Monitor](/azure/azure-monitor/overview). You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
+### Peacetime telemetry (preview)
+
+For eligible protected public IP addresses, peacetime telemetry makes existing DDoS-specific metrics available during normal operation as well as during mitigation. Use these metrics to understand TCP, UDP, SYN, and aggregate traffic patterns, compare packet rates with mitigation triggers, and configure workload-specific traffic alerts without waiting for an attack.
+
+The feature changes metric availability, not the underlying protection or mitigation-policy behavior. It doesn't change when mitigation flow logs, reports, or protection notifications are generated. For preview eligibility and viewing guidance, see [Monitor Azure DDoS Protection](monitor-ddos-protection.md#peacetime-telemetry-availability-preview).
+
 ### Azure DDoS Protection mitigation policies
 
 In the Azure portal, select **Monitor** > **Metrics**. In the **Metrics** pane, select the resource group, select a resource type of **Public IP Address**, and select your Azure public IP address. DDoS metrics are visible in the **Available metrics** pane.
@@ -59,11 +65,11 @@ For more information, see [View and configure DDoS Protection telemetry](telemet
 
 ### Metric for an IP address under DDoS attack
 
-If the public IP address is under attack, the value for the metric **Under DDoS attack or not** changes to 1 as DDoS Protection performs mitigation on the attack traffic.
+The metric **Under DDoS attack or not** reports **0** when no attack was reported for that measurement and **1** when an attack was reported. With **Max** aggregation, a displayed **1** means at least one reported value in the interval was **1**, not necessarily that an attack is still active when you view the chart. Missing data isn't a reported **0**.
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-ddos-attack.png" alt-text="Screenshot of Under DDoS attack or not metric and chart." lightbox="./media/ddos-best-practices/ddos-protection-ddos-attack.png":::
 
-We recommend configuring an alert on this metric. You'll then be notified when there’s an active DDoS mitigation performed on your public IP address.
+We recommend [configuring an alert on this metric](alerts.md). The alert evaluates reported measurements over its lookback period. Traffic data or dropped packets alone don't establish that an attack occurred.
 
 For more information, see [Manage Azure DDoS Protection using the Azure portal](manage-ddos-protection.md).
 
