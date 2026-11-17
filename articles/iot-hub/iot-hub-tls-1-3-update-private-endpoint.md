@@ -2,17 +2,17 @@
 title: Update private endpoints for TLS 1.3 on Azure IoT Hub
 description: Learn how to update Azure Private Link private endpoints so the new TLS 1.3 service and device hostnames resolve to a private IP address.
 services: iot-hub
-author: sethmanheim
+author: meenag16
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 07/14/2026
-ms.author: sethm
+ms.author: mgudapati
 ms.custom: references_regions
 ---
 
 # Update private endpoints to enable TLS 1.3 on Azure IoT Hub
 
-Azure IoT Hub supports [TLS 1.3](iot-hub-tls-support.md#tls-13-support-preview) through new device and service endpoints. As part of this change, every IoT hub exposes two additional hostnames alongside its default hostname:
+Azure IoT Hub supports [TLS 1.3](iot-hub-tls-support.md#tls-13-support) through new device and service endpoints. As part of this change, every IoT hub exposes two additional hostnames alongside its default hostname:
 
 | Endpoint | Hostname |
 | --- | --- |

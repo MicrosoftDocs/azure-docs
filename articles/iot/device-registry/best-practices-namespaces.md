@@ -26,7 +26,7 @@ Namespaces are a feature of Azure Device Registry, which works with both Azure I
 
 | Feature | Azure IoT Operations | Azure IoT Hub |
 |---|---|---|
-| Namespaces | GA | Preview |
+| Namespaces | GA | GA |
 
 ## Namespace planning
 

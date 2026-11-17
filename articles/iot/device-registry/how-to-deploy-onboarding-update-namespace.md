@@ -28,7 +28,7 @@ This article shows you how to use the Azure portal or Bicep to create an onboard
 - An Azure Device Registry namespace that your devices onboard to.
 - A software update imported into the namespace. To learn more, see [Import a software update (preview)](how-to-import-software-update.md).
 - Devices that use the software updates client in the [unified Azure IoT SDKs (preview)](concept-unified-iot-sdks.md) and check for onboarding updates before they register.
-- Software updates enabled on the namespace. To learn more, see [Get started with Azure Device Registry](get-started-azure-device-registry.md).
+- Software updates enabled on the namespace. To learn more, see [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md).
 - Azure Resource Manager control-plane permissions, such as the **Contributor** role, to create, read, update, and delete jobs.
 - To run jobs, the namespace's managed identity must have access to the software updates instance that's linked to the namespace. If you enable software updates in the Azure portal, these role assignments are created for you.
 
