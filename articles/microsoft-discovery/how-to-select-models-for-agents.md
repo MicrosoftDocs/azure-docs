@@ -31,7 +31,7 @@ This article helps you choose the right model for your agents based on task comp
 
 ## Understand available GPT-5.x models
 
-The following table summarizes the OpenAI GPT-5.x models recommended for Discovery agents.
+The following table summarizes the OpenAI GPT-5.x models recommended for Discovery agents, except for GPT-5.2-Chat, which is listed only for historical reference.
 
 | Model | Context window | Strengths | Relative cost | Response time |
 | --- | --- | --- | --- | --- |
@@ -40,10 +40,13 @@ The following table summarizes the OpenAI GPT-5.x models recommended for Discove
 | GPT-5.5 | 1,050,000 tokens | Latest reasoning capabilities with improved accuracy and instruction following | High | Medium |
 | GPT-5.2-Pro | 400,000 tokens | Deep reasoning, complex research, advanced code generation | High | Slow |
 | GPT-5.4-Pro | 1,050,000 tokens | Maximum reasoning depth with extended context | Highest | Slowest |
-| GPT-5.2-Chat | 400,000 tokens | Conversational interactions, question and answer, guidance | Medium-Low | Fast |
+| GPT-5.2-Chat (retired by Azure) | 128,000 tokens (historical) | Conversational interactions, question and answer, guidance | Not applicable | Not applicable |
 | GPT-5.4-Chat | 1,050,000 tokens | Conversational interactions with larger context | Medium | Fast |
 | GPT-5-mini | 400,000 tokens | High-volume, cost-sensitive workloads | Low | Fast |
 | GPT-5-nano | 400,000 tokens | Ultra-low-cost, latency-sensitive workloads | Lowest | Fastest |
+
+> [!NOTE]
+> Azure lists both versions of `gpt-5.2-chat` as retired: `2025-12-11` on May 13, 2026, and `2026-02-10` on June 29, 2026. It's included here only for historical reference, not as a recommendation for new deployments. See [Azure's GPT-5.2 model specifications](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-52). These provider dates don't establish the state of an existing Microsoft Discovery deployment.
 
 ## Understand available Grok models
 
@@ -91,8 +94,6 @@ Recommended models:
 
 - GPT-5.4. Handles planning and routing reliably.
 
-- GPT-5.2-Chat. A cost-effective alternative for lightweight planning tasks that don't require deep reasoning. Chat models respond faster and cost less per token.
-
 - GPT-5-mini. Suitable for simple routing decisions where the agent selects from a fixed set of options. Offers the best balance of cost and speed for straightforward classification tasks.
 
 ### Prompt agents for tool execution
@@ -111,7 +112,7 @@ Interactive agents handle question and answer, onboarding, or exploratory conver
 
 Recommended models:
 
-- GPT-5.2-Chat or GPT-5.4-Chat. Optimized for conversational interactions. Chat models provide natural, responsive dialogue, with lower latency and cost compared to their base counterparts.
+- GPT-5.4-Chat. Optimized for conversational interactions. Chat models provide natural, responsive dialogue, with lower latency and cost compared to their base counterparts.
 
 - GPT-5-mini. A strong choice for high-volume interactive scenarios if cost efficiency matters. Delivers good conversational quality at a fraction of the cost.
 
@@ -133,7 +134,7 @@ Use the following decision matrix to guide your model selection.
 | Large context requirements | GPT-5.4 | Higher cost, supports up to 1,050,000 tokens |
 | Biology and life sciences | Grok-4.20-reasoning | Fewer content restrictions on biology queries; BYOM deployment required |
 | Fast biology inference | Grok-4.20-non-reasoning | Fewer content restrictions; no chain-of-thought reasoning |
-| Fast conversational responses | GPT-5.2-Chat or GPT-5.4-Chat | Reduced reasoning depth |
+| Fast conversational responses | GPT-5.4-Chat | Reduced reasoning depth |
 | Cost optimization | GPT-5-mini | Good quality at lower cost |
 | Lowest cost and latency | GPT-5-nano | Reduced output quality, best for simple tasks |
 
