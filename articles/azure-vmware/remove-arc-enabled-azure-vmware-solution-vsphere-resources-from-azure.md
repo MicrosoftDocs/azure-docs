@@ -102,7 +102,7 @@ At this point, all of your Arc-enabled VMware vSphere resources are removed from
 
 During onboarding, to create a connection between your VMware vCenter and Azure, an Azure Arc resource bridge is deployed into your VMware vSphere environment. As the last step, you must delete the resource bridge VM as well the VM template created during the onboarding.
 
-As a last step, run the following Azure CLI command: 
+As the last step, run the following Azure CLI command: 
 
 
 ```
