@@ -214,6 +214,12 @@ items:
               - name: Configure OPC UA assets and devices
                 href: discover-manage-assets/howto-configure-opc-ua.md
                 displayName: operations, experience, device, data points, events, southbound
+              - name: Configure OPC UA WoT connectivity
+                href: discover-manage-assets/howto-configure-opc-ua-web-of-things-connectivity.md
+                displayName: Web of Things, WoT, Thing Description, TD, OPC 10100-1, mRPC, Modbus, southbound
+              - name: Configure declarative OPC UA WoT onboarding
+                href: discover-manage-assets/howto-configure-opc-ua-web-of-things-declarative-onboarding.md
+                displayName: Web of Things, WoT, Thing Description, TD, inline, declarative, materialize, reapplication, southbound
               - name: Configure OPC UA dataset heartbeats
                 href: discover-manage-assets/howto-configure-opc-ua-dataset-heartbeat.md
                 displayName: heartbeat, dataset heartbeat, watchdog, connector liveness, heartbeatDatasource, heartbeatInterval
