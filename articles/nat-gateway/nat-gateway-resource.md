@@ -5,7 +5,7 @@ author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article
 ms.custom: FY23 content-maintenance
-ms.date: 11/04/2025
+ms.date: 10/29/2026
 ms.author: alittleton
 #customer intent: As a network administrator, I want to configure and manage a NAT gateway so that I can provide secure and scalable outbound connectivity for my subnets without requiring complex routing configurations.
 ---
@@ -220,13 +220,13 @@ A StandardV2 NAT gateway can process up to 10 million packets per second. A Stan
 
 * Azure NAT Gateway doesn't support public IP addresses with a routing configuration type of **Internet**. To see a list of Azure services that do support the **Internet** routing configuration on public IPs, see [Supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services).
 
-* Azure NAT Gateway doesn't support public IPs with DDoS protection enabled. For more information, see [DDoS limitations](/azure/ddos-protection/ddos-protection-sku-comparison#limitations).
+* Standard SKU NAT Gateway doesn't support public IP addresses with DDoS protection enabled. DDoS Protection for StandardV2 IPv4 and IPv6 public IP addresses associated with NAT Gateway StandardV2 is in preview. Custom policies for NAT Gateway aren't supported in this DDoS preview. For protection models and prerequisites, see [DDoS protection for NAT Gateway StandardV2](../ddos-protection/ddos-protection-nat-gateway-standardv2.md).
   
 * Azure NAT Gateway isn't supported in a secured virtual hub network (vWAN) architecture.
 
 * You can't upgrade a Standard NAT gateway to a StandardV2 NAT gateway. To achieve zone resiliency for architectures that use zonal NAT gateways, you must deploy a StandardV2 NAT gateway to replace the Standard SKU NAT gateway.
 
-* You can't use Standard public IPs with a StandardV2 NAT gateway. You must re-IP to new StandardV2 public IPs to use a StandardV2 NAT gateway.
+* You can't attach a public IP address that still uses the Standard SKU to a StandardV2 NAT gateway. Use a compatible StandardV2 public IP address.
 
 * NAT Gateway doesn't support connection continuity for existing flows when a virtual machine undergoes live migration. Existing connections through the NAT gateway might be disrupted and need to be reestablished after the migration completes.
 

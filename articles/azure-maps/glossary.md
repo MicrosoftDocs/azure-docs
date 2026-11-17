@@ -565,7 +565,6 @@ The following list describes common words used with the Azure Maps services.
 [Radial search]: #radial-search
 [Raster data]: #raster-data
 [Raster tile]: #raster-tile
-[React to Azure Maps events by using Event Grid]: azure-maps-event-grid-integration.md
 [Reachable range]: #reachable-range
 [Read and write spatial data]: spatial-io-read-write-spatial-data.md
 [Regional view]: #regional-view

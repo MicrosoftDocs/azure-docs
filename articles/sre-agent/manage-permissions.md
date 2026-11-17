@@ -2,7 +2,7 @@
 title: Manage Permissions for Azure SRE Agent
 description: Add or remove managed resource groups, change permission levels, and grant subscription-level access for your Azure SRE Agent.
 ms.topic: how-to
-ms.date: 10/28/2026
+ms.date: 11/13/2026
 ms.service: azure-sre-agent
 author: craigshoemaker
 ms.author: cshoe
@@ -40,6 +40,9 @@ To remove a resource group, select it in the list and select **Remove**.
 > [!TIP]
 > After you save, verify that the resource groups you added appear in the **Managed resources** list.
 
+> [!NOTE]
+> The UAMI is the default resource-access identity. Creating a governed Agent ID or connecting Teams doesn't change that selection or copy role assignments. See [Agent identity](agent-identity.md).
+
 ## Set the permission level
 
 Permission levels control what your agent can do with managed resources. The following table summarizes the available levels:
@@ -65,12 +68,16 @@ The portal shows which Azure RBAC roles are assigned, such as Log Analytics Read
 
 For broader access than individual resource groups provide, grant the agent **Reader** on your entire subscription.
 
+Assign the role to the identity configured for resource access: the default UAMI, or the Microsoft Entra agent identity if you selected it. Don't assign this resource-access role to the associated agent user.
+
 1. Go to **Settings** > **General** in your agent.
-1. Select the **Managed identity** link to open it in the Azure portal.
+1. Record the configured identity's object (principal) ID:
+   - **UAMI:** Select the **Managed identity** link to open it in the Azure portal, then copy its **Object (principal) ID**.
+   - **Agent ID:** Note the name in **Agent identity**, find that governed identity in Microsoft Entra in the same tenant, and copy its **Object ID**, not the associated agent user's ID.
 1. Navigate to your subscription's **Access control (IAM)**.
 1. Select **Add role assignment**.
 1. Select the **Reader** role.
-1. Assign it to the agent's managed identity.
+1. Assign it to the selected identity using the object (principal) ID you recorded.
 
 Subscription-level access gives the agent visibility into all resources in the subscription without adding individual resource groups.
 

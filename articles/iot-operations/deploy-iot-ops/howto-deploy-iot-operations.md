@@ -1,12 +1,12 @@
 ---
 title: Deploy Azure IoT Operations to a Production Cluster
-description: Use the Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
+description: Use the Azure portal or follow the Azure CLI-only deployment path to deploy Azure IoT Operations with secure settings.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/18/2025
+ms.date: 11/12/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
@@ -14,7 +14,16 @@ ai-usage: ai-assisted
 
 # Deploy Azure IoT Operations to a production cluster
 
-Learn how to deploy Azure IoT Operations to a Kubernetes cluster with secure settings for production using the Azure portal.
+Learn how to deploy Azure IoT Operations to a Kubernetes cluster with secure settings for production by using the Azure portal or Azure CLI.
+
+Choose a deployment method and use the links to navigate this article:
+
+| Section | What it covers |
+| --- | --- |
+| [Prerequisites](#prerequisites) | Prepare your cluster, tools, and Azure permissions. |
+| [Deploy in Azure portal](#deploy-in-azure-portal) | Configure deployment in the portal, then run the generated Azure CLI commands. |
+| [Deploy using Azure CLI](howto-deploy-iot-operations-cli.md) | Create or select dependencies and deploy with Bash or PowerShell, without the portal wizard. |
+| [Verify deployment](#verify-deployment) | Check the deployed services for health and configuration issues. |
 
 If you deployed a [test instance](./howto-deploy-iot-test-operations.md) of Azure IoT Operations to a cluster and you want to use the same cluster for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](../secure-iot-ops/howto-enable-secure-settings.md).
 
@@ -97,7 +106,7 @@ A cluster host:
 
 1. Select **Automation**.
 
-## Run Azure CLI commands
+### Run Azure CLI commands
 
 [!INCLUDE [deploy-iot-ops-cli-commands-intro](../includes/deploy-iot-ops-cli-commands-intro.md)]
 
@@ -145,7 +154,7 @@ A cluster host:
    > [!IMPORTANT]
    > The default version of this command assigns an identity for data flows. If you plan to use data flow graphs, include the `--usage` parameter with the value `wasm-graph`.
 
-1. Restart the schema registry pods to apply the new identity. 
+1. Restart the schema registry pods to apply the new identity.
 
    ```azurecli
    kubectl rollout restart statefulset adr-schema-registry -n azure-iot-operations
@@ -153,7 +162,7 @@ A cluster host:
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
-Once the `create` command completes successfully, you have a working Azure IoT Operations instance running on your cluster. At this point, your instance is configured for production scenarios.
+Once all the preceding deployment, secret synchronization, identity, and restart steps complete successfully, your Azure IoT Operations instance is configured for production scenarios.
 
 ## Verify deployment
 

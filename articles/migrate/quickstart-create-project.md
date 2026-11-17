@@ -36,28 +36,19 @@ Follow these steps to create an Azure Migrate project for the first time:
 1. In the Azure portal, search for *Azure Migrate*.
 1. In **Services**, select **Azure Migrate**.
 1. In **Get started**, select **Create project**.
-
-   :::image type="content" source="./media/quickstart-create-project/assess-migrate-servers-inline.png" alt-text="Screenshot displays the options in Overview." lightbox="./media/quickstart-create-project/assess-migrate-servers-expanded.png":::
-
 1. In **Create project**, select the **Subscription** and **Resource group**. 
 1. Select **Create new** to create a new **Resource group** if you don't have one.   
-
-    :::image type="content" source="./media/quickstart-create-project/create-project.png" alt-text="Screenshot shows how to create a new resource group and Azure Migrate page to input project settings." lightbox="./media/quickstart-create-project/create-project.png":::
-
 1. In **Project Details**, specify the project name and the geography in which you want to create the project.
     - The geography is only used to store the metadata gathered from on-premises servers. You can assess or migrate servers for any target region regardless of the selected geography. 
     - Review supported geographies for [public] [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government). 
 
-
     > [!NOTE]
     > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
-
-1. Select **Create**.
-
-     :::image type="content" source="./media/quickstart-create-project/project-details.png" alt-text="Image of Azure Migrate page to input project settings." lightbox="./media/quickstart-create-project/project-details.png":::
-
-
-Wait for a few minutes for the project to deploy.
+1. Specify the **Artifact store**.
+   1. The artifact store is a storage account that contains project artifacts, including assessments and wave plans.
+   2. By default, the portal creates a new storage account in the same subscription and resource group as the Azure Migrate project. You can create the storage account in a different subscription or resource group, or select an existing storage account.
+   3. If you select a different resource group, you must have the Azure Migrate Owner role on that resource group to create a new storage account or use an existing one.
+1. Select **Create**. Wait a few minutes for the project to deploy.
 
 ## Create a project in a specific region
 

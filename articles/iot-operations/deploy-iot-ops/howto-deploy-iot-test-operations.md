@@ -1,12 +1,12 @@
 ---
 title: Deploy Azure IoT Operations to a Test Cluster
-description: Use the Azure portal to deploy Azure IoT Operations to test an Arc-enabled Kubernetes cluster.
+description: Use the Azure CLI or Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster for testing.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 11/18/2025
+ms.date: 11/12/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster for testing and evaluation scenarios, so that I can evaluate the solution before deploying it to production.
@@ -17,6 +17,17 @@ ai-usage: ai-assisted
 Learn how to deploy Azure IoT Operations to a test cluster, which is an Arc-enabled Kubernetes cluster that you can use for testing and evaluation scenarios.
 
 If you want to deploy Azure IoT Operations to a production cluster, see [Deploy Azure IoT Operations to a production cluster](./howto-deploy-iot-operations.md).
+
+Choose a deployment method and use the links to navigate this article:
+
+| Section | What it covers |
+| --- | --- |
+| [Prerequisites](#prerequisites) | Prepare your cluster, tools, and Azure permissions. |
+| [Deploy in Azure portal](#deploy-in-azure-portal) | Configure a test deployment in the portal, then run the generated Azure CLI commands. |
+| [Deploy using Azure CLI](howto-deploy-iot-operations-cli.md) | Deploy a basic test instance using Bash or PowerShell. |
+| [Verify deployment](#verify-deployment) | Check the deployed services for health and configuration issues. |
+
+For CLI deployments, you can use the basic instance for testing and evaluation. Complete the secure settings steps in the CLI article when you're ready to prepare the instance for production.
 
 ## Before you begin
 
@@ -107,7 +118,7 @@ For more information, see [Azure CLI support for advanced MQTT broker configurat
 
 1. Select **Automation**.
 
-## Run Azure CLI commands
+### Run Azure CLI commands
 
 [!INCLUDE [deploy-iot-ops-cli-commands-intro](../includes/deploy-iot-ops-cli-commands-intro.md)]
 

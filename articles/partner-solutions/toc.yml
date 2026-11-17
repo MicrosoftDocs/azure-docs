@@ -11,10 +11,6 @@ items:
   items:
   - name: AI partners
     items:
-    - name: Arize AI
-      href: ./arize-ai/index.yml
-    - name: LambdaTest - HyperExecute
-      href: ./lambda-test/index.yml
     - name: Napster API
       href: ./napster/index.yml
   - name: Observability partners

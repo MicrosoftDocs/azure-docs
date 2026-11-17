@@ -462,6 +462,8 @@ items:
             href: logic-apps-enterprise-integration-metadata.md
           - name: Microsoft Dataverse
             href: connectors/dataverse.md
+          - name: Microsoft Message Queuing (MSMQ)
+            href: ../connectors/connectors-create-api-message-queue.md
           - name: Office 365 Outlook
             href: ../connectors/connectors-create-api-office365-outlook.md
           - name: Oracle Database

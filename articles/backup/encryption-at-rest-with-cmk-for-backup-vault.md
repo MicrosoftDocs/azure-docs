@@ -2,7 +2,7 @@
 title: Encrypt backup data in a Backup vault by using customer-managed keys
 description: Learn how to use Azure Backup to encrypt your backup data by using customer-managed keys (CMKs) in a Backup vault.
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 11/09/2026
 ms.custom: references_regions, devx-track-azurepowershell-azurecli
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -16,9 +16,7 @@ This article describes how to use Azure Backup to encrypt your backup data by us
 
 Azure Backup allows you to encrypt your backup data with customer-managed keys (CMKs) instead of the default platform-managed keys (PMKs). Store these keys in [Azure Key Vault](/azure/key-vault/).
 
-The key for backups can be different from the key for the source. An AES 256-based data encryption key (DEK) protects your data, and key encryption keys (KEKs) protect the DEK. This gives you full control over your data and keys.
-
-To enable encryption, give the Backup vault’s managed identity permission to access the encryption key in the key vault. You can change the key anytime.
+CMK encryption makes the readability of your backup data dependent on key access authorized through the Backup vault's managed identity. For the encryption flow, service responsibilities, and data-safety guarantees, see [How customer-managed key encryption works](backup-encryption.md#how-customer-managed-key-encryption-works).
 
 >[!Note]
 >**Encryption Settings** and **CMK** are used interchangeably.
@@ -61,9 +59,7 @@ Before you enable encryption on a Backup vault, review the following considerati
   - You reenable a system-assigned identity, grant the key vault permissions to it, and update encryption settings (if you used the system-assigned identity for encryption settings).
   - You reattach the managed identity make sure that it has permissions to access the key vault and the key to use the new user-assigned identity.
 
-- Encryption settings use the Azure Key Vault key and the Backup vault's managed identity details.
-
-  If the key or Key Vault that you're using is deleted or access is revoked and can't be restored, you'll lose access to the data stored in the Backup vault. Also, ensure that you have appropriate permissions to provide and update managed identity, Backup vault, and key vault details.
+- Maintain access to the key used in the encryption settings. For the effects of unavailable or permanently lost keys on your backup data, see [Data readability depends on key access](backup-encryption.md#data-readability-depends-on-key-access).
 
 - Vaults that use user-assigned managed identities for CMK encryption don't support the use of private endpoints for Azure Backup.
 

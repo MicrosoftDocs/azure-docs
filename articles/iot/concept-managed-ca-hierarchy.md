@@ -21,6 +21,8 @@ Certificate management in Azure Device Registry uses a two-tier certificate auth
 
 - Uses the intermediate CA to issue device certificates while the root CA remains the trusted anchor for the hierarchy.
 
+For supported CA signing algorithms, see [Certificate management in Azure Device Registry](iot-certificate-management-overview.md#overview-of-features)
+
 ## Deployment options
 
 In a single namespace, you can create up to three intermediate CAs. You have two deployment options for your intermediate certificate authorities: 
@@ -30,8 +32,6 @@ In a single namespace, you can create up to three intermediate CAs. You have two
 - **Bring your own certification authority (BYOCA):** Deploy an intermediate CA that your own private CA signs and issues. This option requires you to have access to your private CA for signing.
 
 You can also use a combination of deployment models in a single namespace. 
-
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## Option 1: Use a namespace-level root CA
 
@@ -89,7 +89,7 @@ To get started with BYOCA, see [Bring your own CA](how-to-create-policy-external
 
 ## Related content
 
-- [What is certificate management in Azure Device Registry?](iot-certificate-management-overview.md)
+- [Certificate management in Azure Device Registry](iot-certificate-management-overview.md)
 
 - [PKI fundamentals](iot-certificate-management-concepts.md)
 
@@ -100,4 +100,3 @@ To get started with BYOCA, see [Bring your own CA](how-to-create-policy-external
 - [Certificate issuance in Azure Device Registry](concept-certificate-issuance.md)
 
 - [Certificate revocation in Azure Device Registry](concepts-certificate-policy-management.md)
-

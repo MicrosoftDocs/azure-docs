@@ -19,6 +19,8 @@ ms.collection: Tier1, ce-skilling-ai-copilot
 
 Security Copilot is a generative AI-powered security solution that helps increase the efficiency and capabilities of security personnel to improve security outcomes at machine speed and scale. It provides a natural language, assistive copilot experience that helps support security professionals in end-to-end scenarios such as incident response, threat hunting, intelligence gathering, and posture management. For more information about what it can do, see [What is Microsoft Security Copilot?](/copilot/security/microsoft-security-copilot)
 
+The [Azure Firewall AI Security add-on (preview)](ai-security-concepts.md) is separate from the Security Copilot integration described in this article.
+
 ## Know before you begin
 
 If you're new to Security Copilot, familiarize yourself with it by reading these articles:

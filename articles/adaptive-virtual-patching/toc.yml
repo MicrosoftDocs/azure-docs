@@ -1,0 +1,37 @@
+items:
+- name: Azure Adaptive Virtual Patching documentation
+  href: index.yml
+- name: What is Azure Adaptive Virtual Patching?
+  href: overview.md
+- name: Deploy an Adaptive Shield
+  href: deploy-adaptive-shield-portal.md
+- name: Manage protection and mitigations
+  href: manage-adaptive-shield.md
+- name: FAQ and troubleshooting
+  href: troubleshoot-adaptive-virtual-patching.md
+- name: Reference
+  items:
+  - name: Supported regions
+    href: overview.md#supported-regions
+  - name: Preview limitations and quotas
+    href: overview.md#preview-limitations
+  - name: Finding statuses
+    href: manage-adaptive-shield.md#finding-statuses
+  - name: Mitigation statuses
+    href: manage-adaptive-shield.md#mitigation-statuses
+- name: Resources
+  items:
+  - name: Pricing
+    href: overview.md#pricing
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Microsoft Learn training for Azure networking
+    href: /training/browse/?terms=Azure%20networking
+  - name: Microsoft Q&A for Azure
+    href: /answers/tags/133/azure
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Azure service status
+    href: https://azure.status.microsoft/
+  - name: Create an Azure support request
+    href: /azure/azure-portal/supportability/how-to-create-azure-support-request

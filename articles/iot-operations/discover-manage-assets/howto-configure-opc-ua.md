@@ -27,6 +27,8 @@ This article describes how to use the operations experience, Azure CLI, and Bice
 
 These assets, data points, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
 
+If your assets don't natively support OPC UA, you can onboard them through a server that implements the OPC 10100-1 WoT Connectivity API. For instructions, see [Configure OPC UA WoT connectivity](howto-configure-opc-ua-web-of-things-connectivity.md).
+
 For endpoint session modes and connector redundancy, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md). For data-change and data-quality filters, dynamic node resolution, key frames, event filters, and message metadata options, see [Configure advanced OPC UA data collection](howto-configure-opc-ua-advanced-data-collection.md). To write a counter back to the OPC UA server after dataset or event delivery, see [Configure delivery acknowledgment](howto-configure-opc-ua-advanced-data-collection.md#configure-delivery-acknowledgment).
 
 The connector can use `anonymous`, `username password`, or `X.509certificate` user authentication when it connects to an OPC UA server.
@@ -952,6 +954,7 @@ Each inbound endpoint can also monitor whether its OPC UA server is alive. Serve
 - [Manage asset and device configurations](howto-use-operations-experience.md)
 - [Control OPC UA servers](howto-control-opc-ua.md)
 - [Connector for OPC UA overview](overview-opc-ua-connector.md)
+- [Configure OPC UA WoT connectivity](howto-configure-opc-ua-web-of-things-connectivity.md)
 - [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md)
 - [Configure advanced OPC UA data collection](howto-configure-opc-ua-advanced-data-collection.md)
 - [az iot ops ns asset](/cli/azure/iot/ops/ns/asset)

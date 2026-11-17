@@ -112,10 +112,14 @@ The following table lists the fields in the schema and what they signify for vir
 > | **SrcPublicIps** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
 > | **DestPublicIps** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 > | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
+> | **SrcNatIp** | Source NAT IP address | NAT assigned source IP address. |
 > | **PrivateEndpointResourceId** | <ResourceGroup/privateEndpointResource> | Resource ID of the private endpoint resource. Populated when traffic is flowing to or from a private endpoint resource. |
 > | **PrivateLinkResourceId** | <ResourceGroup/ResourceType/privateLinkResource> | Resource ID of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
 > | **PrivateLinkResourceName** | Plain text | Resource name of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
 > | **IsFlowCapturedAtUDRHop** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
+> | **FlowCapturedAtResourceId** | Resource ID | Resource ID of the flow capturing device. |
+> | **FlowCapturedAtResourceIps** | IP address of flow capturing device | Resource IPs of the flow capturing device. This field has two values for IPv4 and IPv6 in dual stack case. |
+> | **FlowCapturedAtResourceType** | Plain text | Resource type of the flow capturing device. |
 
 > [!NOTE]
 > *NTANetAnalytics* in virtual network flow logs replaces *AzureNetworkAnalytics_CL* used in network security group flow logs.

@@ -1,0 +1,102 @@
+### YamlMime:FAQ
+metadata:
+  title: "Azure Network Watcher Responsible AI Frequently Asked Questions (FAQ)"
+  description: "Learn how Azure Network Watcher features use AI, their intended uses, and the safeguards, privacy controls, and limitations to consider."
+  author: chrai
+  ms.author: chrai-ms
+  ms.service: azure-network-watcher
+  ms.topic: faq
+  ms.date: 11/04/2026
+title: "Network Watcher Responsible AI frequently asked questions (FAQ)"
+summary: |
+  This FAQ explains how Azure Network Watcher features use AI, what they are designed to do, and the safeguards and boundaries customers should know when using them.
+
+sections:
+  - name: Packet capture insights
+    questions:
+      - question: |
+          What is packet capture insights?
+        answer: |
+          [Packet capture insights](packet-capture-insights-overview.md) is an Azure Network Watcher capability that uses AI-assisted analysis to surface key findings from packet captures and can ingest network protocol logs into Log Analytics for deeper investigation.
+
+          It helps users investigate connectivity and performance issues by summarizing communication patterns, protocol evidence, and likely failure domains.
+
+      - question: |
+          How do users interact with it?
+        answer: |
+          Users submit a supported packet capture and receive a generated Markdown troubleshooting summary.
+
+          The summary can include follow-up investigation guidance, including Log Analytics queries that users can run in their own workspace to validate findings.
+
+      - question: |
+          Where is generative AI used?
+        answer: |
+          Generative AI is used to interpret normalized network records and draft the natural-language troubleshooting narrative.
+
+          The packet capture is first transformed into structured network protocol records through deterministic processing. An AI agent then analyzes these records to generate a summary.
+
+      - question: |
+          Does the feature change customer resources?
+        answer: |
+          No. Packet capture insights is an analysis and guidance experience. It doesn't autonomously modify customer resources or apply remediation actions.
+
+      - question: |
+          What are the intended uses?
+        answer: |
+          - First-pass investigation of Azure network connectivity and performance issues.
+          - Summarizing DNS, HTTP, TLS, TCP, and related connection behaviors from supported captures.
+          - Providing analyst-assist guidance and validation queries for follow-up troubleshooting.
+
+      - question: |
+          What uses are outside its scope?
+        answer: |
+          - It isn't a replacement for expert packet analysis or a guaranteed root-cause engine.
+          - It isn't designed for monitoring or profiling people.
+          - It isn't a security verdict or threat-attribution system.
+
+      - question: |
+          What safeguards are in place?
+        answer: |
+          - **No customer-authored prompts**: Customers select a packet capture and request a report, but can't send their own text to the AI model.
+          - **Content filtering**: Azure AI Content Safety checks model inputs and outputs using the default Azure OpenAI policy, blocking hateful, sexual, violent, and self-harm content at Medium severity or higher. Customers can't change these settings.
+          - **No incomplete reports**: If the model refuses, stops early, or returns nothing, the request fails rather than saving an incomplete report.
+          - **Pinned model version**: Automatic model upgrades are disabled. Model version changes occur only through a new feature release.
+          - **Safety testing**: Evaluations covered indirect jailbreak and hateful/unfair, sexual, violent, and self-harm content, including adversarial text in synthetic packet captures.
+          - **Human verification is expected**: Findings are intended as leads, not proof of root cause. Important findings should be checked against the capture before action.
+
+      - question: |
+          What data does it process?
+        answer: |
+          - **Input**: Packet capture files.
+          - **What the AI model receives**: The packet capture is first converted into structured connection and protocol records, and the model reads the resulting text and numeric fields.
+          - **Information analyzed**: Connection outcomes and supported protocol information, including TCP, UDP, DNS lookups, unencrypted HTTP requests, and TLS handshakes.
+          - **Packet payloads**: The model doesn't have access to encrypted packet payload contents.
+          - **Encrypted traffic handling**: For TLS, the feature can process handshake information such as server name, protocol version, certificate names, and alerts, but not encrypted content.
+          - **Report output**: Markdown report content can include traffic-derived information such as IP addresses, hostnames, and web addresses.
+          - **Optional Log Analytics export**: If requested, capture data sources are also sent to the customer's Log Analytics workspace. This export doesn't use AI.
+
+      - question: |
+          How are privacy and security handled?
+        answer: |
+          - **No model training on customer data**: Customer packet captures and generated reports aren't used to train models, and the feature doesn't use a Microsoft-trained or fine-tuned model.
+          - **Customer-controlled report storage**: Reports are saved as Markdown files in the customer's Azure Storage account and displayed from there in the Azure portal.
+          - **Access protection expectations**: Customers should control access to reports and any Log Analytics workspace receiving data sources in the same way they control access to packet captures.
+          - **Data residency**: In EU regions, data sent to Azure OpenAI for report generation is processed within the EU data zone. In other regions, processing might occur in any Azure region.
+          - **Data minimization controls**: Customers control resource selection, capture duration, and retained traffic through capture filters.
+          - **Sensitive network details**: Reports can include IP addresses, hostnames, and web addresses from customer traffic. Protect and delete reports alongside related captures as appropriate.
+
+      - question: |
+          What should users do if results look incorrect or incomplete?
+        answer: |
+          - Recheck capture completeness, supported capture type and state, and evidence quality before rerunning.
+          - Validate key findings using the provided Log Analytics queries and source records.
+          - Escalate through normal Microsoft support and product channels when issues persist.
+
+      - question: |
+          Where can users learn more?
+        answer: |
+          - [Azure OpenAI Service transparency note](/azure/ai-foundry/responsible-ai/openai/transparency-note)
+          - [Azure Network Watcher documentation](index.yml)
+          - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai)
+          - [Packet capture insights](packet-capture-insights-overview.md)
+          - [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement)

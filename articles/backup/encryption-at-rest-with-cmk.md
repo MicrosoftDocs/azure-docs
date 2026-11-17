@@ -1,8 +1,8 @@
 ---
 title: Encrypt backup data by using customer-managed keys
-description: Learn how to use Azure Backup to encrypt your backup data by using customer-managed keys (CMKs).
+description: Learn how customer-managed keys protect Azure Backup data, how managed identities control key access, and how to configure encryption in a Recovery Services vault.
 ms.topic: how-to
-ms.date: 05/26/2025
+ms.date: 11/09/2026
 ms.update-cycle: 1095-days
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 ms.service: azure-backup
@@ -13,11 +13,9 @@ ms.author: v-mallicka
 
 # Encrypt backup data by using customer-managed keys
 
-You can use Azure Backup to encrypt your backup data via customer-managed keys (CMKs) instead of platform-managed keys (PMKs), which are enabled by default. Your keys to encrypt the backup data must be stored in [Azure Key Vault](/azure/key-vault/).
+Customer-managed keys (CMKs) give you control over the keys that protect your Azure Backup data at rest. You can use CMKs instead of the platform-managed keys (PMKs) that are enabled by default for a Recovery Services vault.
 
-The encryption key that you use for encrypting backups might be different from the one that you use for the source. An AES 256-based data encryption key (DEK) helps protect the data. Your key encryption keys (KEKs), in turn, help protect the DEK. You have full control over the data and the keys.
-
-To allow encryption, you must grant the Backup vault the permissions to access the encryption key in the key vault. You can change the key when necessary.
+Your backup data remains encrypted in the vault, and its readability depends on access to your CMK. You manage that access through the permissions granted to the vault's managed identity.
 
 In this article, you learn how to:
 
@@ -27,6 +25,18 @@ In this article, you learn how to:
 > - Configure the Recovery Services vault to encrypt the backup data by using CMKs.
 > - Back up data to a vault that's encrypted via CMKs.
 > - Restore data from backups.
+
+## How customer-managed keys protect backup data
+
+CMK encryption makes access to encrypted backup data dependent on your key and the permissions you grant to the vault's managed identity. For the encryption flow, service responsibilities, and data-safety guarantees, see [How customer-managed key encryption works](backup-encryption.md#how-customer-managed-key-encryption-works).
+
+### Encryption scope
+
+The vault's CMK applies to backup data in the vault-standard and vault-archive tiers, not the snapshot tier. For Azure VM backups:
+
+- Instant Restore snapshots remain in your subscription and use the source disks' encryption settings.
+- If the vault's CMK is inaccessible, you can still recover directly from available snapshots outside Azure Backup, provided that the snapshots and any required source disk keys remain accessible.
+- A snapshot-tier restore through the Recovery Services vault still fails because Azure Backup can't access the required backup metadata without access to the vault's CMK.
 
 ## Considerations
 
@@ -441,6 +451,8 @@ This checklist is important because after you configure (or try to configure) an
 The process to configure and perform backups to a Recovery Services vault that's encrypted via CMKs is the same as the process to configure and perform backups to a vault that uses PMKs. There are no changes to the experience. This statement is true for the [backup of Azure VMs](./quick-backup-vm-portal.md) and the backup of workloads running inside a VM (for example, [SAP HANA](./tutorial-backup-sap-hana-db.md) or [SQL Server](./tutorial-sql-backup.md) databases).
 
 ## Restore data from a backup
+
+Ensure that the vault's managed identity can access the configured CMK before starting a restore, including a snapshot-tier restore through the vault. For details, see [How customer-managed keys protect backup data](#how-customer-managed-keys-protect-backup-data).
 
 ### Restore data from a VM backup
 

@@ -12,9 +12,6 @@ ms.author: apremsekhar
 
 # Automate browsers with the Playwright Workspaces remote MCP server
 
-> [!IMPORTANT]
-> The Playwright Workspaces remote Model Context Protocol (MCP) server is in preview. Preview features don't have a service-level agreement and aren't recommended for production workloads. Features, limits, and availability can change.
-
 The Playwright Workspaces remote MCP server gives AI agents a managed remote browser and a set of browser automation tools. An agent can open a browser session, navigate pages, find and interact with elements, inspect browser activity, take screenshots, and close the session. You don't need to install Playwright or a browser in the agent environment.
 
 The server uses [Model Context Protocol](https://modelcontextprotocol.io/) over Streamable HTTP. It supports Microsoft Entra ID authentication and workspace access tokens. It works with remote MCP clients including Microsoft Foundry Agent Service and Visual Studio Code.
@@ -31,7 +28,7 @@ In this article, you learn how to:
 
 Before you begin, make sure you have:
 - An Azure account with an active subscription.
-- A Playwright workspace that has access to the remote MCP preview.
+- A Playwright workspace that has access to the remote MCP
 - The workspace ID and Azure region of the workspace.
 - An identity with permission to create and use browser sessions in the workspace.
 - For Microsoft Foundry, a Foundry project and permission to create project connections and configure agents.
@@ -98,7 +95,7 @@ A browser automation flow has three stages:
 
 The MCP HTTP transport doesn't preserve browser state. The `browserSessionId` identifies the remote browser across separate tool calls. Keep it private and use it only with the workspace and identity that created it.
 
-Current preview behavior includes these constraints:
+Current behavior includes these constraints:
 - A session belongs to its creator and can't be shared with another principal.
 - Calls for one session are processed in order. Don't issue concurrent actions against the same session.
 - An inactive session is cleaned up after 15 minutes. Explicit cleanup is required.
@@ -245,7 +242,7 @@ A timeout or disconnected caller doesn't prove that an action had no effect. Bef
 
 ## Tool reference
 
-All browser-scoped tools require `browserSessionId`. String and collection bounds shown here are current preview limits.
+All browser-scoped tools require `browserSessionId`. String and collection bounds shown here are current limits.
 
 ### Session tools
 
@@ -363,7 +360,7 @@ For `browser_run_code`, pass statements that form the body of an asynchronous fu
 | JavaScript function or code | 1 MiB characters | Keep code small, reviewed, and narrowly scoped. |
 | Browser session ID | 256 characters | Pass the value returned by `create_browser_session` unchanged. |
 
-Responses are returned inline. This preview doesn't expose MCP resources or persistent artifact storage for large snapshots, screenshots, or downloads. Browser, operating-system, viewport, locale, and user-agent overrides aren't exposed as session-creation parameters.
+Responses are returned inline. This approach doesn't expose MCP resources or persistent artifact storage for large snapshots, screenshots, or downloads. Browser, operating-system, viewport, locale, and user-agent overrides aren't exposed as session-creation parameters.
 
 ## Error handling
 

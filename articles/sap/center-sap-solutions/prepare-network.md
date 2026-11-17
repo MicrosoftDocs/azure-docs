@@ -1,22 +1,23 @@
 ---
 title: Prepare a network for infrastructure deployment
-description: Learn how to prepare a virtual network for an S/4HANA infrastructure deployment with Azure Center for SAP solutions.
+description: Learn how to prepare a virtual network for an S/4HANA infrastructure deployment with Azure Workload Center for SAP.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 04/22/2026
+ms.date: 11/06/2026
 author: sagarkeswani
 ms.author: sagarkeswani
+ms.reviewer: mattmcinnes
 # Customer intent: As a network administrator, I want to configure a virtual network and its components for S/4HANA deployment, so that I can ensure proper connectivity and security for the infrastructure on Azure.
 ---
 
 # Prepare a network for infrastructure deployment
 
-[Azure Center for SAP solutions](overview.md) lets you deploy and manage SAP systems on Azure. When you deploy S/4HANA infrastructure through the service, you need a virtual network that provides outbound connectivity and allows communication between application and database subnets. Without a properly configured network, the infrastructure deployment and SAP software installation can fail.
+[Azure Workload Center for SAP](overview.md) lets you deploy and manage SAP systems on Azure. When you deploy S/4HANA infrastructure through the service, you need a virtual network that provides outbound connectivity and allows communication between application and database subnets. Without a properly configured network, the infrastructure deployment and SAP software installation can fail.
 
 In this article, you create and configure a virtual network, set up connectivity and security rules, and allow list the endpoints that the deployment requires. Your specific network settings depend on your environment and use case.
 
-If you already have a network that's ready to use with Azure Center for SAP solutions, [go to the deployment guide](deploy-s4hana.md) instead.
+If you already have a network that's ready to use with Azure Workload Center for SAP, [go to the deployment guide](deploy-s4hana.md) instead.
 
 ## Prerequisites
 
@@ -24,7 +25,7 @@ If you already have a network that's ready to use with Azure Center for SAP solu
 - Sufficient [quotas for your Azure subscription](/azure/quotas/view-quotas). If the quotas are low, create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
 - Have multiple IP addresses in the subnet or subnets before you begin deployment. For example, it's better to have a `/26` mask instead of `/29`.
 - The names **AzureFirewallSubnet**, **AzureFirewallManagementSubnet**, **AzureBastionSubnet**, and **GatewaySubnet** are reserved names within Azure (don't use these names as subnet names).
-- Knowledge of the SAP Application Performance Standard (SAPS) and database memory size that you need so that Azure Center for SAP solutions can size your SAP system. If you're not sure, you can also select the virtual machines (VMs). The following VM types are used:
+- Knowledge of the SAP Application Performance Standard (SAPS) and database memory size that you need so that Azure Workload Center for SAP can size your SAP system. If you're not sure, you can also select the virtual machines (VMs). The following VM types are used:
 
   - A single Advanced Business Application Programming SAP Central Services (ASCS) VM or a cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
   - A single database VM or a cluster of database VMs, which make up a single database instance in the VIS.
@@ -78,10 +79,10 @@ If you're using Red Hat for the VMs, [allow list the Red Hat endpoints](/azure/v
 
 ### Allow list storage accounts
 
-Azure Center for SAP solutions needs access to the following storage accounts to install SAP software correctly:
+Azure Workload Center for SAP needs access to the following storage accounts to install SAP software correctly:
 
 - The storage account where you store the SAP media required during software installation.
-- The storage account created by Azure Center for SAP solutions in a managed resource group, which Azure Center for SAP solutions also owns and manages.
+- The storage account created by Azure Workload Center for SAP in a managed resource group, which Azure Workload Center for SAP also owns and manages.
 
 There are multiple options to allow access to these storage accounts:
 
@@ -92,7 +93,7 @@ There are multiple options to allow access to these storage accounts:
 
 ### Allow list a Key Vault
 
-Azure Center for SAP solutions creates a key vault to store and access the secret keys during software installation. This key vault also stores the SAP system password. To allow access to this key vault:
+Azure Workload Center for SAP creates a key vault to store and access the secret keys during software installation. This key vault also stores the SAP system password. To allow access to this key vault:
 
 - Allow internet connectivity
 - Configure an [**AzureKeyVault** service tag](../../virtual-network/service-tags-overview.md#available-service-tags)
@@ -100,14 +101,14 @@ Azure Center for SAP solutions creates a key vault to store and access the secre
 
 ### Allow list a Microsoft Entra ID
 
-Azure Center for SAP solutions uses Microsoft Entra ID to get an authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Microsoft Entra ID:
+Azure Workload Center for SAP uses Microsoft Entra ID to get an authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Microsoft Entra ID:
 
 - Allow internet connectivity
 - Configure an [**AzureActiveDirectory** service tag](../../virtual-network/service-tags-overview.md#available-service-tags).
 
 ### Allow list an Azure Resource Manager
 
-Azure Center for SAP solutions uses a managed identity for software installation. Managed identity authentication requires a call to the Azure Resource Manager endpoint. To allow access to this endpoint:
+Azure Workload Center for SAP uses a managed identity for software installation. Managed identity authentication requires a call to the Azure Resource Manager endpoint. To allow access to this endpoint:
 
 - Allow internet connectivity
 - Configure an [**AzureResourceManager** service tag](../../virtual-network/service-tags-overview.md#available-service-tags).

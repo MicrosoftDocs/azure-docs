@@ -630,7 +630,7 @@ items:
     - name: Azure Relay
       tocHref: /azure/service-bus-relay/
       topicHref: /azure/azure-relay/
-  - name: Migrate
+  - name: Catalyst
     tocHref: /azure/migrate/
     topicHref: /azure/migrate/
   - name: Mobile Engagement
@@ -650,6 +650,12 @@ items:
     tocHref: /azure/networking/
     topicHref: /azure/networking/
     items:
+    - name: Adaptive Virtual Patching
+      tocHref: /azure/adaptive-virtual-patching/
+      topicHref: /azure/adaptive-virtual-patching/
+    - name: Azure Agent Grid
+      tocHref: /azure/agent-grid/
+      topicHref: /azure/agent-grid/
     - name: Fundamentals
       tocHref: /azure/networking/fundamentals
     - name: Application Gateway

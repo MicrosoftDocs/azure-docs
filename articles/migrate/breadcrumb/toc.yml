@@ -2,7 +2,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Migrate
+  - name: Catalyst
     tocHref: /azure/migrate/
     topicHref: /azure/migrate/index
 
@@ -10,7 +10,7 @@
   tocHref: /sql/
   topicHref: /azure/index
   items:
-  - name: Migrate
+  - name: Catalyst
     tocHref: /sql/dma/
     topicHref: /azure/migrate/index
 

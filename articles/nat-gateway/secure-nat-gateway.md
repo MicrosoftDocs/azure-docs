@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-nat-gateway
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 05/12/2026
+ms.date: 10/29/2026
 ai-usage: ai-assisted
 ---
 
@@ -35,6 +35,14 @@ Azure NAT Gateway follows a Zero Trust network security model, blocking unsolici
 - **Restrict NAT Gateway subnet scope**: Associate NAT Gateway only with subnets that require outbound internet access. Subnets hosting internal-only workloads should not have a NAT Gateway association. For more information, see [Azure NAT Gateway resource](nat-gateway-resource.md).
 
 For related network-layer security guidance, see [Secure your Virtual Network deployment](../virtual-network/secure-virtual-network.md) and [Secure your Azure Load Balancer deployment](../load-balancer/secure-load-balancer.md).
+
+### DDoS protection for StandardV2 (preview)
+
+Use Azure DDoS Protection to protect StandardV2 IPv4 and IPv6 public IP addresses associated with a StandardV2 NAT gateway. Enable Network Protection on the associated virtual network or configure IP Protection directly on an individual public IP address. Custom policies for NAT Gateway aren't supported in this preview. Network Protection inheritance requires a subnet association. Configure protection on the virtual network or public IP, not on the NAT gateway or a public IP prefix.
+
+Public IP prefixes inherit Network Protection from the associated virtual network. Direct IP Protection on a prefix isn't supported.
+
+Standard SKU NAT Gateway doesn't support this capability. DDoS protection doesn't enable unsolicited inbound connectivity or replace application-layer protection. For protection models, rollout prerequisites, and monitoring, see [DDoS protection for NAT Gateway StandardV2](../ddos-protection/ddos-protection-nat-gateway-standardv2.md).
 
 ## Identity and access management
 

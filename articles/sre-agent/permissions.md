@@ -3,7 +3,7 @@ title: Agent Permissions in Azure SRE Agent
 description: Learn how your agent accesses Azure resources, including permission levels, RBAC roles, and on-behalf-of flow.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 11/12/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -14,7 +14,10 @@ ms.custom: permissions, security, rbac, managed identity, obo, on behalf of, rea
 # Agent permissions in Azure SRE Agent
 <!-- > [!VIDEO <PATH_TO_VIDEO>/Azure_SRE_Agent_Permissions.mp4] -->
 
-Every agent has a [user-assigned managed identity (UAMI)](/entra/identity/managed-identities-azure-resources/overview) that is automatically created alongside it. Your agent uses this UAMI to authenticate and interact with your Azure resources. It acts on your behalf without you needing to manage secrets or credentials.
+Every agent has a [user-assigned managed identity (UAMI)](/entra/identity/managed-identities-azure-resources/overview) that is automatically created alongside it. By default, your agent uses this UAMI to authenticate and interact with your Azure resources. It acts on your behalf without you needing to manage secrets or credentials.
+
+> [!NOTE]
+> Creating a governed [Microsoft Entra agent identity](agent-identity.md#microsoft-entra-agent-identity-preview) or connecting Teams doesn't change the configured Azure resource-access identity or copy the UAMI's role assignments.
 
 ## Permission levels
 
@@ -70,7 +73,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> For read-only access across multiple resource groups, assign **Reader** at the subscription level instead of resource group by resource group. For write access, assign specific roles at the resource group level. To find your agent's managed identity ID, go to the agent portal (**Settings** > **Azure settings** > **Go to Identity**). You can also find it directly in the Azure portal by navigating to the Container App resource, selecting **Identity**, and copying the **Object (principal) ID**.
+> For read-only access across multiple resource groups, assign **Reader** at the subscription level instead of resource group by resource group. For write access, assign specific roles at the resource group level. To find the UAMI's principal ID, open the SRE Agent resource's **Identity** page in the Azure portal, select the attached user-assigned identity, and copy its principal ID. Use that value for `--assignee`. See [Find your agent's UAMI](agent-identity.md#find-your-agents-uami).
 
 ## Modify permissions
 

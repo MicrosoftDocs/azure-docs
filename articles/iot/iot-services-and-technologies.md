@@ -59,7 +59,7 @@ To learn more, see [What is Azure IoT Operations?](../iot-operations/overview-io
 
 ### Azure Device Registry
 
-> Currently, Azure Device Registry is typically part of an **edge-based IoT solution** that uses Azure IoT Operations and follows the adaptive cloud approach. Integration of Azure Device Registry with Azure IoT Hub is currently in preview.
+> Use Azure Device Registry to manage assets and devices with Azure IoT Operations and Azure IoT Hub. Integration with Azure IoT Hub is generally available.
 
 Azure Device Registry is a backend service that enables the management of assets and devices in your solution using Azure Resource Manager. Azure Device Registry:
 

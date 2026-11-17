@@ -1,0 +1,39 @@
+items:
+- name: Azure Agent Grid documentation
+  href: index.yml
+- name: What is Azure Agent Grid?
+  href: overview.md
+- name: Configure Azure Agent Grid
+  href: configure-agent-grid.md
+- name: Reference
+  items:
+  - name: Supported compute
+    href: overview.md#supported-compute
+  - name: Region availability
+    href: overview.md#region-availability
+  - name: Preview and service limits
+    href: overview.md#limitations
+  - name: Configuration limitations
+    href: configure-agent-grid.md#limitations
+- name: Support and troubleshooting
+  items:
+  - name: Troubleshoot Agent Grid
+    href: configure-agent-grid.md#troubleshoot
+  - name: Azure support options
+    href: https://azure.microsoft.com/support/
+  - name: Microsoft Q&A for Azure
+    href: /answers/tags/133/azure
+  - name: Azure status
+    href: https://azure.status.microsoft/
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: /training/browse/
+  - name: Azure networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Networking articles on the Azure Blog
+    href: https://azure.microsoft.com/blog/category/networking/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Azure pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

@@ -1,0 +1,64 @@
+### YamlMime:Landing
+
+title: Save with Microsoft Flex Plan
+summary: Learn how a Microsoft Flex Plan helps you save on covered products with a monetary commitment. Explore purchasing, benefit scope, utilization, billing, and automation.
+metadata:
+  title: Save with Microsoft Flex Plan
+  description: Learn how to buy and manage a Microsoft Flex Plan, understand billing and benefit application, automate operations, and resolve common issues.
+  ms.service: cost-management-billing
+  ms.subservice: billing
+  ms.topic: landing-page
+  author: pri-mittal
+  ms.author: primittal
+  ms.date: 11/10/2026
+
+landingContent:
+  - title: Understand Flex Plans
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: What is a Flex Plan?
+        url: flex-plan-overview.md
+
+  - title: Buy a Flex Plan
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Buy a Flex Plan
+        url: buy-flex-plan.md
+      - text: Find a plan purchased by your seller
+        url: buy-flex-plan.md#if-a-seller-purchases-on-your-behalf
+
+  - title: Manage plans after purchase
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Manage a Flex Plan
+        url: manage-flex-plan.md
+      - text: Manage a seller-purchased plan
+        url: manage-flex-plan.md#manage-a-seller-purchased-flex-plan
+
+  - title: Understand billing and costs
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Understand billing and charges
+        url: flex-plan-billing.md
+    - linkListType: how-to-guide
+      links:
+      - text: View transactions and amortized costs
+        url: manage-flex-plan.md#view-transactions-and-amortized-costs
+
+  - title: Automate operations
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Automate Flex Plan operations
+        url: automate-flex-plan.md
+
+  - title: Troubleshoot common issues
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Troubleshoot Flex Plan
+        url: troubleshoot-flex-plan.md

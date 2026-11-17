@@ -5,7 +5,7 @@ description: Use the Azure portal to create an Azure Application Gateway that di
 services: application-gateway
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/04/2026
+ms.date: 11/11/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom:
@@ -26,7 +26,7 @@ For more information about the components of an application gateway, see [Applic
 You can also complete this quickstart by using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
 
 > [!NOTE]
-> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+> Application Gateway frontend now supports dual-stack IP addresses. You can create up to four frontend IP addresses: two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ## Prerequisites
 
@@ -39,7 +39,24 @@ Create a resource group and virtual network for the application gateway and its 
 > [!NOTE]
 > The application gateway must be in a separate subnet from the backend targets. In this quickstart, *myAGSubnet* is for the application gateway and *myBackendSubnet* is for the backend targets.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+> [!IMPORTANT]
+> An Application Gateway subnet must meet the following requirements:
+>
+> - Use a subnet that is /28 or larger in address space. A /29 or smaller subnet isn't supported.
+> - For Accelerated gateways, keep at least 10 IP addresses free in the gateway subnet when you create the Application Gateway.
+> - Account for the five IP addresses that Azure reserves in every subnet for infrastructure use.
+> - Use a dedicated subnet for Application Gateway.
+>
+> A /28 subnet meets the minimum requirement but provides limited room for scaling. For production deployments, use /26 or larger. A /24 or larger subnet is preferred for scale-out, zone-redundant deployments, and maintenance upgrades.
+>
+> Plan the subnet size before deployment because you can't resize an Application Gateway subnet after deployment.
+
+As of May 5, 2025, new and existing deployments of Private Application Gateway require subnet delegation to `Microsoft.Network/applicationGateways`. Follow the steps to [configure subnet delegation](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal).
+
+> [!NOTE]
+> To try the Accelerated deployment tier during preview, open the [preview-enabled Azure portal](https://portal.azure.com/?microsoft_azure_hybridnetworking_appgwdeploymenttier=true) before following this quickstart. Select **Accelerated (Preview)** under **Deployment tier** and choose a [supported preview region](deployment-tier.md#regional-availability).
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account. If you're trying Accelerated during preview, use the preview-enabled portal from the preceding note instead.
 1. On the Azure portal menu or from the **Home** page, enter *Resource groups* in the search box, and then select **Resource groups** from the search results.
 1. On the **Resource groups** page, select **+ Create**.
 1. On the **Create a resource group** page, enter the following values:
@@ -80,7 +97,7 @@ Create a resource group and virtual network for the application gateway and its 
 
 ## Create an application gateway
 
-Create the application gateway by using the tabs on the **Create application gateway** page. This example uses the Standard v2 SKU. To create a Basic SKU by using the Azure portal, see [Deploy Application Gateway basic (Preview)](deploy-basic-portal.md).
+Create the application gateway by using the tabs on the **Create application gateway** page. This example uses the Standard v2 SKU.
 
 1. On the Azure portal menu or from the **Home** page, enter *Application Gateway* in the search box, and then select **Application Gateways** from the search results.
 1. On the **Application Gateways** page, select **+ Create > Application Gateway**.
@@ -93,6 +110,7 @@ Create the application gateway by using the tabs on the **Create application gat
     | **Application gateway name** | Enter *myAppGateway*. |
     | **Region** | Select the same region as the resource group. |
     | **Tier** | Select **Standard V2**. |
+    | **Deployment tier** | Select **Standard**, or **Accelerated (Preview)** to try the preview tier. |
     | **Configure virtual network** |  |
     | **Virtual network** | Select **myVNet**. |
     | **Subnet** | Select **myAGSubnet**. |
@@ -108,8 +126,8 @@ The frontend IP address is the entry point for incoming traffic. You can configu
 1. Select **Next: Frontends**.
 1. On the **Frontends** tab, verify that **Frontend IP address type** is set to **Public**.
    > [!NOTE]
-   > * Application Gateway v2 also supports private-frontend-only deployments when you register the `EnableApplicationGatewayNetworkIsolation` feature. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
-   > * Application Gateway frontend now supports dual-stack IP addresses (public preview). You can create up to four frontend IP addresses: two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+    > - Application Gateway v2 also supports private-frontend-only deployments when you register the `EnableApplicationGatewayNetworkIsolation` feature. To deploy a private-only gateway without registering the feature, select **Network Isolated** as the **Deployment tier**. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
+    > - Application Gateway frontend now supports dual-stack IP addresses. You can create up to four frontend IP addresses: two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 1. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 1. Select **Next: Backends**.

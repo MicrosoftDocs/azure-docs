@@ -16,40 +16,47 @@ zone_pivot_groups: programming-languages-set-functions
 
 By using managed connectors, your functions can react to events and call operations in services like Microsoft 365, Microsoft Teams, SharePoint, and many third-party systems without writing webhook setup code or managing OAuth tokens. Azure Functions integrates with Azure Connector Namespace to provide a trigger and an SDK that lets you focus on business logic while the connector namespace handles webhooks, authentication, and retries.
 
+::: zone pivot="programming-language-go,programming-language-java,programming-language-powershell"
+
 > [!NOTE]
-> Azure Connector Namespace integration for Azure Functions is currently in public preview. Features, configuration names, and support for specific managed connectors can change before general availability (GA). Use of this feature is subject to the [supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> Only C#, Node.js, and Python language stacks are currently supported. 
+> The Connector Trigger isn't currently supported for this language.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python"
+
+<a name="connector-based-triggers"></a>
 
 ## How connectors enhance Functions
 
 A connector namespace adds two capabilities to the Functions programming model:
 
 - **Connector triggers**  
-  A function runs when an event occurs in an external service, such as a new email in Microsoft 365, a file added to SharePoint, or a message posted to Teams. The runtime exposes a `connectorTrigger` binding that receives webhook callbacks from the connector namespace.
+  A function runs when an event occurs in an external service, such as a new email in Microsoft 365, a file added to SharePoint, or a message posted to Teams. The [Connector Trigger binding](functions-bindings-connector-trigger.md) receives events from the connector namespace. For .NET isolated worker, Python, JavaScript, and TypeScript functions, you can choose polling or webhook delivery.
 - **Connector SDK actions**  
-  Your function code calls connector operations through SDK clients. The SDK covers managed connectors such as Microsoft 365 Outlook, Microsoft 365 Users, Teams, SharePoint, and OneDrive. Managed connectors that don't yet have SDK models are callable as HTTP endpoints.
+  Your function code calls connector operations through [SDK clients](functions-bindings-connector.md#using-connector-sdks-in-your-code). The SDK covers managed connectors such as Microsoft 365 Outlook, Microsoft 365 Users, Teams, SharePoint, and OneDrive. Managed connectors that don't yet have SDK models are callable as HTTP endpoints.
 
 You can use managed connectors alongside classic Functions triggers and bindings such as HTTP, timer, queue, Service Bus, Event Grid, and Durable Functions.
 
-## Preview availability
+## Support
 
 | Dimension | Availability |
 |---|---|
 | **Connector Namespace region** | Any region where [Connector Namespace](../connector-namespace/connector-namespace-overview.md) is supported. |
-| **Languages** | [.NET isolated worker](dotnet-isolated-process-guide.md#supported-versions), Python 3.13+, Node.js 22+ (JS/TS). Java, PowerShell, and Go aren't supported. |
+| **Languages** | .NET 10 and .NET 11 isolated, Python 3.13+, Node.js 24+ (JS/TS). Java, PowerShell, and Go aren't supported. |
 | **Hosting plans** | [Flex Consumption](./flex-consumption-plan.md) (recommended), [Premium](./functions-premium-plan.md), [Dedicated](./dedicated-plan.md), and [Container Apps](./functions-container-apps-hosting.md). |
-| **Pricing** | [Standard Functions pricing](https://azure.microsoft.com/pricing/details/functions/): No extra charge for connector trigger/SDK during preview.<br/>*Connector Namespace has separate billing.* |
+| **OS** | Linux-hosted function apps are supported in all regions. Windows-hosted function apps have limited availability. |
+| **Pricing** | [Standard Functions pricing](https://azure.microsoft.com/pricing/details/functions/) and charges for related resources, such as Azure Storage and Application Insights, apply. Connector Namespace has separate [consumption-based pricing](../connector-namespace/connector-namespace-overview.md#pricing). |
 
 ## When to use connectors
 
 Use connectors when your functions mainly need to interact with external services rather than run complex custom logic. Consider these ways to use managed connectors in your function apps:
 
 - **React to external events**  
-  Your app must handle events raised by externally connected services (new emails, calendar invites, files, list items, Teams activity), but you don't want to spend the effort coding  webhook registrations, handshake validation, and OAuth refreshes. Consider a case where your function runs to process new emails delivered in a monitored Office 365 Outlook folder, classifies the message, calls the Office 365 connector for enrichment, and flags or moves the email. All of this distributed work is done by your app without ever having to worry about refresh tokens, which is handled by your connector namespace.
+  Your app must handle events raised by externally connected services (new emails, calendar invites, files, list items, Teams activity), but you don't want to spend the effort coding webhook registrations, handshake validation, and OAuth refreshes. Consider a case where your function runs to process new emails delivered in a monitored Office 365 Outlook folder, classifies the email, calls the Office 365 connector for enrichment, and flags or moves the email. Your app performs this processing while the connector namespace manages OAuth token refreshes.
 
 - **Replace custom service clients**   
-  Your function code already calls Microsoft 365 or third-party APIs by using custom HTTP clients, which requires you to manage secrets, scopes, and retry policies across many connections, which can quickly become a maintenance burden. You can instead use the typed clients in connector SDKs directly in your function code and let managed connectors handle the connections themselves.
+  Your function code already calls Microsoft 365 or third-party APIs through custom HTTP clients. Managing secrets, scopes, and retry policies across many connections can quickly become a maintenance burden. Use typed connector SDK clients instead, and let managed connectors manage the connections.
 
 - **Leverage an existing app deployment**  
   You already built an event-driven function app project with a deployment pipeline and monitoring tools. You can use managed connectors to add a new external service trigger-based function in the same project and take advantage of the existing infrastructure. For example, a function app that used to rely on message queues or Logic Apps can now react directly to Teams activity and connect to Office 365 for in-organization checks and manager lookups.
@@ -76,448 +83,20 @@ Managed connectors in Azure Functions are additive. The right choice depends on 
 
 A function app can use connector triggers and direct service SDKs, and participate in Logic Apps workflows. You can add a connector trigger to an existing HTTP-trigger app and adopt SDK clients incrementally.
 
-## Packages and prerequisites
+## Get started with managed connectors
 
-Each supported language has a small set of packages that bring in the trigger binding and the connector SDK clients.
+For installation and implementation guidance, use the following references:
 
-::: zone pivot="programming-language-csharp"
-
-The worker extension package ships the connector trigger binding. The `Azure.Connectors.Sdk.*` packages (one per connector) ship typed payloads and SDK clients.
-
-```bash
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Connector --prerelease
-dotnet add package Azure.Connectors.Sdk --prerelease
-```
-
-For .NET, use the isolated worker model and a [supported .NET version](dotnet-isolated-process-guide.md#supported-versions). Follow the [project SDK and worker package requirements](dotnet-isolated-process-guide.md#core-sdk-and-package) for your target framework.
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-Python uses the preview extension bundle to load the trigger binding and the `azurefunctions-extensions-connectors` package for typed Office 365 models. Add the bundle to `host.json`:
-
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-        "version": "[4.42.0, 5.0.0)"
-    }
-}
-```
-
-Install the runtime and extension packages:
-
-```bash
-pip install "azure-functions>=2.2.0b4"
-pip install azurefunctions-extensions-connectors
-```
-
-The `@app.connector_trigger` decorator works for all managed connector types. Typed payload models are being actively developed and added through the `azurefunctions-extensions-connectors` package. For managed connectors without typed models, treat the payload as a string.
-
-::: zone-end
-
-::: zone pivot="programming-language-typescript,programming-language-javascript"
-
-Node.js uses the experimental extension bundle to load the trigger binding. Add the bundle to `host.json`:
-
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-        "version": "[4.42.0, 5.0.0)"
-    }
-}
-```
-
-Install the Functions library and the connector packages:
-
-```bash
-npm install @azure/functions
-npm install @azure/functions-extensions-connectors
-npm install @azure/connectors
-```
-
-Use the typed entry points in `@azure/functions-extensions-connectors` (for example, `connectors.office365.onNewEmail`) when typed models exist. Use `app.connectorTrigger` from `@azure/functions` for any managed connector when you want the raw payload.
-
-::: zone-end
-
-::: zone pivot="programming-language-go,programming-language-java,programming-language-powershell"
-
-> [!IMPORTANT]
-> Go, Java, and PowerShell aren't supported in the public preview. See [Preview availability](#preview-availability) for the current list of supported runtimes.
-
-::: zone-end
-
-## Connector-based triggers
-
-A managed connector-based trigger runs your function when an event occurs in the connected service. The connector namespace delivers the event to your function app over HTTPS by using the connector extension's webhook endpoint.
-
-For extension installation, supported binding types, callback authentication, and app-wide settings, see the [Connector extension overview](functions-bindings-connector.md). For trigger examples and reference information, see [Azure Connector trigger for Azure Functions (preview)](functions-bindings-connector-trigger.md).
-
-```http
-POST /runtime/webhooks/connector?functionName={FunctionName}
-```
-
-::: zone pivot="programming-language-csharp"  
-`{FunctionName}` matches the name in your `[Function]` attribute. Retrieve the `connector_extension` system key by running:
-::: zone-end
-
-::: zone pivot="programming-language-python"  
-`{FunctionName}` matches the name in your `@app.function_name` decorator. Retrieve the `connector_extension` system key by running:
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-`{FunctionName}` matches the name in your trigger registration. Retrieve the `connector_extension` system key by running:
-::: zone-end  
-
-```azurecli
-az functionapp keys list \
-    --resource-group <resource-group> \
-    --name <function-app> \
-    --query "systemKeys.connector_extension" \
-    --output tsv
-```
-
-Store the callback URL and key separately in the trigger configuration:
-
-```json
-{
-  "notificationDetails": {
-    "callbackUrl": "https://<FUNCTION_APP_HOSTNAME>/runtime/webhooks/connector?functionName=<FUNCTION_NAME>",
-    "authentication": {
-      "type": "QueryString",
-      "name": "code",
-      "value": "<CONNECTOR_EXTENSION_KEY>"
-    }
-  }
-}
-```
-
-The connector namespace adds the key as the `code` query-string parameter when it calls the function. Keeping the key separate from the saved callback URL lets the portal mask it as a secret. Existing trigger configurations that include the key in the callback URL continue to work. When you edit and save an existing trigger configuration, the key moves to `notificationDetails.authentication`.
-
-The Functions runtime validates the key before running your function. For a setup without shared secrets, you can put App Service built-in authentication in front of the function app and validate a managed identity token from the connector namespace. See [.NET sample: built-in authentication with managed identity](https://github.com/Azure-Samples/functions-connectors-net-builtinauth) for the full pattern.
-
-> [!TIP]
-> Use the Flex Consumption plan for connector-triggered functions during preview. Flex Consumption provides per-instance scale and managed identity support that aligns with the connector platform's authentication model.
-
-Callbacks carry the event body plus a set of `x-ms-*` headers that identify the trigger configuration, the connection, the event type, and a correlation ID. The current Connector trigger binding doesn't expose these headers to function code. When the managed connector has an SDK model, the runtime deserializes the event body directly into that model. For managed connectors without client SDKs, your function receives the raw JSON body.
-
-The following example shows a function that fires when a new email arrives in an Office 365 Outlook mailbox. The trigger registration is per-language; the trigger configuration in the connector namespace is the same in all cases.
-
-::: zone pivot="programming-language-csharp"
-
-```csharp
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Extensions.Connector;
-using Azure.Connectors.Sdk.Office365.Models;
-using Microsoft.Extensions.Logging;
-
-public class OnNewEmail
-{
-    private readonly ILogger<OnNewEmail> _logger;
-
-    public OnNewEmail(ILogger<OnNewEmail> logger) => _logger = logger;
-
-    [Function("OnNewEmail")]
-    public IActionResult Run(
-        [ConnectorTrigger()] Office365OnNewEmailTriggerPayload payload)
-    {
-        var emails = payload?.Body?.Value ?? [];
-        foreach (var email in emails)
-        {
-            _logger.LogInformation(
-                "Received email from {From} with subject '{Subject}'.",
-                email.From, email.Subject);
-        }
-
-        return new OkResult();
-    }
-}
-```
-
-The `Office365OnNewEmailTriggerPayload` model and other operation payload types come from `Azure.Connectors.Sdk.Office365.Models`. For the full operation-to-payload mapping, see [Operations to Azure Functions signature mapping](https://github.com/Azure/azure-functions-connector-extension/blob/main/docs/operations-functions-match.md).
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-```python
-import azure.functions as func
-import json
-import logging
-
-app = func.FunctionApp()
-
-@app.function_name(name="OnNewEmail")
-@app.connector_trigger(arg_name="payload")
-def on_new_email(payload: str) -> None:
-    data = json.loads(payload)
-    emails = data.get("body", {}).get("value", [])
-    for email in emails:
-        logging.info(
-            "Received email from %s with subject '%s'.",
-            email.get("from"), email.get("subject"))
-```
-
-For the Office 365 `OnNewEmailV3` operation specifically, you can use the typed decorator from `azurefunctions-extensions-connectors`:
-
-```python
-import azure.functions as func
-import azurefunctions.extensions.connectors.office365 as office365
-import logging
-
-app = func.FunctionApp()
-
-@app.function_name(name="OnNewEmail")
-@app.connector_trigger(arg_name="email")
-def on_new_email(email: office365.ClientReceiveMessage) -> None:
-    logging.info(
-        "Received email from %s with subject '%s'.",
-        email.from_, email.subject)
-```
-
-::: zone-end
-
-::: zone pivot="programming-language-typescript,programming-language-javascript"
-
-```typescript
-import { InvocationContext } from '@azure/functions';
-import {
-    connectors,
-    EmailTriggerContext,
-} from '@azure/functions-extensions-connectors';
-
-connectors.office365.onNewEmail('OnNewEmail', {
-    handler: async (
-        context: EmailTriggerContext,
-        invocationContext: InvocationContext,
-    ) => {
-        for (const email of context.emails) {
-            invocationContext.log(
-                `Received email from '${email.from}' with subject '${email.subject}'.`,
-            );
-        }
-    },
-});
-```
-
-For any connector that doesn't have a typed entry point yet, use the generic `app.connectorTrigger` from `@azure/functions`:
-
-```typescript
-import { app, InvocationContext } from '@azure/functions';
-
-app.connectorTrigger('OnNewItem', {
-    handler: async (payload: unknown, context: InvocationContext) => {
-        const data = typeof payload === 'string' ? JSON.parse(payload) : payload;
-        const items: Record<string, unknown>[] = (data as any)?.body?.value ?? [];
-        for (const item of items) {
-            context.log(`Item ID: ${item.Id}`);
-        }
-    },
-});
-```
-
-::: zone-end
-
-::: zone pivot="programming-language-go,programming-language-java,programming-language-powershell"
-
-> [!IMPORTANT]
-> The connector trigger isn't available in this language for the public preview.
-
-::: zone-end
-
-You create the trigger configuration in the connector namespace by using the Azure CLI, ARM, or Bicep. That step is part of the connector platform and is documented in the connectors content set. Functions doesn't ship its own configuration commands for trigger registration.
-
-## Authenticate your functions to a connector namespace
-
-> [!NOTE]
-> This section covers authentication between the connector namespace and your function app. For how the connector namespace authenticates to upstream services (Microsoft 365, Teams, SharePoint), see [Azure connectors overview](/connectors/overview).
-
-The default authentication model uses a shared system key (`connector_extension`) that the connector namespace presents on each callback. However, shared keys can't be scoped per-trigger and require coordinated rotation between the function app and connector namespace. For production workloads, instead use [App Service built-in authentication](../app-service/overview-authentication-authorization.md) (also called Easy Auth) with a managed identity.
-
-In this pattern, the connector namespace uses its own system-assigned or [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) to request an Entra ID token for every callback. The function app validates that token including its audience, issuer, and the caller's object ID before any request reaches the Functions host. No shared keys, no client secrets, anywhere.
-
-For an end-to-end working example, see this repository: [functions-connectors-net-builtinauth](https://github.com/Azure-Samples/functions-connectors-net-builtinauth).
-
-### Function app configuration
-
-Built-in authentication runs at the App Service worker boundary, before the Functions runtime gets the request. You configure it through the [`authsettingsV2` ARM property](../app-service/configure-authentication-file-based.md) or its equivalent in Bicep.
-
-| Setting | Purpose |
+| Task | Reference |
 | --- | --- |
-| **`requireAuthentication: true`** | Rejects any request without a valid token (returns 401). |
-| **`identityProviders.azureActiveDirectory.enabled: true`** | [Validates Entra ID tokens](../app-service/configure-authentication-provider-aad.md). |
-| **`registration.clientId`** | The app (client) ID of the Entra app registration that built-in authentication validates tokens against. |
-| **`registration.openIdIssuer`** | The issuer URL for your tenant: `https://login.microsoftonline.com/{tenantId}/v2.0`. |
-| **`validation.allowedAudiences`** | The Entra app's client ID and identifier URI. Tokens must carry one of these audiences in the `aud` claim. |
-| **`validation.defaultAuthorizationPolicy.allowedPrincipals.identities`** | The object (principal) IDs of the managed identities allowed to call the function. Only the connector namespace's managed identity should be listed here. Any token with a different `oid` claim gets a 403. |
-
-The function app also needs a user-assigned managed identity [federated to the Entra app registration](/entra/workload-id/workload-identity-federation). Built-in authentication uses that [federated identity credential](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) (FIC) to mint client assertions for the Entra app without storing a client secret. The bicep pattern sets `clientSecretSettingName` to an app setting that holds the user-assigned MI's client ID, telling built-in auth to use FIC instead of a secret.
-
-Since built-in authentication already validates every request, you can disable the redundant system-key check in `host.json`, which would look like this JSON fragment:
-
-```json
-{
-    ...
-    "extensions": {
-        "connector": {
-            "system": {
-                "webhookAuthorizationLevel": "Anonymous"
-            }
-        }
-    }
-}
-```
-
-### Connector namespace configuration
-
-Your connector namespace must have a system-assigned or user-assigned managed identity enabled and attached. When you create the trigger configuration, specify `authentication.type = ManagedServiceIdentity` and `authentication.identity = <resource-id-of-managed-identity>` for a user-assigned identity or omit `identity` for a system-assigned identity. Also specify `authentication.audience = <entra-app-client-id>` so the connector runtime knows which audience to request in the token.
-
-The connector runtime uses that managed identity to generate an Entra ID token on every callback. In this token, `iss` (issuer) is your tenant, `aud` (audience) is the Entra app client ID, and `oid` (object ID) is the principal ID of the identity. Built-in authentication validates all three.
-
-The connector namespace resource also needs access to the connection, such as an `office365` connection. Grant this access through an access policy that lists the managed identity's principal ID. The sample bicep file shows the full configuration for both the namespace identity and the connection access policy.
-
-### What's enforced
-
-Built-in authentication validates tokens in order:
-
-1. **Token presence** - Missing or expired token → **401**
-1. **Signature** - Verified against the issuer's JWKS for your tenant
-1. **`iss` (issuer)** - Must match `openIdIssuer`
-1. **`aud` (audience)** - Must be in `allowedAudiences`
-1. **`oid` (object/principal ID)** - Must match one of the identities in `allowedPrincipals.identities`. Any other identity → **403**
-
-Because this check runs at the App Service edge, your function code never sees a request that didn't come from the connector namespace's managed identity. You don't need any application code for the access check.
-
-### Authentication flow
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  Connector namespace                                            │
-│  • System-assigned or user-assigned managed identity enabled    │
-│  • Trigger config: authentication.type = ManagedServiceIdentity │
-│                    authentication.audience = <Entra app ID>     │
-│                    callbackUrl = https://<func>/runtime/…       │
-└────────────────────────┬───────────────────────────────────────┘
-                         │
-                         │  POST callbackUrl
-                         │  Authorization: Bearer <AAD token>
-                         │     iss = your tenant
-                         │     aud = Entra app clientId
-                         │     oid = managed identity principalId
-                         ▼
-┌──────────────────────────────────────────────────────────────┐
-│  Function App                                                │
-│                                                              │
-│   ┌──────────────────────────────────────────────────────┐   │
-│   │ Built-in authentication  (App Service edge)          │   │
-│   │   • Validates signature, iss, aud, exp               │   │
-│   │   • Checks oid ∈ allowedPrincipals.identities        │   │
-│   │   → No token  → 401                                  │   │
-│   │   → Wrong oid → 403                                  │   │
-│   └────────────────────┬─────────────────────────────────┘   │
-│                        │ pass                                │
-│                        ▼                                     │
-│   ┌──────────────────────────────────────────────────────┐   │
-│   │ /runtime/webhooks/connector                          │   │
-│   │   (webhookAuthorizationLevel = Anonymous)            │   │
-│   └────────────────────┬─────────────────────────────────┘   │
-│                        ▼                                     │
-│   ┌──────────────────────────────────────────────────────┐   │
-│   │ Your function(payload)                               │   │
-│   └──────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────┘
-                         ▲
-                         │ FIC (federated identity credential)
-         ┌───────────────┴────────────────┐
-         │  Entra app registration         │
-         │  (federated to function-app MI) │
-         └─────────────────────────────────┘
-```
-
-### Related content
-
-- [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md)
-- [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](../app-service/configure-authentication-provider-aad.md)
-- [File-based configuration in Azure App Service authentication](../app-service/configure-authentication-file-based.md)
-- [Workload identity federation in Microsoft Entra ID](/entra/workload-id/workload-identity-federation)
-- [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
-
-## Using connectors in your code
-
-The connector SDK enables your function to call connector operations as outbound actions. The client surface uses the same underlying managed connector in the connector namespace that triggers use, so a single managed connector can power both inbound triggers and outbound calls for the same service account.
-
-::: zone pivot="programming-language-csharp"
-
-In .NET, each connector ships a typed client (for example, `Office365Client`, `Office365UsersClient`, `TeamsClient`) in `Azure.Connectors.Sdk.{Service}`. The client constructor takes the connection's runtime URL and a credential.
-
-The following pattern is from the [end-to-end email user lookup Teams sample](https://github.com/Azure-Samples/functions-connectors-net-e2e-email-users-teams):
-
-```csharp
-using Azure.Core;
-using Azure.Identity;
-using Azure.Connectors.Sdk.Office365;
-using Azure.Connectors.Sdk.Office365Users;
-using Azure.Connectors.Sdk.Teams;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions
-{
-    ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID")
-});
-
-var host = new HostBuilder()
-    .ConfigureFunctionsWebApplication()
-    .ConfigureServices(services =>
-    {
-        services.AddSingleton<TokenCredential>(credential);
-
-        services.AddSingleton(sp => new Office365Client(
-            new Uri(Environment.GetEnvironmentVariable("OFFICE365_CONNECTION_RUNTIME_URL")!),
-            sp.GetRequiredService<TokenCredential>()));
-
-        services.AddSingleton(sp => new Office365UsersClient(
-            new Uri(Environment.GetEnvironmentVariable("OFFICE365USERS_CONNECTION_RUNTIME_URL")!),
-            sp.GetRequiredService<TokenCredential>()));
-
-        services.AddSingleton(sp => new TeamsClient(
-            new Uri(Environment.GetEnvironmentVariable("TEAMS_CONNECTION_RUNTIME_URL")!),
-            sp.GetRequiredService<TokenCredential>()));
-    })
-    .Build();
-
-host.Run();
-```
-
-The `*_CONNECTION_RUNTIME_URL` settings point to the per-connection runtime endpoint on the connector namespace. Inject the clients into your function and call typed methods such as `UserProfileAsync`, `GetEmailsAsync`, or `FlagAsync`. You can also call SDK clients from non-connector triggers (for example, an HTTP trigger that posts to Teams).
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-In Python, install `azure-connectors` for typed clients (for example, `office365`, `teams`, `office365Users`). The clients accept the per-connection runtime URL and a credential. SDK action coverage is expanding.
-
-::: zone-end
-
-::: zone pivot="programming-language-typescript,programming-language-javascript"
-
-In Node.js, install `@azure/connectors` for typed clients (for example, `office365`, `teams`, `office365Users`). The clients accept the per-connection runtime URL and a credential. SDK action coverage is expanding.
-
-::: zone-end
-
-::: zone pivot="programming-language-go,programming-language-java,programming-language-powershell"
-
-> [!IMPORTANT]
-> The connector SDK isn't available in these languages for the public preview.
-
-::: zone-end
+| Install packages, choose a delivery mode, and configure host settings | [Connector extension overview](functions-bindings-connector.md) |
+| Write a connector-triggered function and configure trigger resources, connection settings, and authentication | [Connector Trigger examples and reference](functions-bindings-connector-trigger.md) |
+| Call connector operations from function code | [Using Connector SDKs in your code](functions-bindings-connector.md#using-connector-sdks-in-your-code) |
 
 ## Related articles
 
+- [Connector extension in Azure Functions overview](functions-bindings-connector.md)
+- [Connector Trigger in Azure Functions](functions-bindings-connector-trigger.md)
 - [Use managed connectors in Azure App Service](../app-service/overview-managed-connectors.md)
 - [Azure Functions connectors samples (canonical index)](https://aka.ms/functions-connectors-samples)
 - [End-to-end .NET sample: email → user lookup → Teams](https://github.com/Azure-Samples/functions-connectors-net-e2e-email-users-teams)
@@ -527,3 +106,5 @@ In Node.js, install `@azure/connectors` for typed clients (for example, `office3
 - [Azure connectors overview](/connectors/overview)
 - [What is Azure Connector Namespace?](/azure/logic-apps/connector-namespace/connector-namespace-overview)
 - [Azure Functions hosted skills in Azure Functions](functions-hosted-skills.md)
+
+::: zone-end
