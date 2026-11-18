@@ -9,13 +9,11 @@ ms.date: 10/23/2026
 
 # What is AI Gateway?
 
-[!INCLUDE [ai-gateway-preview](./includes/preview.md)]
-
 AI Gateway is a managed gateway for AI traffic, including requests to AI models and Model Context Protocol (MCP) servers. It gives organizations a shared point of control for how applications and agents connect to AI services, consume resources, and access tools.
 
 As AI adoption grows, teams connect to models and tools operated by different providers. Managing each connection independently can duplicate credential handling and consumption controls while making usage harder to understand. AI Gateway brings those connections together so platform teams can manage them centrally while developers focus on building applications.
 
-:::image type="content" source="media/overview/gateway-connect.png" alt-text="Diagram showing users, AI agents, apps, and devices connecting through AI Gateway to models and tools.":::
+:::image type="content" source="media/overview/ai-gateway-architecture.png" alt-text="Diagram showing the architecture of all the components in AI Gateway and how they connect.":::
 
 ## Key capabilities
 

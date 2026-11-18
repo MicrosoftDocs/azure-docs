@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 10/26/2026
+ms.date: 11/18/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT administrator, I want to configure storage and retention for the media connector so that captured media is available to applications without exhausting edge storage.
@@ -22,13 +22,18 @@ This article explains how to configure storage and operate it safely. For camera
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - A media connector template instance. See [Create a basic connector template instance](howto-manage-connector-templates.md#create-a-basic-connector-template-instance).
 - A media connector version that supports the storage and retention settings in this article. Use the configuration schema supplied with your connector version.
-- Access to the cluster through `kubectl`, with permission to update the `ConnectorTemplate` resource and inspect connector pods and logs.
-- For persistent or shared storage, writable PVCs in the connector's namespace.
+- Permission to update the connector template instance through Azure Resource Manager (ARM), and the Bicep template that defines its current configuration. Configuration doesn't require direct access to the Kubernetes cluster. For Bicep setup, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install).
+- For persistent or shared storage, bound, writable PVCs in the connector's namespace. Have your cluster administrator provision and verify the PVCs before you configure the connector.
+- Optional: Access to the cluster through `kubectl` to inspect PVCs, connector pods, and logs for troubleshooting.
 - For cloud ingest, [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/overview) and a provisioned [Cloud Ingest Edge Volume subvolume](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes). Cloud ingest requires [secure settings](../secure-iot-ops/howto-enable-secure-settings.md#enable-the-cluster-for-secure-settings).
   
   [!INCLUDE [azure-government-acsa-note](../includes/azure-government-container-storage-note.md)]
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 ## Plan the deployment boundary
 
@@ -57,61 +62,78 @@ For ACSA, set `cloudIngestPath` to the writable ingest subvolume directory, not 
 
 ## Configure storage roots and retention
 
-Update the existing connector template instance before creating recording streams:
+Use ARM to update the existing connector template instance before creating recording streams. The following procedure uses Bicep and Azure CLI, which you can run from [Azure Cloud Shell](/azure/cloud-shell/overview) or a machine with access to Azure. Don't edit the Kubernetes `ConnectorTemplate` resource directly.
 
-1. Confirm that the PVCs are bound.
+1. Review the current connector template configuration. Replace `my-media-template` with the name of your template.
 
-   ```bash
-   kubectl get pvc --namespace azure-iot-operations
+   ```azurecli
+   az iot ops connector template show \
+       --name my-media-template \
+       --resource-group $RESOURCE_GROUP \
+       --instance $AIO_INSTANCE_NAME
    ```
 
-1. Open the connector template for editing. Replace `my-media-template` and the namespace with the values for your deployment.
+1. Open the Bicep template that defines your existing `Microsoft.IoTOperations/instances/akriConnectorTemplates` resource. Use API version `2026-07-01`, consistent with the other configuration examples in this docset. For the resource schema, see [Connector template Bicep reference](/azure/templates/microsoft.iotoperations/2026-07-01/instances/akriconnectortemplates).
 
-   ```bash
-   kubectl edit connectortemplate my-media-template --namespace azure-iot-operations
-   ```
+   Merge the following `runtimeConfiguration` fragment into the resource's `properties` object, updating the storage and retention settings under `managedConfigurationSettings`. This Bicep fragment isn't a complete deployment template. Preserve the resource's existing name, parent instance, extended location, image configuration, MQTT connection, diagnostics, secrets, trust settings, and any other required configuration. Merge the nested objects rather than replacing them, and retain any existing PVCs and additional settings that you still need. Replace the PVC names and paths with your own values.
 
-1. Merge the following settings into the existing `spec.runtimeConfiguration.managedConfigurationSettings`. This YAML is a configuration fragment, not a complete deployment manifest. Preserve the existing image, MQTT connection, diagnostics, secrets, trust settings, and any other required configuration. Replace the PVC names and paths with your own values.
-
-   ```yaml
-   spec:
-     runtimeConfiguration:
-       runtimeConfigurationType: managedConfiguration
-       managedConfigurationSettings:
-         managedConfigurationType: imageConfiguration
-         imageConfigurationSettings:
-           replicas: 1
-         allocation:
-           policy: Bucketized
-           bucketSize: 100
-         persistentVolumeClaims:
-           - claimName: local-shared-pvc
-             mountPath: /local-shared
-           - claimName: media-pvc
-             mountPath: /data
-         additionalConfiguration:
-           localSharedPath: "/local-shared"
-           cloudIngestPath: "/data/ingestSubDir"
-           localStoreSnapshotRetentionMinutes: "10"
-           localStoreClipRetentionMinutes: "10"
-           localStoreExtractedClipRetentionMinutes: "1440"
-           localStoreAbandonedRetentionIntervalMinutes: "5"
-           localSharedSnapshotRetentionMinutes: "43200"
-           localSharedClipRetentionMinutes: "43200"
-           localSharedExtractedClipRetentionMinutes: "43200"
-           localSharedTempRetentionMinutes: "1440"
-           localSharedRetentionIntervalMinutes: "1440"
-           localSharedOthersRetentionMinutes: "43200"
-           maxPendingPublicationsPerStream: "20"
-           maxPendingPublicationBytesPerStream: "64Mi"
-           maxTrackedCleanupRecords: "10000"
+   ```bicep
+   runtimeConfiguration: {
+     runtimeConfigurationType: 'ManagedConfiguration'
+     managedConfigurationSettings: {
+       managedConfigurationType: 'ImageConfiguration'
+       imageConfigurationSettings: {
+         replicas: 1
+       }
+       allocation: {
+         policy: 'Bucketized'
+         bucketSize: 100
+       }
+       persistentVolumeClaims: [
+         {
+           claimName: 'local-shared-pvc'
+           mountPath: '/local-shared'
+         }
+         {
+           claimName: 'media-pvc'
+           mountPath: '/data'
+         }
+       ]
+       additionalConfiguration: {
+         localSharedPath: '/local-shared'
+         cloudIngestPath: '/data/ingestSubDir'
+         localStoreSnapshotRetentionMinutes: '10'
+         localStoreClipRetentionMinutes: '10'
+         localStoreExtractedClipRetentionMinutes: '1440'
+         localStoreAbandonedRetentionIntervalMinutes: '5'
+         localSharedSnapshotRetentionMinutes: '43200'
+         localSharedClipRetentionMinutes: '43200'
+         localSharedExtractedClipRetentionMinutes: '43200'
+         localSharedTempRetentionMinutes: '1440'
+         localSharedRetentionIntervalMinutes: '1440'
+         localSharedOthersRetentionMinutes: '43200'
+         maxPendingPublicationsPerStream: '20'
+         maxPendingPublicationBytesPerStream: '64Mi'
+         maxTrackedCleanupRecords: '10000'
+       }
+     }
+   }
    ```
 
    Omit the PVC and root setting for any mounted tier you don't need. Omit settings whose defaults are suitable.
 
    All `additionalConfiguration` values must be strings, including numbers and byte quantities. Names are case-sensitive. Unknown names, duplicate keys, invalid values, and non-string values prevent connector initialization. Byte suffixes are also case-sensitive: use `Ki`, `Mi`, or `Gi`.
 
-1. Save the changes and verify the connector as described in [Verify storage and troubleshoot](#verify-storage-and-troubleshoot). Ensure that any replacement process has exclusive access to the storage tree.
+1. Save the complete Bicep template as `media-connector.bicep` and deploy it to the resource group that contains your Azure IoT Operations instance. Supply any parameters required by your existing template.
+
+   ```azurecli
+   az deployment group create \
+       --subscription $SUBSCRIPTION_ID \
+       --resource-group $RESOURCE_GROUP \
+       --template-file media-connector.bicep
+   ```
+
+1. Verify the connector as described in [Verify storage and troubleshoot](#verify-storage-and-troubleshoot). Ensure that any replacement process has exclusive access to the storage tree.
 
 ### Select stream destinations
 
@@ -166,13 +188,12 @@ If the abandoned-destination sweeper is enabled, the connector must receive its 
 
 The default retention for local shared snapshots, clips, and extracted media is 30 days. The default reevaluation interval is one day; allow storage headroom for files awaiting cleanup.
 
-The connector always manages its own local shared destinations. `localSharedManagedDirectories` adds directories; it doesn't replace that set. For example, to clean up immutable output handed off by another producer, add:
+The connector always manages its own local shared destinations. `localSharedManagedDirectories` adds directories; it doesn't replace that set. For example, to clean up immutable output handed off by another producer, merge the following setting into the Bicep resource's `additionalConfiguration` object and redeploy the template:
 
-```yaml
-additionalConfiguration:
-  localSharedManagedDirectories: |-
-    archive/legacy
-    vendor-analytics/output
+```bicep
+additionalConfiguration: {
+  localSharedManagedDirectories: 'archive/legacy\nvendor-analytics/output'
+}
 ```
 
 Unrecognized files have no filename timestamp. Cleanup of these files uses guarded filesystem metadata.
@@ -237,6 +258,27 @@ maxSnapshotExtractionDurationSeconds
 Extraction from snapshots requires a configured `snapshotsPerSecond` greater than `0`. Fractional rates below `1` are supported. A value of `0` uses the source frame rate for capture but isn't supported for extraction. Keep retention long enough for sources to be finalized and for the application to request them.
 
 ## Verify storage and troubleshoot
+
+Use the following command to verify the connector template's provisioning state and configured storage and retention settings through ARM:
+
+```azurecli
+az iot ops connector template show \
+    --name my-media-template \
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME
+```
+
+Successful ARM provisioning doesn't verify PVC health, exclusive storage access, or recording output. Configure a test recording stream and verify its data-operation status and finalized files. For cloud ingest, also verify that ACSA uploads the files to the configured blob container.
+
+### Optional cluster diagnostics
+
+If you or your cluster administrator have direct cluster access, use the following read-only checks. These commands are for diagnostics, not configuration. Replace the namespace and pod name with the values for your deployment.
+
+1. Verify that the PVCs are bound:
+
+   ```bash
+   kubectl get pvc --namespace azure-iot-operations
+   ```
 
 1. Verify that only one Connector and one pod can write to or clean the managed tree:
 

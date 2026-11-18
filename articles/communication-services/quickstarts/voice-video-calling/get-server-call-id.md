@@ -80,5 +80,5 @@ callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
 
 For more information, see the following articles:
 
-- Learn about [Calling SDK capabilities]()
+- Learn about [Calling SDK capabilities](../../concepts/interop/guest/calling-capabilities.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

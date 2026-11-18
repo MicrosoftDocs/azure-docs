@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 03/20/2025
+ms.date: 11/18/2026
 ms.custom:
   - amqp
   - mqtt
@@ -16,7 +16,12 @@ ms.custom:
 
 # Choose a device communication protocol
 
-IoT Hub allows devices to use the following protocols for device-side communications:
+IoT Hub device protocol support depends on the hub's connection profile.
+For the **MQTT v5 connection profile (preview)**, review
+[Capabilities and connection profiles](mqtt-v5-capabilities.md) and follow
+[Connect a device using MQTT v5](mqtt-v5-device-setup.md).
+The protocol recommendations and port table in this article apply to the
+**classic connection profile**, which supports:
 
 * [MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf)
 * MQTT over WebSockets
@@ -25,7 +30,14 @@ IoT Hub allows devices to use the following protocols for device-side communicat
 * HTTPS
 
 > [!NOTE]
-> IoT Hub provides limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, see [Overview of the MQTT broker feature in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see the [Compare MQTT support in IoT Hub and Event Grid](iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid) section of [Communicate with an IoT hub using the MQTT protocol](iot-mqtt-connect-to-iot-hub.md).
+> The classic connection profile provides limited MQTT v3.1.1 feature support.
+> IoT Hub also offers an **MQTT v5 connection profile (preview)** with custom-topic
+> publishing, but not custom-topic subscriptions. See
+> [Capabilities and connection profiles](mqtt-v5-capabilities.md).
+> If your solution needs a general-purpose MQTT publish-subscribe broker, see
+> [Overview of the MQTT broker feature in Azure Event Grid](../event-grid/mqtt-overview.md).
+> For the classic-profile comparison, see
+> [Compare MQTT support in IoT Hub and Event Grid](iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
 
 For information about how these protocols support specific IoT Hub features, see [Device-to-cloud communications guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md).
 

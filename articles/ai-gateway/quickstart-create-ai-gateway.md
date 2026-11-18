@@ -11,8 +11,6 @@ ms.reviewer: fasantia
 
 # Quickstart: Create an AI Gateway
 
-[!INCLUDE [ai-gateway-preview](./includes/preview.md)]
-
 AI Gateway gives your applications a central entry point for AI models, so you can govern access without configuring each application to connect directly to a model provider.
 
 This article walks you through creating an AI Gateway, adding your first model from Microsoft Foundry, and sending a request through the gateway.

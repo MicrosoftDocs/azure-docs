@@ -200,13 +200,13 @@ select-AzSubscription -Subscription "Your Subscription"
 
 #Create an action group email receiver and corresponding action group
 
-$email1 = New-AzActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$email1 = New-AzActionGroupReceiver -EmailAddress test@test1.com -Name EmailReceiver1
 $ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
 Get-AzContext
-New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test1.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 
 ### [CLI](#tab/clibudget)
@@ -221,7 +221,7 @@ az login
 az account set --subscription "Your Subscription"
  
 # Create an action group email receiver and corresponding action group
-email1=$(az monitor action-group receiver email create --email-address test@test.com --name EmailReceiver1 --resource-group YourResourceGroup --query id -o tsv)
+email1=$(az monitor action-group receiver email create --email-address test@test1.com --name EmailReceiver1 --resource-group YourResourceGroup --query id -o tsv)
 ActionGroupId=$(az monitor action-group create --resource-group YourResourceGroup --name TestAG --short-name TestAG --receiver $email1 --query id -o tsv)
  
 # Create a monthly budget that sends an email and triggers an Action Group to send a second email.
@@ -267,7 +267,7 @@ resource "azurerm_monitor_action_group" "example" {
 
   email_receiver {
     name                    = "EmailReceiver1"
-    email_address           = "test@test.com"
+    email_address           = "test@test1.com"
     use_common_alert_schema = true
   }
 }
@@ -339,7 +339,7 @@ resource "azurerm_monitor_action_group" "example" {
 
   email_receiver {
     name                    = "EmailReceiver1"
-    email_address           = "test@test.com"
+    email_address           = "test@test1.com"
     use_common_alert_schema = true
   }
 }

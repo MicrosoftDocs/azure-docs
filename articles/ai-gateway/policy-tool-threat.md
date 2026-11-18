@@ -1,5 +1,5 @@
 ---
-title: Protect tool calls with Defender and Purview in AI Gateway (preview)
+title: Protect tool calls with Defender and Purview in AI Gateway
 titleSuffix: Azure
 description: Learn how to evaluate MCP and OpenAPI tool calls for threats, prompt injection, and sensitive-data risks in Azure AI Gateway.
 ms.service: azure
@@ -8,15 +8,13 @@ ms.topic: how-to
 ms.date: 09/24/2026
 ---
 
-# Protect tool calls with tool threat protection in AI Gateway (preview)
+# Protect tool calls with tool threat protection in AI Gateway
 
-[!INCLUDE [api-gateway-preview](./includes/preview.md)]
-
-Agent 365 tool threat protection helps protect agents and applications that call tools through AI Gateway (preview). The policy uses Microsoft Defender and Microsoft Purview capabilities to evaluate tool requests and results for risks such as malicious content, prompt injection, and exposure of sensitive information.
+Agent 365 tool threat protection helps protect agents and applications that call tools through AI Gateway. The policy uses Microsoft Defender and Microsoft Purview capabilities to evaluate tool requests and results for risks such as malicious content, prompt injection, and exposure of sensitive information.
 
 ## Prerequisites
 
-- An AI Gateway (preview) instance.
+- An AI Gateway instance.
 - An MCP server configured in the gateway.
 - Microsoft Defender or Microsoft Purview license.
 - Permission to manage policies on the gateway.

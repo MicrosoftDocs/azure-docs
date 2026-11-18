@@ -6,19 +6,19 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ---
 
 # Compare IoT Hub connection profiles and MQTT v5 capabilities
+
+> [!WARNING]
+> The Azure IoT Hub MQTT v5 connection profile is in preview and shouldn't be used for production workloads.
+> Preview capabilities, availability, limits, and behavior might change before general availability.
 
 Azure IoT Hub offers a classic connection profile and an MQTT v5 connection
 profile for device connectivity. Select the connection profile when creating
 your hub; you can't change it afterward. Use this article to compare the
 profiles and check the capabilities available in the MQTT v5 preview.
-
-> [!IMPORTANT]
-> Azure IoT Hub with the MQTT v5 connection profile is in preview. Preview capabilities,
-> availability, limits, and behavior might change before general availability.
 
 <a id="capabilities-of-azure-iot-hub-with-the-mqtt-v5-connection-profile"></a>
 <a id="compare-azure-iot-hub-connectivity-options"></a>
@@ -114,10 +114,7 @@ DPS, not directly through the MQTT v5 hub. See
 | --- | --- | --- |
 | Unified Azure IoT SDK for .NET | Yes | Select an MQTT v5-compatible preview package from [Available SDKs](/azure/iot/device-registry/concept-unified-iot-sdks#available-sdks). |
 | Unified Azure IoT SDK for C | Yes | Select an MQTT v5-compatible preview release from [Available SDKs](/azure/iot/device-registry/concept-unified-iot-sdks#available-sdks), then follow that release's build instructions and samples. |
-| Raw MQTT clients | Not supported | The supported device application path for this preview is through the unified Azure IoT SDKs for .NET and C. |
-| Unified Azure IoT SDK for Python | Not supported | |
-| Unified Azure IoT SDK for Java | Not supported | |
-| Unified Azure IoT SDK for JavaScript or TypeScript | Not supported | |
+| Raw MQTT clients | Not supported | Device applications must use the unified Azure IoT SDKs for .NET or C. |
 
 ### Backend application SDKs
 

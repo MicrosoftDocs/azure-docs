@@ -22,7 +22,6 @@ The following tables list the limits that apply to the Azure Device Registry res
 |---------------|------------|-------|
 | Devices | Count per Azure subscription | 1,000,000<sup>1</sup> |
 | Devices / discovered devices | Count per Kubernetes cluster | 1,000 |
-| Devices / discovered devices | Count per Azure Device Registry namespace | 10,000 |
 | Devices / discovered devices (read) | Operations per minute per Azure subscription | 5,000 |
 | Devices / discovered devices (create/update) | Operations per minute per Azure subscription | 500 |
 | Assets | Count per Azure subscription | 100,000 |
