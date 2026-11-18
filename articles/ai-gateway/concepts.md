@@ -12,8 +12,6 @@ ms.reviewer: fasantia
 
 # AI Gateway concepts
 
-[!INCLUDE [ai-gateway-preview](./includes/preview.md)]
-
 AI Gateway centralizes access to AI models and tools. Applications and agents use gateway endpoints while platform teams manage backend connections, access, policies, and observability.
 
 This article explains the key concept it builds on.
