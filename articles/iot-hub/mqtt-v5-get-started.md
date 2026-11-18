@@ -6,7 +6,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: quickstart
-ms.date: 10/25/2026
+ms.date: 11/12/2026
 ---
 
 # Create and connect to an Azure IoT Hub with the MQTT v5 connection profile
@@ -20,6 +20,27 @@ stage of the journey.
 > [!IMPORTANT]
 > Azure IoT Hub with the MQTT v5 connection profile is in preview. Review the
 > [capability matrix](mqtt-v5-capabilities.md) before starting.
+
+## Sample scripts and code
+
+The [Azure IoT Hub MQTT v5 and ADR preview samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview)
+repository provides PowerShell setup scripts, C and .NET device code, and a
+verifier that checks message receipt at standalone Azure Event Hubs destinations.
+The standard scenario also checks direct methods and desired-to-reported twin
+property updates. Follow the repository's instructions to run the samples on Windows.
+
+Unlike the existing-certificate walkthrough in this article, the samples use a symmetric
+key for DPS onboarding and request an operational certificate with a certificate
+signing request (CSR). The device then connects to IoT Hub with X.509.
+The samples create their own environment. Don't run their setup script against
+an environment created by this walkthrough.
+
+> [!NOTE]
+> The samples passed local builds and offline checks. Live Azure
+> scenarios and clean-machine setup still require validation. Confirm access to
+> the required preview CLI extension before starting. The samples create billable
+> resources. Review their [requirements](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#requirements)
+> and [cleanup instructions](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#cleanup).
 
 ## Prerequisites
 
