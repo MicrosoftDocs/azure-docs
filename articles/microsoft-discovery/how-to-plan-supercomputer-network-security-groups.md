@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 09/09/2026
+ms.date: 11/17/2026
 ms.custom: networking
 
 #CustomerIntent: As a Discovery administrator, I want to plan network security group rules for a hardened supercomputer so that I control egress without breaking cluster connectivity.
@@ -193,7 +193,7 @@ A blocked outbound dependency is the most common cause, but not the only one. Wo
 - Check capacity and identity. Look for subnet IP exhaustion, compute quota limits, denied Azure Policy assignments, and managed identity or role assignment failures.
 - Check extension status. Inspect the virtual machine scale set instance and extension provisioning state for the specific failure reported.
 
-After you restore connectivity, try the supported recovery path before you recreate anything. Reconcile the cluster, then repair or reimage the affected instances. Recreate the node pool only if the instances remain in a terminal failed state. Account for workload evacuation and system node pool constraints before you do.
+After you correct a confirmed customer-managed connectivity problem, collect the provisioning error, timestamp, ARM correlation ID, and cluster state. Follow the [supported Discovery recovery guidance](troubleshoot-microsoft-discovery.md#supercomputer-nodes-never-reach-the-ready-state) with your administrator or Microsoft Support before recreating resources. Don't reconcile the backing AKS cluster, reimage instances, or change resources in the managed resource group directly.
 
 ## Related content
 

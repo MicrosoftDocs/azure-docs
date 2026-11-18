@@ -97,7 +97,7 @@ sections:
       - question: |
           Can I manually configure the DDoS policy applied to the VNets/Public IPs?
         answer: |
-          No, unfortunately policy customization isn't available at this moment.
+          Yes. Use an Azure DDoS Protection custom policy to configure inbound detection thresholds for TCP, UDP, and TCP SYN on supported public IP endpoints. The policy association uses an individual public IP address or a resource-specific IP configuration, not the virtual network resource itself. Protocols without a custom rule continue to use adaptive auto-tuning. For supported resources and limitations, see [What is Azure DDoS Protection custom policy?](ddos-custom-policy-overview.md).
 
       - question: |
           Can I allowlist/blocklist specific IP addresses?

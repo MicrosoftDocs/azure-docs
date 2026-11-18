@@ -37,9 +37,11 @@ The complexity of attacks (for example, multivector DDoS attacks) and the applic
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-real-time-tuning.png" alt-text="Diagram of how DDoS Protection works." lightbox="./media/ddos-best-practices/ddos-protection-real-time-tuning.png":::
 
-## Custom detection thresholds (preview)
+<a id="custom-detection-thresholds-preview"></a>
 
-If your workload needs fixed, protocol-specific detection thresholds instead of adaptive auto-tuning, create a DDoS Protection custom policy. A custom policy lets you set inbound TCP, UDP, and TCP SYN thresholds, in packets per second, for Standard Load Balancer frontend IP addresses. When you set a custom threshold for a protocol, automatic tuning is disabled for that protocol on the protected resource. For more information, see [What is Azure DDoS Protection custom policy?](ddos-custom-policy-overview.md)
+## Custom detection thresholds
+
+If your workload needs fixed, protocol-specific detection thresholds instead of adaptive auto-tuning, create a DDoS Protection custom policy. A custom policy lets you set inbound TCP, UDP, and TCP SYN thresholds, in packets per second, for supported public IP endpoints across compute, container, and networking resources. The policy association uses a public IP address or resource-specific IP configuration, depending on the resource and management interface. When you set a custom threshold for a protocol, automatic tuning is disabled for that protocol on the protected endpoint. For supported resources and limitations, see the [custom policy overview](ddos-custom-policy-overview.md).
 
 ## DDoS Protection telemetry, monitoring, and alerting
 

@@ -11,10 +11,10 @@ items:
     href: overview.md#supported-compute
   - name: Region availability
     href: overview.md#region-availability
-  - name: Preview and service limits
+  - name: Grid, members, and service limits
+    href: overview.md#grid-members-and-service-limits
+  - name: Preview limitations
     href: overview.md#limitations
-  - name: Configuration limitations
-    href: configure-agent-grid.md#limitations
 - name: Support and troubleshooting
   items:
   - name: Troubleshoot Agent Grid

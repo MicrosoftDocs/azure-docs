@@ -1,34 +1,35 @@
 ---
-title: Configure Azure Agent Grid (preview)
-description: Learn how to configure Azure Agent Grid in the Azure portal, enroll agent workloads, apply security policies, and validate traffic with flow logs.
+title: Configure Azure Agent Grid (limited preview)
+description: Learn how to configure Azure Agent Grid in limited preview, request access, enroll ACI or AKS workloads, apply policies, and validate traffic.
 author: asudbring
 ms.author: allensu
 ms.service: azure
 ms.topic: how-to
 ms.custom: template-how-to
-ms.date: 11/09/2026
+ms.date: 11/17/2026
 # Customer intent: As a network administrator, I want to configure Azure Agent Grid in the Azure portal so that I can protect agent workloads and inspect their traffic.
 ---
 
-# Configure Azure Agent Grid (preview)
+# Configure Azure Agent Grid (limited preview)
 
 In this article, you learn how to configure Azure Agent Grid in the Azure portal. You create a grid, attach compute resources, enroll workloads as members, add policies in policy groups, and validate traffic with flow logs.
 
-In this preview, Agent Grid secures agents that run in AI sandboxes in Azure Container Instances (ACI). Support for Azure Kubernetes Service (AKS) is available in a gated preview.
+Agent Grid is in limited preview for both AI sandboxes in Azure Container Instances (ACI) and Azure Kubernetes Service (AKS). To request access, complete the [Agent Grid limited preview access request form](https://aka.ms/AG_RequestAccess).
 
 > [!IMPORTANT]
-> Agent Grid is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Agent Grid is currently in limited preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
 > Agent Grid was internally named Agent Fabric. Azure Resource Manager resource types, the Azure CLI, and API properties might still use that name.
 
 ## Prerequisites
 
-- An Azure account with an active subscription and access to the Agent Grid preview. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+Before you begin, review the [Azure Agent Grid limitations](overview.md#limitations).
+
+- An Azure account with an active subscription and approved access to the Agent Grid limited preview. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The `Microsoft.NetworkSecurity` resource provider, `Microsoft.NetworkSecurity/AgentGridPreview` for Agent Grid, `Microsoft.ContainerInstance/AIAgentsGroupsPreview` for AI sandboxes in ACI, and `Microsoft.ContainerService/EnableAgentFabricPreview` for AKS registered in the subscription. For instructions, see [Set up preview features in an Azure subscription](../azure-resource-manager/management/preview-features.md#register-preview-feature).
 - A region where Agent Grid is available. See [Region availability](overview.md#region-availability).
-- An Azure Kubernetes Service (AKS) cluster or an AI sandbox group in Azure Container Instances (ACI) that runs your agents, in the same subscription and region as the grid. It can be in a different resource group. Private AKS clusters aren't supported in this preview. An ACI sandbox group must use a public IP address; sandbox groups that use virtual network integration aren't supported in this preview.
-- If you use your own virtual network, allow inbound traffic to the Agent Grid gateway's load balancer IP address on TCP ports `15008` and `15009` in the subnet's network security group (NSG).
+- An Azure Kubernetes Service (AKS) cluster or an AI sandbox group in Azure Container Instances (ACI) that runs your agents.
 - If you use AgentGateway for AKS, enable Gateway API support on the cluster. Agent Grid doesn't include this support automatically. You can enable it by using the [managed Gateway API installation](/azure/aks/managed-gateway-api).
 - To use content inspection policies (Prompt Shields), an Azure AI Content Safety resource that you own, and its endpoint and an API key.
 - To store flow logs, a Log Analytics workspace.
@@ -195,16 +196,6 @@ Agent Grid sends flow logs to Azure Monitor through diagnostic settings, in the 
 | You can't add a content inspection policy, or a policy group change that adds one is rejected | The grid, or a grid that uses the group, has no Content Safety connection. In the grid, select **Settings** > **Content Safety**, connect your Content Safety resource, and then retry. |
 | A workload's traffic isn't being filtered | The workload isn't enrolled (its status on the **Members** page is **Not enrolled**), no policy targets it (the **Members** card on the grid's **Overview** page lists it under **Needs attention**), the policy group doesn't apply to the grid, or the member pattern of the policy doesn't match the workload. |
 
-## Limitations
-
-- ACI sandbox groups are supported only with a public IP address.
-- Compute resources must be in the same subscription and region as the grid, and a compute resource can be attached to only one grid.
-- The compute service creates and deletes members. You can't create a member directly.
-- You can't change a grid's trust domain after you create it.
-- Agent Grid workload identities aren't connected to Microsoft Entra Agent ID in this preview.
-- TLS inspection and content inspection policies support only member identities as the source.
-- A TLS inspection policy has at most one rule, and TLS inspection uses an Azure-managed certificate authority.
-
 ## Clean up resources
 
 When you no longer need the grid, remove its configuration:
@@ -215,6 +206,6 @@ When you no longer need the grid, remove its configuration:
 
 ## Related content
 
-- [What is Azure Agent Grid? (preview)](overview.md).
+- [What is Azure Agent Grid? (limited preview)](overview.md).
 - [Key concepts](overview.md#key-concepts).
 - [Supported compute](overview.md#supported-compute).
