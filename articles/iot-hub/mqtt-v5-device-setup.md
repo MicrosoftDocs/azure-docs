@@ -1,15 +1,17 @@
 ---
-title: Configure a device with the unified Azure IoT SDKs
+title: Connect a device using MQTT v5
 titleSuffix: Azure IoT Hub
 description: Connect a device to Azure IoT Hub with the MQTT v5 connection profile using X.509 onboarding and the unified .NET or C SDK, then send telemetry.
 author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 11/12/2026
+ms.date: 11/18/2026
 ---
 
-# Configure a device with the unified Azure IoT SDKs
+# Connect a device using MQTT v5
+
+<a id="configure-a-device-with-the-unified-azure-iot-sdks"></a>
 
 Use the unified Azure IoT SDK for .NET or C to provision a device, connect it
 to Azure IoT Hub with the MQTT v5 connection profile, and send telemetry.
@@ -50,11 +52,8 @@ device connectivity. The certificate can be issued by Microsoft or a
 third-party certificate authority. Direct SAS authentication isn't supported
 for these hub connections.
 
-The device validates the IoT Hub server certificate and hostname, and IoT Hub
-authenticates the device by using its client certificate. Configure the
-device to trust the appropriate server certificate chain and present its
-device certificate. Don't disable server certificate or hostname validation.
-For endpoint selection and TLS requirements, see
+Don't disable server certificate or hostname validation. For endpoint selection
+and shared TLS requirements, see
 [IoT Hub endpoints](iot-hub-devguide-endpoints.md#tls-13-enabled-endpoints).
 
 Keep private keys and certificate passwords out of source control. File-based
@@ -63,43 +62,29 @@ by your device platform for production design.
 
 ### Device Provisioning Service (DPS) onboarding and certificates
 
-DPS onboarding and IoT Hub connectivity use credentials for different purposes:
-
-- **Onboarding credential:** Authenticates the device to DPS. DPS supports
-  symmetric-key (SAS) or X.509 credentials for onboarding to this profile.
-  Symmetric-key onboarding requires configured certificate issuance so that
-  the device can obtain an X.509 certificate for the hub connection.
-- **Operational certificate:** An X.509 certificate that authenticates the
-  provisioned device to IoT Hub. IoT Hub doesn't support SAS for this connection.
-
-DPS supports certificate issuance during provisioning when an Azure Device
-Registry (ADR) issuing certificate authority and policy are configured, the
-enrollment references that configuration, and the device submits a certificate
-signing request. Alternatively, a device can use an existing X.509 certificate
-for both DPS onboarding and hub authentication without requesting a new certificate,
-as the examples in this article do.
-
-An X.509 certificate can serve an onboarding or operational role. These roles
-describe its purpose, not a different certificate format.
+DPS onboarding and hub authentication are separate. A symmetric-key onboarding
+credential doesn't enable SAS authentication to an MQTT v5 hub; the device must
+obtain an operational X.509 certificate through a supported DPS issuance path.
+The examples here instead use an existing X.509 certificate for both connections.
+For language- and version-specific support, see
+[Provisioning and authentication](../iot/device-registry/concept-unified-iot-sdks.md#provisioning-and-authentication).
 
 The CLI creation setting `--disable-local-auth false` allows service-side
 SAS authentication. It doesn't enable SAS device connections or change the
 X.509 requirement. The [setup walkthrough](mqtt-v5-cloud-setup.md) keeps these
 service and device credential choices separate.
 
-### Operational certificate management
+<a id="operational-certificate-management"></a>
 
-ADR provides the issuing certificate authority and policy for operational
-certificate issuance through DPS. See
-[Configure certificate issuance through DPS](mqtt-v5-cloud-setup.md#configure-certificate-issuance-through-dps).
+### Operational certificate issuance and renewal through DPS
 
-DPS supports operational certificate renewal. The device uses its onboarding
-credential and submits a new certificate signing request during provisioning
-to get a replacement operational certificate. Direct operational certificate
-renewal through the MQTT v5 hub isn't supported in this preview.
-
-Check the selected SDK version for the APIs needed for issuance and renewal;
-don't assume that an SDK automatically renews operational certificates.
+For MQTT v5, operational certificate issuance and renewal go through DPS,
+not directly through the hub. ADR provides the issuing CA and certificate policy.
+Renewal requires the onboarding credential
+and a new certificate signing request. SDK support varies by language,
+version, and API surface; don't assume automatic renewal.
+See [SDK certificate-management support](../iot/device-registry/concept-unified-iot-sdks.md#certificate-management)
+and [Configure certificate issuance through DPS](mqtt-v5-cloud-setup.md#configure-certificate-issuance-through-dps).
 The inline examples in this article don't implement certificate issuance or renewal.
 
 ### Certificate issuance samples
@@ -125,11 +110,9 @@ prerequisites and validation limitations before running them.
 
 ### Certificate trust and rollover
 
-Keep the device's trust store current. Avoid pinning IoT Hub server leaf or
-intermediate certificates because these certificates can change during
-normal certificate rotation. See
-[IoT Hub server TLS certificates](iot-hub-tls-support.md#iot-hubs-server-tls-certificate)
-and [certificate pinning guidance](iot-hub-tls-support.md#certificate-pinning).
+Follow the shared [server certificate](iot-hub-tls-support.md#iot-hubs-server-tls-certificate)
+and [certificate pinning guidance](iot-hub-tls-support.md#certificate-pinning)
+to maintain the device trust store.
 
 ## Confirm the cloud configuration
 
@@ -150,36 +133,17 @@ Use the returned ID scope as `DPS_ID_SCOPE` in the device configuration.
 The enrollment must be enabled and match the certificate's onboarding identity.
 An ID scope isn't the DPS resource ID or the hub hostname.
 
-After the SDK provisions and connects the device, inspect the device record in
-the linked Azure Device Registry (ADR) namespace:
-
-```azurecli
-az iot adr ns device list --ns "<ADR_NAMESPACE_NAME>" --resource-group "<RESOURCE_GROUP_NAME>" --query "[].{name:name,enablementState:properties.enablementState,provisioningState:properties.provisioningState}" --output json
-```
-
-Locate the device represented by the provisioning result and check its state.
-The registry record is one checkpoint; it doesn't prove that telemetry reached
-the routing destination. The CLI manages and inspects cloud configuration; the
-supported device SDK still performs provisioning and MQTT v5 publishing.
+Confirm the linked resources by using [Verify readiness](mqtt-v5-cloud-setup.md#verify-readiness).
+Cloud configuration alone doesn't prove provisioning or message delivery;
+the device SDK and destination reader provide those checkpoints.
 
 ### [ARM REST](#tab/arm)
 
-Read the DPS resource's ID scope through Azure Resource Manager after signing
-in to Azure CLI. `<DPS_RESOURCE_ID>` is the full resource ID saved during
-setup, beginning with `/subscriptions/`.
-
-```azurecli
-az rest --method get --uri "https://management.azure.com<DPS_RESOURCE_ID>?api-version=2026-11-01" --query "{idScope:properties.idScope,state:properties.state}" --output json
-```
-
-Confirm that DPS is `Active` and use its `idScope` value as `DPS_ID_SCOPE`
-for the device. Don't substitute the DPS resource ID or service hostname.
-
-This ARM request reads the provisioning service resource; it doesn't create
-or verify an individual enrollment. Complete the X.509 enrollment steps in
-[hub setup](mqtt-v5-cloud-setup.md#configure-the-linked-resources), using the
-CLI or the DPS service API. Enrollments aren't ARM child resources.
-The device examples still require the existing certificate and private key.
+Use [Inspect resource and link states through ARM REST](mqtt-v5-cloud-setup.md#inspect-resource-and-link-states-through-arm-rest)
+to check resource readiness. Obtain the DPS ID scope and complete the X.509
+enrollment steps in [Configure the linked resources](mqtt-v5-cloud-setup.md#configure-the-linked-resources).
+Enrollments aren't ARM child resources. Use the ID scope, not the resource ID
+or service hostname, as `DPS_ID_SCOPE`.
 
 ---
 
@@ -188,14 +152,14 @@ The device examples still require the existing certificate and private key.
 Use UTF-8 JSON with an explicit content type. Include a unique test identifier
 so that you can distinguish a current message from old destination data.
 
-The SDK payload APIs accept bytes. Set content metadata that describes those
-bytes, and check the selected API's controls before using a different format.
-Device payload metadata is separate from the routing endpoint's **Message format**;
-see [Verify the result](#verify-the-result) for destination handling.
+For shared payload and content-metadata guidance, see
+[Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
+The routing endpoint's **Message format** is a separate setting; see
+[Verify the result](#verify-the-result).
 
 The initial .NET and C examples use the standard telemetry client. A
 custom-topic publisher is a separate SDK operation; see
-[Publish a custom-topic test message with .NET](#publish-a-custom-topic-test-message-with-net)
+[Publish a custom-topic test message with .NET](mqtt-v5-custom-topics.md#publish-a-custom-topic-test-message-with-net)
 for an example that also sets MQTT v5 user properties.
 
 ## .NET
@@ -347,87 +311,9 @@ that default for arbitrary binary. Content Type is overridden through
 
 ## Publish a custom-topic test message with .NET
 
-Before running this example, follow
-[custom topic group configuration](mqtt-v5-custom-topics.md). Configure
-`fleet/vehicles/{deviceId}/telemetry` and `fleet/vehicles/{deviceId}/faults`,
-or a template such as `fleet/vehicles/{deviceId}/#` that covers both.
-Retain any other templates needed by existing devices.
-
-Configure a destination and route through [shared routing guidance](iot-hub-devguide-messages-d2c.md).
-Use a supported destination with a reader that can identify the test
-messages. The publishing steps don't depend on a particular destination.
-
-Use the .NET application and pinned SDK package from
-[Create the application](#create-the-application).
-Keep its certificate loading, provisioning, connection, timeout, and disconnect
-steps. Don't add a custom-topic subscription; this workflow publishes only.
-
-1. Remove the `Microsoft.Azure.Iot.Device.Unified.Connection` and
-   `Microsoft.Azure.Iot.Device.Unified.Telemetry` using directives from
-   `Program.cs`. Add these namespaces to use the MQTT v5 custom publishing path:
-
-   ```csharp
-   using Microsoft.Azure.Iot.Device.Mqtt;
-   using Microsoft.Azure.Iot.Device.MQTTv5.Connection;
-   using Microsoft.Azure.Iot.Device.MQTTv5.CustomTopics;
-   ```
-
-1. Replace `var telemetry = new TelemetryClient(connection);` with
-   `using var customTopics = new CustomTopicsClient(connection);`.
-1. After `ProvisionAndConnectAsync`, replace the block from
-   `string testId = ...` through `await telemetry.SendTelemetryAsync(...)`
-   with the following. Keep the existing completion message and disconnect
-   after this block.
-
-   ```csharp
-   string testId = Guid.NewGuid().ToString();
-   string category = "faults";
-   string? severity = "critical";
-   var message = new MqttPublish
-   {
-       Topic = $"fleet/vehicles/{IConnectionClient.DeviceIdPlaceholder}/{category}",
-       Payload = JsonSerializer.SerializeToUtf8Bytes(new
-       {
-           testId,
-           temperature = 21.5,
-           observedAt = DateTimeOffset.UtcNow
-       }),
-       ContentType = "application/json",
-       PayloadFormatIndicator = MqttPayloadFormatIndicator.CharacterData,
-       QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce
-   };
-   if (severity is not null)
-   {
-       message.AddUserProperty("severity", severity);
-   }
-   var acknowledgement = await customTopics.PublishAsync(message, timeout.Token);
-   Console.WriteLine($"PUBACK: {acknowledgement.ReasonCode}");
-   if ((int)acknowledgement.ReasonCode >= 0x80)
-   {
-       throw new InvalidOperationException(
-           $"Publish failed: {acknowledgement.ReasonCode}. {acknowledgement.ReasonString}");
-   }
-   ```
-
-   `IConnectionClient.DeviceIdPlaceholder` represents `{deviceId}`. The SDK
-   replaces it with the current assigned hub device ID when sending, including
-   after reprovisioning changes that ID. The concrete topic matches the
-   configured template. The SDK's
-   [custom-topic sample](https://github.com/Azure/azure-iot-sdk/blob/c2568eae58cd1235ea2e961eb29e77b02dfe70f9/dotnet/samples/MQTTv5/CustomTopicSample/Program.cs)
-   uses the same placeholder pattern. The `severity` user
-   property is MQTT message metadata; it isn't a field in the JSON payload.
-   MQTT acknowledgment reason codes of `0x80` or greater indicate failure.
-   Even a nonfailure acknowledgment doesn't establish arrival in Fabric.
-
-1. Configure the certificate and DPS environment variables as described in
-   [Configure and run](#configure-and-run), then run:
-
-   ```powershell
-   dotnet run
-   ```
-
-   Record the printed `testId` and UTC send time. Resolve any SDK failure
-   before checking Fabric. A completed publish isn't proof of delivery.
+After the standard telemetry test succeeds, continue with
+[Publish a custom-topic test message with .NET](mqtt-v5-custom-topics.md#publish-a-custom-topic-test-message-with-net).
+That example reuses this application's certificate loading and connection setup.
 
 ## Verify the result
 
@@ -440,43 +326,24 @@ For either SDK:
    the test device and JSON payload in that interval.
 1. Compare the received data with the sent payload and inspect required metadata.
 
-These SDK payload APIs don't require base64 conversion. However, routing
-destinations don't all store or expose payloads identically.
-Choose and validate payload handling with the destination you use.
-
-Check the endpoint's **Message format** before comparing bodies. **Device
-format** preserves the original payload, subject to the destination's
-encoding and envelope. **Standardized** wraps the original JSON value under
-`payload.value` in an observation array. It doesn't rename the device's
-fields or convert units. See [Select the endpoint's message format](iot-hub-agent-ready-data.md#select-the-endpoints-message-format).
+These SDK payload APIs don't require base64 conversion. Interpret the received
+payload according to the destination and its configured
+[Message format](iot-hub-agent-ready-data.md#select-the-endpoints-message-format).
+MQTT v5 hubs have no built-in telemetry endpoint or fallback route.
 
 <a id="verify-actual-delivery-in-fabric"></a>
 
 ### Verify actual delivery at the destination
 
-Use your destination's reader to locate the .NET message by its printed
-`testId`. For the C sample, identify the device and known JSON payload
-within the test interval. Check the original payload, configured enrichments,
-and any destination-specific envelope against the endpoint's message format.
-See [Payload interpretation and validation](iot-hub-agent-ready-data.md).
 A successful publish acknowledgment isn't proof of destination receipt.
+Follow [Monitor a test run](monitor-iot-hub.md#monitor-a-test-run) and
+[Verify readiness with the receiving application](iot-hub-agent-ready-data.md#verify-readiness-with-the-receiving-application)
+to correlate the message with routing and destination evidence.
 
 ### Verify the selective route
 
-First, configure independent all-messages and selective paths as described in
-[Topic and user-property queries](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties).
-Rerun the custom-topic publishing sample for each case in the
-[expected filter behavior table](iot-hub-devguide-routing-query-syntax.md#expected-filter-behavior),
-changing `category` and `severity`. Each run generates a new `testId`.
-Set `severity` to `null` for the absent-property case so that no severity
-user property is sent.
-
-First, establish successful delivery of the matching case to both destinations.
-For every nonmatching case, verify the same test ID on the all-messages path.
-Use a complete, queryable record over a bounded test window to verify exclusion
-from the selective path; absence from a sampled data preview alone isn't proof.
-Compare the received test IDs in each destination's record. Keep the paths
-separate so that an all-messages copy can't be mistaken for selective delivery.
+For the custom-topic example and its positive and negative routing checks, see
+[Verify the selective route](mqtt-v5-custom-topics.md#verify-the-selective-route).
 
 ## Troubleshoot provisioning and delivery
 
@@ -484,39 +351,29 @@ Before testing, [configure diagnostic collection](monitor-iot-hub.md#collect-and
 Record the UTC interval, assigned device ID, and message identifier, but not
 credentials. To correlate provisioning, connection, ingress, routing, and destination receipt, follow [Monitor a test run](monitor-iot-hub.md#monitor-a-test-run).
 
-| Symptom | First checks |
-| --- | --- |
-| Provisioning fails | Check the DPS ID scope, enrollment state, onboarding credential, and linked hub. Symmetric-key onboarding requires configured DPS certificate issuance and a device certificate signing request; existing X.509 onboarding doesn't require new issuance. For link failures, see [Hub configuration troubleshooting](mqtt-v5-cloud-setup.md#troubleshoot-cli-setup). |
-| TLS or connection fails | Check the assigned device endpoint, device clock, certificate and private key, trusted server roots, and network access. Follow [Troubleshoot a secure connection](#troubleshoot-a-secure-connection). |
-| Custom-topic publish is refused | Check the configured templates, concrete publish topic, assigned hub device ID, and SDK acknowledgment. See [Troubleshoot custom-topic publishing](mqtt-v5-custom-topics.md#troubleshoot-custom-topic-publishing). |
-| Publish succeeds but no data arrives | Check the enabled route, source, query, endpoint access, and destination reader. MQTT v5 hubs have no built-in telemetry endpoint or fallback route. |
-| Some messages don't arrive | Check selective query behavior, content metadata, throttling, and destination health. Use [Verify the selective route](#verify-the-selective-route) to distinguish excluded messages from failed delivery. |
-| Payload arrives but columns are empty | Check the endpoint's message format, destination envelope, and consumer field mapping. For Fabric, inspect CloudEvents data; with standardized output, locate the original JSON under the observation's `payload.value`. |
-| Expected enrichment is missing | Check the enrichment key and value, target endpoint, and received metadata. For Fabric, check its [enrichment naming restrictions](iot-hub-devguide-endpoints.md#enrichment-property-restrictions). Don't look for the enrichment inside the device payload. |
+Use this checklist for MQTT v5-specific requirements:
 
-A route's schema reference doesn't validate or transform the payload. For
-schema and format interpretation, see
-[Prepare IoT Hub telemetry for agents and analytics](iot-hub-agent-ready-data.md).
+| Symptom | MQTT v5-specific checks |
+| --- | --- |
+| Provisioning or authentication fails | Hub connections require X.509, not SAS. Symmetric-key onboarding requires configured DPS certificate issuance and a device certificate signing request; existing X.509 onboarding doesn't require new issuance. See [Hub configuration troubleshooting](mqtt-v5-cloud-setup.md#troubleshoot-cli-setup) and [Troubleshoot a secure connection](#troubleshoot-a-secure-connection). |
+| Custom-topic publish is refused | Check the configured templates, concrete publish topic, assigned hub device ID, and SDK acknowledgment. See [Troubleshoot custom-topic publishing](mqtt-v5-custom-topics.md#troubleshoot-custom-topic-publishing). |
+| Publish succeeds but no data arrives | MQTT v5 hubs have no built-in telemetry endpoint or fallback route. Configure and enable an explicit route to a supported destination, then verify receipt there. |
+
+For checks shared across connection profiles, use:
+
+- [Monitor a test run](monitor-iot-hub.md#monitor-a-test-run) for provisioning, connection, ingress, routing, and consumption checkpoints.
+- [Troubleshoot message routing](troubleshoot-message-routing.md#messages-from-my-devices-are-not-being-routed-as-expected) for routing metrics, resource logs, and endpoint health. Built-in-endpoint and fallback-route instructions apply only to the classic profile. For the custom-topic example's positive and negative checks, see [Verify the selective route](mqtt-v5-custom-topics.md#verify-the-selective-route).
+- [Verify readiness with the receiving application](iot-hub-agent-ready-data.md#verify-readiness-with-the-receiving-application) for payload format, schema interpretation, and consumer field mapping.
+- [Message enrichments](iot-hub-message-enrichments-overview.md) for enrichment keys, values, and target endpoints, and [Fabric enrichment restrictions](iot-hub-devguide-endpoints.md#enrichment-property-restrictions) when using a Fabric destination.
 
 ## Troubleshoot a secure connection
 
-Check the following when a device can't connect:
-
-- Verify that the application uses the assigned device endpoint rather than
-  a service endpoint.
-- Verify that the device clock is correct and that its certificate is valid.
-- Verify the server certificate chain and hostname validation.
-- Verify that the device certificate and private key match and that the
-  application can access the key.
-- Check the client's TLS error for certificate, protocol-version, or
-  cipher-negotiation failures.
-- If TLS succeeds but MQTT connection fails, inspect the MQTT v5 `CONNACK`
-  reason code and the device registration.
-
-A successful TLS handshake doesn't by itself establish that the MQTT session
-or an application operation succeeded. See
-[IoT Hub endpoints](iot-hub-devguide-endpoints.md#tls-13-enabled-endpoints)
-for the shared TLS requirements.
+Use the assigned **device endpoint**, not a service endpoint. Check the device
+clock, certificate and private key, server trust, and network access against
+the shared [TLS requirements](iot-hub-devguide-endpoints.md#tls-13-enabled-endpoints).
+If TLS succeeds but MQTT connection fails, inspect the MQTT v5 `CONNACK`
+reason code and device registration. A successful TLS handshake doesn't prove
+MQTT session establishment or application success.
 
 ## Next steps
 

@@ -32,7 +32,7 @@ This page details capabilities for Teams (or Microsoft 365) users in a call with
 M365/Teams user can take calls with Communication Services users via Teams client or [a custom client](../../teams-endpoint.md) built using the Azure Communication Services Calling JavaScript SDK. To learn about features available for Communication Services user, refer to [voice and video capabilities](../../voice-video-calling/calling-sdk-features.md) document.
 
 Azure Communication Services Calling SDK also provides [Media quality statistics](../../voice-video-calling/media-quality-sdk.md) 
-and [improve and manage call quality](). For more information, see the [Calling SDK overview](../../voice-video-calling/calling-sdk-features.md).
+and [improve and manage call quality](../../voice-video-calling/manage-call-quality.md). For more information, see the [Calling SDK overview](../../voice-video-calling/calling-sdk-features.md).
 
 | **Group of features** | **Capability** | **M365 user on a custom client** | **M365 user on a Teams client** |
 | --- | --- | --- | --- |

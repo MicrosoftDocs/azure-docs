@@ -6,7 +6,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: overview
-ms.date: 11/12/2026
+ms.date: 11/16/2026
 ---
 
 # What is Azure IoT Hub with the MQTT v5 connection profile?
@@ -149,5 +149,6 @@ device-side lifecycle client.
 - Explore the [C and .NET code samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview), including their prerequisites and validation limitations.
 - [Configure an IoT hub with the MQTT v5 connection profile](mqtt-v5-cloud-setup.md).
 - [Configure routing and destinations](iot-hub-devguide-messages-d2c.md).
-- [Configure a device with the unified SDKs](mqtt-v5-device-setup.md).
+- [Connect a device using MQTT v5](mqtt-v5-device-setup.md).
 - [Monitor Azure IoT Hub](monitor-iot-hub.md#monitoring-the-mqtt-v5-connection-profile).
+- [Read the IoT Hub frequently asked questions](iot-hub-faq.md).

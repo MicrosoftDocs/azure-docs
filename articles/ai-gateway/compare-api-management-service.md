@@ -9,8 +9,6 @@ ms.date: 10/24/2026
 
 # AI Gateway and Azure API Management service
 
-[!INCLUDE [ai-gateway-preview](./includes/preview.md)]
-
 AI Gateway and Azure API Management service offer different approaches to managing AI traffic and APIs. In this article, you learn how their scopes, management models, and AI capabilities compare so you can decide which product fits your workloads and when to use both together.
 
 ## Understand the product distinction

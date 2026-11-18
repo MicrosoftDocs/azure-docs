@@ -118,15 +118,15 @@ Azure Virtual Machine Scale Sets and Azure Compute Fleet solve different problem
 - **Virtual Machine Scale Sets is a VM lifecycle orchestrator.** It maintains desired state, autoscales, monitors health, repairs instances, and orchestrates rolling updates. Use it for most workloads that benefit from platform-managed scale and availability.
 - **Compute Fleet is a capacity provisioning construct.** It launches VMs across multiple VM sizes, zones, and pricing models in a single API call. By using [Launch mode](launch-mode.md), you retain full lifecycle control after provisioning.
 
-| | Virtual Machine Scale Sets | Compute Fleet |
+|| Virtual Machine Scale Sets | Compute Fleet |
 |---|---|---|
-| Role | Lifecycle orchestrator (create, monitor, repair, scale, update) | Capacity provisioning (acquire VMs, optionally hand off control) |
-| Control model | Azure manages desired state | Customer manages post-launch (Launch mode) |
-| Scaling | Built-in autoscale (metric, schedule, predictive) | External—customer code, orchestrator, or scheduler |
-| Health and repair | Automatic instance repair via health probes | None after hand-off (Launch mode) |
-| Updates | Rolling upgrades with automatic rollback | Not applicable in Launch mode |
-| Spot optimization | Supported | Deep integration (multiple VM sizes, multiple zones, allocation strategies) |
-| Maximum capacity | Up to 1,000 instances per scale set | 10,000 VMs per fleet or 100,000 vCPUs across fleets, subject to available regional quota |
+| **Role** | Lifecycle orchestrator (create, monitor, repair, scale, update) | Capacity provisioning (acquire VMs, optionally hand off control) |
+| **Control model** | Azure manages desired state | Customer manages post-launch (Launch mode) |
+| **Scaling** | Built-in autoscale (metric, schedule, predictive) | External—customer code, orchestrator, or scheduler |
+| **Health and repair** | Automatic instance repair via health probes | None after hand-off (Launch mode) |
+| **Updates** | Rolling upgrades with automatic rollback | Not applicable in Launch mode |
+| **Spot optimization** | Supported | Deep integration (multiple VM sizes, multiple zones, allocation strategies) |
+| **Maximum capacity** | Up to 1,000 instances per scale set | 10,000 VMs per fleet or 100,000 vCPUs across fleets, subject to available regional quota |
 
 **Use Compute Fleet (Launch mode) when:**
 

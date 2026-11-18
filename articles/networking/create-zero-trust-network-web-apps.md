@@ -41,7 +41,7 @@ To complete the Zero Trust deployment, you'll need:
  - [Application gateway](../application-gateway/overview.md)
  - [Azure Firewall](../firewall/overview.md)
  - [DNS zones and records](../dns/dns-zones-records.md)
- - [Web application on App Service]()
+ - [Web application on App Service](../app-service/overview.md)
 
 > [!NOTE]
 > The web application in the reference architecture is visualized with a Virtual Machine. This could also be an App Service, Kubernetes cluster or other container environment, or Virtual Machine scale set. In this walk through, we will replace the virtual machine with an App Service.

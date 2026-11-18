@@ -54,6 +54,8 @@
     href: relay-hybrid-connections-protocol.md
 - name: How To
   items:
+  - name: Migrate WCF Relay to Hybrid Connections
+    href: migrate-wcf-relay-to-hybrid-connections-how-to.md
   - name: Move across regions
     href: move-across-regions.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs

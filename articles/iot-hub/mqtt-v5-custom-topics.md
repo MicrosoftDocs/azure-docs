@@ -6,7 +6,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 11/12/2026
+ms.date: 11/16/2026
 ---
 
 # Configure custom topic groups for Azure IoT Hub with the MQTT v5 connection profile
@@ -349,6 +349,108 @@ in this article. Confirm that:
 - Any templates needed by existing devices remain in the group.
 - The saved configuration meets the preview limits and topic template rules.
 
+## Publish a custom-topic test message with .NET
+
+Before running this example, complete the topic group configuration in this
+article. Configure `fleet/vehicles/{deviceId}/telemetry` and
+`fleet/vehicles/{deviceId}/faults`, or a template such as
+`fleet/vehicles/{deviceId}/#` that covers both.
+Retain any other templates needed by existing devices.
+
+Configure a destination and route through [shared routing guidance](iot-hub-devguide-messages-d2c.md).
+Use a supported destination with a reader that can identify the test
+messages. The publishing steps don't depend on a particular destination.
+
+Use the .NET application and pinned SDK package from
+[Create the application](mqtt-v5-device-setup.md#create-the-application).
+First verify its standard telemetry delivery, then adapt it for custom topics.
+Keep its certificate loading, provisioning, connection, timeout, and disconnect
+steps. Don't add a custom-topic subscription; this workflow publishes only.
+
+1. Remove the `Microsoft.Azure.Iot.Device.Unified.Connection` and
+   `Microsoft.Azure.Iot.Device.Unified.Telemetry` using directives from
+   `Program.cs`. Add these namespaces to use the MQTT v5 custom publishing path:
+
+   ```csharp
+   using Microsoft.Azure.Iot.Device.Mqtt;
+   using Microsoft.Azure.Iot.Device.MQTTv5.Connection;
+   using Microsoft.Azure.Iot.Device.MQTTv5.CustomTopics;
+   ```
+
+1. Replace `var telemetry = new TelemetryClient(connection);` with
+   `using var customTopics = new CustomTopicsClient(connection);`.
+1. After `ProvisionAndConnectAsync`, replace the block from
+   `string testId = ...` through `await telemetry.SendTelemetryAsync(...)`
+   with the following. Keep the existing completion message and disconnect
+   after this block.
+
+   ```csharp
+   string testId = Guid.NewGuid().ToString();
+   string category = "faults";
+   string? severity = "critical";
+   var message = new MqttPublish
+   {
+       Topic = $"fleet/vehicles/{IConnectionClient.DeviceIdPlaceholder}/{category}",
+       Payload = JsonSerializer.SerializeToUtf8Bytes(new
+       {
+           testId,
+           temperature = 21.5,
+           observedAt = DateTimeOffset.UtcNow
+       }),
+       ContentType = "application/json",
+       PayloadFormatIndicator = MqttPayloadFormatIndicator.CharacterData,
+       QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce
+   };
+   if (severity is not null)
+   {
+       message.AddUserProperty("severity", severity);
+   }
+   var acknowledgement = await customTopics.PublishAsync(message, timeout.Token);
+   Console.WriteLine($"PUBACK: {acknowledgement.ReasonCode}");
+   if ((int)acknowledgement.ReasonCode >= 0x80)
+   {
+       throw new InvalidOperationException(
+           $"Publish failed: {acknowledgement.ReasonCode}. {acknowledgement.ReasonString}");
+   }
+   ```
+
+   `IConnectionClient.DeviceIdPlaceholder` represents `{deviceId}`. The SDK
+   replaces it with the current assigned hub device ID when sending, including
+   after reprovisioning changes that ID. The concrete topic matches the
+   configured template. The SDK's
+   [custom-topic sample](https://github.com/Azure/azure-iot-sdk/blob/c2568eae58cd1235ea2e961eb29e77b02dfe70f9/dotnet/samples/MQTTv5/CustomTopicSample/Program.cs)
+   uses the same placeholder pattern. The `severity` user
+   property is MQTT message metadata; it isn't a field in the JSON payload.
+   MQTT acknowledgment reason codes of `0x80` or greater indicate failure.
+   Even a nonfailure acknowledgment doesn't establish destination receipt.
+
+1. Configure the certificate and DPS environment variables as described in
+   [Configure and run](mqtt-v5-device-setup.md#configure-and-run), then run:
+
+   ```powershell
+   dotnet run
+   ```
+
+   Record the printed `testId` and UTC send time. Resolve any SDK failure
+   before checking the destination. A completed publish isn't proof of delivery.
+
+### Verify the selective route
+
+First, configure independent all-messages and selective paths as described in
+[Topic and user-property queries](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties).
+Rerun the custom-topic publishing sample for each case in the
+[expected filter behavior table](iot-hub-devguide-routing-query-syntax.md#expected-filter-behavior),
+changing `category` and `severity`. Each run generates a new `testId`.
+Set `severity` to `null` for the absent-property case so that no severity
+user property is sent.
+
+First, establish successful delivery of the matching case to both destinations.
+For every nonmatching case, verify the same test ID on the all-messages path.
+Use a complete, queryable record over a bounded test window to verify exclusion
+from the selective path; absence from a sampled data preview alone isn't proof.
+Compare the received test IDs in each destination's record. Keep the paths
+separate so that an all-messages copy can't be mistaken for selective delivery.
+
 ## Custom-topic publishing samples
 
 The [custom-topic publishing samples](https://github.com/Azure-Samples/iot-hub-adr-mqtt5-preview#3-custom-topic-telemetry-and-routing)
@@ -377,11 +479,11 @@ delivery fails, check the route and destination. If a routing condition is
 rejected, read back the saved condition, check shell quoting, and compare it
 with [Topic and user-property queries](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties).
 For a complete delivery test, see
-[Verify the selective route](mqtt-v5-device-setup.md#verify-the-selective-route).
+[Verify the selective route](#verify-the-selective-route).
 
 ## Next steps
 
 - [Configure topic-based routing](iot-hub-devguide-routing-query-syntax.md#filter-by-mqtt-topic-and-user-properties).
-- [Configure a device and publish messages](mqtt-v5-device-setup.md).
+- [Connect a device using MQTT v5](mqtt-v5-device-setup.md).
 - [Choose a payload and run the SDK examples](mqtt-v5-device-setup.md#choose-a-payload-for-the-first-test).
 - [Troubleshoot provisioning and delivery](mqtt-v5-device-setup.md#troubleshoot-provisioning-and-delivery).

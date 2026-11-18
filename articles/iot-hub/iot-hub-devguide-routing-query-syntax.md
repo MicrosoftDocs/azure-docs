@@ -146,7 +146,7 @@ produces the following expected results:
 | `faults` | Absent | Delivered | Not selected |
 
 To publish these cases and compare actual receipt, see
-[Verify the selective route](mqtt-v5-device-setup.md#verify-the-selective-route).
+[Verify the selective route](mqtt-v5-custom-topics.md#verify-the-selective-route).
 
 If you retain the all-messages route, a message excluded by a selective route
 can still be delivered through the all-messages route. This delivery path isn't fallback.

@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.date: 11/06/2026
+ms.date: 11/18/2026
 ms.custom:
   - subject-armqs
   - mode-arm

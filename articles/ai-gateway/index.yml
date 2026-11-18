@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: AI Gateway documentation
-summary: Learn how AI Gateway (preview) connects applications and agents to AI models and Model Context Protocol (MCP) tools. Find key concepts, migration guidance, and links to the portal and in-product documentation.
+summary: Learn how AI Gateway connects applications and agents to AI models and Model Context Protocol (MCP) tools. Find key concepts, migration guidance, and links to the portal and in-product documentation.
 
 metadata:
   title: AI Gateway documentation
-  description: Understand AI Gateway (preview), plan migration from Azure API Management, and find portal and command-line guidance in the in-product documentation.
+  description: Understand AI Gateway, plan migration from Azure API Management, and find portal and command-line guidance in the in-product documentation.
   ms.service: azure
   ms.topic: landing-page
   ms.author: patricka
@@ -38,6 +38,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Region availability and scaling
+            url: region-availability.md
           - text: Migrate from the AI Gateway tier in Azure API Management
             url: ai-gateway-resource.md
           - text: Move AI workloads to AI Gateway
