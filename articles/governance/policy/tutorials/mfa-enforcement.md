@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Self-enforce MFA through Azure Policy"
 description: Learn how to gather audit events or enforce MFA enforcement on your environment
-ms.date: 07/17/2025
+ms.date: 11/18/2026
 ms.topic: how-to
 author: nehakulkarni
 ms.author: nehakulkarni
@@ -95,20 +95,25 @@ Discover audit events in your activity log when this policy assignment is applie
 
 You can view activity Log events in Azure portal and other supported clients. Here's a sample query that can be used in CLI:
 
-`az monitor activity-log list \
+```bash
+az monitor activity-log list \
   --query "[?operationName.value=='Microsoft.Authorization/policies/audit/action'].{ResourceId: resourceId, Policies: properties.policies}" \
   --output json | \
 jq -r '"ResourceName\tResourceId\tPolicyDefinitionDisplayName", (.[] as $event | ($event.Policies | fromjson[] | "\($event.ResourceId | split("/") | last)\t\($event.ResourceId)\t\(.policyDefinitionDisplayName)"))' | \
-column -t -s $'\t'`
+column -t -s $'\t'
+```
 
 You can also use the Azure portal to pull log events. Here's a sample query:
-`AzureActivity
+
+```kusto
+AzureActivity
 | where CategoryValue == "Policy"
 | extend p = parse_json(Properties)
 | extend policies = parse_json(tostring(p.policies))
 | mv-expand policies
 | where tostring(policies.policyDefinitionId) == "/providers/Microsoft.Authorization/policyDefinitions/4e6c27d5-a6ee-49cf-b2b4-d8fe90fa2b8b"
-| project TimeGenerated, ResourceId, OperationNameValue, PolicyDefinitionId = tostring(policies.policyDefinitionId), PolicyAssignmentId = tostring(policies.policyAssignmentId)`
+| project TimeGenerated, ResourceId, OperationNameValue, PolicyDefinitionId = tostring(policies.policyDefinitionId), PolicyAssignmentId = tostring(policies.policyAssignmentId)
+```
 
   > [!NOTE]
   > Audit events are seen only in Activity Logs with the Policy compliance list showing always 0 resources. This policy identifies non-compliant requests, not resources, which is why the resource compliance list is empty. 

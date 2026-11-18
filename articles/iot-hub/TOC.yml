@@ -253,6 +253,8 @@
       displayName: security, Transport Layer Security, TLS 1.3, Private Link, private endpoint
     - name: Migrate to a new TLS certificate root
       href: migrate-tls-certificate.md
+    - name: Update root certificate in national clouds
+      href: update-root-certificate-national-clouds.md
     - name: Virtual networks support with Azure Private Link
       href: virtual-network-support.md
       displayName: Security, Private Link, network isolation, private endpoint
