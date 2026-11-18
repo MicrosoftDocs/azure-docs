@@ -45,7 +45,7 @@ You can use managed connectors alongside classic Functions triggers and bindings
 | **Connector Namespace region** | Any region where [Connector Namespace](../connector-namespace/connector-namespace-overview.md) is supported. |
 | **Languages** | .NET 10 and .NET 11 isolated, Python 3.13+, Node.js 24+ (JS/TS). Java, PowerShell, and Go aren't supported. |
 | **Hosting plans** | [Flex Consumption](./flex-consumption-plan.md) (recommended), [Premium](./functions-premium-plan.md), [Dedicated](./dedicated-plan.md), and [Container Apps](./functions-container-apps-hosting.md). |
-| **OS** | Linux-hosted function apps are supported in all regions. Windows-hosted function apps have limited availability. |
+| **OS** | Linux-hosted function apps are supported in all regions. |
 | **Pricing** | [Standard Functions pricing](https://azure.microsoft.com/pricing/details/functions/) and charges for related resources, such as Azure Storage and Application Insights, apply. Connector Namespace has separate [consumption-based pricing](../connector-namespace/connector-namespace-overview.md#pricing). |
 
 ## When to use connectors
