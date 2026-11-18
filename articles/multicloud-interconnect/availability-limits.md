@@ -1,5 +1,5 @@
 ---
-title: Azure Multicloud Interconnect Preview availability and limits
+title: Azure Multicloud Interconnect availability and limits
 description: Review supported cloud providers, regions, bandwidth, routing requirements, pricing, and known limitations for Azure Multicloud Interconnect Preview.
 author: duongau
 ms.author: duau
@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.date: 11/16/2026
 ---
 
-# Azure Multicloud Interconnect Preview availability and limits
+# Azure Multicloud Interconnect availability and limits
 
 This article describes what Azure Multicloud Interconnect supports, along with the limitations for supported cloud service providers.
 

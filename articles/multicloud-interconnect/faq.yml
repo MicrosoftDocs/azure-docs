@@ -1,22 +1,18 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Multicloud Interconnect Preview FAQ
-  description: Find answers to common questions about Azure Multicloud Interconnect Preview, including supported providers, activation keys, and ExpressRoute.
+  title: Azure Multicloud Interconnect FAQ
+  description: Find answers to common questions about Azure Multicloud Interconnect, including supported providers, activation keys, and ExpressRoute.
   author: duongau
   ms.author: duau
   ms.service: azure
-  ms.custom: ami-preview-metadata-update
+  ms.custom: ami-metadata-update
   ms.topic: faq
   ms.date: 11/16/2026
   #customer intent: As a cloud architect evaluating cross-cloud connectivity, I want quick answers about supported providers, activation keys, and the ExpressRoute relationship so that I can decide whether Azure Multicloud Interconnect fits my workload.
 
-title: Azure Multicloud Interconnect Preview FAQ
+title: Azure Multicloud Interconnect FAQ
 summary: |
   This article answers common questions about Azure Multicloud Interconnect.
-
-  > [!IMPORTANT]
-  > Azure Multicloud Interconnect is currently in PREVIEW.
-  > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 sections:
   - name: Azure Multicloud Interconnect basics
@@ -50,17 +46,13 @@ sections:
           See [Supported cloud providers](availability-limits.md#supported-cloud-providers).
 
       - question: |
-          Which Azure regions are available during preview?
+          Which Azure regions are available during?
         answer: |
-          Australia East, East US, Germany West Central, and West US. Region availability is subject to change during preview.
-
           See [Supported regions](availability-limits.md#supported-regions).
 
       - question: |
           What bandwidth is supported?
         answer: |
-          Azure Multicloud Interconnect supports 1 Gbps during preview.
-
           See [Supported bandwidth by cloud provider](availability-limits.md#supported-cloud-providers).
 
       - question: |
