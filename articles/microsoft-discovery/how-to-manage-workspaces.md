@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 09/10/2026
+ms.date: 11/17/2026
 ---
 
 # Manage workspaces in Microsoft Discovery
@@ -108,7 +108,7 @@ You can enable or disable public network access for a workspace after creation.
 1. Select **Apply** to save the changes.
 
 > [!NOTE]
-> Disabled meaning restricts the workspace to private network connectivity only. Ensure that users and services can reach the workspace through private endpoints, VPN, or ExpressRoute before disabling public access.
+> **Disabled** restricts workspace data-plane API access to private endpoints. Before disabling public access, verify that users and services have a private network path to those endpoints and DNS that resolves the workspace API hostname to the private IP. Remote clients can use VPN or ExpressRoute to reach the virtual network. This setting doesn't make the public, Microsoft Entra-authenticated Studio website private.
 
 ## Browse workspace resources
 
@@ -172,8 +172,8 @@ To delete a workspace:
 
 ### Networking issues
 
-- **Public access disabled but can't connect**: Ensure private endpoints, VPN, or ExpressRoute is configured for the workspace virtual network.
-- **Studio access errors**: If you disabled public network access, users must access [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) through a private network path.
+- **Public access disabled but can't connect**: Verify the client's private network path to the workspace private endpoint and DNS resolution to its private IP. For configuration steps, see [Configure network security](how-to-configure-network-security.md).
+- **Studio access errors**: [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) remains publicly reachable and requires Microsoft Entra authentication. If workspace public API access is disabled, the browser needs a private network path and DNS resolution to the workspace data-plane API, not a private Studio website. See [How private endpoints route data-plane traffic](concept-network-security.md#how-private-endpoints-route-data-plane-traffic).
 
 ## Related content
 
