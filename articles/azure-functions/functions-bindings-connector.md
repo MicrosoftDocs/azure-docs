@@ -140,7 +140,7 @@ Configure the extension bundle in the *host.json* file. The bundle supplies the 
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
+    "version": "[4.41.2, 5.0.0)"
   }
 }
 ```
@@ -189,7 +189,7 @@ Configure the extension bundle in the *host.json* file. The bundle supplies the 
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
+    "version": "[4.41.2, 5.0.0)"
   }
 }
 ```
