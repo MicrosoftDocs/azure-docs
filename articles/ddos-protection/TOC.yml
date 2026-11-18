@@ -53,6 +53,8 @@
       items:
         - name: Portal
           href: manage-ddos-custom-policy-portal.md
+        - name: PowerShell
+          href: manage-ddos-custom-policy-powershell.md
         - name: CLI
           href: manage-ddos-custom-policy-cli.md
         - name: ARM template

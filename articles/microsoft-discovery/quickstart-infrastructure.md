@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 11/10/2026
+ms.date: 11/17/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -279,7 +279,7 @@ A workspace is a collaborative environment where teams manage large-scale scient
    > Workbench isolation doesn't require clients to use private workspace APIs. To enforce private data-plane access, configure the private endpoint and DNS before disabling `publicNetworkAccess`. See [Configure network security](how-to-configure-network-security.md?tabs=azure-cli#create-private-endpoints-for-data-plane-access).
 
    > [!NOTE]
-   > Tags are immutable for Microsoft Discovery resource types, including workspaces, supercomputers, node pools, and bookshelves. After a resource is created, you can't add, change, or remove its tags. Any tag modification, including adding a tag, requires redeploying the resource.
+   > Set creation-time deployment settings, including `NetworkIsolation`, before you create the workspace. You can edit `discovery.workbench.enableGhcpAiFeatures` and `discovery.workbench.enableExtensions` on an existing workspace. Updating these feature tags doesn't change network isolation.
 
 1. Review the Terms and Conditions, then select **Review + Create**.
 1. Once validation is successful, select **Create**.
@@ -404,7 +404,7 @@ The `location` parameter selects the Discovery home region. The optional `overri
 > For more information, see [Use GitHub Copilot in Microsoft Discovery](how-to-copilot.md).
 
 > [!NOTE]
-> Tags are immutable for Microsoft Discovery resource types, including workspaces, supercomputers, node pools, and bookshelves. After a resource is created, you can't add, change, or remove its tags. Define all required tags in the template before you deploy; any tag modification, including adding a tag, requires redeploying the resource.
+> Set creation-time deployment settings, including `NetworkIsolation`, before you create the workspace. You can edit `discovery.workbench.enableGhcpAiFeatures` and `discovery.workbench.enableExtensions` on an existing workspace. Updating these feature tags doesn't change network isolation.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.discovery/discovery-infra-deployment/main.bicep":::
 

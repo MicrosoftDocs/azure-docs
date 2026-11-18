@@ -1,6 +1,6 @@
 ---
-title: Redeem an Azure Multicloud Interconnect Preview activation key
-description: Learn how to redeem a provider-generated activation key in Azure to complete an Azure Multicloud Interconnect Preview connection.
+title: Redeem an Azure Multicloud Interconnect activation key
+description: Learn how to redeem a provider-generated activation key in Azure to complete an Azure Multicloud Interconnect connection.
 author: duongau
 ms.author: duau
 ms.service: azure
@@ -11,13 +11,9 @@ ms.date: 08/25/2026
 
 # Redeem an Azure Multicloud Interconnect Preview activation key
 
-This article shows you how to redeem an activation key that your cloud service provider generated, which completes an Azure Multicloud Interconnect Preview connection from the Azure side.
+This article shows you how to redeem an activation key that your cloud service provider generated, which completes an Azure Multicloud Interconnect connection from the Azure side.
 
 Azure Multicloud Interconnect supports two onboarding paths. Use this article when the request starts with your cloud service provider and you complete the Azure side. If you want to start from Azure instead and generate the key yourself, see [Create an Azure Multicloud Interconnect Preview resource](create-interconnect.md).
-
-> [!IMPORTANT]
-> Azure Multicloud Interconnect is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 

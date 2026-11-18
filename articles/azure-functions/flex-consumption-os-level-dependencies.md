@@ -146,7 +146,9 @@ Don't add `FUNCTIONS_WORKER_RUNTIME` or `FUNCTIONS_EXTENSION_VERSION` to a Flex 
 
 ## Obtain the language worker
 
-Include a specific worker release in the image so that rebuilding the same image source doesn't silently select a different worker. For a downloaded worker artifact, specify its release version and verify its SHA-256 checksum. For a worker supplied through an application dependency, specify the dependency version in the application project. Updating the worker requires you to change that version, rebuild, test, push, and redeploy the image.
+Use the supported worker reference documented for your language. The Python and Node.js samples use Microsoft-managed `aka.ms` references that point to the latest supported worker artifact. Their deployment tooling resolves or hashes the current artifact so that a worker update changes the image build input.
+
+Verify downloaded worker artifacts by using the published SHA-256 checksum. When a floating worker reference advances, rebuild, test, push, and redeploy the image before adopting the updated worker. For a worker supplied through an application dependency, specify the dependency version in the application project.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -207,33 +209,32 @@ The preview supports Python 3.13 through Python 3.15. A Python image contains th
 
 Start with the sample Dockerfile in the [Azure Functions Flex Consumption Python container sample](https://aka.ms/flex-container-sample-python).
 
-The sample application uses `azure-functions==2.3.0`. The [Python Dockerfile](#python-dockerfile) specifies a Python worker release, verifies the downloaded artifact by its SHA-256 checksum, and extracts it into the image. Its entry point starts the Python worker directly. Change the Python base image, worker artifact suffix, and checksum together when you select a Python version.
+The sample application uses `azure-functions==2.3.0`. The [Python Dockerfile](#python-dockerfile) downloads the current supported Python worker from a Microsoft-managed `aka.ms` reference, verifies the downloaded artifact by its published SHA-256 checksum, and extracts it into the image. Its entry point starts the Python worker directly.
 
 #### Python Dockerfile
 
-The following values identify the supported worker artifact for each Python version:
+The following values identify the supported base image and floating worker reference for each Python version:
 
-| Python version | Base image | `WORKER_PYTHON` | `WORKER_SHA256` |
-|---|---|---|---|
-| 3.13 | `python:3.13-slim-bookworm` | `313` | `39c67d052ef10575519006e5b73b5da977a9a5dff2bab0a222084b4b03070a5e` |
-| 3.14 | `python:3.14-slim-bookworm` | `314` | `29295af2b1e0332ca801e228678b147c47d67fefe6d247df0becf6ff92a79883` |
-| 3.15 | `python:3.15-slim-bookworm` | `315` | `ae40f55204cdf7b278aa80df4be03ab7fd5432de6726b250ad9b243e4725a5de` |
+| Python version | Base image | Worker reference |
+|---|---|---|
+| 3.13 | `python:3.13-slim-bookworm` | `https://aka.ms/azurefunctions/releases/python/3.13/worker/latest/azure-functions-python-worker-py313-linux-x64.tar.gz` |
+| 3.14 | `python:3.14-slim-bookworm` | `https://aka.ms/azurefunctions/releases/python/3.14/worker/latest/azure-functions-python-worker-py314-linux-x64.tar.gz` |
+| 3.15 | `python:3.15-slim-bookworm` | `https://aka.ms/azurefunctions/releases/python/3.15/worker/latest/azure-functions-python-worker-py315-linux-x64.tar.gz` |
 
-This example targets Python 3.15. Update the first three `ARG` values by using the preceding table when you build for Python 3.13 or 3.14.
+This example targets Python 3.15. Create a file named `worker-release-url.txt` that contains the Python 3.15 worker reference from the preceding table. When you select Python 3.13 or 3.14, update the base image, the worker reference, and the worker archive name together.
 
 ```dockerfile
-ARG PYTHON_BASE=python:3.15-slim-bookworm
-FROM ${PYTHON_BASE} AS build
+FROM python:3.15-slim-bookworm AS build
 
-ARG WORKER_PYTHON=315
-ARG WORKER_SHA256=ae40f55204cdf7b278aa80df4be03ab7fd5432de6726b250ad9b243e4725a5de
-ADD --checksum=sha256:${WORKER_SHA256} \
-    https://github.com/Azure/azure-functions-python-worker/releases/download/azure_functions_worker-4.46.7/azure-functions-python-worker-4.46.7-py${WORKER_PYTHON}-linux-x64.tar.gz \
-    /tmp/worker.tar.gz
+COPY worker-release-url.txt /tmp/worker-release-url.txt
 
-RUN mkdir -p /opt/functions-worker \
-    && tar -xzf /tmp/worker.tar.gz -C /opt/functions-worker \
-    && rm /tmp/worker.tar.gz
+RUN python -c "from pathlib import Path; from urllib.request import urlretrieve; url = Path('/tmp/worker-release-url.txt').read_text(encoding='utf-8').strip(); latest = 'https://aka.ms/azurefunctions/releases/python/3.15/worker/latest/azure-functions-python-worker-py315-linux-x64.tar.gz'; archive = '/tmp/azure-functions-python-worker-py315-linux-x64.tar.gz'; urlretrieve(latest, archive); urlretrieve(latest + '.sha256', archive + '.sha256'); urlretrieve(url + '.sha256', archive + '.expected.sha256')" \
+    && cd /tmp \
+    && cmp azure-functions-python-worker-py315-linux-x64.tar.gz.sha256 azure-functions-python-worker-py315-linux-x64.tar.gz.expected.sha256 \
+    && sha256sum --check --strict azure-functions-python-worker-py315-linux-x64.tar.gz.sha256 \
+    && mkdir -p /opt/functions-worker \
+    && tar -xzf azure-functions-python-worker-py315-linux-x64.tar.gz -C /opt/functions-worker \
+    && rm azure-functions-python-worker-py315-linux-x64.tar.gz azure-functions-python-worker-py315-linux-x64.tar.gz.sha256 azure-functions-python-worker-py315-linux-x64.tar.gz.expected.sha256
 
 COPY requirements.txt /tmp/requirements.txt
 RUN --mount=type=secret,id=pip_config,target=/etc/pip.conf \
@@ -241,13 +242,14 @@ RUN --mount=type=secret,id=pip_config,target=/etc/pip.conf \
     --target /home/site/wwwroot/.python_packages/lib/site-packages \
     -r /tmp/requirements.txt
 
-FROM ${PYTHON_BASE}
+FROM python:3.15-slim-bookworm
 
 RUN groupadd --gid 10001 app \
     && useradd --uid 10001 --gid 10001 --create-home --shell /usr/sbin/nologin app
 
 WORKDIR /home/site/wwwroot
 COPY --from=build /opt/functions-worker/ /opt/functions-worker/
+COPY --from=build /tmp/worker-release-url.txt /opt/functions-worker-release-url.txt
 COPY --from=build /home/site/wwwroot/.python_packages/ ./.python_packages/
 COPY function_app.py host.json ./
 
@@ -255,20 +257,22 @@ USER 10001:10001
 ENTRYPOINT ["python", "/opt/functions-worker/worker.py"]
 ```
 
+The Azure Sample resolves the floating worker reference to its versioned GitHub release URL before staging the image context. The Dockerfile requires the checksum from that selected release to match the checksum currently published through `aka.ms`, and then verifies the archive. If the references disagree, the build fails.
+
 From the directory that contains the Dockerfile and application files, build and push the image. This example uses Azure Container Registry and system-assigned identity:
 
 ```azurecli
 az acr login --name <ACR_NAME>
 
 docker build --platform linux/amd64 --progress plain \
-  -f python313.Dockerfile \
-  -t <ACR_NAME>.azurecr.io/<REPOSITORY>:python313 .
+  -f Dockerfile \
+  -t <ACR_NAME>.azurecr.io/<REPOSITORY>:python315 .
 
-docker push <ACR_NAME>.azurecr.io/<REPOSITORY>:python313
+docker push <ACR_NAME>.azurecr.io/<REPOSITORY>:python315
 
 az functionapp create -g <RESOURCE_GROUP> -n <APP_NAME> -s <STORAGE_ACCOUNT> \
   --flexconsumption-location <REGION> \
-  --deployment-image <ACR_NAME>.azurecr.io/<REPOSITORY>:python313 \
+  --deployment-image <ACR_NAME>.azurecr.io/<REPOSITORY>:python315 \
   --deployment-image-auth-type SystemAssignedIdentity \
   --assign-identity [system] --role AcrPull --scope <ACR_RESOURCE_ID>
 
@@ -304,7 +308,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
     go build -mod=readonly -trimpath -ldflags="-s -w" -o /out/app .
 
 FROM ubuntu:24.04
-ENV FUNCTIONS_GO_DISABLE_HTTP_PROXY=1
 
 WORKDIR /home/site/wwwroot
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
@@ -349,7 +352,7 @@ The preview supports Node.js 24. A Node.js image contains the application, Node.
 
 Start with the sample JavaScript or TypeScript Dockerfile in the [Azure Functions Flex Consumption Node.js container sample](https://aka.ms/flex-container-sample-node).
 
-The sample application uses `@azure/functions` version `4.17.0`. The [Node.js Dockerfile](#nodejs-dockerfile) specifies a Node.js worker release, verifies the downloaded artifact by its SHA-256 checksum, and extracts it into the image. Its entry point starts the Node.js worker directly. Change the worker release and checksum together when you update the worker.
+The sample application uses `@azure/functions` version `4.17.0`. The [Node.js Dockerfile](#nodejs-dockerfile) downloads the current supported Node.js worker from a Microsoft-managed `aka.ms` reference and extracts it into the image. The sample deployment tooling calculates the downloaded artifact's SHA-256 value, includes that value in the image-context hash, and passes it to the image build for verification. The image entry point starts the Node.js worker directly.
 
 #### Node.js Dockerfile
 
@@ -359,8 +362,11 @@ The following Dockerfiles use the layout of the sample JavaScript and TypeScript
 
 ```dockerfile
 FROM node:24-bookworm-slim AS worker
-ADD --checksum=sha256:93fbe6f007a5eab62f28e30b3fbb93c61c53ba3b9890cc135d982a8af1e4f3ca \
-    https://github.com/Azure/azure-functions-nodejs-worker/releases/download/v3.17.3/azure-functions-nodejs-worker-3.17.3.tar.gz \
+
+ARG FUNCTIONS_NODE_WORKER_SHA256
+
+ADD --checksum=sha256:${FUNCTIONS_NODE_WORKER_SHA256} \
+    https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz \
     /tmp/worker.tar.gz
 
 RUN mkdir -p /opt/functions-worker \
@@ -387,8 +393,11 @@ ENTRYPOINT ["node", "/opt/functions-worker/dist/src/nodejsWorker.js"]
 
 ```dockerfile
 FROM node:24-bookworm-slim AS worker
-ADD --checksum=sha256:93fbe6f007a5eab62f28e30b3fbb93c61c53ba3b9890cc135d982a8af1e4f3ca \
-    https://github.com/Azure/azure-functions-nodejs-worker/releases/download/v3.17.3/azure-functions-nodejs-worker-3.17.3.tar.gz \
+
+ARG FUNCTIONS_NODE_WORKER_SHA256
+
+ADD --checksum=sha256:${FUNCTIONS_NODE_WORKER_SHA256} \
+    https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz \
     /tmp/worker.tar.gz
 
 RUN mkdir -p /opt/functions-worker \
@@ -421,21 +430,46 @@ ENTRYPOINT ["node", "/opt/functions-worker/dist/src/nodejsWorker.js"]
 From the directory that contains the Dockerfile and application files, build and push the image. This example uses Azure Container Registry and system-assigned identity:
 
 ```azurecli
-az acr login --name <ACR_NAME>
+(
+  set -e
 
-docker build --platform linux/amd64 --progress plain \
-  -f node24.Dockerfile \
-  -t <ACR_NAME>.azurecr.io/<REPOSITORY>:node24 .
+  az acr login --name <ACR_NAME>
 
-docker push <ACR_NAME>.azurecr.io/<REPOSITORY>:node24
+  WORKER_URL=https://aka.ms/azurefunctions/releases/node/worker/latest/worker.tar.gz
+  WORKER_FILE=azure-functions-nodejs-worker.tar.gz
+  WORKER_DIR=$(mktemp -d)
 
-az functionapp create -g <RESOURCE_GROUP> -n <APP_NAME> -s <STORAGE_ACCOUNT> \
-  --flexconsumption-location <REGION> \
-  --deployment-image <ACR_NAME>.azurecr.io/<REPOSITORY>:node24 \
-  --deployment-image-auth-type SystemAssignedIdentity \
-  --assign-identity [system] --role AcrPull --scope <ACR_RESOURCE_ID>
+  trap 'rm -f -- "$WORKER_DIR/$WORKER_FILE" "$WORKER_DIR/$WORKER_FILE.sha256"; rmdir -- "$WORKER_DIR"' EXIT
 
-az functionapp deployment config show -g <RESOURCE_GROUP> -n <APP_NAME>
+  curl --fail --location "$WORKER_URL" \
+    --output "$WORKER_DIR/$WORKER_FILE"
+  curl --fail --location "${WORKER_URL}.sha256" \
+    --output "$WORKER_DIR/$WORKER_FILE.sha256"
+
+  (
+    cd "$WORKER_DIR"
+    sha256sum --check --strict "$WORKER_FILE.sha256"
+  )
+
+  FUNCTIONS_NODE_WORKER_SHA256=$(
+    sha256sum "$WORKER_DIR/$WORKER_FILE" | cut -d ' ' -f 1
+  )
+
+  docker build --platform linux/amd64 --progress plain \
+    -f node24.Dockerfile \
+    --build-arg FUNCTIONS_NODE_WORKER_SHA256="$FUNCTIONS_NODE_WORKER_SHA256" \
+    -t <ACR_NAME>.azurecr.io/<REPOSITORY>:node24 .
+
+  docker push <ACR_NAME>.azurecr.io/<REPOSITORY>:node24
+
+  az functionapp create -g <RESOURCE_GROUP> -n <APP_NAME> -s <STORAGE_ACCOUNT> \
+    --flexconsumption-location <REGION> \
+    --deployment-image <ACR_NAME>.azurecr.io/<REPOSITORY>:node24 \
+    --deployment-image-auth-type SystemAssignedIdentity \
+    --assign-identity [system] --role AcrPull --scope <ACR_RESOURCE_ID>
+
+  az functionapp deployment config show -g <RESOURCE_GROUP> -n <APP_NAME>
+)
 ```
 
 ::: zone-end
