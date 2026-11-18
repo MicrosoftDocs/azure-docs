@@ -77,6 +77,8 @@ landingContent:
             url: ./tutorials/govern-tags.md
       - linkListType: how-to-guide
         links:
+          - text: Create and test policy definitions with Azure Copilot (preview)
+            url: ./how-to/author-policy-with-copilot.md
           - text: Create policy with SDK
             url: ./how-to/programmatically-create.md
           - text: Author policies for arrays

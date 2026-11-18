@@ -333,6 +333,9 @@ items:
       href: /security/benchmark/azure/baselines/azure-policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: How-to guides
   items:
+  - name: Create and test policy definitions with Azure Copilot (preview)
+    displayName: authoring, generate, simulate, what-if
+    href: ./how-to/author-policy-with-copilot.md
   - name: Safe deployment of Azure Policy assignments
     displayName: policy, assignments, sdp
     href: ./how-to/policy-safe-deployment-practices.md
