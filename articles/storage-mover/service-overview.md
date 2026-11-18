@@ -91,7 +91,9 @@ Storage Mover supports these scenarios for both Blob Storage and Azure Files.
 
 ## When should you choose Azure Storage Mover?
 
-Storage Mover addresses the gap between individual data copy utilities and the operational complexity of enterprise-scale migrations. While unmanaged command-line tools are suited to scriptable transfers for small data sets, Storage Mover provides a centrally managed service for planning, executing, and monitoring large-scale migrations. You can also deploy Mover in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md)
+Storage Mover addresses the gap between individual data copy utilities and the operational complexity of enterprise-scale migrations. While unmanaged command-line tools are suited to scriptable transfers for small data sets, Storage Mover provides a centrally managed service for planning, executing, and monitoring large-scale migrations.
+
+You can also deploy Mover in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md)
 
 For customers with limited network bandwidth, use [Azure Data Box](../databox/data-box-overview.md) to enable offline bulk transfers, while Storage Mover handles online migrations and incremental synchronization.
 
@@ -107,15 +109,13 @@ However, migrating data from a source endpoint using the NFS protocol might requ
 
 ## Fully managed migrations
 
-You need only deploy one Storage Mover instance in your subscription to handle migrations from multiple source shares, even if they’re located in different parts of the world. The storage mover resource itself doesn't process your files and folders. Rather, you deploy a migration agent near your source share to send your data directly to the selected targets in Azure.
+You only need to deploy one Storage Mover instance in your subscription to handle migrations from multiple source shares, even if they’re located in different parts of the world.
+
+[!INCLUDE [hybrid-service-explanation](includes/hybrid-service-explanation.md)]
 
 Azure Storage Mover provides a set of management resources that can be used across every share you intend to migrate. For example, you can express your migration plan and retain oversight about migration progress and results on a per-share basis. To take advantage of this capability, create a migration project for every workload you migrate. Within the project, define the source, target, and migration settings for each source share on which your workload depends. You can remain in full control about when to start the migration of a share, track its progress, and see its results.
 
 The [resource hierarchy article](resource-hierarchy.md) has more information about individual Storage Mover resources and how best to use them for your migration. You can also get more deployment planning details in the [planning for an Azure Storage Mover deployment](deployment-planning.md) article.
-
-## A hybrid cloud service
-
-[!INCLUDE [hybrid-service-explanation](includes/hybrid-service-explanation.md)]
 
 ## Using Azure Storage Mover and Azure Data Box
 

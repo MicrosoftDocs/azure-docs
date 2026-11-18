@@ -38,7 +38,7 @@ Use the following table to decide which discovery method to use.
 | Workload discovery (web apps, SQL, PostgreSQL, MySQL, MongoDB) | Yes | Yes | No | Databases and web apps, when the source data includes them |
 | Hypervisor support | VMware, Hyper-V, Physical (hypervisor-agnostic) | VMware, Physical (hypervisor-agnostic) | CSV (hypervisor-agnostic), RVTools (VMware) | Hypervisor-agnostic |
 | Migration execution | Yes | No | No | No |
-| Identify server dependencies | Yes | No | No | No |
+| Identify server dependencies | Yes | Yes | No | No |
 | Connectivity | Requires Azure connection for discovery | Offline discovery | Not applicable | Not applicable |
 
 ## Appliance-based discovery
