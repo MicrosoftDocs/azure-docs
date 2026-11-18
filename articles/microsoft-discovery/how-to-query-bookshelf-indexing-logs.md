@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a Discovery platform developer or administrator, I want to query bookshelf indexing logs so that I can track indexing job execution, investigate failures, and diagnose errors in knowledgebase creation.
 ---
@@ -248,10 +248,8 @@ During knowledgebase indexing, Microsoft Discovery uses Azure AI Search for data
 After opening the Logs interface in the bookshelf's MRG Log Analytics workspace:
 
 1. In the left panel, select the **Tables** tab.
-2. Expand **Custom Logs** and locate **`DiscoveryLogs_CL`**.
-3. Select **Run** next to `DiscoveryLogs_CL` to execute a default query and confirm logs are being ingested.
-
-:::image type="content" source="media/how-to-query-bookshelf-logs/open-log-analytics-table.png" alt-text="Screenshot of the Log Analytics Tables panel with the DiscoveryLogs_CL table selected in the Custom Logs section." lightbox="media/how-to-query-bookshelf-logs/open-log-analytics-table.png":::
+2. Locate the `AzureDiagnostics` table.
+3. Select **Run** next to `AzureDiagnostics` to execute a default query and confirm logs are being ingested.
 
 The `AzureDiagnostics` table captures three log categories for AI Search:
 
