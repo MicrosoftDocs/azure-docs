@@ -32,6 +32,8 @@ Azure Firewall Premium includes the following advanced features:
 - **URL filtering**: Extends FQDN filtering to consider the entire URL, including any additional path.
 - **Web categories**: Allows or denies user access to website categories such as gambling or social media.
 
+For information about the optional AI Security add-on (preview), see [Azure Firewall AI Security concepts](ai-security-concepts.md).
+
 For a complete feature comparison across all Azure Firewall SKUs, see [Azure Firewall features by SKU](features-by-sku.md).
 
 ## TLS inspection

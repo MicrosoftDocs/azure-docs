@@ -5,7 +5,7 @@ author: anzaman
 ms.author: alzam
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/17/2026
 ms.custom: references_regions
 ---
 
@@ -24,7 +24,7 @@ Before you begin, make sure you have the following:
 - Azure CLI installed, or another tool to make authenticated REST calls (such as `curl` or Postman).
 - The following **user-assigned managed identities** created in your subscription:
   - **Cluster identity** — used by the Supercomputer control plane.
-  - **Kubelet identity** — used at the node level to access Azure resources. Must have the `ManagedIdentityOperator` role on the cluster identity.
+  - **Kubelet identity** — used at the node level to pull container images. For a pre-created kubelet identity outside the AKS node resource group, AKS requires the cluster control-plane identity to have **Managed Identity Operator** scoped to the kubelet identity, not the reverse. This role permits identity assignment, not inheritance of the cluster identity's resource permissions. See [Pre-created kubelet managed identity](/azure/aks/managed-identity-overview#pre-created-kubelet-managed-identity) and [Discovery identity setup](concept-managed-identities.md#identity-slots-per-resource-type).
 - A **virtual network** with:
   - A **system subnet** for the Supercomputer's managed system node pool.
   - A **management subnet** delegated to `Microsoft.ContainerService/managedClusters` for the AKS API server.
@@ -533,13 +533,34 @@ az rest --method GET --url "${SC_URL}/nodePools?api-version=${API_VERSION}" \
 
 ### Clean up when tasks are done
 
+This Bash example also requires `curl`. Node pool deletion is asynchronous. Poll the node pool URL for up to 30 minutes, and delete the Supercomputer only after a GET returns HTTP 404. Any other unexpected HTTP status or request failure stops cleanup. If polling times out, inspect the deletion operation before retrying.
+
 ```bash
 # Delete node pool first
-az rest --method DELETE --url "${NP_URL}?api-version=${API_VERSION}"
-sleep 60
+az rest --method DELETE --url "${NP_URL}?api-version=${API_VERSION}" || exit 1
 
-# Then delete the Supercomputer
-az rest --method DELETE --url "${SC_URL}?api-version=${API_VERSION}"
+ARM_TOKEN=$(az account get-access-token --resource https://management.azure.com \
+  --query accessToken -o tsv) || exit 1
+DELETION_DEADLINE=$((SECONDS + 1800))
+HTTP_STATUS=""
+while (( SECONDS < DELETION_DEADLINE )); do
+  HTTP_STATUS=$(curl --silent --show-error --connect-timeout 10 --max-time 60 \
+    --output /dev/null --write-out "%{http_code}" \
+    --header "Authorization: Bearer ${ARM_TOKEN}" \
+    "${NP_URL}?api-version=${API_VERSION}") || exit 1
+  case "${HTTP_STATUS}" in
+    404) break ;;
+    200) sleep 30 ;;
+    *) echo "Node pool deletion check returned HTTP ${HTTP_STATUS}; stopping." >&2; exit 1 ;;
+  esac
+done
+if [[ "${HTTP_STATUS}" != "404" ]]; then
+  echo "Timed out waiting for node pool deletion; Supercomputer was not deleted." >&2
+  exit 1
+fi
+
+# Delete the Supercomputer only after the node pool is gone
+az rest --method DELETE --url "${SC_URL}?api-version=${API_VERSION}" || exit 1
 ```
 
 ---

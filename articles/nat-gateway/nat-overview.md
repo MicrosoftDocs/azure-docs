@@ -7,7 +7,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: overview
-ms.date: 08/31/2026
+ms.date: 10/29/2026
 ms.author: alittleton
 ms.customs: references_regions
 
@@ -44,6 +44,7 @@ The StandardV2 SKU of Azure NAT Gateway provides all the same functionality of t
 * **IPv6 support**: Supports both IPv4 and IPv6 public IP addresses and prefixes for outbound connectivity.
 * **Higher throughput**: Provides up to 100 Gbps of data throughput per NAT gateway, compared to 50 Gbps for Standard NAT gateways.
 * **Flow log support**: Provides IP-based traffic information to help monitor and analyze outbound traffic flows.
+* **DDoS protection (preview)**: Supports Azure DDoS Protection for StandardV2 IPv4 and IPv6 public IP addresses. Custom policies for NAT Gateway aren't supported in this preview. Configure protection on the associated virtual network or an individual public IP, not on the gateway resource. For prerequisites, see [DDoS protection for NAT Gateway StandardV2](../ddos-protection/ddos-protection-nat-gateway-standardv2.md).
 * **NAT64 translation**: Enables IPv6-only workloads to communicate with IPv4-only destinations. NAT64 translates outbound IPv6 packets to IPv4 using the well-known prefix `64:ff9b::/96`, eliminating the need for dual-stack configurations or custom translation appliances.
 
   > [!NOTE]

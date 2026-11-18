@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="550" viewBox="0 0 1080 550" role="img" aria-labelledby="title description">
+  <title id="title">Private connection options for blob access points</title>
+  <desc id="description">Azure Storage creates a managed private endpoint for the blob access point configuration. The managed private endpoint connects to one of three Private Link-enabled resources in the same region as the storage account: a Private Link service with a Standard Load Balancer, an Application Gateway with a TCP/TLS (Layer 4) listener, or Private Link service Direct Connect, which is in preview. You approve the connection. Each option reaches a data source at a private IP address in an Azure virtual network. Private Link service Direct Connect, or an Application Gateway where Direct Connect isn't available, can also reach a data source in your datacenter through ExpressRoute or a site-to-site VPN.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#365a75"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #172b3a; font-size: 14px; }
+      .section { font-size: 16px; font-weight: 600; }
+      .heading { font-size: 16px; font-weight: 600; }
+      .caption { font-size: 13px; font-style: italic; }
+      .connector { fill: none; stroke: #365a75; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1080" height="550" fill="#ffffff"/>
+
+  <rect x="20" y="190" width="180" height="100" rx="8" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text class="heading" x="110" y="228" text-anchor="middle">Storage account</text>
+  <text x="110" y="252" text-anchor="middle">Blob access point</text>
+  <text x="110" y="272" text-anchor="middle">configuration</text>
+
+  <path class="connector" d="M 200 240 H 238"/>
+
+  <rect x="240" y="190" width="190" height="100" rx="8" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text class="heading" x="335" y="224" text-anchor="middle">Managed private</text>
+  <text class="heading" x="335" y="244" text-anchor="middle">endpoint</text>
+  <text x="335" y="270" text-anchor="middle">Created by Azure Storage</text>
+  <text class="caption" x="335" y="314" text-anchor="middle">You approve the connection</text>
+
+  <text class="caption" x="620" y="26" text-anchor="middle">Your resource, in the region of the storage account</text>
+
+  <path class="connector" d="M 430 240 H 460 V 85 H 488"/>
+  <path class="connector" d="M 430 240 H 488"/>
+  <path class="connector" d="M 460 240 V 395 H 488"/>
+
+  <rect x="490" y="40" width="260" height="90" rx="8" fill="#f4f1fa" stroke="#a595c4" stroke-width="2"/>
+  <text class="heading" x="620" y="78" text-anchor="middle">Private Link service</text>
+  <text x="620" y="102" text-anchor="middle">With a Standard Load Balancer</text>
+
+  <rect x="490" y="195" width="260" height="90" rx="8" fill="#f4f1fa" stroke="#a595c4" stroke-width="2"/>
+  <text class="heading" x="620" y="233" text-anchor="middle">Application Gateway</text>
+  <text x="620" y="257" text-anchor="middle">TCP/TLS (Layer 4) listener</text>
+
+  <rect x="490" y="350" width="260" height="90" rx="8" fill="#f4f1fa" stroke="#a595c4" stroke-width="2"/>
+  <text class="heading" x="620" y="388" text-anchor="middle">Private Link service</text>
+  <text x="620" y="412" text-anchor="middle">Direct Connect (preview)</text>
+
+  <rect x="800" y="20" width="260" height="300" rx="12" fill="#f5f8fb" stroke="#9aa9b8" stroke-width="2" stroke-dasharray="8 5"/>
+  <text class="section" x="820" y="48">Azure virtual network</text>
+  <rect x="820" y="110" width="220" height="110" rx="8" fill="#edf7f0" stroke="#80b991" stroke-width="2"/>
+  <text class="heading" x="930" y="158" text-anchor="middle">Data source</text>
+  <text x="930" y="182" text-anchor="middle">Private IP address</text>
+
+  <rect x="800" y="345" width="260" height="150" rx="12" fill="#fbf7ef" stroke="#c9a66b" stroke-width="2" stroke-dasharray="8 5"/>
+  <text class="section" x="820" y="373">Your datacenter</text>
+  <rect x="820" y="390" width="220" height="90" rx="8" fill="#edf7f0" stroke="#80b991" stroke-width="2"/>
+  <text class="heading" x="930" y="428" text-anchor="middle">Data source</text>
+  <text x="930" y="452" text-anchor="middle">Private IP address</text>
+
+  <path class="connector" d="M 750 85 L 818 135"/>
+  <path class="connector" d="M 750 240 L 818 180"/>
+  <path class="connector" d="M 750 380 L 818 205"/>
+  <path class="connector" d="M 750 410 L 818 432"/>
+  <path class="connector" d="M 750 262 L 818 418"/>
+
+  <text class="caption" x="930" y="512" text-anchor="middle">Through ExpressRoute or a site-to-site VPN</text>
+  <rect x="20" y="518" width="16" height="16" rx="3" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text x="44" y="531">Azure Storage</text>
+  <rect x="200" y="518" width="16" height="16" rx="3" fill="#f4f1fa" stroke="#a595c4" stroke-width="2"/>
+  <text x="224" y="531">Your Private Link-enabled resource</text>
+  <rect x="500" y="518" width="16" height="16" rx="3" fill="#edf7f0" stroke="#80b991" stroke-width="2"/>
+  <text x="524" y="531">Your data source</text>
+</svg>

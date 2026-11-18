@@ -5,10 +5,14 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: troubleshooting
-ms.date: 01/20/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 
 # Troubleshoot common problems in Azure Data Share
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 This article explains how to troubleshoot common problems in Azure Data Share.
 

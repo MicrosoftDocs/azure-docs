@@ -63,12 +63,16 @@ items:
       href: device-registry/concept-groups.md
     - name: Jobs concepts (preview)
       href: device-registry/concept-jobs.md
+    - name: Define, run, and monitor jobs (preview)
+      href: device-registry/how-to-define-run-monitor-jobs.md
     - name: Software updates concepts (preview)
       href: device-registry/concept-software-updates.md
     - name: Import a software update (preview)
       href: device-registry/how-to-import-software-update.md
     - name: Deploy a software update to a group (preview)
       href: device-registry/how-to-deploy-software-update-group.md
+    - name: Reconcile IoT Hub twin properties with ADR
+      href: device-registry/how-to-reconcile-iot-hub-twins.md
     - name: Deploy an onboarding update to a namespace (preview)
       href: device-registry/how-to-deploy-onboarding-update-namespace.md
   - name: Understand billing

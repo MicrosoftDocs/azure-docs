@@ -124,6 +124,6 @@ See the following articles for more code samples to add to your maps:
 [WMTS Tile Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/WMTS%20Tile%20Layer/WMTS%20Tile%20Layer.html
 [Tile Layer using X, Y, and Z source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Tile%20Layers/Tile%20Layer%20using%20X,%20Y%20and%20Z/Tile%20Layer%20using%20X,%20Y%20and%20Z.html
 
-[OpenSeaMap project]: https://openseamap.org/index.php
+[OpenSeaMap project]: https://wiki.openstreetmap.org/wiki/OpenSeaMap
 [U.S. Geological Survey (USGS)]: https://mrdata.usgs.gov/
 [U.S. Geological Survey (USGS) National Map]:https://viewer.nationalmap.gov/services

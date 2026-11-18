@@ -5,11 +5,14 @@ author: chvukosw
 ms.author: chvukosw 
 ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 01/21/2026
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.date: 10/13/2026
+ms.custom: subject-armqs, mode-arm, devx-track-bicep, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Share data using Azure Data Share and Bicep
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 Learn how to set up a new Azure Data Share from an Azure storage account using Bicep, and start sharing your data with customers and partners outside of your Azure organization. For a list of the supported data stores, see [Supported data stores in Azure Data Share](./supported-data-stores.md).
 

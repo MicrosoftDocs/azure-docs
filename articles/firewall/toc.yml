@@ -28,8 +28,16 @@ items:
       href: policy-rule-sets.md
     - name: Policy Analytics
       href: policy-analytics.md
+    - name: Policy Advisor (preview)
+      href: policy-analytics.md#policy-advisor
+  - name: AI Security concepts (preview)
+    href: ai-security-concepts.md
+  - name: Prompt Threat Protection concepts (preview)
+    href: prompt-threat-protection.md
   - name: FQDN filtering
     href: domain-filtering-overview.md
+  - name: Geolocation filtering
+    href: geo-ip-filtering.md
   - name: IDPS signature rule categories
     href: idps-signature-categories.md
   - name: Web categories
@@ -80,6 +88,12 @@ items:
       href: premium-certificates.md
     - name: Enterprise CA Certificates
       href: premium-deploy-certificates-enterprise-ca.md
+  - name: Firewall for Containers (preview)
+    items:
+    - name: Deployment guide
+      href: deploy-firewall-for-containers.md
+    - name: ARM template
+      href: quick-create-containers-template.md
   - name: Draft and Deploy
     href: draft-deploy.md
   - name: To a hybrid Network
@@ -172,6 +186,16 @@ items:
       href: service-tags.md
   - name: HTTP header insertion
     href: configure-http-header-insertion.md
+  - name: AI Security
+    items:
+    - name: Prompt Threat Protection (preview)
+      href: configure-prompt-threat-protection.md
+    - name: Advanced Malware Threat Protection (preview)
+      href: configure-malware-protection.md
+    - name: Advanced Application Threat Protection (preview)
+      href: configure-application-threat-protection.md
+    - name: Network data loss prevention (preview)
+      href: configure-network-dlp.md
   - name: Application rules with SQL FQDNs
     href: sql-fqdn-filtering.md
   - name: SNAT

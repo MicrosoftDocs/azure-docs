@@ -5,10 +5,14 @@ author: chvukosw
 ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 01/23/2026
+ms.date: 10/13/2026
+ai-usage: ai-assisted
+ms.custom: msecd-doc-authoring-1030
 ---
 
 # Use PowerShell to get a data share invitation
+
+[!INCLUDE [Azure Data Share retirement notice](../../includes/data-share-retirement.md)]
 
 This PowerShell script gets invitations sent to a consumer.
 

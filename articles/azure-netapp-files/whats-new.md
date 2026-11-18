@@ -17,6 +17,16 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+
+## November 2026
+
+* [Azure NetApp Files asynchronous directory deletion](asynchronous-directory-deletion-concept.md) (preview)
+
+    Azure NetApp Files now supports asynchronous directory deletion to help accelerate cleanup operations for large-scale workloads such as EDA, HPC, AI/ML, and other environments that frequently create and remove directories containing large numbers of files. 
+    
+    By handling directory deletion asynchronously, organizations can reduce workflow delays and improve operational efficiency.
+
+
 ## September 2026
 
 * [Support for Microsoft Entra Kerberos authentication](understand-entra-id.md) (preview) 

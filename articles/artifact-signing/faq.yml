@@ -7,7 +7,7 @@ metadata:
   ms.author: mesharm
   ms.service: azure-artifact-signing
   ms.topic: faq
-  ms.date: 05/14/2026
+  ms.date: 11/17/2026
 title: Artifact Signing FAQ
 summary: |
   Get answers to common questions about the Artifact Signing service. 
@@ -50,6 +50,9 @@ sections:
       - question: What if my country/region isn't listed in country/region drop-down list on the Identity validation page?
         answer: | 
           Check [Pre-requisites](https://learn.microsoft.com/azure/artifact-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Corgvalidation%2Ccertificateprofile-portal%2Cdeleteresources-portal#prerequisites) to get the list of supported countries/regions for onboarding. 
+      - question: How do I update information in an identity validation request that's in progress or completed?
+        answer: To update the information, delete the existing identity validation request and create a new request with the correct information. You can delete a request whether it's in progress or completed.
+         - If you delete a completed identity validation request, certificate renewal stops for any certificate profiles associated with that request. This can interrupt signing operations that use those profiles. Before deleting the request, review the associated certificate profiles and plan for the impact on signing.
       - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
@@ -59,6 +62,9 @@ sections:
       - question: What if the "New identity validation" button in the Azure portal is inactive?
         answer: |
           If the **New identity validation** button in the Azure portal is inactive and you can't select it, you don't have the Artifact Signing Identity Verifier role assigned to your account. To assign yourself the role, complete the steps in [Assign roles in Artifact Signing](tutorial-assign-roles.md). 
+      - question: Why don't I see an option to upload documents after receiving a request to provide them?
+        answer: |
+          The upload option might not appear if you're using an email address on a domain owned by the legal business entity being validated.
       - question: How do I update my billing address for Individual identity validation when its formatting cannot be changed in the Azure portal?
         answer: |
           Use Azure CLI to update the billing account’s  sold-to  address. This supports casing changes and removing hyphens that cannot be updated through the portal:
@@ -106,6 +112,10 @@ sections:
         answer: |  
           If you see the error, it's because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
           :::image type="content" source="media/artifact-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/artifact-signing-indie-validation-email-mismatch.png"::: 
+      - question: What should I do if I see a "Card missing" error in Authenticator app?
+        answer: |  
+          Add your Verified ID card to Microsoft Authenticator by following step 19 and the subsequent steps in [Setup individual identity validation](https://learn.microsoft.com/azure/artifact-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Cindiedevvalidation%2Ccertificateprofile-portal%2Cdeleteresources-portal#tabpanel_3_indiedevvalidation)
+          :::image type="content" source="media/artifact-signing-share-verifiable-credential.png" alt-text="Screenshot of card missing error to verify individual developer." lightbox="media/artifact-signing-share-verifiable-credential.png"::: 
       - question: What should I do if I see an address mismatch, first or last name mismatch, or Face Check error after obtaining a Verified ID and scanning the QR code?
         answer: |
           This guidance applies to individual identity validation, including the individual verification step within organization identity validation. Delete the existing identity validation request and remove the associated Verified ID from Microsoft Authenticator. Then submit a new request and create a new Verified ID, following the guidance for your error below.
@@ -121,6 +131,9 @@ sections:
           - Avoid Weak Internet Connections or VPNs. Do not use a weak Wi‑Fi connection or any VPN/Proxy service. These can interrupt the secure handshake between the browser and Microsoft Authenticator, causing technical errors.
           - Try a different device. Some device‑specific settings or security policies may interfere with the process. If possible, try completing the setup on another phone.
           - When reaching out via support channels - [Send Microsoft Authenticator logs](https://learn.microsoft.com/troubleshoot/entra/entra-id/ad-dmn-services/send-microsoft-authenticator-logs) and an incident ID.
+      - question:  What device security requirements are needed to support Verified ID Face Check?
+        answer: |  
+          Follow the guidance provided [here](https://learn.microsoft.com/entra/verified-id/using-facecheck#what-device-security-requirements-are-needed-to-support-verified-id-face-check)
   - name: Certificate profiles
     questions:
       - question: Why is the CN/O dropdown empty when I create a certificate profile? 

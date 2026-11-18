@@ -1,25 +1,26 @@
 ---
-title: About Azure Migrate 
-description: Learn about the Azure Migrate service.
+title: About Azure Catalyst
+description: Learn about the Azure Catalyst service.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: overview
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
-ms.date: 05/18/2026
+ms.date: 10/27/2026
 ms.custom: mvc, engagement-fy25
 ms.update-cycle: 180-days
 ms.collection:
   - migration
   - aws-to-azure
   - onprem-to-azure
-# Customer intent: "As an IT manager, I want to utilize Azure Migrate to assess and execute the migration of our on-premises workloads to Azure, so that I can minimize downtime and ensure a cost-effective and efficient transition to the cloud."
+# Customer intent: "As an IT manager, I want to utilize Azure Catalyst to assess and execute the migration of our on-premises workloads to Azure, so that I can minimize downtime and ensure a cost-effective and efficient transition to the cloud."
 ---
 
-# What is Azure Migrate?
 
-Azure Migrate is a service that helps you decide on, plan, and execute your migration to Azure. Azure Migrate helps you find the best migration path, assess for Azure readiness and cost of hosting workloads on Azure, and perform the migration with minimal downtime and risk. Azure Migrate provides support for servers, databases, web apps, virtual desktops, and large-scale offline migration by using Azure Data Box.
+# What is Azure Catalyst (formerly Azure Migrate)?
+
+Azure Catalyst (formerly Azure Migrate) is a service that helps you decide on, plan, and execute your migration to Azure. Azure Catalyst helps you find the best migration path, assess for Azure readiness and cost of hosting workloads on Azure, and perform the migration with minimal downtime and risk. Azure Catalyst provides support for servers, databases, web apps, virtual desktops, and large-scale offline migration by using Azure Data Box.
 
 ::: moniker range="migrate-classic"
 > [!NOTE]
@@ -29,61 +30,65 @@ Azure Migrate is a service that helps you decide on, plan, and execute your migr
 
 ::: moniker range="migrate"
 
-For more information on migrating or modernizing multi-tier applications using Azure Migrate and how it simplifies planning and execution, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-or-modernize-your-applications-using-azure-migrate/4468587).
+For more information on migrating or modernizing multi-tier applications using Azure Catalyst and how it simplifies planning and execution, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-or-modernize-your-applications-using-azure-migrate/4468587).
 
 ::: moniker-end
 
-## Azure Copilot migration agent 
+<a name="azure-copilot-migration-agent"></a>
 
-Azure Migrate contains the Azure Copilot migration agent (preview), a planning-focused experience that helps you analyze and plan migrations using your Azure Migrate project data. The agent provides a conversational interface to explore discovered inventory, assess Azure readiness, compare migration strategies, review business case insights, and create or download customized landing zone templates. It complements Azure Migrate by helping you interpret discovery and assessment results and generate planning-level recommendations. Migration execution continues in the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
+## Azure Catalyst agent
 
-## Benefits of Azure Migrate 
+Azure Catalyst contains the Azure Catalyst agent (formerly Azure Copilot Migration Agent) (preview), a planning-focused experience that helps you analyze and plan migrations using your Azure Catalyst project data. The agent provides a conversational interface to explore discovered inventory, assess Azure readiness, compare migration strategies, review business case insights, and create or download customized landing zone templates. It complements Azure Catalyst by helping you interpret discovery and assessment results and generate planning-level recommendations. Migration execution continues in the Azure Catalyst portal. [Learn more](azure-copilot-migration-agent.md).
 
-Azure Migrate offers these benefits for your cloud migration journey: 
+<a name="benefits-of-azure-migrate"></a>
+
+## Benefits of Azure Catalyst
+
+Azure Catalyst offers these benefits for your cloud migration journey:
 
 - **Unified migration platform**: You use a single portal to start, run, and track your migration to Azure. The unified platform supports discovery, assessment, and migration of variety of workloads, like servers, databases, and web applications. 
 
-- **Free service**: Azure Migrate is a free service that you can use to: 
+- **Free service**: Azure Catalyst is a free service that you can use to:
 
     1. Identify your inventory of workloads. 
     1. Assess workloads for multiple infrastructure as a service (IaaS) and platform as a service (PaaS) Azure targets. 
     1. Develop a plan for migration. 
     1. Migrate the workloads by using in-product, Microsoft, and partner migration tools. (Partner tools might charge you for using their services.) 
 
-- **Range of tools**: Azure Migrate provides tools for assessment and migration.
+- **Range of tools**: Azure Catalyst provides tools for assessment and migration.
 
-- **Assessment, migration, and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize: 
+- **Assessment, migration, and modernization**: In the Azure Catalyst hub, you can assess, migrate, and modernize:
 
     - **Servers**: Assess on-premises servers and migrate them to Azure. 
     - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to a SQL server on an Azure VM, an Azure SQL managed instance, or an Azure SQL database. 
     - **Web applications**: Assess on-premises web apps and migrate them to Azure App Service and Azure Kubernetes Service. 
     - **Data**: Migrate large amounts of data to Azure quickly and cost-effectively by using Azure Data Box products. 
 
-For information about Azure Migrate availability across Azure regions, see [Supported regions for Azure Migrate](migrate-support-matrix.md). 
+For information about Azure Catalyst availability across Azure regions, see [Supported regions for Azure Catalyst](migrate-support-matrix.md).
 
 ## Migration phases
 
-Azure Migrate provides a simplified migration, modernization, and optimization service for customers who want to migrate their on-premises workloads to Azure. It gives you a one-stop solution for migrating your infrastructure, data, and web application workloads.
+Azure Catalyst provides a simplified migration, modernization, and optimization service for customers who want to migrate their on-premises workloads to Azure. It gives you a one-stop solution for migrating your infrastructure, data, and web application workloads.
 
-A general migration journey includes the following phases. Azure Migrate provides support at each phase.
+A general migration journey includes the following phases. Azure Catalyst provides support at each phase.
 
 :::image type="content" source="./media/migrate-services-overview/migrate-journey.png" alt-text="Screenshot that shows the phases of migrating workloads to Azure." lightbox="./media/migrate-services-overview/migrate-journey.png":::
 
 ::: moniker range="migrate"
 
-Watch this video to learn how Azure Migrate delivers enhanced experiences. It helps you identify and visualize workloads, estimate cost savings, create high-fidelity migration plans, and confidently migrate complex environments.
+Watch this video to learn how Azure Catalyst delivers enhanced experiences. It helps you identify and visualize workloads, estimate cost savings, create high-fidelity migration plans, and confidently migrate complex environments.
 
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=08b50a5e-0ee6-4dc5-91d8-9e55350547c6]
 ::: moniker-end
 
 >[!IMPORTANT]
-> For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
+> For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Catalyst](prepare-azure-accounts.md).
 
 ### Decide
 
 The first step in a migration journey is to identify your workloads. This process of identification is called *discovery*. To discover your workloads, you can deploy a lightweight [Azure Migrate appliance](migrate-appliance.md) (recommended approach), deploy Azure Migrate collector or quickly import the inventory data for your workloads.
 
-The Azure Migrate appliance is a virtual appliance that can be deployed on a server in your datacenter. The appliance collects the configuration and performance data for your servers and continually sends it to the Azure Migrate service.
+The Azure Migrate appliance is a virtual appliance you can deploy on a server in your datacenter. The appliance collects the configuration and performance data for your servers and continually sends it to the Azure Catalyst service.
 
 **Azure Migrate Collector** 
 
@@ -109,7 +114,7 @@ After you make the decision to migrate to Azure, the next important phase of mig
 
 ### Execute
 
-In the execution phase, you perform the migration or modernization of your workloads to move to Azure. You can use the Azure Migrate service or partner tools to migrate your servers, databases, web apps, or virtual desktops with minimal downtime and risk.
+In the execution phase, you perform the migration or modernization of your workloads to move to Azure. You can use the Azure Catalyst service or partner tools to migrate your servers, databases, web apps, or virtual desktops with minimal downtime and risk.
 
 You can migrate the following workloads by using the integrated Azure Migrate and Modernize tool:
 
@@ -118,9 +123,9 @@ You can migrate the following workloads by using the integrated Azure Migrate an
 | On-premises VMware VMs | Migrate VMs to Azure by using agentless or agent-based migration.<br><br>For agentless migration, the Azure Migrate and Modernize tool uses the same appliance that's used for discovery and assessment of servers.<br><br>For agent-based migration, the Azure Migrate and Modernize tool uses a replication appliance. |
 | On-premises Hyper-V VMs | Migrate VMs to Azure.<br><br>The Azure Migrate and Modernize tool uses provider agents installed on a Hyper-V host for the migration. |
 | On-premises physical servers or servers hosted on other clouds | Migrate physical servers to Azure. You can also migrate other virtualized servers, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. The Azure Migrate and Modernize tool uses a replication appliance for the migration. |
-| Web apps hosted on Windows in a VMware environment | Perform agentless migration of ASP.NET web apps at scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) by using Azure Migrate. |
+| Web apps hosted on Windows in a VMware environment | Perform agentless migration of ASP.NET web apps at scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) by using Azure Catalyst. |
 
-For detailed information on how to migrate servers to Azure, see [Tutorial: Migrate VMware](tutorial-migrate-vmware.md). This tutorial is a step-by-step walkthrough of discovering VMware virtual machines, assessing their readiness for Azure, and performing replication and migration using Azure Migrate. 
+For detailed information on how to migrate servers to Azure, see [Tutorial: Migrate VMware](tutorial-migrate-vmware.md). This tutorial is a step-by-step walkthrough of discovering VMware virtual machines, assessing their readiness for Azure, and performing replication and migration by using Azure Catalyst.
 
 ::: moniker range="migrate-classic"
 ## Integrated tools and features
@@ -143,7 +148,7 @@ The following features from software development companies (SDCs) are integrated
 | --- | --- |
 | [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | Migrate servers. |
 | [Cloudamize](https://www.cloudamize.com/platform) | Assess servers. |
-| [CloudSphere](https://azure.microsoft.com/products/azure-migrate/) | Assess servers. |
+| [CloudSphere](https://go.microsoft.com/fwlink/?LinkId=2387766) | Assess servers. |
 | [Corent](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers. |
 | [Device42](https://docs.device42.com/) | Assess servers. |
 | [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure. |

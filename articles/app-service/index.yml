@@ -20,6 +20,8 @@ landingContent:
         links:
           - text: Introduction to App Service
             url: overview.md
+          - text: App Service Builder overview (preview)
+            url: app-service-builder-overview.md
       - linkListType: concept
         links:
           - text: Azure App Service plans
@@ -39,6 +41,8 @@ landingContent:
         links:    
           - text: Getting started with Azure App Service
             url: getting-started.md    
+          - text: Get started with App Service Builder (preview)
+            url: app-service-builder-get-started.md
       - linkListType: quickstart
         links:
           - text: ASP.NET

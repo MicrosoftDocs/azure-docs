@@ -3,7 +3,7 @@ title: Continuous deployment for Azure Functions
 description: Learn how to continuously deploy Azure Functions projects by using the CI/CD workflow supported by your hosting plan.
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: concept-article
-ms.date: 08/28/2026
+ms.date: 11/09/2026
 zone_pivot_groups: functions-hosting-plan
 #Customer intent: As a developer, I want to learn how to set up a continuous integration environment so that function app updates are deployed automatically when I check in my code changes.
 ---
@@ -14,7 +14,7 @@ Azure Functions enables you to continuously deploy changes from a source control
 
 | Hosting plan | Recommended CI/CD provider | Deployment and release guidance |
 | --- | --- | --- |
-| Flex Consumption | GitHub Actions or Azure Pipelines | Uses [package deployment](functions-deployment-technologies.md#flex-consumption-package-deployment). Deployment slots aren't supported. Use CI/CD release controls and consider [rolling updates](flex-consumption-site-updates.md) for zero-downtime deployments. |
+| Flex Consumption | GitHub Actions or Azure Pipelines | Code-package apps use [package deployment](functions-deployment-technologies.md#flex-consumption-package-deployment). For [container-image apps](flex-consumption-os-level-dependencies.md), build and test the image, push an immutable version to a registry, and update the app's image reference. Deployment slots aren't supported. |
 | Elastic Premium, Dedicated, and Consumption | GitHub Actions or Azure Pipelines | Uses [ZIP deployment](functions-deployment-technologies.md#zip-deployment). When supported by your app, deploy to a staging slot, validate the update, and then swap the slot into production. |
 | Azure Container Apps | Container build and deployment workflow | Deploys a container image. For more information, see [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md). |
 
@@ -27,7 +27,12 @@ For hosting plans that support deployment slots, configure continuous deployment
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"
 
-For Flex Consumption, configure [GitHub Actions](functions-how-to-github-actions.md) or [Azure Pipelines](functions-how-to-azure-devops.md). Because Flex Consumption doesn't support deployment slots, retain your deployment history in source control and your CI/CD system so that you can [recover from a bad deployment](functions-rollback-deployments.md).
+Choose the workflow that matches the Flex Consumption deployment source:
+
+- **Code package**: Configure [GitHub Actions](functions-how-to-github-actions.md) or [Azure Pipelines](functions-how-to-azure-devops.md) to build and deploy an application package.
+- **Container image**: Configure your CI/CD provider to build and test the image, push an immutable tag or digest to your container registry, and update the function app to reference the new image. Retain the previously validated image version for rollback. For more information, see [Update and roll back an image](flex-consumption-os-level-dependencies.md#update-and-roll-back-an-image).
+
+Because Flex Consumption doesn't support deployment slots, retain your deployment history in source control, your CI/CD system, and your container registry.
 
 ::: zone-end
 ::: zone pivot="container-apps"
@@ -68,7 +73,9 @@ You can also connect your function app to an external Git repository, but this o
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"
 
-Flex Consumption supports continuous deployment from Azure Repos by using [Azure Pipelines](functions-how-to-azure-devops.md) and from GitHub by using [GitHub Actions](functions-how-to-github-actions.md). App Service source control integration, including Bitbucket and Local Git deployments, isn't supported.
+For code-package deployments, Flex Consumption supports continuous deployment from Azure Repos by using [Azure Pipelines](functions-how-to-azure-devops.md) and from GitHub by using [GitHub Actions](functions-how-to-github-actions.md). App Service source control integration, including Bitbucket and Local Git deployments, isn't supported.
+
+For container-image deployments, use a CI/CD workflow that builds and pushes the image and then updates the function app's image reference. The App Service source control integration workflow doesn't build or deploy Flex Consumption container images.
 
 ::: zone-end
 ::: zone pivot="container-apps"
@@ -137,12 +144,14 @@ Keep the strengths and limitations of these providers in mind when you enable so
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"
 
-Use Azure Pipelines or GitHub Actions to build and deploy your project. These providers support Microsoft Entra identities and use the Flex Consumption package deployment process.
+For a code-package app, use Azure Pipelines or GitHub Actions to build and deploy your project. These providers support Microsoft Entra identities and use the Flex Consumption package deployment process.
 
 - For Azure Repos, use [Azure Pipelines](functions-how-to-azure-devops.md).
 - For GitHub, use [GitHub Actions](functions-how-to-github-actions.md).
 
 The App Service build service doesn't apply to Flex Consumption.
+
+For a container-image app, use a build provider that can build and test the image, push it to your container registry, and run Azure CLI to update the app's image reference. For the container image contract and deployment flow, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 ::: zone-end
 ::: zone pivot="container-apps"
@@ -252,12 +261,14 @@ After deployment finishes, the service deploys all code from the specified sourc
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"
 
-Configure continuous deployment in your repository by using one of these providers:
+For a code-package app, configure continuous deployment in your repository by using one of these providers:
 
 - [Continuous delivery with Azure Pipelines](functions-how-to-azure-devops.md)
 - [Continuous delivery by using GitHub Actions](functions-how-to-github-actions.md)
 
 Each successful workflow run deploys a new application package. Deployment Center source control integration isn't available for Flex Consumption.
+
+For a container-image app, configure the workflow to build and test the image, push an immutable image version, and update the function app to use that image. For more information, see [Update and roll back an image](flex-consumption-os-level-dependencies.md#update-and-roll-back-an-image).
 
 ::: zone-end
 ::: zone pivot="container-apps"

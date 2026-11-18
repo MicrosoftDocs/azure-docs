@@ -3,7 +3,7 @@ title: Create and Set Up Azure SRE Agent
 description: Deploy Azure SRE Agent, connect source code and telemetry, and optionally grant Azure resource access.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 08/21/2026
+ms.date: 11/13/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 1. Go to the [Azure SRE Agent](https://sre.azure.com) webpage.
 1. Sign in with your Azure credentials.
-1. Select **Create agent**. The wizard has three stages: **Basics** > **Review** > **Deploy**.
+1. Select **Create agent**.
 
 ## Configure basics
 
@@ -63,7 +63,10 @@ You can change the provider after creation in your **agent settings**.
 >
 > See [Data privacy and residency](data-privacy.md#data-residency) for provider data-handling details.
 
-Select **Next** to proceed.
+Select **Next** to open **Advanced setup**. To optionally set up Microsoft Entra Agent ID, see [Set up Microsoft Entra Agent ID](set-up-entra-agent-id.md#create-an-agent-with-an-agent-identity).
+
+> [!NOTE]
+> Where export is available, the identity enables Agent 365 content export by default for person-started chat turns, with no per-agent opt-out. Review its [data handling](data-privacy.md#agent-365-observability) before opting in.
 
 **Checkpoint:** All the fields are filled, including the model provider. The **Next** button is enabled.
 

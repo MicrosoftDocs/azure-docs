@@ -18,7 +18,7 @@ Azure Front Door traffic routing takes place over multiple stages. First, traffi
 
 The following diagram illustrates the routing architecture:
 
-:::image type="content" source="media/front-door-routing-architecture/routing-process-standard-premium.png" alt-text="Diagram that shows the Front Door routing architecture, including each step and decision point." lightbox="media/front-door-routing-architecture/routing-process-standard-premium.png":::
+:::image type="content" source="media/front-door-routing-architecture/routing-process-standard-premium.png" alt-text="Diagram that shows the Front Door routing architecture, including each step and decision point." lightbox="media/front-door-routing-architecture/routing-process-classic.png":::
 
 ::: zone-end
 
@@ -36,9 +36,9 @@ The following sections describe these steps in detail.
 
 ::: zone pivot="front-door-standard-premium"
 
-## Name resolution by Azure Front Door's Traffic Manager profile returns PoP unicast IP
+## Name resolution to Azure Front Door service returns PoP unicast IP
 
-The user or client application initiates a connection to the origin behind Azure Front Door. The domain name resolves to the Front Door's Azure Traffic Manager endpoint. The Traffic Manager consumes health and availability signals from all the Front Door PoPs across the world. It determines the optimal PoP to serve the request and returns the unicast IP of that PoP.
+The client application initiates a connection intended for the origin behind Azure Front Door. The origin's domain name resolves to the Front Door's endpoint. The Front Door platform consumes health and availability signals from all the Front Door PoPs across the world. It determines the optimal PoP to serve the request and returns the unicast IP of that PoP. The client application makes direct connection to the IP address.
 
 >[!WARNING]
 >AFD Unicast routing determines the appropriate PoP during DNS resolution. When the end user's location isn't available from the request metadata, routing is based on the location of the DNS resolver. This condition means the request might not be routed to the PoP closest to the user.

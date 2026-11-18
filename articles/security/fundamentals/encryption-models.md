@@ -87,6 +87,8 @@ For scenarios where organizations have specific requirements to control their en
 
 Some services might store only the root key encryption key (KEK) in Azure Key Vault and store the encrypted data encryption key (DEK) in an internal location closer to the data. In this scenario, you can use the bring your own key (BYOK) model to import keys to Key Vault or generate new keys in Key Vault, and then use them to encrypt the desired resources. While the resource provider performs the encryption and decryption operations, it uses your configured KEK as the root key for all encryption operations.
 
+For common handling of key-operation failures and cached DEKs, see [Customer-managed key control, caching, and revocation](encryption-atrest.md#customer-managed-key-control-caching-and-revocation).
+
 Loss of key encryption keys means loss of data. For this reason, don't delete keys. Always back up keys when you create or rotate them. When a KEK is rotated, the service wraps the data encryption keys with the new key version - the underlying data isn't re-encrypted. Both old and new key versions must remain enabled until all data encryption keys are wrapped with the new key version. To protect against accidental or malicious cryptographic erasure, [Soft-delete and purge protection](/azure/key-vault/general/soft-delete-overview) must be enabled on any vault storing key encryption keys. Instead of deleting a key, set enabled to false on the key encryption key. Use access controls to revoke access to individual users or services in [Azure Key Vault](/azure/key-vault/general/rbac-access-policy) or [Managed HSM](/azure/key-vault/managed-hsm/how-to-secure-access).
 
 > [!WARNING]

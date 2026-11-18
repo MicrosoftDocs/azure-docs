@@ -150,6 +150,8 @@
     href: how-to-nva-hub.md
   - name: Configure DNAT/Internet inbound for NVAs
     href: how-to-network-virtual-appliance-inbound.md
+  - name: Deploy multiple third-party solutions in a Virtual WAN hub
+    href: deploy-multiple-network-virtual-appliance.md
   - name: Infrastructure operations
     items:
     - name: Restart an NVA in a virtual hub
@@ -445,8 +447,8 @@
       href: packet-capture-site-to-site-powershell.md
   - name: Advanced Monitoring for P2S VPN
     href: monitor-point-to-site-connections.md
-  - name: Configure customer-controlled gateway maintenance
-    href: customer-controlled-gateway-maintenance.md
+  - name: Configure customer-controlled maintenance
+    href: customer-controlled-maintenance.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting for Virtual WAN - Getting started

@@ -80,6 +80,10 @@ Currently, Azure Front Door (classic) retirement affects the public cloud and Az
 
 You can still update your existing Azure Front Door (classic) resources by using the Azure portal, Terraform, and all command line tools until March 31, 2027. However, you can't create new Azure Front Door (classic) resources starting April 1, 2025. Starting August 15, 2025, Azure Front Door (classic) no longer supports managed certificates. Migrate to Azure Front Door Standard or Premium tier as soon as possible. 
 
+### What happens to certificates that use a service principal to access Azure Key Vault?
+
+Azure Front Door (classic) uses a service principal (app registration) to read your certificates from Azure Key Vault. Service principal access to Key Vault retires on September 30, 2027. Because Azure Front Door (classic) retires before that date and doesn't support managed identities, migrate to Azure Front Door Standard or Premium. If you use your own certificate, migration requires you to enable a managed identity and grant it access to your key vault. For more information, see [Enable managed identities](migrate-tier.md#enable-managed-identities).
+
 ### Can I roll back to Azure Front Door (classic) after migration?
 
 No, once migration is completed successfully, you can't roll back to classic. If you encounter any issues, raise a support ticket for assistance.

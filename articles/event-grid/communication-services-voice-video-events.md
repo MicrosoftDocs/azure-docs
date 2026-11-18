@@ -278,7 +278,28 @@ This section contains an example of what that data would look like for each even
   }
 ]
 ```
-
+ #### Teams Phone Extensibility call-arrival display information
+ 
+ For a Teams Phone Extensibility (TPE) call, the `data` object can include the optional `callArrivalDisplayInfo` object:
+ 
+ ```json
+ "callArrivalDisplayInfo": {
+   "teamsTenantId": "11111111-1111-4111-8111-111111111111",
+   "destinationPhoneNumber": "+12025550123"
+ }
+ ```
+ 
+ | Property | Description |
+ | --- | --- |
+ | `teamsTenantId` | The Teams tenant ID associated with the incoming TPE call. This property is optional. |
+ | `destinationPhoneNumber` | The destination phone number associated with the incoming TPE call. The value is in E.164 format, includes the leading `+`, and doesn't include the internal `4:` MRI prefix. This property is optional. |
+ 
+ `destinationPhoneNumber` isn't available when the caller addresses the Teams resource account directly by using its `28:orgid:` identity instead of dialing a phone number. If neither `teamsTenantId` nor `destinationPhoneNumber` is available, `callArrivalDisplayInfo` is omitted.
+ 
+ > [!IMPORTANT]
+ > `callArrivalDisplayInfo` provides optional display and client-experience context. Don't use `destinationPhoneNumber` as a stable routing, authorization, or resource-account identity. Phone numbers can be reassigned and aren't present for every call scenario. Use the resource-account identity in `data.to` and your provisioned application configuration for routing and identity decisions.
+ 
+ This object is specific to TPE incoming calls. Traditional Azure Communication Services incoming calls aren't changed.
 ## Limitations
 Aside from `IncomingCall`, Calling events are only available for Azure Communication Services VoIP users. Public Switched Telephone Network (PSTN), bots, echo bot, and Teams users events are excluded.
 No calling events are available for Azure Communication Services - Teams meeting interop call.

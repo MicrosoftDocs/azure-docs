@@ -18,6 +18,7 @@ Target-based scaling provides a fast and intuitive scaling model for customers a
 - [Azure Event Hubs](#event-hubs)
 - [Azure Queue Storage](#storage-queues)
 - [Azure Service Bus (queue and topics)](#service-bus-queues-and-topics)
+- [Managed connectors (polling delivery)](#managed-connectors)
 
 Target-based scaling replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of one worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of four instances at a time, and the scaling decision is based on a simple target-based equation:
 
@@ -62,6 +63,7 @@ This table summarizes the `host.json` values that are used for the _target execu
 | Service Bus (Functions v2.x+, Single Dispatch Sessions Based)  | extensions.serviceBus.sessionHandlerOptions.maxConcurrentSessions |       2000    |
 | Service Bus (Functions v2.x+, Batch Processing)                | extensions.serviceBus.batchOptions.maxMessageCount                |       1000    |
 | Storage Queue                                                  | extensions.queues.batchSize                                       |       16      |
+| Managed connectors (polling delivery)                          | extensions.connector.defaultTargetPendingEventThreshold           |       16      |
 
 <sup>*</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this value was 10.
 
@@ -71,6 +73,7 @@ For some binding extensions, the _target executions per instance_ configuration 
 | ----------------- | ------------------------ | ------------- |
 | Apache Kafka      | `lagThreshold`           |   1000        |
 | Azure Cosmos DB   | `maxItemsPerInvocation`  |    100        |
+| Managed connectors (polling delivery) | `TargetPendingEventThreshold` | 16 |
 
 To learn more, see the [example configurations for the supported extensions](#supported-extensions).
 
@@ -96,7 +99,7 @@ The way in which you configure target-based scaling in your host.json file depen
 
 ### Service Bus queues and topics
 
-The Service Bus extension support three execution models, determined by the `IsBatched` and `IsSessionsEnabled` attributes of your Service Bus trigger. The default value for `IsBatched` and `IsSessionsEnabled` is `false`.
+The Service Bus extension supports three execution models, determined by the `IsBatched` and `IsSessionsEnabled` attributes of your Service Bus trigger. The default value for `IsBatched` and `IsSessionsEnabled` is `false`.
 
 | Execution Model                            | IsBatched | IsSessionsEnabled | Setting Used for _target executions per instance_ |
 | ------------------------------------------ | --------- | ----------------- | ------------------------------------------------- |
@@ -220,7 +223,7 @@ Modify the `host.json` setting `maxMessageCount` in `batchOptions`  to set _targ
 
 ### Event Hubs
 
-For Azure Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the event hub within a list of valid instance counts. By default, the `host.json` attributes used for _target executions per instance_ are `maxEventBatchSize` and `maxBatchSize`. However, if you choose to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides to set _target executions per instance_ without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
+For Azure Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the event hub within a list of valid instance counts. By default, the `host.json` attributes used for _target executions per instance_ are `maxEventBatchSize` and `maxBatchSize`. However, if you choose to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides to set _target executions per instance_ without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then rounded up to a worker instance count that creates a balanced partition distribution.
 
 > [!WARNING]
 > Setting `batchCheckpointFrequency` above 1 for hosting plans supported by [target based scaling](#considerations) can cause incorrect scaling behavior. The platform calculates unprocessed events as "current position - checkpointed position", which may incorrectly indicate unprocessed messages when batches have been processed but not yet checkpointed, preventing proper scale-in when no messages remain.
@@ -328,7 +331,7 @@ For **v2.x+** of the Storage extension, modify the `host.json` setting `batchSiz
 ```
 
 > [!NOTE]
-> **Scale efficiency:** For the storage queue extension, messages with [visibilityTimeout](/rest/api/storageservices/put-message#uri-parameters) are still counted in _event source length_ by the Storage Queue APIs. This can cause overscaling of your function app. Consider using Service Bus queues que scheduled messages, [limiting scale out](event-driven-scaling.md#limit-scale-out), or not using visibilityTimeout for your solution.
+> **Scale efficiency:** For the storage queue extension, messages with [visibilityTimeout](/rest/api/storageservices/put-message#uri-parameters) are still counted in _event source length_ by the Storage Queue APIs. This condition can cause overscaling of your function app. Consider using Service Bus queues with scheduled messages, [limiting scale out](event-driven-scaling.md#limit-scale-out), or not using visibilityTimeout for your solution.
 
 ### Azure Cosmos DB
 
@@ -423,6 +426,47 @@ Examples for the Node.js v4 programming model aren't yet available.
 
 > [!NOTE]
 > Since Azure Cosmos DB is a partitioned workload, the number of physical partitions in your container is the limit for the target instance count. To learn more about Azure Cosmos DB scaling, see [physical partitions](/azure/cosmos-db/nosql/change-feed-processor#dynamic-scaling) and [lease ownership](/azure/cosmos-db/nosql/change-feed-processor#dynamic-scaling).
+
+### Managed connectors
+
+The [Connector Trigger](functions-bindings-connector-trigger.md#scaling-and-concurrency) uses target-based scaling in polling mode. Webhook delivery instead follows HTTP trigger scaling behavior and doesn't use the polling scaling target. For hosting-plan scaling behavior and limits, see [Event-driven scaling in Azure Functions](event-driven-scaling.md#understanding-scaling-behaviors).
+
+For polling, the extension queries the Connector Namespace for `approximateQueueDepth`, the service-reported estimate of events queued for a particular trigger configuration. This value represents the backlog feeding your polling trigger, not running function invocations or all items in the upstream service, such as all emails in a mailbox.
+
+The scaler recommends an instance count using the following equation:
+
+```text
+instances = ceil(approximateQueueDepth / TargetPendingEventThreshold)
+```
+
+For example, a backlog of 160 events with the default target of 16 produces a recommendation of 10 instances. This recommendation isn't a guarantee of allocated instances: platform policies and hosting-plan [scale-out limits](event-driven-scaling.md#limit-scale-out) determine actual allocation.
+
+The following settings control the scaling target and event processing independently:
+
+| Trigger setting | Default | Purpose |
+| --- | --- | --- |
+| `TargetPendingEventThreshold` | `16` | Desired pending events per target instance. This setting is the denominator used for target-based scaling. |
+| `MaxConcurrentCalls` | `16` | Maximum concurrent single-event processing tasks per listener per instance. Doesn't apply to batched delivery. |
+| `MaxBatchSize` | `1` | Maximum events per invocation, up to 32. Batched listeners process one batch at a time per listener per instance. |
+
+Lowering the pending-event target recommends more instances for the same backlog; raising it recommends fewer. Changing concurrency or batch size doesn't change the scaling denominator.
+
+You can configure these values per trigger. Alternatively, set host-wide defaults under `extensions.connector` in *host.json*:
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "connector": {
+            "defaultTargetPendingEventThreshold": 16,
+            "defaultMaxConcurrentCalls": 16,
+            "defaultMaxBatchSize": 1
+        }
+    }
+}
+```
+
+Positive per-trigger values override the corresponding host defaults, subject to the runtime override of the scaling target. Batch sizes greater than 1 require batching to be enabled on the trigger. For details, see [Connector polling host.json settings](functions-bindings-connector.md#polling-hostjson-settings).
 
 ### Apache Kafka
 

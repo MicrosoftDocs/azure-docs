@@ -1,5 +1,9 @@
 items:
-  - name: Overview
+- name: Azure Workload Center for SAP Overview
+  href: azure-workloads-center-sap-overview.md
+- name: Virtual Instance for SAP Solutions
+  items:
+  - name: Virtual Instance for SAP Solutions Overview
     href: overview.md
   - name: FAQ
     href: faq.yml
@@ -8,7 +12,7 @@ items:
     - name: Deploy S/4 HANA infrastructure - Azure PowerShell
       href: quickstart-create-distributed-non-high-availability.md
     - name: Install SAP software - Azure PowerShell
-      href: quickstart-install-distributed-non-high-availability.md  
+      href: quickstart-install-distributed-non-high-availability.md
     - name: Deploy S/4 HANA infrastructure - Azure CLI
       href: quickstart-create-high-availability-namecustom.md
     - name: Install SAP software - Azure CLI
@@ -16,8 +20,8 @@ items:
     - name: Register an existing SAP system - Azure PowerShell
       href: quickstart-register-system-powershell.md
     - name: Register an existing SAP system - Azure CLI
-      href: quickstart-register-system-cli.md  
-    - name: Start and stop SAP system - Azure PowerShell 
+      href: quickstart-register-system-cli.md
+    - name: Start and stop SAP system - Azure PowerShell
       href: quick-stop-start-sap-powershell.md
     - name: Start and stop SAP system - Azure CLI
       href: quick-stop-start-sap-cli.md
@@ -72,9 +76,58 @@ items:
   - name: Reference
     items:
     - name: Azure CLI
-      href: /cli/azure/workloads/sap-virtual-instance 
+      href: /cli/azure/workloads/sap-virtual-instance
     - name: Azure PowerShell
       href: /powershell/module/az.workloads/new-azworkloadssapvirtualinstance
     - name: REST - SAP Virtual Instance
       href: /rest/api/workloads/sap-virtual-instances?view=rest-workloads-2023-10-01-preview&preserve-view=true        
-
+- name: Workload Virtual Instance (Preview)
+  items:
+  - name: Overview
+    href: workload-virtual-instance-overview.md
+  - name: Concepts
+    items:
+    - name: Discovery and resource association
+      href: discovery-resource-association.md
+    - name: Workload health observability
+      href: workload-health-observability.md
+    - name: Configuration validation
+      href: configuration-validation.md
+    - name: Azure Copilot Run SAP agent
+      href: run-sap-agent.md
+  - name: How-to guides
+    items:
+    - name: Getting started with Workload Virtual Instance (Preview)
+      items:
+      - name: Permissions and prerequisites
+        href: get-started-prerequisites-permissions.md
+      - name: Onboard an SAP system to Azure Workload Center for SAP
+        href: onboard-sap-system-as-workload-virtual-instance.md
+    - name: Manage an SAP workload (Preview)
+      href: manage-sap-workload.md
+    - name: Configuration validation (Preview)
+      items:
+      - name: Get started with configuration validation
+        href: get-started-configuration-validation.md
+      - name: Review configuration findings and recommendations
+        href: review-configuration-findings-recommendations.md
+      - name: Set up configuration deviation notifications
+        href: setting-up-configuration-deviation-notifications.md
+      - name: View configuration recommendations in Azure Advisor
+        href: view-advisor-recommendation.md
+    - name: Workload health observability (Preview)
+      items:
+      - name: View health of Workload Virtual Instance
+        href: view-workload-virtual-instance-health.md
+      - name: Manage and customize health
+        href: manage-customize-health.md
+    - name: Run SAP agent (Preview)
+      items:
+      - name: Get started
+        href: get-started-with-run-sap-agent.md
+      - name: Retrieve and remediate configuration drift
+        href: retrieve-remediate-configuration-drift-with-run-sap.md
+      - name: Perform impact analysis
+        href: perform-impact-analysis-with-azure-copilot-run-sap.md
+  - name: FAQs
+    href: workload-virtual-instance-faq.md

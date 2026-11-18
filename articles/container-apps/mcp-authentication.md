@@ -5,7 +5,7 @@ description: Learn how to authenticate and authorize MCP servers on Azure Contai
 ms.topic: how-to
 ms.service: azure-container-apps
 ms.collection: ce-skilling-ai-copilot
-ms.date: 04/09/2026
+ms.date: 11/12/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -25,12 +25,12 @@ This article explains how to authenticate and secure MCP servers running on Azur
 
 Azure Container Apps supports two authentication models for MCP servers. The following table summarizes the key differences.
 
-| Aspect | Standalone container app | Dynamic sessions MCP |
-|--------|--------------------------|----------------------|
+| Aspect | Standalone container app | Dynamic sessions MCP with API key authentication |
+| --- | --- | --- |
 | Auth mechanism | Container Apps built-in authentication with Microsoft Entra ID | API key via `x-ms-apikey` header |
 | Token type | OAuth 2.0 Bearer token | Opaque API key string |
 | Identity provider | Microsoft Entra ID | Azure Resource Manager |
-| Key/token rotation | Managed by Microsoft Entra ID | Regenerate via Azure Resource Manager API |
+| Key/token rotation | Managed by Microsoft Entra ID | Rotate API key via Azure Resource Manager API |
 | Authorization scope | Configurable per application | Session pool level |
 | Transport encryption | TLS (Container Apps ingress) | TLS (Container Apps sessions endpoint) |
 
@@ -180,7 +180,7 @@ Apply the following best practices to harden your standalone MCP server.
 > [!IMPORTANT]
 > The platform-managed MCP server for dynamic sessions is in **preview**. The API version `2025-02-02-preview` and `mcpServerSettings` properties are subject to change.
 
-The platform-managed MCP server in dynamic sessions uses API key authentication. The key is scoped to the session pool and grants access to all tools and sessions in the pool.
+The platform-managed MCP server in dynamic sessions supports API key authentication. The key is scoped to the session pool and grants access to all tools and sessions in the pool. You can disable API key authentication to require Microsoft Entra ID and Azure role-based access control (Azure RBAC), as described in [API key lifetime and revocation](#api-key-lifetime-and-revocation).
 
 ### API key authentication flow
 
@@ -203,17 +203,27 @@ API_KEY=$(az rest --method POST \
 
 ### Rotate and cache the API key
 
-You can regenerate the API key at any time. The platform caches validation results for up to five minutes, so previously valid keys might continue to work after regeneration until the cache expires.
+You can rotate the API key at any time. The platform caches validation results for up to five minutes, so previously valid keys might continue to work after rotation until the cache expires.
 
-To rotate the API key, call the `regenerateCredentials` action on the session pool:
+To rotate the API key, call the `rotateMCPServerCredentials` action on the session pool:
 
 ```azurecli
 az rest --method POST \
-    --uri "https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/sessionPools/<SESSION_POOL_NAME>/regenerateCredentials" \
+    --uri "https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/sessionPools/<SESSION_POOL_NAME>/rotateMCPServerCredentials" \
     --uri-parameters api-version=2025-02-02-preview
 ```
 
-After regeneration, retrieve the new key by using `fetchMCPServerCredentials` as shown earlier.
+After rotation, retrieve the new key by using `fetchMCPServerCredentials` as shown earlier.
+
+### API key lifetime and revocation
+
+The MCP API key is scoped to the session pool and doesn't expire. Any identity with the `Microsoft.App/sessionPools/fetchMCPServerCredentials/action` permission can retrieve it. The **Owner**, **Contributor**, and **Azure ContainerApps Session Executor** roles grant this permission when assigned at a scope that includes the session pool.
+
+Removing a role assignment doesn't revoke an API key that the identity already retrieved. To revoke access, rotate the key by using `rotateMCPServerCredentials`. Rotate the key whenever you remove access for an identity that could retrieve it. The old key stops working within five minutes.
+
+To disable API key authentication, set `properties.mcpServerSettings.isMCPServerApiKeyDisabled` to `true` on the session pool. All API keys stop working, and Azure RBAC controls access. Callers must use a Microsoft Entra token with the audience `https://dynamicsessions.io` and have the **Azure ContainerApps Session Executor** role on the session pool. For token and role assignment examples, see [Authentication and authorization](sessions-usage.md#authentication).
+
+If you set `properties.mcpServerSettings.isMCPServerApiKeyDisabled` back to `false`, a new API key is issued.
 
 ### Security recommendations for dynamic sessions
 
@@ -227,12 +237,12 @@ Apply the following best practices to secure your dynamic sessions MCP deploymen
 
 ## Common authentication mismatches
 
-A common mistake is using the API key header (`x-ms-apikey`) with a standalone container app, or using a bearer token with the sessions MCP endpoint. The following table shows what happens when you mix them up.
+A common mistake is using the API key header (`x-ms-apikey`) with a standalone container app, or using a bearer token with the sessions MCP endpoint while API key authentication is enabled. The following table shows what happens when you mix them up.
 
 | Mismatch | Result |
-|----------|--------|
+| --- | --- |
 | `x-ms-apikey` header sent to standalone app | Header is ignored; request hits built-in authentication and returns `401` if auth is enabled |
-| `Authorization: Bearer` sent to sessions MCP | Key validation fails and returns `401` |
+| `Authorization: Bearer` sent to sessions MCP while API key authentication is enabled | Key validation fails and returns `401` |
 | Bearer token requested without an exposed API scope | Token acquisition fails or the token has no valid audience, resulting in `401` |
 
 Make sure your MCP client configuration matches the hosting model you deployed.

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="290" viewBox="0 0 1040 290" role="img" aria-labelledby="t d">
+  <title id="t">Azure Device Registry job lifecycle</title>
+  <desc id="d">Four stages: prepare, define, run, and monitor. After monitoring, the dashed arrow loops back to Run.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#505050"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", Arial, sans-serif; }
+    .box { fill: #ffffff; stroke: #0078D4; stroke-width: 2; }
+    .num { fill: #0078D4; }
+    .numt { fill: #ffffff; font-size: 14px; font-weight: 600; text-anchor: middle; }
+    .title { fill: #161616; font-size: 16px; font-weight: 600; text-anchor: middle; }
+    .sub { fill: #505050; font-size: 12px; text-anchor: middle; }
+    .arrow { stroke: #505050; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .loop { stroke: #505050; stroke-width: 2; fill: none; stroke-dasharray: 6 4; marker-end: url(#arrow); }
+    .looptext { fill: #505050; font-size: 12px; font-style: italic; text-anchor: middle; }
+  </style>
+
+  <rect width="1040" height="290" fill="#ffffff"/>
+
+  <g>
+    <rect class="box" x="30" y="60" width="200" height="110" rx="6"/>
+    <circle class="num" cx="130" cy="60" r="14"/><text class="numt" x="130" y="65">1</text>
+    <text class="title" x="130" y="100">Prepare</text>
+    <text class="sub" x="130" y="124">Target devices, such as a</text>
+    <text class="sub" x="130" y="142">group, are set up</text>
+  </g>
+  <g>
+    <rect class="box" x="290" y="60" width="200" height="110" rx="6"/>
+    <circle class="num" cx="390" cy="60" r="14"/><text class="numt" x="390" y="65">2</text>
+    <text class="title" x="390" y="100">Define</text>
+    <text class="sub" x="390" y="124"    >Job type, target,</text>
+        <text class="sub" x="390" y="142">and action</text>
+  </g>
+  <g>
+    <rect class="box" x="550" y="60" width="200" height="110" rx="6"/>
+    <circle class="num" cx="650" cy="60" r="14"/><text class="numt" x="650" y="65">3</text>
+    <text class="title" x="650" y="100">Run</text>
+    <text class="sub" x="650" y="124">Start now or schedule;</text>
+    <text class="sub" x="650" y="142">end if needed</text>
+  </g>
+  <g>
+    <rect class="box" x="810" y="60" width="200" height="110" rx="6"/>
+    <circle class="num" cx="910" cy="60" r="14"/><text class="numt" x="910" y="65">4</text>
+    <text class="title" x="910" y="100">Monitor</text>
+    <text class="sub" x="910" y="124">Job run status and</text>
+    <text class="sub" x="910" y="142">per-device results</text>
+  </g>
+
+  <path class="arrow" d="M232,115 L288,115"/>
+  <path class="arrow" d="M492,115 L548,115"/>
+  <path class="arrow" d="M752,115 L808,115"/>
+
+  <path class="loop" d="M910,172 L910,230 L650,230 L650,174"/>
+  <text class="looptext" x="780" y="252">Retry failed devices</text>
+</svg>

@@ -25,7 +25,10 @@ This article gives an overview of the provisioning concepts applicable to managi
 
 ## Service operations endpoint
 
-The service operations endpoint is the endpoint for managing the service settings and maintaining the enrollment list. This endpoint is only used by the service administrator; it isn't used by devices.
+The service operations endpoint, `<dps-name>.azure-devices-provisioning.net`, is the endpoint for managing the service settings and maintaining the enrollment list. In global Azure, only the service administrator uses this endpoint; devices don't use it.
+
+In Azure Government and Azure China (operated by 21Vianet), the service operations endpoint (`<dps-name>.azure-devices-provisioning.us` or `<dps-name>.azure-devices-provisioning.cn`) presents a certificate that chains to DigiCert Global Root G2, and devices can also provision through it. For more information, see [Move IoT Hub and DPS off DigiCert Global Root G1 in national clouds](../iot-hub/update-root-certificate-national-clouds.md).
+
 
 ## Device provisioning endpoint
 

@@ -5,7 +5,7 @@ author: yousefi-msft
 ms.author: yousefi
 ms.service: azure
 ms.topic: concept-article
-ms.date: 09/05/2026
+ms.date: 11/17/2026
 ms.custom: security, compliance
 #CustomerIntent: As a security reviewer or deployer, I want to understand the security and compliance posture of Microsoft Discovery so that I can complete a security assessment and deploy the platform safely.
 ---
@@ -66,7 +66,7 @@ The Shared Assessments Standardized Information Gathering (SIG) questionnaire or
 | Information Assurance | Encryption at rest by default (Microsoft-managed keys) with optional customer-managed keys; key isolation from operators. | [Data encryption at rest](concept-data-encryption-at-rest.md) |
 | Server Security | Backend runs on Azure managed services; platform hardening and patching handled as part of Azure operations. | [Service Trust Portal](https://servicetrust.microsoft.com/) |
 | Endpoint Security | No customer endpoints in the managed data plane; access is through Entra ID-secured interfaces and APIs. | [Network security](concept-network-security.md) |
-| Network Security | Network Security Perimeters, private endpoints, virtual network injection, and private-by-default data-plane access. | [Network security](concept-network-security.md) |
+| Network Security | Backend hardening through Network Security Perimeters, managed-resource private endpoints, and virtual network injection. Private-only client API access requires separate client private endpoints, DNS, and `publicNetworkAccess` set to `Disabled`. | [Network security](concept-network-security.md) |
 | IT Operations Management | Application, activity, and customer-configurable audit logs through Azure Monitor, with correlation-ID tracing. | [Observability](concept-observability.md), [Enable audit logging](how-to-enable-audit-logging.md) |
 | Incident Management | End-to-end correlation IDs for tracing; platform incident response and breach notification handled centrally. | [Correlation IDs](concept-observability.md#correlation-ids), [Trust Center](https://www.microsoft.com/trust-center) |
 | Cybersecurity / Threat Management | Runs on Azure managed services that inherit Azure threat detection and security operations. | [Azure security fundamentals](/azure/security/fundamentals/overview) |
@@ -106,11 +106,13 @@ Service operators, engineers, and support personnel can't access encryption keys
 
 ## Network security
 
-Microsoft Discovery layers three Azure networking controls, and enables network hardening by default for workspaces and bookshelves managed with the `2026-02-01-preview` API version and later:
+Microsoft Discovery uses backend network hardening and separate client private endpoints for workspace and bookshelf data-plane APIs:
 
 - [Network security perimeters](/azure/private-link/network-security-perimeter-concepts) restrict managed resources so that only authorized Discovery components can reach them.
-- [Private endpoints](/azure/private-link/private-link-overview) route workspace and bookshelf data-plane API traffic over the Microsoft backbone.
+- [Private endpoints](/azure/private-link/private-link-overview) provide private connectivity to managed backend resources. Separately configured client private endpoints and DNS route workspace and bookshelf data-plane API traffic over the Microsoft backbone.
 - **Virtual network injection** runs workspace platform services and agents inside your virtual network, in subnets you provision and delegate.
+
+Backend hardening doesn't require clients to use private endpoints. To require private-only data-plane API access, configure client private endpoints and DNS, then set `publicNetworkAccess` to `Disabled` for each workspace or bookshelf.
 
 > [!IMPORTANT]
 > Network security perimeters aren't yet available in all regions and for all Azure resource types. Ensure that your deployment is in a region that supports [network security perimeters](/azure/private-link/network-security-perimeter-concepts).

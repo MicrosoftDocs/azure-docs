@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: overview
-ms.date: 07/27/2026
+ms.date: 11/06/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 
@@ -131,7 +131,7 @@ Connectors include:
 
 - **Connector for ONVIF**. A service that discovers and registers ONVIF assets like cameras. You can use the connector to manage and control ONVIF assets connected to your cluster.
 
-- **Connector for HTTP/REST**. A service for connecting to HTTP/REST endpoints and publishing data to the MQTT broker.
+- **Connector for HTTP/REST**. A service for connecting to HTTP/REST endpoints, publishing data to the MQTT broker, and invoking HTTP operations through management actions.
 
 - **Connector for SSE**. A service for connecting to server-sent event (SSE) endpoints and publishing event data to the MQTT broker.
 
@@ -152,7 +152,7 @@ The following table summarizes which data types each connector supports.
 | OPC UA          | Yes      | Yes          | Yes               |         |
 | ONVIF           |          | Yes          | Yes               |         |
 | Media           |          |              |                   | Yes     |
-| HTTP/REST       | Yes      |              |                   |         |
+| HTTP/REST       | Yes      |              | Yes               |         |
 | SSE             | Yes      | Yes          |                   |         |
 | SQL Server      | Yes      | Yes          |                   |         |
 | MQTT            | Yes      |              | Yes               |         |

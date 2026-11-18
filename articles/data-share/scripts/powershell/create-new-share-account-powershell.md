@@ -5,11 +5,14 @@ author: chvukosw
 ms.author: sidontha 
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 01/23/2026
-ms.custom: devx-track-azurepowershell
+ms.date: 10/13/2026
+ms.custom: devx-track-azurepowershell, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Use PowerShell to create a data share account in Azure
+
+[!INCLUDE [Azure Data Share retirement notice](../../includes/data-share-retirement.md)]
 
 This PowerShell script creates a new Data Share account. 
 

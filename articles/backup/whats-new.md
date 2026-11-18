@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 11/09/2026
+ms.date: 11/16/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -21,6 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2026
+  - [Cross-subscription backup for Azure VMs is now generally available](#cross-subscription-backup-for-azure-vms-is-now-generally-available)
   - [Snapshot backup for SQL instances in Azure VMs is now generally available](#snapshot-backup-for-sql-instances-in-azure-vms-is-now-generally-available)
   - [Vaulted backup support for Azure Cosmos DB is now generally available](#vaulted-backup-support-for-azure-cosmos-db-is-now-generally-available)
 - October 2026
@@ -90,6 +91,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Cross-subscription backup for Azure VMs is now generally available
+
+Cross-subscription backup for Azure VMs is now generally available in all Azure regions. You can back up Azure VMs to a Recovery Services vault in a different subscription, provided the VM and vault are in the same tenant and region. This capability lets you centralize VM backup management across subscriptions.
+
+For more information, see [Back up Azure VMs in a Recovery Services vault](backup-azure-arm-vms-prepare.md) and [Supported backup actions](backup-support-matrix-iaas.md#supported-backup-actions).
 
 ## Snapshot backup for SQL instances in Azure VMs is now generally available
 

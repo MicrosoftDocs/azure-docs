@@ -1,5 +1,5 @@
 ---
-title: 'Create an Azure DDoS Protection custom policy using Azure CLI (preview)'
+title: 'Create an Azure DDoS Protection custom policy using Azure CLI'
 description: Learn how to create an Azure DDoS Protection custom policy with protocol-specific detection thresholds by using Azure CLI.
 services: ddos-protection
 author: duongau
@@ -7,25 +7,25 @@ ms.service: azure-ddos-protection
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: duau
-ms.date: 10/08/2026
+ms.date: 10/13/2026
 # Customer intent: As a network administrator, I want to create a DDoS Protection custom policy with Azure CLI, so that I can script protocol-specific detection thresholds.
 ---
 
-# Create an Azure DDoS Protection custom policy using Azure CLI (preview)
+# Create an Azure DDoS Protection custom policy by using Azure CLI
 
 This article describes how to use Azure CLI to create an Azure DDoS Protection custom policy. A custom policy defines protocol-specific detection thresholds that override adaptive auto-tuning. For more information, see [What is Azure DDoS Protection custom policy?](ddos-custom-policy-overview.md)
 
-> [!IMPORTANT]
-> Azure DDoS Protection custom policy is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Azure CLI and Azure PowerShell provide different management paths to the same custom-policy capability. For a Standard Load Balancer, this Azure CLI example configures the policy on the associated public IP address. The [Azure PowerShell example](manage-ddos-custom-policy-powershell.md) uses the load balancer's frontend IP configuration. Both tools can associate a policy directly with an instance-level public IP address.
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview), or [install the Azure CLI](/cli/azure/install-azure-cli) locally and sign in with [az login](/cli/azure/reference-index#az-login).
+- To complete the association examples, use either a Standard Load Balancer with a Standard public IP address or an instance-level Standard public IP address associated with a network interface.
 
 ## Create a resource group
 
-Use [az group create](/cli/azure/group#az-group-create) to create a resource group to hold the custom policy and load balancer resources.
+Use [az group create](/cli/azure/group#az-group-create) to create a resource group to hold the custom policy and example resources.
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location eastus
@@ -46,11 +46,13 @@ az network ddos-custom-policy create \
   --packets-per-second 1000000
 ```
 
-The `--traffic-type` value is one of `Tcp`, `Udp`, or `TcpSyn`. The valid `--packets-per-second` range depends on the traffic type:
+The `--packets-per-second` value must match the range for the selected `--traffic-type`:
 
-- `Tcp`: 50,000 to 2,000,000.
-- `Udp`: 20,000 to 200,000.
-- `TcpSyn`: 1,000 to 100,000.
+| Traffic type | Minimum threshold (packets per second) | Maximum threshold (packets per second) |
+| --- | --- | --- |
+| `Tcp` | 50,000 | 2,000,000 |
+| `Udp` | 20,000 | 200,000 |
+| `TcpSyn` | 1,000 | 100,000 |
 
 The `create` command sets a single detection rule. To tune more protocols, add rules from the policy's **Policy settings** page in the [Azure portal](manage-ddos-custom-policy-portal.md), or use an [ARM template](manage-ddos-custom-policy-template.md).
 
@@ -65,9 +67,9 @@ az network ddos-custom-policy show \
   --query '{name:name, state:provisioningState, rules:detectionRules[].trafficDetectionRule}'
 ```
 
-## Create a Standard Load Balancer with a frontend IP
+## Associate the policy with a Load Balancer public IP
 
-To apply the policy to traffic, associate it with a Standard Load Balancer frontend IP configuration. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) and [az network lb create](/cli/azure/network/lb#az-network-lb-create) to create a Standard Load Balancer with a static IPv4 public IP.
+To apply the policy to traffic through a Standard Load Balancer, associate the policy with the load balancer's public IP address. The following example creates a Standard public IP address and a Standard Load Balancer that uses the address.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -87,12 +89,7 @@ az network lb create \
   --location eastus
 ```
 
-## Associate the policy with the frontend IP
-
-> [!NOTE]
-> The `--ddos-settings` parameter on `az network lb frontend-ip` is part of the custom policy preview and isn't available in all Azure CLI versions yet. If the parameter isn't recognized, use the [Azure portal](manage-ddos-custom-policy-portal.md) to associate the policy.
-
-Get the policy's resource ID, then use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-update) to attach the policy to the frontend IP configuration.
+Get the policy's resource ID, and then use [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) to associate the policy with the public IP address.
 
 ```azurecli-interactive
 dcpId=$(az network ddos-custom-policy show \
@@ -100,40 +97,65 @@ dcpId=$(az network ddos-custom-policy show \
   --name MyCustomPolicy \
   --query id --output tsv)
 
-az network lb frontend-ip update \
+az network public-ip update \
   --resource-group MyResourceGroup \
-  --lb-name MyLoadBalancer \
-  --name MyFrontendIP \
-  --ddos-settings "ddos-custom-policy={id:$dcpId}"
+  --name MyPublicIP \
+  --ddos-custom-policy "id=$dcpId"
 ```
 
-## Verify the association
-
-Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-show) to confirm the policy is associated with the frontend IP.
+Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to verify the association and display the Load Balancer frontend configuration that uses the public IP address.
 
 ```azurecli-interactive
-az network lb frontend-ip show \
+az network public-ip show \
   --resource-group MyResourceGroup \
-  --lb-name MyLoadBalancer \
-  --name MyFrontendIP \
-  --query '{fip:name, dcp:ddosSettings.ddosCustomPolicy.id}'
+  --name MyPublicIP \
+  --query '{publicIp:name, policy:ddosSettings.ddosCustomPolicy.id, attachment:ipConfiguration.id}'
 ```
 
-## Remove the association
+## Associate the policy with an instance-level public IP
 
-To return the frontend IP to adaptive auto-tuning, detach the policy by setting `ddos-custom-policy` to `null`.
+You can also associate the custom policy with a Standard public IP address that's attached to a network interface. The following example assumes that `MyInstancePublicIP` is a Standard public IP address associated with a network interface.
 
 ```azurecli-interactive
-az network lb frontend-ip update \
+az network public-ip update \
   --resource-group MyResourceGroup \
-  --lb-name MyLoadBalancer \
-  --name MyFrontendIP \
-  --ddos-settings 'ddos-custom-policy=null'
+  --name MyInstancePublicIP \
+  --ddos-custom-policy "id=$dcpId"
+
+az network public-ip show \
+  --resource-group MyResourceGroup \
+  --name MyInstancePublicIP \
+  --query '{publicIp:name, policy:ddosSettings.ddosCustomPolicy.id, networkInterface:ipConfiguration.id}'
+```
+
+To confirm that the custom policy references both public IP addresses, use [az network ddos-custom-policy show](/cli/azure/network/ddos-custom-policy#az-network-ddos-custom-policy-show).
+
+```azurecli-interactive
+az network ddos-custom-policy show \
+  --resource-group MyResourceGroup \
+  --name MyCustomPolicy \
+  --query 'publicIPAddresses[].id'
+```
+
+## Remove the associations
+
+To return the public IP addresses to adaptive auto-tuning, detach the policy by setting `--ddos-custom-policy` to `null`.
+
+```azurecli-interactive
+az network public-ip update \
+  --resource-group MyResourceGroup \
+  --name MyPublicIP \
+  --ddos-custom-policy null
+
+az network public-ip update \
+  --resource-group MyResourceGroup \
+  --name MyInstancePublicIP \
+  --ddos-custom-policy null
 ```
 
 ## Clean up resources
 
-When you no longer need the resources, delete the resource group to remove the custom policy and any other resources it contains.
+First remove the policy associations, including any associations with resources outside the example resource group. When you no longer need the example resources, delete their resource group to remove the custom policy and any other resources it contains.
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup

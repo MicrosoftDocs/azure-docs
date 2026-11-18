@@ -112,6 +112,8 @@ items:
             href: http-triggers.md
           - name: Send notifications
             href: send-notifications.md
+          - name: Chat in Teams (preview)
+            href: teams-integration.md
       - name: Extend
         items:
           - name: Agent playground
@@ -172,6 +174,10 @@ items:
             href: file-attachments-tutorial.md
           - name: Set up Teams connector
             href: set-up-teams-connector.md
+          - name: Set up Teams integration (preview)
+            href: set-up-teams-integration.md
+          - name: Set up Microsoft Entra Agent ID (preview)
+            href: set-up-entra-agent-id.md
       - name: Diagnose
         items:
           - name: Run a deep investigation

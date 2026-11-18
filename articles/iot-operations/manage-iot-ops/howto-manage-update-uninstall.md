@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 02/10/2026
+ms.date: 11/12/2026
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
@@ -19,7 +19,7 @@ Use the Azure CLI and Azure portal to manage, uninstall, or update Azure IoT Ope
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed to a cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+* An Azure IoT Operations instance deployed to a cluster. To initialize and deploy a new instance without the portal wizard, follow [Deploy Azure IoT Operations using Azure CLI](../deploy-iot-ops/howto-deploy-iot-operations-cli.md), including the secure settings steps for production workloads.
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
@@ -159,7 +159,7 @@ To migrate all root assets associated with an instance, run the following comman
 az iot ops migrate-assets -n $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP 
 ```
 
-To migrate specifics root assets associated with an instance, run the following command:
+To migrate specific root assets associated with an instance, run the following command:
 
 ```azurecli
 az iot ops migrate-assets -n $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --pattern $ASSET_ID_1 $ASSET_ID_2 $ASSET_ID_3
@@ -227,7 +227,7 @@ az iot ops update --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --d
 To delete all tags on an instance, set the tags parameter to a null value. For example:
 
 ```azurecli
-az iot ops update --name $AIO_INSTANCE_NAME --resource-group --tags ""
+az iot ops update --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --tags ""
 ```
 
 To enable the connector configuration, run: 
@@ -272,7 +272,7 @@ To delete an Azure IoT Operations instance using the Azure portal:
 
 ### [Azure CLI](#tab/cli)
 
-Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the entire Azure IoT Operations deployment from a cluster. The `delete` command evaluates the Azure IoT Operations related resources on the cluster and presents a tree view of the resources to be deleted. The cluster should be online when you run this command.
+Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the entire Azure IoT Operations deployment from a cluster. The `delete` command evaluates the Azure IoT Operations related resources on the cluster and presents a tree view of the resources to delete. Keep the cluster online for normal uninstall. If cluster connectivity blocks deletion, see [Recover a blocked uninstall](#recover-a-blocked-uninstall).
 
 The `delete` command streamlines the redeployment of Azure IoT Operations to the same cluster. It undoes the `create` command so that you can run `create`, `delete`, `create` again and so on without having to rerun `init`.
 
@@ -292,5 +292,26 @@ To delete the instance and also remove the Azure IoT Operations dependencies (th
 ```azurecli
 az iot ops delete --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --include-deps
 ```
+
+#### Recover a blocked uninstall
+
+If the cluster is disconnected from Azure, restore connectivity and retry the normal uninstall when possible. To proceed with deletion while the cluster is disconnected, add `--force`:
+
+```azurecli
+az iot ops delete --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --include-deps --force
+```
+
+This example removes the instance and initialization dependencies. Omit `--include-deps` to retain the foundation prepared by `init`.
+
+> [!WARNING]
+> `--force` bypasses the cluster connectivity check. Deletion can still fail, and resources can remain on the disconnected cluster. Review the deletion tree before confirming and verify cluster-side cleanup when connectivity is restored before redeploying. The flag keeps the confirmation prompt; `--yes` is a separate option for skipping that prompt.
+
+If the instance was already deleted but deployment resources remain, use the Arc-enabled cluster name instead of the instance name to discover and clean up those resources:
+
+```azurecli
+az iot ops delete --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --include-deps
+```
+
+Add `--force` to this command only if you need to proceed while the cluster is disconnected. Uninstall before deleting the resource group, and verify that cleanup completed.
 
 ---

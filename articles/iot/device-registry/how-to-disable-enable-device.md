@@ -45,7 +45,7 @@ Disabling a device might interrupt active operations, data collection, or depend
 
 1. For **Device status**, select **Disable**.
 
-    :::image type="content" source="../media/how-to-disable-enable-device/disable-device.png" alt-text="Screenshot showing Disable selected and the Save button.":::
+    :::image type="content" source="../media/how-to-disable-enable-device/disable-device.png" alt-text="Screenshot showing the device status warning and Disable selected.":::
 
 1. Select **Save**.
 

@@ -130,6 +130,8 @@ items:
       href: iot-dps-ip-filtering.md
     - name: Managing public network access
       href: public-network-access.md
+    - name: Update root certificate in national clouds
+      href: ../iot-hub/update-root-certificate-national-clouds.md
   - name: Monitor Device Provisioning Service
     href: monitor-iot-dps.md
   - name: Provision IoT Edge devices

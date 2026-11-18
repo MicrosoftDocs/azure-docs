@@ -1,12 +1,12 @@
 ---
 title: Known Issues 
-description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
+description: Known issues for Model Context Protocol (MCP), the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 10/06/2026
+ms.date: 11/11/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -39,6 +39,36 @@ There's currently no workaround for this issue.
 ## General connector issues
 
 This section lists current known issues that affect all connectors.
+
+### Uppercase inbound endpoint names prevent device health synchronization
+
+---
+
+Issue ID: 0202
+
+---
+
+Applies to: Azure IoT Operations 2610 public preview, reported on v1.6.0-preview.57 with the connector for ONVIF.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: In the Azure portal Activity Log, `Microsoft.DeviceRegistry/namespaces/devices/write` fails with `InvalidRequestContent`:
+
+```output
+The request body contains a duplicate JSON key '<endpoint name in lowercase>'. Each property name may appear at most once.
+```
+
+---
+
+You can create a device with an inbound endpoint name that contains uppercase letters, but subsequent device status writes fail. Configuration status uses a lowercase endpoint name while runtime status preserves the original casing. Azure rejects the resulting duplicate keys.  
+
+The operations experience can report that the device was created and synchronized while its health remains Unknown. The endpoint's actual health and connectivity errors aren't visible in Azure.
+
+Workaround: Use lowercase letters, digits, and hyphens in inbound endpoint names. For an existing affected device, save its configuration, identify dependent assets and workloads, and plan for interruption before deleting and recreating the device with a lowercase endpoint name. Verify that status writes succeed and health is reported after recreation.
 
 ### Connector doesn't detect updates to device credentials in Azure Key Vault
 
@@ -103,6 +133,85 @@ Azure IoT Operations instance deployment should install an **OPC ConnectorTempla
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
+
+### ContinuousMove reports success without moving a camera
+
+---
+
+Issue ID: 0205
+
+---
+
+Applies to: The pre-production operations experience used with Azure IoT Operations public preview. Impact in the production operations experience hasn't been confirmed.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: The `PTZ` > `ContinuousMove` action returns `Succeeded` with an empty result:
+
+```json
+{"Result": {}}
+```
+
+---
+
+The execution form requires **Zoom** > **X** even though `Velocity.Zoom` is optional in the action's request schema. On an affected pan-tilt camera without optical zoom, submitting the form reports success but the camera doesn't move.
+
+Workaround: Invoke the asset's `PTZ` > `ContinuousMove` action through Azure Resource Manager `executeAction` with a payload that includes `PanTilt` but omits `Zoom`. For example, use the following request body, replacing `<media-profile-token>` with a token returned by the camera's `Media` > `GetProfiles` action:
+
+```json
+{
+  "managementGroupName": "PTZ",
+  "managementActionName": "ContinuousMove",
+  "payload": {
+    "ContinuousMove": {
+      "ProfileToken": "<media-profile-token>",
+      "Velocity": {
+        "PanTilt": {
+          "x": 0.3,
+          "y": 0
+        }
+      },
+      "Timeout": "PT1S"
+    }
+  }
+}
+```
+
+Send `payload` as a JSON object, not as a JSON-encoded string. Use movement values supported by your camera and verify the outcome with `PTZ` > `GetStatus`; an empty successful result alone doesn't confirm movement.
+
+### Media discovery exceeds the discovered-device endpoint limit
+
+---
+
+Issue ID: 5382
+
+---
+
+Applies to: Azure IoT Operations 2610 public preview, reported on v1.6.0-preview.57 with connector for ONVIF v1.6.5.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: In the Azure portal Activity Log, `Microsoft.DeviceRegistry/namespaces/discoveredDevices/write` fails with `InvalidRequestContent`, with `MaxProperties` targeting `properties.endpoints.inbound`:
+
+```output
+The object must not contain more than 10 properties.
+```
+
+---
+
+The connector for ONVIF generates media endpoints for multiple transports per media profile. Azure Device Registry rejects discovered devices that exceed 10 inbound endpoints. A camera with three media profiles can exceed this limit.
+
+The camera's ONVIF endpoint can report Available and its ONVIF discovered asset can appear, but the discovered device containing its media endpoints doesn't appear in Azure. You can't import those endpoints to configure the media connector through discovery.
+
+Workaround: Create a device manually with a `Microsoft.Media` inbound endpoint using the camera's RTSP stream URL from the manufacturer's documentation, such as `rtsp://<camera-ip>:554/<stream-path>`. Configure credentials through the supported secret references, then create the media asset and the snapshot or clip streams that you need. See [Configure the connector for media](../discover-manage-assets/howto-use-media-connector.md).
 
 ### Secret sync conflict
 
@@ -285,6 +394,74 @@ You create a chained graph scenario by using the output of one data flow graph a
 
 To solve this error, push the graph definition to the ACR as many times as needed with the scenario with a different name or tag each time. For example, in the scenario described, the graph definition need to be pushed twice with either a different name or a different tag, such as `graph-passthrough-one:1.3.6` and `graph-passthrough-two:1.3.6`.
 
+## Edge registry issues
+
+This section lists current known issues for the edge registry.
+
+### User-assigned identity configuration uses the wrong registry service account
+
+---
+
+Issue ID: 3467
+
+---
+
+Applies to: Azure IoT Operations 2610 public preview. Reported on v1.6.0-preview.57; the CLI mismatch also exists in CLI extension v2.11.2, whose preview deployment profile uses v1.6.0-preview.60.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: N/A
+
+---
+
+When you run `az iot ops identity assign --usage schema` on an affected preview instance, the CLI creates a federated credential with the subject `system:serviceaccount:azure-iot-operations:adr-schema-registry`. The preview edge registry runs as service account `aio-edge-registry`, so the credential doesn't match the workload.
+
+The command can report success even though the edge registry's service account has no matching federated credential. The registry can continue using its existing system-assigned identity, masking the configuration mismatch.
+
+Workaround:
+
+1. On the user-assigned managed identity intended for the edge registry, add a federated credential with these values:
+   - **Issuer:** The connected cluster's OIDC issuer URL.
+   - **Subject:** `system:serviceaccount:azure-iot-operations:aio-edge-registry` for the default namespace. If you use another namespace, substitute the actual namespace.
+   - **Audience:** `api://AzureADTokenExchange`.
+1. Verify that the credential matches the service account used by the edge registry pod. If you need to restart the preview registry, its StatefulSet is `aio-edge-registry`, not `adr-schema-registry`.
+
+Adding this credential corrects the trust mismatch, but adoption of an identity change by the running registry is separately under investigation. Adding the credential doesn't confirm that the registry has switched identities. Selection among multiple user-assigned identities is also under investigation.
+
+## Management action issues
+
+This section lists current known issues for management actions.
+
+### Event Grid subscription isn't ready immediately after management actions are enabled
+
+---
+
+Issue ID: 0208
+
+---
+
+Applies to: CLI extension v2.11.0 on Azure IoT Operations 2610 public preview, reported on v1.6.0-preview.57.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: The data flow pod logs subscription failures, and the Event Grid namespace metric `Mqtt.FailedSubscriptionOperations` reports `Error=AuthorizationError`.
+
+---
+
+The `az iot ops mgmt-actions enable` command creates the request data flow graph before assigning the Event Grid TopicSpaces Publisher and Subscriber roles. The graph can attempt to subscribe before it is authorized. It retries with backoff, and authorization failures can continue briefly after the CLI reports success.
+
+Management actions might not reach the edge until the request graph's subscription succeeds.
+
+Workaround: Wait about a minute after `az iot ops mgmt-actions enable` returns before sending the first action. Check the request graph's logs to confirm that its subscription succeeds. If authorization failures continue, verify the required role assignments and allow extra time for role propagation. Don't automatically replay non-idempotent actions whose execution outcome is unknown.
+
 ## Federated identity issues
 
 This section lists current known issues for federated identity.
@@ -324,3 +501,31 @@ az identity federated-credential update --name <fic-name> --identity-name <manag
 ```
 
 As a best practice, perform this validation during setup after you run the `az iot ops secretsync enable` command to help avoid potentially difficult-to-diagnose authentication failures later.
+
+## Model Context Protocol (MCP) issues
+
+This section lists current known issues for MCP.
+
+### Deployment with customer-managed certificates fails when MCP is enabled
+
+---
+
+Issue ID: 3314
+
+---
+
+Applies to: Azure IoT Operations 2610 public preview.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: N/A
+
+---
+
+When you [bring your own certificate issuer](../deploy-iot-ops/howto-bring-your-own-issuer.md), Azure IoT Operations deployment fails if MCP is enabled. MCP components reference the default certificate issuer and trust bundle instead of your configured resources.
+
+Workaround: To evaluate other Azure IoT Operations features with customer-managed certificates, explicitly set `features.mcp.mode` to `Disabled` in your deployment configuration **before deploying**. MCP is enabled by default. See [Disable MCP](../manage-model-context-protocol/howto-deploy-mcp.md#disable-mcp-optional) for the configuration setting.

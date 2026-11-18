@@ -1,6 +1,6 @@
 ---
-title: Simplified experience for Azure Migrate
-description: Describes the simplified experience an upgraded agent-based migration stack for physical and VMware environments
+title: Simplified experience for Azure Catalyst
+description: Learn about the simplified experience in Azure Catalyst, which uses an upgraded agent-based migration stack for physical and VMware environments.
 author: dhananjayanr98
 ms.author: dhananjayanr
 ms.manager: dhananjayanr

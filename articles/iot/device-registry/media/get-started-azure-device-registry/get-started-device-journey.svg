@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="210" viewBox="0 0 900 210" role="img" aria-labelledby="journey-title journey-description">
+  <!-- THESIS: Orient the reader with the supplied reference's simple numbered sequence.
+       OWN-WORLD: Segoe UI, white, Azure blue, rounded outlined cards, straight arrows.
+       STORY: This article creates and links instances; certificates, onboarding, and connection follow.
+       FIRST VIEWPORT: Four short cards, with setup highlighted and no branching line.
+       FORM: A narrow extension of the existing documentation illustration style. -->
+  <title id="journey-title">From setup to device connection</title>
+  <desc id="journey-description">Four stages matching the article's roadmap. This article creates or uses an existing ADR namespace and links new or existing IoT Hub and DPS instances. If using certificate management, prepare an intermediate CA and certificate policy next, using the root CA from this article. Then configure DPS provisioning, onboarding credentials, and the certificate policy selection if applicable. Finally, run a unified Azure IoT SDK client to provision and connect the device.</desc>
+  <defs>
+    <marker id="journey-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#505050"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", Arial, sans-serif; text-anchor: middle; }
+    .card { fill: #ffffff; stroke: #0078d4; stroke-width: 2; }
+    .current { fill: #eaf3ff; }
+    .number { fill: #0078d4; }
+    .number-text { fill: #ffffff; font-size: 14px; font-weight: 600; }
+    .heading { fill: #161616; font-size: 18px; font-weight: 600; }
+    .detail { fill: #505050; font-size: 15px; }
+    .annotation { fill: #505050; font-size: 13px; }
+    .current-label { fill: #005a9e; font-weight: 600; }
+    .arrow { stroke: #505050; stroke-width: 2; fill: none; marker-end: url(#journey-arrow); }
+  </style>
+
+  <rect width="900" height="210" fill="#ffffff"/>
+
+  <g id="setup">
+    <rect class="card current" x="20" y="46" width="190" height="112" rx="6"/>
+    <circle class="number" cx="115" cy="46" r="14"/>
+    <text class="number-text" x="115" y="51">1</text>
+    <text class="heading" x="115" y="78">
+      <tspan x="115" dy="0">Create and link</tspan>
+      <tspan x="115" dy="20">services</tspan>
+    </text>
+    <text class="detail" x="115" y="124">ADR, IoT Hub</text>
+    <text class="detail" x="115" y="144">and DPS</text>
+    <text class="annotation current-label" x="115" y="185">This article</text>
+  </g>
+
+  <g id="certificates">
+    <rect class="card" x="240" y="46" width="190" height="112" rx="6"/>
+    <circle class="number" cx="335" cy="46" r="14"/>
+    <text class="number-text" x="335" y="51">2</text>
+    <text class="heading" x="335" y="78">
+      <tspan x="335" dy="0">Configure</tspan>
+      <tspan x="335" dy="20">certificates</tspan>
+    </text>
+    <text class="detail" x="335" y="124">Intermediate CA</text>
+    <text class="detail" x="335" y="144">and policy</text>
+    <text class="annotation" x="335" y="185">Optional</text>
+  </g>
+
+  <g id="provisioning">
+    <rect class="card" x="460" y="46" width="190" height="112" rx="6"/>
+    <circle class="number" cx="555" cy="46" r="14"/>
+    <text class="number-text" x="555" y="51">3</text>
+    <text class="heading" x="555" y="78">
+      <tspan x="555" dy="0">Configure</tspan>
+      <tspan x="555" dy="20">provisioning</tspan>
+    </text>
+    <text class="detail" x="555" y="124">DPS enrollment</text>
+    <text class="detail" x="555" y="144">setup</text>
+  </g>
+
+  <g id="connection">
+    <rect class="card" x="680" y="46" width="190" height="112" rx="6"/>
+    <circle class="number" cx="775" cy="46" r="14"/>
+    <text class="number-text" x="775" y="51">4</text>
+    <text class="heading" x="775" y="88">Connect devices</text>
+    <text class="detail" x="775" y="124">Provision the device</text>
+    <text class="detail" x="775" y="144">with the unified SDK</text>
+  </g>
+
+  <path class="arrow" d="M212,102 L238,102"/>
+  <path class="arrow" d="M432,102 L458,102"/>
+  <path class="arrow" d="M652,102 L678,102"/>
+</svg>

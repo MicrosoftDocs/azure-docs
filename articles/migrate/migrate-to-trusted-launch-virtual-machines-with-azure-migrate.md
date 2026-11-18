@@ -1,6 +1,6 @@
 ---
-title: Migrate to Trusted Launch or Confidential virtual machines using Azure Migrate
-description: Use Azure Migrate to migrate to trusted launch or confidential virtual machines
+title: Migrate to Trusted Launch or Confidential virtual machines using Azure Catalyst
+description: Use Azure Catalyst to migrate to trusted launch or confidential virtual machines
 author: dhananjayanr
 ms.author: dhananjayanr
 ms.topic: how-to
@@ -72,7 +72,6 @@ Azure Migrate supports optional confidential encryption for OS disks during migr
 - [Migrate VMWare servers](tutorial-migrate-vmware.md)
 - [Migrate Hyper V servers](tutorial-migrate-hyper-v.md)
 - [Migrate Physical or other cloud servers](tutorial-migrate-physical-virtual-machines.md)
-
 
 
 

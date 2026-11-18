@@ -254,6 +254,11 @@
             "source_path_from_root": "/articles/azure-vmware/self-service-maintenance-orchestration.md",
             "redirect_url": "/azure/azure-vmware/maintenance-orchestration",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/arc-enable-guest-management.md",
+            "redirect_url": "/azure/azure-vmware/arc-onboard-vms",
+            "redirect_document_id": false
         }
 
     ]

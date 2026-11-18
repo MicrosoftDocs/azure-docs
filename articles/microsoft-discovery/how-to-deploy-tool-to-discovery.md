@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a tool publisher, I want to deploy my tool resource to Microsoft Discovery so that agents and investigations can use it.
 ---
@@ -263,12 +263,7 @@ To publish a new version of a tool, repeat [Step 1](#step-1-convert-the-tool-def
 
 ## Troubleshooting
 
-| Symptom | Likely cause | Resolution |
-|---|---|---|
-| `InvalidDefinitionContent` error during create | The uploaded JSON doesn't match the tool definition schema. | Re-validate the YAML with the tool definition reference and reconvert. See [Create a tool definition](how-to-create-tool-definition.md). |
-| `ImagePullBackOff` when the tool runs | The image reference, registry permissions, or network access are incorrect. | Verify the repository and tag, the supercomputer's **kubelet UAMI** image-pull permissions, and the network and DNS path. See [Supercomputer registry access](how-to-configure-container-registry.md#supercomputer-access), including ABAC role differences. |
-| Environment variables aren't visible in the container | The file wasn't valid JSON or wasn't uploaded. | Confirm the file is a flat `{ "KEY": "value" }` JSON object and re-create the resource. |
-| `RoleAssignmentNotFound` when creating the resource | Missing RBAC on the resource group. | Assign **Contributor** or **Microsoft Discovery Platform Administrator (Preview)** at the resource group scope. |
+For definition, environment-variable, role-assignment, or image-pull errors, see [Tool deployment fails](troubleshoot-microsoft-discovery.md#tool-deployment-fails). That guidance routes you to the relevant schema, identity, registry, and network checks before you retry.
 
 ## Next steps
 
